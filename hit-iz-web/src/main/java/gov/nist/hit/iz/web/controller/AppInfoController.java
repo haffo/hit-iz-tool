@@ -12,8 +12,8 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.healthcare.core.validation.message.MessageValidationException;
-import gov.nist.healthcare.tools.core.models.AppInfo;
-import gov.nist.healthcare.tools.core.services.exception.MessageException;
+import gov.nist.hit.core.domain.AppInfo;
+import gov.nist.hit.core.service.exception.MessageException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,14 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/appInfo")
 public class AppInfoController {
-
-	// @ExceptionHandler(HttpSessionRequiredException.class)
-	// @ResponseStatus(value = HttpStatus.UNAUTHORIZED,
-	// reason="The session has expired"))
-	// public String handleSessionExpired(){
-	// return "sessionExpired";
-	// }
-	//
 
 	@RequestMapping(method = RequestMethod.GET)
 	public AppInfo validate(HttpServletRequest request)

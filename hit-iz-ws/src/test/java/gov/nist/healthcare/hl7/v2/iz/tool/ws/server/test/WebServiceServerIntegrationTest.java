@@ -3,7 +3,7 @@ package gov.nist.healthcare.hl7.v2.iz.tool.ws.server.test;
 import static org.junit.Assert.assertNotNull;
 import static org.springframework.ws.test.server.RequestCreators.withPayload;
 import static org.springframework.ws.test.server.ResponseMatchers.payload;
-import gov.nist.healthcare.tools.core.services.MessageRegistry;
+import gov.nist.hit.core.services.MessageRegistry;
 
 import javax.xml.transform.Source;
 

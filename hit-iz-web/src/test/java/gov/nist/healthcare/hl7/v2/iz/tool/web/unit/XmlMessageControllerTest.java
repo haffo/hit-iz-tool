@@ -14,8 +14,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
-import gov.nist.healthcare.tools.core.models.Command;
-import gov.nist.healthcare.tools.core.services.XmlMessageParserImpl;
+import gov.nist.hit.core.domain.Command;
+import gov.nist.hit.core.service.XmlMessageParserImpl;
 import gov.nist.hit.iz.web.controller.XmlMessageController;
 
 import java.io.IOException;

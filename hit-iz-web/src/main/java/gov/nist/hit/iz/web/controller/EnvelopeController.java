@@ -11,19 +11,19 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.healthcare.tools.core.models.Command;
-import gov.nist.healthcare.tools.core.models.SoapEnvelopeTestCase;
-import gov.nist.healthcare.tools.core.models.SoapEnvelopeTestContext;
-import gov.nist.healthcare.tools.core.models.SoapEnvelopeTestPlan;
-import gov.nist.healthcare.tools.core.models.ValidationResult;
-import gov.nist.healthcare.tools.core.repo.SoapEnvelopeTestCaseRepository;
-import gov.nist.healthcare.tools.core.repo.SoapEnvelopeTestPlanRepository;
-import gov.nist.healthcare.tools.core.services.SoapMessageParser;
-import gov.nist.healthcare.tools.core.services.SoapMessageValidator;
-import gov.nist.healthcare.tools.core.services.SoapValidationReportGenerator;
-import gov.nist.healthcare.tools.core.services.exception.SoapValidationException;
-import gov.nist.healthcare.tools.core.services.exception.ValidationException;
-import gov.nist.hit.iz.service.exception.TestCaseException;
+import gov.nist.hit.core.domain.Command;
+import gov.nist.hit.core.domain.SoapEnvelopeTestCase;
+import gov.nist.hit.core.domain.SoapEnvelopeTestContext;
+import gov.nist.hit.core.domain.SoapEnvelopeTestPlan;
+import gov.nist.hit.core.domain.ValidationResult;
+import gov.nist.hit.core.repo.SoapEnvelopeTestCaseRepository;
+import gov.nist.hit.core.repo.SoapEnvelopeTestPlanRepository;
+import gov.nist.hit.core.service.SoapMessageParser;
+import gov.nist.hit.core.service.SoapMessageValidator;
+import gov.nist.hit.core.service.SoapValidationReportGenerator;
+import gov.nist.hit.core.service.exception.SoapValidationException;
+import gov.nist.hit.core.service.exception.TestCaseException;
+import gov.nist.hit.core.service.exception.ValidationException;
 import gov.nist.hit.iz.web.utils.Utils;
 
 import java.util.List;

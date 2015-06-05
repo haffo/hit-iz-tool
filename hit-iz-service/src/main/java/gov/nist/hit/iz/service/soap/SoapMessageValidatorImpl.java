@@ -11,9 +11,10 @@
 package gov.nist.hit.iz.service.soap;
 
 import gov.nist.healthcare.core.validation.soap.SoapMessage;
-import gov.nist.healthcare.tools.core.models.ValidationResult;
-import gov.nist.healthcare.tools.core.services.SoapMessageValidator;
-import gov.nist.healthcare.tools.core.services.exception.SoapValidationException;
+import gov.nist.hit.core.domain.ValidationResult;
+import gov.nist.hit.core.hl7v2.domain.soap.SoapValidationResult;
+import gov.nist.hit.core.service.SoapMessageValidator;
+import gov.nist.hit.core.service.exception.SoapValidationException;
 
 import org.apache.log4j.Logger;
 
@@ -42,8 +43,7 @@ public class SoapMessageValidatorImpl implements SoapMessageValidator {
 							SoapMessageValidatorImpl.class
 									.getResourceAsStream(schematronPath),
 							options);
-			return new gov.nist.healthcare.tools.core.models.hl7.v2.soap.SoapValidationResult(
-					tmp, title);
+			return new SoapValidationResult(tmp, title);
 		} catch (RuntimeException e) {
 			logger.error(e.getMessage());
 			throw new SoapValidationException(e);

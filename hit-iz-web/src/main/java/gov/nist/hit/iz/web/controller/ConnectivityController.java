@@ -11,29 +11,29 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.healthcare.tools.core.models.Command;
-import gov.nist.healthcare.tools.core.models.SoapConnectivityCommand;
-import gov.nist.healthcare.tools.core.models.SoapConnectivityTestCase;
-import gov.nist.healthcare.tools.core.models.SoapConnectivityTestContext;
-import gov.nist.healthcare.tools.core.models.SoapConnectivityTestPlan;
-import gov.nist.healthcare.tools.core.models.SoapConnectivityTransaction;
-import gov.nist.healthcare.tools.core.models.User;
-import gov.nist.healthcare.tools.core.models.ValidationResult;
-import gov.nist.healthcare.tools.core.models.utils.XmlUtil;
-import gov.nist.healthcare.tools.core.repo.SoapConnectivityTestCaseRepository;
-import gov.nist.healthcare.tools.core.repo.SoapConnectivityTestContextRepository;
-import gov.nist.healthcare.tools.core.repo.SoapConnectivityTestPlanRepository;
-import gov.nist.healthcare.tools.core.repo.SoapConnectivityTransactionRepository;
-import gov.nist.healthcare.tools.core.services.SoapMessageParser;
-import gov.nist.healthcare.tools.core.services.SoapMessageValidator;
-import gov.nist.healthcare.tools.core.services.SoapValidationReportGenerator;
-import gov.nist.healthcare.tools.core.services.exception.SoapValidationException;
-import gov.nist.healthcare.tools.core.services.exception.UserTokenIdNotFoundException;
-import gov.nist.healthcare.tools.core.services.exception.ValidationException;
-import gov.nist.healthcare.tools.core.transport.TransportClient;
-import gov.nist.healthcare.tools.core.transport.TransportClientException;
+import gov.nist.hit.core.domain.Command;
+import gov.nist.hit.core.domain.SoapConnectivityCommand;
+import gov.nist.hit.core.domain.SoapConnectivityTestCase;
+import gov.nist.hit.core.domain.SoapConnectivityTestContext;
+import gov.nist.hit.core.domain.SoapConnectivityTestPlan;
+import gov.nist.hit.core.domain.SoapConnectivityTransaction;
+import gov.nist.hit.core.domain.User;
+import gov.nist.hit.core.domain.ValidationResult;
+import gov.nist.hit.core.domain.util.XmlUtil;
+import gov.nist.hit.core.repo.SoapConnectivityTestCaseRepository;
+import gov.nist.hit.core.repo.SoapConnectivityTestContextRepository;
+import gov.nist.hit.core.repo.SoapConnectivityTestPlanRepository;
+import gov.nist.hit.core.repo.SoapConnectivityTransactionRepository;
+import gov.nist.hit.core.service.SoapMessageParser;
+import gov.nist.hit.core.service.SoapMessageValidator;
+import gov.nist.hit.core.service.SoapValidationReportGenerator;
+import gov.nist.hit.core.service.exception.SoapValidationException;
+import gov.nist.hit.core.service.exception.TestCaseException;
+import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
+import gov.nist.hit.core.service.exception.ValidationException;
+import gov.nist.hit.core.transport.TransportClient;
+import gov.nist.hit.core.transport.TransportClientException;
 import gov.nist.hit.iz.domain.IZTestType;
-import gov.nist.hit.iz.service.exception.TestCaseException;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 import gov.nist.hit.iz.web.utils.Utils;
 
@@ -154,7 +154,6 @@ public class ConnectivityController extends TestingController {
 					// skip validation for this
 					return new ValidationResult();
 				} else {
-
 					return soapValidator.validate(Utils.getContent(command),
 							testCase.getName(),
 							context.getRequestValidationPhase());

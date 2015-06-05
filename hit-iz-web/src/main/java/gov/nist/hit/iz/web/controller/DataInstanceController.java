@@ -12,17 +12,17 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.healthcare.core.validation.message.MessageValidationException;
-import gov.nist.healthcare.tools.core.models.Json;
-import gov.nist.healthcare.tools.core.models.TestContext;
-import gov.nist.healthcare.tools.core.repo.DataInstanceTestStepRepository;
-import gov.nist.healthcare.tools.core.repo.TestContextRepository;
-import gov.nist.healthcare.tools.core.services.exception.MessageException;
-import gov.nist.healthcare.tools.core.services.exception.MessageParserException;
-import gov.nist.healthcare.tools.core.services.exception.ValidationException;
-import gov.nist.healthcare.tools.core.services.exception.ValidationReportException;
-import gov.nist.healthcare.tools.core.services.hl7.v2.message.Er7MessageValidator;
-import gov.nist.healthcare.tools.core.services.hl7.v2.message.Er7ValidationReportGenerator;
-import gov.nist.hit.iz.service.exception.TestCaseException;
+import gov.nist.hit.core.domain.Json;
+import gov.nist.hit.core.domain.TestContext;
+import gov.nist.hit.core.hl7v2.service.message.Er7MessageValidator;
+import gov.nist.hit.core.hl7v2.service.message.Er7ValidationReportGenerator;
+import gov.nist.hit.core.repo.DataInstanceTestStepRepository;
+import gov.nist.hit.core.repo.TestContextRepository;
+import gov.nist.hit.core.service.exception.MessageException;
+import gov.nist.hit.core.service.exception.MessageParserException;
+import gov.nist.hit.core.service.exception.TestCaseException;
+import gov.nist.hit.core.service.exception.ValidationException;
+import gov.nist.hit.core.service.exception.ValidationReportException;
 import gov.nist.hit.iz.web.model.Er7MessageCommand;
 
 import java.io.IOException;
@@ -86,7 +86,7 @@ public class DataInstanceController extends TestingController {
 	}
 
 	@RequestMapping(value = "/message/parse", method = RequestMethod.POST)
-	public List<gov.nist.healthcare.tools.core.models.MessageElement> parse(
+	public List<gov.nist.hit.core.domain.MessageElement> parse(
 			@RequestBody final Er7MessageCommand command)
 			throws MessageParserException {
 		try {

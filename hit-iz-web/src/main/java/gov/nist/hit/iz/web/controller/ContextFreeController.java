@@ -11,11 +11,11 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.healthcare.tools.core.models.DataInstanceTestStep;
-import gov.nist.healthcare.tools.core.models.Stage;
-import gov.nist.healthcare.tools.core.models.TestContext;
-import gov.nist.healthcare.tools.core.repo.DataInstanceTestStepRepository;
-import gov.nist.hit.iz.service.exception.TestCaseException;
+import gov.nist.hit.core.domain.DataInstanceTestStep;
+import gov.nist.hit.core.domain.Stage;
+import gov.nist.hit.core.domain.TestContext;
+import gov.nist.hit.core.repo.DataInstanceTestStepRepository;
+import gov.nist.hit.core.service.exception.TestCaseException;
 
 import java.util.List;
 

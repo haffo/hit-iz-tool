@@ -30,7 +30,7 @@ public class ContextFreeControllerTest {
 	// ContextFreeTestContextRepository testContextRepository;
 	//
 	// @Mock
-	// gov.nist.healthcare.tools.core.services.hl7.v2.message.Er7MessageParser
+	// gov.nist.hit.core.services.hl7.v2.message.Er7MessageParser
 	// er7MessageParser;
 	//
 	// @InjectMocks

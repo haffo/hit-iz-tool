@@ -11,10 +11,10 @@
 
 package gov.nist.hit.iz.web.utils;
 
-import gov.nist.healthcare.tools.core.models.Command;
-import gov.nist.healthcare.tools.core.models.Profile;
-import gov.nist.healthcare.tools.core.services.exception.MessageException;
-import gov.nist.healthcare.tools.core.services.exception.ProfileException;
+import gov.nist.hit.core.domain.Command;
+import gov.nist.hit.core.domain.Profile;
+import gov.nist.hit.core.service.exception.MessageException;
+import gov.nist.hit.core.service.exception.ProfileException;
 import gov.nist.hit.iz.service.exception.MessageContentNotFoundException;
 import gov.nist.hit.iz.web.model.MessageModelRequest;
 import gov.nist.hit.iz.web.model.MessageValidationRequest;
@@ -41,15 +41,6 @@ public class Utils {
 		}
 		return message;
 	}
-
-	// public static String getContent(TableLibrary tableLibrary)
-	// throws TableLibraryException {
-	// if (tableLibrary == null || "".equals(tableLibrary.getXml())) {
-	// throw new TableLibraryException(
-	// "Not table library found in the request");
-	// }
-	// return tableLibrary.getXml();
-	// }
 
 	public static String getMessageContent(MessageModelRequest command)
 			throws MessageException {

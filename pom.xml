@@ -1,139 +1,80 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>gov.nist.healthcare.hl7.v2.iz.tool</groupId>
-  <artifactId>iz-tool</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <name>hit-iz-tool</name>
-  <description>Immunization tool</description>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>hit-iz-comm</module>
-  	<module>hit-iz-web</module>
-    <module>hit-iz-engine</module>
-    <module>hit-iz-domain</module>
-    <module>hit-iz-repo</module>
-    <module>hit-iz-service</module>
-    <module>hit-iz-resource</module>
-    <module>hit-iz-ws</module>
-  </modules>
-  
-  <properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>gov.nist.hit.iz</groupId>
+	<artifactId>hit-iz-tool</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>hit-iz-tool</name>
+	<description>Immunization tool</description>
+	<packaging>pom</packaging>
+	<modules>
+		<module>hit-iz-resource</module>
+		<module>hit-iz-domain</module>
+		<module>hit-iz-repo</module>
+		<module>hit-iz-service</module>
+		<module>hit-iz-ws</module>
+		<module>hit-iz-web</module>
+	</modules>
+
+	<properties>
 		<spring.version>4.1.1.RELEASE</spring.version>
-  </properties>
-  
-  <dependencies>
-  		
-  	<!-- <dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>1.4.3.RELEASE</version>
-		</dependency> -->
+		<hithl7v2.version>1.0.0-SNAPSHOT</hithl7v2.version>
+	</properties>
 
-		<!-- <dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
-		</dependency>
+	<dependencies>
+
 		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>1.0.2</version>
-			<scope>provided</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>	
-  		
-  		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>1.4.3.RELEASE</version>
+			<groupId>gov.nist.hit.core.hl7v2</groupId>
+			<artifactId>hit-core-hl7v2-domain</artifactId>
+			<version>${hithl7v2.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
+			<groupId>gov.nist.hit.core.hl7v2</groupId>
+			<artifactId>hit-core-hl7v2-service</artifactId>
+			<version>${hithl7v2.version}</version>
 		</dependency>
 
 
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>1.0.2</version>
-			<scope>provided</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		
-		 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.2</version>
 		</dependency>
 
-				  <dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.12</version>
 		</dependency>
- 
-  <dependency>
-                     <groupId>org.slf4j</groupId>
-                     <artifactId>slf4j-log4j12</artifactId>
-                     <version>1.7.2</version>
-              </dependency>
- 
-              <dependency>
-                     <groupId>org.slf4j</groupId>
-                     <artifactId>slf4j-api</artifactId>
-                     <version>1.7.2</version>
-              </dependency>
- 
-              <dependency>
-                     <groupId>org.slf4j</groupId>
-                     <artifactId>log4j-over-slf4j</artifactId>
-                     <version>1.7.2</version>
-              </dependency>
-              
- 
-<!--               <dependency>
-	<groupId>com.jayway.jsonpath</groupId>
-	<artifactId>json-path-parent</artifactId>
-	<version>0.9.1</version>
-</dependency> -->
-		
-  		
- 
-  </dependencies>
-  
-  
-  
-  		<build>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+
+
+		<!-- <dependency> <groupId>com.jayway.jsonpath</groupId> <artifactId>json-path-parent</artifactId> 
+			<version>0.9.1</version> </dependency> -->
+
+
+
+	</dependencies>
+
+
+
+	<build>
 		<pluginManagement>
 			<plugins>
-				 
-				
+
+
 				<!-- plugin to handle compile version -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -159,9 +100,9 @@
 						<downloadJavadocs>true</downloadJavadocs>
 					</configuration>
 				</plugin>
-				
-	</plugins>
-	</pluginManagement>
+
+			</plugins>
+		</pluginManagement>
 	</build>
-	
+
 </project>

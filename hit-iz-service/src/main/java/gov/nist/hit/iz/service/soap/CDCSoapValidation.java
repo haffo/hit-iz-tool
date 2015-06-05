@@ -4,11 +4,11 @@ import gov.nist.healthcare.core.MalformedMessageException;
 import gov.nist.healthcare.core.message.v2.er7.Er7Message;
 import gov.nist.healthcare.core.validation.message.v3.MessageFailureV3;
 import gov.nist.healthcare.core.validation.soap.SoapMessage;
-import gov.nist.healthcare.tools.core.services.hl7.v2.soap.SoapValidator;
-import gov.nist.hit.iz.service.util.ConnectivityUtil;
 import gov.nist.healthcare.validation.AssertionResultConstants;
 import gov.nist.healthcare.validation.AssertionTypeV3Constants;
 import gov.nist.healthcare.validation.ErrorSeverityConstants;
+import gov.nist.hit.core.hl7v2.service.soap.SoapValidator;
+import gov.nist.hit.iz.service.util.ConnectivityUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -159,27 +159,6 @@ public class CDCSoapValidation {
 		return new gov.nist.healthcare.core.validation.soap.SoapValidationResult(
 				soapMessage, soapFailures);
 	}
-
-	// /**
-	// *
-	// * @param xsdPath
-	// * @param xmlPath
-	// * @return
-	// */
-	// private boolean validateXMLSchema(String xsdPath, String xmlPath) {
-	//
-	// try {
-	// SchemaFactory factory = SchemaFactory
-	// .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-	// Schema schema = factory.newSchema(new File(xsdPath));
-	// Validator validator = schema.newValidator();
-	// validator.validate(new StreamSource(new File(xmlPath)));
-	// } catch (IOException | SAXException e) {
-	// System.out.println("Exception: " + e.getMessage());
-	// return false;
-	// }
-	// return true;
-	// }
 
 	private String normalizeErrPath(String targetPath) {
 		String tp1 = null;

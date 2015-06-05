@@ -6,15 +6,10 @@
 	<description>Immunization tool resource package</description>
 	<packaging>jar</packaging>
 	<parent>
-		<groupId>gov.nist.healthcare.hl7.v2.iz.tool</groupId>
-		<artifactId>iz-tool</artifactId>
+		<groupId>gov.nist.hit.iz</groupId>
+		<artifactId>hit-iz-tool</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-
-	<properties>
-		<core.version>1.0.49-SNAPSHOT</core.version>
-	</properties>
-
 
 	<build>
 		<pluginManagement>

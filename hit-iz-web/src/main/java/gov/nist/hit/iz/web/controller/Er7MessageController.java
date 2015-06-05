@@ -13,7 +13,7 @@ package gov.nist.hit.iz.web.controller;
 
 import gov.nist.healthcare.core.MalformedMessageException;
 import gov.nist.healthcare.core.message.v2.er7.Er7Message;
-import gov.nist.healthcare.tools.core.services.exception.MessageException;
+import gov.nist.hit.core.service.exception.MessageException;
 
 import java.io.IOException;
 import java.io.InputStream;

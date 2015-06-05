@@ -11,8 +11,8 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.healthcare.tools.core.services.exception.MessageException;
-import gov.nist.healthcare.tools.core.services.hl7.v2.message.Er7MessageParser;
+import gov.nist.hit.core.hl7v2.service.message.Er7MessageParser;
+import gov.nist.hit.core.service.exception.MessageException;
 import gov.nist.hit.iz.web.model.Er7MessageCommand;
 import gov.nist.hit.iz.web.model.MessageCommand;
 
@@ -27,12 +27,9 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -56,14 +53,6 @@ public class MessageController extends TestingController {
 	@Override
 	public void setEr7MessageParser(Er7MessageParser er7MessageParser) {
 		this.er7MessageParser = er7MessageParser;
-	}
-
-	@Override
-	@ExceptionHandler(Exception.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public String exception(Exception ex) {
-		logger.debug(ex.getMessage());
-		return "Sorry, an error occured: " + ex.getMessage();
 	}
 
 	@RequestMapping(value = "/downloadContent", method = RequestMethod.POST)
@@ -93,17 +82,5 @@ public class MessageController extends TestingController {
 		}
 		return message;
 	}
-
-	// private String getProfileContent(Long profileId) throws ProfileException
-	// {
-	// if (profileId == null) {
-	// throw new TestCaseException("No profile id provided");
-	// }
-	// String content = profileRepository.getXml(profileId);
-	// if (content == null)
-	// throw new ProfileException(
-	// "No profile associated to this test case");
-	// return content;
-	// }
 
 }

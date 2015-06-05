@@ -6,11 +6,20 @@
 	<description>Immunization tool service package</description>
 	<packaging>jar</packaging>
 	<parent>
-		<groupId>gov.nist.healthcare.hl7.v2.iz.tool</groupId>
-		<artifactId>iz-tool</artifactId>
+		<groupId>gov.nist.hit.iz</groupId>
+		<artifactId>hit-iz-tool</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-
+	
+	<dependencies>
+		
+	    <dependency>
+			<groupId>gov.nist.hit.iz</groupId>
+			<artifactId>hit-iz-domain</artifactId>
+			<version>${parent.version}</version>
+		</dependency>
+			
+	</dependencies>
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -42,23 +51,6 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
-	<dependencies>
-		
-		<dependency>
-			<groupId>gov.nist.healthcare.hl7.v2.iz.tool</groupId>
-			<artifactId>hit-iz-domain</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>gov.nist.healthcare.tools.core</groupId>
-			<artifactId>nht-core-repo</artifactId>
-			<version>${parent.version}</version>
-		</dependency>
-
-
-	</dependencies>
 
 	<repositories>
 		<repository>

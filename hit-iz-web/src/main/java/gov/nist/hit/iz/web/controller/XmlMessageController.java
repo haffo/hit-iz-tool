@@ -11,24 +11,21 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.healthcare.tools.core.models.Command;
-import gov.nist.healthcare.tools.core.models.MessageElement;
-import gov.nist.healthcare.tools.core.models.utils.XmlUtil;
-import gov.nist.healthcare.tools.core.services.XmlMessageParser;
-import gov.nist.healthcare.tools.core.services.exception.XmlFormatterException;
-import gov.nist.healthcare.tools.core.services.exception.XmlParserException;
+import gov.nist.hit.core.domain.Command;
+import gov.nist.hit.core.domain.MessageElement;
+import gov.nist.hit.core.domain.util.XmlUtil;
+import gov.nist.hit.core.service.XmlMessageParser;
+import gov.nist.hit.core.service.exception.XmlFormatterException;
+import gov.nist.hit.core.service.exception.XmlParserException;
 
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -37,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping("/xml")
 @RestController
-public class XmlMessageController {
+public class XmlMessageController extends TestingController {
 
 	static final Logger logger = LoggerFactory
 			.getLogger(XmlMessageController.class);
@@ -51,20 +48,6 @@ public class XmlMessageController {
 
 	public void setParser(XmlMessageParser parser) {
 		this.parser = parser;
-	}
-
-	@ExceptionHandler(XmlParserException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public String xmlParserException(XmlParserException ex) {
-		logger.debug(ex.getMessage());
-		return ex.getMessage();
-	}
-
-	@ExceptionHandler(XmlFormatterException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public String xmlFormatterException(XmlFormatterException ex) {
-		logger.debug(ex.getMessage());
-		return "Malformed Xml Content.";
 	}
 
 	@RequestMapping(value = "/parse", method = RequestMethod.POST, consumes = "application/json")

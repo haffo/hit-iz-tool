@@ -1,19 +1,29 @@
+/**
+ * This software was developed at the National Institute of Standards and Technology by employees
+ * of the Federal Government in the course of their official duties. Pursuant to title 17 Section 105 of the
+ * United States Code this software is not subject to copyright protection and is in the public domain.
+ * This is an experimental system. NIST assumes no responsibility whatsoever for its use by other parties,
+ * and makes no guarantees, expressed or implied, about its quality, reliability, or any other characteristic.
+ * We would appreciate acknowledgement if the software is used. This software can be redistributed and/or
+ * modified freely provided that any derivative works bear some notice that they are derived from it, and any
+ * modified versions bear some notice that they have been modified.
+ */
 package gov.nist.hit.iz.service;
 
-import gov.nist.healthcare.tools.core.models.Constraints;
-import gov.nist.healthcare.tools.core.models.DataInstanceTestCase;
-import gov.nist.healthcare.tools.core.models.DataInstanceTestCaseGroup;
-import gov.nist.healthcare.tools.core.models.DataInstanceTestPlan;
-import gov.nist.healthcare.tools.core.models.DataInstanceTestStep;
-import gov.nist.healthcare.tools.core.models.Message;
-import gov.nist.healthcare.tools.core.models.Profile;
-import gov.nist.healthcare.tools.core.models.Stage;
-import gov.nist.healthcare.tools.core.models.TableLibraries;
-import gov.nist.healthcare.tools.core.models.TableLibrary;
-import gov.nist.healthcare.tools.core.models.TestContext;
-import gov.nist.healthcare.tools.core.models.TestStory;
-import gov.nist.healthcare.tools.core.models.ValueSetLibrary;
-import gov.nist.healthcare.tools.core.services.exception.ProfileParserException;
+import gov.nist.hit.core.domain.Constraints;
+import gov.nist.hit.core.domain.DataInstanceTestCase;
+import gov.nist.hit.core.domain.DataInstanceTestCaseGroup;
+import gov.nist.hit.core.domain.DataInstanceTestPlan;
+import gov.nist.hit.core.domain.DataInstanceTestStep;
+import gov.nist.hit.core.domain.Message;
+import gov.nist.hit.core.domain.Profile;
+import gov.nist.hit.core.domain.Stage;
+import gov.nist.hit.core.domain.TableLibraries;
+import gov.nist.hit.core.domain.TableLibrary;
+import gov.nist.hit.core.domain.TestContext;
+import gov.nist.hit.core.domain.TestStory;
+import gov.nist.hit.core.domain.ValueSetLibrary;
+import gov.nist.hit.core.service.exception.ProfileParserException;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +39,11 @@ import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
+/**
+ * 
+ * @author Harold Affo
+ * 
+ */
 public class CBTestPlanParser extends TestPlanParser {
 
 	public List<DataInstanceTestPlan> create(String root)

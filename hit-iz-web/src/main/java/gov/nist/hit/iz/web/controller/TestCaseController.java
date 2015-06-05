@@ -11,10 +11,10 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.healthcare.tools.core.models.SoapTestCase;
-import gov.nist.healthcare.tools.core.models.SoapTestPlan;
-import gov.nist.healthcare.tools.core.services.exception.MessageException;
-import gov.nist.hit.iz.service.exception.TestCaseException;
+import gov.nist.hit.core.domain.SoapTestCase;
+import gov.nist.hit.core.domain.SoapTestPlan;
+import gov.nist.hit.core.service.exception.MessageException;
+import gov.nist.hit.core.service.exception.TestCaseException;
 
 import java.io.IOException;
 import java.io.InputStream;

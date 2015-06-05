@@ -11,20 +11,20 @@
 
 package gov.nist.hit.iz.web.config;
 
-import gov.nist.healthcare.tools.core.services.MessageParser;
-import gov.nist.healthcare.tools.core.services.SoapMessageParser;
-import gov.nist.healthcare.tools.core.services.SoapMessageValidator;
-import gov.nist.healthcare.tools.core.services.SoapValidationReportGenerator;
-import gov.nist.healthcare.tools.core.services.XmlMessageParser;
-import gov.nist.healthcare.tools.core.services.XmlMessageParserImpl;
-import gov.nist.healthcare.tools.core.services.hl7.v2.message.Er7MessageParser;
-import gov.nist.healthcare.tools.core.services.hl7.v2.message.Er7MessageParserImpl;
-import gov.nist.healthcare.tools.core.services.hl7.v2.message.Er7MessageValidator;
-import gov.nist.healthcare.tools.core.services.hl7.v2.message.Er7MessageValidatorImpl;
-import gov.nist.healthcare.tools.core.services.hl7.v2.message.Er7ValidationReportGenerator;
-import gov.nist.healthcare.tools.core.services.hl7.v2.message.Er7ValidationReportGeneratorImpl;
-import gov.nist.healthcare.tools.core.services.hl7.v2.soap.SoapMessageParserImpl;
-import gov.nist.healthcare.tools.core.services.hl7.v2.soap.SoapValidationReportGeneratorImpl;
+import gov.nist.hit.core.hl7v2.service.message.Er7MessageParser;
+import gov.nist.hit.core.hl7v2.service.message.Er7MessageParserImpl;
+import gov.nist.hit.core.hl7v2.service.message.Er7MessageValidator;
+import gov.nist.hit.core.hl7v2.service.message.Er7MessageValidatorImpl;
+import gov.nist.hit.core.hl7v2.service.message.Er7ValidationReportGenerator;
+import gov.nist.hit.core.hl7v2.service.message.Er7ValidationReportGeneratorImpl;
+import gov.nist.hit.core.hl7v2.service.soap.SoapMessageParserImpl;
+import gov.nist.hit.core.hl7v2.service.soap.SoapValidationReportGeneratorImpl;
+import gov.nist.hit.core.service.MessageParser;
+import gov.nist.hit.core.service.SoapMessageParser;
+import gov.nist.hit.core.service.SoapMessageValidator;
+import gov.nist.hit.core.service.SoapValidationReportGenerator;
+import gov.nist.hit.core.service.XmlMessageParser;
+import gov.nist.hit.core.service.XmlMessageParserImpl;
 import gov.nist.hit.iz.service.IISReceiver;
 import gov.nist.hit.iz.service.Receiver;
 import gov.nist.hit.iz.service.soap.SoapMessageValidatorImpl;

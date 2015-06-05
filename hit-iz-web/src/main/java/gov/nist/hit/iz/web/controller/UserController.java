@@ -11,12 +11,12 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.healthcare.tools.core.models.SoapConnectivityTransaction;
-import gov.nist.healthcare.tools.core.models.TransactionStatus;
-import gov.nist.healthcare.tools.core.models.User;
-import gov.nist.healthcare.tools.core.repo.SoapConnectivityTransactionRepository;
-import gov.nist.healthcare.tools.core.services.exception.DuplicateTokenIdException;
-import gov.nist.healthcare.tools.core.services.exception.UserTokenIdNotFoundException;
+import gov.nist.hit.core.domain.SoapConnectivityTransaction;
+import gov.nist.hit.core.domain.TransactionStatus;
+import gov.nist.hit.core.domain.User;
+import gov.nist.hit.core.repo.SoapConnectivityTransactionRepository;
+import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
+import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.iz.domain.SecurityFaultCredentials;
 import gov.nist.hit.iz.repo.SecurityFaultCredentialsRepository;
 import gov.nist.hit.iz.web.model.UserCommand;

@@ -10,7 +10,7 @@
  */
 package gov.nist.hit.iz.domain;
 
-import gov.nist.healthcare.tools.core.models.User;
+import gov.nist.hit.core.domain.User;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

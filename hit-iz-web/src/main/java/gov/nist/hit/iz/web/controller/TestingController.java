@@ -12,16 +12,21 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.healthcare.core.validation.message.MessageValidationException;
-import gov.nist.healthcare.tools.core.repo.SoapEnvelopeTestCaseRepository;
-import gov.nist.healthcare.tools.core.repo.SoapEnvelopeTestPlanRepository;
-import gov.nist.healthcare.tools.core.repo.UserRepository;
-import gov.nist.healthcare.tools.core.services.exception.MessageParserException;
-import gov.nist.healthcare.tools.core.services.exception.SoapValidationException;
-import gov.nist.healthcare.tools.core.services.exception.TestCaseException;
-import gov.nist.healthcare.tools.core.services.exception.ValidationException;
-import gov.nist.healthcare.tools.core.services.exception.ValidationReportException;
-import gov.nist.healthcare.tools.core.services.hl7.v2.message.Er7MessageParser;
-import gov.nist.healthcare.tools.core.transport.TransportClientException;
+import gov.nist.hit.core.hl7v2.service.message.Er7MessageParser;
+import gov.nist.hit.core.repo.SoapEnvelopeTestCaseRepository;
+import gov.nist.hit.core.repo.SoapEnvelopeTestPlanRepository;
+import gov.nist.hit.core.repo.UserRepository;
+import gov.nist.hit.core.service.exception.MessageParserException;
+import gov.nist.hit.core.service.exception.ProfileParserException;
+import gov.nist.hit.core.service.exception.SoapValidationException;
+import gov.nist.hit.core.service.exception.SoapValidationReportException;
+import gov.nist.hit.core.service.exception.TestCaseException;
+import gov.nist.hit.core.service.exception.ValidationException;
+import gov.nist.hit.core.service.exception.ValidationReportException;
+import gov.nist.hit.core.service.exception.XmlFormatterException;
+import gov.nist.hit.core.service.exception.XmlParserException;
+import gov.nist.hit.core.transport.TransportClientException;
+import gov.nist.hit.iz.web.exception.EnvelopeException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +34,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
@@ -101,7 +107,7 @@ public abstract class TestingController {
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public String exception(TestCaseException ex) {
 		logger.debug(ex.getMessage());
-		return "Sorry, an error occurred:" + ex.getMessage();
+		return "Sorry, an error occurred";
 	}
 
 	@ExceptionHandler(ValidationException.class)
@@ -109,7 +115,7 @@ public abstract class TestingController {
 	public String validationException(ValidationException ex) {
 		logger.debug(ex.getMessage());
 		ex.printStackTrace();
-		return "Sorry, Message Validation Failed \n";
+		return "Sorry, validation failed \n";
 	}
 
 	@ExceptionHandler(MessageValidationException.class)
@@ -123,28 +129,64 @@ public abstract class TestingController {
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public String MessageParserException(ValidationException ex) {
 		logger.debug(ex.getMessage());
-		return "Sorry, Message Parsing Failed: \n";
+		return "Sorry, message parsing failed: \n";
 	}
 
 	@ExceptionHandler(ValidationReportException.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public String reportException(ValidationReportException ex) {
 		logger.debug(ex.getMessage());
-		return "Sorry, Exporting the report Failed.\n";
+		return "Sorry, exporting the report Failed.\n";
 	}
 
 	@ExceptionHandler(SoapValidationException.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public String reportException(SoapValidationException ex) {
 		logger.debug(ex.getMessage());
-		return "Sorry, Validation Failed.\n";
+		return "Sorry, validation Failed.\n";
 	}
 
 	@ExceptionHandler(TransportClientException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public String reportException(TransportClientException ex) {
 		logger.debug(ex.getMessage());
-		return "Sorry, connection failed: " + ex.getMessage();
+		return "Sorry, connection failed.";
+	}
+
+	@ExceptionHandler(ProfileParserException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public String profileParserExeption(ProfileParserException ex) {
+		logger.debug(ex.getMessage());
+		return "Sorry, profile cannot be parsed.\n";
+	}
+
+	@ExceptionHandler(SoapValidationReportException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseBody
+	public String reportException(SoapValidationReportException ex) {
+		logger.debug(ex.getMessage());
+		return "Sorry, validation failed.\n";
+	}
+
+	@ExceptionHandler(EnvelopeException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public String soapException(EnvelopeException ex) {
+		logger.debug(ex.getMessage());
+		return "Sorry, an issue occured";
+	}
+
+	@ExceptionHandler(XmlParserException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public String xmlParserException(XmlParserException ex) {
+		logger.debug(ex.getMessage());
+		return "Malformed xml content.";
+	}
+
+	@ExceptionHandler(XmlFormatterException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public String xmlFormatterException(XmlFormatterException ex) {
+		logger.debug(ex.getMessage());
+		return "Malformed xml content.";
 	}
 
 	/**

@@ -11,11 +11,11 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.healthcare.tools.core.models.Command;
-import gov.nist.healthcare.tools.core.services.SoapMessageParser;
-import gov.nist.healthcare.tools.core.services.SoapValidationReportGenerator;
-import gov.nist.healthcare.tools.core.services.exception.MessageException;
-import gov.nist.healthcare.tools.core.services.exception.SoapValidationReportException;
+import gov.nist.hit.core.domain.Command;
+import gov.nist.hit.core.service.SoapMessageParser;
+import gov.nist.hit.core.service.SoapValidationReportGenerator;
+import gov.nist.hit.core.service.exception.MessageException;
+import gov.nist.hit.core.service.exception.SoapValidationReportException;
 import gov.nist.hit.iz.web.exception.EnvelopeException;
 
 import java.io.IOException;
@@ -32,16 +32,12 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -51,7 +47,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @RequestMapping("/soap")
 @RestController
-public class SoapController {
+public class SoapController extends TestingController {
 
 	static final Logger logger = LoggerFactory.getLogger(SoapController.class);
 
@@ -67,21 +63,6 @@ public class SoapController {
 
 	public void setReportService(SoapValidationReportGenerator reportService) {
 		this.reportService = reportService;
-	}
-
-	@ExceptionHandler(SoapValidationReportException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	@ResponseBody
-	public String reportException(SoapValidationReportException ex) {
-		logger.debug(ex.getMessage());
-		return ex.getMessage();
-	}
-
-	@ExceptionHandler(EnvelopeException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public String soapException(EnvelopeException ex) {
-		logger.debug(ex.getMessage());
-		return ex.getMessage();
 	}
 
 	private String createHtml(String xmlReport) {

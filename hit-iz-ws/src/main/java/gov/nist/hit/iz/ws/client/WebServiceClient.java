@@ -1,7 +1,7 @@
 package gov.nist.hit.iz.ws.client;
 
-import gov.nist.healthcare.tools.core.transport.TransportClient;
-import gov.nist.healthcare.tools.core.transport.TransportClientException;
+import gov.nist.hit.core.transport.TransportClient;
+import gov.nist.hit.core.transport.TransportClientException;
 
 import java.io.StringReader;
 import java.io.StringWriter;
