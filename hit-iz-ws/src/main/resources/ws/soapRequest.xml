@@ -1,0 +1,17 @@
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+	<env:Header>
+		<wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing">http://localhost:8080/iztool/ws/</wsa:To>
+		<wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">http://tempuri.org/Action
+		</wsa:Action>
+	</env:Header>
+	<env:Body>
+		<env:Envelope xmlns="http://www.w3.org/2003/05/soap-envelope">
+			<env:Header />
+			<env:Body>
+				<connectivityTest>
+					<echoBack>Hello world!</echoBack>
+				</connectivityTest>
+			</env:Body>
+		</env:Envelope>
+	</env:Body>
+</env:Envelope>

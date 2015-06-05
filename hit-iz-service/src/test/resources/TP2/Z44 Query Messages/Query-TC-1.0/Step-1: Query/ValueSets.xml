@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
+<TableLibrary xsi:noNamespaceSchemaLocation="../ValueSets.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Description="Automatically generated vacab for QBP_Q11" Name="Vocab for QBP_Q11" OrganizationName="HL7 NIST" Status="Active" TableLibraryIdentifier="" TableLibraryVersion="1.0">
+	<NoValidation>
+		<id>HL70362_IZ</id>
+		<id>HL70361_IZ</id>
+		<id>HL70091_IZ</id>
+		<id>0300</id>
+		<id>0471</id>
+		<id>0399</id>
+		<id>0363</id>
+		<id>0448</id>
+		<id>0289</id>
+		<id>0288</id>
+	</NoValidation>
+	<TableSet>
+		<TableDefinition AlternateId="HL70003_IZ" Codesys="" Id="HL70003_IZ" Name="Event type" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="V04" Codesys="HL70003" DisplayName="V04" Source="Local"/>
+			<TableElement Code="K11" Codesys="HL70003" DisplayName="K11" Source="Local"/>
+			<TableElement Code="Q11" Codesys="HL70003" DisplayName="Q11" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70301_IZ" Codesys="" Id="HL70301_IZ" Name="Universal ID type" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="OID" Codesys="HL70301" DisplayName="OID" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70363_IZ" Codesys="" Id="HL70363_IZ" Name="Assigning Authority" Oid="" Type="HL7" Version="1.5" Extensibility="Open">
+			<TableElement Code="AKA" Codesys="HL70363" DisplayName="ALASKA" Source="Local"/>
+			<TableElement Code="ALA" Codesys="HL70363" DisplayName="ALABAMA" Source="Local"/>
+			<TableElement Code="ARA" Codesys="HL70363" DisplayName="ARKANSAS" Source="Local"/>
+			<TableElement Code="ASA" Codesys="HL70363" DisplayName="AMERICAN SAMOA" Source="Local"/>
+			<TableElement Code="AZA" Codesys="HL70363" DisplayName="ARIZONA" Source="Local"/>
+			<TableElement Code="BAA" Codesys="HL70363" DisplayName="NEW YORK CITY" Source="Local"/>
+			<TableElement Code="CAA" Codesys="HL70363" DisplayName="CALIFORNIA" Source="Local"/>
+			<TableElement Code="CHA" Codesys="HL70363" DisplayName="CHICAGO" Source="Local"/>
+			<TableElement Code="COA" Codesys="HL70363" DisplayName="COLORADO" Source="Local"/>
+			<TableElement Code="CTA" Codesys="HL70363" DisplayName="CONNECTICUT" Source="Local"/>
+			<TableElement Code="DCA" Codesys="HL70363" DisplayName="DISTRICT OF COLUMBIA" Source="Local"/>
+			<TableElement Code="DEA" Codesys="HL70363" DisplayName="DELAWARE" Source="Local"/>
+			<TableElement Code="FLA" Codesys="HL70363" DisplayName="FLORIDA" Source="Local"/>
+			<TableElement Code="FMA" Codesys="HL70363" DisplayName="FED STATES MICRO" Source="Local"/>
+			<TableElement Code="GAA" Codesys="HL70363" DisplayName="GEORGIA" Source="Local"/>
+			<TableElement Code="GUA" Codesys="HL70363" DisplayName="GUAM" Source="Local"/>
+			<TableElement Code="HIA" Codesys="HL70363" DisplayName="HAWAII" Source="Local"/>
+			<TableElement Code="IAA" Codesys="HL70363" DisplayName="IOWA" Source="Local"/>
+			<TableElement Code="IDA" Codesys="HL70363" DisplayName="IDAHO" Source="Local"/>
+			<TableElement Code="ILA" Codesys="HL70363" DisplayName="ILLINOIS" Source="Local"/>
+			<TableElement Code="INA" Codesys="HL70363" DisplayName="INDIANA" Source="Local"/>
+			<TableElement Code="KSA" Codesys="HL70363" DisplayName="KANSAS" Source="Local"/>
+			<TableElement Code="KYA" Codesys="HL70363" DisplayName="KENTUCKY" Source="Local"/>
+			<TableElement Code="LAA" Codesys="HL70363" DisplayName="LOUISIANA" Source="Local"/>
+			<TableElement Code="MAA" Codesys="HL70363" DisplayName="MASSACHUSETTS" Source="Local"/>
+			<TableElement Code="MDA" Codesys="HL70363" DisplayName="MARYLAND" Source="Local"/>
+			<TableElement Code="MEA" Codesys="HL70363" DisplayName="MAINE" Source="Local"/>
+			<TableElement Code="MHA" Codesys="HL70363" DisplayName="REP MARS ISLANDS" Source="Local"/>
+			<TableElement Code="MIA" Codesys="HL70363" DisplayName="MICHIGAN" Source="Local"/>
+			<TableElement Code="MNA" Codesys="HL70363" DisplayName="MINNESOTA" Source="Local"/>
+			<TableElement Code="MOA" Codesys="HL70363" DisplayName="MISSOURI" Source="Local"/>
+			<TableElement Code="MPA" Codesys="HL70363" DisplayName="NO. MARIANA ISLAND" Source="Local"/>
+			<TableElement Code="MSA" Codesys="HL70363" DisplayName="MISSISSIPPI" Source="Local"/>
+			<TableElement Code="MTA" Codesys="HL70363" DisplayName="MONTANA" Source="Local"/>
+			<TableElement Code="NCA" Codesys="HL70363" DisplayName="NORTH CAROLINA" Source="Local"/>
+			<TableElement Code="NDA" Codesys="HL70363" DisplayName="NORTH DAKOTA" Source="Local"/>
+			<TableElement Code="NEA" Codesys="HL70363" DisplayName="NEBRASKA" Source="Local"/>
+			<TableElement Code="NHA" Codesys="HL70363" DisplayName="NEW HAMPSHIRE" Source="Local"/>
+			<TableElement Code="NJA" Codesys="HL70363" DisplayName="NEW JERSEY" Source="Local"/>
+			<TableElement Code="NMA" Codesys="HL70363" DisplayName="NEW MEXICO" Source="Local"/>
+			<TableElement Code="NVA" Codesys="HL70363" DisplayName="NEVADA" Source="Local"/>
+			<TableElement Code="NYA" Codesys="HL70363" DisplayName="NEW YORK STATE" Source="Local"/>
+			<TableElement Code="OHA" Codesys="HL70363" DisplayName="OHIO" Source="Local"/>
+			<TableElement Code="OKA" Codesys="HL70363" DisplayName="OKLAHOMA" Source="Local"/>
+			<TableElement Code="ORA" Codesys="HL70363" DisplayName="OREGON" Source="Local"/>
+			<TableElement Code="PAA" Codesys="HL70363" DisplayName="PENNSYLVANIA" Source="Local"/>
+			<TableElement Code="PHA" Codesys="HL70363" DisplayName="PHILADELPHIA" Source="Local"/>
+			<TableElement Code="PRA" Codesys="HL70363" DisplayName="PUERTO RICO" Source="Local"/>
+			<TableElement Code="RIA" Codesys="HL70363" DisplayName="RHODE ISLAND" Source="Local"/>
+			<TableElement Code="RPA" Codesys="HL70363" DisplayName="REPUBLIC PALAU" Source="Local"/>
+			<TableElement Code="SCA" Codesys="HL70363" DisplayName="SOUTH CAROLINA" Source="Local"/>
+			<TableElement Code="SDA" Codesys="HL70363" DisplayName="SOUTH DAKOTA" Source="Local"/>
+			<TableElement Code="TBA" Codesys="HL70363" DisplayName="SAN ANTONIO" Source="Local"/>
+			<TableElement Code="THA" Codesys="HL70363" DisplayName="HOUSTON" Source="Local"/>
+			<TableElement Code="TNA" Codesys="HL70363" DisplayName="TENNESSEE" Source="Local"/>
+			<TableElement Code="TXA" Codesys="HL70363" DisplayName="TEXAS" Source="Local"/>
+			<TableElement Code="UTA" Codesys="HL70363" DisplayName="UTAH" Source="Local"/>
+			<TableElement Code="VAA" Codesys="HL70363" DisplayName="VIRGINIA" Source="Local"/>
+			<TableElement Code="VIA" Codesys="HL70363" DisplayName="VIRGIN ISLANDS" Source="Local"/>
+			<TableElement Code="VTA" Codesys="HL70363" DisplayName="VERMONT" Source="Local"/>
+			<TableElement Code="WAA" Codesys="HL70363" DisplayName="WASHINGTON" Source="Local"/>
+			<TableElement Code="WIA" Codesys="HL70363" DisplayName="WISCONSIN" Source="Local"/>
+			<TableElement Code="WVA" Codesys="HL70363" DisplayName="WEST VIRGINIA" Source="Local"/>
+			<TableElement Code="WYA" Codesys="HL70363" DisplayName="WYOMING" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70155_IZ" Codesys="" Id="HL70155_IZ" Name="Accept/Application acknowledgment conditions" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="AL" Codesys="HL70155" DisplayName="Always" Source="Local"/>
+			<TableElement Code="NE" Codesys="HL70155" DisplayName="Never" Source="Local"/>
+			<TableElement Code="ER" Codesys="HL70155" DisplayName="Error/Reject conditions only" Source="Local"/>
+			<TableElement Code="SU" Codesys="HL70155" DisplayName="Successful completion only" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70354_IZ" Codesys="" Id="HL70354_IZ" Name="Message structure" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="ACK" Codesys="HL70354" DisplayName="ACK" Source="Local"/>
+			<TableElement Code="QBP_Q11" Codesys="HL70354" DisplayName="QBP" Source="Local"/>
+			<TableElement Code="RSP_K11" Codesys="HL70354" DisplayName="RSP" Source="Local"/>
+			<TableElement Code="VXU_V04" Codesys="HL70354" DisplayName="VXU" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70201_IZ" Codesys="" Id="HL70201_IZ" Name="Telecommunication use code " Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="PRN" Codesys="HL70201" DisplayName="Primary residence number" Source="Local"/>
+			<TableElement Code="ORN" Codesys="HL70201" DisplayName="Other residence number" Source="Local"/>
+			<TableElement Code="WPN" Codesys="HL70201" DisplayName="Work number" Source="Local"/>
+			<TableElement Code="VHN" Codesys="HL70201" DisplayName="Vacation home number" Source="Local"/>
+			<TableElement Code="ASN" Codesys="HL70201" DisplayName="Answering service number" Source="Local"/>
+			<TableElement Code="EMR" Codesys="HL70201" DisplayName="Emergency number" Source="Local"/>
+			<TableElement Code="NET" Codesys="HL70201" DisplayName="Network (email) address" Source="Local"/>
+			<TableElement Code="BPN" Codesys="HL70201" DisplayName="Beeper number" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70076_IZ" Codesys="" Id="HL70076_IZ" Name="Message type" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="ACK" Codesys="HL70076" DisplayName="General acknowledgment" Source="Local"/>
+			<TableElement Code="ADT" Codesys="HL70076" DisplayName="ADT message" Source="Local"/>
+			<TableElement Code="QBP" Codesys="HL70076" DisplayName="Query by Parameter" Source="Local"/>
+			<TableElement Code="RSP" Codesys="HL70076" DisplayName="Response to Query by parameter" Source="Local"/>
+			<TableElement Code="VXU" Codesys="HL70076" DisplayName="Unsolicited vaccination record update" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70202_IZ" Codesys="" Id="HL70202_IZ" Name="Telecommunication equipment type" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="PH" Codesys="HL70202" DisplayName="Telephone" Source="Local"/>
+			<TableElement Code="FX" Codesys="HL70202" DisplayName="Fax" Source="Local"/>
+			<TableElement Code="MD" Codesys="HL70202" DisplayName="Modem" Source="Local"/>
+			<TableElement Code="CP" Codesys="HL70202" DisplayName="Cellular phone" Source="Local"/>
+			<TableElement Code="BP" Codesys="HL70202" DisplayName="Beeper" Source="Local"/>
+			<TableElement Code="Internet" Codesys="HL70202" DisplayName="Internet address: Use only if telecommunication use code is NET" Source="Local"/>
+			<TableElement Code="X.400" Codesys="HL70202" DisplayName="X.400 email address: Use only if telecommunication use code is NET" Source="Local"/>
+			<TableElement Code="TDD" Codesys="HL70202" DisplayName="Telecommunications Device for the Deaf" Source="Local"/>
+			<TableElement Code="TTY" Codesys="HL70202" DisplayName="Teletypewriter" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70061_IZ" Codesys="" Id="HL70061_IZ" Name="Check digit scheme" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="M10" Codesys="HL70061" DisplayName="Mod 10 algorithm" Source="Local"/>
+			<TableElement Code="M11" Codesys="HL70061" DisplayName="Mod 11 algorithm" Source="Local"/>
+			<TableElement Code="ISO" Codesys="HL70061" DisplayName="ISO 7064: 1983" Source="Local"/>
+			<TableElement Code="NPI" Codesys="HL70061" DisplayName="Check digit algorithm in the US National Provider Identifier" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70362_IZ" Codesys="" Id="HL70362_IZ" Name="Facility" Oid="" Type="HL7" Version="1.5"/>
+		<TableDefinition AlternateId="HL70103_IZ" Codesys="" Id="HL70103_IZ" Name="Processing ID" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="D" Codesys="HL70103" DisplayName="Debugging" Source="Local"/>
+			<TableElement Code="P" Codesys="HL70103" DisplayName="Production" Source="Local"/>
+			<TableElement Code="T" Codesys="HL70103" DisplayName="Training" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70190_IZ" Codesys="" Id="HL70190_IZ" Name="Address type" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="C" Codesys="HL70190" DisplayName="Current or temporary" Source="Local"/>
+			<TableElement Code="P" Codesys="HL70190" DisplayName="Permanent" Source="Local"/>
+			<TableElement Code="M" Codesys="HL70190" DisplayName="Mailing" Source="Local"/>
+			<TableElement Code="B" Codesys="HL70190" DisplayName="Firm/Business" Source="Local"/>
+			<TableElement Code="O" Codesys="HL70190" DisplayName="Office" Source="Local"/>
+			<TableElement Code="H" Codesys="HL70190" DisplayName="Home" Source="Local"/>
+			<TableElement Code="N" Codesys="HL70190" DisplayName="Birth (nee)" Source="Local"/>
+			<TableElement Code="F" Codesys="HL70190" DisplayName="Country of origin" Source="Local"/>
+			<TableElement Code="L" Codesys="HL70190" DisplayName="Legal address" Source="Local"/>
+			<TableElement Code="BDL" Codesys="HL70190" DisplayName="Birth delivery location [use for birth facility]" Source="Local"/>
+			<TableElement Code="BR" Codesys="HL70190" DisplayName="Residence at birth [use for residence at birth]" Source="Local"/>
+			<TableElement Code="RH" Codesys="HL70190" DisplayName="Registry home" Source="Local"/>
+			<TableElement Code="BA" Codesys="HL70190" DisplayName="Bad address" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70396" Codesys="" Id="HL70396" Name="Coding system" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="99zzz or L" Codesys="HL70396" DisplayName="Local general code (where z is an alphanumeric character)" Source="Local"/>
+			<TableElement Code="ART" Codesys="HL70396" DisplayName="WHO Adverse Reaction Terms" Source="Local"/>
+			<TableElement Code="C4" Codesys="HL70396" DisplayName="CPT-4" Source="Local"/>
+			<TableElement Code="C5" Codesys="HL70396" DisplayName="CPT-5" Source="Local"/>
+			<TableElement Code="CDCA" Codesys="HL70396" DisplayName="CDC Analyte Codes" Source="Local"/>
+			<TableElement Code="CDCM" Codesys="HL70396" DisplayName="CDC Methods/Instruments Codes" Source="Local"/>
+			<TableElement Code="CDCPHINVS" Codesys="HL70396" DisplayName="PHIN VS (CDC Local Coding System)" Source="Local"/>
+			<TableElement Code="CDS" Codesys="HL70396" DisplayName="CDC Surveillance" Source="Local"/>
+			<TableElement Code="CPTM" Codesys="HL70396" DisplayName="CPT Modifier Code" Source="Local"/>
+			<TableElement Code="CST" Codesys="HL70396" DisplayName="COSTART" Source="Local"/>
+			<TableElement Code="CVX" Codesys="HL70396" DisplayName="CDC Vaccine Codes" Source="Local"/>
+			<TableElement Code="E" Codesys="HL70396" DisplayName="EUCLIDES" Source="Local"/>
+			<TableElement Code="E5" Codesys="HL70396" DisplayName="Euclides  quantity codes" Source="Local"/>
+			<TableElement Code="E6" Codesys="HL70396" DisplayName="Euclides Lab method codes" Source="Local"/>
+			<TableElement Code="E7" Codesys="HL70396" DisplayName="Euclides Lab equipment codes" Source="Local"/>
+			<TableElement Code="ENZC" Codesys="HL70396" DisplayName="Enzyme Codes" Source="Local"/>
+			<TableElement Code="HB" Codesys="HL70396" DisplayName="HIBCC" Source="Local"/>
+			<TableElement Code="HCPCS" Codesys="HL70396" DisplayName="HCFA Common Procedure Coding System" Source="Local"/>
+			<TableElement Code="HHC" Codesys="HL70396" DisplayName="Home Health Care" Source="Local"/>
+			<TableElement Code="HL7nnnn" Codesys="HL70396" DisplayName="HL7 Defined Codes where nnnn is the HL7 table number" Source="Local"/>
+			<TableElement Code="HPC" Codesys="HL70396" DisplayName="HCFA Procedure Codes (HCPCS)" Source="Local"/>
+			<TableElement Code="I10" Codesys="HL70396" DisplayName="ICD-10" Source="Local"/>
+			<TableElement Code="I10P" Codesys="HL70396" DisplayName="ICD-10  Procedure Codes" Source="Local"/>
+			<TableElement Code="I9" Codesys="HL70396" DisplayName="ICD9" Source="Local"/>
+			<TableElement Code="I9C" Codesys="HL70396" DisplayName="ICD-9CM" Source="Local"/>
+			<TableElement Code="ISOnnnn" Codesys="HL70396" DisplayName="ISO Defined Codes where nnnn is the ISO table number" Source="Local"/>
+			<TableElement Code="LB" Codesys="HL70396" DisplayName="Local billing code" Source="Local"/>
+			<TableElement Code="LN" Codesys="HL70396" DisplayName="Logical Observation Identifier Names and Codes (LOINC)" Source="Local"/>
+			<TableElement Code="MCD" Codesys="HL70396" DisplayName="Medicaid" Source="Local"/>
+			<TableElement Code="MCR" Codesys="HL70396" DisplayName="Medicare" Source="Local"/>
+			<TableElement Code="MEDR" Codesys="HL70396" DisplayName="Medical Dictionary for Drug Regulatory Affairs (MEDDRA)" Source="Local"/>
+			<TableElement Code="MVX" Codesys="HL70396" DisplayName="CDC Vaccine Manufacturer Codes" Source="Local"/>
+			<TableElement Code="NDC" Codesys="HL70396" DisplayName="National drug codes" Source="Local"/>
+			<TableElement Code="NCIT" Codesys="HL70396" DisplayName="NCI Thesaurus" Source="Local"/>
+			<TableElement Code="NPI" Codesys="HL70396" DisplayName="National Provider Identifier" Source="Local"/>
+			<TableElement Code="SNM" Codesys="HL70396" DisplayName="Systemized Nomenclature of Medicine (SNOMED)" Source="Local"/>
+			<TableElement Code="SCT" Codesys="HL70396" DisplayName="SNOMED Clinical Terminology" Source="Local"/>
+			<TableElement Code="SCT2" Codesys="HL70396" DisplayName="SNOMED Clinical Terms alphanumeric codes" Source="Local"/>
+			<TableElement Code="SNM3" Codesys="HL70396" DisplayName="SNOMED International" Source="Local"/>
+			<TableElement Code="SNT" Codesys="HL70396" DisplayName="SNOMED topology codes (anatomic sites)" Source="Local"/>
+			<TableElement Code="UML" Codesys="HL70396" DisplayName="Unified Medical Language" Source="Local"/>
+			<TableElement Code="UPC" Codesys="HL70396" DisplayName="Universal Product Code" Source="Local"/>
+			<TableElement Code="UPIN" Codesys="HL70396" DisplayName="UPIN" Source="Local"/>
+			<TableElement Code="W1" Codesys="HL70396" DisplayName="WHO record # drug codes (6 digit)" Source="Local"/>
+			<TableElement Code="W2" Codesys="HL70396" DisplayName="WHO record # drug codes (8 digit)" Source="Local"/>
+			<TableElement Code="W4" Codesys="HL70396" DisplayName="WHO record # code with ASTM extension" Source="Local"/>
+			<TableElement Code="WC" Codesys="HL70396" DisplayName="WHO ATC" Source="Local"/>
+			<TableElement Code="NIP001" Codesys="HL70396" DisplayName="NIP001" Source="Local"/>
+			<TableElement Code="NIP002" Codesys="HL70396" DisplayName="NIP002" Source="Local"/>
+			<TableElement Code="NIP003" Codesys="HL70396" DisplayName="NIP003" Source="Local"/>
+			<TableElement Code="CDCREC" Codesys="HL70396" DisplayName="CDCREC" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70203_IZ" Codesys="" Id="HL70203_IZ" Name="Identifier type" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="AN" Codesys="HL70203" DisplayName="Account number " Source="Local"/>
+			<TableElement Code="ANON" Codesys="HL70203" DisplayName="Anonymous identifier" Source="Local"/>
+			<TableElement Code="ANC" Codesys="HL70203" DisplayName="Account number Creditor" Source="Local"/>
+			<TableElement Code="AND" Codesys="HL70203" DisplayName="Account number debitor" Source="Local"/>
+			<TableElement Code="ANT" Codesys="HL70203" DisplayName="Temporary Account Number" Source="Local"/>
+			<TableElement Code="APRN" Codesys="HL70203" DisplayName="Advanced Practice Registered Nurse number" Source="Local"/>
+			<TableElement Code="BA" Codesys="HL70203" DisplayName="Bank Account Number" Source="Local"/>
+			<TableElement Code="BC" Codesys="HL70203" DisplayName="Bank Card Number" Source="Local"/>
+			<TableElement Code="BR" Codesys="HL70203" DisplayName="Birth registry number" Source="Local"/>
+			<TableElement Code="CC" Codesys="HL70203" DisplayName="Cost Center number" Source="Local"/>
+			<TableElement Code="CY" Codesys="HL70203" DisplayName="County number" Source="Local"/>
+			<TableElement Code="DDS" Codesys="HL70203" DisplayName="Dentist license number" Source="Local"/>
+			<TableElement Code="DEA" Codesys="HL70203" DisplayName="Drug Enforcement Administration registration number" Source="Local"/>
+			<TableElement Code="DFN" Codesys="HL70203" DisplayName="Drug Furnishing or prescriptive authority Number" Source="Local"/>
+			<TableElement Code="DL" Codesys="HL70203" DisplayName="Driver license number" Source="Local"/>
+			<TableElement Code="DN" Codesys="HL70203" DisplayName="Doctor number" Source="Local"/>
+			<TableElement Code="DPM" Codesys="HL70203" DisplayName="Podiatrist license number" Source="Local"/>
+			<TableElement Code="DO" Codesys="HL70203" DisplayName="Osteopathic License number" Source="Local"/>
+			<TableElement Code="DR" Codesys="HL70203" DisplayName="Donor Registration Number" Source="Local"/>
+			<TableElement Code="EI" Codesys="HL70203" DisplayName="Employee number" Source="Local"/>
+			<TableElement Code="EN" Codesys="HL70203" DisplayName="Employer number" Source="Local"/>
+			<TableElement Code="FI" Codesys="HL70203" DisplayName="Facility ID" Source="Local"/>
+			<TableElement Code="GI" Codesys="HL70203" DisplayName="Guarantor internal identifier" Source="Local"/>
+			<TableElement Code="GL" Codesys="HL70203" DisplayName="General ledger number" Source="Local"/>
+			<TableElement Code="GN" Codesys="HL70203" DisplayName="Guarantor external  identifier" Source="Local"/>
+			<TableElement Code="HC" Codesys="HL70203" DisplayName="Health Card Number" Source="Local"/>
+			<TableElement Code="JHN" Codesys="HL70203" DisplayName="Jurisdictional health number (Canada)" Source="Local"/>
+			<TableElement Code="IND" Codesys="HL70203" DisplayName="Indigenous/Aboriginal " Source="Local"/>
+			<TableElement Code="LI" Codesys="HL70203" DisplayName="Labor and industries number" Source="Local"/>
+			<TableElement Code="LN" Codesys="HL70203" DisplayName="License number" Source="Local"/>
+			<TableElement Code="LR" Codesys="HL70203" DisplayName="Local Registry ID" Source="Local"/>
+			<TableElement Code="MA" Codesys="HL70203" DisplayName="Patient Medicaid number" Source="Local"/>
+			<TableElement Code="MB" Codesys="HL70203" DisplayName="Member Number" Source="Local"/>
+			<TableElement Code="MC" Codesys="HL70203" DisplayName="Patient's Medicare number" Source="Local"/>
+			<TableElement Code="MCD" Codesys="HL70203" DisplayName="Practitioner Medicaid number" Source="Local"/>
+			<TableElement Code="MCN" Codesys="HL70203" DisplayName="Microchip Number" Source="Local"/>
+			<TableElement Code="MCR" Codesys="HL70203" DisplayName="Practitioner Medicare number" Source="Local"/>
+			<TableElement Code="MD" Codesys="HL70203" DisplayName="Medical License number" Source="Local"/>
+			<TableElement Code="MI" Codesys="HL70203" DisplayName="Military ID number" Source="Local"/>
+			<TableElement Code="MR" Codesys="HL70203" DisplayName="Medical record number" Source="Local"/>
+			<TableElement Code="MRT" Codesys="HL70203" DisplayName="Temporary Medical Record Number" Source="Local"/>
+			<TableElement Code="NE" Codesys="HL70203" DisplayName="National employer identifier" Source="Local"/>
+			<TableElement Code="NH" Codesys="HL70203" DisplayName="National Health Plan Identifier" Source="Local"/>
+			<TableElement Code="NI" Codesys="HL70203" DisplayName="National unique individual identifier" Source="Local"/>
+			<TableElement Code="NII" Codesys="HL70203" DisplayName="National Insurance Organization Identifier" Source="Local"/>
+			<TableElement Code="NIIP" Codesys="HL70203" DisplayName="National Insurance Payor Identifier (Payor)" Source="Local"/>
+			<TableElement Code="NNxxx" Codesys="HL70203" DisplayName="National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code" Source="Local"/>
+			<TableElement Code="NP" Codesys="HL70203" DisplayName="Nurse practitioner number" Source="Local"/>
+			<TableElement Code="NPI" Codesys="HL70203" DisplayName="National provider identifier" Source="Local"/>
+			<TableElement Code="OD" Codesys="HL70203" DisplayName="Optometrist license number" Source="Local"/>
+			<TableElement Code="PA" Codesys="HL70203" DisplayName="Physician Assistant number" Source="Local"/>
+			<TableElement Code="PCN" Codesys="HL70203" DisplayName="Penitentiary/correctional institution Number" Source="Local"/>
+			<TableElement Code="PE" Codesys="HL70203" DisplayName="Living Subject Enterprise Number" Source="Local"/>
+			<TableElement Code="PEN" Codesys="HL70203" DisplayName="Pension Number" Source="Local"/>
+			<TableElement Code="PI" Codesys="HL70203" DisplayName="Patient internal identifier" Source="Local"/>
+			<TableElement Code="PN" Codesys="HL70203" DisplayName="Person number" Source="Local"/>
+			<TableElement Code="PNT" Codesys="HL70203" DisplayName="Temporary Living Subject Number" Source="Local"/>
+			<TableElement Code="PPN" Codesys="HL70203" DisplayName="Passport number" Source="Local"/>
+			<TableElement Code="PRC" Codesys="HL70203" DisplayName="Permanent Resident Card Number" Source="Local"/>
+			<TableElement Code="PRN" Codesys="HL70203" DisplayName="Provider number" Source="Local"/>
+			<TableElement Code="PT" Codesys="HL70203" DisplayName="Patient external identifier" Source="Local"/>
+			<TableElement Code="QA" Codesys="HL70203" DisplayName="QA number" Source="Local"/>
+			<TableElement Code="RI" Codesys="HL70203" DisplayName="Resource identifier" Source="Local"/>
+			<TableElement Code="RPH" Codesys="HL70203" DisplayName="Pharmacist license number" Source="Local"/>
+			<TableElement Code="RN" Codesys="HL70203" DisplayName="Registered Nurse Number" Source="Local"/>
+			<TableElement Code="RR" Codesys="HL70203" DisplayName="Railroad Retirement number" Source="Local"/>
+			<TableElement Code="RRI" Codesys="HL70203" DisplayName="Regional registry ID" Source="Local"/>
+			<TableElement Code="SL" Codesys="HL70203" DisplayName="State license" Source="Local"/>
+			<TableElement Code="SN" Codesys="HL70203" DisplayName="Subscriber Number" Source="Local"/>
+			<TableElement Code="SR" Codesys="HL70203" DisplayName="State registry ID" Source="Local"/>
+			<TableElement Code="SS" Codesys="HL70203" DisplayName="Social Security number " Source="Local"/>
+			<TableElement Code="TAX" Codesys="HL70203" DisplayName="Tax ID number" Source="Local"/>
+			<TableElement Code="U" Codesys="HL70203" DisplayName="Unspecified identifier" Source="Local"/>
+			<TableElement Code="UPIN" Codesys="HL70203" DisplayName="Medicare/CMS (formerly HCFA) Universal Physician Identification numbers" Source="Local"/>
+			<TableElement Code="VN" Codesys="HL70203" DisplayName="Visit number" Source="Local"/>
+			<TableElement Code="WC" Codesys="HL70203" DisplayName="WIC identifier" Source="Local"/>
+			<TableElement Code="WCN" Codesys="HL70203" DisplayName="Workers Comp Number" Source="Local"/>
+			<TableElement Code="XX" Codesys="HL70203" DisplayName="Organization identifier" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="PHVS_ImmunizationProfileIdentifier_IIS" Codesys="" Id="PHVS_ImmunizationProfileIdentifier_IIS" Name="Immunization Profile Identifier (IIS)" Oid="" Type="HL7" Version="2">
+			<TableElement Code="Z44" Codesys="CDCPHINVS" DisplayName="Request Evaluated History and Forecast" Source="Local"/>
+			<TableElement Code="Z34" Codesys="CDCPHINVS" DisplayName="Request Immunization History" Source="Local"/>
+			<TableElement Code="Z23" Codesys="CDCPHINVS" DisplayName="Return Acknowledgement" Source="Local"/>
+			<TableElement Code="Z31" Codesys="CDCPHINVS" DisplayName="Return Candidate Clients" Source="Local"/>
+			<TableElement Code="Z42" Codesys="CDCPHINVS" DisplayName="Return Evaluated History and Forecast" Source="Local"/>
+			<TableElement Code="Z32" Codesys="CDCPHINVS" DisplayName="Return Immunization History" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70126_IZ" Codesys="" Id="HL70126_IZ" Name="Quantity limited request " Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="RD" Codesys="HL70126" DisplayName="records" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70361_IZ" Codesys="" Id="HL70361_IZ" Name="Application" Oid="" Type="HL7" Version="1.5"/>
+		<TableDefinition AlternateId="HL70091_IZ" Codesys="" Id="HL70091_IZ" Name="Query priority" Oid="" Type="HL7" Version="1.5"/>
+		<TableDefinition AlternateId="0301" Codesys="" Id="0301" Name="Universal ID type" Oid="" Type="HL7" Version="">
+			<TableElement Code="DNS" Codesys="0301" DisplayName="An Internet dotted name. Either in ASCII or as integers" Source="Local"/>
+			<TableElement Code="GUID" Codesys="0301" DisplayName="Same as UUID." Source="Local"/>
+			<TableElement Code="HCD" Codesys="0301" DisplayName="The CEN Healthcare Coding Scheme Designator. (Identifiers used in DICOM follow this assignment scheme.)" Source="Local"/>
+			<TableElement Code="HL7" Codesys="0301" DisplayName="Reserved for future HL7 registration schemes" Source="Local"/>
+			<TableElement Code="ISO" Codesys="0301" DisplayName="An International Standards Organization Object Identifier" Source="Local"/>
+			<TableElement Code="L,M,N" Codesys="0301" DisplayName="These are reserved for locally defined coding schemes." Source="Local"/>
+			<TableElement Code="Random" Codesys="0301" DisplayName="Usually a base64 encoded string of random bits.&lt;p&gt;The uniqueness depends on the length of the bits. Mail systems often generate ASCII string ???unique names,&quot; from a combination of random bits and system names. Obviously, such identifiers will not be cons" Source="Local"/>
+			<TableElement Code="URI" Codesys="0301" DisplayName="Uniform Resource Identifier" Source="Local"/>
+			<TableElement Code="UUID" Codesys="0301" DisplayName="The DCE Universal Unique Identifier" Source="Local"/>
+			<TableElement Code="x400" Codesys="0301" DisplayName="An X.400 MHS format identifier" Source="Local"/>
+			<TableElement Code="x500" Codesys="0301" DisplayName="An X.500 directory name" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0211" Codesys="" Id="0211" Name="Alternate character sets" Oid="" Type="HL7" Version="">
+			<TableElement Code="8859/1" Codesys="0211" DisplayName="The printable characters from the ISO 8859/1 Character set" Source="Local"/>
+			<TableElement Code="8859/2" Codesys="0211" DisplayName="The printable characters from the ISO 8859/2 Character set" Source="Local"/>
+			<TableElement Code="8859/3" Codesys="0211" DisplayName="The printable characters from the ISO 8859/3 Character set" Source="Local"/>
+			<TableElement Code="8859/4" Codesys="0211" DisplayName="The printable characters from the ISO 8859/4 Character set" Source="Local"/>
+			<TableElement Code="8859/5" Codesys="0211" DisplayName="The printable characters from the ISO 8859/5 Character set" Source="Local"/>
+			<TableElement Code="8859/6" Codesys="0211" DisplayName="The printable characters from the ISO 8859/6 Character set" Source="Local"/>
+			<TableElement Code="8859/7" Codesys="0211" DisplayName="The printable characters from the ISO 8859/7 Character set" Source="Local"/>
+			<TableElement Code="8859/8" Codesys="0211" DisplayName="The printable characters from the ISO 8859/8 Character set" Source="Local"/>
+			<TableElement Code="8859/9" Codesys="0211" DisplayName="The printable characters from the ISO 8859/9 Character set" Source="Local"/>
+			<TableElement Code="ASCII" Codesys="0211" DisplayName="The printable 7-bit ASCII character set." Source="Local"/>
+			<TableElement Code="BIG-5" Codesys="0211" DisplayName="Code for Taiwanese Character Set (BIG-5)" Source="Local"/>
+			<TableElement Code="CNS 11643-1992" Codesys="0211" DisplayName="Code for Taiwanese Character Set (CNS 11643-1992)" Source="Local"/>
+			<TableElement Code="GB 18030-2000" Codesys="0211" DisplayName="Code for Chinese Character Set (GB 18030-2000)" Source="Local"/>
+			<TableElement Code="ISO IR14" Codesys="0211" DisplayName="Code for Information Exchange (one byte)(JIS X 0201-1976)." Source="Local"/>
+			<TableElement Code="ISO IR159" Codesys="0211" DisplayName="Code of the supplementary Japanese Graphic Character set for information interchange (JIS X 0212-1990)." Source="Local"/>
+			<TableElement Code="ISO IR87" Codesys="0211" DisplayName="Code for the Japanese Graphic Character set for information interchange (JIS X 0208-1990)," Source="Local"/>
+			<TableElement Code="KS X 1001" Codesys="0211" DisplayName="Code for Korean Character Set (KS X 1001)" Source="Local"/>
+			<TableElement Code="UNICODE" Codesys="0211" DisplayName="The world wide character standard from ISO/IEC 10646-1-1993" Source="Local"/>
+			<TableElement Code="UNICODE UTF-16" Codesys="0211" DisplayName="UCS Transformation Format, 16-bit form" Source="Local"/>
+			<TableElement Code="UNICODE UTF-32" Codesys="0211" DisplayName="UCS Transformation Format, 32-bit form" Source="Local"/>
+			<TableElement Code="UNICODE UTF-8" Codesys="0211" DisplayName="UCS Transformation Format, 8-bit form" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0204" Codesys="" Id="0204" Name="Organizational name type" Oid="" Type="HL7" Version="">
+			<TableElement Code="A" Codesys="0204" DisplayName="Alias name" Source="Local"/>
+			<TableElement Code="D" Codesys="0204" DisplayName="Display name" Source="Local"/>
+			<TableElement Code="L" Codesys="0204" DisplayName="Legal name" Source="Local"/>
+			<TableElement Code="SL" Codesys="0204" DisplayName="Stock exchange listing name" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0300" Codesys="" Id="0300" Name="Namespace ID" Oid="" Type="HL7" Version="">
+			<TableElement Code="..." Codesys="0300" DisplayName="No suggested values defined" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0203" Codesys="" Id="0203" Name="Identifier type" Oid="" Type="HL7" Version="">
+			<TableElement Code="AM" Codesys="0203" DisplayName="American Express" Source="Local"/>
+			<TableElement Code="AN" Codesys="0203" DisplayName="Account number" Source="Local"/>
+			<TableElement Code="ANC" Codesys="0203" DisplayName="Account number Creditor" Source="Local"/>
+			<TableElement Code="AND" Codesys="0203" DisplayName="Account number debitor" Source="Local"/>
+			<TableElement Code="ANON" Codesys="0203" DisplayName="Anonymous identifier" Source="Local"/>
+			<TableElement Code="ANT" Codesys="0203" DisplayName="Temporary Account Number" Source="Local"/>
+			<TableElement Code="APRN" Codesys="0203" DisplayName="Advanced Practice Registered Nurse number" Source="Local"/>
+			<TableElement Code="BA" Codesys="0203" DisplayName="Bank Account Number" Source="Local"/>
+			<TableElement Code="BC" Codesys="0203" DisplayName="Bank Card Number" Source="Local"/>
+			<TableElement Code="BR" Codesys="0203" DisplayName="Birth registry number" Source="Local"/>
+			<TableElement Code="BRN" Codesys="0203" DisplayName="Breed Registry Number" Source="Local"/>
+			<TableElement Code="CC" Codesys="0203" DisplayName="Cost Center number" Source="Local"/>
+			<TableElement Code="CY" Codesys="0203" DisplayName="County number" Source="Local"/>
+			<TableElement Code="DDS" Codesys="0203" DisplayName="Dentist license number" Source="Local"/>
+			<TableElement Code="DEA" Codesys="0203" DisplayName="Drug Enforcement Administration registration number" Source="Local"/>
+			<TableElement Code="DFN" Codesys="0203" DisplayName="Drug Furnishing or prescriptive authority Number" Source="Local"/>
+			<TableElement Code="DI" Codesys="0203" DisplayName="Diner's Club card" Source="Local"/>
+			<TableElement Code="DL" Codesys="0203" DisplayName="Driver's license number" Source="Local"/>
+			<TableElement Code="DN" Codesys="0203" DisplayName="Doctor number" Source="Local"/>
+			<TableElement Code="DO" Codesys="0203" DisplayName="Osteopathic License number" Source="Local"/>
+			<TableElement Code="DPM" Codesys="0203" DisplayName="Podiatrist license number" Source="Local"/>
+			<TableElement Code="DR" Codesys="0203" DisplayName="Donor Registration Number" Source="Local"/>
+			<TableElement Code="DS" Codesys="0203" DisplayName="Discover Card" Source="Local"/>
+			<TableElement Code="EI" Codesys="0203" DisplayName="Employee number" Source="Local"/>
+			<TableElement Code="EN" Codesys="0203" DisplayName="Employer number" Source="Local"/>
+			<TableElement Code="FI" Codesys="0203" DisplayName="Facility ID" Source="Local"/>
+			<TableElement Code="GI" Codesys="0203" DisplayName="Guarantor internal identifier" Source="Local"/>
+			<TableElement Code="GL" Codesys="0203" DisplayName="General ledger number" Source="Local"/>
+			<TableElement Code="GN" Codesys="0203" DisplayName="Guarantor external  identifier" Source="Local"/>
+			<TableElement Code="HC" Codesys="0203" DisplayName="Health Card Number" Source="Local"/>
+			<TableElement Code="IND" Codesys="0203" DisplayName="Indigenous/Aboriginal" Source="Local"/>
+			<TableElement Code="JHN" Codesys="0203" DisplayName="Jurisdictional health number (Canada)" Source="Local"/>
+			<TableElement Code="LI" Codesys="0203" DisplayName="Labor and industries number" Source="Local"/>
+			<TableElement Code="LN" Codesys="0203" DisplayName="License number" Source="Local"/>
+			<TableElement Code="LR" Codesys="0203" DisplayName="Local Registry ID" Source="Local"/>
+			<TableElement Code="MA" Codesys="0203" DisplayName="Patient Medicaid number" Source="Local"/>
+			<TableElement Code="MB" Codesys="0203" DisplayName="Member Number" Source="Local"/>
+			<TableElement Code="MC" Codesys="0203" DisplayName="Patient's Medicare number" Source="Local"/>
+			<TableElement Code="MCD" Codesys="0203" DisplayName="Practitioner Medicaid number" Source="Local"/>
+			<TableElement Code="MCN" Codesys="0203" DisplayName="Microchip Number" Source="Local"/>
+			<TableElement Code="MCR" Codesys="0203" DisplayName="Practitioner Medicare number" Source="Local"/>
+			<TableElement Code="MD" Codesys="0203" DisplayName="Medical License number" Source="Local"/>
+			<TableElement Code="MI" Codesys="0203" DisplayName="Military ID number" Source="Local"/>
+			<TableElement Code="MR" Codesys="0203" DisplayName="Medical record number" Source="Local"/>
+			<TableElement Code="MRT" Codesys="0203" DisplayName="Temporary Medical Record Number" Source="Local"/>
+			<TableElement Code="MS" Codesys="0203" DisplayName="MasterCard" Source="Local"/>
+			<TableElement Code="NE" Codesys="0203" DisplayName="National employer identifier" Source="Local"/>
+			<TableElement Code="NH" Codesys="0203" DisplayName="National Health Plan Identifier" Source="Local"/>
+			<TableElement Code="NI" Codesys="0203" DisplayName="National unique individual identifier" Source="Local"/>
+			<TableElement Code="NII" Codesys="0203" DisplayName="National Insurance Organization Identifier" Source="Local"/>
+			<TableElement Code="NIIP" Codesys="0203" DisplayName="National Insurance Payor Identifier (Payor)" Source="Local"/>
+			<TableElement Code="NNxxx" Codesys="0203" DisplayName="National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code" Source="Local"/>
+			<TableElement Code="NP" Codesys="0203" DisplayName="Nurse practitioner number" Source="Local"/>
+			<TableElement Code="NPI" Codesys="0203" DisplayName="National provider identifier" Source="Local"/>
+			<TableElement Code="OD" Codesys="0203" DisplayName="Optometrist license number" Source="Local"/>
+			<TableElement Code="PA" Codesys="0203" DisplayName="Physician Assistant number" Source="Local"/>
+			<TableElement Code="PCN" Codesys="0203" DisplayName="Penitentiary/correctional institution Number" Source="Local"/>
+			<TableElement Code="PE" Codesys="0203" DisplayName="Living Subject Enterprise Number" Source="Local"/>
+			<TableElement Code="PEN" Codesys="0203" DisplayName="Pension Number" Source="Local"/>
+			<TableElement Code="PI" Codesys="0203" DisplayName="Patient internal identifier" Source="Local"/>
+			<TableElement Code="PN" Codesys="0203" DisplayName="Person number" Source="Local"/>
+			<TableElement Code="PNT" Codesys="0203" DisplayName="Temporary Living Subject Number" Source="Local"/>
+			<TableElement Code="PPN" Codesys="0203" DisplayName="Passport number" Source="Local"/>
+			<TableElement Code="PRC" Codesys="0203" DisplayName="Permanent Resident Card Number" Source="Local"/>
+			<TableElement Code="PRN" Codesys="0203" DisplayName="Provider number" Source="Local"/>
+			<TableElement Code="PT" Codesys="0203" DisplayName="Patient external identifier" Source="Local"/>
+			<TableElement Code="QA" Codesys="0203" DisplayName="QA number" Source="Local"/>
+			<TableElement Code="RI" Codesys="0203" DisplayName="Resource identifier" Source="Local"/>
+			<TableElement Code="RN" Codesys="0203" DisplayName="Registered Nurse Number" Source="Local"/>
+			<TableElement Code="RPH" Codesys="0203" DisplayName="Pharmacist license number" Source="Local"/>
+			<TableElement Code="RR" Codesys="0203" DisplayName="Railroad Retirement number" Source="Local"/>
+			<TableElement Code="RRI" Codesys="0203" DisplayName="Regional registry ID" Source="Local"/>
+			<TableElement Code="SL" Codesys="0203" DisplayName="State license" Source="Local"/>
+			<TableElement Code="SN" Codesys="0203" DisplayName="Subscriber Number" Source="Local"/>
+			<TableElement Code="SR" Codesys="0203" DisplayName="State registry ID" Source="Local"/>
+			<TableElement Code="SS" Codesys="0203" DisplayName="Social Security number" Source="Local"/>
+			<TableElement Code="TAX" Codesys="0203" DisplayName="Tax ID number" Source="Local"/>
+			<TableElement Code="TN" Codesys="0203" DisplayName="Treaty Number/ (Canada)" Source="Local"/>
+			<TableElement Code="U" Codesys="0203" DisplayName="Unspecified identifier" Source="Local"/>
+			<TableElement Code="UPIN" Codesys="0203" DisplayName="Medicare/CMS (formerly HCFA)'s Universal Physician Identification numbers" Source="Local"/>
+			<TableElement Code="VN" Codesys="0203" DisplayName="Visit number" Source="Local"/>
+			<TableElement Code="VS" Codesys="0203" DisplayName="VISA" Source="Local"/>
+			<TableElement Code="WC" Codesys="0203" DisplayName="WIC identifier" Source="Local"/>
+			<TableElement Code="WCN" Codesys="0203" DisplayName="Workers' Comp Number" Source="Local"/>
+			<TableElement Code="XX" Codesys="0203" DisplayName="Organization identifier" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0398" Codesys="" Id="0398" Name="Continuation style code" Oid="" Type="HL7" Version="">
+			<TableElement Code="F" Codesys="0398" DisplayName="Fragmentation" Source="Local"/>
+			<TableElement Code="I" Codesys="0398" DisplayName="Interactive Continuation" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0471" Codesys="" Id="0471" Name="Query name" Oid="" Type="HL7" Version="">
+			<TableElement Code="..." Codesys="0471" DisplayName="No suggested values defined" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0399" Codesys="" Id="0399" Name="Country code" Oid="" Type="HL7" Version="">
+			<TableElement Code="..." Codesys="0399" DisplayName="use 3-character (alphabetic) form of ISO 3166" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0356" Codesys="" Id="0356" Name="Alternate character set handling scheme" Oid="" Type="HL7" Version="">
+			<TableElement Code="&lt;null&gt;" Codesys="0356" DisplayName="This is the default, indicating that there is no character set switching occurring in this message." Source="Local"/>
+			<TableElement Code="2.3" Codesys="0356" DisplayName="The character set switching mode specified in HL7 2.5, section 2.7.2, ???Escape sequences supporting multiple character sets??? and section 2.A.46, &quot;XPN - extended person name&quot;." Source="Local"/>
+			<TableElement Code="ISO 2022-1994" Codesys="0356" DisplayName="This standard is titled &quot;Information Technology - Character Code Structure and Extension Technique&quot;. ." Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0207" Codesys="" Id="0207" Name="Processing mode" Oid="" Type="HL7" Version="">
+			<TableElement Code="A" Codesys="0207" DisplayName="Archive" Source="Local"/>
+			<TableElement Code="I" Codesys="0207" DisplayName="Initial load" Source="Local"/>
+			<TableElement Code="Not present" Codesys="0207" DisplayName="Not present (the default, meaning current  processing)" Source="Local"/>
+			<TableElement Code="R" Codesys="0207" DisplayName="Restore from archive" Source="Local"/>
+			<TableElement Code="T" Codesys="0207" DisplayName="Current processing, transmitted at intervals (scheduled or on demand)" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0396" Codesys="" Id="0396" Name="Coding system" Oid="" Type="HL7" Version="">
+			<TableElement Code="99zzz or L" Codesys="0396" DisplayName="Local general code (where z is an alphanumeric character)" Source="Local"/>
+			<TableElement Code="ACR" Codesys="0396" DisplayName="American College of Radiology finding codes" Source="Local"/>
+			<TableElement Code="ANS+" Codesys="0396" DisplayName="HL7 set of units of measure" Source="Local"/>
+			<TableElement Code="ART" Codesys="0396" DisplayName="WHO Adverse Reaction Terms" Source="Local"/>
+			<TableElement Code="AS4" Codesys="0396" DisplayName="ASTM E1238/ E1467 Universal" Source="Local"/>
+			<TableElement Code="AS4E" Codesys="0396" DisplayName="AS4 Neurophysiology Codes" Source="Local"/>
+			<TableElement Code="ATC" Codesys="0396" DisplayName="American Type Culture Collection" Source="Local"/>
+			<TableElement Code="C4" Codesys="0396" DisplayName="CPT-4" Source="Local"/>
+			<TableElement Code="C5" Codesys="0396" DisplayName="CPT-5" Source="Local"/>
+			<TableElement Code="CAS" Codesys="0396" DisplayName="Chemical abstract codes" Source="Local"/>
+			<TableElement Code="CD2" Codesys="0396" DisplayName="CDT-2 Codes" Source="Local"/>
+			<TableElement Code="CDCA" Codesys="0396" DisplayName="CDC Analyte Codes" Source="Local"/>
+			<TableElement Code="CDCM" Codesys="0396" DisplayName="CDC Methods/Instruments Codes" Source="Local"/>
+			<TableElement Code="CDS" Codesys="0396" DisplayName="CDC Surveillance" Source="Local"/>
+			<TableElement Code="CE" Codesys="0396" DisplayName="CEN ECG diagnostic codes" Source="Local"/>
+			<TableElement Code="CLP" Codesys="0396" DisplayName="CLIP" Source="Local"/>
+			<TableElement Code="CPTM" Codesys="0396" DisplayName="CPT Modifier Code" Source="Local"/>
+			<TableElement Code="CST" Codesys="0396" DisplayName="COSTART" Source="Local"/>
+			<TableElement Code="CVX" Codesys="0396" DisplayName="CDC Vaccine Codes" Source="Local"/>
+			<TableElement Code="DCM" Codesys="0396" DisplayName="DICOM Controlled Terminology" Source="Local"/>
+			<TableElement Code="E" Codesys="0396" DisplayName="EUCLIDES" Source="Local"/>
+			<TableElement Code="E5" Codesys="0396" DisplayName="Euclides  quantity codes" Source="Local"/>
+			<TableElement Code="E6" Codesys="0396" DisplayName="Euclides Lab method codes" Source="Local"/>
+			<TableElement Code="E7" Codesys="0396" DisplayName="Euclides Lab equipment codes" Source="Local"/>
+			<TableElement Code="ENZC" Codesys="0396" DisplayName="Enzyme Codes" Source="Local"/>
+			<TableElement Code="FDDC" Codesys="0396" DisplayName="First DataBank Drug Codes" Source="Local"/>
+			<TableElement Code="FDDX" Codesys="0396" DisplayName="First DataBank Diagnostic Codes" Source="Local"/>
+			<TableElement Code="FDK" Codesys="0396" DisplayName="FDA K10" Source="Local"/>
+			<TableElement Code="HB" Codesys="0396" DisplayName="HIBCC" Source="Local"/>
+			<TableElement Code="HCPCS" Codesys="0396" DisplayName="CMS (formerly HCFA)  Common Procedure Coding System" Source="Local"/>
+			<TableElement Code="HCPT" Codesys="0396" DisplayName="Health Care Provider Taxonomy" Source="Local"/>
+			<TableElement Code="HHC" Codesys="0396" DisplayName="Home Health Care" Source="Local"/>
+			<TableElement Code="HI" Codesys="0396" DisplayName="Health Outcomes" Source="Local"/>
+			<TableElement Code="HL7nnnn" Codesys="0396" DisplayName="HL7 Defined Codes where nnnn is the HL7 table number" Source="Local"/>
+			<TableElement Code="HOT" Codesys="0396" DisplayName="Japanese Nationwide Medicine Code" Source="Local"/>
+			<TableElement Code="HPC" Codesys="0396" DisplayName="CMS (formerly HCFA )Procedure Codes (HCPCS)" Source="Local"/>
+			<TableElement Code="I10" Codesys="0396" DisplayName="ICD-10" Source="Local"/>
+			<TableElement Code="I10P" Codesys="0396" DisplayName="ICD-10  Procedure Codes" Source="Local"/>
+			<TableElement Code="I9" Codesys="0396" DisplayName="ICD9" Source="Local"/>
+			<TableElement Code="I9C" Codesys="0396" DisplayName="ICD-9CM" Source="Local"/>
+			<TableElement Code="IBT" Codesys="0396" DisplayName="ISBT" Source="Local"/>
+			<TableElement Code="IBTnnnn" Codesys="0396" DisplayName="ISBT 128 codes where nnnn  specifies a specific table within ISBT 128." Source="Local"/>
+			<TableElement Code="IC2" Codesys="0396" DisplayName="ICHPPC-2" Source="Local"/>
+			<TableElement Code="ICD10AM" Codesys="0396" DisplayName="ICD-10 Australian modification" Source="Local"/>
+			<TableElement Code="ICD10CA" Codesys="0396" DisplayName="ICD-10 Canada" Source="Local"/>
+			<TableElement Code="ICDO" Codesys="0396" DisplayName="International Classification of Diseases for Oncology" Source="Local"/>
+			<TableElement Code="ICS" Codesys="0396" DisplayName="ICCS" Source="Local"/>
+			<TableElement Code="ICSD" Codesys="0396" DisplayName="International Classification of Sleep Disorders" Source="Local"/>
+			<TableElement Code="ISO+" Codesys="0396" DisplayName="ISO 2955.83 (units of measure) with HL7 extensions" Source="Local"/>
+			<TableElement Code="ISOnnnn" Codesys="0396" DisplayName="ISO Defined Codes where nnnn is the ISO table number" Source="Local"/>
+			<TableElement Code="IUPC" Codesys="0396" DisplayName="IUPAC/IFCC Component Codes" Source="Local"/>
+			<TableElement Code="IUPP" Codesys="0396" DisplayName="IUPAC/IFCC Property Codes" Source="Local"/>
+			<TableElement Code="JC10" Codesys="0396" DisplayName="JLAC/JSLM, nationwide laboratory code" Source="Local"/>
+			<TableElement Code="JC8" Codesys="0396" DisplayName="Japanese Chemistry" Source="Local"/>
+			<TableElement Code="JJ1017" Codesys="0396" DisplayName="Japanese Image Examination Cache" Source="Local"/>
+			<TableElement Code="LB" Codesys="0396" DisplayName="Local billing code" Source="Local"/>
+			<TableElement Code="LN" Codesys="0396" DisplayName="Logical Observation Identifier Names and Codes (LOINC??)" Source="Local"/>
+			<TableElement Code="MCD" Codesys="0396" DisplayName="Medicaid" Source="Local"/>
+			<TableElement Code="MCR" Codesys="0396" DisplayName="Medicare" Source="Local"/>
+			<TableElement Code="MDDX" Codesys="0396" DisplayName="Medispan Diagnostic Codes" Source="Local"/>
+			<TableElement Code="MEDC" Codesys="0396" DisplayName="Medical Economics Drug Codes" Source="Local"/>
+			<TableElement Code="MEDR" Codesys="0396" DisplayName="Medical Dictionary for Drug Regulatory Affairs (MEDDRA)" Source="Local"/>
+			<TableElement Code="MEDX" Codesys="0396" DisplayName="Medical Economics Diagnostic Codes" Source="Local"/>
+			<TableElement Code="MGPI" Codesys="0396" DisplayName="Medispan GPI" Source="Local"/>
+			<TableElement Code="MVX" Codesys="0396" DisplayName="CDC Vaccine Manufacturer Codes" Source="Local"/>
+			<TableElement Code="NDA" Codesys="0396" DisplayName="NANDA" Source="Local"/>
+			<TableElement Code="NDC" Codesys="0396" DisplayName="National drug codes" Source="Local"/>
+			<TableElement Code="NIC" Codesys="0396" DisplayName="Nursing Interventions Classification" Source="Local"/>
+			<TableElement Code="NPI" Codesys="0396" DisplayName="National Provider Identifier" Source="Local"/>
+			<TableElement Code="NUBC" Codesys="0396" DisplayName="National Uniform Billing Committee Code" Source="Local"/>
+			<TableElement Code="OHA" Codesys="0396" DisplayName="Omaha System" Source="Local"/>
+			<TableElement Code="POS" Codesys="0396" DisplayName="POS Codes" Source="Local"/>
+			<TableElement Code="RC" Codesys="0396" DisplayName="Read Classification" Source="Local"/>
+			<TableElement Code="SDM" Codesys="0396" DisplayName="SNOMED- DICOM Microglossary" Source="Local"/>
+			<TableElement Code="SNM" Codesys="0396" DisplayName="Systemized Nomenclature of Medicine (SNOMED)" Source="Local"/>
+			<TableElement Code="SNM3" Codesys="0396" DisplayName="SNOMED International" Source="Local"/>
+			<TableElement Code="SNT" Codesys="0396" DisplayName="SNOMED topology codes (anatomic sites)" Source="Local"/>
+			<TableElement Code="UC" Codesys="0396" DisplayName="UCDS" Source="Local"/>
+			<TableElement Code="UMD" Codesys="0396" DisplayName="MDNS" Source="Local"/>
+			<TableElement Code="UML" Codesys="0396" DisplayName="Unified Medical Language" Source="Local"/>
+			<TableElement Code="UPC" Codesys="0396" DisplayName="Universal Product Code" Source="Local"/>
+			<TableElement Code="UPIN" Codesys="0396" DisplayName="UPIN" Source="Local"/>
+			<TableElement Code="USPS" Codesys="0396" DisplayName="United States Postal Service" Source="Local"/>
+			<TableElement Code="W1" Codesys="0396" DisplayName="WHO record # drug codes (6 digit)" Source="Local"/>
+			<TableElement Code="W2" Codesys="0396" DisplayName="WHO record # drug codes (8 digit)" Source="Local"/>
+			<TableElement Code="W4" Codesys="0396" DisplayName="WHO record # code with ASTM extension" Source="Local"/>
+			<TableElement Code="WC" Codesys="0396" DisplayName="WHO ATC" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0397" Codesys="" Id="0397" Name="Sequencing" Oid="" Type="HL7" Version="">
+			<TableElement Code="A" Codesys="0397" DisplayName="Ascending" Source="Local"/>
+			<TableElement Code="AN" Codesys="0397" DisplayName="Ascending, case insensitive" Source="Local"/>
+			<TableElement Code="D" Codesys="0397" DisplayName="Descending" Source="Local"/>
+			<TableElement Code="DN" Codesys="0397" DisplayName="Descending, case insensitive" Source="Local"/>
+			<TableElement Code="N" Codesys="0397" DisplayName="None" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0363" Codesys="" Id="0363" Name="Assigning authority" Oid="" Type="HL7" Version="" Extensibility="Open">
+			<TableElement Code="..." Codesys="0363" DisplayName="No suggested values" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0360" Codesys="" Id="0360" Name="Degree/license/certificate" Oid="" Type="HL7" Version="">
+			<TableElement Code="AA" Codesys="0360" DisplayName="Associate of Arts" Source="Local"/>
+			<TableElement Code="AAS" Codesys="0360" DisplayName="Associate of Applied Science" Source="Local"/>
+			<TableElement Code="ABA" Codesys="0360" DisplayName="Associate of Business Administration" Source="Local"/>
+			<TableElement Code="AE" Codesys="0360" DisplayName="Associate of Engineering" Source="Local"/>
+			<TableElement Code="AS" Codesys="0360" DisplayName="Associate of Science" Source="Local"/>
+			<TableElement Code="BA" Codesys="0360" DisplayName="Bachelor of Arts" Source="Local"/>
+			<TableElement Code="BBA" Codesys="0360" DisplayName="Bachelor of Business Administration" Source="Local"/>
+			<TableElement Code="BE" Codesys="0360" DisplayName="Bachelor or Engineering" Source="Local"/>
+			<TableElement Code="BFA" Codesys="0360" DisplayName="Bachelor of Fine Arts" Source="Local"/>
+			<TableElement Code="BN" Codesys="0360" DisplayName="Bachelor of Nursing" Source="Local"/>
+			<TableElement Code="BS" Codesys="0360" DisplayName="Bachelor of Science" Source="Local"/>
+			<TableElement Code="BSL" Codesys="0360" DisplayName="Bachelor of Science - Law" Source="Local"/>
+			<TableElement Code="BSN" Codesys="0360" DisplayName="Bachelor on Science - Nursing" Source="Local"/>
+			<TableElement Code="BT" Codesys="0360" DisplayName="Bachelor of Theology" Source="Local"/>
+			<TableElement Code="CANP" Codesys="0360" DisplayName="Certified Adult Nurse Practitioner" Source="Local"/>
+			<TableElement Code="CER" Codesys="0360" DisplayName="Certificate" Source="Local"/>
+			<TableElement Code="CMA" Codesys="0360" DisplayName="Certified Medical Assistant" Source="Local"/>
+			<TableElement Code="CNM" Codesys="0360" DisplayName="Certified Nurse Midwife" Source="Local"/>
+			<TableElement Code="CNP" Codesys="0360" DisplayName="Certified Nurse Practitioner" Source="Local"/>
+			<TableElement Code="CNS" Codesys="0360" DisplayName="Certified Nurse Specialist" Source="Local"/>
+			<TableElement Code="CPNP" Codesys="0360" DisplayName="Certified Pediatric Nurse Practitioner" Source="Local"/>
+			<TableElement Code="CRN" Codesys="0360" DisplayName="Certified Registered Nurse" Source="Local"/>
+			<TableElement Code="DBA" Codesys="0360" DisplayName="Doctor of Business Administration" Source="Local"/>
+			<TableElement Code="DED" Codesys="0360" DisplayName="Doctor of Education" Source="Local"/>
+			<TableElement Code="DIP" Codesys="0360" DisplayName="Diploma" Source="Local"/>
+			<TableElement Code="DO" Codesys="0360" DisplayName="Doctor of Osteopathy" Source="Local"/>
+			<TableElement Code="EMT" Codesys="0360" DisplayName="Emergency Medical Technician" Source="Local"/>
+			<TableElement Code="EMTP" Codesys="0360" DisplayName="Emergency Medical Technician - Paramedic" Source="Local"/>
+			<TableElement Code="FPNP" Codesys="0360" DisplayName="Family Practice Nurse Practitioner" Source="Local"/>
+			<TableElement Code="HS" Codesys="0360" DisplayName="High School Graduate" Source="Local"/>
+			<TableElement Code="JD" Codesys="0360" DisplayName="Juris Doctor" Source="Local"/>
+			<TableElement Code="MA" Codesys="0360" DisplayName="Master of Arts" Source="Local"/>
+			<TableElement Code="MBA" Codesys="0360" DisplayName="Master of Business Administration" Source="Local"/>
+			<TableElement Code="MCE" Codesys="0360" DisplayName="Master of Civil Engineering" Source="Local"/>
+			<TableElement Code="MD" Codesys="0360" DisplayName="Doctor of Medicine" Source="Local"/>
+			<TableElement Code="MDA" Codesys="0360" DisplayName="Medical Assistant" Source="Local"/>
+			<TableElement Code="MDI" Codesys="0360" DisplayName="Master of Divinity" Source="Local"/>
+			<TableElement Code="ME" Codesys="0360" DisplayName="Master of Engineering" Source="Local"/>
+			<TableElement Code="MED" Codesys="0360" DisplayName="Master of Education" Source="Local"/>
+			<TableElement Code="MEE" Codesys="0360" DisplayName="Master of Electrical Engineering" Source="Local"/>
+			<TableElement Code="MFA" Codesys="0360" DisplayName="Master of Fine Arts" Source="Local"/>
+			<TableElement Code="MME" Codesys="0360" DisplayName="Master of Mechanical Engineering" Source="Local"/>
+			<TableElement Code="MS" Codesys="0360" DisplayName="Master of Science" Source="Local"/>
+			<TableElement Code="MSL" Codesys="0360" DisplayName="Master of Science - Law" Source="Local"/>
+			<TableElement Code="MSN" Codesys="0360" DisplayName="Master of Science - Nursing" Source="Local"/>
+			<TableElement Code="MT" Codesys="0360" DisplayName="Master of Theology" Source="Local"/>
+			<TableElement Code="NG" Codesys="0360" DisplayName="Non-Graduate" Source="Local"/>
+			<TableElement Code="NP" Codesys="0360" DisplayName="Nurse Practitioner" Source="Local"/>
+			<TableElement Code="PA" Codesys="0360" DisplayName="Physician Assistant" Source="Local"/>
+			<TableElement Code="PharmD" Codesys="0360" DisplayName="Doctor of Pharmacy" Source="Local"/>
+			<TableElement Code="PHD" Codesys="0360" DisplayName="Doctor of Philosophy" Source="Local"/>
+			<TableElement Code="PHE" Codesys="0360" DisplayName="Doctor of Engineering" Source="Local"/>
+			<TableElement Code="PHS" Codesys="0360" DisplayName="Doctor of Science" Source="Local"/>
+			<TableElement Code="PN" Codesys="0360" DisplayName="Advanced Practice Nurse" Source="Local"/>
+			<TableElement Code="RMA" Codesys="0360" DisplayName="Registered Medical Assistant" Source="Local"/>
+			<TableElement Code="RPH" Codesys="0360" DisplayName="Registered Pharmacist" Source="Local"/>
+			<TableElement Code="SEC" Codesys="0360" DisplayName="Secretarial Certificate" Source="Local"/>
+			<TableElement Code="TS" Codesys="0360" DisplayName="Trade School Graduate" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0061" Codesys="" Id="0061" Name="Check digit scheme" Oid="" Type="HL7" Version="">
+			<TableElement Code="ISO" Codesys="0061" DisplayName="ISO 7064: 1983" Source="Local"/>
+			<TableElement Code="M10" Codesys="0061" DisplayName="Mod 10 algorithm" Source="Local"/>
+			<TableElement Code="M11" Codesys="0061" DisplayName="Mod 11 algorithm" Source="Local"/>
+			<TableElement Code="NPI" Codesys="0061" DisplayName="Check digit algorithm in the US National Provider Identifier" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0465" Codesys="" Id="0465" Name="Name/address representation" Oid="" Type="HL7" Version="">
+			<TableElement Code="A" Codesys="0465" DisplayName="Alphabetic (i.e., Default or some single-byte)" Source="Local"/>
+			<TableElement Code="I" Codesys="0465" DisplayName="Ideographic (i.e., Kanji)" Source="Local"/>
+			<TableElement Code="P" Codesys="0465" DisplayName="Phonetic (i.e., ASCII, Katakana, Hiragana, etc.)" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0395" Codesys="" Id="0395" Name="Modify indicator" Oid="" Type="HL7" Version="">
+			<TableElement Code="M" Codesys="0395" DisplayName="Modified Subscription" Source="Local"/>
+			<TableElement Code="N" Codesys="0395" DisplayName="New Subscription" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0394" Codesys="" Id="0394" Name="Response modality" Oid="" Type="HL7" Version="">
+			<TableElement Code="B" Codesys="0394" DisplayName="Batch" Source="Local"/>
+			<TableElement Code="R" Codesys="0394" DisplayName="Real Time" Source="Local"/>
+			<TableElement Code="T" Codesys="0394" DisplayName="Bolus (a series of responses sent at the same time without use of batch formatting)" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0444" Codesys="" Id="0444" Name="Name assembly order" Oid="" Type="HL7" Version="">
+			<TableElement Code="F" Codesys="0444" DisplayName="Prefix Family Middle Given Suffix" Source="Local"/>
+			<TableElement Code="G" Codesys="0444" DisplayName="Prefix Given Middle Family Suffix" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0448" Codesys="" Id="0448" Name="Name context" Oid="" Type="HL7" Version="">
+			<TableElement Code="..." Codesys="0448" DisplayName="No suggested values defined" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0289" Codesys="" Id="0289" Name="County/parish" Oid="" Type="HL7" Version="">
+			<TableElement Code="..." Codesys="0289" DisplayName="No suggested values defined" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0529" Codesys="" Id="0529" Name="Precision" Oid="" Type="HL7" Version="">
+			<TableElement Code="D" Codesys="0529" DisplayName="day" Source="Local"/>
+			<TableElement Code="H" Codesys="0529" DisplayName="hour" Source="Local"/>
+			<TableElement Code="L" Codesys="0529" DisplayName="month" Source="Local"/>
+			<TableElement Code="M" Codesys="0529" DisplayName="minute" Source="Local"/>
+			<TableElement Code="S" Codesys="0529" DisplayName="second" Source="Local"/>
+			<TableElement Code="Y" Codesys="0529" DisplayName="year" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="0288" Codesys="" Id="0288" Name="Census tract" Oid="" Type="HL7" Version="">
+			<TableElement Code="..." Codesys="0288" DisplayName="No suggested values defined" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70471_IZ" Codesys="" Id="HL70471_IZ" Name="Query Name" Oid="" Type="HL7" Version="">
+			<TableElement Code="Z34" Codesys="HL70471" DisplayName="Request Immunization History" Source="Local"/>
+			<TableElement Code="Z44" Codesys="HL70471" DisplayName="Request Evaluated History and Forecast" Source="Local"/>
+		</TableDefinition>
+		<TableDefinition AlternateId="HL70200_IZ" Codesys="" Id="HL70200_IZ" Name="Name type" Oid="" Type="HL7" Version="1.5">
+			<TableElement Code="A" Codesys="HL70200" DisplayName="Alias name" Source="Local"/>
+			<TableElement Code="L" Codesys="HL70200" DisplayName="Legal name" Source="Local"/>
+			<TableElement Code="D" Codesys="HL70200" DisplayName="Display name" Source="Local"/>
+			<TableElement Code="M" Codesys="HL70200" DisplayName="Maiden name" Source="Local"/>
+			<TableElement Code="C" Codesys="HL70200" DisplayName="Adopted name" Source="Local"/>
+			<TableElement Code="B" Codesys="HL70200" DisplayName="Name at birth" Source="Local"/>
+			<TableElement Code="P" Codesys="HL70200" DisplayName="Name of partner/spouse" Source="Local"/>
+			<TableElement Code="U" Codesys="HL70200" DisplayName="Unspecified" Source="Local"/>
+		</TableDefinition>
+	</TableSet>
+</TableLibrary>

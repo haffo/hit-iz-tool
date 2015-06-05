@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
+<TableLibrary xsi:noNamespaceSchemaLocation="../ValueSets.xsd"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  Description="Automatically generated vacab for RSP_K11" Name="Vocab for RSP_K11" OrganizationName="HL7 NIST" Status="Active" TableLibraryIdentifier="" TableLibraryVersion="1.0">
+	<TableDefinition AlternateId="HL70003_IZ" Codesys="" Id="HL70003_IZ" Name="Event type" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="V04" Codesys="HL70003" DisplayName="V04" Source="Local"/>
+		<TableElement Code="K11" Codesys="HL70003" DisplayName="K11" Source="Local"/>
+		<TableElement Code="Q11" Codesys="HL70003" DisplayName="Q11" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70323_IZ" Codesys="" Id="HL70323_IZ" Name="Action code" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="A" Codesys="HL70323" DisplayName="Add" Source="Local"/>
+		<TableElement Code="D" Codesys="HL70323" DisplayName="Delete" Source="Local"/>
+		<TableElement Code="U" Codesys="HL70323" DisplayName="Update" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70533_IZ" Codesys="" Id="HL70533_IZ" Name="Application Error Code" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="1" Codesys="HL70533" DisplayName="Illogical Date error" Source="Local"/>
+		<TableElement Code="2" Codesys="HL70533" DisplayName="Invalid Date" Source="Local"/>
+		<TableElement Code="3" Codesys="HL70533" DisplayName="Illogical Value error" Source="Local"/>
+		<TableElement Code="4" Codesys="HL70533" DisplayName="Invalid value" Source="Local"/>
+		<TableElement Code="5" Codesys="HL70533" DisplayName="Table value not found" Source="Local"/>
+		<TableElement Code="6" Codesys="HL70533" DisplayName="Required observation missing" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70301_IZ" Codesys="" Id="HL70301_IZ" Name="Universal ID type" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="OID" Codesys="HL70301" DisplayName="OID" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70001_IZ" Codesys="" Id="HL70001_IZ" Name="Sex" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="F" Codesys="HL70001" DisplayName="Female" Source="Local"/>
+		<TableElement Code="M" Codesys="HL70001" DisplayName="Male" Source="Local"/>
+		<TableElement Code="U" Codesys="HL70001" DisplayName="Unknown/undifferentiated" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70005_IZ" Codesys="" Id="HL70005_IZ" Name="Race" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="1002-5" Codesys="HL70005" DisplayName="American Indian or Alaska Native" Source="Local"/>
+		<TableElement Code="2028-9" Codesys="HL70005" DisplayName="Asian " Source="Local"/>
+		<TableElement Code="2076-8" Codesys="HL70005" DisplayName="Native Hawaiian or Other Pacific Islander" Source="Local"/>
+		<TableElement Code="2054-5" Codesys="HL70005" DisplayName="Black or African-American" Source="Local"/>
+		<TableElement Code="2106-3" Codesys="HL70005" DisplayName="White" Source="Local"/>
+		<TableElement Code="2131-1" Codesys="HL70005" DisplayName="Other Race" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70357_IZ" Codesys="" Id="HL70357_IZ" Name="Message error status codes" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="0" Codesys="HL70357" DisplayName="Message accepted" Source="Local"/>
+		<TableElement Code="100" Codesys="HL70357" DisplayName="Segment sequence error" Source="Local"/>
+		<TableElement Code="101" Codesys="HL70357" DisplayName="Required field missing" Source="Local"/>
+		<TableElement Code="102" Codesys="HL70357" DisplayName="Data type error" Source="Local"/>
+		<TableElement Code="103" Codesys="HL70357" DisplayName="Table value not found" Source="Local"/>
+		<TableElement Code="200" Codesys="HL70357" DisplayName="Unsupported message type" Source="Local"/>
+		<TableElement Code="201" Codesys="HL70357" DisplayName="Unsupported event code" Source="Local"/>
+		<TableElement Code="202" Codesys="HL70357" DisplayName="Unsupported processing ID" Source="Local"/>
+		<TableElement Code="203" Codesys="HL70357" DisplayName="Unsupported version ID" Source="Local"/>
+		<TableElement Code="204" Codesys="HL70357" DisplayName="Unknown key identifier" Source="Local"/>
+		<TableElement Code="205" Codesys="HL70357" DisplayName="Duplicate key identifier" Source="Local"/>
+		<TableElement Code="206" Codesys="HL70357" DisplayName="Application record locked" Source="Local"/>
+		<TableElement Code="207" Codesys="HL70357" DisplayName="Application internal error" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70103_IZ" Codesys="" Id="HL70103_IZ" Name="Processing ID" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="D" Codesys="HL70103" DisplayName="Debugging" Source="Local"/>
+		<TableElement Code="P" Codesys="HL70103" DisplayName="Production" Source="Local"/>
+		<TableElement Code="T" Codesys="HL70103" DisplayName="Training" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="NIP003" Codesys="" Id="NIP003" Name="Observation identifiers " Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="64994-7" Codesys="NIP003" DisplayName="Vaccine funding program eligibility category" Source="Local"/>
+		<TableElement Code="30963-3" Codesys="NIP003" DisplayName="Vaccine funding source" Source="Local"/>
+		<TableElement Code="30956-7" Codesys="NIP003" DisplayName="Vaccine Type (Vaccine group or family)" Source="Local"/>
+		<TableElement Code="38890-0" Codesys="NIP003" DisplayName="Component Vaccine Type" Source="Local"/>
+		<TableElement Code="30946-8" Codesys="NIP003" DisplayName="Vaccination contraindication/precaution effective date" Source="Local"/>
+		<TableElement Code="30944-3" Codesys="NIP003" DisplayName="Vaccination temporary contraindication/precaution expiration date" Source="Local"/>
+		<TableElement Code="30945-0" Codesys="NIP003" DisplayName="Vaccination contraindication/precaution" Source="Local"/>
+		<TableElement Code="31044-1" Codesys="NIP003" DisplayName="Reaction" Source="Local"/>
+		<TableElement Code="59784-9" Codesys="NIP003" DisplayName="Disease with presumed immunity " Source="Local"/>
+		<TableElement Code="75505-8" Codesys="NIP003" DisplayName="Serological Evidence of Immunity" Source="Local"/>
+		<TableElement Code="59785-6" Codesys="NIP003" DisplayName="Indications to immunize" Source="Local"/>
+		<TableElement Code="69764-9" Codesys="NIP003" DisplayName="Document type" Source="Local"/>
+		<TableElement Code="29768-9" Codesys="NIP003" DisplayName="Date Vaccine Information Statement Published" Source="Local"/>
+		<TableElement Code="29769-7" Codesys="NIP003" DisplayName="Date Vaccine Information Statement Presented" Source="Local"/>
+		<TableElement Code="30973-2" Codesys="NIP003" DisplayName="30973-2 -- Dose number in series" Source="Local"/>
+		<TableElement Code="30979-9" Codesys="NIP003" DisplayName="Vaccines due next" Source="Local"/>
+		<TableElement Code="30980-7" Codesys="NIP003" DisplayName="30980-7 占쏙옙Date vaccine due " Source="Local"/>
+		<TableElement Code="30981-5" Codesys="NIP003" DisplayName="30981-5 占쏙옙Earliest date to give " Source="Local"/>
+		<TableElement Code="30982-3" Codesys="NIP003" DisplayName="30982-3 占쏙옙Reason applied by forecast logic to project this vaccine" Source="Local"/>
+		<TableElement Code="59779-9" Codesys="NIP003" DisplayName="Immunization Schedule used" Source="Local"/>
+		<TableElement Code="59777-3" Codesys="NIP003" DisplayName="Latest date next dose may be given" Source="Local"/>
+		<TableElement Code="59778-1" Codesys="NIP003" DisplayName="Reason Code" Source="Local"/>
+		<TableElement Code="59780-7" Codesys="NIP003" DisplayName="Immunization Series name" Source="Local"/>
+		<TableElement Code="59782-3" Codesys="NIP003" DisplayName="Number of doses in primary series" Source="Local"/>
+		<TableElement Code="59781-5" Codesys="NIP003" DisplayName="Dose validity" Source="Local"/>
+		<TableElement Code="59783-1" Codesys="NIP003" DisplayName="Status in immunization series" Source="Local"/>
+		<TableElement Code="46249-9" Codesys="NIP003" DisplayName="VACCINATION TAKE-RESPONSE TYPE " Source="Local"/>
+		<TableElement Code="46250-7" Codesys="NIP003" DisplayName="VACCINATION TAKE-RESPONSE DATE " Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="NIP001" Codesys="" Id="NIP001" Name="Immunization information source" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="00" Codesys="NIP001" DisplayName="New immunization record" Source="Local"/>
+		<TableElement Code="01" Codesys="NIP001" DisplayName="Historical information - source unspecified" Source="Local"/>
+		<TableElement Code="02" Codesys="NIP001" DisplayName="Historical information - from other provider" Source="Local"/>
+		<TableElement Code="03" Codesys="NIP001" DisplayName="Historical information - from parent占쎌뀼 written record" Source="Local"/>
+		<TableElement Code="04" Codesys="NIP001" DisplayName="Historical information - from parent占쎌뀼 recall" Source="Local"/>
+		<TableElement Code="05" Codesys="NIP001" DisplayName="Historical information - from other registry" Source="Local"/>
+		<TableElement Code="06" Codesys="NIP001" DisplayName="Historical information - from birth certificate" Source="Local"/>
+		<TableElement Code="07" Codesys="NIP001" DisplayName="Historical information - from school record" Source="Local"/>
+		<TableElement Code="08" Codesys="NIP001" DisplayName="Historical information - from public agency" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70361_IZ" Codesys="" Id="HL70361_IZ" Name="Application" Oid="" Type="HL7" Version="1.5"/>
+	<TableDefinition AlternateId="NIP002" Codesys="" Id="NIP002" Name="Substance refusal reason" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="00" Codesys="NIP002" DisplayName="Parental decision" Source="Local"/>
+		<TableElement Code="01" Codesys="NIP002" DisplayName="Religious exemption" Source="Local"/>
+		<TableElement Code="02" Codesys="NIP002" DisplayName="Other (must add text component of the CE field with description)" Source="Local"/>
+		<TableElement Code="03" Codesys="NIP002" DisplayName="Patient decision" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70119_IZ" Codesys="" Id="HL70119_IZ" Name="Order Control Codes" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="OK" Codesys="HL70119" DisplayName="Order accepted &amp; OK" Source="Local"/>
+		<TableElement Code="RE" Codesys="HL70119" DisplayName="Observations to follow" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70363_IZ" Codesys="" Id="HL70363_IZ" Name="Assigning Authority" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="AKA" Codesys="HL70363" DisplayName="ALASKA" Source="Local"/>
+		<TableElement Code="ALA" Codesys="HL70363" DisplayName="ALABAMA" Source="Local"/>
+		<TableElement Code="ARA" Codesys="HL70363" DisplayName="ARKANSAS" Source="Local"/>
+		<TableElement Code="ASA" Codesys="HL70363" DisplayName="AMERICAN SAMOA" Source="Local"/>
+		<TableElement Code="AZA" Codesys="HL70363" DisplayName="ARIZONA" Source="Local"/>
+		<TableElement Code="BAA" Codesys="HL70363" DisplayName="NEW YORK CITY" Source="Local"/>
+		<TableElement Code="CAA" Codesys="HL70363" DisplayName="CALIFORNIA" Source="Local"/>
+		<TableElement Code="CHA" Codesys="HL70363" DisplayName="CHICAGO" Source="Local"/>
+		<TableElement Code="COA" Codesys="HL70363" DisplayName="COLORADO" Source="Local"/>
+		<TableElement Code="CTA" Codesys="HL70363" DisplayName="CONNECTICUT" Source="Local"/>
+		<TableElement Code="DCA" Codesys="HL70363" DisplayName="DISTRICT OF COLUMBIA" Source="Local"/>
+		<TableElement Code="DEA" Codesys="HL70363" DisplayName="DELAWARE" Source="Local"/>
+		<TableElement Code="FLA" Codesys="HL70363" DisplayName="FLORIDA" Source="Local"/>
+		<TableElement Code="FMA" Codesys="HL70363" DisplayName="FED STATES MICRO" Source="Local"/>
+		<TableElement Code="GAA" Codesys="HL70363" DisplayName="GEORGIA" Source="Local"/>
+		<TableElement Code="GUA" Codesys="HL70363" DisplayName="GUAM" Source="Local"/>
+		<TableElement Code="HIA" Codesys="HL70363" DisplayName="HAWAII" Source="Local"/>
+		<TableElement Code="IAA" Codesys="HL70363" DisplayName="IOWA" Source="Local"/>
+		<TableElement Code="IDA" Codesys="HL70363" DisplayName="IDAHO" Source="Local"/>
+		<TableElement Code="ILA" Codesys="HL70363" DisplayName="ILLINOIS" Source="Local"/>
+		<TableElement Code="INA" Codesys="HL70363" DisplayName="INDIANA" Source="Local"/>
+		<TableElement Code="KSA" Codesys="HL70363" DisplayName="KANSAS" Source="Local"/>
+		<TableElement Code="KYA" Codesys="HL70363" DisplayName="KENTUCKY" Source="Local"/>
+		<TableElement Code="LAA" Codesys="HL70363" DisplayName="LOUISIANA" Source="Local"/>
+		<TableElement Code="MAA" Codesys="HL70363" DisplayName="MASSACHUSETTS" Source="Local"/>
+		<TableElement Code="MDA" Codesys="HL70363" DisplayName="MARYLAND" Source="Local"/>
+		<TableElement Code="MEA" Codesys="HL70363" DisplayName="MAINE" Source="Local"/>
+		<TableElement Code="MHA" Codesys="HL70363" DisplayName="REP MARS ISLANDS" Source="Local"/>
+		<TableElement Code="MIA" Codesys="HL70363" DisplayName="MICHIGAN" Source="Local"/>
+		<TableElement Code="MNA" Codesys="HL70363" DisplayName="MINNESOTA" Source="Local"/>
+		<TableElement Code="MOA" Codesys="HL70363" DisplayName="MISSOURI" Source="Local"/>
+		<TableElement Code="MPA" Codesys="HL70363" DisplayName="NO. MARIANA ISLAND" Source="Local"/>
+		<TableElement Code="MSA" Codesys="HL70363" DisplayName="MISSISSIPPI" Source="Local"/>
+		<TableElement Code="MTA" Codesys="HL70363" DisplayName="MONTANA" Source="Local"/>
+		<TableElement Code="NCA" Codesys="HL70363" DisplayName="NORTH CAROLINA" Source="Local"/>
+		<TableElement Code="NDA" Codesys="HL70363" DisplayName="NORTH DAKOTA" Source="Local"/>
+		<TableElement Code="NEA" Codesys="HL70363" DisplayName="NEBRASKA" Source="Local"/>
+		<TableElement Code="NHA" Codesys="HL70363" DisplayName="NEW HAMPSHIRE" Source="Local"/>
+		<TableElement Code="NJA" Codesys="HL70363" DisplayName="NEW JERSEY" Source="Local"/>
+		<TableElement Code="NMA" Codesys="HL70363" DisplayName="NEW MEXICO" Source="Local"/>
+		<TableElement Code="NVA" Codesys="HL70363" DisplayName="NEVADA" Source="Local"/>
+		<TableElement Code="NYA" Codesys="HL70363" DisplayName="NEW YORK STATE" Source="Local"/>
+		<TableElement Code="OHA" Codesys="HL70363" DisplayName="OHIO" Source="Local"/>
+		<TableElement Code="OKA" Codesys="HL70363" DisplayName="OKLAHOMA" Source="Local"/>
+		<TableElement Code="ORA" Codesys="HL70363" DisplayName="OREGON" Source="Local"/>
+		<TableElement Code="PAA" Codesys="HL70363" DisplayName="PENNSYLVANIA" Source="Local"/>
+		<TableElement Code="PHA" Codesys="HL70363" DisplayName="PHILADELPHIA" Source="Local"/>
+		<TableElement Code="PRA" Codesys="HL70363" DisplayName="PUERTO RICO" Source="Local"/>
+		<TableElement Code="RIA" Codesys="HL70363" DisplayName="RHODE ISLAND" Source="Local"/>
+		<TableElement Code="RPA" Codesys="HL70363" DisplayName="REPUBLIC PALAU" Source="Local"/>
+		<TableElement Code="SCA" Codesys="HL70363" DisplayName="SOUTH CAROLINA" Source="Local"/>
+		<TableElement Code="SDA" Codesys="HL70363" DisplayName="SOUTH DAKOTA" Source="Local"/>
+		<TableElement Code="TBA" Codesys="HL70363" DisplayName="SAN ANTONIO" Source="Local"/>
+		<TableElement Code="THA" Codesys="HL70363" DisplayName="HOUSTON" Source="Local"/>
+		<TableElement Code="TNA" Codesys="HL70363" DisplayName="TENNESSEE" Source="Local"/>
+		<TableElement Code="TXA" Codesys="HL70363" DisplayName="TEXAS" Source="Local"/>
+		<TableElement Code="UTA" Codesys="HL70363" DisplayName="UTAH" Source="Local"/>
+		<TableElement Code="VAA" Codesys="HL70363" DisplayName="VIRGINIA" Source="Local"/>
+		<TableElement Code="VIA" Codesys="HL70363" DisplayName="VIRGIN ISLANDS" Source="Local"/>
+		<TableElement Code="VTA" Codesys="HL70363" DisplayName="VERMONT" Source="Local"/>
+		<TableElement Code="WAA" Codesys="HL70363" DisplayName="WASHINGTON" Source="Local"/>
+		<TableElement Code="WIA" Codesys="HL70363" DisplayName="WISCONSIN" Source="Local"/>
+		<TableElement Code="WVA" Codesys="HL70363" DisplayName="WEST VIRGINIA" Source="Local"/>
+		<TableElement Code="WYA" Codesys="HL70363" DisplayName="WYOMING" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70155_IZ" Codesys="" Id="HL70155_IZ" Name="Accept/Application acknowledgment conditions" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="AL" Codesys="HL70155" DisplayName="Always" Source="Local"/>
+		<TableElement Code="NE" Codesys="HL70155" DisplayName="Never" Source="Local"/>
+		<TableElement Code="ER" Codesys="HL70155" DisplayName="Error/Reject conditions only" Source="Local"/>
+		<TableElement Code="SU" Codesys="HL70155" DisplayName="Successful completion only" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="NCIT" Codesys="" Id="NCIT" Name="Route of administration" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="C38238" Codesys="NCIT" DisplayName="Intradermal" Source="Local"/>
+		<TableElement Code="C28161" Codesys="NCIT" DisplayName="Intramuscular" Source="Local"/>
+		<TableElement Code="C38284" Codesys="NCIT" DisplayName="Nasal" Source="Local"/>
+		<TableElement Code="C38276" Codesys="NCIT" DisplayName="Intravenous" Source="Local"/>
+		<TableElement Code="C38288" Codesys="NCIT" DisplayName="Oral" Source="Local"/>
+		<TableElement Code="C38676" Codesys="NCIT" DisplayName="Percutaneous" Source="Local"/>
+		<TableElement Code="C38299" Codesys="NCIT" DisplayName="Subcutaneous" Source="Local"/>
+		<TableElement Code="C38305" Codesys="NCIT" DisplayName="Transdermal" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70354_IZ" Codesys="" Id="HL70354_IZ" Name="Message structure" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="ACK" Codesys="HL70354" DisplayName="ACK" Source="Local"/>
+		<TableElement Code="QBP_Q11" Codesys="HL70354" DisplayName="QBP" Source="Local"/>
+		<TableElement Code="RSP_K11" Codesys="HL70354" DisplayName="RSP" Source="Local"/>
+		<TableElement Code="VXU_V04" Codesys="HL70354" DisplayName="VXU" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70085_IZ" Codesys="" Id="HL70085_IZ" Name="Observation result status codes interpretation" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="F" Codesys="HL70086" DisplayName="Final" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70076_IZ" Codesys="" Id="HL70076_IZ" Name="Message type" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="ACK" Codesys="HL70076" DisplayName="General acknowledgment" Source="Local"/>
+		<TableElement Code="ADT" Codesys="HL70076" DisplayName="ADT message" Source="Local"/>
+		<TableElement Code="QBP" Codesys="HL70076" DisplayName="Query by Parameter" Source="Local"/>
+		<TableElement Code="RSP" Codesys="HL70076" DisplayName="Response to Query by parameter" Source="Local"/>
+		<TableElement Code="VXU" Codesys="HL70076" DisplayName="Unsolicited vaccination record update" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70201_IZ" Codesys="" Id="HL70201_IZ" Name="Telecommunication use code " Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="PRN" Codesys="HL70201" DisplayName="Primary residence number" Source="Local"/>
+		<TableElement Code="ORN" Codesys="HL70201" DisplayName="Other residence number" Source="Local"/>
+		<TableElement Code="WPN" Codesys="HL70201" DisplayName="Work number" Source="Local"/>
+		<TableElement Code="VHN" Codesys="HL70201" DisplayName="Vacation home number" Source="Local"/>
+		<TableElement Code="ASN" Codesys="HL70201" DisplayName="Answering service number" Source="Local"/>
+		<TableElement Code="EMR" Codesys="HL70201" DisplayName="Emergency number" Source="Local"/>
+		<TableElement Code="NET" Codesys="HL70201" DisplayName="Network (email) address" Source="Local"/>
+		<TableElement Code="BPN" Codesys="HL70201" DisplayName="Beeper number" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70202_IZ" Codesys="" Id="HL70202_IZ" Name="Telecommunication equipment type" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="PH" Codesys="HL70202" DisplayName="Telephone" Source="Local"/>
+		<TableElement Code="FX" Codesys="HL70202" DisplayName="Fax" Source="Local"/>
+		<TableElement Code="MD" Codesys="HL70202" DisplayName="Modem" Source="Local"/>
+		<TableElement Code="CP" Codesys="HL70202" DisplayName="Cellular phone" Source="Local"/>
+		<TableElement Code="BP" Codesys="HL70202" DisplayName="Beeper" Source="Local"/>
+		<TableElement Code="Internet" Codesys="HL70202" DisplayName="Internet address: Use only if telecommunication use code is NET" Source="Local"/>
+		<TableElement Code="X.400" Codesys="HL70202" DisplayName="X.400 email address: Use only if telecommunication use code is NET" Source="Local"/>
+		<TableElement Code="TDD" Codesys="HL70202" DisplayName="Telecommunications Device for the Deaf" Source="Local"/>
+		<TableElement Code="TTY" Codesys="HL70202" DisplayName="Teletypewriter" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70061_IZ" Codesys="" Id="HL70061_IZ" Name="Check digit scheme" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="M10" Codesys="HL70061" DisplayName="Mod 10 algorithm" Source="Local"/>
+		<TableElement Code="M11" Codesys="HL70061" DisplayName="Mod 11 algorithm" Source="Local"/>
+		<TableElement Code="ISO" Codesys="HL70061" DisplayName="ISO 7064: 1983" Source="Local"/>
+		<TableElement Code="NPI" Codesys="HL70061" DisplayName="Check digit algorithm in the US National Provider Identifier" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70362_IZ" Codesys="" Id="HL70362_IZ" Name="Facility" Oid="" Type="HL7" Version="1.5"/>
+	<TableDefinition AlternateId="UCUM" Codesys="" Id="UCUM" Name="Volume Mass Units " Oid="" Type="HL7" Version="1">
+		<TableElement Code="[bbl_us]" Codesys="UCUM" DisplayName="barrel" Source="Local"/>
+		<TableElement Code="[bf_i]" Codesys="UCUM" DisplayName="board foot" Source="Local"/>
+		<TableElement Code="[bu_br]" Codesys="UCUM" DisplayName="bushel" Source="Local"/>
+		<TableElement Code="[bu_us]" Codesys="UCUM" DisplayName="bushel" Source="Local"/>
+		<TableElement Code="[car_Au]" Codesys="UCUM" DisplayName="carat of gold alloys" Source="Local"/>
+		<TableElement Code="cg" Codesys="UCUM" DisplayName="CentiGram [SI Mass Units]" Source="Local"/>
+		<TableElement Code="cL" Codesys="UCUM" DisplayName="CentiLiter [SI Volume Units]" Source="Local"/>
+		<TableElement Code="[cr_i]" Codesys="UCUM" DisplayName="cord" Source="Local"/>
+		<TableElement Code="[crd_us]" Codesys="UCUM" DisplayName="cord" Source="Local"/>
+		<TableElement Code="[cft_i]" Codesys="UCUM" DisplayName="cubic foot" Source="Local"/>
+		<TableElement Code="[cin_i]" Codesys="UCUM" DisplayName="cubic inch" Source="Local"/>
+		<TableElement Code="[cyd_i]" Codesys="UCUM" DisplayName="cubic yard" Source="Local"/>
+		<TableElement Code="[cup_us]" Codesys="UCUM" DisplayName="cup" Source="Local"/>
+		<TableElement Code="dg" Codesys="UCUM" DisplayName="DeciGram [SI Mass Units]" Source="Local"/>
+		<TableElement Code="dL" Codesys="UCUM" DisplayName="DeciLiter [SI Volume Units]" Source="Local"/>
+		<TableElement Code="[dr_av]" Codesys="UCUM" DisplayName="dram" Source="Local"/>
+		<TableElement Code="[dr_ap]" Codesys="UCUM" DisplayName="dram drachm" Source="Local"/>
+		<TableElement Code="[drp]" Codesys="UCUM" DisplayName="drop" Source="Local"/>
+		<TableElement Code="[dpt_us]" Codesys="UCUM" DisplayName="dry pint" Source="Local"/>
+		<TableElement Code="[dqt_us]" Codesys="UCUM" DisplayName="dry quart" Source="Local"/>
+		<TableElement Code="[m_e]" Codesys="UCUM" DisplayName="electron mass" Source="Local"/>
+		<TableElement Code="fg" Codesys="UCUM" DisplayName="FemtoGram [SI Mass Units]" Source="Local"/>
+		<TableElement Code="fL" Codesys="UCUM" DisplayName="FemtoLiter [SI Volume Units]" Source="Local"/>
+		<TableElement Code="[fdr_br]" Codesys="UCUM" DisplayName="fluid dram" Source="Local"/>
+		<TableElement Code="[fdr_us]" Codesys="UCUM" DisplayName="fluid dram" Source="Local"/>
+		<TableElement Code="[foz_br]" Codesys="UCUM" DisplayName="fluid ounce" Source="Local"/>
+		<TableElement Code="[foz_us]" Codesys="UCUM" DisplayName="fluid ounce" Source="Local"/>
+		<TableElement Code="[gal_br]" Codesys="UCUM" DisplayName="gallon" Source="Local"/>
+		<TableElement Code="[gil_br]" Codesys="UCUM" DisplayName="gill" Source="Local"/>
+		<TableElement Code="[gil_us]" Codesys="UCUM" DisplayName="gill" Source="Local"/>
+		<TableElement Code="[gr]" Codesys="UCUM" DisplayName="grain" Source="Local"/>
+		<TableElement Code="g" Codesys="UCUM" DisplayName="gram" Source="Local"/>
+		<TableElement Code="g%" Codesys="UCUM" DisplayName="gram percent" Source="Local"/>
+		<TableElement Code="g.m" Codesys="UCUM" DisplayName="GramMeter [Massive Distance Units]" Source="Local"/>
+		<TableElement Code="g.m/{hb}" Codesys="UCUM" DisplayName="GramMeterPerHeartbeat [Massive Distance Units]" Source="Local"/>
+		<TableElement Code="g.m/({hb}.m2)" Codesys="UCUM" DisplayName="GramMeterPerHeartbeatPerSquareMeter [Lineic Mass Units]" Source="Local"/>
+		<TableElement Code="g/[100]g" Codesys="UCUM" DisplayName="GramsPer100Gram [Mass Ratio Or Mass Fraction Or Mass Content Units]" Source="Local"/>
+		<TableElement Code="g/dL" Codesys="UCUM" DisplayName="GramsPerDeciLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="g/g" Codesys="UCUM" DisplayName="GramsPerGram [Mass Ratio Or Mass Fraction Or Mass Content Units]" Source="Local"/>
+		<TableElement Code="g/g{Cre}" Codesys="UCUM" DisplayName="GramsPerGramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content Units" Source="Local"/>
+		<TableElement Code="g/kg" Codesys="UCUM" DisplayName="GramsPerKiloGram [Mass Ratio Or Mass Fraction Or Mass Content Units]" Source="Local"/>
+		<TableElement Code="g/L" Codesys="UCUM" DisplayName="GramsPerLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="g/mL" Codesys="UCUM" DisplayName="GramsPerMilliLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="g/m2" Codesys="UCUM" DisplayName="GramsPerSquareMeter [Areic Mass Units]" Source="Local"/>
+		<TableElement Code="g/{TotalWeight}" Codesys="UCUM" DisplayName="GramsPerTotalWeight [SI Mass Units]" Source="Local"/>
+		<TableElement Code="hL" Codesys="UCUM" DisplayName="HectoLiter [SI Volume Units]" Source="Local"/>
+		<TableElement Code="[gal_wi]" Codesys="UCUM" DisplayName="historical winchester gallon" Source="Local"/>
+		<TableElement Code="kg" Codesys="UCUM" DisplayName="KiloGram [SI Mass Units]" Source="Local"/>
+		<TableElement Code="kg{wet'tis}" Codesys="UCUM" DisplayName="kilogram of wet tissue" Source="Local"/>
+		<TableElement Code="kg/m3" Codesys="UCUM" DisplayName="KiloGramsPerCubicMeter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="kg/L" Codesys="UCUM" DisplayName="KiloGramsPerLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="kg/mol" Codesys="UCUM" DisplayName="KiloGramsPerMole [Molar Mass Units]" Source="Local"/>
+		<TableElement Code="kg/m2" Codesys="UCUM" DisplayName="KiloGramsPerSquareMeter [Areic Mass Units]" Source="Local"/>
+		<TableElement Code="kL" Codesys="UCUM" DisplayName="KiloLiter [SI Volume Units]" Source="Local"/>
+		<TableElement Code="L" Codesys="UCUM" DisplayName="liter" Source="Local"/>
+		<TableElement Code="L/kg" Codesys="UCUM" DisplayName="LitersPerKilogram [Volume Content Units]" Source="Local"/>
+		<TableElement Code="L.s2/s" Codesys="UCUM" DisplayName="LiterSquareSecondPerSecond [Volume Duration Units]" Source="Local"/>
+		<TableElement Code="[lcwt_av]" Codesys="UCUM" DisplayName="long hunderdweight British hundredweight" Source="Local"/>
+		<TableElement Code="[lton_av]" Codesys="UCUM" DisplayName="long ton British ton" Source="Local"/>
+		<TableElement Code="[car_m]" Codesys="UCUM" DisplayName="metric carat" Source="Local"/>
+		<TableElement Code="ug" Codesys="UCUM" DisplayName="MicroGram [SI Mass Units]" Source="Local"/>
+		<TableElement Code="ug/[100]g" Codesys="UCUM" DisplayName="MicroGramPer100Gram [Mass Ratio Or Mass Fraction Or Mass Content Units" Source="Local"/>
+		<TableElement Code="ug/g{Cre}" Codesys="UCUM" DisplayName="MicroGramPer100Gram [Mass Ratio Or Mass Fraction Or Mass Content Units" Source="Local"/>
+		<TableElement Code="ug/g{DryWeight}" Codesys="UCUM" DisplayName="MicroGramPerGramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content  Units]" Source="Local"/>
+		<TableElement Code="ug/dL" Codesys="UCUM" DisplayName="MicroGramsPerDeciLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="ug/dL{rbc}" Codesys="UCUM" DisplayName="MicroGramsPerDeciLiterRedBloodCells [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="ug/g" Codesys="UCUM" DisplayName="MicroGramsPerGram [Mass Ratio Or Mass Fraction Or Mass Content Units]" Source="Local"/>
+		<TableElement Code="ug/g{Hgb}" Codesys="UCUM" DisplayName="MicroGramsPerGramHemoglobin [Mass Ratio Or Mass Fraction Or Mass Content Units]" Source="Local"/>
+		<TableElement Code="ug/kg" Codesys="UCUM" DisplayName="MicroGramsPerKiloGram [Mass Ratio Or Mass Fraction Or Mass Content Units" Source="Local"/>
+		<TableElement Code="ug/L" Codesys="UCUM" DisplayName="MicroGramsPerLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="ug/mg" Codesys="UCUM" DisplayName="MicroGramsPerMilliGram [Mass Ratio Or Mass Fraction Or Mass Content Units" Source="Local"/>
+		<TableElement Code="ug/mg{Cre}" Codesys="UCUM" DisplayName="MicroGramsPerMilliGramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content Units]" Source="Local"/>
+		<TableElement Code="ug/mL" Codesys="UCUM" DisplayName="MicroGramsPerMilliLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="ug/ng" Codesys="UCUM" DisplayName="MicroGramsPerNanoGram [Mass Ratio Or Mass Fraction Or Mass Content Units" Source="Local"/>
+		<TableElement Code="ug/{Specimen}" Codesys="UCUM" DisplayName="MicroGramsPerSpecimen [SI Mass Units]" Source="Local"/>
+		<TableElement Code="ug/m2" Codesys="UCUM" DisplayName="MicroGramsPerSquareMeter [Areic Mass Units]" Source="Local"/>
+		<TableElement Code="ug/{TotalVolume}" Codesys="UCUM" DisplayName="MicroGramsPerTotalVolume [SI Mass Units]" Source="Local"/>
+		<TableElement Code="uL" Codesys="UCUM" DisplayName="MicroLiter [SI Volume Units]" Source="Local"/>
+		<TableElement Code="mg" Codesys="UCUM" DisplayName="MilliGram [SI Mass Units]" Source="Local"/>
+		<TableElement Code="mg{creat}" Codesys="UCUM" DisplayName="milligram of creatinine" Source="Local"/>
+		<TableElement Code="mg/g{Cre}" Codesys="UCUM" DisplayName="MilliGramPerGramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content Units] " Source="Local"/>
+		<TableElement Code="mg/{TotalVolume}" Codesys="UCUM" DisplayName="MilliGramPerTotalVolume [SI Mass Units]" Source="Local"/>
+		<TableElement Code="mg/m3" Codesys="UCUM" DisplayName="MilliGramsPerCubicMeter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="mg/dL" Codesys="UCUM" DisplayName="MilliGramsPerDeciLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="mg/g" Codesys="UCUM" DisplayName="MilliGramsPerGram [Mass Ratio Or Mass Fraction Or Mass Content Units]" Source="Local"/>
+		<TableElement Code="mg/kg" Codesys="UCUM" DisplayName="MilliGramsPerKiloGram [Mass Ratio Or Mass Fraction Or Mass Content Units" Source="Local"/>
+		<TableElement Code="mg/L" Codesys="UCUM" DisplayName="MilliGramsPerLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="mg/mg" Codesys="UCUM" DisplayName="MilliGramsPerMilliGram [Mass Ratio Or Mass Fraction Or Mass Content Units" Source="Local"/>
+		<TableElement Code="mg/mg{Cre}" Codesys="UCUM" DisplayName="MilligramsPerMilligramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content Units]" Source="Local"/>
+		<TableElement Code="mg/mL" Codesys="UCUM" DisplayName="MilliGramsPerMilliLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="mg/m2" Codesys="UCUM" DisplayName="MilliGramsPerSquareMeter [Areic Mass Units]" Source="Local"/>
+		<TableElement Code="mg/{Volume}" Codesys="UCUM" DisplayName="MilliGramsPerVolume [SI Mass Units]" Source="Local"/>
+		<TableElement Code="mg{Phenylketones}/dL" Codesys="UCUM" DisplayName="MilliGramsPhenylketonesPerDeciLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="mL" Codesys="UCUM" DisplayName="MilliLiter [SI Volume Units]" Source="Local"/>
+		<TableElement Code="mL/dL" Codesys="UCUM" DisplayName="MilliLitersPerDeciLiter [Volume Fraction Units]" Source="Local"/>
+		<TableElement Code="mL/{h'b}" Codesys="UCUM" DisplayName="MilliLitersPerHeartbeat [SI Volume Units]" Source="Local"/>
+		<TableElement Code="mL/kg" Codesys="UCUM" DisplayName="MilliLitersPerKiloGram [Volume Content Units]" Source="Local"/>
+		<TableElement Code="[min_br]" Codesys="UCUM" DisplayName="minim" Source="Local"/>
+		<TableElement Code="[min_us]" Codesys="UCUM" DisplayName="minim" Source="Local"/>
+		<TableElement Code="ng" Codesys="UCUM" DisplayName="NanoGram [SI Mass Units]" Source="Local"/>
+		<TableElement Code="ng/dL" Codesys="UCUM" DisplayName="NanoGramsPerDeciLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="ng/g" Codesys="UCUM" DisplayName="NanoGramsPerGram [Mass Ratio Or Mass Fraction Or Mass Content Units]" Source="Local"/>
+		<TableElement Code="ng/g{Cre}" Codesys="UCUM" DisplayName="NanoGramsPerGramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content Units] " Source="Local"/>
+		<TableElement Code="ng/kg" Codesys="UCUM" DisplayName="NanoGramsPerKiloGram [Mass Ratio Or Mass Fraction Or Mass Content Units" Source="Local"/>
+		<TableElement Code="ng/L" Codesys="UCUM" DisplayName="NanoGramsPerLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="ng/mg" Codesys="UCUM" DisplayName="NanoGramsPerMilliGram [Mass Ratio Or Mass Fraction Or Mass Content Units" Source="Local"/>
+		<TableElement Code="ng/mg{Protein}" Codesys="UCUM" DisplayName="NanoGramsPerMilliGramProtein [Mass Ratio Or Mass Fraction Or Mass Content  Units]" Source="Local"/>
+		<TableElement Code="ng/mL" Codesys="UCUM" DisplayName="NanoGramsPerMilliLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="ng/mL{rbc}" Codesys="UCUM" DisplayName="NanoGramsPerMilliLiterRedBloodCells [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="ng/m2" Codesys="UCUM" DisplayName="NanoGramsPerSquareMeter [Areic Mass Units]" Source="Local"/>
+		<TableElement Code="nL" Codesys="UCUM" DisplayName="NanoLiter [SI Volume Units]" Source="Local"/>
+		<TableElement Code="[oz_ap]" Codesys="UCUM" DisplayName="ounce" Source="Local"/>
+		<TableElement Code="[oz_av]" Codesys="UCUM" DisplayName="ounce" Source="Local"/>
+		<TableElement Code="[oz_tr]" Codesys="UCUM" DisplayName="ounce" Source="Local"/>
+		<TableElement Code="[pk_br]" Codesys="UCUM" DisplayName="peck" Source="Local"/>
+		<TableElement Code="[pk_us]" Codesys="UCUM" DisplayName="peck" Source="Local"/>
+		<TableElement Code="[pwt_tr]" Codesys="UCUM" DisplayName="pennyweight" Source="Local"/>
+		<TableElement Code="%{Binding}" Codesys="UCUM" DisplayName="PercentBinding [Mass Or Substance Fraction Units]" Source="Local"/>
+		<TableElement Code="%{Bound}" Codesys="UCUM" DisplayName="PercentBound [Mass Or Substance Fraction Units]" Source="Local"/>
+		<TableElement Code="%{Carboxyhemoglobin}" Codesys="UCUM" DisplayName="PercentCarboxyhemoglobin [Mass Or Substance Fraction Units]" Source="Local"/>
+		<TableElement Code="%{Excretion}" Codesys="UCUM" DisplayName="PercentExcretion [Mass Or Substance Rate Fraction Units]" Source="Local"/>
+		<TableElement Code="%{Hemoglobin}" Codesys="UCUM" DisplayName="PercentHemoglobin [Mass Or Substance Fraction Units]" Source="Local"/>
+		<TableElement Code="%{HemoglobinA1C}" Codesys="UCUM" DisplayName="PercentHemoglobinA1C [Mass Or Substance Fraction Units]" Source="Local"/>
+		<TableElement Code="%{HemoglobinSaturation}" Codesys="UCUM" DisplayName="PercentHemoglobinSaturation [Mass Or Substance Fraction Units]" Source="Local"/>
+		<TableElement Code="%{Oxygen}" Codesys="UCUM" DisplayName="PercentOxygen [Volume Fraction Units]" Source="Local"/>
+		<TableElement Code="%{TotalProtein}" Codesys="UCUM" DisplayName="PercentTotalProtein [Mass Or Substance Fraction Units]" Source="Local"/>
+		<TableElement Code="%{Uptake}" Codesys="UCUM" DisplayName="PercentUptake [Mass Or Substance Rate Fraction Units]" Source="Local"/>
+		<TableElement Code="pg" Codesys="UCUM" DisplayName="PicoGram [SI Mass Units]" Source="Local"/>
+		<TableElement Code="pg/dL" Codesys="UCUM" DisplayName="PicoGramsPerDeciLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="pg/L" Codesys="UCUM" DisplayName="PicoGramsPerLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="pg/mL" Codesys="UCUM" DisplayName="PicoGramsPerMilliLiter [Mass Concentration Units]" Source="Local"/>
+		<TableElement Code="pg/mm" Codesys="UCUM" DisplayName="PicoGramsPerMilliMeter [Lineic Mass Units]" Source="Local"/>
+		<TableElement Code="pL" Codesys="UCUM" DisplayName="PicoLiter [SI Volume Units]" Source="Local"/>
+		<TableElement Code="[pt_br]" Codesys="UCUM" DisplayName="pint" Source="Local"/>
+		<TableElement Code="[pt_us]" Codesys="UCUM" DisplayName="pint" Source="Local"/>
+		<TableElement Code="[lb_ap]" Codesys="UCUM" DisplayName="pound" Source="Local"/>
+		<TableElement Code="[lb_av]" Codesys="UCUM" DisplayName="pound" Source="Local"/>
+		<TableElement Code="[lb_tr]" Codesys="UCUM" DisplayName="pound" Source="Local"/>
+		<TableElement Code="[m_p]" Codesys="UCUM" DisplayName="proton mass" Source="Local"/>
+		<TableElement Code="[qt_br]" Codesys="UCUM" DisplayName="quart" Source="Local"/>
+		<TableElement Code="[qt_us]" Codesys="UCUM" DisplayName="quart" Source="Local"/>
+		<TableElement Code="[gal_us]" Codesys="UCUM" DisplayName="Queen Anne's wine gallon" Source="Local"/>
+		<TableElement Code="[sc_ap]" Codesys="UCUM" DisplayName="scruple" Source="Local"/>
+		<TableElement Code="[scwt_av]" Codesys="UCUM" DisplayName="short hundredweight U.S. hundredweight" Source="Local"/>
+		<TableElement Code="[ston_av]" Codesys="UCUM" DisplayName="short ton U.S. ton" Source="Local"/>
+		<TableElement Code="st" Codesys="UCUM" DisplayName="stere" Source="Local"/>
+		<TableElement Code="[stone_av]" Codesys="UCUM" DisplayName="stone British stone" Source="Local"/>
+		<TableElement Code="[tbs_us]" Codesys="UCUM" DisplayName="tablespoon" Source="Local"/>
+		<TableElement Code="[tsp_us]" Codesys="UCUM" DisplayName="teaspoon" Source="Local"/>
+		<TableElement Code="t" Codesys="UCUM" DisplayName="tonne" Source="Local"/>
+		<TableElement Code="%{vol}" Codesys="UCUM" DisplayName="VolumePercent [Volume Fraction Units]" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70136_IZ" Codesys="" Id="HL70136_IZ" Name="Yes/No indicator" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="Y" Codesys="HL70136" DisplayName="Yes" Source="Local"/>
+		<TableElement Code="N" Codesys="HL70136" DisplayName="No" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70125_IZ" Codesys="" Id="HL70125_IZ" Name="Value Type" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="CE" Codesys="HL70125" DisplayName="Coded element" Source="Local"/>
+		<TableElement Code="CE_TX" Codesys="HL70125" DisplayName="Text only CE data type" Source="Local"/>
+		<TableElement Code="CQ" Codesys="HL70125" DisplayName="Composite Quantity with Units" Source="Local"/>
+		<TableElement Code="CWE" Codesys="HL70125" DisplayName="Coded with Exceptions" Source="Local"/>
+		<TableElement Code="CX" Codesys="HL70125" DisplayName="Extended Composite Id with Check digit" Source="Local"/>
+		<TableElement Code="DT" Codesys="HL70125" DisplayName="Date" Source="Local"/>
+		<TableElement Code="DT_D" Codesys="HL70125" DisplayName="Date with precision to day" Source="Local"/>
+		<TableElement Code="DTM" Codesys="HL70125" DisplayName="Date/Time " Source="Local"/>
+		<TableElement Code="EI" Codesys="HL70125" DisplayName="Entity Identifier" Source="Local"/>
+		<TableElement Code="ERL" Codesys="HL70125" DisplayName="Error Location" Source="Local"/>
+		<TableElement Code="FN" Codesys="HL70125" DisplayName="Family Name" Source="Local"/>
+		<TableElement Code="FT" Codesys="HL70125" DisplayName="Formatted text" Source="Local"/>
+		<TableElement Code="HD" Codesys="HL70125" DisplayName="Hierarchic Designator" Source="Local"/>
+		<TableElement Code="ID" Codesys="HL70125" DisplayName="Coded Values for HL7 Tables" Source="Local"/>
+		<TableElement Code="IS" Codesys="HL70125" DisplayName="Coded value for User-Defined Tables" Source="Local"/>
+		<TableElement Code="LA2" Codesys="HL70125" DisplayName="Location with address variation 2" Source="Local"/>
+		<TableElement Code="MSG" Codesys="HL70125" DisplayName="Message Type" Source="Local"/>
+		<TableElement Code="NM" Codesys="HL70125" DisplayName="Numeric" Source="Local"/>
+		<TableElement Code="PT" Codesys="HL70125" DisplayName="Processing Type" Source="Local"/>
+		<TableElement Code="SAD" Codesys="HL70125" DisplayName="Street Address" Source="Local"/>
+		<TableElement Code="SI" Codesys="HL70125" DisplayName="Sequence ID" Source="Local"/>
+		<TableElement Code="ST" Codesys="HL70125" DisplayName="String" Source="Local"/>
+		<TableElement Code="TS" Codesys="HL70125" DisplayName="Time Stamp" Source="Local"/>
+		<TableElement Code="TS_M" Codesys="HL70125" DisplayName="Time Stamp with optional precision to the day and no time zone" Source="Local"/>
+		<TableElement Code="TS_NZ" Codesys="HL70125" DisplayName="Time Stamp with precision to the day and no time zone" Source="Local"/>
+		<TableElement Code="TS_Z" Codesys="HL70125" DisplayName="Time Stamp requiring time zone" Source="Local"/>
+		<TableElement Code="VID" Codesys="HL70125" DisplayName="Version Identifier" Source="Local"/>
+		<TableElement Code="XAD" Codesys="HL70125" DisplayName="Extended Address" Source="Local"/>
+		<TableElement Code="XCN" Codesys="HL70125" DisplayName="Extended Composite ID Number and Name for Persons" Source="Local"/>
+		<TableElement Code="XON" Codesys="HL70125" DisplayName="Extended Name and Id Number for Organizations" Source="Local"/>
+		<TableElement Code="XPN" Codesys="HL70125" DisplayName="Extended Person Name" Source="Local"/>
+		<TableElement Code="XTN" Codesys="HL70125" DisplayName="Extended telephone number" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70516_IZ" Codesys="" Id="HL70516_IZ" Name="Error Severity" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="I" Codesys="HL70516" DisplayName="Information" Source="Local"/>
+		<TableElement Code="W" Codesys="HL70516" DisplayName="Warning" Source="Local"/>
+		<TableElement Code="E" Codesys="HL70516" DisplayName="Error" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70190_IZ" Codesys="" Id="HL70190_IZ" Name="Address type" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="C" Codesys="HL70190" DisplayName="Current or temporary" Source="Local"/>
+		<TableElement Code="P" Codesys="HL70190" DisplayName="Permanent" Source="Local"/>
+		<TableElement Code="M" Codesys="HL70190" DisplayName="Mailing" Source="Local"/>
+		<TableElement Code="B" Codesys="HL70190" DisplayName="Firm/Business" Source="Local"/>
+		<TableElement Code="O" Codesys="HL70190" DisplayName="Office" Source="Local"/>
+		<TableElement Code="H" Codesys="HL70190" DisplayName="Home" Source="Local"/>
+		<TableElement Code="N" Codesys="HL70190" DisplayName="Birth (nee)" Source="Local"/>
+		<TableElement Code="F" Codesys="HL70190" DisplayName="Country of origin" Source="Local"/>
+		<TableElement Code="L" Codesys="HL70190" DisplayName="Legal address" Source="Local"/>
+		<TableElement Code="BDL" Codesys="HL70190" DisplayName="Birth delivery location [use for birth facility]" Source="Local"/>
+		<TableElement Code="BR" Codesys="HL70190" DisplayName="Residence at birth [use for residence at birth]" Source="Local"/>
+		<TableElement Code="RH" Codesys="HL70190" DisplayName="Registry home" Source="Local"/>
+		<TableElement Code="BA" Codesys="HL70190" DisplayName="Bad address" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="MVX" Codesys="" Id="MVX" Name="Manufacturers of vaccines" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="AB" Codesys="MVX" DisplayName="Abbott Laboratories" Source="Local"/>
+		<TableElement Code="ACA" Codesys="MVX" DisplayName="Acambis, Inc" Source="Local"/>
+		<TableElement Code="AD" Codesys="MVX" DisplayName="Adams Laboratories, Inc." Source="Local"/>
+		<TableElement Code="AKR" Codesys="MVX" DisplayName="Akorn, Inc" Source="Local"/>
+		<TableElement Code="ALP" Codesys="MVX" DisplayName="Alpha Therapeutic Corporation" Source="Local"/>
+		<TableElement Code="AR" Codesys="MVX" DisplayName="Armour" Source="Local"/>
+		<TableElement Code="AVB" Codesys="MVX" DisplayName="Aventis Behring L.L.C." Source="Local"/>
+		<TableElement Code="AVI" Codesys="MVX" DisplayName="Aviron" Source="Local"/>
+		<TableElement Code="BA" Codesys="MVX" DisplayName="Baxter Healthcare Corporation-inactive" Source="Local"/>
+		<TableElement Code="BAH" Codesys="MVX" DisplayName="Baxter Healthcare Corporation" Source="Local"/>
+		<TableElement Code="BAY" Codesys="MVX" DisplayName="Bayer Corporation" Source="Local"/>
+		<TableElement Code="BP" Codesys="MVX" DisplayName="Berna Products" Source="Local"/>
+		<TableElement Code="BPC" Codesys="MVX" DisplayName="Berna Products Corporation" Source="Local"/>
+		<TableElement Code="BRR" Codesys="MVX" DisplayName="Barr Laboratories" Source="Local"/>
+		<TableElement Code="BTP" Codesys="MVX" DisplayName="Biotest Pharmaceuticals Corporation" Source="Local"/>
+		<TableElement Code="CEN" Codesys="MVX" DisplayName="Centeon L.L.C." Source="Local"/>
+		<TableElement Code="CHI" Codesys="MVX" DisplayName="Chiron Corporation" Source="Local"/>
+		<TableElement Code="CMP" Codesys="MVX" DisplayName="Celltech Medeva Pharmaceuticals" Source="Local"/>
+		<TableElement Code="CNJ" Codesys="MVX" DisplayName="Cangene Corporation" Source="Local"/>
+		<TableElement Code="CON" Codesys="MVX" DisplayName="Connaught" Source="Local"/>
+		<TableElement Code="CRU" Codesys="MVX" DisplayName="Crucell" Source="Local"/>
+		<TableElement Code="CSL" Codesys="MVX" DisplayName="CSL Behring, Inc" Source="Local"/>
+		<TableElement Code="DVC" Codesys="MVX" DisplayName="DynPort Vaccine Company, LLC" Source="Local"/>
+		<TableElement Code="EVN" Codesys="MVX" DisplayName="Evans Medical Limited" Source="Local"/>
+		<TableElement Code="GEO" Codesys="MVX" DisplayName="GeoVax Labs, Inc." Source="Local"/>
+		<TableElement Code="GRE" Codesys="MVX" DisplayName="Greer Laboratories, Inc." Source="Local"/>
+		<TableElement Code="GRF" Codesys="MVX" DisplayName="Grifols" Source="Local"/>
+		<TableElement Code="IAG" Codesys="MVX" DisplayName="Immuno International AG" Source="Local"/>
+		<TableElement Code="IDB" Codesys="MVX" DisplayName="ID Biomedical" Source="Local"/>
+		<TableElement Code="IM" Codesys="MVX" DisplayName="Merieux" Source="Local"/>
+		<TableElement Code="INT" Codesys="MVX" DisplayName="Intercell Biomedical" Source="Local"/>
+		<TableElement Code="IUS" Codesys="MVX" DisplayName="Immuno-U.S., Inc." Source="Local"/>
+		<TableElement Code="JNJ" Codesys="MVX" DisplayName="Johnson and Johnson" Source="Local"/>
+		<TableElement Code="JPN" Codesys="MVX" DisplayName="The Research Foundation for Microbial Diseases of Osaka University (BIKEN)" Source="Local"/>
+		<TableElement Code="KGC" Codesys="MVX" DisplayName="Korea Green Cross Corporation" Source="Local"/>
+		<TableElement Code="LED" Codesys="MVX" DisplayName="Lederle" Source="Local"/>
+		<TableElement Code="MA" Codesys="MVX" DisplayName="Massachusetts Public Health Biologic Laboratories" Source="Local"/>
+		<TableElement Code="MBL" Codesys="MVX" DisplayName="Massachusetts Biologic Laboratories" Source="Local"/>
+		<TableElement Code="MED" Codesys="MVX" DisplayName="MedImmune, Inc." Source="Local"/>
+		<TableElement Code="MIL" Codesys="MVX" DisplayName="Miles" Source="Local"/>
+		<TableElement Code="MIP" Codesys="MVX" DisplayName="Emergent BioDefense Operations Lansing" Source="Local"/>
+		<TableElement Code="MSD" Codesys="MVX" DisplayName="Merck and Co., Inc." Source="Local"/>
+		<TableElement Code="NAB" Codesys="MVX" DisplayName="NABI" Source="Local"/>
+		<TableElement Code="NAV" Codesys="MVX" DisplayName="North American Vaccine, Inc." Source="Local"/>
+		<TableElement Code="NOV" Codesys="MVX" DisplayName="Novartis Pharmaceutical Corporation" Source="Local"/>
+		<TableElement Code="NVX" Codesys="MVX" DisplayName="Novavax, Inc." Source="Local"/>
+		<TableElement Code="NYB" Codesys="MVX" DisplayName="New York Blood Center" Source="Local"/>
+		<TableElement Code="ORT" Codesys="MVX" DisplayName="Ortho-clinical Diagnostics" Source="Local"/>
+		<TableElement Code="OTC" Codesys="MVX" DisplayName="Organon Teknika Corporation" Source="Local"/>
+		<TableElement Code="OTH" Codesys="MVX" DisplayName="Other manufacturer" Source="Local"/>
+		<TableElement Code="PD" Codesys="MVX" DisplayName="Parkedale Pharmaceuticals" Source="Local"/>
+		<TableElement Code="PFR" Codesys="MVX" DisplayName="Pfizer, Inc" Source="Local"/>
+		<TableElement Code="PMC" Codesys="MVX" DisplayName="sanofi pasteur" Source="Local"/>
+		<TableElement Code="PRX" Codesys="MVX" DisplayName="Praxis Biologics" Source="Local"/>
+		<TableElement Code="PSC" Codesys="MVX" DisplayName="Protein Sciences" Source="Local"/>
+		<TableElement Code="PWJ" Codesys="MVX" DisplayName="PowderJect Pharmaceuticals" Source="Local"/>
+		<TableElement Code="SCL" Codesys="MVX" DisplayName="Sclavo, Inc." Source="Local"/>
+		<TableElement Code="SI" Codesys="MVX" DisplayName="Swiss Serum and Vaccine Inst." Source="Local"/>
+		<TableElement Code="SKB" Codesys="MVX" DisplayName="GlaxoSmithKline" Source="Local"/>
+		<TableElement Code="SOL" Codesys="MVX" DisplayName="Solvay Pharmaceuticals" Source="Local"/>
+		<TableElement Code="TAL" Codesys="MVX" DisplayName="Talecris Biotherapeutics" Source="Local"/>
+		<TableElement Code="UNK" Codesys="MVX" DisplayName="Unknown manufacturer" Source="Local"/>
+		<TableElement Code="USA" Codesys="MVX" DisplayName="United States Army Medical Research and Material Command" Source="Local"/>
+		<TableElement Code="VXG" Codesys="MVX" DisplayName="VaxGen" Source="Local"/>
+		<TableElement Code="WA" Codesys="MVX" DisplayName="Wyeth-Ayerst" Source="Local"/>
+		<TableElement Code="WAL" Codesys="MVX" DisplayName="Wyeth" Source="Local"/>
+		<TableElement Code="ZLB" Codesys="MVX" DisplayName="ZLB Behring" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70163_IZ" Codesys="" Id="HL70163_IZ" Name="Administrative site" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="LT" Codesys="HL70163" DisplayName="Left Thigh" Source="Local"/>
+		<TableElement Code="LA" Codesys="HL70163" DisplayName="Left Arm" Source="Local"/>
+		<TableElement Code="LD" Codesys="HL70163" DisplayName="Left Deltoid" Source="Local"/>
+		<TableElement Code="LG" Codesys="HL70163" DisplayName="Left Gluteous Medius" Source="Local"/>
+		<TableElement Code="LVL" Codesys="HL70163" DisplayName="Left Vastus Lateralis" Source="Local"/>
+		<TableElement Code="LLFA" Codesys="HL70163" DisplayName="Left Lower Forearm" Source="Local"/>
+		<TableElement Code="RA" Codesys="HL70163" DisplayName="Right Arm" Source="Local"/>
+		<TableElement Code="RT" Codesys="HL70163" DisplayName="Right Thigh" Source="Local"/>
+		<TableElement Code="RVL" Codesys="HL70163" DisplayName="Right Vastus Lateralis" Source="Local"/>
+		<TableElement Code="RG" Codesys="HL70163" DisplayName="Right Gluteous Medius" Source="Local"/>
+		<TableElement Code="RD" Codesys="HL70163" DisplayName="Right Deltoid" Source="Local"/>
+		<TableElement Code="RLFA" Codesys="HL70163" DisplayName="Right Lower Forearm" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70322_IZ" Codesys="" Id="HL70322_IZ" Name="Completion status" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="CP" Codesys="HL70322" DisplayName="Complete" Source="Local"/>
+		<TableElement Code="RE" Codesys="HL70322" DisplayName="Refused" Source="Local"/>
+		<TableElement Code="NA" Codesys="HL70322" DisplayName="Not Administered" Source="Local"/>
+		<TableElement Code="PA" Codesys="HL70322" DisplayName="Partially Administered" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70396_IZ" Codesys="" Id="HL70396_IZ" Name="Coding system" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="99zzz or L" Codesys="HL70396" DisplayName="Local general code (where z is an alphanumeric character)" Source="Local"/>
+		<TableElement Code="ART" Codesys="HL70396" DisplayName="WHO Adverse Reaction Terms" Source="Local"/>
+		<TableElement Code="C4" Codesys="HL70396" DisplayName="CPT-4" Source="Local"/>
+		<TableElement Code="C5" Codesys="HL70396" DisplayName="CPT-5" Source="Local"/>
+		<TableElement Code="CDCA" Codesys="HL70396" DisplayName="CDC Analyte Codes" Source="Local"/>
+		<TableElement Code="CDCM" Codesys="HL70396" DisplayName="CDC Methods/Instruments Codes" Source="Local"/>
+		<TableElement Code="CDCPHINVS" Codesys="HL70396" DisplayName="PHIN VS (CDC Local Coding System)" Source="Local"/>
+		<TableElement Code="CDS" Codesys="HL70396" DisplayName="CDC Surveillance" Source="Local"/>
+		<TableElement Code="CPTM" Codesys="HL70396" DisplayName="CPT Modifier Code" Source="Local"/>
+		<TableElement Code="CST" Codesys="HL70396" DisplayName="COSTART" Source="Local"/>
+		<TableElement Code="CVX" Codesys="HL70396" DisplayName="CDC Vaccine Codes" Source="Local"/>
+		<TableElement Code="E" Codesys="HL70396" DisplayName="EUCLIDES" Source="Local"/>
+		<TableElement Code="E5" Codesys="HL70396" DisplayName="Euclides  quantity codes" Source="Local"/>
+		<TableElement Code="E6" Codesys="HL70396" DisplayName="Euclides Lab method codes" Source="Local"/>
+		<TableElement Code="E7" Codesys="HL70396" DisplayName="Euclides Lab equipment codes" Source="Local"/>
+		<TableElement Code="ENZC" Codesys="HL70396" DisplayName="Enzyme Codes" Source="Local"/>
+		<TableElement Code="HB" Codesys="HL70396" DisplayName="HIBCC" Source="Local"/>
+		<TableElement Code="HCPCS" Codesys="HL70396" DisplayName="HCFA Common Procedure Coding System" Source="Local"/>
+		<TableElement Code="HHC" Codesys="HL70396" DisplayName="Home Health Care" Source="Local"/>
+		<TableElement Code="HL7nnnn" Codesys="HL70396" DisplayName="HL7 Defined Codes where nnnn is the HL7 table number" Source="Local"/>
+		<TableElement Code="HPC" Codesys="HL70396" DisplayName="HCFA Procedure Codes (HCPCS)" Source="Local"/>
+		<TableElement Code="I10" Codesys="HL70396" DisplayName="ICD-10" Source="Local"/>
+		<TableElement Code="I10P" Codesys="HL70396" DisplayName="ICD-10  Procedure Codes" Source="Local"/>
+		<TableElement Code="I9" Codesys="HL70396" DisplayName="ICD9" Source="Local"/>
+		<TableElement Code="I9C" Codesys="HL70396" DisplayName="ICD-9CM" Source="Local"/>
+		<TableElement Code="ISOnnnn" Codesys="HL70396" DisplayName="ISO Defined Codes where nnnn is the ISO table number" Source="Local"/>
+		<TableElement Code="LB" Codesys="HL70396" DisplayName="Local billing code" Source="Local"/>
+		<TableElement Code="LN" Codesys="HL70396" DisplayName="Logical Observation Identifier Names and Codes (LOINC占쏙옙" Source="Local"/>
+		<TableElement Code="MCD" Codesys="HL70396" DisplayName="Medicaid" Source="Local"/>
+		<TableElement Code="MCR" Codesys="HL70396" DisplayName="Medicare" Source="Local"/>
+		<TableElement Code="MEDR" Codesys="HL70396" DisplayName="Medical Dictionary for Drug Regulatory Affairs (MEDDRA)" Source="Local"/>
+		<TableElement Code="MVX" Codesys="HL70396" DisplayName="CDC Vaccine Manufacturer Codes" Source="Local"/>
+		<TableElement Code="NDC" Codesys="HL70396" DisplayName="National drug codes" Source="Local"/>
+		<TableElement Code="NCIT" Codesys="HL70396" DisplayName="NCI Thesaurus" Source="Local"/>
+		<TableElement Code="NPI" Codesys="HL70396" DisplayName="National Provider Identifier" Source="Local"/>
+		<TableElement Code="SNM" Codesys="HL70396" DisplayName="Systemized Nomenclature of Medicine (SNOMED占쏙옙" Source="Local"/>
+		<TableElement Code="SCT" Codesys="HL70396" DisplayName="SNOMED Clinical Terminology" Source="Local"/>
+		<TableElement Code="SCT2" Codesys="HL70396" DisplayName="SNOMED Clinical Terms alphanumeric codes" Source="Local"/>
+		<TableElement Code="SNM3" Codesys="HL70396" DisplayName="SNOMED International" Source="Local"/>
+		<TableElement Code="SNT" Codesys="HL70396" DisplayName="SNOMED topology codes (anatomic sites)" Source="Local"/>
+		<TableElement Code="UML" Codesys="HL70396" DisplayName="Unified Medical Language" Source="Local"/>
+		<TableElement Code="UPC" Codesys="HL70396" DisplayName="Universal Product Code" Source="Local"/>
+		<TableElement Code="UPIN" Codesys="HL70396" DisplayName="UPIN" Source="Local"/>
+		<TableElement Code="W1" Codesys="HL70396" DisplayName="WHO record # drug codes (6 digit)" Source="Local"/>
+		<TableElement Code="W2" Codesys="HL70396" DisplayName="WHO record # drug codes (8 digit)" Source="Local"/>
+		<TableElement Code="W4" Codesys="HL70396" DisplayName="WHO record # code with ASTM extension" Source="Local"/>
+		<TableElement Code="WC" Codesys="HL70396" DisplayName="WHO ATC" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70208_IZ" Codesys="" Id="HL70208_IZ" Name="Query response status" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="OK" Codesys="HL70208" DisplayName="Data found, no errors (this is the default)" Source="Local"/>
+		<TableElement Code="NF" Codesys="HL70208" DisplayName="No data found, no errors" Source="Local"/>
+		<TableElement Code="AE" Codesys="HL70208" DisplayName="Application error" Source="Local"/>
+		<TableElement Code="AR" Codesys="HL70208" DisplayName="Application reject" Source="Local"/>
+		<TableElement Code="TM" Codesys="HL70208" DisplayName="Too many candidates found" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70203_IZ" Codesys="" Id="HL70203_IZ" Name="Identifier type" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="AN" Codesys="HL70203" DisplayName="Account number " Source="Local"/>
+		<TableElement Code="ANON" Codesys="HL70203" DisplayName="Anonymous identifier" Source="Local"/>
+		<TableElement Code="ANC" Codesys="HL70203" DisplayName="Account number Creditor" Source="Local"/>
+		<TableElement Code="AND" Codesys="HL70203" DisplayName="Account number debitor" Source="Local"/>
+		<TableElement Code="ANT" Codesys="HL70203" DisplayName="Temporary Account Number" Source="Local"/>
+		<TableElement Code="APRN" Codesys="HL70203" DisplayName="Advanced Practice Registered Nurse number" Source="Local"/>
+		<TableElement Code="BA" Codesys="HL70203" DisplayName="Bank Account Number" Source="Local"/>
+		<TableElement Code="BC" Codesys="HL70203" DisplayName="Bank Card Number" Source="Local"/>
+		<TableElement Code="BR" Codesys="HL70203" DisplayName="Birth registry number" Source="Local"/>
+		<TableElement Code="CC" Codesys="HL70203" DisplayName="Cost Center number" Source="Local"/>
+		<TableElement Code="CY" Codesys="HL70203" DisplayName="County number" Source="Local"/>
+		<TableElement Code="DDS" Codesys="HL70203" DisplayName="Dentist license number" Source="Local"/>
+		<TableElement Code="DEA" Codesys="HL70203" DisplayName="Drug Enforcement Administration registration number" Source="Local"/>
+		<TableElement Code="DFN" Codesys="HL70203" DisplayName="Drug Furnishing or prescriptive authority Number" Source="Local"/>
+		<TableElement Code="DL" Codesys="HL70203" DisplayName="Driver占쎌뀼 license number" Source="Local"/>
+		<TableElement Code="DN" Codesys="HL70203" DisplayName="Doctor number" Source="Local"/>
+		<TableElement Code="DPM" Codesys="HL70203" DisplayName="Podiatrist license number" Source="Local"/>
+		<TableElement Code="DO" Codesys="HL70203" DisplayName="Osteopathic License number" Source="Local"/>
+		<TableElement Code="DR" Codesys="HL70203" DisplayName="Donor Registration Number" Source="Local"/>
+		<TableElement Code="EI" Codesys="HL70203" DisplayName="Employee number" Source="Local"/>
+		<TableElement Code="EN" Codesys="HL70203" DisplayName="Employer number" Source="Local"/>
+		<TableElement Code="FI" Codesys="HL70203" DisplayName="Facility ID" Source="Local"/>
+		<TableElement Code="GI" Codesys="HL70203" DisplayName="Guarantor internal identifier" Source="Local"/>
+		<TableElement Code="GL" Codesys="HL70203" DisplayName="General ledger number" Source="Local"/>
+		<TableElement Code="GN" Codesys="HL70203" DisplayName="Guarantor external  identifier" Source="Local"/>
+		<TableElement Code="HC" Codesys="HL70203" DisplayName="Health Card Number" Source="Local"/>
+		<TableElement Code="JHN" Codesys="HL70203" DisplayName="Jurisdictional health number (Canada)" Source="Local"/>
+		<TableElement Code="IND" Codesys="HL70203" DisplayName="Indigenous/Aboriginal " Source="Local"/>
+		<TableElement Code="LI" Codesys="HL70203" DisplayName="Labor and industries number" Source="Local"/>
+		<TableElement Code="LN" Codesys="HL70203" DisplayName="License number" Source="Local"/>
+		<TableElement Code="LR" Codesys="HL70203" DisplayName="Local Registry ID" Source="Local"/>
+		<TableElement Code="MA" Codesys="HL70203" DisplayName="Patient Medicaid number" Source="Local"/>
+		<TableElement Code="MB" Codesys="HL70203" DisplayName="Member Number" Source="Local"/>
+		<TableElement Code="MC" Codesys="HL70203" DisplayName="Patient's Medicare number" Source="Local"/>
+		<TableElement Code="MCD" Codesys="HL70203" DisplayName="Practitioner Medicaid number" Source="Local"/>
+		<TableElement Code="MCN" Codesys="HL70203" DisplayName="Microchip Number" Source="Local"/>
+		<TableElement Code="MCR" Codesys="HL70203" DisplayName="Practitioner Medicare number" Source="Local"/>
+		<TableElement Code="MD" Codesys="HL70203" DisplayName="Medical License number" Source="Local"/>
+		<TableElement Code="MI" Codesys="HL70203" DisplayName="Military ID number" Source="Local"/>
+		<TableElement Code="MR" Codesys="HL70203" DisplayName="Medical record number" Source="Local"/>
+		<TableElement Code="MRT" Codesys="HL70203" DisplayName="Temporary Medical Record Number" Source="Local"/>
+		<TableElement Code="NE" Codesys="HL70203" DisplayName="National employer identifier" Source="Local"/>
+		<TableElement Code="NH" Codesys="HL70203" DisplayName="National Health Plan Identifier" Source="Local"/>
+		<TableElement Code="NI" Codesys="HL70203" DisplayName="National unique individual identifier" Source="Local"/>
+		<TableElement Code="NII" Codesys="HL70203" DisplayName="National Insurance Organization Identifier" Source="Local"/>
+		<TableElement Code="NIIP" Codesys="HL70203" DisplayName="National Insurance Payor Identifier (Payor)" Source="Local"/>
+		<TableElement Code="NNxxx" Codesys="HL70203" DisplayName="National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code" Source="Local"/>
+		<TableElement Code="NP" Codesys="HL70203" DisplayName="Nurse practitioner number" Source="Local"/>
+		<TableElement Code="NPI" Codesys="HL70203" DisplayName="National provider identifier" Source="Local"/>
+		<TableElement Code="OD" Codesys="HL70203" DisplayName="Optometrist license number" Source="Local"/>
+		<TableElement Code="PA" Codesys="HL70203" DisplayName="Physician Assistant number" Source="Local"/>
+		<TableElement Code="PCN" Codesys="HL70203" DisplayName="Penitentiary/correctional institution Number" Source="Local"/>
+		<TableElement Code="PE" Codesys="HL70203" DisplayName="Living Subject Enterprise Number" Source="Local"/>
+		<TableElement Code="PEN" Codesys="HL70203" DisplayName="Pension Number" Source="Local"/>
+		<TableElement Code="PI" Codesys="HL70203" DisplayName="Patient internal identifier" Source="Local"/>
+		<TableElement Code="PN" Codesys="HL70203" DisplayName="Person number" Source="Local"/>
+		<TableElement Code="PNT" Codesys="HL70203" DisplayName="Temporary Living Subject Number" Source="Local"/>
+		<TableElement Code="PPN" Codesys="HL70203" DisplayName="Passport number" Source="Local"/>
+		<TableElement Code="PRC" Codesys="HL70203" DisplayName="Permanent Resident Card Number" Source="Local"/>
+		<TableElement Code="PRN" Codesys="HL70203" DisplayName="Provider number" Source="Local"/>
+		<TableElement Code="PT" Codesys="HL70203" DisplayName="Patient external identifier" Source="Local"/>
+		<TableElement Code="QA" Codesys="HL70203" DisplayName="QA number" Source="Local"/>
+		<TableElement Code="RI" Codesys="HL70203" DisplayName="Resource identifier" Source="Local"/>
+		<TableElement Code="RPH" Codesys="HL70203" DisplayName="Pharmacist license number" Source="Local"/>
+		<TableElement Code="RN" Codesys="HL70203" DisplayName="Registered Nurse Number" Source="Local"/>
+		<TableElement Code="RR" Codesys="HL70203" DisplayName="Railroad Retirement number" Source="Local"/>
+		<TableElement Code="RRI" Codesys="HL70203" DisplayName="Regional registry ID" Source="Local"/>
+		<TableElement Code="SL" Codesys="HL70203" DisplayName="State license" Source="Local"/>
+		<TableElement Code="SN" Codesys="HL70203" DisplayName="Subscriber Number" Source="Local"/>
+		<TableElement Code="SR" Codesys="HL70203" DisplayName="State registry ID" Source="Local"/>
+		<TableElement Code="SS" Codesys="HL70203" DisplayName="Social Security number " Source="Local"/>
+		<TableElement Code="TAX" Codesys="HL70203" DisplayName="Tax ID number" Source="Local"/>
+		<TableElement Code="U" Codesys="HL70203" DisplayName="Unspecified identifier" Source="Local"/>
+		<TableElement Code="UPIN" Codesys="HL70203" DisplayName="Medicare/CMS (formerly HCFA)占쎌뀼 Universal Physician Identification numbers" Source="Local"/>
+		<TableElement Code="VN" Codesys="HL70203" DisplayName="Visit number" Source="Local"/>
+		<TableElement Code="WC" Codesys="HL70203" DisplayName="WIC identifier" Source="Local"/>
+		<TableElement Code="WCN" Codesys="HL70203" DisplayName="Workers占쏙옙Comp Number" Source="Local"/>
+		<TableElement Code="XX" Codesys="HL70203" DisplayName="Organization identifier" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70008_IZ" Codesys="" Id="HL70008_IZ" Name="Acknowledgment code" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="AA" Codesys="HL70008" DisplayName="Original mode: Application Accept, Enhanced mode: Application acknowledgment: Accept" Source="Local"/>
+		<TableElement Code="AE" Codesys="HL70008" DisplayName="Original mode: Application Error, Enhanced mode: Application acknowledgment: Error" Source="Local"/>
+		<TableElement Code="AR" Codesys="HL70008" DisplayName="Original mode: Application Reject, Enhanced mode: Application acknowledgment: Reject" Source="Local"/>
+		<TableElement Code="CA" Codesys="HL70008" DisplayName="Enhanced mode: Accept acknowledgment: Commit Accept" Source="Local"/>
+		<TableElement Code="CE" Codesys="HL70008" DisplayName="Enhanced mode: Accept acknowledgment: Commit Error" Source="Local"/>
+		<TableElement Code="CR" Codesys="HL70008" DisplayName="Enhanced mode: Accept acknowledgment: Commit Reject" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="CDCREC" Codesys="" Id="CDCREC" Name="Ethnic Group" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="2135-2" Codesys="CDCREC" DisplayName="Hispanic or Latino" Source="Local"/>
+		<TableElement Code="2186-5" Codesys="CDCREC" DisplayName="not Hispanic or Latino" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="CVX" Codesys="" Id="CVX" Name="Codes for Vaccines administered" Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="99" Codesys="CVX" DisplayName="RESERVED - do not use" Source="Local"/>
+		<TableElement Code="998" Codesys="CVX" DisplayName="no vaccine administered" Source="Local"/>
+		<TableElement Code="999" Codesys="CVX" DisplayName="unknown vaccine or immune globulin" Source="Local"/>
+		<TableElement Code="143" Codesys="CVX" DisplayName="Adenovirus, type 4 and type 7, live, oral" Source="Local"/>
+		<TableElement Code="54" Codesys="CVX" DisplayName="adenovirus vaccine, type 4, live, oral" Source="Local"/>
+		<TableElement Code="55" Codesys="CVX" DisplayName="adenovirus vaccine, type 7, live, oral" Source="Local"/>
+		<TableElement Code="82" Codesys="CVX" DisplayName="adenovirus vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="24" Codesys="CVX" DisplayName="anthrax vaccine" Source="Local"/>
+		<TableElement Code="801" Codesys="CVX" DisplayName="AS03 Adjuvant" Source="Local"/>
+		<TableElement Code="19" Codesys="CVX" DisplayName="Bacillus Calmette-Guerin vaccine" Source="Local"/>
+		<TableElement Code="27" Codesys="CVX" DisplayName="botulinum antitoxin" Source="Local"/>
+		<TableElement Code="26" Codesys="CVX" DisplayName="cholera vaccine" Source="Local"/>
+		<TableElement Code="29" Codesys="CVX" DisplayName="cytomegalovirus immune globulin, intravenous" Source="Local"/>
+		<TableElement Code="56" Codesys="CVX" DisplayName="dengue fever vaccine" Source="Local"/>
+		<TableElement Code="12" Codesys="CVX" DisplayName="diphtheria antitoxin" Source="Local"/>
+		<TableElement Code="28" Codesys="CVX" DisplayName="diphtheria and tetanus toxoids, adsorbed for pediatric use" Source="Local"/>
+		<TableElement Code="20" Codesys="CVX" DisplayName="diphtheria, tetanus toxoids and acellular pertussis vaccine" Source="Local"/>
+		<TableElement Code="106" Codesys="CVX" DisplayName="diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis antigens" Source="Local"/>
+		<TableElement Code="107" Codesys="CVX" DisplayName="diphtheria, tetanus toxoids and acellular pertussis vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="146" Codesys="CVX" DisplayName="Diphtheria and Tetanus Toxoids and Acellular Pertussis Adsorbed, Inactivated Poliovirus, Haemophilus b Conjugate (Meningococcal Outer Membrane Protein Complex), and Hepatitis B (Recombinant) Vaccine." Source="Local"/>
+		<TableElement Code="110" Codesys="CVX" DisplayName="DTaP-hepatitis B and poliovirus vaccine" Source="Local"/>
+		<TableElement Code="50" Codesys="CVX" DisplayName="DTaP-Haemophilus influenzae type b conjugate vaccine" Source="Local"/>
+		<TableElement Code="120" Codesys="CVX" DisplayName="diphtheria, tetanus toxoids and acellular pertussis vaccine, Haemophilus influenzae type b conjugate, and poliovirus vaccine, inactivated (DTaP-Hib-IPV)" Source="Local"/>
+		<TableElement Code="130" Codesys="CVX" DisplayName="Diphtheria, tetanus toxoids and acellular pertussis vaccine, and poliovirus vaccine, inactivated" Source="Local"/>
+		<TableElement Code="132" Codesys="CVX" DisplayName="Historical record of vaccine containing * diphtheria, tetanus toxoids and acellular pertussis, * poliovirus, inactivated, * Haemophilus influenzae type b conjugate, * Hepatitis B aP-Hib-IPV)" Source="Local"/>
+		<TableElement Code="01" Codesys="CVX" DisplayName="diphtheria, tetanus toxoids and pertussis vaccine" Source="Local"/>
+		<TableElement Code="22" Codesys="CVX" DisplayName="DTP-Haemophilus influenzae type b conjugate vaccine" Source="Local"/>
+		<TableElement Code="102" Codesys="CVX" DisplayName="DTP- Haemophilus influenzae type b conjugate and hepatitis b vaccine" Source="Local"/>
+		<TableElement Code="57" Codesys="CVX" DisplayName="hantavirus vaccine" Source="Local"/>
+		<TableElement Code="30" Codesys="CVX" DisplayName="hepatitis B immune globulin" Source="Local"/>
+		<TableElement Code="52" Codesys="CVX" DisplayName="hepatitis A vaccine, adult dosage" Source="Local"/>
+		<TableElement Code="154" Codesys="CVX" DisplayName="Hepatitis A immune globulin" Source="Local"/>
+		<TableElement Code="83" Codesys="CVX" DisplayName="hepatitis A vaccine, pediatric/adolescent dosage, 2 dose schedule" Source="Local"/>
+		<TableElement Code="84" Codesys="CVX" DisplayName="hepatitis A vaccine, pediatric/adolescent dosage, 3 dose schedule" Source="Local"/>
+		<TableElement Code="31" Codesys="CVX" DisplayName="hepatitis A vaccine, pediatric dosage, unspecified formulation" Source="Local"/>
+		<TableElement Code="85" Codesys="CVX" DisplayName="hepatitis A vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="104" Codesys="CVX" DisplayName="hepatitis A and hepatitis B vaccine" Source="Local"/>
+		<TableElement Code="08" Codesys="CVX" DisplayName="hepatitis B vaccine, pediatric or pediatric/adolescent dosage" Source="Local"/>
+		<TableElement Code="42" Codesys="CVX" DisplayName="hepatitis B vaccine, adolescent/high risk infant dosage" Source="Local"/>
+		<TableElement Code="43" Codesys="CVX" DisplayName="hepatitis B vaccine, adult dosage" Source="Local"/>
+		<TableElement Code="44" Codesys="CVX" DisplayName="hepatitis B vaccine, dialysis patient dosage" Source="Local"/>
+		<TableElement Code="45" Codesys="CVX" DisplayName="hepatitis B vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="58" Codesys="CVX" DisplayName="hepatitis C vaccine" Source="Local"/>
+		<TableElement Code="59" Codesys="CVX" DisplayName="hepatitis E vaccine" Source="Local"/>
+		<TableElement Code="60" Codesys="CVX" DisplayName="herpes simplex virus, type 2 vaccine" Source="Local"/>
+		<TableElement Code="47" Codesys="CVX" DisplayName="Haemophilus influenzae type b vaccine, HbOC conjugate" Source="Local"/>
+		<TableElement Code="46" Codesys="CVX" DisplayName="Haemophilus influenzae type b vaccine, PRP-D conjugate" Source="Local"/>
+		<TableElement Code="49" Codesys="CVX" DisplayName="Haemophilus influenzae type b vaccine, PRP-OMP conjugate" Source="Local"/>
+		<TableElement Code="48" Codesys="CVX" DisplayName="Haemophilus influenzae type b vaccine, PRP-T conjugate" Source="Local"/>
+		<TableElement Code="17" Codesys="CVX" DisplayName="Haemophilus influenzae type b vaccine, conjugate unspecified formulation" Source="Local"/>
+		<TableElement Code="51" Codesys="CVX" DisplayName="Haemophilus influenzae type b conjugate and Hepatitis B vaccine" Source="Local"/>
+		<TableElement Code="61" Codesys="CVX" DisplayName="human immunodeficiency virus vaccine" Source="Local"/>
+		<TableElement Code="118" Codesys="CVX" DisplayName="human papilloma virus vaccine, bivalent" Source="Local"/>
+		<TableElement Code="62" Codesys="CVX" DisplayName="human papilloma virus vaccine, quadrivalent" Source="Local"/>
+		<TableElement Code="137" Codesys="CVX" DisplayName="HPV, unspecified formulation" Source="Local"/>
+		<TableElement Code="86" Codesys="CVX" DisplayName="immune globulin, intramuscular" Source="Local"/>
+		<TableElement Code="14" Codesys="CVX" DisplayName="immune globulin, unspecified formulation" Source="Local"/>
+		<TableElement Code="87" Codesys="CVX" DisplayName="immune globulin, intravenous" Source="Local"/>
+		<TableElement Code="160" Codesys="CVX" DisplayName="Influenza A monovalent (H5N1), adjuvanted, National stockpile 2013" Source="Local"/>
+		<TableElement Code="151" Codesys="CVX" DisplayName="influenza nasal, unspecified formulation" Source="Local"/>
+		<TableElement Code="123" Codesys="CVX" DisplayName="influenza virus vaccine, H5N1, A/Vietnam/1203/2004 (national stockpile)" Source="Local"/>
+		<TableElement Code="135" Codesys="CVX" DisplayName="influenza, high dose seasonal, preservative-free" Source="Local"/>
+		<TableElement Code="153" Codesys="CVX" DisplayName="Influenza, injectable, Madin Darby Canine Kidney, preservative free" Source="Local"/>
+		<TableElement Code="158" Codesys="CVX" DisplayName="influenza, injectable, quadrivalent, contains preservative" Source="Local"/>
+		<TableElement Code="150" Codesys="CVX" DisplayName="Influenza, injectable, quadrivalent, preservative free" Source="Local"/>
+		<TableElement Code="111" Codesys="CVX" DisplayName="influenza virus vaccine, live, attenuated, for intranasal use" Source="Local"/>
+		<TableElement Code="149" Codesys="CVX" DisplayName="influenza, live, intranasal, quadrivalent" Source="Local"/>
+		<TableElement Code="155" Codesys="CVX" DisplayName="Seasonal, trivalent, recombinant, injectable influenza vaccine, preservative free" Source="Local"/>
+		<TableElement Code="141" Codesys="CVX" DisplayName="Influenza, seasonal, injectable" Source="Local"/>
+		<TableElement Code="140" Codesys="CVX" DisplayName="Influenza, seasonal, injectable, preservative free" Source="Local"/>
+		<TableElement Code="144" Codesys="CVX" DisplayName="seasonal influenza, intradermal, preservative free" Source="Local"/>
+		<TableElement Code="15" Codesys="CVX" DisplayName="influenza virus vaccine, split virus (incl. purified surface antigen)-retired CODE" Source="Local"/>
+		<TableElement Code="88" Codesys="CVX" DisplayName="influenza virus vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="16" Codesys="CVX" DisplayName="influenza virus vaccine, whole virus" Source="Local"/>
+		<TableElement Code="10" Codesys="CVX" DisplayName="poliovirus vaccine, inactivated" Source="Local"/>
+		<TableElement Code="134" Codesys="CVX" DisplayName="Japanese Encephalitis vaccine for intramuscular administration" Source="Local"/>
+		<TableElement Code="39" Codesys="CVX" DisplayName="Japanese Encephalitis Vaccine SC" Source="Local"/>
+		<TableElement Code="129" Codesys="CVX" DisplayName="Japanese Encephalitis vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="63" Codesys="CVX" DisplayName="Junin virus vaccine" Source="Local"/>
+		<TableElement Code="64" Codesys="CVX" DisplayName="leishmaniasis vaccine" Source="Local"/>
+		<TableElement Code="65" Codesys="CVX" DisplayName="leprosy vaccine" Source="Local"/>
+		<TableElement Code="66" Codesys="CVX" DisplayName="Lyme disease vaccine" Source="Local"/>
+		<TableElement Code="04" Codesys="CVX" DisplayName="measles and rubella virus vaccine" Source="Local"/>
+		<TableElement Code="67" Codesys="CVX" DisplayName="malaria vaccine" Source="Local"/>
+		<TableElement Code="05" Codesys="CVX" DisplayName="measles virus vaccine" Source="Local"/>
+		<TableElement Code="68" Codesys="CVX" DisplayName="melanoma vaccine" Source="Local"/>
+		<TableElement Code="103" Codesys="CVX" DisplayName="meningococcal C conjugate vaccine" Source="Local"/>
+		<TableElement Code="148" Codesys="CVX" DisplayName="Meningococcal Groups C and Y and Haemophilus b Tetanus Toxoid Conjugate Vaccine" Source="Local"/>
+		<TableElement Code="147" Codesys="CVX" DisplayName="Meningococcal, MCV4, unspecified formulation(groups A, C, Y and W-135)" Source="Local"/>
+		<TableElement Code="136" Codesys="CVX" DisplayName="meningococcal oligosaccharide (groups A, C, Y and W-135) diphtheria toxoid conjugate vaccine (MCV4O)" Source="Local"/>
+		<TableElement Code="114" Codesys="CVX" DisplayName="meningococcal polysaccharide (groups A, C, Y and W-135) diphtheria toxoid conjugate vaccine (MCV4P)" Source="Local"/>
+		<TableElement Code="32" Codesys="CVX" DisplayName="meningococcal polysaccharide vaccine (MPSV4)" Source="Local"/>
+		<TableElement Code="108" Codesys="CVX" DisplayName="meningococcal vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="03" Codesys="CVX" DisplayName="measles, mumps and rubella virus vaccine" Source="Local"/>
+		<TableElement Code="94" Codesys="CVX" DisplayName="measles, mumps, rubella, and varicella virus vaccine" Source="Local"/>
+		<TableElement Code="07" Codesys="CVX" DisplayName="mumps virus vaccine" Source="Local"/>
+		<TableElement Code="127" Codesys="CVX" DisplayName="Novel influenza-H1N1-09, injectable" Source="Local"/>
+		<TableElement Code="128" Codesys="CVX" DisplayName="Novel influenza-H1N1-09, all formulations" Source="Local"/>
+		<TableElement Code="125" Codesys="CVX" DisplayName="Novel Influenza-H1N1-09, live virus for nasal administration" Source="Local"/>
+		<TableElement Code="126" Codesys="CVX" DisplayName="Novel influenza-H1N1-09, preservative-free, injectable" Source="Local"/>
+		<TableElement Code="02" Codesys="CVX" DisplayName="poliovirus vaccine, live, oral" Source="Local"/>
+		<TableElement Code="69" Codesys="CVX" DisplayName="parainfluenza-3 virus vaccine" Source="Local"/>
+		<TableElement Code="11" Codesys="CVX" DisplayName="pertussis vaccine" Source="Local"/>
+		<TableElement Code="23" Codesys="CVX" DisplayName="plague vaccine" Source="Local"/>
+		<TableElement Code="133" Codesys="CVX" DisplayName="pneumococcal conjugate vaccine, 13 valent" Source="Local"/>
+		<TableElement Code="100" Codesys="CVX" DisplayName="pneumococcal conjugate vaccine, 7 valent" Source="Local"/>
+		<TableElement Code="152" Codesys="CVX" DisplayName="Pneumococcal Conjugate, unspecified formulation" Source="Local"/>
+		<TableElement Code="33" Codesys="CVX" DisplayName="pneumococcal polysaccharide vaccine, 23 valent" Source="Local"/>
+		<TableElement Code="109" Codesys="CVX" DisplayName="pneumococcal vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="89" Codesys="CVX" DisplayName="poliovirus vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="70" Codesys="CVX" DisplayName="Q fever vaccine" Source="Local"/>
+		<TableElement Code="40" Codesys="CVX" DisplayName="rabies vaccine, for intradermal injection" Source="Local"/>
+		<TableElement Code="18" Codesys="CVX" DisplayName="rabies vaccine, for intramuscular injection" Source="Local"/>
+		<TableElement Code="90" Codesys="CVX" DisplayName="rabies vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="72" Codesys="CVX" DisplayName="rheumatic fever vaccine" Source="Local"/>
+		<TableElement Code="159" Codesys="CVX" DisplayName="Rho(D) Unspecified formulation" Source="Local"/>
+		<TableElement Code="157" Codesys="CVX" DisplayName="Rho(D) Immune globulin - IM" Source="Local"/>
+		<TableElement Code="156" Codesys="CVX" DisplayName="Rho(D) Immune globulin- IV or IM" Source="Local"/>
+		<TableElement Code="73" Codesys="CVX" DisplayName="Rift Valley fever vaccine" Source="Local"/>
+		<TableElement Code="34" Codesys="CVX" DisplayName="rabies immune globulin" Source="Local"/>
+		<TableElement Code="119" Codesys="CVX" DisplayName="rotavirus, live, monovalent vaccine" Source="Local"/>
+		<TableElement Code="116" Codesys="CVX" DisplayName="rotavirus, live, pentavalent vaccine" Source="Local"/>
+		<TableElement Code="74" Codesys="CVX" DisplayName="rotavirus, live, tetravalent vaccine" Source="Local"/>
+		<TableElement Code="122" Codesys="CVX" DisplayName="rotavirus vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="71" Codesys="CVX" DisplayName="respiratory syncytial virus immune globulin, intravenous" Source="Local"/>
+		<TableElement Code="93" Codesys="CVX" DisplayName="respiratory syncytial virus monoclonal antibody (palivizumab), intramuscular" Source="Local"/>
+		<TableElement Code="145" Codesys="CVX" DisplayName="respiratory syncytial virus monoclonal antibody (motavizumab), intramuscular" Source="Local"/>
+		<TableElement Code="06" Codesys="CVX" DisplayName="rubella virus vaccine" Source="Local"/>
+		<TableElement Code="38" Codesys="CVX" DisplayName="rubella and mumps virus vaccine" Source="Local"/>
+		<TableElement Code="76" Codesys="CVX" DisplayName="Staphylococcus bacteriophage lysate" Source="Local"/>
+		<TableElement Code="138" Codesys="CVX" DisplayName="tetanus and diphtheria toxoids, not adsorbed, for adult use" Source="Local"/>
+		<TableElement Code="113" Codesys="CVX" DisplayName="tetanus and diphtheria toxoids, adsorbed, preservative free, for adult use" Source="Local"/>
+		<TableElement Code="09" Codesys="CVX" DisplayName="tetanus and diphtheria toxoids, adsorbed, for adult use" Source="Local"/>
+		<TableElement Code="139" Codesys="CVX" DisplayName="Td(adult) unspecified formulation" Source="Local"/>
+		<TableElement Code="115" Codesys="CVX" DisplayName="tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis vaccine, adsorbed" Source="Local"/>
+		<TableElement Code="35" Codesys="CVX" DisplayName="tetanus toxoid, adsorbed" Source="Local"/>
+		<TableElement Code="142" Codesys="CVX" DisplayName="tetanus toxoid, not adsorbed" Source="Local"/>
+		<TableElement Code="112" Codesys="CVX" DisplayName="tetanus toxoid, unspecified formulation" Source="Local"/>
+		<TableElement Code="77" Codesys="CVX" DisplayName="tick-borne encephalitis vaccine" Source="Local"/>
+		<TableElement Code="13" Codesys="CVX" DisplayName="tetanus immune globulin" Source="Local"/>
+		<TableElement Code="98" Codesys="CVX" DisplayName="tuberculin skin test; unspecified formulation" Source="Local"/>
+		<TableElement Code="95" Codesys="CVX" DisplayName="tuberculin skin test; old tuberculin, multipuncture device" Source="Local"/>
+		<TableElement Code="96" Codesys="CVX" DisplayName="tuberculin skin test; purified protein derivative solution, intradermal" Source="Local"/>
+		<TableElement Code="97" Codesys="CVX" DisplayName="tuberculin skin test; purified protein derivative, multi-puncture device" Source="Local"/>
+		<TableElement Code="78" Codesys="CVX" DisplayName="tularemia vaccine" Source="Local"/>
+		<TableElement Code="25" Codesys="CVX" DisplayName="typhoid vaccine, live, oral" Source="Local"/>
+		<TableElement Code="41" Codesys="CVX" DisplayName="typhoid vaccine, parenteral, other than acetone-killed, dried" Source="Local"/>
+		<TableElement Code="53" Codesys="CVX" DisplayName="typhoid vaccine, parenteral, acetone-killed, dried (U.S. military)" Source="Local"/>
+		<TableElement Code="91" Codesys="CVX" DisplayName="typhoid vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="101" Codesys="CVX" DisplayName="typhoid Vi capsular polysaccharide vaccine" Source="Local"/>
+		<TableElement Code="131" Codesys="CVX" DisplayName="Historical record of a typhus vaccination" Source="Local"/>
+		<TableElement Code="75" Codesys="CVX" DisplayName="vaccinia (smallpox) vaccine" Source="Local"/>
+		<TableElement Code="105" Codesys="CVX" DisplayName="vaccinia (smallpox) vaccine, diluted" Source="Local"/>
+		<TableElement Code="79" Codesys="CVX" DisplayName="vaccinia immune globulin" Source="Local"/>
+		<TableElement Code="21" Codesys="CVX" DisplayName="varicella virus vaccine" Source="Local"/>
+		<TableElement Code="81" Codesys="CVX" DisplayName="Venezuelan equine encephalitis, inactivated" Source="Local"/>
+		<TableElement Code="80" Codesys="CVX" DisplayName="Venezuelan equine encephalitis, live, attenuated" Source="Local"/>
+		<TableElement Code="92" Codesys="CVX" DisplayName="Venezuelan equine encephalitis vaccine, unspecified formulation" Source="Local"/>
+		<TableElement Code="36" Codesys="CVX" DisplayName="varicella zoster immune globulin" Source="Local"/>
+		<TableElement Code="117" Codesys="CVX" DisplayName="varicella zoster immune globulin (Investigational New Drug)" Source="Local"/>
+		<TableElement Code="37" Codesys="CVX" DisplayName="yellow fever vaccine" Source="Local"/>
+		<TableElement Code="121" Codesys="CVX" DisplayName="zoster vaccine, live" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="HL70126_IZ" Codesys="" Id="HL70126_IZ" Name="Quantity limited request " Oid="" Type="HL7" Version="1.5">
+		<TableElement Code="RD" Codesys="HL70126" DisplayName="records" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="PHVS_ImmunizationFundingSource_IIS" Codesys="PHVS_ImmunizationFundingSource_IIS" Id="PHVS_ImmunizationFundingSource_IIS" Name="Immunization Funding Source (IIS)" Oid="2.16.840.1.114222.4.11.3287" Type="External" Version="1">
+		<TableElement Code="PHC70" Codesys="CDCPHINVS" DisplayName="Private funds " Source="Local"/>
+		<TableElement Code="VXC1" Codesys="CDCPHINVS" DisplayName="Federal funds " Source="Local"/>
+		<TableElement Code="VXC2" Codesys="CDCPHINVS" DisplayName="State funds" Source="Local"/>
+		<TableElement Code="PHC68" Codesys="CDCPHINVS" DisplayName="Military funds " Source="Local"/>
+		<TableElement Code="VXC3" Codesys="CDCPHINVS" DisplayName="Tribal funds" Source="Local"/>
+		<TableElement Code="OTH" Codesys="NULLFL" DisplayName="Other " Source="Local"/>
+		<TableElement Code="UNK" Codesys="NULLFL" DisplayName="Unspecified" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="PHVS_VaccinationContraindication_IIS" Codesys="PHVS_VaccinationContraindication_IIS" Id="PHVS_VaccinationContraindication_IIS" Name="Vaccination Contraindication (IIS)" Oid="2.16.840.1.114222.4.11.3288" Type="External" Version="1">
+		<TableElement Code="VXC30" Codesys="CDCPHINVS" DisplayName="allergy (anaphylactic)  to proteins of rodent or neural origin" Source="Local"/>
+		<TableElement Code="VXC17" Codesys="CDCPHINVS" DisplayName="allergy (anaphylactic) to 2-phenoxyethanol" Source="Local"/>
+		<TableElement Code="VXC18" Codesys="CDCPHINVS" DisplayName="allergy to baker’s yeast (anaphylactic)" Source="Local"/>
+		<TableElement Code="91930004" Codesys="SCT" DisplayName="Allergy to eggs (disorder)" Source="Local"/>
+		<TableElement Code="294847001" Codesys="SCT" DisplayName="Gelatin allergy (disorder)" Source="Local"/>
+		<TableElement Code="294468006" Codesys="SCT" DisplayName="Neomycin allergy (disorder)" Source="Local"/>
+		<TableElement Code="294466005" Codesys="SCT" DisplayName="Streptomycin allergy (disorder)" Source="Local"/>
+		<TableElement Code="VXC19" Codesys="CDCPHINVS" DisplayName="allergy to thimerosal (anaphylactic)" Source="Local"/>
+		<TableElement Code="VXC20" Codesys="CDCPHINVS" DisplayName="allergy to previous dose of this vaccine or to any of its unlisted vaccine components (anaphylactic)" Source="Local"/>
+		<TableElement Code="402306009" Codesys="SCT" DisplayName="Allergy to aluminum (disorder)" Source="Local"/>
+		<TableElement Code="300916003" Codesys="SCT" DisplayName="Latex allergy (disorder)" Source="Local"/>
+		<TableElement Code="294530006" Codesys="SCT" DisplayName="Polymyxin B allergy (disorder)" Source="Local"/>
+		<TableElement Code="VXC21" Codesys="CDCPHINVS" DisplayName="Previous history of intussusception" Source="Local"/>
+		<TableElement Code="VXC22" Codesys="CDCPHINVS" DisplayName="encephalopathy within 7 days of previous dose of DTP or DTaP" Source="Local"/>
+		<TableElement Code="VXC23" Codesys="CDCPHINVS" DisplayName="current fever with moderate-to-severe illness" Source="Local"/>
+		<TableElement Code="VXC24" Codesys="CDCPHINVS" DisplayName="current acute illness, moderate to severe (with or without fever) (e.g., diarrhea, otitis media, vomiting)" Source="Local"/>
+		<TableElement Code="27624003" Codesys="SCT" DisplayName="Chronic disease (disorder)" Source="Local"/>
+		<TableElement Code="VXC25" Codesys="CDCPHINVS" DisplayName="History of Arthus hypersensitivity reaction to a tetanus-containing vaccine administered &lt; 10 yrs previously" Source="Local"/>
+		<TableElement Code="VXC26" Codesys="CDCPHINVS" DisplayName="underlying unstable, evolving neurologic disorders, (including seizure disorders, cerebral palsy, and developmental delay)" Source="Local"/>
+		<TableElement Code="VXC27" Codesys="CDCPHINVS" DisplayName="immunodeficiency due to any cause, including HIV (hematologic and solid tumors, congenital immunodeficiency, long-term immunosuppressive therapy, including steroids)" Source="Local"/>
+		<TableElement Code="77386006" Codesys="SCT" DisplayName="Patient currently pregnant (finding)" Source="Local"/>
+		<TableElement Code="302215000" Codesys="SCT" DisplayName="Thrombocytopenic disorder (disorder)" Source="Local"/>
+		<TableElement Code="161461006" Codesys="SCT" DisplayName="History of - purpura (situation)" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="PHVS_VaccinationReaction_IIS" Codesys="PHVS_VaccinationReaction_IIS" Id="PHVS_VaccinationReaction_IIS" Name="Vaccination Reaction and Adverse Event (IIS)" Oid="2.16.840.1.114222.4.11.3289" Type="External" Version="2">
+		<TableElement Code="39579001" Codesys="SCT" DisplayName="Anaphylaxis" Source="Local"/>
+		<TableElement Code="81308009" Codesys="SCT" DisplayName="Encephalopathy" Source="Local"/>
+		<TableElement Code="VXC9" Codesys="CDCPHINVS" DisplayName="persistent, inconsolable crying lasting > 3 hours within 48 hours of dose " Source="Local"/>
+		<TableElement Code="VXC10" Codesys="CDCPHINVS" DisplayName="collapse or shock-like state within 48 hours of dose" Source="Local"/>
+		<TableElement Code="VXC11" Codesys="CDCPHINVS" DisplayName="convulsions (fits, seizures) within 72 hours of dose" Source="Local"/>
+		<TableElement Code="VXC12" Codesys="CDCPHINVS" DisplayName="fever of >40.5C (105F) within 48 hours of dose" Source="Local"/>
+		<TableElement Code="VXC13" Codesys="CDCPHINVS" DisplayName="Guillain-Barre syndrome (GBS) within 6 weeks of dose" Source="Local"/>
+		<TableElement Code="VXC14" Codesys="CDCPHINVS" DisplayName="Rash within 14 days of dose" Source="Local"/>
+		<TableElement Code="VXC15" Codesys="CDCPHINVS" DisplayName="Intussusception within 30 days of dose" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="PHVS_VaccinationSpecialIndications_IIS" Codesys="PHVS_VaccinationSpecialIndications_IIS" Id="PHVS_VaccinationSpecialIndications_IIS" Name="Vaccination Special Indications - IIS" Oid="2.16.840.1.114222.4.11.3290" Type="External" Version="1.5">
+		<TableElement Code="VXC7" Codesys="CDCPHINVS" DisplayName="Rabies exposure within previous 10 days." Source="Local"/>
+		<TableElement Code="VXC8" Codesys="CDCPHINVS" DisplayName="Member of special group" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="PHVS_ImmunizationProfileIdentifier_IIS" Codesys="PHVS_ImmunizationProfileIdentifier_IIS" Id="PHVS_ImmunizationProfileIdentifier_IIS" Name="Immunization Profile Identifier (IIS)" Oid="2.16.840.1.114222.4.11.3291" Type="External" Version="2">
+		<TableElement Code="Z44" Codesys="CDCPHINVS" DisplayName="Request Evaluated History and Forecast" Source="Local"/>
+		<TableElement Code="Z34" Codesys="CDCPHINVS" DisplayName="Request Immunization History" Source="Local"/>
+		<TableElement Code="Z23" Codesys="CDCPHINVS" DisplayName="Return Acknowledgement" Source="Local"/>
+		<TableElement Code="Z31" Codesys="CDCPHINVS" DisplayName="Return Candidate Clients" Source="Local"/>
+		<TableElement Code="Z42" Codesys="CDCPHINVS" DisplayName="Return Evaluated History and Forecast" Source="Local"/>
+		<TableElement Code="Z32" Codesys="CDCPHINVS" DisplayName="Return Immunization History" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="PHVS_ImmunizationScheduleIdentifier_IIS" Codesys="PHVS_ImmunizationScheduleIdentifier_IIS" Id="PHVS_ImmunizationScheduleIdentifier_IIS" Name="Immunization Schedule Identifier (IIS)" Oid="2.16.840.1.114222.4.11.3292" Type="External" Version="1">
+		<TableElement Code="VXC16" Codesys="CDCPHINVS" DisplayName="Advisory Committee on Immunization Practices (ACIP) Schedule" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="PHVS_HistoryOfDiseaseAsEvidenceOfImmunity_IIS" Codesys="PHVS_HistoryOfDiseaseAsEvidenceOfImmunity_IIS" Id="PHVS_HistoryOfDiseaseAsEvidenceOfImmunity_IIS" Name="History of Disease as Evidence of Immunity - IIS" Oid="2.16.840.1.114222.4.11.7244" Type="External" Version="1">
+		<TableElement Code="409498004" Codesys="SCT" DisplayName="Anthrax (disorder)" Source="Local"/>
+		<TableElement Code="397428000" Codesys="SCT" DisplayName="Diphtheria (disorder)" Source="Local"/>
+		<TableElement Code="76902006" Codesys="SCT" DisplayName="Tetanus (disorder)" Source="Local"/>
+		<TableElement Code="27836007" Codesys="SCT" DisplayName="Pertussis (disorder)" Source="Local"/>
+		<TableElement Code="40468003" Codesys="SCT" DisplayName="Viral hepatitis, type A (disorder)" Source="Local"/>
+		<TableElement Code="66071002" Codesys="SCT" DisplayName="Type B viral hepatitis (disorder)" Source="Local"/>
+		<TableElement Code="91428005" Codesys="SCT" DisplayName="Haemophilus influenzae infection (disorder)" Source="Local"/>
+		<TableElement Code="240532009" Codesys="SCT" DisplayName="Human papilloma virus infection (disorder)" Source="Local"/>
+		<TableElement Code="6142004" Codesys="SCT" DisplayName="Influenza (disorder)" Source="Local"/>
+		<TableElement Code="52947006" Codesys="SCT" DisplayName="Japanese encephalitis virus disease (disorder)" Source="Local"/>
+		<TableElement Code="14189004" Codesys="SCT" DisplayName="Measles (disorder)" Source="Local"/>
+		<TableElement Code="36989005" Codesys="SCT" DisplayName="Mumps (disorder)" Source="Local"/>
+		<TableElement Code="36653000" Codesys="SCT" DisplayName="Rubella (disorder)" Source="Local"/>
+		<TableElement Code="23511006" Codesys="SCT" DisplayName="Meningococcal infectious disease (disorder)" Source="Local"/>
+		<TableElement Code="16814004" Codesys="SCT" DisplayName="Pneumococcal infectious disease (disorder)" Source="Local"/>
+		<TableElement Code="398102009" Codesys="SCT" DisplayName="Acute poliomyelitis (disorder)" Source="Local"/>
+		<TableElement Code="14168008" Codesys="SCT" DisplayName="Rabies (disorder)" Source="Local"/>
+		<TableElement Code="18624000" Codesys="SCT" DisplayName="Disease due to Rotavirus (disorder)" Source="Local"/>
+		<TableElement Code="4834000" Codesys="SCT" DisplayName="Typhoid fever (disorder)" Source="Local"/>
+		<TableElement Code="111852003" Codesys="SCT" DisplayName="Vaccinia (disorder)" Source="Local"/>
+		<TableElement Code="38907003" Codesys="SCT" DisplayName="Varicella (disorder)" Source="Local"/>
+		<TableElement Code="16541001" Codesys="SCT" DisplayName="Yellow fever (disorder)" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="PHVS_SerologicalEvidenceOfImmunity_IIS" Codesys="PHVS_SerologicalEvidenceOfImmunity_IIS" Id="PHVS_SerologicalEvidenceOfImmunity_IIS" Name="Serological Evidence of Immunity - IIS " Oid="2.16.840.1.114222.4.11.7245" Type="External" Version="1">
+		<TableElement Code="341112003" Codesys="SCT" DisplayName="Mumps (finding)" Source="Local"/>
+		<TableElement Code="278968001" Codesys="SCT" DisplayName="Rubella (finding)" Source="Local"/>
+		<TableElement Code="371111005" Codesys="SCT" DisplayName="Measles (finding)" Source="Local"/>
+		<TableElement Code="371113008" Codesys="SCT" DisplayName="Varicella (finding) " Source="Local"/>
+		<TableElement Code="271511000" Codesys="SCT" DisplayName="Hepatitis B (finding)" Source="Local"/>
+		<TableElement Code="278971009" Codesys="SCT" DisplayName="Hepatitis A (finding)" Source="Local"/>
+		<TableElement Code="341112003" Codesys="SCT" DisplayName="Mumps (finding)" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="PHVS_VISBarcodes_IIS" Codesys="PHVS_VISBarcodes_IIS" Id="PHVS_VISBarcodes_IIS" Name="PHVS_VISBarcodes_IIS" Oid="2.16.840.1.114222.4.11.6041" Type="External" Version="1">
+		<TableElement Code="253088698300001111110714" Codesys="cdcgs1vis" DisplayName="Adenovirus VIS" Source="Local"/>
+		<TableElement Code="253088698300002811100310" Codesys="cdcgs1vis" DisplayName="Anthrax VIS" Source="Local"/>
+		<TableElement Code="253088698300004211111025" Codesys="cdcgs1vis" DisplayName="Hepatitis A VIS" Source="Local"/>
+		<TableElement Code="253088698300005911120202" Codesys="cdcgs1vis" DisplayName="Hepatitis B VIS" Source="Local"/>
+		<TableElement Code="253088698300006611981216" Codesys="cdcgs1vis" DisplayName="Haemophilus Influenzae type b VIS" Source="Local"/>
+		<TableElement Code="253088698300007311110503" Codesys="cdcgs1vis" DisplayName="Human papillomavirus Vaccine (Cervarix) VIS" Source="Local"/>
+		<TableElement Code="253088698300008011120222" Codesys="cdcgs1vis" DisplayName="Human papillomavirus Vaccine (Gardasil) VIS" Source="Local"/>
+		<TableElement Code="253088698300009711120702" Codesys="cdcgs1vis" DisplayName="Influenza Vaccine - Live, Intranasal VIS" Source="Local"/>
+		<TableElement Code="253088698300010311120702" Codesys="cdcgs1vis" DisplayName="Influenza Vaccine - Inactivated VIS" Source="Local"/>
+		<TableElement Code="253088698300011011111207" Codesys="cdcgs1vis" DisplayName="Japanese Encephalitis VIS" Source="Local"/>
+		<TableElement Code="253088698300012711120420" Codesys="cdcgs1vis" DisplayName="Measles/Mumps/Rubella VIS" Source="Local"/>
+		<TableElement Code="253088698300013411100521" Codesys="cdcgs1vis" DisplayName="Measles/Mumps/Rubella/Varicella VIS" Source="Local"/>
+		<TableElement Code="253088698300014111111014" Codesys="cdcgs1vis" DisplayName="Meningococcal VIS" Source="Local"/>
+		<TableElement Code="253088698300015811100416" Codesys="cdcgs1vis" DisplayName="Pneumococcal Conjugate (PCV13) VIS" Source="Local"/>
+		<TableElement Code="253088698300016511091006" Codesys="cdcgs1vis" DisplayName="Pneumococcal Polysaccharide VIS" Source="Local"/>
+		<TableElement Code="253088698300017211111108" Codesys="cdcgs1vis" DisplayName="Polio VIS" Source="Local"/>
+		<TableElement Code="253088698300018911091006" Codesys="cdcgs1vis" DisplayName="Rabies VIS" Source="Local"/>
+		<TableElement Code="253088698300020211091006" Codesys="cdcgs1vis" DisplayName="Shingles VIS" Source="Local"/>
+		<TableElement Code="253088698300022611120124" Codesys="cdcgs1vis" DisplayName="Tetanus/Diphtheria/(Pertussis) VIS" Source="Local"/>
+		<TableElement Code="253088698300023311120529" Codesys="cdcgs1vis" DisplayName="Typhoid VIS" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="PHVS_FundingEligibilityObsMethod_IIS" Codesys="PHVS_FundingEligibilityObsMethod_IIS" Id="PHVS_FundingEligibilityObsMethod_IIS" Name="Funding Eligibility Observation Method (IIS)" Oid="2.16.840.1.114222.4.11.6039" Type="External" Version="1">
+		<TableElement Code="VXC40" Codesys="CDCPHINVS" DisplayName="Eligibility captured at the immunization level" Source="Local"/>
+		<TableElement Code="VXC41" Codesys="CDCPHINVS" DisplayName="Eligibility captured at the visit level" Source="Local"/>
+	</TableDefinition>
+	<TableDefinition AlternateId="PHVS_VISVaccines_IIS" Codesys="PHVS_VISVaccines_IIS" Id="PHVS_VISVaccines_IIS" Name="VIS Vaccines (IIS)" Oid="2.16.840.1.114222.4.11.6040" Type="External" Version="1">
+		<TableElement Code="106" Codesys="CVX" DisplayName="DTaP, 5 pertussis antigens" Source="Local"/>
+		<TableElement Code="146" Codesys="CVX" DisplayName="DTaP,IPV,Hib,HepB" Source="Local"/>
+		<TableElement Code="110" Codesys="CVX" DisplayName="DTaP-Hep B-IPV" Source="Local"/>
+		<TableElement Code="50" Codesys="CVX" DisplayName="DTaP-Hib" Source="Local"/>
+		<TableElement Code="120" Codesys="CVX" DisplayName="DTaP-Hib-IPV" Source="Local"/>
+		<TableElement Code="130" Codesys="CVX" DisplayName="DTaP-IPV" Source="Local"/>
+		<TableElement Code="52" Codesys="CVX" DisplayName="Hep A, adult" Source="Local"/>
+		<TableElement Code="83" Codesys="CVX" DisplayName="Hep A, ped/adol, 2 dose" Source="Local"/>
+		<TableElement Code="104" Codesys="CVX" DisplayName="Hep A-Hep B" Source="Local"/>
+		<TableElement Code="08" Codesys="CVX" DisplayName="Hep B, adolescent or pediatric" Source="Local"/>
+		<TableElement Code="42" Codesys="CVX" DisplayName="Hep B, adolescent/high risk infant" Source="Local"/>
+		<TableElement Code="43" Codesys="CVX" DisplayName="Hep B, adult" Source="Local"/>
+		<TableElement Code="44" Codesys="CVX" DisplayName="Hep B, dialysis" Source="Local"/>
+		<TableElement Code="49" Codesys="CVX" DisplayName="Hib (PRP-OMP)" Source="Local"/>
+		<TableElement Code="48" Codesys="CVX" DisplayName="Hib (PRP-T)" Source="Local"/>
+		<TableElement Code="51" Codesys="CVX" DisplayName="Hib-Hep B" Source="Local"/>
+		<TableElement Code="118" Codesys="CVX" DisplayName="HPV, bivalent" Source="Local"/>
+		<TableElement Code="62" Codesys="CVX" DisplayName="HPV, quadrivalent" Source="Local"/>
+		<TableElement Code="135" Codesys="CVX" DisplayName="Influenza, high dose seasonal" Source="Local"/>
+		<TableElement Code="111" Codesys="CVX" DisplayName="influenza, live, intranasal" Source="Local"/>
+		<TableElement Code="141" Codesys="CVX" DisplayName="Influenza, seasonal, injectable" Source="Local"/>
+		<TableElement Code="140" Codesys="CVX" DisplayName="Influenza, seasonal, injectable, preservative free" Source="Local"/>
+		<TableElement Code="144" Codesys="CVX" DisplayName="influenza, seasonal, intradermal, preservative free" Source="Local"/>
+		<TableElement Code="10" Codesys="CVX" DisplayName="IPV" Source="Local"/>
+		<TableElement Code="148" Codesys="CVX" DisplayName="Meningococcal C/Y-HIB PRP" Source="Local"/>
+		<TableElement Code="136" Codesys="CVX" DisplayName="Meningococcal MCV4O" Source="Local"/>
+		<TableElement Code="114" Codesys="CVX" DisplayName="meningococcal MCV4P" Source="Local"/>
+		<TableElement Code="32" Codesys="CVX" DisplayName="meningococcal MPSV4" Source="Local"/>
+		<TableElement Code="03" Codesys="CVX" DisplayName="MMR" Source="Local"/>
+		<TableElement Code="94" Codesys="CVX" DisplayName="MMRV" Source="Local"/>
+		<TableElement Code="133" Codesys="CVX" DisplayName="Pneumococcal conjugate PCV 13" Source="Local"/>
+		<TableElement Code="100" Codesys="CVX" DisplayName="pneumococcal conjugate PCV 7" Source="Local"/>
+		<TableElement Code="119" Codesys="CVX" DisplayName="rotavirus, monovalent" Source="Local"/>
+		<TableElement Code="116" Codesys="CVX" DisplayName="rotavirus, pentavalent" Source="Local"/>
+		<TableElement Code="138" Codesys="CVX" DisplayName="Td (adult)" Source="Local"/>
+		<TableElement Code="113" Codesys="CVX" DisplayName="Td (adult) preservative free" Source="Local"/>
+		<TableElement Code="09" Codesys="CVX" DisplayName="Td (adult), adsorbed" Source="Local"/>
+		<TableElement Code="115" Codesys="CVX" DisplayName="Tdap" Source="Local"/>
+		<TableElement Code="21" Codesys="CVX" DisplayName="varicella" Source="Local"/>
+	</TableDefinition>
+</TableLibrary>

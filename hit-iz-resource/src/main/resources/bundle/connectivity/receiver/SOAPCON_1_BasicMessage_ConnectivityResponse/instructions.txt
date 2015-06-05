@@ -1,0 +1,10 @@
+<ol>
+<li>The Tester accesses the System Under Test (IIS) and causes it to connect to the NIST Test Tool representing an EHR-S Test Agent </li>
+<li>The Tester causes the NIST Test Tool to electronically generate and transmit to the System Under Test a SOAP connectivity request message connectivityTest that conforms to the SOAP 1.2 standard and CDC WSDL 1.0 in order to verify the accessibility of the IIS NIST Test Agent </li>
+<li>The Tester obtains the Juror Document for the Receiver SOAPCON_1_BasicMessage_ Connectivity Test Case in the NIST Test Tool</li>
+<li>The Tester uses the Juror Document to determine if the System Under Test received and processed the conformant SOAP connectivity request message completely and correctly</li>
+<li>The System Under Test electronically generates and transmits to the EHR-S Test Agent in the NIST Test Tool a SOAP connectivity response message connectivityTestResponse that conforms to the SOAP 1.2 standard and CDC WSDL 1.0 and that confirms the accessibility of the IIS </li>
+<li>The Test Tool validates the SOAP connectivity response message for conformance to the SOAP 1.2 standard and CDC WSDL 1.0, and also validates that the connectivityTestResponse return element contains the string sent to the System Under Test (IIS) in the echoBack element of the connectivityTest message, and the Tester can view the validation results on-line</li>
+<li>The Test Tool generates a Validation Report listing the results of the validation</li>
+<li>The Tester reviews the Validation Report and compares the results to the Objectives and Evaluation Criteria associated with the Receiver SOAPCON_1_BasicMessage_Connectivity Test Case</li>
+</ol>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="ASCII" standalone="no"?>
+<html>
+<head>
+<style type="text/css">
+@media screen {
+	maskByMediaType {
+		display: table;
+	}
+	table tbody tr th {
+		font-size: 90%
+	}
+	table tbody tr td {
+		font-size: 90%;
+	}
+	table tbody tr th {
+		text-align: left;
+		background: #C6DEFF
+	}
+	table thead tr th {
+		text-align: center;
+	}
+	table thead tr th:first-child {
+		width: 15%;
+	}
+	table thead tr th:nth-child(2) {
+		width: 35%;
+	}
+	table thead tr th:nth-child(3) {
+		width: 35%;
+	}
+	table thead tr th:last-child {
+		width: 10%;
+	}
+	p {
+		text-align: center;
+	}
+	
+	h1 {
+		text-align: center;
+	}
+	table {
+		width: 98%;
+		border: 1px groove;
+		table-layout: fixed;
+		margin: 0 auto;
+		border-collapse: collapse;
+	}
+	table tr {
+		border: 3px groove;
+	}
+	table th {
+		border: 2px groove;
+	}
+	table td {
+		border: 2px groove;
+	}
+	table thead {
+		border: 1px groove;
+		background: #446BEC;
+		text-align: left;
+	}
+	table tbody tr td {
+		text-align: left
+	}
+	.embSpace {
+		padding-left: 15px;
+	}
+	.embSubSpace {
+		padding-left: 25px;
+	}
+	.childField {
+		background: #B8B8B8;
+	}
+}
+
+table tbody tr td div ul {
+	padding-left: 60px
+}
+
+@media print {
+	maskByMediaType {
+		display: table;
+	}
+	table tbody tr th {
+		font-size: 70%
+	}
+	table tbody tr td {
+		font-size: 70%;
+	}
+	table tbody tr th {
+		text-align: left;
+		background: #C6DEFF
+	}
+	table thead tr th {
+		text-align: center;
+		font-size: 70%;
+	}
+	p {
+		text-align: center;
+	}
+	table thead tr th:first-child {
+		width: 15%;
+	}
+	table thead tr th:nth-child(2) {
+		width: 35%;
+	}
+	table thead tr th:nth-child(3) {
+		width: 35%;
+	}
+	table thead tr th:last-child {
+		width: 10%;
+	}
+
+	table {
+		width: 98%;
+		border: 1px groove;
+		table-layout: fixed;
+		margin: 0 auto;
+		border-collapse: collapse;
+		page-break-inside: avoid;
+	}
+	table tr {
+		border: 3px groove;
+	}
+	table th {
+		border: 2px groove;
+	}
+	table td {
+		border: 2px groove;
+	}
+	table thead {
+		border: 1px groove;
+		background: #446BEC;
+		text-align: left;
+	}
+	table tbody tr td {
+		text-align: left
+	}
+	.embSpace {
+		padding-left: 10px;
+	}
+	.embSubSpace {
+		padding-left: 20px;
+	}
+	.childField {
+		background: #B8B8B8;
+	}
+}
+
+@page {
+	counter-increment: page;
+	@
+	bottom-center
+	{
+	content
+	:
+	"Page "
+	counter(
+	page
+	);
+}
+
+}
+@page :left {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+@page :right {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+fieldset table tbody tr td div ul {
+	padding-left: 60px
+}
+</style>
+</head>
+<body>
+	<h1>Test Story</h1>
+	
+	<p>Description</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td> For purposes of reporting immunizations this clinic has been assigned an id of X68 by the Immunization Information System (IIS). A child, Madelynn Ainsley Snow, is brought to the clinic on Aug 14, 2012 by her mother, Morgan Lam, for a well child visit. A clinic staff member, Donna Burden, collects basic identifying information, including name, birth date, sex, address, phone, medical record number, race, and ethnicity. A clinic staff member, Nicholas Radon, reviews the patient's vaccination history and determines that the patient needs an Influenza (Afluria) vaccination. The mother is interviewed and it is determined that the patient qualifies for a Vaccines For Children (VFC) supplied vaccine under the status of VFC eligible - Federally Qualified Health Center Patient (under-insured). The mother is givena Vaccine Information Statement for Inactivated Flu published by the CDC on Jul 2, 2012 to review. After reading the VIS the mother agrees that the child should receive the vaccination. It is explained to the mother that information about this vaccination will be sent to the IIS and ask if the IIS can send a reminder about when the next vaccination is due. The mother indicates that contact should be made by the IIS. A clinic staff member, Mike Lemon, then prepares an Influenza vaccination dose, CSL Behring Lot #Z0860BB, from the VFC publicly supplied vaccine stock and administers it to the patient in the left arm. A clinic staff member, Donna Burden, enters the patient demographic information, VFC status, VIS information, contact status, and vaccination administration information into the EHR and transmits it to the IIS, indicating to the IIS that an active patient of the clinic was administered a vaccination.</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Comments</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>The patient id is the EHR system's unique id for the patient and is expected to be assigned and managed by the EHR system. Thus the test cases do not specify a particular patient id but expect that the EHR will assign and transmit a patient id during the testing process. The id must be unique within the name space defined by the particular installation of the EHR. For testing purposes the EHR creates its own namespace that only exists for testing.</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>PreCondition</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>No PreCondition</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>PostCondition</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>No PostCondition</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Test Objectives</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>This test case examines the ability of an EHR to create a VXU message for well child visit single vaccination. A maximally populated message is tested for relevant required, required or empty and conditional elements. The message must provide; - Patient demographic information in the PID segment - Responsible party information in the NK1 segment. - VFC status and VIS information in the OBX segments - Contact or publicity status in the PD1 segment - Vaccination administration RXA and RXR segments. The test case provides an example of all the relevant elements.</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Evaluation Criteria</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>No evaluation criteria</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Notes to Testers</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>For this Test Case, bar-code information based on Global Document Type Identifier (GDTI) 3-D Bar-code may be used in the test message instead of Vaccine Type. The "Vaccine Type Approach" is the default option; the Test Story and Message Content specification for this Test Case were created to support the Vaccine Type Approach. The example message for the "GDTI Approach" provides message content guidance for this alternate option; this example message is accessed by selecting the GDTI Approach option from the Select Approach drop-down menu on the Validation page and then clicking on the Load Example button.</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

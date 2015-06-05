@@ -1,0 +1,1 @@
+This test evaluates the capability of a Receiver technology to generate a valid message conforming to the SOAP 1.2 standard and CDC WSDL 1.0 that may be used for confirming the accessibility of the Immunization Information System (IIS) Web Service.

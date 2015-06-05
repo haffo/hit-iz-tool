@@ -1,0 +1,1 @@
+This test evaluates the capability of a technology to generate a message envelope conforming to the minimal requirements of the SOAP 1.2 standard. 

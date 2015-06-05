@@ -1,0 +1,404 @@
+{
+    "Report": [
+        {
+            "Entry": {
+                "path": "OBX-5.3",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "9",
+                "column": "74",
+                "category": "RE-Usage",
+                "classification": "Warning"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-2",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "2",
+                "column": "7",
+                "category": "X-Usage",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "RXA-3.1",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "8",
+                "column": "1",
+                "category": "R-Usage",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "RXA-6.1",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "8",
+                "column": "1",
+                "category": "R-Usage",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "9",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-14",
+                "description": "Field OBX-14 (Date/Time of the Observation) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "9",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "10",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-14",
+                "description": "Field OBX-14 (Date/Time of the Observation) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "10",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "11",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-14",
+                "description": "Field OBX-14 (Date/Time of the Observation) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "11",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-17",
+                "description": "Field ORC-17 (Entering Organization) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "5",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-2",
+                "description": "Field ORC-2 (Placer Order Number) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "5",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "NK1-2.3",
+                "description": "Component NK1-2.3 (Second and Further Given Names or Initials Thereof) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "4",
+                "column": "7",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PD1-12",
+                "description": "Field PD1-12 (Protection Indicator) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "3",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-30",
+                "description": "Field PID-30 (Patient Death Indicator) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "2",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-24",
+                "description": "Field PID-24 (Multiple Birth Indicator) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "2",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-23",
+                "description": "Field MSH-23 (Receiving Responsible Organization) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "1",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-22",
+                "description": "Field MSH-22 (Sending Responsible Organization) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "1",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-5",
+                "description": "Field MSH-5 (Receiving Application) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "1",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "RXA-11.4.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "6",
+                "column": "191",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "RXA-10.9.1",
+                "description": "The value set 0300 has been excluded from the validation",
+                "line": "6",
+                "column": "178",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-12.9.1",
+                "description": "The value set 0300 has been excluded from the validation",
+                "line": "5",
+                "column": "93",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-10.9.1",
+                "description": "The value set 0300 has been excluded from the validation",
+                "line": "5",
+                "column": "56",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-3.2",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "5",
+                "column": "19",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "NK1-4.6",
+                "description": "The value set 0399 has been excluded from the validation",
+                "line": "4",
+                "column": "84",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-11.6",
+                "description": "The value set 0399 has been excluded from the validation",
+                "line": "2",
+                "column": "187",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-3.4.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "2",
+                "column": "20",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-21.2",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "129",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-6.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "36",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-4.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "31",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-3.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "10",
+                "category": "Value Set",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-3.4.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "2",
+                "column": "20",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-21.2",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "129",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-6.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "36",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-4.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "31",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-3.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "10",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-21.2",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "129",
+                "category": "Value Set",
+                "classification": "Affirmative"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-6.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "36",
+                "category": "Value Set",
+                "classification": "Affirmative"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-4.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "31",
+                "category": "Value Set",
+                "classification": "Affirmative"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-3.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "line": "1",
+                "column": "10",
+                "category": "Value Set",
+                "classification": "Affirmative"
+            }
+        }
+    ]
+}

@@ -1,0 +1,3408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConformanceContext UUID="0cfd458a-aeeb-47c2-b677-086cab183541" xsi:noNamespaceSchemaLocation="ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <MetaData>
+        <Description>Conformance context for RSP_K11</Description>
+    </MetaData>
+    <Datatype>
+        <ByID ID="5d62ecfe-7a05-4d34-b034-361171a92f2f">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="67a3cefa-c06b-49f7-81c0-7d29500e27e7">
+            <Constraint ID="[EI_IZ]2[1]">
+                <Description>If EI.3 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[EI_IZ]3[1]">
+                <Description>If EI.2 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="3[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[EI_IZ]4[1]">
+                <Description>If EI.3 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="3[1]"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="d9f39f92-06ff-4e00-b60b-22099d69aa3e">
+            <Constraint ID="[XON_IZ]6[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="10[1]"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]7[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="10[1]"/>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="10[1]"/>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]10[1]">
+                <Description>If XON.1 (Organization Name) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
+                        <Presence Path="10[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="aea35562-35c4-4c8a-bd8e-f8c490afa734">
+            <Constraint ID="[ERL_IZ]4[1]">
+                <Description>If ERL.4 (Field Repetition) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="4[1]"/>
+                        </NOT>
+                        <Presence Path="4[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[ERL_IZ]5[1]">
+                <Description>If ERL.5 (Component Number) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                        <Presence Path="5[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[ERL_IZ]6[1]">
+                <Description>If ERL.6 (Sub-Component Number) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="6[1]"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="e4b5c3e6-42bc-4a65-845f-478071c4ca80">
+            <Constraint ID="[CWE_IZ]3[1]">
+                <Description>If CWE.1 (Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="1[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CWE_IZ]5[1]">
+                <Description>If CWE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CWE_IZ]6[1]">
+                <Description>If CWE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="cfff16a3-4c55-4c54-905d-ec01ac997dbe">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="ef150e23-7835-4763-83ad-fcbcd613dca0">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="69e397ad-0b21-488d-a81e-c78f67ba012e">
+            <Constraint ID="[CX_IZ]3[1]">
+                <Description>If CX.2 (Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="2[1]"/>
+                        <NOT>
+                            <Presence Path="3[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="08f153ca-91fa-45db-a3a1-d3d781768314">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="e2d03bf8-f0c9-4ea5-a915-33a3f2a68c2c">
+            <Constraint ID="[XTN_IZ]4[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]6[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <PlainText Path="6[1]" Text="NET" IgnoreCase="true"/>
+                        </NOT>
+                        <NOT>
+                            <Presence Path="6[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]7[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <NOT>
+                                    <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                                </NOT>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="41764401-40fb-43f9-94af-823b90838c1a">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="35cdd3a0-b93c-40f6-b926-397c786291ca">
+            <Constraint ID="[CX_IZ]3[1]">
+                <Description>If CX.2 (Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="2[1]"/>
+                        <NOT>
+                            <Presence Path="3[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="9d79a755-791d-4cd7-9513-bdd32d4ac927">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="8ea6f9c6-d87e-4816-805b-340c11d91329">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="a9000b82-52cc-4f56-9c1a-72f74671b8b6">
+            <Constraint ID="[XTN_IZ]4[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]6[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <PlainText Path="6[1]" Text="NET" IgnoreCase="true"/>
+                        </NOT>
+                        <NOT>
+                            <Presence Path="6[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]7[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <NOT>
+                                    <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                                </NOT>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="60ea6227-8361-4473-90af-1e6febf9d887">
+            <Constraint ID="[XTN_IZ]4[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]6[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <PlainText Path="6[1]" Text="NET" IgnoreCase="true"/>
+                        </NOT>
+                        <NOT>
+                            <Presence Path="6[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]7[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <NOT>
+                                    <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                                </NOT>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="80d4e0e2-bd3e-4dd3-a19f-467ba152792b">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="334770db-6d76-4f36-ba6e-88269c503c68">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="17453fd9-94ad-4288-a0e4-a2980e69b3ac">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="99f7fa57-5323-480b-8406-6a7a94a322fe">
+            <Constraint ID="[CX_IZ]3[1]">
+                <Description>If CX.2 (Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="2[1]"/>
+                        <NOT>
+                            <Presence Path="3[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="4eef0ca6-5701-4ba8-af6e-e8263733248f">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="ddb46a7a-2a3f-438b-9df6-85f78e7c8882">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="c1b1906c-f82b-4245-b66d-fb4108c99ec2">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="d1e01d83-8f94-475e-bfd9-a49ba5f46edb">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="b183930e-9ebe-4bac-bb87-decf77dcf6a7">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="985e88d6-0502-4d90-bc17-7efe309e4f0e">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="f76c6e46-97da-40cf-bf87-dcc5c9e9d1c8">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="c39c53ac-e94d-4a2f-b09c-426bc9ccd1f3">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="8ec174f6-fbdb-4d61-b918-713581f8a81a">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="f0572365-6773-4f8f-a180-29b1a0dddc69">
+            <Constraint ID="[CWE_IZ]3[1]">
+                <Description>If CWE.1 (Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="1[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CWE_IZ]5[1]">
+                <Description>If CWE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CWE_IZ]6[1]">
+                <Description>If CWE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="37d37d13-6314-4e88-bf36-02c5099d52aa">
+            <Constraint ID="[XON_IZ]6[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="10[1]"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]7[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="10[1]"/>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="10[1]"/>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]10[1]">
+                <Description>If XON.1 (Organization Name) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
+                        <Presence Path="10[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="0ee59872-1a83-4353-a8e3-0af65ea4f4e9">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="ca959f4a-1f33-4914-bdec-cb3b5888d9bd">
+            <Constraint ID="[XCN_IZ]1[1]">
+                <Description>If XCN.2.1 (Surname) is not valued AND if XCN.3 (Given Name) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <AND>
+                                <NOT>
+                                    <Presence Path="2[1].1[1]"/>
+                                </NOT>
+                                <NOT>
+                                    <Presence Path="3[1]"/>
+                                </NOT>
+                            </AND>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XCN_IZ]9[1]">
+                <Description>If XCN.1 (ID Number) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                            <Presence Path="9[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="1[1]"/>
+                            <NOT>
+                                <Presence Path="9[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XCN_IZ]12[1]">
+                <Description>If XCN.11 (Identifier Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="11[1]"/>
+                        <NOT>
+                            <Presence Path="12[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="0e3d95a1-900c-4522-99b5-dbd3fcdc0234">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="968b296e-5ee7-4de2-b5c6-051c23973b21">
+            <Constraint ID="[CX_IZ]3[1]">
+                <Description>If CX.2 (Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="2[1]"/>
+                        <NOT>
+                            <Presence Path="3[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="717356f8-a57b-4906-af3e-7b8b1c8308ac">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="f5f74a79-cb8a-48b9-9cb7-7aad732dcdc8">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="d6d392e8-c167-461a-909f-cf122e3bc31c">
+            <Constraint ID="[XON_IZ]6[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="10[1]"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]7[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="10[1]"/>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="10[1]"/>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]10[1]">
+                <Description>If XON.1 (Organization Name) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
+                        <Presence Path="10[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="fa1eb25c-c6f8-406f-832c-54b5231d5581">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="5fc4e866-cb56-47bf-af59-49bde6e411a2">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="904869a2-3e14-4ddf-90ca-2b0b56e3e57d">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="6f146f42-c5a9-4d15-8768-54dac3a3b34e">
+            <Constraint ID="[XTN_IZ]4[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]6[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <PlainText Path="6[1]" Text="NET" IgnoreCase="true"/>
+                        </NOT>
+                        <NOT>
+                            <Presence Path="6[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]7[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <NOT>
+                                    <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                                </NOT>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="8fbca6d4-58b8-4256-84d0-6b944df62159">
+            <Constraint ID="[XTN_IZ]4[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]6[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <PlainText Path="6[1]" Text="NET" IgnoreCase="true"/>
+                        </NOT>
+                        <NOT>
+                            <Presence Path="6[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]7[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <NOT>
+                                    <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                                </NOT>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="64678088-3ea3-4c1b-a8f8-03cd323d5593">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="d18479bc-188f-4a3c-838a-37dd12d60baf">
+            <Constraint ID="[CX_IZ]3[1]">
+                <Description>If CX.2 (Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="2[1]"/>
+                        <NOT>
+                            <Presence Path="3[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="25c6e1de-34ba-499e-aa7a-15502c620d63">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="ec8961c4-869f-4ab8-a914-d312506f8e6f">
+            <Constraint ID="[XON_IZ]6[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="10[1]"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]7[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="10[1]"/>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="10[1]"/>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]10[1]">
+                <Description>If XON.1 (Organization Name) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
+                        <Presence Path="10[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="233a7e0c-66d3-46a8-9d4b-44ef695ab6e7">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="026dd81a-5b88-4f3b-9bbb-83606ae6777d">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="ee8af916-893a-44c1-af50-8f3afb3245ce">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="9172e3fe-753e-4a52-92cf-176c996a5d52">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="ab46f3e2-b4ff-44e5-aaf1-7ca5bd80eb83">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="418b311e-e847-4895-a1fe-b94b0db54806">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="e7503a2a-88ca-4653-b9ef-363f8177ba4c">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="f2f0e549-d420-4b04-b852-6df82deb7396">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="6cb43696-33e0-48a6-9c08-13bbdd087cb2">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="0ab69497-b647-4419-9cb6-c8fe779aff68">
+            <Constraint ID="[XTN_IZ]4[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]6[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <PlainText Path="6[1]" Text="NET" IgnoreCase="true"/>
+                        </NOT>
+                        <NOT>
+                            <Presence Path="6[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]7[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <NOT>
+                                    <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                                </NOT>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="607bf064-1ce7-4a60-9df6-e589b7faaf6d">
+            <Constraint ID="[CX_IZ]3[1]">
+                <Description>If CX.2 (Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="2[1]"/>
+                        <NOT>
+                            <Presence Path="3[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="6f796a39-e872-4274-abaa-cb016238aebd">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="9571e4a9-b0c5-4634-9458-92c6128c20c5">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="af997328-bc8b-4e9d-a5f3-4f73df398228">
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="0e7398e7-59c5-4a8a-ae42-fee8e963443b">
+            <Constraint ID="[CX_IZ]3[1]">
+                <Description>If CX.2 (Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="2[1]"/>
+                        <NOT>
+                            <Presence Path="3[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="aed50053-8d67-4db7-8d42-2b012a366abd">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="75a00016-3385-4bad-9325-a16f20adada2">
+            <Constraint ID="[XON_IZ]6[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="10[1]"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]7[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="10[1]"/>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="10[1]"/>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]10[1]">
+                <Description>If XON.1 (Organization Name) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
+                        <Presence Path="10[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="2137e9b0-ade2-4e84-a96e-36bef9015652">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="b7e7d1b3-9bd6-4cec-bb23-a2eb4a294793">
+            <Constraint ID="[XTN_IZ]4[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]6[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <PlainText Path="6[1]" Text="NET" IgnoreCase="true"/>
+                        </NOT>
+                        <NOT>
+                            <Presence Path="6[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]7[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <NOT>
+                                    <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                                </NOT>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="183278c7-1d7c-4d3e-bc1e-b6177ea24a80">
+            <Constraint ID="[XON_IZ]6[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="10[1]"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]7[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="10[1]"/>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="10[1]"/>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]10[1]">
+                <Description>If XON.1 (Organization Name) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
+                        <Presence Path="10[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="32d33222-8b07-4079-8631-21c055dd82b8">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="ad3fd234-ffdf-4b36-bf4f-b5b58c7079cb">
+            <Constraint ID="[CX_IZ]3[1]">
+                <Description>If CX.2 (Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="2[1]"/>
+                        <NOT>
+                            <Presence Path="3[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="22d99c56-8cea-4de3-b386-0e469833f354">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="744deccf-92e9-482c-bbb7-768dcac59565">
+            <Constraint ID="[XON_IZ]6[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="10[1]"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]7[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="10[1]"/>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="10[1]"/>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]10[1]">
+                <Description>If XON.1 (Organization Name) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
+                        <Presence Path="10[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="56a39461-66aa-4979-9033-1ab1d5b380f2">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="9d061d46-a3b5-427d-813c-cffce4382fa7">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="762dcf04-5592-411b-bf6d-44405c8e04bb">
+            <Constraint ID="[XCN_IZ]1[1]">
+                <Description>If XCN.2.1 (Surname) is not valued AND if XCN.3 (Given Name) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <AND>
+                                <NOT>
+                                    <Presence Path="2[1].1[1]"/>
+                                </NOT>
+                                <NOT>
+                                    <Presence Path="3[1]"/>
+                                </NOT>
+                            </AND>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XCN_IZ]9[1]">
+                <Description>If XCN.1 (ID Number) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                            <Presence Path="9[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="1[1]"/>
+                            <NOT>
+                                <Presence Path="9[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XCN_IZ]12[1]">
+                <Description>If XCN.11 (Identifier Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="11[1]"/>
+                        <NOT>
+                            <Presence Path="12[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="5ab6accb-bfaa-4224-bc4f-a5ccd1afc079">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="b33b43d2-eadf-4748-a450-8e0de5143fe1">
+            <Constraint ID="[CX_IZ]3[1]">
+                <Description>If CX.2 (Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="2[1]"/>
+                        <NOT>
+                            <Presence Path="3[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="2724efcf-0e40-4659-951a-3bbb2d88d833">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="67e132e5-6e3b-4ba5-8458-a270092b4aff">
+            <Constraint ID="[EI_IZ]2[1]">
+                <Description>If EI.3 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[EI_IZ]3[1]">
+                <Description>If EI.2 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="3[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[EI_IZ]4[1]">
+                <Description>If EI.3 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="3[1]"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="7ef16384-d27a-4212-b401-5fad9646be2a">
+            <Constraint ID="[EI_IZ]2[1]">
+                <Description>If EI.3 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[EI_IZ]3[1]">
+                <Description>If EI.2 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="3[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[EI_IZ]4[1]">
+                <Description>If EI.3 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="3[1]"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="25694961-b7c7-48eb-987e-a7f2f93b9263">
+            <Constraint ID="[XCN_IZ]1[1]">
+                <Description>If XCN.2.1 (Surname) is not valued AND if XCN.3 (Given Name) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <AND>
+                                <NOT>
+                                    <Presence Path="2[1].1[1]"/>
+                                </NOT>
+                                <NOT>
+                                    <Presence Path="3[1]"/>
+                                </NOT>
+                            </AND>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XCN_IZ]9[1]">
+                <Description>If XCN.1 (ID Number) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                            <Presence Path="9[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="1[1]"/>
+                            <NOT>
+                                <Presence Path="9[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XCN_IZ]12[1]">
+                <Description>If XCN.11 (Identifier Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="11[1]"/>
+                        <NOT>
+                            <Presence Path="12[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="c29d1d6f-270a-45ce-ae4e-09ea83a1fa1f">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="8dd86c03-4284-4ae2-bdc4-cc3b53fd653a">
+            <Constraint ID="[CWE_IZ]3[1]">
+                <Description>If CWE.1 (Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="1[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CWE_IZ]5[1]">
+                <Description>If CWE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CWE_IZ]6[1]">
+                <Description>If CWE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="784303ee-f74a-44fe-a808-bb60cb80e291">
+            <Constraint ID="[XON_IZ]6[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="10[1]"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]7[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="10[1]"/>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="10[1]"/>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]10[1]">
+                <Description>If XON.1 (Organization Name) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
+                        <Presence Path="10[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="133e201c-89da-42e3-bcf5-2da215b5cf43">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+    </Datatype>
+    <Segment>
+        <ByID ID="e087f11f-9cc0-4071-8e59-b9852aaec6bd">
+            <Constraint ID="[PID_IZ 1_5_IZ_Z32_281]29[1]">
+                <Description>If the value of PID.30 (Patient Death Indicator) is 'Y'.</Description>
+                <Assertion>
+                    <OR>
+                        <PlainText Path="30[1]" Text="Y" IgnoreCase="true"/>
+                        <NOT>
+                            <Presence Path="29[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="53d5227f-4564-4ec6-a760-58258b3d2c2b">
+            <Constraint ID="[PD1_IZ 1_5_IZ_Z32_63]13[1]">
+                <Description>If PD1.12 (Protection Indicator) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="12[1]"/>
+                        <NOT>
+                            <Presence Path="13[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[PD1_IZ 1_5_IZ_Z32_63]17[1]">
+                <Description>If PD1.16 (Immunization Registry Status) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="16[1]"/>
+                        <NOT>
+                            <Presence Path="17[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[PD1_IZ 1_5_IZ_Z32_63]18[1]">
+                <Description>If PD1.11 (Publicity Code) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="11[1]"/>
+                        <NOT>
+                            <Presence Path="18[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="ff502a6c-5ca1-4b06-b962-044e2c106596">
+            <Constraint ID="[RXA_IZ 1_5]7[1]">
+                <Description>If the value of RXA.6 (Administered Amount) is not '999'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <NOT>
+                                    <PlainText Path="6[1]" Text="999" IgnoreCase="true"/>
+                                </NOT>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="6[1]" Text="999" IgnoreCase="true"/>
+                            </NOT>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[RXA_IZ 1_5]9[1]">
+                <Description>If the value of RXA.20 (Completion Status) is one of List Values: 'CP','PA'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <StringList Path="20[1]" CSV="CP,PA"/>
+                        </NOT>
+                        <Presence Path="9[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[RXA_IZ 1_5]15[1]">
+                <Description>If the value of RXA.9[1].1 (Identifier) is '00' AND if the value of RXA.20 (Completion Status) is one of List Values: 'CP','PA'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <AND>
+                                <PlainText Path="9[1].1[1]" Text="00" IgnoreCase="true"/>
+                                <StringList Path="20[1]" CSV="CP,PA"/>
+                            </AND>
+                        </NOT>
+                        <Presence Path="15[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[RXA_IZ 1_5]17[1]">
+                <Description>If the value of RXA.9[1].1 (Identifier) is '00'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <PlainText Path="9[1].1[1]" Text="00" IgnoreCase="true"/>
+                        </NOT>
+                        <Presence Path="17[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[RXA_IZ 1_5]18[1]">
+                <Description>If the value of RXA.20 (Completion Status) is 'RE'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="20[1]" Text="RE" IgnoreCase="true"/>
+                            </NOT>
+                            <Presence Path="18[1]"/>
+                        </OR>
+                        <OR>
+                            <PlainText Path="20[1]" Text="RE" IgnoreCase="true"/>
+                            <NOT>
+                                <Presence Path="18[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[RXA_IZ 1_5]21[1]">
+                <Description>If the value of RXA.5.1 (Identifier) is not '998'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <PlainText Path="5[1].1[1]" Text="998" IgnoreCase="true"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="21[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="af59f789-81af-40fa-8a02-42a23410c707">
+            <Constraint ID="[OBX_IZ 1_5]6[1]">
+                <Description>If the value of OBX.2 (Value Type) is one of List Values: 'NM','SN'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <StringList Path="2[1]" CSV="NM,SN"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+    </Segment>
+    <Group/>
+</ConformanceContext>

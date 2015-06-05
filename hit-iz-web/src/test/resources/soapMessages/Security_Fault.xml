@@ -1,0 +1,19 @@
+<Envelope xmlns="http://www.w3.org/2003/05/soap-envelope">
+   <Body>
+      <Fault xmlns:ns4="http://schemas.xmlsoap.org/soap/envelope/">
+         <Code>
+            <Value>Receiver</Value>
+         </Code>
+         <Reason>
+            <Text xml:lang="en">Security Message Here</Text>
+         </Reason>
+         <Detail>
+            <SecurityFault>
+               <Code>10</Code>
+               <Reason xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Security</Reason>
+               <Detail>Invalid Username or Password</Detail>
+            </SecurityFault>
+         </Detail>
+      </Fault>
+   </Body>
+</Envelope>

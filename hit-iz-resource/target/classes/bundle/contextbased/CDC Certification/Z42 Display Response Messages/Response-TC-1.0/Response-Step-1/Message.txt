@@ -1,0 +1,98 @@
+MSH|^~\&|MYEHR|DCS|MyIIS|StatePH|20150531145233-0500||RSP^K11^RSP_K11|4483533469|P|2.5.1|||NE|NE|||||Z42^CDCPHINVS|DCS^^^^^DCS^XX^^^6439432|StatePH
+MSA|AA|793543||||
+QAK|37374859|OK|Z44^request evaluated Immunization history^CDCPHINVS|||
+QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS |37374859|12993456^^^MYEHR^MR|Stanley^Sally^S^^^^L||19800214|M|10 East Main St^^Pretty Valley^MI^^^L
+PID|1||123456^^^MYEHR^MR~34500907^^^MyIIS^SR||Stanley^Sally^S^^^^L||19800214|M|||10 East Main St^^Titletown^WI^^^L
+ORC|RE||197023^MyIIS||||||||||||||DCS^Dabig Clinical System^StateIIS
+RXA|0|1|20090415|20090415|45^Hep B NOS^CVX|999|||01^historical record^NIP001|||||||||||CP|
+OBX|1|CE|30956-7^vaccine type^LN|1|45^Hep B NOS^CVX ||||||F||||||||||||||
+OBX|2|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531
+OBX|3|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||207023^MyIIS||||||||||||||DCS^Dabig Clinical System^StateIIS
+RXA|0|1|20090515|20090515|45^Hep B NOS^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|4|CE|30956-7^vaccine type^LN|1|45^Hep B NOS^CVX ||||||F||||||||||||||
+OBX|5|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531
+OBX|6|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||227023^DCS||||||||||||||DCS^Dabig Clinical System^StateIIS
+RXA|0|1|20091215|20091215|45^Hep B NOS^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|4|CE|30956-7^vaccine type^LN|1|45^Hep B NOS^CVX ||||||F||||||||||||||
+OBX|5|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531
+OBX|6|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||317023^DCS||||||||||||||DCS^Dabig Clinical System^StateIIS
+RXA|0|1|19800415|19800415|01^DTP^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|7|CE|30956-7^vaccine type^LN|1|107^DTAP NOS^CVX ||||||F
+OBX|8|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531
+OBX|9|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS||||||||||||||DCS^Dabig Clinical System^StateIIS
+RXA|0|1|19800615|19800615|01^DTP^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|7|CE|30956-7^vaccine type^LN|1|107^DTAP NOS^CVX ||||||F
+OBX|8|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531
+OBX|9|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS||||||||||||||DCS^Dabig Clinical System^StateIIS
+RXA|0|1|19800815|19800815|01^DTP^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|7|CE|30956-7^vaccine type^LN|1|107^DTAP NOS^CVX ||||||F
+OBX|8|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531
+OBX|9|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS||||||||||||||DCS^Dabig Clinical System^StateIIS
+RXA|0|1|19811115|19811115|01^DTP^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|7|CE|30956-7^vaccine type^LN|1|107^DTAP NOS^CVX ||||||F
+OBX|8|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531
+OBX|9|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS||||||||||||||DCS^Dabig Clinical System^StateIIS
+RXA|0|1|19860415|19860415|01^DTP^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|7|CE|30956-7^vaccine type^LN|1|107^DTAP NOS^CVX ||||||F
+OBX|8|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531
+OBX|9|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS||||||||||||||DCS^Dabig Clinical System^StateIIS
+RXA|0|1|19800415|19800415|89^polio NOS^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|10|CE|30956-7^vaccine type^LN|1|89^polio NOS^CVX ||||||F
+OBX|11|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531
+OBX|12|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||DCS^Dabig Clinical System^StateIIS
+RXA|0|1|19800615|19800615|89^polio NOS^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|13|CE|30956-7^vaccine type^LN|1|89^polio NOS^CVX||||||F
+OBX|14|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531
+OBX|15|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||DCS^Dabig Clinical System^StateIIS
+RXA|0|1|19800910|19800910|89^polio NOS^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|16|CE|30956-7^vaccine type^LN|1|89^polio NOS^CVX||||||F||||||||||||||
+OBX|17|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531
+OBX|18|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||DCS^Dabig Clinical System^StateIIS||||||||||||||
+RXA|0|1|19860415|19860415|89^polio NOS^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|19|CE|30956-7^vaccine type^LN|1|89^polio NOS^CVX||||||F||||||||||||||
+OBX|20|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531|||||||||||
+OBX|21|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||DCS^Dabig Clinical System^StateIIS||||||||||||||
+RXA|0|1|20100415|20100415|100^PCV7^CVX|999|||01^historical record^NIP001|||||||||||CP|
+OBX|22|CE|30956-7^vaccine type^LN|1|109^pnuemococcal conjugate^CVX||||||F||||||||||||||
+OBX|23|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531|||||||||||
+OBX|24|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||DCS^Dabig Clinical System^StateIIS||||||||||||||
+RXA|0|1|20100415|20100415|139^Td NOS^CVX|999|||01^historical record^NIP001|||||||||||CP
+OBX|24|CE|30956-7^vaccine type^LN|1|139^Td NOS^CVX||||||F||||||||||||||
+OBX|25|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531|||||||||||
+OBX|26|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||DCS^Dabig Clinical System^StateIIS||||||||||||||
+RXA|0|1|20091015|20091015|88^influenza NOS^CVX |999|||01^historical record^NIP001|||||||||||CP
+OBX|27|CE|30956-7^vaccine type^LN|1|88^influenza NOS^CVX ||||||F||||||||||||||
+OBX|28|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531|||||||||||
+OBX|29|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||DCS^Dabig Clinical System^StateIIS||||||||||||||
+RXA|0|1|20101015|20101015|141^influenza seasonal^CVX |999|||01^historical record^NIP001|||||||||||CP
+OBX|30|CE|30956-7^vaccine type^LN|1|88^influenza NOS^CVX ||||||F||||||||||||||
+OBX|31|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20150531|||||||||||
+OBX|32|ID|59781-5^dose validity^LN|1|Y||||||F|||20150531
+ORC|RE||197027^DCS|||||||^Clerk^Myron||^Pediatric^MARY^^^^^^^L^^^^^^^^^^^MD|||||||||||||||||||
+RXA|0|1|20110901|20110901|140^seasonal flu^CVX||||01^historical record^NIP001|||||||||||CP
+OBX|33|CE|30956-7^vaccine type^LN|2|88^influenza NOS^CVX ||||||F||||||||||||||
+OBX|34|CE|59779-9^Immunization Schedule used^LN|2|VXC16^ACIP^CDCPHINVS||||||F|||20150531|||||||||||
+OBX|35|ID|59781-5^dose validity^LN|2|Y||||||F|||20150531
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||DCS^Dabig Clinical System^StateIIS||||||||||||||
+RXA|0|1|20150531|20150531|998^no vaccine admin^CVX|999||||||||||||||NA||||||
+OBX|37|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F||||||||||||||
+OBX|39|CE|30956-7^vaccine type^LN|2|88^influenza NOS^CVX ||||||F||||||||||||||
+OBX|41|DT|30980-7^Date vaccination due^LN|2|20150914||||||F||||||||||||||
+OBX|37|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F||||||||||||||
+OBX|39|CE|30956-7^vaccine type^LN|2|03^MMR^CVX ||||||F||||||||||||||
+OBX|41|DT|30980-7^Date vaccination due^LN|2|20000914||||||F||||||||||||||

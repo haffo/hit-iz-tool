@@ -1,0 +1,8 @@
+The Receiver technology will demonstrate the ability to: 
+						<ul>
+						<li>Receive a SOAP message with the Body element not containing either a submitSingleMessage or a connectivityTest element, as defined in the CDC WSDL 1.0</li>
+						<li>Transmit a SOAP response message to the Sender that contains the element UnsupportedOperationFault, as defined in the CDC WSDL 1.0 
+						<ul>
+						<li>with arbitrary conforming values for the Code and Detail child elements</li>
+						<li>with conforming fixed value for the Reason child element UnsupportedOperationFault.</li>
+						</ul> </li> </ul>

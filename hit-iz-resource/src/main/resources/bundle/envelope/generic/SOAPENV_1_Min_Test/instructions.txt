@@ -1,0 +1,7 @@
+<ol>
+<li>The System Under Test (SUT) generates a SOAP message envelope
+<li>The Tester copies this SOAP message envelope and pastes it into the Test Tool
+<li>The Test Tool validates the SOAP message envelope for conformance to the minimal requirements of the SOAP 1.2 standard
+<li>The Test Tool generates a Validation Report listing the results of the validation
+<li>The Tester reviews the Validation Report and compares the results to the Objectives and Evaluation Criteria associated with the SOAPENV_1_Min_Test Test Case
+</ol>

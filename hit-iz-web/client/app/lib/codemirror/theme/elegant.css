@@ -1,0 +1,14 @@
+.cm-s-elegant span.cm-number, .cm-s-elegant span.cm-string, .cm-s-elegant span.cm-atom {color: #762;}
+.cm-s-elegant span.cm-comment {color: #262;font-style: italic;}
+.cm-s-elegant span.cm-meta {color: #555;font-style: italic;}
+.cm-s-elegant span.cm-variable {color: black;}
+.cm-s-elegant span.cm-variable-2 {color: #b11;}
+.cm-s-elegant span.cm-qualifier {color: #555;}
+.cm-s-elegant span.cm-keyword {color: #730;}
+.cm-s-elegant span.cm-builtin {color: #30a;}
+.cm-s-elegant span.cm-error {background-color: #fdd;}
+.cm-s-elegant span.cm-edi-field-separator {color: #000099;}
+.cm-s-elegant span.cm-edi-component-separator {color: #FF3300;}
+.cm-s-elegant span.cm-edi-subcomponent-separator {color: #006600;}
+.cm-s-elegant span.cm-edi-continuation-separator {color: #FF00FF;}
+.cm-s-elegant span.cm-edi-segment-name {font-weight:bold;color:black;}

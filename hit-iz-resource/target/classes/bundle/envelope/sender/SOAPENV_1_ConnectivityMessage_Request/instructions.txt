@@ -1,0 +1,7 @@
+<ol>
+<li>The System Under Test (SUT) generates a valid connectivityTest request message envelope that conforms to the SOAP 1.2 standard and CDC WSDL 1.0 and that requests verification of the accessibility of an IIS Web Service</li>
+<li>The Tester copies this SOAP connectivityTest request message envelope and pastes it into the Test Tool, which is functioning as the receiver system </li>
+<li>The Test Tool validates the SOAP connectivityTest request message envelope for conformance to the SOAP 1.2 standard and CDC WSDL 1.0</li>
+<li>The Test Tool generates a Validation Report listing the results of the validation</li>
+<li>The Tester reviews the Validation Report and compares the results to the Objectives and Evaluation Criteria associated with the SOAPENV_1_ConnectivityTest_Request Test Case</li>
+</ol>

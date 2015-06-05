@@ -1,0 +1,49 @@
+{
+    "searchTable": null,
+    "searchTableValues": null,
+    "tableNumber": "0052",
+    "valueSetName": "Diagnosis Type (HL7)",
+    "tableType": "User",
+    "selectCriteria": null,
+    "searchString": null,
+    "selectedTable": null,
+    "searchTablesResults": null,
+    "tableContent": [
+        {
+            "codeSys": "HL70052",
+            "typeOrId": "User",
+            "oid": "2.16.840.1.114222.4.11.827",
+            "tableCodeSys": "PHVS_DiagnosisType_HL7_2x",
+            "comment": null,
+            "name": null,
+            "code": "A",
+            "displayName": "Admitting"
+        },
+        {
+            "codeSys": "HL70052",
+            "typeOrId": "User",
+            "oid": "2.16.840.1.114222.4.11.827",
+            "tableCodeSys": "PHVS_DiagnosisType_HL7_2x",
+            "comment": null,
+            "name": null,
+            "code": "F",
+            "displayName": "Final"
+        },
+        {
+            "codeSys": "HL70052",
+            "typeOrId": "User",
+            "oid": "2.16.840.1.114222.4.11.827",
+            "tableCodeSys": "PHVS_DiagnosisType_HL7_2x",
+            "comment": null,
+            "name": null,
+            "code": "W",
+            "displayName": "Working"
+        }
+    ],
+    "searchTablesDetailContent": null,
+    "searchTablesNameContent": null,
+    "searchResultsColumnCount": 3,
+    "valueSetCode": "PHVS_DiagnosisType_HL7_2x",
+    "valueSetOID": "2.16.840.1.114222.4.11.827",
+    "comment": null
+}

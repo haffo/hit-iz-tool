@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Some Folder",
+        "type": "folder",
+            "size": "",
+        "children": [
+            {
+                "name": "some file.pdf",
+                    "type": "file",
+                "size": "500KB"
+            },
+            {
+                "name": "another_file.doc",
+                    "type": "file",
+                "size": "344KB"
+            }
+        ]
+    }
+]

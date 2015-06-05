@@ -1,0 +1,57 @@
+<div ng-controller="ConnectivityReportCtrl" ng-init="init()">
+    <div class="row" style="margin-top: 20px">
+        <div ng-show="testCase.id != null">
+
+            <div class="col-md-10">
+                <br/>
+
+                <div ng-show="!loading">
+                    <div ng-show="error == null">
+
+                        <div ng-show="soapEnvHtmlReport != null">
+                            <!--<button type="button" class="btn btn-xs btn-info" ng-click="download()"-->
+                            <!--disabled="{{currentMessage.content === null || currentMessage.content === ''}}">-->
+                            <!--<span class="glyphicon glyphicon-save">Download</span>-->
+                            <!--</button>-->
+
+                            <!--<button type="button" class="btn btn-xs btn-info" ng-click="upload()">-->
+                            <!--<span class="glyphicon glyphicon-save">Upload</span>-->
+                            <!--</button>-->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-save">Save As</span> <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a ng-click="downloadAs('PDF')">Pdf</a></li>
+                                    <li><a ng-click="downloadAs('DOC')">Word</a></li>
+                                    <li><a ng-click="downloadAs('XML')">Xml</a></li>
+                                    <li><a ng-click="downloadAs('HTML')">Html</a></li>
+                                </ul>
+                            </div>
+                            <br />
+                            <br />
+                            <div ng-bind-html="soapEnvHtmlReport"></div>
+                        </div>
+
+                        <div ng-show="soapEnvHtmlReport == null">
+                            No report generated.
+                        </div>
+                    </div>
+                    <div ng-show="error != null">
+                        <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+                    </div>
+
+                </div>
+                <div ng-show="loading" style="text-align:center">
+                    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                </div>
+
+            </div>
+        </div>
+
+        <div ng-show="testCase.id == null">
+            No test case Selected.
+        </div>
+    </div>
+
+</div>

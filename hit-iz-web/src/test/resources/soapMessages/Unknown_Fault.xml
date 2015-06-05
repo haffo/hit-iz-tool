@@ -1,0 +1,19 @@
+<Envelope xmlns="http://www.w3.org/2003/05/soap-envelope">
+   <Body>
+      <Fault xmlns:ns4="http://schemas.xmlsoap.org/soap/envelope/">
+         <Code>
+            <Value>Receiver</Value>
+         </Code>
+         <Reason>
+            <Text xml:lang="en">Unknown Fault Message Here</Text>
+         </Reason>
+         <Detail>
+            <fault>
+               <Code>54353</Code>
+               <Reason xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">My Reason</Reason>
+               <Detail>An unexpected problem occured</Detail>
+            </fault>
+         </Detail>
+      </Fault>
+   </Body>
+</Envelope>

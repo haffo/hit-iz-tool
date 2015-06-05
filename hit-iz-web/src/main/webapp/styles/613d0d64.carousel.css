@@ -1,0 +1,38 @@
+.carousel {
+    height: 600px;
+    margin-bottom: 60px;
+}
+
+.carousel-caption {
+    z-index: 10;
+    color:#777;
+}
+
+#hippaNotice {
+    top:0;
+}
+
+.carousel .item {
+    height: 600px;
+    background:white url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}
+.carousel-inner > .item > img {
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    height: 500px;
+    margin: 0 auto;
+}
+
+.carousel-indicators .active {
+    background-color: #0d40de;
+    height: 12px;
+    width: 12px;
+}
+
+.carousel-indicators li {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+    background-repeat: repeat-x;
+    border: 1px solid  #777;
+    border-radius: 15px;
+ }

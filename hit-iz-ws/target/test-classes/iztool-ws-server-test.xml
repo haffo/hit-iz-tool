@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:sws="http://www.springframework.org/schema/web-services"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-4.1.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util-4.1.xsd
+http://www.springframework.org/schema/web-services
+http://www.springframework.org/schema/web-services/web-services-2.0.xsd">
+
+
+
+	<context:component-scan base-package="gov.nist.healthcare.hl7.v2.iz.tool.ws" />
+
+	<bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory">
+		<property name="soapVersion">
+			<util:constant static-field="org.springframework.ws.soap.SoapVersion.SOAP_12" />
+		</property>
+	</bean>
+
+	<sws:static-wsdl id="iis" location="classpath:/ws/cdc.wsdl" />
+
+	<sws:interceptors>
+
+		<sws:payloadRoot namespaceUri="urn:cdc:iisb:2011" localPart="submitSingleMessage">
+    			<bean class="gov.nist.healthcare.hl7.v2.iz.tool.ws.server.endpoint.interceptor.SubmitSingleMessageInterceptor">
+    				<property name="messageRegistry" ref="messageRegistry" />
+    			</bean>
+  		</sws:payloadRoot> 
+  		
+  		<bean
+			class="org.springframework.ws.soap.server.endpoint.interceptor.SoapEnvelopeLoggingInterceptor">
+			 <property name="logRequest" value="true"></property>
+        	<property name="logResponse" value="true"></property>
+		</bean>
+  
+		
+	</sws:interceptors>
+
+ 	<bean id="validatingInterceptor"
+		class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor">
+		<property name="schema" value="classpath:/ws/cdc.xsd" />
+		<property name="validateRequest" value="true" />
+		<property name="validateResponse" value="true" />
+	</bean>  
+
+	<bean id="exceptionResolver"
+		class="gov.nist.healthcare.hl7.v2.iz.tool.ws.server.endpoint.SoapFaultDetailsDefinitionExceptionResolver">
+		<property name="defaultFault" value="SERVER" />
+	 	<property name="exceptionMappings">
+	 		<map>
+	 			<entry key="org.springframework.oxm.ValidationFailureException" value="CLIENT,Invalid request"/>
+	 			<entry key="gov.nist.healthcare.hl7.v2.iz.tool.ws.server.exception.MessageTooLargeException" value="SENDER"/>
+	 			<entry key="java.lang.UnsupportedOperationException" value="SENDER" />
+	 			<entry key="java.lang.SecurityException" value="SENDER" />
+	 		</map>
+		</property> 
+	</bean>
+
+
+	<bean id="messageSender"
+		class="org.springframework.ws.transport.http.CommonsHttpMessageSender">
+	</bean>
+ 
+  	
+  <bean id="messageRegistry" class="gov.nist.healthcare.hl7.v2.iz.tool.service.MessageRegistryImpl" />
+  
+   	
+ 	<bean id="facilityIdManager"
+		class="gov.nist.healthcare.hl7.v2.iz.tool.service.FacilityIdManagerImpl">
+		<property name="registry">
+		<map>
+		  	<entry key="FAC_TEST" value="true" />
+		</map>
+		</property>
+	</bean>
+	
+ 
+	
+</beans>

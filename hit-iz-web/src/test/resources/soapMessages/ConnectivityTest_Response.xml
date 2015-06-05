@@ -1,0 +1,8 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:cdc:iisb:2011">
+   <soap:Header/>
+   <soap:Body>
+      <urn:connectivityTestResponse>
+         <urn:return>HERE</urn:return>
+      </urn:connectivityTestResponse>
+   </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,55 @@
+{
+    "Report": [
+        {
+            "Entry": {
+                "path": "OBX-5.3",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "9",
+                "column": "74",
+                "category": "R-Usage",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-2",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "2",
+                "column": "7",
+                "category": "X-Usage",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "RXA-10.9.1",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "6",
+                "column": "178",
+                "category": "RE-Usage",
+                "classification": "Warning"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-10.9.1",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "6",
+                "column": "178",
+                "category": "RE-Usage",
+                "classification": "Alert"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-17",
+                "description": "Segment OBX (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "line": "5",
+                "column": "1",
+                "category": "RE-Usage",
+                "classification": "Informational"
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,421 @@
+<div ng-controller="ContextFreeVocabularyCtrl" ng-init="init()">
+<div class="row" style="margin-top:20px">
+<div ng-show="!loading">
+<div ng-show="contextFree.testCase.testContext.id != null">
+<div ng-show="tableLibraries != null && tableLibraries.length > 0">
+<div class="col-md-4">
+    <div class="panel panel-info">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><i class="glyphicon glyphicon-list"></i> Vocabulary Collections
+        </div>
+
+        <div class="panel-body">
+            <div ng-show="error == null">
+                <tabset>
+                    <tab ng-repeat="vocabularyCollection in tableLibraries"
+                         heading="{{vocabularyCollection.name}}">
+                        <div ng-show="vocabularyCollection.children!= null && vocabularyCollection.children.length > 1">
+                            <tabset>
+                                <tab ng-repeat="lib in vocabularyCollection.children"
+                                     heading="{{lib.name}}">
+                                    <div ng-controller="ContextFreeVocabularyTabCtrl"
+                                         ng-init="init(lib)">
+                                        <div ng-show="tableList != null" class="iz-vocab-table">
+                                            <table st-table="tmpList" st-safe-src="tableList"
+                                                   class="table table-striped table-bordered ng-table-text stTable">
+                                                <thead>
+                                                <tr class="tbl-header">
+                                                    <th class="col-fixed-150" st-sort="id">Table Id</th>
+                                                    <th st-sort="name">Value Set Name</th>
+                                                </tr>
+                                                <tr>
+                                                    <!--<th>-->
+                                                    <!--<input st-search="'path'" placeholder="search for path" class="input-sm form-control" type="search"/>-->
+                                                    <!--</th>-->
+                                                    <th colspan="2">
+                                                        <input st-search placeholder="Search"
+                                                               class="input-sm form-control" type="search"/>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                <tr ng-repeat="row in tmpList">
+                                                    <td class="col-fixed-150">
+                                                        <a class="point" ng-show="row.id"
+                                                           ng-click="selectTableDef(row, lib)" ng-bind="row.id"></a>
+                                                        <span ng-show="row.id == null">N/A</span>
+                                                    </td>
+                                                    <td>
+                                                        <span ng-show="row.name" ng-bind="row.name"></span>
+                                                        <span ng-show="row.name == null">N/A</span>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+
+                                                <!--<tfoot>-->
+                                                <!--<tr>-->
+                                                <!--<td colspan="2" class="text-center">-->
+                                                <!--<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>-->
+                                                <!--</td>-->
+                                                <!--</tr>-->
+                                                <!--</tfoot>-->
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </tab>
+                            </tabset>
+                        </div>
+
+                        <div ng-show="vocabularyCollection.children!= null && vocabularyCollection.children.length == 1">
+                            <div ng-controller="ContextFreeVocabularyTabCtrl"
+                                 ng-init="init(vocabularyCollection.children[0])">
+                                <div class="iz-vocab-table">
+                                    <table st-table="tmpList" st-safe-src="tableList"
+                                           class="table table-striped table-bordered ng-table-text stTable">
+                                        <thead>
+                                        <tr class="tbl-header">
+                                            <th class="col-fixed-150" st-sort="tdId">Table Id</th>
+                                            <th st-sort="name">Value Set Name</th>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2">
+                                                <input st-search placeholder="Search" class="input-sm form-control"
+                                                       type="search"/>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <tr ng-repeat="row in tmpList">
+                                            <td class="col-fixed-150">
+                                                <a class="point" ng-show="row.tdId"
+                                                   ng-click="selectTableDef(row,tableLibrary)" ng-bind="row.tdId"></a>
+                                                <span ng-show="row.tdId == null">N/A</span>
+                                            </td>
+                                            <td>
+                                                <span ng-show="row.name" ng-bind="row.name"></span>
+                                                <span ng-show="row.name == null">N/A</span>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+
+                                        <!--<tfoot>-->
+                                        <!--<tr>-->
+                                        <!--<td colspan="2" class="text-center">-->
+                                        <!--<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>-->
+                                        <!--</td>-->
+                                        <!--</tr>-->
+                                        <!--</tfoot>-->
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+                </tabset>
+            </div>
+
+            <div ng-show="error != null">
+                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+<div class="col-md-8">
+<div>
+<div class="row">
+<div id="messagePanel" class="panel panel-info">
+<!-- Default panel contents -->
+<div class="panel-heading"><i class="glyphicon glyphicon-file"></i> Value Set Information
+</div>
+
+
+<div class="panel-body vocab-search-result">
+
+<form class="form-inline" name="searchValueForm" ng-submit="searchTableValues()">
+    <input type="text" ng-model="searchString" placeholder="Value"/>
+    <select ng-model="selectionCriteria" required ng-change="clearSearchResults()">
+        <option value="TableId">Table Id</option>
+        <option value="Value">Value (Code)</option>
+        <option value="ValueSetCode">Value Set Code</option>
+        <option value="ValueSetName">Value Set Name</option>
+        <option value="Description">Description</option>
+    </select>
+    <button type="button" class="btn btn-sm btn-primary" ng-disabled="searchString == ''"
+            ng-click="searchTableValues()">
+        <i class="fa fa-search"></i>
+        Search
+    </button>
+</form>
+
+<br/>
+
+
+<div ng-show="vocabResError != null">
+    <div class="alert alert-danger" role="alert"
+         ng-bind="vocabResError"></div>
+</div>
+
+<div ng-show="vocabResError == null">
+<div ng-show="searchResults != null && searchResults.length > 0">
+<div class="divScroll-1">
+<div class="iz-vocab-table-result" ng-show="selectionCriteria === 'TableId' || selectionCriteria === 'ValueSetCode' || selectionCriteria === 'ValueSetName'">
+<table st-table="tmpSearchResults" st-safe-src="searchResults"
+       class="table table-striped table-bordered ng-table-text stTable">
+    <thead>
+    <tr class="tbl-header">
+        <th class="col-fixed-150" st-sort="tdId">Table Id</th>
+        <th class="col-fixed-150" st-sort="name">ValueSet Name</th>
+        <th class="col-fixed-150" st-sort="version">ValueSet Version</th>
+        <th class="col-fixed-150" st-sort="codesys">Code System</th>
+        <th class="col-fixed-150" st-sort="oid"> Value Set OID</th>
+        <th st-sort="type">Table Type</th>
+    </tr>
+    <tr>
+        <th colspan="6">
+            <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="row in tmpSearchResults">
+        <td class="col-fixed-150">
+            <a ng-show="row.tdId" ng-click="selectTableDef2(row)" ng-bind="row.tdId"></a>
+         </td>
+
+        <td class="col-fixed-150">
+            <span ng-show="row.name" ng-bind="row.name"></span>
+            <span ng-show="row.name == null">N/A</span>
+        </td>
+
+        <td class="col-fixed-150">
+            <span ng-show="row.version" ng-bind="row.version"></span>
+            <span ng-show="row.version == null">N/A</span>
+        </td>
+
+
+        <td class="col-fixed-150">
+            <span ng-show="row.codesys" ng-bind="row.codesys"></span>
+            <span ng-show="row.codesys == null">N/A</span>
+        </td>
+
+        <td>
+            <span ng-show="row.oid" ng-bind="row.oid"></span>
+            <span ng-show="row.oid == null">N/A</span>
+        </td>
+        <td>
+            <span ng-show="row.type" ng-bind="row.type"></span>
+            <span ng-show="row.type == null">N/A</span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<!--<table st-table="tmpSearchResults" st-safe-src="searchResults"-->
+           <!--class="table table-striped table-bordered ng-table-text stTable">-->
+        <!--<thead>-->
+        <!--<tr class="tbl-header">-->
+            <!--<th class="col-fixed-150" st-sort="code">Value (Code)</th>-->
+            <!--<th class="col-fixed-150" st-sort="codesys">Code Sys</th>-->
+            <!--<th class="col-fixed-150" st-sort="displayName">Description</th>-->
+            <!--<th class="col-fixed-150" st-sort="source">Source</th>-->
+            <!--<th class="col-fixed-150" st-sort="usage">Usage</th>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<th colspan="6">-->
+                <!--<input st-search placeholder="Search" class="input-sm form-control" type="search"/>-->
+            <!--</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr ng-repeat="row in tmpSearchResults">-->
+            <!--<td class="col-fixed-150">-->
+                <!--<span ng-show="row.code" ng-bind="row.code"></span>-->
+                <!--<span ng-show="row.code == null">N/A</span>-->
+            <!--</td>-->
+            <!--<td class="col-fixed-150">-->
+                <!--<span ng-show="row.codesys" ng-bind="row.codesys"></span>-->
+                <!--<span ng-show="row.codesys == null">N/A</span>-->
+            <!--</td>-->
+
+            <!--<td class="col-fixed-150">-->
+                <!--<span ng-show="row.displayName" ng-bind="row.displayName"></span>-->
+                <!--<span ng-show="row.displayName == null">N/A</span>-->
+            <!--</td>-->
+            <!--<td class="col-fixed-150">-->
+                <!--<span ng-show="row.source" ng-bind="row.source"></span>-->
+                <!--<span ng-show="row.source == null">N/A</span>-->
+            <!--</td>-->
+
+            <!--<td class="col-fixed-150">-->
+                <!--<span ng-show="row.usageType" ng-bind="row.usageType"></span>-->
+                <!--<span ng-show="row.usageType == null">N/A</span>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+</div>
+
+<div class="iz-vocab-table-result"  ng-show="selectionCriteria === 'Value' || selectionCriteria === 'Description'">
+    <table st-table="tmpSearchResults" st-safe-src="searchResults"
+           class="table table-striped table-bordered ng-table-text stTable">
+        <thead>
+        <tr class="tbl-header">
+            <th class="col-fixed-150" st-sort="code">Code</th>
+            <th class="col-fixed-150" st-sort="codesys">Code System</th>
+            <th class="col-fixed-150" st-sort="displayName">Description</th>
+            <!--<th class="col-fixed-150" st-sort="source">Source</th>-->
+            <!--<th class="col-fixed-150" st-sort="usageType">Usage</th>-->
+        </tr>
+        <tr>
+            <th colspan="6">
+                <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in tmpSearchResults">
+            <td class="col-fixed-150">
+                <span>{{row.code}}</span>
+             </td>
+            <td class="col-fixed-150">
+                <span ng-show="row.codesys">{{row.codesys}}</span>
+             </td>
+
+            <td class="col-fixed-150">
+                <span>{{row.displayName}}</span>
+             </td>
+            <!--<td class="col-fixed-150">-->
+                <!--<span>{{row.source}}</span>-->
+             <!--</td>-->
+
+            <!--<td class="col-fixed-150">-->
+                <!--<span>{{row.usageType}}</span>-->
+             <!--</td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+
+<div ng-show="selectedTableDef != null">
+    <div class="panel panel-info">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Value Set Attributes</div>
+        <!-- Table -->
+        <table class="table table-bordered">
+            <tr ng-show="selectedTableDef.tdId != null && selectedTableDef.tdId != ''">
+                <td>Table Id</td>
+                <td ng-bind="selectedTableDef.tdId"></td>
+            </tr>
+            <tr ng-show="selectedTableDef.name != null && selectedTableDef.name != ''">
+                <td>Value Set Name</td>
+                <td ng-bind="selectedTableDef.name"></td>
+            </tr>
+
+            <tr>
+                <td>Value Set Version</td>
+                <td ng-bind="selectedTableDef.version"></td>
+            </tr>
+
+            <tr>
+                <td>Code System</td>
+                <td ng-bind="selectedTableDef.codesys"></td>
+            </tr>
+
+            <tr ng-show="selectedTableDef.oid != '' &&  selectedTableDef.oid != null">
+                <td>Value Set OID</td>
+                <td>
+                    <a class="point"
+                       ng-href="'http://phinvads.cdc.gov/vads/ViewValueSet.action?oid={{selectedTableDef.oid}}'">{{selectedTableDef.oid}}</a>
+                </td>
+            </tr>
+            <tr ng-show="selectedTableDef.type != null && selectedTableDef.type != ''">
+                <td>Table Type</td>
+                <td ng-bind="selectedTableDef.type"></td>
+            </tr>
+        </table>
+                                    <span style="color:red; font-weight:bold;"
+                                          ng-show="isNoValidation()">This table will not be validated.
+                                    </span>
+    </div>
+    <div class="divScroll-1">
+        <div class="iz-vocab-table-result">
+            <table st-table="tmpTableElements" st-safe-src="selectedTableDef.tableElements"
+                   class="table table-striped table-bordered ng-table-text stTable">
+                <thead>
+                <tr class="tbl-header">
+                    <th class="col-fixed-150" st-sort="code">Code</th>
+                    <th class="col-fixed-150" st-sort="codesys">Code System</th>
+                    <th class="col-fixed-150" st-sort="displayName">Description</th>
+                    <!--<th class="col-fixed-150" st-sort="source">Source</th>-->
+                    <!--<th class="col-fixed-150" st-sort="usageType">Usage</th>-->
+                </tr>
+                <tr>
+                    <th colspan="5">
+                        <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr ng-repeat="row in tmpTableElements">
+                    <td class="col-fixed-150">
+                        <span>{{row.code}}</span>
+                    </td>
+                    <td class="col-fixed-150">
+                        <span>{{row.codesys}}</span>
+                    </td>
+
+                    <td class="col-fixed-150">
+                        <span>{{row.displayName}}</span>
+                    </td>
+                    <!--<td class="col-fixed-150">-->
+                        <!--<span>{{row.source}}</span>-->
+                    <!--</td>-->
+
+                    <!--<td class="col-fixed-150">-->
+                        <!--<span>{{row.usageType}}</span>-->
+                    <!--</td>-->
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div ng-show="tableLibraries == null || tableLibraries.length == 0">
+    <div class="col-md-10"> No Vocabulary Library found.</div>
+</div>
+</div>
+
+<div ng-show="contextFree.testCase.testContext.id == null">
+    <div class="col-md-10"> No Profile Selected.</div>
+</div>
+</div>
+
+<div ng-show="loading" style="text-align:center">
+    <div class="col-md-10"><i class="fa fa-spinner fa-pulse fa-2x"></i><i class="fa fa-spinner fa-pulse fa-2x"></i></div>
+</div>
+
+</div>
+</div>

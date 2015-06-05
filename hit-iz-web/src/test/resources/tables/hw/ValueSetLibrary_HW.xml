@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TableLibrary xmlns="http://www.nist.gov/healthcare/data" Description="Value Set Library for Height and Weight Report 2.5.1 Implementation Guide" Name="HW" OrganizationName="" Status="working" TableLibraryIdentifier="" TableLibraryVersion="">
+  <TableDefinition codeSystems="" contentsDefinition="Extensional" extensibility="Closed" id="99HEIGHT " libName="HW" name="Height  Observation" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="8302-2" codeDescription="Body height" comments="LOINC (LN) " source="Local" valueUsage="R"/>
+    <TableElement code="3137-7" codeDescription="Body height measured " comments="LOINC (LN) " source="Local" valueUsage="R"/>
+    <TableElement code="8306-3" codeDescription="Body height lying " comments="LOINC (LN) " source="Local" valueUsage="R"/>
+    <TableElement code="8308-9" codeDescription="Body height standing" comments="" source="Local" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70354(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70354" libName="HW" name="HW-Message structure" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="ACK" codeDescription="Varies" comments="" source="HL70354(2.5.1)" valueUsage="R"/>
+    <TableElement code="ADR_A19" codeDescription="A19" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A01" codeDescription="A01, A04, A08, A13" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A02" codeDescription="A02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A03" codeDescription="A03" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A05" codeDescription="A05, A14, A28, A31" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A06" codeDescription="A06, A07" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A09" codeDescription="A09, A10, A11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A12" codeDescription="A12" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A15" codeDescription="A15" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A16" codeDescription="A16" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A17" codeDescription="A17" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A18" codeDescription="A18" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A20" codeDescription="A20" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A21" codeDescription="A21, A22, A23, A25, A26, A27, A29, A32, A33" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A24" codeDescription="A24" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A30" codeDescription="A30, A34, A35, A36, A46, A47, A48, A49" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A37" codeDescription="A37" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A38" codeDescription="A38" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A39" codeDescription="A39, A40, A41, A42" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A43" codeDescription="A43, A44" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A45" codeDescription="A45" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A50" codeDescription="A50, A51" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A52" codeDescription="A52, A53, A55" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A54" codeDescription="A54" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A60" codeDescription="A60" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT_A61" codeDescription="A61, A62" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="BAR_P01" codeDescription="P01" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="BAR_P02" codeDescription="P02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="BAR_P05" codeDescription="P05" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="BAR_P06" codeDescription="P06" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="BAR_P10" codeDescription="P10" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="BAR_P12" codeDescription="P12" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="BPS_O29" codeDescription="O29" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="BRP_O30" codeDescription="O30" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="BRT_O32" codeDescription="O32" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="BTS_O31" codeDescription="O31" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="CRM_C01" codeDescription="C01, C02, C03, C04, C05, C06, C07, C08" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="CSU_C09" codeDescription="C09, C10, C11, C12" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="DFT_P03" codeDescription="P03" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="DFT_P11" codeDescription="P11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="DOC_T12" codeDescription="T12" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="DSR_P04" codeDescription="P04" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="DSR_Q01" codeDescription="Q01" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="DSR_Q03" codeDescription="Q03" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="EAC_U07" codeDescription="U07" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="EAN_U09" codeDescription="U09" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="EAR_U08" codeDescription="U08" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="EDR_R07" codeDescription="R07" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="EQQ_Q04" codeDescription="Q04" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ERP_R09" codeDescription="R09" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ESR_U02" codeDescription="U02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ESU_U01" codeDescription="U01" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="INR_U06" codeDescription="U06" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="INU_U05" codeDescription="U05" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="LSU_U12" codeDescription="U12, U13" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MDM_T01" codeDescription="T01, T03, T05, T07, T09, T11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MDM_T02" codeDescription="T02, T04, T06, T08, T10" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFD_MFA" codeDescription="MFA" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFK_M01" codeDescription="M01, M02, M03, M04, M05, M06, M07, M08, M09, M10, M11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M01" codeDescription="M01" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M02" codeDescription="M02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M03" codeDescription="M03" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M04" codeDescription="M04" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M05" codeDescription="M05" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M06" codeDescription="M06" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M07" codeDescription="M07" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M08" codeDescription="M08" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M09" codeDescription="M09" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M10" codeDescription="M10" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M11" codeDescription="M11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M12" codeDescription="M12" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M13" codeDescription="M13" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN_M15" codeDescription="M15" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFQ_M01" codeDescription="M01, M02, M03, M04, M05, M06" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFR_M01" codeDescription="M01, M02, M03" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFR_M04" codeDescription="M04" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFR_M05" codeDescription="Mo5" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFR_M06" codeDescription="M06" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFR_M07" codeDescription="M07" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="NMD_N02" codeDescription="N02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="NMQ_N01" codeDescription="N01" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="NMR_N01" codeDescription="N01" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMB_O27" codeDescription="O27" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMD_O03" codeDescription="O03" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMG_O19" codeDescription="O19" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMI_O23" codeDescription="O23" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OML_O21" codeDescription="O21" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OML_O33" codeDescription="O33" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OML_O35" codeDescription="O35" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMN_O07" codeDescription="007" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMP_O09" codeDescription="O09" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMS_O05" codeDescription="O05" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORB_O28" codeDescription="O28" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORD_O04" codeDescription="O04" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORF_R04" codeDescription="R04" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORG_O20" codeDescription="O20" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORI_O24" codeDescription="O24" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORL_O22" codeDescription="022" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORL_O34" codeDescription="O34" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORL_O36" codeDescription="O36" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORM_O01" codeDescription="O01" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORN_O08" codeDescription="O08" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORP_O10" codeDescription="O10" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORR_O02" codeDescription="O02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORS_O06" codeDescription="O06" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORU_R01" codeDescription="R01" comments="" source="HL70354(2.5.1)" valueUsage="R"/>
+    <TableElement code="ORU_R30" codeDescription="R30, R31, R32" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORU_W01" codeDescription="W01" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OSQ_Q06" codeDescription="Q06" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OSR_Q06" codeDescription="Q06" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OUL_R21" codeDescription="R21" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OUL_R22" codeDescription="R22" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OUL_R23" codeDescription="R23" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="OUL_R24" codeDescription="R24" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PEX_P07" codeDescription="P07, P08" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PGL_PC6" codeDescription="PC6, PC7, PC8" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PMU_B01" codeDescription="B01, B02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PMU_B03" codeDescription="B03" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PMU_B04" codeDescription="B04, B05, B06" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PMU_B07" codeDescription="B07" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PMU_B08" codeDescription="B08" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PPG_PCG" codeDescription="PCC, PCG, PCH, PCJ" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PPP_PCB" codeDescription="PCB, PCD" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PPR_PC1" codeDescription="PC1, PC2, PC3" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PPT_PCL" codeDescription="PCL" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PPV_PCA" codeDescription="PCA" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PRR_PC5" codeDescription="PC5" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="PTR_PCF" codeDescription="PCF" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QBP_Q11" codeDescription="Q11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QBP_Q13" codeDescription="Q13" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QBP_Q15" codeDescription="Q15" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QBP_Q21" codeDescription="Q21, Q22, Q23,Q24, Q25" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QCK_Q02" codeDescription="Q02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QCN_J01" codeDescription="J01, J02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QRF_W02" codeDescription="W02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QRY_A19" codeDescription="A19" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QRY_P04" codeDescription="P04" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QRY_PC4" codeDescription="PC4, PC9, PCE, PCK" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QRY_Q01" codeDescription="Q01, Q26, Q27, Q28, Q29, Q30" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QRY_Q02" codeDescription="Q02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QRY_R02" codeDescription="R02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QRY_T12" codeDescription="T12" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QSB_Q16" codeDescription="Q16" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="QVR_Q17" codeDescription="Q17" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RAR_RAR" codeDescription="RAR" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RAS_O17" codeDescription="O17" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RCI_I05" codeDescription="I05" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RCL_I06" codeDescription="I06" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RDE_O11" codeDescription="O11, O25" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RDR_RDR" codeDescription="RDR" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RDS_O13" codeDescription="O13" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RDY_K15" codeDescription="K15" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="REF_I12" codeDescription="I12, I13, I14, I15" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RER_RER" codeDescription="RER" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RGR_RGR" codeDescription="RGR" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RGV_O15" codeDescription="O15" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="ROR_ROR" codeDescription="ROR" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RPA_I08" codeDescription="I08, I09. I10, I11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RPI_I01" codeDescription="I01" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RPI_I04" codeDescription="I04" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RPL_I02" codeDescription="I02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RPR_I03" codeDescription="I03" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RQA_I08" codeDescription="I08, I09, I10, I11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RQC_I05" codeDescription="I05, I06" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RQI_I01" codeDescription="I01, I02, I03, I07" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RQP_I04" codeDescription="I04" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RQQ_Q09" codeDescription="Q09" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RRA_O18" codeDescription="O18" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RRD_O14" codeDescription="O14" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RRE_O12" codeDescription="O12, O26" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RRG_O16" codeDescription="O16" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RRI_I12" codeDescription="I12, I13, I14, I15" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RSP_K11" codeDescription="K11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RSP_K21" codeDescription="K21" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RSP_K22" codeDescription="K22" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RSP_K23" codeDescription="K23, K24" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RSP_K25" codeDescription="K25" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RSP_K31" codeDescription="K31" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RSP_Q11" codeDescription="Q11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="RTB_K13" codeDescription="K13" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="SIU_S12" codeDescription="S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S26" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="SPQ_Q08" codeDescription="Q08" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="SQM_S25" codeDescription="S25" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="SQR_S25" codeDescription="S25" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="SRM_S01" codeDescription="S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="SRR_S01" codeDescription="S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="SSR_U04" codeDescription="U04" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="SSU_U03" codeDescription="U03" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="SUR_P09" codeDescription="P09" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="TBR_R08" codeDescription="R08" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="TBR_R09" codeDescription="R09" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="TCU_U10" codeDescription="U10, U11" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="UDM_Q05" codeDescription="Q05" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="VQQ_Q07" codeDescription="Q07" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="VXQ_V01" codeDescription="V01" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="VXR_V03" codeDescription="V03" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="VXU_V04" codeDescription="V04" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+    <TableElement code="VXX_V02" codeDescription="V02" comments="" source="HL70354(2.5.1)" valueUsage="E"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70085(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70085" libName="HW" name="HW-Observation result status codes interpretation" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="C" codeDescription="Record coming over is a correction and thus replaces a final result" comments="" source="HL70085(2.5.1)" valueUsage="R"/>
+    <TableElement code="D" codeDescription="Deletes the OBX record" comments="" source="HL70085(2.5.1)" valueUsage="E"/>
+    <TableElement code="F" codeDescription="Final results; Can only be changed with a corrected result." comments="" source="HL70085(2.5.1)" valueUsage="R"/>
+    <TableElement code="I" codeDescription="Specimen in lab; results pending" comments="" source="HL70085(2.5.1)" valueUsage="E"/>
+    <TableElement code="N" codeDescription="Not asked; used to affirmatively document that the observation identified in the OBX was not sought when the universal service ID in OBR-4 implies that it would be sought." comments="" source="HL70085(2.5.1)" valueUsage="E"/>
+    <TableElement code="O" codeDescription="Order detail description only (no result)" comments="" source="HL70085(2.5.1)" valueUsage="E"/>
+    <TableElement code="P" codeDescription="Preliminary results" comments="" source="HL70085(2.5.1)" valueUsage="E"/>
+    <TableElement code="R" codeDescription="Results entered -- not verified" comments="" source="HL70085(2.5.1)" valueUsage="E"/>
+    <TableElement code="S" codeDescription="Partial results" comments="" source="HL70085(2.5.1)" valueUsage="E"/>
+    <TableElement code="U" codeDescription="Results status change to final without retransmitting results already sent as ????preliminary.'  E.g., radiology changes status from preliminary to final" comments="" source="HL70085(2.5.1)" valueUsage="E"/>
+    <TableElement code="W" codeDescription="Post original as wrong, e.g., transmitted for wrong patient" comments="" source="HL70085(2.5.1)" valueUsage="E"/>
+    <TableElement code="X" codeDescription="Results cannot be obtained for this observation" comments="" source="HL70085(2.5.1)" valueUsage="E"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70189(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70189" libName="HW" name="Ethnic Group" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="H" codeDescription="Hispanic or Latino" comments="" source="HL70189(2.5.1)" valueUsage="R"/>
+    <TableElement code="N" codeDescription="Not Hispanic or Latino" comments="" source="HL70189(2.5.1)" valueUsage="R"/>
+    <TableElement code="U" codeDescription="Unknown" comments="" source="HL70189(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70200(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70200" libName="HW" name="Name type" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="A" codeDescription="Alias Name" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="B" codeDescription="Name at Birth" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="C" codeDescription="Adopted Name" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="D" codeDescription="Display Name" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="I" codeDescription="Licensing Name" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="L" codeDescription="Legal Name" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="M" codeDescription="Maiden Name" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="N" codeDescription="Nickname /&quot;Call me&quot; Name/Street Name" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="P" codeDescription="Name of Partner/Spouse (retained for backward compatibility only)" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="R" codeDescription="Registered Name (animals only)" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="S" codeDescription="Coded Pseudo-Name to ensure anonymity" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="T" codeDescription="Indigenous/Tribal/Community Name" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+    <TableElement code="U" codeDescription="Unspecified" comments="" source="HL70200(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70123(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70123" libName="HW" name="HW-Result Status" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="A" codeDescription="Some, but not all, results available" comments="" source="HL70123(2.5.1)" valueUsage="E"/>
+    <TableElement code="C" codeDescription="Correction to results" comments="" source="HL70123(2.5.1)" valueUsage="R"/>
+    <TableElement code="F" codeDescription="Final results; results stored and verified.  Can only be changed with a corrected result." comments="" source="HL70123(2.5.1)" valueUsage="R"/>
+    <TableElement code="I" codeDescription="No results available; specimen received, procedure incomplete" comments="" source="HL70123(2.5.1)" valueUsage="E"/>
+    <TableElement code="O" codeDescription="Order received; specimen not yet received" comments="" source="HL70123(2.5.1)" valueUsage="E"/>
+    <TableElement code="P" codeDescription="Preliminary: A verified early result is available, final results not yet obtained" comments="" source="HL70123(2.5.1)" valueUsage="E"/>
+    <TableElement code="R" codeDescription="Results stored; not yet verified" comments="" source="HL70123(2.5.1)" valueUsage="E"/>
+    <TableElement code="S" codeDescription="No results available; procedure scheduled, but not done" comments="" source="HL70123(2.5.1)" valueUsage="E"/>
+    <TableElement code="X" codeDescription="No results available; Order canceled." comments="" source="HL70123(2.5.1)" valueUsage="E"/>
+    <TableElement code="Y" codeDescription="No order on record for this test.  (Used only on queries)" comments="" source="HL70123(2.5.1)" valueUsage="E"/>
+    <TableElement code="Z" codeDescription="No record of this patient. (Used only on queries)" comments="" source="HL70123(2.5.1)" valueUsage="E"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70003(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70003" libName="HW" name="HW-Event type" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="A01" codeDescription="ADT/ACK - Admit/visit notification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A02" codeDescription="ADT/ACK - Transfer a patient" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A03" codeDescription="ADT/ACK -  Discharge/end visit" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A04" codeDescription="ADT/ACK -  Register a patient" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A05" codeDescription="ADT/ACK -  Pre-admit a patient" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A06" codeDescription="ADT/ACK -  Change an outpatient to an inpatient" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A07" codeDescription="ADT/ACK -  Change an inpatient to an outpatient" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A08" codeDescription="ADT/ACK -  Update patient information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A09" codeDescription="ADT/ACK -  Patient departing - tracking" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A10" codeDescription="ADT/ACK -  Patient arriving - tracking" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A11" codeDescription="ADT/ACK -  Cancel admit/visit notification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A12" codeDescription="ADT/ACK -  Cancel transfer" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A13" codeDescription="ADT/ACK -  Cancel discharge/end visit" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A14" codeDescription="ADT/ACK -  Pending admit" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A15" codeDescription="ADT/ACK -  Pending transfer" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A16" codeDescription="ADT/ACK -  Pending discharge" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A17" codeDescription="ADT/ACK -  Swap patients" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A18" codeDescription="ADT/ACK -  Merge patient information (for backward compatibility only)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A19" codeDescription="QRY/ADR -  Patient query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A20" codeDescription="ADT/ACK -  Bed status update" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A21" codeDescription="ADT/ACK -  Patient goes on a ????leave of absence????" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A22" codeDescription="ADT/ACK -  Patient returns from a ????leave of absence????" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A23" codeDescription="ADT/ACK -  Delete a patient record" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A24" codeDescription="ADT/ACK -  Link patient information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A25" codeDescription="ADT/ACK -  Cancel pending discharge" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A26" codeDescription="ADT/ACK -  Cancel pending transfer" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A27" codeDescription="ADT/ACK -  Cancel pending admit" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A28" codeDescription="ADT/ACK -  Add person information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A29" codeDescription="ADT/ACK -  Delete person information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A30" codeDescription="ADT/ACK -  Merge person information (for backward compatibility only)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A31" codeDescription="ADT/ACK -  Update person information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A32" codeDescription="ADT/ACK -  Cancel patient arriving - tracking" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A33" codeDescription="ADT/ACK -  Cancel patient departing - tracking" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A34" codeDescription="ADT/ACK -  Merge patient information - patient ID only (for backward compatibility only)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A35" codeDescription="ADT/ACK -  Merge patient information - account number only (for backward compatibility only)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A36" codeDescription="ADT/ACK -  Merge patient information - patient ID and account number (for backward compatibility only)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A37" codeDescription="ADT/ACK -  Unlink patient information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A38" codeDescription="ADT/ACK - Cancel pre-admit" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A39" codeDescription="ADT/ACK - Merge person - patient ID (for backward compatibility only)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A40" codeDescription="ADT/ACK - Merge patient - patient identifier list" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A41" codeDescription="ADT/ACK - Merge account - patient account number" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A42" codeDescription="ADT/ACK - Merge visit - visit number" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A43" codeDescription="ADT/ACK - Move patient information - patient identifier list" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A44" codeDescription="ADT/ACK - Move account information - patient account number" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A45" codeDescription="ADT/ACK - Move visit information - visit number" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A46" codeDescription="ADT/ACK - Change patient ID (for backward compatibility only)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A47" codeDescription="ADT/ACK - Change patient identifier list" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A48" codeDescription="ADT/ACK - Change alternate patient ID (for backward compatibility only)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A49" codeDescription="ADT/ACK - Change patient account number" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A50" codeDescription="ADT/ACK - Change visit number" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A51" codeDescription="ADT/ACK - Change alternate visit ID" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A52" codeDescription="ADT/ACK - Cancel leave of absence for a patient" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A53" codeDescription="ADT/ACK - Cancel patient returns from a leave of absence" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A54" codeDescription="ADT/ACK - Change attending doctor" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A55" codeDescription="ADT/ACK - Cancel change attending doctor" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A60" codeDescription="ADT/ACK - Update allergy information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A61" codeDescription="ADT/ACK - Change consulting doctor" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="A62" codeDescription="ADT/ACK - Cancel change consulting doctor" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="B01" codeDescription="PMU/ACK - Add personnel record" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="B02" codeDescription="PMU/ACK - Update personnel record" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="B03" codeDescription="PMU/ACK - Delete personnel re cord" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="B04" codeDescription="PMU/ACK - Active practicing person" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="B05" codeDescription="PMU/ACK - Deactivate practicing person" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="B06" codeDescription="PMU/ACK - Terminate practicing person" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="B07" codeDescription="PMU/ACK - Grant Certificate/Permission" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="B08" codeDescription="PMU/ACK - Revoke Certificate/Permission" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C01" codeDescription="CRM - Register a patient on a clinical trial" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C02" codeDescription="CRM - Cancel a patient registration on clinical trial (for clerical mistakes only)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C03" codeDescription="CRM - Correct/update registration information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C04" codeDescription="CRM - Patient has gone off a clinical trial" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C05" codeDescription="CRM - Patient enters phase of clinical trial" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C06" codeDescription="CRM - Cancel patient entering a phase (clerical mistake)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C07" codeDescription="CRM - Correct/update phase information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C08" codeDescription="CRM - Patient has gone off phase of clinical trial" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C09" codeDescription="CSU - Automated time intervals for reporting, like monthly" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C10" codeDescription="CSU - Patient completes the clinical trial" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C11" codeDescription="CSU - Patient completes a phase of the clinical trial" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="C12" codeDescription="CSU - Update/correction of patient order/result information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="CNQ" codeDescription="Cancel Query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I01" codeDescription="RQI/RPI - Request for insurance information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I02" codeDescription="RQI/RPL - Request/receipt of patient selection display list" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I03" codeDescription="RQI/RPR - Request/receipt of patient selection list" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I04" codeDescription="RQD/RPI - Request for patient demographic data" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I05" codeDescription="RQC/RCI - Request for patient clinical information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I06" codeDescription="RQC/RCL - Request/receipt of clinical data listing" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I07" codeDescription="PIN/ACK - Unsolicited insurance information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I08" codeDescription="RQA/RPA - Request for treatment authorization information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I09" codeDescription="RQA/RPA - Request for modification to an authorization" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I10" codeDescription="RQA/RPA - Request for resubmission of an authorization" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I11" codeDescription="RQA/RPA - Request for cancellation of an authorization" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I12" codeDescription="REF/RRI - Patient referral" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I13" codeDescription="REF/RRI - Modify patient referral" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I14" codeDescription="REF/RRI - Cancel patient referral" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="I15" codeDescription="REF/RRI - Request patient referral status" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="J01" codeDescription="QCN/ACK - Cancel query/acknowledge message" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="J02" codeDescription="QSX/ACK - Cancel subscription/acknowledge message" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="K11" codeDescription="RSP - Segment pattern response in response to QBP^Q11" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="K13" codeDescription="RTB - Tabular response in response to QBP^Q13" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="K15" codeDescription="RDY - Display response in response to QBP^Q15" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="K21" codeDescription="RSP - Get person demographics response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="K22" codeDescription="RSP - Find candidates response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="K23" codeDescription="RSP - Get corresponding identifiers response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="K24" codeDescription="RSP - Allocate identifiers response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="K25" codeDescription="RSP - Personnel Information by Segment Response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="K31" codeDescription="RSP - Dispense History" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M01" codeDescription="MFN/MFK - Master file not otherwise specified (for backward compatibility only)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M02" codeDescription="MFN/MFK - Master file - staff practitioner" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M03" codeDescription="MFN/MFK - Master file - test/observation (for backward compatibility only)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M04" codeDescription="MFN/MFK - Master files charge description" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M05" codeDescription="MFN/MFK - Patient location master file" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M06" codeDescription="MFN/MFK - Clinical study with phases and schedules master file" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M07" codeDescription="MFN/MFK - Clinical study without phases but with schedules master file" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M08" codeDescription="MFN/MFK - Test/observation (numeric) master file" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M09" codeDescription="MFN/MFK - Test/observation (categorical) master file" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M10" codeDescription="MFN/MFK - Test /observation batteries master file" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M11" codeDescription="MFN/MFK - Test/calculated observations master file" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M12" codeDescription="MFN/MFK - Master file notification message" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M13" codeDescription="MFN/MFK - Master file notification - general" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M14" codeDescription="MFN/MFK - Master file notification - site defined" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="M15" codeDescription="MFN/MFK - Inventory item master file notification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="N01" codeDescription="NMQ/NMR - Application management query message" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="N02" codeDescription="NMD/ACK - Application management data message (unsolicited)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O01" codeDescription="ORM - Order message (also RDE, RDS, RGV, RAS)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O02" codeDescription="ORR - Order response (also RRE, RRD, RRG, RRA)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O03" codeDescription="OMD - Diet order" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O04" codeDescription="ORD - Diet order acknowledgment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O05" codeDescription="OMS - Stock requisition order" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O06" codeDescription="ORS - Stock requisition acknowledgment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O07" codeDescription="OMN - Non-stock requisition order" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O08" codeDescription="ORN - Non-stock requisition acknowledgment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O09" codeDescription="OMP - Pharmacy/treatment order" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O10" codeDescription="ORP - Pharmacy/treatment order acknowledgment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O11" codeDescription="RDE - Pharmacy/treatment encoded order" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O12" codeDescription="RRE - Pharmacy/treatment encoded order acknowledgment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O13" codeDescription="RDS - Pharmacy/treatment dispense" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O14" codeDescription="RRD - Pharmacy/treatment dispense acknowledgment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O15" codeDescription="RGV - Pharmacy/treatment give" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O16" codeDescription="RRG - Pharmacy/treatment give acknowledgment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O17" codeDescription="RAS - Pharmacy/treatment administration" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O18" codeDescription="RRA - Pharmacy/treatment administration acknowledgment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O19" codeDescription="OMG - General clinical order" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O20" codeDescription="ORG/ORL - General clinical order response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O21" codeDescription="OML - Laboratory order" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O22" codeDescription="ORL - General laboratory order response message to any OML" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O23" codeDescription="OMI - Imaging order" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O24" codeDescription="ORI - Imaging order response message to any OMI" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O25" codeDescription="RDE - Pharmacy/treatment refill authorization request" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O26" codeDescription="RRE - Pharmacy/Treatment Refill Authorization Acknowledgement" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O27" codeDescription="OMB - Blood product order" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O28" codeDescription="ORB - Blood product order acknowledgment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O29" codeDescription="BPS - Blood product dispense status" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O30" codeDescription="BRP - Blood product dispense status acknowledgment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O31" codeDescription="BTS - Blood product transfusion/disposition" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O32" codeDescription="BRT - Blood product transfusion/disposition acknowledgment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O33" codeDescription="OML - Laboratory order for multiple orders related to a single specimen" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O34" codeDescription="ORL - Laboratory order response message to a multiple order related to single specimen OML" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O35" codeDescription="OML - Laboratory order for multiple orders related to a single container of a specimen" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="O36" codeDescription="ORL - Laboratory order response message to a single container of a specimen OML" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P01" codeDescription="BAR/ACK - Add patient accounts" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P02" codeDescription="BAR/ACK - Purge patient accounts" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P03" codeDescription="DFT/ACK - Post detail financial transaction" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P04" codeDescription="QRY/DSP - Generate bill and A/R statements" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P05" codeDescription="BAR/ACK - Update account" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P06" codeDescription="BAR/ACK - End account" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P07" codeDescription="PEX - Unsolicited initial individual product experience report" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P08" codeDescription="PEX - Unsolicited update individual product experience report" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P09" codeDescription="SUR - Summary product experience report" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P10" codeDescription="BAR/ACK -Transmit Ambulatory Payment  Classification(APC)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P11" codeDescription="DFT/ACK - Post Detail Financial Transactions - New" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="P12" codeDescription="BAR/ACK - Update Diagnosis/Procedure" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PC1" codeDescription="PPR - PC/ problem add" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PC2" codeDescription="PPR - PC/ problem update" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PC3" codeDescription="PPR - PC/ problem delete" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PC4" codeDescription="QRY - PC/ problem query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PC5" codeDescription="PRR - PC/ problem response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PC6" codeDescription="PGL - PC/ goal add" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PC7" codeDescription="PGL - PC/ goal update" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PC8" codeDescription="PGL - PC/ goal delete" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PC9" codeDescription="QRY - PC/ goal query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PCA" codeDescription="PPV - PC/ goal response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PCB" codeDescription="PPP - PC/ pathway (problem-oriented) add" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PCC" codeDescription="PPP - PC/ pathway (problem-oriented) update" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PCD" codeDescription="PPP - PC/ pathway (problem-oriented) delete" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PCE" codeDescription="QRY - PC/ pathway (problem-oriented) query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PCF" codeDescription="PTR - PC/ pathway (problem-oriented) query response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PCG" codeDescription="PPG - PC/ pathway (goal-oriented) add" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PCH" codeDescription="PPG - PC/ pathway (goal-oriented) update" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PCJ" codeDescription="PPG - PC/ pathway (goal-oriented) delete" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PCK" codeDescription="QRY - PC/ pathway (goal-oriented) query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="PCL" codeDescription="PPT - PC/ pathway (goal-oriented) query response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q01" codeDescription="QRY/DSR - Query sent for immediate response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q02" codeDescription="QRY/QCK - Query sent for deferred response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q03" codeDescription="DSR/ACK - Deferred response to a query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q04" codeDescription="EQQ - Embedded query language query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q05" codeDescription="UDM/ACK - Unsolicited display update message" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q06" codeDescription="OSQ/OSR - Query for order status" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q07" codeDescription="VQQ - Virtual table query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q08" codeDescription="SPQ - Stored procedure request" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q09" codeDescription="RQQ - event replay query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q11" codeDescription="QBP - Query by parameter requesting an RSP segment pattern response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q13" codeDescription="QBP - Query by parameter requesting an  RTB - tabular response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q15" codeDescription="QBP - Query by parameter requesting an RDY display response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q16" codeDescription="QSB - Create subscription" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q17" codeDescription="QVR - Query for previous events" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q21" codeDescription="QBP - Get person demographics" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q22" codeDescription="QBP - Find candidates" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q23" codeDescription="QBP - Get corresponding identifiers" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q24" codeDescription="QBP - Allocate identifiers" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q25" codeDescription="QBP - Personnel Information by Segment Query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q26" codeDescription="ROR - Pharmacy/treatment order response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q27" codeDescription="RAR - Pharmacy/treatment administration information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q28" codeDescription="RDR - Pharmacy/treatment dispense information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q29" codeDescription="RER - Pharmacy/treatment encoded order information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q30" codeDescription="RGR - Pharmacy/treatment dose information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Q31" codeDescription="DBP - Dispense History" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R01" codeDescription="ORU/ACK - Unsolicited transmission of an observation message" comments="" source="HL70003(2.5.1)" valueUsage="R"/>
+    <TableElement code="R02" codeDescription="QRY - Query for results of observation" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R03" codeDescription="QRY/DSR Display-oriented results, query/unsol. update (for backward compatibility only) (Replaced by Q05)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R04" codeDescription="ORF - Response to query; transmission of requested observation" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R07" codeDescription="EDR - Enhanced Display Response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R08" codeDescription="TBR - Tabular Data Response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R09" codeDescription="ERP - Event Replay Response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R21" codeDescription="OUL - Unsolicited laboratory observation" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R22" codeDescription="OUL - Unsolicited Specimen Oriented Observation Message" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R23" codeDescription="OUL - Unsolicited Specimen Container Oriented Observation Message" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R24" codeDescription="OUL - Unsolicited Order Oriented Observation Message" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R30" codeDescription="ORU - Unsolicited Point-Of-Care Observation Message Without Existing Order - Place An Order" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R31" codeDescription="ORU - Unsolicited New Point-Of-Care Observation Message - Search For An Order" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="R32" codeDescription="ORU - Unsolicited Pre-Ordered Point-Of-Care Observation" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="ROR" codeDescription="ROR - Pharmacy prescription order query response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S01" codeDescription="SRM/SRR - Request new appointment booking" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S02" codeDescription="SRM/SRR - Request appointment rescheduling" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S03" codeDescription="SRM/SRR - Request appointment modification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S04" codeDescription="SRM/SRR - Request appointment cancellation" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S05" codeDescription="SRM/SRR - Request appointment discontinuation" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S06" codeDescription="SRM/SRR - Request appointment deletion" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S07" codeDescription="SRM/SRR - Request addition of service/resource on appointment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S08" codeDescription="SRM/SRR - Request modification of service/resource on appointment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S09" codeDescription="SRM/SRR - Request cancellation of service/resource on appointment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S10" codeDescription="SRM/SRR - Request discontinuation of service/resource on appointment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S11" codeDescription="SRM/SRR - Request deletion of service/resource on appointment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S12" codeDescription="SIU/ACK - Notification of new appointment booking" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S13" codeDescription="SIU/ACK - Notification of appointment rescheduling" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S14" codeDescription="SIU/ACK - Notification of appointment modification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S15" codeDescription="SIU/ACK - Notification of appointment cancellation" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S16" codeDescription="SIU/ACK - Notification of appointment discontinuation" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S17" codeDescription="SIU/ACK - Notification of appointment deletion" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S18" codeDescription="SIU/ACK - Notification of addition of service/resource on appointment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S19" codeDescription="SIU/ACK - Notification of modification of service/resource on appointment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S20" codeDescription="SIU/ACK - Notification of cancellation of service/resource on appointment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S21" codeDescription="SIU/ACK - Notification of discontinuation of service/resource on appointment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S22" codeDescription="SIU/ACK - Notification of deletion of service/resource on appointment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S23" codeDescription="SIU/ACK - Notification of blocked schedule time slot(s)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S24" codeDescription="SIU/ACK - Notification of opened (????unblocked????) schedule time slot(s)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S25" codeDescription="SQM/SQR - Schedule query message and response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="S26" codeDescription="SIU/ACK Notification that patient did not show up for schedule appointment" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T01" codeDescription="MDM/ACK - Original document notification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T02" codeDescription="MDM/ACK - Original document notification and content" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T03" codeDescription="MDM/ACK - Document status change notification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T04" codeDescription="MDM/ACK - Document status change notification and content" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T05" codeDescription="MDM/ACK - Document addendum notification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T06" codeDescription="MDM/ACK - Document addendum notification and content" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T07" codeDescription="MDM/ACK - Document edit notification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T08" codeDescription="MDM/ACK - Document edit notification and content" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T09" codeDescription="MDM/ACK - Document replacement notification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T10" codeDescription="MDM/ACK - Document replacement notification and content" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T11" codeDescription="MDM/ACK - Document cancel notification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="T12" codeDescription="QRY/DOC - Document query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U01" codeDescription="ESU/ACK - Automated equipment status update" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U02" codeDescription="ESR/ACK - Automated equipment status request" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U03" codeDescription="SSU/ACK - Specimen status update" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U04" codeDescription="SSR/ACK - specimen status request" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U05" codeDescription="INU/ACK  - Automated equipment inventory update" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U06" codeDescription="INR/ACK - Automated equipment inventory request" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U07" codeDescription="EAC/ACK - Automated equipment command" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U08" codeDescription="EAR/ACK - Automated equipment response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U09" codeDescription="EAN/ACK - Automated equipment notification" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U10" codeDescription="TCU/ACK - Automated equipment test code settings update" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U11" codeDescription="TCR/ACK - Automated equipment test code settings request" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U12" codeDescription="LSU/ACK - Automated equipment log/service update" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="U13" codeDescription="LSR/ACK - Automated equipment log/service request" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="V01" codeDescription="VXQ - Query for vaccination record" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="V02" codeDescription="VXX - Response to vaccination query returning multiple PID matches" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="V03" codeDescription="VXR - Vaccination record response" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="V04" codeDescription="VXU - Unsolicited vaccination record update" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="Varies" codeDescription="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="W01" codeDescription="ORU - Waveform result, unsolicited transmission of requested information" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+    <TableElement code="W02" codeDescription="QRF - Waveform result, response to query" comments="" source="HL70003(2.5.1)" valueUsage="E"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="" contentsDefinition="Extensional" extensibility="Closed" id="99HUNIT " libName="HW" name="Height Units " stability="Static" valueSetType="Internal" version="">
+    <TableElement code="[In_i]" codeDescription="Inch [length] " comments="UCUM" source="Local" valueUsage="R"/>
+    <TableElement code="[ft_i]" codeDescription="Foot [length] " comments="UCUM" source="Local" valueUsage="R"/>
+    <TableElement code="cm" codeDescription="CentiMeter [SI Length Units] " comments="UCUM" source="Local" valueUsage="R"/>
+    <TableElement code="m" codeDescription="Meter [length] " comments="" source="Local" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="" contentsDefinition="Extensional" extensibility="Closed" id="99CLOTHING " libName="HW" name="Clothing Worn  During Measure  Observation " stability="Static" valueSetType="Internal" version="">
+    <TableElement code="LA11871-3" codeDescription="Underwear or less" comments="LOINC answer codes associated with the LOINC code ???8352-7???" source="Local" valueUsage="R"/>
+    <TableElement code="LA11872-1" codeDescription="Street clothes, no shoes" comments="Code System LN" source="Local" valueUsage="R"/>
+    <TableElement code="LA11873-9" codeDescription="Street clothes &amp; shoes" comments="Code System LN" source="Local" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70005(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70005" libName="HW" name="Race" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="1002-5" codeDescription="American Indian or Alaska Native" comments="" source="HL70005(2.5.1)" valueUsage="R"/>
+    <TableElement code="2028-9" codeDescription="Asian" comments="" source="HL70005(2.5.1)" valueUsage="R"/>
+    <TableElement code="2054-5" codeDescription="Black or African American" comments="" source="HL70005(2.5.1)" valueUsage="R"/>
+    <TableElement code="2076-8" codeDescription="Native Hawaiian or Other Pacific Islander" comments="" source="HL70005(2.5.1)" valueUsage="R"/>
+    <TableElement code="2106-3" codeDescription="White" comments="" source="HL70005(2.5.1)" valueUsage="R"/>
+    <TableElement code="2131-1" codeDescription="Other Race" comments="" source="HL70005(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70155(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70155" libName="HW" name="Accept/application acknowledgment conditions" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="AL" codeDescription="Always" comments="" source="HL70155(2.5.1)" valueUsage="R"/>
+    <TableElement code="ER" codeDescription="Error/reject conditions only" comments="" source="HL70155(2.5.1)" valueUsage="R"/>
+    <TableElement code="NE" codeDescription="Never" comments="" source="HL70155(2.5.1)" valueUsage="R"/>
+    <TableElement code="SU" codeDescription="Successful completion only" comments="" source="HL70155(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70103(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70103" libName="HW" name="HW-Processing ID" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="D" codeDescription="Debugging" comments="" source="HL70103(2.5.1)" valueUsage="R"/>
+    <TableElement code="P" codeDescription="Production" comments="" source="HL70103(2.5.1)" valueUsage="R"/>
+    <TableElement code="T" codeDescription="Training" comments="" source="HL70103(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70516(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70516" libName="HW" name="Error severity" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="E" codeDescription="Error" comments="" source="HL70516(2.5.1)" valueUsage="R"/>
+    <TableElement code="I" codeDescription="Information" comments="" source="HL70516(2.5.1)" valueUsage="R"/>
+    <TableElement code="W" codeDescription="Warning" comments="" source="HL70516(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70396(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70396" libName="HW" name="HW-Coding system" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="99zzz or L" codeDescription="Local general code (where z is an alphanumeric character)" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ACR" codeDescription="American College of Radiology finding codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ANS+" codeDescription="HL7 set of units of measure" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ART" codeDescription="WHO Adverse Reaction Terms" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="AS4" codeDescription="ASTM E1238/ E1467 Universal" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="AS4E" codeDescription="AS4 Neurophysiology Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ATC" codeDescription="American Type Culture Collection" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="C4" codeDescription="CPT-4" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="C5" codeDescription="CPT-5" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="CAS" codeDescription="Chemical abstract codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="CD2" codeDescription="CDT-2 Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="CDCA" codeDescription="CDC Analyte Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="CDCM" codeDescription="CDC Methods/Instruments Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="CDS" codeDescription="CDC Surveillance" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="CE" codeDescription="CEN ECG diagnostic codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="CLP" codeDescription="CLIP" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="CPTM" codeDescription="CPT Modifier Code" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="CST" codeDescription="COSTART" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="CVX" codeDescription="CDC Vaccine Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="DCM" codeDescription="DICOM Controlled Terminology" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="E" codeDescription="EUCLIDES" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="E5" codeDescription="Euclides  quantity codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="E6" codeDescription="Euclides Lab method codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="E7" codeDescription="Euclides Lab equipment codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ENZC" codeDescription="Enzyme Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="FDDC" codeDescription="First DataBank Drug Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="FDDX" codeDescription="First DataBank Diagnostic Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="FDK" codeDescription="FDA K10" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="HB" codeDescription="HIBCC" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="HCPCS" codeDescription="CMS (formerly HCFA)  Common Procedure Coding System" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="HCPT" codeDescription="Health Care Provider Taxonomy" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="HHC" codeDescription="Home Health Care" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="HI" codeDescription="Health Outcomes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="HL7nnnn" codeDescription="HL7 Defined Codes where nnnn is the HL7 table number" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="HOT" codeDescription="Japanese Nationwide Medicine Code" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="HPC" codeDescription="CMS (formerly HCFA )Procedure Codes (HCPCS)" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="I10" codeDescription="ICD-10" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="I10P" codeDescription="ICD-10  Procedure Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="I9" codeDescription="ICD9" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="I9C" codeDescription="ICD-9CM" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="IBT" codeDescription="ISBT" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="IBTnnnn" codeDescription="ISBT 128 codes where nnnn  specifies a specific table within ISBT 128." comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="IC2" codeDescription="ICHPPC-2" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ICD10AM" codeDescription="ICD-10 Australian modification" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ICD10CA" codeDescription="ICD-10 Canada" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ICDO" codeDescription="International Classification of Diseases for Oncology" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ICS" codeDescription="ICCS" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ICSD" codeDescription="International Classification of Sleep Disorders" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ISO+" codeDescription="ISO 2955.83 (units of measure) with HL7 extensions" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="ISOnnnn" codeDescription="ISO Defined Codes where nnnn is the ISO table number" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="IUPC" codeDescription="IUPAC/IFCC Component Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="IUPP" codeDescription="IUPAC/IFCC Property Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="JC10" codeDescription="JLAC/JSLM, nationwide laboratory code" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="JC8" codeDescription="Japanese Chemistry" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="JJ1017" codeDescription="Japanese Image Examination Cache" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="LB" codeDescription="Local billing code" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="LN" codeDescription="Logical Observation Identifier Names and Codes (LOINC????)" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="MCD" codeDescription="Medicaid" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="MCR" codeDescription="Medicare" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="MDDX" codeDescription="Medispan Diagnostic Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="MEDC" codeDescription="Medical Economics Drug Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="MEDR" codeDescription="Medical Dictionary for Drug Regulatory Affairs (MEDDRA)" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="MEDX" codeDescription="Medical Economics Diagnostic Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="MGPI" codeDescription="Medispan GPI" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="MVX" codeDescription="CDC Vaccine Manufacturer Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="NDA" codeDescription="NANDA" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="NDC" codeDescription="National drug codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="NIC" codeDescription="Nursing Interventions Classification" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="NPI" codeDescription="National Provider Identifier" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="NUBC" codeDescription="National Uniform Billing Committee Code" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="OHA" codeDescription="Omaha System" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="POS" codeDescription="POS Codes" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="RC" codeDescription="Read Classification" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="SDM" codeDescription="SNOMED- DICOM Microglossary" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="SNM" codeDescription="Systemized Nomenclature of Medicine (SNOMED)" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="SNM3" codeDescription="SNOMED International" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="SNT" codeDescription="SNOMED topology codes (anatomic sites)" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="UC" codeDescription="UCDS" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="UMD" codeDescription="MDNS" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="UML" codeDescription="Unified Medical Language" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="UPC" codeDescription="Universal Product Code" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="UPIN" codeDescription="UPIN" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="USPS" codeDescription="United States Postal Service" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="W1" codeDescription="WHO record # drug codes (6 digit)" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="W2" codeDescription="WHO record # drug codes (8 digit)" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="W4" codeDescription="WHO record # code with ASTM extension" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+    <TableElement code="WC" codeDescription="WHO ATC" comments="" source="HL70396(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70008(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70008" libName="HW" name="Acknowledgment code" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="AA" codeDescription="Original mode: Application Accept - Enhanced mode: Application acknowledgment: Accept" comments="" source="HL70008(2.5.1)" valueUsage="R"/>
+    <TableElement code="AE" codeDescription="Original mode: Application Error - Enhanced mode: Application acknowledgment: Error" comments="" source="HL70008(2.5.1)" valueUsage="R"/>
+    <TableElement code="AR" codeDescription="Original mode: Application Reject - Enhanced mode: Application acknowledgment: Reject" comments="" source="HL70008(2.5.1)" valueUsage="R"/>
+    <TableElement code="CA" codeDescription="Enhanced mode: Accept acknowledgment: Commit Accept" comments="" source="HL70008(2.5.1)" valueUsage="R"/>
+    <TableElement code="CE" codeDescription="Enhanced mode: Accept acknowledgment: Commit Error" comments="" source="HL70008(2.5.1)" valueUsage="R"/>
+    <TableElement code="CR" codeDescription="Enhanced mode: Accept acknowledgment: Commit Reject" comments="" source="HL70008(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70190(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70190" libName="HW" name="Address type" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="B" codeDescription="Firm/Business" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="BA" codeDescription="Bad address" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="BDL" codeDescription="Birth delivery location (address where birth occurred)" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="BR" codeDescription="Residence at birth (home address at time of birth)" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="C" codeDescription="Current Or Temporary" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="F" codeDescription="Country Of Origin" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="H" codeDescription="Home" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="L" codeDescription="Legal Address" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="M" codeDescription="Mailing" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="N" codeDescription="Birth (nee) (birth address, not otherwise specified)" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="O" codeDescription="Office" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="P" codeDescription="Permanent" comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+    <TableElement code="RH" codeDescription="Registry home. Refers to the information system, typically managed by a public health agency, that stores patient information such as immunization histories or cancer data, regardless of where the patient obtains services." comments="" source="HL70190(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="" contentsDefinition="Extensional" extensibility="Closed" id="9WUNIT" libName="HW" name="Weight Units" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="[lb_av]" codeDescription="Pound [mass] " comments="UCUM" source="Local" valueUsage="R"/>
+    <TableElement code="[oz_av]" codeDescription="Ounce [mass] " comments="UCUM" source="Local" valueUsage="R"/>
+    <TableElement code="kg" codeDescription="KiloGram [SI Mass Units] " comments="UCUM" source="Local" valueUsage="R"/>
+    <TableElement code="g" codeDescription="Gram [mass] " comments="UCUM" source="Local" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70203(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70203" libName="HW" name="HW-Identifier type" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="AM" codeDescription="American Express" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="AN" codeDescription="Account number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="ANC" codeDescription="Account number Creditor" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="AND" codeDescription="Account number debitor" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="ANON" codeDescription="Anonymous identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="ANT" codeDescription="Temporary Account Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="APRN" codeDescription="Advanced Practice Registered Nurse number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="BA" codeDescription="Bank Account Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="BC" codeDescription="Bank Card Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="BR" codeDescription="Birth registry number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="BRN" codeDescription="Breed Registry Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="CC" codeDescription="Cost Center number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="CY" codeDescription="County number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="DDS" codeDescription="Dentist license number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="DEA" codeDescription="Drug Enforcement Administration registration number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="DFN" codeDescription="Drug Furnishing or prescriptive authority Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="DI" codeDescription="Diner's Club card" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="DL" codeDescription="Driver's license number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="DN" codeDescription="Doctor number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="DO" codeDescription="Osteopathic License number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="DPM" codeDescription="Podiatrist license number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="DR" codeDescription="Donor Registration Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="DS" codeDescription="Discover Card" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="EI" codeDescription="Employee number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="EN" codeDescription="Employer number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="FI" codeDescription="Facility ID" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="GI" codeDescription="Guarantor internal identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="GL" codeDescription="General ledger number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="GN" codeDescription="Guarantor external  identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="HC" codeDescription="Health Card Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="IND" codeDescription="Indigenous/Aboriginal" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="JHN" codeDescription="Jurisdictional health number (Canada)" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="LI" codeDescription="Labor and industries number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="LN" codeDescription="License number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="LR" codeDescription="Local Registry ID" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="MA" codeDescription="Patient Medicaid number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="MB" codeDescription="Member Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="MC" codeDescription="Patient's Medicare number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="MCD" codeDescription="Practitioner Medicaid number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="MCN" codeDescription="Microchip Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="MCR" codeDescription="Practitioner Medicare number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="MD" codeDescription="Medical License number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="MI" codeDescription="Military ID number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="MR" codeDescription="Medical record number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="MRT" codeDescription="Temporary Medical Record Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="MS" codeDescription="MasterCard" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="NE" codeDescription="National employer identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="NH" codeDescription="National Health Plan Identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="NI" codeDescription="National unique individual identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="NII" codeDescription="National Insurance Organization Identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="NIIP" codeDescription="National Insurance Payor Identifier (Payor)" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="NNxxx" codeDescription="National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="NP" codeDescription="Nurse practitioner number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="NPI" codeDescription="National provider identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="OD" codeDescription="Optometrist license number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="PA" codeDescription="Physician Assistant number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="PCN" codeDescription="Penitentiary/correctional institution Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="PE" codeDescription="Living Subject Enterprise Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="PEN" codeDescription="Pension Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="PI" codeDescription="Patient internal identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="PN" codeDescription="Person number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="PNT" codeDescription="Temporary Living Subject Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="PPN" codeDescription="Passport number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="PRC" codeDescription="Permanent Resident Card Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="PRN" codeDescription="Provider number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="PT" codeDescription="Patient external identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="QA" codeDescription="QA number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="RI" codeDescription="Resource identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="RN" codeDescription="Registered Nurse Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="RPH" codeDescription="Pharmacist license number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="RR" codeDescription="Railroad Retirement number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="RRI" codeDescription="Regional registry ID" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="SL" codeDescription="State license" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="SN" codeDescription="Subscriber Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="SR" codeDescription="State registry ID" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="SS" codeDescription="Social Security number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="TAX" codeDescription="Tax ID number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="TN" codeDescription="Treaty Number/ (Canada)" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="U" codeDescription="Unspecified identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="UPIN" codeDescription="Medicare/CMS (formerly HCFA)'s Universal Physician Identification numbers" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="VN" codeDescription="Visit number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="VS" codeDescription="VISA" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="WC" codeDescription="WIC identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="WCN" codeDescription="Workers' Comp Number" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+    <TableElement code="XX" codeDescription="Organization identifier" comments="" source="HL70203(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="" contentsDefinition="Extensional" extensibility="Closed" id="99WEIGHT" libName="HW" name="Weight  Observation " stability="Static" valueSetType="Internal" version="">
+    <TableElement code="29463-7" codeDescription="Body weight " comments="LN" source="Local" valueUsage="R"/>
+    <TableElement code="3141-9" codeDescription="Body weight measured " comments="" source="Local" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70076(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70076" libName="HW" name="HW-Message type" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="ACK" codeDescription="General acknowledgment message" comments="" source="HL70076(2.5.1)" valueUsage="R"/>
+    <TableElement code="ADR" codeDescription="ADT response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ADT" codeDescription="ADT message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="BAR" codeDescription="Add/change billing account" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="BPS" codeDescription="Blood product dispense status message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="BRP" codeDescription="Blood product dispense status acknowledgement message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="BRT" codeDescription="Blood product transfusion/disposition acknowledgement message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="BTS" codeDescription="Blood product transfusion/disposition message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="CRM" codeDescription="Clinical study registration message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="CSU" codeDescription="Unsolicited study data message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="DFT" codeDescription="Detail financial transactions" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="DOC" codeDescription="Document response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="DSR" codeDescription="Display response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="EAC" codeDescription="Automated equipment command message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="EAN" codeDescription="Automated equipment notification message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="EAR" codeDescription="Automated equipment response message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="EDR" codeDescription="Enhanced display response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="EQQ" codeDescription="Embedded query language query" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ERP" codeDescription="Event replay response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ESR" codeDescription="Automated equipment status update acknowledgment message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ESU" codeDescription="Automated equipment status update message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="INR" codeDescription="Automated equipment inventory request message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="INU" codeDescription="Automated equipment inventory update message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="LSR" codeDescription="Automated equipment log/service request message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="LSU" codeDescription="Automated equipment log/service update message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="MCF" codeDescription="Delayed Acknowledgment (Retained for backward compatibility only)" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="MDM" codeDescription="Medical document management" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFD" codeDescription="Master files delayed application acknowledgment" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFK" codeDescription="Master files application acknowledgment" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFN" codeDescription="Master files notification" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFQ" codeDescription="Master files query" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="MFR" codeDescription="Master files response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="NMD" codeDescription="Application management data message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="NMQ" codeDescription="Application management query message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="NMR" codeDescription="Application management response message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMB" codeDescription="Blood product order message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMD" codeDescription="Dietary order" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMG" codeDescription="General clinical order message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMI" codeDescription="Imaging order" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="OML" codeDescription="Laboratory order message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMN" codeDescription="Non-stock requisition order message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMP" codeDescription="Pharmacy/treatment order message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="OMS" codeDescription="Stock requisition order message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORB" codeDescription="Blood product order acknowledgement message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORD" codeDescription="Dietary order acknowledgment message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORF" codeDescription="Query for results of observation" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORG" codeDescription="General clinical order acknowledgment message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORI" codeDescription="Imaging order acknowledgement message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORL" codeDescription="Laboratory acknowledgment message (unsolicited)" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORM" codeDescription="Pharmacy/treatment order message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORN" codeDescription="Non-stock requisition - General order acknowledgment message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORP" codeDescription="Pharmacy/treatment order acknowledgment message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORR" codeDescription="General order response message response to any ORM" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORS" codeDescription="Stock requisition - Order acknowledgment message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ORU" codeDescription="Unsolicited transmission of an observation message" comments="" source="HL70076(2.5.1)" valueUsage="R"/>
+    <TableElement code="OSQ" codeDescription="Query response for order status" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="OSR" codeDescription="Query response for order status" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="OUL" codeDescription="Unsolicited laboratory observation message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="PEX" codeDescription="Product experience message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="PGL" codeDescription="Patient goal message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="PIN" codeDescription="Patient insurance information" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="PMU" codeDescription="Add personnel record" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="PPG" codeDescription="Patient pathway message (goal-oriented)" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="PPP" codeDescription="Patient pathway message (problem-oriented)" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="PPR" codeDescription="Patient problem message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="PPT" codeDescription="Patient pathway goal-oriented response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="PPV" codeDescription="Patient goal response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="PRR" codeDescription="Patient problem response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="PTR" codeDescription="Patient pathway problem-oriented response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="QBP" codeDescription="Query by parameter" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="QCK" codeDescription="Deferred query" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="QCN" codeDescription="Cancel query" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="QRY" codeDescription="Query, original mode" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="QSB" codeDescription="Create subscription" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="QSX" codeDescription="Cancel subscription/acknowledge message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="QVR" codeDescription="Query for previous events" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RAR" codeDescription="Pharmacy/treatment administration information" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RAS" codeDescription="Pharmacy/treatment administration message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RCI" codeDescription="Return clinical information" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RCL" codeDescription="Return clinical list" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RDE" codeDescription="Pharmacy/treatment encoded order message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RDR" codeDescription="Pharmacy/treatment dispense information" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RDS" codeDescription="Pharmacy/treatment dispense message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RDY" codeDescription="Display based response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="REF" codeDescription="Patient referral" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RER" codeDescription="Pharmacy/treatment encoded order information" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RGR" codeDescription="Pharmacy/treatment dose information" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RGV" codeDescription="Pharmacy/treatment give message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="ROR" codeDescription="Pharmacy/treatment order response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RPA" codeDescription="Return patient authorization" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RPI" codeDescription="Return patient information" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RPL" codeDescription="Return patient display list" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RPR" codeDescription="Return patient list" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RQA" codeDescription="Request patient authorization" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RQC" codeDescription="Request clinical information" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RQI" codeDescription="Request patient information" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RQP" codeDescription="Request patient demographics" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RQQ" codeDescription="Event replay query" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RRA" codeDescription="Pharmacy/treatment administration acknowledgment message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RRD" codeDescription="Pharmacy/treatment dispense acknowledgment message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RRE" codeDescription="Pharmacy/treatment encoded order acknowledgment message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RRG" codeDescription="Pharmacy/treatment give acknowledgment message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RRI" codeDescription="Return referral information" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RSP" codeDescription="Segment pattern response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="RTB" codeDescription="Tabular response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="SIU" codeDescription="Schedule information unsolicited" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="SPQ" codeDescription="Stored procedure request" comments="" source="HL70076(2.5.1)" valueUsage="R"/>
+    <TableElement code="SQM" codeDescription="Schedule query message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="SQR" codeDescription="Schedule query response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="SRM" codeDescription="Schedule request message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="SRR" codeDescription="Scheduled request response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="SSR" codeDescription="Specimen status request message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="SSU" codeDescription="Specimen status update message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="SUR" codeDescription="Summary product experience report" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="TBR" codeDescription="Tabular data response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="TCR" codeDescription="Automated equipment test code settings request message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="TCU" codeDescription="Automated equipment test code settings update message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="UDM" codeDescription="Unsolicited display update message" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="VQQ" codeDescription="Virtual table query" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="VXQ" codeDescription="Query for vaccination record" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="VXR" codeDescription="Vaccination record response" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="VXU" codeDescription="Unsolicited vaccination record update" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+    <TableElement code="VXX" codeDescription="Response for vaccination query with multiple PID matches" comments="" source="HL70076(2.5.1)" valueUsage="E"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="" contentsDefinition="Extensional" extensibility="Closed" id="99HWR" libName="HW" name="Height and Weight Report" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="HWR" codeDescription="Height and weight report" comments="Local (L)" source="Local" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70357(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70357" libName="HW" name="Message error condition codes" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="0" codeDescription="Message accepted" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="100" codeDescription="Segment sequence error" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="101" codeDescription="Required field missing" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="102" codeDescription="Data type error" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="103" codeDescription="Table value not found" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="200" codeDescription="Unsupported message type" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="201" codeDescription="Unsupported event code" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="202" codeDescription="Unsupported processing id" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="203" codeDescription="Unsupported version id" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="204" codeDescription="Unknown key identifier" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="205" codeDescription="Duplicate key identifier" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="206" codeDescription="Application record locked" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+    <TableElement code="207" codeDescription="Application internal error" comments="" source="HL70357(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70125(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70125" libName="HW" name="HW-Value type" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="AD" codeDescription="Address" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="CE" codeDescription="Coded Entry" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="CF" codeDescription="Coded Element With Formatted Values" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="CK" codeDescription="Composite ID With Check Digit" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="CN" codeDescription="Composite ID And Name" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="CP" codeDescription="Composite Price" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="CX" codeDescription="Extended Composite ID With Check Digit" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="DT" codeDescription="Date" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="ED" codeDescription="Encapsulated Data" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="FT" codeDescription="Formatted Text (Display)" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="MO" codeDescription="Money" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="NM" codeDescription="Numeric" comments="" source="HL70125(2.5.1)" valueUsage="R"/>
+    <TableElement code="PN" codeDescription="Person Name" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="RP" codeDescription="Reference Pointer" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="SN" codeDescription="Structured Numeric" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="ST" codeDescription="String Data." comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="TM" codeDescription="Time" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="TN" codeDescription="Telephone Number" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="TS" codeDescription="Time Stamp (Date &amp; Time)" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="TX" codeDescription="Text Data (Display)" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="XAD" codeDescription="Extended Address" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="XCN" codeDescription="Extended Composite Name And Number For Persons" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="XON" codeDescription="Extended Composite Name And Number For Organizations" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="XPN" codeDescription="Extended Person Name" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+    <TableElement code="XTN" codeDescription="Extended Telecommunications Number" comments="" source="HL70125(2.5.1)" valueUsage="E"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70001(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70001" libName="HW" name="HW-Administrative Sex" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="A" codeDescription="Ambiguous" comments="" source="HL70001(2.5.1)" valueUsage="R"/>
+    <TableElement code="F" codeDescription="Female" comments="" source="HL70001(2.5.1)" valueUsage="R"/>
+    <TableElement code="M" codeDescription="Male" comments="" source="HL70001(2.5.1)" valueUsage="R"/>
+    <TableElement code="N" codeDescription="Not applicable" comments="" source="HL70001(2.5.1)" valueUsage="R"/>
+    <TableElement code="O" codeDescription="Other" comments="" source="HL70001(2.5.1)" valueUsage="R"/>
+    <TableElement code="U" codeDescription="Unknown" comments="" source="HL70001(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70301(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70301" libName="HW" name="HW-Universal ID type" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="DNS" codeDescription="An Internet dotted name. Either in ASCII or as integers" comments="" source="HL70301(2.5.1)" valueUsage="E"/>
+    <TableElement code="GUID" codeDescription="Same as UUID." comments="" source="HL70301(2.5.1)" valueUsage="E"/>
+    <TableElement code="HCD" codeDescription="The CEN Healthcare Coding Scheme Designator. (Identifiers used in DICOM follow this assignment scheme.)" comments="" source="HL70301(2.5.1)" valueUsage="E"/>
+    <TableElement code="HL7" codeDescription="Reserved for future HL7 registration schemes" comments="" source="HL70301(2.5.1)" valueUsage="E"/>
+    <TableElement code="ISO" codeDescription="An International Standards Organization Object Identifier" comments="" source="HL70301(2.5.1)" valueUsage="R"/>
+    <TableElement code="L,M,N" codeDescription="These are reserved for locally defined coding schemes." comments="" source="HL70301(2.5.1)" valueUsage="E"/>
+    <TableElement code="Random" codeDescription="Usually a base64 encoded string of random bits.&lt;p&gt;The uniqueness depends on the length of the bits. Mail systems often generate ASCII string ????unique names,&quot; from a combination of random bits and system names. Obviously, such identifiers will not be cons" comments="" source="HL70301(2.5.1)" valueUsage="E"/>
+    <TableElement code="URI" codeDescription="Uniform Resource Identifier" comments="" source="HL70301(2.5.1)" valueUsage="E"/>
+    <TableElement code="UUID" codeDescription="The DCE Universal Unique Identifier" comments="" source="HL70301(2.5.1)" valueUsage="E"/>
+    <TableElement code="x400" codeDescription="An X.400 MHS format identifier" comments="" source="HL70301(2.5.1)" valueUsage="E"/>
+    <TableElement code="x500" codeDescription="An X.500 directory name" comments="" source="HL70301(2.5.1)" valueUsage="E"/>
+  </TableDefinition>
+  <TableDefinition codeSystems="HL70104(2.5.1) " contentsDefinition="Extensional" extensibility="Closed" id="HW_HL70104" libName="HW" name="HW-Version ID" stability="Static" valueSetType="Internal" version="">
+    <TableElement code="2.0" codeDescription="Release 2.0" comments="" source="HL70104(2.5.1)" valueUsage="E"/>
+    <TableElement code="2.0D" codeDescription="Demo 2.0" comments="" source="HL70104(2.5.1)" valueUsage="E"/>
+    <TableElement code="2.1" codeDescription="Release 2. 1" comments="" source="HL70104(2.5.1)" valueUsage="E"/>
+    <TableElement code="2.2" codeDescription="Release 2.2" comments="" source="HL70104(2.5.1)" valueUsage="E"/>
+    <TableElement code="2.3" codeDescription="Release 2.3" comments="" source="HL70104(2.5.1)" valueUsage="E"/>
+    <TableElement code="2.3.1" codeDescription="Release 2.3.1" comments="" source="HL70104(2.5.1)" valueUsage="E"/>
+    <TableElement code="2.4" codeDescription="Release 2.4" comments="" source="HL70104(2.5.1)" valueUsage="E"/>
+    <TableElement code="2.5" codeDescription="Release 2.5" comments="" source="HL70104(2.5.1)" valueUsage="E"/>
+    <TableElement code="2.5.1" codeDescription="Release 2.5.1" comments="" source="HL70104(2.5.1)" valueUsage="R"/>
+  </TableDefinition>
+</TableLibrary>

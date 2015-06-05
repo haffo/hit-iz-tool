@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
+<TableLibrary xsi:noNamespaceSchemaLocation="../ValueSets.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Description="Automatically generated vacab for QBP_Q11" Name="Vocab for QBP_Q11" OrganizationName="HL7 NIST" Status="Active" TableLibraryIdentifier="" TableLibraryVersion="1.0">
+	<TableSet><TableDefinition AlternateId="PHVS_ImmunizationProfileIdentifier_IIS" Codesys="" Id="PHVS_ImmunizationProfileIdentifier_IIS" Name="Immunization Profile Identifier (IIS)" Oid="" Type="HL7" Version="2">
+		<TableElement Code="Z44" Codesys="CDCPHINVS" DisplayName="Request Evaluated History and Forecast" Source="Local"/>
+		<TableElement Code="Z34" Codesys="CDCPHINVS" DisplayName="Request Immunization History" Source="Local"/>
+		<TableElement Code="Z23" Codesys="CDCPHINVS" DisplayName="Return Acknowledgement" Source="Local"/>
+		<TableElement Code="Z31" Codesys="CDCPHINVS" DisplayName="Return Candidate Clients" Source="Local"/>
+		<TableElement Code="Z42" Codesys="CDCPHINVS" DisplayName="Return Evaluated History and Forecast" Source="Local"/>
+		<TableElement Code="Z32" Codesys="CDCPHINVS" DisplayName="Return Immunization History" Source="Local"/>
+	</TableDefinition></TableSet>
+</TableLibrary>

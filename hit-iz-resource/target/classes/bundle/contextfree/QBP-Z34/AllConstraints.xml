@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConformanceContext UUID="b1c47e8a-40df-458f-8b0b-d88866da533e" xsi:noNamespaceSchemaLocation="ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <MetaData>
+        <Description>Conformance context for QBP_Q11</Description>
+    </MetaData>
+    <Datatype>
+        <ByID ID="5d62ecfe-7a05-4d34-b034-361171a92f2f">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="a981cef8-eb2d-44c7-9b19-2f7fdc18ade3">
+            <Constraint ID="DT[TS_YYYYMMDDHHMM]_CS_1">
+                <Description>The value of TS.1 (Time) SHALL be formatted with YYYY[MM[DD]][+/-ZZZZ].</Description>
+                <Assertion>
+                    <Format Path="1[1]" Regex="YYYY[MM[DD]][+/-ZZZZ]"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="f707f9ce-b112-41ad-8527-1416263dcf58">
+            <Constraint ID="IZ-55">
+                <Description>The value of MSG.1 (Message Code) SHALL be 'QBP'.</Description>
+                <Assertion>
+                    <PlainText Path="1[1]" Text="QBP" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-55">
+                <Description>The value of MSG.2 (Trigger Event) SHALL be 'Q11'.</Description>
+                <Assertion>
+                    <PlainText Path="2[1]" Text="Q11" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-55">
+                <Description>The value of MSG.3 (Message Structure) SHALL be 'QBP_Q11'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="QBP_Q11" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="15fba479-611e-4c04-b52d-27bd3a081559">
+            <Constraint ID="IZ-7">
+                <Description>The value of VID.1 (Version ID) SHALL be '2.5.1'.</Description>
+                <Assertion>
+                    <PlainText Path="1[1]" Text="2.5.1" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="a87b8121-6c0d-41f4-a6fb-617a17a0cb52">
+            <Constraint ID="IZ-56">
+                <Description>The value of EI.1 (Entity Identifier) SHALL be 'Z34'.</Description>
+                <Assertion>
+                    <PlainText Path="1[1]" Text="Z34" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-56">
+                <Description>The value of EI.2 (Namespace ID) SHALL be 'CDCPHINVS'.</Description>
+                <Assertion>
+                    <PlainText Path="2[1]" Text="CDCPHINVS" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[EI_IZ_QBP_Z34]2[1]">
+                <Description>If EI.3 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-3">
+                <Description>The value of EI.3 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="3[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[EI_IZ_QBP_Z34]3[1]">
+                <Description>If EI.2 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="3[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-4">
+                <Description>The value of EI.4 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="4[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[EI_IZ_QBP_Z34]4[1]">
+                <Description>If EI.3 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="3[1]"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="d9f39f92-06ff-4e00-b60b-22099d69aa3e">
+            <Constraint ID="[XON_IZ]6[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="10[1]"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]7[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="10[1]"/>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="10[1]"/>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]10[1]">
+                <Description>If XON.1 (Organization Name) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
+                        <Presence Path="10[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="4763e5ae-486f-423d-a9ca-f3cbf2cc4d26">
+            <Constraint ID="[XON_IZ]6[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="10[1]"/>
+                        </NOT>
+                        <Presence Path="6[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]7[1]">
+                <Description>If XON.10 (Organization Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="10[1]"/>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="10[1]"/>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XON_IZ]10[1]">
+                <Description>If XON.1 (Organization Name) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
+                        <Presence Path="10[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="82103725-03ec-4926-ace4-39be1c1a3c94">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="cfff16a3-4c55-4c54-905d-ec01ac997dbe">
+            <Constraint ID="[CE_IZ]5[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="4[1]"/>
+                        <NOT>
+                            <Presence Path="5[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[CE_IZ]6[1]">
+                <Description>If CE.4 (Alternate Identifier) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                            <Presence Path="6[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="4[1]"/>
+                            <NOT>
+                                <Presence Path="6[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="4a48f501-29bd-467b-aa8d-cca57ccb00ab">
+            <Constraint ID="[CX_IZ]3[1]">
+                <Description>If CX.2 (Check Digit) is valued.</Description>
+                <Assertion>
+                    <OR>
+                        <Presence Path="2[1]"/>
+                        <NOT>
+                            <Presence Path="3[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="96fb82f3-890c-4af7-bf15-1e8bf9ca6458">
+            <Constraint ID="[HD_IZ]1[1]">
+                <Description>If HD.2 (Universal ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="1[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]2[1]">
+                <Description>If HD.1 (Namespace ID) is not valued.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <NOT>
+                                <Presence Path="1[1]"/>
+                            </NOT>
+                        </NOT>
+                        <Presence Path="2[1]"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[HD_IZ]3[1]">
+                <Description>If HD.2 (Universal ID) is valued.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <Presence Path="2[1]"/>
+                            </NOT>
+                            <Presence Path="3[1]"/>
+                        </OR>
+                        <OR>
+                            <Presence Path="2[1]"/>
+                            <NOT>
+                                <Presence Path="3[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="383b5ac9-b47e-46f9-8660-7a6edcc8c7a0">
+            <Constraint ID="[XTN_IZ]4[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <Presence Path="4[1]"/>
+                        </OR>
+                        <OR>
+                            <PlainText Path="4[1]" Text="NET" IgnoreCase="true"/>
+                            <NOT>
+                                <Presence Path="4[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]6[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <PlainText Path="6[1]" Text="NET" IgnoreCase="true"/>
+                        </NOT>
+                        <NOT>
+                            <Presence Path="6[1]"/>
+                        </NOT>
+                    </OR>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="[XTN_IZ]7[1]">
+                <Description>If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.</Description>
+                <Assertion>
+                    <AND>
+                        <OR>
+                            <NOT>
+                                <NOT>
+                                    <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                                </NOT>
+                            </NOT>
+                            <Presence Path="7[1]"/>
+                        </OR>
+                        <OR>
+                            <NOT>
+                                <PlainText Path="7[1]" Text="NET" IgnoreCase="true"/>
+                            </NOT>
+                            <NOT>
+                                <Presence Path="7[1]"/>
+                            </NOT>
+                        </OR>
+                    </AND>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="b24b9b4c-aec9-496d-95d2-871d4920e2ef">
+            <Constraint ID="DT[TS_YYYYMMDD]_CS_1">
+                <Description>The value of TS.1 (Time) SHALL be formatted with YYYY[MM[DD]].</Description>
+                <Assertion>
+                    <Format Path="1[1]" Regex="YYYY[MM[DD]]"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+    </Datatype>
+    <Segment>
+        <ByID ID="81b911d9-6326-4066-88bd-8625899f8680">
+            <Constraint ID="IZ-12">
+                <Description>The value of MSH.1 (Field Separator) SHALL be '|'.</Description>
+                <Assertion>
+                    <PlainText Path="1[1]" Text="|" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-13">
+                <Description>The value of MSH.2 (Encoding Characters) SHALL be '^~\&amp;'.</Description>
+                <Assertion>
+                    <PlainText Path="2[1]" Text="^~\&amp;" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="SG[MSH]_CS_1">
+                <Description>The value of MSH.7.1 (Time) SHALL be formatted with YYYYMMDD.</Description>
+                <Assertion>
+                    <Format Path="7[1].1[1]" Regex="([0-9]{4})((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1])).*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-57">
+                <Description>The value of MSH.15 (Accept Acknowledgment Type) SHALL be 'ER'.</Description>
+                <Assertion>
+                    <PlainText Path="15[1]" Text="ER" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-XX">
+                <Description>The value of MSH.16 (Application Acknowledgment Type) SHALL be 'AL'.</Description>
+                <Assertion>
+                    <PlainText Path="16[1]" Text="AL" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="02d30462-5b5d-4d23-bd71-24b26b8029e4">
+            <Constraint ID="IZ-1">
+                <Description>RCP.1 (Query Priority) SHALL NOT be valued OR the value of RCP.1 (Query Priority) SHALL be 'I'.</Description>
+                <Assertion>
+                    <OR>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
+                        <PlainText Path="1[1]" Text="I" IgnoreCase="true"/>
+                    </OR>
+                </Assertion>
+            </Constraint>
+        </ByID>
+    </Segment>
+    <Group/>
+</ConformanceContext>

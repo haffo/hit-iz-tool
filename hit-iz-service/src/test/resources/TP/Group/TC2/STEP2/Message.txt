@@ -1,0 +1,11 @@
+MSH|^~\&|
+SFT|
+MSA|
+ERR|
+QAK|
+QPD|
+PID|
+ORC|
+RXA|
+RXR|
+OBX|

@@ -1,0 +1,91 @@
+{
+  "id" : 5,
+  "name" : "DataInstanceTestPlan",
+  "description" : "",
+  "version" : 1,
+  "testcases" : [ {
+    "id" : 22,
+    "name" : "TC1",
+    "description" : "",
+    "version" : 1,
+    "teststeps" : [ {
+      "id" : 5,
+      "name" : "STEP1",
+      "description" : "sfs",
+      "message" : {
+        "@id" : 1,
+        "id" : 11,
+        "name" : "Z22",
+        "description" : "Z222",
+        "version" : 1
+      },
+      "version" : null,
+      "testStepStory" : {
+        "teststorydesc" : " No Description",
+        "comments" : "No Comments",
+        "preCondition" : "No PreCondition",
+        "postCondition" : "No PostCondition",
+        "testObjectives" : "No Test Objectives",
+        "evaluationCriteria" : "No evaluation criteria",
+        "notes" : "No Note"
+      }
+    } ],
+    "testCaseStory" : {
+      "teststorydesc" : " No Description",
+      "comments" : "No Comments",
+      "preCondition" : "No PreCondition",
+      "postCondition" : "No PostCondition",
+      "testObjectives" : "No Test Objectives",
+      "evaluationCriteria" : "No evaluation criteria",
+      "notes" : "No Note"
+    }
+  } ],
+  "testcasegroups" : [ {
+    "id" : 12,
+    "name" : "Group",
+    "description" : "",
+    "version" : 1,
+    "testcases" : [ {
+      "id" : 21,
+      "name" : "TC2",
+      "description" : "",
+      "version" : 1,
+      "teststeps" : [ {
+        "id" : 4,
+        "name" : "STEP2",
+        "description" : "AA",
+        "message" : {
+          "@id" : 2,
+          "id" : 10,
+          "name" : "Z42",
+          "description" : "Z42",
+          "version" : 1
+        },
+        "version" : null,
+        "testStepStory" : {
+          "teststorydesc" : " No Description",
+          "comments" : "No Comments",
+          "preCondition" : "No PreCondition",
+          "postCondition" : "No PostCondition",
+          "testObjectives" : "No Test Objectives",
+          "evaluationCriteria" : "No evaluation criteria",
+          "notes" : "No Note"
+        }
+      } ],
+      "testCaseStory" : {
+        "teststorydesc" : " No Description",
+        "comments" : "No Comments",
+        "preCondition" : "No PreCondition",
+        "postCondition" : "No PostCondition",
+        "testObjectives" : "No Test Objectives",
+        "evaluationCriteria" : "No evaluation criteria",
+        "notes" : "No Note"
+      }
+    } ]
+  } ],
+  "author" : {
+    "id" : 1,
+    "userId" : "woorion",
+    "password" : "woo123"
+  }
+}

@@ -1,0 +1,281 @@
+[ {
+    "id" : 1,
+    "name" : "CDC",
+    "version" : 0,
+    "vocabularyLibraries" : [ {
+        "id" : 1,
+        "displayName" : "CDC",
+        "displayDescription" : "",
+        "tableList" : [ {
+            "comment" : null,
+            "codesys" : "PHVS_EthnicityGroup_CDC",
+            "id" : "Ethnicity Group (CDC)",
+            "name" : "Ethnicity group",
+            "type" : "External",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_EthnicityGroup_CDC",
+            "oid" : "2.16.840.1.114222.4.11.837"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_IdentifierType_SyndromicSurveillance",
+            "id" : "Identifier Type (Syndromic Surveillance)",
+            "name" : "Identifier Type (Syndromic Surveillance)",
+            "type" : "External",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_IdentifierType_SyndromicSurveillance",
+            "oid" : "2.16.840.1.114222.4.11.3597"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_ObservationIdentifier_SyndromicSurveillance",
+            "id" : "Observation Identifier (Syndromic Surveillance)",
+            "name" : "Observation Identifier (Syndromic Surveillance)",
+            "type" : "External",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_ObservationIdentifier_SyndromicSurveillance",
+            "oid" : "2.16.840.1.114222.4.11.3589"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_Gender_SyndromicSurveillance",
+            "id" : "PHVS_AdministrativeSex_HL7_2x",
+            "name" : "Gender (Syndromic Surveillance)",
+            "type" : "HL7",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_Gender_SyndromicSurveillance",
+            "oid" : "2.16.840.1.114222.4.11.3403"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_AgeUnit_SyndromicSurveillance",
+            "id" : "PHVS_AgeUnit_SyndromicSurveillance",
+            "name" : "Age Unit (Syndromic Surveillance)",
+            "type" : "External",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_AgeUnit_SyndromicSurveillance",
+            "oid" : "2.16.840.1.114222.4.11.3402"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_Disease_CDC",
+            "id" : "PHVS_Disease_CDC",
+            "name" : "Disease",
+            "type" : "External",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_Disease_CDC",
+            "oid" : "2.16.840.1.114222.4.11.909"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_FacilityVisitType_SyndromicSurveillance",
+            "id" : "PHVS_FacilityVisitType_SyndromicSurveillance",
+            "name" : "Facility / Visit Type (Syndromic Surveillance)",
+            "type" : "External",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_FacilityVisitType_SyndromicSurveillance",
+            "oid" : "2.16.840.1.114222.4.11.3401"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_ProcessingID_HL7_2x",
+            "id" : "PHVS_ProcessingID_HL7_2x",
+            "name" : "Processing ID (HL7)",
+            "type" : "External",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_ProcessingID_HL7_2x",
+            "oid" : "2.16.840.1.114222.4.11.1028"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_PulseOximetryUnit_UCUM",
+            "id" : "PHVS_PulseOximetryUnit_UCUM",
+            "name" : "Pulse Oximetry Unit",
+            "type" : "External",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_PulseOximetryUnit_UCUM",
+            "oid" : "2.16.840.1.114222.4.11.3590"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_TemperatureUnit_UCUM",
+            "id" : "PHVS_TemperatureUnit_UCUM",
+            "name" : "Temperature Unit",
+            "type" : "External",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_TemperatureUnit_UCUM",
+            "oid" : "2.16.840.1.114222.4.11.919"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_VersionID_HL7_2x",
+            "id" : "PHVS_VersionID_HL7_2x",
+            "name" : "Version ID (HL7)",
+            "type" : "External",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_VersionID_HL7_2x",
+            "oid" : "2.16.840.1.114222.4.11.3342"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_PatientClass_SyndromicSurveillance",
+            "id" : "Patient Class (Syndromic Surveillance)",
+            "name" : "Patient Class (Syndromic Surveillance)",
+            "type" : "HL7",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_PatientClass_SyndromicSurveillance",
+            "oid" : "2.16.840.1.114222.4.11.3404"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_RaceCategory_CDC",
+            "id" : "Race Category (CDC)",
+            "name" : "Race Category",
+            "type" : "External",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_RaceCategory_CDC",
+            "oid" : "2.16.840.1.114222.4.11.836"
+        } ]
+    } ]
+}, {
+    "id" : 2,
+    "name" : "HL7",
+    "version" : 0,
+    "vocabularyLibraries" : [ {
+        "id" : 2,
+        "displayName" : "HL7",
+        "displayDescription" : "",
+        "tableList" : [ {
+            "comment" : null,
+            "codesys" : "PHVS_DiagnosisType_HL7_2x",
+            "id" : "0052",
+            "name" : "Diagnosis Type (HL7)",
+            "type" : "User",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_DiagnosisType_HL7_2x",
+            "oid" : "2.16.840.1.114222.4.11.827"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_MessageType_SyndromicSurveillance",
+            "id" : "0076",
+            "name" : "Message Type (Syndromic Surveillance)",
+            "type" : "HL7",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_MessageType_SyndromicSurveillance",
+            "oid" : "2.16.840.1.114222.4.11.6049"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_ObservationResultStatus_HL7_2x",
+            "id" : "0085",
+            "name" : "Observation Result Status (HL7)",
+            "type" : "HL7",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_ObservationResultStatus_HL7_2x",
+            "oid" : "2.16.840.1.114222.4.11.811"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_DischargeDisposition_HL7_2x",
+            "id" : "0112",
+            "name" : "Discharge Disposition (HL7)",
+            "type" : "User",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_DischargeDisposition_HL7_2x",
+            "oid" : "2.16.840.1.114222.4.11.915"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_ValueType_SyndromicSurveillance",
+            "id" : "0125",
+            "name" : "Value Type (Syndromic Surveillance)",
+            "type" : "HL7",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_ValueType_SyndromicSurveillance",
+            "oid" : "2.16.840.1.114222.4.11.6057"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_AddressType_HL7_2x",
+            "id" : "0190",
+            "name" : "Address Type (HL7)",
+            "type" : "HL7",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_AddressType_HL7_2x",
+            "oid" : "2.16.840.1.114222.4.11.801"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_NameType_SyndromicSurveillance",
+            "id" : "0200",
+            "name" : "Name Type (Syndromic Surveillance)",
+            "type" : "HL7",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_NameType_SyndromicSurveillance",
+            "oid" : "2.16.840.1.114222.4.11.6056"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_UniversalIDType_SyndromicSurveillance",
+            "id" : "0301",
+            "name" : "Universal ID Type (Syndromic Surveillance)",
+            "type" : "HL7",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_UniversalIDType_SyndromicSurveillance",
+            "oid" : "2.16.840.1.114222.4.11.6050"
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_MessageStructure_SyndromicSurveillance",
+            "id" : "0354",
+            "name" : "Message Structure (Syndromic Surveillance)",
+            "type" : "HL7",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_MessageStructure_SyndromicSurveillance",
+            "oid" : "2.16.840.1.114222.4.11.6047"
+        }, {
+            "comment" : null,
+            "codesys" : "HL7",
+            "id" : "0361",
+            "name" : "Application",
+            "type" : "User",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "HL70361",
+            "oid" : null
+        }, {
+            "comment" : null,
+            "codesys" : "HL7",
+            "id" : "0362",
+            "name" : "Facility",
+            "type" : "User",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "HL70362",
+            "oid" : null
+        }, {
+            "comment" : null,
+            "codesys" : "HL7",
+            "id" : "0363",
+            "name" : "Assigning authority",
+            "type" : "User",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "HL70363",
+            "oid" : null
+        }, {
+            "comment" : null,
+            "codesys" : "PHVS_CodingSystem_HL7_2x_Table0396",
+            "id" : "0396",
+            "name" : "Coding System HL7 2x Table 0396",
+            "type" : "HL7",
+            "testCategory" : null,
+            "idNumber" : null,
+            "alternateId" : "PHVS_CodingSystem_HL7_2x_Table0396",
+            "oid" : "2.16.840.1.114222.4.11.3338"
+        } ]
+    } ]
+} ]

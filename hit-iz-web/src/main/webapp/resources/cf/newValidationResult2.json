@@ -1,0 +1,2708 @@
+{
+    "structure": [
+
+        {
+            "VSNotFound": {
+                "location": {
+                    "desc": "Name of Coding System",
+                    "path": "OBR[1].49[1].3[1]",
+                    "line": "8",
+                    "column": "597"
+                },
+                "value": "HL70507",
+                "ValueSetId": "0396"
+            }
+        },
+        {
+            "CodeNotFound": {
+                "location": {
+                    "desc": "Set ID - PID",
+                    "path": "PID[1].1[1]",
+                    "line": "5",
+                    "column": "5"
+                },
+                "value": "11111",
+                "ValueSet": {
+                    "id": "VS1",
+                    "stability": "Static",
+                    "extensibility": "Closed"
+                },
+                "bindingStrength": "R"
+            }
+        },
+        {
+            "EVS": {
+                "location": {
+                    "desc": "Set ID - PID",
+                    "path": "PID[1].1[2]",
+                    "line": "5",
+                    "column": "11"
+                },
+                "value": "2",
+                "ValueSet": {
+                    "id": "VS1",
+                    "stability": "Static",
+                    "extensibility": "Closed"
+                },
+                "bindingStrength": "R"
+            }
+        },
+        {
+            "PVS": {
+                "location": {
+                    "desc": "Set ID - PID",
+                    "path": "PID[1].1[3]",
+                    "line": "5",
+                    "column": "13"
+                },
+                "value": "3",
+                "ValueSet": {
+                    "id": "VS1",
+                    "stability": "Static",
+                    "extensibility": "Closed"
+                },
+                "bindingStrength": "R"
+            }
+        },
+        {
+            "CodeNotFound": {
+                "location": {
+                    "desc": "Set ID - PID",
+                    "path": "PID[1].1[6]",
+                    "line": "5",
+                    "column": "20"
+                },
+                "value": "4",
+                "ValueSet": {
+                    "id": "VS1",
+                    "stability": "Static",
+                    "extensibility": "Closed"
+                },
+                "bindingStrength": "R"
+            }
+        },
+
+        {
+            "InvalidLines": [
+                {
+                    "number": "1",
+                    "content": ""
+                },
+                {
+                    "number": "2",
+                    "content": "asasa"
+                },
+                {
+                    "number": "7",
+                    "content": "ORC!"
+                }
+            ]
+        },
+        {
+            "UnexpectedLines": [
+                {
+                    "number": "10",
+                    "content": "SFT"
+                },
+                {
+                    "number": "11",
+                    "content": "NTE|1||Patient is extremely anxious about needles used for drawing blood."
+                },
+                {
+                    "number": "12",
+                    "content": "NTE|1||Patient is extremely anxious about needles used for drawing blood."
+                },
+                {
+                    "number": "13",
+                    "content": "TQ1|1||||||20110331150028-0800|20110331152028-0800"
+                },
+                {
+                    "number": "14",
+                    "content": "OBX|1|NM|30341-2^Erythrocyte sedimentation rate^LN^815117^ESR^99USI^^^Erythrocyte sedimentation rate||10|mm/h^millimeter per hour^UCUM|0 to 17|N|||F|||20110331140551-0800|||||20110331150551-0800||||Century Hospital^^^^^NIST-AA-1&2.16.840.1.113883.3.72.5.30.1&ISO^XX^^^987|2070 Test Park^^Los Angeles^CA^90067^USA^B^^06037|2343242^Knowsalot^Phil^J.^III^Dr.^^^NIST-AA-1&2.16.840.1.113883.3.72.5.30.1&ISO^L^^^DN"
+                },
+                {
+                    "number": "15",
+                    "content": "PDQ"
+                }
+            ]
+        },
+        {
+            "UnescapedSeparators": {
+                "location": {
+                    "desc": "Relevant Clinical Information",
+                    "path": "OBR[1].13[1]",
+                    "line": "8",
+                    "column": "262"
+                }
+            }
+        },
+        {
+            "RUsage": {
+                "location": {
+                    "desc": "...",
+                    "path": "ORC[1].1[1]",
+                    "line": "6",
+                    "column": "1"
+                }
+            }
+        },
+        {
+            "MaxCard": {
+                "location": {
+                    "desc": "Set ID - PID",
+                    "path": "PID[1].1[2]",
+                    "line": "5",
+                    "column": "11"
+                },
+                "range": {
+                    "min": "0",
+                    "max": "1"
+                },
+                "instance": "2"
+            }
+        },
+        {
+            "Length": {
+                "location": {
+                    "desc": "Set ID - PID",
+                    "path": "PID[1].1[1]",
+                    "line": "5",
+                    "column": "5"
+                },
+                "range": {
+                    "min": "1",
+                    "max": "4"
+                },
+                "value": "11111"
+            }
+        },
+        {
+            "WUsage": {
+                "location": {
+                    "desc": "Software Segment",
+                    "path": "SFT[1]",
+                    "line": "4",
+                    "column": "1"
+                }
+            }
+        },
+        {
+            "Format": {
+                "location": {
+                    "desc": "Date/Time of Message",
+                    "path": "MSH[1].7[1]",
+                    "line": "3",
+                    "column": "165"
+                },
+                "details": "20110531140551-2400 is not a valid DateTime. The format should be: YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ]"
+            }
+        },
+        {
+            "Extra": {
+                "location": {
+                    "desc": "Sending Application",
+                    "path": "MSH[1].3[1]",
+                    "line": "3",
+                    "column": "11"
+                }
+            }
+        }
+    ],
+    "content": [
+        {
+            "PredicateSpecError": {
+                "predicate": {
+                    "target": "1[1].1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "reasons": [
+                    {
+                        "location": {
+                            "desc": "Sending Application",
+                            "path": "MSH[1].3[1]",
+                            "line": "3",
+                            "column": "11"
+                        },
+                        "msg": "Unreachable Path '1[1]'"
+                    }
+                ]
+            }
+        },
+        {
+            "PredicateSuccess": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/O)",
+                    "description": "If HD.2 is valued 'XX'"
+                }
+            }
+        },
+        {
+            "PredicateFailure": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "violations": [
+                    {
+                        "XUsage": {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "MSH[1].3[1].1[1]",
+                                "line": "3",
+                                "column": "11"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Application",
+                        "path": "MSH[1].3[1]",
+                        "line": "3",
+                        "column": "11"
+                    }
+                },
+                "constraint": {
+                    "id": "Presence",
+                    "description": "Presence"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Application",
+                        "path": "MSH[1].3[1]",
+                        "line": "3",
+                        "column": "11"
+                    }
+                },
+                "constraint": {
+                    "id": "PlainText",
+                    "description": "Plain Text"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].3[1].1[1] SHALL be equal to 'XX' (case insensitive)",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].3[1].1[1]",
+                                    "line": "3",
+                                    "column": "11"
+                                },
+                                "msg": "'NIST Test Lab APP' is different from 'XX' (case insensitive)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Application",
+                        "path": "MSH[1].3[1]",
+                        "line": "3",
+                        "column": "11"
+                    }
+                },
+                "constraint": {
+                    "id": "Format",
+                    "description": "Format"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].3[1].1[1] SHALL match 'XX' regular expression",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].3[1].1[1]",
+                                    "line": "3",
+                                    "column": "11"
+                                },
+                                "msg": "'NIST Test Lab APP' doesn't match 'XX'"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Application",
+                        "path": "MSH[1].3[1]",
+                        "line": "3",
+                        "column": "11"
+                    }
+                },
+                "constraint": {
+                    "id": "NumberList",
+                    "description": "Number List"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].3[1].1[1] SHALL be one of {1.0, 2.0, 3.0}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].3[1].1[1]",
+                                    "line": "3",
+                                    "column": "11"
+                                },
+                                "msg": "Text(NIST Test Lab APP) cannot be treated as a number"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Application",
+                        "path": "MSH[1].3[1]",
+                        "line": "3",
+                        "column": "11"
+                    }
+                },
+                "constraint": {
+                    "id": "String List",
+                    "description": "String List"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].3[1].1[1] SHALL be one of {1, 2}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].3[1].1[1]",
+                                    "line": "3",
+                                    "column": "11"
+                                },
+                                "msg": "'NIST Test Lab APP' is not in the list { '1', '2' }"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Application",
+                        "path": "MSH[1].3[1]",
+                        "line": "3",
+                        "column": "11"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                }
+            }
+        },
+        {
+            "SpecError": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Application",
+                        "path": "MSH[1].3[1]",
+                        "line": "3",
+                        "column": "11"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                },
+                "trace": {
+                    "expression": "MSH[1].3[1].1[1] SHALL be different from 'Number(XX)'",
+                    "reasons": [
+                        {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "MSH[1].3[1].1[1]",
+                                "line": "3",
+                                "column": "11"
+                            },
+                            "msg": "XX is not a valid Number. The format should be: [+|-]digits[.digits]"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Application",
+                        "path": "MSH[1].3[1]",
+                        "line": "3",
+                        "column": "11"
+                    }
+                },
+                "constraint": {
+                    "id": "AND",
+                    "description": "AND"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].3[1].1[1] SHALL be present AND MSH[1].3[1].2[2] SHALL be present",
+                        "reasons": []
+                    },
+                    {
+                        "expression": "MSH[1].3[1].2[2] SHALL be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Sending Application",
+                                    "path": "MSH[1].3[1]",
+                                    "line": "3",
+                                    "column": "11"
+                                },
+                                "msg": "MSH[1].3[1].2[2] is missing"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Application",
+                        "path": "MSH[1].3[1]",
+                        "line": "3",
+                        "column": "11"
+                    }
+                },
+                "constraint": {
+                    "id": "OR",
+                    "description": "OR"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Application",
+                        "path": "MSH[1].3[1]",
+                        "line": "3",
+                        "column": "11"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "NOT"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].3[1].1[1] SHALL not be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Sending Application",
+                                    "path": "MSH[1].3[1]",
+                                    "line": "3",
+                                    "column": "11"
+                                },
+                                "msg": "The inner expression is true"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Application",
+                        "path": "MSH[1].3[1]",
+                        "line": "3",
+                        "column": "11"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "MSH[1].3[1].1[1] SHALL not be present OR MSH[1].3[1].1[1] SHALL not be equal to 'XX' (case insensitive)"
+                }
+            }
+        },
+        {
+            "PredicateSpecError": {
+                "predicate": {
+                    "target": "1[1].1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "reasons": [
+                    {
+                        "location": {
+                            "desc": "Sending Facility",
+                            "path": "MSH[1].4[1]",
+                            "line": "3",
+                            "column": "64"
+                        },
+                        "msg": "Unreachable Path '1[1]'"
+                    }
+                ]
+            }
+        },
+        {
+            "PredicateSuccess": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/O)",
+                    "description": "If HD.2 is valued 'XX'"
+                }
+            }
+        },
+        {
+            "PredicateFailure": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "violations": [
+                    {
+                        "XUsage": {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "MSH[1].4[1].1[1]",
+                                "line": "3",
+                                "column": "64"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "Presence",
+                    "description": "Presence"
+                }
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "Path Value",
+                    "description": "Path Value"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "PlainText",
+                    "description": "Plain Text"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].4[1].1[1] SHALL be equal to 'XX' (case insensitive)",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].4[1].1[1]",
+                                    "line": "3",
+                                    "column": "64"
+                                },
+                                "msg": "'NIST Lab Facility' is different from 'XX' (case insensitive)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "Format",
+                    "description": "Format"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].4[1].1[1] SHALL match 'XX' regular expression",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].4[1].1[1]",
+                                    "line": "3",
+                                    "column": "64"
+                                },
+                                "msg": "'NIST Lab Facility' doesn't match 'XX'"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "NumberList",
+                    "description": "Number List"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].4[1].1[1] SHALL be one of {1.0, 2.0, 3.0}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].4[1].1[1]",
+                                    "line": "3",
+                                    "column": "64"
+                                },
+                                "msg": "Text(NIST Lab Facility) cannot be treated as a number"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "String List",
+                    "description": "String List"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].4[1].1[1] SHALL be one of {1, 2}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].4[1].1[1]",
+                                    "line": "3",
+                                    "column": "64"
+                                },
+                                "msg": "'NIST Lab Facility' is not in the list { '1', '2' }"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                }
+            }
+        },
+        {
+            "SpecError": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                },
+                "trace": {
+                    "expression": "MSH[1].4[1].1[1] SHALL be different from 'Number(XX)'",
+                    "reasons": [
+                        {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "MSH[1].4[1].1[1]",
+                                "line": "3",
+                                "column": "64"
+                            },
+                            "msg": "XX is not a valid Number. The format should be: [+|-]digits[.digits]"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "AND",
+                    "description": "AND"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].4[1].1[1] SHALL be present AND MSH[1].4[1].2[2] SHALL be present",
+                        "reasons": []
+                    },
+                    {
+                        "expression": "MSH[1].4[1].2[2] SHALL be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Sending Facility",
+                                    "path": "MSH[1].4[1]",
+                                    "line": "3",
+                                    "column": "64"
+                                },
+                                "msg": "MSH[1].4[1].2[2] is missing"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "OR",
+                    "description": "OR"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "NOT"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].4[1].1[1] SHALL not be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Sending Facility",
+                                    "path": "MSH[1].4[1]",
+                                    "line": "3",
+                                    "column": "64"
+                                },
+                                "msg": "The inner expression is true"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Sending Facility",
+                        "path": "MSH[1].4[1]",
+                        "line": "3",
+                        "column": "64"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "MSH[1].4[1].1[1] SHALL not be present OR MSH[1].4[1].1[1] SHALL not be equal to 'XX' (case insensitive)"
+                }
+            }
+        },
+        {
+            "PredicateSpecError": {
+                "predicate": {
+                    "target": "1[1].1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "reasons": [
+                    {
+                        "location": {
+                            "desc": "Receiving Facility",
+                            "path": "MSH[1].6[1]",
+                            "line": "3",
+                            "column": "115"
+                        },
+                        "msg": "Unreachable Path '1[1]'"
+                    }
+                ]
+            }
+        },
+        {
+            "PredicateSuccess": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/O)",
+                    "description": "If HD.2 is valued 'XX'"
+                }
+            }
+        },
+        {
+            "PredicateFailure": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "violations": [
+                    {
+                        "XUsage": {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "MSH[1].6[1].1[1]",
+                                "line": "3",
+                                "column": "115"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "Presence",
+                    "description": "Presence"
+                }
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "Path Value",
+                    "description": "Path Value"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "PlainText",
+                    "description": "Plain Text"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].6[1].1[1] SHALL be equal to 'XX' (case insensitive)",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].6[1].1[1]",
+                                    "line": "3",
+                                    "column": "115"
+                                },
+                                "msg": "'NIST EHR Facility' is different from 'XX' (case insensitive)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "Format",
+                    "description": "Format"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].6[1].1[1] SHALL match 'XX' regular expression",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].6[1].1[1]",
+                                    "line": "3",
+                                    "column": "115"
+                                },
+                                "msg": "'NIST EHR Facility' doesn't match 'XX'"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "NumberList",
+                    "description": "Number List"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].6[1].1[1] SHALL be one of {1.0, 2.0, 3.0}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].6[1].1[1]",
+                                    "line": "3",
+                                    "column": "115"
+                                },
+                                "msg": "Text(NIST EHR Facility) cannot be treated as a number"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "String List",
+                    "description": "String List"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].6[1].1[1] SHALL be one of {1, 2}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "MSH[1].6[1].1[1]",
+                                    "line": "3",
+                                    "column": "115"
+                                },
+                                "msg": "'NIST EHR Facility' is not in the list { '1', '2' }"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                }
+            }
+        },
+        {
+            "SpecError": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                },
+                "trace": {
+                    "expression": "MSH[1].6[1].1[1] SHALL be different from 'Number(XX)'",
+                    "reasons": [
+                        {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "MSH[1].6[1].1[1]",
+                                "line": "3",
+                                "column": "115"
+                            },
+                            "msg": "XX is not a valid Number. The format should be: [+|-]digits[.digits]"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "AND",
+                    "description": "AND"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].6[1].1[1] SHALL be present AND MSH[1].6[1].2[2] SHALL be present",
+                        "reasons": []
+                    },
+                    {
+                        "expression": "MSH[1].6[1].2[2] SHALL be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Receiving Facility",
+                                    "path": "MSH[1].6[1]",
+                                    "line": "3",
+                                    "column": "115"
+                                },
+                                "msg": "MSH[1].6[1].2[2] is missing"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "OR",
+                    "description": "OR"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "NOT"
+                },
+                "stack": [
+                    {
+                        "expression": "MSH[1].6[1].1[1] SHALL not be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Receiving Facility",
+                                    "path": "MSH[1].6[1]",
+                                    "line": "3",
+                                    "column": "115"
+                                },
+                                "msg": "The inner expression is true"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Receiving Facility",
+                        "path": "MSH[1].6[1]",
+                        "line": "3",
+                        "column": "115"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "MSH[1].6[1].1[1] SHALL not be present OR MSH[1].6[1].1[1] SHALL not be equal to 'XX' (case insensitive)"
+                }
+            }
+        },
+        {
+            "PredicateSpecError": {
+                "predicate": {
+                    "target": "1[1].1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "reasons": [
+                    {
+                        "location": {
+                            "desc": "Assigning Authority",
+                            "path": "OBR[1].16[1].9[1]",
+                            "line": "8",
+                            "column": "394"
+                        },
+                        "msg": "Unreachable Path '1[1]'"
+                    }
+                ]
+            }
+        },
+        {
+            "PredicateSuccess": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/O)",
+                    "description": "If HD.2 is valued 'XX'"
+                }
+            }
+        },
+        {
+            "PredicateFailure": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "violations": [
+                    {
+                        "XUsage": {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "OBR[1].16[1].9[1].1[1]",
+                                "line": "8",
+                                "column": "394"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "Presence",
+                    "description": "Presence"
+                }
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "Path Value",
+                    "description": "Path Value"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "PlainText",
+                    "description": "Plain Text"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].16[1].9[1].1[1] SHALL be equal to 'XX' (case insensitive)",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "OBR[1].16[1].9[1].1[1]",
+                                    "line": "8",
+                                    "column": "394"
+                                },
+                                "msg": "'NIST-AA-1' is different from 'XX' (case insensitive)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "Format",
+                    "description": "Format"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].16[1].9[1].1[1] SHALL match 'XX' regular expression",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "OBR[1].16[1].9[1].1[1]",
+                                    "line": "8",
+                                    "column": "394"
+                                },
+                                "msg": "'NIST-AA-1' doesn't match 'XX'"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "NumberList",
+                    "description": "Number List"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].16[1].9[1].1[1] SHALL be one of {1.0, 2.0, 3.0}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "OBR[1].16[1].9[1].1[1]",
+                                    "line": "8",
+                                    "column": "394"
+                                },
+                                "msg": "Text(NIST-AA-1) cannot be treated as a number"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "String List",
+                    "description": "String List"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].16[1].9[1].1[1] SHALL be one of {1, 2}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "OBR[1].16[1].9[1].1[1]",
+                                    "line": "8",
+                                    "column": "394"
+                                },
+                                "msg": "'NIST-AA-1' is not in the list { '1', '2' }"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                }
+            }
+        },
+        {
+            "SpecError": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                },
+                "trace": {
+                    "expression": "OBR[1].16[1].9[1].1[1] SHALL be different from 'Number(XX)'",
+                    "reasons": [
+                        {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "OBR[1].16[1].9[1].1[1]",
+                                "line": "8",
+                                "column": "394"
+                            },
+                            "msg": "XX is not a valid Number. The format should be: [+|-]digits[.digits]"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "AND",
+                    "description": "AND"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].16[1].9[1].1[1] SHALL be present AND OBR[1].16[1].9[1].2[2] SHALL be present",
+                        "reasons": []
+                    },
+                    {
+                        "expression": "OBR[1].16[1].9[1].2[2] SHALL be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Assigning Authority",
+                                    "path": "OBR[1].16[1].9[1]",
+                                    "line": "8",
+                                    "column": "394"
+                                },
+                                "msg": "OBR[1].16[1].9[1].2[2] is missing"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "OR",
+                    "description": "OR"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "NOT"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].16[1].9[1].1[1] SHALL not be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Assigning Authority",
+                                    "path": "OBR[1].16[1].9[1]",
+                                    "line": "8",
+                                    "column": "394"
+                                },
+                                "msg": "The inner expression is true"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].16[1].9[1]",
+                        "line": "8",
+                        "column": "394"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "OBR[1].16[1].9[1].1[1] SHALL not be present OR OBR[1].16[1].9[1].1[1] SHALL not be equal to 'XX' (case insensitive)"
+                }
+            }
+        },
+        {
+            "PredicateSpecError": {
+                "predicate": {
+                    "target": "1[1].1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "reasons": [
+                    {
+                        "location": {
+                            "desc": "Assigning Authority",
+                            "path": "OBR[1].28[1].9[1]",
+                            "line": "8",
+                            "column": "510"
+                        },
+                        "msg": "Unreachable Path '1[1]'"
+                    }
+                ]
+            }
+        },
+        {
+            "PredicateSuccess": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/O)",
+                    "description": "If HD.2 is valued 'XX'"
+                }
+            }
+        },
+        {
+            "PredicateFailure": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "violations": [
+                    {
+                        "XUsage": {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "OBR[1].28[1].9[1].1[1]",
+                                "line": "8",
+                                "column": "510"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "Presence",
+                    "description": "Presence"
+                }
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "Path Value",
+                    "description": "Path Value"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "PlainText",
+                    "description": "Plain Text"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].28[1].9[1].1[1] SHALL be equal to 'XX' (case insensitive)",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "OBR[1].28[1].9[1].1[1]",
+                                    "line": "8",
+                                    "column": "510"
+                                },
+                                "msg": "'NIST-AA-1' is different from 'XX' (case insensitive)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "Format",
+                    "description": "Format"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].28[1].9[1].1[1] SHALL match 'XX' regular expression",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "OBR[1].28[1].9[1].1[1]",
+                                    "line": "8",
+                                    "column": "510"
+                                },
+                                "msg": "'NIST-AA-1' doesn't match 'XX'"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "NumberList",
+                    "description": "Number List"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].28[1].9[1].1[1] SHALL be one of {1.0, 2.0, 3.0}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "OBR[1].28[1].9[1].1[1]",
+                                    "line": "8",
+                                    "column": "510"
+                                },
+                                "msg": "Text(NIST-AA-1) cannot be treated as a number"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "String List",
+                    "description": "String List"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].28[1].9[1].1[1] SHALL be one of {1, 2}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "OBR[1].28[1].9[1].1[1]",
+                                    "line": "8",
+                                    "column": "510"
+                                },
+                                "msg": "'NIST-AA-1' is not in the list { '1', '2' }"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                }
+            }
+        },
+        {
+            "SpecError": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                },
+                "trace": {
+                    "expression": "OBR[1].28[1].9[1].1[1] SHALL be different from 'Number(XX)'",
+                    "reasons": [
+                        {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "OBR[1].28[1].9[1].1[1]",
+                                "line": "8",
+                                "column": "510"
+                            },
+                            "msg": "XX is not a valid Number. The format should be: [+|-]digits[.digits]"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "AND",
+                    "description": "AND"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].28[1].9[1].1[1] SHALL be present AND OBR[1].28[1].9[1].2[2] SHALL be present",
+                        "reasons": []
+                    },
+                    {
+                        "expression": "OBR[1].28[1].9[1].2[2] SHALL be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Assigning Authority",
+                                    "path": "OBR[1].28[1].9[1]",
+                                    "line": "8",
+                                    "column": "510"
+                                },
+                                "msg": "OBR[1].28[1].9[1].2[2] is missing"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "OR",
+                    "description": "OR"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "NOT"
+                },
+                "stack": [
+                    {
+                        "expression": "OBR[1].28[1].9[1].1[1] SHALL not be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Assigning Authority",
+                                    "path": "OBR[1].28[1].9[1]",
+                                    "line": "8",
+                                    "column": "510"
+                                },
+                                "msg": "The inner expression is true"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "OBR[1].28[1].9[1]",
+                        "line": "8",
+                        "column": "510"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "OBR[1].28[1].9[1].1[1] SHALL not be present OR OBR[1].28[1].9[1].1[1] SHALL not be equal to 'XX' (case insensitive)"
+                }
+            }
+        },
+        {
+            "PredicateSpecError": {
+                "predicate": {
+                    "target": "1[1].1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "reasons": [
+                    {
+                        "location": {
+                            "desc": "Assigning Authority",
+                            "path": "ORC[1].12[1].9[1]",
+                            "line": "6",
+                            "column": "204"
+                        },
+                        "msg": "Unreachable Path '1[1]'"
+                    }
+                ]
+            }
+        },
+        {
+            "PredicateSuccess": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/O)",
+                    "description": "If HD.2 is valued 'XX'"
+                }
+            }
+        },
+        {
+            "PredicateFailure": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "violations": [
+                    {
+                        "XUsage": {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "ORC[1].12[1].9[1].1[1]",
+                                "line": "6",
+                                "column": "204"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "Presence",
+                    "description": "Presence"
+                }
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "Path Value",
+                    "description": "Path Value"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "PlainText",
+                    "description": "Plain Text"
+                },
+                "stack": [
+                    {
+                        "expression": "ORC[1].12[1].9[1].1[1] SHALL be equal to 'XX' (case insensitive)",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "ORC[1].12[1].9[1].1[1]",
+                                    "line": "6",
+                                    "column": "204"
+                                },
+                                "msg": "'NIST-AA-1' is different from 'XX' (case insensitive)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "Format",
+                    "description": "Format"
+                },
+                "stack": [
+                    {
+                        "expression": "ORC[1].12[1].9[1].1[1] SHALL match 'XX' regular expression",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "ORC[1].12[1].9[1].1[1]",
+                                    "line": "6",
+                                    "column": "204"
+                                },
+                                "msg": "'NIST-AA-1' doesn't match 'XX'"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "NumberList",
+                    "description": "Number List"
+                },
+                "stack": [
+                    {
+                        "expression": "ORC[1].12[1].9[1].1[1] SHALL be one of {1.0, 2.0, 3.0}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "ORC[1].12[1].9[1].1[1]",
+                                    "line": "6",
+                                    "column": "204"
+                                },
+                                "msg": "Text(NIST-AA-1) cannot be treated as a number"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "String List",
+                    "description": "String List"
+                },
+                "stack": [
+                    {
+                        "expression": "ORC[1].12[1].9[1].1[1] SHALL be one of {1, 2}",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "ORC[1].12[1].9[1].1[1]",
+                                    "line": "6",
+                                    "column": "204"
+                                },
+                                "msg": "'NIST-AA-1' is not in the list { '1', '2' }"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                }
+            }
+        },
+        {
+            "SpecError": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                },
+                "trace": {
+                    "expression": "ORC[1].12[1].9[1].1[1] SHALL be different from 'Number(XX)'",
+                    "reasons": [
+                        {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "ORC[1].12[1].9[1].1[1]",
+                                "line": "6",
+                                "column": "204"
+                            },
+                            "msg": "XX is not a valid Number. The format should be: [+|-]digits[.digits]"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "AND",
+                    "description": "AND"
+                },
+                "stack": [
+                    {
+                        "expression": "ORC[1].12[1].9[1].1[1] SHALL be present AND ORC[1].12[1].9[1].2[2] SHALL be present",
+                        "reasons": []
+                    },
+                    {
+                        "expression": "ORC[1].12[1].9[1].2[2] SHALL be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Assigning Authority",
+                                    "path": "ORC[1].12[1].9[1]",
+                                    "line": "6",
+                                    "column": "204"
+                                },
+                                "msg": "ORC[1].12[1].9[1].2[2] is missing"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "OR",
+                    "description": "OR"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "NOT"
+                },
+                "stack": [
+                    {
+                        "expression": "ORC[1].12[1].9[1].1[1] SHALL not be present",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Assigning Authority",
+                                    "path": "ORC[1].12[1].9[1]",
+                                    "line": "6",
+                                    "column": "204"
+                                },
+                                "msg": "The inner expression is true"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "ORC[1].12[1].9[1]",
+                        "line": "6",
+                        "column": "204"
+                    }
+                },
+                "constraint": {
+                    "id": "NOT",
+                    "description": "ORC[1].12[1].9[1].1[1] SHALL not be present OR ORC[1].12[1].9[1].1[1] SHALL not be equal to 'XX' (case insensitive)"
+                }
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Patient Identification",
+                        "path": "PID[1]",
+                        "line": "5",
+                        "column": "1"
+                    }
+                },
+                "constraint": {
+                    "id": "XX_1",
+                    "description": "Test"
+                }
+            }
+        },
+        {
+            "PredicateSpecError": {
+                "predicate": {
+                    "target": "1[1].1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "reasons": [
+                    {
+                        "location": {
+                            "desc": "Assigning Authority",
+                            "path": "PID[1].3[1].4[1]",
+                            "line": "5",
+                            "column": "26"
+                        },
+                        "msg": "Unreachable Path '1[1]'"
+                    }
+                ]
+            }
+        },
+        {
+            "PredicateSuccess": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/O)",
+                    "description": "If HD.2 is valued 'XX'"
+                }
+            }
+        },
+        {
+            "PredicateFailure": {
+                "predicate": {
+                    "target": "1[1]",
+                    "usage": "C(R/X)",
+                    "description": "If HD.2 is valued 'XX'"
+                },
+                "violations": [
+                    {
+                        "XUsage": {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "PID[1].3[1].4[1].1[1]",
+                                "line": "5",
+                                "column": "26"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Success": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "PID[1].3[1].4[1]",
+                        "line": "5",
+                        "column": "26"
+                    }
+                },
+                "constraint": {
+                    "id": "Presence",
+                    "description": "Presence"
+                }
+            }
+        },
+        {
+            "Failure": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "PID[1].3[1].4[1]",
+                        "line": "5",
+                        "column": "26"
+                    }
+                },
+                "constraint": {
+                    "id": "PlainText",
+                    "description": "Plain Text"
+                },
+                "stack": [
+                    {
+                        "expression": "PID[1].3[1].4[1].1[1] SHALL be equal to 'XX' (case insensitive)",
+                        "reasons": [
+                            {
+                                "location": {
+                                    "desc": "Namespace ID",
+                                    "path": "PID[1].3[1].4[1].1[1]",
+                                    "line": "5",
+                                    "column": "26"
+                                },
+                                "msg": "'NIST MPI' is different from 'XX' (case insensitive)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+
+        {
+            "SpecError": {
+                "context": {
+                    "location": {
+                        "desc": "Assigning Authority",
+                        "path": "PID[1].3[1].4[1]",
+                        "line": "5",
+                        "column": "26"
+                    }
+                },
+                "constraint": {
+                    "id": "Simple Value",
+                    "description": "Simple Value"
+                },
+                "trace": {
+                    "expression": "PID[1].3[1].4[1].1[1] SHALL be different from 'Number(XX)'",
+                    "reasons": [
+                        {
+                            "location": {
+                                "desc": "Namespace ID",
+                                "path": "PID[1].3[1].4[1].1[1]",
+                                "line": "5",
+                                "column": "26"
+                            },
+                            "msg": "XX is not a valid Number. The format should be: [+|-]digits[.digits]"
+                        }
+                    ]
+                }
+            }
+        }
+
+    ],
+    "valueSet": [
+
+        {
+            "PVS": {
+                "location": {
+                    "desc": "Set ID - PID",
+                    "path": "PID[1].1[3]",
+                    "line": "5",
+                    "column": "13"
+                },
+                "valueSet": {
+                    "id": "VS1",
+                    "extensibility": "Closed",
+                    "stability": "Static"
+                },
+                "value": "3",
+                "bindingStrength": "R"
+            }
+        },
+
+        {
+            "EVS": {
+                "location": {
+                    "desc": "Set ID - PID",
+                    "path": "PID[1].1[2]",
+                    "line": "5",
+                    "column": "11"
+                },
+                "valueSet": {
+                    "id": "VS1",
+                    "extensibility": "Closed",
+                    "stability": "Static"
+                },
+                "value": "2",
+                "bindingStrength": "R"
+            }
+        },
+
+        {
+            "VSNotFound": {
+                "location": {
+                    "desc": "Name of Coding System",
+                    "path": "OBX[1].6[1].3[1]",
+                    "line": "13",
+                    "column": "131"
+                },
+                "value": "UCUM",
+                "valueSetId": "0396"
+            }
+        },
+
+        {
+            "VSSpecError": {
+                "location": {
+                    "desc": "Observation Identifier",
+                    "path": "OBX[1].3[1]",
+                    "line": "13",
+                    "column": "10"
+                },
+                "valueSet": {
+                    "id": "BadVS",
+                    "extensibility": "Closed",
+                    "stability": "Static"
+                },
+                "spec": {
+                    "valueSetId": "BadVS",
+                    "bindingStrength": "R"
+                },
+                "msg": "The binding location is missing"
+            }
+        },
+
+        {
+            "CodeNotFound": {
+                "location": {
+                    "desc": "Identifier",
+                    "path": "OBX[1].3[1].1[1]",
+                    "line": "13",
+                    "column": "10"
+                },
+                "valueSet": {
+                    "id": "VS1",
+                    "extensibility": "Closed",
+                    "stability": "Static"
+                },
+                "value": "30341-2",
+                "bindingStrength": "R"
+            }
+        },
+
+        {
+            "EmptyVS": {
+                "location": {
+                    "desc": "Set ID - OBR",
+                    "path": "OBR[1].1[1]",
+                    "line": "8",
+                    "column": "5"
+                },
+                "valueSet": {
+                    "id": "EmptyVS",
+                    "extensibility": "Closed",
+                    "stability": "Static"
+                },
+                "bindingStrength": "R"
+            }
+        },
+
+        {
+            "VSError": {
+                "location": {
+                    "desc": "Order Control",
+                    "path": "ORC[1].1[1]",
+                    "line": "6",
+                    "column": "5"
+                },
+                "valueSet": {
+                    "id": "BadVS",
+                    "extensibility": "Closed",
+                    "stability": "Static"
+                },
+                "reason": "Multiple occurrences of the code '1' found."
+            }
+        },
+
+        {
+            "CodedElem": {
+                "location": {
+                    "desc": "Observation Identifier",
+                    "path": "OBX[1].3[1]",
+                    "line": "13",
+                    "column": "10"
+                },
+                "spec": {
+                    "valueSetId": " VS1",
+                    "bindingStrength": "R",
+                    "bindingLocation": "OR(1,4)"
+                },
+                "msg": "At least one triplet should be valued from the value set  VS1",
+                "details": [
+                    {
+                        "CodedElem": {
+                            "location": {
+                                "desc": "Identifier",
+                                "path": "OBX[1].3[1].1[1]",
+                                "line": "13",
+                                "column": "10"
+                            },
+                            "spec": {
+                                "valueSetId": " VS1",
+                                "bindingStrength": "R",
+                                "bindingLocation": "OR(1,4)"
+                            },
+                            "msg": "Value set  VS1 cannot be found in the library",
+                            "details": []
+                        }
+                    },
+                    {
+                        "CodedElem": {
+                            "location": {
+                                "desc": "Alternate Identifier",
+                                "path": "OBX[1].3[1].4[1]",
+                                "line": "13",
+                                "column": "52"
+                            },
+                            "spec": {
+                                "valueSetId": " VS1",
+                                "bindingStrength": "R",
+                                "bindingLocation": "OR(1,4)"
+                            },
+                            "msg": "Value set  VS1 cannot be found in the library",
+                            "details": []
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "CodedElem": {
+                "location": {
+                    "desc": "Observation Identifier",
+                    "path": "OBX[1].3[1]",
+                    "line": "13",
+                    "column": "10"
+                },
+                "spec": {
+                    "valueSetId": " VS1",
+                    "bindingStrength": "R",
+                    "bindingLocation": "XOR(1,4)"
+                },
+                "msg": "One of the triplet (but not both) should be valued from the value set  VS1",
+                "details": []
+            }
+        },
+        {
+            "CodedElem": {
+                "location": {
+                    "desc": "Observation Identifier",
+                    "path": "OBX[1].3[1]",
+                    "line": "13",
+                    "column": "10"
+                },
+                "spec": {
+                    "valueSetId": " VS1",
+                    "bindingStrength": "R",
+                    "bindingLocation": "AND(1,4)"
+                },
+                "msg": "Both triplets should be valued from the value set  VS1",
+                "details": [
+                    {
+                        "CodedElem": {
+                            "location": {
+                                "desc": "Identifier",
+                                "path": "OBX[1].3[1].1[1]",
+                                "line": "13",
+                                "column": "10"
+                            },
+                            "spec": {
+                                "valueSetId": " VS1",
+                                "bindingStrength": "R",
+                                "bindingLocation": "AND(1,4)"
+                            },
+                            "msg": "Value set  VS1 cannot be found in the library",
+                            "details": []
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

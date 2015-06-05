@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:submitSingleMessage xmlns:urn="urn:cdc:iisb:2011">
+	<!--Optional: -->
+	<urn:username>test</urn:username>
+	<!--Optional: -->
+	<urn:password>12345</urn:password>
+	<!--Optional: -->
+	<urn:facilityID>FAC_TEST_UNKNWON</urn:facilityID>
+	<urn:hl7Message>HL7_MESSAGE</urn:hl7Message>
+</urn:submitSingleMessage>

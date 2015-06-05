@@ -1,0 +1,129 @@
+{
+  "id" : 2,
+  "name" : "MU Certification",
+  "description" : "This Test Plan provides the Test Case used in Meaningful Use Stage 2",
+  "lastUpdateDate" : "2015-05-22 10:19:43",
+  "version" : 10,
+  "testcases" : [ ],
+  "testcasegroups" : [ {
+    "id" : 2,
+    "name" : "IZ_1_Admin_Child",
+    "description" : "No Description",
+    "version" : 1,
+    "testcases" : [ {
+      "id" : 8,
+      "name" : "IZ_1_3_Admin_Child",
+      "description" : "Send child Immunization",
+      "version" : 1,
+      "teststeps" : [ {
+        "id" : 10,
+        "name" : "IZ_1_1.3_Max",
+        "description" : "Send child Iz",
+        "message" : {
+          "@id" : 1,
+          "id" : 54,
+          "name" : "VXU_Admin_Child.1",
+          "description" : "VXU message for MU-2 TCs",
+          "lastUpdateDate" : null,
+          "version" : 4
+        },
+        "version" : null,
+        "testStepStory" : {
+          "teststorydesc" : " For purposes of reporting immunizations this clinic has been assigned an id of X68 by the Immunization Information System (IIS). A toddler, Brooklyn Dolly Deschutes, is brought to the clinic on August 16, 2012 by her mother, Dona Dewey, for a well child visit. A clinician staff member, Donna Burden, collects basic identifying information, including name, birth date, sex, address, phone, medical record number, race, and ethnicity. A clinic staff member, Nicholas Radon, reviews the patient's vaccination history and determines that the patient needs an Influenza (FLUZONE) vaccination. The mother is interviewed and determines that the patient qualifies for a Vaccines For Children (VFC) supplied vaccine under the status of Not VFC eligible. The mother is given a Vaccine Information Statement for Inactivated Flu published by the CDC on Jul 2, 2012 to review. After reading the VIS the mother agrees that the child should receive the vaccination. It is explained to the mother that information about this vaccination will be sent to the IIS and ask if the IIS can send a reminder about when the next vaccination is due. The mother indicates that contact should be made by the IIS. A clinic staff member, Mike Lemon, then prepares an Influenza vaccination dose, Sanofi Pasteur Lot # J6702KP, from the VFC publicly supplied vaccine stock and administers it to the patient in the right arm. A clinic staff member, Donna Burden, enters the patient demographic information, VFC status, VIS information, contact status, and vaccination administration information into the EHR and transmits it to the IIS, indicating to the IIS that an active patient of the clinic was administered a vaccination.",
+          "comments" : "The patient id is the EHR system's unique id for the patient and is expected to be assigned and managed by the EHR system. Thus the test cases do not specify a particular patient id but expect that the EHR will assign and transmit a patient id during the testing process. The id must be unique within the name space defined by the particular installation of the EHR. For testing purposes the EHR creates its own namespace that only exists for testing.",
+          "preCondition" : "No PreCondition",
+          "postCondition" : "No PostCondition",
+          "testObjectives" : "This test case examines the ability of an EHR to create a VXU message for well child visit single vaccination. A maximally populated message is tested for relevant required, required or empty and conditional elements. The message must provide; - Patient demographic information in the PID segment - Responsible party information in the NK1 segment. - VFC status and VIS information in the OBX segments - Contact or publicity status in the PD1 segment - Vaccination administration RXA and RXR segments.",
+          "evaluationCriteria" : "No evaluation criteria",
+          "notes" : "For this Test Case, bar-code information based on Global Document Type Identifier (GDTI) 3-D Bar-code may be used in the test message instead of Vaccine Type. The \"Vaccine Type Approach\" is the default option; the Test Story and Message Content specification for this Test Case were created to support the Vaccine Type Approach. The example message for the \"GDTI Approach\" provides message content guidance for this alternate option; this example message is accessed by selecting the GDTI Approach option from the Select Approach drop-down menu on the Validation page and then clicking on the Load Example button."
+        }
+      } ],
+      "testCaseStory" : {
+        "teststorydesc" : " No Description",
+        "comments" : "No Comments",
+        "preCondition" : "No PreCondition",
+        "postCondition" : "No PostCondition",
+        "testObjectives" : "No Test Objectives",
+        "evaluationCriteria" : "No evaluation criteria",
+        "notes" : "No Note"
+      }
+    }, {
+      "id" : 4,
+      "name" : "IZ_1_2_Admin_Child",
+      "description" : "No Description",
+      "version" : 1,
+      "teststeps" : [ {
+        "id" : 4,
+        "name" : "IZ_1_1.2_Max",
+        "description" : "Send Child IZ",
+        "message" : {
+          "@id" : 2,
+          "id" : 45,
+          "name" : "VXU_Admin_Child.2",
+          "description" : "VXU message for MU-2 TCs",
+          "lastUpdateDate" : null,
+          "version" : 5
+        },
+        "version" : null,
+        "testStepStory" : {
+          "teststorydesc" : " For purposes of reporting immunizations this clinic has been assigned an id of X68 by the Immunization Information System (IIS). A toddler, Tierney Beacher Marsh, is brought to the clinic on August 15, 2012 by her mother, Morgan Lucas, for a well child visit. A clinician staff member, Donna Burden, collects basic identifying information, including name, birth date, sex, address, phone, medical record number, race, and ethnicity. A clinician staff member, Nicholas Radon, reviews the patient's vaccination history and determines that the patient needs an Influenza (FLUZONE) vaccination. The mother is interviewed and it is determines that the patient qualifies for Vaccine For Children (VFC) supplied vaccine under the status of VFC eligible ? Uninsured. The mother is given a Vaccine Information Statement for Inactivated Flu published by the CDC on Jul 2, 2012 to review. After reading the VIS the mother agrees that the child should receive the vaccination. It is explained to the mother that information about this vaccination will be sent to the IIS and ask if the IIS can send a reminder about when the next vaccination is due. The mother indicates that contact should be made by the IIS. A clinic staff member, Mike Lemon, then prepares an Influenza vaccination dose, Sanofi Pasteur Lot #Y9789ZR, from the VFC publicly supplied vaccine stock and administers it to the patient in the right arm. A clinic staff member, Donna Burden, enters the patient demographic information, VFC status, VIS information, contact status, and vaccination administration information into the EHR and transmits it to the IIS, indicating to the IIS that an active patient of the clinic was administered a vaccination.",
+          "comments" : "The patient id is the EHR system's unique id for the patient and is expected to be assigned and managed by the EHR system. Thus the test cases do not specify a particular patient id but expect that the EHR will assign and transmit a patient id during the testing process. The id must be unique within the name space defined by the particular installation of the EHR. For testing purposes the EHR creates its own namespace that only exists for testing.",
+          "preCondition" : "No PreCondition",
+          "postCondition" : "No PostCondition",
+          "testObjectives" : "This test case examines the ability of an EHR to create a VXU message for well child visit single vaccination. A maximally populated message is tested for relevant required, required or empty and conditional elements. The message must provide; - Patient demographic information in the PID segment - Responsible party information in the NK1 segment. - VFC status and VIS information in the OBX segments - Contact or publicity status in the PD1 segment - Vaccination administration RXA and RXR segments",
+          "evaluationCriteria" : "No evaluation criteria",
+          "notes" : "For this Test Case, bar-code information based on Global Document Type Identifier (GDTI) 3-D Bar-code may be used in the test message instead of Vaccine Type. The \"Vaccine Type Approach\" is the default option; the Test Story and Message Content specification for this Test Case were created to support the Vaccine Type Approach. The example message for the \"GDTI Approach\" provides message content guidance for this alternate option; this example message is accessed by selecting the GDTI Approach option from the Select Approach drop-down menu on the Validation page and then clicking on the Load Example button"
+        }
+      } ],
+      "testCaseStory" : {
+        "teststorydesc" : " No Description",
+        "comments" : "No Comments",
+        "preCondition" : "No PreCondition",
+        "postCondition" : "No PostCondition",
+        "testObjectives" : "No Test Objectives",
+        "evaluationCriteria" : "No evaluation criteria",
+        "notes" : "No Note"
+      }
+    }, {
+      "id" : 2,
+      "name" : "IZ_1_1_Admin_Child",
+      "description" : "No Description",
+      "version" : 1,
+      "teststeps" : [ {
+        "id" : 2,
+        "name" : "IZ_1_1.1_Max",
+        "description" : "Send Child Iz",
+        "message" : {
+          "@id" : 3,
+          "id" : 36,
+          "name" : "VXU_Admin_Child.1",
+          "description" : "VXU message for MU-2 TCs",
+          "lastUpdateDate" : null,
+          "version" : 4
+        },
+        "version" : null,
+        "testStepStory" : {
+          "teststorydesc" : " For purposes of reporting immunizations this clinic has been assigned an id of X68 by the Immunization Information System (IIS). A child, Madelynn Ainsley Snow, is brought to the clinic on Aug 14, 2012 by her mother, Morgan Lam, for a well child visit. A clinic staff member, Donna Burden, collects basic identifying information, including name, birth date, sex, address, phone, medical record number, race, and ethnicity. A clinic staff member, Nicholas Radon, reviews the patient's vaccination history and determines that the patient needs an Influenza (Afluria) vaccination. The mother is interviewed and it is determined that the patient qualifies for a Vaccines For Children (VFC) supplied vaccine under the status of VFC eligible - Federally Qualified Health Center Patient (under-insured). The mother is givena Vaccine Information Statement for Inactivated Flu published by the CDC on Jul 2, 2012 to review. After reading the VIS the mother agrees that the child should receive the vaccination. It is explained to the mother that information about this vaccination will be sent to the IIS and ask if the IIS can send a reminder about when the next vaccination is due. The mother indicates that contact should be made by the IIS. A clinic staff member, Mike Lemon, then prepares an Influenza vaccination dose, CSL Behring Lot #Z0860BB, from the VFC publicly supplied vaccine stock and administers it to the patient in the left arm. A clinic staff member, Donna Burden, enters the patient demographic information, VFC status, VIS information, contact status, and vaccination administration information into the EHR and transmits it to the IIS, indicating to the IIS that an active patient of the clinic was administered a vaccination.",
+          "comments" : "The patient id is the EHR system's unique id for the patient and is expected to be assigned and managed by the EHR system. Thus the test cases do not specify a particular patient id but expect that the EHR will assign and transmit a patient id during the testing process. The id must be unique within the name space defined by the particular installation of the EHR. For testing purposes the EHR creates its own namespace that only exists for testing.",
+          "preCondition" : "No PreCondition",
+          "postCondition" : "No PostCondition",
+          "testObjectives" : "This test case examines the ability of an EHR to create a VXU message for well child visit single vaccination. A maximally populated message is tested for relevant required, required or empty and conditional elements. The message must provide; - Patient demographic information in the PID segment - Responsible party information in the NK1 segment. - VFC status and VIS information in the OBX segments - Contact or publicity status in the PD1 segment - Vaccination administration RXA and RXR segments. The test case provides an example of all the relevant elements.",
+          "evaluationCriteria" : "No evaluation criteria",
+          "notes" : "For this Test Case, bar-code information based on Global Document Type Identifier (GDTI) 3-D Bar-code may be used in the test message instead of Vaccine Type. The \"Vaccine Type Approach\" is the default option; the Test Story and Message Content specification for this Test Case were created to support the Vaccine Type Approach. The example message for the \"GDTI Approach\" provides message content guidance for this alternate option; this example message is accessed by selecting the GDTI Approach option from the Select Approach drop-down menu on the Validation page and then clicking on the Load Example button."
+        }
+      } ],
+      "testCaseStory" : {
+        "teststorydesc" : " No Description",
+        "comments" : "No Comments",
+        "preCondition" : "No PreCondition",
+        "postCondition" : "No PostCondition",
+        "testObjectives" : "No Test Objectives",
+        "evaluationCriteria" : "No evaluation criteria",
+        "notes" : "No Note"
+      }
+    } ]
+  } ],
+  "author" : {
+    "id" : 3
+  }
+}

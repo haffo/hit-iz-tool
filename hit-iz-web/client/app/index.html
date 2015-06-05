@@ -1,0 +1,205 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" > <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="NIST Immunization Tool">
+    <meta name="author" content="NIST">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- For project CSS files -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- Custom styles for this template -->
+    <script src="lib/utils.js"></script>
+    <link href="styles/carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/font-awesome.css">
+
+    <script src="lib/codemirror/lib/codemirror.js"></script>
+    <script src="lib/codemirror/lib/formating.js"></script>
+    <link rel="stylesheet" href="lib/codemirror/lib/codemirror.css">
+    <!--<link rel="stylesheet" href="lib/codemirror/lib/codemirror-custom.css">-->
+    <link rel="stylesheet" href="lib/codemirror/theme/elegant.css">
+    <script src="lib/codemirror/mode/edi/edi.js"></script>
+    <script src="lib/codemirror/mode/xml/xml.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="lib/angular-treetable/style/jquery.treetable.css" />
+    <link rel="stylesheet" type="text/css" href="lib/angular-treetable/style/jquery.treetable.theme.default.css" />
+    <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="lib/blueimp/blueimp-file-upload/css/jquery.fileupload.css"/>
+    <link rel="stylesheet" href="lib/blueimp/blueimp-file-upload/css/jquery.fileupload-ui.css"/>
+    <noscript><link rel="stylesheet" href="lib/blueimp/blueimp-file-upload/css/jquery.fileupload-noscript.css"></noscript>
+    <noscript><link rel="stylesheet" href="lib/blueimp/blueimp-file-upload/css/jquery.fileupload-ui-noscript.css"></noscript>
+
+
+
+
+    <link rel="stylesheet" href="lib/angular-bootstrap-nav-tree/abn_tree.css">
+    <!--<link rel="stylesheet" href="lib/tree-grid/treeGrid.css">-->
+
+</head>
+<body  ng-app="tool">
+<div id="wrapper">
+<div ng-include="'views/header.html'"></div>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<div id="appcontainer">
+    <!--<div class="container">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-10">-->
+                <!--<div ng-class="'alert alert-'+msg().type" ng-show="msg().show" id="ehralert">-->
+                    <!--<button type="button" class="close" ng-click="msg().show=false">×</button>-->
+                    <!--<div ng-bind="msg().text"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div ng-view=""></div>
+
+    <!--<script type="text/ng-template" id="warning-dialog.html">-->
+        <!--<div class="modal-header">-->
+            <!--<h3>Your session will expire soon!</h3>-->
+        <!--</div>-->
+        <!--<div idle-countdown="countdown" ng-init="countdown=30" class="modal-body">-->
+            <!--<progressbar type="warning" max="30" value="30" animate="false" class="progress-striped active">Your session-->
+                <!--will expire in {{countdown}} second(s).-->
+            <!--</progressbar>-->
+        <!--</div>-->
+    <!--</script>-->
+
+    <!--<script type="text/ng-template" id="timedout-dialog.html">-->
+        <!--<div class="modal-header">-->
+            <!--<h3>Session Expired</h3>-->
+        <!--</div>-->
+        <!--<div class="modal-body">-->
+            <!--<p>-->
+                <!--Your session has expired due to inactivity for a long time.-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</script>-->
+
+
+</div>
+
+<div ng-include="'views/footer.html'"></div>
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<!--<script src="bower_components/ng-grid/build/ng-grid.js"></script>-->
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<!--<script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>-->
+<!--<script src="bower_components/ng-table/dist/ng-table.min.js"></script>-->
+<script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+<!--<script src="bower_components/ng-idle/angular-idle.js"></script>-->
+
+<!-- endbuild -->
+
+<!-- blueimp -->
+<script src="lib/blueimp/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="lib/blueimp/blueimp-load-image/js/load-image.js"></script>
+<script src="lib/blueimp/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+<!--<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-image.js"></script>-->
+<!--<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-audio.js"></script>-->
+<!--<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-video.js"></script>-->
+<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
+<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-angular.js"></script>
+<script src="lib/vkbeautify/vkbeautify.js"></script>
+<script src="lib/lrInfiniteScroll/lrInfiniteScroll.js"></script>
+
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<!-- Services-->
+<script src="scripts/services/my.resource.js"></script>
+<script src="modules/testing/service/testing.js"></script>
+<script src="scripts/services/xml.js"></script>
+<script src="scripts/services/soap.js"></script>
+<script src="modules/envelope/service/envelope.js"></script>
+<script src="modules/contextFree/service.js"></script>
+<script src="modules/contextBased/service.js"></script>
+<script src="modules/connectivity/service/connectivity.js"></script>
+
+<!--<script src="scripts/services/testing/cb.js"></script>-->
+<script src="modules/iis/service/iis.js"></script>
+<script src="modules/profileViewer/service/profileViewer.js"></script>
+<script src="modules/documentation/service/doc.js"></script>
+<script src="modules/vocab/service/vocab.js"></script>
+<script src="modules/contact/service/contact.js"></script>
+<script src="scripts/services/hl7.js"></script>
+<script src="scripts/services/xml.js"></script>
+<script src="scripts/services/common.js"></script>
+
+
+<!-- Controllers-->
+<script src="modules/main/controller/main.js"></script>
+<script src="modules/testing/controller/testing.js"></script>
+<script src="modules/contextFree/controller.js"></script>
+<script src="modules/contextBased/controller.js"></script>
+<script src="modules/envelope/controller/envelope.js"></script>
+
+<!--<script src="scripts/controllers/testing/is.js"></script>-->
+
+<script src="modules/profileViewer/controller/profileViewer.js"></script>
+
+<!--<script src="scripts/controllers/vocab/vocab.js"></script>-->
+
+<script src="modules/documentation/controller/doc.js"></script>
+<script src="modules/contact/controller/contact.js"></script>
+<script src="modules/about/controller/about.js"></script>
+<script src="modules/header/controller/header.js"></script>
+<script src="modules/connectivity/controller/connectivity.js"></script>
+<script src="modules/directives/editor.js"></script>
+<script src="modules/directives/popover.js"></script>
+
+<!--<script src="lib/angular-tree-control/angular-tree-control.js"></script>-->
+<script src="lib/angular-bootstrap-nav-tree/abn_tree_directive.js"></script>
+<!--<script src="lib/tree-grid/tree-grid-directive.js"></script>-->
+<script src="lib/angular-treetable/js/jquery.treetable.js"></script>
+<script src="lib/angular-treetable/js/angular-treetable.min.js"></script>
+
+<!-- endbuild -->
+
+<div ng-include="'views/error.html'"></div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+The receiver (responder) technology will demonstrate the ability to: 
+<ul>
+<li>Receive a SOAP message with the Body element containing the element connectivityTest and corresponding child element echoBack, as defined in the CDC WSDL 1.0</li>
+<li>Transmit a SOAP response message to the sender (initiator) which contains
+<ul>
+<li>the element connectivityTestResponse as defined in the CDC WSDL 1.0</li>
+<li>the child element return as defined in the CDC WSDL 1.0, with a string value containing the string received in the echoBack element in the request message</li>
+</ul>
+</li>
+</ul>

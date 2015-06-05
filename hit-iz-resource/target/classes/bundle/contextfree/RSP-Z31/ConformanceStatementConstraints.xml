@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConformanceContext UUID="6d08eff6-f200-429c-a07d-51140d97c10c" xsi:noNamespaceSchemaLocation="ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <MetaData>
+        <Description>Conformance context for RSP_K11</Description>
+    </MetaData>
+    <Datatype>
+        <ByID ID="727c057d-5bec-49de-95c6-324ca62b22b9">
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be formatted with ISO.</Description>
+                <Assertion>
+                    <Format Path="3[1]" Regex="ISO"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="0cb89d64-9da7-4f27-abfb-d0e50fb12fc4">
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="9da1c9d5-a8cc-4b75-8e16-9d8cdcf1ff88">
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="aca7ff5f-a06e-4e09-af84-f5bb0ecf7e7a">
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="b8eb61d1-ffe5-4a81-83a6-d2fbf000fea9">
+            <Constraint ID="IZ-59">
+                <Description>The value of MSG.1 (Message Code) SHALL be 'RSP'.</Description>
+                <Assertion>
+                    <PlainText Path="1[1]" Text="RSP" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-59">
+                <Description>The value of MSG.2 (Trigger Event) SHALL be 'K11'.</Description>
+                <Assertion>
+                    <PlainText Path="2[1]" Text="K11" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-59">
+                <Description>The value of MSG.3 (Message Structure) SHALL be 'RSP_K11'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="RSP_K11" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="3ba2439c-3a84-4ccc-9747-b6583f12968f">
+            <Constraint ID="IZ-7">
+                <Description>The value of VID.1 (Version ID) SHALL be '2.5.1'.</Description>
+                <Assertion>
+                    <PlainText Path="1[1]" Text="2.5.1" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="bce0751e-4807-4e23-9dbc-74306cce1c4b">
+            <Constraint ID="IZ-61">
+                <Description>The value of EI.1 (Entity Identifier) SHALL be 'Z33'.</Description>
+                <Assertion>
+                    <PlainText Path="1[1]" Text="Z33" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-61">
+                <Description>The value of EI.2 (Namespace ID) SHALL be 'CDCPHINVS'.</Description>
+                <Assertion>
+                    <PlainText Path="2[1]" Text="CDCPHINVS" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-3">
+                <Description>The value of EI.3 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="3[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-4">
+                <Description>The value of EI.4 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="4[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="481529fa-762a-4c5b-b115-d04451f8de3b">
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="ac10ff29-a557-4a8a-8838-d2528d3bf870">
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="96fb82f3-890c-4af7-bf15-1e8bf9ca6458">
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="5d62ecfe-7a05-4d34-b034-361171a92f2f">
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+        <ByID ID="b91a5480-6f87-4cb0-84d1-532ad6976748">
+            <Constraint ID="IZ-5">
+                <Description>The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
+                <Assertion>
+                    <Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-6">
+                <Description>The value of HD.3 (Universal ID Type) SHALL be 'ISO'.</Description>
+                <Assertion>
+                    <PlainText Path="3[1]" Text="ISO" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+    </Datatype>
+    <Segment>
+        <ByID ID="23fabb51-3f54-400d-ab3f-e6adff0f7c1b">
+            <Constraint ID="IZ-12">
+                <Description>The value of MSH.1 (Field Separator) SHALL be '|'.</Description>
+                <Assertion>
+                    <PlainText Path="1[1]" Text="|" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-13">
+                <Description>The value of MSH.2 (Encoding Characters) SHALL be '^~\&amp;'.</Description>
+                <Assertion>
+                    <PlainText Path="2[1]" Text="^~\&amp;" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="SG[MSH]_CS_1">
+                <Description>The value of MSH.7.1 (Time) SHALL be formatted with YYYYMMDD.</Description>
+                <Assertion>
+                    <Format Path="7[1].1[1]" Regex="([0-9]{4})((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1])).*"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-53">
+                <Description>The value of MSH.15 (Accept Acknowledgment Type) SHALL be 'NE'.</Description>
+                <Assertion>
+                    <PlainText Path="15[1]" Text="NE" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+            <Constraint ID="IZ-52">
+                <Description>The value of MSH.16 (Application Acknowledgment Type) SHALL be 'NE'.</Description>
+                <Assertion>
+                    <PlainText Path="16[1]" Text="NE" IgnoreCase="true"/>
+                </Assertion>
+            </Constraint>
+        </ByID>
+    </Segment>
+    <Group/>
+</ConformanceContext>

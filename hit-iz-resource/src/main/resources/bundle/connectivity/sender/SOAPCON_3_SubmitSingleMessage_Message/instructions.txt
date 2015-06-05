@@ -1,0 +1,7 @@
+<ol>
+<li>The Tester obtains the username, password, and facilityID from the test data provided in the test tool and causes the System Under Test to connect to the NIST Test Tool representing an IIS Test Agent using the NIST web service endpoint specified on the screen of the Test Tool</li>
+<li>The Tester causes the System Under Test to electronically generate and transmit to the NIST Test Tool a submitSingleMessage request message that conforms to the SOAP 1.2 standard and CDC WSDL 1.0 used for transporting an HL7 test message to an IIS</li>
+<li>The Test Tool validates the submitSingleMessage request message for conformance to the SOAP 1.2 standard and CDC WSDL 1.0 </li>
+<li>The Test Tool generates a Validation Report listing the results of the validation</li>
+<li>The Tester reviews the Validation Report and compares the results to the Objectives and Evaluation Criteria associated with the SOAPCON_3_SubmitSingleMessage_Message Test Case</li>
+</ol>

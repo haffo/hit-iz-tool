@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Envelope xmlns="http://www.w3.org/2003/05/soap-envelope">
+   <Body>
+      <Fault xmlns:ns4="http://schemas.xmlsoap.org/soap/envelope/">
+         <Code>
+            <Value>Sender</Value>
+         </Code>
+         <Reason>
+            <Text xml:lang="en">Unsupported Operation Fault Message Here</Text>
+         </Reason>
+         <Detail>
+            <UnsupportedOperationFault xmlns="urn:cdc:iisb:2011">
+               <Code>8675309</Code>
+               <Reason xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">UnsupportedOperation</Reason>
+               <Detail>This Operation is not supported</Detail>
+            </UnsupportedOperationFault>
+         </Detail>
+      </Fault>
+   </Body>
+</Envelope>
