@@ -51,10 +51,10 @@ app.config(function ($routeProvider, $httpProvider) {
             templateUrl: 'views/home.html'
         })
         .when('/testing', {
-            templateUrl: 'views/testing/testing.html'
+            templateUrl: 'views/testing.html'
         })
         .when('/doc', {
-            templateUrl: 'views/documentation/doc.html'
+            templateUrl: 'views/doc.html'
         })
         .when('/setting', {
             templateUrl: 'views/setting.html'
@@ -71,7 +71,7 @@ app.config(function ($routeProvider, $httpProvider) {
 
     $httpProvider.responseInterceptors.push('503Interceptor');
     $httpProvider.responseInterceptors.push('sessionTimeoutInterceptor');
-
+    $httpProvider.responseInterceptors.push('404Interceptor');
 });
 
 app.factory('503Interceptor', function ($injector, $q, $rootScope) {
@@ -92,6 +92,15 @@ app.factory('503Interceptor', function ($injector, $q, $rootScope) {
             } else {
                 return $q.reject(errResponse);
             }
+        });
+    };
+}).factory('404Interceptor', function ($injector, $q, $rootScope) {
+    return function (responsePromise) {
+        return responsePromise.then(null, function (errResponse) {
+            if (errResponse.status === 404) {
+                errResponse.data = "Cannot reach the server. The server might be down";
+            }
+            return $q.reject(errResponse);
         });
     };
 });
@@ -227,17 +236,7 @@ app.directive('stRatio', function () {
 angular.module('tool-services').factory('AppInfo', ['$http', '$q', function ($http, $q) {
     return function () {
         var delay = $q.defer();
-//        $http.get('api/appInfo').then(
-//            function (object) {
-//                delay.resolve(angular.fromJson(object.data));
-//            },
-//            function (response) {
-//                delay.reject(response.data);
-//            }
-//        );
-
-
-        $http.get('../../resources/appInfo.json').then(
+        $http.get('api/appInfo').then(
             function (object) {
                 delay.resolve(angular.fromJson(object.data));
             },
@@ -245,6 +244,16 @@ angular.module('tool-services').factory('AppInfo', ['$http', '$q', function ($ht
                 delay.reject(response.data);
             }
         );
+
+
+//        $http.get('../../resources/appInfo.json').then(
+//            function (object) {
+//                delay.resolve(angular.fromJson(object.data));
+//            },
+//            function (response) {
+//                delay.reject(response.data);
+//            }
+//        );
 
         return delay.promise;
     };

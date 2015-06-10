@@ -15,11 +15,18 @@ import gov.nist.healthcare.core.validation.message.MessageValidationException;
 import gov.nist.hit.core.domain.AppInfo;
 import gov.nist.hit.core.service.exception.MessageException;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.ibm.icu.text.SimpleDateFormat;
 
 /**
  * @author Harold Affo (NIST)
@@ -27,13 +34,23 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/appInfo")
+@PropertySource(value = "classpath:app.properties")
 public class AppInfoController {
+
+	@Autowired
+	private Environment env;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public AppInfo validate(HttpServletRequest request)
 			throws MessageValidationException, MessageException {
 		AppInfo info = new AppInfo();
 		info.setUrl(getUrl(request));
+		info.setVersion(env.getProperty("app.version"));
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"MM/dd/yyyy HH:mm:ss");
+		Date date = new Date();
+		info.setDate(dateFormat.format(date));
+
 		return info;
 	}
 

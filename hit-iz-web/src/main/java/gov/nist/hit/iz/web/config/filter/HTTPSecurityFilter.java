@@ -10,7 +10,6 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
@@ -46,16 +45,16 @@ public class HTTPSecurityFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 
-		String cache = "no-cache";
-		if (request instanceof HttpServletRequest) {
-			HttpServletRequest HttpRequest = (HttpServletRequest) request;
-			try {
-				cache = HttpRequest.getRequestURI().contains("login") ? "no-cache"
-						: "private";
-			} catch (Exception e) {
-				logger.error(e.getMessage(), e);
-			}
-		}
+		String cache = "no-cache, no-store, must-revalidate";
+		// if (request instanceof HttpServletRequest) {
+		// HttpServletRequest HttpRequest = (HttpServletRequest) request;
+		// try {
+		// cache = HttpRequest.getRequestURI().contains("login") ? "no-cache"
+		// : "private";
+		// } catch (Exception e) {
+		// logger.error(e.getMessage(), e);
+		// }
+		// }
 
 		if (response instanceof HttpServletResponse) {
 			HttpServletResponse httpResponse = (HttpServletResponse) response;

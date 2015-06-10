@@ -382,7 +382,7 @@ angular.module('envelope')
 
 
 angular.module('envelope')
-    .controller('EnvelopeReportCtrl', ['$scope', '$sce', '$http', 'Envelope', 'SoapValidationReportGenerator', 'SoapValidationReportDownloader', function ($scope, $sce, $http, Envelope, SoapValidationReportGenerator, SoapValidationReportDownloader) {
+    .controller('EnvelopeReportCtrl', ['$scope', '$sce', '$http', 'Envelope', 'SoapValidationReportGenerator', 'SoapValidationReportDownloader', '$rootScope', function ($scope, $sce, $http, Envelope, SoapValidationReportGenerator, SoapValidationReportDownloader,$rootScope) {
         $scope.envelopeHtmlReport = null;
         $scope.error = null;
         $scope.loading = false;
@@ -410,6 +410,12 @@ angular.module('envelope')
                     $scope.error = null;
                 }
             }, true);
+
+            $rootScope.$on('env:testCaseLoaded', function (event) {
+                $scope.testCase = Envelope.testCase;
+
+            });
+
         };
 
 

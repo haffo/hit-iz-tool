@@ -121,7 +121,7 @@ angular.module('contextBased')
                 $scope.loading = false;
             }, function (error) {
                 $scope.loading = false;
-                 $scope.error = "Sorry,cannot load the test cases. Please your page and try again.";
+                 $scope.error = "Sorry,cannot load the test cases. Please refresh your page and try again.";
             });
          };
 

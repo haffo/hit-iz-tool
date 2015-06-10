@@ -60,7 +60,6 @@
 </head>
 <body  ng-app="tool">
 <div id="wrapper">
-<div ng-include="'views/header.html'"></div>
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -71,7 +70,8 @@
 <script src="bower_components/json3/lib/json3.min.js"></script>
 <![endif]-->
 
-<!-- Add your site or application content here -->
+<div ng-include="'views/header.html'"></div>
+    <!-- Add your site or application content here -->
 <div id="appcontainer">
     <!--<div class="container">-->
         <!--<div class="row">-->
@@ -83,7 +83,7 @@
             <!--</div>-->
         <!--</div>-->
     <!--</div>-->
-    <div ng-view=""></div>
+     <div ng-view=""></div>
 
     <!--<script type="text/ng-template" id="warning-dialog.html">-->
         <!--<div class="modal-header">-->

@@ -998,28 +998,28 @@ angular.module('commonServices').factory('Er7MessageValidator', function ($http,
         }else {
             var data = angular.fromJson({"testCaseId": testcaseId, "er7Message": message, "name": name});
 //
-            $http.get('../../resources/cf/newValidationResult3.json').then(
-                function (object) {
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//        $http.post("api/datainstance/message/validate", data, {timeout: 60000}).then(
-//            function (object) {
-//                try {
+//            $http.get('../../resources/cf/newValidationResult3.json').then(
+//                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
-//                } catch (e) {
-//                    delay.reject("Invalid character in received response");
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
 //                }
-//
-//            },
-//            function (response) {
-//                delay.reject(response.data);
-//            }
-//        );
+//            );
+
+        $http.post("api/datainstance/message/validate", data, {timeout: 60000}).then(
+            function (object) {
+                try {
+                    delay.resolve(angular.fromJson(object.data));
+                } catch (e) {
+                    delay.reject("Invalid character in the message");
+                }
+
+            },
+            function (response) {
+                delay.reject(response.data);
+            }
+        );
 
         }
         return delay.promise;
@@ -1038,23 +1038,23 @@ angular.module('commonServices').factory('Er7MessageParser', function ($http, $q
             delay.reject("Message provided is not an HL7 v2 message");
          }else {
             var data = angular.fromJson({"testCaseId": testcaseId, "er7Message": message, "name": name});
-//        $http.post('api/datainstance/message/parse', data, {timeout: 60000}).then(
-//            function (object) {
-//                delay.resolve(angular.fromJson(object.data));
-//            },
-//            function (response) {
-//                delay.reject(response.data);
-//            }
-//        );
+        $http.post('api/datainstance/message/parse', data, {timeout: 60000}).then(
+            function (object) {
+                delay.resolve(angular.fromJson(object.data));
+            },
+            function (response) {
+                delay.reject(response.data);
+            }
+        );
 
-            $http.get('../../resources/cf/messageObject.json').then(
-                function (object) {
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
+//            $http.get('../../resources/cf/messageObject.json').then(
+//                function (object) {
+//                    delay.resolve(angular.fromJson(object.data));
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
         }
 
         return delay.promise;
@@ -1071,27 +1071,27 @@ angular.module('commonServices').factory('DQAMessageValidator', function ($http,
     DQAMessageValidator.prototype.validate = function (message, facilityId) {
         var delay = $q.defer();
         var data = angular.fromJson({"er7Message": message, "facilityId": facilityId});
-//        $http.post("api/datainstance/message/dqaValidate", data, {timeout: 60000}).then(
-//            function (object) {
-//                try {
-//                    delay.resolve(angular.fromJson(object.data));
-//                } catch (e) {
-//                    delay.reject("Invalid character in received response");
-//                }
-//            },
-//            function (response) {
-//                delay.reject(response.data);
-//            }
-//        );
-
-        $http.get('../../resources/cf/newValidationResult4.json').then(
+        $http.post("api/datainstance/message/dqaValidate", data, {timeout: 60000}).then(
             function (object) {
-                delay.resolve(angular.fromJson(object.data));
+                try {
+                    delay.resolve(angular.fromJson(object.data));
+                } catch (e) {
+                    delay.reject("Invalid character in the message");
+                }
             },
             function (response) {
                 delay.reject(response.data);
             }
         );
+
+//        $http.get('../../resources/cf/newValidationResult4.json').then(
+//            function (object) {
+//                delay.resolve(angular.fromJson(object.data));
+//            },
+//            function (response) {
+//                delay.reject(response.data);
+//            }
+//        );
         return delay.promise;
     };
 

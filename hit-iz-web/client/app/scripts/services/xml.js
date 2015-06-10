@@ -143,7 +143,7 @@ angular.module('xml').factory('XmlEditorUtils',
                 });
             },
             isXML: function(message){
-                return message.trim().startsWith("<");
+                return message.startsWith("<");
             }
         }
     }]);

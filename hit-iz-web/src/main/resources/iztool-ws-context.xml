@@ -17,7 +17,7 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
 
 
 
-	<context:component-scan base-package="gov.nist.healthcare.tools.hl7.v2.iz.tool.ws" />
+	<context:component-scan base-package="gov.nist.hit.iz.ws" />
 
 	<bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory">
 		<property name="soapVersion">
@@ -30,7 +30,7 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
 	<sws:interceptors>
 
 		<sws:payloadRoot namespaceUri="urn:cdc:iisb:2011" localPart="submitSingleMessage">
-    			<bean class="gov.nist.healthcare.tools.hl7.v2.iz.tool.ws.server.interceptor.SubmitSingleMessageInterceptor">
+    			<bean class="gov.nist.hit.iz.ws.server.interceptor.SubmitSingleMessageInterceptor">
      			</bean>
   		</sws:payloadRoot> 
   		
@@ -51,15 +51,15 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
 	</bean>  
 
 	<bean id="exceptionResolver"
-		class="gov.nist.healthcare.tools.hl7.v2.iz.tool.ws.server.SoapFaultDetailsDefinitionExceptionResolver">
+		class="gov.nist.hit.iz.ws.server.SoapFaultDetailsDefinitionExceptionResolver">
 		<property name="defaultFault" value="SERVER" />
 	 	<property name="exceptionMappings">
 	 		<map>
 	 			<entry key="org.springframework.oxm.ValidationFailureException" value="CLIENT,Invalid request"/>
-	 			<entry key="gov.nist.healthcare.tools.hl7.v2.iz.tool.ws.server.exception.MessageTooLargeException" value="SENDER"/>
+	 			<entry key="gov.nist.hit.iz.ws.server.exception.MessageTooLargeException" value="SENDER"/>
 	 			<entry key="java.lang.UnsupportedOperationException" value="SENDER" />
 	 			<entry key="java.lang.SecurityException" value="SENDER" />
-	 			<entry key="gov.nist.healthcare.tools.core.transport.TransportServerException" value="SENDER"/>
+	 			<entry key="gov.nist.hit.core.transport.TransportServerException" value="SENDER"/>
 	 		</map>
 		</property> 
 	</bean>
@@ -82,7 +82,7 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
 		class="org.springframework.ws.transport.http.CommonsHttpMessageSender">
 	</bean>
 
-	<bean id="webServiceClient" class="gov.nist.healthcare.tools.hl7.v2.iz.tool.ws.client.WebServiceClient">
+	<bean id="webServiceClient" class="gov.nist.hit.iz.ws.client.WebServiceClient">
   		<constructor-arg name="webServiceTemplate" ref="webServiceTemplate" />
   	</bean>
   	

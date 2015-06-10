@@ -1,0 +1,136 @@
+<div ng-controller="ContextFreeTestingCtrl" ng-init="init()" class="appcontent">
+
+    <div ng-show="error == null">
+
+        <div class="row" style="">
+            <div class="col-md-2">
+                <div class="panel panel-info">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading point" ng-click="openProfileInfo()"><i class="fa fa-list"></i>Profiles <i class="point fa fa-info-circle"></i>
+                    </div>
+                    <div class="panel-body cf-tc-panel">
+                        <table tt-table tt-params="params" class="table cf-profiles">
+                            <tbody></tbody>
+                        </table>
+                     </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div ng-show="loading" style="text-align:center">
+                    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                </div>
+
+                <div ng-show="!loading">
+                <div ng-show="contextFree.testCase.id !== null">
+                    <div class="panel panel-info">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading"><i class="glyphicon glyphicon-list"></i>Profile: {{contextFree.testCase.name}}
+                        </div>
+                        <div class="panel-body">
+                    <tabset>
+
+                        <tab select="setActiveTab(0)" active="tabs[0]">
+                            <tab-heading>
+                                <i class="fa fa-check-circle"></i>Validation
+                            </tab-heading>
+
+                            <div ng-include="'views/testing/contextFree/validation.html'"></div>
+                        </tab>
+                        <tab select="setActiveTab(1)" active="tabs[1]">
+                            <tab-heading>
+                                <i class="fa fa-file"></i>
+                                Report
+                            </tab-heading>
+                            <div ng-include="'views/testing/contextFree/report.html'"></div>
+                        </tab>
+                        <tab select="setActiveTab(2)" active="tabs[2]">
+                            <tab-heading>
+                                <i class="fa fa-th-list"></i>
+                                Profile Viewer
+                            </tab-heading>
+                            <div ng-include="'views/testing/contextFree/profileViewer.html'"></div>
+                        </tab>
+                        <tab select="setActiveTab(3)" active="tabs[3]">
+                            <tab-heading>
+                                <i class="fa fa-book"></i>
+                                Vocabulary
+                            </tab-heading>
+                            <div ng-include="'views/testing/contextFree/vocabulary.html'"></div>
+                        </tab>
+                        <!--<tab select="setActiveTab(4)" active="tabs[4]">-->
+                        <!--<tab-heading>-->
+                        <!--<i class="glyphicon glyphicon-help"></i>Instructions-->
+                        <!--</tab-heading>-->
+
+                        <!--<div ng-include="'views/testing/contextFree/instruction.html'"></div>-->
+                        <!--</tab>-->
+                    </tabset>
+                            </div>
+                        </div>
+                </div>
+
+    </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+    <div ng-show="error != null" class="col-xs-10" style="margin-left:20px; margin-top: 20px">
+        <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+    </div>
+
+</div>
+
+    <script type="text/ng-template" id="CFProfileInfoCtrl.html">
+             <div class="modal-header">
+                <span style="font-weight: bold; font-size: 23px">
+                    Profile Information
+                </span>
+                <span class="pull-right">
+                    <i class="point fa fa-times" ng-click="close()"></i>
+                </span>
+            </div>
+             <div class="modal-body">
+                <div style="font-size: 14px">
+                    <h4 class="page-header">Standard</h4>
+                    <ul>
+                        <li>CDC HL7 Version 2.5.1 Implementation Guide for Immunization Messaging</li>
+                        <li>Release 1.5 (10/01/2014)</li>
+                    </ul>
+                    <!--<p>CDC HL7 Version 2.5.1 Implementation Guide for Immunization Messaging</p>-->
+                    <!--<p>Release 1.5 (10/01/2014)</p>-->
+                </div>
+                <div style="font-size: 14px">
+                    <h4 class="page-header">Profiles</h4>
+                    <ul>
+                    <li>Z22(VXU)- Send Immunization </li>
+                     <li>Z23(ACK)- Acknowledgement </li>
+                     <li>Z34(QBP)- Query: Complete Immunization History </li>
+                     <li>Z44(QBP)- Query: Evaluated Immunization History And Forecast </li>
+                     <li>Z31(RSP)- Response: List Of Candidates Profile </li>
+                     <li>Z32(RSP)- Response: Complete Immunization History </li>
+                     <li>Z33(RSP)- Response: Acknowledgement With No Person Records </li>
+                     <li>Z42(RSP)- Response: Evaluated History AND Forecast </li>
+                    </ul>
+                </div>
+                <div style="font-size: 14px">
+                    <h4 class="page-header">Pairs</h4>
+                    <ul><li>Z22:Z23 - Send Immunization/ACK </li>
+                     <li>Z34:Z31 - Query History/Respond Candidates </li>
+                     <li>Z34:Z32 - Query History/Respond History </li>
+                     <li>Z34:Z33 - Query History/Respond Person Not Found </li>
+                     <li>Z44:Z42 - Query History & Forecast/Respond History & Forecast </li>
+                     <li>Z44:Z33 - Query History & Forecast/Respond Person Not Found </li>
+                    </ul>
+                </div>
+            </div>
+             <div class="modal-footer">
+                  <span class="pull-right">
+                        <button class="btn btn-primary btn-sm" ng-click="close()"> <i class="fa fa-times"></i> Close</button>
+                  </span>
+            </div>
+     </script>
+

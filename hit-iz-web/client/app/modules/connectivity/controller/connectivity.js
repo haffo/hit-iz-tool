@@ -675,7 +675,7 @@ angular.module('connectivity')
                 $scope.logger.init();
                 $scope.received = '';
                 $scope.logger.log("Sending request ========================>");
-                var sender = new ConnectivityInitiator().send($scope.user,$scope.testCase,$scope.message);
+                var sender = new ConnectivityInitiator().send($scope.user,$scope.testCase.id,$scope.message);
                 sender.then(function (response) {
                     var received = response.incoming;
                     var sent = response.outgoing;

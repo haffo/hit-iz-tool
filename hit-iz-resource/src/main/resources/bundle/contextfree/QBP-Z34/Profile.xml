@@ -138,7 +138,7 @@
 			<Component Name="Suffix (e.g., JR or III)" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
 			<Component Name="Prefix (e.g., DR)" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
 			<Component Name="Degree (e.g., MD)" Usage="X" Datatype="IS" MinLength="1" MaxLength="6" Table="0360#R"/>
-			<Component Name="Name Type Code" Usage="RE" Datatype="ID" MinLength="1" MaxLength="1" Table="HL70200#R"/>
+			<Component Name="Name Type Code" Usage="RE" Datatype="ID" MinLength="1" MaxLength="1" Table="HL70200_IZ#R"/>
 			<Component Name="Name Representation Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Table="0465#R"/>
 			<Component Name="Name Context" Usage="O" Datatype="CE" MinLength="1" MaxLength="483" Table="0448#R#1"/>
 			<Component Name="Name Validity Range" Usage="X" Datatype="DR_IZ_ST" MinLength="1" MaxLength="53"/>

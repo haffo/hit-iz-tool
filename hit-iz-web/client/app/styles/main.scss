@@ -721,28 +721,7 @@ select.form-control:checked {
 //  color: white;
 //}
 
-.btn-cf-outline {
-  background-color: #e8e8e8;
-  border-color: #dbdbdb;
-  border-radius: 3px;
-  color: #000;
-  margin-right: 10px;
-  //  font-size: 14px;
-  //  line-height: 1.33;
-  //  padding: 10px 16px;
-}
 
-.btn-tc{
-  border-radius: 0;
-}
-
-
-.btn-cf-outline.active, .btn-cf-outline:hover, .btn-cf-outline.active:hover {
-  background-color: #428bca;
-  border-color: #bce8f1;
-  border: 0px;
-  color: white;
-}
 
 .cf-profile-info-dlg {
   width: 500px;
@@ -1121,10 +1100,10 @@ table.forumline > tr > td  {
 #appcontainer{
 //  border:1px;
 //  border-color: #000000;
-}
+ }
 
 .appcontent{
-  margin-top:3px;
+margin-top:2px;
  //  border:2px;
 //  border-color: #ffec9d;
 //  border-bottom: 0px solid #ffcc00;
@@ -1160,7 +1139,7 @@ table.forumline > tr > td  {
 }
 
 .container2{
-  padding:3px 3px 0px 3px;
+  padding:0px 3px 0px 3px;
 }
 
 .tc-tree {
@@ -1171,10 +1150,44 @@ table.forumline > tr > td  {
 .tc-tree-node{
   padding-top:0px;  padding-bottom:0px;
 }
+
 .cf-tc-container{
   width:100%;
   border-radius: 0px;
 }
+
 .cf-tc-panel{
   padding:0px;
+}
+
+.btn-profile {
+  background-color: #e8e8e8;
+  color: #000;
+  cursor: pointer;
+}
+
+.btn-profile-active, .btn-profile:hover {
+  background-color: #428bca;
+  border-color: #bce8f1;
+  color:  #ffffff;
+}
+
+table.cf-profiles tr:hover td {
+  background-color: #428bca;
+  border-color: #bce8f1;
+  color:  #ffffff;
+}
+
+table.cf-profiles tr > td {
+  text-align:center;
+}
+
+
+table.cf-profiles{
+  width:100%;
+  height:100%
+}
+
+.navbar {
+   margin-bottom: 0px;
 }

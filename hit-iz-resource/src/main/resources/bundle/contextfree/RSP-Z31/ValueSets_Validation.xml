@@ -369,6 +369,7 @@
 			<TableElement Code="MGPI" Codesys="HL70396" DisplayName="Medispan GPI" Source="Local"/>
 			<TableElement Code="MVX" Codesys="HL70396" DisplayName="CDC Vaccine Manufacturer Codes" Source="Local"/>
 			<TableElement Code="NAICS" Codesys="HL70396" DisplayName="Industry (NAICS)" Source="Local"/>
+			<TableElement Code="NCIT" Codesys="HL70396" DisplayName="NCI Thesaurus" Source="Local"/>
 			<TableElement Code="NCPDPnnnnsss" Codesys="HL70396" DisplayName="NCPDP code list for data element nnnn [as used in segment sss]" Source="Local"/>
 			<TableElement Code="NDA" Codesys="HL70396" DisplayName="NANDA" Source="Local"/>
 			<TableElement Code="NDC" Codesys="HL70396" DisplayName="National drug codes" Source="Local"/>

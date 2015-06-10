@@ -285,7 +285,25 @@
 				</Predicate>
 			</ByID>
 		</Segment>
-		<Group/>
+		<Group>
+			<ByName Name="VXU_V04.ORDER">
+				<Predicate ID="[ORC_IZ 1_5]12[1]" Target="1[1].12[1]" TrueUsage="RE" FalseUsage="O">
+					<Description>If the value of RXA.9[1].1 (Identifier) is '00' AND if RXA.9[1].1 (Identifier) is valued AND if the value of RXA.20 (Completion Status) is one of List Values: 'CP','PA' AND if RXA.20 (Completion Status) is valued.</Description>
+					<Condition>
+						<AND>
+							<PlainText Path="3[1].9[1].1[1]" Text="00" IgnoreCase="false"/>
+							<AND>
+								<Presence Path="3[1].9[1].1[1]"/>
+								<AND>
+									<StringList Path="3[1].20[1]" CSV="CP,PA"/>
+									<Presence Path="3[1].20[1]"/>
+								</AND>
+							</AND>
+						</AND>
+					</Condition>
+				</Predicate>
+			</ByName>
+		</Group>
 	</Predicates>
 	<Constraints>
 		<Datatype>

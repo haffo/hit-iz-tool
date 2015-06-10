@@ -40,7 +40,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 
 @Configuration
-@EnableJpaRepositories("gov.nist.healthcare.tools")
+@EnableJpaRepositories("gov.nist.hit")
 @PropertySource(value = "classpath:iztool-db.properties")
 @EnableTransactionManagement(proxyTargetClass = true)
 public class DbConfig {
@@ -62,7 +62,7 @@ public class DbConfig {
 		LocalContainerEntityManagerFactoryBean lef = new LocalContainerEntityManagerFactoryBean();
 		lef.setDataSource(dataSource);
 		lef.setJpaVendorAdapter(jpaVendorAdapter);
-		lef.setPackagesToScan("gov.nist.healthcare.tools");
+		lef.setPackagesToScan("gov.nist.hit");
 		lef.setJpaProperties(jpaProperties());
 		lef.setPersistenceUnitName(env.getProperty("jpa.persistenceUnitName"));
 		// lef.setPersistenceUnitManager(persistenceUnitManager);
