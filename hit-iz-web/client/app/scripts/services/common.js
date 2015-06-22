@@ -987,15 +987,15 @@ angular.module('commonServices').factory('DataInstanceReport', function ($http, 
     return DataInstanceReport;
 });
 
-angular.module('commonServices').factory('Er7MessageValidator', function ($http, $q,HL7EditorUtils) {
+angular.module('commonServices').factory('Er7MessageValidator', function ($http, $q, HL7EditorUtils) {
     var Er7MessageValidator = function () {
     };
 
     Er7MessageValidator.prototype.validate = function (testcaseId, message, name) {
         var delay = $q.defer();
-        if(!HL7EditorUtils.isHL7(message)){
+        if (!HL7EditorUtils.isHL7(message)) {
             delay.reject("Message provided is not an HL7 v2 message");
-        }else {
+        } else {
             var data = angular.fromJson({"testCaseId": testcaseId, "er7Message": message, "name": name});
 //
 //            $http.get('../../resources/cf/newValidationResult3.json').then(
@@ -1007,19 +1007,19 @@ angular.module('commonServices').factory('Er7MessageValidator', function ($http,
 //                }
 //            );
 
-        $http.post("api/datainstance/message/validate", data, {timeout: 60000}).then(
-            function (object) {
-                try {
-                    delay.resolve(angular.fromJson(object.data));
-                } catch (e) {
-                    delay.reject("Invalid character in the message");
-                }
+            $http.post("api/datainstance/message/validate", data, {timeout: 60000}).then(
+                function (object) {
+                    try {
+                        delay.resolve(angular.fromJson(object.data));
+                    } catch (e) {
+                        delay.reject("Invalid character in the message");
+                    }
 
-            },
-            function (response) {
-                delay.reject(response.data);
-            }
-        );
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
 
         }
         return delay.promise;
@@ -1028,24 +1028,24 @@ angular.module('commonServices').factory('Er7MessageValidator', function ($http,
     return Er7MessageValidator;
 });
 
-angular.module('commonServices').factory('Er7MessageParser', function ($http, $q,HL7EditorUtils) {
+angular.module('commonServices').factory('Er7MessageParser', function ($http, $q, HL7EditorUtils) {
     var Er7MessageParser = function () {
     };
 
     Er7MessageParser.prototype.parse = function (testcaseId, message, name) {
         var delay = $q.defer();
-        if(!HL7EditorUtils.isHL7(message)){
+        if (!HL7EditorUtils.isHL7(message)) {
             delay.reject("Message provided is not an HL7 v2 message");
-         }else {
+        } else {
             var data = angular.fromJson({"testCaseId": testcaseId, "er7Message": message, "name": name});
-        $http.post('api/datainstance/message/parse', data, {timeout: 60000}).then(
-            function (object) {
-                delay.resolve(angular.fromJson(object.data));
-            },
-            function (response) {
-                delay.reject(response.data);
-            }
-        );
+            $http.post('api/datainstance/message/parse', data, {timeout: 60000}).then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
 
 //            $http.get('../../resources/cf/messageObject.json').then(
 //                function (object) {
@@ -1103,65 +1103,52 @@ angular.module('commonServices').factory('VocabularyService', function ($http, $
     var VocabularyService = function () {
     };
 
-    VocabularyService.prototype.searchTableValues = function (searchString, selectionCriteria, tableLibraries) {
+    VocabularyService.prototype.searchTableValues = function (searchString, selectionCriteria, valueSetDefinitionsGroups) {
         var searchResults = [];
         if (searchString != null) {
             if (selectionCriteria === 'TableId') {
-                angular.forEach(tableLibraries, function (vocabularyCollection) {
-                    angular.forEach(vocabularyCollection.children, function (library) {
-                        angular.forEach(library.tableSet.tableDefinitions, function (tableDefinition) {
-                            if (tableDefinition.tdId && tableDefinition.tdId.indexOf(searchString) !== -1) {
-                                searchResults.push(tableDefinition);
-                            }
-                        });
+                angular.forEach(valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
+                    angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
+                        if (valueSetDefinition.bindingIdentifier && valueSetDefinition.bindingIdentifier.indexOf(searchString) !== -1) {
+                            searchResults.push(valueSetDefinition);
+                        }
                     });
                 });
             } else if (selectionCriteria === 'Value') {
-                angular.forEach(tableLibraries, function (vocabularyCollection) {
-                    angular.forEach(vocabularyCollection.children, function (library) {
-                        angular.forEach(library.tableSet.tableDefinitions, function (tableDefinition) {
-                            angular.forEach(tableDefinition.tableElements, function (tableElement) {
-                                if (tableElement.code && tableElement.code.indexOf(searchString) !== -1) {
-                                    tableElement.codesys = tableElement.codesys == null ? tableDefinition.codesys : tableElement.codesys;
-                                    searchResults.push(tableElement);
-                                }
-                            });
+                angular.forEach(valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
+                    angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
+                        angular.forEach(valueSetDefinition.valueSetElements, function (valueSetElement) {
+                            if (valueSetElement.value && valueSetElement.value.indexOf(searchString) !== -1) {
+                                searchResults.push(valueSetElement);
+                            }
                         });
                     });
                 });
             } else if (selectionCriteria === 'Description') {
-                angular.forEach(tableLibraries, function (vocabularyCollection) {
-                    angular.forEach(vocabularyCollection.children, function (library) {
-                        angular.forEach(library.tableSet.tableDefinitions, function (tableDefinition) {
-                            angular.forEach(tableDefinition.tableElements, function (tableElement) {
-                                if (tableElement.displayName && tableElement.displayName.indexOf(searchString) !== -1) {
-                                    tableElement.codesys = tableElement.codesys == null ? tableDefinition.codesys : tableElement.codesys;
-                                    searchResults.push(tableElement);
-
+                angular.forEach(valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
+                    angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
+                             angular.forEach(valueSetDefinition.valueSetElements, function (valueSetElement) {
+                                if (valueSetElement.displayName && valueSetElement.displayName.indexOf(searchString) !== -1) {
+                                     searchResults.push(valueSetElement);
                                 }
-                            });
-                        });
+                         });
                     });
                 });
             } else if (selectionCriteria === 'ValueSetCode') {
-                angular.forEach(tableLibraries, function (vocabularyCollection) {
-                    angular.forEach(vocabularyCollection.children, function (library) {
-                        angular.forEach(library.tableSet.tableDefinitions, function (tableDefinition) {
-                            if (tableDefinition.codesys && tableDefinition.codesys.indexOf(searchString) !== -1) {
-                                searchResults.push(tableDefinition);
+                angular.forEach(valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
+                    angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
+                             if (valueSetDefinition.codeSystem && valueSetDefinition.codeSystem.indexOf(searchString) !== -1) {
+                                searchResults.push(valueSetDefinition);
                             }
-                        });
-                    });
+                     });
                 });
             } else if (selectionCriteria === 'ValueSetName') {
-                angular.forEach(tableLibraries, function (vocabularyCollection) {
-                    angular.forEach(vocabularyCollection.children, function (library) {
-                        angular.forEach(library.tableSet.tableDefinitions, function (tableDefinition) {
-                            if (tableDefinition.name && tableDefinition.name.indexOf(searchString) !== -1) {
-                                searchResults.push(tableDefinition);
+                angular.forEach(valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
+                    angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
+                             if (valueSetDefinition.name && valueSetDefinition.name.indexOf(searchString) !== -1) {
+                                searchResults.push(valueSetDefinition);
                             }
-                        });
-                    });
+                     });
                 });
             }
 
@@ -1170,19 +1157,18 @@ angular.module('commonServices').factory('VocabularyService', function ($http, $
 
     };
 
-    VocabularyService.prototype.searchTablesById = function (tableId, tableLibraries) {
-        var tables = [];
-        angular.forEach(tableLibraries, function (vocabularyCollection) {
-            angular.forEach(vocabularyCollection.children, function (library) {
-                angular.forEach(library.tableSet.tableDefinitions, function (tableDefinition) {
-                    if (tableDefinition.tdId && tableDefinition.tdId.indexOf(tableId) !== -1) {
-                        tables.push(tableDefinition);
-                    }
-                });
+    VocabularyService.prototype.searchTablesById = function (bindingIdentifier, valueSetDefinitionsGroups) {
+        var valueSetDefinitions = [];
+        angular.forEach(valueSetDefinitionsGroup, function (valueSetDefinitionsGroup) {
+            angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
+                if (valueSetDefinition.bindingIdentifier && valueSetDefinition.bindingIdentifier.indexOf(bindingIdentifier) !== -1) {
+                    valueSetDefinitions.push(valueSetDefinition);
+                }
+
             });
         });
 
-        return tables;
+        return valueSetDefinitions;
     };
 
 

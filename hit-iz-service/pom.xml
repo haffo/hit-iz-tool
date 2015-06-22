@@ -38,13 +38,6 @@
 						<downloadJavadocs>true</downloadJavadocs>
 					</configuration>
 				</plugin>
-
-				<plugin>
-					<groupId>org.codehaus.groovy</groupId>
-					<artifactId>groovy-eclipse-compiler</artifactId>
-					<version>2.7.0-01</version>
-					<extensions>true</extensions>
-				</plugin>
 			</plugins>
 
 		</pluginManagement>
@@ -57,18 +50,6 @@
 			<artifactId>hit-iz-repo</artifactId>
 			<version>${parent.version}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.spockframework</groupId>
-			<artifactId>spock-core</artifactId>
-			<version>0.7-groovy-2.0</version>
-		</dependency>
-
-		<!-- <dependency>
-			<groupId>org.codehaus.groovy</groupId>
-			<artifactId>groovy-all</artifactId>
-			<version>2.0.4</version>
-		</dependency> -->
 
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>

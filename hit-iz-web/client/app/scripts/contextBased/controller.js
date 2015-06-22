@@ -694,33 +694,69 @@ angular.module('contextBased')
         $scope.error = null;
         $scope.searchString = null;
         $scope.selectionCriteria = 'TableId';
-        $scope.tableLibraries = [];
+        $scope.valueSetDefinitionGroups = [];
 
         $scope.init = function (eventType) {
             $rootScope.$on('cb:testCaseLoaded', function (event) {
                 $scope.loading = true;
-                var tableLibraries = angular.fromJson(ContextBased.testCase.testContext.valueSetLibrary.json);
-                angular.forEach(tableLibraries, function (tableLibrary) {
-                    angular.forEach(tableLibrary.children, function (child) {
-                        child.tableSet.tableDefinitions = $filter('orderBy')(child.tableSet.tableDefinitions, 'tdId');
-                    });
+//                var tableLibraries = angular.fromJson(ContextBased.testCase.testContext.valueSetLibrary.json);
+//                angular.forEach(tableLibraries, function (tableLibrary) {
+//                    angular.forEach(tableLibrary.children, function (child) {
+//                        child.tableSet.tableDefinitions = $filter('orderBy')(child.tableSet.tableDefinitions, 'tdId');
+//                    });
+//                });
+//                $scope.tableLibraries = $filter('orderBy')(tableLibraries, 'position');
+//                $scope.loading = false;
+//
+//
+//                $scope.loading = true;
+                $scope.valueSetDefinitionGroups = [];
+                $scope.valueSetDefinitionGroupsPosition = {};
+
+                var vocabularyLibrary = angular.fromJson(ContextBased.testCase.testContext.vocabularyLibrary.json);
+                angular.forEach(vocabularyLibrary.valueSetDefinitions.valueSetDefinitions, function (valueSetDefinition) {
+                    var found = $scope.findValueSetDefinitions(valueSetDefinition.displayClassifier);
+                    if(found === null) {
+                        $scope.valueSetDefinitionGroups.push({"name": valueSetDefinition.displayClassifier, "children": []});
+                    }else{
+                        found.children.push(valueSetDefinition);
+                    }
                 });
-                $scope.tableLibraries = $filter('orderBy')(tableLibraries, 'position');
+
+//                angular.forEach(tableLibrary.children, function (child) {
+//                    child.tableSet.tableDefinitions = $filter('orderBy')(child.tableSet.tableDefinitions, 'bindingIdentifier');
+//                });
+
+
+//                $scope.valueSetDefinitionGroups = $filter('orderBy')(valueSetDefinitionGroups, 'position');
+
                 $scope.loading = false;
+
+
             });
 
             $scope.$watch(function () {
                 return $scope.contextBased.searchTableId;
-            }, function (tableId) {
-                if (tableId != 0) {
-                    var tables = new VocabularyService().searchTablesById(tableId, $scope.tableLibraries);
-                    var t = tables.length > 0 ? tables[0] : null;
-                    if (t != null) {
+            }, function (bindingIdentifier) {
+                if (bindingIdentifier != 0) {
+                    var tables = new VocabularyService().searchTablesById(bindingIdentifier, $scope.valueSetDefinitionGroups);
+                    var t = tables.length > 0 ? tables[0]:null;
+                    if(t != null){
                         $scope.openTableDlg(t);
                     }
                 }
             });
         };
+
+        $scope.findValueSetDefinitions = function (classifier) {
+            angular.forEach( $scope.valueSetDefinitionGroups.children, function (child) {
+                if(child.name === classifier){
+                    return child;
+                }
+            });
+            return null;
+        };
+
 
         $scope.openTableDlg = function (table) {
             var modalInstance = $modal.open({
@@ -740,35 +776,33 @@ angular.module('contextBased')
             $scope.selectedTableDef = null;
             $scope.selectedTableLibrary = null;
             $scope.searchResults = [];
-            $scope.tmpSearchResults = [];
-            if ($scope.searchString != null) {
-                $scope.searchResults = new VocabularyService().searchTableValues($scope.searchString, $scope.selectionCriteria, $scope.tableLibraries);
+            $scope.tmpSearchResults =[];
+            if($scope.searchString != null) {
+                $scope.searchResults = new VocabularyService().searchTableValues($scope.searchString, $scope.selectionCriteria, $scope.valueSetDefinitionGroups);
                 $scope.vocabResError = null;
                 $scope.selectedTableDef = null;
                 $scope.tmpTableElements = null;
-
                 if ($scope.searchResults.length == 0) {
                     $scope.vocabResError = "No results found for entered search criteria.";
                 }
-                else if ($scope.searchResults.length === 1 && ($scope.selectionCriteria === 'TableId' || $scope.selectionCriteria === 'ValueSetName' || $scope.selectionCriteria === 'ValueSetCode')) {
+                else if( $scope.searchResults.length  === 1 && ($scope.selectionCriteria === 'TableId' || $scope.selectionCriteria === 'ValueSetName'||$scope.selectionCriteria === 'ValueSetCode')){
                     $scope.selectTableDef2($scope.searchResults[0]);
                 }
-
                 $scope.tmpSearchResults = [].concat($scope.searchResults);
             }
         };
 
-        $scope.selectTableDef = function (tableDefinition, tableLibrary) {
+        $scope.selectTableDef = function (valueSetDefinition, tableLibrary) {
             $scope.searchResults = [];
-            $scope.selectionCriteria = "TableId";
+            $scope.selectionCriteria ="TableId";
             $scope.searchString = null;
-            $scope.selectedTableDef = tableDefinition;
+            $scope.selectedTableDef = valueSetDefinition;
             $scope.selectedTableLibrary = tableLibrary;
-            $scope.selectedTableDef.tableElements = $filter('orderBy')($scope.selectedTableDef.tableElements, 'code');
-            $scope.tmpTableElements = [].concat($scope.selectedTableDef.tableElements);
+            $scope.selectedTableDef.valueSetElements = $filter('orderBy')($scope.selectedTableDef.valueSetElements, 'code');
+            $scope.tmpTableElements = [].concat($scope.selectedTableDef.valueSetElements);
         };
 
-        $scope.clearSearchResults = function () {
+        $scope.clearSearchResults = function(){
             $scope.searchResults = null;
             $scope.selectedTableDef = null;
             $scope.vocabResError = null;
@@ -778,14 +812,15 @@ angular.module('contextBased')
 
         $scope.selectTableDef2 = function (tableDefinition) {
             $scope.selectedTableDef = tableDefinition;
-            $scope.selectedTableDef.tableElements = $filter('orderBy')($scope.selectedTableDef.tableElements, 'code');
-            $scope.tmpTableElements = [].concat($scope.selectedTableDef.tableElements);
+            $scope.selectedTableDef.valueSetElements = $filter('orderBy')($scope.selectedTableDef.valueSetElements, 'code');
+            $scope.tmpTableElements = [].concat($scope.selectedTableDef.valueSetElements);
         };
 
 
         $scope.isNoValidation = function () {
-            return $scope.selectedTableDef != null && $scope.selectedTableLibrary && $scope.selectedTableLibrary.noValidation && $scope.selectedTableLibrary.noValidation.ids && $scope.selectedTableLibrary.noValidation.ids.indexOf($scope.selectedTableDef.tdId) > 0;
+            return $scope.selectedTableDef != null && $scope.selectedTableLibrary && $scope.selectedTableLibrary.noValidation && $scope.selectedTableLibrary.noValidation.ids && $scope.selectedTableLibrary.noValidation.ids.indexOf($scope.selectedTableDef.bindingIdentifier) > 0;
         };
+
 
 
     }]);

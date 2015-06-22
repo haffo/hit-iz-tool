@@ -12,7 +12,7 @@ public class TestCaseParserTest {
 	public void testParseDataInstanceTestCases() throws Exception {
 		String root = "/TP2";
 		root = this.getClass().getResource(root).getPath();
-		// DataInstanceTestPlan tp = parser.parseToDataInstanceTestPlan(root);
+		// TestPlan tp = parser.parseToDataInstanceTestPlan(root);
 
 	}
 }

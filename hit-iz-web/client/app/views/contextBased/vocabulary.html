@@ -7,7 +7,7 @@
     <h3>{{contextBased.testCase.type}}: {{contextBased.testCase.name}}</h3>
 </div>
 
-<div ng-show="tableLibraries != null && tableLibraries.length > 0">
+<div ng-show="valueSetDefinitionGroups != null && valueSetDefinitionGroups.length > 0">
 <div class="row" style="margin-top:20px">
 <div class="col-md-4">
     <div class="panel panel-info">
@@ -18,71 +18,71 @@
         <div class="panel-body">
             <div ng-show="error == null">
                 <tabset>
-                    <tab ng-repeat="vocabularyCollection in tableLibraries"
-                         heading="{{vocabularyCollection.name}}">
-                        <div ng-show="vocabularyCollection.children!= null && vocabularyCollection.children.length > 1">
-                            <tabset>
-                                <tab ng-repeat="lib in vocabularyCollection.children"
-                                     heading="{{lib.name}}">
-                                    <div ng-controller="ContextBasedVocabularyTabCtrl"
-                                         ng-init="init(lib)">
-                                        <div ng-show="tableList != null" class="iz-vocab-table">
-                                            <table st-table="tmpList" st-safe-src="tableList"
-                                                   class="table table-striped table-bordered ng-table-text stTable">
-                                                <thead>
-                                                <tr class="tbl-header">
-                                                    <th class="col-fixed-150" st-sort="id">Table Id</th>
-                                                    <th st-sort="name">Value Set Name</th>
-                                                </tr>
-                                                <tr>
-                                                    <!--<th>-->
-                                                    <!--<input st-search="'path'" placeholder="search for path" class="input-sm form-control" type="search"/>-->
-                                                    <!--</th>-->
-                                                    <th colspan="2">
-                                                        <input st-search placeholder="Search"
-                                                               class="input-sm form-control" type="search"/>
-                                                    </th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                <tr ng-repeat="row in tmpList">
-                                                    <td class="col-fixed-150">
-                                                        <a class="point" ng-show="row.id"
-                                                           ng-click="selectTableDef(row, lib)" ng-bind="row.id"></a>
-                                                        <span ng-show="row.id == null">N/A</span>
-                                                    </td>
-                                                    <td>
-                                                        <span ng-show="row.name" ng-bind="row.name"></span>
-                                                        <span ng-show="row.name == null">N/A</span>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-
-                                                <!--<tfoot>-->
-                                                <!--<tr>-->
-                                                <!--<td colspan="2" class="text-center">-->
-                                                <!--<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>-->
-                                                <!--</td>-->
+                    <tab ng-repeat="valueSetDefinitionGroup in valueSetDefinitionGroups"
+                         heading="{{valueSetDefinitionGroup.name}}">
+                        <!--<div ng-show="vocabularyCollection.children!= null && vocabularyCollection.children.length > 1">-->
+                            <!--<tabset>-->
+                                <!--<tab ng-repeat="lib in vocabularyCollection.children"-->
+                                     <!--heading="{{lib.name}}">-->
+                                    <!--<div ng-controller="ContextBasedVocabularyTabCtrl"-->
+                                         <!--ng-init="init(lib)">-->
+                                        <!--<div ng-show="tableList != null" class="iz-vocab-table">-->
+                                            <!--<table st-table="tmpList" st-safe-src="tableList"-->
+                                                   <!--class="table table-striped table-bordered ng-table-text stTable">-->
+                                                <!--<thead>-->
+                                                <!--<tr class="tbl-header">-->
+                                                    <!--<th class="col-fixed-150" st-sort="id">Table Id</th>-->
+                                                    <!--<th st-sort="name">Value Set Name</th>-->
                                                 <!--</tr>-->
-                                                <!--</tfoot>-->
+                                                <!--<tr>-->
+                                                    <!--&lt;!&ndash;<th>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<input st-search="'path'" placeholder="search for path" class="input-sm form-control" type="search"/>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;</th>&ndash;&gt;-->
+                                                    <!--<th colspan="2">-->
+                                                        <!--<input st-search placeholder="Search"-->
+                                                               <!--class="input-sm form-control" type="search"/>-->
+                                                    <!--</th>-->
+                                                <!--</tr>-->
+                                                <!--</thead>-->
+                                                <!--<tbody>-->
 
-                                            </table>
-                                        </div>
-                                    </div>
-                                </tab>
-                            </tabset>
-                        </div>
+                                                <!--<tr ng-repeat="row in tmpList">-->
+                                                    <!--<td class="col-fixed-150">-->
+                                                        <!--<a class="point" ng-show="row.id"-->
+                                                           <!--ng-click="selectTableDef(row, lib)" ng-bind="row.id"></a>-->
+                                                        <!--<span ng-show="row.id == null">N/A</span>-->
+                                                    <!--</td>-->
+                                                    <!--<td>-->
+                                                        <!--<span ng-show="row.name" ng-bind="row.name"></span>-->
+                                                        <!--<span ng-show="row.name == null">N/A</span>-->
+                                                    <!--</td>-->
+                                                <!--</tr>-->
+                                                <!--</tbody>-->
 
-                        <div ng-show="vocabularyCollection.children!= null && vocabularyCollection.children.length == 1">
+                                                <!--&lt;!&ndash;<tfoot>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<td colspan="2" class="text-center">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</tfoot>&ndash;&gt;-->
+
+                                            <!--</table>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</tab>-->
+                            <!--</tabset>-->
+                        <!--</div>-->
+
+                        <!--<div ng-show="vocabularyCollection.children!= null && vocabularyCollection.children.length == 1">-->
                             <div ng-controller="ContextBasedVocabularyTabCtrl"
-                                 ng-init="init(vocabularyCollection.children[0])">
+                                 ng-init="init(valueSetDefinitionGroup)">
                                 <div class="iz-vocab-table">
                                     <table st-table="tmpList" st-safe-src="tableList"
                                            class="table table-striped table-bordered ng-table-text stTable">
                                         <thead>
                                         <tr class="tbl-header">
-                                            <th class="col-fixed-150" st-sort="tdId">Table Id</th>
+                                            <th class="col-fixed-150" st-sort="bindingIdentifier">Table Id</th>
                                             <th st-sort="name">Value Set Name</th>
                                         </tr>
                                         <tr>
@@ -96,9 +96,9 @@
 
                                         <tr ng-repeat="row in tmpList">
                                             <td class="col-fixed-150">
-                                                <a class="point" ng-show="row.tdId"
-                                                   ng-click="selectTableDef(row,tableLibrary)" ng-bind="row.tdId"></a>
-                                                <span ng-show="row.tdId == null">N/A</span>
+                                                <a class="point" ng-show="row.bindingIdentifier"
+                                                   ng-click="selectTableDef(row,tableLibrary)" ng-bind="row.bindingIdentifier"></a>
+                                                <span ng-show="row.bindingIdentifier == null">N/A</span>
                                             </td>
                                             <td>
                                                 <span ng-show="row.name" ng-bind="row.name"></span>
@@ -117,7 +117,7 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>
+                        <!--</div>-->
                     </tab>
                 </tabset>
             </div>
@@ -140,6 +140,7 @@
 
 
 <div class="panel-body vocab-search-result">
+
 
 <form class="form-inline" name="searchValueForm" ng-submit="searchTableValues()">
     <input type="text" ng-model="searchString" placeholder="Value"/>
@@ -173,12 +174,11 @@
                    class="table table-striped table-bordered ng-table-text stTable">
                 <thead>
                 <tr class="tbl-header">
-                    <th class="col-fixed-150" st-sort="tdId">Table Id</th>
+                    <th class="col-fixed-150" st-sort="bindingIdentifier">Binding Id</th>
                     <th class="col-fixed-150" st-sort="name">ValueSet Name</th>
+                    <th class="col-fixed-150" st-sort="description">Description</th>
                     <th class="col-fixed-150" st-sort="version">ValueSet Version</th>
-                    <th class="col-fixed-150" st-sort="codesys">Code System</th>
                     <th class="col-fixed-150" st-sort="oid"> Value Set OID</th>
-                    <th st-sort="type">Table Type</th>
                 </tr>
                 <tr>
                     <th colspan="6">
@@ -190,7 +190,7 @@
 
                 <tr ng-repeat="row in tmpSearchResults">
                     <td class="col-fixed-150">
-                        <a ng-show="row.tdId" ng-click="selectTableDef2(row)" ng-bind="row.tdId"></a>
+                        <a ng-show="row.bindingIdentifier" ng-click="selectTableDef2(row)" ng-bind="row.bindingIdentifier"></a>
                     </td>
 
                     <td class="col-fixed-150">
@@ -199,23 +199,19 @@
                     </td>
 
                     <td class="col-fixed-150">
-                        <span ng-show="row.version" ng-bind="row.version"></span>
-                        <span ng-show="row.version == null">N/A</span>
+                        <span ng-show="row.description" ng-bind="row.description"></span>
+                        <span ng-show="row.description == null">N/A</span>
                     </td>
 
 
                     <td class="col-fixed-150">
-                        <span ng-show="row.codesys" ng-bind="row.codesys"></span>
-                        <span ng-show="row.codesys == null">N/A</span>
+                        <span ng-show="row.version" ng-bind="row.version"></span>
+                        <span ng-show="row.version == null">N/A</span>
                     </td>
 
                     <td>
                         <span ng-show="row.oid" ng-bind="row.oid"></span>
                         <span ng-show="row.oid == null">N/A</span>
-                    </td>
-                    <td>
-                        <span ng-show="row.type" ng-bind="row.type"></span>
-                        <span ng-show="row.type == null">N/A</span>
                     </td>
                 </tr>
                 </tbody>
@@ -267,13 +263,14 @@
             <!--</table>-->
         </div>
 
+
         <div class="iz-vocab-table-result"  ng-show="selectionCriteria === 'Value' || selectionCriteria === 'Description'">
             <table st-table="tmpSearchResults" st-safe-src="searchResults"
                    class="table table-striped table-bordered ng-table-text stTable">
                 <thead>
                 <tr class="tbl-header">
-                    <th class="col-fixed-150" st-sort="code">Code</th>
-                    <th class="col-fixed-150" st-sort="codesys">Code System</th>
+                    <th class="col-fixed-150" st-sort="value">Value</th>
+                    <th class="col-fixed-150" st-sort="codeSystem">Code System</th>
                     <th class="col-fixed-150" st-sort="displayName">Description</th>
                     <!--<th class="col-fixed-150" st-sort="source">Source</th>-->
                     <!--<th class="col-fixed-150" st-sort="usageType">Usage</th>-->
@@ -287,10 +284,10 @@
                 <tbody>
                 <tr ng-repeat="row in tmpSearchResults">
                     <td class="col-fixed-150">
-                        <span>{{row.code}}</span>
+                        <span>{{row.value}}</span>
                     </td>
                     <td class="col-fixed-150">
-                        <span ng-show="row.codesys">{{row.codesys}}</span>
+                        <span ng-show="row.codeSystem">{{row.codeSystem}}</span>
                     </td>
 
                     <td class="col-fixed-150">
@@ -316,9 +313,9 @@
         <div class="panel-heading">Value Set Attributes</div>
         <!-- Table -->
         <table class="table table-bordered">
-            <tr ng-show="selectedTableDef.tdId != null && selectedTableDef.tdId != ''">
+            <tr ng-show="selectedTableDef.bindingIdentifier != null && selectedTableDef.bindingIdentifier != ''">
                 <td>Table Id</td>
-                <td ng-bind="selectedTableDef.tdId"></td>
+                <td ng-bind="selectedTableDef.bindingIdentifier"></td>
             </tr>
             <tr ng-show="selectedTableDef.name != null && selectedTableDef.name != ''">
                 <td>Value Set Name</td>
@@ -332,7 +329,7 @@
 
             <tr>
                 <td>Code System</td>
-                <td ng-bind="selectedTableDef.codesys"></td>
+                <td ng-bind="selectedTableDef.codeSystem"></td>
             </tr>
 
             <tr ng-show="selectedTableDef.oid != '' &&  selectedTableDef.oid != null">
@@ -358,7 +355,7 @@
                 <thead>
                 <tr class="tbl-header">
                     <th class="col-fixed-150" st-sort="code">Code</th>
-                    <th class="col-fixed-150" st-sort="codesys">Code System</th>
+                    <th class="col-fixed-150" st-sort="codeSystem">Code System</th>
                     <th class="col-fixed-150" st-sort="displayName">Description</th>
                     <!--<th class="col-fixed-150" st-sort="source">Source</th>-->
                     <!--<th class="col-fixed-150" st-sort="usageType">Usage</th>-->
@@ -376,7 +373,7 @@
                         <span>{{row.code}}</span>
                     </td>
                     <td class="col-fixed-150">
-                        <span>{{row.codesys}}</span>
+                        <span>{{row.codeSystem}}</span>
                     </td>
 
                     <td class="col-fixed-150">

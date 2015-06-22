@@ -1,22 +1,23 @@
 /**
- * This software was developed at the National Institute of Standards and Technology by employees
- * of the Federal Government in the course of their official duties. Pursuant to title 17 Section 105 of the
- * United States Code this software is not subject to copyright protection and is in the public domain.
- * This is an experimental system. NIST assumes no responsibility whatsoever for its use by other parties,
- * and makes no guarantees, expressed or implied, about its quality, reliability, or any other characteristic.
- * We would appreciate acknowledgement if the software is used. This software can be redistributed and/or
- * modified freely provided that any derivative works bear some notice that they are derived from it, and any
- * modified versions bear some notice that they have been modified.
+ * This software was developed at the National Institute of Standards and Technology by employees of
+ * the Federal Government in the course of their official duties. Pursuant to title 17 Section 105
+ * of the United States Code this software is not subject to copyright protection and is in the
+ * public domain. This is an experimental system. NIST assumes no responsibility whatsoever for its
+ * use by other parties, and makes no guarantees, expressed or implied, about its quality,
+ * reliability, or any other characteristic. We would appreciate acknowledgement if the software is
+ * used. This software can be redistributed and/or modified freely provided that any derivative
+ * works bear some notice that they are derived from it, and any modified versions bear some notice
+ * that they have been modified.
  */
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.core.domain.DataInstanceTestPlan;
-import gov.nist.hit.core.domain.DataInstanceTestStep;
+import gov.nist.hit.core.domain.TestPlan;
+import gov.nist.hit.core.domain.TestStep;
 import gov.nist.hit.core.domain.Stage;
 import gov.nist.hit.core.domain.TestContext;
-import gov.nist.hit.core.repo.DataInstanceTestPlanRepository;
-import gov.nist.hit.core.repo.DataInstanceTestStepRepository;
+import gov.nist.hit.core.repo.TestPlanRepository;
+import gov.nist.hit.core.repo.TestStepRepository;
 import gov.nist.hit.core.service.exception.TestCaseException;
 
 import java.util.List;
@@ -36,40 +37,38 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ContextBasedController extends TestingController {
 
-	static final Logger logger = LoggerFactory
-			.getLogger(ContextBasedController.class);
+  static final Logger logger = LoggerFactory.getLogger(ContextBasedController.class);
 
-	@Autowired
-	private DataInstanceTestPlanRepository testPlanRepository;
+  @Autowired
+  private TestPlanRepository testPlanRepository;
 
-	@Autowired
-	private DataInstanceTestStepRepository testStepRepository;
+  @Autowired
+  private TestStepRepository testStepRepository;
 
-	@RequestMapping(value = "/testcases", method = RequestMethod.GET)
-	public List<DataInstanceTestPlan> testCases() {
-		logger.info("Fetching all testCases...");
-		List<DataInstanceTestPlan> testPlans = testPlanRepository
-				.findAllByStage(Stage.CB);
-		return testPlans;
-	}
+  @RequestMapping(value = "/testcases", method = RequestMethod.GET)
+  public List<TestPlan> testCases() {
+    logger.info("Fetching all testCases...");
+    List<TestPlan> testPlans = testPlanRepository.findAllByStage(Stage.CB);
+    return testPlans;
+  }
 
-	@RequestMapping(value = "/testcases/{testCaseId}")
-	public DataInstanceTestStep testCase(@PathVariable final Long testCaseId) {
-		logger.info("Fetching testCase with id=" + testCaseId);
-		DataInstanceTestStep testCase = testStepRepository.findOne(testCaseId);
-		if (testCase == null) {
-			throw new TestCaseException(testCaseId);
-		}
-		return testCase;
-	}
+  @RequestMapping(value = "/testcases/{testCaseId}")
+  public TestStep testCase(@PathVariable final Long testCaseId) {
+    logger.info("Fetching testCase with id=" + testCaseId);
+    TestStep testCase = testStepRepository.findOne(testCaseId);
+    if (testCase == null) {
+      throw new TestCaseException(testCaseId);
+    }
+    return testCase;
+  }
 
-	@RequestMapping(value = "/testcases/{testCaseId}/testcontext")
-	public TestContext testContext(@PathVariable final Long testCaseId) {
-		logger.info("Fetching testContext from testCaseId=" + testCaseId);
-		TestContext testContext = testCase(testCaseId).getTestContext();
-		if (testContext == null)
-			throw new TestCaseException(testCaseId);
-		return testContext;
-	}
+  @RequestMapping(value = "/testcases/{testCaseId}/testcontext")
+  public TestContext testContext(@PathVariable final Long testCaseId) {
+    logger.info("Fetching testContext from testCaseId=" + testCaseId);
+    TestContext testContext = testCase(testCaseId).getTestContext();
+    if (testContext == null)
+      throw new TestCaseException(testCaseId);
+    return testContext;
+  }
 
 }

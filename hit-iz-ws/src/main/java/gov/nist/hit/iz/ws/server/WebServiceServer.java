@@ -1,9 +1,9 @@
 package gov.nist.hit.iz.ws.server;
 
 import gov.nist.hit.core.domain.TransactionStatus;
-import gov.nist.hit.core.repo.SoapConnectivityTransactionRepository;
 import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.transport.TransportServerException;
+import gov.nist.hit.iz.repo.SoapConnectivityTransactionRepository;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestRequestType;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestResponseType;
 import gov.nist.hit.iz.ws.jaxb.SubmitSingleMessageRequestType;

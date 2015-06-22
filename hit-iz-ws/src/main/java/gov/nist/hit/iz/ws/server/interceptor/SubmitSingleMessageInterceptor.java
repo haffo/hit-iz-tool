@@ -1,8 +1,8 @@
 package gov.nist.hit.iz.ws.server.interceptor;
 
-import gov.nist.hit.core.domain.SoapConnectivityTransaction;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.repo.SoapConnectivityTransactionRepository;
+import gov.nist.hit.iz.domain.SoapConnectivityTransaction;
+import gov.nist.hit.iz.repo.SoapConnectivityTransactionRepository;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
