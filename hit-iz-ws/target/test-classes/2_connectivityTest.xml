@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urn:connectivityTest xmlns:urn="urn:cdc:iisb:2011">
-	<urn:echoBack>Hello World!</urn:echoBack>
-</urn:connectivityTest>

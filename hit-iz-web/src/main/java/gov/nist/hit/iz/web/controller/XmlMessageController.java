@@ -15,9 +15,9 @@ package gov.nist.hit.iz.web.controller;
 import gov.nist.hit.core.domain.Command;
 import gov.nist.hit.core.domain.MessageElement;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.service.XmlMessageParser;
 import gov.nist.hit.core.service.exception.XmlFormatterException;
 import gov.nist.hit.core.service.exception.XmlParserException;
+import gov.nist.hit.iz.service.XmlMessageParser;
 
 import java.util.List;
 

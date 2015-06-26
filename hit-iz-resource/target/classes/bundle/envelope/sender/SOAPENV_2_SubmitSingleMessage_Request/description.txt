@@ -1,1 +1,0 @@
-This test evaluates the capability of a Sender technology to electronically generate a message envelope conforming to the SOAP 1.2 standard and CDC WSDL 1.0 that may be used for electronically transporting an HL7 message to an immunization information system (IIS). 

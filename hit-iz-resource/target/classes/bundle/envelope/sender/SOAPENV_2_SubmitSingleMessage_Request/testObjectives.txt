@@ -1,5 +1,0 @@
-The Sender technology will demonstrate the ability to electronically generate the SOAP message where the body of the message contains: 
-<ul>
-<li>the element submitSingleMessage, as defined in the CDC WSDL 1.0</li>
-<li>arbitrary string values for all child elements of  submitSingleMessage:  username, password, facilityID, and HL7Message.</li>
-</ul>

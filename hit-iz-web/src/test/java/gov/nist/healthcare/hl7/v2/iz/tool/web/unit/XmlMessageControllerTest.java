@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.service.impl.XmlMessageParserImpl;
+import gov.nist.hit.iz.service.XmlMessageParserImpl;
 import gov.nist.hit.iz.web.controller.XmlMessageController;
 
 import java.io.IOException;

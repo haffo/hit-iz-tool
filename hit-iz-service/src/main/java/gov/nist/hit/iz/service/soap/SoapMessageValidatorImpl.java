@@ -13,7 +13,6 @@ package gov.nist.hit.iz.service.soap;
 import gov.nist.healthcare.core.validation.soap.SoapMessage;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.hl7v2.domain.soap.SoapValidationResult;
-import gov.nist.hit.core.service.SoapMessageValidator;
 import gov.nist.hit.core.service.exception.SoapValidationException;
 
 import org.apache.log4j.Logger;

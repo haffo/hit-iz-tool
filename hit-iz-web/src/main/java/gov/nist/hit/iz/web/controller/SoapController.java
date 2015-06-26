@@ -13,10 +13,10 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.service.SoapMessageParser;
 import gov.nist.hit.core.service.exception.MessageException;
 import gov.nist.hit.core.service.exception.SoapValidationReportException;
-import gov.nist.hit.core.service.impl.SoapValidationReportGenerator;
+import gov.nist.hit.iz.service.SoapValidationReportGenerator;
+import gov.nist.hit.iz.service.soap.SoapMessageParser;
 import gov.nist.hit.iz.web.exception.EnvelopeException;
 
 import java.io.IOException;

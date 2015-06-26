@@ -1,7 +1,0 @@
-<ol>
-<li>The Tester causes the System Under Test (EHR-S) to connect to a NIST Test Tool representing an IIS Test Agent using the NIST web service endpoint specified on the screen of the Test Tool</li>
-<li>The Tester causes the System Under Test to electronically generate and transmit to the NIST Test Tool the SOAP connectivityTest request message that conforms to the SOAP 1.2 standard and CDC WSDL 1.0 in order to verify the accessibility of the IIS NIST Test Agent</li>
-<li>The Test Tool validates the SOAP connectivityTest request message for conformance to the SOAP 1.2 standard and CDC WSDL 1.0 and the Tester can view the validation results on-line</li>
-<li>The Test Tool generates a Validation Report listing the results of the validation</li>
-<li>The Tester reviews the Validation Report and compares the results to the Objectives and Evaluation Criteria associated with the Sender SOAPCON_1_BasicMessage_Connectivity Test Case</li>
-</ol>

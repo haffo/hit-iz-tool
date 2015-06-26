@@ -11,6 +11,10 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
  
+ <properties>
+		<core.version>1.0.48</core.version>
+	</properties>
+	
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -55,7 +59,96 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore-nio</artifactId>
 			<version>4.1.3</version>
+		</dependency> 
+		
+	 <dependency>
+			<groupId>gov.nist.healthcare.core</groupId>
+			<artifactId>core-soap-validation</artifactId>
+			<version>${core.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>gov.nist.healthcare.core</groupId>
+					<artifactId>core-hl7-v2-parser</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>gov.nist.healthcare.core</groupId>
+					<artifactId>core-hl7-v2-message</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>gov.nist.healthcare.core</groupId>
+					<artifactId>core-message-validation</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>gov.nist.healthcare.core</groupId>
+					<artifactId>core-xml-beans</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
+		<dependency>
+			<groupId>gov.nist.healthcare.core</groupId>
+			<artifactId>core-message-validation</artifactId>
+			<version>${core.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>gov.nist.healthcare.core</groupId>
+					<artifactId>core-hl7-v3-model-xmlbeans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>gov.nist.healthcare.core</groupId>
+					<artifactId>core-soap-validation</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-io</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>gov.nist.healthcare.core</groupId>
+			<artifactId>core-hl7-v2-message</artifactId>
+			<version>${core.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>gov.nist.healthcare.core</groupId>
+					<artifactId>core-hl7-v3-model-xmlbeans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-io</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>gov.nist.healthcare.core</groupId>
+			<artifactId>core-hl7-v2-parser</artifactId>
+			<version>${core.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>gov.nist.healthcare.core</groupId>
+					<artifactId>core-hl7-v3-model-xmlbeans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-io</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+ 
+	
+	
 
 	 
 	</dependencies>

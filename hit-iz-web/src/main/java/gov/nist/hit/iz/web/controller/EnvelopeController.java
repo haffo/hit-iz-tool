@@ -14,17 +14,17 @@ package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
 import gov.nist.hit.core.domain.ValidationResult;
-import gov.nist.hit.core.service.SoapMessageParser;
-import gov.nist.hit.core.service.SoapMessageValidator;
 import gov.nist.hit.core.service.exception.SoapValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.core.service.exception.MessageValidationException;
-import gov.nist.hit.core.service.impl.SoapValidationReportGenerator;
 import gov.nist.hit.iz.domain.SoapEnvelopeTestCase;
 import gov.nist.hit.iz.domain.SoapEnvelopeTestContext;
 import gov.nist.hit.iz.domain.SoapEnvelopeTestPlan;
 import gov.nist.hit.iz.repo.SoapEnvelopeTestCaseRepository;
 import gov.nist.hit.iz.repo.SoapEnvelopeTestPlanRepository;
+import gov.nist.hit.iz.service.SoapValidationReportGenerator;
+import gov.nist.hit.iz.service.soap.SoapMessageParser;
+import gov.nist.hit.iz.service.soap.SoapMessageValidator;
 import gov.nist.hit.iz.web.utils.Utils;
 
 import java.util.List;

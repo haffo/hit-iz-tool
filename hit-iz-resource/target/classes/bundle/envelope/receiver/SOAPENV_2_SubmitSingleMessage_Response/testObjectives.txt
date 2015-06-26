@@ -1,5 +1,0 @@
-The Receiver technology will demonstrate the ability to generate the SOAP message where the body of the message contains: 
-<ul>
-<li>the element submitSingleMessageResponse, as defined in the CDC WSDL 1.0</li>
-<li>arbitrary string values for the child element of submitSingleMessageResponse:  return.</li>
-</ul>

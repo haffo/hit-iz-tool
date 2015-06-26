@@ -2,7 +2,6 @@ package gov.nist.hit.iz.service;
 
 import gov.nist.hit.core.domain.SutType;
 import gov.nist.hit.core.domain.TestStory;
-import gov.nist.hit.core.service.TestPlanParser;
 import gov.nist.hit.core.service.util.FileUtil;
 import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.domain.SoapConnectivityTestCase;

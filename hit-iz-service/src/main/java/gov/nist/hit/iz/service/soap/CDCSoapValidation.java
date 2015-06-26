@@ -7,7 +7,6 @@ import gov.nist.healthcare.core.validation.soap.SoapMessage;
 import gov.nist.healthcare.validation.AssertionResultConstants;
 import gov.nist.healthcare.validation.AssertionTypeV3Constants;
 import gov.nist.healthcare.validation.ErrorSeverityConstants;
-import gov.nist.hit.core.hl7v2.service.soap.SoapValidator;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 
 import java.io.IOException;

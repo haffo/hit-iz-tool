@@ -1,5 +1,0 @@
-The Sender technology will demonstrate the ability to electronically generate the SOAP message where the body of the message contains: 
-<ul>
-<li>the element connectivityTest, as defined in the CDC WSDL 1.0</li>
-<li>arbitrary string value for the child element of connectivityTest:  echoBack.</li>
-</ul>

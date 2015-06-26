@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ns2:submitSingleMessageResponse
-	xmlns:ns2="urn:cdc:iisb:2011">
-	<ns2:return>MSH|^~\&amp;|IISSUT|IISSUT|NISTEHR||&lt;date/timeMSG&gt;||ACK^V04^ACK|&lt;msgControlID&gt;|P|2.5.1|||NE
-		MSA|AA|NIST-101004144709009|
-	</ns2:return>
-</ns2:submitSingleMessageResponse>

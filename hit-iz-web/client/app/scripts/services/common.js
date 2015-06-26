@@ -1127,28 +1127,28 @@ angular.module('commonServices').factory('VocabularyService', function ($http, $
             } else if (selectionCriteria === 'Description') {
                 angular.forEach(valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
                     angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
-                             angular.forEach(valueSetDefinition.valueSetElements, function (valueSetElement) {
-                                if (valueSetElement.displayName && valueSetElement.displayName.indexOf(searchString) !== -1) {
-                                     searchResults.push(valueSetElement);
-                                }
-                         });
+                        angular.forEach(valueSetDefinition.valueSetElements, function (valueSetElement) {
+                            if (valueSetElement.displayName && valueSetElement.displayName.indexOf(searchString) !== -1) {
+                                searchResults.push(valueSetElement);
+                            }
+                        });
                     });
                 });
             } else if (selectionCriteria === 'ValueSetCode') {
                 angular.forEach(valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
                     angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
-                             if (valueSetDefinition.codeSystem && valueSetDefinition.codeSystem.indexOf(searchString) !== -1) {
-                                searchResults.push(valueSetDefinition);
-                            }
-                     });
+                        if (valueSetDefinition.codeSystem && valueSetDefinition.codeSystem.indexOf(searchString) !== -1) {
+                            searchResults.push(valueSetDefinition);
+                        }
+                    });
                 });
             } else if (selectionCriteria === 'ValueSetName') {
                 angular.forEach(valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
                     angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
-                             if (valueSetDefinition.name && valueSetDefinition.name.indexOf(searchString) !== -1) {
-                                searchResults.push(valueSetDefinition);
-                            }
-                     });
+                        if (valueSetDefinition.name && valueSetDefinition.name.indexOf(searchString) !== -1) {
+                            searchResults.push(valueSetDefinition);
+                        }
+                    });
                 });
             }
 
