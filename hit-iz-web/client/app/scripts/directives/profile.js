@@ -80,11 +80,11 @@
 //
 ////            scope.init = function () {
 ////                scope.$watch(function () {
-////                    return scope.contextFree.testCase.testContext.profile.id;
+////                    return scope.cf.testCase.testContext.profile.id;
 ////                }, function (profileId) {
 ////                    if (profileId != null) {
 ////                        scope.loading = true;
-////                        var promise = scope.contextFree.testCase.testContext.profile.parse();
+////                        var promise = scope.cf.testCase.testContext.profile.parse();
 ////                        promise.then(function (profileData) {
 ////                            scope.nodeData = [];
 ////                            scope.loading = false;

@@ -55,7 +55,7 @@ public class XmlMessageControllerTest {
   }
 
   /**
-   * Get a profile model as json
+   * Get a integrationProfile model as json
    * 
    * @throws Exception
    */

@@ -1,7 +1,7 @@
-<div ng-controller="ContextBasedValidatorCtrl" ng-init="init()">
-<div ng-show="contextBased.testCase != null">
+<div ng-controller="CBValidatorCtrl" ng-init="init()">
+<div ng-show="cb.testCase != null">
 <div class="page-header">
-    <h3>{{contextBased.testCase.type}}: {{contextBased.testCase.name}}</h3>
+    <h3>{{cb.testCase.type}}: {{cb.testCase.name}}</h3>
 </div>
 
 <div class="row">
@@ -18,7 +18,7 @@
         <div class="panel-body">
             <div ng-show="!tLoading">
                 <div ng-show="tError === null" class="message-tree">
-                    <abn-tree tree-control="contextBased.tree.root" tree-data="messageObject" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
+                    <abn-tree tree-control="cb.tree.root" tree-data="messageObject" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
                 </div>
                 <div ng-show="tError !== null">
                     <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
@@ -494,7 +494,7 @@
 
 </div>
 
-<div ng-show="contextBased.testCase === null">
+<div ng-show="cb.testCase === null">
     No TestCase Loaded
 </div>
 </div>

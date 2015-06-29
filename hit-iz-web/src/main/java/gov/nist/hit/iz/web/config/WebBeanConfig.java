@@ -13,11 +13,11 @@
 package gov.nist.hit.iz.web.config;
 
 import gov.nist.hit.core.hl7v2.service.message.Er7MessageParser;
-import gov.nist.hit.core.hl7v2.service.message.Er7MessageParserImpl;
+import gov.nist.hit.core.hl7v2.service.message.Er7MessageParser;
 import gov.nist.hit.core.hl7v2.service.message.Er7MessageValidator;
-import gov.nist.hit.core.hl7v2.service.message.Er7MessageValidatorImpl;
+import gov.nist.hit.core.hl7v2.service.message.Er7MessageValidator;
 import gov.nist.hit.core.hl7v2.service.message.Er7ValidationReportGenerator;
-import gov.nist.hit.core.hl7v2.service.message.Er7ValidationReportGeneratorImpl;
+import gov.nist.hit.core.hl7v2.service.message.Er7ValidationReportGenerator;
 import gov.nist.hit.core.service.MessageParser;
 import gov.nist.hit.iz.service.IISReceiver;
 import gov.nist.hit.iz.service.Receiver;
@@ -46,12 +46,12 @@ public class WebBeanConfig {
 
   @Bean
   public MessageParser er7MessageParser() {
-    return new Er7MessageParserImpl();
+    return new Er7MessageParser();
   }
 
   @Bean
   public Er7MessageValidator er7Validator() {
-    return new Er7MessageValidatorImpl();
+    return new Er7MessageValidator();
   }
 
   @Bean
@@ -84,7 +84,7 @@ public class WebBeanConfig {
 
   @Bean
   public Er7MessageParser er7Parser() {
-    return new Er7MessageParserImpl();
+    return new Er7MessageParser();
   }
 
   @Bean
@@ -94,7 +94,7 @@ public class WebBeanConfig {
 
   @Bean
   public Er7ValidationReportGenerator er7ReportGenerator() {
-    return new Er7ValidationReportGeneratorImpl();
+    return new Er7ValidationReportGenerator();
   }
 
   @Bean

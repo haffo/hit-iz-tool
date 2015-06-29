@@ -1,8 +1,6 @@
 <div style="margin-bottom: 20px" ng-controller="ConnectivityExecutionCtrl" ng-init="init()">
 <div ng-show="testCase != null">
 <div class="page-header"><h3>TestCase: {{testCase.parentName}} - {{testCase.label}}</h3></div>
-
-
 <div class="row" ng-show="error != null">
     <div class="alert alert-danger col-sm-12" role="alert" ng-bind="error"></div>
 </div>
@@ -39,7 +37,7 @@
             <!--<div class="form-group"-->
                  <!--ng-class="{'has-error' : senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine }">-->
                 <!--<label>System Endpoint</label>-->
-                <!--<input type="url" name="endpoint" class="form-control" ng-model="serverEndpoint.value"-->
+                <!--<input type="url" name="endpoint" class="form-control" ng-model="endpoint.value"-->
                        <!--placeholder="SUT Endpoint" required disabled>-->
 
                 <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">Sorry, an-->
@@ -49,7 +47,7 @@
             <!--<div class="form-group"-->
                  <!--ng-class="{'has-error' : senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine }">-->
                 <!--<label>System WSDL</label>-->
-                <!--<a ng-href="{{serverEndpoint.value}}.wsdl" class="form-control" target="_blank">{{serverEndpoint.value}}.wsdl</a>-->
+                <!--<a ng-href="{{endpoint.value}}.wsdl" class="form-control" target="_blank">{{endpoint.value}}.wsdl</a>-->
                 <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">Sorry, an-->
                     <!--error occured. Please refresh your page</p>-->
             <!--</div>-->
@@ -105,12 +103,12 @@
                     </tr>
                     <tr>
                         <td>NIST Endpoint</td>
-                        <td>{{serverEndpoint.value}}</td>
+                        <td>{{endpoint.value}}</td>
                         <td>This is the destination's endpoint</td>
                     </tr>
                     <tr>
                         <td>NIST Endpoint WSDL</td>
-                        <td><a ng-href="{{serverEndpoint.value}}.wsdl" target="_blank">{{serverEndpoint.value}}.wsdl</a></td>
+                        <td><a ng-href="{{endpoint.value}}.wsdl" target="_blank">{{endpoint.value}}.wsdl</a></td>
                         <td>This is the destination's wsdl</td>
                     </tr>
                 </table>
@@ -120,7 +118,7 @@
             <!--<div class="form-group"-->
                  <!--ng-class="{'has-error' : connectivityForm.endpoint.$invalid && !connectivityForm.endpoint.$pristine }">-->
                 <!--<label>System Endpoint</label>-->
-                <!--<input type="url" name="endpoint" class="form-control" ng-model="serverEndpoint.value"-->
+                <!--<input type="url" name="endpoint" class="form-control" ng-model="endpoint.value"-->
                        <!--placeholder="SUT Endpoint" required disabled>-->
 
                 <!--<p ng-show="connectivityForm.endpoint.$invalid && !connectivityForm.endpoint.$pristine"-->

@@ -5,7 +5,7 @@
     Sender Validation
 </tab-heading>
 
-<div ng-controller="ContextBasedEHRValidatorCtrl" ng-init="init()" style="padding-top:20px">
+<div ng-controller="CBEHRValidatorCtrl" ng-init="init()" style="padding-top:20px">
 <div class="row">
     <div ng-show="error != null">
         <div class="alert alert-danger" role="alert" ng-bind="error"></div>
@@ -20,7 +20,7 @@
         <div class="panel-body">
             <div ng-show="!tLoading">
                 <div ng-show="tError === null">
-                    <abn-tree tree-control="contextBased.tree.root" tree-data="messageObject" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
+                    <abn-tree tree-control="cb.tree.root" tree-data="messageObject" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
                 </div>
                 <div ng-show="tError !== null">
                     <div class="alert alert-danger" role="alert" ng-bind="error"></div>
@@ -490,7 +490,7 @@
 <tab-heading>
     Receiver Validation
 </tab-heading>
-<div ng-controller="ContextBasedIISValidatorCtrl" ng-init="init()">
+<div ng-controller="CBIISValidatorCtrl" ng-init="init()">
 <div class="row">
     <div ng-show="error != null">
         <div class="alert alert-danger" role="alert" ng-bind="error"></div>
@@ -505,7 +505,7 @@
         <div class="panel-body">
             <div ng-show="!tLoading">
                 <div ng-show="tError === null">
-                    <abn-tree tree-control="contextBased.tree.root" tree-data="messageObject" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
+                    <abn-tree tree-control="cb.tree.root" tree-data="messageObject" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
                 </div>
                 <div ng-show="tError !== null">
                     <div class="alert alert-danger" role="alert" ng-bind="error"></div>

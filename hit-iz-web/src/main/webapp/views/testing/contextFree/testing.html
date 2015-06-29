@@ -1,4 +1,4 @@
-<div ng-controller="ContextFreeTestingCtrl" ng-init="init()" class="appcontent">
+<div ng-controller="CFTestingCtrl" ng-init="init()" class="appcontent">
 
     <div ng-show="error == null">
 
@@ -47,10 +47,10 @@
                 </div>
 
                 <div ng-show="!loading">
-                <div ng-show="contextFree.testCase.id !== null">
+                <div ng-show="cf.testCase.id !== null">
                     <div class="panel panel-info">
                         <!-- Default panel contents -->
-                        <div class="panel-heading"><i class="glyphicon glyphicon-list"></i>Profile: {{contextFree.testCase.name}}
+                        <div class="panel-heading"><i class="glyphicon glyphicon-list"></i>Profile: {{cf.testCase.name}}
                         </div>
                         <div class="panel-body">
                     <tabset>
@@ -60,35 +60,35 @@
                                 <i class="fa fa-check-circle"></i>Validation
                             </tab-heading>
 
-                            <div ng-include="'views/testing/contextFree/validation.html'"></div>
+                            <div ng-include="'views/testing/cf/validation.html'"></div>
                         </tab>
                         <tab select="setActiveTab(1)" active="tabs[1]">
                             <tab-heading>
                                 <i class="fa fa-file"></i>
                                 Report
                             </tab-heading>
-                            <div ng-include="'views/testing/contextFree/report.html'"></div>
+                            <div ng-include="'views/testing/cf/report.html'"></div>
                         </tab>
                         <tab select="setActiveTab(2)" active="tabs[2]">
                             <tab-heading>
                                 <i class="fa fa-th-list"></i>
                                 Profile Viewer
                             </tab-heading>
-                            <div ng-include="'views/testing/contextFree/profileViewer.html'"></div>
+                            <div ng-include="'views/testing/cf/profileViewer.html'"></div>
                         </tab>
                         <tab select="setActiveTab(3)" active="tabs[3]">
                             <tab-heading>
                                 <i class="fa fa-book"></i>
                                 Vocabulary
                             </tab-heading>
-                            <div ng-include="'views/testing/contextFree/vocabulary.html'"></div>
+                            <div ng-include="'views/testing/cf/vocabulary.html'"></div>
                         </tab>
                         <!--<tab select="setActiveTab(4)" active="tabs[4]">-->
                         <!--<tab-heading>-->
                         <!--<i class="glyphicon glyphicon-help"></i>Instructions-->
                         <!--</tab-heading>-->
 
-                        <!--<div ng-include="'views/testing/contextFree/instruction.html'"></div>-->
+                        <!--<div ng-include="'views/testing/cf/instruction.html'"></div>-->
                         <!--</tab>-->
                     </tabset>
                             </div>

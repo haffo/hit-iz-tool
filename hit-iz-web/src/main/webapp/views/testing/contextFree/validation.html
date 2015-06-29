@@ -1,4 +1,4 @@
-<div ng-controller="ContextFreeValidatorCtrl" ng-init="init()">
+<div ng-controller="CFValidatorCtrl" ng-init="init()">
 <br>
 
 <div class="row">
@@ -15,7 +15,7 @@
         <div class="panel-body">
             <div ng-show="!tLoading">
                 <div ng-show="tError === null" class="message-tree">
-                    <abn-tree tree-control="contextFree.tree.root" tree-data="messageObject" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
+                    <abn-tree tree-control="cf.tree.root" tree-data="messageObject" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
                 </div>
                 <div ng-show="tError !== null">
                     <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
@@ -103,7 +103,7 @@
         </div>
 
         <div id="editor_container form-group">
-            <textarea type="contextFree" class="form-control" id="cfTextArea" name="cfTextArea" wrap="off" style="overflow:auto"></textarea>
+            <textarea type="cf" class="form-control" id="cfTextArea" name="cfTextArea" wrap="off" style="overflow:auto"></textarea>
         </div>
     </div>
 </div>

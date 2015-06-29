@@ -1,4 +1,4 @@
-<div ng-controller="ContextBasedTestingCtrl" ng-init="init()" class="appcontent">
+<div ng-controller="CBTestingCtrl" ng-init="init()" class="appcontent">
 
     <div ng-show="loading" style="text-align:center">
         <i class="fa fa-spinner fa-pulse fa-2x"></i>
@@ -10,7 +10,7 @@
                 <i class="fa fa-th-list"></i>TestCase
             </tab-heading>
 
-            <div ng-include="'views/testing/contextBased/testcase.html'"></div>
+            <div ng-include="'views/testing/cb/testcase.html'"></div>
         </tab>
 
         <tab disabled="disabled()" select="setActiveTab(1)" active="tabs[1]">
@@ -18,26 +18,26 @@
                 <i class="fa fa-check-circle"></i>Validation
             </tab-heading>
 
-            <div ng-include="'views/testing/contextBased/validation.html'"></div>
+            <div ng-include="'views/testing/cb/validation.html'"></div>
         </tab>
         <tab disabled="disabled()" select="setActiveTab(2)" active="tabs[2]">
             <tab-heading>
                 <i class="fa fa-file-o"></i>Report
             </tab-heading>
 
-            <div ng-include="'views/testing/contextBased/report.html'"></div>
+            <div ng-include="'views/testing/cb/report.html'"></div>
         </tab>
         <tab disabled="disabled()">
             <tab-heading>
                 <i class="fa fa-th-list"></i>Profile Viewer
             </tab-heading>
-            <div ng-include="'views/testing/contextBased/profileViewer.html'"></div>
+            <div ng-include="'views/testing/cb/profileViewer.html'"></div>
         </tab>
         <tab disabled="disabled()">
             <tab-heading>
                 <i class="fa fa-book"></i>Vocabulary
             </tab-heading>
-            <div ng-include="'views/testing/contextBased/vocabulary.html'"></div>
+            <div ng-include="'views/testing/cb/vocabulary.html'"></div>
         </tab>
 
     </tabset>

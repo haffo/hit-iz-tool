@@ -88,6 +88,7 @@ angular.module('connectivity')
             $scope.loading = false;
             $scope.connecting = false;
             $scope.error = null;
+            $scope.endpoint = Connectivity.serverEndpoint;
 //        $scope.alert = {message: '', type: ''};
 //        $scope.listenForIncoming = null;
 //        $scope.counterMax = 30;

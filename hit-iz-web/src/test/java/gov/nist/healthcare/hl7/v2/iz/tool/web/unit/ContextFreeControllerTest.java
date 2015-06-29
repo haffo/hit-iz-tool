@@ -25,7 +25,7 @@ public class ContextFreeControllerTest {
   // MessageRepository messageRepository;
   //
   // @Mock
-  // ProfileRepository mockProfileRepository;
+  // IntegrationProfileRepository mockProfileRepository;
   //
   // @Mock
   // ContextFreeTestContextRepository testContextRepository;
@@ -35,7 +35,7 @@ public class ContextFreeControllerTest {
   // er7MessageParser;
   //
   // @InjectMocks
-  // ContextFreeController controller;
+  // CFTestingController controller;
   //
   // MockMvc mockMvc;
   //
@@ -226,13 +226,13 @@ public class ContextFreeControllerTest {
   // return message;
   // }
   //
-  // public Profile getProfile() throws IOException {
-  // Profile profile = new Profile();
-  // profile.setId(new Random().nextLong());
-  // profile.setName("New Validation Profile");
-  // profile.setXml(IOUtils.toString(ContextFreeControllerTest.class
-  // .getResourceAsStream("/profiles/Profile.xml")));
-  // return profile;
+  // public IntegrationProfile getProfile() throws IOException {
+  // IntegrationProfile integrationProfile = new IntegrationProfile();
+  // integrationProfile.setId(new Random().nextLong());
+  // integrationProfile.setName("New Validation IntegrationProfile");
+  // integrationProfile.setXml(IOUtils.toString(ContextFreeControllerTest.class
+  // .getResourceAsStream("/profiles/IntegrationProfile.xml")));
+  // return integrationProfile;
   // }
   //
   // public Constraints getConstraints() throws IOException {

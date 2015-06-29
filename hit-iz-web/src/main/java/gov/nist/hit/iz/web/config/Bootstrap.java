@@ -12,21 +12,13 @@
 
 package gov.nist.hit.iz.web.config;
 
-import gov.nist.hit.core.domain.TestPlan;
-import gov.nist.hit.core.domain.TestStep;
-import gov.nist.hit.core.hl7v2.service.profile.ProfileParserImpl;
-import gov.nist.hit.core.repo.TestPlanRepository;
-import gov.nist.hit.core.repo.TestStepRepository;
 import gov.nist.hit.core.repo.UserRepository;
-import gov.nist.hit.core.service.ProfileParser;
+import gov.nist.hit.core.service.ResourcebundleLoader;
 import gov.nist.hit.core.service.exception.ProfileParserException;
-import gov.nist.hit.core.service.impl.ValueSetLibrarySerializerImpl;
 import gov.nist.hit.iz.domain.SoapConnectivityTestPlan;
 import gov.nist.hit.iz.domain.SoapEnvelopeTestPlan;
 import gov.nist.hit.iz.repo.SoapConnectivityTestPlanRepository;
 import gov.nist.hit.iz.repo.SoapEnvelopeTestPlanRepository;
-import gov.nist.hit.iz.service.CBTestPlanParser;
-import gov.nist.hit.iz.service.CFTestPlanParser;
 import gov.nist.hit.iz.service.SoapConnectivityTestPlanParser;
 import gov.nist.hit.iz.service.SoapEnvelopeTestPlanParser;
 import gov.nist.hit.iz.web.controller.SoapController;
@@ -42,9 +34,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 @Service
 public class Bootstrap implements InitializingBean {
 
@@ -57,58 +46,25 @@ public class Bootstrap implements InitializingBean {
   SoapConnectivityTestPlanRepository soapConnTestPlanRepository;
 
   @Autowired
-  TestPlanRepository testPlanRepository;
-
-  @Autowired
-  TestStepRepository testStepRepository;
-
-  @Autowired
   UserRepository userRepository;
 
-  ProfileParser profileParser = new ProfileParserImpl();
+  @Autowired
+  ResourcebundleLoader resourcebundleLoader;
 
-  ObjectMapper obm = new ObjectMapper();
 
-  ValueSetLibrarySerializerImpl tableSerializer = new ValueSetLibrarySerializerImpl();
 
   @Override
   @Transactional()
   public void afterPropertiesSet() throws Exception {
     logger.info("Bootstrapping data...");
-    obm.setSerializationInclusion(Include.NON_NULL);
-    cf();
-    cb();
+    resourcebundleLoader.appInfo();
+    resourcebundleLoader.cf();
+    resourcebundleLoader.cb();
     soapEnv();
     soapConn();
     logger.info("...Bootstrapping completed");
   }
 
-  /**
-   * 
-   * @throws IOException
-   * @throws ProfileParserException
-   */
-  private void cf() throws IOException, ProfileParserException {
-    CFTestPlanParser parser = new CFTestPlanParser(profileParser, tableSerializer);
-    List<TestStep> testSteps = parser.create("/bundle/contextfree");
-    for (int i = 0; i < testSteps.size(); i++) {
-      testStepRepository.save(testSteps.get(i));
-    }
-  }
-
-  /**
-   * 
-   * @throws IOException
-   * @throws ProfileParserException
-   * @throws URISyntaxException
-   */
-  private void cb() throws IOException, ProfileParserException, URISyntaxException {
-    CBTestPlanParser parser = new CBTestPlanParser(profileParser, tableSerializer);
-    List<TestPlan> testPlans = parser.create("/bundle/contextbased");
-    for (int i = 0; i < testPlans.size(); i++) {
-      testPlanRepository.save(testPlans.get(i));
-    }
-  }
 
   /**
    * 

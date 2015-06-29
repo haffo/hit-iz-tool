@@ -1,5 +1,5 @@
-<div ng-controller="ContextFreeProfileViewerCtrl" ng-init="init()" style="margin-bottom: 20px;margin-top: 20px">
-    <div ng-show="contextFree.testCase.testContext.profile!= null">
+<div ng-controller="CFProfileViewerCtrl" ng-init="init()" style="margin-bottom: 20px;margin-top: 20px">
+    <div ng-show="cf.testCase.testContext.profile!= null">
         <div ng-show="!loading" style="margin:20px">
             <div ng-show="error === null" style="margin-top: 20px">
                 <div class="row" style="margin-bottom: 20px">
@@ -90,7 +90,7 @@
         </div>
 
     </div>
-    <div ng-show="contextFree.testCase.testContext.profile== null">
+    <div ng-show="cf.testCase.testContext.profile== null">
         No Profile Selected.
     </div>
 </div>

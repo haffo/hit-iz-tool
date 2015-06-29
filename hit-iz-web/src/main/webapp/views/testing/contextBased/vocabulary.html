@@ -1,10 +1,10 @@
-<div ng-controller="ContextBasedVocabularyCtrl" ng-init="init()">
+<div ng-controller="CBVocabularyCtrl" ng-init="init()">
 
 <div ng-show="!loading">
 
-<div ng-show="contextBased.testCase != null">
+<div ng-show="cb.testCase != null">
 <div class="page-header">
-    <h3>{{contextBased.testCase.type}}: {{contextBased.testCase.name}}</h3>
+    <h3>{{cb.testCase.type}}: {{cb.testCase.name}}</h3>
 </div>
 
 <div ng-show="tableLibraries != null && tableLibraries.length > 0">
@@ -22,7 +22,7 @@
                         <div ng-show="vocabularyCollection.children!= null && vocabularyCollection.children.length > 1">
                             <tabset>
                                 <tab ng-repeat="lib in vocabularyCollection.children" heading="{{lib.name}}">
-                                    <div ng-controller="ContextBasedVocabularyTabCtrl" ng-init="init(lib)">
+                                    <div ng-controller="CBVocabularyTabCtrl" ng-init="init(lib)">
                                         <div ng-show="tableList != null" class="iz-vocab-table">
                                             <table st-table="tmpList" st-safe-src="tableList" class="table table-striped table-bordered ng-table-text stTable">
                                                 <thead>
@@ -69,7 +69,7 @@
                         </div>
 
                         <div ng-show="vocabularyCollection.children!= null && vocabularyCollection.children.length == 1">
-                            <div ng-controller="ContextBasedVocabularyTabCtrl" ng-init="init(vocabularyCollection.children[0])">
+                            <div ng-controller="CBVocabularyTabCtrl" ng-init="init(vocabularyCollection.children[0])">
                                 <div class="iz-vocab-table">
                                     <table st-table="tmpList" st-safe-src="tableList" class="table table-striped table-bordered ng-table-text stTable">
                                         <thead>
@@ -391,7 +391,7 @@
 </div>
 </div>
 
-<div ng-show="contextBased.testCase === null">
+<div ng-show="cb.testCase === null">
     <div class="col-md-10"> No TestCase Loaded.</div>
 </div>
 </div>

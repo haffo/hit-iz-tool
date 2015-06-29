@@ -1,7 +1,7 @@
-<div ng-controller="ContextFreeVocabularyCtrl" ng-init="init()">
+<div ng-controller="CFVocabularyCtrl" ng-init="init()">
 <div class="row" style="margin-top:20px">
 <div ng-show="!loading">
-<div ng-show="contextFree.testCase.testContext.id != null">
+<div ng-show="cf.testCase.testContext.id != null">
 <div ng-show="tableLibraries != null && tableLibraries.length > 0">
 <div class="col-md-4">
     <div class="panel panel-info">
@@ -16,7 +16,7 @@
                         <div ng-show="vocabularyCollection.children!= null && vocabularyCollection.children.length > 1">
                             <tabset>
                                 <tab ng-repeat="lib in vocabularyCollection.children" heading="{{lib.name}}">
-                                    <div ng-controller="ContextFreeVocabularyTabCtrl" ng-init="init(lib)">
+                                    <div ng-controller="CFVocabularyTabCtrl" ng-init="init(lib)">
                                         <div ng-show="tableList != null" class="iz-vocab-table">
                                             <table st-table="tmpList" st-safe-src="tableList" class="table table-striped table-bordered ng-table-text stTable">
                                                 <thead>
@@ -63,7 +63,7 @@
                         </div>
 
                         <div ng-show="vocabularyCollection.children!= null && vocabularyCollection.children.length == 1">
-                            <div ng-controller="ContextFreeVocabularyTabCtrl" ng-init="init(vocabularyCollection.children[0])">
+                            <div ng-controller="CFVocabularyTabCtrl" ng-init="init(vocabularyCollection.children[0])">
                                 <div class="iz-vocab-table">
                                     <table st-table="tmpList" st-safe-src="tableList" class="table table-striped table-bordered ng-table-text stTable">
                                         <thead>
@@ -391,7 +391,7 @@
 </div>
 </div>
 
-<div ng-show="contextFree.testCase.testContext.id == null">
+<div ng-show="cf.testCase.testContext.id == null">
     <div class="col-md-10"> No Profile Selected.</div>
 </div>
 </div>

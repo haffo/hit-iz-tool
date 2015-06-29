@@ -11,104 +11,39 @@
  */
 package gov.nist.hit.iz.service;
 
-import gov.nist.hit.core.domain.Constraints;
-import gov.nist.hit.core.domain.Message;
-import gov.nist.hit.core.domain.Profile;
-import gov.nist.hit.core.domain.Stage;
-import gov.nist.hit.core.domain.TestContext;
-import gov.nist.hit.core.domain.TestStep;
-import gov.nist.hit.core.domain.VocabularyLibrary;
-import gov.nist.hit.core.service.ProfileParser;
-import gov.nist.hit.core.service.ValueSetLibrarySerializer;
-import gov.nist.hit.core.service.exception.ProfileParserException;
-import gov.nist.hit.core.service.impl.ValueSetLibrarySerializerImpl;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.io.input.BOMInputStream;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.map.ObjectMapper;
-
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 
 // @Service
 public class CFTestPlanParser extends TestPlanParser {
 
-  public CFTestPlanParser(ProfileParser profileParser, ValueSetLibrarySerializer tableSerializer) {
-    super(profileParser, tableSerializer);
-  }
+  // public CFTestPlanParser() {}
+  //
+  // public List<TestStep> testSteps(String path) throws JsonProcessingException, IOException,
+  // ProfileParserException {
+  // List<TestStep> res = new ArrayList<TestStep>();
+  // ObjectMapper mapper = new ObjectMapper();
+  // JsonNode testPlanObj = mapper.readTree(getContent(path + "/TestPlans.json"));
+  // Iterator<JsonNode> it = testPlanObj.iterator();
+  // while (it.hasNext()) {
+  // JsonNode node = it.next();
+  // TestStep step =
+  // create(path + "/" + node.findValue("name").getTextValue(), node.findValue("position")
+  // .getIntValue());
+  // res.add(step);
+  // }
+  // return res;
+  // }
+  //
+  // private TestStep create(String path, int position) throws IOException, ProfileParserException {
+  // TestStep testCase = null;
+  // String name = path.substring(path.lastIndexOf("/") + 1);
+  // testCase = new TestStep();
+  // testCase.setStage(Stage.CF);
+  // testCase.setName(name);
+  // TestContext testContext = testContext(path);
+  // testCase.setTestContext(testContext);
+  // testCase.setPosition(position);
+  // return testCase;
+  // }
 
-  public List<TestStep> create(String path) throws JsonProcessingException, IOException,
-      ProfileParserException {
-    List<TestStep> res = new ArrayList<TestStep>();
-    ObjectMapper mapper = new ObjectMapper();
-    JsonNode testPlanObj = mapper.readTree(getContent(path + "/TestPlans.json"));
-    Iterator<JsonNode> it = testPlanObj.iterator();
-    while (it.hasNext()) {
-      JsonNode node = it.next();
-      TestStep step =
-          create(path + "/" + node.findValue("name").getTextValue(), node.findValue("position")
-              .getIntValue());
-      res.add(step);
-    }
-    return res;
-  }
-
-  private TestStep create(String path, int position) throws IOException, ProfileParserException {
-    TestStep testCase = null;
-    String name = path.substring(path.lastIndexOf("/") + 1);
-    testCase = new TestStep();
-    testCase.setStage(Stage.CF);
-    testCase.setName(name);
-    TestContext testContext = new TestContext();
-    String allConstraints = getContent(path + "/Constraints.xml");
-
-    Profile p = new Profile(name, name, getContent(path + "/Profile.xml"));
-    p.setJson(parseProfile(p.getXml(), allConstraints));
-    testContext.setProfile(p);
-
-    String message = getContent(path + "/Message.txt");
-    if (message != null) {
-      testContext.setMessage(new Message(name, "", message));
-    }
-
-    if (allConstraints != null) {
-      testContext.setConstraints(new Constraints(allConstraints));
-    }
-
-    VocabularyLibrary vocabLibrary = vocabLibrary(getContent(path + "/ValueSets_Validation.xml"));
-    testContext.setVocabularyLibrary(vocabLibrary);
-
-    testCase.setTestContext(testContext);
-    testCase.setPosition(position);
-    return testCase;
-  }
-
-
-  private VocabularyLibrary vocabLibrary(String content) throws JsonGenerationException,
-      JsonMappingException, IOException {
-    VocabularyLibrary vocabLibrary = new VocabularyLibrary();
-    vocabLibrary.setXml(content);
-    vocabLibrary.setJson(obm.writeValueAsString(new ValueSetLibrarySerializerImpl()
-        .toObject(content)));
-    return vocabLibrary;
-  }
-
-  private String getContent(String path) {
-    try {
-      return IOUtils.toString(new BOMInputStream(CFTestPlanParser.class.getResourceAsStream(path)));
-    } catch (RuntimeException e) {
-      return null;
-    } catch (Exception e) {
-      return null;
-    }
-
-  }
 
 }

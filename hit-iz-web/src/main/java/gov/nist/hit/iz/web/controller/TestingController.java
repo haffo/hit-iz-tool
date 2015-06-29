@@ -13,7 +13,6 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.healthcare.core.validation.message.MessageValidationException;
-import gov.nist.hit.core.hl7v2.service.message.Er7MessageParser;
 import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.exception.MessageParserException;
 import gov.nist.hit.core.service.exception.ProfileParserException;
@@ -56,9 +55,6 @@ public abstract class TestingController {
   protected SoapEnvelopeTestPlanRepository testPlanRepository;
 
   @Autowired
-  protected Er7MessageParser er7MessageParser;
-
-  @Autowired
   protected UserRepository userRepository;
 
   public SoapEnvelopeTestCaseRepository getTestCaseRepository() {
@@ -69,13 +65,7 @@ public abstract class TestingController {
     this.testCaseRepository = testCaseRepository;
   }
 
-  public Er7MessageParser getEr7MessageParser() {
-    return er7MessageParser;
-  }
 
-  public void setEr7MessageParser(Er7MessageParser er7MessageParser) {
-    this.er7MessageParser = er7MessageParser;
-  }
 
   public SoapEnvelopeTestPlanRepository getTestPlanRepository() {
     return testPlanRepository;
@@ -154,7 +144,7 @@ public abstract class TestingController {
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   public String profileParserExeption(ProfileParserException ex) {
     logger.debug(ex.getMessage());
-    return "Sorry, profile cannot be parsed.\n";
+    return "Sorry, integrationProfile cannot be parsed.\n";
   }
 
   @ExceptionHandler(SoapValidationReportException.class)

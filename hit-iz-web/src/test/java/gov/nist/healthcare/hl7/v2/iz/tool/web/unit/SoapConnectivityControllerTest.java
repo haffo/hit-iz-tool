@@ -39,7 +39,7 @@ public class SoapConnectivityControllerTest {
   // }
   //
   // /**
-  // * Get a profile model as json
+  // * Get a integrationProfile model as json
   // *
   // * @throws Exception
   // */

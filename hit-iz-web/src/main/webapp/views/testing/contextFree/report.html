@@ -1,6 +1,6 @@
-<div ng-controller="ContextFreeReportCtrl" ng-init="init()">
+<div ng-controller="CFReportCtrl" ng-init="init()">
 <div class="row" style="margin-top: 20px">
-<div ng-show="contextFree.testCase.id != null">
+<div ng-show="cf.testCase.id != null">
 
 <div class="col-md-10">
 <div ng-show="!loading">
@@ -12,7 +12,7 @@
 <!--</div>-->
 <!--<div class="panel-body">-->
 
-<div ng-show="contextFree.report.metaData != null && contextFree.report.result != null" class="cf-report">
+<div ng-show="cf.report.metaData != null && cf.report.result != null" class="cf-report">
 <!--<button type="button" class="btn btn-xs btn-info" ng-click="download()"-->
 <!--disabled="{{currentMessage.content === null || currentMessage.content === ''}}">-->
 <!--<span class="glyphicon glyphicon-save">Download</span>-->
@@ -39,9 +39,9 @@
         <tbody class="cf-tbody">
         <tr>
             <td>
-                <span class="maintitle">{{contextFree.report.metaData.reportHeader.title}}</span>
+                <span class="maintitle">{{cf.report.metaData.reportHeader.title}}</span>
             </td>
-            <td align="right" style="font-weight:bold"> Date: {{contextFree.report.metaData.reportHeader.date | date:'medium'}}</td>
+            <td align="right" style="font-weight:bold"> Date: {{cf.report.metaData.reportHeader.date | date:'medium'}}</td>
         </tr>
         </tbody>
     </table>
@@ -53,7 +53,7 @@
         <tbody class="cf-tbody">
         <tr>
             <td class="row1 border_right">Validation Type</td>
-            <td class="row2">{{contextFree.report.metaData.validationTypeHeader.type}}</td>
+            <td class="row2">{{cf.report.metaData.validationTypeHeader.type}}</td>
         </tr>
 
         </tbody>
@@ -66,11 +66,11 @@
         <tr class="border_bottom">
             <td class="row1 border_right" valign="top" rowspan="2">Testing Tool</td>
             <td class="row2 border_right">Name</td>
-            <td class="row3">{{contextFree.report.metaData.toolHeader.name}}</td>
+            <td class="row3">{{cf.report.metaData.toolHeader.name}}</td>
         </tr>
         <tr class="border_bottom">
             <td class="row2 border_right">Version</td>
-            <td class="row3">{{contextFree.report.metaData.toolHeader.version}}</td>
+            <td class="row3">{{cf.report.metaData.toolHeader.version}}</td>
         </tr>
         </tbody>
     </table>
@@ -82,27 +82,27 @@
         <tr class="border_bottom">
             <td class="row1 border_right" valign="top" rowspan="6">Profile</td>
             <td class="row2 border_right dark-gray">Name</td>
-            <td class="row3">{{contextFree.report.metaData.profileHeader.name}}</td>
+            <td class="row3">{{cf.report.metaData.profileHeader.name}}</td>
         </tr>
         <tr class="border_bottom">
             <td class="row2 border_right dark-gray">Organization</td>
-            <td class="row3">{{contextFree.report.metaData.profileHeader.organization}}</td>
+            <td class="row3">{{cf.report.metaData.profileHeader.organization}}</td>
         </tr>
         <tr class="border_bottom">
             <td class="row2 border_right dark-gray">Type</td>
-            <td class="row3">{{contextFree.report.metaData.profileHeader.type}}</td>
+            <td class="row3">{{cf.report.metaData.profileHeader.type}}</td>
         </tr>
         <tr class="border_bottom">
             <td class="row2 border_right dark-gray">Profile Version</td>
-            <td class="row3">{{contextFree.report.metaData.profileHeader.profileVersion}}</td>
+            <td class="row3">{{cf.report.metaData.profileHeader.profileVersion}}</td>
         </tr>
         <tr class="border_bottom">
             <td class="row2 border_right dark-gray">Profile Date</td>
-            <td class="row3">{{contextFree.report.metaData.profileHeader.profileDate}}</td>
+            <td class="row3">{{cf.report.metaData.profileHeader.profileDate}}</td>
         </tr>
         <tr class="border_bottom">
             <td class="row2 border_right dark-gray">Standard</td>
-            <td class="row3">{{contextFree.report.metaData.profileHeader.standard}}</td>
+            <td class="row3">{{cf.report.metaData.profileHeader.standard}}</td>
         </tr>
         </tbody>
     </table>
@@ -116,7 +116,7 @@
         <tr>
             <td class="row1 border_right" valign="top" rowspan="1">Message </td>
             <td class="row2 border_right dark-gray">Encoding</td>
-            <td class="row3">{{contextFree.report.metaData.messageHeader.encoding}}</td>
+            <td class="row3">{{cf.report.metaData.messageHeader.encoding}}</td>
         </tr>
         </tbody>
     </table>
@@ -130,24 +130,24 @@
         </tr>
         <tr class="border_bottom">
             <td class="row6 border_right">Errors</td>
-            <td class="row2" style="color: red; font-weight: bold">{{contextFree.report.metaData.summaryHeader.errorCount}}</td>
+            <td class="row2" style="color: red; font-weight: bold">{{cf.report.metaData.summaryHeader.errorCount}}</td>
         </tr>
         <tr class="border_bottom">
             <td class="row6 border_right">Alerts</td>
-            <td class="row2" style="color: maroon; font-weight: bold">{{contextFree.report.metaData.summaryHeader.alertCount}}</td>
+            <td class="row2" style="color: maroon; font-weight: bold">{{cf.report.metaData.summaryHeader.alertCount}}</td>
         </tr>
         <tr class="border_bottom">
             <td class="row6 border_right">Warnings</td>
-            <td class="row2" style="color: gold; font-weight: bold">{{contextFree.report.metaData.summaryHeader.warningCount}}</td>
+            <td class="row2" style="color: gold; font-weight: bold">{{cf.report.metaData.summaryHeader.warningCount}}</td>
         </tr>
         <tr class="border_bottom">
             <td class="row6 border_right">Informational</td>
-            <td class="row2" style="color: blue; font-weight: bold">{{contextFree.report.metaData.summaryHeader.informationalCount}}</td>
+            <td class="row2" style="color: blue; font-weight: bold">{{cf.report.metaData.summaryHeader.informationalCount}}</td>
         </tr>
 
         <tr class="border_bottom">
             <td class="row6 border_right">Affirmatives</td>
-            <td class="row2" style="color: green; font-weight: bold">{{contextFree.report.metaData.summaryHeader.affirmativeCount}}</td>
+            <td class="row2" style="color: green; font-weight: bold">{{cf.report.metaData.summaryHeader.affirmativeCount}}</td>
         </tr>
         </tbody>
     </table>
@@ -160,13 +160,13 @@
         <tbody>
         <tr class="row1">
             <td>Validation Errors </td>
-            <td align="right" style="color: red; font-weight: bold"> Count: {{contextFree.report.metaData.summaryHeader.errorCount}} <input type="checkbox" ng-model="checked" ng-init="checked=true"></td>
+            <td align="right" style="color: red; font-weight: bold"> Count: {{cf.report.metaData.summaryHeader.errorCount}} <input type="checkbox" ng-model="checked" ng-init="checked=true"></td>
         </tr>
         </tbody>
     </table>
  
 <span ng-if="checked">
-    <table class="forumline cf-report-category" width="100%" cellspacing="1" cellpadding="2" ng-repeat="category in contextFree.report.result.errors.categories" ng-hide="$first">
+    <table class="forumline cf-report-category" width="100%" cellspacing="1" cellpadding="2" ng-repeat="category in cf.report.result.errors.categories" ng-hide="$first">
         <tbody>
         <tr>
             <td class="row5 border_bottom" colspan="4">{{category.title}}</td>
@@ -213,12 +213,12 @@
         <tbody>
         <tr class="row1">
             <td>Validation Alerts </td>
-            <td align="right" style="color: maroon; font-weight: bold">Count: {{contextFree.report.metaData.summaryHeader.alertCount}} <input type="checkbox" ng-model="checked1" ng-init="checked1=true"></td>
+            <td align="right" style="color: maroon; font-weight: bold">Count: {{cf.report.metaData.summaryHeader.alertCount}} <input type="checkbox" ng-model="checked1" ng-init="checked1=true"></td>
         </tr>
         </tbody>
     </table>
     <span ng-if="checked1">
-    <table class="forumline cf-report-category" width="100%" cellspacing="1" cellpadding="2" ng-repeat="category in contextFree.report.result.alerts.categories" ng-hide="$first">
+    <table class="forumline cf-report-category" width="100%" cellspacing="1" cellpadding="2" ng-repeat="category in cf.report.result.alerts.categories" ng-hide="$first">
         <tbody>
         <tr>
             <td class="row5 border_bottom" colspan="4">{{category.title}}</td>
@@ -257,12 +257,12 @@
         <tbody>
         <tr class="row1">
             <td>Validation Warnings </td>
-            <td align="right" style="color: gold; font-weight: bold">Count: {{contextFree.report.metaData.summaryHeader.warningCount}} <input type="checkbox" ng-model="checked2" ng-init="checked2=true">
+            <td align="right" style="color: gold; font-weight: bold">Count: {{cf.report.metaData.summaryHeader.warningCount}} <input type="checkbox" ng-model="checked2" ng-init="checked2=true">
         </td></tr>
         </tbody>
     </table>
     <span ng-if="checked2">
-    <table class="forumline cf-report-category" width="100%" cellspacing="1" cellpadding="2" ng-repeat="category in contextFree.report.result.warnings.categories" ng-hide="$first">
+    <table class="forumline cf-report-category" width="100%" cellspacing="1" cellpadding="2" ng-repeat="category in cf.report.result.warnings.categories" ng-hide="$first">
          <tbody>
         <tr>
             <td class="row5 border_bottom" colspan="4">{{category.title}}</td>
@@ -303,12 +303,12 @@
         <tbody>
         <tr class="row1">
             <td>Validation Informational </td>
-            <td align="right" style="color: blue; font-weight: bold">Count: {{contextFree.report.metaData.summaryHeader.informationalCount}} <input type="checkbox" ng-model="checked3" ng-init="checked3=true"></td>
+            <td align="right" style="color: blue; font-weight: bold">Count: {{cf.report.metaData.summaryHeader.informationalCount}} <input type="checkbox" ng-model="checked3" ng-init="checked3=true"></td>
         </tr>
         </tbody>
     </table>
     <span ng-if="checked3">
-    <table class="forumline cf-report-category" width="100%" cellspacing="1" cellpadding="2" ng-repeat="category in contextFree.report.result.informationals.categories" ng-hide="$first">
+    <table class="forumline cf-report-category" width="100%" cellspacing="1" cellpadding="2" ng-repeat="category in cf.report.result.informationals.categories" ng-hide="$first">
          <tbody>
         <tr>
             <td class="row5 border_bottom" colspan="4">{{category.title}}</td>
@@ -349,12 +349,12 @@
         <tbody>
         <tr class="row1">
             <td>Validation Affirmatives </td>
-            <td align="right" style="color: green; font-weight: bold">Count: {{contextFree.report.metaData.summaryHeader.affirmativeCount}} <input type="checkbox" ng-model="checked4" ng-init="checked4=true"></td>
+            <td align="right" style="color: green; font-weight: bold">Count: {{cf.report.metaData.summaryHeader.affirmativeCount}} <input type="checkbox" ng-model="checked4" ng-init="checked4=true"></td>
         </tr>
         </tbody>
     </table>
     <span ng-if="checked4">
-    <table class="forumline cf-report-category" width="100%" cellspacing="1" cellpadding="2" ng-repeat="category in contextFree.report.result.affirmatives.categories" ng-hide="$first">
+    <table class="forumline cf-report-category" width="100%" cellspacing="1" cellpadding="2" ng-repeat="category in cf.report.result.affirmatives.categories" ng-hide="$first">
         <tbody>
         <tr>
             <td class="row5 border_bottom" colspan="4">{{category.title}}</td>
@@ -395,7 +395,7 @@
 
 </div>
 
-<div ng-hide="contextFree.report.metaData != null && contextFree.report.result != null">
+<div ng-hide="cf.report.metaData != null && cf.report.result != null">
     No report generated.
 </div>
 </div>
@@ -417,6 +417,6 @@
 </div>
 
 
-<div ng-show="contextFree.testCase.id == null">
+<div ng-show="cf.testCase.id == null">
     No Profile Selected.
 </div>

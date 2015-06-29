@@ -28,13 +28,13 @@ public class DomainObjectCreator {
   // return tableLibrary;
   // }
   //
-  // public Profile getProfile() throws IOException {
-  // Profile profile = new Profile();
-  // profile.setId(new Random().nextLong());
-  // profile.setName("Profile-ELR");
-  // profile.setXml(IOUtils.toString(DomainObjectCreator.class
+  // public IntegrationProfile getProfile() throws IOException {
+  // IntegrationProfile integrationProfile = new IntegrationProfile();
+  // integrationProfile.setId(new Random().nextLong());
+  // integrationProfile.setName("IntegrationProfile-ELR");
+  // integrationProfile.setXml(IOUtils.toString(DomainObjectCreator.class
   // .getResourceAsStream("/profiles/ELR.xml")));
-  // return profile;
+  // return integrationProfile;
   // }
   //
   // public Message getMessage() throws IOException {

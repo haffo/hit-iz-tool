@@ -20,7 +20,7 @@ public class MessageContentNotFoundException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
 	public MessageContentNotFoundException(Long tcaseId) {
-		super("Profile '" + tcaseId + "' not found.");
+		super("IntegrationProfile '" + tcaseId + "' not found.");
 	}
 
 	public MessageContentNotFoundException(String error) {

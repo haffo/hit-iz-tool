@@ -12,14 +12,16 @@
 
 package gov.nist.hit.iz.web.controller;
 
+import gov.nist.healthcare.core.MalformedMessageException;
+import gov.nist.hit.core.domain.MessageCommand;
 import gov.nist.hit.core.hl7v2.service.message.Er7MessageParser;
 import gov.nist.hit.core.service.exception.MessageException;
-import gov.nist.hit.iz.web.model.Er7MessageCommand;
-import gov.nist.hit.iz.web.model.MessageCommand;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,35 +29,33 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author Harold Affo (NIST)
  * 
  */
-@RequestMapping("/messages")
+@RequestMapping("/message")
 @RestController
 public class MessageController extends TestingController {
   static final Logger logger = LoggerFactory.getLogger(MessageController.class);
 
-  @Autowired
   private Er7MessageParser er7MessageParser;
 
-  @Override
   public Er7MessageParser getEr7MessageParser() {
     return er7MessageParser;
   }
 
-  @Override
   public void setEr7MessageParser(Er7MessageParser er7MessageParser) {
     this.er7MessageParser = er7MessageParser;
   }
 
-  @RequestMapping(value = "/downloadContent", method = RequestMethod.POST)
+  @RequestMapping(value = "/download", method = RequestMethod.POST)
   public String download(MessageCommand command, HttpServletRequest request,
       HttpServletResponse response) throws MessageException {
     try {
@@ -71,12 +71,32 @@ public class MessageController extends TestingController {
     return null;
   }
 
-  public static String getMessageContent(Er7MessageCommand command) throws MessageException {
-    String message = command.getEr7Message();
-    if (message == null) {
-      throw new MessageException("No Message provided in the request");
+
+  /**
+   * 
+   * @param part
+   * @return
+   * @throws MessageException
+   * @throws MalformedMessageException
+   */
+  @RequestMapping(value = "/upload", method = RequestMethod.POST,
+      consumes = {"multipart/form-data"})
+  public Map<String, String> upload(@RequestPart("file") MultipartFile part)
+      throws MessageException {
+    try {
+      Map<String, String> map = new HashMap<String, String>();
+      InputStream in = part.getInputStream();
+      map.put("name", part.getName());
+      map.put("size", part.getSize() + "");
+      String content = IOUtils.toString(in);
+      map.put("content", content);
+      return map;
+    } catch (IOException e) {
+      throw new MessageException(e);
     }
-    return message;
+
   }
+
+
 
 }

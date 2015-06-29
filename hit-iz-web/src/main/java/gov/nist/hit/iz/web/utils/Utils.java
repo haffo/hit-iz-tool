@@ -13,12 +13,9 @@
 package gov.nist.hit.iz.web.utils;
 
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.domain.Profile;
-import gov.nist.hit.core.service.exception.MessageException;
+import gov.nist.hit.core.domain.IntegrationProfile;
 import gov.nist.hit.core.service.exception.ProfileException;
 import gov.nist.hit.iz.service.exception.MessageContentNotFoundException;
-import gov.nist.hit.iz.web.model.MessageModelRequest;
-import gov.nist.hit.iz.web.model.MessageValidationRequest;
 
 /**
  * @author Harold Affo(NIST)
@@ -26,27 +23,11 @@ import gov.nist.hit.iz.web.model.MessageValidationRequest;
  */
 public class Utils {
 
-  public static String getContent(Profile profile) throws ProfileException {
-    if (profile == null || "".equals(profile.getXml())) {
-      throw new ProfileException("Not profile found in the request");
+  public static String getContent(IntegrationProfile integrationProfile) throws ProfileException {
+    if (integrationProfile == null || "".equals(integrationProfile.getXml())) {
+      throw new ProfileException("Not integrationProfile found in the request");
     }
-    return profile.getXml();
-  }
-
-  public static String getMessageContent(MessageValidationRequest command) throws MessageException {
-    String message = command.getEr7Message();
-    if (message == null || "".equals(message)) {
-      throw new MessageException(new ProfileException("Not message found in the request"));
-    }
-    return message;
-  }
-
-  public static String getMessageContent(MessageModelRequest command) throws MessageException {
-    String message = command.getEr7Message();
-    if (message == null) {
-      throw new MessageException("No Message provided in the request");
-    }
-    return message;
+    return integrationProfile.getXml();
   }
 
   public static String getContent(Command request) {

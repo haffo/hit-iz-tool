@@ -5,9 +5,9 @@ angular.module('hl7', []);
 angular.module('commonServices', []);
 angular.module('common', ['ngResource', 'my.resource', 'xml', 'hl7']);
 angular.module('soap', ['common']);
-angular.module('contextFree', ['common']);
+angular.module('cf', ['common']);
 angular.module('doc', ['common']);
-angular.module('contextBased', ['common']);
+angular.module('cb', ['common']);
 angular.module('envelope', ['soap']);
 angular.module('connectivity', ['soap']);
 angular.module('profile-viewer', ['common']);
@@ -30,8 +30,8 @@ var app = angular.module('tool', [
     'hl7',
     'envelope',
     'connectivity',
-    'contextFree',
-    'contextBased',
+    'cf',
+    'cb',
     'profile-viewer',
     'ngTreetable',
     'blueimp.fileupload',
@@ -262,7 +262,7 @@ angular.module('tool-services').factory('AppInfo', ['$http', '$q', function ($ht
 
 angular.module('tool-services').controller('TableFoundCtrl', function ($scope, $modalInstance, table) {
     $scope.table = table;
-    $scope.tmpTableElements = [].concat(table != null ? table.tableElements : []);
+    $scope.tmpTableElements = [].concat(table != null ? table.valueSetElements : []);
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
