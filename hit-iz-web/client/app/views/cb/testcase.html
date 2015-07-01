@@ -38,47 +38,24 @@
                             <span style="font-size: 20px;font-weight: bold">
                                {{selectedTestCase.type}}: {{selectedTestCase.name}}
                             </span>
-
-                            <!--<span ng-show=" selectedTestCase.type!=='TestPlan'">-->
-                                <!--{{selectedTestCase.parentName}} > {{selectedTestCase.label}}-->
-                            <!--</span>-->
-
-                             <!--<span ng-show=" selectedTestCase.type==='TestPlan'">-->
-                                <!--{{selectedTestCase.label}}-->
-                            <!--</span>-->
-
-                            <!--<span class="pull-right"-->
-                                  <!--ng-show=" selectedTestCase.type==='TestPlan'">-->
-                                <!--<button title="Download Test Procedure" type="button" class="btn btn-xs btn-primary"-->
-                                         <!--ng-click="selectedTestCase.downloadTestProcedure()">-->
-                                    <!--<i class="fa fa-download"></i>-->
-                                    <!--Download Test Procedure-->
-                                <!--</button>-->
-                            <!--</span>-->
-
-                            <!--<span class="pull-right"-->
-                                  <!--ng-show="selectedTestCase.type==='TestCase' && selectedTestCase.testPackage != null">-->
-                                <!--<button title="Download Test Package" type="button" class="btn btn-xs btn-primary"-->
-                                         <!--ng-click="selectedTestCase.downloadTestPackage()">-->
-                                    <!--<i class="fa fa-download"></i>-->
-                                    <!--Download Package-->
-                                <!--</button>-->
-                             <!--</span>-->
-
-                            <span class="pull-right"
-                                  ng-show="selectedTestCase.testContext && selectedTestCase.testContext !== null">
+                            <span class="pull-right" ng-show=" selectedTestCase.type==='TestCase' && selectedTestCase.category === 'Isolated' ">
+                                  <button title="Start Test" type="button" class="btn btn-sm btn-success"
+                                          ng-click="loadTestCase()">
+                                      <i class="fa fa-play"></i>Start
+                                  </button>
+                            </span>
+                            <span class="pull-right" ng-show="selectedTestCase.type === 'TestStep' && selectedTestCase.category === 'DataInstance'">
                                 <!--<button title="Download Test Package" type="button" class="btn btn-xs btn-primary"-->
                                          <!--ng-show="selectedTestCase.testPackage != null"-->
                                          <!--ng-click="selectedTestCase.downloadTestPackage()">-->
                                     <!--<i class="fa fa-download"></i>-->
                                     <!--Download Package-->
                                 <!--</button>-->
-                                <button title="Start TestCase" type="button" class="btn btn-sm btn-success"
-                                         ng-click="loadTestCase()">
+                                <button title="Start Test" type="button" class="btn btn-sm btn-success"
+                                        ng-click="loadTestCase()">
                                     <i class="fa fa-play"></i>Start
                                 </button>
                              </span>
-
                         </div>
                         <div class="panel-body">
 

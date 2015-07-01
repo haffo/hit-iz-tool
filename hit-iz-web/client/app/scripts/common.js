@@ -2,142 +2,142 @@
  * Created by haffo on 11/20/14.
  */
 
-
-angular.module('commonServices').factory('TestCase', function ($http, TestContext, $q) {
-    var TestCase = function () {
-        this.id = null;
-        this.sutType = null;
-        this.label = "";
-        this.parentName = "";
-        this.testStory = {};
-        this.updateIndicator = '0';
-        this.testPackagePath = null;
-        this.testProcedurePath = null;
-        this.instructionsText = null;
-        this.instructionsImage = null;
-        this.messageContentImage = null;
-        this.testDataSpecificationImage = null;
-        this.testDataSpecificationImage2 = null;
-    };
-
-    TestCase.prototype.init = function (newTestCase) {
-        if (newTestCase) {
-            this.id = newTestCase.id;
-            this.sutType = newTestCase.sutType;
-            this.testType = newTestCase.testType;
-            this.label = newTestCase.label;
-            this.parentName = newTestCase.testPlan != undefined ? newTestCase.testPlan.label : newTestCase.parentName;
-            this.testStory = newTestCase.testStory;
-            this.testPackagePath = newTestCase.testPackagePath;
-            this.testProcedurePath = newTestCase.testProcedurePath;
-            this.instructionsText = newTestCase.instructionsText;
-            this.instructionsImage = newTestCase.instructionsImage;
-            this.messageContentImage = newTestCase.messageContentImage;
-            this.testDataSpecificationImage = newTestCase.testDataSpecificationImage;
-            this.testDataSpecificationImage2 = newTestCase.testDataSpecificationImage2;
-            this.type = newTestCase.type;
-            this.notifyChange();
-        }
-    };
-
-
-    TestCase.prototype.clear = function () {
-        this.id = null;
-        this.sutType = null;
-        this.testType = null;
-        this.label = null;
-        this.parentName = null;
-        this.testStory = {};
-        this.testPackagePath = null;
-        this.testProcedurePath = null;
-        this.instructionsText = null;
-        this.instructionsImage = null;
-        this.messageContentImage = null;
-        this.testDataSpecificationImage = null;
-        this.testDataSpecificationImage2 = null;
-        this.type = null;
-        this.notifyChange();
-    };
-
-
-    TestCase.prototype.notifyChange = function () {
-        this.updateIndicator = new Date().getTime();
-    };
-
-    TestCase.prototype.downloadTestPackage = function () {
-        if (this.id != null) {
-            var self = this;
-            var form = document.createElement("form");
-            form.action = "api/testCases/" + self.id + "/testPackage";
-            form.method = "POST";
-            form.target = "_target";
-            form.style.display = 'none';
-            document.body.appendChild(form);
-            form.submit();
-        }
-    };
-
-    TestCase.prototype.downloadTestProcedure = function () {
-        if (this.id != null) {
-            var self = this;
-            var form = document.createElement("form");
-            form.action = "api/testPlans/" + self.id + "/testProcedure";
-            form.method = "POST";
-            form.target = "_target";
-            form.style.display = 'none';
-            document.body.appendChild(form);
-            form.submit();
-        }
-    };
-
-
-    return TestCase;
-});
-
-
-angular.module('commonServices').factory('TestStep', function ($http, $q) {
-    var TestStep = function () {
-        this.id = null;
-        this.label = "";
-        this.parentName = "";
-        this.testStory = {};
-        this.description = null;
-        this.dataSheetHtmlPath = null;
-        this.dataSheetPdfPath = null;
-    };
-
-    TestStep.prototype.init = function (testStep) {
-        if (testStep) {
-            this.id = testStep.id;
-            this.label = testStep.label;
-            this.type = testStep.type;
-            this.parentName = testStep.parentName;
-            this.testStory = testStep.testStory;
-            this.description = testStep.description;
-            this.dataSheetHtmlPath = testStep.dataSheetHtmlPath;
-            this.dataSheetPdfPath = testStep.dataSheetPdfPath;
-        }
-    };
-
-    return TestStep;
-});
+//
+//angular.module('commonServices').factory('TestCase', function ($http, TestContext, $q) {
+//    var TestCase = function () {
+//        this.id = null;
+//        this.sutType = null;
+//        this.label = "";
+//        this.parentName = "";
+//        this.testStory = {};
+//        this.updateIndicator = '0';
+//        this.testPackagePath = null;
+//        this.testProcedurePath = null;
+//        this.instructionsText = null;
+//        this.instructionsImage = null;
+//        this.messageContentImage = null;
+//        this.testDataSpecificationImage = null;
+//        this.testDataSpecificationImage2 = null;
+//    };
+//
+//    TestCase.prototype.init = function (newTestCase) {
+//        if (newTestCase) {
+//            this.id = newTestCase.id;
+//            this.sutType = newTestCase.sutType;
+//            this.testType = newTestCase.testType;
+//            this.label = newTestCase.label;
+//            this.parentName = newTestCase.testPlan != undefined ? newTestCase.testPlan.label : newTestCase.parentName;
+//            this.testStory = newTestCase.testStory;
+//            this.testPackagePath = newTestCase.testPackagePath;
+//            this.testProcedurePath = newTestCase.testProcedurePath;
+//            this.instructionsText = newTestCase.instructionsText;
+//            this.instructionsImage = newTestCase.instructionsImage;
+//            this.messageContentImage = newTestCase.messageContentImage;
+//            this.testDataSpecificationImage = newTestCase.testDataSpecificationImage;
+//            this.testDataSpecificationImage2 = newTestCase.testDataSpecificationImage2;
+//            this.type = newTestCase.type;
+//            this.notifyChange();
+//        }
+//    };
+//
+//
+//    TestCase.prototype.clear = function () {
+//        this.id = null;
+//        this.sutType = null;
+//        this.testType = null;
+//        this.label = null;
+//        this.parentName = null;
+//        this.testStory = {};
+//        this.testPackagePath = null;
+//        this.testProcedurePath = null;
+//        this.instructionsText = null;
+//        this.instructionsImage = null;
+//        this.messageContentImage = null;
+//        this.testDataSpecificationImage = null;
+//        this.testDataSpecificationImage2 = null;
+//        this.type = null;
+//        this.notifyChange();
+//    };
+//
+//
+//    TestCase.prototype.notifyChange = function () {
+//        this.updateIndicator = new Date().getTime();
+//    };
+//
+//    TestCase.prototype.downloadTestPackage = function () {
+//        if (this.id != null) {
+//            var self = this;
+//            var form = document.createElement("form");
+//            form.action = "api/testCases/" + self.id + "/testPackage";
+//            form.method = "POST";
+//            form.target = "_target";
+//            form.style.display = 'none';
+//            document.body.appendChild(form);
+//            form.submit();
+//        }
+//    };
+//
+//    TestCase.prototype.downloadTestProcedure = function () {
+//        if (this.id != null) {
+//            var self = this;
+//            var form = document.createElement("form");
+//            form.action = "api/testPlans/" + self.id + "/testProcedure";
+//            form.method = "POST";
+//            form.target = "_target";
+//            form.style.display = 'none';
+//            document.body.appendChild(form);
+//            form.submit();
+//        }
+//    };
+//
+//
+//    return TestCase;
+//});
 
 
-angular.module('commonServices').factory('TestContext', function ($http, $q) {
-    var TestContext = function () {
-        this.id = null;
-    };
-
-    TestContext.prototype.init = function (newTestContext) {
-        this.id = newTestContext.id;
-    };
-
-    TestContext.prototype.clear = function () {
-        this.id = null;
-    };
-
-    return TestContext;
-});
+//angular.module('commonServices').factory('TestStep', function ($http, $q) {
+//    var TestStep = function () {
+//        this.id = null;
+//        this.label = "";
+//        this.parentName = "";
+//        this.testStory = {};
+//        this.description = null;
+//        this.dataSheetHtmlPath = null;
+//        this.dataSheetPdfPath = null;
+//    };
+//
+//    TestStep.prototype.init = function (testStep) {
+//        if (testStep) {
+//            this.id = testStep.id;
+//            this.label = testStep.label;
+//            this.type = testStep.type;
+//            this.parentName = testStep.parentName;
+//            this.testStory = testStep.testStory;
+//            this.description = testStep.description;
+//            this.dataSheetHtmlPath = testStep.dataSheetHtmlPath;
+//            this.dataSheetPdfPath = testStep.dataSheetPdfPath;
+//        }
+//    };
+//
+//    return TestStep;
+//});
+//
+//
+//angular.module('commonServices').factory('TestContext', function ($http, $q) {
+//    var TestContext = function () {
+//        this.id = null;
+//    };
+//
+//    TestContext.prototype.init = function (newTestContext) {
+//        this.id = newTestContext.id;
+//    };
+//
+//    TestContext.prototype.clear = function () {
+//        this.id = null;
+//    };
+//
+//    return TestContext;
+//});
 
 angular.module('commonServices').factory('Editor', function ($http, $q) {
     var Editor = function () {
@@ -772,205 +772,6 @@ angular.module('commonServices').factory('DQAMessageValidator', function ($http,
     return DQAMessageValidator;
 });
 
-
-angular.module('commonServices').factory('VocabularyService', function ($http, $q,$modal) {
-    var VocabularyService = function () {
-        this.valueSetDefinitionsGroups = [];
-    };
-
-    VocabularyService.prototype.searchTableValues = function (searchString, selectionCriteria) {
-        var searchResults = [];
-        if (searchString != null) {
-            if (selectionCriteria === 'TableId') {
-                angular.forEach(this.valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
-                    angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
-                        if (valueSetDefinition.bindingIdentifier && valueSetDefinition.bindingIdentifier.indexOf(searchString) !== -1) {
-                            searchResults.push(valueSetDefinition);
-                        }
-                    });
-                });
-            } else if (selectionCriteria === 'Value') {
-                angular.forEach(this.valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
-                    angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
-                        angular.forEach(valueSetDefinition.valueSetElements, function (valueSetElement) {
-                            if (valueSetElement.value && valueSetElement.value.indexOf(searchString) !== -1) {
-                                searchResults.push(valueSetElement);
-                            }
-                        });
-                    });
-                });
-            } else if (selectionCriteria === 'Description') {
-                angular.forEach(this.valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
-                    angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
-                        angular.forEach(valueSetDefinition.valueSetElements, function (valueSetElement) {
-                            if (valueSetElement.displayName && valueSetElement.displayName.indexOf(searchString) !== -1) {
-                                searchResults.push(valueSetElement);
-                            }
-                        });
-                    });
-                });
-            } else if (selectionCriteria === 'ValueSetCode') {
-                angular.forEach(this.valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
-                    angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
-                        if (valueSetDefinition.codeSystem && valueSetDefinition.codeSystem.indexOf(searchString) !== -1) {
-                            searchResults.push(valueSetDefinition);
-                        }
-                    });
-                });
-            } else if (selectionCriteria === 'ValueSetName') {
-                angular.forEach(this.valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
-                    angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
-                        if (valueSetDefinition.name && valueSetDefinition.name.indexOf(searchString) !== -1) {
-                            searchResults.push(valueSetDefinition);
-                        }
-                    });
-                });
-            }
-        }
-        return searchResults;
-    };
-
-    VocabularyService.prototype.searchTablesById = function (bindingIdentifier) {
-        var valueSetDefinitions = [];
-        angular.forEach(this.valueSetDefinitionsGroups, function (valueSetDefinitionsGroup) {
-            angular.forEach(valueSetDefinitionsGroup.children, function (valueSetDefinition) {
-                if (valueSetDefinition.bindingIdentifier && valueSetDefinition.bindingIdentifier.indexOf(bindingIdentifier) !== -1) {
-                    valueSetDefinitions.push(valueSetDefinition);
-                }
-            });
-        });
-
-        return valueSetDefinitions;
-    };
-
-    VocabularyService.prototype.getValueSetDefinitionGroups = function (all, valueSetIds) {
-        this.valueSetDefinitionGroups = [];
-        var that = this;
-        angular.forEach(all, function (valueSetDefinition) {
-            if (valueSetIds.indexOf(valueSetDefinition.bindingIdentifier) !== -1) {
-                var found = that.findValueSetDefinitions(valueSetDefinition.displayClassifier, that.valueSetDefinitionGroups);
-                if (found === null) {
-                    found = angular.fromJson({"name": valueSetDefinition.displayClassifier, "children": []});
-                    that.valueSetDefinitionGroups.push(found);
-                }
-                valueSetDefinition.valueSetElements = $filter('orderBy')(valueSetDefinition.valueSetElements, 'value');
-                found.children.push(valueSetDefinition);
-            }
-        });
-        return this.valueSetDefinitionGroups;
-    };
-
-    VocabularyService.prototype.findValueSetDefinitions = function (classifier) {
-        var res = null;
-        angular.forEach(this.valueSetDefinitionGroups, function (child) {
-            if (res === null) {
-                if (child.name === classifier) {
-                    res = child;
-                }
-            }
-        });
-        return res;
-    };
-
-    VocabularyService.prototype.showValueSetDefinition = function(tableId){
-        var tables = this.searchTablesById(tableId, this.valueSetDefinitionGroups);
-        var t = tables.length > 0 ? tables[0] : null;
-        if (t != null) {
-            var modalInstance = $modal.open({
-                templateUrl: 'TableFoundCtrl.html',
-                controller: 'TableFoundCtrl',
-                windowClass: 'app-modal-window',
-                resolve: {
-                    table: function () {
-                        return t;
-                    }
-                }
-            });
-        }
-    };
-
-    return VocabularyService;
-
-});
-
-
-angular.module('commonServices').factory('ProfileService', function ($http, $q, $filter) {
-    var ProfileService = function () {
-    };
-
-
-    ProfileService.prototype.getValueSetIds = function (segments, datatypes) {
-        var valueSetIds = [];
-        angular.forEach(segments, function (segment) {
-            angular.forEach(segment.children, function (field) {
-                if (field.table && valueSetIds.indexOf(field.table) === -1) {
-                    valueSetIds.push(field.table);
-                }
-            });
-        });
-        angular.forEach(datatypes, function (datatype) {
-            angular.forEach(datatype.children, function (component) {
-                if (component.table && valueSetIds.indexOf(component.table) === -1) {
-                    valueSetIds.push(component.table);
-                }
-                if (component.children && component.children.length > 0) {
-                    angular.forEach(component.children, function (subcomponent) {
-                        if (subcomponent.table && valueSetIds.indexOf(subcomponent.table) === -1) {
-                            valueSetIds.push(subcomponent.table);
-                        }
-                        if (subcomponent.children && subcomponent.children.length > 0) {
-                            angular.forEach(subcomponent.children, function (subcomponent2) {
-                                if (subcomponent2.table && valueSetIds.indexOf(subcomponent2.table) === -1) {
-                                    valueSetIds.push(subcomponent2.table);
-                                }
-                            });
-                        }
-                    });
-                }
-            });
-        });
-        return valueSetIds;
-    };
-
-    ProfileService.prototype.setDatatypesTypesAndIcons = function (datatypes) {
-        if (datatypes !== null) {
-            var that = this;
-            angular.forEach(datatypes.children, function (datatype) {
-                if (datatype.children.length > 0) {
-                    angular.forEach(datatype.children, function (component) {
-                        that.setComponentTypesAndIcons(component);
-                    });
-                }
-            });
-        }
-    };
-    ProfileService.prototype.setComponentTypesAndIcons = function (component) {
-        component.type = "COMPONENT";
-        component.icon = "component.png";
-        var that = this;
-        if (component.children.length > 0) {
-            angular.forEach(component.children, function (subcomponent) {
-                that.setSubComponentTypesAndIcons(subcomponent);
-            });
-        }
-    };
-
-    ProfileService.prototype.setSubComponentTypesAndIcons = function (subComponent) {
-        subComponent.type = "SUBCOMPONENT";
-        subComponent.icon = "subcomponent.png";
-        var that = this;
-        if (subComponent.children.length > 0) {
-            angular.forEach(subComponent.children, function (child) {
-                that.setSubComponentTypesAndIcons(child);
-            });
-        }
-    };
-
-    return ProfileService;
-
-});
-
-
 angular.module('commonServices').factory('NewValidationReport', function ($http, $q) {
     var NewValidationReport = function () {
         this.content = {
@@ -1011,83 +812,6 @@ angular.module('commonServices').factory('NewValidationReport', function ($http,
 
 
     return NewValidationReport;
-});
-
-angular.module('commonServices').factory('ValidationResultHighlighter', function ($http, $q, HL7TreeUtils) {
-    var ValidationResultHighlighter = function (failuresConfig, message, report, tree, editor) {
-        this.failuresConfig = failuresConfig;
-        this.histMarksMap = {};
-        this.message = message;
-        this.report = report;
-        this.tree = tree;
-        this.editor = editor;
-    };
-
-    ValidationResultHighlighter.prototype.getHistMarksMap = function () {
-        return this.histMarksMap;
-    };
-
-    ValidationResultHighlighter.prototype.hideFailures = function (hitMarks) {
-        if (hitMarks && hitMarks.length > 0) {
-            for (var i = 0; i < hitMarks.length; i++) {
-                hitMarks[i].clear();
-            }
-            hitMarks.length = 0;
-        }
-    };
-
-    ValidationResultHighlighter.prototype.hideAllFailures = function () {
-        this.hideFailures(this.histMarksMap['errors']);
-        this.hideFailures(this.histMarksMap['warnings']);
-        this.hideFailures(this.histMarksMap['affirmatives']);
-        this.hideFailures(this.histMarksMap['informationals']);
-        this.hideFailures(this.histMarksMap['alerts']);
-    };
-
-
-    ValidationResultHighlighter.prototype.showFailures = function (type, event) {
-        if (angular.element(event.currentTarget).prop('tagName') === 'INPUT') {
-            event.stopPropagation();
-        }
-        if (this.report && this.tree.root) {
-            var failures = this.report["result"][type]["categories"][0].data;
-            var colorClass = this.failuresConfig[type].className;
-            var checked = this.failuresConfig[type].checked;
-            var hitMarks = this.histMarksMap[type];
-            var root = this.tree.root;
-            var editor = this.editor;
-            var content = this.message.content;
-            var histMarksMap = this.histMarksMap;
-            if (!hitMarks || hitMarks.length === 0) {
-                angular.forEach(failures, function (failure) {
-                    var node = HL7TreeUtils.findByPath(root, failure.line, failure.path);
-                    if (node != null && node.data && node.data != null) {
-                        var endIndex = HL7TreeUtils.getEndIndex(node, content) - 1;
-                        var startIndex = node.data.startIndex - 1;
-                        var line = parseInt(failure.line) - 1;
-                        var markText = editor.instance.doc.markText({
-                            line: line,
-                            ch: startIndex
-                        }, {
-                            line: line,
-                            ch: endIndex
-                        }, {atomic: true, className: colorClass, clearWhenEmpty: true, clearOnEnter: true, title: failure.description
-                        });
-
-                        if (!histMarksMap[type]) {
-                            histMarksMap[type] = [];
-                        }
-                        histMarksMap[type].push(markText);
-                    }
-                });
-            } else {
-                this.hideFailures(this.histMarksMap[type]);
-            }
-        }
-    };
-
-
-    return ValidationResultHighlighter;
 });
 
 

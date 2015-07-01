@@ -32,7 +32,7 @@ angular.module('cb').factory('CFTestCaseListLoader', ['$q','$http',
                     delay.reject(response.data);
                 }
             );
-//
+
 //               $http.get('../../resources/cf/testCases.json').then(
 //                   function (object) {
 //                       delay.resolve(angular.fromJson(object.data));

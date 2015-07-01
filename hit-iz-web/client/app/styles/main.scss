@@ -1160,17 +1160,40 @@ margin-top:2px;
   padding:0px;
 }
 
-.btn-profile {
-  background-color: #e8e8e8;
-  color: #000;
-  cursor: pointer;
+
+
+.btn-cf-outline {
+  border-color: #bce8f1;
+  background-color: #d9edf7;
+  color: #3a87ad;
+  margin-right: 10px;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 1.33;
+  padding: 10px 16px;
 }
 
-.btn-profile-active, .btn-profile:hover {
+.btn-cf-outline.active,.btn-cf-outline:hover,.btn-cf-outline.active:hover {
   background-color: #428bca;
   border-color: #bce8f1;
-  color:  #ffffff;
+  border: 0px;
+  color: white;
 }
+
+
+
+//
+//.btn-profile {
+//  background-color: #e8e8e8;
+//  color: #000;
+//  cursor: pointer;
+//}
+//
+//.btn-profile-active, .btn-profile:hover {
+//  background-color: #428bca;
+//  border-color: #bce8f1;
+//  color:  #ffffff;
+//}
 
 table.cf-profiles tr:hover td {
   background-color: #428bca;

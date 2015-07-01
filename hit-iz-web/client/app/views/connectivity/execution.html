@@ -4,88 +4,6 @@
 <div class="row" ng-show="error != null">
     <div class="alert alert-danger col-sm-12" role="alert" ng-bind="error"></div>
 </div>
-<!--<div class="row" style="margin-top:20px; margin-bottom: 20px" ng-show="alert.message!=null && alert.message != ''">-->
-    <!--<div class="col-sm-12 alert alert-{{alert.type}}" role="alert" ng-bind="alert.message"></div>-->
-<!--</div>-->
-<!--<div class="row"-->
-     <!--ng-show="testCase.sutType === 'SENDER' && testCase.testType !== 'SENDER_CONNECTIVITY'">-->
-    <!--<div class="col-sm-6">-->
-        <!--<div class="page-header"><h3>Assigned Sender Information</h3></div>-->
-        <!--<form name="senderForm" ng-submit="startIncomingListener()" novalidate>-->
-            <!--<div class="form-group">-->
-                <!--<label>Assigned Username</label>-->
-                <!--<input type="text" disabled name="u" class="form-control" ng-model="user.senderUsername">-->
-
-                <!--<p class="help-block">This is the username assigned to you to use in your message</p>-->
-            <!--</div>-->
-
-            <!--<div class="form-group">-->
-                <!--<label>Assigned Password</label>-->
-                <!--<input type="text" class="form-control" name="p"-->
-                       <!--ng-model="user.senderPassword" disabled>-->
-
-                <!--<p class="help-block">This is the password assigned to you to use in your message</p>-->
-            <!--</div>-->
-
-            <!--<div class="form-group">-->
-                <!--<label>Assigned FacilityID</label>-->
-                <!--<input type="text" class="form-control" name="facilityId"-->
-                       <!--ng-model="user.senderFacilityID"  disabled>-->
-                <!--<p class="help-block">This is the facilityID assigned to you to use in your message</p>-->
-            <!--</div>-->
-
-            <!--<div class="form-group"-->
-                 <!--ng-class="{'has-error' : senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine }">-->
-                <!--<label>System Endpoint</label>-->
-                <!--<input type="url" name="endpoint" class="form-control" ng-model="endpoint.value"-->
-                       <!--placeholder="SUT Endpoint" required disabled>-->
-
-                <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">Sorry, an-->
-                    <!--error occured. Please refresh your page</p>-->
-            <!--</div>-->
-
-            <!--<div class="form-group"-->
-                 <!--ng-class="{'has-error' : senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine }">-->
-                <!--<label>System WSDL</label>-->
-                <!--<a ng-href="{{endpoint.value}}.wsdl" class="form-control" target="_blank">{{endpoint.value}}.wsdl</a>-->
-                <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">Sorry, an-->
-                    <!--error occured. Please refresh your page</p>-->
-            <!--</div>-->
-
-            <!--<button type="submit" ng-disabled="senderForm.$invalid || connecting" title="Start listening"-->
-                    <!--class="btn btn-xs btn-success">-->
-                <!--<i class="fa fa-play"></i>-->
-                <!--Start-->
-            <!--</button>-->
-
-            <!--<button type="button" ng-disabled="!connecting" ng-click="stopIncomingListener()"-->
-                    <!--class="btn btn-xs btn-warning"><i class="fa fa-stop"></i>-->
-                <!--Stop-->
-            <!--</button>-->
-            <!--<div>-->
-                <!--<small><em>Time elapsed (seconds)</em></small>-->
-                <!--<progressbar type="info" max="counterMax" value="counter"><span-->
-                        <!--style="color:white; white-space:nowrap;">{{counter}} / {{counterMax}}</span>-->
-                <!--</progressbar>-->
-            <!--</div>-->
-        <!--</form>-->
-    <!--</div>-->
-    <!--<div class="col-sm-6">-->
-        <!--<div class="page-header">-->
-            <!--<h3>Log-->
-                <!--<button title="Clear" type="button" class="pull-right btn btn-xs btn-default"-->
-                        <!--ng-click="logger.clear()">-->
-                    <!--<span class="glyphicon glyphicon-remove"></span>-->
-                <!--</button>-->
-            <!--</h3>-->
-        <!--</div>-->
-        <!--<textarea class="well" wrap="off"-->
-                  <!--style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%" rows="18" disabled-->
-                  <!--ng-model="logger.content"></textarea>-->
-    <!--</div>-->
-<!--</div>-->
-
-
 <div class="row" style="margin-bottom: 10px"
      ng-show="testCase.sutType === 'SENDER' && testCase.testType === 'SENDER_CONNECTIVITY'">
     <div class="col-sm-10">
@@ -114,17 +32,6 @@
                 </table>
             </div>
         </div>
-        <!--<form name="connectivityForm" novalidate>-->
-            <!--<div class="form-group"-->
-                 <!--ng-class="{'has-error' : connectivityForm.endpoint.$invalid && !connectivityForm.endpoint.$pristine }">-->
-                <!--<label>System Endpoint</label>-->
-                <!--<input type="url" name="endpoint" class="form-control" ng-model="endpoint.value"-->
-                       <!--placeholder="SUT Endpoint" required disabled>-->
-
-                <!--<p ng-show="connectivityForm.endpoint.$invalid && !connectivityForm.endpoint.$pristine"-->
-                   <!--class="help-block">Sorry, an error occured. Please refresh your page</p>-->
-            <!--</div>-->
-        <!--</form>-->
     </div>
 </div>
 
@@ -151,19 +58,11 @@
                         >
                     <i class="fa fa-check-circle"></i>Validate
                 </button>
-                <!--<button title="Clear" ng-hide="testCase.sutType == 'SENDER'" type="button"-->
-                        <!--class="btn btn-xs btn-default"-->
-                        <!--ng-click="clearMessage()">-->
-                    <!--<span class="glyphicon glyphicon-remove">Clear</span>-->
-                <!--</button>-->
                 <button title="Download" type="button" class="btn btn-xs btn-primary"
                         ng-disabled="!hasContent()"
                         ng-click="saveMessage()">
                     <i class="fa fa-download"></i>Download
                 </button>
-
-
-
                      <button title="Configure Receiver" type="button" class="btn btn-xs btn-primary"
                              ng-disabled="!hasContent()" ng-show="testCase.sutType == 'RECEIVER'"
                              ng-click="configureReceiver()">

@@ -1,0 +1,25 @@
+<div style="margin-bottom: 20px" ng-controller="CBExecutionCtrl" ng-init="init()">
+    <div ng-show="testCase != null">
+
+        <div class="page-header">
+            <h3>{{testCase.type}}: {{testCase.name}}</h3>
+        </div>
+
+        <div class="row">
+            <div ng-show="error != null">
+                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+            </div>
+        </div>
+
+        <div ng-show="testCase.type === 'TestStep' && testCase.category === 'DataInstance'">
+            <div ng-include="'views/cb/dataInstanceExec.html'"></div>
+        </div>
+
+        <div ng-show="testCase.type === 'TestCase' && testCase.category === 'Isolated'">
+            <div ng-include="'views/cb/isolatedExec.html'"></div>
+        </div>
+
+    </div>
+
+
+</div>

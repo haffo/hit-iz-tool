@@ -10,9 +10,6 @@ angular.module('cb')
         $scope.setActiveTab = function (value) {
             $scope.tabs[0] = false;
             $scope.tabs[1] = false;
-            $scope.tabs[2] = false;
-            $scope.tabs[3] = false;
-            $scope.tabs[4] = false;
             $scope.activeTab = value;
             $scope.tabs[$scope.activeTab] = true;
         };
@@ -38,6 +35,74 @@ angular.module('cb')
         };
 
     }]);
+
+
+
+angular.module('cb')
+    .controller('CBDataInstanceExecutionCtrl', ['$scope', '$window', '$rootScope', function ($scope, $window, $rootScope) {
+        $scope.loading = true;
+        $scope.error = null;
+        $scope.tabs = new Array();
+        $scope.testCase = null;
+        $scope.setActiveTab = function (value) {
+            $scope.tabs[0] = false;
+            $scope.tabs[1] = false;
+            $scope.tabs[2] = false;
+            $scope.tabs[3] = false;
+            $scope.tabs[4] = false;
+            $scope.activeTab = value;
+            $scope.tabs[$scope.activeTab] = true;
+        };
+
+        $scope.getTestType = function () {
+            return $scope.testCase != null ? $scope.testCase.type: '';
+        };
+
+        $scope.init = function () {
+            $scope.error = null;
+            $scope.loading = false;
+            $scope.setActiveTab(0);
+            $rootScope.$on('cb:dataInstanceTestCaseLoaded', function (event, testCase) {
+                $scope.testCase = testCase;
+                $rootScope.$broadcast('cb:profileLoaded', $scope.testCase.testContext.profile);
+                $rootScope.$broadcast('cb:valueSetLibraryLoaded', $scope.testCase.testContext.vocabularyLibrary);
+            });
+        };
+
+    }]);
+
+
+angular.module('cb')
+    .controller('CBIsolatedExecutionCtrl', ['$scope', '$window', '$rootScope',  function ($scope, $window, $rootScope) {
+        $scope.loading = true;
+        $scope.error = null;
+        $scope.tabs = new Array();
+        $scope.testCase = null;
+
+
+        $scope.setActiveTab = function (value) {
+            $scope.tabs[0] = false;
+            $scope.tabs[1] = false;
+            $scope.tabs[2] = false;
+            $scope.tabs[3] = false;
+            $scope.tabs[4] = false;
+            $scope.activeTab = value;
+            $scope.tabs[$scope.activeTab] = true;
+        };
+
+        $scope.init = function () {
+            $scope.error = null;
+            $scope.loading = false;
+            $scope.setActiveTab(0);
+            $rootScope.$on('cb:isolatedTestCaseLoaded', function (event, testCase) {
+                $scope.testCase = testCase;
+            });
+        };
+
+    }]);
+
+
+
 
 
 angular.module('cb')
@@ -121,7 +186,7 @@ angular.module('cb')
                 $scope.loading = false;
             }, function (error) {
                 $scope.loading = false;
-                 $scope.error = "Sorry,cannot load the test cases. Please refresh your page and try again.";
+                $scope.error = "Sorry,cannot load the test cases. Please refresh your page and try again.";
             });
          };
 
@@ -141,7 +206,12 @@ angular.module('cb')
         $scope.loadTestCase = function () {
             CB.testCase = $scope.selectedTestCase;
             $scope.testCase = CB.testCase;
-            $rootScope.$broadcast('cb:testCaseLoaded');
+            $rootScope.$broadcast('cb:testCaseLoaded', $scope.testCase);
+            if($scope.testCase.type === 'TestStep' && $scope.testCase.category === 'DataInstance') {
+                $rootScope.$broadcast('cb:dataInstanceTestCaseLoaded', $scope.testCase );
+            }else if($scope.testCase.type === 'TestCase' && $scope.testCase.category === 'Isolated'){
+                $rootScope.$broadcast('cb:isolatedTestCaseLoaded', $scope.testCase );
+            }
         };
 
         $scope.downloadTestStory = function(){
@@ -170,103 +240,12 @@ angular.module('cb')
     }]);
 
 angular.module('cb')
-    .controller('CBProfileViewerCtrl', ['$scope', '$rootScope', 'ngTreetableParams', 'CB', 'ProfileService', function ($scope, $rootScope, ngTreetableParams, CB,ProfileService) {
-
-
+    .controller('CBProfileViewerCtrl', ['$scope', 'CB', function ($scope, CB) {
         $scope.cb = CB;
-        $scope.elements = [];
-        $scope.nodeData = [];
-        $scope.loading = false;
-        $scope.error = null;
-        $scope.profile = null;
-        $scope.relevance = true;
-        $scope.trim = true;
-        $scope.profileService = new ProfileService();
-
-
-        $scope.getConstraintsAsString = function (constraints) {
-            var str = '';
-            for (var index in constraints) {
-                str = str + "<p style=\"text-align: left\">" + constraints[index].id + " - " + constraints[index].description + "</p>";
-            }
-            return str;
-        };
-
-        $scope.showRefSegment = function (id) {
-            if ($scope.elements.length > 0 && id)
-                for (var i = 1; i < $scope.elements.length; i++) {
-                    var element = $scope.elements[i];
-                    if (element.id == id) {
-                        $scope.getNodeContent(element);
-                    }
-                }
-        };
-
-        $scope.show = function (node) {
-            return !$scope.relevance || ($scope.relevance && node.relevent);
-        };
-
-
-        $scope.showValueSetDefinition = function (tableId) {
-            $rootScope.$broadcast('cb:showValueSetDefinition', tableId);
-        };
-
-
-        $scope.init = function () {
-            $rootScope.$on('cb:testCaseLoaded', function (event) {
-                if ($scope.cb.testCase.testContext != null && $scope.cb.testCase.testContext.profile.json != null && $scope.cb.testCase.testContext.profile.json != "") {
-                    $scope.loading = true;
-                    $scope.nodeData = [];
-                    $scope.loading = false;
-                    $scope.profile = $scope.cb.testCase.testContext.profile;
-                    $scope.elements = angular.fromJson($scope.profile.json).elements;
-
-                    var datatypes = null;
-                    var segments = [];
-
-                    angular.forEach($scope.elements, function (element) {
-                        if (element.name === 'Datatypes' && datatypes === null) {
-                            datatypes = element;
-                        }
-                        if (element.type === 'SEGMENT') {
-                            segments.push(element);
-                        }
-                    });
-                    $scope.profileService.setDatatypesTypesAndIcons(datatypes);
-                    var valueSetIds = $scope.profileService.getValueSetIds(segments, datatypes.children);
-                    $rootScope.$broadcast('cb:valueSetIdsCollected', valueSetIds);
-                    $scope.nodeData = $scope.elements[0];
-                    $scope.params.refresh();
-                    $scope.loading = false;
-                } else {
-                    $scope.loading = false;
-                    $scope.nodeData = [];
-                    $scope.elements = [];
-                    $scope.params.refresh();
-                }
-            });
-            $scope.params = new ngTreetableParams({
-                getNodes: function (parent) {
-                    return parent ? parent.children : $scope.nodeData.children;
-                },
-                getTemplate: function (node) {
-                    return 'TreeNode.html';
-                }
-            });
-        };
-
-        $scope.getNodeContent = function (selectedNode) {
-            $scope.nodeData = selectedNode;
-            $scope.params.refresh();
-            //$scope.params.expandAll();
-        };
-
-
     }]);
 
-
 angular.module('cb')
-    .controller('CBValidatorCtrl', ['$scope', '$http', 'CB', '$window', 'HL7EditorUtils', 'HL7CursorUtils', '$timeout', 'HL7TreeUtils', '$modal', 'NewValidationResult', '$rootScope', 'Er7MessageValidator', 'Er7MessageParser','ValidationResultHighlighter', function ($scope, $http, CB, $window, HL7EditorUtils, HL7CursorUtils, $timeout, HL7TreeUtils, $modal, NewValidationResult, $rootScope,Er7MessageValidator,Er7MessageParser,ValidationResultHighlighter) {
+    .controller('CBValidatorCtrl', ['$scope', '$http', 'CB', '$window', 'HL7EditorUtils', 'HL7CursorUtils', '$timeout', 'HL7TreeUtils', '$modal', 'NewValidationResult', '$rootScope', 'Er7MessageValidator', 'Er7MessageParser', function ($scope, $http, CB, $window, HL7EditorUtils, HL7CursorUtils, $timeout, HL7TreeUtils, $modal, NewValidationResult, $rootScope,Er7MessageValidator,Er7MessageParser) {
 
         $scope.cb = CB;
         $scope.testCase = CB.testCase;
@@ -289,44 +268,12 @@ angular.module('cb')
 
         $scope.resized = false;
         $scope.selectedItem = null;
-        $scope.validationTabs = new Array();
-        $scope.activeTab = 0;
+         $scope.activeTab = 0;
 
         $scope.messageObject = [];
         $scope.tError = null;
         $scope.tLoading = false;
 
-        $scope.validationConfig = {
-            dqa : {
-                checked:false
-            }
-
-        };
-
-        $scope.failuresConfig = {
-            errors : {
-                className : "failure failure-errors",
-                checked:false
-            },
-            alerts : {
-                className : "failure failure-alerts",
-                checked:false
-            },
-            warnings : {
-                className : "failure failure-warnings",
-                checked:false
-            },
-            informationals : {
-                className : "failure failure-infos",
-                checked:false
-            },
-            affirmatives : {
-                className : "failure failure-affirmatives",
-                checked:false
-            }
-        };
-
-        $scope.validResultHighlither = new ValidationResultHighlighter($scope.failuresConfig,$scope.cb.message, $scope.cb.report, $scope.cb.tree, $scope.cb.editor);
 
         $scope.hasContent = function () {
             return  $scope.cb.message.content != '' && $scope.cb.message.content != null;
@@ -377,12 +324,12 @@ angular.module('cb')
             var testCase = $scope.cb.testCase;
             var testContext = testCase.testContext;
             var message = $scope.cb.testCase.testContext.message;
-            var messageContent = message ? message.messageContent: null;
-            if (testContext.message != null && messageContent!= null && messageContent!= "") {
+            var content = message ? message.content: null;
+            if (testContext.message != null && content!= null && content!= "") {
                 $scope.nodelay = true;
                 $scope.selectedMessage = $scope.cb.testCase.testContext.message;
                 if ($scope.selectedMessage != null) {
-                    $scope.editor.doc.setValue($scope.selectedMessage.messageContent);
+                    $scope.editor.doc.setValue($scope.selectedMessage.content);
                 } else {
                     $scope.editor.doc.setValue('');
                     $scope.cb.message.id = null;
@@ -444,13 +391,6 @@ angular.module('cb')
          * Validate the content of the editor
          */
         $scope.validateMessage = function () {
-            $scope.validationTabs[0] = true;
-            $scope.failuresConfig.errors.checked = false;
-            $scope.failuresConfig.warnings.checked = false;
-            $scope.failuresConfig.alerts.checked = false;
-            $scope.failuresConfig.informationals.checked = false;
-            $scope.failuresConfig.affirmatives.checked = false;
-            $scope.hideAllFailures();
             $scope.vLoading = true;
             $scope.vError = null;
             if ($scope.cb.testCase != null && $scope.cb.message.content !== "") {
@@ -476,17 +416,6 @@ angular.module('cb')
             }
         };
 
-        $scope.hideAllFailures = function () {
-            $scope.validResultHighlither.hideAllFailures();
-        };
-
-        $scope.showFailures = function (type, event) {
-            $scope.validResultHighlither.showFailures(type, event);
-        };
-
-        $scope.isVFailureChecked = function (type) {
-            return $scope.failuresConfig[type].checked;
-        };
 
         $scope.setValidationResult = function (mvResult) {
             if (mvResult !== null) {
@@ -538,6 +467,8 @@ angular.module('cb')
                 $scope.validationResult = null;
                 $scope.cb.report["result"] = null;
             }
+            $rootScope.$broadcast('cb:validationResultLoaded', $scope.cb.validationResult);
+
         };
 
 
@@ -658,106 +589,7 @@ angular.module('cb')
     }]);
 
 angular.module('cb')
-    .controller('CBVocabularyCtrl', ['$scope', '$window', '$filter', 'CB', '$modal', '$rootScope', 'VocabularyService', function ($scope, $window, $filter, CB, $modal, $rootScope,VocabularyService) {
+    .controller('CBVocabularyCtrl', ['$scope','CB', function ($scope, CB) {
         $scope.cb = CB;
-        $scope.selectedValueSetDefinition = null;
-        $scope.tmpTableElements = [];
-        $scope.testCase = CB.testCase;
-        $scope.sourceData = [];
-        $scope.selectedItem = [];
-        $scope.error = null;
-        $scope.vocabResError = null;
-        $scope.loading = false;
-        $scope.searchError = null;
-        $scope.error = null;
-        $scope.searchString = null;
-        $scope.selectionCriteria = 'TableId';
-        $scope.valueSetDefinitionGroups = [];
-
-        var vocabularyService = new VocabularyService();
-
-        $scope.init = function (eventType) {
-            $rootScope.$on('cb:testCaseLoaded', function (event) {
-                $scope.testCase = CB.testCase;
-            });
-            $rootScope.$on('cb:valueSetIdsCollected', function (event, valueSetIds) {
-                $scope.loading = true;
-                var all = angular.fromJson(CB.testCase.testContext.vocabularyLibrary.json).valueSetDefinitions.valueSetDefinitions;
-                $scope.valueSetDefinitionGroups = vocabularyService.getValueSetDefinitionGroups(all, valueSetIds);
-                $scope.loading = false;
-            });
-            $rootScope.$on('cb:showValueSetDefinition', function (event, tableId) {
-                vocabularyService.showValueSetDefinition(tableId);
-            });
-
-        };
-
-        $scope.searchTableValues = function () {
-            $scope.selectedValueSetDefinition = null;
-            $scope.selectedTableLibrary = null;
-            $scope.searchResults = [];
-            $scope.tmpSearchResults = [];
-            if ($scope.searchString != null) {
-                $scope.searchResults = vocabularyService.searchTableValues($scope.searchString, $scope.selectionCriteria, $scope.tableLibraries);
-                $scope.vocabResError = null;
-                $scope.selectedValueSetDefinition = null;
-                $scope.tmpTableElements = null;
-                if ($scope.searchResults.length == 0) {
-                    $scope.vocabResError = "No results found for entered search criteria.";
-                }
-                else if ($scope.searchResults.length === 1 && ($scope.selectionCriteria === 'TableId' || $scope.selectionCriteria === 'ValueSetName' || $scope.selectionCriteria === 'ValueSetCode')) {
-                    $scope.selectValueSetDefinition2($scope.searchResults[0]);
-                }
-
-                $scope.tmpSearchResults = [].concat($scope.searchResults);
-            }
-        };
-
-        $scope.selectValueSetDefinition = function (tableDefinition, tableLibrary) {
-            $scope.searchResults = [];
-            $scope.selectionCriteria = "TableId";
-            $scope.searchString = null;
-            $scope.selectedValueSetDefinition = tableDefinition;
-            $scope.selectedTableLibrary = tableLibrary;
-            $scope.selectedValueSetDefinition.valueSetElements = $filter('orderBy')($scope.selectedValueSetDefinition.valueSetElements, 'code');
-            $scope.tmpTableElements = [].concat($scope.selectedValueSetDefinition.valueSetElements);
-        };
-
-        $scope.clearSearchResults = function () {
-            $scope.searchResults = null;
-            $scope.selectedValueSetDefinition = null;
-            $scope.vocabResError = null;
-            $scope.tmpTableElements = null;
-            $scope.tmpSearchResults = null;
-        };
-
-        $scope.selectValueSetDefinition2 = function (tableDefinition) {
-            $scope.selectedValueSetDefinition = tableDefinition;
-            $scope.selectedValueSetDefinition.tableElements = $filter('orderBy')($scope.selectedValueSetDefinition.tableElements, 'code');
-            $scope.tmpTableElements = [].concat($scope.selectedValueSetDefinition.tableElements);
-        };
-
-
-        $scope.isNoValidation = function () {
-            return $scope.selectedValueSetDefinition != null && $scope.selectedTableLibrary && $scope.selectedTableLibrary.noValidation && $scope.selectedTableLibrary.noValidation.ids && $scope.selectedTableLibrary.noValidation.ids.indexOf($scope.selectedValueSetDefinition.bindingIdentifier) > 0;
-        };
-
-
-    }]);
-
-angular.module('cb')
-    .controller('CBVocabularyTabCtrl', ['$scope', 'CB', '$timeout', function ($scope, CB, $timeout) {
-        $scope.tableList = [];
-        $scope.tmpList = [].concat($scope.tableList);
-        $scope.error = null;
-        $scope.tableLibrary = null;
-
-        $scope.init = function (tableLibrary) {
-            if (tableLibrary) {
-                $scope.tableLibrary = tableLibrary;
-                $scope.tableList = tableLibrary.children;
-                $scope.tmpList = [].concat($scope.tableList);
-            }
-        };
     }]);
 

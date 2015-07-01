@@ -39,7 +39,10 @@ var app = angular.module('tool', [
     'tool-services',
     'commonServices',
     'smart-table',
-    'doc'
+    'doc',
+    'hit-profile-viewer',
+    'hit-validation-result',
+    'hit-vocab-search'
 ]);
 
 app.config(function ($routeProvider, $httpProvider) {
@@ -260,13 +263,6 @@ angular.module('tool-services').factory('AppInfo', ['$http', '$q', function ($ht
 }]);
 
 
-angular.module('tool-services').controller('TableFoundCtrl', function ($scope, $modalInstance, table) {
-    $scope.table = table;
-    $scope.tmpTableElements = [].concat(table != null ? table.valueSetElements : []);
-    $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
-    };
-});
 
 
 
