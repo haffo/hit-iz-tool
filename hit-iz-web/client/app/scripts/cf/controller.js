@@ -348,7 +348,7 @@ angular.module('cf')
 
             $scope.initCodemirror();
 
-            $scope.setValidationResult({});
+//            $scope.setValidationResult(null);
 
             $scope.$on('cf:refreshEditor', function (event) {
                 $scope.refreshEditor();

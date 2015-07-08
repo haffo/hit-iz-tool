@@ -234,12 +234,14 @@ angular.module('isolated')
             $scope.error = null;
             $scope.loading = false;
             $scope.setActiveTab(0);
-            $rootScope.$on('isolated:testCaseLoaded', function (event) {
-                $scope.testCase = IsolatedSystem.testCase;
+            $rootScope.$on('isolated:testCaseLoaded', function (event, testCase) {
+                $scope.testCase = testCase;
                 $scope.logger.init();
                 $scope.loading = true;
                 $scope.error = null;
                 $scope.connecting = false;
+                $scope.selectTestStep( $scope.testCase.children[0]);
+
 //                if (IsolatedSystem.testStep.connectionType == 'SUT_RECEIVER') {
 //                    $scope.initOutgoingEnvironment();
 //                } else if(IsolatedSystem.testStep.connectionType == 'SUT_INITIATOR') {
@@ -302,6 +304,12 @@ angular.module('isolated')
                     $scope.logger.log(received);
                     $scope.sent = sent;
                     $scope.received = received;
+
+                    var x2js = new X2JS();
+                    //var sentJson = x2js.xml2json($scope.sent);
+                    var receivedJson = x2js.xml_str2json($scope.received);
+
+
                     $scope.testStep['executionStatus'] = 'COMPLETE';
                     $scope.connecting = false;
                     $scope.logger.log("Transaction completed");

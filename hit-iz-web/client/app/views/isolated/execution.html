@@ -1,203 +1,208 @@
 <div style="margin-bottom: 20px" ng-controller="IsolatedSystemExecutionCtrl" ng-init="init()">
-    <div ng-show="testCase != null">
+<div ng-show="testCase != null">
+<div class="page-header">
+    <h3>{{testCase.type}}: {{testCase.name}}</h3>
+</div>
+<div class="row" ng-show="error != null">
+    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+</div>
+<div class="row">
+    <div class="col-md-10">
         <div class="page-header">
-            <h3>{{testCase.type}}: {{testCase.name}}</h3>
+            <h4>List of Test Steps</h4>
         </div>
-        <div class="row" ng-show="error != null">
-            <div class="alert alert-danger" role="alert" ng-bind="error"></div>
-        </div>
-
-
-        <div clas="row">
-            <div class="col-md-10">
-
-                <div class="page-header">
-                    <h4>List of Test Steps</h4>
-                </div>
-                <table st-table="testCase.children"
-                       class="table table-striped table-bordered">
-                    <thead>
-                    <tr class="tbl-header">
-                        <th></th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Execution Status</th>
-                        <th>Validation Result</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="row in testCase.children" st-select-row="row" st-select-mode="single">
-                        <td>
-                            <i ng-show="testStep != null && row.id === testStep.id" class="fa fa-arrow-right"></i>
-                        </td>
-                        <td>
-                            <input type="radio" ng-click="selectTestStep(row)"
-                                   ng-checked="testStep != null && row.id === testStep.id">
-                            {{row.position}}. {{row.name}}
-                        </td>
-                        <td ng-bind-html="row.description"></td>
-                        <td>
-                            <span ng-show="!getExecutionStatus(row)">Not started</span>
+        <table st-table="testCase.children"
+               class="table table-striped table-bordered">
+            <thead>
+            <tr class="tbl-header">
+                <th></th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Execution Status</th>
+                <th>Validation Result</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in testCase.children" st-select-row="row" st-select-mode="single">
+                <td>
+                    <i ng-show="testStep != null && row.id === testStep.id" class="fa fa-arrow-right"></i>
+                </td>
+                <td>
+                    <!--<input type="radio" ng-click="selectTestStep(row)"-->
+                           <!--ng-checked="testStep != null && row.id === testStep.id">-->
+                    {{row.position}}. {{row.name}}
+                </td>
+                <td ng-bind-html="row.description"></td>
+                <td>
+                    <span ng-show="!getExecutionStatus(row)">Not started</span>
                             <span ng-show="getExecutionStatus(row) === 'IN_PROGRESS'"><i
                                     class="fa fa-spinner"></i></span>
                             <span ng-show="getExecutionStatus(row) === 'COMPLETE'"><i title="complete"
                                                                                       class="fa fa-check"></i></span>
-                        </td>
-                        <td>
-                            <span ng-show="getValidationStatus(row) < 0">Not started</span>
+                </td>
+                <td>
+                    <span ng-show="getValidationStatus(row) < 0">Not started</span>
                     <span ng-show="getValidationStatus(row) > 0"><i title="Failed"
                                                                     class="fa fa-times-circle"></i></span>
                             <span ng-show="getValidationStatus(row) === 0"><i title="Successful"
                                                                               class="fa fa-check"></i></span>
-                        </td>
-                        <td>
-                        </td>
+                </td>
+                <td>
+                </td>
 
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div ng-show="testStep !== null">
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
+<div ng-show="testStep !== null">
+    <div class="page-header">
+        <h4>Test Step: {{testStep.name}}</h4>
+    </div>
+    <!--<button title="Receive Inbound Message" type="button" class="btn btn-xs btn-primary"-->
+    <!--ng-show="testStep.connectionType === 'SUT_INITIATOR'"-->
+    <!--ng-click="openReceiverConfig()">-->
+    <!--<i class="fa fa fa-arrow-left"></i> Receive-->
+    <!--</button>-->
+
+    <!--<button title="Confirm Action Taken" type="button" class="btn btn-xs btn-primary"-->
+    <!--ng-show="testStep.connectionType === 'SUT_MANUAL'"-->
+    <!--ng-click="confirmManualStep()">-->
+    <!--<i class="fa fa fa-arrow-left"></i> Confirm-->
+    <!--</button>-->
+    <!---->
+    <!---->
+    <div ng-show="testStep.connectionType === 'TA_INITIATOR'">
+
+        <div class="row">
+            <div class="col-md-5">
                 <div class="page-header">
-                    <h3>Test Step: {{testStep.name}}</h3>
+                    <h4>SUT-Receiver Configuration</h4>
                 </div>
+                <form name="receiverForm1" novalidate>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control" ng-model="user.receiverUsername"
+                               placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="text" class="form-control"
+                               placeholder="Password"
+                               ng-model="user.receiverPassword">
+                    </div>
+                    <div class="form-group">
+                        <label>FacilityID</label>
+                        <input type="text" class="form-control" placeholder="Facility Id"
+                               ng-model="user.receiverFacilityId">
+                    </div>
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine }">
+                        <label>Endpoint</label>
+                        <input type="url" name="endpoint" class="form-control" ng-model="user.receiverEndpoint"
+                               placeholder="SUT Endpoint" required>
 
-                <!--<button title="Receive Inbound Message" type="button" class="btn btn-xs btn-primary"-->
-                <!--ng-show="testStep.connectionType === 'SUT_INITIATOR'"-->
-                <!--ng-click="openReceiverConfig()">-->
-                <!--<i class="fa fa fa-arrow-left"></i> Receive-->
+                        <p ng-show="receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine"
+                           class="help-block">
+                            Invalid url. Expected format is {{appInfo.url}}</p>
+                    </div>
+                </form>
+
+                <!--<button title="Send Outgoing Message" type="button" class="btn btn-xs btn-primary"-->
+                <!--ng-disabled="!isValidConfig()"-->
+                <!--ng-click="send()">-->
+                <!--<i class="fa fa fa-arrow-right"></i> Send-->
                 <!--</button>-->
-
-                <!--<button title="Confirm Action Taken" type="button" class="btn btn-xs btn-primary"-->
-                <!--ng-show="testStep.connectionType === 'SUT_MANUAL'"-->
-                <!--ng-click="confirmManualStep()">-->
-                <!--<i class="fa fa fa-arrow-left"></i> Confirm-->
-                <!--</button>-->
-                <!---->
-                <!---->
-                <div ng-show="testStep.connectionType === 'TA_INITIATOR'">
-                    <div class="col-md-5">
-                        <div class="page-header">
-                            <h4>SUT System Configuration</h4>
-                        </div>
-                        <form name="receiverForm1" novalidate>
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" class="form-control" ng-model="user.receiverUsername"
-                                       placeholder="Username">
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="text" class="form-control"
-                                       placeholder="Password"
-                                       ng-model="user.receiverPassword">
-                            </div>
-                            <div class="form-group">
-                                <label>FacilityID</label>
-                                <input type="text" class="form-control" placeholder="Facility Id"
-                                       ng-model="user.receiverFacilityId">
-                            </div>
-                            <div class="form-group"
-                                 ng-class="{ 'has-error' : receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine }">
-                                <label>Endpoint</label>
-                                <input type="url" name="endpoint" class="form-control" ng-model="user.receiverEndpoint"
-                                       placeholder="SUT Endpoint" required>
-
-                                <p ng-show="receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine"
-                                   class="help-block">
-                                    Invalid url. Expected format is {{appInfo.url}}</p>
-                            </div>
-                        </form>
-
-                        <!--<button title="Send Outgoing Message" type="button" class="btn btn-xs btn-primary"-->
-                        <!--ng-disabled="!isValidConfig()"-->
-                        <!--ng-click="send()">-->
-                        <!--<i class="fa fa fa-arrow-right"></i> Send-->
-                        <!--</button>-->
-
-                        <button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"
-                                title="Send" class="btn btn-sm btn-success">
-                            <i class="fa fa-arrow-right"></i>
-                            Send <span ng-show="connecting"><i ng-show="connecting" class="fa fa-spinner"></i> Remaining: {{counter}}s </span>
-                        </button>
-                    </div>
-                    <div class="col-md-5">
-                        <div>
-                            <div class="page-header">
-                                <h4>Console</h4>
-                            </div>
-                            <textarea class="well" wrap="off"
-                                      style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%"
-                                      rows="13"
-                                      disabled
-                                      ng-model="logger.content"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-md-10">
-                        <div ng-show="error != null" style="padding-top:20px">
-                            <div class="alert alert-danger" role="alert" ng-bind="error"></div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-10" style="padding-top: 20px">
-                    <div ng-show="connecting || testStep.executionStatus === 'IN_PROGRESS'">
-                        <i title="In progress"
-                           class="fa fa-spinner"></i>
-                    </div>
-
-                    <div ng-show="!connecting && testStep.executionStatus === 'COMPLETE'">
-                        <tabset>
-
-                            <tab select="setActiveTab(0)" active="tabs[0]">
-                                <tab-heading>
-                                    <i class="fa fa-check-circle"></i>Validation
-                                </tab-heading>
-                                <div ng-include="'views/isolated/validation.html'"></div>
-                            </tab>
-
-                            <tab select="setActiveTab(1)" active="tabs[1]">
-                                <tab-heading>
-                                    <i class="fa fa-file-o"></i>Report
-                                </tab-heading>
-
-                                <div ng-include="'views/isolated/report.html'"></div>
-                            </tab>
-
-                            <tab select="setActiveTab(2)" active="tabs[2]">
-                                <tab-heading>
-                                    <i class="fa fa-check-circle"></i>Test Data
-                                </tab-heading>
-                                <div ng-include="'views/isolated/data.html'"></div>
-                            </tab>
-
-                            <tab>
-                                <tab-heading>
-                                    <i class="fa fa-th-list"></i>Profile Viewer
-                                </tab-heading>
-                                <div ng-include="'views/isolated/profileViewer.html'"></div>
-                            </tab>
-                            <tab>
-                                <tab-heading>
-                                    <i class="fa fa-book"></i>Vocabulary
-                                </tab-heading>
-                                <div ng-include="'views/isolated/vocabulary.html'"></div>
-                            </tab>
-                        </tabset>
-                    </div>
-
-
-                </div>
 
 
             </div>
-            <div ng-show="testStep === null">
-                No Test Step In Progress
+            <div class="col-md-5">
+                <div class="page-header">
+                    <h4>Console</h4>
+                </div>
+                <textarea class="well" wrap="off"
+                          style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%"
+                          rows="13"
+                          disabled
+                          ng-model="logger.content"></textarea>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"
+                        title="Send" class="btn btn-sm btn-success">
+                    <i class="fa fa-arrow-right"></i>
+                    Send <span ng-show="connecting"><i ng-show="connecting" class="fa fa-spinner"></i> Remaining: {{counter}}s </span>
+                </button>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div ng-show="error != null" style="padding-top:20px">
+                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-10" style="padding-top: 20px">
+            <div ng-show="connecting || testStep.executionStatus === 'IN_PROGRESS'">
+                <i title="In progress"
+                   class="fa fa-spinner"></i>
+            </div>
+
+            <div ng-show="!connecting && testStep.executionStatus === 'COMPLETE'">
+                <tabset>
+
+                    <tab select="setActiveTab(0)" active="tabs[0]">
+                        <tab-heading>
+                            <i class="fa fa-check-circle"></i>Validation
+                        </tab-heading>
+                        <div ng-include="'views/isolated/validation.html'"></div>
+                    </tab>
+
+                    <tab select="setActiveTab(1)" active="tabs[1]">
+                        <tab-heading>
+                            <i class="fa fa-file-o"></i>Report
+                        </tab-heading>
+
+                        <div ng-include="'views/isolated/report.html'"></div>
+                    </tab>
+
+                    <tab select="setActiveTab(2)" active="tabs[2]">
+                        <tab-heading>
+                            <i class="fa fa-check-circle"></i>Test Data
+                        </tab-heading>
+                        <div ng-include="'views/isolated/data.html'"></div>
+                    </tab>
+
+                    <tab>
+                        <tab-heading>
+                            <i class="fa fa-th-list"></i>Profile Viewer
+                        </tab-heading>
+                        <div ng-include="'views/isolated/profileViewer.html'"></div>
+                    </tab>
+                    <tab>
+                        <tab-heading>
+                            <i class="fa fa-book"></i>Vocabulary
+                        </tab-heading>
+                        <div ng-include="'views/isolated/vocabulary.html'"></div>
+                    </tab>
+                </tabset>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+<div ng-show="testStep === null">
+    No Test Step In Progress
+</div>
+</div>
+</div>
+</div>

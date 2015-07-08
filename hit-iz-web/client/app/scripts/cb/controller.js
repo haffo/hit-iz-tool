@@ -49,7 +49,6 @@ angular.module('cb')
             $scope.tabs[1] = false;
             $scope.tabs[2] = false;
             $scope.tabs[3] = false;
-            $scope.tabs[4] = false;
             $scope.activeTab = value;
             $scope.tabs[$scope.activeTab] = true;
         };
@@ -63,6 +62,7 @@ angular.module('cb')
             $scope.loading = false;
             $scope.setActiveTab(0);
             $rootScope.$on('cb:testCaseLoaded', function (event, testCase) {
+                $scope.setActiveTab(0);
                 $scope.testCase = testCase;
                 $rootScope.$broadcast('cb:profileLoaded', $scope.testCase.testContext.profile);
                 $rootScope.$broadcast('cb:valueSetLibraryLoaded', $scope.testCase.testContext.vocabularyLibrary);
@@ -467,7 +467,7 @@ angular.module('cb')
             $scope.vError = null;
 
             $scope.initCodemirror();
-            $scope.setValidationResult({});
+//            $scope.setValidationResult({});
 
             $scope.$on('cb:refreshEditor', function (event) {
                 $scope.refreshEditor();

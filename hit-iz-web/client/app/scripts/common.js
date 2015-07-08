@@ -538,26 +538,26 @@ angular.module('commonServices').factory('Er7MessageValidator', function ($http,
             delay.reject("Message provided is not an HL7 v2 message");
         } else {
 //
-//            $http.get('../../resources/cf/newValidationResult3.json').then(
-//                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-            $http.post('api/testcontext/'+ testContextId + '/validateMessage', angular.fromJson({"content": content})).then(
+            $http.get('../../resources/cf/newValidationResult3.json').then(
                 function (object) {
-                    try {
-                        delay.resolve(angular.fromJson(object.data));
-                    } catch (e) {
-                        delay.reject("Invalid character in the message");
-                    }
+                    delay.resolve(angular.fromJson(object.data));
                 },
                 function (response) {
                     delay.reject(response.data);
                 }
             );
+//            $http.post('api/testcontext/'+ testContextId + '/validateMessage', angular.fromJson({"content": content})).then(
+//                function (object) {
+//                    try {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    } catch (e) {
+//                        delay.reject("Invalid character in the message");
+//                    }
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
         }
         return delay.promise;
     };
@@ -574,16 +574,7 @@ angular.module('commonServices').factory('Er7MessageParser', function ($http, $q
         if (!HL7EditorUtils.isHL7(content)) {
             delay.reject("Message provided is not an HL7 v2 message");
         } else {
-             $http.post('api/testcontext/' + testContextId + '/parseMessage', angular.fromJson({"content": content})).then(
-                function (object) {
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//            $http.get('../../resources/cf/messageObject.json').then(
+//             $http.post('api/testcontext/' + testContextId + '/parseMessage', angular.fromJson({"content": content})).then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
 //                },
@@ -591,6 +582,15 @@ angular.module('commonServices').factory('Er7MessageParser', function ($http, $q
 //                    delay.reject(response.data);
 //                }
 //            );
+
+            $http.get('../../resources/cf/messageObject.json').then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
         }
 
         return delay.promise;

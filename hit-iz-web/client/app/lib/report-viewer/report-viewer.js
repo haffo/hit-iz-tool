@@ -21,13 +21,13 @@
 
     mod
         .controller('ReportViewerCtrl', ['$scope', '$rootScope', 'ngTreetableParams', 'ReportService', function ($scope, $rootScope, ngTreetableParams, ReportService) {
-
             var reportService = new ReportService();
+            $scope.report = null;
 
             $rootScope.$on($scope.type + ':reportLoaded', function (event, report) {
                 $scope.report = report;
                 if ($scope.report !== null && !angular.equals( $scope.report.result, {})) {
-                    report["metaData"] = {
+                    $scope.report["metaData"] = {
                         reportHeader: {
                             title: "Message Validation Report",
                             date: new Date().getTime()
