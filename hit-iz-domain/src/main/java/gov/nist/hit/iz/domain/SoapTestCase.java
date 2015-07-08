@@ -1,15 +1,13 @@
 /**
- * This software was developed at the National Institute of Standards and
- * Technology by employees of the Federal Government in the course of their
- * official duties. Pursuant to title 17 Section 105 of the United States Code
- * this software is not subject to copyright protection and is in the public
- * domain. This is an experimental system. NIST assumes no responsibility
- * whatsoever for its use by other parties, and makes no guarantees, expressed
- * or implied, about its quality, reliability, or any other characteristic. We
- * would appreciate acknowledgement if the software is used. This software can
- * be redistributed and/or modified freely provided that any derivative works
- * bear some notice that they are derived from it, and any modified versions
- * bear some notice that they have been modified.
+ * This software was developed at the National Institute of Standards and Technology by employees of
+ * the Federal Government in the course of their official duties. Pursuant to title 17 Section 105
+ * of the United States Code this software is not subject to copyright protection and is in the
+ * public domain. This is an experimental system. NIST assumes no responsibility whatsoever for its
+ * use by other parties, and makes no guarantees, expressed or implied, about its quality,
+ * reliability, or any other characteristic. We would appreciate acknowledgement if the software is
+ * used. This software can be redistributed and/or modified freely provided that any derivative
+ * works bear some notice that they are derived from it, and any modified versions bear some notice
+ * that they have been modified.
  */
 
 package gov.nist.hit.iz.domain;
@@ -19,13 +17,14 @@ import gov.nist.hit.core.domain.TestStory;
 import gov.nist.hit.core.domain.TestType;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,169 +35,169 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @MappedSuperclass
 public class SoapTestCase implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	@Column(nullable = true)
-	@Enumerated(EnumType.STRING)
-	protected SutType sutType;
+  @Column(nullable = true)
+  @Enumerated(EnumType.STRING)
+  protected SutType sutType;
 
-	@NotNull
-	@Column(nullable = false)
-	@JsonProperty("label")
-	protected String name;
+  @NotNull
+  @Column(nullable = false)
+  @JsonProperty("label")
+  protected String name;
 
-	protected String testType;
+  protected String testType;
 
-	protected String testPackagePath;
+  protected String testPackagePath;
 
-	transient protected TestType type = TestType.TestCase;
+  transient protected TestType type = TestType.TestCase;
 
-	protected int position;
+  protected int position;
 
-	@Column(nullable = true)
-	protected String parentName;
+  @Column(nullable = true)
+  protected String parentName;
 
-	@Column(columnDefinition = "TEXT")
-	protected String instructionsText;
+  @Column(columnDefinition = "TEXT")
+  protected String instructionsText;
 
-	@Lob
-	@Basic(fetch = FetchType.EAGER)
-	@Column(length = 100000, nullable = true)
-	protected byte[] instructionsImage;
+  @Lob
+  @Basic(fetch = FetchType.EAGER)
+  @Column(length = 100000, nullable = true)
+  protected byte[] instructionsImage;
 
-	@Lob
-	@Basic(fetch = FetchType.EAGER)
-	@Column(length = 100000, nullable = true)
-	protected byte[] messageContentImage;
+  @Lob
+  @Basic(fetch = FetchType.EAGER)
+  @Column(length = 100000, nullable = true)
+  protected byte[] messageContentImage;
 
-	@Lob
-	@Basic(fetch = FetchType.EAGER)
-	@Column(length = 100000, nullable = true)
-	protected byte[] testDataSpecificationImage;
+  @Lob
+  @Basic(fetch = FetchType.EAGER)
+  @Column(length = 100000, nullable = true)
+  protected byte[] testDataSpecificationImage;
 
-	@Lob
-	@Basic(fetch = FetchType.EAGER)
-	@Column(length = 100000, nullable = true)
-	protected byte[] testDataSpecificationImage2;
+  @Lob
+  @Basic(fetch = FetchType.EAGER)
+  @Column(length = 100000, nullable = true)
+  protected byte[] testDataSpecificationImage2;
 
-	@Embedded
-	protected TestStory testStory;
 
-	public SoapTestCase() {
-		super();
-		testStory = new TestStory();
-	}
+  @OneToOne(cascade = CascadeType.PERSIST)
+  protected TestStory testStory;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public SoapTestCase() {
+    super();
+    testStory = new TestStory();
+  }
 
-	public SoapTestCase(String name) {
-		setName(name);
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public String getName() {
-		return this.name;
-	}
+  public SoapTestCase(String name) {
+    setName(name);
+  }
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Name: ").append(getName()).append(", ");
-		return sb.toString();
-	}
+  public String getName() {
+    return this.name;
+  }
 
-	public TestStory getTestStory() {
-		return testStory;
-	}
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Name: ").append(getName()).append(", ");
+    return sb.toString();
+  }
 
-	public void setTestStory(TestStory testStory) {
-		this.testStory = testStory;
-	}
+  public TestStory getTestStory() {
+    return testStory;
+  }
 
-	public SutType getSutType() {
-		return sutType;
-	}
+  public void setTestStory(TestStory testStory) {
+    this.testStory = testStory;
+  }
 
-	public void setSutType(SutType sutType) {
-		this.sutType = sutType;
-	}
+  public SutType getSutType() {
+    return sutType;
+  }
 
-	public String getParentName() {
-		return parentName;
-	}
+  public void setSutType(SutType sutType) {
+    this.sutType = sutType;
+  }
 
-	public void setParentName(String parentName) {
-		this.parentName = parentName;
-	}
+  public String getParentName() {
+    return parentName;
+  }
 
-	public String getTestPackagePath() {
-		return testPackagePath;
-	}
+  public void setParentName(String parentName) {
+    this.parentName = parentName;
+  }
 
-	public void setTestPackagePath(String testPackagePath) {
-		this.testPackagePath = testPackagePath;
-	}
+  public String getTestPackagePath() {
+    return testPackagePath;
+  }
 
-	public String getTestType() {
-		return testType;
-	}
+  public void setTestPackagePath(String testPackagePath) {
+    this.testPackagePath = testPackagePath;
+  }
 
-	public void setTestType(String testType) {
-		this.testType = testType;
-	}
+  public String getTestType() {
+    return testType;
+  }
 
-	public String getInstructionsText() {
-		return instructionsText;
-	}
+  public void setTestType(String testType) {
+    this.testType = testType;
+  }
 
-	public void setInstructionsText(String instructionsText) {
-		this.instructionsText = instructionsText;
-	}
+  public String getInstructionsText() {
+    return instructionsText;
+  }
 
-	public byte[] getInstructionsImage() {
-		return instructionsImage;
-	}
+  public void setInstructionsText(String instructionsText) {
+    this.instructionsText = instructionsText;
+  }
 
-	public void setInstructionsImage(byte[] instructionsImage) {
-		this.instructionsImage = instructionsImage;
-	}
+  public byte[] getInstructionsImage() {
+    return instructionsImage;
+  }
 
-	public byte[] getMessageContentImage() {
-		return messageContentImage;
-	}
+  public void setInstructionsImage(byte[] instructionsImage) {
+    this.instructionsImage = instructionsImage;
+  }
 
-	public void setMessageContentImage(byte[] messageContentImage) {
-		this.messageContentImage = messageContentImage;
-	}
+  public byte[] getMessageContentImage() {
+    return messageContentImage;
+  }
 
-	public byte[] getTestDataSpecificationImage() {
-		return testDataSpecificationImage;
-	}
+  public void setMessageContentImage(byte[] messageContentImage) {
+    this.messageContentImage = messageContentImage;
+  }
 
-	public void setTestDataSpecificationImage(byte[] testDataSpecificationImage) {
-		this.testDataSpecificationImage = testDataSpecificationImage;
-	}
+  public byte[] getTestDataSpecificationImage() {
+    return testDataSpecificationImage;
+  }
 
-	public byte[] getTestDataSpecificationImage2() {
-		return testDataSpecificationImage2;
-	}
+  public void setTestDataSpecificationImage(byte[] testDataSpecificationImage) {
+    this.testDataSpecificationImage = testDataSpecificationImage;
+  }
 
-	public void setTestDataSpecificationImage2(
-			byte[] testDataSpecificationImage2) {
-		this.testDataSpecificationImage2 = testDataSpecificationImage2;
-	}
+  public byte[] getTestDataSpecificationImage2() {
+    return testDataSpecificationImage2;
+  }
 
-	public TestType getType() {
-		return type;
-	}
+  public void setTestDataSpecificationImage2(byte[] testDataSpecificationImage2) {
+    this.testDataSpecificationImage2 = testDataSpecificationImage2;
+  }
 
-	public int getPosition() {
-		return position;
-	}
+  public TestType getType() {
+    return type;
+  }
 
-	public void setPosition(int position) {
-		this.position = position;
-	}
+  public int getPosition() {
+    return position;
+  }
+
+  public void setPosition(int position) {
+    this.position = position;
+  }
 
 }

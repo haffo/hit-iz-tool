@@ -1,12 +1,8 @@
-<div ng-controller="CFValidatorCtrl" ng-init="init()">
-<br/>
-
-<div class="row">
-    <div ng-show="error != null">
+<div style="margin-bottom: 20px;margin-top: 5px;" ng-controller="CFValidatorCtrl" ng-init="init()">
+     <div class="row" ng-show="error != null">
         <div class="alert alert-danger" role="alert" ng-bind="error"></div>
     </div>
-</div>
-<div class="row">
+ <div class="row">
 <div class="col-md-4">
     <div class="panel panel-info">
         <!-- Default panel contents -->
@@ -144,11 +140,7 @@
 </div>
 
 <div ng-show="!vError || vError == null">
-
-<div ng-show="validationResult !== null">
-    <div validation-result type="cf" message="cf.message" editor="cf.editor" report="cf.report" tree="cf.tree"></div>
-</div>
-
+    <div validation-result type="cf" message="cf.message" editor="cf.editor" tree="cf.tree"></div>
 </div>
 
 </div>

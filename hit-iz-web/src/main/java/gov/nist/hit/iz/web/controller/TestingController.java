@@ -23,8 +23,8 @@ import gov.nist.hit.core.service.exception.ValidationReportException;
 import gov.nist.hit.core.service.exception.XmlFormatterException;
 import gov.nist.hit.core.service.exception.XmlParserException;
 import gov.nist.hit.core.transport.TransportClientException;
-import gov.nist.hit.iz.repo.SoapEnvelopeTestCaseRepository;
-import gov.nist.hit.iz.repo.SoapEnvelopeTestPlanRepository;
+import gov.nist.hit.iz.repo.EnvelopeTestCaseRepository;
+import gov.nist.hit.iz.repo.EnvelopeTestPlanRepository;
 import gov.nist.hit.iz.web.exception.EnvelopeException;
 
 import org.slf4j.Logger;
@@ -49,29 +49,29 @@ public abstract class TestingController {
   }
 
   @Autowired
-  protected SoapEnvelopeTestCaseRepository testCaseRepository;
+  protected EnvelopeTestCaseRepository testCaseRepository;
 
   @Autowired
-  protected SoapEnvelopeTestPlanRepository testPlanRepository;
+  protected EnvelopeTestPlanRepository testPlanRepository;
 
   @Autowired
   protected UserRepository userRepository;
 
-  public SoapEnvelopeTestCaseRepository getTestCaseRepository() {
+  public EnvelopeTestCaseRepository getTestCaseRepository() {
     return testCaseRepository;
   }
 
-  public void setTestCaseRepository(SoapEnvelopeTestCaseRepository testCaseRepository) {
+  public void setTestCaseRepository(EnvelopeTestCaseRepository testCaseRepository) {
     this.testCaseRepository = testCaseRepository;
   }
 
 
 
-  public SoapEnvelopeTestPlanRepository getTestPlanRepository() {
+  public EnvelopeTestPlanRepository getTestPlanRepository() {
     return testPlanRepository;
   }
 
-  public void setTestPlanRepository(SoapEnvelopeTestPlanRepository testPlanRepository) {
+  public void setTestPlanRepository(EnvelopeTestPlanRepository testPlanRepository) {
     this.testPlanRepository = testPlanRepository;
   }
 

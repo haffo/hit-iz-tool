@@ -1,0 +1,9 @@
+{
+  "name" : "Enter Clinical History for Juan Marcel Gonzales",
+  "position" : 2,
+  "messageId" : null,
+  "valueSetLibraryId" : null,
+  "constraintId" : null,
+  "type" : null,
+  "description" : "The EHR captures structured data regarding a problem of Asthma as part of the clinical history."
+}

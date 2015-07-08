@@ -30,10 +30,10 @@ public class WebAppInitializer implements WebApplicationInitializer
 
     final AnnotationConfigWebApplicationContext root = new AnnotationConfigWebApplicationContext();
     root.setServletContext(servletContext);
-    root.scan("gov.nist.hit.iz");
+    root.scan("gov.nist.hit");
     // web app servlet
     servletContext.addListener(new ContextLoaderListener(root));
-    Dynamic servlet = servletContext.addServlet("iztool-web", new DispatcherServlet(root));
+    Dynamic servlet = servletContext.addServlet("hit-iz-api", new DispatcherServlet(root));
     servlet.setLoadOnStartup(1);
     servlet.addMapping("/api/*");
     servlet.setAsyncSupported(true);

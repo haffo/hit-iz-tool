@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="ASCII" standalone="no"?>
+<html>
+<head>
+<style type="text/css">
+@media screen {
+	maskByMediaType {
+		display: table;
+	}
+	table tbody tr th {
+		font-size: 90%
+	}
+	table tbody tr td {
+		font-size: 90%;
+	}
+	table tbody tr th {
+		text-align: left;
+		background: #C6DEFF
+	}
+	table thead tr th {
+		text-align: center;
+	}
+	table thead tr th:first-child {
+		width: 15%;
+	}
+	table thead tr th:nth-child(2) {
+		width: 35%;
+	}
+	table thead tr th:nth-child(3) {
+		width: 35%;
+	}
+	table thead tr th:last-child {
+		width: 10%;
+	}
+	p {
+		text-align: center;
+	}
+	
+	h1 {
+		text-align: center;
+	}
+	table {
+		width: 98%;
+		border: 1px groove;
+		table-layout: fixed;
+		margin: 0 auto;
+		border-collapse: collapse;
+	}
+	table tr {
+		border: 3px groove;
+	}
+	table th {
+		border: 2px groove;
+	}
+	table td {
+		border: 2px groove;
+	}
+	table thead {
+		border: 1px groove;
+		background: #446BEC;
+		text-align: left;
+	}
+	table tbody tr td {
+		text-align: left
+	}
+	.embSpace {
+		padding-left: 15px;
+	}
+	.embSubSpace {
+		padding-left: 25px;
+	}
+	.childField {
+		background: #B8B8B8;
+	}
+}
+
+table tbody tr td div ul {
+	padding-left: 60px
+}
+
+@media print {
+	maskByMediaType {
+		display: table;
+	}
+	table tbody tr th {
+		font-size: 70%
+	}
+	table tbody tr td {
+		font-size: 70%;
+	}
+	table tbody tr th {
+		text-align: left;
+		background: #C6DEFF
+	}
+	table thead tr th {
+		text-align: center;
+		font-size: 70%;
+	}
+	p {
+		text-align: center;
+	}
+	table thead tr th:first-child {
+		width: 15%;
+	}
+	table thead tr th:nth-child(2) {
+		width: 35%;
+	}
+	table thead tr th:nth-child(3) {
+		width: 35%;
+	}
+	table thead tr th:last-child {
+		width: 10%;
+	}
+
+	table {
+		width: 98%;
+		border: 1px groove;
+		table-layout: fixed;
+		margin: 0 auto;
+		border-collapse: collapse;
+		page-break-inside: avoid;
+	}
+	table tr {
+		border: 3px groove;
+	}
+	table th {
+		border: 2px groove;
+	}
+	table td {
+		border: 2px groove;
+	}
+	table thead {
+		border: 1px groove;
+		background: #446BEC;
+		text-align: left;
+	}
+	table tbody tr td {
+		text-align: left
+	}
+	.embSpace {
+		padding-left: 10px;
+	}
+	.embSubSpace {
+		padding-left: 20px;
+	}
+	.childField {
+		background: #B8B8B8;
+	}
+}
+
+@page {
+	counter-increment: page;
+	@
+	bottom-center
+	{
+	content
+	:
+	"Page "
+	counter(
+	page
+	);
+}
+
+}
+@page :left {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+@page :right {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+fieldset table tbody tr td div ul {
+	padding-left: 60px
+}
+</style>
+</head>
+<body>
+	<h1>Test Story</h1>
+	
+	<p>Description</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span style="font-size: 13.3333330154419px;">Juana Maria Gonzales Morales is selected as the patient and her record is opened in the EMR. </span></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Comments</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>No Comments</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>PreCondition</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span style="font-size: 13.3333330154419px;">Juana Maria Gonzales Morales </span><span style="font-size: 13.3333330154419px;">Initial Data Load completed.</span></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>PostCondition</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span style="font-size: 13.3333330154419px;">Juana Maria Gonzales Morales is the active working patient in the EMR.</span></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Test Objectives</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span style="font-size: 13.3333330154419px; font-weight: bold; font-style: italic;">Select New Patient:</span><span style="font-size: 13.3333330154419px;"> The system must allow a user to enter distinguishing information about patients so that providers can uniquely identify patients who have similar sounding names or other similar identifying information.  For example, twins living in the same household will have similar dates of birth, addresses, and may have similar names. EHRs or other clinical software must be able to store information to successfully match with patients in immunization registries, if the information is available. The information includes the mother’s maiden name, whether the patient was part of a multiple birth, and the order of the multiple birth. This information allows the provider to correctly identify the patient and also helps assure a match when the EHR send the patient’s information to external systems such as an immunization registry.</span></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Evaluation Criteria</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span style="font-weight: normal; font-size: 13.3333330154419px;">Tester shall verify that the product can distinguish Juana Maria Gonzales Morales from similar sounding names and her twin using all of the pediatric demographics:</span><div><div style="font-size: 13.3333330154419px;"><p class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"></p><ul type="disc" style="font-size: 13.3333330154419px;"><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient ID (previously listed as “Medicaid Number”) - </span><b>Vendor supplied </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient ID: Assigning Authority ID (i.e., owning source)/Facility Name - </span><b>Shoreline Pediatrics </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient ID: Type (e.g., medical record number, IIS ID) - </span><b>Vendor supplied </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Name: First - </span><b>Juana </b></li><li class="MsoNormal"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Name: Middle - <span style="font-weight: bold;">Maria</span> </span><b style="font-weight: normal;">Gonzales </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 13.3333330154419px;"><font face="Arial, Verdana">Patient Name: Last - <span style="font-weight: bold;">Morales </span></font></span></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Date of Birth -<span style="font-weight: bold;"> 03</span></span><b>/30/2015  </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Birth Time - </span><b>11:15 </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Gender (Administrative Sex) - </span><b> F </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Multiple Birth Indicator - </span><b>Yes </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Birth Order -  2</span><b> </b></li><li class="MsoNormal" style="font-weight: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Responsible Person Name: First - </span><b><span style="font-size: 13.3333330154419px;">Joanna</span><span style="font-size: 13.3333330154419px;"> </span></b></li><li class="MsoNormal" style="font-weight: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Responsible Person Name: Middle - </span><b><span style="font-size: 13.3333330154419px;">Gonzales</span><span style="font-size: 13.3333330154419px;"> </span></b></li><li class="MsoNormal" style="font-weight: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Responsible Person Name: Last - </span><b><span style="font-size: 13.3333330154419px;">Morales</span><span style="font-size: 13.3333330154419px;"> </span></b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Responsible Person Name: Relationship to Patient - </span><b>Mother </b></li><li class="MsoNormal" style="font-weight: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Mother’s Name: First - </span><b><span style="font-size: 13.3333330154419px;">Joanna</span><span style="font-size: 13.3333330154419px;"> </span></b></li><li class="MsoNormal" style="font-weight: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Mother’s Name: Middle - </span><b><span style="font-size: 13.3333330154419px;">Gonzales</span><span style="font-size: 13.3333330154419px;"> </span></b></li><li class="MsoNormal" style="font-weight: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Mother’s Name: Last - </span><b><span style="font-size: 13.3333330154419px;">Morales</span><span style="font-size: 13.3333330154419px; font-weight: normal;"> </span></b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Mother’s Name: Maiden Last - </span><b>Gonzales </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: Street - </span><b>3321 Standish Way </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: City - </span><b>Stamford </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: State - </span><b>CT </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: Country - </span><b>US</b><b> </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: Zipcode - </span><b>06903 </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: County of Residence - </span><b>Fairfield </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Race - </span><b>Other </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Ethnicity - </span><b>Hispanic or Latino </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Birthing Facility Name (Birth Delivery Location Address BDL) - </span><b>Stamford Regional Hospital 15 Atlantic Avenue, Stamford Connecticut 06903  </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Birth State - </span><b>CT </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Primary Language - </span><b>English </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Telephone Number - </span><b>(203) 555-1214 </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Telephone Number Type (e.g., home, cell) - </span><b>home </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient E-mail Address - </span><b> </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Publicity Code </span><b> </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Protection Indicator</span><b> </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Protection Indicator Effective Date</span><b> </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Immunization Registry Status</span><b> </b></li><li class="MsoNormal" style="font-weight: normal; font-size: 13.3333330154419px;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Preferred Contact Method - </span><b>Phone  </b></li></ul></div></div></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Notes to Testers</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>No Note</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

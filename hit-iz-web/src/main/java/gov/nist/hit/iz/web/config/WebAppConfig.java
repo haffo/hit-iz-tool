@@ -36,7 +36,7 @@ import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("gov.nist.hit.iz")
+@ComponentScan("gov.nist.hit")
 @Import(DbConfig.class)
 public class WebAppConfig extends WebMvcConfigurerAdapter {
 

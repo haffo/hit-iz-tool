@@ -1,0 +1,9 @@
+{
+  "name" : "Record MMRV Vaccine administration",
+  "position" : 8,
+  "messageId" : null,
+  "valueSetLibraryId" : null,
+  "constraintId" : null,
+  "type" : null,
+  "description" : "The provider documents in the EMR all attributes associated with the new vaccine administration."
+}

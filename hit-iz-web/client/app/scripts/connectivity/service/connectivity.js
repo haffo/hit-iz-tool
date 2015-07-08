@@ -1,6 +1,6 @@
 'use strict';
 angular.module('connectivity').factory('Connectivity',
-    ['$rootScope', '$http', '$q', 'HL7', 'ConnectivityPart',  'Logger', 'Endpoint', 'ConnectivityUser', function ($rootScope, $http, $q, HL7, ConnectivityPart,Logger, Endpoint, ConnectivityUser) {
+    ['$rootScope', '$http', '$q', 'HL7', 'ConnectivityPart',  'Logger', 'Endpoint', 'TransactionUser', function ($rootScope, $http, $q, HL7, ConnectivityPart,Logger, Endpoint, TransactionUser) {
         var Connectivity = {
             testCase: null,
             selectedTestCase: null,
@@ -8,7 +8,7 @@ angular.module('connectivity').factory('Connectivity',
             request: new ConnectivityPart(),
             response: new ConnectivityPart(),
             serverEndpoint: new Endpoint($rootScope.appInfo.url + '/ws/iisService'),
-            user: new ConnectivityUser()
+            user: new TransactionUser()
         };
         return Connectivity;
     }]);
@@ -176,176 +176,7 @@ angular.module('connectivity').factory('ConnectivityReport', function ($http, Re
 });
 
 
-angular.module('connectivity').factory('ConnectivityUser', function (Endpoint, ConnectivityTransaction, $q, $http) {
-    var ConnectivityUser = function () {
-        this.id = null;
-        this.senderUsername = null; // tool auto generate or collect this at registration
-        this.senderPassword = null; // tool auto generate or collect this at registration
-        this.senderFacilityID = null;
-        this.receiverUsername = null; // user enter this into the tool as a receiver
-        this.receiverPassword = null; // user enter this into the tool as a receiver
-        this.receiverFacilityId = null; // user enter this into the tool as a receiver
-        this.receiverEndpoint = null; // user enter this into the tool as a receiver
-        this.endpoint = new Endpoint();
-        this.transaction = new ConnectivityTransaction();
-    };
-
-    ConnectivityUser.prototype.init = function () {
-        var delay = $q.defer();
-        var self = this;
-//        var data = angular.fromJson({"username": self.username, "tokenId": self.tokenId, "id": self.id});
-        var data = angular.fromJson({"id": self.id});
-        $http.post('api/user/init', data).then(
-            function (response) {
-                var user = angular.fromJson(response.data);
-                self.id = user.id;
-                self.senderUsername = user.username;
-                self.senderPassword = user.password;
-                self.senderFacilityID = user.facilityID;
-                self.receiverUsername = null;
-                self.receiverPassword = null;
-                self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
-                delay.resolve(true);
-            },
-            function (response) {
-                delay.reject(response);
-            }
-        );
-
-
-//        $http.get('../../resources/connectivity/user.json').then(
-//            function (response) {
-//                var user = angular.fromJson(response.data);
-//                self.id = user.id;
-//                self.senderUsername = user.username;
-//                self.senderPassword = user.password;
-//                self.senderFacilityID = user.facilityID;
-//                self.receiverUsername = null;
-//                self.receiverPassword = null;
-//                self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
-//                delay.resolve(true);
-//            },
-//            function (response) {
-//                delay.reject(response);
-//            }
-//        );
-
-        return delay.promise;
-    };
-
-
-    return ConnectivityUser;
-});
-
-
-angular.module('connectivity').factory('ConnectivityTransaction', function ($q, $http) {
-    var ConnectivityTransaction = function () {
-        this.username = null;
-        this.password = null;
-        this.facilityID = null;
-        this.incoming = null;
-        this.outgoing = null;
-    };
-
-    ConnectivityTransaction.prototype.messages = function () {
-        var delay = $q.defer();
-        var self = this;
-        var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID});
-        $http.post('api/connectivity/transaction', data).then(
-            function (response) {
-                var transaction = angular.fromJson(response.data);
-                self.incoming = transaction.incoming;
-                self.outgoing = transaction.outgoing;
-                delay.resolve(transaction);
-            },
-            function (response) {
-                delay.reject(null);
-            }
-        );
-
-//        $http.get('../../resources/connectivity/transactionOpen.json').then(
-//            function (response) {
-//                delay.resolve(true);
-//            },
-//            function (response) {
-//                delay.reject(null);
-//            }
-//        );
-
-        return delay.promise;
-    };
-
-    ConnectivityTransaction.prototype.init = function (username, password, facilityID) {
-        this.clearMessages();
-        this.username = username;
-        this.password = password;
-        this.facilityID = facilityID;
-    };
-
-
-    ConnectivityTransaction.prototype.clearMessages = function () {
-        this.incoming = null;
-        this.outgoing = null;
-    };
-
-    ConnectivityTransaction.prototype.closeConnection = function () {
-        var self = this;
-        var delay = $q.defer();
-        var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID});
-        $http.post('api/connectivity/transaction/close', data).then(
-            function (response) {
-                self.clearMessages();
-                delay.resolve(true);
-            },
-            function (response) {
-                delay.reject(null);
-            }
-        );
-
-//                $http.get('../../resources/connectivity/clearFacilityId.json').then(
-//                    function (response) {
-//                        self.clearMessages();
-//                        delay.resolve(true);
-//                    },
-//                    function (response) {
-//                        delay.reject(null);
-//                    }
-//                );
-        return delay.promise;
-    };
-
-    ConnectivityTransaction.prototype.openConnection = function () {
-
-        var self = this;
-        var delay = $q.defer();
-        var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID});
-        $http.post('api/connectivity/transaction/open', data).then(
-            function (response) {
-                self.clearMessages();
-                delay.resolve(true);
-            },
-            function (response) {
-                delay.reject(null);
-            }
-        );
-
-
-//                $http.get('../../resources/connectivity/initFacilityId.json').then(
-//                    function (response) {
-//                        delay.resolve(true);
-//                    },
-//                    function (response) {
-//                        delay.reject(null);
-//                    }
-//                );
-
-
-        return delay.promise;
-    };
-    return ConnectivityTransaction;
-});
-
-
 angular.module('connectivity').factory('ConnectivityClock', function ($interval, Clock) {
     return new Clock(1000);
 });
+

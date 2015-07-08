@@ -10,7 +10,7 @@ angular.module('doc', ['common']);
 angular.module('cb', ['common']);
 angular.module('envelope', ['soap']);
 angular.module('connectivity', ['soap']);
-angular.module('profile-viewer', ['common']);
+angular.module('isolated', ['common']);
 angular.module('tool-directives', []);
 angular.module('tool-services', ['common']);
 var app = angular.module('tool', [
@@ -32,7 +32,7 @@ var app = angular.module('tool', [
     'connectivity',
     'cf',
     'cb',
-    'profile-viewer',
+    'isolated',
     'ngTreetable',
     'blueimp.fileupload',
     'tool-directives',
@@ -42,7 +42,8 @@ var app = angular.module('tool', [
     'doc',
     'hit-profile-viewer',
     'hit-validation-result',
-    'hit-vocab-search'
+    'hit-vocab-search',
+    'hit-report-viewer'
 ]);
 
 app.config(function ($routeProvider, $httpProvider) {
@@ -239,17 +240,7 @@ app.directive('stRatio', function () {
 angular.module('tool-services').factory('AppInfo', ['$http', '$q', function ($http, $q) {
     return function () {
         var delay = $q.defer();
-        $http.get('api/appInfo').then(
-            function (object) {
-                delay.resolve(angular.fromJson(object.data));
-            },
-            function (response) {
-                delay.reject(response.data);
-            }
-        );
-
-
-//        $http.get('../../resources/appInfo.json').then(
+//        $http.get('api/appInfo').then(
 //            function (object) {
 //                delay.resolve(angular.fromJson(object.data));
 //            },
@@ -257,6 +248,16 @@ angular.module('tool-services').factory('AppInfo', ['$http', '$q', function ($ht
 //                delay.reject(response.data);
 //            }
 //        );
+
+
+        $http.get('../../resources/appInfo.json').then(
+            function (object) {
+                delay.resolve(angular.fromJson(object.data));
+            },
+            function (response) {
+                delay.reject(response.data);
+            }
+        );
 
         return delay.promise;
     };

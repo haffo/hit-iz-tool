@@ -19,7 +19,7 @@ package gov.nist.healthcare.hl7.v2.iz.tool.web.unit;
 public class ContextFreeControllerTest {
 
   // @Mock
-  // SoapEnvelopeTestCaseRepository mockRepository;
+  // EnvelopeTestCaseRepository mockRepository;
   //
   // @Mock
   // MessageRepository messageRepository;

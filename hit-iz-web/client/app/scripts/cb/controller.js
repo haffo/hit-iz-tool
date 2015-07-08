@@ -39,7 +39,7 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBDataInstanceExecutionCtrl', ['$scope', '$window', '$rootScope', function ($scope, $window, $rootScope) {
+    .controller('CBExecutionCtrl', ['$scope', '$window', '$rootScope', function ($scope, $window, $rootScope) {
         $scope.loading = true;
         $scope.error = null;
         $scope.tabs = new Array();
@@ -62,7 +62,7 @@ angular.module('cb')
             $scope.error = null;
             $scope.loading = false;
             $scope.setActiveTab(0);
-            $rootScope.$on('cb:dataInstanceTestCaseLoaded', function (event, testCase) {
+            $rootScope.$on('cb:testCaseLoaded', function (event, testCase) {
                 $scope.testCase = testCase;
                 $rootScope.$broadcast('cb:profileLoaded', $scope.testCase.testContext.profile);
                 $rootScope.$broadcast('cb:valueSetLibraryLoaded', $scope.testCase.testContext.vocabularyLibrary);
@@ -72,34 +72,6 @@ angular.module('cb')
     }]);
 
 
-angular.module('cb')
-    .controller('CBIsolatedExecutionCtrl', ['$scope', '$window', '$rootScope',  function ($scope, $window, $rootScope) {
-        $scope.loading = true;
-        $scope.error = null;
-        $scope.tabs = new Array();
-        $scope.testCase = null;
-
-
-        $scope.setActiveTab = function (value) {
-            $scope.tabs[0] = false;
-            $scope.tabs[1] = false;
-            $scope.tabs[2] = false;
-            $scope.tabs[3] = false;
-            $scope.tabs[4] = false;
-            $scope.activeTab = value;
-            $scope.tabs[$scope.activeTab] = true;
-        };
-
-        $scope.init = function () {
-            $scope.error = null;
-            $scope.loading = false;
-            $scope.setActiveTab(0);
-            $rootScope.$on('cb:isolatedTestCaseLoaded', function (event, testCase) {
-                $scope.testCase = testCase;
-            });
-        };
-
-    }]);
 
 
 
@@ -207,11 +179,11 @@ angular.module('cb')
             CB.testCase = $scope.selectedTestCase;
             $scope.testCase = CB.testCase;
             $rootScope.$broadcast('cb:testCaseLoaded', $scope.testCase);
-            if($scope.testCase.type === 'TestStep' && $scope.testCase.category === 'DataInstance') {
-                $rootScope.$broadcast('cb:dataInstanceTestCaseLoaded', $scope.testCase );
-            }else if($scope.testCase.type === 'TestCase' && $scope.testCase.category === 'Isolated'){
-                $rootScope.$broadcast('cb:isolatedTestCaseLoaded', $scope.testCase );
-            }
+//            if($scope.testCase.type === 'TestStep' && $scope.testCase.category === 'DataInstance') {
+//                $rootScope.$broadcast('cb:dataInstanceTestCaseLoaded', $scope.testCase );
+//            }else if($scope.testCase.type === 'TestCase' && $scope.testCase.category === 'Isolated'){
+//                $rootScope.$broadcast('cb:isolatedTestCaseLoaded', $scope.testCase );
+//            }
         };
 
         $scope.downloadTestStory = function(){
@@ -239,10 +211,7 @@ angular.module('cb')
 
     }]);
 
-angular.module('cb')
-    .controller('CBProfileViewerCtrl', ['$scope', 'CB', function ($scope, CB) {
-        $scope.cb = CB;
-    }]);
+
 
 angular.module('cb')
     .controller('CBValidatorCtrl', ['$scope', '$http', 'CB', '$window', 'HL7EditorUtils', 'HL7CursorUtils', '$timeout', 'HL7TreeUtils', '$modal', 'NewValidationResult', '$rootScope', 'Er7MessageValidator', 'Er7MessageParser', function ($scope, $http, CB, $window, HL7EditorUtils, HL7CursorUtils, $timeout, HL7TreeUtils, $modal, NewValidationResult, $rootScope,Er7MessageValidator,Er7MessageParser) {
@@ -251,7 +220,6 @@ angular.module('cb')
         $scope.testCase = CB.testCase;
         $scope.message = CB.message;
         $scope.selectedMessage = {};
-        $scope.validationResult = null;
         $scope.loading = true;
         $scope.error = null;
         $scope.vError = null;
@@ -418,58 +386,18 @@ angular.module('cb')
 
 
         $scope.setValidationResult = function (mvResult) {
+            var report = null;
+            var validationResult = null;
             if (mvResult !== null) {
-                $scope.cb.validationResult = new NewValidationResult();
-                $scope.cb.validationResult.init(mvResult);
-                $scope.validationResult = $scope.cb.validationResult;
-                $scope.cb.report["result"] = $scope.validationResult;
-                if (!angular.equals(mvResult, {})) {
-                    $scope.cb.report["metaData"] = {
-                        reportHeader: {
-                            title: "Message Validation Report",
-                            date: new Date().getTime()
-                        },
-                        validationTypeHeader: {
-                            title: "Validation Type",
-                            type: "Context-based"
-                        },
-                        toolHeader: {
-                            title: "Testing Tool",
-                            name: "NIST-CDC Immunization Test Suite - HL7 V2.5.1 Validation Tool",
-                            versionRelease: "1.0"
-                        },
-                        profileHeader: {
-                            name: "Profile Name",
-                            organization: "NIST",
-                            type: "See Profile MetaData Slide",
-                            profileVersion: "",
-                            profileDate: "",
-                            standard: "HL7 Version 2.5.1 Implementation Guide For Immunization Messaging Rel .1.5 (10/01/2014) Immunization Clarification Addendum (Date)"
-                        },
-                        messageHeader: {
-                            encoding: "ER7"
-                        },
-                        summaryHeader: {
-                            errorCount: $scope.cb.report.result.errors.categories[0].data.length,
-                            warningCount: $scope.cb.report.result.warnings.categories[0].data.length,
-                            informationalCount: $scope.cb.report.result.informationals.categories[0].data.length,
-                            alertCount: $scope.cb.report.result.alerts.categories[0].data.length,
-                            affirmativeCount: $scope.cb.report.result.affirmatives.categories[0].data.length
-                        }
-                    };
-
-                 } else {
-                    $scope.cb.report.result = null;
-                    $scope.cb.report.metaData = null;
-                }
-            } else {
-                $scope.cb.validationResult = null;
-                $scope.validationResult = null;
-                $scope.cb.report["result"] = null;
+                report = {};
+                validationResult = new NewValidationResult();
+                validationResult.init(mvResult);
+                report["result"] = validationResult;
             }
-            $rootScope.$broadcast('cb:validationResultLoaded', $scope.cb.validationResult);
-
+            $rootScope.$broadcast('cb:reportLoaded', report);
+            $rootScope.$broadcast('cb:validationResultLoaded', validationResult);
         };
+
 
 
         $scope.select = function (element) {
@@ -479,22 +407,6 @@ angular.module('cb')
                 $scope.cb.cursor.init(data != null ? data.lineNumber : element.line, data != null ? data.startIndex - 1 : element.column - 1, data != null ? data.endIndex - 1 : element.column - 1, data != null ? data.startIndex - 1 : element.column - 1, false)
                 HL7EditorUtils.select($scope.editor, $scope.cb.cursor);
             }
-        };
-
-        $scope.showDetails = function (element) {
-            var modalInstance = $modal.open({
-                templateUrl: 'ValidationResultDetailsCtrl.html',
-                controller: 'ValidationResultDetailsCtrl',
-                resolve: {
-                    selectedElement: function () {
-                        return element;
-                    }
-                }
-            });
-            modalInstance.result.then(function (selectedItem) {
-                $scope.selectedElement = selectedItem;
-            }, function () {
-             });
         };
 
         $scope.clearMessage = function () {
@@ -574,19 +486,15 @@ angular.module('cb')
     }])
 ;
 
-
+angular.module('cb')
+    .controller('CBProfileViewerCtrl', ['$scope', 'CB', function ($scope, CB) {
+        $scope.cb = CB;
+    }]);
 
 angular.module('cb')
     .controller('CBReportCtrl', ['$scope', '$sce', '$http', 'CB', function ($scope, $sce, $http, CB) {
         $scope.cb = CB;
-        $scope.error = null;
-        $scope.loading = false;
-        $scope.init = function () {
-        };
-        $scope.downloadAs = function (format) {
-            $scope.cb.report.downloadByFormat($scope.cb.report, format);
-        };
-    }]);
+     }]);
 
 angular.module('cb')
     .controller('CBVocabularyCtrl', ['$scope','CB', function ($scope, CB) {

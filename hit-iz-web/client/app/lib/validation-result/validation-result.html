@@ -1,3 +1,4 @@
+<div ng-show="validationResult !== null">
 <tabset>
 <tab active="validationTabs[0]">
     <tab-heading>
@@ -49,7 +50,7 @@
                             </td>
                             <!--<td ng-bind="row.failureType"></td>-->
                             <td>
-                                <a ng-show="row.details"
+                                <a ng-show="row.stackTrace !== null || row.metaData != null"
                                    class="point" ng-click="showDetails(row)">Details</a>
                             </td>
                         </tr>
@@ -126,7 +127,7 @@
                             </td>
                             <!--<td ng-bind="row.failureType"></td>-->
                             <td>
-                                <a ng-show="row.details"
+                                <a ng-show="row.stackTrace !== null || row.metaData != null"
                                    class="point" ng-click="showDetails(row)">Details</a>
                             </td>
                         </tr>
@@ -200,7 +201,7 @@
                             </td>
                             <!--<td ng-bind="row.failureType"></td>-->
                             <td>
-                                <a ng-show="row.details"
+                                <a ng-show="row.stackTrace !== null || row.metaData != null"
                                    class="point" ng-click="showDetails(row)">Details</a>
                             </td>
                         </tr>
@@ -274,7 +275,7 @@
                             </td>
                             <!--<td ng-bind="row.failureType"></td>-->
                             <td>
-                                <a ng-show="row.details"
+                                <a ng-show="row.stackTrace !== null || row.metaData != null"
                                    class="point" ng-click="showDetails(row)">Details</a>
                             </td>
                         </tr>
@@ -352,7 +353,7 @@
                             </td>
                             <!--<td ng-bind="row.failureType"></td>-->
                             <td>
-                                <a ng-show="row.details"
+                                <a ng-show="row.stackTrace !== null || row.metaData != null"
                                    class="point" ng-click="showDetails(row)">Details</a>
                             </td>
                         </tr>
@@ -375,8 +376,14 @@
     </div>
     <div class="modal-body">
         <div class="row">
+            <h4>StackTrace</h4>
             <pre>
-                {{selectedElement.details}}
+                {{selectedElement.stackTrace | json}}
+            </pre>
+            <br />
+            <h4>MetaData</h4>
+            <pre>
+                {{selectedElement.metaData | json}}
             </pre>
         </div>
     </div>
@@ -419,3 +426,8 @@
         <button class="btn btn-primary" ng-click="ok()">Close</button>
     </div>
 </script>
+</div>
+
+<div ng-show="validationResult === null">
+    No Validation Performed.
+</div>

@@ -6,9 +6,9 @@ import gov.nist.hit.core.domain.TestStory;
 import gov.nist.hit.core.service.exception.ProfileParserException;
 import gov.nist.hit.core.service.util.FileUtil;
 import gov.nist.hit.iz.domain.IZTestType;
-import gov.nist.hit.iz.domain.SoapEnvelopeTestCase;
-import gov.nist.hit.iz.domain.SoapEnvelopeTestContext;
-import gov.nist.hit.iz.domain.SoapEnvelopeTestPlan;
+import gov.nist.hit.iz.domain.EnvelopeTestCase;
+import gov.nist.hit.iz.domain.EnvelopeTestContext;
+import gov.nist.hit.iz.domain.EnvelopeTestPlan;
 import gov.nist.hit.iz.domain.ValidationPhase;
 
 import java.io.IOException;
@@ -25,18 +25,18 @@ import org.codehaus.jackson.JsonProcessingException;
  */
 public class SoapEnvelopeTestPlanParser extends TestPlanParser {
 
-  public List<SoapEnvelopeTestPlan> create() throws JsonProcessingException, IOException,
+  public List<EnvelopeTestPlan> create() throws JsonProcessingException, IOException,
       ProfileParserException, URISyntaxException {
-    List<SoapEnvelopeTestPlan> testPlans = new ArrayList<SoapEnvelopeTestPlan>();
+    List<EnvelopeTestPlan> testPlans = new ArrayList<EnvelopeTestPlan>();
 
-    SoapEnvelopeTestPlan testPlan = new SoapEnvelopeTestPlan();
+    EnvelopeTestPlan testPlan = new EnvelopeTestPlan();
     testPlan.setName("Generic");
     testPlan.setTestProcedurePath("/Envelope/generic/TP_NIST-CDC_SOAP_Envelope_Testing.docx");
-    SoapEnvelopeTestCase testCase = new SoapEnvelopeTestCase();
+    EnvelopeTestCase testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_1_Min_Test");
     String testCasePath = "/Envelope/generic/SOAPENV_1_Min_Test";
     testCase.setTestType(IZTestType.GENERIC.toString());
-    SoapEnvelopeTestContext testContext = new SoapEnvelopeTestContext();
+    EnvelopeTestContext testContext = new EnvelopeTestContext();
     testContext.setValidationPhase(ValidationPhase.envelope.toString());
     testCase.setTestContext(testContext);
     testCase.setMessageContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
@@ -52,10 +52,10 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testPlan.addTestCase(testCase);
     testPlans.add(testPlan);
 
-    testPlan = new SoapEnvelopeTestPlan();
+    testPlan = new EnvelopeTestPlan();
     testPlan.setName("Sender(Initiator)");
     testPlan.setTestProcedurePath("/Envelope/sender/TP_NIST-CDC_Sender_SOAP_Envelope_Testing.docx");
-    testCase = new SoapEnvelopeTestCase();
+    testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_1_ConnectivityMessage_Request");
     testCasePath = "/Envelope/sender/SOAPENV_1_ConnectivityMessage_Request";
     testCase.setTestType(IZTestType.SENDER_CONNECTIVITY.toString());
@@ -66,7 +66,7 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
 
-    testContext = new SoapEnvelopeTestContext();
+    testContext = new EnvelopeTestContext();
     testCase.setTestContext(testContext);
     testCase.setSutType(SutType.SENDER);
 
@@ -76,8 +76,8 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
     testPlan.addTestCase(testCase);
 
-    testCase = new SoapEnvelopeTestCase();
-    testContext = new SoapEnvelopeTestContext();
+    testCase = new EnvelopeTestCase();
+    testContext = new EnvelopeTestContext();
     testCase.setTestContext(testContext);
     testContext.setValidationPhase(ValidationPhase.submitSingleMessage_Request.toString());
     testCase.setName("SOAPENV_2_SubmitSingleMessage_Request");
@@ -98,9 +98,9 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testPlans.add(testPlan);
 
     // RECEIVER TESTCASES
-    testPlan = new SoapEnvelopeTestPlan();
+    testPlan = new EnvelopeTestPlan();
     testPlan.setName("Receiver(Responder)");
-    testCase = new SoapEnvelopeTestCase();
+    testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_1_ConnectivityMessage_Response");
     testCasePath = "/Envelope/receiver/SOAPENV_1_ConnectivityMessage_Response";
     testCase.setTestType(IZTestType.RECEIVER_CONNECTIVITY.toString());
@@ -111,7 +111,7 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
-    testContext = new SoapEnvelopeTestContext();
+    testContext = new EnvelopeTestContext();
     testCase.setTestContext(testContext);
     testContext.setValidationPhase(ValidationPhase.connectivityTest_Response.toString());
     testCase.setSutType(SutType.RECEIVER);
@@ -120,7 +120,7 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
     testPlan.addTestCase(testCase);
 
-    testCase = new SoapEnvelopeTestCase();
+    testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_2_SubmitSingleMessage_Response");
     testCase.setTestType(IZTestType.RECEIVER_SUBMIT_SINGLE_MESSAGE.toString());
     testCasePath = "/Envelope/receiver/SOAPENV_2_SubmitSingleMessage_Response";
@@ -130,7 +130,7 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
-    testContext = new SoapEnvelopeTestContext();
+    testContext = new EnvelopeTestContext();
     testCase.setTestContext(testContext);
     testContext.setValidationPhase(ValidationPhase.submitSingleMessage_Response.toString());
     testContext.setExampleMessage(new Message("SOAPENV_2_SubmitSingleMessage_Response", "",
@@ -139,7 +139,7 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testCase.setSutType(SutType.RECEIVER);
     testPlan.addTestCase(testCase);
 
-    testCase = new SoapEnvelopeTestCase();
+    testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_3_MessageTooLarge_Fault");
     testCasePath = "/Envelope/receiver/SOAPENV_3_MessageTooLarge_Fault";
     testCase.setTestType(IZTestType.RECEIVER_MESSAGE_TOO_LARGE.toString());
@@ -150,7 +150,7 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
-    testContext = new SoapEnvelopeTestContext();
+    testContext = new EnvelopeTestContext();
     testCase.setTestContext(testContext);
     testContext.setValidationPhase(ValidationPhase.MessageTooLargeFault.toString());
     testContext.setExampleMessage(new Message("SOAPENV_3_MessageTooLarge_Fault", "", FileUtil
@@ -159,7 +159,7 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testCase.setSutType(SutType.RECEIVER);
     testPlan.addTestCase(testCase);
 
-    testCase = new SoapEnvelopeTestCase();
+    testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_4_Security_Fault");
     testCasePath = "/Envelope/receiver/SOAPENV_4_Security_Fault";
     testCase.setTestType(IZTestType.RECEIVER_SECURITY_FAULT.toString());
@@ -169,7 +169,7 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
-    testContext = new SoapEnvelopeTestContext();
+    testContext = new EnvelopeTestContext();
     testContext.setValidationPhase(ValidationPhase.SecurityFault.toString());
     testCase.setTestContext(testContext);
     testContext.setExampleMessage(new Message("SOAPENV_4_Security_Fault", "", FileUtil
@@ -178,11 +178,11 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testCase.setSutType(SutType.RECEIVER);
     testPlan.addTestCase(testCase);
 
-    testCase = new SoapEnvelopeTestCase();
+    testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_5_UnsupportedOperation_Fault");
     testCasePath = "/Envelope/receiver/SOAPENV_5_UnsupportedOperation_Fault";
     testCase.setTestType(IZTestType.RECEIVER_UNSUPPORTED_OPERATION.toString());
-    testContext = new SoapEnvelopeTestContext();
+    testContext = new EnvelopeTestContext();
     testCase.setTestContext(testContext);
     testContext.setValidationPhase(ValidationPhase.UnsupportedOperationFault.toString());
     testCase.setMessageContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
@@ -197,11 +197,11 @@ public class SoapEnvelopeTestPlanParser extends TestPlanParser {
     testCase.setSutType(SutType.RECEIVER);
     testPlan.addTestCase(testCase);
 
-    testCase = new SoapEnvelopeTestCase();
+    testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_6_Unknown_Fault");
     testCasePath = "/Envelope/receiver/SOAPENV_6_Unknown_Fault";
     testCase.setTestType(IZTestType.RECEIVER_UNKNOWN_FAULT.toString());
-    testContext = new SoapEnvelopeTestContext();
+    testContext = new EnvelopeTestContext();
     testCase.setTestContext(testContext);
     testContext.setValidationPhase(ValidationPhase.UnknownFault.toString());
     testStory = testCase.getTestStory();

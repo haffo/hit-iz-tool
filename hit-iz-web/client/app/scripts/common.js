@@ -352,148 +352,6 @@ angular.module('commonServices').factory('ValidationResult', function (Validatio
 });
 
 
-angular.module('commonServices').factory('NewValidationResult', function (ValidationResult, HL7Utils) {
-    var NewValidationResult = function (key) {
-        ValidationResult.apply(this, arguments);
-        this.json = null;
-    };
-
-    var Entry = function () {
-        this.description = null;
-        this.path = null;
-        this.line = null;
-        this.column = null;
-        this.value = null;
-        this.details = null;
-        this.instance = null;
-        this.id = new Date().getTime();
-        this.failureType = null;
-    };
-
-    Entry.prototype.initLocation = function (l) {
-        if (l) {
-            this.desc = l.desc;
-            this.path = l.path;
-            this.line = l.line;
-            this.column = l.column;
-        }
-    };
-
-    NewValidationResult.prototype = Object.create(ValidationResult.prototype);
-    NewValidationResult.prototype.constructor = NewValidationResult;
-
-
-//    NewValidationResult.prototype.addResult = function (entryObject, result, categoryType) {
-//        var all = this.getCategory(entryObject, "All");
-//        all.data.push(result);
-//        var other = this.getCategory(entryObject, categoryType);
-//        other.data.push(result);
-//    };
-
-    NewValidationResult.prototype.addResult = function (entryObject, entry) {
-        var all = this.getCategory(entryObject, "All");
-        all.data.push(entry);
-        var other = this.getCategory(entryObject, entry.category);
-        other.data.push(entry);
-    };
-
-
-    NewValidationResult.prototype.getCategory = function (entryObject, categoryType) {
-        if (categoryType) {
-            var category = null;
-            for (var i = 0; i < entryObject.categories.length; i++) {
-                if (entryObject.categories[i].title === categoryType) {
-                    category = entryObject.categories[i];
-                }
-            }
-            if (category === null) {
-                category = {"title": categoryType, "data": []};
-                entryObject.categories.push(category);
-            }
-            return category;
-        }
-
-        return null;
-    };
-
-
-    NewValidationResult.prototype.addItem = function (entry) {
-        try {
-            if (entry['classification'] === 'Error') {
-                this.addResult(this.errors, entry);
-            } else if (entry['classification'] === 'Informational' || entry['classification'] === 'Info') {
-                this.addResult(this.informationals, entry);
-            } else if (entry['classification'] === 'Warning') {
-                this.addResult(this.warnings, entry);
-            } else if (entry['classification'] === 'Alert') {
-                this.addResult(this.alerts, entry);
-            } else if (entry['classification'] === 'Affirmative') {
-                this.addResult(this.affirmatives, entry);
-            } else if (entry['classification'] === 'DQA') {
-                this.addResult(this.dqas, entry);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    NewValidationResult.prototype.init = function (report) {
-        ValidationResult.prototype.clear.call(this);
-        this.json = report;
-        if (report['Report']) {
-            for (var i = 0; i < report['Report'].length; i++) {
-                var item = report['Report'][i];
-                this.addItem(item['Entry']);
-            }
-        }
-
-//        while(i < report.length) {
-//            var item = report[i];
-//            this.addItem(item);
-//
-//            while(x < parentJSON.length &&
-//                (x = parentJSON.indexOf(item, x)) != -1) {
-//
-//                count += 1;
-//                parentJSON.splice(x,1);
-//            }
-//
-//            parentJSON[i] = new Array(parentJSON[i],count);
-//            ++i;
-//        }
-
-
-//
-//        if(entries) {
-//            for (var i = 0; i < entries.length; i++) {
-//                this.addItem(entries[i]);
-//            }
-//        }
-//        this.structure = report.structure;
-//        this.content = report.content;
-//        this.valueSet = report.valueSet;
-//        if (this.structure) {
-//            for (var i = 0; i < this.structure.length; i++) {
-//                this.addItem(this.structure [i]);
-//            }
-//        }
-//        if (this.content) {
-//            for (var i = 0; i < this.content.length; i++) {
-//                this.addItem(this.content [i]);
-//            }
-//        }
-//
-//        if (this.valueSet) {
-//            for (var i = 0; i < this.valueSet.length; i++) {
-//                this.addItem(this.valueSet [i]);
-//            }
-//        }
-
-    };
-    return NewValidationResult;
-});
-
-
 angular.module('commonServices').factory('DQAValidationResult', function () {
     var DQAValidationResult = function (result) {
         this.errors = [];
@@ -890,6 +748,179 @@ angular.module('commonServices').factory('Clock', function ($interval) {
     };
     return Clock;
 });
+
+
+
+angular.module('commonServices').factory('TransactionUser', function (Endpoint, Transaction, $q, $http) {
+    var TransactionUser = function () {
+        this.id = null;
+        this.senderUsername = null; // tool auto generate or collect this at registration
+        this.senderPassword = null; // tool auto generate or collect this at registration
+        this.senderFacilityID = null;
+        this.receiverUsername = null; // user enter this into the tool as a receiver
+        this.receiverPassword = null; // user enter this into the tool as a receiver
+        this.receiverFacilityId = null; // user enter this into the tool as a receiver
+        this.receiverEndpoint = null; // user enter this into the tool as a receiver
+        this.endpoint = new Endpoint();
+        this.transaction = new Transaction();
+    };
+
+    TransactionUser.prototype.init = function () {
+        var delay = $q.defer();
+        var self = this;
+//        var data = angular.fromJson({"username": self.username, "tokenId": self.tokenId, "id": self.id});
+        var data = angular.fromJson({"id": self.id});
+//        $http.post('api/transaction/initUser', data).then(
+//            function (response) {
+//                var user = angular.fromJson(response.data);
+//                self.id = user.id;
+//                self.senderUsername = user.username;
+//                self.senderPassword = user.password;
+//                self.senderFacilityID = user.facilityID;
+//                self.receiverUsername = null;
+//                self.receiverPassword = null;
+//                self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
+//                delay.resolve(true);
+//            },
+//            function (response) {
+//                delay.reject(response);
+//            }
+//        );
+
+
+        $http.get('../../resources/connectivity/user.json').then(
+            function (response) {
+                var user = angular.fromJson(response.data);
+                self.id = user.id;
+                self.senderUsername = user.username;
+                self.senderPassword = user.password;
+                self.senderFacilityID = user.facilityID;
+                self.receiverUsername = null;
+                self.receiverPassword = null;
+                self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
+                delay.resolve(true);
+            },
+            function (response) {
+                delay.reject(response);
+            }
+        );
+
+        return delay.promise;
+    };
+
+
+    return TransactionUser;
+});
+
+
+angular.module('commonServices').factory('Transaction', function ($q, $http) {
+    var Transaction = function () {
+        this.username = null;
+        this.password = null;
+        this.facilityID = null;
+        this.incoming = null;
+        this.outgoing = null;
+    };
+
+    Transaction.prototype.messages = function () {
+        var delay = $q.defer();
+        var self = this;
+        var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID});
+//        $http.post('api/transaction', data).then(
+//            function (response) {
+//                var transaction = angular.fromJson(response.data);
+//                self.incoming = transaction.incoming;
+//                self.outgoing = transaction.outgoing;
+//                delay.resolve(transaction);
+//            },
+//            function (response) {
+//                delay.reject(null);
+//            }
+//        );
+
+        $http.get('../../resources/connectivity/transactionOpen.json').then(
+            function (response) {
+                delay.resolve(true);
+            },
+            function (response) {
+                delay.reject(null);
+            }
+        );
+
+        return delay.promise;
+    };
+
+    Transaction.prototype.init = function (username, password, facilityID) {
+        this.clearMessages();
+        this.username = username;
+        this.password = password;
+        this.facilityID = facilityID;
+    };
+
+
+    Transaction.prototype.clearMessages = function () {
+        this.incoming = null;
+        this.outgoing = null;
+    };
+
+    Transaction.prototype.closeConnection = function () {
+        var self = this;
+        var delay = $q.defer();
+        var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID});
+//        $http.post('api/transaction/close', data).then(
+//            function (response) {
+//                self.clearMessages();
+//                delay.resolve(true);
+//            },
+//            function (response) {
+//                delay.reject(null);
+//            }
+//        );
+
+                $http.get('../../resources/connectivity/clearFacilityId.json').then(
+                    function (response) {
+                        self.clearMessages();
+                        delay.resolve(true);
+                    },
+                    function (response) {
+                        delay.reject(null);
+                    }
+                );
+        return delay.promise;
+    };
+
+    Transaction.prototype.openConnection = function () {
+
+        var self = this;
+        var delay = $q.defer();
+        var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID});
+//        $http.post('api/transaction/open', data).then(
+//            function (response) {
+//                self.clearMessages();
+//                delay.resolve(true);
+//            },
+//            function (response) {
+//                delay.reject(null);
+//            }
+//        );
+
+
+                $http.get('../../resources/connectivity/initFacilityId.json').then(
+                    function (response) {
+                        delay.resolve(true);
+                    },
+                    function (response) {
+                        delay.reject(null);
+                    }
+                );
+
+
+        return delay.promise;
+    };
+    return Transaction;
+});
+
+
 
 
 

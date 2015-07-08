@@ -1,8 +1,8 @@
 package gov.nist.hit.iz.ws.server.interceptor;
 
+import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.iz.domain.SoapConnectivityTransaction;
-import gov.nist.hit.iz.repo.SoapConnectivityTransactionRepository;
+import gov.nist.hit.core.repo.TransactionRepository;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -34,14 +34,14 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
 			.getLogger(SubmitSingleMessageInterceptor.class);
 
 	@Autowired
-	private SoapConnectivityTransactionRepository transactionRepository;
+	private TransactionRepository transactionRepository;
 
-	public SoapConnectivityTransactionRepository getTransactionRepository() {
+	public TransactionRepository getTransactionRepository() {
 		return transactionRepository;
 	}
 
 	public void setTransactionRepository(
-			SoapConnectivityTransactionRepository transactionRepository) {
+			TransactionRepository transactionRepository) {
 		this.transactionRepository = transactionRepository;
 	}
 
@@ -71,7 +71,7 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
 		String password = getPassword(request);
 		String facilityID = getFacilityID(request);
 		try {
-			SoapConnectivityTransaction transaction = transactionRepository
+			Transaction transaction = transactionRepository
 					.findByUsernameAndPasswordAndFacilityID(username, password,
 							facilityID);
 			if (transaction != null) {

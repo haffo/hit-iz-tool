@@ -1,0 +1,9 @@
+{
+  "name" : "Records Influenza Vaccine administration route with data validation checking",
+  "position" : 5,
+  "messageId" : null,
+  "valueSetLibraryId" : null,
+  "constraintId" : null,
+  "type" : null,
+  "description" : "The provider records the vaccine administration in the EMR and is prevented from incorrectly documenting vaccine route."
+}

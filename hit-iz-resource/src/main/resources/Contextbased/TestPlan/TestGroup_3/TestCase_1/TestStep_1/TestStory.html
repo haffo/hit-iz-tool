@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="ASCII" standalone="no"?>
+<html>
+<head>
+<style type="text/css">
+@media screen {
+	maskByMediaType {
+		display: table;
+	}
+	table tbody tr th {
+		font-size: 90%
+	}
+	table tbody tr td {
+		font-size: 90%;
+	}
+	table tbody tr th {
+		text-align: left;
+		background: #C6DEFF
+	}
+	table thead tr th {
+		text-align: center;
+	}
+	table thead tr th:first-child {
+		width: 15%;
+	}
+	table thead tr th:nth-child(2) {
+		width: 35%;
+	}
+	table thead tr th:nth-child(3) {
+		width: 35%;
+	}
+	table thead tr th:last-child {
+		width: 10%;
+	}
+	p {
+		text-align: center;
+	}
+	
+	h1 {
+		text-align: center;
+	}
+	table {
+		width: 98%;
+		border: 1px groove;
+		table-layout: fixed;
+		margin: 0 auto;
+		border-collapse: collapse;
+	}
+	table tr {
+		border: 3px groove;
+	}
+	table th {
+		border: 2px groove;
+	}
+	table td {
+		border: 2px groove;
+	}
+	table thead {
+		border: 1px groove;
+		background: #446BEC;
+		text-align: left;
+	}
+	table tbody tr td {
+		text-align: left
+	}
+	.embSpace {
+		padding-left: 15px;
+	}
+	.embSubSpace {
+		padding-left: 25px;
+	}
+	.childField {
+		background: #B8B8B8;
+	}
+}
+
+table tbody tr td div ul {
+	padding-left: 60px
+}
+
+@media print {
+	maskByMediaType {
+		display: table;
+	}
+	table tbody tr th {
+		font-size: 70%
+	}
+	table tbody tr td {
+		font-size: 70%;
+	}
+	table tbody tr th {
+		text-align: left;
+		background: #C6DEFF
+	}
+	table thead tr th {
+		text-align: center;
+		font-size: 70%;
+	}
+	p {
+		text-align: center;
+	}
+	table thead tr th:first-child {
+		width: 15%;
+	}
+	table thead tr th:nth-child(2) {
+		width: 35%;
+	}
+	table thead tr th:nth-child(3) {
+		width: 35%;
+	}
+	table thead tr th:last-child {
+		width: 10%;
+	}
+
+	table {
+		width: 98%;
+		border: 1px groove;
+		table-layout: fixed;
+		margin: 0 auto;
+		border-collapse: collapse;
+		page-break-inside: avoid;
+	}
+	table tr {
+		border: 3px groove;
+	}
+	table th {
+		border: 2px groove;
+	}
+	table td {
+		border: 2px groove;
+	}
+	table thead {
+		border: 1px groove;
+		background: #446BEC;
+		text-align: left;
+	}
+	table tbody tr td {
+		text-align: left
+	}
+	.embSpace {
+		padding-left: 10px;
+	}
+	.embSubSpace {
+		padding-left: 20px;
+	}
+	.childField {
+		background: #B8B8B8;
+	}
+}
+
+@page {
+	counter-increment: page;
+	@
+	bottom-center
+	{
+	content
+	:
+	"Page "
+	counter(
+	page
+	);
+}
+
+}
+@page :left {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+@page :right {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+fieldset table tbody tr td div ul {
+	padding-left: 60px
+}
+</style>
+</head>
+<body>
+	<h1>Test Story</h1>
+	
+	<p>Description</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><font face="Arial, Verdana"><span style="font-size: 10pt;"> The Immunization Registry returns an Evaluated History and Forecast (Z42) to the EMR in response to the query for patient (Juana Mariana Gonzales). The provider reviews the immunization history from the registry and compares to the immunization history in the EMR. The provider reconciles the information from these sources, importing information known only to the registry, retaining information that is more accurately reflected in the local EMR:</span></font><div><div><font face="Arial, Verdana"><span style="font-size: 13.3333330154419px;">The physician accesses the record for Juana Mariana Gonzales and:</span></font></div><div><font face="Arial, Verdana"><span style="font-size: 13.3333330154419px;">• Reconciles the EHR vaccine history with the history retrieved from the registry:</span></font></div><div><font face="Arial, Verdana"><span style="font-size: 13.3333330154419px;">o Accepts new vaccines from the registry data</span></font></div><div><font face="Arial, Verdana"><span style="font-size: 13.3333330154419px;">o If the EHR does not already flag the first MMRV as invalid, the provider updates the first MMRV to indicate it is “invalid” as it was given too early (as notified by the registry)</span></font></div><div><font face="Arial, Verdana"><span style="font-size: 13.3333330154419px;">o Retains the local history for influenza and polio vaccines that are not included in the registry report.</span></font></div></div></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Comments</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>No Comments</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>PreCondition</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>A Z44 query has been submitted to the Immunization Registry and a Z42 response is provided back to the EMR. </td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>PostCondition</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Evaluated Immunization History returned from the registry is reconciled and imported into the patient record (Juana Mariana Gonzales)</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Test Objectives</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span style="font-family: Arial, Verdana; font-size: 10pt; font-variant: normal; line-height: normal; font-weight: bold; font-style: italic;">Compare Public Health Immunization Registry (IIS) Immunization History to EHR Immunization History: </span><span style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; line-height: normal; font-weight: normal;">The public health immunization registry has returned the requested immunization history for a patient. The EHR is able to display the immunization history received from the registry as well as the immunization history already present in the EHR so that a user can compare them.  The EHR provides a way for the provider to view both histories, determine what is different (if anything), and update the existing EHR immunization history with new information from the public health registry if he or she chooses to do so. The system must store the new information as structured data as part of the patient’s local immunization history and include the time of the update and the source of the new information.</span><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; line-height: normal;"><span style="font-weight: normal;"> </span></div><div><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;"><span style="font-weight: bold; font-style: italic;">Review Patient Immunization History:</span> To assist with the ordering process, the EHR or other clinical software system allows a user to specify standard views of patient immunization information for each vaccine dose administration, including patient-specific data (e.g., age on dates of administration, etc.).</span></div></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Evaluation Criteria</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span style="font-family: Arial, Verdana; font-size: 10pt;">1. The EMR displays the information returned from the Immunization Registry according to the Juror Document.&nbsp;</span><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; line-height: normal; font-weight: normal;"> </div></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Notes to Testers</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>No Note</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

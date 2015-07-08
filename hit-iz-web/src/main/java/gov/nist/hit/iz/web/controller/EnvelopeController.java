@@ -17,11 +17,11 @@ import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.service.exception.SoapValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.core.service.exception.MessageValidationException;
-import gov.nist.hit.iz.domain.SoapEnvelopeTestCase;
-import gov.nist.hit.iz.domain.SoapEnvelopeTestContext;
-import gov.nist.hit.iz.domain.SoapEnvelopeTestPlan;
-import gov.nist.hit.iz.repo.SoapEnvelopeTestCaseRepository;
-import gov.nist.hit.iz.repo.SoapEnvelopeTestPlanRepository;
+import gov.nist.hit.iz.domain.EnvelopeTestCase;
+import gov.nist.hit.iz.domain.EnvelopeTestContext;
+import gov.nist.hit.iz.domain.EnvelopeTestPlan;
+import gov.nist.hit.iz.repo.EnvelopeTestCaseRepository;
+import gov.nist.hit.iz.repo.EnvelopeTestPlanRepository;
 import gov.nist.hit.iz.service.SoapValidationReportGenerator;
 import gov.nist.hit.iz.service.soap.SoapMessageParser;
 import gov.nist.hit.iz.service.soap.SoapMessageValidator;
@@ -53,10 +53,10 @@ public class EnvelopeController extends TestingController {
   private SoapMessageValidator soapValidator;
 
   @Autowired
-  private SoapEnvelopeTestPlanRepository testPlanRepository;
+  private EnvelopeTestPlanRepository testPlanRepository;
 
   @Autowired
-  private SoapEnvelopeTestCaseRepository testCaseRepository;
+  private EnvelopeTestCaseRepository testCaseRepository;
 
   @Autowired
   private SoapMessageParser soapParser;
@@ -65,7 +65,7 @@ public class EnvelopeController extends TestingController {
   private SoapValidationReportGenerator reportService;
 
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
-  public List<SoapEnvelopeTestPlan> testCases() {
+  public List<EnvelopeTestPlan> testCases() {
     logger.info("Fetching all testplans...");
     return testPlanRepository.findAll();
   }
@@ -76,10 +76,10 @@ public class EnvelopeController extends TestingController {
       @RequestBody final Command command) throws SoapValidationException {
     try {
       logger.info("Validating envelope message " + command);
-      SoapEnvelopeTestCase testCase = testCaseRepository.findOne(testCaseId);
+      EnvelopeTestCase testCase = testCaseRepository.findOne(testCaseId);
       if (testCase == null)
         throw new TestCaseException("No testcase selected");
-      SoapEnvelopeTestContext context = testCase.getTestContext();
+      EnvelopeTestContext context = testCase.getTestContext();
       ValidationResult result;
       result =
           soapValidator.validate(Utils.getContent(command), testCase.getName(),

@@ -1,0 +1,9 @@
+{
+  "name" : "Enter Adverse Reaction to the Polio Vaccine",
+  "position" : 5,
+  "messageId" : null,
+  "valueSetLibraryId" : null,
+  "constraintId" : null,
+  "type" : null,
+  "description" : "The EHR captures structured data regarding adverse events as part of the clinical history."
+}

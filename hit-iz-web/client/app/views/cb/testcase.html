@@ -38,12 +38,12 @@
                             <span style="font-size: 20px;font-weight: bold">
                                {{selectedTestCase.type}}: {{selectedTestCase.name}}
                             </span>
-                            <span class="pull-right" ng-show=" selectedTestCase.type==='TestCase' && selectedTestCase.category === 'Isolated' ">
-                                  <button title="Start Test" type="button" class="btn btn-sm btn-success"
-                                          ng-click="loadTestCase()">
-                                      <i class="fa fa-play"></i>Start
-                                  </button>
-                            </span>
+                            <!--<span class="pull-right" ng-show=" selectedTestCase.type==='TestCase' && selectedTestCase.category === 'Isolated' ">-->
+                                  <!--<button title="Start Test" type="button" class="btn btn-sm btn-success"-->
+                                          <!--ng-click="loadTestCase()">-->
+                                      <!--<i class="fa fa-play"></i>Start-->
+                                  <!--</button>-->
+                            <!--</span>-->
                             <span class="pull-right" ng-show="selectedTestCase.type === 'TestStep' && selectedTestCase.category === 'DataInstance'">
                                 <!--<button title="Download Test Package" type="button" class="btn btn-xs btn-primary"-->
                                          <!--ng-show="selectedTestCase.testPackage != null"-->

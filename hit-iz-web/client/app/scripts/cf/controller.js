@@ -81,12 +81,6 @@ angular.module('cf').controller('CFProfileInfoCtrl', function ($scope, $modalIns
     };
 });
 
-
-angular.module('cf')
-    .controller('CFProfileViewerCtrl', ['$scope', 'CF', '$rootScope', function ($scope, CF, $rootScope) {
-        $scope.cf = CF;
-    }]);
-
 angular.module('cf')
     .controller('CFValidatorCtrl', ['$scope', '$http', 'CF', '$window', 'HL7EditorUtils', 'HL7CursorUtils', '$timeout', 'HL7TreeUtils', '$modal', 'NewValidationResult', 'HL7Utils', 'DQAValidationResult', '$rootScope', 'Er7MessageValidator', 'Er7MessageParser', 'DQAMessageValidator', 'ValidationResultHighlighter', function ($scope, $http, CF, $window, HL7EditorUtils, HL7CursorUtils, $timeout, HL7TreeUtils, $modal, NewValidationResult, HL7Utils, DQAValidationResult, $rootScope, Er7MessageValidator, Er7MessageParser, DQAMessageValidator, ValidationResultHighlighter) {
 
@@ -94,7 +88,6 @@ angular.module('cf')
         $scope.testCase = CF.testCase;
         $scope.message = CF.message;
         $scope.selectedMessage = {};
-        $scope.validationResult = null;
         $scope.loading = true;
         $scope.error = null;
         $scope.vError = null;
@@ -273,62 +266,20 @@ angular.module('cf')
                 $scope.vLoading = false;
                 $scope.vError = null;
             }
-
         };
-
 
         $scope.setValidationResult = function (mvResult) {
+            var report = null;
+            var validationResult = null;
             if (mvResult !== null) {
-                $scope.cf.validationResult = new NewValidationResult();
-                $scope.cf.validationResult.init(mvResult);
-                $scope.validationResult = $scope.cf.validationResult;
-                $scope.cf.report["result"] = $scope.validationResult;
-                if (!angular.equals(mvResult, {})) {
-                    $scope.cf.report["metaData"] = {
-                        reportHeader: {
-                            title: "Message Validation Report",
-                            date: new Date().getTime()
-                        },
-                        validationTypeHeader: {
-                            title: "Validation Type",
-                            type: "Context-free"
-                        },
-                        toolHeader: {
-                            title: "Testing Tool",
-                            name: "NIST-CDC Immunization Test Suite - HL7 V2.5.1 Validation Tool",
-                            versionRelease: "1.0"
-                        },
-                        profileHeader: {
-                            name: "",
-                            organization: "NIST",
-                            type: "",
-                            profileVersion: "",
-                            profileDate: "",
-                            standard: "HL7 Version 2.5.1 Implementation Guide For Immunization Messaging Rel .1.5 (10/01/2014) Immunization Clarification Addendum (Date)"
-                        },
-                        messageHeader: {
-                            encoding: "ER7"
-                        },
-                        summaryHeader: {
-                            errorCount: $scope.cf.report.result.errors.categories[0].data.length,
-                            warningCount: $scope.cf.report.result.warnings.categories[0].data.length,
-                            informationalCount: $scope.cf.report.result.informationals.categories[0].data.length,
-                            alertCount: $scope.cf.report.result.alerts.categories[0].data.length,
-                            affirmativeCount: $scope.cf.report.result.affirmatives.categories[0].data.length
-                        }
-                    };
-                } else {
-                    $scope.cf.report.result = null;
-                    $scope.cf.report.metaData = null;
-                }
-            } else {
-                $scope.cf.validationResult = null;
-                $scope.validationResult = null;
-                $scope.cf.report["result"] = null;
+                report = {};
+                validationResult = new NewValidationResult();
+                validationResult.init(mvResult);
+                report["result"] = validationResult;
             }
-            $rootScope.$broadcast('cf:validationResultLoaded', $scope.cf.validationResult);
+            $rootScope.$broadcast('cf:reportLoaded', report);
+            $rootScope.$broadcast('cf:validationResultLoaded', validationResult);
         };
-
 
         $scope.select = function (element) {
             if (element != undefined && element.path != null && element.line != -1) {
@@ -339,25 +290,6 @@ angular.module('cf')
             }
         };
 
-//        $scope.showDQADetails = function (element) {
-//            var modalInstance = $modal.open({
-//                templateUrl: 'DQAValidationResultDetailsCtrl.html',
-//                controller: 'DQAValidationResultDetailsCtrl',
-//                resolve: {
-//                    selectedElement: function () {
-//                        return element;
-//                    }
-//                }
-//            });
-////
-//            modalInstance.result.then(function (selectedItem) {
-//                $scope.selectedElement = selectedItem;
-//            }, function () {
-//                //$log.info('Modal dismissed at: ' + new Date());
-//            });
-//        };
-
-
         $scope.clearMessage = function () {
             $scope.nodelay = true;
             $scope.mError = null;
@@ -365,7 +297,6 @@ angular.module('cf')
                 $scope.editor.doc.setValue('');
                 $scope.execute();
             }
-
         };
 
         $scope.saveMessage = function () {
@@ -404,22 +335,7 @@ angular.module('cf')
             $scope.cf.message.content = $scope.editor.doc.getValue();
             $scope.validateMessage();
             $scope.parseMessage();
-//            $scope.showValidationFailures("errors");
-        };
-
-
-        $scope.showFailures = function (type, event) {
-            $scope.validResultHighlither.showFailures(type, event);
-        };
-
-        $scope.hideAllFailures = function () {
-            $scope.validResultHighlither.hideAllFailures();
-        };
-
-
-        $scope.isVFailureChecked = function (type) {
-            return $scope.failuresConfig[type].checked;
-        };
+         };
 
         $scope.init = function () {
             $scope.vLoading = false;
@@ -456,17 +372,14 @@ angular.module('cf')
 angular.module('cf')
     .controller('CFReportCtrl', ['$scope', '$sce', '$http', 'CF', function ($scope, $sce, $http, CF) {
         $scope.cf = CF;
-        $scope.error = null;
-        $scope.loading = false;
-        $scope.init = function () {
-        };
-        $scope.downloadAs = function (format) {
-            $scope.cf.report.downloadByFormat($scope.cf.report, format);
-        };
     }]);
-
 
 angular.module('cf')
     .controller('CFVocabularyCtrl', ['$scope', 'CF', function ($scope, CF) {
+        $scope.cf = CF;
+    }]);
+
+angular.module('cf')
+    .controller('CFProfileViewerCtrl', ['$scope', 'CF', '$rootScope', function ($scope, CF, $rootScope) {
         $scope.cf = CF;
     }]);

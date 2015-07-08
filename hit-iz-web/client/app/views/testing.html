@@ -1,6 +1,48 @@
 <div ng-controller="TestingCtrl" ng-init="init()">
 <div ng-show="error === null || error === undefined">
     <div ng-show="!loading" class="container2">
+
+        <!--<ul class="nav nav-tabs nav-tabs-material-light-blue-50" style="margin-bottom: 15px;">-->
+            <!--<li ng-class="{'active':tabs[0]}"><a ng-click="selectTestingType(0)"> <span class="badge">1</span>-->
+                <!--<i class="fa fa-envelope"></i>-->
+                <!--SOAP Envelope</a></li>-->
+
+            <!--<li ng-class="{'active':tabs[1]}"><a ng-click="selectTestingType(1)">  <span class="badge">2</span>-->
+                <!--<i class="fa fa-exchange"></i>-->
+                <!--SOAP Connectivity</a></li>-->
+
+            <!--<li ng-class="{'active':tabs[2]}"><a ng-click="selectTestingType(2)"><span class="badge">3</span>-->
+                <!--<i class="fa fa-check-square-o"></i>-->
+                <!--HL7 Context-free</a></li>-->
+
+            <!--<li ng-class="{'active':tabs[3]}"><a ng-click="selectTestingType(3)"> <span class="badge">4</span>-->
+                <!--<i class="fa fa-th-list"></i>-->
+                <!--HL7 Context-based</a></li>-->
+
+            <!--<li ng-class="{'active':tabs[4]}"><a ng-click="selectTestingType(4)"><span class="badge">5</span>-->
+                <!--<i class="fa fa-cogs"></i>-->
+                <!--Isolated Testing</a></li>-->
+        <!--</ul>-->
+
+        <!--<div class="tab-content">-->
+            <!--<div class="tab-pane fade in" ng-class="{'active':tabs[0]}">-->
+                <!--<div ng-include="'views/envelope/testing.html'"></div>-->
+            <!--</div>-->
+            <!--<div class="tab-pane fade in" ng-class="{'active':tabs[1]}">-->
+                <!--<div ng-include="'views/connectivity/testing.html'"></div>-->
+            <!--</div>-->
+            <!--<div class="tab-pane fade in" ng-class="{'active':tabs[2]}">-->
+                <!--<div ng-include="'views/cf/testing.html'"></div>-->
+            <!--</div>-->
+            <!--<div class="tab-pane fade in" ng-class="{'active':tabs[3]}">-->
+                <!--<div ng-include="'views/cb/testing.html'"></div>-->
+            <!--</div>-->
+            <!--<div class="tab-pane fade in" ng-class="{'active':tabs[4]}">-->
+                <!--<div ng-include="'views/isolated/testing.html'"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
         <tabset>
             <tab select="selectTestingType(0)" active="tabs[0]">
                 <tab-heading>
@@ -34,24 +76,14 @@
                 </tab-heading>
                 <div ng-include="'views/cb/testing.html'"></div>
             </tab>
-            <tab disabled="true" select="selectTestingType(4)" active="tabs[4]">
+            <tab disabled="false" select="selectTestingType(4)" active="tabs[4]">
                 <tab-heading>
                     <span class="badge">5</span>
                     <i class="fa fa-cogs"></i>
-                    EHR-S Functional
+                    Isolated Testing
                 </tab-heading>
-                <!--<div ng-include="'views/testing/ehrFunctionalTesting.html'"></div>-->
+                <div ng-include="'views/isolated/testing.html'"></div>
             </tab>
-            <tab disabled="true" select="selectTestingType(5)" active="tabs[5]">
-                <tab-heading>
-                    <span class="badge">6</span>
-                    <i class="fa fa-cogs"></i>
-                    IIS Functional
-                </tab-heading>
-                <!--<div ng-include="'views/testing/iisFunctionalTesting.html'"></div>-->
-            </tab>
-
-
         </tabset>
 
 
@@ -67,6 +99,203 @@
 <div ng-show="error !== null &&  error != undefined">
     <div class="alert alert-danger" role="alert" ng-bind="error"></div>
 </div>
+
+<script type="text/ng-template" id="TransactionSender.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Transaction log panel</h3>
+    </div>
+    <div class="modal-body">
+        <textarea class="well" wrap="off"
+                  style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%"
+                  rows="14" disabled
+                  ng-model="logger.content"></textarea>
+    </div>
+    <div class="modal-footer">
+        <button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"
+                title="Send" class="btn btn-sm btn-success">
+            <i class="fa fa-arrow-right"></i>
+            Send  <span ng-show="connecting"><i ng-show="connecting" class="fa fa-spinner"></i> Remaining: {{counter}}s </span>
+        </button>
+
+        <button title="Close" type="button" class="pull-right btn btn-sm btn-primary"
+                ng-click="close()">
+            <i class="fa fa-times"></i>Close
+        </button>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="TransactionConfigureReceiver.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Receiver Configuration Panel</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="cols-md-10">
+                <form name="receiverForm1" novalidate>
+                    <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+                        <label>Username</label>
+                        <input type="text" class="form-control" ng-model="user.receiverUsername"
+                               placeholder="Username">
+                    </div>
+                    <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+                        <label>Password</label>
+                        <input type="text" class="form-control"
+                               placeholder="Password"
+                               ng-model="user.receiverPassword">
+                        <!--<div class="input-group">-->
+                        <!---->
+                        <!--<span class="input-group-addon">-->
+                        <!--<input type="checkbox"-->
+                        <!--ng-model="hidePwd">-->
+                        <!--</span>-->
+                        <!--</div>-->
+                    </div>
+                    <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+                        <label>FacilityID</label>
+                        <input type="text" class="form-control" placeholder="Facility Id"
+                               ng-model="user.receiverFacilityId">
+                    </div>
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine }">
+                        <label>Endpoint</label>
+                        <input type="url" name="endpoint" class="form-control" ng-model="user.receiverEndpoint"
+                               placeholder="SUT Endpoint" required>
+
+                        <p ng-show="receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine"
+                           class="help-block">
+                            Invalid url. Expected format is {{appInfo.url}}</p>
+                    </div>
+
+                    <!--<div ng-show="testCase.testType === 'RECEIVER_CONNECTIVITY'">-->
+                    <!--<!-- novalidate prevents HTML5 validation since we will be validating ourselves -->-->
+                    <!--<div class="form-group"-->
+                    <!--ng-class="{ 'has-error' : receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine }">-->
+                    <!--<label>Endpoint</label>-->
+                    <!--<input type="url" name="endpoint" class="form-control" ng-model="user.receiverEndpoint"-->
+                    <!--placeholder="SUT Endpoint" required>-->
+
+                    <!--<p ng-show="receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine"-->
+                    <!--class="help-block">-->
+                    <!--Invalid url. Example is {{appInfo.url}}</p>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button ng-click="save()" type="button" ng-disabled="receiverForm1.$invalid"
+                title="Save" class="btn btn-xs btn-primary">
+            <i class="fa fa-check-circle"></i> Save
+        </button>
+        <button ng-click="cancel()" type="button"
+                title="Cancel" class="btn btn-xs btn-warning">
+            <i class="fa fa-times"></i>
+            Cancel
+        </button>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="TransactionReceiver.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Receiver Configuration Panel</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-header"><h3>Assigned Sender Information</h3></div>
+                <form name="senderForm" novalidate>
+                    <div class="form-group">
+                        <label>Assigned Username</label>
+                        <input type="text" disabled name="u" class="form-control" ng-model="user.senderUsername">
+
+                        <p class="help-block">This is the username assigned to you to use in your message</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Assigned Password</label>
+                        <input type="text" class="form-control" name="p"
+                               ng-model="user.senderPassword" disabled>
+
+                        <p class="help-block">This is the password assigned to you to use in your message</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Assigned FacilityID</label>
+                        <input type="text" class="form-control" name="facilityId"
+                               ng-model="user.senderFacilityID" disabled>
+
+                        <p class="help-block">This is the facilityID assigned to you to use in your message</p>
+                    </div>
+
+                    <div class="form-group"
+                         ng-class="{'has-error' : senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine }">
+                        <label>System Endpoint</label>
+                        <input type="url" name="endpoint" class="form-control" ng-model="endpoint.value"
+                               placeholder="SUT Endpoint" required disabled>
+
+                        <p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">
+                            Sorry, an
+                            error occured. Please refresh your page</p>
+                    </div>
+
+                    <div class="form-group"
+                         ng-class="{'has-error' : senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine }">
+                        <label>System WSDL</label>
+                        <a ng-href="{{endpoint.value}}.wsdl" class="form-control" target="_blank">{{endpoint.value}}.wsdl</a>
+
+                        <p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">
+                            Sorry, an
+                            error occured. Please refresh your page</p>
+                    </div>
+
+                    <button type="button" ng-click="start()" ng-disabled="senderForm.$invalid || connecting"
+                            title="Start listening"
+                            class="btn btn-xs btn-success">
+                        <i class="fa fa-play"></i>
+                        Start Listening
+                    </button>
+
+                    <button type="button" ng-disabled="!connecting" ng-click="stop()"
+                            class="btn btn-xs btn-warning"><i class="fa fa-stop"></i>
+                        Stop Listening
+                    </button>
+                    <div>
+                        <small><em>Time elapsed (seconds)</em></small>
+                        <progressbar type="info" max="counterMax" value="counter"><span
+                                style="color:white; white-space:nowrap;">{{counter}} / {{counterMax}}</span>
+                        </progressbar>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <div class="page-header">
+                    <h3>Log
+                        <button title="Clear" type="button" class="pull-right btn btn-xs btn-default"
+                                ng-click="logger.clear()">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </h3>
+                </div>
+                <textarea class="well" wrap="off"
+                          style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%" rows="18"
+                          disabled
+                          ng-model="logger.content"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button title="Close" type="button" class="pull-right btn btn-sm btn-primary"
+                ng-click="close()">
+            <i class="fa fa-times"></i>Close
+        </button>
+    </div>
+</script>
+
+
+
 
 
 <script type="text/ng-template" id="CBTestCase.html">

@@ -1,15 +1,13 @@
-<div ng-controller="CBValidatorCtrl" ng-init="init()">
+<div ng-controller="CBValidatorCtrl" ng-init="init()" style="margin-bottom: 20px;margin-top: 5px;">
 <div ng-show="cb.testCase != null">
-<div class="page-header">
-    <h3>{{cb.testCase.type}}: {{cb.testCase.name}}</h3>
-</div>
+<!--<div class="page-header">-->
+    <!--<h3>{{cb.testCase.type}}: {{cb.testCase.name}}</h3>-->
+<!--</div>-->
 
-<div class="row">
-    <div ng-show="error != null">
+     <div  class="row" ng-show="error != null">
         <div class="alert alert-danger" role="alert" ng-bind="error"></div>
     </div>
-</div>
-<div class="row">
+ <div class="row">
 <div class="col-md-4">
     <div class="panel panel-info">
         <!-- Default panel contents -->
@@ -143,11 +141,7 @@
 </div>
 
 <div ng-show="!vError || vError == null">
-
-<div ng-show="validationResult !== null">
-    <div validation-result type="cb" message="cb.message" editor="cb.editor" report="cb.report" tree="cb.tree"></div>
-</div>
-
+    <div validation-result type="cb" message="cb.message" editor="cb.editor" tree="cb.tree"></div>
 </div>
 
 </div>

@@ -15,10 +15,10 @@ package gov.nist.hit.iz.web.config;
 import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.ResourcebundleLoader;
 import gov.nist.hit.core.service.exception.ProfileParserException;
-import gov.nist.hit.iz.domain.SoapConnectivityTestPlan;
-import gov.nist.hit.iz.domain.SoapEnvelopeTestPlan;
-import gov.nist.hit.iz.repo.SoapConnectivityTestPlanRepository;
-import gov.nist.hit.iz.repo.SoapEnvelopeTestPlanRepository;
+import gov.nist.hit.iz.domain.ConnectivityTestPlan;
+import gov.nist.hit.iz.domain.EnvelopeTestPlan;
+import gov.nist.hit.iz.repo.ConnectivityTestPlanRepository;
+import gov.nist.hit.iz.repo.EnvelopeTestPlanRepository;
 import gov.nist.hit.iz.service.SoapConnectivityTestPlanParser;
 import gov.nist.hit.iz.service.SoapEnvelopeTestPlanParser;
 import gov.nist.hit.iz.web.controller.SoapController;
@@ -40,10 +40,10 @@ public class Bootstrap implements InitializingBean {
   static final Logger logger = LoggerFactory.getLogger(SoapController.class);
 
   @Autowired
-  SoapEnvelopeTestPlanRepository soapEnvTestPlanRepository;
+  EnvelopeTestPlanRepository soapEnvTestPlanRepository;
 
   @Autowired
-  SoapConnectivityTestPlanRepository soapConnTestPlanRepository;
+  ConnectivityTestPlanRepository soapConnTestPlanRepository;
 
   @Autowired
   UserRepository userRepository;
@@ -58,6 +58,10 @@ public class Bootstrap implements InitializingBean {
   public void afterPropertiesSet() throws Exception {
     logger.info("Bootstrapping data...");
     resourcebundleLoader.appInfo();
+    resourcebundleLoader.appInfo();
+    resourcebundleLoader.constraints();
+    resourcebundleLoader.vocabularyLibraries();
+    resourcebundleLoader.integrationProfiles();
     resourcebundleLoader.cf();
     resourcebundleLoader.cb();
     soapEnv();
@@ -74,7 +78,7 @@ public class Bootstrap implements InitializingBean {
    */
   private void soapEnv() throws IOException, ProfileParserException, URISyntaxException {
     SoapEnvelopeTestPlanParser parser = new SoapEnvelopeTestPlanParser();
-    List<SoapEnvelopeTestPlan> testPlans = parser.create();
+    List<EnvelopeTestPlan> testPlans = parser.create();
     for (int i = 0; i < testPlans.size(); i++) {
       soapEnvTestPlanRepository.save(testPlans.get(i));
     }
@@ -87,7 +91,7 @@ public class Bootstrap implements InitializingBean {
    */
   private void soapConn() throws IOException, URISyntaxException {
     SoapConnectivityTestPlanParser parser = new SoapConnectivityTestPlanParser();
-    List<SoapConnectivityTestPlan> testPlans = parser.create();
+    List<ConnectivityTestPlan> testPlans = parser.create();
     for (int i = 0; i < testPlans.size(); i++) {
       soapConnTestPlanRepository.save(testPlans.get(i));
     }

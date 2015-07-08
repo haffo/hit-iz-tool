@@ -145,7 +145,7 @@ angular.module('connectivity')
             $scope.openReceiverConfig = function () {
                 $scope.logger.init();
                 var modalInstance = $modal.open({
-                    templateUrl: 'ConnectivityReceiverCtrl.html',
+                    templateUrl: 'TransactionReceiverCtrl.html',
                     controller: 'ConnectivityReceiverCtrl',
                     windowClass: 'app-modal-window',
                     resolve: {
@@ -184,7 +184,7 @@ angular.module('connectivity')
             $scope.send = function () {
                 $scope.logger.init();
                  var modalInstance = $modal.open({
-                    templateUrl: 'ConnectivitySenderCtrl.html',
+                    templateUrl: 'TransactionSender.html',
                     controller: 'ConnectivitySenderCtrl',
                     size:'lg',
                     backdrop:'static',
@@ -218,7 +218,7 @@ angular.module('connectivity')
 
             $scope.configureReceiver = function () {
                  var modalInstance = $modal.open({
-                    templateUrl: 'ConnectivityConfigureReceiverCtrl.html',
+                    templateUrl: 'TransactionConfigureReceiver.html',
                     controller: 'ConnectivityConfigureReceiverCtrl',
                     resolve: {
                         testCase: function () {
@@ -246,7 +246,7 @@ angular.module('connectivity')
 
             $scope.viewReceiver = function () {
                 var modalInstance = $modal.open({
-                    templateUrl: 'ConnectivityViewReceiverConfigurationCtrl.html',
+                    templateUrl: 'TransactionViewReceiverConfiguration.html',
                     controller: 'ConnectivityViewReceiverConfigurationCtrl',
                     windowClass: 'app-modal-window',
                     resolve: {
@@ -264,77 +264,6 @@ angular.module('connectivity')
                     Connectivity.response.setContent('');
                 });
             };
-
-
-
-//        $scope.stopIncomingListener = function () {
-//            $scope.connecting = false;
-//            $scope.counter = $scope.counterMax;
-//            ConnectivityClock.stop();
-//            $scope.log("Stopping transaction. Please wait....");
-//            Connectivity.user.transaction.closeConnection().then(function (response) {
-//                $scope.log("Transaction stopped.");
-//            }, function (error) {
-//            });
-//        };
-
-
-//        $scope.startIncomingListener = function () {
-//            $scope.logger.clear();
-//            $scope.counter = 0;
-//            $scope.connecting = true;
-//            $scope.alert.message = '';
-//            $scope.alert.type = '';
-//            Connectivity.request.setContent('');
-//            Connectivity.response.setContent('');
-//
-//            $scope.log("Configuring connection. Please wait...");
-//            Connectivity.user.transaction.openConnection().then(function (response) {
-//                    $scope.log("Connection configured.");
-//                    var execute = function () {
-//                        ++$scope.counter;
-//                        $scope.log("Waiting for incoming message....Elapsed time(second):" + $scope.counter + "s");
-//                        Connectivity.user.transaction.messages().then(function (response) {
-//                            var incoming = Connectivity.user.transaction.incoming;
-//                            var outgoing = Connectivity.user.transaction.outgoing;
-//                            if ($scope.counter < $scope.counterMax) {
-//                                if (incoming != null && incoming != '' && Connectivity.request.getContent() == '') {
-//                                    $scope.log("Incoming Message Received <--------------------------------------");
-//                                    $scope.log(incoming);
-//                                    Connectivity.request.setContent(incoming);
-//                                }
-//                                if (outgoing != null && outgoing != '' &&  Connectivity.response.getContent() == '') {
-//                                    $scope.log("Outgoing Message Sent:    -------------------------------------->");
-//                                    $scope.log(outgoing);
-//                                    Connectivity.response.setContent(outgoing);
-//                                }
-//                                if (Connectivity.request.getContent()!= '' && Connectivity.response.getContent() != '') {
-//                                    $scope.stopIncomingListener();
-//                                }
-//                            } else {
-//                                if (incoming == null || incoming == '') {
-//                                    $scope.log("We did not receive any incoming message after 30s or you are using wrong " +
-//                                        "credentials.");
-//                                } else if (outgoing == null || outgoing == '') {
-//                                    $scope.log("We were unable to send the response after 30s");
-//                                }
-//                                $scope.stopIncomingListener();
-//                            }
-//                        }, function (error) {
-//                            $scope.log("Error: " + error);
-//                            Connectivity.request.setContent('');
-//                            Connectivity.response.setContent('');
-//                            $scope.stopIncomingListener();
-//                        });
-//                    };
-//                     ConnectivityClock.start(execute);
-//                  }, function (error) {
-//                    $scope.log("Failed to configure incoming connection: Error: " + error);
-//                    $scope.log("Transaction aborted");
-//                    $scope.connecting = false;
-//                }
-//            );
-//        };
 
             $scope.hasRequestContent = function () {
                 return Connectivity.request.getContent() != null && Connectivity.request.getContent() != '';

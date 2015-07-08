@@ -12,7 +12,7 @@
             scope: {
                 type: '@'
             },
-            templateUrl: '/lib/profile-viewer/profile-viewer.html',
+            templateUrl: 'lib/profile-viewer/profile-viewer.html',
             replace: false,
             controller: 'ProfileViewerCtrl'
         };

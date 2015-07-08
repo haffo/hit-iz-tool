@@ -1,5 +1,0 @@
-MSH|^~\&||IIS||wcEHR|20150625121047.853-0500||ACK^V04^ACK|20428|P|2.5.1|||NE|NE|||||Z23^CDCPHINVS|IIS|wcEHR
-MSA|AE|35560
-ERR||RXA^1^5^1^1|103^Table value not found^HL70357|E||||Vaccine code not recognized - message rejected
-ERR||RXA^1^5|101^required field missing^HL70357|E|7^required data missing^HL70533||||RXA-5 is required segment rejected
-ERR||RXA^1|100^required segment missing^HL70357|E||||RXA is required segment segment-group rejected

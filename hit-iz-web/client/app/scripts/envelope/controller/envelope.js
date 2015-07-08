@@ -13,29 +13,15 @@ angular.module('envelope')
             $scope.tabs[$scope.activeTab] = true;
         };
 
-        /**
-         *
-         */
         $scope.init = function () {
             $scope.setActiveTab(0);
         };
-
 
         $rootScope.$on('env:testCaseLoaded', function (event) {
             if (Envelope.testCase != null && Envelope.testCase.id != null) {
                 $scope.setActiveTab(1);
             }
         });
-
-
-//        $scope.$watch(function () {
-//            return  Envelope.testCase.updateIndicator;
-//        }, function () {
-//            var testCaseId = Envelope.testCase.id;
-//            if (testCaseId != null) {
-//                $scope.setActiveTab(1);
-//            }
-//        }, true);
 
         $scope.hasContent = function () {
             return Envelope.getContent() != '' && Envelope.getContent() != null;
@@ -45,6 +31,31 @@ angular.module('envelope')
             return Envelope.testCase == null || Envelope.testCase.id  === null;
         };
 
+    }]);
+
+
+angular.module('envelope')
+    .controller('EnvelopeExecutionCtrl', ['$scope', '$window', '$rootScope', 'Envelope', function ($scope, $window, $rootScope,Envelope) {
+        $scope.loading = true;
+        $scope.error = null;
+        $scope.tabs = new Array();
+        $scope.testCase = Envelope.testCase;
+        $scope.setActiveTab = function (value) {
+            $scope.tabs[0] = false;
+            $scope.tabs[1] = false;
+            $scope.activeTab = value;
+            $scope.tabs[$scope.activeTab] = true;
+        };
+        $scope.getTestType = function () {
+            return $scope.testCase != null ? $scope.testCase.type: '';
+        };
+        $scope.init = function () {
+            $scope.error = null;
+            $scope.loading = false;
+            $rootScope.$on('env:testCaseLoaded', function (event, testCase) {
+                $scope.setActiveTab(0);
+            });
+        };
     }]);
 
 
@@ -90,26 +101,17 @@ angular.module('envelope')
         };
 
         $scope.selectTestCase = function (node) {
-//            $scope.selectedTestCase.init(node);
-//            $scope.selectedTestCase.initTestContext();
             $scope.selectedTestCase = node;
             $rootScope.$broadcast('env:testCaseSelected');
 
         };
 
         $scope.loadTestCase = function () {
-//            if ($scope.selectedTestCase != null && $scope.selectedTestCase.id !=null) {
-//                $scope.testCase.init($scope.selectedTestCase);
-//            }
             Envelope.testCase = $scope.selectedTestCase;
             $scope.testCase = Envelope.testCase;
             $rootScope.$broadcast('env:testCaseLoaded');
-
         };
     }]);
-
-
-'use strict';
 
 angular.module('envelope')
     .controller('EnvelopeValidatorCtrl', ['$scope', '$http', '$window', 'XmlFormatter', 'Envelope','XmlEditorUtils', '$rootScope', 'XmlParser', 'XmlTreeUtils', 'EnvelopeValidator','$timeout', function ($scope, $http, $window, XmlFormatter, Envelope,XmlEditorUtils,$rootScope,XmlParser,XmlTreeUtils,EnvelopeValidator,$timeout) {

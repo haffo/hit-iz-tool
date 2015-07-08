@@ -13,25 +13,22 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.domain.User;
+import gov.nist.hit.core.domain.TransactionCommand;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.domain.util.XmlUtil;
+import gov.nist.hit.core.repo.TransactionRepository;
+import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.SoapValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
-import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
-import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.transport.TransportClient;
 import gov.nist.hit.core.transport.TransportClientException;
+import gov.nist.hit.iz.domain.ConnectivityTestCase;
+import gov.nist.hit.iz.domain.ConnectivityTestContext;
+import gov.nist.hit.iz.domain.ConnectivityTestPlan;
 import gov.nist.hit.iz.domain.IZTestType;
-import gov.nist.hit.iz.domain.SoapConnectivityCommand;
-import gov.nist.hit.iz.domain.SoapConnectivityTestCase;
-import gov.nist.hit.iz.domain.SoapConnectivityTestContext;
-import gov.nist.hit.iz.domain.SoapConnectivityTestPlan;
-import gov.nist.hit.iz.domain.SoapConnectivityTransaction;
-import gov.nist.hit.iz.repo.SoapConnectivityTestCaseRepository;
-import gov.nist.hit.iz.repo.SoapConnectivityTestContextRepository;
-import gov.nist.hit.iz.repo.SoapConnectivityTestPlanRepository;
-import gov.nist.hit.iz.repo.SoapConnectivityTransactionRepository;
+import gov.nist.hit.iz.repo.ConnectivityTestCaseRepository;
+import gov.nist.hit.iz.repo.ConnectivityTestContextRepository;
+import gov.nist.hit.iz.repo.ConnectivityTestPlanRepository;
 import gov.nist.hit.iz.service.SoapValidationReportGenerator;
 import gov.nist.hit.iz.service.soap.SoapMessageParser;
 import gov.nist.hit.iz.service.soap.SoapMessageValidator;
@@ -43,7 +40,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,13 +64,13 @@ public class ConnectivityController extends TestingController {
   private TransportClient transportClient;
 
   @Autowired
-  private SoapConnectivityTestContextRepository testContextRepository;
+  private ConnectivityTestContextRepository testContextRepository;
 
   @Autowired
-  private SoapConnectivityTestPlanRepository testPlanRepository;
+  private ConnectivityTestPlanRepository testPlanRepository;
 
   @Autowired
-  private SoapConnectivityTestCaseRepository testCaseRepository;
+  private ConnectivityTestCaseRepository testCaseRepository;
 
   @Autowired
   private SoapMessageParser soapParser;
@@ -83,13 +79,13 @@ public class ConnectivityController extends TestingController {
   private SoapValidationReportGenerator reportService;
 
   @Autowired
-  protected SoapConnectivityTransactionRepository transactionRepository;
+  protected TransactionRepository transactionRepository;
 
-  public SoapConnectivityTransactionRepository getTransactionRepository() {
+  public TransactionRepository getTransactionRepository() {
     return transactionRepository;
   }
 
-  public void setTransactionRepository(SoapConnectivityTransactionRepository transactionRepository) {
+  public void setTransactionRepository(TransactionRepository transactionRepository) {
     this.transactionRepository = transactionRepository;
   }
 
@@ -102,32 +98,20 @@ public class ConnectivityController extends TestingController {
   }
 
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
-  public List<SoapConnectivityTestPlan> testCases() {
+  public List<ConnectivityTestPlan> testCases() {
     logger.info("Fetching all testPlans...");
     return testPlanRepository.findAll();
 
   }
 
   @RequestMapping(value = "/testcases/{testCaseId}", method = RequestMethod.GET)
-  public SoapConnectivityTestCase testCase(@PathVariable final Long testCaseId) {
-    SoapConnectivityTestCase testCase = testCaseRepository.findOne(testCaseId);
+  public ConnectivityTestCase testCase(@PathVariable final Long testCaseId) {
+    ConnectivityTestCase testCase = testCaseRepository.findOne(testCaseId);
     if (testCase == null)
       throw new TestCaseException("Unknown testCase with id=" + testCaseId);
     return testCase;
   }
 
-  // @RequestMapping(value = "/testcases/{testCaseId}/testContext", method =
-  // RequestMethod.GET)
-  // public SoapConnectivityTestContext testContext(
-  // @PathVariable final Long testCaseId) {
-  // logger.info("Fetching testContext from testCaseId=" + testCaseId);
-  // SoapConnectivityTestContext found = testContextRepository
-  // .findOneByTestCaseId(testCaseId);
-  // if (found == null)
-  // throw new TestCaseException("Unknown testCase with id="
-  // + testCaseId);
-  // return found;
-  // }
 
   @RequestMapping(value = "/validate", method = RequestMethod.POST)
   public ValidationResult validate(@RequestBody final Command command)
@@ -136,10 +120,10 @@ public class ConnectivityController extends TestingController {
       logger.info("Validating connectivity response message " + command);
       String type = command.getType();
       Long testCaseId = command.getTestCaseId();
-      SoapConnectivityTestCase testCase = testCaseRepository.findOne(testCaseId);
+      ConnectivityTestCase testCase = testCaseRepository.findOne(testCaseId);
       if (testCase == null)
         throw new TestCaseException("No testcase found. Invalid testCase id=" + testCaseId);
-      SoapConnectivityTestContext context = testCase.getTestContext();
+      ConnectivityTestContext context = testCase.getTestContext();
       if ("req".equals(type)) {
         if (testCase.getTestType().equals(IZTestType.RECEIVER_UNSUPPORTED_OPERATION.toString())
             || testCase.getTestType().equals(IZTestType.SENDER_UNSUPPORTED_OPERATION.toString())) {
@@ -162,20 +146,20 @@ public class ConnectivityController extends TestingController {
   }
 
   @RequestMapping(value = "/send", method = RequestMethod.POST)
-  public Command sendRequest(@RequestBody SoapConnectivityCommand command)
+  public Command sendRequest(@RequestBody TransactionCommand command)
       throws TransportClientException {
     logger.info("Sending ... " + command);
     try {
       Long testCaseId = command.getTestCaseId();
-      SoapConnectivityTestCase testCase = testCaseRepository.findOne(testCaseId);
+      ConnectivityTestCase testCase = testCaseRepository.findOne(testCaseId);
       if (testCase == null)
         throw new TestCaseException("Unknown testcase with id=" + testCaseId);
       String request = command.getContent();
       String req = testCase.getTestContext().getMessage();
       if (!IZTestType.RECEIVER_CONNECTIVITY.toString().equals(testCase.getTestType())) {
         request =
-            ConnectivityUtil.updateSubmitSingleMessageRequest(req, command.getU(), command.getP(),
-                command.getFacilityId());
+            ConnectivityUtil.updateSubmitSingleMessageRequest(req, null, command.getU(),
+                command.getP(), command.getFacilityId());
       } else if (IZTestType.RECEIVER_CONNECTIVITY.toString().equals(testCase.getTestType())) {
         request = ConnectivityUtil.updateConnectivityRequest(req);
       }
@@ -186,45 +170,11 @@ public class ConnectivityController extends TestingController {
       } catch (Exception e) {
         response = tmp;
       }
-      return new SoapConnectivityCommand(request, response);
+      return new TransactionCommand(request, response);
     } catch (Exception e1) {
       throw new TransportClientException("Failed to send the message." + e1.getMessage());
     }
 
-  }
-
-  @Transactional()
-  @RequestMapping(value = "/transaction/open", method = RequestMethod.POST)
-  public boolean initIncoming(@RequestBody final User user) throws UserTokenIdNotFoundException {
-    logger.info("Initializing transaction for username ... " + user.getUsername());
-    SoapConnectivityTransaction transaction = transaction(user);
-    if (transaction != null) {
-      transaction.init();
-      transactionRepository.saveAndFlush(transaction);
-      return true;
-    }
-    return false;
-  }
-
-  @Transactional()
-  @RequestMapping(value = "/transaction/close", method = RequestMethod.POST)
-  public boolean clearIncoming(@RequestBody final User user) {
-    logger.info("Closing transaction for username... " + user.getUsername());
-    SoapConnectivityTransaction transaction = transaction(user);
-    if (transaction != null) {
-      transaction.close();
-      transactionRepository.saveAndFlush(transaction);
-    }
-    return true;
-  }
-
-  @RequestMapping(value = "/transaction", method = RequestMethod.POST)
-  public SoapConnectivityTransaction transaction(@RequestBody final User user) {
-    logger.info("Get transaction of username ... " + user.getUsername());
-    SoapConnectivityTransaction transaction =
-        transactionRepository.findByUsernameAndPasswordAndFacilityID(user.getUsername(),
-            user.getPassword(), user.getFacilityID());
-    return transaction != null ? transaction : new SoapConnectivityTransaction();
   }
 
 }
