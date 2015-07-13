@@ -1,9 +1,9 @@
 {
-  "name" : "Select Patient Juan Marcel Gonzales",
+  "name" : "Send query",
   "position" : 1,
-  "messageId" : null,
-  "valueSetLibraryId" : null,
-  "constraintId" : null,
+  "messageId" : "b760d322-9afd-439e-96f5-43db66937c4e",
+  "valueSetLibraryId" : "c01bbec1-cf6a-4748-8a6c-2dae2e4b8d0e",
+  "constraintId" : "689b43b7-f088-479f-8ba1-551618d13ea3",
   "type" : null,
-  "description" : "Select patient Juan Marcel Gonzales, distinguishing the patient from other patients with similar demographics (similar names)."
+  "description" : "No Description"
 }

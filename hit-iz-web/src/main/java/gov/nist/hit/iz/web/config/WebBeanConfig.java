@@ -12,19 +12,12 @@
 
 package gov.nist.hit.iz.web.config;
 
-import gov.nist.hit.core.hl7v2.service.message.Er7MessageParser;
-import gov.nist.hit.core.hl7v2.service.message.Er7MessageParser;
-import gov.nist.hit.core.hl7v2.service.message.Er7MessageValidator;
-import gov.nist.hit.core.hl7v2.service.message.Er7MessageValidator;
-import gov.nist.hit.core.hl7v2.service.message.Er7ValidationReportGenerator;
-import gov.nist.hit.core.hl7v2.service.message.Er7ValidationReportGenerator;
 import gov.nist.hit.core.service.MessageParser;
 import gov.nist.hit.iz.service.IISReceiver;
 import gov.nist.hit.iz.service.Receiver;
 import gov.nist.hit.iz.service.SoapValidationReportGenerator;
 import gov.nist.hit.iz.service.XmlMessageParser;
 import gov.nist.hit.iz.service.XmlMessageParserImpl;
-import gov.nist.hit.iz.service.soap.SoapMessageParser;
 import gov.nist.hit.iz.service.soap.SoapMessageParserImpl;
 import gov.nist.hit.iz.service.soap.SoapMessageValidator;
 import gov.nist.hit.iz.service.soap.SoapMessageValidatorImpl;
@@ -44,17 +37,7 @@ import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
 @ImportResource("classpath:/iztool-ws-context.xml")
 public class WebBeanConfig {
 
-  @Bean
-  public MessageParser er7MessageParser() {
-    return new Er7MessageParser();
-  }
-
-  @Bean
-  public Er7MessageValidator er7Validator() {
-    return new Er7MessageValidator();
-  }
-
-  @Bean
+  @Bean(name = "soapMessageValidator")
   public SoapMessageValidator soapValidator() {
     return new SoapMessageValidatorImpl("/bundle/schema/soap_rules.sch");
   }
@@ -72,29 +55,20 @@ public class WebBeanConfig {
   // vocabularyCollectionRepository);
   // }
 
-  @Bean
-  public SoapMessageParser soapParser(XmlMessageParser xmlParser) {
+  @Bean(name = "soapMessageParser")
+  public MessageParser soapParser(XmlMessageParser xmlParser) {
     return new SoapMessageParserImpl(xmlParser);
   }
 
-  @Bean
+  @Bean(name = "xmlMessageParser")
   public XmlMessageParser xmlParser() {
     return new XmlMessageParserImpl();
   }
 
-  @Bean
-  public Er7MessageParser er7Parser() {
-    return new Er7MessageParser();
-  }
 
-  @Bean
+  @Bean(name = "soapReportGenerator")
   public SoapValidationReportGenerator soapReportGenerator() {
     return new SoapValidationReportGeneratorImpl();
-  }
-
-  @Bean
-  public Er7ValidationReportGenerator er7ReportGenerator() {
-    return new Er7ValidationReportGenerator();
   }
 
   @Bean

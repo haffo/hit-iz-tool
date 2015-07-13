@@ -1,0 +1,3 @@
+MSH|^~\&||IIS||wcEHR|20150625121047.853-0500||ACK^V04^ACK|20428|P|2.5.1|||NE|NE|||||Z23^CDCPHINVS|IIS|wcEHR
+MSA|AE|35560
+ERR||RXA^1^5^1^1|999^Application error^HL70357|E|5^Table value not found^HL70533|||Vaccine code not recognized - message rejected

@@ -31,7 +31,7 @@ angular.module('cf')
         $scope.loadTestCase = function (tc) {
             CF.testCase = tc;
             $scope.testCase = CF.testCase;
-            $rootScope.$broadcast('cf:testCaseLoaded');
+            $rootScope.$broadcast('cf:testCaseLoaded',$scope.testCase);
             $rootScope.$broadcast('cf:profileLoaded', $scope.testCase.testContext.profile);
             $rootScope.$broadcast('cf:valueSetLibraryLoaded', $scope.testCase.testContext.vocabularyLibrary);
         };
@@ -159,7 +159,7 @@ angular.module('cf')
         });
 
         $scope.loadMessage = function () {
-            if ($scope.cf.testCase.testContext.message != null) {
+            if ($scope.cf.testCase.testContext.message && $scope.cf.testCase.testContext.message != null) {
                 $scope.nodelay = true;
                 $scope.selectedMessage = $scope.cf.testCase.testContext.message;
                 if ($scope.selectedMessage != null) {
@@ -186,7 +186,7 @@ angular.module('cf')
                 readOnly: false,
                 showCursorWhenSelecting: true
             });
-            $scope.editor.setSize(null, 300);
+            $scope.editor.setSize(null, 350);
 
             $scope.editor.on("keyup", function () {
                 $timeout(function () {
@@ -243,19 +243,19 @@ angular.module('cf')
                         $scope.vError = error;
                         $scope.setValidationResult(null);
                     });
-                    if ($scope.validationConfig.dqa.checked) {
-                        $scope.dqaLoading = true;
-                        var dqaValidated = new DQAMessageValidator($scope.cf.message.content, "1223");
-                        dqaValidated.then(function (mvResult) {
-                            $scope.dqaLoading = false;
-                            $scope.cf.dqaValidationResult = new DQAValidationResult(mvResult);
-                            $scope.dqaValidationResult = $scope.cf.dqaValidationResult;
-                        }, function (error) {
-                            $scope.dqaLoading = false;
-                            $scope.dqaError = error;
-                            $scope.cf.dqaValidationResult = null;
-                        });
-                    }
+//                    if ($scope.validationConfig.dqa.checked) {
+//                        $scope.dqaLoading = true;
+//                        var dqaValidated = new DQAMessageValidator($scope.cf.message.content, "1223");
+//                        dqaValidated.then(function (mvResult) {
+//                            $scope.dqaLoading = false;
+//                            $scope.cf.dqaValidationResult = new DQAValidationResult(mvResult);
+//                            $scope.dqaValidationResult = $scope.cf.dqaValidationResult;
+//                        }, function (error) {
+//                            $scope.dqaLoading = false;
+//                            $scope.dqaError = error;
+//                            $scope.cf.dqaValidationResult = null;
+//                        });
+//                    }
                 } catch (e) {
                     $scope.vLoading = false;
                     $scope.vError = e;
@@ -356,9 +356,10 @@ angular.module('cf')
             });
 
 
-            $rootScope.$on('cf:testCaseLoaded', function (event) {
+            $rootScope.$on('cf:testCaseLoaded', function (event, testCase) {
+                $scope.testCase = testCase;
                 $scope.refreshEditor();
-                if ($scope.cf.testCase != null && $scope.cf.testCase.id != null) {
+                if ($scope.testCase  != null) {
                     $scope.clearMessage();
                 }
             });

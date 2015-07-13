@@ -1,9 +1,0 @@
-{
-  "name" : "Enter Initial Immunization Data for Juana Mariana Gonzales Reported by Parent",
-  "position" : 4,
-  "messageId" : null,
-  "valueSetLibraryId" : null,
-  "constraintId" : null,
-  "type" : null,
-  "description" : "Patient History from a pharmacy as reported by the parent is entered into the EMR."
-}

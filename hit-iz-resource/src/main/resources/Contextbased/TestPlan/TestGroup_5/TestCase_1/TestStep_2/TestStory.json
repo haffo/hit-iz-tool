@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : " Following the vaccine administration, the patient's mother reports that the patient that evening had persistent, inconsolable crying lasting > 3 hours.<br>",
-  "comments" : "No Comments",
-  "preCondition" : "The vaccinations for the visit have been administered. <br>",
-  "postCondition" : "The adverse reaction to the MMRV? of persistent, inconsolable crying lasting > 3 hours within 48 hours of dose is recorded in the EMR.<br>",
-  "testObjectives" : "<span style=\"font-style: italic;\"><span style=\"font-weight: bold;\">Identify Adverse Event:</span></span> The EHR or other clinical software system enables capture of structured data regarding adverse events.",
-  "evaluationCriteria" : "Verify that vendor can record the adverse reaction of? persistent, inconsolable crying lasting > 3 hours within 48 hours of dose correctly and without omission",
-  "notes" : "No Note"
-}

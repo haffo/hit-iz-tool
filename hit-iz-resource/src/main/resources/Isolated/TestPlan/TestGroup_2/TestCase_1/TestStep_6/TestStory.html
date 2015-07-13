@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="ASCII" standalone="no"?>
+<html>
+<head>
+<style type="text/css" media="print,screen">
+	maskByMediaType {
+		display: table;
+	}
+	table tbody tr th {
+		font-size: 70%
+	}
+	table tbody tr td {
+		font-size: 70%;
+	}
+	table tbody tr th {
+		text-align: left;
+		background: #C6DEFF
+	}
+	table thead tr th {
+		text-align: center;
+		font-size: 70%;
+	}
+	table thead tr th:first-child {
+		width: 15%;
+	}
+	table thead tr th:nth-child(2) {
+		width: 35%;
+	}
+	table thead tr th:nth-child(3) {
+		width: 35%;
+	}
+	table thead tr th:last-child {
+		width: 10%;
+	}
+
+	table {
+		width: 98%;
+		border: 1px groove;
+		table-layout: fixed;
+		margin: 0 auto;
+		border-collapse: collapse;
+		page-break-inside: avoid;
+	}
+	table tr {
+		border: 3px groove;
+	}
+	table th {
+		border: 2px groove;
+	}
+	table td {
+		border: 2px groove;
+	}
+	table thead {
+		border: 1px groove;
+		background: #446BEC;
+		text-align: left;
+	}
+	table tbody tr td {
+		text-align: left
+	}
+	.embSpace {
+		padding-left: 10px;
+	}
+	.embSubSpace {
+		padding-left: 20px;
+	}
+	.childField {
+		background: #B8B8B8;
+	}
+}
+</style>
+</head>
+<body>
+	<h1>Test Story</h1>
+	
+	<p>Description</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>No Description</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Comments</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>No Comments</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>PreCondition</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>A Z44 query has been submitted to the Immunization Registry and a Z42 response is provided back to the EMR.and&nbsp; the response is available in the EMR for reconciliation and import.&nbsp;</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>PostCondition</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>Evaluated Immunization History returned from the registry is reconciled and imported into the patient record (Juana Mariana Gonzales)</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Test Objectives</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p><em>Request/Receive Patient Immunization Data and Identify Source: </em>The EHR or other clinical software is able to store immunization history accepted electronically from other sources (such as a public health immunization registry consistent with HL7 version 2.5.1, Implementation Guide for Immunization Messaging Release 1.5) or communicated by the patient and manually entered by the clinician. When viewing such information, the provider can determine which immunizations were administered by the practice, which were entered manually as patient-reported, and which were accepted electronically from the public health registry.</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Evaluation Criteria</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><div style="font-size: 10pt;">1. The user imports returned vaccinations as follows:</div>
+
+<div style="font-size: 10pt;">a.&nbsp;<strong>Vaccinations NOT imported</strong>:</div>
+
+<div style="font-size: 10pt;">hepatitis B vaccine, pediatric or pediatric/adolescent dosage (CVX 08)&nbsp;&nbsp;administered&nbsp;1/15/2010</div>
+
+<div style="font-size: 10pt;">measles, mumps, rubella, and varicella virus vaccine (CVX 94)&nbsp;administered&nbsp;11/22/2012</div>
+
+<div style="font-size: 10pt;">VERIFY that the dose validity is&nbsp;marked as invalid&nbsp;</div>
+
+<div style="font-size: 13.3333330154419px;">b.&nbsp;<strong>Vaccinations Imported:</strong></div>
+
+<div style="font-size: 13.3333330154419px;">&nbsp;</div>
+
+<div style="font-size: 13.3333330154419px;">
+<div>hepatitis B vaccine, pediatric or pediatric/adolescent dosage&nbsp;(CVX 08)&nbsp;&nbsp;administered&nbsp;10/30/2010</div>
+
+<div>diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis antigens (CVX 106)&nbsp;administered&nbsp;1/22/2010</div>
+
+<div>diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis antigens (CVX 106)&nbsp;administered&nbsp;3/23/2010,</div>
+
+<div>Including adverse reaction&nbsp;31044-1 Reaction, VXC12^fever of &gt;40.5C (105F) within 48 hours of dose</div>
+
+<div>diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis antigens (CVX 106)&nbsp;administered&nbsp;5/22/2010</div>
+
+<div>diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis antigens (CVX 106)&nbsp;administered&nbsp;2/21/2011</div>
+
+<div>Haemophilus influenzae type b vaccine, PRP-OMP conjugate (CVX 49)&nbsp;administered&nbsp;1/22/2010</div>
+
+<div>Haemophilus influenzae type b vaccine, PRP-OMP conjugate (CVX 49)&nbsp;administered&nbsp;3/23/2010</div>
+
+<div>Haemophilus influenzae type b vaccine, PRP-OMP conjugate (CVX 49)&nbsp;administered&nbsp;5/22/2010</div>
+
+<div>Haemophilus influenzae type b vaccine, PRP-OMP conjugate (CVX 49)&nbsp;administered&nbsp;2/21/2011</div>
+
+<div>poliovirus vaccine, inactivated (CVX 10)&nbsp;administered&nbsp;1/22/2010</div>
+
+<div>poliovirus vaccine, inactivated (CVX 10)&nbsp;administered&nbsp;3/23/2010</div>
+
+<div>pneumococcal conjugate vaccine, 13 valent (CVX 133)&nbsp;administered&nbsp;1/22/2010</div>
+
+<div>pneumococcal conjugate vaccine, 13 valent (CVX 133)&nbsp;administered&nbsp;3/23/2010</div>
+
+<div>pneumococcal conjugate vaccine, 13 valent (CVX 133)&nbsp;administered&nbsp;5/22/2010</div>
+
+<div>pneumococcal conjugate vaccine, 13 valent (CVX 133)&nbsp;administered&nbsp;2/21/2011</div>
+
+<div>rotavirus, live, monovalent vaccine (CVX 119)&nbsp;administered&nbsp;3/23/2010</div>
+
+<div>Influenza, injectable,quadrivalent, preservative free, pediatric (CVX 161)&nbsp;administered&nbsp;9/25/2010</div>
+
+<div>Influenza, injectable,quadrivalent, preservative free, pediatric (CVX 161)&nbsp;administered&nbsp;10/27/2010</div>
+
+<div>Influenza, injectable,quadrivalent, preservative free, pediatric (CVX 161)&nbsp;administered&nbsp;10/2/2011</div>
+
+<div>Influenza, injectable,quadrivalent, preservative free, pediatric (CVX 161)&nbsp;administered&nbsp;11/4/2012</div>
+
+<div>hepatitis A vaccine, pediatric/adolescent dosage, 2 dose schedule (CVX 83)&nbsp;administered&nbsp;11/23/2011</div>
+
+<div>hepatitis A vaccine, pediatric/adolescent dosage, 2 dose schedule (CVX 83)&nbsp;administered&nbsp;5/23/2012</div>
+
+<div>measles, mumps, rubella, and varicella virus vaccine (CVX 94)&nbsp;administered&nbsp;11/22/2012</div>
+
+<div>&nbsp;</div>
+</div>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	
+	<p>Notes to Testers</p>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>No Note</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

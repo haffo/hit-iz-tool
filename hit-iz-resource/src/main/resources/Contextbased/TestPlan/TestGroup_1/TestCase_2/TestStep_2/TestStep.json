@@ -1,9 +1,9 @@
 {
-  "name" : "Enter Clinical History for Juan Marcel Gonzales",
+  "name" : "Consume acknowledgement message",
   "position" : 2,
-  "messageId" : null,
-  "valueSetLibraryId" : null,
-  "constraintId" : null,
+  "messageId" : "8da46a56-9f9a-4897-b7f1-08862c73d66a",
+  "valueSetLibraryId" : "752481af-53be-4bcb-909d-d71d6fa49d1a",
+  "constraintId" : "e99ce380-6861-4848-a0b3-a85a67674532",
   "type" : null,
-  "description" : "The EHR captures structured data regarding a problem of Asthma as part of the clinical history."
+  "description" : "Tests the ability to consume a valid ACK message"
 }

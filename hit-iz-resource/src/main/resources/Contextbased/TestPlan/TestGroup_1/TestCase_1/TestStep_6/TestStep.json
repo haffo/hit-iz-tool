@@ -1,9 +1,0 @@
-{
-  "name" : "Enter allergy to egg albumin",
-  "position" : 6,
-  "messageId" : null,
-  "valueSetLibraryId" : null,
-  "constraintId" : null,
-  "type" : null,
-  "description" : "The EHR captures structured data regarding allergies as part of the clinical history."
-}

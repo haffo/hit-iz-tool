@@ -1,9 +1,0 @@
-{
-  "name" : "IPV Parental Refusal",
-  "position" : 2,
-  "messageId" : null,
-  "valueSetLibraryId" : null,
-  "constraintId" : null,
-  "type" : null,
-  "description" : "Documents mother?s refusal for IPV vaccine indicating the parent decision, the reason and makes it permanent."
-}

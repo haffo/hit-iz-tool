@@ -12,8 +12,8 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.core.domain.CFTestObject;
-import gov.nist.hit.core.repo.CFTestObjectRepository;
+import gov.nist.hit.core.domain.TestObject;
+import gov.nist.hit.core.repo.TestObjectRepository;
 import gov.nist.hit.core.repo.TestStepRepository;
 
 import java.util.List;
@@ -38,24 +38,24 @@ public class CFTestingController extends TestingController {
   private TestStepRepository testCaseRepository;
 
   @Autowired
-  private CFTestObjectRepository testObjectRepository;
+  private TestObjectRepository testObjectRepository;
 
 
 
-  public CFTestObjectRepository getTestObjectRepository() {
+  public TestObjectRepository getTestObjectRepository() {
     return testObjectRepository;
   }
 
 
 
-  public void setTestObjectRepository(CFTestObjectRepository testObjectRepository) {
+  public void setTestObjectRepository(TestObjectRepository testObjectRepository) {
     this.testObjectRepository = testObjectRepository;
   }
 
 
 
   @RequestMapping(value = "/testcases")
-  public List<CFTestObject> testCases() {
+  public List<TestObject> testCases() {
     logger.info("Fetching all testCases...");
     return testObjectRepository.findAllAsRoot();
   }

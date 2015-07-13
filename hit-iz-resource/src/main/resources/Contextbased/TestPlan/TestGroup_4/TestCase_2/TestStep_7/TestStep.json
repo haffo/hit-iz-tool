@@ -1,9 +1,0 @@
-{
-  "name" : "Record Influenza Vaccine administration for Juan Marcel Gonzales",
-  "position" : 7,
-  "messageId" : null,
-  "valueSetLibraryId" : null,
-  "constraintId" : null,
-  "type" : null,
-  "description" : "The EMR is able to document all attributes associated with the new vaccine administration."
-}

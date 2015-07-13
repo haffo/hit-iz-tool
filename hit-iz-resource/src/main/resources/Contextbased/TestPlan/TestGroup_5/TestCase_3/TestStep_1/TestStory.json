@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : " Following the visit, the EMR transmits an Immunization report to the Immunization Registry using the VXU/Z22. The Vaccination report includes the vaccine deferrals. The report MAY send the immunizations that the EMR imported from the IIS.",
-  "comments" : "The Report must include all vaccine deferrals recorded in the EMR in any order. The report may include the information imported from the IIS",
-  "preCondition" : "The vaccines for the visit have been administered.",
-  "postCondition" : "The Immunization Report has been transmitted to the IIS using a valid Z22 VXU in accordance with the test data correctly and without omission.",
-  "testObjectives" : "<span style=\"font-style: italic;\"><span style=\"font-weight: bold;\">Transmit Standard Patient Immunization History Report: </span></span>The EHR or other clinical software system directly or indirectly through an intermediary creates and transmits a report of a patient's immunization history to public health immunization registries.",
-  "evaluationCriteria" : "The VXU/Z22 message passes validation using the NIST Immunization VXU Validation Tool (Z22) (context-free). The content of the message correctly reflects the test data (context-based) in accordance with the Test Data Specification and the Message Content. The message must contain all deferrals recorded in the EMR. Current Date is expected for the Non-Administration date and deferral date.<br>",
-  "notes" : "No Note"
-}

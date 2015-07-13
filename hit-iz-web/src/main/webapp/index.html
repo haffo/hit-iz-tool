@@ -1,10 +1,10 @@
 <!doctype html>
 <!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>
-<html class="no-js lt-ie9" > <![endif]-->
+<html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
@@ -18,10 +18,12 @@
     <meta name="author" content="NIST">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
     <meta name="viewport" content="width=device-width">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="styles/d031cfae.vendor.css">
     <!-- For project CSS files -->
-    <link rel="stylesheet" href="styles/55953e92.main.css">
+    <link rel="stylesheet" href="styles/3084da65.main.css">
 
     <!-- Custom styles for this template -->
     <script src="lib/utils.js"></script>
@@ -41,90 +43,111 @@
     <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
     <link rel="stylesheet" href="lib/blueimp/blueimp-file-upload/css/jquery.fileupload.css">
     <link rel="stylesheet" href="lib/blueimp/blueimp-file-upload/css/jquery.fileupload-ui.css">
-    <noscript><link rel="stylesheet" href="lib/blueimp/blueimp-file-upload/css/jquery.fileupload-noscript.css"></noscript>
-    <noscript><link rel="stylesheet" href="lib/blueimp/blueimp-file-upload/css/jquery.fileupload-ui-noscript.css"></noscript>
-
-
-
-
+    <noscript>
+        <link rel="stylesheet" href="lib/blueimp/blueimp-file-upload/css/jquery.fileupload-noscript.css">
+    </noscript>
+    <noscript>
+        <link rel="stylesheet" href="lib/blueimp/blueimp-file-upload/css/jquery.fileupload-ui-noscript.css">
+    </noscript>
     <link rel="stylesheet" href="lib/angular-bootstrap-nav-tree/abn_tree.css">
     <!--<link rel="stylesheet" href="lib/tree-grid/treeGrid.css">-->
 
 </head>
 <body ng-app="tool">
 <div id="wrapper">
-<div ng-include="'views/header.html'"></div>
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+        your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-<!--[if lt IE 9]>
-<script src="bower_components/es5-shim/es5-shim.js"></script>
-<script src="bower_components/json3/lib/json3.min.js"></script>
-<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
 
-<!-- Add your site or application content here -->
-<div id="appcontainer">
-    <!--<div class="container">-->
+    <div ng-include="'views/header.html'"></div>
+    <!-- Add your site or application content here -->
+    <div id="appcontainer">
+        <!--<div class="container">-->
         <!--<div class="row">-->
-            <!--<div class="col-md-10">-->
-                <!--<div ng-class="'alert alert-'+msg().type" ng-show="msg().show" id="ehralert">-->
-                    <!--<button type="button" class="close" ng-click="msg().show=false">×</button>-->
-                    <!--<div ng-bind="msg().text"></div>-->
-                <!--</div>-->
-            <!--</div>-->
+        <!--<div class="col-md-10">-->
+        <!--<div ng-class="'alert alert-'+msg().type" ng-show="msg().show" id="ehralert">-->
+        <!--<button type="button" class="close" ng-click="msg().show=false">×</button>-->
+        <!--<div ng-bind="msg().text"></div>-->
         <!--</div>-->
-    <!--</div>-->
-    <div ng-view=""></div>
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div ng-view=""></div>
 
-    <!--<script type="text/ng-template" id="warning-dialog.html">-->
+        <!--<script type="text/ng-template" id="warning-dialog.html">-->
         <!--<div class="modal-header">-->
-            <!--<h3>Your session will expire soon!</h3>-->
+        <!--<h3>Your session will expire soon!</h3>-->
         <!--</div>-->
         <!--<div idle-countdown="countdown" ng-init="countdown=30" class="modal-body">-->
-            <!--<progressbar type="warning" max="30" value="30" animate="false" class="progress-striped active">Your session-->
-                <!--will expire in {{countdown}} second(s).-->
-            <!--</progressbar>-->
+        <!--<progressbar type="warning" max="30" value="30" animate="false" class="progress-striped active">Your session-->
+        <!--will expire in {{countdown}} second(s).-->
+        <!--</progressbar>-->
         <!--</div>-->
-    <!--</script>-->
+        <!--</script>-->
 
-    <!--<script type="text/ng-template" id="timedout-dialog.html">-->
+        <!--<script type="text/ng-template" id="timedout-dialog.html">-->
         <!--<div class="modal-header">-->
-            <!--<h3>Session Expired</h3>-->
+        <!--<h3>Session Expired</h3>-->
         <!--</div>-->
         <!--<div class="modal-body">-->
-            <!--<p>-->
-                <!--Your session has expired due to inactivity for a long time.-->
-            <!--</p>-->
+        <!--<p>-->
+        <!--Your session has expired due to inactivity for a long time.-->
+        <!--</p>-->
         <!--</div>-->
-    <!--</script>-->
+        <!--</script>-->
 
 
-</div>
+    </div>
 
-<div ng-include="'views/footer.html'"></div>
+    <div ng-include="'views/footer.html'"></div>
 
-<script src="scripts/658980f5.vendor.js"></script>
+    <script src="scripts/0afbe300.vendor.js"></script>
 
-<!-- blueimp -->
-<script src="lib/blueimp/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
-<script src="lib/blueimp/blueimp-load-image/js/load-image.js"></script>
-<script src="lib/blueimp/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload.js"></script>
-<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
-<!--<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-image.js"></script>-->
-<!--<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-audio.js"></script>-->
-<!--<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-video.js"></script>-->
-<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
-<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-angular.js"></script>
-<script src="lib/vkbeautify/vkbeautify.js"></script>
-<script src="lib/lrInfiniteScroll/lrInfiniteScroll.js"></script>
+    <!-- blueimp -->
+    <script src="lib/blueimp/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="lib/blueimp/blueimp-load-image/js/load-image.js"></script>
+    <script src="lib/blueimp/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload.js"></script>
+    <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+    <!--<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-image.js"></script>-->
+    <!--<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-audio.js"></script>-->
+    <!--<script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-video.js"></script>-->
+    <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
+    <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-angular.js"></script>
+    <script src="lib/vkbeautify/vkbeautify.js"></script>
+    <script src="lib/lrInfiniteScroll/lrInfiniteScroll.js"></script>
+    <script src="lib/profile-viewer/profile-viewer.js"></script>
+    <script src="lib/vocab-search/vocab-search.js"></script>
+    <script src="lib/validation-result/validation-result.js"></script>
+    <script src="lib/report-viewer/report-viewer.js"></script>
 
+    <script src="scripts/d49aed6d.scripts.js"></script>
 
-<script src="scripts/cf12bc0d.scripts.js"></script>
+    <div ng-include="'views/error.html'"></div>
 
-<div ng-include="'views/error.html'"></div>
+    <script>
+//        $(document).ready(function() {
+//
+//            $.material.options = {
+//                "withRipples": ".btn:not(.btn-link), .card-image, .withripple",
+//                "inputElements": "input.form-control, textarea.form-control, select.form-control",
+//                "checkboxElements": ".checkbox > label > input[type=checkbox]",
+//                "radioElements": ".radio > label > input[type=radio]"
+//            };
+//
+//
+//            // This command is used to initialize some elements and make them work properly
+////            $.material.init();
+//            $.material.init();
+//        });
+    </script>
+
 
 </div>
 </body>

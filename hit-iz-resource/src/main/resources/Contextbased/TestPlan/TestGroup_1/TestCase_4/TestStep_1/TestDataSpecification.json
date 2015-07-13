@@ -1,0 +1,86 @@
+{
+"profile" : "VXU_V04",
+"tables":
+[
+		{
+			"title":"Patient Information",
+			"elements" : 
+			[
+				{"element" : "Patient Name", "data" : "Katherine Mackenzie Benton"},
+				{"element" : "Mother's Maiden Name", "data" : "Jones"},
+				{"element" : "ID Number", "data" : "89778 "},
+				{"element" : "Date/Time of Birth", "data" : "12/21/2003"},
+				{"element" : "Administrative Sex", "data" : "F"},
+				{"element" : "Patient Address", "data" : "89 West 21st Ave Bozeman MT 59715 USA"},
+				{"element" : "Local Number", "data" : "(406)555-4019"},
+				{"element" : "Race", "data" : "White"},
+				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
+				{"element" : "Birth Order", "data" : "1"}
+			]
+		},
+		{
+			"title":"Immunization Registry Information",
+			"elements" : 
+			[
+				{"element" : "Immunization Registry Status", "data" : "A"},
+				{"element" : "Publicity Code (Text)", "data" : "No reminder/recall"},
+				{"element" : "Protection Indicator", "data" : "N"},
+				{"element" : "Protection Indicator Effective Date", "data" : ""},
+				{"element" : "Publicity Code Effective Date", "data" : "06/24/2015"},
+				{"element" : "Immunization Registry Status Effective Date", "data" : "12/21/2003"}
+			]
+		},
+		{
+			"title":"Guardian or Responsible Party",
+			"elements" : 
+			[
+				{"element" : "Name", "data" : "Kari Benton"},
+				{"element" : "Relationship", "data" : "Mother"},
+				{"element" : "Address", "data" : "89 West 21st Ave Bozeman MT 59715 "},
+				{"element" : "Address (Country)", "data" : "USA"},
+				{"element" : "Phone Number or Email address", "data" : "(406)555-4019"}
+			]
+		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Code - Text", "data" : "HPV, bivalent"},
+				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
+				{"element" : "Administered Amount", "data" : "0.5"},
+				{"element" : "Administered Units", "data" : "mL"},
+				{"element" : "Administration Notes", "data" : "New Record"},
+				{"element" : "Administering Provider", "data" : "Lily Jackson"},
+				{"element" : "Substance Lot Number", "data" : "795441"},
+				{"element" : "Substance Expiration Date", "data" : "12/23/2015"},
+				{"element" : "Substance Manufacturer Name", "data" : "GlaxoSmithKline"},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Route", "data" : "Intramuscular"},
+				{"element" : "Administration Site", "data" : "Right Deltoid"},
+					{"element" : "obx", "data" : 
+					{
+						"title":"New Record",
+						"elements" : 
+						[
+							{"element" : "Vaccine Funding Source", "data" : "Public"},
+							{"element" : "Vaccine Funding Program Eligibility", "data" : "VFC Eligible
+- Underinsured"},
+							{"element" : "Document Type", "data" : "Human papillomavirus Vaccine (Cervarix)
+VIS"},
+							{"element" : "Date Vis Presented", "data" : ""},
+						]
+					}
+					}
+		]
+		},
+		{
+			"title":"Order Information",
+			"elements" : 
+			[
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : "Wilma Thomas"}
+			]
+
+		}
+]
+}

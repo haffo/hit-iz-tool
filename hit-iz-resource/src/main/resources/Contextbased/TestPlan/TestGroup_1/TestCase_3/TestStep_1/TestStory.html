@@ -1,83 +1,7 @@
 <?xml version="1.0" encoding="ASCII" standalone="no"?>
 <html>
 <head>
-<style type="text/css">
-@media screen {
-	maskByMediaType {
-		display: table;
-	}
-	table tbody tr th {
-		font-size: 90%
-	}
-	table tbody tr td {
-		font-size: 90%;
-	}
-	table tbody tr th {
-		text-align: left;
-		background: #C6DEFF
-	}
-	table thead tr th {
-		text-align: center;
-	}
-	table thead tr th:first-child {
-		width: 15%;
-	}
-	table thead tr th:nth-child(2) {
-		width: 35%;
-	}
-	table thead tr th:nth-child(3) {
-		width: 35%;
-	}
-	table thead tr th:last-child {
-		width: 10%;
-	}
-	p {
-		text-align: center;
-	}
-	
-	h1 {
-		text-align: center;
-	}
-	table {
-		width: 98%;
-		border: 1px groove;
-		table-layout: fixed;
-		margin: 0 auto;
-		border-collapse: collapse;
-	}
-	table tr {
-		border: 3px groove;
-	}
-	table th {
-		border: 2px groove;
-	}
-	table td {
-		border: 2px groove;
-	}
-	table thead {
-		border: 1px groove;
-		background: #446BEC;
-		text-align: left;
-	}
-	table tbody tr td {
-		text-align: left
-	}
-	.embSpace {
-		padding-left: 15px;
-	}
-	.embSubSpace {
-		padding-left: 25px;
-	}
-	.childField {
-		background: #B8B8B8;
-	}
-}
-
-table tbody tr td div ul {
-	padding-left: 60px
-}
-
-@media print {
+<style type="text/css" media="print,screen">
 	maskByMediaType {
 		display: table;
 	}
@@ -94,9 +18,6 @@ table tbody tr td div ul {
 	table thead tr th {
 		text-align: center;
 		font-size: 70%;
-	}
-	p {
-		text-align: center;
 	}
 	table thead tr th:first-child {
 		width: 15%;
@@ -146,34 +67,6 @@ table tbody tr td div ul {
 		background: #B8B8B8;
 	}
 }
-
-@page {
-	counter-increment: page;
-	@
-	bottom-center
-	{
-	content
-	:
-	"Page "
-	counter(
-	page
-	);
-}
-
-}
-@page :left {
-	margin-left: 5%;
-	margin-right: 5%;
-}
-
-@page :right {
-	margin-left: 5%;
-	margin-right: 5%;
-}
-
-fieldset table tbody tr td div ul {
-	padding-left: 60px
-}
 </style>
 </head>
 <body>
@@ -188,7 +81,7 @@ fieldset table tbody tr td div ul {
 		</thead>
 		<tbody>
 			<tr>
-				<td><span style="font-family: Arial, sans-serif; font-size: 13.3333330154419px; line-height: 14.2666664123535px;">The EHR vendor loads demographic data for Mariela Gonzales Morales.</span></td>
+				<td><font face="Arial, Verdana"><span style="font-size: 13.3333330154419px;">An 11.5 year old female, Katherine Mackenzie Benton, is brought to the West Clinic for a third and final dose of HPV vaccine. She is accompanied by her mother Kari Michelle Benton (nee Jones). A clinic staff member collects basic patient demographic information including name, date of birth and sex. The mother is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, the mother agrees that the child should receive the HPV vaccine, but she chooses not to share the data once it is incorporated into the local IIS. A clinic provider, Wilma Thomas (physician ID 654) places an order for the vaccination. While the patient is covered by insurance, the plan does not cover this vaccination and she qualifies for Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - Underinsured. An appropriate doses of HPV (Gardasil) is selected from the clinic’s stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the dose to the patient and then enters the data into the EHR and transmits it to the IIS.</span></font></td>
 			</tr>
 		</tbody>
 	</table>
@@ -203,7 +96,7 @@ fieldset table tbody tr td div ul {
 		</thead>
 		<tbody>
 			<tr>
-				<td><span style="font-family: Arial, sans-serif; font-size: 13.3333330154419px; line-height: 14.2666664123535px;">Set-up step evaluating EMR functions for capturing and storing patient pediatric demographic data. There is no transaction associated with this test step.</span></td>
+				<td>No Comments</td>
 			</tr>
 		</tbody>
 	</table>
@@ -233,7 +126,7 @@ fieldset table tbody tr td div ul {
 		</thead>
 		<tbody>
 			<tr>
-				<td><span style="font-size: 14.6666669845581px; line-height: 15.6933336257935px;">The EMR has recorded all of the pediatric demographic &nbsp;in the record created for Mariela Gonzales Morales.</span></td>
+				<td>No PostCondition</td>
 			</tr>
 		</tbody>
 	</table>
@@ -248,7 +141,7 @@ fieldset table tbody tr td div ul {
 		</thead>
 		<tbody>
 			<tr>
-				<td><b style="font-size: 13.3333330154419px;"><i><span style="font-size: 10pt; line-height: 14.2666664123535px; font-family: Arial, sans-serif;">Register New Patients:</span></i></b><span style="font-size: 10pt; line-height: 14.2666664123535px; font-family: Arial, sans-serif;">&nbsp;The system must allow a user to enter distinguishing information about patients so that providers can uniquely identify patients who have similar sounding names or other similar identifying information. &nbsp;For example, twins living in the same household will have similar dates of birth, addresses, and may have similar names. EHRs or other clinical software must be able to store information to successfully match with patients in immunization registries, if the information is available. The information includes the mother’s maiden name, whether the patient was part of a multiple birth, and the order of the multiple birth. This information allows the provider to correctly identify the patient and also helps assure a match when the EHR send the patient’s information to external systems such as an immunization registry.</span></td>
+				<td>No Test Objectives</td>
 			</tr>
 		</tbody>
 	</table>
@@ -263,7 +156,7 @@ fieldset table tbody tr td div ul {
 		</thead>
 		<tbody>
 			<tr>
-				<td><p class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;">Evaluation Criteria:&nbsp;<span style="font-size: 10pt; line-height: 14.2666664123535px; font-family: Arial, sans-serif;">Vendor successfully records all demographic data provided, and in particular&nbsp;(Mother's maiden name, multiple birth, birth order), with all required attributes indicated by [Y]:</span><span times="" new="" roman",serif;mso-fareast-font-family:="" "times="" roman""="" style="font-size: 12pt; line-height: 17.1200008392334px;"><o:p></o:p></span></p><p class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"></p><ul type="disc"><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient ID (previously listed as “Medicaid Number”) -&nbsp;</span><b>Vendor supplied [Y]</b><span arial",sans-serif;="" mso-fareast-font-family:"times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient ID: Assigning Authority ID (i.e., owning source)/Facility Name -&nbsp;</span><b>Shoreline Pediatrics&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient ID: Type (e.g., medical record number, IIS ID) -&nbsp;</span><b>Vendor supplied&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:"times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Name: First -&nbsp;</span><b>Mariela [Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;">Patient Name: Middle -&nbsp;</span><b><font face="Arial, Verdana"><span style="font-size: 13.3333330154419px;">Gonzales [Y</span><span style="font-size: 13.3333330154419px; font-weight: normal;">]</span></font></b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 13.3333330154419px;"><font face="Arial, Verdana">Patient Name: Last -&nbsp;<span style="font-weight: bold;">Morales [Y]</span></font></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Date of Birth -<span style="font-weight: bold;"> 03</span></span><b>/30/2015 &nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-weight: normal; font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Birth Time -&nbsp;</span><b>11:00 [N]</b><span arial",sans-serif;mso-fareast-font-family:"times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Gender (Administrative Sex) -&nbsp;</span><b>&nbsp;F [Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Multiple Birth Indicator -&nbsp;</span><b>Yes [Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Birth Order - &nbsp;</span><b>1&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;">Responsible Person Name: First -&nbsp;</span><b><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">Joanna</span><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">&nbsp;[Y]</span></b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><o:p></o:p></span></li><li class="MsoNormal"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;">Responsible Person Name: Middle -&nbsp;</span><b><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">Gonzales</span><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">&nbsp;[Y]</span></b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><o:p></o:p></span></li><li class="MsoNormal"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;">Responsible Person Name: Last -&nbsp;</span><b><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">Morales</span><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">&nbsp;[Y]</span></b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Responsible Person Name: Relationship to Patient -&nbsp;</span><b>Mother [Y]</b><span arial",sans-serif;mso-fareast-font-family:"times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;">Mother’s Name: First -&nbsp;</span><b><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">Joanna</span><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">&nbsp;[Y]</span></b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><o:p></o:p></span></li><li class="MsoNormal"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;">Mother’s Name: Middle -&nbsp;</span><b><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">Gonzales</span><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">&nbsp;[Y]</span></b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><o:p></o:p></span></li><li class="MsoNormal"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;">Mother’s Name: Last -&nbsp;</span><b><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">Morales</span><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-weight: normal;">&nbsp;</span><span style="font-family: Arial, Verdana; font-size: 13.3333330154419px;">[Y]</span></b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Mother’s Name: Maiden Last -&nbsp;</span><b>Gonzales [Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: Street -&nbsp;</span><b>3321 Standish Way&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: City -&nbsp;</span><b>Stamford&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: State -&nbsp;</span><b>CT&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: Country -&nbsp;</span><b>US</b><b>&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:"times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: Zipcode -&nbsp;</span><b>06903&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Address: County of Residence -&nbsp;</span><b>Fairfield [N]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Race -&nbsp;</span><b>Other&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:"times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Ethnicity -&nbsp;</span><b>Hispanic or Latino&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Birthing Facility Name (Birth Delivery Location Address BDL) -&nbsp;</span><b>Stamford Regional Hospital&nbsp;15 Atlantic Avenue, Stamford Connecticut 06903 &nbsp;[Y - birthing facility name, not address]</b><span arial",sans-serif;mso-fareast-font-family:"times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Birth State -&nbsp;</span><b>CT&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Primary Language -&nbsp;</span><b>English&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Telephone Number -&nbsp;</span><b>(203) 555-1214 [Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient Telephone Number Type (e.g., home, cell) -&nbsp;</span><b>home&nbsp;[Y]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Patient E-mail Address -&nbsp;</span><b>&nbsp;[N]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Publicity Code&nbsp;</span><b>&nbsp;[N]</b><span arial",sans-serif;mso-fareast-font-family:"times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Protection Indicator</span><b>&nbsp;[N]</b><span arial",sans-serif;mso-fareast-font-family:"times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Protection Indicator Effective Date</span><b>&nbsp;[N]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Immunization Registry Status</span><b>&nbsp;[N]</b><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;"><o:p></o:p></span></li><li class="MsoNormal" style="font-family: Arial, Verdana; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman""="" style="font-size: 10pt;">Preferred Contact Method -&nbsp;</span><b>Phone&nbsp;&nbsp;[Y]</b></li></ul></td>
+				<td>No evaluation criteria</td>
 			</tr>
 		</tbody>
 	</table>

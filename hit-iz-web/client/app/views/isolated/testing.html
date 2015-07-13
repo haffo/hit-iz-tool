@@ -5,14 +5,14 @@
     </div>
     <div ng-show="!loading">
     <tabset>
-        <tab select="setActiveTab(0)" active="tabs[0]">
+        <tab select="setTestActiveTab(0)" active="tabs[0]">
             <tab-heading>
                 <i class="fa fa-th-list"></i>Test Selection
             </tab-heading>
 
             <div ng-include="'views/isolated/testcase.html'"></div>
         </tab>
-        <tab disabled="disabled()" select="setActiveTab(1)" active="tabs[1]">
+        <tab disabled="disabled()" select="setTestActiveTab(1)" active="tabs[1]">
             <tab-heading>
                 <i class="fa fa-check-circle"></i>Test Execution
             </tab-heading>

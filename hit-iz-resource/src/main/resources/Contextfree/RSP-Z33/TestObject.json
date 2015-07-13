@@ -3,5 +3,6 @@
   "messageId" : "6a54b5a1-3d50-423e-9f84-8a721ad76342",
   "constraintId" : "579f6f38-3440-4ff3-b859-0b29838849e2",
   "valueSetLibraryId" : "e3996dd4-81e0-47e4-a77d-1be4213b4cba",
-  "description" : "No Description"
+  "description" : "No Description",
+   "position" : 7
 }

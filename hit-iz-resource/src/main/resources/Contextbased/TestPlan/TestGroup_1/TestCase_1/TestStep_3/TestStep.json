@@ -1,9 +1,0 @@
-{
-  "name" : "Enter Initial Immunization Data for Juana Mariana Gonzales from Another Practice",
-  "position" : 3,
-  "messageId" : null,
-  "valueSetLibraryId" : null,
-  "constraintId" : null,
-  "type" : null,
-  "description" : "Patient History from another practice is entered into the EMR."
-}

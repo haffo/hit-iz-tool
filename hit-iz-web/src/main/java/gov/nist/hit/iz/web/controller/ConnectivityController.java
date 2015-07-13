@@ -17,6 +17,7 @@ import gov.nist.hit.core.domain.TransactionCommand;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.repo.TransactionRepository;
+import gov.nist.hit.core.service.MessageParser;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.SoapValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
@@ -30,7 +31,6 @@ import gov.nist.hit.iz.repo.ConnectivityTestCaseRepository;
 import gov.nist.hit.iz.repo.ConnectivityTestContextRepository;
 import gov.nist.hit.iz.repo.ConnectivityTestPlanRepository;
 import gov.nist.hit.iz.service.SoapValidationReportGenerator;
-import gov.nist.hit.iz.service.soap.SoapMessageParser;
 import gov.nist.hit.iz.service.soap.SoapMessageValidator;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 import gov.nist.hit.iz.web.utils.Utils;
@@ -40,6 +40,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,6 +59,7 @@ public class ConnectivityController extends TestingController {
   static final Logger logger = LoggerFactory.getLogger(ConnectivityController.class);
 
   @Autowired
+  @Qualifier("soapMessageValidator")
   private SoapMessageValidator soapValidator;
 
   @Autowired
@@ -73,7 +75,8 @@ public class ConnectivityController extends TestingController {
   private ConnectivityTestCaseRepository testCaseRepository;
 
   @Autowired
-  private SoapMessageParser soapParser;
+  @Qualifier("soapMessageParser")
+  private MessageParser soapParser;
 
   @Autowired
   private SoapValidationReportGenerator reportService;
@@ -89,11 +92,11 @@ public class ConnectivityController extends TestingController {
     this.transactionRepository = transactionRepository;
   }
 
-  public SoapMessageParser getSoapParser() {
+  public MessageParser getSoapParser() {
     return soapParser;
   }
 
-  public void setSoapParser(SoapMessageParser soapParser) {
+  public void setSoapParser(MessageParser soapParser) {
     this.soapParser = soapParser;
   }
 

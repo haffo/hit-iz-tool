@@ -1,0 +1,37 @@
+<div ng-controller="ConnectivityTestingCtrl" ng-init="init()" class="appcontent">
+
+<tabset>
+    <tab select="setActiveTab(0)" active="tabs[0]">
+        <tab-heading>
+            <i class="fa fa-th-list"></i>
+            Test Selection
+        </tab-heading>
+        <div ng-include="'views/connectivity/testcase.html'"></div>
+    </tab>
+    <tab disabled="disabled()" select="setActiveTab(1)" active="tabs[1]">
+        <tab-heading>
+            <i class="fa fa-cogs"></i>
+            Test Execution
+        </tab-heading>
+        <div ng-include="'views/connectivity/execution.html'"></div>
+    </tab>
+    <!--<tab  select="setActiveTab(2)" active="tabs[2]">-->
+    <!--<tab-heading>-->
+    <!--<i class="glyphicon glyphicon-cog"></i>-->
+    <!--Log-->
+    <!--</tab-heading>-->
+    <!--<div ng-include="'views/testing/connectivity/log.html'"></div>-->
+    <!--</tab>-->
+
+    <!--<tab select="setActiveTab(3)" active="tabs[3]">-->
+    <!--<tab-heading>-->
+    <!--<i class="glyphicon glyphicon-help"></i>Testing Instructions-->
+    <!--</tab-heading>-->
+    <!--<div ng-include="'views/testing/connectivity/instruction.html'"></div>-->
+    <!--</tab>-->
+
+</tabset>
+
+
+
+</div>

@@ -302,7 +302,7 @@
     <tr tt-node
         is-branch="node.children != null && node.children.length > 0">
         <td style="padding-top:0px;  padding-bottom:0px;"
-            ng-class="{ 'node-active': node.id === selectedTestCase.id && (node.type === 'TestStep' ||  node.type  === 'TestCase')}">
+            ng-class="{ 'node-active': node.id === selectedTestCase.id && (node.type === 'TestStep' ||  node.type  === 'TestCase') && node.type === selectedTestCase.type}">
             <a class="point" ng-show="node.type === 'TestStep' ||  node.type  === 'TestCase'"
                ng-click="selectTestCase(node)">{{node.type}}: {{node.name}}</a>
             <span ng-show="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.type}}: {{node.name}}</span>
@@ -320,7 +320,7 @@
 <script type="text/ng-template" id="CFTestCase.html">
     <tr tt-node
         is-branch="node.children != null && node.children.length > 0">
-        <td style="padding:0;" ng-class="{ 'node-active': node.id === testCase.id}">
+        <td style="padding:0;" ng-class="{ 'node-active': node.id === testCase.id && node.type === testCase.type}">
             <a class="point" ng-show="node.testContext && node.testContext !== null" ng-click="loadTestCase(node)">{{node.name}}</a>
             <span ng-show="!node.testContext || node.testContext === null">{{node.name}}</span>
         </td>

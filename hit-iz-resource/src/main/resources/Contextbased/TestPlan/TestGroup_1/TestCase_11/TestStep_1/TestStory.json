@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333330154419px;\">A 68 year old male, Manuel Diego Vasquez, comes to the West Clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that he received a pneumococcal vaccination at a local pharmacy on October 21, 2014. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS</span></font>",
+  "comments" : "No Comments",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "No Test Objectives",
+  "evaluationCriteria" : "No evaluation criteria",
+  "notes" : "No Note"
+}

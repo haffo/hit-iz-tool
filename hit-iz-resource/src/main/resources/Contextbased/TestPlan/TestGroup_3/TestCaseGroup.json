@@ -1,4 +1,0 @@
-{
-  "name" : "Display Reconcile Update Immunizations",
-  "description" : "The vendor will receive information back from the registry and show the ability to view and reconcile, and import the information returned by the registry (NOTE: the Z42 message will be provided either manually, or as part of the tool). This test will also look at the system's ability to view the forecast returned by the registry, and create a new forecast after reconciling the information."
-}

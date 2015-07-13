@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "<p class=\"MsoNormal\">The physician accesses the record for Juana Mariana Gonzales\r\nand:<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\">? Displays the registry forecast which includes the need for\r\na second, valid MMRV vaccine and also the need for influenza and polio vaccines\r\n(since the registry has no information about them)</p>",
-  "comments" : "No Comments",
-  "preCondition" : "<span style=\"font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;\">A Z44 query has been submitted to the Immunization\r\nRegistry and a Z42 response is provided back to the EMR.?</span>",
-  "postCondition" : "<span style=\"font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;\">Evaluated Immunization History returned from the\r\nregistry is reconciled and imported into the patient record (Juana Mariana\r\nGonzales)</span>",
-  "testObjectives" : "<span style=\"font-weight: bold; font-style: italic;\">View Immunization Forecast:</span><span style=\"font-style: normal; font-weight: normal;\"> The system provides a view of the immunization forecast provided by the public health immunization registry (IIS). ?The display includes the forecast from the registry and includes recommended vaccination dates, minimum (earliest) date, ideal date, and maximum (latest) date for each vaccine included in the forecast.</span>",
-  "evaluationCriteria" : "<p class=\"MsoNormal\" style=\"margin-bottom: 0.0001pt;\"><span style=\"font-size: 10pt; font-family: Arial, sans-serif;\">1. The EMR displays the\r\ninformation returned from the Immunization Registry according to the Juror\r\nDocument.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 0.0001pt;\"><span style=\"font-size: 10pt; font-family: Arial, sans-serif;\">2. Verify that All forecast vaccines and dates returned by the registry are displayed to the user.?</span></p>",
-  "notes" : "No Note"
-}

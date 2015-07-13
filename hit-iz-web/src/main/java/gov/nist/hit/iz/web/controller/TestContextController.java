@@ -15,10 +15,11 @@ package gov.nist.hit.iz.web.controller;
 import gov.nist.hit.core.domain.Json;
 import gov.nist.hit.core.domain.MessageCommand;
 import gov.nist.hit.core.domain.TestContext;
-import gov.nist.hit.core.hl7v2.service.message.Er7MessageParser;
-import gov.nist.hit.core.hl7v2.service.message.Er7MessageValidator;
 import gov.nist.hit.core.hl7v2.service.message.Er7ValidationReportGenerator;
 import gov.nist.hit.core.repo.TestContextRepository;
+import gov.nist.hit.core.service.MessageParser;
+import gov.nist.hit.core.service.MessageValidator;
+import gov.nist.hit.core.service.ValidationReportGenerator;
 import gov.nist.hit.core.service.exception.MessageException;
 import gov.nist.hit.core.service.exception.MessageParserException;
 import gov.nist.hit.core.service.exception.MessageValidationException;
@@ -29,6 +30,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,25 +51,50 @@ public class TestContextController extends TestingController {
   private TestContextRepository testContextRepository;
 
   @Autowired
-  private Er7MessageValidator messageValidator;
+  @Qualifier("er7MessageValidator")
+  private MessageValidator messageValidator;
 
   @Autowired
-  protected Er7MessageParser messageParser;
+  @Qualifier("er7MessageParser")
+  protected MessageParser messageParser;
 
   @Autowired
-  private Er7ValidationReportGenerator reportService;
+  @Qualifier("er7ReportGenerator")
+  private ValidationReportGenerator reportService;
 
-  public Er7ValidationReportGenerator getReportService() {
+
+  public MessageParser getMessageParser() {
+    return messageParser;
+  }
+
+  public void setMessageParser(MessageParser messageParser) {
+    this.messageParser = messageParser;
+  }
+
+
+  public ValidationReportGenerator getReportService() {
     return reportService;
   }
 
-  public Er7MessageValidator getMessageValidator() {
+
+
+  public void setReportService(ValidationReportGenerator reportService) {
+    this.reportService = reportService;
+  }
+
+
+
+  public MessageValidator getMessageValidator() {
     return messageValidator;
   }
 
-  public void setMessageValidator(Er7MessageValidator messageValidator) {
+
+
+  public void setMessageValidator(MessageValidator messageValidator) {
     this.messageValidator = messageValidator;
   }
+
+
 
   public void setReportService(Er7ValidationReportGenerator reportService) {
     this.reportService = reportService;
@@ -107,7 +134,8 @@ public class TestContextController extends TestingController {
       String res =
           messageValidator.validate(command.getName(), getMessageContent(command), testContext
               .getConformanceProfile().getIntegrationProfile().getXml(), testContext
-              .getConstraints().getXml(), testContext.getVocabularyLibrary().getXml());
+              .getVocabularyLibrary().getXml(), testContext.getConstraints().getXml(), testContext
+              .getAddditionalConstraints().getXml());
       return new Json(res);
     } catch (MessageException e) {
       throw new MessageValidationException(e.getMessage());

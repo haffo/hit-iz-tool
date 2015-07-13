@@ -894,11 +894,7 @@ select.form-control:checked {
 //}
 
 
-.iz-mv-table{
-  max-height: 400px !important;
-  overflow: scroll;
-//  margin-top: 20px;
-}
+
 
 .iz-vocab-table{
   height: 400px !important;
@@ -1118,11 +1114,6 @@ margin-top:2px;
   background-color:#ffec9d;
 }
 
-.message-tree{
-  max-height: 400px !important;
-  overflow: scroll;
-  margin-top: 20px;
-}
 
 #footer {
   text-align: center;
@@ -1214,3 +1205,30 @@ table.cf-profiles{
 .navbar {
    margin-bottom: 0px;
 }
+
+
+
+.message-tree{
+  max-height: 850px !important;
+  overflow: auto;
+  margin-bottom: 10px;
+}
+
+.container-validation-result{
+  height:450px;
+}
+
+.container-message-tree{
+  height:900px
+}
+
+.container-validation-table{
+  height: 350px !important;
+  max-height:350px !important;
+  overflow: scroll;
+  //  margin-top: 20px;
+}
+
+.container-message-editor {
+  height: 400px;
+ }

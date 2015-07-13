@@ -1,0 +1,5 @@
+{
+  "name" : "Enter Initial Immunization Data for Juana Mariana Gonzales from Another Practice",
+  "description" : "Patient History from another practice is entered into the EMR.",
+  "type" : "SUT_MANUAL"
+}

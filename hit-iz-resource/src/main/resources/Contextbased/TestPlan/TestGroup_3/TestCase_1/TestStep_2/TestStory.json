@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : " ?If the EHR does not already flag the first MMRV as invalid, the provider updates the first MMRV to indicate it is ?invalid? as it was given too early (as notified by the registry)",
-  "comments" : "If the EMR already recognizes the dose as invalid, then this step may be skipped.?",
-  "preCondition" : "MMRV status indicates that the first MMRV dose is valid.",
-  "postCondition" : "MMRV status for the first MMRV dose administered on 10/23/2010 is set to invalid.",
-  "testObjectives" : "<font face=\"Arial, Verdana\"><span style=\"font-size: 10pt;\">dose validity is an important aspect of:</span></font><div><font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333330154419px;\"><span style=\"font-weight: bold; font-style: italic;\">Record Past Immunizations:</span> The EHR or other clinical software system allows providers to enter information about immunizations given elsewhere (e.g., by another doctor, at a public health clinic, pharmacy, etc.) with incomplete details.</span></font></div>",
-  "evaluationCriteria" : "Vendor is able to record that the vaccination dose is invalid with a reason that it was given too early",
-  "notes" : "No Note"
-}

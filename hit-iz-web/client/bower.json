@@ -14,8 +14,7 @@
     "angular-bootstrap": "~0.11.0",
     "angular-animate": "1.2.6",
     "angular-loading-bar": "0.4.3",
-    "angular-smart-table": "2.0.1",
-    "bootstrap-material-design": "~0.3.0"
+    "angular-smart-table": "2.0.1"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",

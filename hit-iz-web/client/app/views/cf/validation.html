@@ -8,7 +8,7 @@
         <!-- Default panel contents -->
         <div class="panel-heading"><i class="glyphicon glyphicon-list"></i> Message Tree
         </div>
-        <div class="panel-body">
+        <div class="panel-body container-message-tree">
             <div ng-show="!tLoading">
                 <div ng-show="tError === null" class="message-tree">
                     <abn-tree tree-control="cf.tree.root" tree-data="messageObject" icon-leaf=""
@@ -73,7 +73,7 @@
 
                                 <button title="Load Example" type="button" class="btn btn-xs btn-primary"
                                         ng-click="loadMessage()"
-                                        ng-disabled="testCase.testContext.message === null"
+                                        ng-disabled="!testCase.testContext.message || testCase.testContext.message === null || testCase.testContext.message.content === ''"
                                         >
                                     <i class="fa fa-arrow-circle-down"></i>Load Example
                                 </button>
@@ -106,13 +106,13 @@
 
         </form>
     </div>
-    <div class="panel-body message-content">
+    <div class="panel-body container-message-editor">
 
         <div ng-show="mError != null">
             <div class="alert alert-danger" role="alert" ng-bind="mError"></div>
         </div>
 
-        <div id="editor_container form-group">
+        <div class="form-group">
             <textarea type="cf" class="form-control" id="cfTextArea" name="cfTextArea"
                       wrap="off" style="overflow:auto;"></textarea>
         </div>
@@ -131,7 +131,7 @@
                                 </button>
        </span>
 </div>
-<div class="panel-body result-container">
+<div class="panel-body container-validation-result">
 
 <div ng-show="!vLoading">
 

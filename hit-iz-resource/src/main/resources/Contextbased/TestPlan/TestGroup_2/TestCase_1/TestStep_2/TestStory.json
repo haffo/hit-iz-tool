@@ -1,9 +1,9 @@
 {
-  "teststorydesc" : " The provider uses the EMR to query the Immunization Registry for an Evaluated History and Forecast based on information known to the Immunization Registry.",
+  "teststorydesc" : " No Description",
   "comments" : "No Comments",
-  "preCondition" : "Juana Mariana Gonzales?<span style=\"font-size: 13.3333330154419px;\">Initial Data Load is completed.</span>",
-  "postCondition" : "<span style=\"font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;\">The Immunization Registry responds with Evaluated\r\nVaccine History and Forecast</span>?for Juana Mariana Gonzales",
-  "testObjectives" : "<span style=\"font-weight: bold; font-style: italic;\">Real Time Request/Receive Patient Immunization History: </span><span style=\"font-style: normal; font-weight: normal;\">The system sends a request to the public health immunization registry ?on demand? (e.g., those without scheduled appointments). The request includes the identifying information the immunization registry needs to match each patient with those in the registry including, if present, the mother?s maiden name, a multiple birth indicator, and the birth order. The request also is sent in a pre-determined format the registry can read and interpret (Query Response Grammar (RSP) ? HL7 version 2.5.1 Implementation Guide for Immunization Messaging Release 1.5).</span>",
-  "evaluationCriteria" : "<div><font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333330154419px;\">Tester shall verify that the vendor can produce a valid Z44 query in accordance with the test data correctly and without omission.</span></font></div><div><font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333330154419px;\">Tester shall verify that the data in the message corresponds to the data in the EMR and contains all test data attributes supplied.</span></font></div>",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "No Test Objectives",
+  "evaluationCriteria" : "No evaluation criteria",
   "notes" : "No Note"
 }

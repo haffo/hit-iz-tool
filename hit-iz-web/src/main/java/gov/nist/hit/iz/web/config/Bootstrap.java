@@ -58,12 +58,12 @@ public class Bootstrap implements InitializingBean {
   public void afterPropertiesSet() throws Exception {
     logger.info("Bootstrapping data...");
     resourcebundleLoader.appInfo();
-    resourcebundleLoader.appInfo();
     resourcebundleLoader.constraints();
     resourcebundleLoader.vocabularyLibraries();
     resourcebundleLoader.integrationProfiles();
     resourcebundleLoader.cf();
     resourcebundleLoader.cb();
+    resourcebundleLoader.isolated();
     soapEnv();
     soapConn();
     logger.info("...Bootstrapping completed");

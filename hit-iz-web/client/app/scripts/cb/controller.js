@@ -78,51 +78,50 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBTestCaseCtrl', ['$scope', '$window', '$rootScope', 'CB', 'ngTreetableParams', '$timeout', 'CBTestCaseListLoader', function ($scope, $window, $rootScope, CB, ngTreetableParams,$timeout,CBTestCaseListLoader) {
+    .controller('CBTestCaseCtrl', ['$scope', '$window', '$filter', '$rootScope', 'CB', 'ngTreetableParams', '$timeout', 'CBTestCaseListLoader', function ($scope, $window, $filter,$rootScope, CB, ngTreetableParams,$timeout,CBTestCaseListLoader) {
         $scope.selectedTestCase = CB.selectedTestCase;
         $scope.testCase = CB.testCase;
         $scope.testCases = [];
         $scope.loading = true;
         $scope.error = null;
-
+        $scope.testArtifact = null;
         $scope.createTreeStruct = function (obj) {
             if (obj.testCases) {
                 if (!obj["children"]) {
                     obj["children"] = obj.testCases;
-
-                } else {
+                 } else {
                     angular.forEach(obj.testCases, function (testCase) {
                         obj["children"].push(testCase);
                         $scope.createTreeStruct(testCase);
                     });
                 }
+                obj["children"] = $filter('orderBy')(obj["children"], 'position');
                 delete obj.testCases;
             }
 
             if (obj.testCaseGroups) {
                 if (!obj["children"]) {
                     obj["children"] = obj.testCaseGroups;
-
                 } else {
                     angular.forEach(obj.testCaseGroups, function (testCaseGroup) {
                         obj["children"].push(testCaseGroup);
                         $scope.createTreeStruct(testCaseGroup);
                     });
                 }
-
+                obj["children"] = $filter('orderBy')(obj["children"], 'position');
                 delete obj.testCaseGroups;
             }
 
             if (obj.testSteps) {
                 if (!obj["children"]) {
                     obj["children"] = obj.testSteps;
-
                 } else {
                     angular.forEach(obj.testSteps, function (testStep) {
                         obj["children"].push(testStep);
                         $scope.createTreeStruct(testStep);
                     });
                 }
+                obj["children"] = $filter('orderBy')(obj["children"], 'position');
                 delete obj.testSteps;
             }
 
@@ -172,6 +171,7 @@ angular.module('cb')
 
         $scope.selectTestCase = function (node) {
             $scope.selectedTestCase = node;
+            $scope.testArtifact = $scope.selectedTestCase.testStory;
             $rootScope.$broadcast('cb:testCaseSelected');
         };
 
@@ -179,30 +179,14 @@ angular.module('cb')
             CB.testCase = $scope.selectedTestCase;
             $scope.testCase = CB.testCase;
             $rootScope.$broadcast('cb:testCaseLoaded', $scope.testCase);
-//            if($scope.testCase.type === 'TestStep' && $scope.testCase.category === 'DataInstance') {
-//                $rootScope.$broadcast('cb:dataInstanceTestCaseLoaded', $scope.testCase );
-//            }else if($scope.testCase.type === 'TestCase' && $scope.testCase.category === 'Isolated'){
-//                $rootScope.$broadcast('cb:isolatedTestCaseLoaded', $scope.testCase );
-//            }
         };
 
-        $scope.downloadTestStory = function(){
+        $scope.downloadTestArtifact = function(artifactId, format){
             if ($scope.selectedTestCase != null) {
                  var form = document.createElement("form");
-                form.action = "api/teststory/download";
+                form.action = "api/testartifact/" + artifactId + "download/" + format;
                 form.method = "POST";
                 form.target = "_target";
-
-                var path = document.createElement("input");
-                path.name = "path";
-                path.value = $scope.selectedTestCase.testStory.pdfPath;
-                form.appendChild(path);
-
-                var title = document.createElement("input");
-                title.name = "title";
-                title.value = $scope.selectedTestCase.name;
-                form.appendChild(title);
-
                 form.style.display = 'none';
                 document.body.appendChild(form);
                 form.submit();
@@ -292,8 +276,8 @@ angular.module('cb')
             var testCase = $scope.cb.testCase;
             var testContext = testCase.testContext;
             var message = $scope.cb.testCase.testContext.message;
-            var content = message ? message.content: null;
-            if (testContext.message != null && content!= null && content!= "") {
+            var content = message &&  message != null ? message.content: null;
+            if (content!= null && content!= "") {
                 $scope.nodelay = true;
                 $scope.selectedMessage = $scope.cb.testCase.testContext.message;
                 if ($scope.selectedMessage != null) {
@@ -320,7 +304,7 @@ angular.module('cb')
                 readOnly: false,
                 showCursorWhenSelecting: true
             });
-            $scope.editor.setSize(null, 300);
+            $scope.editor.setSize(null, 350);
 
             $scope.editor.on("keyup", function () {
                 $timeout(function () {
@@ -474,9 +458,9 @@ angular.module('cb')
                 event.preventDefault();
             });
 
-            $rootScope.$on('cb:testCaseLoaded', function (event) {
+            $rootScope.$on('cb:testCaseLoaded', function (event, testCase) {
                 $scope.refreshEditor();
-                $scope.testCase = $scope.cb.testCase;
+                $scope.testCase = testCase;
                 if ($scope.testCase != null) {
                     $scope.clearMessage();
                 }
