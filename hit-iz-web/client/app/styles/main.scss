@@ -1000,6 +1000,10 @@ table.forumline > tr > td  {
    background: #f5f5f5;
 }
 
+.no_border  {
+  border: none;
+}
+
 .no_border tbody tr td, .no_border tbody tr th, .no_border thead tr th {
   border: none;
 }
@@ -1029,6 +1033,14 @@ table.forumline > tr > td  {
 
   border-color: #ebccd1;
 //  color: #b94a48;
+}
+
+.red{
+  color: #f2aaaa;
+}
+
+.green{
+  color: #c1f0a2;
 }
 
 
@@ -1232,3 +1244,122 @@ table.cf-profiles{
 .container-message-editor {
   height: 400px;
  }
+
+
+
+
+//.message-content-table thead {
+//  color: black;
+//}
+//
+//.message-content-table tbody {
+//  color: black;
+//}
+//
+//.message-content-table tfoot {
+//  color: black;
+//}
+//
+//.message-content-table {
+//  width:98%;border: 1px groove;table-layout: fixed; margin:0 auto;border-collapse: collapse;
+//}
+//
+//.message-content-table > th tr td {
+//  border: 2px groove;
+//}
+//
+//
+//.message-content-table > th >td {
+//  border: 2px groove;
+//}
+//
+//
+//.message-content-table > tr {
+//  border: 3px groove;
+//}
+//
+//.message-content-table > th {
+//  border: 3px groove;
+//}
+//
+//
+//.message-content-table > tr > td {
+//  border: 2px groove;
+//}
+//
+//
+//.message-content-table {
+//  border: 3px groove;
+//}
+
+
+//@media screen {
+//  .message-content-main  maskByMediaType {display:table;}
+//  .message-content-main  fieldset table tbody tr th {font-size:95%}
+//  .message-content-main  fieldset table tbody tr td {font-size:95%;}
+//  .message-content-main  fieldset table tbody tr th {text-align:left;background:#C6DEFF}
+//  .message-content-main  fieldset table thead tr th {text-align:center;}
+//  .message-content-main  fieldset table thead tr th:first-child {width:15%;}
+//  .message-content-main  fieldset table thead tr th:nth-child(2) {width:30%;}
+//  .message-content-main  fieldset table thead tr th:nth-child(3) {width:30%;}
+//  .message-content-main  fieldset table thead tr th:last-child {width:20%;}
+//  .message-content-main  fieldset {text-align:left;}
+//  .message-content-main  fieldset table { width:98%;border: 1px groove;table-layout: fixed; margin:0 auto;border-collapse: collapse;}
+//  .message-content-main  fieldset table  tr { border: 3px groove; }
+//  .message-content-main  fieldset table  th { border: 2px groove;}
+//  .message-content-main  fieldset table  td { border: 2px groove; }
+//  .message-content-main  fieldset table thead {border: 1px groove;background:#446BEC;text-align:left;}
+//  .message-content-main  fieldset table tbody tr td {text-align:left}
+//  .embSpace {padding-left:15px;}
+//  .embSubSpace {padding-left:25px;}
+//  .childField {background:#B8B8B8;}
+//}
+//
+//@media print {
+//  .message-content-main maskByMediaType {display:table;}
+//  .message-content-main  fieldset table tbody tr th {font-size:70%}
+//  .message-content-main  fieldset table tbody tr td {font-size:70%;}
+//  .message-content-main  fieldset table tbody tr th {text-align:left;background:#C6DEFF}
+//  .message-content-main  fieldset table thead tr th {text-align:center;font-size:70%;}
+//  .message-content-main  fieldset legend {text-align:left;font-size:70%;}
+//  .message-content-main  fieldset table thead tr th:first-child {width:15%;}
+//  .message-content-main  fieldset table thead tr th:nth-child(2) {width:35%;}
+//  .message-content-main  fieldset table thead tr th:nth-child(3) {width:35%;}
+//  .message-content-main  fieldset table thead tr th:last-child {width:10%;}
+//  .message-content-main  fieldset {text-align:left;page-break-inside: avoid;}
+//  .message-content-main  fieldset table { width:98%;border: 1px groove;table-layout: fixed; margin:0 auto;border-collapse: collapse;page-break-inside:
+//    avoid;}
+//  .message-content-main  fieldset table  tr { border: 3px groove; }
+//  .message-content-main  fieldset table  th { border: 2px groove;}
+//  .message-content-main  fieldset table  td { border: 2px groove; }
+//  .message-content-main  fieldset table thead {border: 1px groove;background:#446BEC;text-align:left;}
+//  .message-content-main  fieldset table tbody tr td {text-align:left}
+//  .embSpace {padding-left:10px;}
+//  .embSubSpace {padding-left:20px;}
+//  .childField {background:#B8B8B8;}
+//}
+//
+//
+//
+//.mc-no-value {
+//  background:#B8B8B8;
+//}
+//.embSpace {padding-left:10px;}
+//.embSubSpace {padding-left:20px;}
+//.mc-field{text-align:left;background:#C6DEFF}
+//.mc-bold{
+//  font-weight: bold;
+//}
+//.mc-clear{
+//  background:white;
+// }
+
+//.mc-table{
+//  border: 1px groove;table-layout: fixed; margin:0 auto;border-collapse: collapse;page-break-inside:avoid;
+//}
+//.mc-thead{
+//  border: 1px groove;background:#446BEC;text-align:left;
+//}
+//.mc-tr { border: 3px groove; }
+//.mc-th { border: 2px groove;}
+//.mc-td { border: 2px groove; }

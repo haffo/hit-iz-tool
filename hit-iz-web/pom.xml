@@ -10,7 +10,7 @@
 		<artifactId>hit-iz-tool</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
- 
+
 	<build>
 		<finalName>iztool</finalName>
 		<pluginManagement>
@@ -52,7 +52,7 @@
 	</build>
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>gov.nist.hit.iz</groupId>
 			<artifactId>hit-iz-service</artifactId>
@@ -210,13 +210,8 @@
 			<version>3.4.4</version>
 		</dependency>
 
-<!-- 		<dependency>
-			<groupId>org.openimmunizationsoftware.dqa</groupId>
-			<artifactId>ois-dqa-core</artifactId>
-			<version>1.8.3-SNAPSHOT</version>
-			<name>DQA-CORE</name>
-		</dependency>
- -->
+		<!-- <dependency> <groupId>org.openimmunizationsoftware.dqa</groupId> <artifactId>ois-dqa-core</artifactId> 
+			<version>1.8.3-SNAPSHOT</version> <name>DQA-CORE</name> </dependency> -->
 
 	</dependencies>
 

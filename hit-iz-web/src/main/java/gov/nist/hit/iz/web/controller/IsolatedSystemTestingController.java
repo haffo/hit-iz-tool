@@ -13,8 +13,6 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.domain.ConnectionType;
-import gov.nist.hit.core.domain.Message;
 import gov.nist.hit.core.domain.Stage;
 import gov.nist.hit.core.domain.TestPlan;
 import gov.nist.hit.core.domain.TestStep;
@@ -88,12 +86,9 @@ public class IsolatedSystemTestingController extends TestingController {
       if (testStep == null)
         throw new TestCaseException("Unknown test step with id=" + testCaseId);
       String request = command.getContent();
-      Message req = testStep.getTestContext().getMessage();
-      if (testStep.getConnectionType().equals(ConnectionType.SUT_RESPONDER)) {
-        request =
-            ConnectivityUtil.updateSubmitSingleMessageRequest(SUMBIT_SINGLE_MESSAGE_TEMPLATE,
-                req.getContent(), command.getU(), command.getP(), command.getFacilityId());
-      }
+      request =
+          ConnectivityUtil.updateSubmitSingleMessageRequest(SUMBIT_SINGLE_MESSAGE_TEMPLATE,
+              request, command.getU(), command.getP(), command.getFacilityId());
       String response = transportClient.send(request, command.getEndpoint());
       String tmp = response;
       try {

@@ -78,13 +78,12 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBTestCaseCtrl', ['$scope', '$window', '$filter', '$rootScope', 'CB', 'ngTreetableParams', '$timeout', 'CBTestCaseListLoader', function ($scope, $window, $filter,$rootScope, CB, ngTreetableParams,$timeout,CBTestCaseListLoader) {
+    .controller('CBTestCaseCtrl', ['$scope', '$window', '$filter', '$rootScope', 'CB', 'ngTreetableParams', '$timeout', 'CBTestCaseListLoader', '$sce',function ($scope, $window, $filter,$rootScope, CB, ngTreetableParams,$timeout,CBTestCaseListLoader,$sce) {
         $scope.selectedTestCase = CB.selectedTestCase;
         $scope.testCase = CB.testCase;
         $scope.testCases = [];
         $scope.loading = true;
         $scope.error = null;
-        $scope.testArtifact = null;
         $scope.createTreeStruct = function (obj) {
             if (obj.testCases) {
                 if (!obj["children"]) {
@@ -171,26 +170,13 @@ angular.module('cb')
 
         $scope.selectTestCase = function (node) {
             $scope.selectedTestCase = node;
-            $scope.testArtifact = $scope.selectedTestCase.testStory;
-            $rootScope.$broadcast('cb:testCaseSelected');
+            $rootScope.$broadcast('cb:testCaseSelected',$scope.selectedTestCase);
         };
 
         $scope.loadTestCase = function () {
             CB.testCase = $scope.selectedTestCase;
             $scope.testCase = CB.testCase;
             $rootScope.$broadcast('cb:testCaseLoaded', $scope.testCase);
-        };
-
-        $scope.downloadTestArtifact = function(artifactId, format){
-            if ($scope.selectedTestCase != null) {
-                 var form = document.createElement("form");
-                form.action = "api/testartifact/" + artifactId + "download/" + format;
-                form.method = "POST";
-                form.target = "_target";
-                form.style.display = 'none';
-                document.body.appendChild(form);
-                form.submit();
-            }
         };
 
     }]);

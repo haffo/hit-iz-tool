@@ -701,9 +701,12 @@ angular.module('commonServices').factory('Transaction', function ($q, $http) {
             }
         );
 
-//        $http.get('../../resources/connectivity/transactionOpen.json').then(
+//        $http.get('../../resources/connectivity/transaction.json').then(
 //            function (response) {
-//                delay.resolve(true);
+//                var transaction = angular.fromJson(response.data);
+//                self.incoming = transaction.incoming;
+//                self.outgoing = transaction.outgoing;
+//                delay.resolve(transaction);
 //            },
 //            function (response) {
 //                delay.reject(null);

@@ -78,8 +78,8 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal',
-        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal) {
+    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal','Endpoint',
+        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal,Endpoint) {
 
             $scope.logger = Connectivity.logger;
             $scope.loading = false;
@@ -88,7 +88,7 @@ angular.module('connectivity')
             $scope.loading = false;
             $scope.connecting = false;
             $scope.error = null;
-            $scope.endpoint = Connectivity.serverEndpoint;
+            $scope.endpoint = null;
 //        $scope.alert = {message: '', type: ''};
 //        $scope.listenForIncoming = null;
 //        $scope.counterMax = 30;
@@ -111,6 +111,14 @@ angular.module('connectivity')
                         $scope.initIncomingEnvironment();
                     }
                 });
+
+                if($rootScope.appInfo == null){
+                    $rootScope.initAppInfo().then(function(response){
+                         $scope.endpoint =  new Endpoint($rootScope.appInfo.url + '/ws/iisService');
+                    });
+                }else{
+                    $scope.endpoint = new Endpoint($rootScope.appInfo.url + '/ws/iisService');
+                }
 
                 Connectivity.user.init().then(function (response) {
                 }, function (error) {
@@ -145,7 +153,7 @@ angular.module('connectivity')
             $scope.openReceiverConfig = function () {
                 $scope.logger.init();
                 var modalInstance = $modal.open({
-                    templateUrl: 'TransactionReceiverCtrl.html',
+                    templateUrl: 'TransactionReceiver.html',
                     controller: 'ConnectivityReceiverCtrl',
                     windowClass: 'app-modal-window',
                     resolve: {
@@ -894,7 +902,7 @@ angular.module('connectivity')
         $scope.counterMax = 30;
         $scope.counter = 0;
         $scope.listenerReady = false;
-
+        $scope.warning = null;
         $scope.log = function (log) {
             $scope.logger.log(log);
         };
@@ -956,8 +964,10 @@ angular.module('connectivity')
                                 }
                             } else {
                                 if (incoming == null || incoming == '') {
-                                    $scope.log("We did not receive any incoming message after 30s or you are using wrong " +
-                                        "credentials.");
+                                    $scope.warning ="We did not receive any incoming message after 30s.\n Possible cause (1): You are using wrong credentials. Please check the credentials in the message against those created for your system.\n  Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.\n"+
+                                        "Possible cause (3):The HTTP header field Content-Type  may not be set correctly for use with SOAP 1.2.   SOAP 1.2 requires application/soap+xml, and SOAP 1.2 requires text/xml.  The NIST Tool follows SOAP 1.2, which is required by section 2 of the 'CDC Transport Layer Protocol Recommendation V1.1' (http://www.cdc.gov/vaccines/programs/iis/technical-guidance/SOAP/downloads/transport-specification.pdf)";
+                                    $scope.log("We did not receive any incoming message after 30s");
+
                                 } else if (outgoing == null || outgoing == '') {
                                     $scope.log("We were unable to send the response after 30s");
                                 }

@@ -156,9 +156,11 @@
                     </Condition>
                 </Predicate>
                 <Predicate ID="[XON_IZ]10[1]" Target="10[1]" TrueUsage="R" FalseUsage="RE">
-                    <Description>If XON.1 (Organization Name) is valued.</Description>
+                    <Description>If XON.1 (Organization Name) is not valued.</Description>
                     <Condition>
-                        <Presence Path="1[1]"/>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
                     </Condition>
                 </Predicate>
             </ByID>
@@ -336,7 +338,24 @@
                     </Assertion>
                 </Constraint>
             </ByID>
+            <ByID ID="NK1_IZ 1_5">
+                <Constraint ID="IZ-70" Target="1[1]">
+                    <Description>The Value of NK1-1 (Set ID-NK1) SHALL be valued sequentially starting with the value "1".</Description>
+                    <Assertion>
+                        <SetID Path="1[1]"/>
+                    </Assertion>
+                </Constraint>
+            </ByID>
         </Segment>
-        <Group/>
+        <Group>
+            <ByID ID="RSP_K11.PATIENT">
+                <Constraint ID="IZ-72" Target="1[1].1[1]">
+                    <Description>PID-1 (Set ID-PID) SHALL be valued sequentially starting with the value "1".</Description>
+                    <Assertion>
+                        <SetID Path="1[1].1[1]"/>
+                    </Assertion>
+                </Constraint>
+            </ByID>
+        </Group>
     </Constraints>
 </ConformanceContext>

@@ -17,8 +17,8 @@ import gov.nist.hit.iz.service.IISReceiver;
 import gov.nist.hit.iz.service.Receiver;
 import gov.nist.hit.iz.service.SoapValidationReportGenerator;
 import gov.nist.hit.iz.service.XmlMessageParser;
-import gov.nist.hit.iz.service.XmlMessageParserImpl;
-import gov.nist.hit.iz.service.soap.SoapMessageParserImpl;
+import gov.nist.hit.iz.service.XmlMessageParser;
+import gov.nist.hit.iz.service.soap.SoapMessageParser;
 import gov.nist.hit.iz.service.soap.SoapMessageValidator;
 import gov.nist.hit.iz.service.soap.SoapMessageValidatorImpl;
 import gov.nist.hit.iz.service.soap.SoapValidationReportGeneratorImpl;
@@ -39,7 +39,7 @@ public class WebBeanConfig {
 
   @Bean(name = "soapMessageValidator")
   public SoapMessageValidator soapValidator() {
-    return new SoapMessageValidatorImpl("/bundle/schema/soap_rules.sch");
+    return new SoapMessageValidatorImpl("/schema/soap_rules.sch");
   }
 
   // @Bean
@@ -57,12 +57,12 @@ public class WebBeanConfig {
 
   @Bean(name = "soapMessageParser")
   public MessageParser soapParser(XmlMessageParser xmlParser) {
-    return new SoapMessageParserImpl(xmlParser);
+    return new SoapMessageParser(xmlParser);
   }
 
   @Bean(name = "xmlMessageParser")
   public XmlMessageParser xmlParser() {
-    return new XmlMessageParserImpl();
+    return new XmlMessageParser();
   }
 
 

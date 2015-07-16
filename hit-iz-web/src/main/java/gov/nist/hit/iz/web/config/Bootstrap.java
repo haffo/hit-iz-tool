@@ -56,6 +56,9 @@ public class Bootstrap implements InitializingBean {
   @Override
   @Transactional()
   public void afterPropertiesSet() throws Exception {
+    System.setProperty("javax.xml.parsers.SAXParserFactory",
+        "com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl");
+
     logger.info("Bootstrapping data...");
     resourcebundleLoader.appInfo();
     resourcebundleLoader.constraints();

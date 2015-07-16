@@ -32,8 +32,8 @@ public class SoapConnectivityControllerTest {
   // @Before
   // public void setup() {
   // MockitoAnnotations.initMocks(this);
-  // soapController.setSoapParser(new SoapMessageParserImpl(
-  // new XmlMessageParserImpl()));
+  // soapController.setSoapParser(new SoapMessageParser(
+  // new XmlMessageParser()));
   // soapController.setTransportClient(client);
   // mockMvc = standaloneSetup(soapController).build();
   // }

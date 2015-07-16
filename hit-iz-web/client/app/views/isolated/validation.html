@@ -1,5 +1,5 @@
 <div ng-controller="IsolatedSystemValidatorCtrl" ng-init="init()" style="margin-bottom: 20px;margin-top: 5px;">
-<div ng-show="isolated.testCase != null">
+<div ng-show="testStep != null">
 <!--<div class="page-header">-->
     <!--<h3>{{isolated.testCase.type}}: {{isolated.testCase.name}}</h3>-->
 <!--</div>-->
@@ -71,13 +71,6 @@
                                         ng-click="execute()">
                                     <i class="fa fa-check-circle"></i>
                                     Validate
-                                </button>
-
-                                <button title="Load Example" type="button" class="btn btn-xs btn-primary"
-                                        ng-click="loadMessage()"
-                                        ng-disabled="!testCase.testContext.message || testCase.testContext.message === null || testCase.testContext.message.content === ''"
-                                        >
-                                    <i class="fa fa-arrow-circle-down"></i>Load Example
                                 </button>
 
                                 <span title="Browse" class="btn btn-xs btn-primary fileinput-button"
@@ -157,8 +150,8 @@
 
 </div>
 
-<div ng-show="isolated.testCase === null">
-    No TestCase Loaded
+<div ng-show="testStep === null">
+    No TestStep Loaded
 </div>
 </div>
 

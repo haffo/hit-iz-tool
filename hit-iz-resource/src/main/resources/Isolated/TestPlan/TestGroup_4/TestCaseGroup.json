@@ -1,4 +1,5 @@
 {
   "name" : "Transmit Immunization Report ",
+  "position" : 4,
   "description" : " This test will consist of generating a Vaccine Update (VXU-Z22) report to the registry for three of the test patients, including updates for vaccines not given. NOTE: There is no Immunization Report in this test plan for Juana Maria Gonzales."
 }

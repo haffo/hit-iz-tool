@@ -89,9 +89,11 @@
                     </Condition>
                 </Predicate>
                 <Predicate ID="[XON_IZ]10[1]" Target="10[1]" TrueUsage="R" FalseUsage="RE">
-                    <Description>If XON.1 (Organization Name) is valued.</Description>
+                    <Description>If XON.1 (Organization Name) is not valued.</Description>
                     <Condition>
-                        <Presence Path="1[1]"/>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
                     </Condition>
                 </Predicate>
             </ByID>
@@ -125,11 +127,11 @@
     </Predicates>
     <Constraints>
         <Datatype>
-            <ByID ID="CE_For_CQ_IZ">
-                <Constraint ID="IZ-2" Target="1[1]">
-                    <Description>The value of CE.1 (Identifier) SHALL be 'RD'.</Description>
+            <ByID ID="CQ_IZ">
+                <Constraint ID="IZ-2" Target="2[1].1[1]">
+                    <Description>The value of CQ.2.1 (Identifier) SHALL be 'RD'.</Description>
                     <Assertion>
-                        <PlainText Path="1[1]" Text="RD" IgnoreCase="false"/>
+                        <PlainText Path="2[1].1[1]" Text="RD" IgnoreCase="false"/>
                     </Assertion>
                 </Constraint>
             </ByID>

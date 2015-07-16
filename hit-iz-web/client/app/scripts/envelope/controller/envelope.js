@@ -54,6 +54,7 @@ angular.module('envelope')
             $scope.loading = false;
             $rootScope.$on('env:testCaseLoaded', function (event, testCase) {
                 $scope.setActiveTab(0);
+                $scope.testCase = Envelope.testCase;
             });
         };
     }]);
@@ -109,7 +110,7 @@ angular.module('envelope')
         $scope.loadTestCase = function () {
             Envelope.testCase = $scope.selectedTestCase;
             $scope.testCase = Envelope.testCase;
-            $rootScope.$broadcast('env:testCaseLoaded');
+            $rootScope.$broadcast('env:testCaseLoaded',$scope.testCase);
         };
     }]);
 
@@ -148,7 +149,7 @@ angular.module('envelope')
         };
 
         $scope.loadExampleMessage = function () {
-            var content = Envelope.testCase.testContext.exampleMessage.messageContent;
+            var content = Envelope.testCase.testContext.exampleMessage.content;
             var formatter = new XmlFormatter(content);
             formatter.then(function (formatted) {
                 Envelope.setContent(formatted);

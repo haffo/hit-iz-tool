@@ -53,9 +53,9 @@ angular.module('cf')
             var tcLoader = new CFTestCaseListLoader();
             tcLoader.then(function (testCases) {
                 $scope.testCases = $filter('orderBy')(testCases, 'position');
-                if ($scope.testCases.length > 0 && $scope.testCases[0].testContext && $scope.testCases[0].testContext != null) {
-                    $scope.loadTestCase($scope.testCases[0]);
-                }
+//                if ($scope.testCases.length > 0 && $scope.testCases[0].testContext && $scope.testCases[0].testContext != null) {
+//                    $scope.loadTestCase($scope.testCases[0]);
+//                }
                 $scope.loading = false;
                 $scope.error = null;
                 $scope.params.refresh();

@@ -2,7 +2,7 @@ MSH|^~\&|MYIIS|MyStateIIS|MYEHR|Myclinic|20091130020020-0500||RSP^K11^RSP_K11|77
 MSA|AA|793543
 QAK|37374859|OK|Z34^Request Immunization History^CDCPHINVS
 QPD|Z34^Request Immunization History^CDCPHINVS |37374859||Child^Bobbie^Q^^^^L|Que^Suzy^^^^^M|20050512|M|10 East Main St^^Myfaircity^GA^^^L
-PID|1||123456^^^MYEHR^MR~987633^^^MYIIS^SR||Child^Robert^Quenton^^^^L|Que^Suzy^^^^^M|20070706||||32 Prescott Street Ave^^Warwick^MA^02452^USA^L
+PID|1||123456^^^MYEHR^MR~987633^^^MYIIS^SR||Child^Robert^Quenton^^^^L|Que^Suzy^^^^^M|20070706|M|||32 Prescott Street Ave^^Warwick^MA^02452^USA^L
 PD1||||||||||||N|20091130
 NK1|1|Child^Suzy^^^^^L|MTH^Mother^HL70063
 ORC|RE||142324567^YOUR_EHR|||||||^Shotgiver^Fred||^Orderwriter^Sally^^^^^^^^^^^^^^^^^^MD

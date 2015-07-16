@@ -93,7 +93,7 @@
       <Field Datatype="XPN_IZ" Max="1" MaxLength="*" Min="0" MinLength="1" Name="PatientName" Usage="RE"/>  
       <Field Datatype="XPN_M" Max="1" MaxLength="*" Min="0" MinLength="1" Name="PatientMotherMaidenName" Usage="RE"/>  
       <Field Datatype="TS_NZ" Max="1" MaxLength="6" Min="0" MinLength="1" Name="PatientDateOfBirth" Usage="RE"/>  
-      <Field Datatype="IS" Max="1" MaxLength="1" Min="0" MinLength="1" Name="Patient Sex" Usage="RE"/>  
+      <Field Binding="HL70001_IZ" BindingStrength="R" Datatype="IS" Max="1" MaxLength="1" Min="0" MinLength="1" Name="Patient Sex" Usage="RE"/>  
       <Field Datatype="XAD_IZ" Max="1" MaxLength="*" Min="0" MinLength="1" Name="Patient Address" Usage="RE"/>  
       <Field Datatype="XTN_IZ" Max="1" MaxLength="*" Min="0" MinLength="1" Name="Phone" Usage="RE"/>  
       <Field Datatype="ID" Max="1" MaxLength="*" Min="0" MinLength="1" Name="Multiple birth indicator" Usage="RE"/>  
@@ -175,7 +175,7 @@
       <Component Datatype="ST" MaxLength="20" MinLength="1" Name="Suffix (e.g., JR or III)" Usage="O"/>  
       <Component Datatype="ST" MaxLength="20" MinLength="1" Name="Prefix (e.g., DR)" Usage="O"/>  
       <Component Binding="0360" BindingStrength="R" Datatype="IS" MaxLength="6" MinLength="1" Name="Degree (e.g., MD)" Usage="X"/>  
-      <Component Binding="HL70200_IZ" BindingStrength="R" Datatype="ID" MaxLength="1" MinLength="1" Name="Name Type Code" Usage="RE"/>  
+      <Component Binding="HL70200_IZ" BindingStrength="R" Datatype="ID" MaxLength="1" MinLength="1" Name="Name Type Code" Usage="R"/>  
       <Component Binding="0465" BindingStrength="R" Datatype="ID" MaxLength="1" MinLength="1" Name="Name Representation Code" Usage="O"/>  
       <Component Binding="0448" BindingLocation="1" BindingStrength="R" Datatype="CE" MaxLength="483" MinLength="1" Name="Name Context" Usage="O"/>  
       <Component Datatype="DR_IZ_ST" MaxLength="53" MinLength="1" Name="Name Validity Range" Usage="X"/>  
@@ -219,7 +219,7 @@
     </Datatype>  
     <Datatype Description="Extended Person Name" ID="XPN_M" Name="XPN"> 
       <Component Datatype="FN" MaxLength="194" MinLength="1" Name="Family Name" Usage="R"/>  
-      <Component Datatype="ST" MaxLength="30" MinLength="1" Name="Given Name" Usage="RE"/>  
+      <Component Datatype="ST" MaxLength="30" MinLength="1" Name="Given Name" Usage="O"/>  
       <Component Datatype="ST" MaxLength="30" MinLength="1" Name="Second and Further Given Names or Initials Thereof" Usage="O"/>  
       <Component Datatype="ST" MaxLength="20" MinLength="1" Name="Suffix (e.g., JR or III)" Usage="O"/>  
       <Component Datatype="ST" MaxLength="20" MinLength="1" Name="Prefix (e.g., DR)" Usage="O"/>  
@@ -256,7 +256,7 @@
       <Component Binding="HL70202_IZ" BindingStrength="R" Datatype="ID" MaxLength="8" MinLength="1" Name="Telecommunication Equipment Type" Usage="RE"/>  
       <Component Datatype="ST" MaxLength="199" MinLength="1" Name="Email Address" Usage="C"/>  
       <Component Datatype="NM" MaxLength="3" MinLength="1" Name="Country Code" Usage="O"/>  
-      <Component Datatype="NM" MaxLength="5" MinLength="1" Name="Area/City Code" Usage="C"/>  
+      <Component Datatype="NM" MaxLength="3" MinLength="1" Name="Area/City Code" Usage="C"/>  
       <Component Datatype="NM" MaxLength="9" MinLength="1" Name="Local Number" Usage="C"/>  
       <Component Datatype="NM" MaxLength="5" MinLength="1" Name="Extension" Usage="O"/>  
       <Component Datatype="ST" MaxLength="199" MinLength="1" Name="Any Text" Usage="O"/>  

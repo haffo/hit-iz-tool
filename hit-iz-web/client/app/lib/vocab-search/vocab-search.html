@@ -1,3 +1,11 @@
+<div ng-show="loading" style="text-align:center">
+    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+</div>
+<div ng-show="!loading">
+<div ng-show="error !== null">
+    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+</div>
+<div ng-show="error === null">
 <div ng-show="valueSetDefinitionGroups != null && valueSetDefinitionGroups.length > 0">
 <div class="row" style="margin-top:20px">
 <div class="col-md-4">
@@ -348,7 +356,7 @@
 </div>
 
 <div ng-show="valueSetDefinitionGroups == null || valueSetDefinitionGroups.length === 0">
-    ValueSet Library is Empty.
+        ValueSet Library is Empty.
 </div>
 
 <script type="text/ng-template" id="TableFoundCtrl.html">
@@ -457,3 +465,5 @@
         </button>
     </div>
 </script>
+</div>
+</div>

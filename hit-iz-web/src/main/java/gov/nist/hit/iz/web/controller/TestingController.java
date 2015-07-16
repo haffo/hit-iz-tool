@@ -102,14 +102,7 @@ public abstract class TestingController {
   public String messageValidationException(MessageValidationException ex) {
     logger.debug(ex.getMessage());
     ex.printStackTrace();
-    return "Sorry, validation failed \n";
-  }
-
-  @ExceptionHandler(MessageValidationException.class)
-  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-  public String validationFailed(MessageValidationException ex) {
-    logger.debug(ex.getMessage());
-    return "Sorry, Message Validation Failed\n";
+    return "Sorry, Message validation failed \n";
   }
 
   @ExceptionHandler(MessageParserException.class)

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConformanceContext UUID="T22-Constraints" xsi:noNamespaceSchemaLocation="../ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<MetaData>
+		<Description>Conformance context for T22</Description>
+	</MetaData>
+	<Predicates>
+		<Datatype/>
+		<Segment/>
+		<Group/>
+	</Predicates>
+	<Constraints>
+		<Datatype/>
+		<Segment>
+			<ByID ID="OBX_IZ 1_5">
+				<Constraint ID="IZ-Testing-1">
+					<Description>If OBX-3.1 = 30956-7 then OBX-2 SHALL be CE and OBX-5 SHALL use the value set CVX_US_IZ.2</Description>
+					<Assertion>
+						<OR>
+							<NOT><PlainText Path="3[1].1[1]" Text="30956-7" IgnoreCase="false"/></NOT>
+							<AND>
+								<PlainText Path="2[1]" Text="CE" IgnoreCase="false"/>
+								<ValueSet Path="5[1]" ValueSetID="CVX_US_IZ.2" BindingStrength="R" BindingLocation="1:4"/>
+							</AND>
+						</OR>
+					</Assertion>
+				</Constraint>
+			</ByID>
+		</Segment>
+		<Group/>
+	</Constraints>
+</ConformanceContext>

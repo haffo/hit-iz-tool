@@ -44,7 +44,7 @@
                                       <!--<i class="fa fa-play"></i>Start-->
                                   <!--</button>-->
                             <!--</span>-->
-                            <span class="pull-right" ng-show="selectedTestCase.type === 'TestStep' && selectedTestCase.category === 'DataInstance'">
+                            <span class="pull-right" ng-show="selectedTestCase.type === 'TestStep'">
                                 <!--<button title="Download Test Package" type="button" class="btn btn-xs btn-primary"-->
                                          <!--ng-show="selectedTestCase.testPackage != null"-->
                                          <!--ng-click="selectedTestCase.downloadTestPackage()">-->
@@ -68,90 +68,7 @@
 
                                     <div class="container">
                                         <div class="row">
-                                            <!--<ul class="nav nav-tabs">-->
-                                                <!--<li  ng-show="selectedTestCase.testStory != null && selectedTestCase.testStory.html != null"-->
-                                                     <!--ng-class="{'active':testArtifact != null && testArtifact === selectedTestCase.testStory}"><a-->
-                                                     <!--ng-click="testArtifact = selectedTestCase.testStory">Test Story</a></li>-->
-
-                                                <!--<li  ng-show="selectedTestCase.messageContent != null && selectedTestCase.messageContent.html != null"-->
-                                                     <!--ng-class="{'active':testArtifact != null && testArtifact === selectedTestCase.messageContent}"><a-->
-                                                        <!--ng-click="testArtifact = selectedTestCase.messageContent">Message Content</a></li>-->
-
-                                                <!--<li  ng-show="selectedTestCase.jurorDocument != null && selectedTestCase.jurorDocument.html != null"-->
-                                                     <!--ng-class="{'active':testArtifact != null && testArtifact === selectedTestCase.jurorDocument}"><a-->
-                                                        <!--ng-click="testArtifact = selectedTestCase.jurorDocument">Juror Document</a></li>-->
-
-                                                <!--<li  ng-show="selectedTestCase.testDataSpecification != null && selectedTestCase.testDataSpecification.html != null"-->
-                                                     <!--ng-class="{'active':testArtifact != null && testArtifact === selectedTestCase.testDataSpecification}"><a-->
-                                                        <!--ng-click="testArtifact = selectedTestCase.testDataSpecification">Test Data Specification</a></li>-->
-                                            <!--</ul>-->
-                                            <!--<div>-->
-                                                <!--<br />-->
-                                                <!--<div class="pull-right">-->
-                                                    <!--<button title="Download Test Story" type="button" class="btn btn-sm btn-primary"-->
-                                                            <!--ng-click="downloadTestArtifact(testArtifact.id, 'pdf')">-->
-                                                        <!--<i class="fa fa-download"></i>Download as PDF-->
-                                                    <!--</button>-->
-                                                <!--</div>-->
-                                                <!--<br />-->
-
-                                                <!--<div ng-show="testArtifact != null" ng-bind-html-unsafe="testArtifact.html" />-->
-                                            <!--</div>-->
-
-
-                                            <!--<tabset>-->
-                                                <!--<tab heading="Test Story" ng-show="selectedTestCase.testStory && selectedTestCase.testStory.html != null">-->
-                                                    <!--<br />-->
-                                                    <!--<div class="pull-right">-->
-                                                        <!--<button title="Download Test Story" type="button" class="btn btn-sm btn-primary"-->
-                                                                <!--ng-click="downloadTestArtifact(selectedTestCase.testStory.id, 'pdf')">-->
-                                                            <!--<i class="fa fa-download"></i>Download as PDF-->
-                                                        <!--</button>-->
-                                                    <!--</div>-->
-                                                    <!--<br />-->
-                                                    <!--<div ng-bind-html-unsafe="selectedTestCase.testStory.html" />-->
-
-                                                <!--</tab>-->
-
-                                                <!--<tab heading="Message Content" ng-show="selectedTestCase.messageContent && selectedTestCase.messageContent.html != null">-->
-                                                    <!--<br />-->
-                                                    <!--<div class="pull-right">-->
-                                                        <!--<button title="Download Test Story" type="button" class="btn btn-sm btn-primary"-->
-                                                                <!--ng-click="downloadTestArtifact(selectedTestCase.messageContent.id, 'pdf')">-->
-                                                            <!--<i class="fa fa-download"></i>Download as PDF-->
-                                                        <!--</button>-->
-                                                    <!--</div>-->
-                                                    <!--<br />-->
-
-                                                    <!--<div ng-bind="selectedTestCase.messageContent.html" />-->
-                                                <!--</tab>-->
-
-                                                <!--<tab heading="Juror Document" show="selectedTestCase.jurorDocument && selectedTestCase.jurorDocument.html != null">-->
-                                                    <!--<br />-->
-                                                    <!--<div class="pull-right">-->
-                                                        <!--<button title="Download Test Story" type="button" class="btn btn-sm btn-primary"-->
-                                                                <!--ng-click="downloadTestArtifact(selectedTestCase.jurorDocument.id, 'pdf')">-->
-                                                            <!--<i class="fa fa-download"></i>Download as PDF-->
-                                                        <!--</button>-->
-                                                    <!--</div>-->
-                                                    <!--<br />-->
-                                                    <!--<div  ng-bind-html-unsafe="selectedTestCase.jurorDocument.html" />-->
-                                                <!--</tab>-->
-
-                                                <!--<tab heading="Test Data Specification" ng-show="selectedTestCase.testDataSpecification && selectedTestCase.testDataSpecification.html != null">-->
-                                                    <!--<br />-->
-                                                    <!--<div class="pull-right">-->
-                                                        <!--<button title="Download Test Story" type="button" class="btn btn-sm btn-primary"-->
-                                                                <!--ng-click="downloadTestArtifact(selectedTestCase.testDataSpecification.id, 'pdf')">-->
-                                                            <!--<i class="fa fa-download"></i>Download as PDF-->
-                                                        <!--</button>-->
-                                                    <!--</div>-->
-                                                    <!--<br />-->
-
-                                                    <!--<div ng-bind-html-unsafe="selectedTestCase.testDataSpecification.html" />-->
-                                                <!--</tab>-->
-
-                                            <!--</tabset>-->
+                                                <div testcase-viewer="" type="cb">
                                         </div>
                                     </div>
                                 </div>

@@ -28,6 +28,8 @@ angular.module('isolated')
                     $scope.setTestActiveTab(1);
                 }
             });
+
+
         };
 
         $scope.disabled = function () {
@@ -38,7 +40,7 @@ angular.module('isolated')
 
 
 angular.module('isolated')
-    .controller('IsolatedSystemTestCaseCtrl', ['$scope', '$window', '$rootScope', 'IsolatedSystem', 'ngTreetableParams', '$timeout', 'IsolatedSystemTestCaseListLoader', function ($scope, $window, $rootScope, IsolatedSystem, ngTreetableParams, $timeout, IsolatedSystemTestCaseListLoader) {
+    .controller('IsolatedSystemTestCaseCtrl', ['$scope', '$filter', '$window', '$rootScope', 'IsolatedSystem', 'ngTreetableParams', '$timeout', 'IsolatedSystemTestCaseListLoader', function ($scope, $filter, $window, $rootScope, IsolatedSystem, ngTreetableParams, $timeout, IsolatedSystemTestCaseListLoader) {
         $scope.selectedTestCase = IsolatedSystem.selectedTestCase;
         $scope.testCase = IsolatedSystem.testCase;
         $scope.testCases = [];
@@ -55,6 +57,7 @@ angular.module('isolated')
                         $scope.createTreeStruct(testCase);
                     });
                 }
+                obj["children"] = $filter('orderBy')(obj["children"], 'position');
                 delete obj.testCases;
             }
 
@@ -68,7 +71,7 @@ angular.module('isolated')
                         $scope.createTreeStruct(testCaseGroup);
                     });
                 }
-
+                obj["children"] = $filter('orderBy')(obj["children"], 'position');
                 delete obj.testCaseGroups;
             }
 
@@ -82,6 +85,7 @@ angular.module('isolated')
                         $scope.createTreeStruct(testStep);
                     });
                 }
+                obj["children"] = $filter('orderBy')(obj["children"], 'position');
                 delete obj.testSteps;
             }
 
@@ -131,7 +135,7 @@ angular.module('isolated')
 
         $scope.selectTestCase = function (node) {
             $scope.selectedTestCase = node;
-            $rootScope.$broadcast('isolated:testCaseSelected');
+            $rootScope.$broadcast('isolated:testCaseSelected', $scope.selectedTestCase);
         };
 
         $scope.loadTestCase = function () {
@@ -166,7 +170,7 @@ angular.module('isolated')
 
 
 angular.module('isolated')
-    .controller('IsolatedSystemExecutionCtrl', ['$scope', '$window', '$rootScope', 'IsolatedSystem', '$modal', 'IsolatedSystemInitiator', 'IsolatedSystemClock', function ($scope, $window, $rootScope, IsolatedSystem, $modal, IsolatedSystemInitiator, IsolatedSystemClock) {
+    .controller('IsolatedSystemExecutionCtrl', ['$scope', '$window', '$rootScope', 'IsolatedSystem', '$modal', 'IsolatedSystemInitiator', 'IsolatedSystemClock', 'XmlEscaper', 'Endpoint', function ($scope, $window, $rootScope, IsolatedSystem, $modal, IsolatedSystemInitiator, IsolatedSystemClock, XmlEscaper, Endpoint) {
         $scope.loading = true;
         $scope.error = null;
         $scope.tabs = new Array();
@@ -184,7 +188,8 @@ angular.module('isolated')
         $scope.counterMax = 30;
         $scope.counter = 0;
         $scope.listenerReady = false;
-
+        $scope.testStepListCollapsed = false;
+        $scope.warning = null;
 
         $scope.setActiveTab = function (value) {
             $scope.tabs[0] = false;
@@ -210,45 +215,75 @@ angular.module('isolated')
         $scope.selectTestStep = function (testStep) {
             IsolatedSystem.testStep = testStep;
             $scope.testStep = testStep;
-            if(testStep.testContext && testStep.testContext != null) {
+            if (testStep.connectionType === 'TA_INITIATOR') {
+                testStep['executionMessage'] = testStep.testContext.message.content;
+            }
+            if (testStep.connectionType != 'TA_MANUAL' && testStep.connectionType != 'SUT_MANUAL' && testStep.testContext && testStep.testContext != null) {
                 $rootScope.$broadcast('isolated:testStepLoaded', testStep);
                 $rootScope.$broadcast('isolated:profileLoaded', testStep.testContext.profile);
                 $rootScope.$broadcast('isolated:valueSetLibraryLoaded', testStep.testContext.vocabularyLibrary);
             }
         };
 
-        $scope.getTransactionStatus = function (testStep) {
-            return testStep ? testStep.transactionStatus : undefined;
+        $scope.getExecutionStatus = function (testStep) {
+            return testStep ? testStep.executionStatus : undefined;
         };
 
         $scope.getValidationStatus = function (testStep) {
             return  !testStep || !testStep.report || !testStep.report.result ? -1 : testStep.report.result.errors.categories[0].data.length;
         };
 
-
         $scope.executeNextTestStep = function (row) {
-            var nextStep = $scope.findNextStep(row.position);
-            $scope.executeTestStep(nextStep);
+            if ($scope.isManualStep(row)) {
+                row.executionStatus = 'COMPLETE';
+            }
+
+            if (!$scope.isLastStep(row)) {
+                var nextStep = $scope.findNextStep(row.position);
+                $scope.executeTestStep(nextStep);
+            } else {
+                $scope.testCase.executionStatus = 'COMPLETE';
+            }
+        };
+
+        $scope.isManualStep = function (row) {
+            return row.connectionType === 'TA_MANUAL' || row.connectionType === 'SUT_MANUAL';
+        };
+
+
+        $scope.completeManualStep = function (row) {
+            row.executionStatus = 'COMPLETE';
         };
 
 
         $scope.executeTestStep = function (testStep) {
+            $scope.warning = null;
+            $scope.logger.clear();
             if (testStep != null) {
-                //delete testStep['transactionStatus'];
-                delete testStep['validationReport'];
-                if (testStep.connectionType === 'SUT_INITIATOR') {
-                    testStep.testContext.message.content = null;
+                if (testStep.connectionType !== 'TA_MANUAL' && testStep.connectionType !== 'SUT_MANUAL') {
+                    //delete testStep['executionStatus'];
+                    delete testStep['validationReport'];
+                    if (testStep.connectionType == 'SUT_INITIATOR') {
+//                        testStep.testContext.message.content = null;
+                        testStep['executionMessage'] = null;
+                    }
                 }
                 $scope.selectTestStep(testStep);
-                if (testStep.position === $scope.testCase.children.length) {
-                    $scope.testCase.executionStatus = 'COMPLETE';
-                }
             }
         };
 
         $scope.isTestCaseCompleted = function () {
             return $scope.testCase != null && $scope.testCase.executionStatus === 'COMPLETE';
         };
+
+        $scope.isTestStepCompleted = function (row) {
+            return row != null && ((row.connectionType != 'TA_MANUAL' && row.connectionType != 'SUT_MANUAL' && $scope.getExecutionStatus(row) == 'COMPLETE') || (row.connectionType == 'TA_MANUAL' || row.connectionType == 'SUT_MANUAL'));
+        };
+
+        $scope.shouldNextStep = function (row) {
+            return $scope.testStep != null && $scope.testStep === row && !$scope.isTestCaseCompleted() && !$scope.isLastStep(row) && $scope.isTestStepCompleted(row);
+        };
+
 
         $scope.isLastStep = function (row) {
             return row != null && $scope.testCase != null && $scope.testCase.children.length === row.position;
@@ -270,11 +305,25 @@ angular.module('isolated')
             $scope.loading = false;
             $scope.setActiveTab(0);
 
+            if($rootScope.appInfo == null){
+                $rootScope.initAppInfo().then(function(response){
+                    $scope.endpoint =  new Endpoint($rootScope.appInfo.url + '/ws/iisService');
+                });
+            }else{
+                $scope.endpoint = new Endpoint($rootScope.appInfo.url + '/ws/iisService');
+            }
+
+            $scope.user.init().then(function (response) {
+            }, function (error) {
+                $scope.error = error;
+            });
+
             $rootScope.$on('isolated:testCaseLoaded', function (event, testCase) {
                 if (testCase != null) {
                     delete testCase.executionStatus;
                     for (var i = 0; i < testCase.children.length; i++) {
-                        delete testCase.children[i].transactionStatus;
+                        delete testCase.children[i].executionStatus;
+                        delete testCase.children[i].executionMessage;
                         delete testCase.children[i].report;
                     }
                     IsolatedSystem.testCase = testCase;
@@ -298,18 +347,14 @@ angular.module('isolated')
             $rootScope.$on('isolated:nextStep', function (event, message) {
                 var nextStep = $scope.findNextStep($scope.testStep.position);
                 if (nextStep != null) {
-                    //$scope.executeTestStep(nextStep);
-                    if (nextStep.testContext && nextStep.testContext.message) {
-                        nextStep.testContext.message.content = message;
-                        nextStep.transactionStatus = "COMPLETE";
+                    if (nextStep.connectionType !== 'TA_MANUAL' && nextStep.connectionType !== 'SUT_MANUAL') {
+                        nextStep['executionMessage'] = message;
+                        nextStep.executionStatus = "COMPLETE";
                     }
                 }
             });
 
-            $scope.user.init().then(function (response) {
-            }, function (error) {
-                $scope.error = error;
-            });
+
         };
 
         $scope.log = function (log) {
@@ -347,13 +392,13 @@ angular.module('isolated')
         $scope.send = function () {
             $scope.configCollapsed = false;
             $scope.connecting = true;
-            $scope.testStep['transactionStatus'] = 'IN_PROGRESS';
+            $scope.testStep['executionStatus'] = 'IN_PROGRESS';
             $scope.error = null;
             if ($scope.user.receiverEndpoint != '' && $scope.hasRequestContent()) {
                 $scope.logger.init();
                 $scope.received = '';
                 $scope.logger.log("Outbound Message ========================>");
-                var sender = new IsolatedSystemInitiator().send($scope.user, $scope.testStep.id, $scope.outboundMessage());
+                var sender = new IsolatedSystemInitiator().send($scope.user, $scope.testStep.id, XmlEscaper.encodeXml($scope.outboundMessage()));
                 sender.then(function (response) {
                     var received = response.incoming;
                     var sent = response.outgoing;
@@ -365,23 +410,22 @@ angular.module('isolated')
                     try {
                         var x2js = new X2JS();
                         var receivedJson = x2js.xml_str2json(received);
-                        rspMessage = receivedJson.Envelope.Body.submitSingleMessageResponse.return;
-                        $scope.testStep['transactionStatus'] = 'COMPLETE';
+                        rspMessage = XmlEscaper.decodeXml(receivedJson.Envelope.Body.submitSingleMessageResponse.return.toString());
                         $scope.logger.log("Transaction completed");
+                        $scope.testStep['executionStatus'] = 'COMPLETE';
+                        $rootScope.$broadcast('isolated:nextStep', rspMessage);
                     } catch (error) {
-                        $scope.logger.log("SOAP Envelope is Invalid");
+                        $scope.error = "Incorrect SOAP Envelope Received. Please check the log for more details";
+                        $scope.logger.log("Incorrect SOAP Envelope received");
                         $scope.logger.log("Transaction completed");
-                        $scope.testStep['transactionStatus'] = 'COMPLETE';
                     }
-
-                    $rootScope.$broadcast('isolated:nextStep', rspMessage);
                     $scope.connecting = false;
                 }, function (error) {
                     $scope.connecting = false;
                     $scope.error = error.data;
                     $scope.logger.log("Error: " + error.data);
                     $scope.received = '';
-                    $scope.testStep['transactionStatus'] = 'COMPLETE';
+                    $scope.testStep['executionStatus'] = 'COMPLETE';
                     $scope.logger.log("Transaction aborted");
                 });
             } else {
@@ -428,37 +472,40 @@ angular.module('isolated')
                                     try {
                                         var x2js = new X2JS();
                                         var receivedJson = x2js.xml_str2json(incoming);
-                                        var receivedMessage = receivedJson.Envelope.Body.submitSingleMessage.hl7Message;
-                                        $scope.testStep.testContext.message.content = receivedMessage;
-                                        $scope.testStep['transactionStatus'] = 'COMPLETE';
+                                        var receivedMessage = XmlEscaper.decodeXml(receivedJson.Envelope.Body.submitSingleMessage.hl7Message.toString());
+                                        $scope.testStep['executionStatus'] = 'COMPLETE';
+                                        $scope.testStep['executionMessage'] = receivedMessage;
+                                        $rootScope.$broadcast('isolated:loadMessage', receivedMessage);
                                     } catch (error) {
+                                        $scope.error = "Invalid SOAP Envelope Received. Please see log file for more details.";
                                         $scope.logger.log("Inbound SOAP Envelope is Invalid");
-                                        $scope.testStep['transactionStatus'] = 'COMPLETE';
                                     }
                                 }
                                 if (outbound != null && outbound != '' && sent == '') {
                                     $scope.log("Outbound Message  -------------------------------------->");
                                     $scope.log(outbound);
                                     sent = outbound;
-                                    var sentMessage = null;
+                                    var sentMessage = '';
                                     try {
                                         var x2js = new X2JS();
                                         var sentMessageJson = x2js.xml_str2json(outbound);
-                                        sentMessage = sentMessageJson.Envelope.Body.submitSingleMessageResponse.return;
+                                        sentMessage = XmlEscaper.decodeXml(sentMessageJson.Envelope.Body.submitSingleMessageResponse.return.toString());
+                                        $scope.testStep['executionStatus'] = 'COMPLETE';
+                                        $rootScope.$broadcast('isolated:nextStep', sentMessage);
                                     } catch (error) {
+                                        $scope.error = "Invalid SOAP Envelope Sent. Please see log file for more details.";
                                         $scope.logger.log("Outbound SOAP Envelope is Invalid");
                                         $scope.logger.log("Transaction completed");
-                                        $scope.testStep['transactionStatus'] = 'COMPLETE';
                                     }
-                                    $rootScope.$broadcast('isolated:nextStep', sentMessage);
                                 }
                                 if (incoming != '' && outbound != '' && incoming != null && outbound != null) {
                                     $scope.stopListening();
                                 }
                             } else {
                                 if (incoming == null || incoming == '') {
-                                    $scope.log("We did not receive any incoming message after 30s or you are using wrong " +
-                                        "credentials.");
+                                    $scope.warning = "We did not receive any incoming message after 30s.\n Possible cause (1): You are using wrong credentials. Please check the credentials in the message against those created for your system.\n  Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.\n" +
+                                        "Possible cause (3):The HTTP header field Content-Type  may not be set correctly for use with SOAP 1.2.   SOAP 1.2 requires application/soap+xml, and SOAP 1.2 requires text/xml.  The NIST Tool follows SOAP 1.2, which is required by section 2 of the 'CDC Transport Layer Protocol Recommendation V1.1' (http://www.cdc.gov/vaccines/programs/iis/technical-guidance/SOAP/downloads/transport-specification.pdf)";
+                                    $scope.log("We did not receive any incoming message after 30s");
                                 } else if (outbound == null || outbound == '') {
                                     $scope.log("We were unable to send the response after 30s");
                                 }
@@ -481,81 +528,6 @@ angular.module('isolated')
                 }
             );
         };
-
-
-//        $scope.openReceiverConfig = function () {
-//            $scope.logger.init();
-//            var modalInstance = $modal.open({
-//                templateUrl: 'TransactionReceiverCtrl.html',
-//                controller: 'IsolatedSystemReceiverCtrl',
-//                windowClass: 'app-modal-window',
-//                resolve: {
-//                    testCase: function () {
-//                        return IsolatedSystem.testCase;
-//                    },
-//                    logger: function () {
-//                        return  IsolatedSystem.logger;
-//                    },
-//                    message: function () {
-//                        return IsolatedSystem.request.getContent();
-//                    },
-//                    user: function () {
-//                        return IsolatedSystem.user;
-//                    },
-//                    endpoint: function () {
-//                        return IsolatedSystem.serverEndpoint;
-//                    }
-//                }
-//            });
-//            modalInstance.result.then(function (result) {
-//                if (result.received != null) {
-//                    $modal.request.setContent(result.received);
-//                }
-//                if (result.sent != null) {
-//                    $modal.response.setContent(result.sent);
-//                }
-//
-//            }, function () {
-//                $modal.response.setContent('');
-//                $modal.request.setContent('');
-//            });
-//        };
-
-
-//        $scope.send = function () {
-//            $scope.logger.init();
-//            var modalInstance = $modal.open({
-//                templateUrl: 'TransactionSender.html',
-//                controller: 'IsolatedSystemSenderCtrl',
-//                size:'lg',
-//                backdrop:'static',
-//                resolve: {
-//                    testCase: function () {
-//                        return IsolatedSystem.testStep;
-//                    },
-//                    logger: function () {
-//                        return  IsolatedSystem.logger;
-//                    },
-//                    message: function () {
-//                        return IsolatedSystem.editor.getContent();
-//                    },
-//                    user: function () {
-//                        return IsolatedSystem.user;
-//                    }
-//                }
-//            });
-//            modalInstance.result.then(function (result) {
-//                if(result.sent != null){
-//                    IsolatedSystem.request.setContent(result.sent);
-//                }
-//                if(result.received != null){
-//                    IsolatedSystem.response.setContent(result.received);
-//                }
-//
-//            }, function () {
-//                IsolatedSystem.response.setContent('');
-//            });
-//        };
 
         $scope.configureReceiver = function () {
             var modalInstance = $modal.open({
@@ -583,156 +555,129 @@ angular.module('isolated')
                 IsolatedSystem.response.setContent('');
             });
         };
-
-//        $scope.viewReceiver = function () {
-//            var modalInstance = $modal.open({
-//                templateUrl: 'TransactionViewReceiverConfiguration.html',
-//                controller: 'IsolatedSystemViewReceiverConfigurationCtrl',
-//                windowClass: 'app-modal-window',
-//                resolve: {
-//                    testCase: function () {
-//                        return IsolatedSystem.testStep;
-//                    },
-//                    user: function () {
-//                        return IsolatedSystem.user;
-//                    }
-//                }
-//            });
-//            modalInstance.result.then(function (result) {
-//                IsolatedSystem.response.setContent('');
-//            }, function () {
-//                IsolatedSystem.response.setContent('');
-//            });
-//        };
     }]);
 
 
 //angular.module('isolated')
-//    .controller('IsolatedSystemSenderCtrl', function ($scope, $sce, $http,IsolatedSystem,$rootScope,IsolatedSystemInitiator) {
+//    .controller('IsolatedSystemViewReceiverConfigurationCtrl', function ($scope, $sce, $http, IsolatedSystem, $rootScope, $modalInstance, testCase, IsolatedSystemInitiator, message, user, logger) {
+//        $scope.testCase = testCase;
+//        $scope.user = user;
+//        $scope.close = function () {
+//            $modalInstance.close();
+//        };
+//
+//        $scope.cancel = function () {
+//            $modalInstance.dismiss('cancel');
+//        };
+//
+//        $scope.hasRequestContent = function () {
+//            return  $scope.message != null && $scope.message != '';
+//        };
 //
 //    });
 
-
-angular.module('isolated')
-    .controller('IsolatedSystemViewReceiverConfigurationCtrl', function ($scope, $sce, $http, IsolatedSystem, $rootScope, $modalInstance, testCase, IsolatedSystemInitiator, message, user, logger) {
-        $scope.testCase = testCase;
-        $scope.user = user;
-        $scope.close = function () {
-            $modalInstance.close();
-        };
-
-        $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
-        };
-
-        $scope.hasRequestContent = function () {
-            return  $scope.message != null && $scope.message != '';
-        };
-
-    });
-
-angular.module('isolated')
-    .controller('IsolatedSystemReceiverCtrl', function ($scope, $sce, $http, IsolatedSystem, $rootScope, $modalInstance, testCase, user, logger, IsolatedSystemClock, endpoint, message) {
-        $scope.testCase = testCase;
-        $scope.user = user;
-        $scope.logger = logger;
-        $scope.endpoint = endpoint;
-        $scope.message = message;
-        $scope.sent = null;
-        $scope.received = null;
-        $scope.connecting = false;
-        $scope.error = null;
-        $scope.counterMax = 30;
-        $scope.counter = 0;
-        $scope.listenerReady = false;
-
-        $scope.log = function (log) {
-            $scope.logger.log(log);
-        };
-
-        $scope.close = function () {
-            $modalInstance.close({"sent": $scope.sent, "received": $scope.received});
-        };
-
-        $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
-        };
-
-        $scope.hasRequestContent = function () {
-            return  $scope.message != null && $scope.message != '';
-        };
-
-        $scope.stop = function () {
-            $scope.connecting = false;
-            $scope.counter = $scope.counterMax;
-            IsolatedSystemClock.stop();
-            $scope.log("Stopping transaction. Please wait....");
-            $scope.user.transaction.closeConnection().then(function (response) {
-                $scope.log("Transaction stopped.");
-            }, function (error) {
-            });
-        };
-
-
-        $scope.start = function () {
-            $scope.logger.clear();
-            $scope.counter = 0;
-            $scope.connecting = true;
-            $scope.received = '';
-            $scope.sent = '';
-            $scope.error = null;
-
-            $scope.log("Configuring connection. Please wait...");
-            IsolatedSystem.user.transaction.openConnection().then(function (response) {
-                    $scope.log("Connection configured.");
-                    var execute = function () {
-                        ++$scope.counter;
-                        $scope.log("Waiting for incoming message....Elapsed time(second):" + $scope.counter + "s");
-                        $scope.user.transaction.messages().then(function (response) {
-                            var incoming = $scope.user.transaction.incoming;
-                            var outbound = $scope.user.transaction.outgoing;
-                            if ($scope.counter < $scope.counterMax) {
-                                if (incoming != null && incoming != '' && $scope.received == '') {
-                                    $scope.log("<-------------------------------------- Inbound Message ");
-                                    $scope.log(incoming);
-                                    $scope.received = incoming;
-                                }
-                                if (outbound != null && outbound != '' && $scope.sent == '') {
-                                    $scope.log("Outbound Message  -------------------------------------->");
-                                    $scope.log(outbound);
-                                    $scope.sent = outbound;
-                                }
-                                if ($scope.received != '' && $scope.sent != '') {
-                                    $scope.stop();
-                                }
-                            } else {
-                                if (incoming == null || incoming == '') {
-                                    $scope.log("We did not receive any incoming message after 30s or you are using wrong " +
-                                        "credentials.");
-                                } else if (outbound == null || outbound == '') {
-                                    $scope.log("We were unable to send the response after 30s");
-                                }
-                                $scope.stop();
-                            }
-                        }, function (error) {
-                            $scope.error = error;
-                            $scope.log("Error: " + error);
-                            $scope.received = '';
-                            $scope.sent = '';
-                            $scope.stop();
-                        });
-                    };
-                    IsolatedSystemClock.start(execute);
-                }, function (error) {
-                    $scope.log("Failed to configure incoming connection: Error: " + error);
-                    $scope.log("Transaction aborted");
-                    $scope.connecting = false;
-                    $scope.error = error;
-                }
-            );
-        };
-
-    });
+//angular.module('isolated')
+//    .controller('IsolatedSystemReceiverCtrl', function ($scope, $sce, $http, IsolatedSystem, $rootScope, $modalInstance, testCase, user, logger, IsolatedSystemClock, endpoint, message) {
+//        $scope.testCase = testCase;
+//        $scope.user = user;
+//        $scope.logger = logger;
+//        $scope.endpoint = endpoint;
+//        $scope.message = message;
+//        $scope.sent = null;
+//        $scope.received = null;
+//        $scope.connecting = false;
+//        $scope.error = null;
+//        $scope.counterMax = 30;
+//        $scope.counter = 0;
+//        $scope.listenerReady = false;
+//
+//        $scope.log = function (log) {
+//            $scope.logger.log(log);
+//        };
+//
+//        $scope.close = function () {
+//            $modalInstance.close({"sent": $scope.sent, "received": $scope.received});
+//        };
+//
+//        $scope.cancel = function () {
+//            $modalInstance.dismiss('cancel');
+//        };
+//
+//        $scope.hasRequestContent = function () {
+//            return  $scope.message != null && $scope.message != '';
+//        };
+//
+//        $scope.stop = function () {
+//            $scope.connecting = false;
+//            $scope.counter = $scope.counterMax;
+//            IsolatedSystemClock.stop();
+//            $scope.log("Stopping transaction. Please wait....");
+//            $scope.user.transaction.closeConnection().then(function (response) {
+//                $scope.log("Transaction stopped.");
+//            }, function (error) {
+//            });
+//        };
+//
+//
+//        $scope.start = function () {
+//            $scope.logger.clear();
+//            $scope.counter = 0;
+//            $scope.connecting = true;
+//            $scope.received = '';
+//            $scope.sent = '';
+//            $scope.error = null;
+//
+//            $scope.log("Configuring connection. Please wait...");
+//            IsolatedSystem.user.transaction.openConnection().then(function (response) {
+//                    $scope.log("Connection configured.");
+//                    var execute = function () {
+//                        ++$scope.counter;
+//                        $scope.log("Waiting for incoming message....Elapsed time(second):" + $scope.counter + "s");
+//                        $scope.user.transaction.messages().then(function (response) {
+//                            var incoming = $scope.user.transaction.incoming;
+//                            var outbound = $scope.user.transaction.outgoing;
+//                            if ($scope.counter < $scope.counterMax) {
+//                                if (incoming != null && incoming != '' && $scope.received == '') {
+//                                    $scope.log("<-------------------------------------- Inbound Message ");
+//                                    $scope.log(incoming);
+//                                    $scope.received = incoming;
+//                                }
+//                                if (outbound != null && outbound != '' && $scope.sent == '') {
+//                                    $scope.log("Outbound Message  -------------------------------------->");
+//                                    $scope.log(outbound);
+//                                    $scope.sent = outbound;
+//                                }
+//                                if ($scope.received != '' && $scope.sent != '') {
+//                                    $scope.stop();
+//                                }
+//                            } else {
+//                                if (incoming == null || incoming == '') {
+//                                    $scope.log("We did not receive any incoming message after 30s or you are using wrong " +
+//                                        "credentials.");
+//                                } else if (outbound == null || outbound == '') {
+//                                    $scope.log("We were unable to send the response after 30s");
+//                                }
+//                                $scope.stop();
+//                            }
+//                        }, function (error) {
+//                            $scope.error = error;
+//                            $scope.log("Error: " + error);
+//                            $scope.received = '';
+//                            $scope.sent = '';
+//                            $scope.stop();
+//                        });
+//                    };
+//                    IsolatedSystemClock.start(execute);
+//                }, function (error) {
+//                    $scope.log("Failed to configure incoming connection: Error: " + error);
+//                    $scope.log("Transaction aborted");
+//                    $scope.connecting = false;
+//                    $scope.error = error;
+//                }
+//            );
+//        };
+//
+//    });
 
 //angular.module('isolated')
 //    .controller('IsolatedSystemSenderCtrl', function ($scope, $sce, $http,IsolatedSystem,$rootScope, $modalInstance, testCase,IsolatedSystemInitiator, message, user, logger) {
@@ -820,7 +765,6 @@ angular.module('isolated')
         $scope.resized = false;
         $scope.selectedItem = null;
         $scope.activeTab = 0;
-
         $scope.messageObject = [];
         $scope.tError = null;
         $scope.tLoading = false;
@@ -875,12 +819,13 @@ angular.module('isolated')
             var testStep = $scope.testStep;
             if (testStep != null) {
                 var testContext = testStep.testContext;
-                if(testContext) {
-                    var message = testContext != null ? testContext.message : null;
-                    var content = message && message != null && message.content != null ? message.content : '';
+                if (testContext) {
+//                    var message = testContext != null ? testContext.message : null;
+//                    var content = message && message != null && message.content != null ? message.content : '';
+                    var message = testStep['executionMessage'];
                     $scope.nodelay = true;
-                    $scope.selectedMessage = {'content': content};
-                    $scope.editor.doc.setValue($scope.selectedMessage.content);
+                    $scope.selectedMessage = {'content': message};
+                    $scope.isolated.editor.instance.doc.setValue(message);
                     $scope.execute();
                 }
             }
@@ -901,24 +846,24 @@ angular.module('isolated')
             });
             $scope.editor.setSize(null, 350);
 
-            $scope.editor.on("keyup", function () {
-                $timeout(function () {
-                    var msg = $scope.editor.doc.getValue();
-                    $scope.error = null;
-                    if ($scope.tokenPromise) {
-                        $timeout.cancel($scope.tokenPromise);
-                        $scope.tokenPromise = undefined;
-                    }
-                    IsolatedSystem.message.name = null;
-                    if (msg.trim() !== '') {
-                        $scope.tokenPromise = $timeout(function () {
-                            $scope.execute();
-                        }, $scope.loadRate);
-                    } else {
-                        $scope.execute();
-                    }
-                });
-            });
+//            $scope.editor.on("keyup", function () {
+//                $timeout(function () {
+//                    var msg = $scope.editor.doc.getValue();
+//                    $scope.error = null;
+//                    if ($scope.tokenPromise) {
+//                        $timeout.cancel($scope.tokenPromise);
+//                        $scope.tokenPromise = undefined;
+//                    }
+//                    IsolatedSystem.message.name = null;
+//                    if (msg.trim() !== '') {
+//                        $scope.tokenPromise = $timeout(function () {
+//                            $scope.execute();
+//                        }, $scope.loadRate);
+//                    } else {
+//                        $scope.execute();
+//                    }
+//                });
+//            });
 
             $scope.editor.on("dblclick", function (editor) {
                 $timeout(function () {
@@ -1019,7 +964,6 @@ angular.module('isolated')
             }
         };
 
-
         $scope.parseMessage = function () {
             $scope.tLoading = true;
             if ($scope.testStep != null && $scope.isolated.message.content != '') {
@@ -1049,7 +993,7 @@ angular.module('isolated')
             $scope.tError = null;
             $scope.mError = null;
             $scope.vError = null;
-            $scope.isolated.message.content = $scope.editor.doc.getValue();
+            $scope.isolated.message.content = $scope.isolated.editor.instance.doc.getValue();
             $scope.validateMessage();
             $scope.parseMessage();
         };
@@ -1076,10 +1020,15 @@ angular.module('isolated')
                 $scope.testStep = testStep;
                 $scope.loadMessage();
             });
+
+            $rootScope.$on('isolated:loadMessage', function (event, message) {
+                $scope.refreshEditor();
+                $scope.setMessage(message);
+            });
+
         };
 
-    }])
-;
+    }]);
 
 
 angular.module('isolated')

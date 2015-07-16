@@ -7,7 +7,6 @@ angular.module('connectivity').factory('Connectivity',
             logger: new Logger(),
             request: new ConnectivityPart(),
             response: new ConnectivityPart(),
-            serverEndpoint: new Endpoint($rootScope.appInfo.url + '/ws/iisService'),
             user: new TransactionUser()
         };
         return Connectivity;

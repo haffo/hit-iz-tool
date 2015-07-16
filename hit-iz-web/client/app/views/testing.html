@@ -143,13 +143,6 @@
                         <input type="text" class="form-control"
                                placeholder="Password"
                                ng-model="user.receiverPassword">
-                        <!--<div class="input-group">-->
-                        <!---->
-                        <!--<span class="input-group-addon">-->
-                        <!--<input type="checkbox"-->
-                        <!--ng-model="hidePwd">-->
-                        <!--</span>-->
-                        <!--</div>-->
                     </div>
                     <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
                         <label>FacilityID</label>
@@ -166,20 +159,6 @@
                            class="help-block">
                             Invalid url. Expected format is {{appInfo.url}}</p>
                     </div>
-
-                    <!--<div ng-show="testCase.testType === 'RECEIVER_CONNECTIVITY'">-->
-                    <!--<!-- novalidate prevents HTML5 validation since we will be validating ourselves -->-->
-                    <!--<div class="form-group"-->
-                    <!--ng-class="{ 'has-error' : receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine }">-->
-                    <!--<label>Endpoint</label>-->
-                    <!--<input type="url" name="endpoint" class="form-control" ng-model="user.receiverEndpoint"-->
-                    <!--placeholder="SUT Endpoint" required>-->
-
-                    <!--<p ng-show="receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine"-->
-                    <!--class="help-block">-->
-                    <!--Invalid url. Example is {{appInfo.url}}</p>-->
-                    <!--</div>-->
-                    <!--</div>-->
                 </form>
             </div>
         </div>
@@ -203,6 +182,11 @@
         <h3 class="modal-title">Receiver Configuration Panel</h3>
     </div>
     <div class="modal-body">
+
+        <div class="row" ng-show="warning != null">
+            <div class="alert alert-warning col-sm-12" role="alert" ng-bind="warning"></div>
+        </div>
+
         <div class="row">
             <div class="col-sm-6">
                 <div class="page-header"><h3>Assigned Sender Information</h3></div>
@@ -295,17 +279,16 @@
 </script>
 
 
-
-
-
 <script type="text/ng-template" id="CBTestCase.html">
     <tr tt-node
         is-branch="node.children != null && node.children.length > 0">
         <td style="padding-top:0px;  padding-bottom:0px;"
             ng-class="{ 'node-active': node.id === selectedTestCase.id && (node.type === 'TestStep' ||  node.type  === 'TestCase') && node.type === selectedTestCase.type}">
-            <a class="point" ng-show="node.type === 'TestStep' ||  node.type  === 'TestCase'"
-               ng-click="selectTestCase(node)">{{node.type}}: {{node.name}}</a>
-            <span ng-show="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.type}}: {{node.name}}</span>
+            <a class="point" ng-show="node.type  === 'TestCase'"
+               ng-click="selectTestCase(node)">{{node.name}}</a>
+            <a class="point" ng-show="node.type === 'TestStep'"
+               ng-click="selectTestCase(node)">{{node.position}}.{{node.name}}</a>
+            <span ng-show="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.name}}</span>
         </td>
     </tr>
 </script>

@@ -43,7 +43,8 @@ var app = angular.module('tool', [
     'hit-profile-viewer',
     'hit-validation-result',
     'hit-vocab-search',
-    'hit-report-viewer'
+    'hit-report-viewer',
+    'hit-testcase-viewer'
 ]);
 
 app.config(function ($routeProvider, $httpProvider) {
@@ -109,7 +110,7 @@ app.factory('503Interceptor', function ($injector, $q, $rootScope) {
     };
 });
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q) {
     $rootScope.appInfo = {};
 
     $rootScope.$watch(function () {
@@ -151,11 +152,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo) {
         return str;
     };
 
-    new AppInfo().then(function (response) {
-        $rootScope.appInfo = response;
-    });
 
-    $rootScope.tabs = new Array();
     $rootScope.selectTestingType = function (value) {
         $rootScope.tabs[0] = false;
         $rootScope.tabs[1] = false;
@@ -167,6 +164,23 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo) {
         $rootScope.tabs[$rootScope.activeTab] = true;
         TestingSettings.setActiveTab($rootScope.activeTab);
     };
+
+    $rootScope.initAppInfo = function () {
+        var delay = $q.defer();
+        if ($rootScope.appInfo === null) {
+            return new AppInfo().then(function(appInfo){
+                $rootScope.appInfo = appInfo;
+                delay.resolve($rootScope.appInfo);
+                return delay.promise;
+            })
+        } else {
+            delay.resolve($rootScope.appInfo);
+            return delay.promise;
+        }
+    };
+
+    $rootScope.tabs = new Array();
+    $rootScope.initAppInfo();
 
 });
 
@@ -237,6 +251,27 @@ app.directive('stRatio', function () {
 });
 
 
+angular.module('commonServices').factory('Clock', function ($interval) {
+    var Clock = function (intervl) {
+        this.value = undefined;
+        this.intervl = intervl;
+    };
+    Clock.prototype.start = function (fn) {
+        if (angular.isDefined(this.value)) {
+            this.stop();
+        }
+        this.value = $interval(fn, this.intervl);
+    };
+    Clock.prototype.stop = function () {
+        if (angular.isDefined(this.value)) {
+            $interval.cancel(this.value);
+            this.value = undefined;
+        }
+    };
+    return Clock;
+});
+
+
 angular.module('tool-services').factory('AppInfo', ['$http', '$q', function ($http, $q) {
     return function () {
         var delay = $q.defer();
@@ -248,7 +283,6 @@ angular.module('tool-services').factory('AppInfo', ['$http', '$q', function ($ht
                 delay.reject(response.data);
             }
         );
-
 
 //        $http.get('../../resources/appInfo.json').then(
 //            function (object) {
@@ -262,7 +296,6 @@ angular.module('tool-services').factory('AppInfo', ['$http', '$q', function ($ht
         return delay.promise;
     };
 }]);
-
 
 
 

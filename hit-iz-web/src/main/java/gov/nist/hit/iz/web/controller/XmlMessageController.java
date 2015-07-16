@@ -55,7 +55,7 @@ public class XmlMessageController extends TestingController {
   @RequestMapping(value = "/parse", method = RequestMethod.POST, consumes = "application/json")
   public List<MessageElement> parse(@RequestBody Command soapCommand) throws XmlParserException {
     logger.info("Parsing soap" + soapCommand.getContent());
-    return parser.parse(soapCommand.getContent()).getElements();
+    return parser.parse(soapCommand.getContent(), "").getElements();
   }
 
   @RequestMapping(value = "/format", method = RequestMethod.POST, consumes = "application/json")

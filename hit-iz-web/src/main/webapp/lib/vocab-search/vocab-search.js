@@ -34,6 +34,7 @@
         $scope.valueSetIds = null;
         $scope.vocabularyLibrary = null;
         $scope.vocabularyService = new VocabularyService();
+        $scope.loading = false;
 
         $rootScope.$on($scope.type + ':valueSetLibraryLoaded', function (event,vocabularyLibrary) {
             $scope.vocabularyLibrary = vocabularyLibrary;
@@ -50,12 +51,18 @@
         });
 
         $scope.init = function (valueSetIds, vocabularyLibrary) {
+            $scope.loading = true;
             if(valueSetIds != null && vocabularyLibrary!=null) {
-                $scope.loading = true;
-                var all = angular.fromJson(vocabularyLibrary.json).valueSetDefinitions.valueSetDefinitions;
-                $scope.valueSetDefinitionGroups = $scope.vocabularyService.initValueSetDefinitionGroups(all, valueSetIds);
-                $scope.loading = false;
-            }
+                $scope.vocabularyService.getJson(vocabularyLibrary.id).then(function (obj) {
+                    vocabularyLibrary['json'] = angular.fromJson(obj);
+                    var all = angular.fromJson(vocabularyLibrary.json).valueSetDefinitions.valueSetDefinitions;
+                    $scope.valueSetDefinitionGroups = $scope.vocabularyService.initValueSetDefinitionGroups(all, valueSetIds);
+                    $scope.loading = false;
+                }, function (error) {
+                    $scope.error = "Sorry, Cannot load the vocabulary.";
+                    $scope.loading = false;
+                });
+             }
         };
 
         $scope.searchTableValues = function () {
@@ -249,9 +256,29 @@ angular.module('hit-vocab-search')
         }
     };
 
-    return VocabularyService;
+        VocabularyService.prototype.getJson = function (id) {
+            var delay = $q.defer();
+            $http.post('api/valueSetLibrary/' + id).then(
+                function (object) {
+                    try {
+                        delay.resolve(angular.fromJson(object.data));
+                    } catch (e) {
+                        delay.reject("Invalid character");
+                    }
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
+            return delay.promise;
+        };
+
+
+
+        return VocabularyService;
 
 });
+
 
     mod.controller('ValueSetDetailsCtrl', function ($scope, $modalInstance, table) {
         $scope.table = table;
@@ -260,7 +287,6 @@ angular.module('hit-vocab-search')
             $modalInstance.dismiss('cancel');
         };
     });
-
 
 
 })( angular );

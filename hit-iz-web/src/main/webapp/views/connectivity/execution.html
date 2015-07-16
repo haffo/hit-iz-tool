@@ -4,6 +4,7 @@
 <div class="row" ng-show="error != null">
     <div class="alert alert-danger col-sm-12" role="alert" ng-bind="error"></div>
 </div>
+
 <div class="row" style="margin-bottom: 10px" ng-show="testCase.sutType === 'SENDER' && testCase.testType === 'SENDER_CONNECTIVITY'">
     <div class="col-sm-10">
         <p>Please collect and validate your incoming/outgoing messages in the <a ng-click="selectTestingType(0)">Stage 1: SOAP Envelope</a></p>

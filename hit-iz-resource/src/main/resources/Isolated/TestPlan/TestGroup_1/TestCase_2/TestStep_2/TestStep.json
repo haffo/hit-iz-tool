@@ -1,5 +1,6 @@
 {
   "name" : "Enter Clinical History for Juan Marcel Gonzales",
   "description" : "The EHR captures structured data regarding a problem of Asthma as part of the clinical history.",
-  "type" : "SUT_MANUAL"
+  "type" : "SUT_MANUAL",
+  "position" : 2
 }

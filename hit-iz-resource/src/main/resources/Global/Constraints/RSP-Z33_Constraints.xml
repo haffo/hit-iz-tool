@@ -129,9 +129,11 @@
                     </Condition>
                 </Predicate>
                 <Predicate ID="[XON_IZ]10[1]" Target="10[1]" TrueUsage="R" FalseUsage="RE">
-                    <Description>If XON.1 (Organization Name) is valued.</Description>
+                    <Description>If XON.1 (Organization Name) is not valued.</Description>
                     <Condition>
-                        <Presence Path="1[1]"/>
+                        <NOT>
+                            <Presence Path="1[1]"/>
+                        </NOT>
                     </Condition>
                 </Predicate>
             </ByID>

@@ -23,6 +23,8 @@ import gov.nist.hit.iz.domain.SecurityFaultCredentials;
 import gov.nist.hit.iz.repo.SecurityFaultCredentialsRepository;
 import gov.nist.hit.iz.web.model.UserCommand;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -116,35 +118,64 @@ public class TransactionController extends TestingController {
   @RequestMapping(value = "/initUser", method = RequestMethod.POST)
   public UserCommand info(@RequestBody final User userCommand) {
     logger.info("Fetching user information ... ");
-    User user = null;
-    Long id = userCommand.getId();
+    // User user = null;
+    // Long id = userCommand.getId();
+    //
+    // if (id == null) {
+    // user = new User();
+    // userRepository.saveAndFlush(user);
+    // } else {
+    // user = userRepository.findOne(id);
+    // }
+    //
+    // // create a guest user if no token found
+    // if (user.getPassword() == null && user.getUsername() == null) { // Guest
+    // user.setUsername("vendor_" + user.getId());
+    // user.setPassword("vendor_" + user.getId());
+    // user.setFacilityID("vendor_" + user.getId());
+    // userRepository.saveAndFlush(user);
+    // }
+    //
+    // Long userId = user.getId();
+    // SecurityFaultCredentials faultCredentials =
+    // securityFaultCredentialsRepository.findOneByUserId(user.getId());
+    // if (faultCredentials == null) {
+    // faultCredentials = new SecurityFaultCredentials();
+    // faultCredentials.setFaultUsername("faultUser_" + userId);
+    // faultCredentials.setFaultPassword("faultPwd_" + userId);
+    // faultCredentials.setUser(user);
+    // securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
+    // }
+    //
+    // Transaction transaction = transactionRepository.findOneByUserId(userId);
+    // if (transaction == null) {
+    // transaction = new Transaction();
+    // transaction.setUser(user);
+    // }
+    // transaction.setStatus(TransactionStatus.CLOSE);
+    // transactionRepository.saveAndFlush(transaction);
 
-    if (id == null) {
+    User user = null;
+    List<User> users = userRepository.findAll();
+    if (users == null || users.isEmpty()) {
       user = new User();
+      user.setUsername("pilot");
+      user.setPassword("pilot");
+      user.setFacilityID("pilot");
       userRepository.saveAndFlush(user);
     } else {
-      user = userRepository.findOne(id);
+      user = users.get(0);
     }
-
-    // create a guest user if no token found
-    if (user.getPassword() == null && user.getUsername() == null) { // Guest
-      user.setUsername("vendor_" + user.getId());
-      user.setPassword("vendor_" + user.getId());
-      user.setFacilityID("vendor_" + user.getId());
-      userRepository.saveAndFlush(user);
-    }
-
     Long userId = user.getId();
     SecurityFaultCredentials faultCredentials =
         securityFaultCredentialsRepository.findOneByUserId(user.getId());
     if (faultCredentials == null) {
       faultCredentials = new SecurityFaultCredentials();
-      faultCredentials.setFaultUsername("faultUser_" + userId);
-      faultCredentials.setFaultPassword("faultPwd_" + userId);
+      faultCredentials.setFaultUsername("pilot");
+      faultCredentials.setFaultPassword("pilot");
       faultCredentials.setUser(user);
       securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
     }
-
     Transaction transaction = transactionRepository.findOneByUserId(userId);
     if (transaction == null) {
       transaction = new Transaction();
@@ -152,7 +183,6 @@ public class TransactionController extends TestingController {
     }
     transaction.setStatus(TransactionStatus.CLOSE);
     transactionRepository.saveAndFlush(transaction);
-
     return new UserCommand(user.getUsername(), user.getPassword(),
         faultCredentials.getFaultUsername(), faultCredentials.getFaultPassword(),
         user.getFacilityID());

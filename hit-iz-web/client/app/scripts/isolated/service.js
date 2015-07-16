@@ -2,7 +2,7 @@
 
 
 angular.module('isolated').factory('IsolatedSystem',
-    ['$http', '$q', 'Editor', 'EDICursor', 'Er7Message', 'ValidationSettings', 'Tree', 'Endpoint', 'TransactionUser', '$rootScope', 'Logger',function ($http, $q, Editor, EDICursor, Er7Message, ValidationSettings,Tree,Endpoint,TransactionUser,$rootScope,Logger) {
+    ['$http', '$q', 'Editor', 'EDICursor', 'Er7Message', 'ValidationSettings', 'Tree', 'TransactionUser', '$rootScope', 'Logger',function ($http, $q, Editor, EDICursor, Er7Message, ValidationSettings,Tree,TransactionUser,$rootScope,Logger) {
         var IsolatedSystem = {
             testCase: null,
             testStep: null,
@@ -13,7 +13,6 @@ angular.module('isolated').factory('IsolatedSystem',
             message: new Er7Message(),
             validationSettings: new ValidationSettings(),
             logger: new Logger(),
-            serverEndpoint: new Endpoint($rootScope.appInfo.url + '/ws/iisService'),
             user: new TransactionUser(),
             setContent: function (value) {
                 IsolatedSystem.message.content = value;
@@ -75,7 +74,7 @@ angular.module('isolated').factory('IsolatedSystemInitiator',
                 }
             );
 
-//            $http.get('../../resources/connectivity/send.json').then(
+//            $http.get('../../resources/isolated/send.json').then(
 //                function (response) {
 //                    delay.resolve(angular.fromJson(response.data));
 //                },

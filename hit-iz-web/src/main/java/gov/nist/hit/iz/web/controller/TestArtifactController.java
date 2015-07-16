@@ -12,8 +12,6 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.core.domain.TestArtifact;
-import gov.nist.hit.core.repo.TestArtifactRepository;
 import gov.nist.hit.core.service.exception.MessageException;
 import gov.nist.hit.core.service.exception.TestCaseException;
 
@@ -23,14 +21,13 @@ import java.io.InputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Harold Affo (NIST)
@@ -38,41 +35,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 
 @RequestMapping("/testartifact")
+@RestController
 public class TestArtifactController extends TestingController {
 
   static final Logger logger = LoggerFactory.getLogger(TestArtifactController.class);
 
-  @Autowired
-  protected TestArtifactRepository artifactRepository;
-
-
-  @RequestMapping(value = "/{artifactId}/download/{format}", method = RequestMethod.POST,
+  @RequestMapping(value = "/download", method = RequestMethod.POST,
       consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-  public void testPackage(@PathVariable Long artifactId, @PathVariable String format,
-      HttpServletRequest request, HttpServletResponse response) throws MessageException {
+  public String download(@RequestParam("path") String path, HttpServletRequest request,
+      HttpServletResponse response) throws MessageException {
     try {
-      TestArtifact artifact = artifactRepository.findOne(artifactId);
-      if (artifact == null) {
-        throw new IllegalArgumentException("Artifact with id=" + artifactId + " Not found");
-      }
-      InputStream content = null;
-      if ("pdf".equalsIgnoreCase(format)) {
-        String path = artifact.getPdfPath();
-        content = TestArtifactController.class.getResourceAsStream(path);
+      if (path != null && path.endsWith("pdf")) {
+        InputStream content = null;
+        String fileName = path.substring(path.lastIndexOf("/") + 1);
+        content = TestArtifactController.class.getResourceAsStream("/" + path);
         response.setContentType("application/pdf");
-        response.setHeader("Content-disposition", "attachment;filename=" + artifact.getName()
-            + ".pdf");
-      } else if ("html".equalsIgnoreCase(format)) {
-        content = IOUtils.toInputStream(artifact.getHtml());
-        response.setContentType("text/html");
-        response.setHeader("Content-disposition", "attachment;filename=" + artifact.getName()
-            + ".html");
+        response.setHeader("Content-disposition", "attachment;filename=" + fileName);
+        FileCopyUtils.copy(content, response.getOutputStream());
       }
-      FileCopyUtils.copy(content, response.getOutputStream());
+
+      throw new IllegalArgumentException("Invalid Path Provided");
     } catch (IOException e) {
       logger.debug("Failed to download the test package ");
       throw new TestCaseException("Cannot download the artifact " + e.getMessage());
     }
+
   }
 
 

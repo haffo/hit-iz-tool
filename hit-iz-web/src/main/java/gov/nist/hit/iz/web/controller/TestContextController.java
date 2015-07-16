@@ -108,7 +108,6 @@ public class TestContextController extends TestingController {
       throw new TestCaseException("No test context available with id=" + testContextId);
     }
     return testContext;
-
   }
 
   @RequestMapping(value = "/{testContextId}/parseMessage", method = RequestMethod.POST)
@@ -120,22 +119,25 @@ public class TestContextController extends TestingController {
       TestContext testContext = testContext(testContextId);
       String message = getMessageContent(command);
       return messageParser.parse(message,
-          testContext.getConformanceProfile().getIntegrationProfile().getXml()).getElements();
+          testContext.getConformanceProfile().getIntegrationProfile().getXml(),
+          testContext.getConformanceProfile().getSourceId()).getElements();
     } catch (MessageException e) {
       throw new MessageParserException(e.getMessage());
     }
   }
 
   @RequestMapping(value = "/{testContextId}/validateMessage", method = RequestMethod.POST)
-  public Json validateMessage(@PathVariable final Long testContextId,
+  public Json validate(@PathVariable final Long testContextId,
       @RequestBody final MessageCommand command) throws MessageValidationException {
     try {
       TestContext testContext = testContext(testContextId);
       String res =
           messageValidator.validate(command.getName(), getMessageContent(command), testContext
-              .getConformanceProfile().getIntegrationProfile().getXml(), testContext
-              .getVocabularyLibrary().getXml(), testContext.getConstraints().getXml(), testContext
-              .getAddditionalConstraints().getXml());
+              .getConformanceProfile().getSourceId(), testContext.getConformanceProfile()
+              .getIntegrationProfile().getXml(), testContext.getVocabularyLibrary().getXml(),
+              testContext.getConstraints().getXml(),
+              testContext.getAddditionalConstraints() != null ? testContext
+                  .getAddditionalConstraints().getXml() : null);
       return new Json(res);
     } catch (MessageException e) {
       throw new MessageValidationException(e.getMessage());
@@ -143,6 +145,7 @@ public class TestContextController extends TestingController {
       throw new MessageValidationException(e.getMessage());
     }
   }
+
 
 
   // @RequestMapping(value = "/{testContextId}/dqaValidateMessage", method = RequestMethod.POST)

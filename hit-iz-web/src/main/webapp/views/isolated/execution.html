@@ -1,12 +1,21 @@
 <div style="margin-bottom: 20px" ng-controller="IsolatedSystemExecutionCtrl" ng-init="init()">
 <div ng-show="testCase != null">
-<div style="padding-top: 10px">
-    <div class="page-header"><h3>Test Case:
-        {{testCase.name}}</h3></div>
+<div style="padding-top: 10px" class="row">
+    <div class="col-lg-10">
+        <span style="font-size: 30px">Test Case:
+        {{testCase.name}}</span>
+         <span class="pull-right">
+        <button type="button" ng-click="resetTestCase()" title="Restart" class="btn btn-sm btn-primary">
+            <i class="fa fa-times"></i>
+            Restart
+        </button>
+    </span>
+    <hr>
+    </div>
 </div>
 <div class="row">
 
-    <!--<div class="col-lg-4">-->
+    <!--<div class="col-lg-5">-->
     <!--<table class="table table-bordered">-->
     <!--<tr>-->
     <!--<td>Transactions Result</td>-->
@@ -19,140 +28,123 @@
     <!--</table>-->
     <!--</div>-->
 
-    <div class="col-lg-12">
-        <div>
-            <span style="font-weight: bold; font-size:24px">List of Test Steps</span>
-    <span class="pull-right">
-        <button type="button" ng-click="resetTestCase()" title="Restart" class="btn btn-sm btn-warning">
-            <i class="fa fa-times"></i>
-            Reset
-        </button>
-    </span>
+    <div class="col-lg-10">
+        <div ng-click="testStepListCollapsed = !testStepListCollapsed">
+                <i class="fa fa-chevron-down" ng-show="!testStepListCollapsed"></i>
+                <i class="fa fa-chevron-right" ng-show="testStepListCollapsed"></i>
+                <span style="font-size:24px">List of Test Steps</span>
         </div>
-        <table st-table="testCase.children" class="table table-striped table-bordered">
+        <hr>
+        <div collapse="testStepListCollapsed">
+        <table class="table table-striped table-bordered">
             <thead>
             <tr class="tbl-header">
-                <th></th>
+                <th>Type</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Transaction Status</th>
+                <th>Execution Status</th>
                 <th>Validation Result</th>
-                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-class="{'warning': testStep != null && row.id === testStep.id}" ng-repeat="row in testCase.children" st-select-row="row" st-select-mode="single">
+            <tr ng-class="{'warning': testStep != null && row.id === testStep.id}" ng-repeat="row in testCase.children | orderBy:'position'">
                 <td>
-                    <i ng-show="testStep != null && row.id === testStep.id" class="fa fa-arrow-right"></i>
+                    <!--<i ng-show="testStep != null && row.id === testStep.id" class="fa fa-arrow-right"></i>-->
+
+                    <span ng-show="row.connectionType === 'TA_MANUAL' || row.connectionType === 'SUT_MANUAL'">
+                       <i class="fa fa-check-square-o"></i>
+                    </span>
+
+                    <span ng-show="row.connectionType === 'TA_INITIATOR'">
+                        <i class="fa fa-arrow-right"></i>
+                    </span>
+
+                    <span ng-show="row.connectionType === 'SUT_INITIATOR'">
+                        <i class="fa fa-arrow-left"></i>
+                    </span>
+                    <span ng-show="row.connectionType === 'TA_RESPONDER'">
+                        <i class="fa fa-arrow-right"></i>
+                    </span>
+                    <span ng-show="row.connectionType === 'SUT_RESPONDER'">
+                       <i class="fa fa-arrow-left"></i>
+                    </span>
                 </td>
                 <td>
                     <input ng-show="isTestCaseCompleted()" type="radio" ng-click="selectTestStep(row)" ng-checked="testStep != null && row.id === testStep.id">
                     {{row.position}}. {{row.name}}
                 </td>
+
+
                 <td ng-bind-html="row.description"></td>
                 <td>
 
-                    <span ng-show="row.type !== 'TA_MANUAL' && row.type !== 'SUT_MANUAL'">
-                    <span ng-show="!getTransactionStatus(row)">Not started</span>
+                    <span>
+                    <span ng-show="!getExecutionStatus(row)">Not started</span>
+                          <span ng-show="getExecutionStatus(row) == 'IN_PROGRESS'">
+                                       <i title="In Progress" class="glyphicon glyphicon-ok"></i>
+                             </span>
 
-
-                            <span ng-show="getTransactionStatus(row) === 'IN_PROGRESS'">
-                                  <a class="btn btn-default" href="#">
-                                      <i title="In Progress" class="glyphicon glyphicon-ok"></i>
-                                  </a>
-                            </span>
-
-                            <span ng-show="getTransactionStatus(row) === 'COMPLETE'">
-                                <a class="btn btn-success" href="#">
-                                    <i title="Complete" class="glyphicon glyphicon-ok"></i>
-                                </a>
-                            </span>
+                            <span ng-show="getExecutionStatus(row) == 'COMPLETE'">
+                                     <i title="Complete" class="glyphicon glyphicon-ok green"></i>
+                             </span>
                         </span>
-                    <span ng-show="row.type === 'TA_MANUAL' && row.type === 'SUT_MANUAL'">
-                        N/A
-                    </span>
+
+
+
                 </td>
                 <td>
-                    <span ng-show="row.type !== 'TA_MANUAL' && row.type !== 'SUT_MANUAL'">
+                    <span ng-show="row.connectionType != 'TA_MANUAL' && row.connectionType != 'SUT_MANUAL'">
                     <span ng-show="getValidationStatus(row) < 0">Not started</span>
                     <span ng-show="getValidationStatus(row) > 0">
-                         <a class="btn btn-danger">
-                             <i title="Message is Invalid" class="glyphicon glyphicon-remove"></i>
-                         </a>
-                         </span>
+                              <i title="Message is Invalid" class="glyphicon glyphicon-remove red"></i>
+                          </span>
 
-                            <span ng-show="getValidationStatus(row) === 0">
-                                 <a class="btn btn-success" href="#">
-                                     <i title="Message Is Valid" class="glyphicon glyphicon-ok"></i>
-                                 </a>
-                            </span>
+                            <span ng-show="getValidationStatus(row) == 0">
+                                      <i title="Message Is Valid" class="glyphicon glyphicon-ok green"></i>
+                             </span>
                         </span>
-                     <span ng-show="row.type === 'TA_MANUAL' && row.type === 'SUT_MANUAL'">
+                     <span ng-show="row.connectionType == 'TA_MANUAL' || row.connectionType == 'SUT_MANUAL'">
                         N/A
                     </span>
                 </td>
-                <td>
-                    <button type="button" ng-click="executeNextTestStep(row)" style="margin-bottom: 20px" ng-show="testStep != null && testStep === row && !isTestCaseCompleted() && !isLastStep(row)" title="Execute Next Step" class="btn btn-xs btn-success">
-                        <i class="fa fa-arrow-down"></i>
-                        Next
-                    </button>
-                </td>
+
             </tr>
             </tbody>
         </table>
-    </div>
+
+          <br>
+         <div ng-show="testStep !== null" class="pull-right">
+                             <button type="button" ng-click="executeNextTestStep(testStep)" style="margin-bottom: 10px" ng-show="!isTestCaseCompleted() && isTestStepCompleted(testStep)" title="Execute Next Step" class="btn btn-sm btn-success">
+                                <span ng-show="isLastStep(testStep)"><i class="fa fa-check"></i> Complete Test Case</span>
+                                <span ng-show="!isLastStep(testStep)"><i class="fa fa-arrow-right"></i> Next</span>
+                            </button>
+
+                </div>
+            </div>
+</div>
 </div>
 
 <div ng-show="testStep !== null">
-<!--<div class="page-header">-->
-<!--<h4>Test Step: {{testStep.name}}</h4>-->
-<!--</div>-->
-<!--<button title="Receive Inbound Message" type="button" class="btn btn-xs btn-primary"-->
-<!--ng-show="testStep.connectionType === 'SUT_INITIATOR'"-->
-<!--ng-click="openReceiverConfig()">-->
-<!--<i class="fa fa fa-arrow-left"></i> Receive-->
-<!--</button>-->
-
-<!--<button title="Confirm Action Taken" type="button" class="btn btn-xs btn-primary"-->
-<!--ng-show="testStep.connectionType === 'SUT_MANUAL'"-->
-<!--ng-click="confirmManualStep()">-->
-<!--<i class="fa fa fa-arrow-left"></i> Confirm-->
-<!--</button>-->
-<!---->
-<!---->
-<!--<span class="pull-rght">-->
-<!--<button type="button" ng-click="viewTestCaseResult()" ng-show="isTestCaseCompleted()"-->
-<!--title="Send" class="btn btn-sm btn-success">-->
-<!--<i class="fa fa-check"></i>-->
-<!--Finish-->
-<!--</button>-->
-<!--</span>-->
-
-<!--<div class="row">-->
-<!--<div class="col-lg-12">-->
-<!--<div class="pull-right">-->
-
-<!--&lt;!&ndash;<button type="button" ng-click="executePreviousTestStep(testStep)"&ndash;&gt;-->
-<!--&lt;!&ndash;ng-show="!isTestCaseCompleted() && (testStep.connectionType !== 'SUT_INITIATOR' && testStep.connectionType !== 'TA_INITIATOR')"&ndash;&gt;
--->
-<!--&lt;!&ndash;title="Execute Previous Step" class="btn btn-sm btn-success">&ndash;&gt;-->
-<!--&lt;!&ndash;<i class="fa fa-arrow-left"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;Back&ndash;&gt;-->
-<!--&lt;!&ndash;</button>&ndash;&gt;-->
-
-<!--&lt;!&ndash;<button type="button" ng-click="executeNextTestStep(testStep)"&ndash;&gt;-->
-<!--&lt;!&ndash;ng-show="isTestCaseCompleted()"&ndash;&gt;-->
-<!--&lt;!&ndash;title="View Result" class="btn btn-sm btn-success">&ndash;&gt;-->
-<!--&lt;!&ndash;<i class="fa fa-arrow-right"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;Complete&ndash;&gt;-->
-<!--&lt;!&ndash;</button>&ndash;&gt;-->
-
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
+<div class="page-header">
+    <h4>Test Step: {{testStep.name}}</h4>
+</div>
 
 
-<div ng-show="testStep.connectionType === 'TA_INITIATOR'">
+
+<div class="row" ng-show="error != null" style="padding-top: 10px;padding-bottom:10px">
+    <div class="col-lg-10">
+        <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+    </div>
+</div>
+
+<div class="row" ng-show="warning != null" style="padding-top: 10px;padding-bottom:10px">
+    <div class="col-lg-10">
+        <div class="alert alert-warning" role="alert" ng-bind="warning"></div>
+    </div>
+</div>
+
+
+<div ng-show="testStep.connectionType === 'TA_INITIATOR'" ng-show="!isTestCaseCompleted()">
     <button type="button" class="btn btn-sm btn-primary" ng-click="configCollapsed = !configCollapsed"><i class="fa fa-cog"></i> Configure
     </button>
     <button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting" title="Send" class="btn btn-sm btn-success">
@@ -160,14 +152,8 @@
         Send <span ng-show="connecting"><i ng-show="connecting" class="fa fa-spinner"></i> Remaining: {{counter}}s </span>
     </button>
 
-    <div class="row" ng-show="error != null" style="padding-top: 10px;padding-bottom:10px">
-        <div class="col-lg-12">
-            <div class="alert alert-danger" role="alert" ng-bind="error"></div>
-        </div>
-    </div>
-
     <div class="row" collapse="configCollapsed">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <fieldset>
                 <legend>Please provide receiver's system information</legend>
                 <!--<div class="page-header">-->
@@ -203,7 +189,7 @@
 
             </fieldset>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <fieldset>
                 <legend>Console</legend>
                 <textarea class="well" wrap="off" style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%" rows="13" disabled="disabled" ng-model="logger.content"></textarea>
@@ -213,7 +199,7 @@
 </div>
 
 
-<div ng-show="testStep.connectionType === 'SUT_INITIATOR'">
+<div ng-show="testStep.connectionType === 'SUT_INITIATOR'" ng-show="!isTestCaseCompleted()">
     <button type="button" class="btn btn-sm btn-primary" ng-click="configCollapsed = !configCollapsed"><i class="fa fa-cog"></i>Receiver Information
     </button>
 
@@ -242,12 +228,12 @@
     <!--</button>-->
 
     <div class="row" ng-show="error != null" style="padding-top: 10px;padding-bottom:10px">
-        <div class="col-lg-12">
+        <div class="col-lg-10">
             <div class="alert alert-danger" role="alert" ng-bind="error"></div>
         </div>
     </div>
     <div class="row" collapse="configCollapsed">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <fieldset>
                 <legend>System Information</legend>
                 <form name="senderForm" novalidate="">
@@ -300,7 +286,7 @@
 
             </fieldset>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <fieldset>
                 <legend>Console</legend>
                 <textarea class="well" wrap="off" style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%" rows="13" disabled="disabled" ng-model="logger.content"></textarea>
@@ -309,27 +295,29 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-10">
 
         </div>
     </div>
 </div>
 
 <div class="row" ng-show="testStep.connectionType === 'TA_MANUAL' || testStep.connectionType === 'SUT_MANUAL'">
-    <div class="col-lg-12" style="padding-top: 20px">
+    <div class="col-lg-10" style="padding-top: 20px">
         <div class="panel panel-info">
             <!-- Default panel contents -->
             <div class="panel-heading">
                 Manual Step
             </div>
             <div class="panel-body">
-                <div ng-bind="testStep.description">
+                <div ng-bind="testStep.description"></div>
+                <br>
             </div>
         </div>
+
     </div>
 </div>
 
-<div class="row" ng-show="testStep.connectionType !== 'TA_MANUAL' && testStep.connectionType !== 'SUT_MANUAL'">
+<div class="row" ng-show="testStep.connectionType === 'TA_INITIATOR' || testStep.connectionType === 'SUT_INITIATOR' || testStep.connectionType === 'TA_RESPONDER' || testStep.connectionType === 'SUT_RESPONDER'">
     <div class="col-lg-12" style="padding-top: 20px">
         <!--<div ng-show="connecting || testStep.executionStatus === 'IN_PROGRESS'">-->
         <!--<i title="In progress"-->

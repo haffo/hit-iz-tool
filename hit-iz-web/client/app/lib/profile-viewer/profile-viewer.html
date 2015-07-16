@@ -1,18 +1,26 @@
-<div ng-show="profile != null">
-        <div class="row" style="margin-bottom: 20px;">
-            <a ng-click="relevance = true" class="btn btn-cf-outline"
-               ng-class="{'active': relevance}"
-               role="button">R,RE,C
-                (only)</a>
-            <a ng-click="relevance = false" class="btn btn-cf-outline"
-               ng-class="{'active': !relevance}"
-               role="button">R,RE,C,O,X (All)</a>
-            <a ng-click="trim = true" class="btn btn-cf-outline"
-               ng-class="{'active': trim}"
-               role="button">Concise View</a>
-            <a ng-click="trim = false" class="btn btn-cf-outline"
-               ng-class="{'active': !trim}"
-               role="button">Expanded View</a>
+<div ng-show="loading" style="text-align:center">
+    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+</div>
+<div ng-show="!loading">
+    <div ng-show="error !== null">
+        <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+    </div>
+    <div ng-show="error === null">
+        <div ng-show="profile != null">
+            <div class="row" style="margin-bottom: 20px;">
+                <a ng-click="relevance = true" class="btn btn-cf-outline"
+                   ng-class="{'active': relevance}"
+                   role="button">R,RE,C
+                    (only)</a>
+                <a ng-click="relevance = false" class="btn btn-cf-outline"
+                   ng-class="{'active': !relevance}"
+                   role="button">R,RE,C,O,X (All)</a>
+                <a ng-click="trim = true" class="btn btn-cf-outline"
+                   ng-class="{'active': trim}"
+                   role="button">Concise View</a>
+                <a ng-click="trim = false" class="btn btn-cf-outline"
+                   ng-class="{'active': !trim}"
+                   role="button">Expanded View</a>
 
                      <span style="margin-left:10px">
                          <img
@@ -44,35 +52,37 @@
                                  style="width:15px; height:15px"
                                  ng-src="images/subcomponent.png">Subcomponent
                     </span>
-        </div>
-        <div class="row">
-            <ul class="nav nav-tabs">
-                <li ng-show="show(element)"
-                    ng-repeat="element in elements"
-                    ng-class="{'active':nodeData != null && nodeData.name === element.name}"><a
-                        ng-click="getNodeContent(element)">{{element.name}}</a></li>
-            </ul>
-        </div>
-        <div class="row" style="margin-top: 20px">
-            <table tt-table tt-params="params" class="table table-striped table-bordered">
-                <thead class="tbl-header">
-                <tr>
-                    <th class="col-fixed-450">Name</th>
-                    <th class="col-fixed-80">Usage</th>
-                    <th class="col-fixed-80" ng-hide="nodeData.type === 'DATATYPE'">Cardinality</th>
-                    <th class="col-fixed-80" ng-show="nodeData.type === 'MESSAGE'">Ref</th>
-                    <th class="col-fixed-100" ng-hide="nodeData.type === 'MESSAGE'">Datatype</th>
-                    <th class="col-fixed-80" ng-hide="nodeData.type === 'MESSAGE'">Length</th>
-                    <th class="col-fixed-150" ng-hide="nodeData.type === 'MESSAGE'">ValueSet</th>
-                    <th>Predicate</th>
-                    <th>Conformance Statement</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+            </div>
+            <div class="row">
+                <ul class="nav nav-tabs">
+                    <li ng-show="show(element)"
+                        ng-repeat="element in elements"
+                        ng-class="{'active':nodeData != null && nodeData.name === element.name}"><a
+                            ng-click="getNodeContent(element)">{{element.name}}</a></li>
+                </ul>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <table tt-table tt-params="params" class="table table-striped table-bordered">
+                    <thead class="tbl-header">
+                    <tr>
+                        <th class="col-fixed-450">Name</th>
+                        <th class="col-fixed-80">Usage</th>
+                        <th class="col-fixed-80" ng-hide="nodeData.type === 'DATATYPE'">Cardinality</th>
+                        <th class="col-fixed-80" ng-show="nodeData.type === 'MESSAGE'">Ref</th>
+                        <th class="col-fixed-100" ng-hide="nodeData.type === 'MESSAGE'">Datatype</th>
+                        <th class="col-fixed-80" ng-hide="nodeData.type === 'MESSAGE'">Length</th>
+                        <th class="col-fixed-150" ng-hide="nodeData.type === 'MESSAGE'">ValueSet</th>
+                        <th>Predicate</th>
+                        <th>Conformance Statement</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
 
+        </div>
     </div>
+</div>
 
 <script type="text/ng-template" id="ProfileViewerNode.html">
     <tr ng-show="show(node)" tt-node
@@ -162,4 +172,3 @@
 </script>
 
 
-</div>
