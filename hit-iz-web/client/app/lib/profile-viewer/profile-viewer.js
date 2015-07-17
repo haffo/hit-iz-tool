@@ -110,6 +110,10 @@
                 getTemplate: function (node) {
                     return 'ProfileViewerNode.html';
                 }
+//                ,
+//                options: {
+//                    initialState: 'expanded'
+//                }
             });
 
             $scope.getNodeContent = function (selectedNode) {

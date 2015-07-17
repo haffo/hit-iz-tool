@@ -14,6 +14,7 @@ package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.AppInfo;
 import gov.nist.hit.core.repo.AppInfoRepository;
+import gov.nist.hit.iz.web.utils.Utils;
 
 import java.util.List;
 
@@ -37,17 +38,12 @@ public class AppInfoController {
     List<AppInfo> infos = appInfoRepository.findAll();
     if (infos != null && !infos.isEmpty()) {
       AppInfo appInfo = infos.get(0);
-      appInfo.setUrl(getUrl(request));
+      appInfo.setUrl(Utils.getUrl(request));
       return appInfo;
     }
     return new AppInfo();
   }
 
-  private String getUrl(HttpServletRequest request) {
-    String scheme = request.getScheme();
-    String host = request.getHeader("Host");
-    return scheme + "://" + host + "/iztool";
-  }
 
 
   @Autowired

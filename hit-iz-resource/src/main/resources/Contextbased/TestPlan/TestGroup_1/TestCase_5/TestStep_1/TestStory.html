@@ -2,37 +2,39 @@
 <html>
 <head>
 <style type="text/css" media="print,screen">
-	maskByMediaType {
+
+<style type=\"text/css\" media=\"print,screen\">"
+	.testStory maskByMediaType {
 		display: table;
 	}
-	table tbody tr th {
+	.testStory table tbody tr th {
 		font-size: 70%
 	}
-	table tbody tr td {
+	.testStory table tbody tr td {
 		font-size: 70%;
 	}
-	table tbody tr th {
+	.testStory table tbody tr th {
 		text-align: left;
 		background: #C6DEFF
 	}
-	table thead tr th {
+	.testStory table thead tr th {
 		text-align: center;
 		font-size: 70%;
 	}
-	table thead tr th:first-child {
+	.testStory table thead tr th:first-child {
 		width: 15%;
 	}
-	table thead tr th:nth-child(2) {
+	.testStory table thead tr th:nth-child(2) {
 		width: 35%;
 	}
-	table thead tr th:nth-child(3) {
+	.testStory table thead tr th:nth-child(3) {
 		width: 35%;
 	}
-	table thead tr th:last-child {
+	.testStory table thead tr th:last-child {
 		width: 10%;
 	}
 
-	table {
+	.testStory table {
 		width: 98%;
 		border: 1px groove;
 		table-layout: fixed;
@@ -40,40 +42,40 @@
 		border-collapse: collapse;
 		page-break-inside: avoid;
 	}
-	table tr {
+	.testStory table tr {
 		border: 3px groove;
 	}
-	table th {
+	.testStory table th {
 		border: 2px groove;
 	}
-	table td {
+	.testStory table td {
 		border: 2px groove;
 	}
-	table thead {
+	.testStory table thead {
 		border: 1px groove;
 		background: #446BEC;
 		text-align: left;
 	}
-	table tbody tr td {
+	.testStory table tbody tr td {
 		text-align: left
 	}
-	.embSpace {
+	.testStory .embSpace {
 		padding-left: 10px;
 	}
-	.embSubSpace {
+	.testStory .embSubSpace {
 		padding-left: 20px;
 	}
-	.childField {
+	.testStory .childField {
 		background: #B8B8B8;
 	}
 }
 </style>
 </head>
 <body>
-	<h1>Test Story</h1>
-	
-	<p>Description</p>
-	<table>
+	<div class="testStory">
+	<fieldset>
+		<legend>Description</legend>
+		<table>
 		<thead>
 			<tr>
 				<th colspan="1" style="height: 20px" />
@@ -85,10 +87,13 @@
 			</tr>
 		</tbody>
 	</table>
+	</fieldset>
+
 	<br />
 	
-	<p>Comments</p>
-	<table>
+	<fieldset>
+		<legend>Comments</legend>
+		<table>
 		<thead>
 			<tr>
 				<th colspan="1" style="height: 20px" />
@@ -100,10 +105,13 @@
 			</tr>
 		</tbody>
 	</table>
+	</fieldset>
+
 	<br />
 	
-	<p>PreCondition</p>
-	<table>
+	<fieldset>
+		<legend>PreCondition</legend>
+		<table>
 		<thead>
 			<tr>
 				<th colspan="1" style="height: 20px" />
@@ -115,10 +123,13 @@
 			</tr>
 		</tbody>
 	</table>
+	</fieldset>
+
 	<br />
 	
-	<p>PostCondition</p>
-	<table>
+	<fieldset>
+		<legend>PostCondition</legend>
+		<table>
 		<thead>
 			<tr>
 				<th colspan="1" style="height: 20px" />
@@ -130,10 +141,13 @@
 			</tr>
 		</tbody>
 	</table>
+	</fieldset>
+
 	<br />
 	
-	<p>Test Objectives</p>
-	<table>
+	<fieldset>
+		<legend>Test Objectives</legend>
+		<table>
 		<thead>
 			<tr>
 				<th colspan="1" style="height: 20px" />
@@ -145,10 +159,13 @@
 			</tr>
 		</tbody>
 	</table>
+	</fieldset>
+
 	<br />
 	
-	<p>Evaluation Criteria</p>
-	<table>
+	<fieldset>
+		<legend>Evaluation Criteria</legend>
+		<table>
 		<thead>
 			<tr>
 				<th colspan="1" style="height: 20px" />
@@ -160,10 +177,13 @@
 			</tr>
 		</tbody>
 	</table>
+	</fieldset>
+
 	<br />
 	
-	<p>Notes to Testers</p>
-	<table>
+	<fieldset>
+		<legend>Notes to Testers</legend>
+		<table>
 		<thead>
 			<tr>
 				<th colspan="1" style="height: 20px" />
@@ -175,5 +195,9 @@
 			</tr>
 		</tbody>
 	</table>
+	</fieldset>
+
+	<br />
+	</div>
 </body>
 </html>

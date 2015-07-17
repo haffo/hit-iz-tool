@@ -1,4 +1,0 @@
-{
-    "outgoing": "<env:Envelope xmlns:env=\"http://www.w3.org/2003/05/soap-envelope\"><env:Header/><env:Body><ns2:submitSingleMessage xmlns:ns2=\"urn:cdc:iisb:2011\"><username>user-name</username><password>pass-word</password><facilityID>facility-id</facilityID><hl7Message>MSH||||||||||||</hl7Message></ns2:submitSingleMessage></env:Body></env:Envelope>",
-    "incoming": "<env:Envelope xmlns:env=\"http://www.w3.org/2003/05/soap-envelope\"><env:Header/><env:Body><ns2:submitSingleMessageResponse xmlns:ns2=\"urn:cdc:iisb:2011\"><ns2:return>MSH|^~|&amp;|IISSUT|IISSUT|NISTEHR||&lt;date/timeMSG&gt;||ACK^V04^ACK|&lt;msgControlID&gt;|P|2.5.1|||NE</ns2:return></ns2:submitSingleMessageResponse></env:Body></env:Envelope>"
-}

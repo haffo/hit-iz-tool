@@ -17,6 +17,8 @@ import gov.nist.hit.core.domain.IntegrationProfile;
 import gov.nist.hit.core.service.exception.ProfileException;
 import gov.nist.hit.iz.service.exception.MessageContentNotFoundException;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author Harold Affo(NIST)
  * 
@@ -35,6 +37,12 @@ public class Utils {
       throw new MessageContentNotFoundException("No soap content found in the request");
     }
     return request.getContent();
+  }
+
+  public static String getUrl(HttpServletRequest request) {
+    String scheme = request.getScheme();
+    String host = request.getHeader("Host");
+    return scheme + "://" + host + "/iztool";
   }
 
 }

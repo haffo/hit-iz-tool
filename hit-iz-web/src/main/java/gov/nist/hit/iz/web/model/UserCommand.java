@@ -23,6 +23,7 @@ public class UserCommand {
   protected String facilityID;
   protected String faultUsername;
   protected String faultPassword;
+  protected String endpoint;
 
   public UserCommand() {
     super();
@@ -30,13 +31,14 @@ public class UserCommand {
   }
 
   public UserCommand(String username, String password, String faultUsername, String faultPassword,
-      String facilityID) {
+      String facilityID, String endpoint) {
     super();
     this.username = username;
     this.password = password;
     this.faultUsername = faultUsername;
     this.faultPassword = faultPassword;
     this.facilityID = facilityID;
+    this.endpoint = endpoint;
   }
 
   public String getPassword() {
@@ -86,5 +88,15 @@ public class UserCommand {
   public void setFacilityID(String facilityID) {
     this.facilityID = facilityID;
   }
+
+  public String getEndpoint() {
+    return endpoint;
+  }
+
+  public void setEndpoint(String endpoint) {
+    this.endpoint = endpoint;
+  }
+
+
 
 }

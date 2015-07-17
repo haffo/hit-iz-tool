@@ -1,0 +1,6 @@
+{
+  "name" : "Display the Evaluated Immunization History",
+  "description" : "The Provider uses the EMR to view the immunization history sin Juana Mariana Gonzales' record in the local system.",
+  "type" : "SUT_MANUAL",
+  "position" : 1
+}

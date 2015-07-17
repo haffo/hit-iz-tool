@@ -23,38 +23,38 @@
         .controller('TestCaseViewerCtrl', ['$scope', '$rootScope', '$sce', function ($scope, $rootScope, $sce) {
 
             $scope.testStory = null;
-            $scope.messageContent = null;
+//            $scope.messageContent = null;
 
 
             $rootScope.$on($scope.type + ':testCaseSelected', function (event, testCase) {
                 $scope.testCase = testCase;
                 $scope.testStory = null;
-                $scope.messageContent = null;
+//                $scope.messageContent = null;
 
                 if ($scope.testCase.testStory && $scope.testCase.testStory != null &&$scope.testCase.testStory.json) {
                     $scope.testStory = angular.fromJson($scope.testCase.testStory.json);
                 }
-                if ($scope.testCase.messageContent && $scope.testCase.messageContent.json) {
-                    $scope.messageContent = angular.fromJson($scope.testCase.messageContent.json);
-                    angular.forEach($scope.messageContent.MessageContent.Segment, function (segment) {
-                        segment.children = [];
-                        if (segment.Field && segment.Field.length > 0) {
-                            angular.forEach(segment.Field, function (field) {
-                                segment.children.push(getItem(field, "field"));
-                                if (field.Component && field.Component.length > 0) {
-                                    angular.forEach(field.Component, function (component) {
-                                        segment.children.push(getItem(component, "component"));
-                                        if (component.SubComponent && component.SubComponent.length > 0) {
-                                            angular.forEach(component.SubComponent, function (subComponent) {
-                                                segment.children.push(getItem(subComponent, "subComponent"));
-                                            });
-                                        }
-                                    });
-                                }
-                            });
-                        }
-                    });
-                }
+//                if ($scope.testCase.messageContent && $scope.testCase.messageContent.json) {
+//                    $scope.messageContent = angular.fromJson($scope.testCase.messageContent.json);
+//                    angular.forEach($scope.messageContent.MessageContent.Segment, function (segment) {
+//                        segment.children = [];
+//                        if (segment.Field && segment.Field.length > 0) {
+//                            angular.forEach(segment.Field, function (field) {
+//                                segment.children.push(getItem(field, "field"));
+//                                if (field.Component && field.Component.length > 0) {
+//                                    angular.forEach(field.Component, function (component) {
+//                                        segment.children.push(getItem(component, "component"));
+//                                        if (component.SubComponent && component.SubComponent.length > 0) {
+//                                            angular.forEach(component.SubComponent, function (subComponent) {
+//                                                segment.children.push(getItem(subComponent, "subComponent"));
+//                                            });
+//                                        }
+//                                    });
+//                                }
+//                            });
+//                        }
+//                    });
+//                }
                 if ($scope.testCase.testDataSpecification && $scope.testCase.testDataSpecification.json) {
                     //$scope.testDataSpecification = angular.fromJson($scope.testCase.testDataSpecification.json);
                 }

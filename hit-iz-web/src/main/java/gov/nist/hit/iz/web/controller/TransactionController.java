@@ -22,8 +22,11 @@ import gov.nist.hit.core.transport.TransportClient;
 import gov.nist.hit.iz.domain.SecurityFaultCredentials;
 import gov.nist.hit.iz.repo.SecurityFaultCredentialsRepository;
 import gov.nist.hit.iz.web.model.UserCommand;
+import gov.nist.hit.iz.web.utils.Utils;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -116,7 +119,7 @@ public class TransactionController extends TestingController {
 
   @Transactional()
   @RequestMapping(value = "/initUser", method = RequestMethod.POST)
-  public UserCommand info(@RequestBody final User userCommand) {
+  public UserCommand info(@RequestBody final User userCommand, HttpServletRequest request) {
     logger.info("Fetching user information ... ");
     // User user = null;
     // Long id = userCommand.getId();
@@ -185,7 +188,7 @@ public class TransactionController extends TestingController {
     transactionRepository.saveAndFlush(transaction);
     return new UserCommand(user.getUsername(), user.getPassword(),
         faultCredentials.getFaultUsername(), faultCredentials.getFaultPassword(),
-        user.getFacilityID());
+        user.getFacilityID(), Utils.getUrl(request) + "/ws/iisService");
   }
 
 }

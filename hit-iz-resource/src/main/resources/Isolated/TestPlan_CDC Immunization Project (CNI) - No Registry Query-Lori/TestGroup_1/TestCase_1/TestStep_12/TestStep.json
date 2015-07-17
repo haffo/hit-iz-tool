@@ -1,0 +1,6 @@
+{
+  "name" : "Enter Rotavirus Dose1 and 2 of 3",
+  "description" : "Patient History  for Rotavirus is entered into the EMR.",
+  "type" : "SUT_MANUAL",
+  "position" : 12
+}

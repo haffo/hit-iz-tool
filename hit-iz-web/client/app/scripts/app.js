@@ -113,6 +113,13 @@ app.factory('503Interceptor', function ($injector, $q, $rootScope) {
 app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q) {
     $rootScope.appInfo = {};
 
+    new AppInfo().then(function(appInfo){
+        $rootScope.appInfo = appInfo;
+    }, function(error){
+        $rootScope.appInfo = {};
+    });
+
+
     $rootScope.$watch(function () {
         return $location.path();
     }, function (newLocation, oldLocation) {
@@ -180,7 +187,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q) {
     };
 
     $rootScope.tabs = new Array();
-    $rootScope.initAppInfo();
+
 
 });
 

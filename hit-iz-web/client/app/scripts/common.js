@@ -641,6 +641,7 @@ angular.module('commonServices').factory('TransactionUser', function (Endpoint, 
                 self.senderFacilityID = user.facilityID;
                 self.receiverUsername = null;
                 self.receiverPassword = null;
+                self.endpoint = new Endpoint(user.endpoint);
                 self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
                 delay.resolve(true);
             },

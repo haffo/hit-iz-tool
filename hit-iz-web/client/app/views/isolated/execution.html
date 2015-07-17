@@ -58,19 +58,14 @@
                        <i class="fa fa-check-square-o"></i>
                     </span>
 
-                    <span ng-show="row.connectionType === 'TA_INITIATOR'">
+                    <span ng-show="row.connectionType === 'TA_INITIATOR' || row.connectionType === 'SUT_INITIATOR'">
                         <i class="fa fa-arrow-right"></i>
                     </span>
 
-                    <span ng-show="row.connectionType === 'SUT_INITIATOR'">
+                    <span ng-show="row.connectionType === 'TA_RESPONDER' || row.connectionType === 'SUT_RESPONDER'">
                         <i class="fa fa-arrow-left"></i>
                     </span>
-                    <span ng-show="row.connectionType === 'TA_RESPONDER'">
-                        <i class="fa fa-arrow-right"></i>
-                    </span>
-                    <span ng-show="row.connectionType === 'SUT_RESPONDER'">
-                       <i class="fa fa-arrow-left"></i>
-                    </span>
+
                 </td>
                 <td>
                     <input ng-show="isTestCaseCompleted()" type="radio"
@@ -150,7 +145,7 @@
 
 <div class="row" ng-show="warning != null" style="padding-top: 10px;padding-bottom:10px">
     <div class="col-lg-10">
-        <div class="alert alert-warning" role="alert" ng-bind="warning"></div>
+        <div class="alert alert-warning" role="alert" ng-bind-html="warning"></div>
     </div>
 </div>
 
@@ -290,26 +285,24 @@
                     </div>
 
                     <div class="form-group"
-                         ng-class="{'has-error' : senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine }">
+                            >
                         <label>Endpoint</label>
-                        <input type="url" name="endpoint" class="form-control" ng-model="endpoint.value"
-                               placeholder="SUT Endpoint" required disabled>
-
-                        <p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">
-                            Sorry, an
-                            error occured. Please refresh your page</p>
+                        <!--<input type="url" name="endpoint" class="form-control" ng-model="endpoint.value"-->
+                        <!--placeholder="SUT Endpoint" required disabled>-->
+                        <span name="endpoint" class="form-control">{{endpoint.value}}</span>
+                        <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">-->
+                        <!--Sorry, an-->
+                        <!--error occured. Please refresh your page</p>-->
                     </div>
 
                     <div class="form-group"
-                         ng-class="{'has-error' : senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine }">
-                        <label>System WSDL</label>
+                            >
+                        <label>WSDL</label>
                         <a ng-href="{{endpoint.value}}.wsdl" class="form-control" target="_blank">{{endpoint.value}}.wsdl</a>
-
-                        <p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">
-                            Sorry, an
-                            error occured. Please refresh your page</p>
+                        <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">-->
+                        <!--Sorry, an-->
+                        <!--error occured. Please refresh your page</p>-->
                     </div>
-
 
                 </form>
                 <!--<button title="Send Outgoing Message" type="button" class="btn btn-xs btn-primary"-->
@@ -379,12 +372,12 @@
                     <div ng-include="'views/isolated/report.html'"></div>
                 </tab>
 
-                <tab select="setActiveTab(2)" active="tabs[2]">
-                    <tab-heading>
-                        <i class="fa fa-check-circle"></i>Test Data
-                    </tab-heading>
-                    <div ng-include="'views/isolated/data.html'"></div>
-                </tab>
+                <!--<tab select="setActiveTab(2)" active="tabs[2]">-->
+                    <!--<tab-heading>-->
+                        <!--<i class="fa fa-check-circle"></i>Test Data-->
+                    <!--</tab-heading>-->
+                    <!--<div ng-include="'views/isolated/data.html'"></div>-->
+                <!--</tab>-->
 
                 <tab>
                     <tab-heading>

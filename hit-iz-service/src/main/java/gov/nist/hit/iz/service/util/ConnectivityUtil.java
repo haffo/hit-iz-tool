@@ -118,27 +118,7 @@ public class ConnectivityUtil {
     Node hl7MessageNode =
         findNode(
             doc,
-            "//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessage']/*[local-name()='hl7Message']");
-    if (hl7MessageNode != null) {
-      return hl7MessageNode.getTextContent();
-    }
-    return null;
-  }
-
-
-  public static String getHl7Message(String soapEnvelope) throws Exception {
-    if (soapEnvelope == null)
-      throw new Exception("No message found.");
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    Document doc =
-        builder.parse(new InputSource(new ByteArrayInputStream(soapEnvelope.getBytes("utf-8"))));
-
-    Node hl7MessageNode =
-        findNode(
-            doc,
-            "//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessage']/*[local-name()='hl7Message']");
+            "//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessageResponse']/*[local-name()='return']");
     if (hl7MessageNode != null) {
       return hl7MessageNode.getTextContent();
     }

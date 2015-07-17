@@ -179,8 +179,8 @@ angular.module('isolated')
         $scope.logger = IsolatedSystem.logger;
         $scope.connecting = false;
         $scope.error = null;
-        $scope.endpoint = IsolatedSystem.serverEndpoint;
         $scope.user = IsolatedSystem.user;
+        $scope.endpoint = null;
         $scope.hidePwd = true;
         $scope.sent = null;
         $scope.received = null;
@@ -267,6 +267,7 @@ angular.module('isolated')
 //                        testStep.testContext.message.content = null;
                         testStep['executionMessage'] = null;
                     }
+                    $rootScope.$broadcast('isolated:clearEditor');
                 }
                 $scope.selectTestStep(testStep);
             }
@@ -304,16 +305,8 @@ angular.module('isolated')
             $scope.error = null;
             $scope.loading = false;
             $scope.setActiveTab(0);
-
-            if($rootScope.appInfo == null){
-                $rootScope.initAppInfo().then(function(response){
-                    $scope.endpoint =  new Endpoint($rootScope.appInfo.url + '/ws/iisService');
-                });
-            }else{
-                $scope.endpoint = new Endpoint($rootScope.appInfo.url + '/ws/iisService');
-            }
-
             $scope.user.init().then(function (response) {
+                $scope.endpoint =  $scope.user.endpoint;
             }, function (error) {
                 $scope.error = error;
             });
@@ -453,6 +446,7 @@ angular.module('isolated')
             $scope.counter = 0;
             $scope.connecting = true;
             $scope.error = null;
+            $scope.warning = null;
             var received = '';
             var sent = '';
             $scope.log("Configuring connection. Please wait...");
@@ -477,7 +471,7 @@ angular.module('isolated')
                                         $scope.testStep['executionMessage'] = receivedMessage;
                                         $rootScope.$broadcast('isolated:loadMessage', receivedMessage);
                                     } catch (error) {
-                                        $scope.error = "Invalid SOAP Envelope Received. Please see log file for more details.";
+                                        $scope.error = "Invalid SOAP Envelope Received. Please see console for more details.";
                                         $scope.logger.log("Inbound SOAP Envelope is Invalid");
                                     }
                                 }
@@ -493,7 +487,7 @@ angular.module('isolated')
                                         $scope.testStep['executionStatus'] = 'COMPLETE';
                                         $rootScope.$broadcast('isolated:nextStep', sentMessage);
                                     } catch (error) {
-                                        $scope.error = "Invalid SOAP Envelope Sent. Please see log file for more details.";
+                                        $scope.error = "Invalid SOAP Envelope Sent. Please see console for more details.";
                                         $scope.logger.log("Outbound SOAP Envelope is Invalid");
                                         $scope.logger.log("Transaction completed");
                                     }
@@ -503,8 +497,9 @@ angular.module('isolated')
                                 }
                             } else {
                                 if (incoming == null || incoming == '') {
-                                    $scope.warning = "We did not receive any incoming message after 30s.\n Possible cause (1): You are using wrong credentials. Please check the credentials in the message against those created for your system.\n  Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.\n" +
-                                        "Possible cause (3):The HTTP header field Content-Type  may not be set correctly for use with SOAP 1.2.   SOAP 1.2 requires application/soap+xml, and SOAP 1.2 requires text/xml.  The NIST Tool follows SOAP 1.2, which is required by section 2 of the 'CDC Transport Layer Protocol Recommendation V1.1' (http://www.cdc.gov/vaccines/programs/iis/technical-guidance/SOAP/downloads/transport-specification.pdf)";
+                                    $scope.warning ="We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound SOAP Envelope against those created for your system.</p>  <p>Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.</p>"+
+                                        "<p>Possible cause (3):The HTTP header field Content-Type  may not be set correctly for use with SOAP 1.2.   SOAP 1.2 requires application/soap+xml, and SOAP 1.2 requires text/xml.  The NIST Tool follows SOAP 1.2, which is required by section 2 of the 'CDC Transport Layer Protocol Recommendation V1.1' (http://www.cdc.gov/vaccines/programs/iis/technical-guidance/SOAP/downloads/transport-specification.pdf)</p>";
+
                                     $scope.log("We did not receive any incoming message after 30s");
                                 } else if (outbound == null || outbound == '') {
                                     $scope.log("We were unable to send the response after 30s");
@@ -942,7 +937,6 @@ angular.module('isolated')
                 $scope.editor.doc.setValue('');
                 $scope.execute();
             }
-
         };
 
         $scope.saveMessage = function () {
@@ -1012,6 +1006,11 @@ angular.module('isolated')
 
             $scope.$on('isolated:refreshEditor', function (event) {
                 $scope.refreshEditor();
+                event.preventDefault();
+            });
+
+            $scope.$on('isolated:clearEditor', function (event) {
+                $scope.clearMessage();
                 event.preventDefault();
             });
 

@@ -9,20 +9,17 @@
                 <tab-heading>
                     <i class="fa fa-th-list"></i>Test Selection
                 </tab-heading>
-
                 <div ng-include="'views/isolated/testcase.html'"></div>
             </tab>
             <tab disabled="disabled()" select="setTestActiveTab(1)" active="tabs[1]">
                 <tab-heading>
-                    <i class="fa fa-check-circle"></i>Test Execution
+                    <i class="fa fa-exchange"></i>Test Execution
                 </tab-heading>
-
                 <div ng-include="'views/isolated/execution.html'"></div>
             </tab>
         </tabset>
     </div>
 </div>
-
 
 <script type="text/ng-template" id="IsolatedSystemTestCase.html">
     <tr tt-node
@@ -35,10 +32,8 @@
                ng-click="selectTestCase(node)">
                 <i ng-show="node.connectionType === 'TA_MANUAL' || node.connectionType === 'SUT_MANUAL'"
                    class="fa fa-check-square-o"></i>
-                <i ng-show="node.connectionType === 'TA_INITIATOR'" class="fa fa-arrow-right"></i>
-                <i ng-show="node.connectionType === 'SUT_INITIATOR'" class="fa fa-arrow-left"></i>
-                <i ng-show="node.connectionType === 'TA_RESPONDER'" class="fa fa-arrow-right"></i>
-                <i ng-show="node.connectionType === 'SUT_RESPONDER'" class="fa fa-arrow-left"></i>
+                <i ng-show="node.connectionType === 'TA_INITIATOR' || node.connectionType === 'SUT_INITIATOR'" class="fa fa-arrow-right"></i>
+                 <i ng-show="node.connectionType === 'TA_RESPONDER' || node.connectionType === 'SUT_RESPONDER'" class="fa fa-arrow-left"></i>
                 {{node.position}}. {{node.name}}</a>
             <span ng-show="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.name}}</span>
         </td>
