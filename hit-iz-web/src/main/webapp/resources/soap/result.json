@@ -1,0 +1,31 @@
+{
+    "errors" : [ {
+        "description" : "HL7-WSA100: HL7 WS Messages MUST use the WS-Addressing framework for SOAP-based messaging",
+        "column" : -1,
+        "line" : 2,
+        "path" : "/S:Envelope[1]",
+        "failureSeverity" : "NORMAL",
+        "elementContent" : null,
+        "assertionDeclaration" : null,
+        "userComment" : null,
+        "assertionResult" : null,
+        "failureType" : "SOAP"
+    }, {
+        "description" : "HL7-WSP100: The top-level element of the HL7 message MUST be embedded as the only child of the soap:Body element. The name of the top-level element (the one directly under the soap:Body element) MUST be {Interaction Artifact Id}. See HL7 V3 TRANS WS R2 section 3.2.1 The value Fault provided is not valid. Valid values are : PRPA_IN201301UV02, PRPA_IN201302UV02, PRPA_IN201304UV02, PRPA_IN201305UV02, PRPA_IN201306UV02, PRPA_IN201309UV02, PRPA_IN201310UV02, QUQI_IN000003UV01, QUQI_IN000003UV01_Cancel or MCCI_IN000002UV01",
+        "column" : -1,
+        "line" : 4,
+        "path" : "/S:Envelope[1]/S:Body[1]/S:Fault[1]",
+        "failureSeverity" : "NORMAL",
+        "elementContent" : null,
+        "assertionDeclaration" : null,
+        "userComment" : null,
+        "assertionResult" : null,
+        "failureType" : "SOAP"
+    } ],
+    "alerts" : [ ],
+    "warnings" : [ ],
+    "affirmatives" : [ ],
+    "ignores" : [ ],
+    "xml" : "<HL7V3MessageValidationReport xmlns=\"http://www.nist.gov/healthcare/validation/message/hl7/v3/report\" xmlns:mes=\"http://www.nist.gov/healthcare/validation/message\" xmlns:con=\"http://www.nist.gov/healthcare/validation/message/hl7/v3/context\">\n  <HeaderReport>\n    <mes:ValidationStatus>Complete</mes:ValidationStatus>\n    <mes:ServiceName>NIST SOAP Message Validation</mes:ServiceName>\n    <mes:ServiceProvider>NIST SOAP Validation tool</mes:ServiceProvider>\n    <mes:ServiceVersion>1.0</mes:ServiceVersion>\n    <mes:StandardType>HL7 V3</mes:StandardType>\n    <mes:ValidationType>Automated</mes:ValidationType>\n    <mes:DateOfTest>2014-10-03-04:00</mes:DateOfTest>\n    <mes:TimeOfTest>15:53:27.239-04:00</mes:TimeOfTest>\n    <mes:TestObjectReferenceList>\n      <mes:TestObjectReference Type=\"Filename\"/>\n    </mes:TestObjectReferenceList>\n    <mes:PositiveAssertionIndicator>true</mes:PositiveAssertionIndicator>\n    <mes:AffirmCount>0</mes:AffirmCount>\n    <mes:ErrorCount>2</mes:ErrorCount>\n    <mes:WarningCount>0</mes:WarningCount>\n    <mes:IgnoreCount>0</mes:IgnoreCount>\n    <mes:AlertCount>0</mes:AlertCount>\n    <mes:TestObject><![CDATA[<S:Envelope xmlns:S=\"http://www.w3.org/2003/05/soap-envelope\">\n  <S:Body>\n    <S:Fault xmlns:ns4=\"http://schemas.xmlsoap.org/soap/envelope/\">\n      <S:Code>\n        <S:Value>S:Receiver</S:Value>\n      </S:Code>\n      <S:Reason>\n        <S:Text xml:lang=\"en\">Security Message Here</S:Text>\n      </S:Reason>\n      <S:Detail>\n        <SecurityFault:SecurityFault xmlns:SecurityFault=\"urn:cdc:iisb:2011\" xmlns=\"urn:cdc:iisb:2011\">\n          <Code>10</Code>\n          <Reason xsi:type=\"xs:string\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>\n          <Detail>Invalid Username or Password</Detail>\n        </SecurityFault:SecurityFault>\n      </S:Detail>\n    </S:Fault>\n  </S:Body>\n</S:Envelope>]]></mes:TestObject>\n  </HeaderReport>\n  <SpecificReport>\n    <MetaData>\n      <Message Filename=\"\"/>\n      <Context>\n        <con:FailureInterpretation>\n          <con:MessageFailure Type=\"HUMAN_CHECK\" Result=\"WARNING\"/>\n          <con:MessageFailure Type=\"MESSAGE_VALIDATION_CONTEXT\" Result=\"ALERT\"/>\n          <con:MessageFailure Type=\"DATA\" Result=\"ERROR\"/>\n          <con:MessageFailure Type=\"STRUCTURE\" Result=\"ERROR\"/>\n          <con:MessageFailure Type=\"SOAP\" Result=\"ERROR\"/>\n          <con:MessageFailure Type=\"WSA\" Result=\"ERROR\"/>\n          <con:MessageFailure Type=\"HTTP\" Result=\"ERROR\"/>\n          <con:MessageFailure Type=\"DATA_PASSED\" Result=\"IGNORE\"/>\n        </con:FailureInterpretation>\n      </Context>\n    </MetaData>\n    <AssertionList>\n      <Assertion Type=\"SOAP\" Result=\"ERROR\" Severity=\"NORMAL\">\n        <Location>\n          <XPath>/S:Envelope[1]</XPath>\n        </Location>\n        <Description>HL7-WSA100: HL7 WS Messages MUST use the WS-Addressing framework for SOAP-based messaging</Description>\n      </Assertion>\n      <Assertion Type=\"SOAP\" Result=\"ERROR\" Severity=\"NORMAL\">\n        <Location>\n          <XPath>/S:Envelope[1]/S:Body[1]/S:Fault[1]</XPath>\n        </Location>\n        <Description>HL7-WSP100: The top-level element of the HL7 message MUST be embedded as the only child of the soap:Body element. The name of the top-level element (the one directly under the soap:Body element) MUST be {Interaction Artifact Id}. See HL7 V3 TRANS WS R2 section 3.2.1 The value Fault provided is not valid. Valid values are : PRPA_IN201301UV02, PRPA_IN201302UV02, PRPA_IN201304UV02, PRPA_IN201305UV02, PRPA_IN201306UV02, PRPA_IN201309UV02, PRPA_IN201310UV02, QUQI_IN000003UV01, QUQI_IN000003UV01_Cancel or MCCI_IN000002UV01</Description>\n      </Assertion>\n    </AssertionList>\n  </SpecificReport>\n</HL7V3MessageValidationReport>",
+    "html" : null
+}

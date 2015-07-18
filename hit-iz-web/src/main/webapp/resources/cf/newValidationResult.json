@@ -1,0 +1,985 @@
+{
+    "Report": [
+        {
+            "Entry": {
+                "path": "",
+                "description": "'' is not a valid segment definition",
+                "line": "1",
+                "column": "1",
+                "category": "Invalid Content",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "",
+                "description": "'asasa' is not a valid segment definition",
+                "line": "2",
+                "column": "1",
+                "category": "Invalid Content",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "",
+                "description": "'ORC!' is not a valid segment definition",
+                "line": "7",
+                "column": "1",
+                "category": "Invalid Content",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PDQ",
+                "description": "Segment PDQ is not expected at this location",
+                "line": "14",
+                "column": "1",
+                "category": "Unexpected",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-13",
+                "description": "The primitive Field OBR-13 (Relevant Clinical Information) contains at least one unescaped delimiter",
+                "line": "8",
+                "column": "262",
+                "category": "Unescaped Separator",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-1",
+                "description": "The length of Field ORC-1 (Order Control) must be within the range [2, 2]. Value = '1'",
+                "line": "6",
+                "column": "5",
+                "category": "Length",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-1",
+                "description": "Field PID-1 (Set ID - PID) must be in the cardinality range of [0, 1]; 2 occurrences found",
+                "line": "5",
+                "column": "11",
+                "category": "Cardinality",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-1",
+                "description": "Field PID-1 (Set ID - PID) must be in the cardinality range of [0, 1]; 3 occurrences found",
+                "line": "5",
+                "column": "13",
+                "category": "Cardinality",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-1",
+                "description": "Field PID-1 (Set ID - PID) must be in the cardinality range of [0, 1]; 4 occurrences found",
+                "line": "5",
+                "column": "15",
+                "category": "Cardinality",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-1",
+                "description": "Field PID-1 (Set ID - PID) must be in the cardinality range of [0, 1]; 5 occurrences found",
+                "line": "5",
+                "column": "17",
+                "category": "Cardinality",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-1",
+                "description": "Field PID-1 (Set ID - PID) must be in the cardinality range of [0, 1]; 6 occurrences found",
+                "line": "5",
+                "column": "20",
+                "category": "Cardinality",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-1",
+                "description": "The length of Field PID-1 (Set ID - PID) must be within the range [1, 4]. Value = '11111'",
+                "line": "5",
+                "column": "5",
+                "category": "Length",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "SFT",
+                "description": "The Segment SFT (Software Segment) is present whereas it is a withdrawn element (Usage = W)",
+                "line": "4",
+                "column": "1",
+                "category": "Usage",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-9",
+                "description": "The required Field MSH-9 (Message Type) is missing",
+                "line": "3",
+                "column": "1",
+                "category": "Usage",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-7",
+                "description": "20110531140551-2400 is not a valid DateTime. The format should be: YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ]",
+                "line": "3",
+                "column": "124",
+                "category": "Format",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-3",
+                "description": "Field MSH-3 (Sending Application) has extra children",
+                "line": "3",
+                "column": "11",
+                "category": "Extra",
+                "classification": "Warning"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-3.1",
+                "description": "The required Component MSH-3.1 (Namespace ID) is missing. The element is required based on the condition predicate evaluation: ## If HD.2 is valued 'XX'",
+                "line": "3",
+                "column": "11",
+                "category": "Predicate",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-3.1",
+                "description": "The required Component MSH-3.1 (Namespace ID) is missing. The element is required based on the condition predicate evaluation: # If HD.2 is valued 'XX'",
+                "line": "3",
+                "column": "11",
+                "category": "Predicate",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-3",
+                "description": "Presence - Presence",
+                "line": "3",
+                "column": "11",
+                "details": "\t[Failed] MSH-3.1[1] SHALL be present\n\t\tReason: [3, 11] MSH-3.1[1] is missing",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-3",
+                "description": "AND - AND",
+                "line": "3",
+                "column": "11",
+                "details": "\t[Failed] MSH-3.1[1] SHALL be present AND MSH-3.2[2] SHALL be present\n\t\t[Failed] MSH-3.1[1] SHALL be present\n\t\t\tReason: [3, 11] MSH-3.1[1] is missing",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-3",
+                "description": "OR - OR",
+                "line": "3",
+                "column": "11",
+                "details": "\t[Failed] MSH-3.1[1] SHALL be present OR MSH-3.2[2] SHALL be present\n\t\t[Failed] MSH-3.1[1] SHALL be present\n\t\t\tReason: [3, 11] MSH-3.1[1] is missing\n\t\t\t[Failed] MSH-3.2[2] SHALL be present\n\t\t\t\tReason: [3, 11] MSH-3.2[2] is missing",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-4.1",
+                "description": "The Component MSH-4.1 (Namespace ID) is present whereas it is an unsupported element (Usage = X). The element is not supported based on the condition predicate evaluation: # If HD.2 is valued 'XX'",
+                "line": "3",
+                "column": "23",
+                "category": "Predicate",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-4",
+                "description": "PlainText - Plain Text",
+                "line": "3",
+                "column": "23",
+                "details": "\t[Failed] MSH-4.1[1] SHALL be equal to 'XX' (case insensitive)\n\t\tReason: [3, 23] 'NIST Lab Facility' is different from 'XX' (case insensitive)",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-4",
+                "description": "Format - Format",
+                "line": "3",
+                "column": "23",
+                "details": "\t[Failed] MSH-4.1[1] SHALL match 'XX' regular expression\n\t\tReason: [3, 23] 'NIST Lab Facility' doesn't match 'XX'",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-4",
+                "description": "NumberList - Number List",
+                "line": "3",
+                "column": "23",
+                "details": "\t[Failed] MSH-4.1[1] SHALL be one of {1.0, 2.0, 3.0}\n\t\tReason: [3, 23] Text(NIST Lab Facility) cannot be treated as a number",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-4",
+                "description": "String List - String List",
+                "line": "3",
+                "column": "23",
+                "details": "\t[Failed] MSH-4.1[1] SHALL be one of {1, 2}\n\t\tReason: [3, 23] 'NIST Lab Facility' is not in the list { '1', '2' }",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-4",
+                "description": "AND - AND",
+                "line": "3",
+                "column": "23",
+                "details": "\t[Failed] MSH-4.1[1] SHALL be present AND MSH-4.2[2] SHALL be present\n\t\t[Failed] MSH-4.2[2] SHALL be present\n\t\t\tReason: [3, 23] MSH-4.2[2] is missing",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-4",
+                "description": "NOT - NOT",
+                "line": "3",
+                "column": "23",
+                "details": "\t[Failed] MSH-4.1[1] SHALL not be present\n\t\tReason: [3, 23] The inner expression is true",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-6.1",
+                "description": "The Component MSH-6.1 (Namespace ID) is present whereas it is an unsupported element (Usage = X). The element is not supported based on the condition predicate evaluation: # If HD.2 is valued 'XX'",
+                "line": "3",
+                "column": "74",
+                "category": "Predicate",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-6",
+                "description": "PlainText - Plain Text",
+                "line": "3",
+                "column": "74",
+                "details": "\t[Failed] MSH-6.1[1] SHALL be equal to 'XX' (case insensitive)\n\t\tReason: [3, 74] 'NIST EHR Facility' is different from 'XX' (case insensitive)",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-6",
+                "description": "Format - Format",
+                "line": "3",
+                "column": "74",
+                "details": "\t[Failed] MSH-6.1[1] SHALL match 'XX' regular expression\n\t\tReason: [3, 74] 'NIST EHR Facility' doesn't match 'XX'",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-6",
+                "description": "NumberList - Number List",
+                "line": "3",
+                "column": "74",
+                "details": "\t[Failed] MSH-6.1[1] SHALL be one of {1.0, 2.0, 3.0}\n\t\tReason: [3, 74] Text(NIST EHR Facility) cannot be treated as a number",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-6",
+                "description": "String List - String List",
+                "line": "3",
+                "column": "74",
+                "details": "\t[Failed] MSH-6.1[1] SHALL be one of {1, 2}\n\t\tReason: [3, 74] 'NIST EHR Facility' is not in the list { '1', '2' }",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-6",
+                "description": "AND - AND",
+                "line": "3",
+                "column": "74",
+                "details": "\t[Failed] MSH-6.1[1] SHALL be present AND MSH-6.2[2] SHALL be present\n\t\t[Failed] MSH-6.2[2] SHALL be present\n\t\t\tReason: [3, 74] MSH-6.2[2] is missing",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "MSH-6",
+                "description": "NOT - NOT",
+                "line": "3",
+                "column": "74",
+                "details": "\t[Failed] MSH-6.1[1] SHALL not be present\n\t\tReason: [3, 74] The inner expression is true",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-3.4.1",
+                "description": "The Sub-Component PID-3.4.1 (Namespace ID) is present whereas it is an unsupported element (Usage = X). The element is not supported based on the condition predicate evaluation: # If HD.2 is valued 'XX'",
+                "line": "5",
+                "column": "35",
+                "category": "Predicate",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-3.4",
+                "description": "PlainText - Plain Text",
+                "line": "5",
+                "column": "35",
+                "details": "\t[Failed] PID-3.4.1[1] SHALL be equal to 'XX' (case insensitive)\n\t\tReason: [5, 35] 'NIST MPI' is different from 'XX' (case insensitive)",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-3.4",
+                "description": "Format - Format",
+                "line": "5",
+                "column": "35",
+                "details": "\t[Failed] PID-3.4.1[1] SHALL match 'XX' regular expression\n\t\tReason: [5, 35] 'NIST MPI' doesn't match 'XX'",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-3.4",
+                "description": "NumberList - Number List",
+                "line": "5",
+                "column": "35",
+                "details": "\t[Failed] PID-3.4.1[1] SHALL be one of {1.0, 2.0, 3.0}\n\t\tReason: [5, 35] Text(NIST MPI) cannot be treated as a number",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-3.4",
+                "description": "String List - String List",
+                "line": "5",
+                "column": "35",
+                "details": "\t[Failed] PID-3.4.1[1] SHALL be one of {1, 2}\n\t\tReason: [5, 35] 'NIST MPI' is not in the list { '1', '2' }",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-3.4",
+                "description": "AND - AND",
+                "line": "5",
+                "column": "35",
+                "details": "\t[Failed] PID-3.4.1[1] SHALL be present AND PID-3.4.2[2] SHALL be present\n\t\t[Failed] PID-3.4.2[2] SHALL be present\n\t\t\tReason: [5, 35] PID-3.4.2[2] is missing",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-3.4",
+                "description": "NOT - NOT",
+                "line": "5",
+                "column": "35",
+                "details": "\t[Failed] PID-3.4.1[1] SHALL not be present\n\t\tReason: [5, 35] The inner expression is true",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-12.9.1",
+                "description": "The Sub-Component ORC-12.9.1 (Namespace ID) is present whereas it is an unsupported element (Usage = X). The element is not supported based on the condition predicate evaluation: # If HD.2 is valued 'XX'",
+                "line": "6",
+                "column": "205",
+                "category": "Predicate",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-12.9",
+                "description": "PlainText - Plain Text",
+                "line": "6",
+                "column": "205",
+                "details": "\t[Failed] ORC-12.9.1[1] SHALL be equal to 'XX' (case insensitive)\n\t\tReason: [6, 205] 'NIST-AA-1' is different from 'XX' (case insensitive)",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-12.9",
+                "description": "Format - Format",
+                "line": "6",
+                "column": "205",
+                "details": "\t[Failed] ORC-12.9.1[1] SHALL match 'XX' regular expression\n\t\tReason: [6, 205] 'NIST-AA-1' doesn't match 'XX'",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-12.9",
+                "description": "NumberList - Number List",
+                "line": "6",
+                "column": "205",
+                "details": "\t[Failed] ORC-12.9.1[1] SHALL be one of {1.0, 2.0, 3.0}\n\t\tReason: [6, 205] Text(NIST-AA-1) cannot be treated as a number",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-12.9",
+                "description": "String List - String List",
+                "line": "6",
+                "column": "205",
+                "details": "\t[Failed] ORC-12.9.1[1] SHALL be one of {1, 2}\n\t\tReason: [6, 205] 'NIST-AA-1' is not in the list { '1', '2' }",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-12.9",
+                "description": "AND - AND",
+                "line": "6",
+                "column": "205",
+                "details": "\t[Failed] ORC-12.9.1[1] SHALL be present AND ORC-12.9.2[2] SHALL be present\n\t\t[Failed] ORC-12.9.2[2] SHALL be present\n\t\t\tReason: [6, 205] ORC-12.9.2[2] is missing",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-12.9",
+                "description": "NOT - NOT",
+                "line": "6",
+                "column": "205",
+                "details": "\t[Failed] ORC-12.9.1[1] SHALL not be present\n\t\tReason: [6, 205] The inner expression is true",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-16.9.1",
+                "description": "The Sub-Component OBR-16.9.1 (Namespace ID) is present whereas it is an unsupported element (Usage = X). The element is not supported based on the condition predicate evaluation: # If HD.2 is valued 'XX'",
+                "line": "8",
+                "column": "394",
+                "category": "Predicate",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-16.9",
+                "description": "PlainText - Plain Text",
+                "line": "8",
+                "column": "394",
+                "details": "\t[Failed] OBR-16.9.1[1] SHALL be equal to 'XX' (case insensitive)\n\t\tReason: [8, 394] 'NIST-AA-1' is different from 'XX' (case insensitive)",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-16.9",
+                "description": "Format - Format",
+                "line": "8",
+                "column": "394",
+                "details": "\t[Failed] OBR-16.9.1[1] SHALL match 'XX' regular expression\n\t\tReason: [8, 394] 'NIST-AA-1' doesn't match 'XX'",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-16.9",
+                "description": "NumberList - Number List",
+                "line": "8",
+                "column": "394",
+                "details": "\t[Failed] OBR-16.9.1[1] SHALL be one of {1.0, 2.0, 3.0}\n\t\tReason: [8, 394] Text(NIST-AA-1) cannot be treated as a number",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-16.9",
+                "description": "String List - String List",
+                "line": "8",
+                "column": "394",
+                "details": "\t[Failed] OBR-16.9.1[1] SHALL be one of {1, 2}\n\t\tReason: [8, 394] 'NIST-AA-1' is not in the list { '1', '2' }",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-16.9",
+                "description": "AND - AND",
+                "line": "8",
+                "column": "394",
+                "details": "\t[Failed] OBR-16.9.1[1] SHALL be present AND OBR-16.9.2[2] SHALL be present\n\t\t[Failed] OBR-16.9.2[2] SHALL be present\n\t\t\tReason: [8, 394] OBR-16.9.2[2] is missing",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-16.9",
+                "description": "NOT - NOT",
+                "line": "8",
+                "column": "394",
+                "details": "\t[Failed] OBR-16.9.1[1] SHALL not be present\n\t\tReason: [8, 394] The inner expression is true",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-28.9.1",
+                "description": "The Sub-Component OBR-28.9.1 (Namespace ID) is present whereas it is an unsupported element (Usage = X). The element is not supported based on the condition predicate evaluation: # If HD.2 is valued 'XX'",
+                "line": "8",
+                "column": "510",
+                "category": "Predicate",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-28.9",
+                "description": "PlainText - Plain Text",
+                "line": "8",
+                "column": "510",
+                "details": "\t[Failed] OBR-28.9.1[1] SHALL be equal to 'XX' (case insensitive)\n\t\tReason: [8, 510] 'NIST-AA-1' is different from 'XX' (case insensitive)",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-28.9",
+                "description": "Format - Format",
+                "line": "8",
+                "column": "510",
+                "details": "\t[Failed] OBR-28.9.1[1] SHALL match 'XX' regular expression\n\t\tReason: [8, 510] 'NIST-AA-1' doesn't match 'XX'",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-28.9",
+                "description": "NumberList - Number List",
+                "line": "8",
+                "column": "510",
+                "details": "\t[Failed] OBR-28.9.1[1] SHALL be one of {1.0, 2.0, 3.0}\n\t\tReason: [8, 510] Text(NIST-AA-1) cannot be treated as a number",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-28.9",
+                "description": "String List - String List",
+                "line": "8",
+                "column": "510",
+                "details": "\t[Failed] OBR-28.9.1[1] SHALL be one of {1, 2}\n\t\tReason: [8, 510] 'NIST-AA-1' is not in the list { '1', '2' }",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-28.9",
+                "description": "AND - AND",
+                "line": "8",
+                "column": "510",
+                "details": "\t[Failed] OBR-28.9.1[1] SHALL be present AND OBR-28.9.2[2] SHALL be present\n\t\t[Failed] OBR-28.9.2[2] SHALL be present\n\t\t\tReason: [8, 510] OBR-28.9.2[2] is missing",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-28.9",
+                "description": "NOT - NOT",
+                "line": "8",
+                "column": "510",
+                "details": "\t[Failed] OBR-28.9.1[1] SHALL not be present\n\t\tReason: [8, 510] The inner expression is true",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-23.6.1",
+                "description": "The Sub-Component OBX-23.6.1 (Namespace ID) is present whereas it is an unsupported element (Usage = X). The element is not supported based on the condition predicate evaluation: # If HD.2 is valued 'XX'",
+                "line": "13",
+                "column": "214",
+                "category": "Predicate",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-23.6",
+                "description": "PlainText - Plain Text",
+                "line": "13",
+                "column": "214",
+                "details": "\t[Failed] OBX-23.6.1[1] SHALL be equal to 'XX' (case insensitive)\n\t\tReason: [13, 214] 'NIST-AA-1' is different from 'XX' (case insensitive)",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-23.6",
+                "description": "Format - Format",
+                "line": "13",
+                "column": "214",
+                "details": "\t[Failed] OBX-23.6.1[1] SHALL match 'XX' regular expression\n\t\tReason: [13, 214] 'NIST-AA-1' doesn't match 'XX'",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-23.6",
+                "description": "NumberList - Number List",
+                "line": "13",
+                "column": "214",
+                "details": "\t[Failed] OBX-23.6.1[1] SHALL be one of {1.0, 2.0, 3.0}\n\t\tReason: [13, 214] Text(NIST-AA-1) cannot be treated as a number",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-23.6",
+                "description": "String List - String List",
+                "line": "13",
+                "column": "214",
+                "details": "\t[Failed] OBX-23.6.1[1] SHALL be one of {1, 2}\n\t\tReason: [13, 214] 'NIST-AA-1' is not in the list { '1', '2' }",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-23.6",
+                "description": "AND - AND",
+                "line": "13",
+                "column": "214",
+                "details": "\t[Failed] OBX-23.6.1[1] SHALL be present AND OBX-23.6.2[2] SHALL be present\n\t\t[Failed] OBX-23.6.2[2] SHALL be present\n\t\t\tReason: [13, 214] OBX-23.6.2[2] is missing",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-23.6",
+                "description": "NOT - NOT",
+                "line": "13",
+                "column": "214",
+                "details": "\t[Failed] OBX-23.6.1[1] SHALL not be present\n\t\tReason: [13, 214] The inner expression is true",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-25.9.1",
+                "description": "The Sub-Component OBX-25.9.1 (Namespace ID) is present whereas it is an unsupported element (Usage = X). The element is not supported based on the condition predicate evaluation: # If HD.2 is valued 'XX'",
+                "line": "13",
+                "column": "353",
+                "category": "Predicate",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-25.9",
+                "description": "PlainText - Plain Text",
+                "line": "13",
+                "column": "353",
+                "details": "\t[Failed] OBX-25.9.1[1] SHALL be equal to 'XX' (case insensitive)\n\t\tReason: [13, 353] 'NIST-AA-1' is different from 'XX' (case insensitive)",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-25.9",
+                "description": "Format - Format",
+                "line": "13",
+                "column": "353",
+                "details": "\t[Failed] OBX-25.9.1[1] SHALL match 'XX' regular expression\n\t\tReason: [13, 353] 'NIST-AA-1' doesn't match 'XX'",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-25.9",
+                "description": "NumberList - Number List",
+                "line": "13",
+                "column": "353",
+                "details": "\t[Failed] OBX-25.9.1[1] SHALL be one of {1.0, 2.0, 3.0}\n\t\tReason: [13, 353] Text(NIST-AA-1) cannot be treated as a number",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-25.9",
+                "description": "String List - String List",
+                "line": "13",
+                "column": "353",
+                "details": "\t[Failed] OBX-25.9.1[1] SHALL be one of {1, 2}\n\t\tReason: [13, 353] 'NIST-AA-1' is not in the list { '1', '2' }",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-25.9",
+                "description": "AND - AND",
+                "line": "13",
+                "column": "353",
+                "details": "\t[Failed] OBX-25.9.1[1] SHALL be present AND OBX-25.9.2[2] SHALL be present\n\t\t[Failed] OBX-25.9.2[2] SHALL be present\n\t\t\tReason: [13, 353] OBX-25.9.2[2] is missing",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-25.9",
+                "description": "NOT - NOT",
+                "line": "13",
+                "column": "353",
+                "details": "\t[Failed] OBX-25.9.1[1] SHALL not be present\n\t\tReason: [13, 353] The inner expression is true",
+                "category": "Conformance Statement",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-6.3",
+                "description": "The value set 0396 has been excluded from the validation",
+                "line": "13",
+                "column": "125",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-3.3",
+                "description": "The value set 0396 has been excluded from the validation",
+                "line": "13",
+                "column": "43",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-3",
+                "description": "The binding location is missing",
+                "line": "13",
+                "column": "10",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-3.3",
+                "description": "Invalid Code System. Expected: 'CodeSys', Found: 'xx'",
+                "line": "13",
+                "column": "43",
+                "category": "Coded Element",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-3",
+                "description": "At least one triplet should be valued from the value set 'VS1'",
+                "line": "13",
+                "column": "10",
+                "category": "Coded Element",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-3",
+                "description": "One of the triplet (but not both) should be valued from the value set 'VS1'",
+                "line": "13",
+                "column": "10",
+                "category": "Coded Element",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBX-3",
+                "description": "Both triplets should be valued from the value set 'VS1'",
+                "line": "13",
+                "column": "10",
+                "category": "Coded Element",
+                "classification": "Informational"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-49.3",
+                "description": "The value set 0396 has been excluded from the validation",
+                "line": "8",
+                "column": "597",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-4.3",
+                "description": "The value set 0396 has been excluded from the validation",
+                "line": "8",
+                "column": "154",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "OBR-1",
+                "description": "The value set EmptyVS is empty",
+                "line": "8",
+                "column": "5",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "ORC-1",
+                "description": "Multiple occurrences of the code '1' found.",
+                "line": "6",
+                "column": "5",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-10.3",
+                "description": "The value set 0396 has been excluded from the validation",
+                "line": "5",
+                "column": "131",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-1",
+                "description": "The value '4' at location Field PID-1 (Set ID - PID) is not member of the value set VS1",
+                "line": "5",
+                "column": "20",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-1",
+                "description": "The value '3' at location Field PID-1 (Set ID - PID) is a permitted (P) code; Value Set: VS1",
+                "line": "5",
+                "column": "13",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-1",
+                "description": "The value '2' at location Field PID-1 (Set ID - PID) is an excluded (E) code; Value Set: VS1",
+                "line": "5",
+                "column": "11",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        },
+        {
+            "Entry": {
+                "path": "PID-1",
+                "description": "The value '11111' at location Field PID-1 (Set ID - PID) is not member of the value set VS1",
+                "line": "5",
+                "column": "5",
+                "category": "Value Set",
+                "classification": "Error"
+            }
+        }
+    ]
+}

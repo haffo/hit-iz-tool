@@ -1,0 +1,433 @@
+<div ng-show="validationResult !== null">
+<tabset>
+<tab active="validationTabs[0]">
+    <tab-heading>
+        <input type="checkbox"
+               ng-model="failuresConfig.errors.checked"
+               ng-click="showFailures('errors', $event)"
+                >
+        <span class="badge failure failure-errors" ng-bind="validationResult.errors.categories[0].data.length"></span>
+        Errors
+    </tab-heading>
+    <div class="">
+        <tabset>
+            <tab ng-repeat="category in validationResult.errors.categories" class="categortyTab">
+                <tab-heading>
+                    <span class="badge failure failure-errors" ng-bind="category.data.length"></span> {{category.title}}
+                </tab-heading>
+                <div class="container-validation-table">
+                    <table st-table="category.data"
+                           class="table table-striped table-bordered ng-table-text">
+                        <thead>
+                        <tr class="tbl-header">
+                            <th st-sort="path">Path</th>
+                            <th>Description</th>
+                            <th st-sort="line">Line</th>
+                            <th st-sort="column">Column</th>
+                            <!--<th st-sort="failureType">Type</th>-->
+                            <th>Details</th>
+                        </tr>
+                        <!--<tr>-->
+                        <!--<th colspan="6">-->
+                        <!--<input st-search placeholder="global search" class="input-sm form-control" type="search"/>-->
+                        <!--</th>-->
+                        <!--</tr>-->
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="row in category.data">
+                            <td>
+                                <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                <span ng-show="row.path == null">N/A</span>
+                            </td>
+                            <td ng-bind-html="row.description"></td>
+                            <td>
+                                <span ng-show="row.line" ng-bind="row.line"></span>
+                                <span ng-show="row.line == null">N/A</span>
+                            </td>
+                            <td>
+                                <span ng-show="row.column" ng-bind="row.column"></span>
+                                <span ng-show="row.column == null">N/A</span>
+                            </td>
+                            <!--<td ng-bind="row.failureType"></td>-->
+                            <td>
+                                <a ng-show="row.stackTrace !== null || row.metaData != null"
+                                   class="point" ng-click="showDetails(row)">Details</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <!--<tfoot>-->
+                        <!--<tr>-->
+                        <!--<td colspan="6" class="text-center">-->
+                        <!--<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+                        <!--</tfoot>-->
+
+                    </table>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+    <!--<div ng-show="validationResult.errors === null" class="emptyResult">-->
+    <!--No Validation Performed.-->
+    <!--</div>-->
+</tab>
+
+
+<tab>
+    <tab-heading>
+        <input type="checkbox"
+               ng-model="failuresConfig.warnings.checked"
+               ng-click="showFailures('warnings', $event)"
+                >
+        <span class="badge failure failure-warnings"
+              ng-bind="validationResult.warnings.categories[0].data.length"></span> Warnings
+    </tab-heading>
+    <div class="">
+        <tabset>
+            <tab ng-repeat="category in validationResult.warnings.categories" class="categortyTab">
+                <tab-heading>
+
+                    <span class="badge failure failure-warnings" ng-bind="category.data.length"></span>
+                    {{category.title}}
+                </tab-heading>
+                <div class="container-validation-table">
+                    <table st-table="category.data"
+                           class="table table-striped table-bordered ng-table-text">
+                        <thead>
+                        <tr class="tbl-header">
+                            <th st-sort="path">Path</th>
+                            <th>Description</th>
+                            <th st-sort="line">Line</th>
+                            <th st-sort="column">Column</th>
+                            <!--<th st-sort="failureType">Type</th>-->
+                            <th>Details</th>
+                        </tr>
+                        <!--<tr>-->
+                        <!--<th colspan="6">-->
+                        <!--<input st-search placeholder="global search" class="input-sm form-control" type="search"/>-->
+                        <!--</th>-->
+                        <!--</tr>-->
+                        </thead>
+                        <tbody>
+                        <tbody class="resultTable">
+                        <tr ng-repeat="row in category.data">
+                            <td>
+                                <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                <span ng-show="row.path == null">N/A</span>
+                            </td>
+                            <td ng-bind-html="row.description"></td>
+                            <td>
+                                <span ng-show="row.line" ng-bind="row.line"></span>
+                                <span ng-show="row.line == null">N/A</span>
+                            </td>
+                            <td>
+                                <span ng-show="row.column" ng-bind="row.column"></span>
+                                <span ng-show="row.column == null">N/A</span>
+                            </td>
+                            <!--<td ng-bind="row.failureType"></td>-->
+                            <td>
+                                <a ng-show="row.stackTrace !== null || row.metaData != null"
+                                   class="point" ng-click="showDetails(row)">Details</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <!--<tfoot>-->
+                        <!--<tr>-->
+                        <!--<td colspan="6" class="text-center">-->
+                        <!--<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+                        <!--</tfoot>-->
+
+                    </table>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+    <!--<div ng-hide="validationResult.errors.data.length != 0" class="emptyResult">-->
+    <!--No Error found-->
+    <!--</div>-->
+    <!--</div>-->
+</tab>
+<tab>
+    <tab-heading>
+        <input type="checkbox"
+               ng-model="failuresConfig.alerts.checked"
+               ng-click="showFailures('alerts', $event)"
+                >
+        <span class="badge failure failure-alerts" ng-bind="validationResult.alerts.categories[0].data.length"></span>
+        Alerts
+    </tab-heading>
+    <div class="">
+        <tabset>
+            <tab ng-repeat="category in validationResult.alerts.categories" class="categortyTab">
+                <tab-heading>
+
+                    <span class="badge failure failure-alerts" ng-bind="category.data.length"></span> {{category.title}}
+                </tab-heading>
+                <div class="container-validation-table">
+                    <table st-table="category.data"
+                           class="table table-striped table-bordered ng-table-text">
+                        <thead>
+                        <tr class="tbl-header">
+                            <th st-sort="path">Path</th>
+                            <th>Description</th>
+                            <th st-sort="line">Line</th>
+                            <th st-sort="column">Column</th>
+                            <!--<th st-sort="failureType">Type</th>-->
+                            <th>Details</th>
+                        </tr>
+                        <!--<tr>-->
+                        <!--<th colspan="6">-->
+                        <!--<input st-search placeholder="global search" class="input-sm form-control" type="search"/>-->
+                        <!--</th>-->
+                        <!--</tr>-->
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="row in category.data">
+                            <td>
+                                <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                <span ng-show="row.path == null">N/A</span>
+                            </td>
+                            <td ng-bind-html="row.description"></td>
+                            <td>
+                                <span ng-show="row.line" ng-bind="row.line"></span>
+                                <span ng-show="row.line == null">N/A</span>
+                            </td>
+                            <td>
+                                <span ng-show="row.column" ng-bind="row.column"></span>
+                                <span ng-show="row.column == null">N/A</span>
+                            </td>
+                            <!--<td ng-bind="row.failureType"></td>-->
+                            <td>
+                                <a ng-show="row.stackTrace !== null || row.metaData != null"
+                                   class="point" ng-click="showDetails(row)">Details</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <!--<tfoot>-->
+                        <!--<tr>-->
+                        <!--<td colspan="6" class="text-center">-->
+                        <!--<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+                        <!--</tfoot>-->
+
+                    </table>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+    <!--<div ng-hide="validationResult.errors.data.length != 0" class="emptyResult">-->
+    <!--No Error found-->
+    <!--</div>-->
+    <!--</div>-->
+</tab>
+<tab>
+    <tab-heading>
+        <input type="checkbox"
+               ng-model="failuresConfig.informationals.checked"
+               ng-click="showFailures('informationals', $event)"
+                >
+        <span class="badge failure failure-infos"
+              ng-bind="validationResult.informationals.categories[0].data.length"></span> Informational
+    </tab-heading>
+    <div class="">
+        <tabset>
+            <tab ng-repeat="category in validationResult.informationals.categories" class="categortyTab">
+                <tab-heading>
+
+                    <span class="badge failure failure-infos" ng-bind="category.data.length"></span> {{category.title}}
+                </tab-heading>
+                <div class="container-validation-table">
+                    <table st-table="category.data"
+                           class="table table-striped table-bordered ng-table-text">
+                        <thead>
+                        <tr class="tbl-header">
+                            <th st-sort="path">Path</th>
+                            <th>Description</th>
+                            <th st-sort="line">Line</th>
+                            <th st-sort="column">Column</th>
+                            <!--<th st-sort="failureType">Type</th>-->
+                            <th>Details</th>
+                        </tr>
+                        <!--<tr>-->
+                        <!--<th colspan="6">-->
+                        <!--<input st-search placeholder="global search" class="input-sm form-control" type="search"/>-->
+                        <!--</th>-->
+                        <!--</tr>-->
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="row in category.data">
+                            <td>
+                                <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                <span ng-show="row.path == null">N/A</span>
+                            </td>
+                            <td ng-bind-html="row.description"></td>
+                            <td>
+                                <span ng-show="row.line" ng-bind="row.line"></span>
+                                <span ng-show="row.line == null">N/A</span>
+                            </td>
+                            <td>
+                                <span ng-show="row.column" ng-bind="row.column"></span>
+                                <span ng-show="row.column == null">N/A</span>
+                            </td>
+                            <!--<td ng-bind="row.failureType"></td>-->
+                            <td>
+                                <a ng-show="row.stackTrace !== null || row.metaData != null"
+                                   class="point" ng-click="showDetails(row)">Details</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <!--<tfoot>-->
+                        <!--<tr>-->
+                        <!--<td colspan="6" class="text-center">-->
+                        <!--<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+                        <!--</tfoot>-->
+
+                    </table>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+    <!--<div ng-hide="validationResult.errors.data.length != 0" class="emptyResult">-->
+    <!--No Error found-->
+    <!--</div>-->
+    <!--</div>-->
+</tab>
+
+
+<tab>
+    <tab-heading>
+        <input type="checkbox"
+               ng-model="failuresConfig.affirmatives.checked"
+               ng-click="showFailures('affirmatives', $event)"
+                >
+        <span class="badge failure failure-affirmatives"
+              ng-bind="validationResult.affirmatives.categories[0].data.length"></span> Affirmatives
+    </tab-heading>
+    <div class="">
+        <br/>
+        <tabset>
+            <tab ng-repeat="category in validationResult.affirmatives.categories" class="categortyTab">
+                <tab-heading>
+
+                    <span class="badge failure failure-affirmatives" ng-bind="category.data.length"></span>
+                    {{category.title}}
+                </tab-heading>
+                <div class="container-validation-table">
+                    <table st-table="category.data"
+                           class="table table-striped table-bordered ng-table-text">
+                        <thead>
+                        <tr class="tbl-header">
+                            <th st-ratio="20" st-sort="path">Path</th>
+                            <th>Description</th>
+                            <th st-sort="line">Line</th>
+                            <th st-sort="column">Column</th>
+                            <!--<th st-sort="failureType">Type</th>-->
+                            <th>Details</th>
+                        </tr>
+                        <!--<tr>-->
+                        <!--<th colspan="6">-->
+                        <!--<input st-search placeholder="global search" class="input-sm form-control" type="search"/>-->
+                        <!--</th>-->
+                        <!--</tr>-->
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="row in category.data">
+                            <td>
+                                <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                <span ng-show="row.path == null">N/A</span>
+                            </td>
+                            <td ng-bind-html="row.description"></td>
+                            <td>
+                                <span ng-show="row.line" ng-bind="row.line"></span>
+                                <span ng-show="row.line == null">N/A</span>
+                            </td>
+                            <td>
+                                <span ng-show="row.column" ng-bind="row.column"></span>
+                                <span ng-show="row.column == null">N/A</span>
+                            </td>
+                            <!--<td ng-bind="row.failureType"></td>-->
+                            <td>
+                                <a ng-show="row.stackTrace !== null || row.metaData != null"
+                                   class="point" ng-click="showDetails(row)">Details</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+
+</tab>
+
+
+</tabset>
+
+
+<script type="text/ng-template" id="ValidationResultDetailsCtrl.html">
+    <div class="modal-header modal-wide">
+        <h3 class="modal-title" ng-bind="selectedElement.path"></h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <h4>StackTrace</h4>
+            <pre>
+                {{selectedElement.stackTrace | json}}
+            </pre>
+            <br />
+            <h4>MetaData</h4>
+            <pre>
+                {{selectedElement.metaData | json}}
+            </pre>
+        </div>
+    </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Close</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="DQAValidationResultDetailsCtrl.html">
+    <div class="modal-header modal-wide">
+        <h3 class="modal-title" ng-bind="selectedElement.location"></h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Location</td>
+                    <td ng-bind="selectedElement.location"></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td ng-bind-html="selectedElement.detailed_desc"></td>
+                </tr>
+
+                <tr ng-show="selectedElement.potential_issue_id">
+                    <td>Issue Id</td>
+                    <td ng-bind="selectedElement.potential_issue_id"></td>
+                </tr>
+
+                <tr ng-show="selectedElement.given_code">
+                    <td>Given Code</td>
+                    <td ng-bind="selectedElement.given_code"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Close</button>
+    </div>
+</script>
+</div>
+
+<div ng-show="validationResult === null">
+    No Validation Performed.
+</div>

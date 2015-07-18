@@ -1,0 +1,627 @@
+{
+    "entries": {
+        "content": [],
+        "structure": [{
+            "line": 5,
+            "column": 67,
+            "path": "SPM-17.2",
+            "description": "Component SPM-17.2 (Range End Date/Time) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+            "category": "RE-Usage",
+            "classification": "Warning",
+            "stackTrace": null,
+            "metaData": null
+        },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "OBSERVATION",
+                "description": "Group OBSERVATION (OBSERVATION) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "DG1",
+                "description": "The required Segment DG1 (Diagnosis) is missing",
+                "category": "R-Usage",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 4,
+                "column": 81,
+                "path": "PRT-5.10",
+                "description": "Component PRT-5.10 (Name Type Code) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 4,
+                "column": 52,
+                "path": "PRT-4.9",
+                "description": "Component PRT-4.9 (Original Text) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "NTE",
+                "description": "Segment NTE (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 276,
+                "path": "OBR-49",
+                "description": "The primitive Field OBR-49 (Result Handling) contains at least one unescaped delimiter",
+                "category": "Unescaped Separator",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 276,
+                "path": "OBR-49",
+                "description": "The length of Field OBR-49 (Result Handling) must be within the range [1, 2]. Value = 'CC^Carbon Copy^HL70507'",
+                "category": "Length",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 215,
+                "path": "OBR-28.10",
+                "description": "Component OBR-28.10 (Name Type Code) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "OBR-17",
+                "description": "Field OBR-17 (Order Callback Phone Number) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "OBR-13",
+                "description": "Field OBR-13 (Relevant Clinical Information) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "OBR-8",
+                "description": "Field OBR-8 (Observation End Date/Time) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "OBR-3",
+                "description": "Field OBR-3 (Filler Order Number) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 1,
+                "path": "TIMING",
+                "description": "Group TIMING (TIMING) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 1,
+                "path": "ORC-20",
+                "description": "Field ORC-20 (Advanced Beneficiary Notice Code) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 1,
+                "path": "ORC-14",
+                "description": "Field ORC-14 (Call Back Phone Number) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 1,
+                "path": "ORC-3",
+                "description": "Field ORC-3 (Filler Order Number) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 1,
+                "path": "PATIENT",
+                "description": "The required Group PATIENT (PATIENT) is missing",
+                "category": "R-Usage",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 5,
+                "path": "MSH-2",
+                "description": "The length of Field MSH-2 (Encoding Characters) must be within the range [1, 4]. Value = '^~\\&#'",
+                "category": "Length",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": null
+            }],
+        "value-set": [{
+            "line": 5,
+            "column": 51,
+            "path": "SPM-4.3",
+            "description": "The value set US_LAB_HL70396 has been excluded from the validation",
+            "category": "Value Set",
+            "classification": "Alert",
+            "stackTrace": null,
+            "metaData": {
+                "valueSet": {
+                    "id": null,
+                    "stability": null,
+                    "extensibility": null,
+                    "bindingStrength": null,
+                    "bindingLocation": null
+                }
+            }
+        },
+            {
+                "line": 5,
+                "column": 26,
+                "path": "SPM-4",
+                "description": "Value set 'SNOMED_CT US_LAB_HL70487' cannot be found in the library",
+                "category": "Coded Element",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "SNOMED_CT US_LAB_HL70487",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 4,
+                "column": 133,
+                "path": "PRT-15.3",
+                "description": "The value 'FX' at location Component PRT-15.3 (Telecommunication Equipment Type) cannot be evaluated. The value set 'US_LAB_HL70202' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70202",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 4,
+                "column": 118,
+                "path": "PRT-5.13",
+                "description": "The value 'NPI' at location Component PRT-5.13 (Identifier Type Code) cannot be evaluated. The value set 'US_LAB_HL70203 ' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70203 ",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 4,
+                "column": 73,
+                "path": "PRT-4.3",
+                "description": "The value set US_LAB_HL70396 has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 4,
+                "column": 52,
+                "path": "PRT-4",
+                "description": "Value set 'US_LAB_HL70912' cannot be found in the library",
+                "category": "Coded Element",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70912",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 4,
+                "column": 48,
+                "path": "PRT-2",
+                "description": "The value 'AD' at location Field PRT-2 (Action Code) cannot be evaluated. The value set 'US_LAB_HL70287' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70287",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 4,
+                "column": 44,
+                "path": "PRT-1.4",
+                "description": "The value 'ISO' at location Component PRT-1.4 (Universal ID Type) cannot be evaluated. The value set 'US_LAB_HL70301' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70301",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 3,
+                "column": 276,
+                "path": "OBR-49",
+                "description": "The value 'CC^Carbon Copy^HL70507' at location Field OBR-49 (Result Handling) cannot be evaluated. The value set '0507' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "0507",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 3,
+                "column": 252,
+                "path": "OBR-28.13",
+                "description": "The value 'NPI' at location Component OBR-28.13 (Identifier Type Code) cannot be evaluated. The value set 'US_LAB_HL70203 ' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70203 ",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 3,
+                "column": 200,
+                "path": "OBR-16.13",
+                "description": "The value 'NPI' at location Component OBR-16.13 (Identifier Type Code) cannot be evaluated. The value set 'US_LAB_HL70203 ' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70203 ",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 3,
+                "column": 196,
+                "path": "OBR-16.10",
+                "description": "The value 'L' at location Component OBR-16.10 (Name Type Code) cannot be evaluated. The value set 'US_LAB_HL70200' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70200",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 3,
+                "column": 93,
+                "path": "OBR-4.6",
+                "description": "The value set US_LAB_HL70396 has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 3,
+                "column": 40,
+                "path": "OBR-4.3",
+                "description": "The value set US_LAB_HL70396 has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 3,
+                "column": 27,
+                "path": "OBR-4",
+                "description": "The value set LOINC has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 2,
+                "column": 108,
+                "path": "ORC-12.13",
+                "description": "The value 'NPI' at location Component ORC-12.13 (Identifier Type Code) cannot be evaluated. The value set 'US_LAB_HL70203 ' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70203 ",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 2,
+                "column": 104,
+                "path": "ORC-12.10",
+                "description": "The value 'L' at location Component ORC-12.10 (Name Type Code) cannot be evaluated. The value set 'US_LAB_HL70200' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70200",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 2,
+                "column": 5,
+                "path": "ORC-1",
+                "description": "The value 'NW' at location Field ORC-1 (Order Control) cannot be evaluated. The value set 'US_LAB_HL70119' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70119",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 1,
+                "column": 144,
+                "path": "MSH-16",
+                "description": "The value 'NE' at location Field MSH-16 (Application Acknowledgment Type) cannot be evaluated. The value set 'US_LAB_HL70155' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70155",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 1,
+                "column": 141,
+                "path": "MSH-15",
+                "description": "The value 'AL' at location Field MSH-15 (Accept Acknowledgment Type) cannot be evaluated. The value set 'US_LAB_HL70155' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70155",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 1,
+                "column": 131,
+                "path": "MSH-11.1",
+                "description": "The value 'T' at location Component MSH-11.1 (Processing ID) cannot be evaluated. The value set 'US_LAB_HL70103' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70103",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 1,
+                "column": 103,
+                "path": "MSH-9.3",
+                "description": "The value 'OML_O21' at location Component MSH-9.3 (Message Structure) cannot be evaluated. The value set 'US_LAB_HL70354' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70354",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 1,
+                "column": 99,
+                "path": "MSH-9.2",
+                "description": "The value 'O21' at location Component MSH-9.2 (Trigger Event) cannot be evaluated. The value set 'US_LAB_HL70003' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70003",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 1,
+                "column": 95,
+                "path": "MSH-9.1",
+                "description": "The value 'OML' at location Component MSH-9.1 (Message Code) cannot be evaluated. The value set 'US_LAB_HL70076' cannot be found.",
+                "category": "Value Set",
+                "classification": "Error",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": "US_LAB_HL70076",
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            }]
+    }
+}

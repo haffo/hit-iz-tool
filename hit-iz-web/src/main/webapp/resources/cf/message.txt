@@ -1,0 +1,5 @@
+MSH|^~\&|MYEHR|DCS|MYIIS||201201130000-0500||VXU^V04^VXU_V04|45646ug|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS
+PID|1||432155^^^dcs^MR||Patient^Johnny^New^^^^L|Lastname^Sally^^^^^M|20110411|M||1002-5^Native American^HL70005|123 Any St^^Somewhere^WI^54000^^L||^PRN^PH^^^111^2320112|||||||||2186-5^not Hispanic^CDCREC
+NK1|1|Patient^Sally^^^^^L|MTH^Mom^HL70063|123 Any St^^Somewhere^WI^54000^^L
+ORC|RE||65929^DCS|||||||^Clerk^Myron||
+RXA|0|1|20110415||85^hep B, unspec^CVX|999|||01^historical^NIP001|||||||||||CP|A

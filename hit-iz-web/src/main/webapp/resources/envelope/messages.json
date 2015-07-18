@@ -1,0 +1,18 @@
+[
+
+    {
+        "name": "SubmitSingleMessage_Request1",
+        "description": "",
+        "content": "<?xml version='1.0' encoding='UTF-8'?>\n<Envelope xmlns=\"http://www.w3.org/2003/05/soap-envelope\">\n <Header/>\n <Body>\n <submitSingleMessage>\n <username>leonidas</username>\n <password>Spartans300!</password>\n <facilityID>EHR1234</facilityID>\n <hl7Message>\n<![CDATA[MSH|^~\\&|Test EHR Application|X68||NIST Test Iz Reg|201207010822||VXU^V04^VXU_V04|NIST-IZ-007.00|P|2.5.1|||AL|ER\nPID|1||MR-99922^^^NIST MPI^MR||Montgomery^Lewis^^^^^L||20010821|M\nORC|RE||IZ-783276^NDA\nRXA|0|1|20110215||118^HPV^CVX|999|||01^Historical information - source unspecified^NIP001]]>\n </hl7Message>\n </submitSingleMessage>\n </Body>\n</Envelope>",
+        "dataSheet": null,
+        "id": 2
+    },
+    {
+        "name": "SubmitSingleMessage_Request2",
+        "description": "",
+        "content": "<?xml version='1.0' encoding='UTF-8'?>\n<Envelope xmlns=\"http://www.w3.org/2003/05/soap-envelope\">\n <Header/>\n <Body>\n <submitSingleMessage>\n <username>johny</username>\n <password>ThisIsSparta!!</password>\n <facilityID>EHR1000</facilityID>\n <hl7Message>\n<![CDATA[MSH|^~\\&|Test EHR Application|X68||NIST Test Iz Reg|201207010822||VXU^V04^VXU_V04|NIST-IZ-007.00|P|2.5.1|||AL|ER\nPID|1||MR-99922^^^NIST MPI^MR||Montgomery^Lewis^^^^^L||20010821|M\nORC|RE||IZ-783276^NDA\nRXA|0|1|20110215||118^HPV^CVX|999|||01^Historical information - source unspecified^NIP001]]>\n </hl7Message>\n </submitSingleMessage>\n </Body>\n</Envelope>\n",
+        "dataSheet": null,
+        "id": 3
+    }
+
+]
