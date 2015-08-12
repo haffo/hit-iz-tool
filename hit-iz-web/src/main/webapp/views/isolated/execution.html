@@ -1,38 +1,29 @@
-<div style="margin-bottom: 20px" ng-controller="IsolatedSystemExecutionCtrl" ng-init="init()">
-<div ng-show="testCase != null">
-<div style="padding-top: 10px" class="row">
-    <div class="col-lg-10">
-        <span style="font-size: 30px">Test Case:
+<div ng-controller="IsolatedSystemExecutionCtrl" ng-init="init()">
+
+
+<div class="panel panel-info" style="margin:10px">
+<div class="panel-heading">
+    <span ng-show="testCase != null">
+        <span>Test Case:
         {{testCase.name}}</span>
          <span class="pull-right">
         <button type="button" ng-click="resetTestCase()" title="Restart" class="btn btn-sm btn-primary">
             <i class="fa fa-times"></i>
             Restart
         </button>
-    </span>
-    <hr>
-    </div>
+    </span></span>
+    <span ng-show="testCase == null">No Test Case Selected.</span>
 </div>
+<div class="panel-body">
+
+
+<div ng-show="testCase != null">
 <div class="row">
-
-    <!--<div class="col-lg-5">-->
-    <!--<table class="table table-bordered">-->
-    <!--<tr>-->
-    <!--<td>Transactions Result</td>-->
-    <!--<td></td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-    <!--<td>Validation Result</td>-->
-    <!--<td></td>-->
-    <!--</tr>-->
-    <!--</table>-->
-    <!--</div>-->
-
     <div class="col-lg-10">
         <div ng-click="testStepListCollapsed = !testStepListCollapsed">
-                <i class="fa fa-chevron-down" ng-show="!testStepListCollapsed"></i>
-                <i class="fa fa-chevron-right" ng-show="testStepListCollapsed"></i>
-                <span style="font-size:24px">List of Test Steps</span>
+                <i class="fa fa-minus" ng-show="!testStepListCollapsed"></i>
+                <i class="fa fa-plus" ng-show="testStepListCollapsed"></i>
+                <span style="font-size:18px">List of Test Steps</span>
         </div>
         <hr>
         <div collapse="testStepListCollapsed">
@@ -70,7 +61,7 @@
                 </td>
 
 
-                <td ng-bind-html="row.description"></td>
+                <td ng-bind-html="toHTML(row.description)"></td>
                 <td>
 
                     <span>
@@ -107,37 +98,40 @@
             </tbody>
         </table>
 
-          <br>
-         <div ng-show="testStep !== null" class="pull-right">
-                             <button type="button" ng-click="executeNextTestStep(testStep)" style="margin-bottom: 10px" ng-show="!isTestCaseCompleted() && isTestStepCompleted(testStep)" title="Execute Next Step" class="btn btn-sm btn-success">
-                                <span ng-show="isLastStep(testStep)"><i class="fa fa-check"></i> Complete Test Case</span>
-                                <span ng-show="!isLastStep(testStep)"><i class="fa fa-arrow-right"></i> Next</span>
-                            </button>
 
-                </div>
             </div>
+        <br>
+        <div ng-show="testStep !== null" class="pull-right">
+            <button type="button" ng-click="executeNextTestStep(testStep)" style="margin-bottom: 10px" ng-show="!isTestCaseCompleted() && isTestStepCompleted(testStep)" title="Execute Next Step" class="btn btn-sm btn-success">
+                <span ng-show="isLastStep(testStep)"><i class="fa fa-check"></i> Complete Test Case</span>
+                <span ng-show="!isLastStep(testStep)"><i class="fa fa-arrow-right"></i> Next</span>
+            </button>
+
+        </div>
+
+</div>
+</div>
+
+</div>
 </div>
 </div>
 
 <div ng-show="testStep !== null">
-<div class="page-header">
-    <h4>Test Step: {{testStep.name}}</h4>
-</div>
-
-
-
-<div class="row" ng-show="error != null" style="padding-top: 10px;padding-bottom:10px">
-    <div class="col-lg-10">
+<div class="panel panel-info" style="margin:10px">
+<!-- Default panel contents -->
+<div class="panel-heading">Test Step: {{testStep.name}}</div>
+<div class="panel-body">
+<div class="row" ng-show="error != null">
+    <div class="col-md-10" style="padding-top: 10px;padding-bottom:10px">
         <div class="alert alert-danger" role="alert" ng-bind="error"></div>
     </div>
 </div>
 
-<div class="row" ng-show="warning != null" style="padding-top: 10px;padding-bottom:10px">
-    <div class="col-lg-10">
-        <div class="alert alert-warning" role="alert" ng-bind-html="warning"></div>
+<div class="row" ng-show="warning != null">
+    <div class="col-md-10" style="padding-top: 10px;padding-bottom:10px">
+        <div class="alert alert-info" role="alert" ng-bind-html="toHTML(warning)"></div>
     </div>
 </div>
-
 
 <div ng-show="testStep.connectionType === 'TA_INITIATOR'" ng-show="!isTestCaseCompleted()">
     <button type="button" class="btn btn-sm btn-primary" ng-click="configCollapsed = !configCollapsed"><i class="fa fa-cog"></i> Configure
@@ -148,7 +142,7 @@
     </button>
 
     <div class="row" collapse="configCollapsed">
-        <div class="col-lg-5">
+        <div class="col-md-5">
             <fieldset>
                 <legend>Please provide receiver's system information</legend>
                 <!--<div class="page-header">-->
@@ -184,7 +178,7 @@
 
             </fieldset>
         </div>
-        <div class="col-lg-5">
+        <div class="col-md-5">
             <fieldset>
                 <legend>Console</legend>
                 <textarea class="well" wrap="off" style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%" rows="13" disabled="disabled" ng-model="logger.content"></textarea>
@@ -223,12 +217,12 @@
     <!--</button>-->
 
     <div class="row" ng-show="error != null" style="padding-top: 10px;padding-bottom:10px">
-        <div class="col-lg-10">
+        <div class="col-md-10">
             <div class="alert alert-danger" role="alert" ng-bind="error"></div>
         </div>
     </div>
     <div class="row" collapse="configCollapsed">
-        <div class="col-lg-5">
+        <div class="col-md-5">
             <fieldset>
                 <legend>System Information</legend>
                 <form name="senderForm" novalidate="">
@@ -280,7 +274,7 @@
 
             </fieldset>
         </div>
-        <div class="col-lg-5">
+        <div class="col-md-5">
             <fieldset>
                 <legend>Console</legend>
                 <textarea class="well" wrap="off" style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%" rows="13" disabled="disabled" ng-model="logger.content"></textarea>
@@ -289,14 +283,14 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-10">
+        <div class="col-md-10">
 
         </div>
     </div>
 </div>
 
 <div class="row" ng-show="testStep.connectionType === 'TA_MANUAL' || testStep.connectionType === 'SUT_MANUAL'">
-    <div class="col-lg-10" style="padding-top: 20px">
+    <div class="col-md-10" style="padding-top: 20px">
         <div class="panel panel-info">
             <!-- Default panel contents -->
             <div class="panel-heading">
@@ -311,12 +305,8 @@
     </div>
 </div>
 
-<div class="row" ng-show="testStep.connectionType === 'TA_INITIATOR' || testStep.connectionType === 'SUT_INITIATOR' || testStep.connectionType === 'TA_RESPONDER' || testStep.connectionType === 'SUT_RESPONDER'">
-    <div class="col-lg-12" style="padding-top: 20px">
-        <!--<div ng-show="connecting || testStep.executionStatus === 'IN_PROGRESS'">-->
-        <!--<i title="In progress"-->
-        <!--class="fa fa-spinner"></i>-->
-        <!--</div>-->
+<div class="row" style="padding-top:10px" ng-show="testStep.connectionType === 'TA_INITIATOR' || testStep.connectionType === 'SUT_INITIATOR' || testStep.connectionType === 'TA_RESPONDER' || testStep.connectionType === 'SUT_RESPONDER'">
+    <div class="col-md-12">
         <div>
             <tabset>
                 <tab select="setActiveTab(0)" active="tabs[0]">
@@ -333,13 +323,13 @@
 
                     <div ng-include="'views/isolated/report.html'"></div>
                 </tab>
-
-                <!--<tab select="setActiveTab(2)" active="tabs[2]">-->
-                    <!--<tab-heading>-->
-                        <!--<i class="fa fa-check-circle"></i>Test Data-->
-                    <!--</tab-heading>-->
-                    <!--<div ng-include="'views/isolated/data.html'"></div>-->
-                <!--</tab>-->
+                <tab select="setActiveTab(2)" active="tabs[2]" ng-show="testStep.jurorDocument && testStep.jurorDocument.html != null">
+                    <tab-heading>
+                        <i class="fa fa-check-circle"></i>Juror Document
+                    </tab-heading>
+                    <br>
+                    <div ng-bind-html="toHTML(testStep.jurorDocument.html)">
+                </tab>
 
                 <tab>
                     <tab-heading>
@@ -359,7 +349,7 @@
 
     </div>
 </div>
-
+</div>
 </div>
 <div ng-show="testStep === null">
     No Test Step In Progress

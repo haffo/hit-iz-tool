@@ -1,6 +1,6 @@
 MSH|^~\&||wcEHR||IIS|20150624093847.808-0500||VXU^V04^VXU_V04|18019|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|wcEHR|IIS
-PID|1||8891^^^wcEHR^MR||Banks^Tyler^Owen^^^^L||20040602|M||2106-3^White^CDCREC|924 Sycamore Lane^^Bozeman^MT^59715^USA^P||^PRN^PH^^^406^5555835|||||||||2186-5^Not Hispanic or Latino^CDCREC||N|1|||||N
-PD1|||||||||||02^Reminder/recall - any method^HL70215|Y|20150624|||A|20040602|20150624
+PID|1||8891^^^wcEHR^MR||Banks^Tyler^Owen^^^^L||20140602|M||2106-3^White^CDCREC|924 Sycamore Lane^^Bozeman^MT^59715^USA^P||^PRN^PH^^^406^5555835|||||||||2186-5^Not Hispanic or Latino^CDCREC||N|1|||||N
+PD1|||||||||||02^Reminder/recall - any method^HL70215|N|20150624|||A|20040602|20150624
 NK1|1|Banks^Karl^Leonard^^^^L|FTH^Father^HL70063|924 Sycamore Lane^^Bozeman^MT^59715^USA^P|^PRN^PH^^^406^5555835
 ORC|RE|5645^wcEHR|22515^wcEHR|||||||7824^Jackson^Lily^Suzanne^^^^^wcEHR^L^^^PRN||654^Thomas^Wilma^Elizabeth^^^^^wcEHR^L^^^MD|||||wcEHR^West Clinic^HL70362
 RXA|0|1|20150624||48^Hib (PRP-T)^CVX|0.5|mL^mL^UCUM||00^New Record^NIP001|7824^Jackson^Lily^Suzanne^^^^^wcEHR^L^^^PRN|^^^wcEHR||||328734|20150923|SKB^GlaxoSmithKline^MVX|||CP|A

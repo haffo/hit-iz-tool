@@ -1,4 +1,6 @@
 <div ng-controller="ConnectivityReportCtrl" ng-init="init()">
+
+
     <div class="row" style="margin-top: 20px">
         <div ng-show="testCase.id != null">
 
@@ -30,7 +32,7 @@
                             </div>
                             <br>
                             <br>
-                            <div ng-bind-html="soapEnvHtmlReport"></div>
+                            <div ng-bind-html="toHTML(soapEnvHtmlReport)"></div>
                         </div>
 
                         <div ng-show="soapEnvHtmlReport == null">

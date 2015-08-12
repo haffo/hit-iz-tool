@@ -2,17 +2,6 @@
 
 angular.module('isolated')
     .controller('IsolatedSystemTestingCtrl', ['$scope', '$window', '$rootScope', 'IsolatedSystem', function ($scope, $window, $rootScope, IsolatedSystem) {
-        $scope.loading = true;
-        $scope.error = null;
-        $scope.tabs = new Array();
-
-        $scope.setTestActiveTab = function (value) {
-            $scope.tabs[0] = false;
-            $scope.tabs[1] = false;
-            $scope.activeTab = value;
-            $scope.tabs[$scope.activeTab] = true;
-        };
-
 
         $scope.getTestType = function () {
             return IsolatedSystem.testCase.type;
@@ -21,15 +10,13 @@ angular.module('isolated')
         $scope.init = function () {
             $scope.error = null;
             $scope.loading = false;
-            $scope.setTestActiveTab(0);
+            $rootScope.setSubActive('/isolated_testcase');
 
             $rootScope.$on('isolated:testCaseLoaded', function (event, testCase) {
                 if (testCase != null && testCase.id != null) {
-                    $scope.setTestActiveTab(1);
+                    $rootScope.setSubActive('/isolated_execution');
                 }
             });
-
-
         };
 
         $scope.disabled = function () {
@@ -441,6 +428,8 @@ angular.module('isolated')
         };
 
         $scope.startListening = function () {
+            var nextStep = $scope.findNextStep($scope.testStep.position);
+            var rspMessageId  = nextStep.testContext.message.id;
             $scope.configCollapsed = false;
             $scope.logger.clear();
             $scope.counter = 0;
@@ -450,7 +439,7 @@ angular.module('isolated')
             var received = '';
             var sent = '';
             $scope.log("Configuring connection. Please wait...");
-            $scope.user.transaction.openConnection().then(function (response) {
+            $scope.user.transaction.openConnection(rspMessageId).then(function (response) {
                     $scope.log("Connection configured.");
                     var execute = function () {
                         ++$scope.counter;
@@ -818,6 +807,7 @@ angular.module('isolated')
 //                    var message = testContext != null ? testContext.message : null;
 //                    var content = message && message != null && message.content != null ? message.content : '';
                     var message = testStep['executionMessage'];
+                    message = message != null ? message: '';
                     $scope.nodelay = true;
                     $scope.selectedMessage = {'content': message};
                     $scope.isolated.editor.instance.doc.setValue(message);

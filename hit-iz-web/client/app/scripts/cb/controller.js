@@ -2,32 +2,13 @@
 
 angular.module('cb')
     .controller('CBTestingCtrl', ['$scope', '$window', '$rootScope', 'CB', function ($scope, $window, $rootScope, CB) {
-        $scope.loading = true;
-        $scope.error = null;
-        $scope.tabs = new Array();
 
-
-        $scope.setActiveTab = function (value) {
-            $scope.tabs[0] = false;
-            $scope.tabs[1] = false;
-            $scope.activeTab = value;
-            $scope.tabs[$scope.activeTab] = true;
+        $scope.init = function () {
+            $rootScope.setSubActive('/cb_testcase');
         };
 
         $scope.getTestType = function () {
             return CB.testCase.type;
-        };
-
-        $scope.init = function () {
-            $scope.error = null;
-            $scope.loading = false;
-            $scope.setActiveTab(0);
-
-            $rootScope.$on('cb:testCaseLoaded', function (event) {
-                if (CB.testCase != null && CB.testCase.id != null) {
-                    $scope.setActiveTab(1);
-                }
-            });
         };
 
         $scope.disabled  = function () {
@@ -62,7 +43,7 @@ angular.module('cb')
             $scope.loading = false;
             $scope.setActiveTab(0);
             $rootScope.$on('cb:testCaseLoaded', function (event, testCase) {
-                $scope.setActiveTab(0);
+                $rootScope.setSubActive('/cb_execution');
                 $scope.testCase = testCase;
                 $rootScope.$broadcast('cb:profileLoaded', $scope.testCase.testContext.profile);
                 $rootScope.$broadcast('cb:valueSetLibraryLoaded', $scope.testCase.testContext.vocabularyLibrary);
@@ -266,7 +247,7 @@ angular.module('cb')
             if (content!= null && content!= "") {
                 $scope.nodelay = true;
                 $scope.selectedMessage = $scope.cb.testCase.testContext.message;
-                if ($scope.selectedMessage != null) {
+                if ($scope.selectedMessage != null && $scope.selectedMessage.content != null) {
                     $scope.editor.doc.setValue($scope.selectedMessage.content);
                 } else {
                     $scope.editor.doc.setValue('');
@@ -364,9 +345,11 @@ angular.module('cb')
                 validationResult.init(mvResult);
                 report["result"] = validationResult;
             }
-            $rootScope.$broadcast('cb:reportLoaded', report);
             $rootScope.$broadcast('cb:validationResultLoaded', validationResult);
-        };
+            $timeout(function () {
+                $rootScope.$broadcast('cb:reportLoaded', report);
+            },100);
+         };
 
 
 

@@ -1,9 +1,9 @@
 {
-  "teststorydesc" : "<font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333330154419px;\">A 66 year old female, Helen Barrett, comes to the West Clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that she received a Zoster vaccination at a local pharmacy on her 65th birthday. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS</span></font>",
-  "comments" : "No Comments",
-  "preCondition" : "No PreCondition",
-  "postCondition" : "No PostCondition",
-  "testObjectives" : "No Test Objectives",
-  "evaluationCriteria" : "No evaluation criteria",
-  "notes" : "No Note"
+  "teststorydesc" : "<p>A 1 month old female, Ashley Jennifer Broadbent, is brought to the West Clinic for a well child visit by her mother Ellen Broadbent (nee Layton). A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient&rsquo;s vaccination history and determines that the child requires a Hep B vaccination. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The mother is given the Vaccine Information Sheet (VIS) to review. After reading it, she agrees that the child should receive the Hep B vaccine. She also agrees that the data should be shared once it is incorporated into the local IIS. An appropriate dose of Hep B is selected from the clinic&rsquo;s stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and enters the data into the EHR and transmits it to the IIS.</p>\r\n",
+  "comments" : "<p>No Comments</p>\r\n",
+  "preCondition" : "<p>No PreCondition</p>\r\n",
+  "postCondition" : "<p>No PostCondition</p>\r\n",
+  "testObjectives" : "<p>No Test Objectives</p>\r\n",
+  "evaluationCriteria" : "<p>No evaluation criteria</p>\r\n",
+  "notes" : "<p>No Note</p>\r\n"
 }

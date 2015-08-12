@@ -6,4 +6,4 @@ PID|1||123456^^^MYEHR^MR~987633^^^MYIIS^SR||Child^Robert^Quenton^^^^L|Que^Suzy^^
 PD1||||||||||||N|20091130
 NK1|1|Child^Suzy^^^^^L|MTH^Mother^HL70063
 ORC|RE||142324567^YOUR_EHR|||||||^Shotgiver^Fred||^Orderwriter^Sally^^^^^^^^^^^^^^^^^^MD
-RXA|0|1|20120814||140^Influenza, seasonal, injectable, preservative free^CVX|0.5|mL^MilliLiter [SI Volume Units]^UCUM||00^New immunization record^NIP001|7832-1^Lemon^Mike^A^^^^^NIST-AA-1|^^^X68||||Z0860BB|20121104|CSL^CSL Behring^MVX|||CP|A
+RXA|0|1|20120814||140^Influenza, seasonal, injectable, preservative free^CVX|0.5|mL^MilliLiter [SI Volume Units]^UCUM||00^New immunization record^NIP001|7832-1^Lemon^Mike^A^^^^^NIST-AA-1^^^^PRN|^^^X68||||Z0860BB|20121104|CSL^CSL Behring^MVX|||CP|A

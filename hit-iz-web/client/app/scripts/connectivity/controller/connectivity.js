@@ -1,29 +1,13 @@
 'use strict';
 angular.module('connectivity')
     .controller('ConnectivityTestingCtrl', ['$scope', 'Connectivity', '$rootScope', function ($scope, Connectivity, $rootScope) {
-        $scope.tabs = new Array();
-
-        $scope.loading = false;
-        $scope.setActiveTab = function (value) {
-            $scope.tabs[0] = false;
-            $scope.tabs[1] = false;
-            $scope.activeTab = value;
-            $scope.tabs[$scope.activeTab] = true;
-            $scope.$broadcast("refreshPanel");
-        };
-
         $scope.init = function () {
-            $scope.setActiveTab(0);
+            $rootScope.setSubActive('/connectivity_testcase');
         };
 
         $rootScope.$on('conn:testCaseLoaded', function (event) {
-            $scope.setActiveTab(1);
+            $rootScope.setSubActive('/connectivity_execution');
         });
-
-
-        $scope.disabled = function () {
-            return Connectivity.testCase == null || Connectivity.testCase.id === null;
-        };
 
     }]);
 

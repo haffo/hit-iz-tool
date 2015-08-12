@@ -18,10 +18,12 @@ var app = angular.module('tool', [
     'ui.bootstrap',
     'ngCookies',
     'ngResource',
-    'ngSanitize',
     'ngAnimate',
     'ui.bootstrap',
     'angularBootstrapNavTree',
+    'ui.grid', 'ui.grid.infiniteScroll',
+    'ui.grid.treeView',
+    'QuickList',
 //    'ngGrid',
 //    'treeGrid',
 //    'angular-loading-bar',
@@ -56,7 +58,7 @@ app.config(function ($routeProvider, $httpProvider) {
             templateUrl: 'views/home.html'
         })
         .when('/testing', {
-            templateUrl: 'views/testing.html'
+            templateUrl: '../views/templates.html'
         })
         .when('/doc', {
             templateUrl: 'views/doc.html'
@@ -70,47 +72,62 @@ app.config(function ($routeProvider, $httpProvider) {
         .when('/contact', {
             templateUrl: 'views/contact.html'
         })
+        .when('/soapEnv', {
+            templateUrl: 'views/envelope/testing.html'
+        })
+        .when('/soapConn', {
+            templateUrl: 'views/connectivity/testing.html'
+        })
+        .when('/cf', {
+            templateUrl: 'views/cf/testing.html'
+        })
+        .when('/is', {
+            templateUrl: 'views/isolated/testing.html'
+        })
+        .when('/cb', {
+            templateUrl: 'views/cb/testing.html'
+        })
         .otherwise({
             redirectTo: '/'
         });
 
-    $httpProvider.responseInterceptors.push('503Interceptor');
-    $httpProvider.responseInterceptors.push('sessionTimeoutInterceptor');
-    $httpProvider.responseInterceptors.push('404Interceptor');
+//    $httpProvider.responseInterceptors.push('503Interceptor');
+//    $httpProvider.responseInterceptors.push('sessionTimeoutInterceptor');
+//    $httpProvider.responseInterceptors.push('404Interceptor');
 });
 
-app.factory('503Interceptor', function ($injector, $q, $rootScope) {
-    return function (responsePromise) {
-        return responsePromise.then(null, function (errResponse) {
-            if (errResponse.status === 503) {
-                $rootScope.showError(errResponse);
-            } else {
-                return $q.reject(errResponse);
-            }
-        });
-    };
-}).factory('sessionTimeoutInterceptor', function ($injector, $q, $rootScope) {
-    return function (responsePromise) {
-        return responsePromise.then(null, function (errResponse) {
-            if (errResponse.reason === "The session has expired") {
-                $rootScope.showError(errResponse);
-            } else {
-                return $q.reject(errResponse);
-            }
-        });
-    };
-}).factory('404Interceptor', function ($injector, $q, $rootScope) {
-    return function (responsePromise) {
-        return responsePromise.then(null, function (errResponse) {
-            if (errResponse.status === 404) {
-                errResponse.data = "Cannot reach the server. The server might be down";
-            }
-            return $q.reject(errResponse);
-        });
-    };
-});
+//app.factory('503Interceptor', function ($injector, $q, $rootScope) {
+//    return function (responsePromise) {
+//        return responsePromise.then(null, function (errResponse) {
+//            if (errResponse.status === 503) {
+//                $rootScope.showError(errResponse);
+//            } else {
+//                return $q.reject(errResponse);
+//            }
+//        });
+//    };
+//}).factory('sessionTimeoutInterceptor', function ($injector, $q, $rootScope) {
+//    return function (responsePromise) {
+//        return responsePromise.then(null, function (errResponse) {
+//            if (errResponse.reason === "The session has expired") {
+//                $rootScope.showError(errResponse);
+//            } else {
+//                return $q.reject(errResponse);
+//            }
+//        });
+//    };
+//}).factory('404Interceptor', function ($injector, $q, $rootScope) {
+//    return function (responsePromise) {
+//        return responsePromise.then(null, function (errResponse) {
+//            if (errResponse.status === 404) {
+//                errResponse.data = "Cannot reach the server. The server might be down";
+//            }
+//            return $q.reject(errResponse);
+//        });
+//    };
+//});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sce) {
     $rootScope.appInfo = {};
 
     new AppInfo().then(function(appInfo){
@@ -123,20 +140,33 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q) {
     $rootScope.$watch(function () {
         return $location.path();
     }, function (newLocation, oldLocation) {
-        $rootScope.setActive(newLocation);
+        if(newLocation != null) {
+            $rootScope.setActive(newLocation);
+        }
     });
 
     $rootScope.isActive = function (path) {
         return path === $rootScope.activePath;
     };
 
+
+    $rootScope.isSubActive = function (path) {
+        return path === $rootScope.subActivePath;
+    };
+
+
     $rootScope.setActive = function (path) {
         if (path === '' || path === '/') {
             $location.path('/home');
         } else {
             $rootScope.activePath = path;
-        }
+         }
     };
+
+    $rootScope.setSubActive = function (path) {
+        $rootScope.subActivePath = path;
+    };
+
 
     $rootScope.showError = function (error) {
         var modalInstance = $modal.open({
@@ -157,6 +187,11 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q) {
     $rootScope.cutString = function (str) {
         if (str.length > 20) str = str.substring(0, 20) + "...";
         return str;
+    };
+
+    $rootScope.toHTML = function (content) {
+//        return $sce.trustAsHtml(content);
+        return  content;
     };
 
 

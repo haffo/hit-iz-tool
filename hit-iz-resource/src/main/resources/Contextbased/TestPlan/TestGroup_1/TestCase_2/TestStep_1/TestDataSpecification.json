@@ -25,7 +25,7 @@ USA"},
 			[
 				{"element" : "Immunization Registry Status", "data" : "A"},
 				{"element" : "Publicity Code (Text)", "data" : "Reminder/recall - any method"},
-				{"element" : "Protection Indicator", "data" : "Y"},
+				{"element" : "Protection Indicator", "data" : "N"},
 				{"element" : "Protection Indicator Effective Date", "data" : ""},
 				{"element" : "Publicity Code Effective Date", "data" : "06/24/2015"},
 				{"element" : "Immunization Registry Status Effective Date", "data" : "06/15/1983"}

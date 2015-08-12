@@ -7,21 +7,27 @@
     </div>
     <div ng-show="error === null">
         <div ng-show="profile != null">
-            <div class="row" style="margin-bottom: 20px;">
-                <a ng-click="relevance = true" class="btn btn-cf-outline"
-                   ng-class="{'active': relevance}"
-                   role="button">R,RE,C
-                    (only)</a>
-                <a ng-click="relevance = false" class="btn btn-cf-outline"
-                   ng-class="{'active': !relevance}"
-                   role="button">R,RE,C,O,X (All)</a>
-                <a ng-click="trim = true" class="btn btn-cf-outline"
-                   ng-class="{'active': trim}"
-                   role="button">Concise View</a>
-                <a ng-click="trim = false" class="btn btn-cf-outline"
-                   ng-class="{'active': !trim}"
-                   role="button">Expanded View</a>
-
+            <div class="" style="margin-bottom: 10px;">
+                <span>
+                <label>
+                <input name="relevance" id="relevance" ng-model="options.relevance" type="checkbox"
+                        >R,RE,C (only)
+                </label>
+                <!--<input ng-model="options.relevance" ng-click="options.relevance = false"-->
+                <!--ng-class="{'active': !options.relevance}"-->
+                <!--role="button">R,RE,C,O,X (All)</a>-->
+                <label>
+                <input name="conciseView" id="conciseView" ng-model="options.concise" type="checkbox"
+                       >Concise View
+                 </label>
+                </span>
+                <span class="pull-right">
+                <!--<input ng-model="options.concise" ng-click="options.concise = true"-->
+                       <!--ng-class="{'active': options.concise}"-->
+                       <!--role="button">Concise View</a>-->
+                <!--<input ng-model="options.concise" ng-click="options.concise = false"-->
+                       <!--ng-class="{'active': !options.concise}"-->
+                       <!--role="button">Expanded View</a>-->
                      <span style="margin-left:10px">
                          <img
                                  style="width:15px; height:15px"
@@ -52,32 +58,79 @@
                                  style="width:15px; height:15px"
                                  ng-src="images/subcomponent.png">Subcomponent
                     </span>
+                    </span>
             </div>
-            <div class="row">
+
+            <div class="">
+
                 <ul class="nav nav-tabs">
                     <li ng-show="show(element)"
                         ng-repeat="element in elements"
-                        ng-class="{'active':nodeData != null && nodeData.name === element.name}"><a
-                            ng-click="getNodeContent(element)">{{element.name}}</a></li>
+                        ng-class="{'active':nodeData != null && nodeData.name === element.name && !confStatementsActive}">
+                        <a
+                                ng-click="getNodeContent(element)">{{element.name}}</a></li>
+                    <li
+                            ng-class="{'active':confStatementsActive}"><a
+                            ng-click="showConfStatements()">Conformance Statements</a></li>
+
                 </ul>
             </div>
-            <div class="row" style="margin-top: 20px">
-                <table tt-table tt-params="params" class="table table-striped table-bordered">
-                    <thead class="tbl-header">
-                    <tr>
-                        <th class="col-fixed-450">Name</th>
-                        <th class="col-fixed-80">Usage</th>
-                        <th class="col-fixed-80" ng-hide="nodeData.type === 'DATATYPE'">Cardinality</th>
-                        <th class="col-fixed-80" ng-show="nodeData.type === 'MESSAGE'">Ref</th>
-                        <th class="col-fixed-100" ng-hide="nodeData.type === 'MESSAGE'">Datatype</th>
-                        <th class="col-fixed-80" ng-hide="nodeData.type === 'MESSAGE'">Length</th>
-                        <th class="col-fixed-150" ng-hide="nodeData.type === 'MESSAGE'">ValueSet</th>
-                        <th>Predicate</th>
-                        <th>Conformance Statement</th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+            <div class="">
+                <div ng-show="!confStatementsActive" class="container-profile-table">
+                    <table tt-table tt-params="params" class="table table-striped table-bordered table-condensed"
+                            >
+                        <thead class="tbl-header">
+                        <tr>
+                            <th class="col-fixed-450">Name</th>
+                            <th class="col-fixed-80">Usage</th>
+                            <th class="col-fixed-80" ng-hide="nodeData.type === 'DATATYPE'">Cardinality</th>
+                            <th class="col-fixed-80" ng-show="nodeData.type === 'MESSAGE'">Ref</th>
+                            <th class="col-fixed-100" ng-hide="nodeData.type === 'MESSAGE'">Datatype</th>
+                            <th class="col-fixed-80" ng-hide="nodeData.type === 'MESSAGE'">Length</th>
+                            <th class="col-fixed-150" ng-hide="nodeData.type === 'MESSAGE'">ValueSet</th>
+                            <th>Predicate</th>
+                            <th>Conformance Statement</th>
+                        </tr>
+                        </thead>
+                        <tbody class=""></tbody>
+                    </table>
+                </div>
+
+                <div ng-show="confStatementsActive" class="container-confstatement-table">
+                    <table st-table="tmpConfStatements" st-safe-src="confStatements"
+                           class="table table-striped table-bordered table-condensed">
+                        <thead>
+
+                        <!--<tr>-->
+                        <!--<th colspan="2" class="text-center">-->
+                        <!--<div  st-items-by-page="25" st-pagination=""></div>-->
+                        <!--</th>-->
+                        <!--</tr>-->
+                        <tr>
+                            <th colspan="2">
+                                <input st-search placeholder="Search:" class="input-sm form-control" type="search"/>
+                            </th>
+                        </tr>
+
+                        <tr class="tbl-header">
+                            <th st-sort="id" st-ratio="20">ID</th>
+                            <th st-sort="description" st-ratio="80">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr quick-ng-repeat="row in tmpConfStatements">
+                            <td ng-bind="row.id"></td>
+                            <td ng-bind="row.description"></td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+
+                        </tr>
+
+                        </tfoot>
+                    </table>
+                </div>
             </div>
 
         </div>
@@ -144,12 +197,12 @@
         </td>
 
         <td>
-                                            <span ng-show="trim" class="constraint_trim">
+                                            <span ng-show="options.concise" class="constraint_trim">
                                               <span ng-repeat="predicate in node.predicates">
                                                  {{predicate.description}}
                                               </span>
                                             </span>
-                                         <span ng-show="!trim" class="constraint_verbose">
+                                         <span ng-show="!options.concise" class="constraint_verbose">
                                               <p ng-repeat="predicate in node.predicates">
                                                   {{predicate.description}}
                                               </p>
@@ -157,12 +210,12 @@
         </td>
         <td>
 
-                                 <span ng-show="trim" class="constraint_trim">
+                                 <span ng-show="options.concise" class="constraint_trim">
                                                <span ng-repeat="conStatement in node.conformanceStatements">
                                                     {{conStatement.id}} : {{conStatement.description}}
                                              </span>
                                             </span>
-                                         <span ng-show="!trim" class="constraint_verbose">
+                                         <span ng-show="!options.concise" class="constraint_verbose">
                                               <p ng-repeat="conStatement in node.conformanceStatements">
                                                   {{conStatement.id}} : {{conStatement.description}}
                                               </p>

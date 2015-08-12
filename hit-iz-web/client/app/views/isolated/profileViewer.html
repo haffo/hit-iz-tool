@@ -1,4 +1,6 @@
-<div class="container" ng-controller="IsolatedSystemProfileViewerCtrl" style="margin-bottom: 20px;margin-top: 5px;margin-left: 3px;" >
+<div ng-controller="IsolatedSystemProfileViewerCtrl">
+    <div class="panel panel-info">
+        <div class="panel-body">
     <div ng-show="isolated.testStep != null">
         <!--<div class="page-header">-->
             <!--<h3>{{isolated.testCase.type}}: {{isolated.testCase.name}}</h3>-->
@@ -8,4 +10,6 @@
     <div ng-show="isolated.testStep === null">
         No Test Step Selected.
     </div>
+            </div>
+        </div>
 </div>

@@ -1,18 +1,14 @@
-<div ng-controller="EnvelopeTestingCtrl" ng-init="init()" class="appcontent">
-    <tabset>
-        <tab select="setActiveTab(0)" active="tabs[0]">
-            <tab-heading>
-                <i class="fa fa-th-list"></i>Test Selection
-            </tab-heading>
+<div id="subNavBar" class="subNavBar" ng-controller="EnvelopeTestingCtrl" ng-init="init()">
+    <ul class="clearfix mainSubNav">
+        <li ng-click="setSubActive('/envelope_testcase')" class="jslink"><a ng-class="{'current':isSubActive('/envelope_testcase')}"> <i class="fa fa-th-list"></i>Test Selection</a></li>
+        <li ng-click="setSubActive('/envelope_execution')" class="jslink"><a ng-class="{'current':isSubActive('/envelope_execution')}"> <i class="fa fa-cogs"></i>Test Execution</a></li>
+    </ul>
 
-            <div ng-include="'views/envelope/testcase.html'"></div>
-        </tab>
+    <div ng-show="isSubActive('/envelope_testcase')">
+        <div ng-include="'views/envelope/testcase.html'"></div>
+    </div>
 
-        <tab disabled="disabled()" select="setActiveTab(1)" active="tabs[1]">
-            <tab-heading>
-                <i class="fa fa-cogs"></i>Test Execution
-            </tab-heading>
-            <div ng-include="'views/envelope/execution.html'"></div>
-        </tab>
-    </tabset>
+    <div ng-show="isSubActive('/envelope_execution')">
+        <div ng-include="'views/envelope/execution.html'"></div>
+    </div>
 </div>

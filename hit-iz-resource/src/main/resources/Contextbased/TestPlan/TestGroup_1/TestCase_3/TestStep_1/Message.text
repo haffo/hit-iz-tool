@@ -1,6 +1,6 @@
 MSH|^~\&||wcEHR||IIS|20150624093847.804-0500||VXU^V04^VXU_V04|77732|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|wcEHR|IIS
 PID|1||89778^^^wcEHR^MR||Benton^Katherine^Mackenzie^^^^L|Jones^^^^^^M|20031221|F||2106-3^White^CDCREC|89 West 21st Ave^^Bozeman^MT^59715^USA^P||^PRN^PH^^^406^5554019|||||||||2186-5^Not Hispanic or Latino^CDCREC||N|1|||||N
-PD1|||||||||||01^No reminder/recall^HL70215|N|20150624|||A|20031221|20150624
+PD1|||||||||||01^No reminder/recall^HL70215|Y|20150624|||A|20031221|20150624
 NK1|1|Benton^Kari^Michelle^^^^L|MTH^Mother^HL70063|89 West 21st Ave^^Bozeman^MT^59715^USA^P|^PRN^PH^^^406^5554019
 ORC|RE|5237^wcEHR|31309^wcEHR|||||||7824^Jackson^Lily^Suzanne^^^^^wcEHR^L^^^PRN||654^Thomas^Wilma^Elizabeth^^^^^wcEHR^L^^^MD|||||wcEHR^West Clinic^HL70362
 RXA|0|1|20150624||118^HPV, bivalent^CVX|0.5|mL^mL^UCUM||00^New Record^NIP001|7824^Jackson^Lily^Suzanne^^^^^wcEHR^L^^^PRN|^^^wcEHR||||795441|20151223|SKB^GlaxoSmithKline^MVX|||CP|A

@@ -1,8 +1,12 @@
 <div ng-controller="CFReportCtrl">
+    <div class="panel panel-info">
+        <div class="panel-body">
     <div ng-show="cf.testCase != null">
         <div report-viewer="" type="cf"></div>
     </div>
     <div ng-show="cf.testCase === null">
         No Profile Selected.
     </div>
+            </div>
+        </div>
 </div>

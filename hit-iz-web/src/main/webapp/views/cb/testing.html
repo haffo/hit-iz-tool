@@ -1,23 +1,15 @@
-<div ng-controller="CBTestingCtrl" ng-init="init()" class="appcontent">
+<div id="subNavBar" class="subNavBar" ng-controller="CBTestingCtrl" ng-init="init()">
+    <ul class="clearfix mainSubNav">
+        <li ng-click="setSubActive('/cb_testcase')" class="jslink"><a ng-class="{'current':isSubActive('/cb_testcase')}"> <i class="fa fa-th-list"></i> Test Selection</a></li>
+        <li ng-click="setSubActive('/cb_execution')" class="jslink"><a ng-class="{'current':isSubActive('/cb_execution')}"> <i class="fa fa-cogs"></i> Test Execution</a></li>
+    </ul>
 
-    <div ng-show="loading" style="text-align:center">
-        <i class="fa fa-spinner fa-pulse fa-2x"></i>
+    <div ng-show="isSubActive('/cb_testcase')">
+        <div ng-include="'views/cb/testcase.html'"></div>
     </div>
-    <div ng-show="!loading">
-    <tabset>
-        <tab select="setActiveTab(0)" active="tabs[0]">
-            <tab-heading>
-                <i class="fa fa-th-list"></i>Test Selection
-            </tab-heading>
 
-            <div ng-include="'views/cb/testcase.html'"></div>
-        </tab>
-        <tab disabled="disabled()" select="setActiveTab(1)" active="tabs[1]">
-            <tab-heading>
-                <i class="fa fa-cogs"></i>Test Execution
-            </tab-heading>
-            <div ng-include="'views/cb/execution.html'"></div>
-        </tab>
-    </tabset>
-        </div>
+    <div ng-show="isSubActive('/cb_execution')">
+        <div ng-include="'views/cb/execution.html'"></div>
     </div>
+
+</div>

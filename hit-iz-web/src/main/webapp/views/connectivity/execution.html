@@ -1,11 +1,21 @@
-<div style="margin-bottom: 20px" ng-controller="ConnectivityExecutionCtrl" ng-init="init()">
-<div ng-show="testCase != null">
-<div class="page-header"><h3>TestCase: {{testCase.parentName}} - {{testCase.label}}</h3></div>
-<div class="row" ng-show="error != null">
+<div ng-controller="ConnectivityExecutionCtrl" ng-init="init()">
+
+<div class="panel panel-info" style="margin:10px">
+<div class="panel-heading">
+
+    <span ng-show="testCase != null">
+        Test Case: {{testCase.parentName}} - {{testCase.label}}
+    </span>
+    <span ng-show="testCase === null">
+        No Test Case Selected
+    </span>
+</div>
+<div class="panel-body">
+<div ng-show="error != null">
     <div class="alert alert-danger col-sm-12" role="alert" ng-bind="error"></div>
 </div>
-
-<div class="row" style="margin-bottom: 10px" ng-show="testCase.sutType === 'SENDER' && testCase.testType === 'SENDER_CONNECTIVITY'">
+<div ng-show="testCase != null">
+<div class="row" ng-show="testCase.sutType === 'SENDER' && testCase.testType === 'SENDER_CONNECTIVITY'">
     <div class="col-sm-10">
         <p>Please collect and validate your incoming/outgoing messages in the <a ng-click="selectTestingType(0)">Stage 1: SOAP Envelope</a></p>
         <div class="panel panel-info">
@@ -136,7 +146,7 @@
                                                 <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                                 <span ng-show="row.path == null">N/A</span>
                                             </td>
-                                            <td ng-bind-html="row.description"></td>
+                                            <td ng-bind-html="toHTML(row.description)"></td>
                                             <td>
                                                 <span ng-show="row.line" ng-bind="row.line"></span>
                                                 <span ng-show="row.line == null">N/A</span>
@@ -184,7 +194,7 @@
                                                 <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                                 <span ng-show="row.path == null">N/A</span>
                                             </td>
-                                            <td ng-bind-html="row.description"></td>
+                                            <td ng-bind-html="toHTML(row.description)"></td>
                                             <td>
                                                 <span ng-show="row.line" ng-bind="row.line"></span>
                                                 <span ng-show="row.line == null">N/A</span>
@@ -233,7 +243,7 @@
                                                 <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                                 <span ng-show="row.path == null">N/A</span>
                                             </td>
-                                            <td ng-bind-html="row.description"></td>
+                                            <td ng-bind-html="toHTML(row.description)"></td>
                                             <td>
                                                 <span ng-show="row.line" ng-bind="row.line"></span>
                                                 <span ng-show="row.line == null">N/A</span>
@@ -284,7 +294,7 @@
                                                 <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                                 <span ng-show="row.path == null">N/A</span>
                                             </td>
-                                            <td ng-bind-html="row.description"></td>
+                                            <td ng-bind-html="toHTML(row.description)"></td>
                                             <td>
                                                 <span ng-show="row.line" ng-bind="row.line"></span>
                                                 <span ng-show="row.line == null">N/A</span>
@@ -450,7 +460,7 @@
                                                 <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                                 <span ng-show="row.path == null">N/A</span>
                                             </td>
-                                            <td ng-bind-html="row.description"></td>
+                                            <td ng-bind-html="toHTML(row.description)"></td>
                                             <td>
                                                 <span ng-show="row.line" ng-bind="row.line"></span>
                                                 <span ng-show="row.line == null">N/A</span>
@@ -498,7 +508,7 @@
                                                 <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                                 <span ng-show="row.path == null">N/A</span>
                                             </td>
-                                            <td ng-bind-html="row.description"></td>
+                                            <td ng-bind-html="toHTML(row.description)"></td>
                                             <td>
                                                 <span ng-show="row.line" ng-bind="row.line"></span>
                                                 <span ng-show="row.line == null">N/A</span>
@@ -547,7 +557,7 @@
                                                 <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                                 <span ng-show="row.path == null">N/A</span>
                                             </td>
-                                            <td ng-bind-html="row.description"></td>
+                                            <td ng-bind-html="toHTML(row.description)"></td>
                                             <td>
                                                 <span ng-show="row.line" ng-bind="row.line"></span>
                                                 <span ng-show="row.line == null">N/A</span>
@@ -598,7 +608,7 @@
                                                 <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                                 <span ng-show="row.path == null">N/A</span>
                                             </td>
-                                            <td ng-bind-html="row.description"></td>
+                                            <td ng-bind-html="toHTML(row.description)"></td>
                                             <td>
                                                 <span ng-show="row.line" ng-bind="row.line"></span>
                                                 <span ng-show="row.line == null">N/A</span>
@@ -687,7 +697,8 @@
 </div>
 </div>
 <div ng-show="testCase === null">
-    <br>
-    No TestCase Selected.
+     No Test Case Selected.
 </div>
+</div>
+ </div>
 </div>

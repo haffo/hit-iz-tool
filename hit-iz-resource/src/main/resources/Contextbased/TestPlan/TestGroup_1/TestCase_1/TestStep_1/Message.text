@@ -1,6 +1,6 @@
 MSH|^~\&|wcApp|wcEHR|issApp|IIS|20150624073733.994-0500||VXU^V04^VXU_V04|12462|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|wcEHR|IIS
 PID|1||3123^^^wcEHR^MR||Richardson^Russell^Clint^^^^L|Billington^^^^^^M|20150415|M||1002-5^American Indian or Alaska Native^CDCREC|543 Blount Drive^^Bozeman^MT^59715^USA^P||^PRN^PH^^^406^5557690|||||||||2186-5^Not Hispanic or Latino^CDCREC||N|1|||||N
-PD1|||||||||||07^Recall only - no calls^HL70215|Y|20150624|||A|20150415|20150624
+PD1|||||||||||07^Recall only - no calls^HL70215|N|20150624|||A|20150415|20150624
 NK1|1|Richardson^Maria^Elizabeth^^^^L|MTH^Mother^HL70063|543 Blount Drive^^Bozeman^MT^59715^USA^P|^PRN^PH^^^406^5557690
 NK1|2|Richardson^John^William^^^^L|FTH^Father^HL70063|543 Blount Drive^^Bozeman^MT^59715^USA^P|^PRN^CP^^^406^5558299
 ORC|RE|3140^wcEHR|38766^wcEHR|||||||7824^Jackson^Lily^Suzanne^^^^^wcEHR^L^^^PRN||654^Thomas^Wilma^Elizabeth^^^^^wcEHR^L^^^MD|||||wcEHR^West Clinic^HL70362

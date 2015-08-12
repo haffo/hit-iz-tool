@@ -61,11 +61,17 @@ public class TransactionController extends TestingController {
     logger.info("Initializing transaction for username ... " + user.getUsername());
     Transaction transaction = transaction(user);
     if (transaction != null) {
-      transaction.init();
+      setResponseMessageId(transaction.getUser(), user.getResponseMessageId());
+      transaction.init();;
       transactionRepository.saveAndFlush(transaction);
       return true;
     }
     return false;
+  }
+
+  private void setResponseMessageId(User user, Long messageId) {
+    user.setResponseMessageId(messageId);
+    userRepository.save(user);
   }
 
   @Transactional()
@@ -74,6 +80,7 @@ public class TransactionController extends TestingController {
     logger.info("Closing transaction for username... " + user.getUsername());
     Transaction transaction = transaction(user);
     if (transaction != null) {
+      setResponseMessageId(transaction.getUser(), null);
       transaction.close();
       transactionRepository.saveAndFlush(transaction);
     }

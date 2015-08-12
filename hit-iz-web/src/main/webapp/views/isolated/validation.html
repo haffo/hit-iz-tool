@@ -1,4 +1,6 @@
-<div ng-controller="IsolatedSystemValidatorCtrl" ng-init="init()" style="margin-bottom: 20px;margin-top: 5px">
+<div ng-controller="IsolatedSystemValidatorCtrl" ng-init="init()">
+    <div class="panel panel-info">
+        <div class="panel-body">
 <div ng-show="testStep != null">
 <!--<div class="page-header">-->
     <!--<h3>{{isolated.testCase.type}}: {{isolated.testCase.name}}</h3>-->
@@ -29,8 +31,9 @@
     </div>
 </div>
 <div class="col-md-8">
-<div class="container">
-<div class="row">
+    <div class="panel panel-info">
+        <div class="panel-body">
+<div class="">
 <div id="messagePanel" class="panel panel-info">
     <div class="panel-heading">
         <form id="fileupload" data-file-upload="options" method="POST" enctype="multipart/form-data" data-ng-class="{'fileupload-processing': processing() || loadingFiles}" role="form" class="form-inline">
@@ -120,7 +123,7 @@
 </div>
 
 <div ng-show="!vError || vError == null">
-    <div validation-result="" type="isolated" message="isolated.message" editor="isolated.editor" tree="isolated.tree"></div>
+    <div validation-result="" type="isolated" message="isolated.message" editor="isolated.editor" tree="isolated.tree" cursor="isolated.cursor"></div>
 </div>
 
 </div>
@@ -129,7 +132,7 @@
 </div>
 </div>
 </div>
-
+</div>
 
 </div>
 </div>
@@ -142,3 +145,5 @@
     No TestStep Loaded
 </div>
 </div>
+        </div>
+    </div>

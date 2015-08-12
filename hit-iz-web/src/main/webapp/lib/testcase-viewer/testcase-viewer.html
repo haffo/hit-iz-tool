@@ -1,7 +1,8 @@
 <div ng-show="testCase !== null">
     <tabset>
         <tab heading="Test Story" ng-show="testStory && testStory !== null">
-            <br/>
+            <div class="panel panel-info">
+                <div class="panel-body">
             <div  ng-show="testStory && testStory !== null">
             <div class="pull-right" style="margin-bottom: 20px">
                 <button title="Download Test Story" type="button" class="btn btn-sm btn-primary"
@@ -11,12 +12,13 @@
             </div>
             <br />
             <br />
+                <div class="testcase-content">
             <div class="panel panel-info"
                     >
                 <!-- Default panel contents -->
                 <div class="panel-heading">Description</div>
                 <div class="panel-body">
-                    <p class="test-details-content" ng-bind-html="testStory.teststorydesc"></p>
+                    <p class="test-details-content" ng-bind-html="toHTML(testStory.teststorydesc)"></p>
                 </div>
             </div>
 
@@ -69,9 +71,14 @@
             <!--<div ng-bind-html="toHTML(testCase.testStory.html)"></div>-->
 
                 </div>
+                </div>
+                    </div>
+                </div>
         </tab>
 
         <tab heading="Message Content" ng-show="testCase.messageContent && testCase.messageContent !== null">
+            <div class="panel panel-info">
+                <div class="panel-body">
             <div class="pull-right" style="padding-top:10px; margin-bottom: 20px">
                 <button title="Download Message Content" type="button" class="btn btn-sm btn-primary"
                         ng-click="downloadTestArtifact(testCase.messageContent.pdfPath)">
@@ -80,8 +87,9 @@
             </div>
             <br />
             <br />
+            <div class="testcase-content">
             <div ng-bind-html="toHTML(testCase.messageContent.html)"></div>
-
+            </div>
             <!--<div style="padding-left:20px">-->
                 <!--&lt;!&ndash;<tabset>&ndash;&gt;-->
                     <!--&lt;!&ndash;<tab  heading="FULL">&ndash;&gt;-->
@@ -143,17 +151,15 @@
 
 
             <!--</div>-->
-
+            </div>
+                </div>
         </tab>
-
-
 
         <tab heading="Test Data Specification"
              ng-show="testCase.testDataSpecification && testCase.testDataSpecification.html !== null">
-
-            <br/>
-
-            <div class="pull-right" style="margin-bottom: 20px">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div class="pull-right" style="margin-bottom: 20px">
                 <button title="Download Test Data Specification" type="button" class="btn btn-sm btn-primary"
                         ng-click="downloadTestArtifact(testCase.testDataSpecification.pdfPath)">
                     <i class="fa fa-download"></i> PDF
@@ -161,12 +167,17 @@
             </div>
             <br />
             <br />
+            <div class="testcase-content">
+                <div ng-bind-html="toHTML(testCase.testDataSpecification.html)"/>
 
-            <div ng-bind-html="toHTML(testCase.testDataSpecification.html)"/>
+            </div>
+                    </div>
+                </div>
         </tab>
 
         <tab heading="Juror Document" ng-show="testCase.jurorDocument && testCase.jurorDocument !== null">
-            <br/>
+            <div class="panel panel-info">
+                <div class="panel-body">
             <div class="pull-right">
                 <button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"
                         ng-click="downloadTestArtifact(testCase.jurorDocument.pdfPath)">
@@ -175,7 +186,29 @@
             </div>
             <br />
             <br />
-            <div ng-bind-html="toHTML(testCase.jurorDocument.html)"/>
+            <div class="testcase-content">
+                <div ng-bind-html="toHTML(testCase.jurorDocument.html)"/>
+            </div>
+                    </div>
+                </div>
+        </tab>
+
+
+        <tab heading="Example Message" ng-show="testCase.testContext && testCase.testContext.message && testCase.testContext.message!== null && testCase.testContext.message.content != null">
+            <div class="panel panel-info">
+                <div class="panel-body">
+            <!--<br/>-->
+            <!--<div class="pull-right">-->
+                <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"-->
+                        <!--ng-click="downloadTestArtifact(testCase.jurorDocument.pdfPath)">-->
+                    <!--<i class="fa fa-download"></i> PDF-->
+                <!--</button>-->
+            <!--</div>-->
+            <!--<br />-->
+            <br />
+            <pre class="message" ng-bind="testCase.testContext.message.content"></pre>
+                    </div>
+                </div>
         </tab>
 
 

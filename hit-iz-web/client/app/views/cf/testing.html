@@ -1,7 +1,5 @@
-<div ng-controller="CFTestingCtrl" ng-init="init()" class="appcontent">
-
+<div ng-controller="CFTestingCtrl" ng-init="init()" class="" style="margin-top:10px;margin-left: 10px">
     <div ng-show="error == null">
-
         <div class="row" style="">
             <div class="col-md-2">
                 <div class="panel panel-info">
@@ -9,7 +7,7 @@
                     <div class="panel-heading point" ng-click="openProfileInfo()"><i class="fa fa-list"></i>Profiles <i class="point fa fa-info-circle"></i>
                     </div>
                     <div class="panel-body">
-                        <div class="tc-tree">
+                        <div class="container-testcase">
                             <table tt-table tt-params="params" class="table table-hover no_border">
                                 <thead>
                                 <tr>
@@ -35,7 +33,6 @@
                         </div>
                         <div class="panel-body">
                     <tabset>
-
                         <tab select="setActiveTab(0)" active="tabs[0]">
                             <tab-heading>
                                 <i class="fa fa-check-circle"></i>Validation

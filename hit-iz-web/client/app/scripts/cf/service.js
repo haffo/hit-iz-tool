@@ -17,7 +17,7 @@ angular.module('cf').factory('CF',
     }]);
 
 
-angular.module('cb').factory('CFTestCaseListLoader', ['$q', '$http',
+angular.module('cf').factory('CFTestCaseListLoader', ['$q', '$http',
     function ($q, $http) {
         return function () {
             var delay = $q.defer();

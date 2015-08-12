@@ -1,0 +1,38 @@
+<div>
+     <!--<div ui-grid="gridOptions" class="grid"></div>-->
+ <div ng-show="data && data !== null">
+     <table st-table="data"
+           class="table table-striped table-bordered ng-table-text">
+        <thead>
+        <tr class="tbl-header">
+            <th>Path</th>
+            <th>Description</th>
+            <th>Line</th>
+            <th>Column</th>
+            <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr quick-ng-repeat="row in data">
+            <td>
+                <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                <span ng-show="row.path == null">N/A</span>
+            </td>
+            <td ng-bind="row.description"></td>
+            <td>
+                <span ng-show="row.line" ng-bind="row.line"></span>
+                <span ng-show="row.line == null">N/A</span>
+            </td>
+            <td>
+                <span ng-show="row.column" ng-bind="row.column"></span>
+                <span ng-show="row.column == null">N/A</span>
+            </td>
+            <td>
+                <a ng-show="row.stackTrace !== null || row.metaData != null"
+                   class="point" ng-click="showDetails(row)">Details</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+ </div>
+</div>

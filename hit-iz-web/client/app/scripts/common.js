@@ -759,10 +759,10 @@ angular.module('commonServices').factory('Transaction', function ($q, $http) {
         return delay.promise;
     };
 
-    Transaction.prototype.openConnection = function () {
+    Transaction.prototype.openConnection = function (responseMessageId) {
         var self = this;
         var delay = $q.defer();
-        var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID});
+        var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID, "responseMessageId":responseMessageId});
         $http.post('api/transaction/open', data).then(
             function (response) {
                 self.running = true;

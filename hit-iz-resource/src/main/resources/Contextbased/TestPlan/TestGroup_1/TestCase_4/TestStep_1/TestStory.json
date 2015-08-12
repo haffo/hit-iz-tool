@@ -1,9 +1,9 @@
 {
-  "teststorydesc" : "<font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333330154419px;\">After administering an HPV vaccination to the 11.5 year old female Katherine Benton the clinician, Lily Jackson (ID 7824) realizes that the vaccination was documented on the incorrect patient chart. She deletes the vaccination from the patient chart and transmits the change to the IIS.</span></font>",
-  "comments" : "No Comments",
-  "preCondition" : "No PreCondition",
-  "postCondition" : "No PostCondition",
-  "testObjectives" : "No Test Objectives",
-  "evaluationCriteria" : "No evaluation criteria",
-  "notes" : "No Note"
+  "teststorydesc" : "<p>After administering an HPV vaccination to the 11.5 year old female Katherine Benton the clinician, Lily Jackson (ID 7824) realizes that the vaccination was documented on the incorrect patient chart. She deletes the vaccination from the patient chart and transmits the change to the IIS.</p>\r\n",
+  "comments" : "<p>No Comments</p>\r\n",
+  "preCondition" : "<p>No PreCondition</p>\r\n",
+  "postCondition" : "<p>No PostCondition</p>\r\n",
+  "testObjectives" : "<p>No Test Objectives</p>\r\n",
+  "evaluationCriteria" : "<p>No evaluation criteria</p>\r\n",
+  "notes" : "<p>No Note</p>\r\n"
 }

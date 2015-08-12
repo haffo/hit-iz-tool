@@ -1,38 +1,48 @@
-<div style="margin-bottom: 20px" ng-controller="CBExecutionCtrl" ng-init="init()">
-    <div ng-show="testCase != null">
-        <div class="page-header">
-            <h3>{{testCase.type}}: {{testCase.name}}</h3>
+<div ng-controller="CBExecutionCtrl" ng-init="init()">
+    <div class="panel panel-info" style="margin:10px">
+        <div class="panel-heading">
+            <span ng-show="testCase != null">{{testCase.type}}: {{testCase.name}}</span>
+            <span ng-show="testCase == null">No Test Case Selected.</span>
         </div>
-        <div class="row" ng-show="error != null">
-              <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+        <div class="panel-body">
+            <div>
+                <div class="row" ng-show="error != null">
+                    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+                </div>
+                <div ng-show="testCase != null">
+                    <tabset>
+                        <tab disabled="disabled()" select="setActiveTab(0)" active="tabs[0]">
+                            <tab-heading>
+                                <i class="fa fa-check-circle"></i>Validation
+                            </tab-heading>
+
+                            <div ng-include="'views/cb/validation.html'"></div>
+                        </tab>
+                        <tab disabled="disabled()" select="setActiveTab(1)" active="tabs[1]">
+                            <tab-heading>
+                                <i class="fa fa-file-o"></i>Report
+                            </tab-heading>
+
+                            <div ng-include="'views/cb/report.html'"></div>
+                        </tab>
+                        <tab disabled="disabled()" select="setActiveTab(2)" active="tabs[2]">
+                            <tab-heading>
+                                <i class="fa fa-th-list"></i>Profile Viewer
+                            </tab-heading>
+                            <div ng-include="'views/cb/profileViewer.html'"></div>
+                        </tab>
+                        <tab disabled="disabled()" select="setActiveTab(3)" active="tabs[3]">
+                            <tab-heading>
+                                <i class="fa fa-book"></i>ValueSets
+                            </tab-heading>
+                            <div ng-include="'views/cb/vocabulary.html'"></div>
+                        </tab>
+                    </tabset>
+                </div>
+                <div ng-show="testCase === null">
+                    No Test Case Selected.
+                </div>
+            </div>
         </div>
-        <tabset>
-            <tab disabled="disabled()" select="setActiveTab(0)" active="tabs[0]">
-                <tab-heading>
-                    <i class="fa fa-check-circle"></i>Validation
-                </tab-heading>
-
-                <div ng-include="'views/cb/validation.html'"></div>
-            </tab>
-            <tab disabled="disabled()" select="setActiveTab(1)" active="tabs[1]">
-                <tab-heading>
-                    <i class="fa fa-file-o"></i>Report
-                </tab-heading>
-
-                <div ng-include="'views/cb/report.html'"></div>
-            </tab>
-            <tab disabled="disabled()" select="setActiveTab(2)" active="tabs[2]">
-                <tab-heading>
-                    <i class="fa fa-th-list"></i>Profile Viewer
-                </tab-heading>
-                <div ng-include="'views/cb/profileViewer.html'"></div>
-            </tab>
-            <tab disabled="disabled()" select="setActiveTab(3)" active="tabs[3]">
-                <tab-heading>
-                    <i class="fa fa-book"></i>ValueSets
-                </tab-heading>
-                <div ng-include="'views/cb/vocabulary.html'"></div>
-            </tab>
-        </tabset>
     </div>
 </div>

@@ -52,7 +52,11 @@ angular.module('cf')
 
             var tcLoader = new CFTestCaseListLoader();
             tcLoader.then(function (testCases) {
-                $scope.testCases = $filter('orderBy')(testCases, 'position');
+                angular.forEach(testCases, function (testPlan) {
+                    $scope.sortByPosition(testPlan);
+                });
+                $scope.testCases = testCases;
+//                $scope.testCases = $filter('orderBy')(testCases, 'position');
 //                if ($scope.testCases.length > 0 && $scope.testCases[0].testContext && $scope.testCases[0].testContext != null) {
 //                    $scope.loadTestCase($scope.testCases[0]);
 //                }
@@ -64,6 +68,17 @@ angular.module('cf')
                 $scope.loading = false;
             });
         };
+
+
+        $scope.sortByPosition = function (obj) {
+            if (obj.children) {
+                obj.children = $filter('orderBy')(obj.children, 'position');
+                angular.forEach(obj.children, function (child) {
+                    $scope.sortByPosition(child);
+                });
+            }
+        };
+
 
         $scope.openProfileInfo = function () {
             var modalInstance = $modal.open({
@@ -162,7 +177,7 @@ angular.module('cf')
             if ($scope.cf.testCase.testContext.message && $scope.cf.testCase.testContext.message != null) {
                 $scope.nodelay = true;
                 $scope.selectedMessage = $scope.cf.testCase.testContext.message;
-                if ($scope.selectedMessage != null) {
+                if ($scope.selectedMessage != null && $scope.selectedMessage.content != null) {
                     $scope.editor.doc.setValue($scope.selectedMessage.content);
                 } else {
                     $scope.editor.doc.setValue('');

@@ -14,12 +14,12 @@ angular.module('envelope')
         };
 
         $scope.init = function () {
-            $scope.setActiveTab(0);
+            $rootScope.setSubActive('/envelope_testcase');
         };
 
         $rootScope.$on('env:testCaseLoaded', function (event) {
             if (Envelope.testCase != null && Envelope.testCase.id != null) {
-                $scope.setActiveTab(1);
+                $rootScope.setSubActive('/envelope_execution');
             }
         });
 
