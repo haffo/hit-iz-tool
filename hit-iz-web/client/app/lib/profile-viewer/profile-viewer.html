@@ -8,26 +8,27 @@
     <div ng-show="error === null">
         <div ng-show="profile != null">
             <div class="" style="margin-bottom: 10px;">
-                <span>
-                <label>
-                <input name="relevance" id="relevance" ng-model="options.relevance" type="checkbox"
-                        >R,RE,C (only)
-                </label>
-                <!--<input ng-model="options.relevance" ng-click="options.relevance = false"-->
-                <!--ng-class="{'active': !options.relevance}"-->
-                <!--role="button">R,RE,C,O,X (All)</a>-->
-                <label>
-                <input name="conciseView" id="conciseView" ng-model="options.concise" type="checkbox"
-                       >Concise View
-                 </label>
-                </span>
+
+                <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn   btn-cf-outline" ng-click="options.relevance = true" ng-class="{'active': options.relevance}">
+                        <input type="radio" ng-model="options.relevance" autocomplete="off" checked>R,RE,C (only)
+                    </label>
+                    <label class="btn  btn-cf-outline" ng-click="options.relevance = false" ng-class="{'active': !options.relevance}">
+                        <input type="radio" ng-model="options.relevance"  autocomplete="off">R,RE,C,O,X (All)
+                    </label>
+                </div>
+
+
+                <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn   btn-cf-outline" ng-click="options.concise = true" ng-class="{'active': options.concise}">
+                        <input type="radio"   ng-model="options.concise"  autocomplete="off" checked>Concise View
+                    </label>
+                    <label class="btn btn-cf-outline" ng-click="options.concise = false" ng-class="{'active': !options.concise}">
+                        <input type="radio" ng-model="options.concise" autocomplete="off">Expanded View
+                    </label>
+                </div>
+
                 <span class="pull-right">
-                <!--<input ng-model="options.concise" ng-click="options.concise = true"-->
-                       <!--ng-class="{'active': options.concise}"-->
-                       <!--role="button">Concise View</a>-->
-                <!--<input ng-model="options.concise" ng-click="options.concise = false"-->
-                       <!--ng-class="{'active': !options.concise}"-->
-                       <!--role="button">Expanded View</a>-->
                      <span style="margin-left:10px">
                          <img
                                  style="width:15px; height:15px"
@@ -139,7 +140,7 @@
 
 <script type="text/ng-template" id="ProfileViewerNode.html">
     <tr ng-show="show(node)" tt-node
-        is-branch="node.children != null && node.children.length > 0">
+        is-branch="isBranch(node)">
         <td class="col-fixed-450">
             <img ng-show="node.icon != null"
                  style="width:15px; height:15px"

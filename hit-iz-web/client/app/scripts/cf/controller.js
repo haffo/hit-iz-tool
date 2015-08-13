@@ -55,11 +55,7 @@ angular.module('cf')
                 angular.forEach(testCases, function (testPlan) {
                     $scope.sortByPosition(testPlan);
                 });
-                $scope.testCases = testCases;
-//                $scope.testCases = $filter('orderBy')(testCases, 'position');
-//                if ($scope.testCases.length > 0 && $scope.testCases[0].testContext && $scope.testCases[0].testContext != null) {
-//                    $scope.loadTestCase($scope.testCases[0]);
-//                }
+                $scope.testCases = $filter('orderBy')(testCases, 'position');
                 $scope.loading = false;
                 $scope.error = null;
                 $scope.params.refresh();
@@ -69,6 +65,9 @@ angular.module('cf')
             });
         };
 
+        $scope.expandChildren = function (node) {
+            $scope.params.expandChildren(node);
+        };
 
         $scope.sortByPosition = function (obj) {
             if (obj.children) {
@@ -192,6 +191,15 @@ angular.module('cf')
             $scope.loadRate = value;
         };
 
+//        function makeMarker() {
+//            var marker = document.createElement("div");
+//            marker.style.color = "#822";
+//            marker.innerHTML = "●";
+//            return marker;
+//        }
+
+
+
         $scope.initCodemirror = function () {
             $scope.editor = CodeMirror.fromTextArea(document.getElementById("cfTextArea"), {
                 lineNumbers: true,
@@ -199,8 +207,10 @@ angular.module('cf')
                 theme: "elegant",
                 mode: 'edi',
                 readOnly: false,
-                showCursorWhenSelecting: true
+                showCursorWhenSelecting: true,
+                gutters: ["CodeMirror-linenumbers", "cm-edi-segment-name"]
             });
+
             $scope.editor.setSize(null, 350);
 
             $scope.editor.on("keyup", function () {
@@ -214,6 +224,7 @@ angular.module('cf')
                     CF.message.name = null;
                     if (msg.trim() !== '') {
                         $scope.tokenPromise = $timeout(function () {
+
                             $scope.execute();
                         }, $scope.loadRate);
                     } else {

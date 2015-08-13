@@ -186,7 +186,8 @@
             <a class="point" ng-show="node.type === 'TestStep'"
                ng-click="selectTestCase(node)">{{node.position}}.{{node.name}}</a>
             <span ng-show="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.name}}</span>
-        </td>
+            <!--<input ng-show="node.children != null && node.children.length > 0" title="Expand All" ng-click="expandChildren(node)" type="checkbox">-->
+         </td>
     </tr>
 </script>
 
@@ -203,6 +204,7 @@
         <td style="padding:0;white-space: nowrap" ng-class="{ 'node-active': node.id === testCase.id && node.type === testCase.type}">
             <a class="point" ng-show="node.testContext && node.testContext !== null" ng-click="loadTestCase(node)">{{node.name}}</a>
             <span ng-show="!node.testContext || node.testContext === null">{{node.name}}</span>
+            <!--<input ng-show="node.children != null && node.children.length > 0" title="Expand All" ng-click="expandChildren(node)" type="checkbox">-->
         </td>
     </tr>
 </script>

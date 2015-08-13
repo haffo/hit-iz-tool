@@ -40,6 +40,7 @@
             $scope.validationTabs = new Array();
             $scope.activeTab = 0;
             $scope.validationResult = null;
+            $scope.loadingCategory = false;
             $scope.validResultHighlither = null;
             $scope.validationConfig = {
                 dqa : {
@@ -68,6 +69,7 @@
                     checked:false
                 }
             };
+
 
             $scope.data = [];
             $scope.tmpData = [];
@@ -113,9 +115,10 @@
             };
 
             $scope.initValidationData = function(data){
-                $scope.data = data;
-                $scope.tmpData = [].concat($scope.data);
-//                $(window).resize();
+                     $scope.loadingCategory = true;
+                     $scope.data = data;
+                     $scope.tmpData = [].concat($scope.data);
+                     $scope.loadingCategory = false;
             };
 
             $scope.select = function (element) {
@@ -127,7 +130,6 @@
                 }
             };
 
-
             $rootScope.$on($scope.type + ':validationResultLoaded', function (event,validationResult) {
                 $scope.validationResult = validationResult;
                 if($scope.validationResult && $scope.validationResult  != null) {
@@ -138,6 +140,7 @@
                     $scope.failuresConfig.alerts.checked = false;
                     $scope.failuresConfig.informationals.checked = false;
                     $scope.failuresConfig.affirmatives.checked = false;
+                    $scope.firstLoaded = false;
                     $scope.hideAllFailures();
                     $scope.initValidationData($scope.validationResult['errors'].categories[0].data);
                 }

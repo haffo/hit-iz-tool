@@ -46,6 +46,19 @@
                 return str;
             };
 
+            $scope.isBranch = function (node) {
+                var isBranch = false;
+                if(node.children != null && node.children.length > 0){
+                    for(var i=0; i < node.children.length; i++){
+                        if($scope.show(node.children[i])){
+                            isBranch = true;
+                            break;
+                        }
+                    }
+                }
+                return isBranch;
+            };
+
             $scope.showRefSegment = function (id) {
                 if ($scope.elements.length > 0 && id)
                     for (var i = 1; i < $scope.elements.length; i++) {
@@ -114,7 +127,7 @@
                         var valueSetIds = $scope.profileService.getValueSetIds(segments, datatypes.children);
                         $rootScope.$broadcast($scope.type + ':valueSetIdsCollected', valueSetIds);
                         $scope.nodeData = $scope.elements[0];
-                        $scope.params.refresh();
+                        $scope.refresh('expanded');
                         $scope.loading = false;
                     }, function (error) {
                         $scope.error = "Sorry, Cannot load the profile.";
@@ -123,13 +136,13 @@
                         $scope.elements = [];
                         $scope.confStatements = [];
                         $scope.tmpConfStatements = [].concat($scope.confStatements);
-                        $scope.params.refresh();
+                        $scope.refresh('collapsed');
                     });
                 } else {
                     $scope.loading = false;
                     $scope.nodeData = [];
                     $scope.elements = [];
-                    $scope.params.refresh();
+                    $scope.refresh('collapsed');
                     $scope.loading = false;
                     $scope.confStatements = [];
                     $scope.tmpConfStatements = [].concat($scope.confStatements);
@@ -143,16 +156,19 @@
                 getTemplate: function (node) {
                     return 'ProfileViewerNode.html';
                 }
-//                ,
-//                options: {
-//                    initialState: 'expanded'
-//                }
+                ,
+                options: {
+                    initialState: 'collapsed'
+                }
             });
+            $scope.refresh = function (state) {
+                $scope.params.refreshWithState(state);
+            };
 
             $scope.getNodeContent = function (selectedNode) {
                 $scope.confStatementsActive = false;
                 $scope.nodeData = selectedNode;
-                $scope.params.refresh();
+                $scope.refresh(selectedNode.type === 'MESSAGE' ? 'expanded':'collapsed');
             };
 
             $scope.showConfStatements = function () {
@@ -244,27 +260,27 @@
 
         ProfileService.prototype.getJson = function (id) {
             var delay = $q.defer();
-            $http.post('api/profile/' + id).then(
-                function (object) {
-                    try {
-                        delay.resolve(angular.fromJson(object.data));
-                    } catch (e) {
-                        delay.reject("Invalid character");
-                    }
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//            $http.get('../../resources/cf/profile.json').then(
+//            $http.post('api/profile/' + id).then(
 //                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
+//                    try {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    } catch (e) {
+//                        delay.reject("Invalid character");
+//                    }
 //                },
 //                function (response) {
 //                    delay.reject(response.data);
 //                }
 //            );
+
+            $http.get('../../resources/cf/profile.json').then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
 
             return delay.promise;
         };

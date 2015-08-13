@@ -15,7 +15,7 @@ $icon-font-path: "../fonts/";
   width: 95%;
   height: 95%;
   margin: 0 auto;
-  background: #f5f5f5;
+  background: white;
   color: black;
   box-shadow: 0 0 6px #021a4c;
 
@@ -71,12 +71,7 @@ body {
   padding-bottom: 19px;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: black;
-  border-top: 1px solid #e5e5e5;
-}
+
 
 .container-narrow > hr {
   margin: 30px 0;
@@ -1042,8 +1037,17 @@ table.forumline > tr > td {
 }
 
 #footer {
-  text-align: center;
-  font-size: .9em;
+//  text-align: center;
+//  font-size: .9em;
+
+  border-top: 1px solid #a6a6a6;
+  clear: left;
+//  color: #a6a6a6;
+  padding-top: 10px;
+  text-align: left;
+  margin-top:10px;
+  padding-bottom:40px;
+
 }
 
 
@@ -1075,20 +1079,21 @@ table.forumline > tr > td {
 }
 
 .btn-cf-outline {
-  border-color: #bce8f1;
+  border-color: #428bca;
   background-color: #d9edf7;
-  color: #3a87ad;
-  margin-right: 10px;
-  border-radius: 3px;
-  font-size: 14px;
-  line-height: 1.33;
-  padding: 10px 16px;
+  border: 2px;
+//  color: #3a87ad;
+//  margin-right: 10px;
+//  border-radius: 3px;
+//  font-size: 14px;
+//  line-height: 1.33;
+//  padding: 10px 16px;
 }
 
 .btn-cf-outline.active, .btn-cf-outline:hover, .btn-cf-outline.active:hover {
   background-color: #428bca;
   border-color: #bce8f1;
-  border: 0px;
+  border: 2px;
   color: white;
 }
 
@@ -1508,3 +1513,22 @@ li.validation-result-subtab {
   max-height: 400px !important;
   overflow: auto;
 }
+
+.box {
+  display: block;
+  float: left;
+  margin-left: 20px;
+   float: left;
+  margin-right: 10px;
+  text-align: left;
+ }
+
+.footer {
+  padding-top: 19px;
+  color: black;
+  border-top: 1px solid #e5e5e5;
+  float:center;
+}
+
+
+

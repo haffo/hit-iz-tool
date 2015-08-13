@@ -1,6 +1,6 @@
 <div ng-show="validationResult !== null">
     <tabset>
-        <tab active="true" select="initValidationData(validationResult.errors.categories[0].data)">
+        <tab ng-click="initValidationData(validationResult.errors.categories[0].data)">
             <tab-heading>
                 <input type="checkbox"
                        ng-model="failuresConfig.errors.checked"
@@ -13,7 +13,7 @@
 
                 <tabset>
                     <tab ng-repeat="category in validationResult.errors.categories" class="validation-result-subtab"
-                         select="initValidationData(category.data)">
+                         ng-click="initValidationData(category.data)">
                         <tab-heading>
                             <span class="badge failure failure-errors" ng-bind="category.data.length"></span>
                             {{category.title}}
@@ -23,7 +23,7 @@
 
          </tab>
 
-        <tab select="initValidationData(validationResult.warnings.categories[0].data)">
+        <tab ng-click="initValidationData(validationResult.warnings.categories[0].data)">
             <tab-heading>
                 <input type="checkbox"
                        ng-model="failuresConfig.warnings.checked"
@@ -35,7 +35,7 @@
 
                 <tabset>
                     <tab ng-repeat="category in validationResult.warnings.categories" class="validation-result-subtab"
-                         select="initValidationData(category.data)">
+                         ng-click="initValidationData(category.data)">
                         <tab-heading>
 
                             <span class="badge failure failure-warnings" ng-bind="category.data.length"></span>
@@ -43,10 +43,8 @@
                         </tab-heading>
                     </tab>
                 </tabset>
-
-
         </tab>
-        <tab select="initValidationData(validationResult.alerts.categories[0].data)">
+        <tab ng-click="initValidationData(validationResult.alerts.categories[0].data)">
             <tab-heading>
                 <input type="checkbox"
                        ng-model="failuresConfig.alerts.checked"
@@ -59,7 +57,7 @@
 
                 <tabset>
                     <tab ng-repeat="category in validationResult.alerts.categories" class="validation-result-subtab"
-                         select="initValidationData(category.data)">
+                         ng-click="initValidationData(category.data)">
                         <tab-heading>
                             <span class="badge failure failure-alerts" ng-bind="category.data.length"></span>
                             {{category.title}}

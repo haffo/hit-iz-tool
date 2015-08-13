@@ -11,4 +11,4 @@
 .cm-s-elegant span.cm-edi-component-separator {color: #FF3300;}
 .cm-s-elegant span.cm-edi-subcomponent-separator {color: #006600;}
 .cm-s-elegant span.cm-edi-continuation-separator {color: #FF00FF;}
-.cm-s-elegant span.cm-edi-segment-name {font-weight:bold;color:black;}
+.cm-s-elegant span.cm-edi-segment-name {font-weight:bold;color:black;width:3em}

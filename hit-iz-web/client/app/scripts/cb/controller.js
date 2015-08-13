@@ -149,6 +149,12 @@ angular.module('cb')
             }, 1000);
          };
 
+
+        $scope.expandChildren = function (node) {
+            $scope.params.expandChildren(node);
+        };
+
+
         $scope.selectTestCase = function (node) {
             $scope.selectedTestCase = node;
             $rootScope.$broadcast('cb:testCaseSelected',$scope.selectedTestCase);

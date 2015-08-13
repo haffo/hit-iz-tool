@@ -150,10 +150,6 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
     };
 
 
-    $rootScope.isSubActive = function (path) {
-        return path === $rootScope.subActivePath;
-    };
-
 
     $rootScope.setActive = function (path) {
         if (path === '' || path === '/') {
@@ -161,6 +157,10 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
         } else {
             $rootScope.activePath = path;
          }
+    };
+
+    $rootScope.isSubActive = function (path) {
+        return path === $rootScope.subActivePath;
     };
 
     $rootScope.setSubActive = function (path) {
