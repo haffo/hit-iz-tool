@@ -36,7 +36,7 @@
 //    };
 //}]);
 
-angular.module('tool-services').factory('TestingSettings',
+angular.module('hit-tool-services').factory('TestingSettings',
     ['$rootScope', function ($rootScope) {
         var service = {
             activeTab:0,

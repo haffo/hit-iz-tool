@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tool-directives').directive('hl7editor', ['$timeout', function ($timeout) {
+angular.module('hit-tool-directives').directive('hl7editor', ['$timeout', function ($timeout) {
     return {
         restrict: 'A',
         link: function (scope, elem, attrs) {
@@ -45,7 +45,7 @@ angular.module('tool-directives').directive('hl7editor', ['$timeout', function (
     }
 }]);
 
-angular.module('tool-directives').directive('soapEditor', ['$timeout', function ($timeout) {
+angular.module('hit-tool-directives').directive('soapEditor', ['$timeout', function ($timeout) {
     return {
         restrict: 'A',
         link: function (scope, elem, attrs) {

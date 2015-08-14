@@ -20,7 +20,7 @@
     ]);
 
     mod
-        .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'ngTreetableParams', 'ProfileService', '$http', '$filter', 'uiGridTreeViewConstants', function ($scope, $rootScope, ngTreetableParams, ProfileService, $http,$filter,uiGridTreeViewConstants) {
+        .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'ngTreetableParams', 'ProfileService', '$http', '$filter', function ($scope, $rootScope, ngTreetableParams, ProfileService, $http,$filter) {
             $scope.testCase = null;
             $scope.elements = [];
             $scope.confStatements = [];
@@ -124,8 +124,8 @@
                         $scope.confStatements = $filter('orderBy')($scope.confStatements, 'id');
                         $scope.tmpConfStatements = [].concat($scope.confStatements);
                         $scope.profileService.setDatatypesTypesAndIcons(datatypes);
-                        var valueSetIds = $scope.profileService.getValueSetIds(segments, datatypes.children);
-                        $rootScope.$broadcast($scope.type + ':valueSetIdsCollected', valueSetIds);
+//                        var valueSetIds = $scope.profileService.getValueSetIds(segments, datatypes.children);
+//                        $rootScope.$broadcast($scope.type + ':valueSetIdsCollected', valueSetIds);
                         $scope.nodeData = $scope.elements[0];
                         $scope.refresh('expanded');
                         $scope.loading = false;
@@ -260,27 +260,27 @@
 
         ProfileService.prototype.getJson = function (id) {
             var delay = $q.defer();
-//            $http.post('api/profile/' + id).then(
-//                function (object) {
-//                    try {
-//                        delay.resolve(angular.fromJson(object.data));
-//                    } catch (e) {
-//                        delay.reject("Invalid character");
-//                    }
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-
-            $http.get('../../resources/cf/profile.json').then(
+            $http.post('api/profile/' + id).then(
                 function (object) {
-                    delay.resolve(angular.fromJson(object.data));
+                    try {
+                        delay.resolve(angular.fromJson(object.data));
+                    } catch (e) {
+                        delay.reject("Invalid character");
+                    }
                 },
                 function (response) {
                     delay.reject(response.data);
                 }
             );
+
+//            $http.get('../../resources/cf/profile.json').then(
+//                function (object) {
+//                    delay.resolve(angular.fromJson(object.data));
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
 
             return delay.promise;
         };

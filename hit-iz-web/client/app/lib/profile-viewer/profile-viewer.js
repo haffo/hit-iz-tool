@@ -124,8 +124,8 @@
                         $scope.confStatements = $filter('orderBy')($scope.confStatements, 'id');
                         $scope.tmpConfStatements = [].concat($scope.confStatements);
                         $scope.profileService.setDatatypesTypesAndIcons(datatypes);
-                        var valueSetIds = $scope.profileService.getValueSetIds(segments, datatypes.children);
-                        $rootScope.$broadcast($scope.type + ':valueSetIdsCollected', valueSetIds);
+//                        var valueSetIds = $scope.profileService.getValueSetIds(segments, datatypes.children);
+//                        $rootScope.$broadcast($scope.type + ':valueSetIdsCollected', valueSetIds);
                         $scope.nodeData = $scope.elements[0];
                         $scope.refresh('expanded');
                         $scope.loading = false;

@@ -9,7 +9,7 @@
         <div ng-show="profile != null">
             <div class="" style="margin-bottom: 10px;">
 
-                <div class="btn-group btn-group-xs" data-toggle="buttons">
+                <div class="btn-group btn-group-sm" data-toggle="buttons">
                     <label class="btn   btn-cf-outline" ng-click="options.relevance = true" ng-class="{'active': options.relevance}">
                         <input type="radio" ng-model="options.relevance" autocomplete="off" checked>R,RE,C (only)
                     </label>
@@ -18,8 +18,7 @@
                     </label>
                 </div>
 
-
-                <div class="btn-group btn-group-xs" data-toggle="buttons">
+                <div class="btn-group btn-group-sm" data-toggle="buttons">
                     <label class="btn   btn-cf-outline" ng-click="options.concise = true" ng-class="{'active': options.concise}">
                         <input type="radio"   ng-model="options.concise"  autocomplete="off" checked>Concise View
                     </label>
@@ -151,6 +150,7 @@
                                  </span>
             <span ng-if="node.type === 'DATATYPE'">{{node.id}}:{{node.longName}}</span>
             <span ng-if="node.type === 'SEGMENT'">{{node.name}}:{{node.longName}}</span>
+            <span ng-if="node.type === 'SEGMENT_REF'">{{node.name}}:{{node.longName}}</span>
             <span ng-if="node.type === 'GROUP'">{{node.name}}</span>
         </td>
         <td class="col-fixed-80">

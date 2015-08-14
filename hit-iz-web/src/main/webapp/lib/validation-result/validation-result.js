@@ -152,9 +152,9 @@
                  }
             };
 
-            $scope.showFailures = function (type, event) {
+            $scope.showFailures = function (type, failures, event) {
                 if($scope.validResultHighlither != null)
-                    $scope.validResultHighlither.showFailures(type, event);
+                    $scope.validResultHighlither.showFailures(type, failures,event);
             };
 
             $scope.isVFailureChecked = function (type) {
@@ -200,14 +200,53 @@
         };
 
 
-        ValidationResultHighlighter.prototype.showFailures = function (type, event) {
+//        ValidationResultHighlighter.prototype.showFailures = function (type, event) {
+//            if (angular.element(event.currentTarget).prop('tagName') === 'INPUT') {
+//                event.stopPropagation();
+//            }
+//            if (this.result  && this.result != null && this.tree.root) {
+//                var failures = this.result[type]["categories"][0].data;
+//                var colorClass = this.failuresConfig[type].className;
+//                var checked = this.failuresConfig[type].checked;
+//                var hitMarks = this.histMarksMap[type];
+//                var root = this.tree.root;
+//                var editor = this.editor;
+//                var content = this.message.content;
+//                var histMarksMap = this.histMarksMap;
+//                if (!hitMarks || hitMarks.length === 0) {
+//                    angular.forEach(failures, function (failure) {
+//                        var node = HL7TreeUtils.findByPath(root, failure.line, failure.path);
+//                        if (node != null && node.data && node.data != null) {
+//                            var endIndex = HL7TreeUtils.getEndIndex(node, content) - 1;
+//                            var startIndex = node.data.startIndex - 1;
+//                            var line = parseInt(failure.line) - 1;
+//                            var markText = editor.instance.doc.markText({
+//                                line: line,
+//                                ch: startIndex
+//                            }, {
+//                                line: line,
+//                                ch: endIndex
+//                            }, {atomic: true, className: colorClass, clearWhenEmpty: true, clearOnEnter: true, title: failure.description
+//                            });
+//
+//                            if (!histMarksMap[type]) {
+//                                histMarksMap[type] = [];
+//                            }
+//                            histMarksMap[type].push(markText);
+//                        }
+//                    });
+//                } else {
+//                    this.hideFailures(this.histMarksMap[type]);
+//                }
+//            }
+//        };
+
+        ValidationResultHighlighter.prototype.showFailures = function (type, failures, event) {
             if (angular.element(event.currentTarget).prop('tagName') === 'INPUT') {
                 event.stopPropagation();
             }
             if (this.result  && this.result != null && this.tree.root) {
-                var failures = this.result[type]["categories"][0].data;
                 var colorClass = this.failuresConfig[type].className;
-                var checked = this.failuresConfig[type].checked;
                 var hitMarks = this.histMarksMap[type];
                 var root = this.tree.root;
                 var editor = this.editor;

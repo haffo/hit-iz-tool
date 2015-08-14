@@ -36,27 +36,47 @@
             $scope.vocabularyService = new VocabularyService();
             $scope.loading = false;
 
+//            $rootScope.$on($scope.type + ':valueSetLibraryLoaded', function (event, vocabularyLibrary) {
+//                $scope.vocabularyLibrary = vocabularyLibrary;
+//                $scope.init($scope.valueSetIds, $scope.vocabularyLibrary);
+//            });
+
             $rootScope.$on($scope.type + ':valueSetLibraryLoaded', function (event, vocabularyLibrary) {
                 $scope.vocabularyLibrary = vocabularyLibrary;
-                $scope.init($scope.valueSetIds, $scope.vocabularyLibrary);
+                $scope.init($scope.vocabularyLibrary);
             });
 
-            $rootScope.$on($scope.type + ':valueSetIdsCollected', function (event, valueSetIds) {
-                $scope.valueSetIds = valueSetIds;
-                $scope.init($scope.valueSetIds, $scope.vocabularyLibrary);
-            });
+//            $rootScope.$on($scope.type + ':valueSetIdsCollected', function (event, valueSetIds) {
+//                $scope.valueSetIds = valueSetIds;
+//                $scope.init($scope.valueSetIds, $scope.vocabularyLibrary);
+//            });
 
             $rootScope.$on($scope.type + ':showValueSetDefinition', function (event, tableId) {
                 $scope.vocabularyService.showValueSetDefinition(tableId);
             });
 
-            $scope.init = function (valueSetIds, vocabularyLibrary) {
-                $scope.loading = true;
-                if (valueSetIds != null && vocabularyLibrary != null) {
+//            $scope.init = function (valueSetIds, vocabularyLibrary) {
+//                $scope.loading = true;
+//                if (valueSetIds != null && vocabularyLibrary != null) {
+//                    $scope.vocabularyService.getJson(vocabularyLibrary.id).then(function (obj) {
+//                        vocabularyLibrary['json'] = angular.fromJson(obj);
+//                        var all = angular.fromJson(vocabularyLibrary.json).valueSetDefinitions.valueSetDefinitions;
+//                        $scope.valueSetDefinitionGroups = $scope.vocabularyService.initValueSetDefinitionGroups(all, valueSetIds);
+//                        $scope.loading = false;
+//                    }, function (error) {
+//                        $scope.error = "Sorry, Cannot load the vocabulary.";
+//                        $scope.loading = false;
+//                    });
+//                }
+//            };
+
+            $scope.init = function (vocabularyLibrary) {
+                if (vocabularyLibrary != null) {
+                    $scope.loading = true;
                     $scope.vocabularyService.getJson(vocabularyLibrary.id).then(function (obj) {
                         vocabularyLibrary['json'] = angular.fromJson(obj);
                         var all = angular.fromJson(vocabularyLibrary.json).valueSetDefinitions.valueSetDefinitions;
-                        $scope.valueSetDefinitionGroups = $scope.vocabularyService.initValueSetDefinitionGroups(all, valueSetIds);
+                        $scope.valueSetDefinitionGroups = $scope.vocabularyService.initValueSetDefinitionGroups(all);
                         $scope.loading = false;
                     }, function (error) {
                         $scope.error = "Sorry, Cannot load the vocabulary.";
@@ -64,6 +84,7 @@
                     });
                 }
             };
+
 
             $scope.searchTableValues = function () {
                 $scope.selectedValueSetDefinition = null;
@@ -210,20 +231,35 @@
             return valueSetDefinitions;
         };
 
-        VocabularyService.prototype.initValueSetDefinitionGroups = function (all, valueSetIds) {
+//        VocabularyService.prototype.initValueSetDefinitionGroups = function (all, valueSetIds) {
+//            this.valueSetDefinitionGroups = [];
+//            var that = this;
+//            angular.forEach(all, function (valueSetDefinition) {
+//                if (valueSetIds.indexOf(valueSetDefinition.bindingIdentifier) !== -1) {
+//                    var found = that.findValueSetDefinitions(valueSetDefinition.displayClassifier, that.valueSetDefinitionGroups);
+//                    if (found === null) {
+//                        found = angular.fromJson({"name": that.getCategoryName(valueSetDefinition.displayClassifier), "children": [], "position":  that.getCategoryPosition(valueSetDefinition.displayClassifier)});
+//                        that.valueSetDefinitionGroups.push(found);
+//                    }
+//                    valueSetDefinition.valueSetElements = $filter('orderBy')(valueSetDefinition.valueSetElements, 'value');
+//                    found.children.push(valueSetDefinition);
+//                }
+//            });
+//            return that.valueSetDefinitionGroups;
+//        };
+
+        VocabularyService.prototype.initValueSetDefinitionGroups = function (all) {
             this.valueSetDefinitionGroups = [];
             var that = this;
             angular.forEach(all, function (valueSetDefinition) {
-                if (valueSetIds.indexOf(valueSetDefinition.bindingIdentifier) !== -1) {
-                    var found = that.findValueSetDefinitions(valueSetDefinition.displayClassifier, that.valueSetDefinitionGroups);
+                     var found = that.findValueSetDefinitions(valueSetDefinition.displayClassifier, that.valueSetDefinitionGroups);
                     if (found === null) {
                         found = angular.fromJson({"name": that.getCategoryName(valueSetDefinition.displayClassifier), "children": [], "position":  that.getCategoryPosition(valueSetDefinition.displayClassifier)});
                         that.valueSetDefinitionGroups.push(found);
                     }
                     valueSetDefinition.valueSetElements = $filter('orderBy')(valueSetDefinition.valueSetElements, 'value');
                     found.children.push(valueSetDefinition);
-                }
-            });
+             });
             return that.valueSetDefinitionGroups;
         };
 

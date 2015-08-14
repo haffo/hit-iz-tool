@@ -11,8 +11,8 @@ angular.module('cb', ['common']);
 angular.module('envelope', ['soap']);
 angular.module('connectivity', ['soap']);
 angular.module('isolated', ['common']);
-angular.module('tool-directives', []);
-angular.module('tool-services', ['common']);
+angular.module('hit-tool-directives', []);
+angular.module('hit-tool-services', ['common']);
 var app = angular.module('tool', [
     'ngRoute',
     'ui.bootstrap',
@@ -37,8 +37,8 @@ var app = angular.module('tool', [
     'isolated',
     'ngTreetable',
     'blueimp.fileupload',
-    'tool-directives',
-    'tool-services',
+    'hit-tool-directives',
+    'hit-tool-services',
     'commonServices',
     'smart-table',
     'doc',
@@ -127,7 +127,8 @@ app.config(function ($routeProvider, $httpProvider) {
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sce) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sce,$templateCache) {
+
     $rootScope.appInfo = {};
 
     new AppInfo().then(function(appInfo){
@@ -236,7 +237,7 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
     }]);
 
 
-angular.module('tool-services').factory('TabSettings',
+angular.module('hit-tool-services').factory('TabSettings',
     ['$rootScope', function ($rootScope) {
         return {
             new: function (key) {
@@ -314,7 +315,7 @@ angular.module('commonServices').factory('Clock', function ($interval) {
 });
 
 
-angular.module('tool-services').factory('AppInfo', ['$http', '$q', function ($http, $q) {
+angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function ($http, $q) {
     return function () {
         var delay = $q.defer();
         $http.get('api/appInfo').then(

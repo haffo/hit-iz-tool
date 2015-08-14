@@ -2,7 +2,7 @@
  * Created by haffo on 2/19/15.
  */
 
-angular.module('tool-directives').directive('mypopover', function ($compile,$templateCache) {
+angular.module('hit-tool-directives').directive('mypopover', function ($compile,$templateCache) {
     return {
         restrict: "A",
         link: function (scope, element, attrs) {
