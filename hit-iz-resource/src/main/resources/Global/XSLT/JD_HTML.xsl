@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:util="http://hl7.nist.gov/juror-doc/util" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  exclude-result-prefixes="xs util">
+    xmlns:util="http://hl7.nist.gov/juror-doc/util" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    exclude-result-prefixes="xs util">
     <xsl:output method="xhtml" encoding="UTF-8" indent="yes"/>
     <xsl:template name="commentTemplate">
 
         <td bgcolor="#F2F2F2">
-             <!--    <div contentEditable="true"
+            <!--    <div contentEditable="true"
                 style="width: 100%; height: 100%; border: none; resize: none; max-width: 300px">
                 <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;</div> -->
-        <textarea maxLength="100"
-                style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; "> </textarea>
+            <textarea maxLength="100"
+                style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "> </textarea>
 
         </td>
 
@@ -118,7 +119,7 @@
                             overflow:visible !important;
                             position:relative;
                         }
-                        .jurordocument table tr {
+                        .jurordocument table tr{
                             page-break-inside:avoid;
                         }
                         .jurordocument table th{
@@ -216,9 +217,18 @@
                     .jurordocument table caption{
                         font-weight:bold;
                         color:#0840F8;
-                    }
                     }</style>
-               
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
+                <script type="text/javascript">
+                    $(function(){
+                    
+                    $("textarea").on("keyup",function (){
+                    var h=$(this);
+                    h.height(30).height(h[0].scrollHeight);
+                    });
+                                               
+                    });
+                </script>
             </head>
             <body>
 
@@ -396,7 +406,7 @@
                                                   <td bgcolor="#D2D2D2"/>
                                                 </xsl:otherwise>
                                             </xsl:choose>
-                                            <xsl:call-template name="commentTemplate"></xsl:call-template>
+                                            <xsl:call-template name="commentTemplate"/>
                                         </tr>
 
                                     </xsl:for-each>
