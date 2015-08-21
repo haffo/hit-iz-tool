@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ConformanceContext UUID="e99ce380-6861-4848-a0b3-a85a67674532" xsi:noNamespaceSchemaLocation="../ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <MetaData>
-        <Description>Conformance context for ACK, Version: 20150811-1</Description>
+        <Description>Conformance context for ACK, Version: 20150821-1</Description>
     </MetaData>
     <Predicates>
         <Datatype>
@@ -176,8 +176,9 @@
                     </Assertion>
                 </Constraint>
                 <Constraint ID="IZ-51" Target="9[1]">
-                    <Description>The value of MSH.9 (Message Type) SHALL be 'ACK^V04^ACK'.</Description>
+                    <Description>The value of MSH.9 (Message Type) SHALL be 'ACK^V04^ACK' or "ACK^Q11^ACK".</Description>
                     <Assertion>
+                        <OR>
                         <AND>
                             <PlainText Path="9[1].1[1]" Text="ACK" IgnoreCase="false"/>
                             <AND>
@@ -185,6 +186,14 @@
                                 <PlainText Path="9[1].3[1]" Text="ACK" IgnoreCase="false"/>
                             </AND>
                         </AND>
+                        <AND>
+                            <PlainText Path="9[1].1[1]" Text="ACK" IgnoreCase="false"/>
+                            <AND>
+                                <PlainText Path="9[1].2[1]" Text="Q11" IgnoreCase="false"/>
+                                <PlainText Path="9[1].3[1]" Text="ACK" IgnoreCase="false"/>
+                            </AND>
+                        </AND>
+                        </OR>
                     </Assertion>
                 </Constraint>
                 <Constraint ID="IZ-15" Target="12[1]">

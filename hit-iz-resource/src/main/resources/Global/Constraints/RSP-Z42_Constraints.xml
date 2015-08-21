@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ConformanceContext UUID="95c4f44d-7da8-4914-bce0-23c31a310115" xsi:noNamespaceSchemaLocation="../ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <MetaData>
-        <Description>Conformance context for RSP_K11, Version:20150811-1</Description>
+        <Description>Conformance context for RSP_K11, Version:20150821-1</Description>
     </MetaData>
     <Predicates>
         <Datatype>
@@ -500,12 +500,6 @@
                         </OR>
                     </Assertion>
                 </Constraint>
-                <Constraint ID="IZ-20" Target="1[1]">
-                    <Description>The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value "1" within a message.</Description>
-                    <Assertion>
-                        <SetID Path="1[1]"/>
-                    </Assertion>
-                </Constraint>
                 <Constraint ID="IZ-44" Target="4[1]">
                     <Description>The value of OBX-4 SHALL be a positive integer.</Description>
                     <Assertion>
@@ -542,7 +536,7 @@
         </Segment>
         <Group>
             <ByName Name="RSP_K11.IZ_HISTORY_FORECAST.OBSERVATION">
-                <Constraint ID="IZ-20" Target="1[1]">
+                <Constraint ID="IZ-20" Target="1[1].1[1]">
                     <Description>The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value "1" within a message.</Description>
                     <Assertion>
                         <SetID Path="1[1].1[1]"/>
@@ -550,7 +544,7 @@
                 </Constraint>
             </ByName>
             <ByName Name="RSP_K11.IZ_HISTORY_FORECAST">
-                <Constraint ID="IZ-45" Target="1[1]">
+                <Constraint ID="IZ-45" Target="1[1].3[1]">
                     <Description> If RXA.20 is valued "NA" or "RE" then ORC.3.1 SHALL be valued "9999".</Description>
                     <Assertion>
                         <OR>
