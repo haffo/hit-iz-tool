@@ -38,8 +38,8 @@
 			<Field Name="Principal Language Of Message" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00693"/>
 			<Field Name="Alternate Character Set Handling Scheme" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="20" Binding="0356" BindingStrength="R" ItemNo="01317"/>
 			<Field Name="Message Profile Identifier" Usage="R" Min="1" Max="1" Datatype="EI_IZ_QBP_Z34" MinLength="1" MaxLength="427" Binding="PHVS_ImmunizationProfileIdentifier_IIS" BindingStrength="R" BindingLocation="1" ItemNo="01598"/>
-			<Field Name="Sending Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" Binding="HL70362_IZ" BindingStrength="R" BindingLocation="1"/>
-			<Field Name="Receiving Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" Binding="HL70362_IZ" BindingStrength="R" BindingLocation="1"/>
+			<Field Name="Sending Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" BindingStrength="R" BindingLocation="1"/>
+			<Field Name="Receiving Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" BindingStrength="R" BindingLocation="1"/>
 		</Segment>
 		<Segment ID="SFT_IZ_V_5_QBP_Z34_3" Name="SFT" Description="Software Segment">
 			<Field Name="Software Vendor Organization" Usage="R" Min="1" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="567" ItemNo="01834"/>
@@ -59,7 +59,7 @@
 			<Field Name="Patient Sex" Usage="RE" Min="0" Max="1" Datatype="IS" MinLength="1" MaxLength="1" Binding="HL70001_IZ" BindingStrength="R"/>
 			<Field Name="Patient Address" Usage="RE" Min="0" Max="1" Datatype="XAD_IZ" MinLength="1" MaxLength="*"/>
 			<Field Name="Phone" Usage="RE" Min="0" Max="1" Datatype="XTN_IZ" MinLength="1" MaxLength="*"/>
-			<Field Name="Multiple birth indicator" Usage="RE" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="*"/>
+			<Field Name="Multiple birth indicator" Usage="RE" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="*" Binding="HL70136_IZ" BindingStrength="R"/>
 			<Field Name="Birth order" Usage="RE" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="*"/>
 			<Field Name="Client last updated date" Usage="O" Min="0" Max="1" Datatype="TS_NZ" MinLength="1" MaxLength="*"/>
 			<Field Name="Client last updated facility" Usage="O" Min="0" Max="1" Datatype="HD_IZ" MinLength="1" MaxLength="*"/>

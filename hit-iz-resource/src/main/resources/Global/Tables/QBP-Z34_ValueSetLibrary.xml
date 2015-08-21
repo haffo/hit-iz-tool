@@ -28,6 +28,10 @@
 		<ValueSetDefinition BindingIdentifier="HL70301_IZ" Name="Universal ID type" DisplayClassifier="1:CDC-HL7-IZ">
 			<ValueElement Value="OID" CodeSystem="HL70301" DisplayName="OID"/>
 		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70136_IZ" Name="Yes/No indicator" DisplayClassifier="1:CDC-HL7-IZ">
+			<ValueElement Value="Y" CodeSystem="HL70136" DisplayName="Yes"/>
+			<ValueElement Value="N" CodeSystem="HL70136" DisplayName="No"/>
+		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70363_IZ" Name="Assigning Authority" DisplayClassifier="1:CDC-HL7-IZ" Extensibility="Open">
 			<ValueElement Value="AKA" CodeSystem="HL70363" DisplayName="ALASKA"/>
 			<ValueElement Value="ALA" CodeSystem="HL70363" DisplayName="ALABAMA"/>

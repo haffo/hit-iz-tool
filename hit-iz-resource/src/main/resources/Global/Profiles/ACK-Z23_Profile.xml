@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ConformanceProfile ID="f5545482-8dda-4495-930b-7383117cdf31"  xsi:noNamespaceSchemaLocation="../Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ConformanceProfile ID="f5545482-8dda-4495-930b-7383117cdf31" xsi:noNamespaceSchemaLocation="../Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<MetaData Name="ACK" OrgName="NIST" Version="20150821-1"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
@@ -37,8 +37,8 @@
 			<Field Name="Principal Language Of Message" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00693"/>
 			<Field Name="Alternate Character Set Handling Scheme" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="20" Binding="0356" BindingStrength="R" ItemNo="01317"/>
 			<Field Name="Message Profile Identifier" Usage="R" Min="1" Max="*" Datatype="EI_IZ_ACK_1_5" MinLength="1" MaxLength="427" Binding="PHVS_ImmunizationProfileIdentifier_IIS" BindingStrength="R" BindingLocation="1" ItemNo="01598"/>
-			<Field Name="Sending Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" Binding="HL70362_IZ" BindingStrength="R" BindingLocation="1"/>
-			<Field Name="Receiving Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" Binding="HL70362_IZ" BindingStrength="R" BindingLocation="1"/>
+			<Field Name="Sending Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" BindingStrength="R" BindingLocation="1"/>
+			<Field Name="Receiving Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" BindingStrength="R" BindingLocation="1"/>
 			<Field Name="Sending Network Address" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="*"/>
 			<Field Name="Receiving Network Address" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="*"/>
 		</Segment>
