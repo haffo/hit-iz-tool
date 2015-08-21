@@ -1,4 +1,5 @@
 {
+"version" : "2.1",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -10,9 +11,10 @@
 				{"element" : "Mother's Maiden Name", "data" : ""},
 				{"element" : "ID Number", "data" : "7120 "},
 				{"element" : "Date/Time of Birth", "data" : "03/17/1950"},
-				{"element" : "Administrative Sex", "data" : "F"},
-				{"element" : "Patient Address", "data" : "763 Main St Bozeman MT 59715 USA"},
+				{"element" : "Administrative Sex", "data" : "Female"},
+				{"element" : "Patient Address ", "data" : "763 Main St Bozeman MT 59715 USA "},
 				{"element" : "Local Number", "data" : "(406)555-4064"},
+				{"element" : "Email", "data" : "Helen.Barrett@isp.com"},
 				{"element" : "Race", "data" : "White"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
 				{"element" : "Birth Order", "data" : "1"}
@@ -23,18 +25,18 @@
 			"elements" : 
 			[
 				{"element" : "Immunization Registry Status", "data" : "A"},
-				{"element" : "Publicity Code (Text)", "data" : "Recall only - any method"},
-				{"element" : "Protection Indicator", "data" : "Y"},
-				{"element" : "Protection Indicator Effective Date", "data" : ""},
+				{"element" : "Immunization Registry Status Effective Date", "data" : "03/17/1950"},
+				{"element" : "Publicity Code", "data" : "Recall only - any method"},
 				{"element" : "Publicity Code Effective Date", "data" : "06/25/2015"},
-				{"element" : "Immunization Registry Status Effective Date", "data" : "03/17/1950"}
+				{"element" : "Protection Indicator", "data" : "Yes"},
+				{"element" : "Protection Indicator Effective Date", "data" : "06/25/2015"}
 			]
 		},
 		{
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code - Text", "data" : "zoster"},
+				{"element" : "Administered Code", "data" : "zoster"},
 				{"element" : "Date/Time Start of Administration", "data" : "03/17/2015"},
 				{"element" : "Administered Amount", "data" : "999"},
 				{"element" : "Administered Units", "data" : ""},
@@ -44,25 +46,13 @@
 				{"element" : "Substance Expiration Date", "data" : ""},
 				{"element" : "Substance Manufacturer Name", "data" : ""},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : ""},
 				{"element" : "Administration Site", "data" : ""},
-					{"element" : "obx", "data" : 
-					{
-						"title":"Historical Administration",
-						"elements" : 
-						[
-						]
-					}
-					}
-		]
-		},
-		{
-			"title":"Order Information",
-			"elements" : 
-			[
+				{"element" : "Entering Organization", "data" : "West Clinic"},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
-				{"element" : "Ordered By", "data" : ""}
-			]
+				{"element" : "Ordered By", "data" : ""},		]
 
 		}
 ]

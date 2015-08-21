@@ -1,4 +1,5 @@
 {
+"version" : "2.1",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -10,8 +11,9 @@
 				{"element" : "Mother's Maiden Name", "data" : "Billington"},
 				{"element" : "ID Number", "data" : "3123 "},
 				{"element" : "Date/Time of Birth", "data" : "04/15/2015"},
-				{"element" : "Administrative Sex", "data" : "M"},
-				{"element" : "Patient Address", "data" : "543 Blount Drive Bozeman MT 59715 USA"},
+				{"element" : "Administrative Sex", "data" : "Male"},
+				{"element" : "Patient Address ", "data" : "543 Blount Drive Bozeman MT 59715 USA
+"},
 				{"element" : "Local Number", "data" : "(406)555-7690"},
 				{"element" : "Race", "data" : "American Indian or Alaska Native"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
@@ -23,40 +25,36 @@
 			"elements" : 
 			[
 				{"element" : "Immunization Registry Status", "data" : "A"},
-				{"element" : "Publicity Code (Text)", "data" : "Recall only - no calls"},
-				{"element" : "Protection Indicator", "data" : "N"},
-				{"element" : "Protection Indicator Effective Date", "data" : ""},
+				{"element" : "Immunization Registry Status Effective Date", "data" : "04/15/2015"},
+				{"element" : "Publicity Code", "data" : "Recall only - no calls"},
 				{"element" : "Publicity Code Effective Date", "data" : "06/24/2015"},
-				{"element" : "Immunization Registry Status Effective Date", "data" : "04/15/2015"}
+				{"element" : "Protection Indicator", "data" : "No"},
+				{"element" : "Protection Indicator Effective Date", "data" : "06/24/2015"}
 			]
 		},
 		{
 			"title":"Guardian or Responsible Party",
 			"elements" : 
 			[
-				{"element" : "Name", "data" : "Maria Richardson"},
+				{"element" : "Name", "data" : "Maria Elizabeth Richardson"},
 				{"element" : "Relationship", "data" : "Mother"},
-				{"element" : "Address", "data" : "543 Blount Drive Bozeman MT 59715 "},
-				{"element" : "Address (Country)", "data" : "USA"},
-				{"element" : "Phone Number or Email address", "data" : "(406)555-7690"}
-			]
+				{"element" : "Address", "data" : "543 Blount Drive Bozeman MT 59715 USA "},
+				{"element" : "Phone Number", "data" : "(406)555-7690"},		]
 		},
 		{
 			"title":"Guardian or Responsible Party",
 			"elements" : 
 			[
-				{"element" : "Name", "data" : "John Richardson"},
+				{"element" : "Name", "data" : "John William Richardson"},
 				{"element" : "Relationship", "data" : "Father"},
-				{"element" : "Address", "data" : "543 Blount Drive Bozeman MT 59715 "},
-				{"element" : "Address (Country)", "data" : "USA"},
-				{"element" : "Phone Number or Email address", "data" : "(406)555-8299"}
-			]
+				{"element" : "Address", "data" : "543 Blount Drive Bozeman MT 59715 USA "},
+				{"element" : "Phone Number", "data" : "(406)555-8299"},		]
 		},
 		{
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code - Text", "data" : "DTaP-Hep B-IPV"},
+				{"element" : "Administered Code", "data" : "DTaP-Hep B-IPV"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
 				{"element" : "Administered Amount", "data" : "0.5"},
 				{"element" : "Administered Units", "data" : "mL"},
@@ -66,11 +64,17 @@
 				{"element" : "Substance Expiration Date", "data" : "07/22/2015"},
 				{"element" : "Substance Manufacturer Name", "data" : "GlaxoSmithKline"},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : "Intramuscular"},
 				{"element" : "Administration Site", "data" : "Right Thigh"},
+				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : "Wilma Thomas"},
 					{"element" : "obx", "data" : 
+					},
 					{
-						"title":"New Record",
+						"title":"Observations",
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Public"},
@@ -92,7 +96,7 @@ VIS"},
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code - Text", "data" : "rotavirus, pentavalent"},
+				{"element" : "Administered Code", "data" : "rotavirus, pentavalent"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
 				{"element" : "Administered Amount", "data" : "2.0"},
 				{"element" : "Administered Units", "data" : "mL"},
@@ -102,11 +106,17 @@ VIS"},
 				{"element" : "Substance Expiration Date", "data" : "09/16/2015"},
 				{"element" : "Substance Manufacturer Name", "data" : "Merck and Co., Inc."},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : "Oral"},
 				{"element" : "Administration Site", "data" : ""},
+				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : "Wilma Thomas"},
 					{"element" : "obx", "data" : 
+					},
 					{
-						"title":"New Record",
+						"title":"Observations",
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Public"},
@@ -123,8 +133,7 @@ VIS"},
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code - Text", "data" : "Pneumococcal conjugate PCV
-13"},
+				{"element" : "Administered Code", "data" : "Pneumococcal conjugate PCV 13"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
 				{"element" : "Administered Amount", "data" : "0.5"},
 				{"element" : "Administered Units", "data" : "mL"},
@@ -134,11 +143,17 @@ VIS"},
 				{"element" : "Substance Expiration Date", "data" : "07/29/2015"},
 				{"element" : "Substance Manufacturer Name", "data" : "Pfizer, Inc"},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : "Intramuscular"},
 				{"element" : "Administration Site", "data" : "Left Thigh"},
+				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : "Wilma Thomas"},
 					{"element" : "obx", "data" : 
+					},
 					{
-						"title":"New Record",
+						"title":"Observations",
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Public"},
@@ -155,7 +170,7 @@ VIS"},
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code - Text", "data" : "Hep B, unspecified formulation"},
+				{"element" : "Administered Code", "data" : "Hep B, unspecified formulation"},
 				{"element" : "Date/Time Start of Administration", "data" : "04/16/2015"},
 				{"element" : "Administered Amount", "data" : "999"},
 				{"element" : "Administered Units", "data" : ""},
@@ -165,23 +180,19 @@ VIS"},
 				{"element" : "Substance Expiration Date", "data" : ""},
 				{"element" : "Substance Manufacturer Name", "data" : ""},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : ""},
 				{"element" : "Administration Site", "data" : ""},
-					{"element" : "obx", "data" : 
-					{
-						"title":"Historical Administration",
-						"elements" : 
-						[
-						]
-					}
-					}
-		]
+				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : ""},		]
 		},
 		{
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code - Text", "data" : "Hep B, unspecified formulation"},
+				{"element" : "Administered Code", "data" : "Hep B, unspecified formulation"},
 				{"element" : "Date/Time Start of Administration", "data" : "05/15/2015"},
 				{"element" : "Administered Amount", "data" : "999"},
 				{"element" : "Administered Units", "data" : ""},
@@ -191,57 +202,13 @@ VIS"},
 				{"element" : "Substance Expiration Date", "data" : ""},
 				{"element" : "Substance Manufacturer Name", "data" : ""},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : ""},
 				{"element" : "Administration Site", "data" : ""},
-					{"element" : "obx", "data" : 
-					{
-						"title":"Historical Administration",
-						"elements" : 
-						[
-						]
-					}
-					}
-		]
-		},
-		{
-			"title":"Order Information",
-			"elements" : 
-			[
+				{"element" : "Entering Organization", "data" : "West Clinic"},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
-				{"element" : "Ordered By", "data" : "Wilma Thomas"}
-			]
-		},
-		{
-			"title":"Order Information",
-			"elements" : 
-			[
-				{"element" : "Entered By", "data" : "Lily Jackson"},
-				{"element" : "Ordered By", "data" : "Wilma Thomas"}
-			]
-		},
-		{
-			"title":"Order Information",
-			"elements" : 
-			[
-				{"element" : "Entered By", "data" : "Lily Jackson"},
-				{"element" : "Ordered By", "data" : "Wilma Thomas"}
-			]
-		},
-		{
-			"title":"Order Information",
-			"elements" : 
-			[
-				{"element" : "Entered By", "data" : "Lily Jackson"},
-				{"element" : "Ordered By", "data" : ""}
-			]
-		},
-		{
-			"title":"Order Information",
-			"elements" : 
-			[
-				{"element" : "Entered By", "data" : "Lily Jackson"},
-				{"element" : "Ordered By", "data" : ""}
-			]
+				{"element" : "Ordered By", "data" : ""},		]
 
 		}
 ]
