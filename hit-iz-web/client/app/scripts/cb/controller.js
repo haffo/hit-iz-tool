@@ -150,11 +150,6 @@ angular.module('cb')
          };
 
 
-        $scope.expandChildren = function (node) {
-            $scope.params.expandChildren(node);
-        };
-
-
         $scope.selectTestCase = function (node) {
             $scope.selectedTestCase = node;
             $rootScope.$broadcast('cb:testCaseSelected',$scope.selectedTestCase);
@@ -165,6 +160,13 @@ angular.module('cb')
             $scope.testCase = CB.testCase;
             $rootScope.$broadcast('cb:testCaseLoaded', $scope.testCase);
         };
+
+        $scope.expand = function(event){
+            var inputElment = event.currentTarget || event.srcElement;
+            var id = inputElment.parentElement.parentElement.attributes['data-tt-id'].nodeValue;
+            $scope.params.toggleExpand(id,true);
+        };
+
 
     }]);
 
@@ -199,6 +201,9 @@ angular.module('cb')
         $scope.tError = null;
         $scope.tLoading = false;
 
+        $scope.dqaOptions = {
+            checked:false
+        };
 
         $scope.hasContent = function () {
             return  $scope.cb.message.content != '' && $scope.cb.message.content != null;
@@ -320,44 +325,30 @@ angular.module('cb')
             $scope.vError = null;
             if ($scope.cb.testCase != null && $scope.cb.message.content !== "") {
                 try {
-                    var validator =  new Er7MessageValidator().validate($scope.cb.testCase.testContext.id, $scope.cb.message.content);
-                    validator.then(function (mvResult) {
+                    var validator =  new Er7MessageValidator().validate($scope.cb.testCase.testContext.id, $scope.cb.message.content, '', $scope.dqaOptions.checked,"1223");
+                     validator.then(function (mvResult) {
                         $scope.vLoading = false;
-                        $scope.setValidationResult(mvResult);
+                        $scope.loadValidationResult(mvResult);
                     }, function (error) {
                         $scope.vLoading = false;
                         $scope.vError = error;
-                        $scope.setValidationResult(null);
+                        $scope.loadValidationResult(null);
                     });
                 } catch (e) {
                     $scope.vLoading = false;
                     $scope.vError = e;
-                    $scope.setValidationResult(null);
+                    $scope.loadValidationResult(null);
                 }
             } else {
-                $scope.setValidationResult(null);
+                $scope.loadValidationResult(null);
                 $scope.vLoading = false;
                 $scope.vError = null;
             }
         };
 
-
-        $scope.setValidationResult = function (mvResult) {
-            var report = null;
-            var validationResult = null;
-            if (mvResult !== null) {
-                report = {};
-                validationResult = new NewValidationResult();
-                validationResult.init(mvResult);
-                report["result"] = validationResult;
-            }
-            $rootScope.$broadcast('cb:validationResultLoaded', validationResult);
-            $timeout(function () {
-                $rootScope.$broadcast('cb:reportLoaded', report);
-            },100);
-         };
-
-
+        $scope.loadValidationResult = function (mvResult) {
+            $rootScope.$broadcast('cb:validationResultLoaded', mvResult);
+        };
 
         $scope.select = function (element) {
             if (element != undefined && element.path != null && element.line != -1) {
@@ -407,13 +398,15 @@ angular.module('cb')
         };
 
         $scope.execute = function () {
-            $scope.error = null;
-            $scope.tError = null;
-            $scope.mError = null;
-            $scope.vError = null;
-            $scope.cb.message.content = $scope.editor.doc.getValue();
-            $scope.validateMessage();
-            $scope.parseMessage();
+            if ($scope.cb.testCase != null) {
+                $scope.error = null;
+                $scope.tError = null;
+                $scope.mError = null;
+                $scope.vError = null;
+                $scope.cb.message.content = $scope.editor.doc.getValue();
+                $scope.validateMessage();
+                $scope.parseMessage();
+            }
         };
 
         $scope.init = function () {
@@ -426,11 +419,11 @@ angular.module('cb')
             $scope.vError = null;
 
             $scope.initCodemirror();
-//            $scope.setValidationResult({});
+//            $scope.loadValidationResult({});
 
             $scope.$on('cb:refreshEditor', function (event) {
                 $scope.refreshEditor();
-                event.preventDefault();
+//                event.preventDefault();
             });
 
             $rootScope.$on('cb:testCaseLoaded', function (event, testCase) {
@@ -440,6 +433,16 @@ angular.module('cb')
                     $scope.clearMessage();
                 }
             });
+
+            $scope.$watch(
+                function() {
+                    return $scope.dqaOptions.checked;
+                },
+                function(checked) {
+                    $scope.execute();
+                }
+            );
+
         };
 
     }])

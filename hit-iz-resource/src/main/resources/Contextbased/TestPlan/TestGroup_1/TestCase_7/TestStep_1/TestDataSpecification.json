@@ -1,4 +1,5 @@
 {
+"version" : "2.1",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -10,8 +11,9 @@
 				{"element" : "Mother's Maiden Name", "data" : ""},
 				{"element" : "ID Number", "data" : "8891 "},
 				{"element" : "Date/Time of Birth", "data" : "06/02/2004"},
-				{"element" : "Administrative Sex", "data" : "M"},
-				{"element" : "Patient Address", "data" : "924 Sycamore Lane Bozeman MT 59715 USA"},
+				{"element" : "Administrative Sex", "data" : "Male"},
+				{"element" : "Patient Address ", "data" : "924 Sycamore Lane Bozeman MT 59715
+USA "},
 				{"element" : "Local Number", "data" : "(406)555-5835"},
 				{"element" : "Race", "data" : "White"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
@@ -23,29 +25,27 @@
 			"elements" : 
 			[
 				{"element" : "Immunization Registry Status", "data" : "A"},
-				{"element" : "Publicity Code (Text)", "data" : "Reminder/recall - any method"},
-				{"element" : "Protection Indicator", "data" : "Y"},
-				{"element" : "Protection Indicator Effective Date", "data" : ""},
+				{"element" : "Immunization Registry Status Effective Date", "data" : "06/02/2004"},
+				{"element" : "Publicity Code", "data" : "Reminder/recall - any method"},
 				{"element" : "Publicity Code Effective Date", "data" : "06/24/2015"},
-				{"element" : "Immunization Registry Status Effective Date", "data" : "06/02/2004"}
+				{"element" : "Protection Indicator", "data" : "Yes"},
+				{"element" : "Protection Indicator Effective Date", "data" : "06/24/2015"}
 			]
 		},
 		{
 			"title":"Guardian or Responsible Party",
 			"elements" : 
 			[
-				{"element" : "Name", "data" : "Karl Banks"},
+				{"element" : "Name", "data" : "Karl Leonard Banks"},
 				{"element" : "Relationship", "data" : "Father"},
-				{"element" : "Address", "data" : "924 Sycamore Lane Bozeman MT 59715 "},
-				{"element" : "Address (Country)", "data" : "USA"},
-				{"element" : "Phone Number or Email address", "data" : "(406)555-5835"}
-			]
+				{"element" : "Address", "data" : "924 Sycamore Lane Bozeman MT 59715 USA "},
+				{"element" : "Phone Number", "data" : "(406)555-5835"},		]
 		},
 		{
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code - Text", "data" : "Hep A, ped/adol, 2 dose"},
+				{"element" : "Administered Code", "data" : "Hep A, ped/adol, 2 dose"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
 				{"element" : "Administered Amount", "data" : "0.5"},
 				{"element" : "Administered Units", "data" : "mL"},
@@ -55,11 +55,17 @@
 				{"element" : "Substance Expiration Date", "data" : "01/20/2016"},
 				{"element" : "Substance Manufacturer Name", "data" : "Merck and Co., Inc."},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Action Code", "data" : "Update"},
 				{"element" : "Route", "data" : "Intramuscular"},
 				{"element" : "Administration Site", "data" : "Right Thigh"},
+				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : "Wilma Thomas"},
 					{"element" : "obx", "data" : 
+					},
 					{
-						"title":"New Record",
+						"title":"Observations",
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Private"},
@@ -70,14 +76,6 @@
 					}
 					}
 		]
-		},
-		{
-			"title":"Order Information",
-			"elements" : 
-			[
-				{"element" : "Entered By", "data" : "Lily Jackson"},
-				{"element" : "Ordered By", "data" : "Wilma Thomas"}
-			]
 
 		}
 ]

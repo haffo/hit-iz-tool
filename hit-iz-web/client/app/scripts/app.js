@@ -18,6 +18,7 @@ var app = angular.module('tool', [
     'ui.bootstrap',
     'ngCookies',
     'ngResource',
+    'ngSanitize',
     'ngAnimate',
     'ui.bootstrap',
     'angularBootstrapNavTree',
@@ -56,9 +57,6 @@ app.config(function ($routeProvider, $httpProvider) {
         })
         .when('/home', {
             templateUrl: 'views/home.html'
-        })
-        .when('/testing', {
-            templateUrl: '../views/templates.html'
         })
         .when('/doc', {
             templateUrl: 'views/doc.html'
@@ -191,8 +189,8 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
     };
 
     $rootScope.toHTML = function (content) {
-//        return $sce.trustAsHtml(content);
-        return  content;
+         return $sce.trustAsHtml(content);
+        //return  content;
     };
 
 

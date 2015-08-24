@@ -291,11 +291,18 @@
                     templateUrl: 'TableFoundCtrl.html',
                     controller: 'ValueSetDetailsCtrl',
                     windowClass: 'app-modal-window',
+                    animation:true,
+                    keyboard:true,
+                    backdrop:true,
                     resolve: {
                         table: function () {
                             return t;
                         }
                     }
+                });
+
+                modalInstance.result.then(function (selectedItem) {
+                 }, function () {
                 });
             }
         };

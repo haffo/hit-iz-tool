@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConformanceContext UUID="ae0a5a5a-c639-4579-a381-20b5b6c1937b">
+<ConformanceContext UUID="70d47e3c-ba76-438f-9d4d-3d9c099745bd">
   <Constraints>
     <Group>
       <ByName Name="RSP_K11">
         <Constraint ID="TCAMT_QAK[1].2[1]_2" Target="5[1].2[1]">
           <Reference GeneratedBy="TCAMT" ReferencePath="QAK[1].2[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
-          <Description>QAK[1].2[1] SHALL be valued, because QAK[1].2[1] is Test Case Fixed.</Description>
+          <Description>QAK[1].2[1] SHALL be valued.</Description>
           <Assertion>
             <Presence Path="5[1].2[1]"/>
           </Assertion>
         </Constraint>
         <Constraint ID="TCAMT_QAK[1].2[1]" Target="5[1].2[1]">
           <Reference GeneratedBy="TCAMT" ReferencePath="QAK[1].2[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
-          <Description>QAK[1].2[1] SHALL be valued 'OK' because QAK[1].2[1] is Test Case Fixed.</Description>
+          <Description>QAK[1].2[1] SHALL be valued 'OK.</Description>
           <Assertion>
             <PlainText IgnoreCase="false" Path="5[1].2[1]" Text="OK"/>
           </Assertion>
         </Constraint>
         <Constraint ID="TCAMT_MSA[1].1[1]" Target="3[1].1[1]">
           <Reference GeneratedBy="TCAMT" ReferencePath="MSA[1].1[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
-          <Description>MSA[1].1[1] SHALL be valued 'AA' because MSA[1].1[1] is Test Case Fixed.</Description>
+          <Description>MSA[1].1[1] SHALL be valued 'AA.</Description>
           <Assertion>
             <PlainText IgnoreCase="false" Path="3[1].1[1]" Text="AA"/>
           </Assertion>

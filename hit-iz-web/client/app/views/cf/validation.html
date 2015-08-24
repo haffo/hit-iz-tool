@@ -66,9 +66,9 @@
 
             </span>
                             <span class="row fileupload-buttonbar  pull-right">
-                                <span ng-show="false">
+                                <span ng-show="true">
                                 <input type="checkbox"
-                                       ng-model="validationConfig.dqa.checked">DQA
+                                       ng-model="dqaOptions.checked">DQA
                                 </span>
                                 <button title="Validate" type="button" class="btn btn-xs btn-success"
                                         ng-click="execute()">
@@ -145,7 +145,7 @@
                                         </div>
 
                                         <div ng-show="!vError || vError == null">
-                                            <div validation-result type="cf" message="cf.message" editor="cf.editor"
+                                            <div validation-result type="cf" message="cf.message" editor="cf.editor" dqa="true"
                                                  tree="cf.tree" cursor="cf.cursor"></div>
                                         </div>
 

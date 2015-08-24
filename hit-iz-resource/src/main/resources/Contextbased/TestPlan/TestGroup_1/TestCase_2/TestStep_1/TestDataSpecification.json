@@ -1,4 +1,5 @@
 {
+"version" : "2.1",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -10,10 +11,11 @@
 				{"element" : "Mother's Maiden Name", "data" : ""},
 				{"element" : "ID Number", "data" : "90012 "},
 				{"element" : "Date/Time of Birth", "data" : "06/15/1983"},
-				{"element" : "Administrative Sex", "data" : "F"},
-				{"element" : "Patient Address", "data" : "9200 Wellington Trail Bozeman MT 59715
-USA"},
+				{"element" : "Administrative Sex", "data" : "Female"},
+				{"element" : "Patient Address ", "data" : "9200 Wellington Trail Bozeman MT 59715
+USA "},
 				{"element" : "Local Number", "data" : "(406)555-7896"},
+				{"element" : "Email", "data" : "Elise.Wong@isp.com"},
 				{"element" : "Race", "data" : "Asian"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
 				{"element" : "Birth Order", "data" : "1"}
@@ -24,18 +26,18 @@ USA"},
 			"elements" : 
 			[
 				{"element" : "Immunization Registry Status", "data" : "A"},
-				{"element" : "Publicity Code (Text)", "data" : "Reminder/recall - any method"},
-				{"element" : "Protection Indicator", "data" : "N"},
-				{"element" : "Protection Indicator Effective Date", "data" : ""},
+				{"element" : "Immunization Registry Status Effective Date", "data" : "06/15/1983"},
+				{"element" : "Publicity Code", "data" : "Reminder/recall - any method"},
 				{"element" : "Publicity Code Effective Date", "data" : "06/24/2015"},
-				{"element" : "Immunization Registry Status Effective Date", "data" : "06/15/1983"}
+				{"element" : "Protection Indicator", "data" : "No"},
+				{"element" : "Protection Indicator Effective Date", "data" : "06/24/2015"}
 			]
 		},
 		{
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code - Text", "data" : "Td (adult) preservative free"},
+				{"element" : "Administered Code", "data" : "Td (adult) preservative free"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
 				{"element" : "Administered Amount", "data" : "0.5"},
 				{"element" : "Administered Units", "data" : "mL"},
@@ -45,11 +47,17 @@ USA"},
 				{"element" : "Substance Expiration Date", "data" : "12/16/2015"},
 				{"element" : "Substance Manufacturer Name", "data" : "Sanofi Pasteur"},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : "Intramuscular"},
 				{"element" : "Administration Site", "data" : "Right Deltoid"},
+				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : "Wilma Thomas"},
 					{"element" : "obx", "data" : 
+					},
 					{
-						"title":"New Record",
+						"title":"Observations",
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Private"},
@@ -65,7 +73,7 @@ USA"},
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code - Text", "data" : "influenza, unspecified formulation"},
+				{"element" : "Administered Code", "data" : "influenza, unspecified formulation"},
 				{"element" : "Date/Time Start of Administration", "data" : "10/12/2014"},
 				{"element" : "Administered Amount", "data" : "999"},
 				{"element" : "Administered Units", "data" : ""},
@@ -75,23 +83,19 @@ USA"},
 				{"element" : "Substance Expiration Date", "data" : ""},
 				{"element" : "Substance Manufacturer Name", "data" : ""},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : ""},
 				{"element" : "Administration Site", "data" : ""},
-					{"element" : "obx", "data" : 
-					{
-						"title":"Historical Administration",
-						"elements" : 
-						[
-						]
-					}
-					}
-		]
+				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : ""},		]
 		},
 		{
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code - Text", "data" : "influenza, unspecified formulation"},
+				{"element" : "Administered Code", "data" : "influenza, unspecified formulation"},
 				{"element" : "Date/Time Start of Administration", "data" : "11/12/2013"},
 				{"element" : "Administered Amount", "data" : "999"},
 				{"element" : "Administered Units", "data" : ""},
@@ -101,41 +105,13 @@ USA"},
 				{"element" : "Substance Expiration Date", "data" : ""},
 				{"element" : "Substance Manufacturer Name", "data" : ""},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : ""},
 				{"element" : "Administration Site", "data" : ""},
-					{"element" : "obx", "data" : 
-					{
-						"title":"Historical Administration",
-						"elements" : 
-						[
-						]
-					}
-					}
-		]
-		},
-		{
-			"title":"Order Information",
-			"elements" : 
-			[
+				{"element" : "Entering Organization", "data" : "West Clinic"},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
-				{"element" : "Ordered By", "data" : "Wilma Thomas"}
-			]
-		},
-		{
-			"title":"Order Information",
-			"elements" : 
-			[
-				{"element" : "Entered By", "data" : "Lily Jackson"},
-				{"element" : "Ordered By", "data" : ""}
-			]
-		},
-		{
-			"title":"Order Information",
-			"elements" : 
-			[
-				{"element" : "Entered By", "data" : "Lily Jackson"},
-				{"element" : "Ordered By", "data" : ""}
-			]
+				{"element" : "Ordered By", "data" : ""},		]
 
 		}
 ]

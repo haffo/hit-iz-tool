@@ -69,7 +69,7 @@
                     return $compile(template)(template_scope).get(0);
                 })
 
-            }
+            };
 
             /**
              * Expands the given node.
@@ -107,7 +107,7 @@
                     });
 
                 });
-            }
+            };
 
             /**
              * Callback for onNodeExpand to add nodes.
@@ -116,7 +116,7 @@
                 if (this.row.scope().loading) return; // make sure we're not already loading
                 table.treetable('unloadBranch', this); // make sure we don't double-load
                 $scope.addChildren(this.row, $scope.shouldExpand());
-            }
+            };
 
             /**
              * Callback for onNodeCollapse to remove nodes.
@@ -124,7 +124,7 @@
             $scope.onNodeCollapse = function() {
                 if (this.row.scope().loading) return; // make sure we're not already loading
                 table.treetable('unloadBranch', this);
-            }
+            };
 
             /**
              * Rebuilds the entire table.
@@ -135,27 +135,40 @@
                     table.treetable('removeNode', rootNodes[0].id);
                 }
                 $scope.addChildren(null, $scope.shouldExpand());
-            }
+            };
 
             $scope.refreshWithState = function(state) {
                 $scope.options.initialState = state;
                 $scope.refresh();
-            }
+            };
+
+            $scope.toggleExpand = function(id, expand){
 //
-//            $scope.expandChildren = function(node){
-//                 $scope.addChildren(node, true);
-//            }
+//                var node = table.treetable('node', id);
+//                params.getNodes(node);
 //
-//            $scope.collapseChildren = function(node){
-//                $scope.addChildren(node,false);
-//            }
+//
+//
+//                if (this.row.scope().loading) return; // make sure we're not already loading
+//                table.treetable('unloadBranch', this); // make sure we don't double-load
+//                $scope.addChildren(this.row, $scope.shouldExpand());
+//
+//
+//                console.log(node);
+////                if(expand) {
+////                    table.treetable('node', id);
+////                }else{
+////                    table.treetable('collapseNode', id);
+////                }
+            };
 
             // attach to params for convenience
             params.refresh = $scope.refresh;
-//            params.expandChildren = $scope.expandChildren;
-//            params.collapseChildren = $scope.collapseChildren;
+//          params.expand = $scope.expandChildren;
+//          params.collapse = $scope.collapseChildren;
 
             params.refreshWithState = $scope.refreshWithState;
+            params.toggleExpand = $scope.toggleExpand;
 
             /**
              * Build options for the internal treetable library.
@@ -184,7 +197,7 @@
 
             $scope.shouldExpand = function() {
                 return $scope.options.initialState === 'expanded';
-            }
+            };
 
             $scope.options = $scope.getOptions();
             table.treetable($scope.options);

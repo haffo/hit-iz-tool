@@ -96,7 +96,7 @@ angular.module('cf').controller('CFProfileInfoCtrl', function ($scope, $modalIns
 });
 
 angular.module('cf')
-    .controller('CFValidatorCtrl', ['$scope', '$http', 'CF', '$window', 'HL7EditorUtils', 'HL7CursorUtils', '$timeout', 'HL7TreeUtils', '$modal', 'NewValidationResult', 'HL7Utils', 'DQAValidationResult', '$rootScope', 'Er7MessageValidator', 'Er7MessageParser', 'DQAMessageValidator', 'ValidationResultHighlighter', function ($scope, $http, CF, $window, HL7EditorUtils, HL7CursorUtils, $timeout, HL7TreeUtils, $modal, NewValidationResult, HL7Utils, DQAValidationResult, $rootScope, Er7MessageValidator, Er7MessageParser, DQAMessageValidator, ValidationResultHighlighter) {
+    .controller('CFValidatorCtrl', ['$scope', '$http', 'CF', '$window', 'HL7EditorUtils', 'HL7CursorUtils', '$timeout', 'HL7TreeUtils', '$modal', 'NewValidationResult', 'HL7Utils', 'DQAValidationResult', '$rootScope', 'Er7MessageValidator', 'Er7MessageParser', 'ValidationResultHighlighter', function ($scope, $http, CF, $window, HL7EditorUtils, HL7CursorUtils, $timeout, HL7TreeUtils, $modal, NewValidationResult, HL7Utils, DQAValidationResult, $rootScope, Er7MessageValidator, Er7MessageParser, ValidationResultHighlighter) {
 
         $scope.cf = CF;
         $scope.testCase = CF.testCase;
@@ -123,6 +123,10 @@ angular.module('cf')
         $scope.messageObject = [];
         $scope.tError = null;
         $scope.tLoading = false;
+        $scope.dqaOptions = {
+                checked:false
+         };
+
 
 
         $scope.hasContent = function () {
@@ -201,6 +205,8 @@ angular.module('cf')
 
 
         $scope.initCodemirror = function () {
+
+
             $scope.editor = CodeMirror.fromTextArea(document.getElementById("cfTextArea"), {
                 lineNumbers: true,
                 fixedGutter: true,
@@ -260,51 +266,38 @@ angular.module('cf')
                     var id = $scope.cf.testCase.testContext.id;
                     var content = $scope.cf.message.content;
                     var label = $scope.cf.testCase.label;
-                    var validated = new Er7MessageValidator().validate(id, content, label);
+                    var validated = new Er7MessageValidator().validate(id, content, label, $scope.dqaOptions.checked,"1223");
                     validated.then(function (mvResult) {
                         $scope.vLoading = false;
-                        $scope.setValidationResult(mvResult);
+                        $scope.loadValidationResult(mvResult);
                     }, function (error) {
                         $scope.vLoading = false;
                         $scope.vError = error;
-                        $scope.setValidationResult(null);
+                        $scope.loadValidationResult(null);
                     });
-//                    if ($scope.validationConfig.dqa.checked) {
-//                        $scope.dqaLoading = true;
-//                        var dqaValidated = new DQAMessageValidator($scope.cf.message.content, "1223");
-//                        dqaValidated.then(function (mvResult) {
-//                            $scope.dqaLoading = false;
-//                            $scope.cf.dqaValidationResult = new DQAValidationResult(mvResult);
-//                            $scope.dqaValidationResult = $scope.cf.dqaValidationResult;
-//                        }, function (error) {
-//                            $scope.dqaLoading = false;
-//                            $scope.dqaError = error;
-//                            $scope.cf.dqaValidationResult = null;
-//                        });
-//                    }
                 } catch (e) {
                     $scope.vLoading = false;
                     $scope.vError = e;
-                    $scope.setValidationResult(null);
+                    $scope.loadValidationResult(null);
                 }
             } else {
-                $scope.setValidationResult(null);
+                $scope.loadValidationResult(null);
                 $scope.vLoading = false;
                 $scope.vError = null;
             }
         };
 
-        $scope.setValidationResult = function (mvResult) {
-            var report = null;
-            var validationResult = null;
-            if (mvResult !== null) {
-                report = {};
-                validationResult = new NewValidationResult();
-                validationResult.init(mvResult);
-                report["result"] = validationResult;
-            }
-            $rootScope.$broadcast('cf:reportLoaded', report);
-            $rootScope.$broadcast('cf:validationResultLoaded', validationResult);
+        $scope.loadValidationResult = function (mvResult) {
+//            var report = null;
+//            var validationResult = null;
+//            if (mvResult !== null) {
+//                report = {};
+//                validationResult = new NewValidationResult();
+//                validationResult.init(mvResult);
+//                report["result"] = validationResult;
+//            }
+//            $rootScope.$broadcast('cf:reportLoaded', report);
+            $rootScope.$broadcast('cf:validationResultLoaded', mvResult);
         };
 
         $scope.select = function (element) {
@@ -354,13 +347,15 @@ angular.module('cf')
         };
 
         $scope.execute = function () {
-            $scope.error = null;
-            $scope.tError = null;
-            $scope.mError = null;
-            $scope.vError = null;
-            $scope.cf.message.content = $scope.editor.doc.getValue();
-            $scope.validateMessage();
-            $scope.parseMessage();
+            if ($scope.cf.testCase != null) {
+                $scope.error = null;
+                $scope.tError = null;
+                $scope.mError = null;
+                $scope.vError = null;
+                $scope.cf.message.content = $scope.editor.doc.getValue();
+                $scope.validateMessage();
+                $scope.parseMessage();
+            }
          };
 
         $scope.init = function () {
@@ -374,11 +369,11 @@ angular.module('cf')
 
             $scope.initCodemirror();
 
-//            $scope.setValidationResult(null);
+//            $scope.loadValidationResult(null);
 
             $scope.$on('cf:refreshEditor', function (event) {
                 $scope.refreshEditor();
-                event.preventDefault();
+//                event.preventDefault();
             });
 
 
@@ -389,6 +384,17 @@ angular.module('cf')
                     $scope.clearMessage();
                 }
             });
+
+            $scope.$watch(
+                function() {
+                     return $scope.dqaOptions.checked;
+                },
+                function(checked) {
+                    $scope.execute();
+                }
+            );
+
+
 
         };
 

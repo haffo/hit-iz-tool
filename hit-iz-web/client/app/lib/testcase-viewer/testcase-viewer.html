@@ -1,218 +1,237 @@
 <div ng-show="testCase !== null">
-    <tabset>
-        <tab heading="Test Story" ng-show="testStory && testStory !== null">
-            <div class="panel panel-info">
-                <div class="panel-body">
-            <div  ng-show="testStory && testStory !== null">
+<tabset>
+<tab heading="Test Story" ng-show="testStory && testStory !== null">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div ng-show="testStory && testStory !== null">
+                <div class="pull-right" style="margin-bottom: 20px">
+                    <button title="Download Test Story" type="button" class="btn btn-sm btn-primary"
+                            ng-click="downloadTestArtifact(testCase.testStory.pdfPath)">
+                        <i class="fa fa-download"></i>PDF
+                    </button>
+                </div>
+                <br/>
+                <br/>
+
+                <div class="testcase-content">
+                    <div class="panel panel-info"
+                            >
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Description</div>
+                        <div class="panel-body">
+                            <p class="test-details-content" compile="testStory.teststorydesc"></p>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-info"
+                            >
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Comments</div>
+                        <div class="panel-body">
+                            <p class="test-details-content" compile="testStory.comments"></p>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-info"
+                            >
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Pre-Condition</div>
+                        <div class="panel-body">
+                            <p class="test-details-content" compile="testStory.preCondition"></p>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-info"
+                            >
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Post-Condition</div>
+                        <div class="panel-body">
+                            <p class="test-details-content" compile="testStory.postCondition"></p>
+                        </div>
+                    </div>
+
+
+                    <div class="panel panel-info"
+                            >
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Test Objectives</div>
+                        <div class="panel-body">
+                            <p class="test-details-content" compile="testStory.testObjectives"></p>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-info"
+                            >
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Note</div>
+                        <div class="panel-body">
+                            <p class="test-details-content" compile="testStory.notes"></p>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-info"
+                            >
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Evaluation Criteria</div>
+                        <div class="panel-body">
+                            <p class="test-details-content" compile="testStory.evaluationCriteria"></p>
+                        </div>
+                    </div>
+
+
+                    <!--<div compile="testCase.testStory.html)"></div>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</tab>
+
+<tab heading="Test Data Specification"
+     ng-show="testCase.testDataSpecification && testCase.testDataSpecification.html !== null">
+    <div class="panel panel-info">
+        <div class="panel-body">
             <div class="pull-right" style="margin-bottom: 20px">
-                <button title="Download Test Story" type="button" class="btn btn-sm btn-primary"
-                        ng-click="downloadTestArtifact(testCase.testStory.pdfPath)">
-                    <i class="fa fa-download"></i>PDF
+                <button title="Download Test Data Specification" type="button" class="btn btn-sm btn-primary"
+                        ng-click="downloadTestArtifact(testCase.testDataSpecification.pdfPath)">
+                    <i class="fa fa-download"></i> PDF
                 </button>
             </div>
-            <br />
-            <br />
-                <div class="testcase-content">
-            <div class="panel panel-info"
-                    >
-                <!-- Default panel contents -->
-                <div class="panel-heading">Description</div>
-                <div class="panel-body">
-                    <p class="test-details-content" ng-bind-html="toHTML(testStory.teststorydesc)"></p>
-                </div>
+            <br/>
+            <br/>
+
+            <div class="testcase-content">
+                <div compile="testCase.testDataSpecification.html"/>
+
             </div>
+        </div>
+    </div>
+</tab>
 
-            <div class="panel panel-info"
-                    >
-                <!-- Default panel contents -->
-                <div class="panel-heading">Comments</div>
-                <div class="panel-body">
-                    <p class="test-details-content" ng-bind-html="toHTML(testStory.comments)"></p>
-                </div>
-            </div>
-
-            <div class="panel panel-info"
-                    >
-                <!-- Default panel contents -->
-                <div class="panel-heading">Pre-Condition</div>
-                <div class="panel-body">
-                    <p class="test-details-content" ng-bind-html="toHTML(testStory.preCondition)"></p>
-                </div>
-            </div>
-
-            <div class="panel panel-info"
-                    >
-                <!-- Default panel contents -->
-                <div class="panel-heading">Post-Condition</div>
-                <div class="panel-body">
-                    <p class="test-details-content" ng-bind-html="toHTML(testStory.postCondition)"></p>
-                </div>
-            </div>
-
-
-            <div class="panel panel-info"
-                    >
-                <!-- Default panel contents -->
-                <div class="panel-heading">Test Objectives</div>
-                <div class="panel-body">
-                    <p class="test-details-content" ng-bind-html="toHTML(testStory.testObjectives)"></p>
-                </div>
-            </div>
-
-            <div class="panel panel-info"
-                    >
-                <!-- Default panel contents -->
-                <div class="panel-heading">Note</div>
-                <div class="panel-body">
-                    <p class="test-details-content" ng-bind-html="toHTML(testStory.notes)"></p>
-                </div>
-            </div>
-
-            <!--<div ng-bind-html="toHTML(testCase.testStory.html)"></div>-->
-
-                </div>
-                </div>
-                    </div>
-                </div>
-        </tab>
-
-        <tab heading="Message Content" ng-show="testCase.messageContent && testCase.messageContent !== null">
-            <div class="panel panel-info">
-                <div class="panel-body">
+<tab heading="Message Content" ng-show="testCase.messageContent && testCase.messageContent !== null">
+    <div class="panel panel-info">
+        <div class="panel-body">
             <div class="pull-right" style="padding-top:10px; margin-bottom: 20px">
                 <button title="Download Message Content" type="button" class="btn btn-sm btn-primary"
                         ng-click="downloadTestArtifact(testCase.messageContent.pdfPath)">
                     <i class="fa fa-download"></i>PDF
                 </button>
             </div>
-            <br />
-            <br />
+            <br/>
+            <br/>
+
             <div class="testcase-content">
-            <div ng-bind-html="toHTML(testCase.messageContent.html)"></div>
+                <div compile="testCase.messageContent.html"></div>
             </div>
             <!--<div style="padding-left:20px">-->
-                <!--&lt;!&ndash;<tabset>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<tab  heading="FULL">&ndash;&gt;-->
-                        <!--<div style="padding-left:20px; padding-top: 20px" class="message-content-main">-->
+            <!--&lt;!&ndash;<tabset>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tab  heading="FULL">&ndash;&gt;-->
+            <!--<div style="padding-left:20px; padding-top: 20px" class="message-content-main">-->
 
-                        <!--<fieldset  ng-repeat="segment in messageContent.MessageContent.Segment" heading="{{segment.Name}}">-->
-                            <!--<legend>{{segment.Name}} : {{segment.Description}}</legend>-->
-                            <!--<div class="message-content-main" style="padding-bottom:20px">-->
-                            <!--<table class="mc-table">-->
-                                <!--<thead>-->
-                                <!--<tr>-->
-                                    <!--<th>Location</th>-->
-                                    <!--<th>Data Elemenmt</th>-->
-                                    <!--<th>Data</th>-->
-                                    <!--<th>Categorization</th>-->
-                                <!--</tr>-->
-                                <!--</thead>-->
-                                <!--<tbody ng-show="segment.children && segment.children.length >0">-->
-                                <!--<tr ng-class="{'mc-field': child.type === 'field'}"  ng-repeat="child in segment.children">-->
-                                    <!--<td><span ng-class="{'embSpace': child.type === 'component', 'embSubSpace': child.type === 'subComponent','mc-bold': child.type === 'field'}">{{child.location}}</span></td>-->
-                                    <!--<td><span ng-class="{'mc-bold': child.type === 'field','embSpace': child.type === 'component', 'embSubSpace': child.type === 'subComponent'}">{{child.dataElement}}</span></td>-->
-                                    <!--<td ng-class="{'mc-no-value': !child.data || child.data === '', 'mc-clear': child.data !== '' && child.data !== ' '}">{{child.data}}</td>-->
-                                    <!--<td ng-class="{'mc-no-value': !child.categorization || child.categorization === '', 'mc-clear': child.categorization !== '' && child.categorization !== ' '}">{{child.categorization}}</td>-->
-                                <!--</tr>-->
-                                <!--</tbody>-->
-                            <!--</table>-->
-                                <!--</div>-->
-                        <!--</fieldset>-->
-                        <!--</div>-->
-                    <!--&lt;!&ndash;</tab>&ndash;&gt;-->
+            <!--<fieldset  ng-repeat="segment in messageContent.MessageContent.Segment" heading="{{segment.Name}}">-->
+            <!--<legend>{{segment.Name}} : {{segment.Description}}</legend>-->
+            <!--<div class="message-content-main" style="padding-bottom:20px">-->
+            <!--<table class="mc-table">-->
+            <!--<thead>-->
+            <!--<tr>-->
+            <!--<th>Location</th>-->
+            <!--<th>Data Elemenmt</th>-->
+            <!--<th>Data</th>-->
+            <!--<th>Categorization</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody ng-show="segment.children && segment.children.length >0">-->
+            <!--<tr ng-class="{'mc-field': child.type === 'field'}"  ng-repeat="child in segment.children">-->
+            <!--<td><span ng-class="{'embSpace': child.type === 'component', 'embSubSpace': child.type === 'subComponent','mc-bold': child.type === 'field'}">{{child.location}}</span></td>-->
+            <!--<td><span ng-class="{'mc-bold': child.type === 'field','embSpace': child.type === 'component', 'embSubSpace': child.type === 'subComponent'}">{{child.dataElement}}</span></td>-->
+            <!--<td ng-class="{'mc-no-value': !child.data || child.data === '', 'mc-clear': child.data !== '' && child.data !== ' '}">{{child.data}}</td>-->
+            <!--<td ng-class="{'mc-no-value': !child.categorization || child.categorization === '', 'mc-clear': child.categorization !== '' && child.categorization !== ' '}">{{child.categorization}}</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+            <!--</table>-->
+            <!--</div>-->
+            <!--</fieldset>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;</tab>&ndash;&gt;-->
 
-                    <!--&lt;!&ndash;<tab ng-repeat="segment in messageContent.MessageContent.Segment" heading="{{segment.Name}}">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div style="padding-left:20px; padding-top: 20px" class="message-content-main">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<fieldset>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<legend>{{segment.Name}} : {{segment.Description}}</legend>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<table class="message-content">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<thead>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<tr >&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<th>Location</th>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<th>Data Elemenmt</th>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<th>Data</th>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<th>Categrization</th>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</thead>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<tbody>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<tr ng-show="segment.children && segment.children.length >0" ng-repeat="child in segment.children">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<th><b>{{child.location}}</b></th>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<th><b>{{child.dataElement}}</b></th>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<th ng-class="{'mc-no-value': child.data === ''}">{{child.data}}</th>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<th ng-class="{'mc-no-value': child.categorization === ''}">{{child.categorization}}</th>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tab ng-repeat="segment in messageContent.MessageContent.Segment" heading="{{segment.Name}}">&ndash;&gt;
+            -->
+            <!--&lt;!&ndash;<div style="padding-left:20px; padding-top: 20px" class="message-content-main">&ndash;&gt;
+            -->
+            <!--&lt;!&ndash;<fieldset>&ndash;&gt;-->
+            <!--&lt;!&ndash;<legend>{{segment.Name}} : {{segment.Description}}</legend>&ndash;&gt;-->
+            <!--&lt;!&ndash;<table class="message-content">&ndash;&gt;-->
+            <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr >&ndash;&gt;-->
+            <!--&lt;!&ndash;<th>Location</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;<th>Data Elemenmt</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;<th>Data</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;<th>Categrization</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tbody>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr ng-show="segment.children && segment.children.length >0" ng-repeat="child in segment.children">&ndash;&gt;
+            -->
+            <!--&lt;!&ndash;<th><b>{{child.location}}</b></th>&ndash;&gt;-->
+            <!--&lt;!&ndash;<th><b>{{child.dataElement}}</b></th>&ndash;&gt;-->
+            <!--&lt;!&ndash;<th ng-class="{'mc-no-value': child.data === ''}">{{child.data}}</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;<th ng-class="{'mc-no-value': child.categorization === ''}">{{child.categorization}}</th>&ndash;&gt;
+            -->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
 
-                                <!--&lt;!&ndash;</tbody>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</table>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</fieldset>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</tab>&ndash;&gt;-->
-                <!--&lt;!&ndash;</tabset>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tbody>&ndash;&gt;-->
+            <!--&lt;!&ndash;</table>&ndash;&gt;-->
+            <!--&lt;!&ndash;</fieldset>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tab>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tabset>&ndash;&gt;-->
 
 
             <!--</div>-->
-            </div>
-                </div>
-        </tab>
+        </div>
+    </div>
+</tab>
 
-        <tab heading="Test Data Specification"
-             ng-show="testCase.testDataSpecification && testCase.testDataSpecification.html !== null">
-            <div class="panel panel-info">
-                <div class="panel-body">
-                    <div class="pull-right" style="margin-bottom: 20px">
-                <button title="Download Test Data Specification" type="button" class="btn btn-sm btn-primary"
-                        ng-click="downloadTestArtifact(testCase.testDataSpecification.pdfPath)">
-                    <i class="fa fa-download"></i> PDF
-                </button>
-            </div>
-            <br />
-            <br />
-            <div class="testcase-content">
-                <div ng-bind-html="toHTML(testCase.testDataSpecification.html)"/>
 
-            </div>
-                    </div>
-                </div>
-        </tab>
 
-        <tab heading="Juror Document" ng-show="testCase.jurorDocument && testCase.jurorDocument !== null">
-            <div class="panel panel-info">
-                <div class="panel-body">
+<tab heading="Juror Document" ng-show="testCase.jurorDocument && testCase.jurorDocument !== null">
+    <div class="panel panel-info">
+        <div class="panel-body">
             <div class="pull-right">
                 <button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"
                         ng-click="downloadTestArtifact(testCase.jurorDocument.pdfPath)">
                     <i class="fa fa-download"></i> PDF
                 </button>
             </div>
-            <br />
-            <br />
+            <br/>
+            <br/>
             <div class="testcase-content">
-                <div ng-bind-html="toHTML(testCase.jurorDocument.html)"/>
+                <div compile="testCase.jurorDocument.html"/>
             </div>
-                    </div>
-                </div>
-        </tab>
+        </div>
+    </div>
+</tab>
 
-
-        <tab heading="Example Message" ng-show="testCase.testContext && testCase.testContext.message && testCase.testContext.message!== null && testCase.testContext.message.content != null">
-            <div class="panel panel-info">
-                <div class="panel-body">
+<tab heading="Example Message"
+     ng-show="testCase.testContext && testCase.testContext.message && testCase.testContext.message!== null && testCase.testContext.message.content != null">
+    <div class="panel panel-info">
+        <div class="panel-body">
             <!--<br/>-->
             <!--<div class="pull-right">-->
-                <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"-->
-                        <!--ng-click="downloadTestArtifact(testCase.jurorDocument.pdfPath)">-->
-                    <!--<i class="fa fa-download"></i> PDF-->
-                <!--</button>-->
+            <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"-->
+            <!--ng-click="downloadTestArtifact(testCase.jurorDocument.pdfPath)">-->
+            <!--<i class="fa fa-download"></i> PDF-->
+            <!--</button>-->
             <!--</div>-->
             <!--<br />-->
-            <br />
+            <br/>
             <pre class="message" ng-bind="testCase.testContext.message.content"></pre>
-                    </div>
-                </div>
-        </tab>
+        </div>
+    </div>
+</tab>
 
 
-    </tabset>
+</tabset>
 
 
 </div>

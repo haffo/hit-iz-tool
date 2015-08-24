@@ -140,9 +140,9 @@ angular.module('connectivity').factory('ConnectivityPart',
         };
 
         ConnectivityPart.prototype.setContent = function (value) {
-            this.message.content = value;
+//            this.message.content = value;
+//            this.message.notifyChange();
             this.editor.instance.doc.setValue(value);
-            this.message.notifyChange();
         };
 
         ConnectivityPart.prototype.formatContent = function () {

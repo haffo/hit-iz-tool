@@ -297,7 +297,7 @@ ul.result-settings {
 }
 
 .stTable {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .point {
@@ -1528,6 +1528,11 @@ li.validation-result-subtab {
   color: black;
   border-top: 1px solid #e5e5e5;
   float:center;
+}
+
+.currentStep {
+  background-color: #ebdb0b;
+  color:black;
 }
 
 
