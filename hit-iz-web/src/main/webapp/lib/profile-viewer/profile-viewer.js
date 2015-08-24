@@ -35,7 +35,8 @@
             $scope.error = null;
             $scope.options = {
                 concise:true,
-                relevance:true
+                relevance:true,
+                collapse:true
             };
 
             $scope.getConstraintsAsString = function (constraints) {
@@ -73,6 +74,11 @@
                 return !$scope.options.relevance || ($scope.options.relevance && node.relevent);
             };
 
+            $scope.collapseAll = function (collapse) {
+                $scope.options.collapse = collapse;
+                $scope.refresh();
+            };
+
             $scope.collectConfStatements = function (obj,confStatementsMap) {
                 if(obj) {
                     if(obj.conformanceStatements && obj.conformanceStatements !== null){
@@ -98,6 +104,7 @@
 
             $rootScope.$on($scope.type + ':profileLoaded', function (event, profile) {
                 $scope.loading = true;
+                $scope.options.collapse = true;
                 if (profile && profile.id != null) {
                     $scope.profile = profile;
                     $scope.profileService.getJson($scope.profile.id).then(function (jsonObject) {
@@ -126,9 +133,8 @@
                         $scope.profileService.setDatatypesTypesAndIcons(datatypes);
 //                        var valueSetIds = $scope.profileService.getValueSetIds(segments, datatypes.children);
 //                        $rootScope.$broadcast($scope.type + ':valueSetIdsCollected', valueSetIds);
-                        $scope.nodeData = $scope.elements[0];
-                        $scope.refresh('expanded');
-                        $scope.loading = false;
+                        $scope.getNodeContent($scope.elements[0]);
+                         $scope.loading = false;
                     }, function (error) {
                         $scope.error = "Sorry, Cannot load the profile.";
                         $scope.loading = false;
@@ -136,13 +142,13 @@
                         $scope.elements = [];
                         $scope.confStatements = [];
                         $scope.tmpConfStatements = [].concat($scope.confStatements);
-                        $scope.refresh('collapsed');
+                        $scope.refresh();
                     });
                 } else {
                     $scope.loading = false;
                     $scope.nodeData = [];
                     $scope.elements = [];
-                    $scope.refresh('collapsed');
+                    $scope.refresh();
                     $scope.loading = false;
                     $scope.confStatements = [];
                     $scope.tmpConfStatements = [].concat($scope.confStatements);
@@ -161,14 +167,18 @@
                     initialState: 'collapsed'
                 }
             });
-            $scope.refresh = function (state) {
-                $scope.params.refreshWithState(state);
+
+            $scope.refresh = function () {
+                $scope.params.refreshWithState(!$scope.options.collapse ? 'expanded': 'collapse');
             };
 
             $scope.getNodeContent = function (selectedNode) {
-                $scope.confStatementsActive = false;
-                $scope.nodeData = selectedNode;
-                $scope.refresh(selectedNode.type === 'MESSAGE' ? 'expanded':'collapsed');
+                if(selectedNode != null) {
+                    $scope.confStatementsActive = false;
+                    $scope.nodeData = selectedNode;
+                    $scope.options.collapse = selectedNode.type !== 'MESSAGE';
+                    $scope.refresh();
+                }
             };
 
             $scope.showConfStatements = function () {

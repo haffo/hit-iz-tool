@@ -12,7 +12,6 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.core.domain.Json;
 import gov.nist.hit.core.domain.MessageCommand;
 import gov.nist.hit.core.domain.TestContext;
 import gov.nist.hit.core.hl7v2.service.message.Er7ValidationReportGenerator;
@@ -25,8 +24,11 @@ import gov.nist.hit.core.service.exception.MessageParserException;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
 
+import java.util.HashMap;
 import java.util.List;
 
+import org.openimmunizationsoftware.dqa.nist.CompactReportModel;
+import org.openimmunizationsoftware.dqa.nist.ProcessMessageHL7;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,18 +129,27 @@ public class TestContextController extends TestingController {
   }
 
   @RequestMapping(value = "/{testContextId}/validateMessage", method = RequestMethod.POST)
-  public Json validate(@PathVariable final Long testContextId,
+  public HashMap<String, Object> validate(@PathVariable final Long testContextId,
       @RequestBody final MessageCommand command) throws MessageValidationException {
     try {
+      HashMap<String, Object> resultMap = new HashMap<String, Object>();
       TestContext testContext = testContext(testContextId);
-      String res =
+      String hl7Report =
           messageValidator.validate(command.getName(), getMessageContent(command), testContext
               .getConformanceProfile().getSourceId(), testContext.getConformanceProfile()
               .getIntegrationProfile().getXml(), testContext.getVocabularyLibrary().getXml(),
               testContext.getConstraints().getXml(),
               testContext.getAddditionalConstraints() != null ? testContext
                   .getAddditionalConstraints().getXml() : null);
-      return new Json(res);
+      resultMap.put("hl7Report", hl7Report);
+
+      if (command.getDqa() != null && command.getDqa() == true) {
+        CompactReportModel crm =
+            ProcessMessageHL7.process(command.getContent(), command.getFacilityId());
+        resultMap.put("dqaReport", crm);
+      }
+
+      return resultMap;
     } catch (MessageException e) {
       throw new MessageValidationException(e.getMessage());
     } catch (MessageValidationException e) {
@@ -149,16 +160,11 @@ public class TestContextController extends TestingController {
 
 
   // @RequestMapping(value = "/{testContextId}/dqaValidateMessage", method = RequestMethod.POST)
-  // public Json dqaValidateMessage(@PathVariable final Long testContextId,
+  // public CompactReportModel dqaValidateMessage(@PathVariable final Long testContextId,
   // @RequestBody final MessageCommand command) throws MessageValidationException {
-  // try {
   // CompactReportModel crm =
   // ProcessMessageHL7.process(command.getContent(), command.getFacilityId());
-  // } catch (MessageException e) {
-  // throw new MessageValidationException(e.getMessage());
-  // } catch (MessageValidationException e) {
-  // throw new MessageValidationException(e.getMessage());
-  // }
+  // return crm;
   // }
 
   public static String getMessageContent(MessageCommand command) throws MessageException {

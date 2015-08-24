@@ -12,7 +12,7 @@
         <button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"
                 title="Send" class="btn btn-sm btn-success">
             <i class="fa fa-arrow-right"></i>
-            Send  <span ng-show="connecting"><i ng-show="connecting" class="fa fa-spinner"></i> Remaining: {{counter}}s </span>
+            Send  <span ng-show="connecting"><i class="fa fa-spinner"></i> Remaining: {{counter}}s </span>
         </button>
 
         <button title="Close" type="button" class="pull-right btn btn-sm btn-primary"
@@ -185,8 +185,8 @@
                ng-click="selectTestCase(node)">{{node.name}}</a>
             <a class="point" ng-show="node.type === 'TestStep'"
                ng-click="selectTestCase(node)">{{node.position}}.{{node.name}}</a>
-            <span ng-show="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.name}}</span>
-            <!--<input ng-show="node.children != null && node.children.length > 0" title="Expand All" ng-click="expandChildren(node)" type="checkbox">-->
+            <span ng-if="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.name}}</span>
+            <!--<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">-->
          </td>
     </tr>
 </script>
@@ -203,8 +203,8 @@
         is-branch="node.children != null && node.children.length > 0">
         <td style="padding:0;white-space: nowrap" ng-class="{ 'node-active': node.id === testCase.id && node.type === testCase.type}">
             <a class="point" ng-show="node.testContext && node.testContext !== null" ng-click="loadTestCase(node)">{{node.name}}</a>
-            <span ng-show="!node.testContext || node.testContext === null">{{node.name}}</span>
-            <!--<input ng-show="node.children != null && node.children.length > 0" title="Expand All" ng-click="expandChildren(node)" type="checkbox">-->
+            <span ng-if="!node.testContext || node.testContext === null">{{node.name}}</span>
+            <!--<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">-->
         </td>
     </tr>
 </script>
@@ -228,10 +228,10 @@
                ng-click="selectTestCase(node)">{{node.name}}</a>
             <a class="point" ng-show="node.type === 'TestStep'"
                ng-click="selectTestCase(node)">
-                <i ng-show="node.connectionType === 'TA_MANUAL' || node.connectionType === 'SUT_MANUAL'"
+                <i ng-if="node.connectionType === 'TA_MANUAL' || node.connectionType === 'SUT_MANUAL'"
                    class="fa fa-check-square-o"></i>
-                <i ng-show="node.connectionType === 'TA_INITIATOR' || node.connectionType === 'SUT_INITIATOR'" class="fa fa-arrow-right"></i>
-                <i ng-show="node.connectionType === 'TA_RESPONDER' || node.connectionType === 'SUT_RESPONDER'" class="fa fa-arrow-left"></i>
+                <i ng-if="node.connectionType === 'TA_INITIATOR' || node.connectionType === 'SUT_INITIATOR'" class="fa fa-arrow-right"></i>
+                <i ng-if="node.connectionType === 'TA_RESPONDER' || node.connectionType === 'SUT_RESPONDER'" class="fa fa-arrow-left"></i>
                 {{node.position}}. {{node.name}}</a>
             <span ng-show="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.name}}</span>
         </td>

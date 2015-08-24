@@ -210,8 +210,11 @@
 			<version>3.4.4</version>
 		</dependency>
 
-		<!-- <dependency> <groupId>org.openimmunizationsoftware.dqa</groupId> <artifactId>ois-dqa-core</artifactId> 
-			<version>1.8.3-SNAPSHOT</version> <name>DQA-CORE</name> </dependency> -->
+		<dependency>
+			<groupId>org.openimmunizationsoftware.dqa</groupId>
+			<artifactId>ois-dqa-core</artifactId>
+			<version>1.8.3-SNAPSHOT</version>
+ 		</dependency>
 
 	</dependencies>
 

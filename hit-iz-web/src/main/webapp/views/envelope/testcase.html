@@ -1,6 +1,6 @@
 <div ng-controller="EnvelopeTestCaseCtrl" ng-init="init()">
 <div class="row" style="margin: 10px">
-<div class="col-md-4">
+<div class="col-md-3">
     <div class="panel panel-info">
         <!-- Default panel contents -->
         <div class="panel-heading"><i class="glyphicon glyphicon-list"></i>Test Cases</div>
@@ -28,7 +28,7 @@
         </div>
     </div>
 </div>
-<div class="col-md-8">
+<div class="col-md-9">
     <div class="container" ng-show="selectedTestCase != null">
         <div class="row">
             <div class="panel panel-info">
@@ -81,7 +81,7 @@
                                                     <!-- Default panel contents -->
                                                     <div class="panel-heading">Description</div>
                                                     <div class="panel-body">
-                                                        <p class="test-details-content" compile="toHTML(selectedTestCase.testStory.description)"></p>
+                                                        <p class="test-details-content" compile="selectedTestCase.testStory.description"></p>
                                                     </div>
                                                 </div>
 
@@ -89,7 +89,7 @@
                                                     <!-- Default panel contents -->
                                                     <div class="panel-heading">Comments</div>
                                                     <div class="panel-body">
-                                                        <p class="test-details-content" compile="toHTML(selectedTestCase.testStory.comment)"></p>
+                                                        <p class="test-details-content" compile="selectedTestCase.testStory.comment"></p>
                                                     </div>
                                                 </div>
 
@@ -97,7 +97,7 @@
                                                     <!-- Default panel contents -->
                                                     <div class="panel-heading">Pre-Condition</div>
                                                     <div class="panel-body">
-                                                        <p class="test-details-content" compile="toHTML(selectedTestCase.testStory.preCondition)"></p>
+                                                        <p class="test-details-content" compile="selectedTestCase.testStory.preCondition"></p>
                                                     </div>
                                                 </div>
 
@@ -105,7 +105,7 @@
                                                     <!-- Default panel contents -->
                                                     <div class="panel-heading">Post-Condition</div>
                                                     <div class="panel-body">
-                                                        <p class="test-details-content" compile="toHTML(selectedTestCase.testStory.postCondition)"></p>
+                                                        <p class="test-details-content" compile="selectedTestCase.testStory.postCondition"></p>
                                                     </div>
                                                 </div>
 
@@ -114,7 +114,7 @@
                                                     <!-- Default panel contents -->
                                                     <div class="panel-heading">Test Objectives</div>
                                                     <div class="panel-body">
-                                                        <p class="test-details-content" compile="toHTML(selectedTestCase.testStory.testObjectives)"></p>
+                                                        <p class="test-details-content" compile="selectedTestCase.testStory.testObjectives"></p>
                                                     </div>
                                                 </div>
 
@@ -122,7 +122,7 @@
                                                     <!-- Default panel contents -->
                                                     <div class="panel-heading">Note to Testers</div>
                                                     <div class="panel-body">
-                                                        <p class="test-details-content" compile="toHTML(selectedTestCase.testStory.noteToTesters)"></p>
+                                                        <p class="test-details-content" compile="selectedTestCase.testStory.noteToTesters"></p>
                                                     </div>
                                                 </div>
                                             </div>

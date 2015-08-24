@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ConformanceContext UUID="2decb2ea-0b10-4c4c-9906-14e41392da67" xsi:noNamespaceSchemaLocation="../ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<MetaData>
-		<Description>Conformance context for VXU_V04, Version: 20150811-1</Description>
+		<Description>Conformance context for VXU_V04, Version: 20150814-1</Description>
 	</MetaData>
 	<Predicates>
 		<Datatype>

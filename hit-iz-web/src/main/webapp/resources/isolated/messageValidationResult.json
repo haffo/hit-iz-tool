@@ -1,273 +1,137 @@
-{
+{"hl7Report": {
     "entries": {
-        "content": [],
-        "structure": [{
-            "line": 5,
-            "column": 67,
-            "path": "SPM-17.2",
-            "description": "Component SPM-17.2 (Range End Date/Time) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-            "category": "RE-Usage",
-            "classification": "Warning",
-            "stackTrace": null,
-            "metaData": null
-        },
-            {
-                "line": 3,
-                "column": 1,
-                "path": "OBSERVATION",
-                "description": "Group OBSERVATION (OBSERVATION) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 3,
-                "column": 1,
-                "path": "DG1",
-                "description": "The required Segment DG1 (Diagnosis) is missing",
-                "category": "R-Usage",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 4,
-                "column": 81,
-                "path": "PRT-5.10",
-                "description": "Component PRT-5.10 (Name Type Code) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 4,
-                "column": 52,
-                "path": "PRT-4.9",
-                "description": "Component PRT-4.9 (Original Text) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 3,
-                "column": 1,
-                "path": "NTE",
-                "description": "Segment NTE (Notes and Comments) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 3,
-                "column": 276,
-                "path": "OBR-49",
-                "description": "The primitive Field OBR-49 (Result Handling) contains at least one unescaped delimiter",
-                "category": "Unescaped Separator",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 3,
-                "column": 276,
-                "path": "OBR-49",
-                "description": "The length of Field OBR-49 (Result Handling) must be within the range [1, 2]. Value = 'CC^Carbon Copy^HL70507'",
-                "category": "Length",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 3,
-                "column": 215,
-                "path": "OBR-28.10",
-                "description": "Component OBR-28.10 (Name Type Code) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 3,
-                "column": 1,
-                "path": "OBR-17",
-                "description": "Field OBR-17 (Order Callback Phone Number) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 3,
-                "column": 1,
-                "path": "OBR-13",
-                "description": "Field OBR-13 (Relevant Clinical Information) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 3,
-                "column": 1,
-                "path": "OBR-8",
-                "description": "Field OBR-8 (Observation End Date/Time) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 3,
-                "column": 1,
-                "path": "OBR-3",
-                "description": "Field OBR-3 (Filler Order Number) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 2,
-                "column": 1,
-                "path": "TIMING",
-                "description": "Group TIMING (TIMING) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 2,
-                "column": 1,
-                "path": "ORC-20",
-                "description": "Field ORC-20 (Advanced Beneficiary Notice Code) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 2,
-                "column": 1,
-                "path": "ORC-14",
-                "description": "Field ORC-14 (Call Back Phone Number) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 2,
-                "column": 1,
-                "path": "ORC-3",
-                "description": "Field ORC-3 (Filler Order Number) is missing. Depending on the use case and data availability it may be appropriate to value this element",
-                "category": "RE-Usage",
-                "classification": "Warning",
-                "stackTrace": null,
-                "metaData": null
-            },
+        "value-set": [
             {
                 "line": 1,
-                "column": 1,
-                "path": "PATIENT",
-                "description": "The required Group PATIENT (PATIENT) is missing",
-                "category": "R-Usage",
-                "classification": "Error",
+                "column": 10,
+                "path": "MSH - 3.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
                 "stackTrace": null,
-                "metaData": null
-            },
-            {
-                "line": 1,
-                "column": 5,
-                "path": "MSH-2",
-                "description": "The length of Field MSH-2 (Encoding Characters) must be within the range [1, 4]. Value = '^~\\&#'",
-                "category": "Length",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": null
-            }],
-        "value-set": [{
-            "line": 5,
-            "column": 51,
-            "path": "SPM-4.3",
-            "description": "The value set US_LAB_HL70396 has been excluded from the validation",
-            "category": "Value Set",
-            "classification": "Alert",
-            "stackTrace": null,
-            "metaData": {
-                "valueSet": {
-                    "id": null,
-                    "stability": null,
-                    "extensibility": null,
-                    "bindingStrength": null,
-                    "bindingLocation": null
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
                 }
-            }
-        },
+            },
+            {
+                "line": 1,
+                "column": 31,
+                "path": "MSH - 4.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 1,
+                "column": 36,
+                "path": "MSH - 6.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 1,
+                "column": 129,
+                "path": "MSH - 21.2",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 2,
+                "column": 20,
+                "path": "PID - 3.4.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 2,
+                "column": 187,
+                "path": "PID-11.6",
+                "description": "The value set 0399 has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
+            {
+                "line": 4,
+                "column": 84,
+                "path": "NK1 - 4.6",
+                "description": "The value set 0399 has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            },
             {
                 "line": 5,
-                "column": 26,
-                "path": "SPM-4",
-                "description": "Value set 'SNOMED_CT US_LAB_HL70487' cannot be found in the library",
-                "category": "Coded Element",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "SNOMED_CT US_LAB_HL70487",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
-            },
-            {
-                "line": 4,
-                "column": 133,
-                "path": "PRT-15.3",
-                "description": "The value 'FX' at location Component PRT-15.3 (Telecommunication Equipment Type) cannot be evaluated. The value set 'US_LAB_HL70202' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70202",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
-            },
-            {
-                "line": 4,
-                "column": 118,
-                "path": "PRT-5.13",
-                "description": "The value 'NPI' at location Component PRT-5.13 (Identifier Type Code) cannot be evaluated. The value set 'US_LAB_HL70203 ' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70203 ",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
-            },
-            {
-                "line": 4,
-                "column": 73,
-                "path": "PRT-4.3",
-                "description": "The value set US_LAB_HL70396 has been excluded from the validation",
+                "column": 19,
+                "path": "ORC - 3.2",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
                 "category": "Value Set",
                 "classification": "Alert",
                 "stackTrace": null,
@@ -282,136 +146,10 @@
                 }
             },
             {
-                "line": 4,
-                "column": 52,
-                "path": "PRT-4",
-                "description": "Value set 'US_LAB_HL70912' cannot be found in the library",
-                "category": "Coded Element",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70912",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
-            },
-            {
-                "line": 4,
-                "column": 48,
-                "path": "PRT-2",
-                "description": "The value 'AD' at location Field PRT-2 (Action Code) cannot be evaluated. The value set 'US_LAB_HL70287' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70287",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
-            },
-            {
-                "line": 4,
-                "column": 44,
-                "path": "PRT-1.4",
-                "description": "The value 'ISO' at location Component PRT-1.4 (Universal ID Type) cannot be evaluated. The value set 'US_LAB_HL70301' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70301",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
-            },
-            {
-                "line": 3,
-                "column": 276,
-                "path": "OBR-49",
-                "description": "The value 'CC^Carbon Copy^HL70507' at location Field OBR-49 (Result Handling) cannot be evaluated. The value set '0507' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "0507",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
-            },
-            {
-                "line": 3,
-                "column": 252,
-                "path": "OBR-28.13",
-                "description": "The value 'NPI' at location Component OBR-28.13 (Identifier Type Code) cannot be evaluated. The value set 'US_LAB_HL70203 ' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70203 ",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
-            },
-            {
-                "line": 3,
-                "column": 200,
-                "path": "OBR-16.13",
-                "description": "The value 'NPI' at location Component OBR-16.13 (Identifier Type Code) cannot be evaluated. The value set 'US_LAB_HL70203 ' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70203 ",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
-            },
-            {
-                "line": 3,
-                "column": 196,
-                "path": "OBR-16.10",
-                "description": "The value 'L' at location Component OBR-16.10 (Name Type Code) cannot be evaluated. The value set 'US_LAB_HL70200' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
-                "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70200",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
-            },
-            {
-                "line": 3,
-                "column": 93,
-                "path": "OBR-4.6",
-                "description": "The value set US_LAB_HL70396 has been excluded from the validation",
+                "line": 5,
+                "column": 56,
+                "path": "ORC - 10.9.1",
+                "description": "The value set 0300 has been excluded from the validation",
                 "category": "Value Set",
                 "classification": "Alert",
                 "stackTrace": null,
@@ -426,10 +164,10 @@
                 }
             },
             {
-                "line": 3,
-                "column": 40,
-                "path": "OBR-4.3",
-                "description": "The value set US_LAB_HL70396 has been excluded from the validation",
+                "line": 5,
+                "column": 100,
+                "path": "ORC - 12.9.1",
+                "description": "The value set 0300 has been excluded from the validation",
                 "category": "Value Set",
                 "classification": "Alert",
                 "stackTrace": null,
@@ -444,10 +182,10 @@
                 }
             },
             {
-                "line": 3,
-                "column": 27,
-                "path": "OBR-4",
-                "description": "The value set LOINC has been excluded from the validation",
+                "line": 6,
+                "column": 178,
+                "path": "RXA - 10.9.1",
+                "description": "The value set 0300 has been excluded from the validation",
                 "category": "Value Set",
                 "classification": "Alert",
                 "stackTrace": null,
@@ -460,168 +198,1879 @@
                         "bindingLocation": null
                     }
                 }
+            },
+            {
+                "line": 6,
+                "column": 198,
+                "path": "RXA - 11.4.1",
+                "description": "The value set HL70363_IZ has been excluded from the validation",
+                "category": "Value Set",
+                "classification": "Alert",
+                "stackTrace": null,
+                "metaData": {
+                    "valueSet": {
+                        "id": null,
+                        "stability": null,
+                        "extensibility": null,
+                        "bindingStrength": null,
+                        "bindingLocation": null
+                    }
+                }
+            }
+        ],
+        "structure": [
+            {
+                "line": 9,
+                "column": 1,
+                "path": "OBX-14",
+                "description": "Field OBX-14 (Date/Time of the Observation) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 10,
+                "column": 1,
+                "path": "OBX-14",
+                "description": "Field OBX-14 (Date/Time of the Observation) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 11,
+                "column": 1,
+                "path": "OBX-14",
+                "description": "Field OBX-14 (Date/Time of the Observation) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 154,
+                "path": "RXA-10.10",
+                "description": "Component RXA-10.10 (Name Type Code) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 1,
+                "path": "ORC-17",
+                "description": "Field ORC-17 (Entering Organization) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 74,
+                "path": "ORC-12.4",
+                "description": "Component ORC-12.4 (Second and Further Given Names or Initials Thereof) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 29,
+                "path": "ORC-10.10",
+                "description": "Component ORC-10.10 (Name Type Code) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 1,
+                "path": "ORC-2",
+                "description": "Field ORC-2 (Placer Order Number) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 4,
+                "column": 43,
+                "path": "NK1-4.2",
+                "description": "Component NK1-4.2 (Other Designation) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 4,
+                "column": 7,
+                "path": "NK1-2.3",
+                "description": "Component NK1-2.3 (Second and Further Given Names or Initials Thereof) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "PD1-12",
+                "description": "Field PD1-12 (Protection Indicator) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
             },
             {
                 "line": 2,
-                "column": 108,
-                "path": "ORC-12.13",
-                "description": "The value 'NPI' at location Component ORC-12.13 (Identifier Type Code) cannot be evaluated. The value set 'US_LAB_HL70203 ' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
+                "column": 1,
+                "path": "PID-30",
+                "description": "Field PID-30 (Patient Death Indicator) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
                 "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70203 ",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
+                "metaData": null
             },
             {
                 "line": 2,
-                "column": 104,
-                "path": "ORC-12.10",
-                "description": "The value 'L' at location Component ORC-12.10 (Name Type Code) cannot be evaluated. The value set 'US_LAB_HL70200' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
+                "column": 1,
+                "path": "PID-24",
+                "description": "Field PID-24 (Multiple Birth Indicator) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
                 "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70200",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
+                "metaData": null
             },
             {
                 "line": 2,
+                "column": 146,
+                "path": "PID-11.2",
+                "description": "Component PID-11.2 (Other Designation) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 1,
+                "path": "MSH-23",
+                "description": "Field MSH-23 (Receiving Responsible Organization) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 1,
+                "path": "MSH-22",
+                "description": "Field MSH-22 (Sending Responsible Organization) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 1,
+                "path": "MSH-5",
+                "description": "Field MSH-5 (Receiving Application) is missing. Depending on the use case and data availability it may be appropriate to value this element",
+                "category": "RE-Usage",
+                "classification": "Warning",
+                "stackTrace": null,
+                "metaData": null
+            }
+        ],
+        "content": [
+            {
+                "line": 1,
+                "column": 1,
+                "path": "MSH",
+                "description": "IZ-12 - The value of MSH.1 (Field Separator) SHALL be '|'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 1,
+                "path": "MSH",
+                "description": "IZ-13 - The value of MSH.2 (Encoding Characters) SHALL be '^~\\&'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 1,
+                "path": "MSH",
+                "description": "IZ-TS_Z - The value of MSH.7.1 (Time) SHALL be formatted with YYYYMMDDHHMMSS+-ZZZZ.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 1,
+                "path": "MSH",
+                "description": "IZ-17 - The value of MSH.9 (Message Type) SHALL be 'VXU^V04^VXU_V04'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 1,
+                "path": "MSH",
+                "description": "IZ-15 - The value of MSH.12.1 (Version ID) SHALL be '2.5.1'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 1,
+                "path": "MSH",
+                "description": "IZ-42 - The value of MSH.15 (Accept Acknowledgment Type) SHALL be 'ER'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 1,
+                "path": "MSH",
+                "description": "IZ-41 - The value of MSH.16 (Application Acknowledgment Type) SHALL be 'AL'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 1,
+                "path": "MSH",
+                "description": "IZ-43 - The value of MSH.21[1] (Message Profile Identifier) SHALL be 'Z22^CDCPHINVS'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 10,
+                "path": "MSH-3",
+                "description": "Predicate C(R/X) target: 3[1] description: If HD.2 (Universal ID) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 10,
+                "path": "MSH-3",
+                "description": "Predicate C(R/O) target: 2[1] description: If HD.1 (Namespace ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 10,
+                "path": "MSH-3",
+                "description": "Predicate C(R/O) target: 1[1] description: If HD.2 (Universal ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 10,
+                "path": "MSH-3",
+                "description": "IZ-5 - The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 10,
+                "path": "MSH-3",
+                "description": "IZ-6 - The value of HD.3 (Universal ID Type) SHALL be 'ISO'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 31,
+                "path": "MSH-4",
+                "description": "Predicate C(R/X) target: 3[1] description: If HD.2 (Universal ID) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 31,
+                "path": "MSH-4",
+                "description": "Predicate C(R/O) target: 2[1] description: If HD.1 (Namespace ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 31,
+                "path": "MSH-4",
+                "description": "Predicate C(R/O) target: 1[1] description: If HD.2 (Universal ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 31,
+                "path": "MSH-4",
+                "description": "IZ-5 - The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 31,
+                "path": "MSH-4",
+                "description": "IZ-6 - The value of HD.3 (Universal ID Type) SHALL be 'ISO'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 36,
+                "path": "MSH-6",
+                "description": "Predicate C(R/X) target: 3[1] description: If HD.2 (Universal ID) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 36,
+                "path": "MSH-6",
+                "description": "Predicate C(R/O) target: 2[1] description: If HD.1 (Namespace ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 36,
+                "path": "MSH-6",
+                "description": "Predicate C(R/O) target: 1[1] description: If HD.2 (Universal ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 36,
+                "path": "MSH-6",
+                "description": "IZ-5 - The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 36,
+                "path": "MSH-6",
+                "description": "IZ-6 - The value of HD.3 (Universal ID Type) SHALL be 'ISO'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 74,
+                "path": "MSH-9",
+                "description": "IZ-17 - The value of MSG.1 (Message Code) SHALL be 'VXU'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 74,
+                "path": "MSH-9",
+                "description": "IZ-17 - The value of MSG.2 (Trigger Event) SHALL be 'V04'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 74,
+                "path": "MSH-9",
+                "description": "IZ-17 - The value of MSG.3 (Message Structure) SHALL be 'VXU_V04'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 125,
+                "path": "MSH-21",
+                "description": "Predicate C(R/X) target: 4[1] description: If EI.3 (Universal ID) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 125,
+                "path": "MSH-21",
+                "description": "Predicate C(R/O) target: 3[1] description: If EI.2 (Namespace ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 125,
+                "path": "MSH-21",
+                "description": "Predicate C(R/O) target: 2[1] description: If EI.3 (Universal ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 1,
+                "column": 125,
+                "path": "MSH-21",
+                "description": "IZ-3 - The value of EI.3 (Universal ID) SHALL be formatted with ISO-compliant OID.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 1,
+                "column": 125,
+                "path": "MSH-21",
+                "description": "IZ-4 - The value of EI.4 (Universal ID Type) SHALL be 'ISO'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 2,
+                "column": 1,
+                "path": "PID",
+                "description": "Predicate C(RE/X) target: 29[1] description: If the value of PID.30 (Patient Death Indicator) is 'Y'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 1,
+                "path": "PID",
+                "description": "Predicate C(RE/O) target: 25[1] description: If the value of PID.24 (Multiple Birth Indicator) is 'Y'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 1,
+                "path": "PID",
+                "description": "IZ-46 - The value of PID.1 (Set ID - PID) SHALL be '1'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 2,
+                "column": 1,
+                "path": "PID",
+                "description": "IZ-TS_NZ - The value of PID.7.1 (Time) SHALL be formatted with YYYYMMDD.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 2,
+                "column": 8,
+                "path": "PID-3",
+                "description": "Predicate C(O/X) target: 3[1] description: If CX.2 (Check Digit) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 20,
+                "path": "PID-3.4",
+                "description": "Predicate C(R/X) target: 3[1] description: If HD.2 (Universal ID) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 20,
+                "path": "PID-3.4",
+                "description": "Predicate C(R/O) target: 2[1] description: If HD.1 (Namespace ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 20,
+                "path": "PID-3.4",
+                "description": "Predicate C(R/O) target: 1[1] description: If HD.2 (Universal ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 20,
+                "path": "PID-3.4",
+                "description": "IZ-5 - The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 2,
+                "column": 20,
+                "path": "PID-3.4",
+                "description": "IZ-6 - The value of HD.3 (Universal ID Type) SHALL be 'ISO'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 2,
+                "column": 60,
+                "path": "PID-6",
+                "description": "IZ-66 - The value of XPN.7 (Name Type Code) SHALL be 'M'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 2,
+                "column": 89,
+                "path": "PID-10",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 89,
+                "path": "PID-10",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 194,
+                "path": "PID-13",
+                "description": "Predicate C(R/X) target: 7[1] description: If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 194,
+                "path": "PID-13",
+                "description": "Predicate C(RE/X) target: 6[1] description: If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 194,
+                "path": "PID-13",
+                "description": "Predicate C(R/X) target: 4[1] description: If the value of XTN.2 (Telecommunication Use Code) is 'NET'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 224,
+                "path": "PID-22",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 2,
+                "column": 224,
+                "path": "PID-22",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "PD1",
+                "description": "Predicate C(RE/X) target: 18[1] description: If PD1.11 (Publicity Code) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "PD1",
+                "description": "Predicate C(RE/X) target: 17[1] description: If PD1.16 (Immunization Registry Status) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "PD1",
+                "description": "Predicate C(RE/X) target: 13[1] description: If PD1.12 (Protection Indicator) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "PD1",
+                "description": "IZ-DT_D - The value of PD1.17 (Immunization Registry Status Effective Date) SHALL be formatted with YYYYMMDD.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 3,
+                "column": 1,
+                "path": "PD1",
+                "description": "IZ-DT_D - The value of PD1.18 (Publicity Code Effective Date) SHALL be formatted with YYYYMMDD.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 3,
+                "column": 15,
+                "path": "PD1-11",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 3,
+                "column": 15,
+                "path": "PD1-11",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 4,
+                "column": 1,
+                "path": "NK1",
+                "description": "IZ-70 - The Value of NK1-1 (Set ID-NK1) SHALL be valued sequentially starting with the value \"1\".",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 4,
+                "column": 24,
+                "path": "NK1-3",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 4,
+                "column": 24,
+                "path": "NK1-3",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 4,
+                "column": 90,
+                "path": "NK1-5",
+                "description": "Predicate C(R/X) target: 7[1] description: If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 4,
+                "column": 90,
+                "path": "NK1-5",
+                "description": "Predicate C(RE/X) target: 6[1] description: If the value of XTN.2 (Telecommunication Use Code) is not 'NET'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 4,
+                "column": 90,
+                "path": "NK1-5",
+                "description": "Predicate C(R/X) target: 4[1] description: If the value of XTN.2 (Telecommunication Use Code) is 'NET'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 1,
+                "path": "VXU_V04.ORDER",
+                "description": "Predicate C(RE/O) target: 1[1].12[1] description: If the value of RXA.9[1].1 (Identifier) is '00' AND if RXA.9[1].1 (Identifier) is valued AND if the value of RXA.20 (Completion Status) is one of List Values: 'CP','PA' AND if RXA.20 (Completion Status) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 1,
+                "path": "VXU_V04.ORDER",
+                "description": "IZ-45 -  If RXA.20 is valued \"NA\" or \"RE\" then ORC.3.1 SHALL be valued \"9999\".",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 5,
+                "column": 1,
+                "path": "ORC",
+                "description": "IZ-25 - The value of ORC.1 (Order Control) SHALL be 'RE'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 5,
+                "column": 9,
+                "path": "ORC-3",
+                "description": "Predicate C(R/X) target: 4[1] description: If EI.3 (Universal ID) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 9,
+                "path": "ORC-3",
+                "description": "Predicate C(R/O) target: 3[1] description: If EI.2 (Namespace ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 9,
+                "path": "ORC-3",
+                "description": "Predicate C(R/O) target: 2[1] description: If EI.3 (Universal ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 9,
+                "path": "ORC-3",
+                "description": "IZ-3 - The value of EI.3 (Universal ID) SHALL be formatted with ISO-compliant OID.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 5,
+                "column": 9,
+                "path": "ORC-3",
+                "description": "IZ-4 - The value of EI.4 (Universal ID Type) SHALL be 'ISO'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 5,
+                "column": 29,
+                "path": "ORC-10",
+                "description": "Predicate C(R/X) target: 13[1] description: If XCN.1 (ID number) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 29,
+                "path": "ORC-10",
+                "description": "Predicate C(O/X) target: 12[1] description: If XCN.11 (Check Digit Identifer) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 29,
+                "path": "ORC-10",
+                "description": "Predicate C(R/X) target: 9[1] description: If XCN.1 (Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 29,
+                "path": "ORC-10",
+                "description": "Predicate C(R/RE) target: 1[1] description: If XCN.2.1 (Surname) and  XCN.3 (Given Name) are not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 74,
+                "path": "ORC-12",
+                "description": "Predicate C(R/X) target: 13[1] description: If XCN.1 (ID number) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 74,
+                "path": "ORC-12",
+                "description": "Predicate C(O/X) target: 12[1] description: If XCN.11 (Check Digit Identifer) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 74,
+                "path": "ORC-12",
+                "description": "Predicate C(R/X) target: 9[1] description: If XCN.1 (Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 5,
+                "column": 74,
+                "path": "ORC-12",
+                "description": "Predicate C(R/RE) target: 1[1] description: If XCN.2.1 (Surname) and  XCN.3 (Given Name) are not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "Predicate C(R/O) target: 21[1] description: If the value of RXA.5.1 (Identifier) is not '998'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "Predicate C(R/X) target: 18[1] description: If RXA.20 (Completion Status) is valued AND if the value of RXA.20 (Completion Status) is 'RE'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "Predicate C(R/O) target: 17[1] description: If RXA.9[1].1 (Identifier) is valued AND if the value of RXA.9[1].1 (Identifier) is '00'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "Predicate C(RE/O) target: 16[1] description: If RXA.15[1] (Substance Lot Number) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "Predicate C(R/O) target: 15[1] description: If the value of RXA.9[1].1 (Identifier) is '00' AND if RXA.9[1].1 (Identifier) is valued AND if the value of RXA.20 (Completion Status) is one of List Values: 'CP','PA' AND if RXA.20 (Completion Status) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "Predicate C(RE/O) target: 11[1] description: If the value of RXA.9[1].1 (Identifier) is '00' AND if the value of RXA.20 (Completion Status) is one of List Values: 'CP','PA'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "Predicate C(RE/O) target: 10[1] description: If the value of RXA.9[1].1 (Identifier) is '00' AND if the value of RXA.20 (Completion Status) is one of List Values: 'CP','PA'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "Predicate C(R/O) target: 9[1] description: If the value of RXA.20 (Completion Status) is one of List Values: 'CP','PA'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "Predicate C(R/X) target: 7[1] description: If the value of RXA.6 (Administered Amount) is not '999'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "IZ-28 - The value of RXA.1 (Give Sub-ID Counter) SHALL be '0'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": " IZ-29 - The value of RXA.2 (Administration Sub-ID Counter) SHALL be '1'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "IZ-TS_NZ - The value of RXA.3.1 (Time) SHALL be formatted with YYYYMMDD.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "IZ-30 - If RXA.4.1 (Time) is valued, then RXA.4.1 (Time) SHALL be identical to the RXA.3.1 (Time).",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "IZ-49 - If the value of RXA.5.1 (Identifier) is '998', then the value of RXA.6 (Administered Amount) SHALL be '999'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "IZ-48 - If RXA.20 (Completion Status) is valued and the value of RXA.20 (Completion Status) is 'RE' then the value of RXA.6 (Administered Amount) SHALL be '999'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "IZ-31 - If RXA.20 (Completion Status) is valued and the value of RXA.20 (Completion Status) is one of List Values: 'CP','PA' then the value of RXA.9[1].1 (Identifier) SHALL be one of codes listed in the Value Set: NIP001.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "IZ-47 - If RXA.20 (Completion Status) is not valued or the value of RXA.20 (Completion Status) is not one of List Values: 'CP','PA' then RXA.9[1].1 (Identifier) SHALL NOT be valued.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 6,
+                "column": 1,
+                "path": "RXA",
+                "description": "IZ-32 - If RXA.18[1].1 (Identifier) is valued then the value of RXA.20 (Completion Status) SHALL be 'RE' and RXA.20 (Completion Status) SHALL be valued.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 6,
+                "column": 19,
+                "path": "RXA-5",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 19,
+                "path": "RXA-5",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 82,
+                "path": "RXA-7",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 82,
+                "path": "RXA-7",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 120,
+                "path": "RXA-9",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 120,
+                "path": "RXA-9",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 154,
+                "path": "RXA-10",
+                "description": "Predicate C(R/X) target: 13[1] description: If XCN.1 (ID number) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 154,
+                "path": "RXA-10",
+                "description": "Predicate C(O/X) target: 12[1] description: If XCN.11 (Check Digit Identifer) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 154,
+                "path": "RXA-10",
+                "description": "Predicate C(R/X) target: 9[1] description: If XCN.1 (Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 154,
+                "path": "RXA-10",
+                "description": "Predicate C(R/RE) target: 1[1] description: If XCN.2.1 (Surname) and  XCN.3 (Given Name) are not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 198,
+                "path": "RXA-11.4",
+                "description": "Predicate C(R/X) target: 3[1] description: If HD.2 (Universal ID) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 198,
+                "path": "RXA-11.4",
+                "description": "Predicate C(R/O) target: 2[1] description: If HD.1 (Namespace ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 198,
+                "path": "RXA-11.4",
+                "description": "Predicate C(R/O) target: 1[1] description: If HD.2 (Universal ID) is not valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 198,
+                "path": "RXA-11.4",
+                "description": "IZ-5 - The value of HD.2 (Universal ID) SHALL be formatted with ISO-compliant OID.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 6,
+                "column": 198,
+                "path": "RXA-11.4",
+                "description": "IZ-6 - The value of HD.3 (Universal ID Type) SHALL be 'ISO'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 6,
+                "column": 222,
+                "path": "RXA-17",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 6,
+                "column": 222,
+                "path": "RXA-17",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 7,
                 "column": 5,
-                "path": "ORC-1",
-                "description": "The value 'NW' at location Field ORC-1 (Order Control) cannot be evaluated. The value set 'US_LAB_HL70119' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
+                "path": "RXR-1",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
                 "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70119",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
+                "metaData": null
             },
             {
-                "line": 1,
-                "column": 144,
-                "path": "MSH-16",
-                "description": "The value 'NE' at location Field MSH-16 (Application Acknowledgment Type) cannot be evaluated. The value set 'US_LAB_HL70155' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
+                "line": 7,
+                "column": 5,
+                "path": "RXR-1",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
                 "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70155",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
+                "metaData": null
             },
             {
-                "line": 1,
-                "column": 141,
-                "path": "MSH-15",
-                "description": "The value 'AL' at location Field MSH-15 (Accept Acknowledgment Type) cannot be evaluated. The value set 'US_LAB_HL70155' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
+                "line": 7,
+                "column": 31,
+                "path": "RXR-2",
+                "description": "Predicate C(R/X) target: 6[1] description: If CWE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
                 "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70155",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
+                "metaData": null
             },
             {
-                "line": 1,
-                "column": 131,
-                "path": "MSH-11.1",
-                "description": "The value 'T' at location Component MSH-11.1 (Processing ID) cannot be evaluated. The value set 'US_LAB_HL70103' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
+                "line": 7,
+                "column": 31,
+                "path": "RXR-2",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CWE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
                 "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70103",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
+                "metaData": null
             },
             {
-                "line": 1,
-                "column": 103,
-                "path": "MSH-9.3",
-                "description": "The value 'OML_O21' at location Component MSH-9.3 (Message Structure) cannot be evaluated. The value set 'US_LAB_HL70354' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
+                "line": 7,
+                "column": 31,
+                "path": "RXR-2",
+                "description": "Predicate C(R/X) target: 3[1] description: If CWE.1 (Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
                 "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70354",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
+                "metaData": null
             },
             {
-                "line": 1,
-                "column": 99,
-                "path": "MSH-9.2",
-                "description": "The value 'O21' at location Component MSH-9.2 (Trigger Event) cannot be evaluated. The value set 'US_LAB_HL70003' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
+                "line": 8,
+                "column": 1,
+                "path": "VXU_V04.ORDER.OBSERVATION",
+                "description": "IZ-20 - The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value \"1\" within a message.",
+                "category": "Constraint Success",
+                "classification": "Informational",
                 "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70003",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
+                "metaData": {}
             },
             {
-                "line": 1,
-                "column": 95,
-                "path": "MSH-9.1",
-                "description": "The value 'OML' at location Component MSH-9.1 (Message Code) cannot be evaluated. The value set 'US_LAB_HL70076' cannot be found.",
-                "category": "Value Set",
-                "classification": "Error",
+                "line": 8,
+                "column": 1,
+                "path": "OBX",
+                "description": "Predicate C(RE/O) target: 17[1] description: If the value of OBX.3.1 (Identifier) is '64994-7'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
                 "stackTrace": null,
-                "metaData": {
-                    "valueSet": {
-                        "id": "US_LAB_HL70076",
-                        "stability": null,
-                        "extensibility": null,
-                        "bindingStrength": null,
-                        "bindingLocation": null
-                    }
-                }
-            }]
+                "metaData": null
+            },
+            {
+                "line": 8,
+                "column": 1,
+                "path": "OBX",
+                "description": "Predicate C(R/O) target: 6[1] description: If the value of OBX.2 (Value Type) is 'NM'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 8,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-44 - The value of OBX-4 SHALL be a positive integer.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 8,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-35 - If The value of OBX.3.1 (Identifier) is '64994-7' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: HL70064_IZ.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 8,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-36 - If The value of OBX.3.1 (Identifier) is '69764-9' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: PHVS_VISBarcodes_IIS.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 8,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-37 - If The value of OBX.3.1 (Identifier) is '30956-7' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: CVX.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 8,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-22 - The value of OBX.11 (Observation Result Status) SHALL be 'F'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 8,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-TS_NZ - The value of OBX.14.1 (Time) SHALL be formatted with YYYYMMDD.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 8,
+                "column": 10,
+                "path": "OBX-3",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 8,
+                "column": 10,
+                "path": "OBX-3",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 8,
+                "column": 68,
+                "path": "OBX-5",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 8,
+                "column": 68,
+                "path": "OBX-5",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 8,
+                "column": 173,
+                "path": "OBX-17",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 8,
+                "column": 173,
+                "path": "OBX-17",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 9,
+                "column": 1,
+                "path": "VXU_V04.ORDER.OBSERVATION",
+                "description": "IZ-20 - The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value \"1\" within a message.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 9,
+                "column": 1,
+                "path": "OBX",
+                "description": "Predicate C(RE/O) target: 17[1] description: If the value of OBX.3.1 (Identifier) is '64994-7'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 9,
+                "column": 1,
+                "path": "OBX",
+                "description": "Predicate C(R/O) target: 6[1] description: If the value of OBX.2 (Value Type) is 'NM'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 9,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-44 - The value of OBX-4 SHALL be a positive integer.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 9,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-35 - If The value of OBX.3.1 (Identifier) is '64994-7' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: HL70064_IZ.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 9,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-36 - If The value of OBX.3.1 (Identifier) is '69764-9' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: PHVS_VISBarcodes_IIS.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 9,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-37 - If The value of OBX.3.1 (Identifier) is '30956-7' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: CVX.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 9,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-22 - The value of OBX.11 (Observation Result Status) SHALL be 'F'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 9,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-TS_NZ - The value of OBX.14.1 (Time) SHALL be formatted with YYYYMMDD.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 9,
+                "column": 10,
+                "path": "OBX-3",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 9,
+                "column": 10,
+                "path": "OBX-3",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 9,
+                "column": 36,
+                "path": "OBX-5",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 9,
+                "column": 36,
+                "path": "OBX-5",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 10,
+                "column": 1,
+                "path": "VXU_V04.ORDER.OBSERVATION",
+                "description": "IZ-20 - The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value \"1\" within a message.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 10,
+                "column": 1,
+                "path": "OBX",
+                "description": "Predicate C(RE/O) target: 17[1] description: If the value of OBX.3.1 (Identifier) is '64994-7'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 10,
+                "column": 1,
+                "path": "OBX",
+                "description": "Predicate C(R/O) target: 6[1] description: If the value of OBX.2 (Value Type) is 'NM'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 10,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-44 - The value of OBX-4 SHALL be a positive integer.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 10,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-35 - If The value of OBX.3.1 (Identifier) is '64994-7' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: HL70064_IZ.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 10,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-36 - If The value of OBX.3.1 (Identifier) is '69764-9' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: PHVS_VISBarcodes_IIS.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 10,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-37 - If The value of OBX.3.1 (Identifier) is '30956-7' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: CVX.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 10,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-22 - The value of OBX.11 (Observation Result Status) SHALL be 'F'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 10,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-TS_NZ - The value of OBX.14.1 (Time) SHALL be formatted with YYYYMMDD.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 10,
+                "column": 10,
+                "path": "OBX-3",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 10,
+                "column": 10,
+                "path": "OBX-3",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 11,
+                "column": 1,
+                "path": "VXU_V04.ORDER.OBSERVATION",
+                "description": "IZ-20 - The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value \"1\" within a message.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 11,
+                "column": 1,
+                "path": "OBX",
+                "description": "Predicate C(RE/O) target: 17[1] description: If the value of OBX.3.1 (Identifier) is '64994-7'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 11,
+                "column": 1,
+                "path": "OBX",
+                "description": "Predicate C(R/O) target: 6[1] description: If the value of OBX.2 (Value Type) is 'NM'.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 11,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-44 - The value of OBX-4 SHALL be a positive integer.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 11,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-35 - If The value of OBX.3.1 (Identifier) is '64994-7' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: HL70064_IZ.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 11,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-36 - If The value of OBX.3.1 (Identifier) is '69764-9' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: PHVS_VISBarcodes_IIS.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 11,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-37 - If The value of OBX.3.1 (Identifier) is '30956-7' and the value of OBX.2 (Value Type) is 'CE' then the value of OBX.5.1 (Observation Value) SHALL be one of codes listed in the Value Set: CVX.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 11,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-22 - The value of OBX.11 (Observation Result Status) SHALL be 'F'.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 11,
+                "column": 1,
+                "path": "OBX",
+                "description": "IZ-TS_NZ - The value of OBX.14.1 (Time) SHALL be formatted with YYYYMMDD.",
+                "category": "Constraint Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": {}
+            },
+            {
+                "line": 11,
+                "column": 10,
+                "path": "OBX-3",
+                "description": "Predicate C(R/X) target: 6[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            },
+            {
+                "line": 11,
+                "column": 10,
+                "path": "OBX-3",
+                "description": "Predicate C(RE/X) target: 5[1] description: If CE.4 (Alternate Identifier) is valued.",
+                "category": "Predicate Success",
+                "classification": "Informational",
+                "stackTrace": null,
+                "metaData": null
+            }
+        ]
     }
-}
+}}

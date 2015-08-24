@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ConformanceContext UUID="95c4f44d-7da8-4914-bce0-23c31a310115" xsi:noNamespaceSchemaLocation="../ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <MetaData>
-        <Description>Conformance context for RSP_K11, Version:20150811-1</Description>
+        <Description>Conformance context for RSP_K11, Version:20150814-1</Description>
     </MetaData>
     <Predicates>
         <Datatype>
@@ -498,12 +498,6 @@
                             </NOT>
                             <ValueSet Path="5[1]" ValueSetID="PHVS_VISBarcodes_IIS" BindingStrength="R" BindingLocation="1"/>
                         </OR>
-                    </Assertion>
-                </Constraint>
-                <Constraint ID="IZ-20" Target="1[1]">
-                    <Description>The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value "1" within a message.</Description>
-                    <Assertion>
-                        <SetID Path="1[1]"/>
                     </Assertion>
                 </Constraint>
                 <Constraint ID="IZ-44" Target="4[1]">

@@ -2,7 +2,7 @@
 
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
 <ConformanceProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="56fca537-ef99-407a-8e48-93e998a9463b" xsi:noNamespaceSchemaLocation="../Profile.xsd">  
-  <MetaData Name="RSP_K11" OrgName="NIST" Version="20150811-1"/>  
+  <MetaData Name="RSP_K11" OrgName="NIST" Version="20150814-1"/>  
   <Encodings> 
     <Encoding>ER7</Encoding>  
     <Encoding>XML</Encoding> 

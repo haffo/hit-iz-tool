@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ValueSetLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Description="Automatically generated vacab for QBP_Q11" Name="Vocab for QBP_Q11" OrganizationName="HL7 NIST" Status="Active" ValueSetLibraryIdentifier="c01bbec1-cf6a-4748-8a6c-2dae2e4b8d0e" ValueSetLibraryVersion="20150811-1" xsi:noNamespaceSchemaLocation="../ValueSets.xsd">  
+<ValueSetLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Description="Automatically generated vacab for QBP_Q11" Name="Vocab for QBP_Q11" OrganizationName="HL7 NIST" Status="Active" ValueSetLibraryIdentifier="c01bbec1-cf6a-4748-8a6c-2dae2e4b8d0e" ValueSetLibraryVersion="20150814-1" xsi:noNamespaceSchemaLocation="../ValueSets.xsd">  
   <NoValidation> 
     <BindingIdentifier>HL70363_IZ</BindingIdentifier>  
     <BindingIdentifier>HL70362_IZ</BindingIdentifier>  
@@ -348,7 +348,8 @@
       <ValueElement CodeSystem="HL70396" DisplayName="WHO record # drug codes (8 digit)" Value="W2"/>  
       <ValueElement CodeSystem="HL70396" DisplayName="WHO record # code with ASTM extension" Value="W4"/>  
       <ValueElement CodeSystem="HL70396" DisplayName="WHO ATC" Value="WC"/>  
-      <ValueElement CodeSystem="HL70396" DisplayName="ASC X12 Code List nnnn" Value="X12DEnnnn"/> 
+      <ValueElement CodeSystem="HL70396" DisplayName="ASC X12 Code List nnnn" Value="X12DEnnnn"/>  
+      <ValueElement CodeSystem="HL70396" DisplayName="CDC GS1 VIS BarCodes" Value="cdcgs1vis"/> 
     </ValueSetDefinition>  
     <ValueSetDefinition BindingIdentifier="HL70203_IZ" DisplayClassifier="1:CDC-HL7-IZ" Name="Identifier type"> 
       <ValueElement CodeSystem="HL70203" DisplayName="Account number " Value="AN"/>  

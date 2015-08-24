@@ -2,7 +2,7 @@
 
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
 <ConformanceProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="28c0d805-9607-4ead-b81f-68b9f57e4f3a" xsi:noNamespaceSchemaLocation="../Profile.xsd">  
-  <MetaData Name="RSP_K11" OrgName="NIST" Version="20150811-1"/>  
+  <MetaData Name="RSP_K11" OrgName="NIST" Version="20150814-1"/>  
   <Encodings> 
     <Encoding>ER7</Encoding>  
     <Encoding>XML</Encoding> 
@@ -17,7 +17,7 @@
       <Segment Max="1" Min="1" Ref="QPD_IZ1_5" Usage="R"/>  
       <Segment Max="1" Min="1" Ref="PID_IZ_1_5_Z42" Usage="R"/>  
       <Group ID="RSP_K11.IZ_HISTORY_FORECAST" Max="*" Min="1" Name="RSP_K11.IZ_HISTORY_FORECAST" Usage="R"> 
-        <Segment Max="1" Min="0" Ref="ORC" Usage="O"/>  
+        <Segment Max="1" Min="1" Ref="ORC" Usage="R"/>  
         <Segment Max="1" Min="1" Ref="RXA_IZ 1_5" Usage="R"/>  
         <Segment Max="1" Min="0" Ref="RXR_IZ 1_5" Usage="RE"/>  
         <Group ID="RSP_K11.IZ_HISTORY_FORECAST.OBSERVATION" Max="*" Min="1" Name="RSP_K11.IZ_HISTORY_FORECAST.OBSERVATION" Usage="R"> 
@@ -163,7 +163,7 @@
       <Field Datatype="XTN" ItemNo="00228" Max="2" MaxLength="250" Min="0" MinLength="1" Name="Call Back Phone Number" Usage="O"/>  
       <Field Datatype="TS" ItemNo="00229" Max="1" MaxLength="26" Min="0" MinLength="1" Name="Order Effective Date/Time" Usage="O"/>  
       <Field Datatype="CE" ItemNo="00230" Max="1" MaxLength="250" Min="0" MinLength="1" Name="Order Control Code Reason" Usage="O"/>  
-      <Field Datatype="CE" ItemNo="00231" Max="1" MaxLength="250" Min="0" MinLength="1" Name="Entering Organization" Usage="O"/>  
+      <Field Binding="0362" Datatype="CE" ItemNo="00231" Max="1" MaxLength="250" Min="0" MinLength="1" Name="Entering Organization" Usage="O"/>  
       <Field Datatype="CE" ItemNo="00232" Max="1" MaxLength="250" Min="0" MinLength="1" Name="Entering Device" Usage="O"/>  
       <Field Datatype="XCN_IZ" ItemNo="00233" Max="*" MaxLength="250" Min="0" MinLength="1" Name="Action By" Usage="O"/>  
       <Field Binding="0339" BindingLocation="1" BindingStrength="R" Datatype="CE" ItemNo="01310" Max="1" MaxLength="250" Min="0" MinLength="1" Name="Advanced Beneficiary Notice Code" Usage="O"/>  
