@@ -54,7 +54,7 @@
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code", "data" : "DTaP-Hep B-IPV"},
+				{"element" : "Administered Code", "data" : "Pentacel"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
 				{"element" : "Administered Amount", "data" : "0.5"},
 				{"element" : "Administered Units", "data" : "mL"},
@@ -96,7 +96,7 @@ VIS"},
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code", "data" : "rotavirus, pentavalent"},
+				{"element" : "Administered Code", "data" : "RotaTeq"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
 				{"element" : "Administered Amount", "data" : "2.0"},
 				{"element" : "Administered Units", "data" : "mL"},
@@ -133,7 +133,7 @@ VIS"},
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code", "data" : "Pneumococcal conjugate PCV 13"},
+				{"element" : "Administered Code", "data" : "Prevnar 13"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
 				{"element" : "Administered Amount", "data" : "0.5"},
 				{"element" : "Administered Units", "data" : "mL"},

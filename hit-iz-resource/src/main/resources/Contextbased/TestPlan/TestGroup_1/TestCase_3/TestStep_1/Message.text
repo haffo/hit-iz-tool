@@ -3,7 +3,7 @@ PID|1||89778^^^wcEHR^MR||Benton^Katherine^Mackenzie^^^^L|Jones^^^^^^M|20031221|F
 PD1|||||||||||01^No reminder/recall^HL70215|Y|20150624|||A|20031221|20150624
 NK1|1|Benton^Kari^Michelle^^^^L|MTH^Mother^HL70063|89 West 21st Ave^^Bozeman^MT^59715^USA^P|^PRN^PH^^^406^5554019
 ORC|RE|5237^wcEHR|31309^wcEHR|||||||7824^Jackson^Lily^Suzanne^^^^^wcEHR^L^^^PRN||654^Thomas^Wilma^Elizabeth^^^^^wcEHR^L^^^MD|||||wcEHR^West Clinic^HL70362
-RXA|0|1|20150624||118^HPV, bivalent^CVX|0.5|mL^mL^UCUM||00^New Record^NIP001|7824^Jackson^Lily^Suzanne^^^^^wcEHR^L^^^PRN|^^^wcEHR||||795441|20151223|SKB^GlaxoSmithKline^MVX|||CP|A
+RXA|0|1|20150624||58160-0830-05^CERVARIX^NDC|0.5|mL^mL^UCUM||00^New Record^NIP001|7824^Jackson^Lily^Suzanne^^^^^wcEHR^L^^^PRN|^^^wcEHR||||795441|20151223|SKB^GlaxoSmithKline^MVX|||CP|A
 RXR|C28161^Intramuscular^NCIT|RD^Right Deltoid^HL70163
 OBX|1|CE|30963-3^Vaccine Funding Source^LN|1|VXC50^Public^CDCPHINVS||||||F|||20150624
 OBX|2|CE|64994-7^Vaccine Funding Program Eligibility^LN|2|V05^VFC Eligible - Underinsured^HL70064||||||F|||20150624|||VXC40^per immunization^CDCPHINVS

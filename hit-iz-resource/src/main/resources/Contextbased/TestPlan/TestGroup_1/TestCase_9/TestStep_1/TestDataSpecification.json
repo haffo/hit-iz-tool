@@ -45,7 +45,7 @@ USA "},
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code", "data" : "Hep B, adolescent or pediatric"},
+				{"element" : "Administered Code", "data" : "ENGERIX-B"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/25/2015"},
 				{"element" : "Administered Amount", "data" : "0.5"},
 				{"element" : "Administered Units", "data" : "mL"},
