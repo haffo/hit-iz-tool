@@ -90,6 +90,77 @@ angular.module('isolated').factory('IsolatedSystemInitiator',
     }]);
 
 
+angular.module('isolated').factory('IsolatedExecutionService',
+    ['$q', '$http', function ($q, $http) {
+
+        var IsolatedExecutionService = function () {
+        };
+
+        IsolatedExecutionService.setExecutionStatus = function (step, value) {
+            step.executionStatus = value;
+        };
+
+        IsolatedExecutionService.getExecutionStatus = function (step) {
+            return step != null ? step.executionStatus: undefined;
+        };
+
+        IsolatedExecutionService.getValidationStatus = function (step) {
+            return  step != null && step.validationReport && step.validationReport.result && step.validationReport.result.errors && step.validationReport.result.errors.categories[0] && step.validationReport.result.errors.categories[0].data ?  step.validationReport.result.errors.categories[0].data.length: -1;
+        };
+
+        IsolatedExecutionService.getValidationResult = function (step) {
+            return step != null && step.validationReport ? step.validationReport.result: undefined;
+        };
+
+        IsolatedExecutionService.setExecutionMessage = function (step, value) {
+            step.executionMessage = value;
+        };
+
+        IsolatedExecutionService.getExecutionMessage = function (step) {
+            return step != null ? step.executionMessage: undefined;
+        };
+
+
+        IsolatedExecutionService.setMessageTree = function (step, value) {
+            step.messageTree = value;
+        };
+
+        IsolatedExecutionService.getMessageTree = function (step) {
+            return step != null ? step.messageTree: undefined;
+        };
+
+        IsolatedExecutionService.getValidationReport = function (step) {
+            return step != null ? step.validationReport: undefined;
+        };
+
+        IsolatedExecutionService.setValidationReport = function (step, value) {
+            step.validationReport = value;
+        };
+
+
+        IsolatedExecutionService.deleteExecutionStatus = function (step) {
+            delete step.executionStatus;
+        };
+
+        IsolatedExecutionService.deleteValidationReport = function (step) {
+            delete step.validationReport ;
+        };
+
+        IsolatedExecutionService.deleteExecutionMessage = function (step) {
+            delete step.executionMessage;
+        };
+
+        IsolatedExecutionService.deleteMessageTree = function (step) {
+            delete step.messageTree ;
+        };
+
+
+
+        return IsolatedExecutionService;
+    }]);
+
+
+
 angular.module('isolated').factory('IsolatedSystemClock', function ($interval, Clock) {
     return new Clock(1000);
 });

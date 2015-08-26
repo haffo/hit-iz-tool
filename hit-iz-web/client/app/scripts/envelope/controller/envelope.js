@@ -152,12 +152,23 @@ angular.module('envelope')
             var content = Envelope.testCase.testContext.exampleMessage.content;
             var formatter = new XmlFormatter(content);
             formatter.then(function (formatted) {
-                Envelope.setContent(formatted);
+                 $scope.message(formatted);
             }, function (error) {
                 $scope.error = error;
-                Envelope.setContent(content);
+                 $scope.message(content);
             });
         };
+
+
+        $scope.message = function (message) {
+            Envelope.message.content = message;
+            Envelope.editor.instance.doc.setValue(message);
+            $scope.refreshEditor();
+            $scope.validateMessage();
+            $scope.parse();
+        };
+
+
 
         $scope.validate = function () {
             $scope.error = null;
@@ -167,13 +178,13 @@ angular.module('envelope')
                 var formatter = new XmlFormatter(backup);
                 formatter.then(function (formatted) {
                     $scope.validating = false;
-                    Envelope.setContent(formatted);
+                    $scope.message(formatted);
                 }, function (error) {
                     $scope.validating = false;
                     $scope.error = error;
                 });
             }else{
-                Envelope.setContent('');
+                 $scope.message('');
             }
         };
 
@@ -191,10 +202,10 @@ angular.module('envelope')
                 $scope.$apply(function () {
                     Envelope.cursor.setLine(editor.doc.getCursor(true).line + 1);
                 });
-                event.preventDefault();
+//                event.preventDefault();
             });
 
-            $scope.editor.setSize(null, 300);
+            $scope.editor.setSize("100%", 300);
             Envelope.editor.init($scope.editor);
 
             $scope.tLoading = false;
@@ -217,33 +228,25 @@ angular.module('envelope')
                 XmlTreeUtils.expandTree($scope.envelopeTree);
             }, true);
 
-
-            $scope.$on('envelope:editor:dblclick', function (event) {
-
-            });
-
-            $scope.$on("refreshPanel", function (event) {
-                $scope.refreshEditor();
-            });
+//
+//            $scope.$on("refreshPanel", function (event) {
+//                $scope.refreshEditor();
+//            });
 
             $rootScope.$on('env:testCaseLoaded', function (event) {
                 $scope.testCase = Envelope.testCase;
-                $scope.clearMessage();
-                $scope.refreshEditor();
-                $scope.validateMessage();
-                $scope.parse();
-
+                $scope.message('');
             });
 
 
-            $scope.$watch(function () {
-                return Envelope.message.updateIndicator;
-            }, function (token) {
-                if (token !== "0") {
-                    $scope.validateMessage();
-                    $scope.parse();
-                }
-            }, true);
+//            $scope.$watch(function () {
+//                return Envelope.message.updateIndicator;
+//            }, function (token) {
+//                if (token !== "0") {
+//                    $scope.validateMessage();
+//                    $scope.parse();
+//                }
+//            }, true);
 
 //            $scope.$watch(function () {
 //                return Envelope.testCase.id;
@@ -291,8 +294,7 @@ angular.module('envelope')
                         .success(function (result, textStatus, jqXHR) {
                             var tmp = angular.fromJson(result);
 //                          EnvelopeCurrentMessage.setName(fileName);
-                            Envelope.setContent(result.content);
-                            $scope.$broadcast("envelope:editor:update", true);
+                            $scope.message(result.content);
                             $scope.uploadError = null;
                             $scope.fileName = fileName;
                         })
@@ -314,7 +316,7 @@ angular.module('envelope')
 
         $scope.clearMessage = function () {
             $scope.error = null;
-            Envelope.setContent('');
+            $scope.message('');
         };
 
         $scope.saveMessage = function () {
@@ -364,7 +366,7 @@ angular.module('envelope')
                 loader.then(function (value) {
                     $scope.tLoading = false;
                     $scope.envelopeObject = value;
-                }, function (tError) {
+                 }, function (tError) {
                     $scope.tLoading = false;
                     $scope.tError = tError;
                 });
@@ -399,7 +401,7 @@ angular.module('envelope')
                     $scope.loading = true;
                     var promise = new SoapValidationReportGenerator(xmlReport, 'html');
                     promise.then(function (json) {
-                        $scope.envelopeHtmlReport = $sce.trustAsHtml(json.htmlReport);
+                        $scope.envelopeHtmlReport = json.htmlReport;
                         $scope.loading = false;
                         $scope.error = null;
                     }, function (error) {

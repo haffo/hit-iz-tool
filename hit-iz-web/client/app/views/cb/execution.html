@@ -1,10 +1,13 @@
 <div ng-controller="CBExecutionCtrl" ng-init="init()">
-    <div class="panel panel-info" style="margin:10px">
-        <div class="panel-heading">
-            <span ng-show="testCase != null">{{testCase.type}}: {{testCase.name}}</span>
-            <span ng-show="testCase == null">No Test Case Selected.</span>
-        </div>
-        <div class="panel-body">
+    <div class="" style="margin:10px">
+        <div class="">
+            <ol class="breadcrumb" ng-show="testCase != null" style="font-weight: bold">
+                <li>{{testCase.parentName}}</li>
+                <li>{{testCase.name}}</li>
+            </ol>
+            <span ng-show="testCase == null" style="font-size: 18px; font-weight: bold">No Test Case Selected.</span>
+         </div>
+        <div class="">
             <div>
                 <div class="row" ng-show="error != null">
                     <div class="alert alert-danger" role="alert" ng-bind="error"></div>
@@ -40,7 +43,7 @@
                     </tabset>
                 </div>
                 <div ng-show="testCase === null">
-                    No Test Case Selected.
+                    No Test Case Loaded.
                 </div>
             </div>
         </div>

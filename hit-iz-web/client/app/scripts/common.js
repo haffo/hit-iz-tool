@@ -176,7 +176,7 @@ angular.module('commonServices').factory('ValidationResult', function (Validatio
         this.alerts = new ValidationResultItem();
         this.warnings = new ValidationResultItem();
         this.informationals = new ValidationResultItem();
-        this.updateId();
+         this.updateId();
     };
 
     ValidationResult.prototype.init = function (object) {
@@ -395,7 +395,7 @@ angular.module('commonServices').factory('Er7MessageValidator', function ($http,
     var Er7MessageValidator = function () {
     };
 
-    Er7MessageValidator.prototype.validate = function (testContextId, content, name) {
+    Er7MessageValidator.prototype.validate = function (testContextId, content, name, dqaChecked,facilityId) {
         var delay = $q.defer();
         if (!HL7EditorUtils.isHL7(content)) {
             delay.reject("Message provided is not an HL7 v2 message");
@@ -409,7 +409,7 @@ angular.module('commonServices').factory('Er7MessageValidator', function ($http,
 //                    delay.reject(response.data);
 //                }
 //            );
-            $http.post('api/testcontext/'+ testContextId + '/validateMessage', angular.fromJson({"content": content})).then(
+            $http.post('api/testcontext/'+ testContextId + '/validateMessage', angular.fromJson({"content": content, "dqa":dqaChecked, "facilityId":"1223"})).then(
                 function (object) {
                     try {
                         delay.resolve(angular.fromJson(object.data));
@@ -463,23 +463,14 @@ angular.module('commonServices').factory('Er7MessageParser', function ($http, $q
 });
 
 
-angular.module('commonServices').factory('DQAMessageValidator', function ($http, $q) {
-    var DQAMessageValidator = function () {
-    };
-
-    DQAMessageValidator.prototype.validate = function (testContextId, content, facilityId) {
-        var delay = $q.defer();
-
-        $http.post('api/testcontext/' + testContextId + '/dqaValidateMessage', angular.fromJson({"content": content, "facilityId": facilityId})).then(
-            function (object) {
-                delay.resolve(angular.fromJson(object.data));
-            },
-            function (response) {
-                delay.reject(response.data);
-            }
-        );
-
-//        $http.get('../../resources/cf/newValidationResult4.json').then(
+//angular.module('commonServices').factory('DQAMessageValidator', function ($http, $q) {
+//    var DQAMessageValidator = function () {
+//    };
+//
+//    DQAMessageValidator.prototype.validate = function (testContextId, content, facilityId) {
+//        var delay = $q.defer();
+//
+//        $http.post('api/testcontext/' + testContextId + '/dqaValidateMessage', angular.fromJson({"content": content, "facilityId": facilityId})).then(
 //            function (object) {
 //                delay.resolve(angular.fromJson(object.data));
 //            },
@@ -487,11 +478,20 @@ angular.module('commonServices').factory('DQAMessageValidator', function ($http,
 //                delay.reject(response.data);
 //            }
 //        );
-        return delay.promise;
-    };
-
-    return DQAMessageValidator;
-});
+//
+////        $http.get('../../resources/cf/newValidationResult4.json').then(
+////            function (object) {
+////                delay.resolve(angular.fromJson(object.data));
+////            },
+////            function (response) {
+////                delay.reject(response.data);
+////            }
+////        );
+//        return delay.promise;
+//    };
+//
+//    return DQAMessageValidator;
+//});
 
 angular.module('commonServices').factory('NewValidationReport', function ($http, $q) {
     var NewValidationReport = function () {

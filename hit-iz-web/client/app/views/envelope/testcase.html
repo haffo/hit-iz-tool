@@ -1,6 +1,6 @@
 <div ng-controller="EnvelopeTestCaseCtrl" ng-init="init()">
 <div class="row" style="margin: 10px">
-<div class="col-md-4">
+<div class="col-md-3">
     <div class="panel panel-info">
         <!-- Default panel contents -->
         <div class="panel-heading"><i class="glyphicon glyphicon-list"></i>Test Cases</div>
@@ -29,7 +29,7 @@
         </div>
     </div>
 </div>
-<div class="col-md-8">
+<div class="col-md-9">
     <div class="container" ng-show="selectedTestCase != null">
         <div class="row">
             <div class="panel panel-info">
@@ -93,7 +93,7 @@
                                                     <div class="panel-heading">Description</div>
                                                     <div class="panel-body">
                                                         <p class="test-details-content"
-                                                           compile="toHTML(selectedTestCase.testStory.description)"></p>
+                                                           compile="selectedTestCase.testStory.description"></p>
                                                     </div>
                                                 </div>
 
@@ -103,7 +103,7 @@
                                                     <div class="panel-heading">Comments</div>
                                                     <div class="panel-body">
                                                         <p class="test-details-content"
-                                                           compile="toHTML(selectedTestCase.testStory.comment)"></p>
+                                                           compile="selectedTestCase.testStory.comment"></p>
                                                     </div>
                                                 </div>
 
@@ -113,7 +113,7 @@
                                                     <div class="panel-heading">Pre-Condition</div>
                                                     <div class="panel-body">
                                                         <p class="test-details-content"
-                                                           compile="toHTML(selectedTestCase.testStory.preCondition)"></p>
+                                                           compile="selectedTestCase.testStory.preCondition"></p>
                                                     </div>
                                                 </div>
 
@@ -123,7 +123,7 @@
                                                     <div class="panel-heading">Post-Condition</div>
                                                     <div class="panel-body">
                                                         <p class="test-details-content"
-                                                           compile="toHTML(selectedTestCase.testStory.postCondition)"></p>
+                                                           compile="selectedTestCase.testStory.postCondition"></p>
                                                     </div>
                                                 </div>
 
@@ -134,7 +134,7 @@
                                                     <div class="panel-heading">Test Objectives</div>
                                                     <div class="panel-body">
                                                         <p class="test-details-content"
-                                                           compile="toHTML(selectedTestCase.testStory.testObjectives)"></p>
+                                                           compile="selectedTestCase.testStory.testObjectives"></p>
                                                     </div>
                                                 </div>
 
@@ -144,7 +144,7 @@
                                                     <div class="panel-heading">Note to Testers</div>
                                                     <div class="panel-body">
                                                         <p class="test-details-content"
-                                                           compile="toHTML(selectedTestCase.testStory.noteToTesters)"></p>
+                                                           compile="selectedTestCase.testStory.noteToTesters"></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -160,14 +160,14 @@
                                                     <div class="panel-body">
                                                 <div class="test-info-container"
                                                      ng-show="selectedTestCase.messageContentImage != undefined && selectedTestCase.messageContentImage != null">
-                                                    <img width="985px" height="336px"
+                                                    <img width="700px" height="336px"
                                                          ng-src="data:image/jpeg;base64,{{selectedTestCase.messageContentImage}}"/>
                                                 </div>
                                                 <div class="test-info-container">
                                                     <h4>Content (XML)</h4>
                                                     <hr/>
                                                     <pre class="message"
-                                                         ng-bind="selectedTestCase.testContext.exampleMessage.messageContent"></pre>
+                                                         ng-bind="selectedTestCase.testContext.exampleMessage.content"></pre>
                                                 </div>
                                             </div>
                                                     </div>

@@ -6,24 +6,24 @@
                     <div ng-show="!loading">
                         <div ng-show="error == null">
                             <div ng-show="envelopeHtmlReport != null">
-                                <button type="button" class="btn btn-sm btn-default" ng-click="downloadAs('PDF')">
+                                <button type="button" class="btn btn-primary btn-sm" ng-click="downloadAs('PDF')">
                                     <i class="fa fa-file-pdf-o"></i>PDF
                                 </button>
-                                <button type="button" class="btn btn-sm btn-default" ng-click="downloadAs('DOC')">
+                                <button type="button" class="btn btn-sm btn-primary" ng-click="downloadAs('DOC')">
                                     <i class="fa fa-file-word-o"></i>
                                     Word
                                 </button>
-                                <button type="button" class="btn btn-sm btn-default" ng-click="downloadAs('XML')">
+                                <button type="button" class="btn btn-sm btn-primary" ng-click="downloadAs('XML')">
                                     <i class="fa fa-code"></i>Xml
                                 </button>
-                                <button type="button" class="btn btn-sm btn-default" ng-click="downloadAs('HTML')">
+                                <button type="button" class="btn btn-sm btn-primary" ng-click="downloadAs('HTML')">
                                     <i class="fa fa-code"></i>
                                     </i>Html
                                 </button>
                                 <br/>
                                 <br/>
 
-                                <div ng-bind-html="toHTML(envelopeHtmlReport)"></div>
+                                <div compile="envelopeHtmlReport"></div>
                             </div>
 
                             <div ng-show="envelopeHtmlReport == null">
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="row" ng-show="testCase.id == null">
-                <div class="col-md-10"> No Test Case Selected.</div>
+                <div class="col-md-10"> No Test Case Loaded.</div>
             </div>
         </div>
     </div>

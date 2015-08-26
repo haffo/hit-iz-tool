@@ -22,11 +22,21 @@
     mod
         .controller('TestCaseViewerCtrl', ['$scope', '$rootScope', '$sce', function ($scope, $rootScope, $sce) {
 
+            $scope.tabs = [];
+            $scope.loading = false;
+
+
             $scope.testStory = null;
 //            $scope.messageContent = null;
 
 
             $rootScope.$on($scope.type + ':testCaseSelected', function (event, testCase) {
+                $scope.loading = true;
+                $scope.tabs[0] = true;
+                $scope.tabs[1] = false;
+                $scope.tabs[2] = false;
+                $scope.tabs[3] = false;
+                $scope.tabs[4] = false;
                 $scope.testCase = testCase;
                 $scope.testStory = null;
 //                $scope.messageContent = null;
@@ -61,6 +71,8 @@
                 if ($scope.testCase.jurorDocument && $scope.testCase.jurorDocument.json) {
                     //$scope.jurorDocument = angular.fromJson($scope.testCase.jurorDocument.json);
                 }
+
+                $scope.loading = false;
             });
 
             $scope.downloadTestArtifact = function (path) {
@@ -78,6 +90,39 @@
                     form.submit();
                 }
             };
+
+            $scope.downloadJurorDoc = function (jurorDocId, title) {
+                var content = $("#"+jurorDocId).html();
+                if(content && content != ''){
+                    var form = document.createElement("form");
+                    form.action = 'api/testartifact/generateJurorDoc/pdf';
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("textarea");
+                    input.name = "html";
+                    input.value = content;
+                    form.appendChild(input);
+
+                    var type = document.createElement("input");
+                    type.name = "type";
+                    type.value = "JurorDocument";
+                    form.style.display = 'none';
+                    form.appendChild(type);
+
+
+                    var nam = document.createElement("input");
+                    nam.name = "name";
+                    nam.value = title;
+                    form.style.display = 'none';
+                    form.appendChild(nam);
+
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+
+            };
+
+
 
 
             var getItem = function (obj, type) {

@@ -13,7 +13,7 @@ angular.module('connectivity')
 
 
 angular.module('connectivity')
-    .controller('ConnectivityTestCaseCtrl', ['$scope', 'Connectivity', 'ngTreetableParams', '$rootScope', 'ConnectivityTestCaseListLoader', function ($scope, Connectivity, ngTreetableParams, $rootScope, ConnectivityTestCaseListLoader) {
+    .controller('ConnectivityTestCaseCtrl', ['$scope', 'Connectivity', 'ngTreetableParams', '$rootScope', 'ConnectivityTestCaseListLoader', '$cookies', function ($scope, Connectivity, ngTreetableParams, $rootScope, ConnectivityTestCaseListLoader,$cookies) {
 
         $scope.connectivity = Connectivity;
         $scope.loading = true;
@@ -62,8 +62,8 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal','Endpoint',
-        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal,Endpoint) {
+    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal', 'Endpoint','$cookies',
+        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal, Endpoint,$cookies) {
 
             $scope.logger = Connectivity.logger;
             $scope.loading = false;
@@ -73,12 +73,6 @@ angular.module('connectivity')
             $scope.connecting = false;
             $scope.error = null;
             $scope.endpoint = null;
-//        $scope.alert = {message: '', type: ''};
-//        $scope.listenForIncoming = null;
-//        $scope.counterMax = 30;
-//        $scope.counter = 0;
-//        $scope.listenerReady = false;
-//        $scope.serverEndpoint = Connectivity.serverEndpoint;
             $scope.user = Connectivity.user;
             $scope.hidePwd = true;
 
@@ -89,16 +83,11 @@ angular.module('connectivity')
                     $scope.loading = true;
                     $scope.error = null;
                     $scope.connecting = false;
-                    if (Connectivity.testCase.sutType == 'RECEIVER') {
-                        $scope.initOutgoingEnvironment();
-                    } else {
-                        $scope.initIncomingEnvironment();
-                    }
                 });
                 Connectivity.user.init().then(function (response) {
                     $scope.endpoint = $scope.user.endpoint;
                 }, function (error) {
-                     $scope.error = error;
+                    $scope.error = error;
                 });
             };
 
@@ -106,22 +95,7 @@ angular.module('connectivity')
                 $scope.logger.log(log);
             };
 
-            $scope.initOutgoingEnvironment = function () {
-                $scope.logger.clear();
-                Connectivity.response.setContent('');
-                Connectivity.request.setContent(Connectivity.testCase.testContext.message);
-            };
-
-            $scope.initIncomingEnvironment = function () {
-                Connectivity.request.setContent('');
-                Connectivity.response.setContent('');
-                $scope.logger.clear();
-                $scope.error = null;
-                //$(window).trigger('resize');
-            };
-
-
-            $scope.isValidConfig = function(){
+            $scope.isValidConfig = function () {
                 return $scope.user.receiverEndpoint != null && $scope.user.receiverEndpoint != '';
             };
 
@@ -149,56 +123,55 @@ angular.module('connectivity')
                 });
                 modalInstance.result.then(function (result) {
                     if (result.received != null) {
-                        Connectivity.request.setContent(result.received);
-                    }
+                        $scope.triggerReqEvent(result.received);
+                     }
                     if (result.sent != null) {
-                        Connectivity.response.setContent(result.sent);
+                         $scope.triggerRespEvent(result.sent);
                     }
-
                 }, function () {
-                    Connectivity.response.setContent('');
-                    Connectivity.request.setContent('');
+                    $scope.triggerReqEvent('');
+                    $scope.triggerRespEvent('');
                 });
             };
 
 
             $scope.send = function () {
-                $scope.logger.init();
-                 var modalInstance = $modal.open({
-                    templateUrl: 'TransactionSender.html',
-                    controller: 'ConnectivitySenderCtrl',
-                    size:'lg',
-                    backdrop:'static',
-                    resolve: {
-                        testCase: function () {
-                            return Connectivity.testCase;
-                        },
-                        logger: function () {
-                            return  Connectivity.logger;
-                        },
-                        message: function () {
-                            return Connectivity.request.editor.getContent();
-                        },
-                        user: function () {
-                            return Connectivity.user;
+                     $scope.logger.init();
+                    var modalInstance = $modal.open({
+                        templateUrl: 'TransactionSender.html',
+                        controller: 'ConnectivitySenderCtrl',
+                        size: 'lg',
+                        backdrop: 'static',
+                        resolve: {
+                            testCase: function () {
+                                return Connectivity.testCase;
+                            },
+                            logger: function () {
+                                return  Connectivity.logger;
+                            },
+                            message: function () {
+                                return Connectivity.request.editor.getContent();
+                            },
+                            user: function () {
+                                return Connectivity.user;
+                            }
                         }
-                    }
-                });
-                modalInstance.result.then(function (result) {
-                    if(result.sent != null){
-                        Connectivity.request.setContent(result.sent);
-                    }
-                    if(result.received != null){
-                        Connectivity.response.setContent(result.received);
-                    }
+                    });
+                    modalInstance.result.then(function (result) {
+                        if (result.sent != null) {
+                            $scope.triggerReqEvent(result.sent);
+                        }
+                        if (result.received != null) {
+                            $scope.triggerRespEvent(result.received);
+                        }
 
-                }, function () {
-                    Connectivity.response.setContent('');
-                });
-            };
+                    }, function () {
+                        $scope.triggerRespEvent('');
+                    });
+             };
 
             $scope.configureReceiver = function () {
-                 var modalInstance = $modal.open({
+                var modalInstance = $modal.open({
                     templateUrl: 'TransactionConfigureReceiver.html',
                     controller: 'ConnectivityConfigureReceiverCtrl',
                     resolve: {
@@ -211,16 +184,20 @@ angular.module('connectivity')
                     }
                 });
                 modalInstance.result.then(function (user) {
-                    Connectivity.user.senderUsername = user.senderUsername;
-                    Connectivity.user.senderPassword =  user.senderPassword;
-                    Connectivity.user.senderFacilityID =  user.senderFacilityID;
-                    Connectivity.user.receiverUsername =  user.receiverUsername;
-                    Connectivity.user.receiverPassword =  user.receiverPassword;
-                    Connectivity.user.receiverFacilityId =  user.receiverFacilityId;
-                    Connectivity.user.receiverEndpoint =  user.receiverEndpoint;
-                     Connectivity.response.setContent('');
-                }, function () {
-                    Connectivity.response.setContent('');
+                    if(user.save === true) {
+                        Connectivity.user.senderUsername = user.senderUsername;
+                        Connectivity.user.senderPassword = user.senderPassword;
+                        Connectivity.user.senderFacilityID = user.senderFacilityID;
+                        Connectivity.user.receiverUsername = user.receiverUsername;
+                        Connectivity.user.receiverPassword = user.receiverPassword;
+                        Connectivity.user.receiverFacilityId = user.receiverFacilityId;
+                        Connectivity.user.receiverEndpoint = user.receiverEndpoint;
+//                        $cookies.put('ConnectivityUser', angular.toJson(Connectivity.user));
+                        $scope.triggerRespEvent('');
+                        $scope.send();
+                    }
+                  }, function () {
+                     $scope.triggerRespEvent('');
                 });
             };
 
@@ -240,9 +217,9 @@ angular.module('connectivity')
                     }
                 });
                 modalInstance.result.then(function (result) {
-                    Connectivity.response.setContent('');
+                     $scope.triggerRespEvent('');
                 }, function () {
-                    Connectivity.response.setContent('');
+                     $scope.triggerRespEvent('');
                 });
             };
 
@@ -250,14 +227,21 @@ angular.module('connectivity')
                 return Connectivity.request.getContent() != null && Connectivity.request.getContent() != '';
             };
 
-        }]);
+            $scope.triggerReqEvent = function (message) {
+                $rootScope.$broadcast('conn:reqMessage',message);
+            };
+            $scope.triggerRespEvent = function (message) {
+                $rootScope.$broadcast('conn:respMessage',message);
+            };
 
+
+        }]);
 
 
 'use strict';
 
 angular.module('connectivity')
-    .controller('ConnectivityReqCtrl', ['$scope', '$http', 'Connectivity', 'XmlFormatter', '$window', 'XmlEditorUtils','$timeout', '$rootScope', 'ConnectivityValidator', '$modal', function ($scope, $http, Connectivity, XmlFormatter, $window, XmlEditorUtils,$timeout,$rootScope,ConnectivityValidator,$modal) {
+    .controller('ConnectivityReqCtrl', ['$scope', '$http', 'Connectivity', 'XmlFormatter', '$window', 'XmlEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', function ($scope, $http, Connectivity, XmlFormatter, $window, XmlEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal) {
 
         $scope.eLoading = false;
         $scope.vError = null;
@@ -272,10 +256,10 @@ angular.module('connectivity')
         $scope.rLoading = false;
         $scope.rError = null;
         $scope.resized = false;
-        $scope.validationSettings =  $scope.request.validationSettings;
-        $scope.validationResult =  $scope.request.validationResult;
-        $scope.editor =  $scope.request.editor;
-        $scope.itemsByPage=10;
+        $scope.validationSettings = $scope.request.validationSettings;
+        $scope.validationResult = $scope.request.validationResult;
+        $scope.editor = $scope.request.editor;
+        $scope.itemsByPage = 10;
         $scope.errors = $scope.validationResult.errors;
         $scope.errorsCollection = [].concat($scope.errors.data);
         $scope.affirmatives = $scope.validationResult.affirmatives;
@@ -313,8 +297,9 @@ angular.module('connectivity')
                     var jqXHR = data.submit()
                         .success(function (result, textStatus, jqXHR) {
                             var tmp = angular.fromJson(result);
-                            $scope.request.editor.doc.setValue(tmp.content);
-                            $scope.$broadcast("connectivityReq:editor:update", true);
+                            $scope.request.editor.instance.doc.setValue(tmp.content);
+//                            $scope.$broadcast("connectivityReq:editor:update", true);
+//                            $scope.refreshEditor();
                             $scope.uploadError = null;
                             $scope.fileName = fileName;
                         })
@@ -333,32 +318,34 @@ angular.module('connectivity')
         $scope.validate = function () {
             $scope.vError = null;
             var backup = $scope.request.editor.instance.doc.getValue();
-            if(backup != null && backup != '') {
+            if (backup != null && backup != '') {
                 $scope.validating = true;
                 var validator = new XmlFormatter(backup);
                 validator.then(function (formatted) {
                     $scope.validating = false;
-                    $scope.request.setContent(formatted);
-                }, function (error) {
+                     $scope.reqMessage(formatted);
+                 }, function (error) {
                     $scope.validating = false;
                     $scope.vError = error;
                 });
             }
         };
 
+
+
+
         $scope.clearMessage = function () {
             $scope.error = null;
-            $scope.request.setContent('');
-            $scope.refreshEditor();
+            $scope.reqMessage('');
         };
 
 
         $scope.refreshEditor = function () {
-            if ($scope.editor != undefined) {
-                $timeout(function() {
+            $timeout(function () {
+                if ($scope.editor != undefined) {
                     $scope.editor.refresh();
-                },1000);
-            }
+                }
+            }, 1000);
         };
 
 
@@ -370,10 +357,11 @@ angular.module('connectivity')
         };
 
         $scope.validateMessage = function () {
+            $scope.refreshEditor();
             $scope.rLoading = true;
             $scope.rError = null;
-            if ($scope.testCase.id != null && $scope.request.getContent() != '') {
-                var validator = new ConnectivityValidator().validate($scope.request.message.content,  $scope.testCase.id, Connectivity.user.id, 'req', null);
+            if ($scope.testCase != null && $scope.request.getContent() != '') {
+                var validator = new ConnectivityValidator().validate($scope.request.message.content, $scope.testCase.id, Connectivity.user.id, 'req', null);
                 validator.then(function (result) {
                     $scope.rLoading = false;
                     $scope.setValidationResult(result);
@@ -391,7 +379,7 @@ angular.module('connectivity')
 
         $scope.setValidationResult = function (mvResult) {
             $scope.request.validationResult.init(mvResult);
-            $scope.validationResult  =  $scope.request.validationResult;
+            $scope.validationResult = $scope.request.validationResult;
             $scope.errors = $scope.validationResult.errors;
             $scope.affirmatives = $scope.validationResult.affirmatives;
             $scope.alerts = $scope.validationResult.alerts;
@@ -400,7 +388,7 @@ angular.module('connectivity')
         };
 
         $scope.select = function (element) {
-            if (element.line!= -1) {
+            if (element.line != -1) {
                 Connectivity.request.cursor.setLine(element.line);
             }
         };
@@ -412,31 +400,31 @@ angular.module('connectivity')
                 lineNumbers: true,
                 fixedGutter: true,
                 mode: 'xml',
-                readOnly:false,
+                readOnly: false,
                 showCursorWhenSelecting: true
             });
             $scope.editor.setOption("readOnly", true);
-            $scope.editor.setSize(null, 300);
+            $scope.editor.setSize("100%", 300);
 
             $scope.editor.on("dblclick", function (editor) {
                 $scope.$apply(function () {
                     $scope.request.cursor.setLine($scope.editor.doc.getCursor(true).line + 1);
                 });
-                event.preventDefault();
+//                event.preventDefault();
             });
 
             $scope.request.editor.init($scope.editor);
 
             $rootScope.$on('conn:testCaseLoaded', function (event) {
                 $scope.testCase = Connectivity.testCase;
-                if(Connectivity.testCase.sutType == 'RECEIVER'){
-                    Connectivity.request.setContent(Connectivity.testCase.testContext.message);
-                }
-                $scope.refreshEditor();
-                $scope.validateMessage();
+                var message = Connectivity.testCase.sutType == 'RECEIVER' ? Connectivity.testCase.testContext.message : '';
+                $scope.reqMessage(message);
+                $scope.triggerRespEvent('');
+             });
 
+            $rootScope.$on('conn:reqMessage', function (event, message) {
+                $scope.reqMessage(message)
             });
-
 
             $scope.$watch(function () {
                 return $scope.request.cursor.updateIndicator;
@@ -444,25 +432,19 @@ angular.module('connectivity')
                 XmlEditorUtils.select($scope.request.cursor, $scope.request.editor.instance);
             }, true);
 
-            $scope.$watch(function () {
-                return $scope.request.editor.instance.doc.getValue();
-            }, function (content) {
-                $scope.request.message.content = content;
-            }, true);
-
-            $scope.$watch(function () {
-                return  $scope.request.message.updateIndicator;
-            }, function (token) {
-                if (token !== "0") {
-                    $scope.validateMessage();
-                }
-            }, true);
-
-
-
             $scope.setValidationResult({});
             $scope.refreshEditor();
 
+        };
+
+        $scope.reqMessage = function (message) {
+            $scope.request.message.content = message;
+            $scope.editor.doc.setValue(message);
+            $scope.validateMessage();
+        };
+
+        $scope.triggerRespEvent = function (message) {
+            $rootScope.$broadcast('conn:respMessage',message);
         };
 
 
@@ -470,7 +452,7 @@ angular.module('connectivity')
 
 
 angular.module('connectivity')
-    .controller('ConnectivityReqReportCtrl', ['$scope', '$sce', '$http',  'SoapValidationReportGenerator', 'SoapValidationReportDownloader','Connectivity','$rootScope', function ($scope, $sce, $http, SoapValidationReportGenerator, SoapValidationReportDownloader,Connectivity,$rootScope) {
+    .controller('ConnectivityReqReportCtrl', ['$scope', '$sce', '$http', 'SoapValidationReportGenerator', 'SoapValidationReportDownloader', 'Connectivity', '$rootScope', function ($scope, $sce, $http, SoapValidationReportGenerator, SoapValidationReportDownloader, Connectivity, $rootScope) {
         $scope.connectivityReqHtmlReport = null;
         $scope.error = null;
         $scope.loading = false;
@@ -489,7 +471,7 @@ angular.module('connectivity')
                     $scope.loading = true;
                     var promise = new SoapValidationReportGenerator(xmlReport, 'html');
                     promise.then(function (json) {
-                        $scope.connectivityReqHtmlReport = $sce.trustAsHtml(json.htmlReport);
+                        $scope.connectivityReqHtmlReport = json.htmlReport;
                         $scope.loading = false;
                         $scope.error = null;
                     }, function (error) {
@@ -513,10 +495,12 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityConfigureReceiverCtrl', function ($scope, $sce, $http,Connectivity,$rootScope, $modalInstance, testCase,user) {
+    .controller('ConnectivityConfigureReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, user) {
         $scope.testCase = testCase;
         $scope.user = angular.copy(user);
-        $scope.save = function () {
+        $scope.user.save = false;
+        $scope.send = function () {
+            $scope.user.save = true;
             $modalInstance.close($scope.user);
         };
 
@@ -524,15 +508,15 @@ angular.module('connectivity')
             $modalInstance.dismiss('cancel');
         };
 
-        $scope.hasRequestContent = function () {
-            return  $scope.message != null &&  $scope.message != '';
-        };
+//      $scope.hasRequestContent = function () {
+//            return  $scope.message != null && $scope.message != '';
+//      };
 
     });
 
 
 angular.module('connectivity')
-    .controller('ConnectivityViewReceiverConfigurationCtrl', function ($scope, $sce, $http,Connectivity,$rootScope, $modalInstance, testCase,ConnectivityInitiator, message, user, logger) {
+    .controller('ConnectivityViewReceiverConfigurationCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, user) {
         $scope.testCase = testCase;
         $scope.user = user;
         $scope.close = function () {
@@ -544,16 +528,14 @@ angular.module('connectivity')
         };
 
         $scope.hasRequestContent = function () {
-            return  $scope.message != null &&  $scope.message != '';
+            return $scope.message != null && $scope.message != '';
         };
 
     });
 
 
-
-
 angular.module('connectivity')
-    .controller('ConnectivitySenderCtrl', function ($scope, $sce, $http,Connectivity,$rootScope, $modalInstance, testCase,ConnectivityInitiator, message, user, logger) {
+    .controller('ConnectivitySenderCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, ConnectivityInitiator, message, user, logger) {
         $scope.testCase = testCase;
         $scope.message = message;
         $scope.user = user;
@@ -563,12 +545,12 @@ angular.module('connectivity')
         $scope.connecting = false;
         $scope.error = null;
 
-        $scope.isValidConfig = function(){
+        $scope.isValidConfig = function () {
             return $scope.user.receiverEndpoint != null && $scope.user.receiverEndpoint != '';
         };
 
         $scope.close = function () {
-            $modalInstance.close({"sent": $scope.sent, "received":$scope.received});
+            $modalInstance.close({"sent": $scope.sent, "received": $scope.received});
         };
 
         $scope.cancel = function () {
@@ -576,7 +558,7 @@ angular.module('connectivity')
         };
 
         $scope.hasRequestContent = function () {
-            return  $scope.message != null &&  $scope.message != '';
+            return  $scope.message != null && $scope.message != '';
         };
 
         $scope.send = function () {
@@ -586,7 +568,7 @@ angular.module('connectivity')
                 $scope.logger.init();
                 $scope.received = '';
                 $scope.logger.log("Sending request ========================>");
-                var sender = new ConnectivityInitiator().send($scope.user,$scope.testCase.id,$scope.message);
+                var sender = new ConnectivityInitiator().send($scope.user, $scope.testCase.id, $scope.message);
                 sender.then(function (response) {
                     var received = response.incoming;
                     var sent = response.outgoing;
@@ -605,10 +587,10 @@ angular.module('connectivity')
                     $scope.error = error.data;
                     $scope.logger.log("Error: " + error.data);
                     $scope.logger.log("Transaction aborted");
-                    Connectivity.response.setContent('');
+                    $rootScope.$broadcast('conn:respMessage','');
                     $scope.received = '';
                 });
-            }else{
+            } else {
                 $scope.error = "No outgoing message found";
             }
         };
@@ -618,7 +600,7 @@ angular.module('connectivity')
     });
 
 angular.module('connectivity')
-    .controller('ConnectivityRespCtrl', ['$scope', '$http', 'Connectivity', '$window','XmlFormatter','XmlEditorUtils', '$timeout','$rootScope','ConnectivityValidator', '$modal', function ($scope, $http, Connectivity, $window,XmlFormatter,XmlEditorUtils,$timeout, $rootScope,ConnectivityValidator,$modal) {
+    .controller('ConnectivityRespCtrl', ['$scope', '$http', 'Connectivity', '$window', 'XmlFormatter', 'XmlEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', function ($scope, $http, Connectivity, $window, XmlFormatter, XmlEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal) {
         $scope.testCase = Connectivity.testCase;
         $scope.response = Connectivity.response;
         $scope.selectedTestCase = Connectivity.selectedTestCase;
@@ -637,7 +619,7 @@ angular.module('connectivity')
         $scope.validationSettings = Connectivity.response.validationSettings;
         $scope.validationResult = Connectivity.response.validationResult;
 
-        $scope.itemsByPage=10;
+        $scope.itemsByPage = 10;
 
         $scope.errors = $scope.validationResult.errors;
         $scope.errorsCollection = [].concat($scope.errors.data);
@@ -675,16 +657,16 @@ angular.module('connectivity')
                 lineNumbers: true,
                 fixedGutter: true,
                 mode: 'xml',
-                readOnly:false,
+                readOnly: false,
                 showCursorWhenSelecting: true
             });
 
             $scope.editor.setOption("readOnly", true);
-            $scope.editor.setSize(null, 300);
+            $scope.editor.setSize("100%", 300);
 
             $scope.editor.on("dblclick", function (editor) {
                 $scope.$apply(function () {
-                    $scope.response.cursor.setLine($scope.editor.doc.getCursor(true).line+1);
+                    $scope.response.cursor.setLine($scope.editor.doc.getCursor(true).line + 1);
                 });
                 event.preventDefault();
             });
@@ -695,9 +677,8 @@ angular.module('connectivity')
             $scope.$watch(function () {
                 return  $scope.response.cursor.updateIndicator;
             }, function () {
-                XmlEditorUtils.select( $scope.response.cursor,$scope.editor);
+                XmlEditorUtils.select($scope.response.cursor, $scope.editor);
             }, true);
-
 
             $rootScope.$on('conn:testCaseLoaded', function (event) {
                 $scope.testCase = Connectivity.testCase;
@@ -705,27 +686,28 @@ angular.module('connectivity')
                 $scope.clearMessage();
             });
 
-
-            $scope.$watch(function () {
-                return $scope.response.editor.instance.doc.getValue();
-            }, function (content) {
-                $scope.response.message.content = content;
-            }, true);
-
-
-
-            $scope.$watch(function(){
-                return Connectivity.response.message.updateIndicator;
-            }, function (token) {
-                if(token && token !== '0') {
-                    $scope.validateMessage();
-                }
-            }, true);
+            $rootScope.$on('conn:respMessage', function (event, message) {
+                $scope.respMessage(message);
+            });
 
             $scope.setValidationResult({});
             $scope.refreshEditor();
 
+        };
 
+        $scope.respMessage = function (message) {
+            $scope.response.message.content = message;
+            $scope.editor.doc.setValue(message);
+            $scope.refreshEditor();
+            $scope.validateMessage();
+        };
+
+        $scope.triggerReqEvent = function (message) {
+            $rootScope.$broadcast('conn:reqMessage',message);
+        };
+
+        $scope.triggerRespEvent = function (message) {
+            $rootScope.$broadcast('conn:respMessage',message);
         };
 
         /**
@@ -741,32 +723,30 @@ angular.module('connectivity')
 
         $scope.clearMessage = function () {
             $scope.error = null;
-            $scope.response.setContent('');
-            $scope.refreshEditor();
+            $scope.respMessage('');
         };
 
         $scope.refreshEditor = function () {
             if ($scope.editor != undefined) {
-                $timeout(function() {
+                $timeout(function () {
                     $scope.editor.refresh();
-                },1000);
+                }, 1000);
             }
         };
-
 
         $scope.saveMessage = function () {
             $scope.response.message.download();
         };
 
-        $scope.validate = function(){
+        $scope.validate = function () {
             $scope.error = null;
             var backup = $scope.response.editor.instance.doc.getValue();
-            if(backup != null && backup != '') {
+            if (backup != null && backup != '') {
                 $scope.validating = true;
                 var validator = new XmlFormatter(backup);
                 validator.then(function (formatted) {
                     $scope.validating = false;
-                    $scope.response.setContent(formatted);
+                    $scope.respMessage(formatted);
                 }, function (error) {
                     $scope.validating = false;
                     $scope.error = error;
@@ -775,7 +755,7 @@ angular.module('connectivity')
         };
 
 
-        $scope.resize = function(){
+        $scope.resize = function () {
         };
 
         /**
@@ -784,8 +764,8 @@ angular.module('connectivity')
         $scope.validateMessage = function () {
             $scope.rLoading = true;
             $scope.rError = null;
-            if (Connectivity.testCase.id != null && Connectivity.response.getContent() != '') {
-                var validator = new ConnectivityValidator().validate($scope.response.message.content,  Connectivity.testCase.id, Connectivity.user.id, 'resp', Connectivity.request.getContent());
+            if (Connectivity.testCase != null && Connectivity.response.getContent() != '') {
+                var validator = new ConnectivityValidator().validate($scope.response.message.content, Connectivity.testCase.id, Connectivity.user.id, 'resp', Connectivity.request.getContent());
                 validator.then(function (result) {
                     $scope.rLoading = false;
                     $scope.setValidationResult(result);
@@ -804,7 +784,7 @@ angular.module('connectivity')
 
         $scope.setValidationResult = function (mvResult) {
             $scope.response.validationResult.init(mvResult);
-            $scope.validationResult  =  $scope.response.validationResult;
+            $scope.validationResult = $scope.response.validationResult;
             $scope.errors = $scope.validationResult.errors;
             $scope.affirmatives = $scope.validationResult.affirmatives;
             $scope.alerts = $scope.validationResult.alerts;
@@ -813,18 +793,17 @@ angular.module('connectivity')
         };
 
         $scope.select = function (element) {
-            if (element.line!= -1) {
+            if (element.line != -1) {
                 Connectivity.response.cursor.setLine(element.line);
             }
         };
-
 
 
     }]);
 
 
 angular.module('connectivity')
-    .controller('ConnectivityRespReportCtrl', ['$scope','$sce', '$http', 'SoapValidationReportGenerator','SoapValidationReportDownloader','Connectivity' ,function ($scope, $sce, $http, SoapValidationReportGenerator,SoapValidationReportDownloader,Connectivity) {
+    .controller('ConnectivityRespReportCtrl', ['$scope', '$sce', '$http', 'SoapValidationReportGenerator', 'SoapValidationReportDownloader', 'Connectivity' , function ($scope, $sce, $http, SoapValidationReportGenerator, SoapValidationReportDownloader, Connectivity) {
         $scope.connectivityRespHtmlReport = null;
         $scope.error = null;
         $scope.loading = false;
@@ -834,7 +813,7 @@ angular.module('connectivity')
             $scope.$watch(function () {
                 return  Connectivity.response.validationResult.xml;
             }, function (xmlReport) {
-                if(xmlReport!=null && xmlReport != '') {
+                if (xmlReport != null && xmlReport != '') {
                     $scope.loading = true;
                     var promise = new SoapValidationReportGenerator(xmlReport, 'html');
                     promise.then(function (json) {
@@ -846,7 +825,7 @@ angular.module('connectivity')
                         $scope.loading = false;
                         $scope.connectivityRespHtmlReport = null;
                     });
-                }else{
+                } else {
                     $scope.loading = false;
                     $scope.connectivityRespHtmlReport = null;
                     $scope.error = null;
@@ -855,14 +834,14 @@ angular.module('connectivity')
         };
 
 
-        $scope.downloadAs = function(format){
+        $scope.downloadAs = function (format) {
             SoapValidationReportDownloader.downloadAs(Connectivity.response.validationResult.xml, format);
         };
 
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http,Connectivity,$rootScope, $modalInstance, testCase, user, logger,ConnectivityClock,message) {
+    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, user, logger, ConnectivityClock, message) {
         $scope.testCase = testCase;
         $scope.user = user;
         $scope.logger = logger;
@@ -881,7 +860,7 @@ angular.module('connectivity')
         };
 
         $scope.close = function () {
-            $modalInstance.close({"sent": $scope.sent, "received":$scope.received});
+            $modalInstance.close({"sent": $scope.sent, "received": $scope.received});
         };
 
         $scope.cancel = function () {
@@ -889,7 +868,7 @@ angular.module('connectivity')
         };
 
         $scope.hasRequestContent = function () {
-            return  $scope.message != null &&  $scope.message != '';
+            return  $scope.message != null && $scope.message != '';
         };
 
         $scope.stop = function () {
@@ -911,6 +890,7 @@ angular.module('connectivity')
             $scope.received = '';
             $scope.sent = '';
             $scope.error = null;
+            $scope.warning = null;
 
             $scope.log("Configuring connection. Please wait...");
             Connectivity.user.transaction.openConnection().then(function (response) {
@@ -922,12 +902,12 @@ angular.module('connectivity')
                             var incoming = $scope.user.transaction.incoming;
                             var outgoing = $scope.user.transaction.outgoing;
                             if ($scope.counter < $scope.counterMax) {
-                                if (incoming != null && incoming != '' && $scope.received  == '') {
+                                if (incoming != null && incoming != '' && $scope.received == '') {
                                     $scope.log("Incoming Message Received <--------------------------------------");
                                     $scope.log(incoming);
                                     $scope.received = incoming;
                                 }
-                                if (outgoing != null && outgoing != '' && $scope.sent  == '') {
+                                if (outgoing != null && outgoing != '' && $scope.sent == '') {
                                     $scope.log("Outgoing Message Sent:    -------------------------------------->");
                                     $scope.log(outgoing);
                                     $scope.sent = outgoing;
@@ -937,7 +917,7 @@ angular.module('connectivity')
                                 }
                             } else {
                                 if (incoming == null || incoming == '') {
-                                    $scope.warning ="We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound SOAP Envelope against those created for your system.</p>  <p>Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.</p>"+
+                                    $scope.warning = "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound SOAP Envelope against those created for your system.</p>  <p>Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.</p>" +
                                         "<p>Possible cause (3):The HTTP header field Content-Type  may not be set correctly for use with SOAP 1.2.   SOAP 1.2 requires application/soap+xml, and SOAP 1.2 requires text/xml.  The NIST Tool follows SOAP 1.2, which is required by section 2 of the 'CDC Transport Layer Protocol Recommendation V1.1' (http://www.cdc.gov/vaccines/programs/iis/technical-guidance/SOAP/downloads/transport-specification.pdf)</p>";
 
                                     $scope.log("We did not receive any incoming message after 30s");

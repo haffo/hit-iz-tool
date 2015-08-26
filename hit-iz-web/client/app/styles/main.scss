@@ -297,7 +297,7 @@ ul.result-settings {
 }
 
 .stTable {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .point {
@@ -1046,7 +1046,7 @@ table.forumline > tr > td {
   padding-top: 10px;
   text-align: left;
   margin-top:10px;
-  padding-bottom:40px;
+  padding-bottom:10px;
 
 }
 
@@ -1518,9 +1518,10 @@ li.validation-result-subtab {
   display: block;
   float: left;
   margin-left: 20px;
-   float: left;
+  float: left;
   margin-right: 10px;
   text-align: left;
+  border: 0px;
  }
 
 .footer {
@@ -1528,6 +1529,11 @@ li.validation-result-subtab {
   color: black;
   border-top: 1px solid #e5e5e5;
   float:center;
+}
+
+.currentStep {
+  background-color: #ebdb0b;
+  color:black;
 }
 
 
