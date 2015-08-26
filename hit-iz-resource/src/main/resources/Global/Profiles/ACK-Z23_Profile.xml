@@ -11,7 +11,7 @@
 			<Segment Ref="MSH_IZ 1_5_Z23" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT" Usage="O" Min="0" Max="*"/>
 			<Segment Ref="MSA_IZ1_5" Usage="R" Min="1" Max="1"/>
-			<Segment Ref="ERR_IZ_1_5" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="ERR_IZ_1_5" Usage="RE" Min="0" Max="*"/>
 		</Message>
 	</Messages>
 	<Segments>

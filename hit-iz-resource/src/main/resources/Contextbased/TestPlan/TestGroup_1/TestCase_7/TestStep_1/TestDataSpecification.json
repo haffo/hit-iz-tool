@@ -10,7 +10,7 @@
 				{"element" : "Patient Name", "data" : "Tyler Owen Banks"},
 				{"element" : "Mother's Maiden Name", "data" : ""},
 				{"element" : "ID Number", "data" : "8891 "},
-				{"element" : "Date/Time of Birth", "data" : "06/02/2004"},
+				{"element" : "Date/Time of Birth", "data" : "06/02/2014"},
 				{"element" : "Administrative Sex", "data" : "Male"},
 				{"element" : "Patient Address ", "data" : "924 Sycamore Lane Bozeman MT 59715
 USA "},
@@ -45,7 +45,7 @@ USA "},
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code", "data" : "Hep A, ped/adol, 2 dose"},
+				{"element" : "Administered Code", "data" : "VAQTA"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
 				{"element" : "Administered Amount", "data" : "0.5"},
 				{"element" : "Administered Units", "data" : "mL"},

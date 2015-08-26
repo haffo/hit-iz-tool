@@ -147,8 +147,8 @@
 		</Segment>
 		<Segment ID="ORC" Name="ORC" Description="Common Order">
 			<Field Name="Order Control" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70119_IZ" BindingStrength="R" ItemNo="00215"/>
-			<Field Name="Placer Order Number" Usage="C" Min="0" Max="1" Datatype="EI" MinLength="1" MaxLength="22" ItemNo="00216"/>
-			<Field Name="Filler Order Number" Usage="C" Min="0" Max="1" Datatype="EI" MinLength="1" MaxLength="22" ItemNo="00217"/>
+			<Field Name="Placer Order Number" Usage="RE" Min="0" Max="1" Datatype="EI" MinLength="1" MaxLength="22" ItemNo="00216"/>
+			<Field Name="Filler Order Number" Usage="R" Min="1" Max="1" Datatype="EI" MinLength="1" MaxLength="22" ItemNo="00217"/>
 			<Field Name="Placer Group Number" Usage="O" Min="0" Max="1" Datatype="EI" MinLength="1" MaxLength="22" ItemNo="00218"/>
 			<Field Name="Order Status" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="0038" BindingStrength="R" ItemNo="00219"/>
 			<Field Name="Response Flag" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0121" BindingStrength="R" ItemNo="00220"/>
@@ -162,7 +162,7 @@
 			<Field Name="Call Back Phone Number" Usage="O" Min="0" Max="2" Datatype="XTN" MinLength="1" MaxLength="250" ItemNo="00228"/>
 			<Field Name="Order Effective Date/Time" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00229"/>
 			<Field Name="Order Control Code Reason" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00230"/>
-			<Field Name="Entering Organization" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0362" ItemNo="00231"/>
+			<Field Name="Entering Organization" Usage="RE" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0362" ItemNo="00231"/>
 			<Field Name="Entering Device" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00232"/>
 			<Field Name="Action By" Usage="O" Min="0" Max="*" Datatype="XCN_IZ" MinLength="1" MaxLength="250" ItemNo="00233"/>
 			<Field Name="Advanced Beneficiary Notice Code" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0339" BindingStrength="R" BindingLocation="1" ItemNo="01310"/>
