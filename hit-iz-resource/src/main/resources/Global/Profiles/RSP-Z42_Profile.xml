@@ -162,7 +162,7 @@
 			<Field Name="Call Back Phone Number" Usage="O" Min="0" Max="2" Datatype="XTN" MinLength="1" MaxLength="250" ItemNo="00228"/>
 			<Field Name="Order Effective Date/Time" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00229"/>
 			<Field Name="Order Control Code Reason" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00230"/>
-			<Field Name="Entering Organization" Usage="RE" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0362" ItemNo="00231"/>
+			<Field Name="Entering Organization" Usage="RE" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="HL70362_IZ" BindingStrength="R" ItemNo="00231" BindingLocation="1"/>
 			<Field Name="Entering Device" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00232"/>
 			<Field Name="Action By" Usage="O" Min="0" Max="*" Datatype="XCN_IZ" MinLength="1" MaxLength="250" ItemNo="00233"/>
 			<Field Name="Advanced Beneficiary Notice Code" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0339" BindingStrength="R" BindingLocation="1" ItemNo="01310"/>

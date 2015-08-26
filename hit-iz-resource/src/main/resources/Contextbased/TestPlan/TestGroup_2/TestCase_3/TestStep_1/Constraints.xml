@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConformanceContext UUID="d699ee62-63ca-4225-bc3d-5765297d88a7">
+<ConformanceContext UUID="c5aa6c26-8cbe-482f-b580-dd7f5e319c42">
   <Constraints>
     <Group>
       <ByName Name="QBP_Q11">
-        <Constraint ID="TCAMT_MSH[1].1[1]" Target="1[1].1[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].1[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
-          <Description>MSH[1].1[1] SHALL be valued '|.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="1[1].1[1]" Text="|"/>
-          </Assertion>
-        </Constraint>
         <Constraint ID="TCAMT_MSH[1].16[1]" Target="1[1].16[1]">
           <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].16[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
           <Description>MSH[1].16[1] SHALL be valued 'AL.</Description>
@@ -37,6 +30,13 @@
           <Description>MSH[1].15[1] SHALL be valued 'ER.</Description>
           <Assertion>
             <PlainText IgnoreCase="false" Path="1[1].15[1]" Text="ER"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCAMT_MSH[1].1[1]" Target="1[1].1[1]">
+          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].1[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
+          <Description>MSH[1].1[1] SHALL be valued '|.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="1[1].1[1]" Text="|"/>
           </Assertion>
         </Constraint>
         <Constraint ID="TCAMT_MSH[1].2[1]" Target="1[1].2[1]">

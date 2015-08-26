@@ -694,14 +694,14 @@
         
         </Segment>
         <Group>
-            <ByName Name="VXU_V04.ORDER.OBSERVATION">
-                <Constraint ID="IZ-20" Target="1[1].1[1]">
+            <ByID ID="dc3368ee-35e9-4724-bc27-37f774867090">
+                <Constraint ID="IZ-20" Target="12[1].4[1].1[1]">
                     <Description>The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value "1" within a message.</Description>
                     <Assertion>
-                        <SetID Path="1[1].1[1]"/>
+                        <IZSetID Parent="12[*]" Element="4[*].1[*].1[*]" />
                     </Assertion>
                 </Constraint>
-            </ByName>
+            </ByID>
             <ByName Name="VXU_V04.ORDER">
                 <Constraint ID="IZ-45" Target="1[1].3[1]">
                     <Description> If RXA.20 is valued "NA" or "RE" then ORC.3.1 SHALL be valued "9999".</Description>

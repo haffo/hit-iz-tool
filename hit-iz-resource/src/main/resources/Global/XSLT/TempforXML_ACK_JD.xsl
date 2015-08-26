@@ -4,34 +4,31 @@
     exclude-result-prefixes="xs util" version="2.0">
     <xsl:output method="xml" indent="yes"/>
     <xsl:template match="/">
-        <jurorDocument> 
+        <jurorDocument>
             <xsl:choose>
-            <xsl:when test="exists(//ERR)">
-               
+                <xsl:when test="exists(//ERR)">
+
                     <returnAcknowledgement>
-                        <xsl:text>The receiving HIT system being tested shall process
-                                                the Z23 ACK error notification message correctly; an
-                                                equivalent of the following information must be made
-                                                visible in the system:</xsl:text>
-                        <xsl:for-each select="//ERR">
+                        <xsl:text>The receiving HIT system being tested shall process the Z23 ACK error notification message correctly; the issue identified in the error notification must be made visible in the system.</xsl:text>
+                        <!-- <xsl:for-each select="//ERR">
                             <p align="center">
                                 <xsl:value-of select="ERR.8"/>
                             </p>
-                        </xsl:for-each>
+                        </xsl:for-each> -->
                     </returnAcknowledgement>
 
-            </xsl:when>
+                </xsl:when>
                 <xsl:otherwise>
                     <returnAcknowledgement>
-                    <xsl:text>The receiving HIT system being tested shall process
+                        <xsl:text>The receiving HIT system being tested shall process
                                                 the Z23 ACK message correctly; a positive
                                                 notification indicating that the ACK message was
                                                 processed correctly need not be made visible
                                                 in the system.</xsl:text>
-                        </returnAcknowledgement>
+                    </returnAcknowledgement>
                 </xsl:otherwise>
             </xsl:choose>
-         </jurorDocument>
+        </jurorDocument>
 
     </xsl:template>
 </xsl:stylesheet>
