@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConformanceContext UUID="46ec8b38-9bbd-4fae-bdde-c655249981f0">
+<ConformanceContext UUID="d699ee62-63ca-4225-bc3d-5765297d88a7">
   <Constraints>
     <Group>
       <ByName Name="QBP_Q11">
+        <Constraint ID="TCAMT_MSH[1].1[1]" Target="1[1].1[1]">
+          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].1[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
+          <Description>MSH[1].1[1] SHALL be valued '|.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="1[1].1[1]" Text="|"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCAMT_MSH[1].16[1]" Target="1[1].16[1]">
+          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].16[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
+          <Description>MSH[1].16[1] SHALL be valued 'AL.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="1[1].16[1]" Text="AL"/>
+          </Assertion>
+        </Constraint>
         <Constraint ID="TCAMT_QPD[1].7[1]_2" Target="3[1].7[1]">
           <Reference GeneratedBy="TCAMT" ReferencePath="QPD[1].7[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
           <Description>QPD[1].7[1] SHALL be valued.</Description>
@@ -18,13 +32,6 @@
             <PlainText IgnoreCase="false" Path="3[1].7[1]" Text="M"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_MSH[1].2[1]" Target="1[1].2[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].2[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
-          <Description>MSH[1].2[1] SHALL be valued '^~\&amp;.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="1[1].2[1]" Text="^~\&amp;"/>
-          </Assertion>
-        </Constraint>
         <Constraint ID="TCAMT_MSH[1].15[1]" Target="1[1].15[1]">
           <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].15[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
           <Description>MSH[1].15[1] SHALL be valued 'ER.</Description>
@@ -32,18 +39,11 @@
             <PlainText IgnoreCase="false" Path="1[1].15[1]" Text="ER"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_MSH[1].1[1]" Target="1[1].1[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].1[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
-          <Description>MSH[1].1[1] SHALL be valued '|.</Description>
+        <Constraint ID="TCAMT_MSH[1].2[1]" Target="1[1].2[1]">
+          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].2[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
+          <Description>MSH[1].2[1] SHALL be valued '^~\&amp;.</Description>
           <Assertion>
-            <PlainText IgnoreCase="false" Path="1[1].1[1]" Text="|"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_MSH[1].16[1]" Target="1[1].16[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].16[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
-          <Description>MSH[1].16[1] SHALL be valued 'AL.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="1[1].16[1]" Text="AL"/>
+            <PlainText IgnoreCase="false" Path="1[1].2[1]" Text="^~\&amp;"/>
           </Assertion>
         </Constraint>
       </ByName>
