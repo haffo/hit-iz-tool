@@ -205,7 +205,7 @@ angular.module('envelope')
 //                event.preventDefault();
             });
 
-            $scope.editor.setSize(null, 300);
+            $scope.editor.setSize("100%", 300);
             Envelope.editor.init($scope.editor);
 
             $scope.tLoading = false;

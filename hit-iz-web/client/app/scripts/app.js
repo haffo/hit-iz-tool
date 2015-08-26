@@ -25,6 +25,7 @@ var app = angular.module('tool', [
     'ui.grid', 'ui.grid.infiniteScroll',
     'ui.grid.treeView',
     'QuickList',
+    'treeControl',
 //    'ngGrid',
 //    'treeGrid',
 //    'angular-loading-bar',

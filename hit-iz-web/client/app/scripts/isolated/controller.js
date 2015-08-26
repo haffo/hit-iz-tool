@@ -750,7 +750,7 @@ angular.module('isolated')
                 readOnly: true,
                 showCursorWhenSelecting: true
             });
-            $scope.editor.setSize(null, 350);
+            $scope.editor.setSize("100%", 350);
             $scope.editor.on("dblclick", function (editor) {
                 $timeout(function () {
                     var coordinate = HL7CursorUtils.getCoordinate($scope.editor);

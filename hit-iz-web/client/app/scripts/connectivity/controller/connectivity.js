@@ -404,7 +404,7 @@ angular.module('connectivity')
                 showCursorWhenSelecting: true
             });
             $scope.editor.setOption("readOnly", true);
-            $scope.editor.setSize(null, 300);
+            $scope.editor.setSize("100%", 300);
 
             $scope.editor.on("dblclick", function (editor) {
                 $scope.$apply(function () {
@@ -662,7 +662,7 @@ angular.module('connectivity')
             });
 
             $scope.editor.setOption("readOnly", true);
-            $scope.editor.setSize(null, 300);
+            $scope.editor.setSize("100%", 300);
 
             $scope.editor.on("dblclick", function (editor) {
                 $scope.$apply(function () {
