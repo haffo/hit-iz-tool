@@ -1,6 +1,6 @@
 <div ng-show="validationResult !== null">
     <tabset>
-        <tab ng-click="showValidationTable(validationResult.errors.categories[0],'errors')" active="true">
+        <tab ng-click="showValidationTable(validationResult.errors.categories[0],'errors')" active="active.errors[validationResult.errors.categories[0].title]">
             <tab-heading>
                 <input type="checkbox"
                         ng-click="showFailures('errors', validationResult.errors.categories[0].data, $event)"

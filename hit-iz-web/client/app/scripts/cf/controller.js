@@ -46,7 +46,11 @@ angular.module('cf')
                     return parent && parent != null ? parent.children : $scope.testCases;
                 },
                 getTemplate: function (node) {
-                    return 'CFTestCase.html';
+                    if(!node.testContext || node.testContext === null){
+                        return 'CFTestCase.html';
+                    }else{
+                        return  'CFTestStep.html';
+                    }
                 }
             });
 

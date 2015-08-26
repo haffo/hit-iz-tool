@@ -20,7 +20,7 @@
     ]);
 
     mod
-        .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'ngTreetableParams', 'ProfileService', '$http', '$filter', function ($scope, $rootScope, ngTreetableParams, ProfileService, $http,$filter) {
+        .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'ngTreetableParams', 'ProfileService', '$http', '$filter', function ($scope, $rootScope, ngTreetableParams, ProfileService, $http, $filter) {
             $scope.testCase = null;
             $scope.elements = [];
             $scope.confStatements = [];
@@ -34,9 +34,9 @@
             $scope.loading = false;
             $scope.error = null;
             $scope.options = {
-                concise:true,
-                relevance:true,
-                collapse:true
+                concise: true,
+                relevance: true,
+                collapse: true
             };
 
             $scope.getConstraintsAsString = function (constraints) {
@@ -49,9 +49,9 @@
 
             $scope.isBranch = function (node) {
                 var isBranch = false;
-                if(node.children != null && node.children.length > 0){
-                    for(var i=0; i < node.children.length; i++){
-                        if($scope.show(node.children[i])){
+                if (node.children != null && node.children.length > 0) {
+                    for (var i = 0; i < node.children.length; i++) {
+                        if ($scope.show(node.children[i])) {
                             isBranch = true;
                             break;
                         }
@@ -79,17 +79,17 @@
                 $scope.refresh();
             };
 
-            $scope.collectConfStatements = function (obj,confStatementsMap) {
-                if(obj) {
-                    if(obj.conformanceStatements && obj.conformanceStatements !== null){
-                            angular.forEach(obj.conformanceStatements, function (conformanceStatement) {
-                                if(!confStatementsMap.hasOwnProperty(conformanceStatement.id)){
-                                    confStatementsMap[conformanceStatement.id] = conformanceStatement;
-                                    $scope.confStatements.push(conformanceStatement);
-                                }
-                            });
+            $scope.collectConfStatements = function (obj, confStatementsMap) {
+                if (obj) {
+                    if (obj.conformanceStatements && obj.conformanceStatements !== null) {
+                        angular.forEach(obj.conformanceStatements, function (conformanceStatement) {
+                            if (!confStatementsMap.hasOwnProperty(conformanceStatement.id)) {
+                                confStatementsMap[conformanceStatement.id] = conformanceStatement;
+                                $scope.confStatements.push(conformanceStatement);
+                            }
+                        });
                     }
-                    if(obj.children) {
+                    if (obj.children) {
                         angular.forEach(obj.children, function (child) {
                             $scope.collectConfStatements(child, confStatementsMap);
                         });
@@ -117,7 +117,7 @@
                         var datatypes = null;
                         var segments = [];
                         var message = null;
-                        var confStatementsMap= {};
+                        var confStatementsMap = {};
                         $scope.confStatements = [];
                         angular.forEach($scope.elements, function (element) {
                             if (element.name === 'Datatypes' && datatypes === null) {
@@ -134,7 +134,7 @@
 //                        var valueSetIds = $scope.profileService.getValueSetIds(segments, datatypes.children);
 //                        $rootScope.$broadcast($scope.type + ':valueSetIdsCollected', valueSetIds);
                         $scope.getNodeContent($scope.elements[0]);
-                         $scope.loading = false;
+                        $scope.loading = false;
                     }, function (error) {
                         $scope.error = "Sorry, Cannot load the profile.";
                         $scope.loading = false;
@@ -160,20 +160,28 @@
                     return parent ? parent.children : $scope.nodeData.children;
                 },
                 getTemplate: function (node) {
-                    return 'ProfileViewerNode.html';
-                }
-                ,
+                    if ($scope.nodeData && $scope.nodeData.type != undefined) {
+                        if ($scope.nodeData.type === 'SEGMENT') {
+                            return 'SegmentNode.html';
+                        } else if ($scope.nodeData.type === 'MESSAGE') {
+                            return 'MessageNode.html';
+                        } else if ($scope.nodeData.type === 'DATATYPE') {
+                            return 'DatatypeNode.html';
+                        }
+                    }
+                    return 'MessageNode.html';
+                },
                 options: {
                     initialState: 'collapsed'
                 }
             });
 
             $scope.refresh = function () {
-                $scope.params.refreshWithState(!$scope.options.collapse ? 'expanded': 'collapse');
+                $scope.params.refreshWithState(!$scope.options.collapse ? 'expanded' : 'collapse');
             };
 
             $scope.getNodeContent = function (selectedNode) {
-                if(selectedNode != null) {
+                if (selectedNode != null) {
                     $scope.confStatementsActive = false;
                     $scope.nodeData = selectedNode;
                     $scope.options.collapse = selectedNode.type !== 'MESSAGE';
@@ -187,12 +195,12 @@
 
         }]);
 
-    mod.directive('stRatio',function(){
+    mod.directive('stRatio', function () {
         return {
 
-            link:function(scope, element, attr){
-                var ratio=+(attr.stRatio);
-                element.css('width',ratio+'%');
+            link: function (scope, element, attr) {
+                var ratio = +(attr.stRatio);
+                element.css('width', ratio + '%');
             }
         };
     });

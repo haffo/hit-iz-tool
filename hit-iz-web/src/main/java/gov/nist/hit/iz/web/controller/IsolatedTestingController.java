@@ -14,10 +14,12 @@ package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
 import gov.nist.hit.core.domain.Stage;
+import gov.nist.hit.core.domain.TestCase;
 import gov.nist.hit.core.domain.TestPlan;
 import gov.nist.hit.core.domain.TestStep;
 import gov.nist.hit.core.domain.TransactionCommand;
 import gov.nist.hit.core.domain.util.XmlUtil;
+import gov.nist.hit.core.repo.TestCaseRepository;
 import gov.nist.hit.core.repo.TestPlanRepository;
 import gov.nist.hit.core.repo.TestStepRepository;
 import gov.nist.hit.core.service.exception.TestCaseException;
@@ -32,6 +34,7 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,10 +45,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping("/isolated")
 @RestController
-public class IsolatedSystemTestingController extends TestingController {
+public class IsolatedTestingController extends TestingController {
 
 
-  static final Logger logger = LoggerFactory.getLogger(IsolatedSystemTestingController.class);
+  static final Logger logger = LoggerFactory.getLogger(IsolatedTestingController.class);
 
 
   String SUMBIT_SINGLE_MESSAGE_TEMPLATE = null;
@@ -55,17 +58,20 @@ public class IsolatedSystemTestingController extends TestingController {
 
 
   @Autowired
-  private TransportClient transportClient;
-
-  public IsolatedSystemTestingController() throws IOException {
-    SUMBIT_SINGLE_MESSAGE_TEMPLATE =
-        IOUtils.toString(IsolatedSystemTestingController.class
-            .getResourceAsStream("/templates/SubmitSingleMessage.xml"));
-  }
-
+  private TestCaseRepository testCaseRepository;
 
   @Autowired
   private TestStepRepository testStepRepository;
+
+  @Autowired
+  private TransportClient transportClient;
+
+  public IsolatedTestingController() throws IOException {
+    SUMBIT_SINGLE_MESSAGE_TEMPLATE =
+        IOUtils.toString(IsolatedTestingController.class
+            .getResourceAsStream("/templates/SubmitSingleMessage.xml"));
+  }
+
 
 
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
@@ -74,6 +80,21 @@ public class IsolatedSystemTestingController extends TestingController {
     List<TestPlan> testPlans = testPlanRepository.findAllByStage(Stage.ISOLATED);
     return testPlans;
   }
+
+  @RequestMapping(value = "/testcases/{testCaseId}", method = RequestMethod.GET)
+  public TestCase testCase(@PathVariable final Long testCaseId) {
+    logger.info("Fetching  test case...");
+    TestCase testCase = testCaseRepository.findOne(testCaseId);
+    return testCase;
+  }
+
+  @RequestMapping(value = "/teststeps/{testStepId}", method = RequestMethod.GET)
+  public TestStep testStep(@PathVariable final Long testStepId) {
+    logger.info("Fetching  test step...");
+    TestStep testStep = testStepRepository.findOne(testStepId);
+    return testStep;
+  }
+
 
 
   @RequestMapping(value = "/soap/send", method = RequestMethod.POST)

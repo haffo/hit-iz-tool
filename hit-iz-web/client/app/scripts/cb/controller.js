@@ -122,7 +122,13 @@ angular.module('cb')
                     return parent && parent != null ? parent.children : $scope.testCases;
                 },
                 getTemplate: function (node) {
-                    return 'CBTestCase.html';
+                    if(node.type  === 'TestCase'){
+                        return 'CBTestCase.html';
+                    }else if(node.type === 'TestStep'){
+                        return  'CBTestStep.html';
+                    }else if(node.type === 'TestPlan' || node.type === 'TestCaseGroup'){
+                        return  'CBTestPlanOrTestCaseGroup.html';
+                    }
                 }
             });
 

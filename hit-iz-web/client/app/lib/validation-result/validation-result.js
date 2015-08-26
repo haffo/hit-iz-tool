@@ -145,6 +145,7 @@
                 $scope.loadingCategory = true;
                 $scope.data = category.data;
                 $scope.tmpData = [].concat($scope.data);
+                $scope.active = {};
                 $scope.active[type] = {};
                 $scope.active[type][category.title] = true;
                 $scope.loadingCategory = false;
@@ -174,7 +175,6 @@
                 $scope.validationResult = validationResult;
                 if ($scope.validationResult && $scope.validationResult != null) {
                     $scope.validResultHighlither = new ValidationResultHighlighter($scope.failuresConfig, $scope.message, $scope.validationResult, $scope.tree, $scope.editor);
-                    $scope.validationTabs[0] = true;
                     $scope.failuresConfig.errors.checked = false;
                     $scope.failuresConfig.warnings.checked = false;
                     $scope.failuresConfig.alerts.checked = false;
@@ -183,6 +183,7 @@
                     $scope.firstLoaded = false;
                     $scope.hideAllFailures();
                     $scope.showValidationTable($scope.validationResult['errors'].categories[0],'errors');
+
                 }
             });
 

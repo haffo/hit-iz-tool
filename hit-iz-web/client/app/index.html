@@ -37,7 +37,7 @@
     <!-- Custom styles for this template -->
     <script src="lib/utils.js"></script>
     <link href="styles/carousel.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/font-awesome.css">
+    <link rel="stylesheet" href="styles/font-awesome.min.css">
 
     <script src="lib/codemirror/lib/codemirror.js"></script>
     <script src="lib/codemirror/lib/formating.js"></script>
@@ -139,7 +139,8 @@
     <!-- endbuild -->
 
     <!-- blueimp -->
-    <!--<script src="lib/lrInfiniteScroll/lrInfiniteScroll.js"></script>-->
+
+     <!--<script src="lib/lrInfiniteScroll/lrInfiniteScroll.js"></script>-->
     <script src="lib/blueimp/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
     <script src="lib/blueimp/blueimp-load-image/js/load-image.js"></script>
     <script src="lib/blueimp/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
@@ -151,12 +152,22 @@
     <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
     <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-angular.js"></script>
     <script src="lib/vkbeautify/vkbeautify.js"></script>
+    <!--<script src="lib/angular-tree-control/angular-tree-control.js"></script>-->
+    <script src="lib/angular-bootstrap-nav-tree/abn_tree_directive.js"></script>
+    <!--<script src="lib/tree-grid/tree-grid-directive.js"></script>-->
+    <script src="lib/angular-treetable/js/jquery.treetable.js"></script>
+    <script src="lib/angular-treetable/js/angular-treetable-custom.js"></script>
+    <script src="lib/angular-tree-control/angular-tree-control.js"></script>
+
+    <script src="lib/x2js/xml2json.min.js"></script>
+
     <script src="lib/lrInfiniteScroll/lrInfiniteScroll.js"></script>
     <script src="lib/profile-viewer/profile-viewer.js"></script>
     <script src="lib/vocab-search/vocab-search.js"></script>
     <script src="lib/validation-result/validation-result.js"></script>
     <script src="lib/report-viewer/report-viewer.js"></script>
     <script src="lib/testcase-viewer/testcase-viewer.js"></script>
+
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
@@ -168,8 +179,6 @@
     <script src="scripts/cf/service.js"></script>
     <script src="scripts/cb/service.js"></script>
     <script src="scripts/connectivity/service/connectivity.js"></script>
-
-    <!--<script src="scripts/services/testing/cb.js"></script>-->
     <script src="scripts/isolated/service.js"></script>
     <script src="scripts/documentation/service/doc.js"></script>
     <script src="scripts/vocab/service/vocab.js"></script>
@@ -177,8 +186,6 @@
     <script src="scripts/hl7.js"></script>
     <script src="scripts/xml.js"></script>
     <script src="scripts/common.js"></script>
-
-
     <!-- Controllers-->
     <script src="scripts/main/controller/main.js"></script>
     <script src="scripts/testing/controller/testing.js"></script>
@@ -186,12 +193,6 @@
     <script src="scripts/cb/controller.js"></script>
     <script src="scripts/envelope/controller/envelope.js"></script>
     <script src="scripts/isolated/controller.js"></script>
-
-    <!--<script src="scripts/controllers/testing/is.js"></script>-->
-
-
-    <!--<script src="scripts/controllers/vocab/vocab.js"></script>-->
-
     <script src="scripts/documentation/controller/doc.js"></script>
     <script src="scripts/contact/controller/contact.js"></script>
     <script src="scripts/about/controller/about.js"></script>
@@ -201,15 +202,7 @@
     <script src="scripts/directives/popover.js"></script>
     <script src="scripts/directives/compile.js"></script>
 
-    <!--<script src="lib/angular-tree-control/angular-tree-control.js"></script>-->
-    <script src="lib/angular-bootstrap-nav-tree/abn_tree_directive.js"></script>
-    <!--<script src="lib/tree-grid/tree-grid-directive.js"></script>-->
-    <script src="lib/angular-treetable/js/jquery.treetable.js"></script>
-    <!--<script src="lib/angular-treetable/js/angular-treetable.min.js"></script>-->
-    <script src="lib/angular-treetable/js/angular-treetable-custom.js"></script>
-    <script src="lib/angular-tree-control/angular-tree-control.js"></script>
 
-    <script src="lib/x2js/xml2json.min.js"></script>
     <!-- endbuild -->
 
     <div ng-include="'views/error.html'"></div>

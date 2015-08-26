@@ -93,8 +93,14 @@ angular.module('isolated')
                     return parent && parent != null ? parent.children : $scope.testCases;
                 },
                 getTemplate: function (node) {
-                    return 'IsolatedSystemTestCase.html';
-                }
+                    if(node.type  === 'TestCase'){
+                        return 'IsolatedTestCase.html';
+                    }else if(node.type === 'TestStep'){
+                        return node.connectionType === 'TA_MANUAL' || node.connectionType === 'SUT_MANUAL' ? 'IsolatedManualTestStep.html': node.connectionType === 'TA_INITIATOR' || node.connectionType === 'SUT_INITIATOR' ? 'IsolatedInitiatorTestStep.html' : node.connectionType === 'TA_RESPONDER' || node.connectionType === 'SUT_RESPONDER' ? 'IsolatedResponderTestStep.html':'IsolatedResponderTestStep.html';
+                    }else if(node.type === 'TestPlan' || node.type === 'TestCaseGroup'){
+                        return 'IsolatedTestPlanOrTestCaseGroup.html';
+                    }
+                 }
             });
 
             var tcLoader = new IsolatedSystemTestCaseListLoader();
@@ -649,6 +655,24 @@ angular.module('isolated')
             }
 
         };
+
+
+        $scope.downloadTestArtifact = function (path) {
+            if ($scope.testCase != null) {
+                var form = document.createElement("form");
+                form.action = "api/testartifact/download";
+                form.method = "POST";
+                form.target = "_target";
+                var input = document.createElement("input");
+                input.name = "path";
+                input.value = path;
+                form.appendChild(input);
+                form.style.display = 'none';
+                document.body.appendChild(form);
+                form.submit();
+            }
+        };
+
 
     }]);
 

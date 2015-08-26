@@ -20,60 +20,86 @@
     ]);
 
     mod
-        .controller('TestCaseViewerCtrl', ['$scope', '$rootScope', '$sce', function ($scope, $rootScope, $sce) {
+        .controller('TestCaseViewerCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseViewerService', function ($scope, $rootScope, $sce,TestCaseViewerService) {
 
             $scope.tabs = [];
+            $scope.loadings = [];
             $scope.loading = false;
+             var testCaseViewerService = new TestCaseViewerService();
+
+            $scope.isLoading = function(){
+                return $scope.loadings[0] || $scope.loadings[1] || $scope.loadings[2] || $scope.loadings[3];
+            };
 
 
-            $scope.testStory = null;
 //            $scope.messageContent = null;
 
 
             $rootScope.$on($scope.type + ':testCaseSelected', function (event, testCase) {
-                $scope.loading = true;
                 $scope.tabs[0] = true;
                 $scope.tabs[1] = false;
                 $scope.tabs[2] = false;
                 $scope.tabs[3] = false;
                 $scope.tabs[4] = false;
                 $scope.testCase = testCase;
-                $scope.testStory = null;
-//                $scope.messageContent = null;
 
-                if ($scope.testCase.testStory && $scope.testCase.testStory != null &&$scope.testCase.testStory.json) {
-                    $scope.testStory = angular.fromJson($scope.testCase.testStory.json);
-                }
-//                if ($scope.testCase.messageContent && $scope.testCase.messageContent.json) {
-//                    $scope.messageContent = angular.fromJson($scope.testCase.messageContent.json);
-//                    angular.forEach($scope.messageContent.MessageContent.Segment, function (segment) {
-//                        segment.children = [];
-//                        if (segment.Field && segment.Field.length > 0) {
-//                            angular.forEach(segment.Field, function (field) {
-//                                segment.children.push(getItem(field, "field"));
-//                                if (field.Component && field.Component.length > 0) {
-//                                    angular.forEach(field.Component, function (component) {
-//                                        segment.children.push(getItem(component, "component"));
-//                                        if (component.SubComponent && component.SubComponent.length > 0) {
-//                                            angular.forEach(component.SubComponent, function (subComponent) {
-//                                                segment.children.push(getItem(subComponent, "subComponent"));
-//                                            });
-//                                        }
-//                                    });
-//                                }
-//                            });
-//                        }
-//                    });
-//                }
-                if ($scope.testCase.testDataSpecification && $scope.testCase.testDataSpecification.json) {
-                    //$scope.testDataSpecification = angular.fromJson($scope.testCase.testDataSpecification.json);
-                }
-                if ($scope.testCase.jurorDocument && $scope.testCase.jurorDocument.json) {
-                    //$scope.jurorDocument = angular.fromJson($scope.testCase.jurorDocument.json);
+                $scope.loadings[0] = false;
+                $scope.loadings[1] = false;
+                $scope.loadings[2] = false;
+                $scope.loadings[3] = false;
+
+
+                if(!$scope.testCase['jurorDocument'] || $scope.testCase['jurorDocument'] === null) {
+                    $scope.loadings[0] = true;
+                    testCaseViewerService.artifact(testCase.type, testCase.id, 'jurordocument').then(function (result) {
+                        $scope.testCase['jurorDocument'] = result;
+                        $scope.loadings[0] = false;
+                    }, function (error) {
+                        $scope.testCase['jurorDocument'] = null;
+                        $scope.loadings[0] = false;
+                    });
                 }
 
-                $scope.loading = false;
+                if(!$scope.testCase['messageContent'] ||$scope.testCase['messageContent'] === null) {
+                    $scope.loadings[1] = true;
+                    testCaseViewerService.artifact(testCase.type, testCase.id, 'messagecontent').then(function (result) {
+                        $scope.testCase['messageContent'] = result;
+                        $scope.loadings[1] = false;
+                    }, function (error) {
+                        $scope.testCase['messageContent'] = null;
+                        $scope.loadings[1] = false;
+                    });
+                }
+
+                if(!$scope.testCase['testStory'] ||$scope.testCase['testStory'] === null) {
+                    $scope.loadings[2] = true;
+                    testCaseViewerService.artifact(testCase.type, testCase.id, 'teststory').then(function (result) {
+                        $scope.testCase['testStory'] = result;
+                        $scope.testCase['testStory']['json'] = angular.fromJson(result['json']);
+                        $scope.loadings[2] = false;
+                    }, function (error) {
+                        $scope.testCase['testStory'] = null;
+                        $scope.loadings[2] = false;
+                    });
+                }
+
+                if(!$scope.testCase['testDataSpecification'] ||$scope.testCase['testDataSpecification'] === null) {
+                    $scope.loadings[3] = true;
+                    testCaseViewerService.artifact(testCase.type, testCase.id, 'tds').then(function (result) {
+                        $scope.testCase['testDataSpecification'] = result;
+                        $scope.loadings[3] = false;
+                    }, function (error) {
+                        $scope.testCase['testDataSpecification'] = null;
+                        $scope.loadings[3] = false;
+                    });
+                }
+
             });
+
+
+            var getTestType = function(testCase){
+                return testCase.type.toLowerCase();
+            };
 
             $scope.downloadTestArtifact = function (path) {
                 if ($scope.testCase != null) {
@@ -140,6 +166,45 @@
                 return $sce.trustAsHtml(content);
             };
         }]);
+
+    mod.factory('TestCaseViewerService', function ($http, $q, $filter) {
+        var TestCaseViewerService = function () {
+        };
+
+        TestCaseViewerService.prototype.artifact = function (testType, id, artifactType) {
+            var delay = $q.defer();
+            $http.get('api/testartifact/'+ id + '/'+ artifactType, {params:{type:testType}}).then(
+                function (object) {
+                    try {
+                        delay.resolve(angular.fromJson(object.data));
+                    } catch (e) {
+                        delay.reject("Invalid character");
+                    }
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
+//
+//            $http.get('../../resources/cf/profile.json').then(
+//                function (object) {
+//                    delay.resolve(angular.fromJson(object.data));
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
+
+            return delay.promise;
+        };
+
+
+
+
+        return TestCaseViewerService;
+
+    });
+
 
 
 })(angular);

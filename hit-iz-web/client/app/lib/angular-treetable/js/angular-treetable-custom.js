@@ -77,7 +77,7 @@
              * @param shouldExpand whether all descendants of `parentElement` should also be expanded
              */
             $scope.addChildren = function(parentElement, shouldExpand) {
-                var parentNode = parentElement ? parentElement.scope().node : null;
+                var parentNode = parentElement && parentElement.scope() ? parentElement.scope().node : null;
                 var parentId = parentElement ? parentElement.data('ttId') : null;
 
                 if (parentElement) {
@@ -101,7 +101,7 @@
                             });
                         }
 
-                        if (parentElement) {
+                        if (parentElement && parentElement.scope()) {
                             parentElement.scope().loading = false;
                         }
                     });
@@ -134,6 +134,16 @@
                 while (rootNodes.length > 0) {
                     table.treetable('removeNode', rootNodes[0].id);
                 }
+
+//                table.data('treetable').tree = {};
+//                table.data('treetable').nodes = [];
+//                table.data('treetable').roots = [];
+
+//                table.data("treetable", []);
+
+
+//                table.data('treetable').nodes = [];
+//                table = $element;
                 $scope.addChildren(null, $scope.shouldExpand());
             };
 
@@ -164,6 +174,7 @@
 
             // attach to params for convenience
             params.refresh = $scope.refresh;
+            params.force = true;
 //          params.expand = $scope.expandChildren;
 //          params.collapse = $scope.collapseChildren;
 
@@ -176,7 +187,7 @@
             $scope.getOptions = function() {
                 var opts = angular.extend({
                     expandable: true,
-                    onNodeExpand: $scope.onNodeExpand,
+                     onNodeExpand: $scope.onNodeExpand,
                     onNodeCollapse: $scope.onNodeCollapse
                 }, params.options);
 
