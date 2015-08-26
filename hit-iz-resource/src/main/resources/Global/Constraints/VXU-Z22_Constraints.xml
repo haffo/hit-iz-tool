@@ -686,6 +686,30 @@
 		</Segment>
 		<Group>
 			<ByName Name="VXU_V04.ORDER">
+				<Constraint ID="IZ-24" Target="5[1].1[1]">
+					<Description> If RXA-20 is valued "CP" or "PA" and the first occurrence of RXA- 9.1 is valued “00” and RXA-5.1 is valued with a CVX code from table PHVS_VISVaccines_IIS (See Appendix A) then for each vaccine information statement that was shared there SHALL be:
+						• one OBX segment with OBX-3.1 valued “69764-9” (bar coded) and one OBX with OBX-3.1 valued “29769-7” (presentation /delivery date) associated. Both OBX shall have the same value in OBX-4
+						OR
+						• one OBX segment with OBX-3.1 valued “30956-7” (vaccine type) and one OBX segment with OBX-3.1 valued “29768-9” (version date) and one OBX with OBX-3.1 valued “29769-7” (presentation /delivery date) associated. All three OBX shall have the same value in OBX-4 </Description>
+					<Assertion>
+						<IMPLY>
+							<AND>
+								<AND>
+									<OR>
+										<PlainText Path="3[1].20[1]" Text="CP" IgnoreCase="false" />
+										<PlainText Path="3[1].20[1]" Text="PA" IgnoreCase="false" />
+									</OR>
+									<PlainText Path="3[1].9[1].1[1]" Text="00" IgnoreCase="false" />
+								</AND>
+								<ValueSet ValueSetID="PHVS_VISVaccines_IIS" Path="3[1].5[1].1[1]" BindingLocation="1" BindingStrength="R" />
+							</AND>
+							<Plugin QualifiedClassName="gov.nist.healthcare.hl7.v2.iz.plugins.IZ24Constraint"/>
+						</IMPLY>
+					</Assertion>
+				</Constraint>
+			</ByName>
+			
+			<ByName Name="VXU_V04.ORDER">
 				<Constraint ID="IZ-45" Target="1[1].3[1]">
 					<Description> If RXA.20 is valued "NA" or "RE" then ORC.3.1 SHALL be valued "9999".</Description>
 					<Assertion>
@@ -701,14 +725,14 @@
 					</Assertion>
 				</Constraint>
 			</ByName>
-			<ByName Name="VXU_V04.ORDER.OBSERVATION">
-				<Constraint ID="IZ-20" Target="1[1].1[1]">
+			<ByID ID="aa72383a-7b48-46e5-a74a-82e019591fe7">
+				<Constraint ID="IZ-20" Target="9[1].5[1].1[1]">
 					<Description>The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value "1" within a message.</Description>
 					<Assertion>
-						<SetID Path="1[1].1[1]"/>
+						<IZSetID Parent="9[*]" Element="5[*].1[*].1[*]" />
 					</Assertion>
 				</Constraint>
-			</ByName>
+			</ByID>
 		</Group>
 	</Constraints>
 </ConformanceContext>

@@ -543,6 +543,15 @@
                     </Assertion>
                 </Constraint>
             </ByName>
+            <ByID ID="e13dfbab-8832-4c3f-bfa5-0e9c18e644c4">
+                <Constraint ID="IZ-20" Target="8[1].4[1].1[1]">
+                    <Description>The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value "1" within a message.</Description>
+                    <Assertion>
+                        <IZSetID Parent="8[*]" Element="4[*].1[*].1[*]" />
+                    </Assertion>
+                </Constraint>
+            </ByID>
+            
             <ByName Name="RSP_K11.IZ_HISTORY_FORECAST">
                 <Constraint ID="IZ-45" Target="1[1].3[1]">
                     <Description> If RXA.20 is valued "NA" or "RE" then ORC.3.1 SHALL be valued "9999".</Description>
