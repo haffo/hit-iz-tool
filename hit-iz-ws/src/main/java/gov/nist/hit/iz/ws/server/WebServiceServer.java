@@ -182,9 +182,10 @@ public class WebServiceServer implements TransportServer {
         String outboundSoap =
             IOUtils.toString(WebServiceServer.class
                 .getResourceAsStream("/ws/messages/SubmitSingleMessageResponse_Precanned.xml"));
+        response = WsdlUtil.toSubmitSingleMessageResponse(outboundSoap);
+        outboundMessage = response.getReturn();
         outboundMessage = getHL7MessageString(outboundMessage);
         outboundMessage = updateOutboundMessage(inboundMessage, outboundMessage);
-        response = WsdlUtil.toSubmitSingleMessageResponse(outboundSoap);
         response.setReturn(outboundMessage);
       }
       return response;

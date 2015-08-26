@@ -12,11 +12,6 @@ angular.module('envelope').factory('Envelope',
             message: new Message(),
             report: new EnvelopeReport(),
             validationSettings: new ValidationSettings(),
-            setContent: function (value) {
-                Envelope.message.content = value;
-                Envelope.editor.instance.doc.setValue(value);
-                Envelope.message.notifyChange();
-            },
             getContent: function () {
                 return  Envelope.message.content;
             }

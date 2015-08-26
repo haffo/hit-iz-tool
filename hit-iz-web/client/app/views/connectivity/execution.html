@@ -1,16 +1,22 @@
 <div ng-controller="ConnectivityExecutionCtrl" ng-init="init()">
 
-<div class="panel panel-info" style="margin:10px">
-<div class="panel-heading">
+<div class="" style="margin:10px">
+<div class="">
 
-    <span ng-show="testCase != null">
-        Test Case: {{testCase.parentName}} - {{testCase.label}}
-    </span>
+    <ol class="breadcrumb" ng-show="testCase != null">
+        <li>{{testCase.parentName}}</li>
+        <li> {{testCase.label}}</li>
+    </ol>
+    <!--<span ng-show="testCase != null" style="font-size: 18px; font-weight: bold">-->
+        <!--Test Case: {{testCase.parentName}} - {{testCase.label}}-->
+    <!--</span>-->
     <span ng-show="testCase === null">
         No Test Case Loaded.
     </span>
+
+    <!--<hr />-->
 </div>
-<div class="panel-body">
+<div class="">
 <div ng-show="error != null">
     <div class="alert alert-danger col-sm-12" role="alert" ng-bind="error"></div>
 </div>
@@ -48,20 +54,23 @@
 
 <div class="row" ng-show="testCase.testType != 'SENDER_CONNECTIVITY'">
 <div class="col-md-6" ng-controller="ConnectivityReqCtrl" ng-init="init()">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <span ng-show="testCase.sutType == 'RECEIVER'"><i
-                    class="fa fa-arrow-right"></i>Outgoing Panel</span>
-            <span ng-show="testCase.sutType == 'SENDER'"><i
-                    class="fa fa-arrow-left"></i>Incoming Panel</span>
-        </div>
-        <div class="panel-body iz-centered">
+    <div class="">
+        <!--<div class="panel-heading">-->
+
+        <!--</div>-->
+        <div class=" iz-centered">
             <div class="row">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <form role="form"
                               class="form-inline">
-                            Soap Envelope
+
+                            <span ng-show="testCase.sutType == 'RECEIVER'"><i
+                                    class="fa fa-arrow-right"></i>Outgoing SOAP Envelope</span>
+            <span ng-show="testCase.sutType == 'SENDER'"><i
+                    class="fa fa-arrow-left"></i>Incoming SOAP Envelope</span>
+
+
                  <span class="row fileupload-buttonbar  pull-right">
 
                 <button title="Validate" type="button" class="btn btn-xs btn-success"
@@ -86,13 +95,11 @@
                           <i class="fa fa fa-arrow-right"></i> Send
                       </button>
 
-
                       <button title="Send" type="button" class="btn btn-xs btn-primary"
                               ng-show="testCase.sutType === 'SENDER'"
                               ng-click="openReceiverConfig()">
                           <i class="fa fa fa-arrow-left"></i> Receive
                       </button>
-
 
                 <span style="margin-right:10px"></span>
                      </span>
@@ -403,19 +410,26 @@
     </div>
 </div>
 <div class="col-md-6" ng-controller="ConnectivityRespCtrl" ng-init="init()">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <span ng-show="testCase.sutType == 'SENDER'"><i
-                    class="fa fa-arrow-right"></i>Outgoing Panel</span>
-            <span ng-show="testCase.sutType == 'RECEIVER'"><i class="fa fa-arrow-left"></i>Incoming Panel</span>
-        </div>
-        <div class="panel-body iz-centered">
+    <div class="">
+        <!--<div class="panel-heading">-->
+            <!--<span ng-show="testCase.sutType == 'SENDER'"><i-->
+                    <!--class="fa fa-arrow-right"></i>Outgoing Panel</span>-->
+            <!--<span ng-show="testCase.sutType == 'RECEIVER'"><i class="fa fa-arrow-left"></i>Incoming Panel</span>-->
+        <!--</div>-->
+        <div class="iz-centered">
             <div class="row">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <form role="form"
                               class="form-inline">
-                            SOAP Envelope
+
+
+                            <span ng-show="testCase.sutType == 'SENDER'"><i
+                                     class="fa fa-arrow-right"></i>Outgoing SOAP Envelope</span>
+                            <span ng-show="testCase.sutType == 'RECEIVER'"><i class="fa fa-arrow-left"></i>Incoming SOAP Envelope</span>
+
+
+
                             <span class="row fileupload-buttonbar  pull-right">
                                 <button title="Validate" type="button" class="btn btn-xs btn-success"
                                         ng-click="validate()"
@@ -451,11 +465,11 @@
                 <div class="panel panel-info">
                     <!-- Default panel contents -->
                     <div class="panel-heading">
-                        <span ng-show="hasContent()  && response.validationResult.errors != null && response.validationResult.errors.data.length > 0"
-                              class="label-danger label"><i class="glyphicon glyphicon-remove"></i></span>
-                        <span ng-show="hasContent()  && response.validationResult.errors != null && response.validationResult.errors.data.length == 0"
-                              class="label-danger label"><i class="glyphicon glyphicon-ok"></i></span>
-                        <span ng-show="!hasContent()"><i class="glyphicon glyphicon-ok"></i></span>
+                        <!--<span ng-show="hasContent()  && response.validationResult.errors != null && response.validationResult.errors.data.length > 0"-->
+                              <!--class="label-danger label"><i class="glyphicon glyphicon-remove"></i></span>-->
+                        <!--<span ng-show="hasContent()  && response.validationResult.errors != null && response.validationResult.errors.data.length == 0"-->
+                              <!--class="label-danger label"><i class="glyphicon glyphicon-ok"></i></span>-->
+                        <span><i class="glyphicon glyphicon-ok"></i></span>
                         Validation Result
                     </div>
                     <div class="panel-body result-container">

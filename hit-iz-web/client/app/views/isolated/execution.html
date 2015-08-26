@@ -1,11 +1,13 @@
 <div ng-controller="IsolatedSystemExecutionCtrl" ng-init="init()">
 <div style="margin-left:10px;margin-right:10px;">
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
+        <ol class="breadcrumb" ng-show="testCase != null">
+            <li>{{testCase.parentName}}</li>
+            <li> {{testCase.name}}</li>
+        </ol>
         <div ng-show="testCase != null">
-        <span style="font-size: 18px; font-weight: bold">Test Case:
-        {{testCase.name}}</span>
-         <span class="pull-right">
+          <span class="pull-right">
         <button type="button" ng-click="resetTestCase()"
                 title="Restart" class="btn btn-sm btn-primary">
             <i class="fa fa-times"></i>
@@ -13,7 +15,7 @@
         </button>
 
     </span>
-            <hr/>
+            <!--<hr/>-->
         </div>
         <div ng-show="testCase == null">No Test Case Loaded.</div>
     </div>
@@ -439,19 +441,26 @@
                 <tab-heading>
                     <i class="fa fa-check-circle"></i>Juror Document
                 </tab-heading>
+                <div class="panel panel-info">
+                    <div class="panel-body">
                 <div class="pull-right">
+                    <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"-->
+                            <!--ng-click="downloadJurorDoc('isolated_jurordoc',testStep.name)">-->
+                        <!--<i class="fa fa-download"></i> PDF-->
+                    <!--</button>-->
                     <button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"
                             ng-click="downloadTestArtifact(testStep.jurorDocument.pdfPath)">
                         <i class="fa fa-download"></i> PDF
                     </button>
+
                 </div>
                 <br/>
                 <br/>
-
-                <div class="testcase-content">
+                <div class="testcase-content" id="isolated_jurordoc">
                     <div compile="testStep.jurorDocument.html"/>
                 </div>
-
+                </div>
+                </div>
             </tab>
 
         </tabset>
@@ -462,7 +471,7 @@
 <!--</div>-->
 <!--</div>-->
 <div ng-show="testStep === null">
-    No Test Step In Progress
+    <!--No Test Step In Progress-->
 </div>
 </div>
 </div>

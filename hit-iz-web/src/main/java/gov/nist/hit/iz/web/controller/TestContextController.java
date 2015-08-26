@@ -143,7 +143,7 @@ public class TestContextController extends TestingController {
                   .getAddditionalConstraints().getXml() : null);
       resultMap.put("hl7Report", hl7Report);
 
-      if (command.getDqa() != null && command.getDqa() == true) {
+      if (command.isDqa()) {
         CompactReportModel crm =
             ProcessMessageHL7.process(command.getContent(), command.getFacilityId());
         resultMap.put("dqaReport", crm);

@@ -1,15 +1,22 @@
 <div ng-controller="EnvelopeExecutionCtrl" ng-init="init()">
-    <div class="panel panel-info" style="margin:10px">
-        <div class="panel-heading">
-             <span ng-show="testCase !== null">
-        {{testCase.type}}: {{testCase.label}}
-    </span>
-    <span ng-show="testCase === null">
+    <div class="" style="margin:10px">
+        <div class="">
+            <ol class="breadcrumb" ng-show="testCase != null">
+                <li>{{testCase.parentName}}</li>
+                <li> {{testCase.label}}</li>
+            </ol>
+
+             <!--<span ng-show="testCase !== null" style="font-size: 18px; font-weight: bold">-->
+        <!--{{testCase.type}}: {{testCase.label}}-->
+    <!--</span>-->
+    <span ng-show="testCase === null" style="font-size: 18px; font-weight: bold">
         No Test Case Loaded
     </span>
+
+            <hr />
             </div>
 
-    <div class="panel-body">
+    <div class="">
         <div class="row" ng-show="error != null">
               <div class="alert alert-danger" role="alert" ng-bind="error"></div>
         </div>

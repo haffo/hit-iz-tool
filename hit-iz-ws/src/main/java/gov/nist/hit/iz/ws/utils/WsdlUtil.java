@@ -21,83 +21,77 @@ import org.springframework.oxm.XmlMappingException;
 
 public class WsdlUtil {
 
-	public static String toString(SecurityFaultType fault)
-			throws JAXBException, XmlMappingException, IOException {
-		ObjectFactory of = new ObjectFactory();
-		JAXBElement<SecurityFaultType> jaxbElement = of
-				.createSecurityFault(fault);
-		StringWriter stringWriter = new StringWriter();
-		StreamResult xmlOutput = new StreamResult(stringWriter);
-		// serialise to xml
-		JAXBContext context = JAXBContext.newInstance(SecurityFaultType.class);
-		context.createMarshaller().marshal(jaxbElement, xmlOutput);
-		// output string to console
-		String theXML = stringWriter.toString();
-		return theXML;
-	}
+  public static String toString(SecurityFaultType fault) throws JAXBException, XmlMappingException,
+      IOException {
+    ObjectFactory of = new ObjectFactory();
+    JAXBElement<SecurityFaultType> jaxbElement = of.createSecurityFault(fault);
+    StringWriter stringWriter = new StringWriter();
+    StreamResult xmlOutput = new StreamResult(stringWriter);
+    // serialise to xml
+    JAXBContext context = JAXBContext.newInstance(SecurityFaultType.class);
+    context.createMarshaller().marshal(jaxbElement, xmlOutput);
+    // output string to console
+    String theXML = stringWriter.toString();
+    return theXML;
+  }
 
-	public static String toString(UnsupportedOperationFaultType fault)
-			throws JAXBException, XmlMappingException, IOException {
-		ObjectFactory of = new ObjectFactory();
-		JAXBElement<UnsupportedOperationFaultType> jaxbElement = of
-				.createUnsupportedOperationFault(fault);
-		StringWriter stringWriter = new StringWriter();
-		StreamResult xmlOutput = new StreamResult(stringWriter);
-		// serialise to xml
-		JAXBContext context = JAXBContext
-				.newInstance(UnsupportedOperationFaultType.class);
-		context.createMarshaller().marshal(jaxbElement, xmlOutput);
-		// output string to console
-		String theXML = stringWriter.toString();
-		return theXML;
-	}
+  public static String toString(UnsupportedOperationFaultType fault) throws JAXBException,
+      XmlMappingException, IOException {
+    ObjectFactory of = new ObjectFactory();
+    JAXBElement<UnsupportedOperationFaultType> jaxbElement =
+        of.createUnsupportedOperationFault(fault);
+    StringWriter stringWriter = new StringWriter();
+    StreamResult xmlOutput = new StreamResult(stringWriter);
+    // serialise to xml
+    JAXBContext context = JAXBContext.newInstance(UnsupportedOperationFaultType.class);
+    context.createMarshaller().marshal(jaxbElement, xmlOutput);
+    // output string to console
+    String theXML = stringWriter.toString();
+    return theXML;
+  }
 
-	public static String toString(MessageTooLargeFaultType fault)
-			throws JAXBException, XmlMappingException, IOException {
-		ObjectFactory of = new ObjectFactory();
-		JAXBElement<MessageTooLargeFaultType> jaxbElement = of
-				.createMessageTooLargeFault(fault);
-		StringWriter stringWriter = new StringWriter();
-		StreamResult xmlOutput = new StreamResult(stringWriter);
-		// serialise to xml
-		JAXBContext context = JAXBContext
-				.newInstance(MessageTooLargeFaultType.class);
-		context.createMarshaller().marshal(jaxbElement, xmlOutput);
-		// output string to console
-		String theXML = stringWriter.toString();
-		return theXML;
-	}
+  public static String toString(MessageTooLargeFaultType fault) throws JAXBException,
+      XmlMappingException, IOException {
+    ObjectFactory of = new ObjectFactory();
+    JAXBElement<MessageTooLargeFaultType> jaxbElement = of.createMessageTooLargeFault(fault);
+    StringWriter stringWriter = new StringWriter();
+    StreamResult xmlOutput = new StreamResult(stringWriter);
+    // serialise to xml
+    JAXBContext context = JAXBContext.newInstance(MessageTooLargeFaultType.class);
+    context.createMarshaller().marshal(jaxbElement, xmlOutput);
+    // output string to console
+    String theXML = stringWriter.toString();
+    return theXML;
+  }
 
-	public static String toString(SoapFaultType fault) throws JAXBException,
-			XmlMappingException, IOException {
-		StringWriter stringWriter = new StringWriter();
-		StreamResult xmlOutput = new StreamResult(stringWriter);
-		// serialise to xml
-		JAXBContext context = JAXBContext.newInstance(SoapFaultType.class);
-		context.createMarshaller().marshal(fault, xmlOutput);
-		// output string to console
-		String theXML = stringWriter.toString();
-		return theXML;
-	}
+  public static String toString(SoapFaultType fault) throws JAXBException, XmlMappingException,
+      IOException {
+    StringWriter stringWriter = new StringWriter();
+    StreamResult xmlOutput = new StreamResult(stringWriter);
+    // serialise to xml
+    JAXBContext context = JAXBContext.newInstance(SoapFaultType.class);
+    context.createMarshaller().marshal(fault, xmlOutput);
+    // output string to console
+    String theXML = stringWriter.toString();
+    return theXML;
+  }
 
-	public static SubmitSingleMessageRequestType toSubmitSingleMessage(
-			String content) throws JAXBException, XmlMappingException,
-			IOException {
-		JAXBContext context = JAXBContext
-				.newInstance(SubmitSingleMessageRequestType.class);
-		SubmitSingleMessageRequestType ob = (SubmitSingleMessageRequestType) context
-				.createUnmarshaller().unmarshal(IOUtils.toInputStream(content));
-		return ob;
-	}
+  public static SubmitSingleMessageRequestType toSubmitSingleMessage(String content)
+      throws JAXBException, XmlMappingException, IOException {
+    JAXBContext context = JAXBContext.newInstance(SubmitSingleMessageRequestType.class);
+    SubmitSingleMessageRequestType ob =
+        (SubmitSingleMessageRequestType) context.createUnmarshaller().unmarshal(
+            IOUtils.toInputStream(content));
+    return ob;
+  }
 
-	public static SubmitSingleMessageResponseType toSubmitSingleMessageResponse(
-			String content) throws JAXBException, XmlMappingException,
-			IOException {
-		JAXBContext context = JAXBContext
-				.newInstance(SubmitSingleMessageResponseType.class);
-		SubmitSingleMessageResponseType ob = (SubmitSingleMessageResponseType) context
-				.createUnmarshaller().unmarshal(IOUtils.toInputStream(content));
-		return ob;
-	}
+  public static SubmitSingleMessageResponseType toSubmitSingleMessageResponse(String content)
+      throws JAXBException, XmlMappingException, IOException {
+    JAXBContext context = JAXBContext.newInstance(SubmitSingleMessageResponseType.class);
+    SubmitSingleMessageResponseType ob =
+        (SubmitSingleMessageResponseType) context.createUnmarshaller().unmarshal(
+            IOUtils.toInputStream(content));
+    return ob;
+  }
 
 }

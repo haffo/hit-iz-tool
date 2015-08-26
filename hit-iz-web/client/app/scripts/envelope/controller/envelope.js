@@ -222,15 +222,11 @@ angular.module('envelope')
                 XmlTreeUtils.selectNode($scope.envelopeTree, Envelope.cursor);
             }, true);
 
-//            $scope.$watch(function () {
-//                return $scope.envelopeObject;
-//            }, function () {
-//                XmlTreeUtils.expandTree($scope.envelopeTree);
-//            }, true);
-
-            $rootScope.$on('env:expandTree', function (event) {
+            $scope.$watch(function () {
+                return $scope.envelopeObject;
+            }, function () {
                 XmlTreeUtils.expandTree($scope.envelopeTree);
-            });
+            }, true);
 
 //
 //            $scope.$on("refreshPanel", function (event) {
@@ -298,8 +294,7 @@ angular.module('envelope')
                         .success(function (result, textStatus, jqXHR) {
                             var tmp = angular.fromJson(result);
 //                          EnvelopeCurrentMessage.setName(fileName);
-                            Envelope.setContent(result.content);
-                            $scope.$broadcast("envelope:editor:update", true);
+                            $scope.message(result.content);
                             $scope.uploadError = null;
                             $scope.fileName = fileName;
                         })
@@ -371,8 +366,7 @@ angular.module('envelope')
                 loader.then(function (value) {
                     $scope.tLoading = false;
                     $scope.envelopeObject = value;
-                    $rootScope.$broadcast('env:expandTree');
-                }, function (tError) {
+                 }, function (tError) {
                     $scope.tLoading = false;
                     $scope.tError = tError;
                 });
@@ -407,7 +401,7 @@ angular.module('envelope')
                     $scope.loading = true;
                     var promise = new SoapValidationReportGenerator(xmlReport, 'html');
                     promise.then(function (json) {
-                        $scope.envelopeHtmlReport = $sce.trustAsHtml(json.htmlReport);
+                        $scope.envelopeHtmlReport = json.htmlReport;
                         $scope.loading = false;
                         $scope.error = null;
                     }, function (error) {

@@ -12,7 +12,7 @@
         <button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"
                 title="Send" class="btn btn-sm btn-success">
             <i class="fa fa-arrow-right"></i>
-            Send  <span ng-show="connecting"><i class="fa fa-spinner"></i> Remaining: {{counter}}s </span>
+            Send <span ng-show="connecting"><i class="fa fa-spinner"></i> Remaining: {{counter}}s </span>
         </button>
 
         <button title="Close" type="button" class="pull-right btn btn-sm btn-primary"
@@ -62,9 +62,9 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button ng-click="save()" type="button" ng-disabled="receiverForm1.$invalid"
-                title="Save" class="btn btn-xs btn-primary">
-            <i class="fa fa-check-circle"></i> Save
+        <button ng-click="send()" type="button" ng-disabled="receiverForm1.$invalid"
+                title="Send" class="btn btn-xs btn-primary">
+            <i class="fa fa-play"></i> Send
         </button>
         <button ng-click="cancel()" type="button"
                 title="Cancel" class="btn btn-xs btn-warning">
@@ -81,7 +81,32 @@
     </div>
     <div class="modal-body">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-md-12">
+                <button type="button" ng-click="start()" ng-disabled="senderForm.$invalid || connecting"
+                        title="Start listening"
+                        class="btn btn-xs btn-success">
+                    <i class="fa fa-play"></i>
+                    Start
+                </button>
+
+                <button type="button" ng-disabled="!connecting" ng-click="stop()"
+                        class="btn btn-xs btn-warning"><i class="fa fa-stop"></i>
+                    Stop
+                </button>
+                <div>
+                    <small><em>Time elapsed (seconds)</em></small>
+                    <progressbar type="warning" max="counterMax" value="counter"><span
+                            style="color:white; white-space:nowrap;">{{counter}} / {{counterMax}}</span>
+                    </progressbar>
+                </div>
+            </div>
+            <div class="col-md-12" ng-show="warning != null">
+                <div class="alert alert-info" role="alert" compile="warning"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
                 <div class="page-header"><h3>Assigned Sender Information</h3></div>
                 <form name="senderForm" novalidate>
                     <div class="form-group">
@@ -108,51 +133,35 @@
                     </div>
 
                     <div class="form-group"
-                         >
+                            >
                         <label>Endpoint</label>
                         <!--<input type="url" name="endpoint" class="form-control" ng-model="endpoint.value"-->
-                               <!--placeholder="SUT Endpoint" required disabled>-->
+                        <!--placeholder="SUT Endpoint" required disabled>-->
                         <span name="endpoint" class="form-control">{{endpoint.value}}</span>
                         <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">-->
-                            <!--Sorry, an-->
-                            <!--error occured. Please refresh your page</p>-->
+                        <!--Sorry, an-->
+                        <!--error occured. Please refresh your page</p>-->
                     </div>
 
                     <div class="form-group"
-                         >
+                            >
                         <label>WSDL</label>
-                         <a ng-href="{{endpoint.value}}.wsdl" class="form-control" target="_blank">{{endpoint.value}}.wsdl</a>
+                        <a ng-href="{{endpoint.value}}.wsdl" class="form-control" target="_blank">{{endpoint.value}}.wsdl</a>
                         <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">-->
-                            <!--Sorry, an-->
-                            <!--error occured. Please refresh your page</p>-->
+                        <!--Sorry, an-->
+                        <!--error occured. Please refresh your page</p>-->
                     </div>
 
-                    <button type="button" ng-click="start()" ng-disabled="senderForm.$invalid || connecting"
-                            title="Start listening"
-                            class="btn btn-xs btn-success">
-                        <i class="fa fa-play"></i>
-                        Start Listening
-                    </button>
 
-                    <button type="button" ng-disabled="!connecting" ng-click="stop()"
-                            class="btn btn-xs btn-warning"><i class="fa fa-stop"></i>
-                        Stop Listening
-                    </button>
-                    <div>
-                        <small><em>Time elapsed (seconds)</em></small>
-                        <progressbar type="info" max="counterMax" value="counter"><span
-                                style="color:white; white-space:nowrap;">{{counter}} / {{counterMax}}</span>
-                        </progressbar>
-                    </div>
                 </form>
             </div>
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="page-header">
                     <h3>Log
-                        <button title="Clear" type="button" class="pull-right btn btn-xs btn-default"
-                                ng-click="logger.clear()">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
+                        <!--<button title="Clear" type="button" class="pull-right btn btn-xs btn-default"-->
+                                <!--ng-click="logger.clear()">-->
+                            <!--<span class="glyphicon glyphicon-remove"></span>-->
+                        <!--</button>-->
                     </h3>
                 </div>
                 <textarea class="well" wrap="off"
@@ -161,9 +170,7 @@
                           ng-model="logger.content"></textarea>
                 <br/>
 
-                <div ng-show="warning != null">
-                    <div class="alert alert-warning col-sm-12" role="alert" ng-bind-html="toHTML(warning)"></div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -187,7 +194,7 @@
                ng-click="selectTestCase(node)">{{node.position}}.{{node.name}}</a>
             <span ng-if="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.name}}</span>
             <!--<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">-->
-         </td>
+        </td>
     </tr>
 </script>
 
@@ -201,7 +208,8 @@
 <script type="text/ng-template" id="CFTestCase.html">
     <tr tt-node style="white-space: nowrap"
         is-branch="node.children != null && node.children.length > 0">
-        <td style="padding:0;white-space: nowrap" ng-class="{ 'node-active': node.id === testCase.id && node.type === testCase.type}">
+        <td style="padding:0;white-space: nowrap"
+            ng-class="{ 'node-active': node.id === testCase.id && node.type === testCase.type}">
             <a class="point" ng-show="node.testContext && node.testContext !== null" ng-click="loadTestCase(node)">{{node.name}}</a>
             <span ng-if="!node.testContext || node.testContext === null">{{node.name}}</span>
             <!--<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">-->
@@ -210,7 +218,8 @@
 </script>
 
 <script type="text/ng-template" id="SOAPTestCase.html">
-    <tr tt-node style="white-space: nowrap" ng-class="{ 'node-active': node.id === selectedTestCase.id && node.type === selectedTestCase.type}"
+    <tr tt-node style="white-space: nowrap"
+        ng-class="{ 'node-active': node.id === selectedTestCase.id && node.type === selectedTestCase.type}"
         is-branch="node.children != null && node.children.length > 0">
         <td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap" class="tc-tree-node">
             <a class="point" ng-click="selectTestCase(node)">{{node.label}}</a>
@@ -230,8 +239,10 @@
                ng-click="selectTestCase(node)">
                 <i ng-if="node.connectionType === 'TA_MANUAL' || node.connectionType === 'SUT_MANUAL'"
                    class="fa fa-check-square-o"></i>
-                <i ng-if="node.connectionType === 'TA_INITIATOR' || node.connectionType === 'SUT_INITIATOR'" class="fa fa-arrow-right"></i>
-                <i ng-if="node.connectionType === 'TA_RESPONDER' || node.connectionType === 'SUT_RESPONDER'" class="fa fa-arrow-left"></i>
+                <i ng-if="node.connectionType === 'TA_INITIATOR' || node.connectionType === 'SUT_INITIATOR'"
+                   class="fa fa-arrow-right"></i>
+                <i ng-if="node.connectionType === 'TA_RESPONDER' || node.connectionType === 'SUT_RESPONDER'"
+                   class="fa fa-arrow-left"></i>
                 {{node.position}}. {{node.name}}</a>
             <span ng-show="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.name}}</span>
         </td>
