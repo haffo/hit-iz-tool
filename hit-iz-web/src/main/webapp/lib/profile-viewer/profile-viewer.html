@@ -10,11 +10,11 @@
             <div class="" style="margin-bottom: 10px;">
 
                 <div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">
-                    <label class="btn   btn-cf-outline" ng-click="options.relevance = true"
+                    <label class="btn   btn-cf-outline" ng-click="setRelevance(true)"
                            ng-class="{'active': options.relevance}">
                         <input type="radio" ng-model="options.relevance" autocomplete="off" checked>R,RE,C (only)
                     </label>
-                    <label class="btn  btn-cf-outline" ng-click="options.relevance = false"
+                    <label class="btn  btn-cf-outline" ng-click="setRelevance(false)"
                            ng-class="{'active': !options.relevance}">
                         <input type="radio" ng-model="options.relevance" autocomplete="off">R,RE,C,O,X (All)
                     </label>
@@ -75,7 +75,7 @@
             <div class="">
 
                 <ul class="nav nav-tabs">
-                    <li ng-show="show(element)"
+                    <li ng-show="isRelevant(element)"
                         ng-repeat="element in elements"
                         ng-class="{'active':nodeData != null && nodeData.name === element.name && !confStatementsActive}">
                         <a
@@ -130,8 +130,8 @@
                         </thead>
                         <tbody>
                         <tr quick-ng-repeat="row in tmpConfStatements">
-                            <td ng-bind="row.id"></td>
-                            <td ng-bind="row.description"></td>
+                            <td ng-bind="::row.id"></td>
+                            <td ng-bind="::row.description"></td>
                         </tr>
                         </tbody>
                         <tfoot>
@@ -149,7 +149,7 @@
 </div>
 
 <script type="text/ng-template" id="MessageNode.html">
-    <tr ng-show="show(node)" tt-node
+    <tr ng-show="isRelevant(node)" tt-node
         is-branch="isBranch(node)">
         <td class="col-fixed-450">
             <img ng-show="node.icon != null"
@@ -160,17 +160,17 @@
         </td>
         <td class="col-fixed-80">
                                  <span
-                                        ng-show="!node.predicates || node.predicates == null || node.predicates.length == 0"
-                                        >{{::node.usage}}</span>
-                                <span ng-show="node.predicates != null && node.predicates.length > 0">C({{::node.predicates[0].trueUsage}}/{{::node.predicates[0].falseUsage}})</span>
-         </td>
+                                         ng-show="!node.predicates || node.predicates == null || node.predicates.length == 0"
+                                         >{{::node.usage}}</span>
+            <span ng-show="node.predicates != null && node.predicates.length > 0">C({{::node.predicates[0].trueUsage}}/{{::node.predicates[0].falseUsage}})</span>
+        </td>
         <td class="col-fixed-80">
                                  <span
-                                        ng-show="node.minOccurs != undefined && node.maxOccurs != undefined">[{{::node.minOccurs}}, {{::node.maxOccurs}}]</span>
-         </td>
+                                         ng-show="node.minOccurs != undefined && node.maxOccurs != undefined">[{{::node.minOccurs}}, {{::node.maxOccurs}}]</span>
+        </td>
         <td class="col-fixed-80"><a class="point"
-                                                                          ng-click="showRefSegment(node.reference.id)"
-                                                                          ng-bind="node.reference.name"></a>
+                                    ng-click="showRefSegment(node.reference.id)"
+                                    ng-bind="node.reference.name"></a>
         </td>
         <td>
                                             <span ng-show="options.concise" class="constraint_trim">
@@ -201,20 +201,19 @@
 </script>
 
 
-
 <script type="text/ng-template" id="SegmentNode.html">
-    <tr ng-show="show(node)" tt-node
+    <tr ng-show="isRelevant(node)" tt-node
         is-branch="isBranch(node)">
         <td class="col-fixed-450">
             <img ng-show="node.icon != null"
                  style="width:15px; height:15px"
                  ng-src="images/{{::node.icon}}">
             <span>{{::node.path}}:{{::node.name}}</span>
-         </td>
+        </td>
         <td class="col-fixed-80">
                                  <span
                                          ng-show="!node.predicates || node.predicates == null || node.predicates.length == 0"
-                                          >{{::node.usage}}</span>
+                                         >{{::node.usage}}</span>
             <span ng-show="node.predicates != null && node.predicates.length > 0">C({{::node.predicates[0].trueUsage}}/{{::node.predicates[0].falseUsage}})</span>
         </td>
         <td class="col-fixed-80">
@@ -222,7 +221,7 @@
                                          ng-show="node.minOccurs != undefined && node.maxOccurs != undefined">[{{::node.minOccurs}}, {{::node.maxOccurs}}]</span>
         </td>
         <td class="col-fixed-100">
-            <span >{{::node.dataType}}</span>
+            <span>{{::node.dataType}}</span>
 
         </td>
         <td class="col-fixed-80">
@@ -232,7 +231,7 @@
         <td class="col-fixed-150">
             <a class="point"
                ng-click="showValueSetDefinition(node.table)"
-               >{{::node.table}}</a>
+                    >{{::node.table}}</a>
         </td>
 
         <td>
@@ -265,35 +264,31 @@
 
 
 <script type="text/ng-template" id="DatatypeNode.html">
-    <tr ng-show="show(node)" tt-node
+    <tr ng-show="isRelevant(node)" tt-node
         is-branch="isBranch(node)">
         <td class="col-fixed-450">
             <img ng-show="node.icon != null"
                  style="width:15px; height:15px"
                  ng-src="images/{{::node.icon}}">
             <span ng-if="node.type === 'FIELD' || node.type === 'COMPONENT' || node.type === 'SUBCOMPONENT'">
-             <span>{{::node.position}}:{{::node.name}}</span>
+            <span>{{::node.position}}:{{::node.name}}</span>
             </span>
             <span ng-if="node.type === 'DATATYPE'">{{::node.id}}:{{::node.longName}}</span>
         </td>
         <td class="col-fixed-80">
-                                 <span
-                                         ng-show="!node.predicates || node.predicates == null || node.predicates.length == 0"
-                                          >{{::node.usage}}</span>
+            <span ng-show="!node.predicates || node.predicates == null || node.predicates.length == 0">{{::node.usage}}</span>
             <span ng-show="node.predicates != null && node.predicates.length > 0">C({{::node.predicates[0].trueUsage}}/{{::node.predicates[0].falseUsage}})</span>
         </td>
         <td class="col-fixed-100">
             <span ng-show="node.type === 'DATATYPE'">-</span>
-                                 <span ng-show="node.type !== 'DATATYPE'"
-                                         >{{::node.dataType}}</span>
+            <span ng-show="node.type !== 'DATATYPE'">{{::node.dataType}}</span>
         </td>
         <td class="col-fixed-80">
                                  <span
                                          ng-show="node.minLength && node.maxLength">[{{::node.minLength}},{{::node.maxLength}}]</span>
         </td>
         <td class="col-fixed-150">
-            <a class="point"
-               ng-click="showValueSetDefinition(node.table)">{{::node.table}}</a>
+            <a class="point" ng-click="showValueSetDefinition(node.table)">{{::node.table}}</a>
         </td>
 
         <td>

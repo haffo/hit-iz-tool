@@ -12,6 +12,7 @@
 
 package gov.nist.hit.iz.web.controller;
 
+import gov.nist.hit.core.domain.AbstractTestCase;
 import gov.nist.hit.core.domain.TestArtifact;
 import gov.nist.hit.core.repo.TestCaseRepository;
 import gov.nist.hit.core.repo.TestStepRepository;
@@ -22,6 +23,8 @@ import gov.nist.hit.core.service.util.PdfGeneratorUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -112,6 +115,28 @@ public class TestArtifactController extends TestingController {
 
   }
 
+
+
+  @RequestMapping(value = "/{testId}", method = RequestMethod.GET)
+  public Map<String, TestArtifact> allArtifacts(@RequestParam("type") String type,
+      @PathVariable final Long testId) {
+    AbstractTestCase obj = null;
+    Map<String, TestArtifact> result = new HashMap<String, TestArtifact>();
+    logger.info("Fetching juror document of testcase/teststep with id=" + testId);
+    if ("TestCase".equalsIgnoreCase(type)) {
+      obj = testCaseRepository.findOne(testId);
+    } else if ("TestStep".equalsIgnoreCase(type)) {
+      obj = testStepRepository.findOne(testId);
+    }
+    if (obj != null) {
+      result.put("jurorDocument", obj.getJurorDocument());
+      result.put("messageContent", obj.getMessageContent());
+      result.put("testDataSpecification", obj.getTestDataSpecification());
+      result.put("testStory", obj.getTestStory());
+      result.put("testPackage", obj.getTestPackage());
+    }
+    return result;
+  }
 
   @RequestMapping(value = "/{testId}/jurordocument", method = RequestMethod.GET)
   public TestArtifact tcJurordocument(@RequestParam("type") String type,

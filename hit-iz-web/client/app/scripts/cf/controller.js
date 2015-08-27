@@ -221,7 +221,7 @@ angular.module('cf')
                 gutters: ["CodeMirror-linenumbers", "cm-edi-segment-name"]
             });
 
-            $scope.editor.setSize(null, 350);
+            $scope.editor.setSize("100%", 350);
 
             $scope.editor.on("keyup", function () {
                 $timeout(function () {

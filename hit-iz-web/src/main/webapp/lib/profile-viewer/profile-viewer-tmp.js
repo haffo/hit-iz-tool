@@ -48,16 +48,16 @@
             };
 
             $scope.isBranch = function (node) {
-//                return node.children != null && node.children.length > 0;
-
+                var isBranch = false;
                 if (node.children != null && node.children.length > 0) {
                     for (var i = 0; i < node.children.length; i++) {
-                        if ($scope.isRelevant(node.children[i])) {
-                            return true;
+                        if ($scope.show(node.children[i])) {
+                            isBranch = true;
+                            break;
                         }
                     }
                 }
-                return false;
+                return isBranch;
             };
 
             $scope.showRefSegment = function (id) {
@@ -70,8 +70,8 @@
                     }
             };
 
-            $scope.isRelevant = function (node) {
-                return !$scope.options.relevance || ($scope.options.relevance && node.relevent === true);
+            $scope.show = function (node) {
+                return !$scope.options.relevance || ($scope.options.relevance && node.relevent);
             };
 
             $scope.collapseAll = function (collapse) {
@@ -97,6 +97,14 @@
                 }
             };
 
+            $scope.setRelevance = function(value){
+              $scope.options.relevance = value;
+              if($scope.options.relevance){
+                  $('.notRelevant').hide();
+              }else{
+                 $('.notRelevant').show();
+               }
+            };
 
             $scope.showValueSetDefinition = function (tableId) {
                 $rootScope.$broadcast($scope.type + ':showValueSetDefinition', tableId);
@@ -177,6 +185,7 @@
             });
 
             $scope.refresh = function () {
+
                 $scope.params.refreshWithState(!$scope.options.collapse ? 'expanded' : 'collapse');
             };
 
@@ -186,14 +195,9 @@
                     $scope.nodeData = selectedNode;
                     $scope.options.collapse = selectedNode.type !== 'MESSAGE';
                     $scope.refresh();
+                    $scope.setRelevance($scope.options.relevance);
                 }
             };
-//
-            $scope.setRelevance = function(value){
-                $scope.options.relevance = value;
-                $scope.refresh();
-            };
-//
 
             $scope.showConfStatements = function () {
                 $scope.confStatementsActive = true;
@@ -284,27 +288,27 @@
 
         ProfileService.prototype.getJson = function (id) {
             var delay = $q.defer();
-            $http.post('api/profile/' + id).then(
-                function (object) {
-                    try {
-                        delay.resolve(angular.fromJson(object.data));
-                    } catch (e) {
-                        delay.reject("Invalid character");
-                    }
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//            $http.get('../../resources/cf/profile.json').then(
+//            $http.post('api/profile/' + id).then(
 //                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
+//                    try {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    } catch (e) {
+//                        delay.reject("Invalid character");
+//                    }
 //                },
 //                function (response) {
 //                    delay.reject(response.data);
 //                }
 //            );
+
+            $http.get('../../resources/cf/profile.json').then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
 
             return delay.promise;
         };

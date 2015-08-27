@@ -48,16 +48,16 @@
             };
 
             $scope.isBranch = function (node) {
-                var isBranch = false;
+//                return node.children != null && node.children.length > 0;
+
                 if (node.children != null && node.children.length > 0) {
                     for (var i = 0; i < node.children.length; i++) {
-                        if ($scope.show(node.children[i])) {
-                            isBranch = true;
-                            break;
+                        if ($scope.isRelevant(node.children[i])) {
+                            return true;
                         }
                     }
                 }
-                return isBranch;
+                return false;
             };
 
             $scope.showRefSegment = function (id) {
@@ -70,8 +70,8 @@
                     }
             };
 
-            $scope.show = function (node) {
-                return !$scope.options.relevance || ($scope.options.relevance && node.relevent);
+            $scope.isRelevant = function (node) {
+                return !$scope.options.relevance || ($scope.options.relevance && node.relevent === true);
             };
 
             $scope.collapseAll = function (collapse) {
@@ -188,6 +188,12 @@
                     $scope.refresh();
                 }
             };
+//
+            $scope.setRelevance = function(value){
+                $scope.options.relevance = value;
+                $scope.refresh();
+            };
+//
 
             $scope.showConfStatements = function () {
                 $scope.confStatementsActive = true;

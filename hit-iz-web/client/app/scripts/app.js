@@ -126,7 +126,7 @@ app.config(function ($routeProvider, $httpProvider) {
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sce,$templateCache) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sce,$templateCache,$compile) {
 
     $rootScope.appInfo = {};
 
@@ -223,6 +223,26 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
 
     $rootScope.tabs = new Array();
 
+    $rootScope.compile = function (content) {
+//        scope.$watch(
+//            function(scope) {
+//                // watch the 'compile' expression for changes
+//                return scope.$eval(attrs.compile);
+//            },
+//            function(value) {
+//                // when the 'compile' expression changes
+//                // assign it into the current DOM
+//                element.html(value);
+//
+//                // compile the new DOM and link it to the current
+//                // scope.
+//                // NOTE: we only compile .childNodes so that
+//                // we don't get into infinite loop compiling ourselves
+//                return $compile(content);
+//            }
+//        );
+        return $compile(content);
+    };
 
 
 
