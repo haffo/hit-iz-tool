@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="ASCII" standalone="no"?>
+<html>
+<head>
+<style type="text/css" media="print,screen">
+	.testStory maskByMediaType {display: table;}
+	.testStory table tbody tr th {font-size: 70%;}
+	.testStory table tbody tr td {font-size: 70%;}
+	.testStory table tbody tr th {text-align: left; background: #C6DEFF;}
+	.testStory table thead tr th {text-align: center; font-size: 70%;}
+	.testStory table thead tr th:first-child {width: 15%;}
+	.testStory table thead tr th:nth-child(2) {width: 35%;}
+	.testStory table thead tr th:nth-child(3) {width: 35%;}
+	.testStory table thead tr th:last-child {width: 10%;}
+	.testStory table {width: 98%; border: 1px groove; table-layout: fixed; margin: 0 auto; border-collapse: collapse; page-break-inside: avoid;}
+	.testStory table tr {border: 3px groove;}
+	.testStory table th {border: 2px groove;}
+	.testStory table td {border: 2px groove;}
+	.testStory table thead {border: 1px groove; background: #446BEC; text-align: left;}
+	.testStory table tbody tr td {text-align: left}
+	.testStory .embSpace {padding-left: 10px;}
+	.testStory .embSubSpace {padding-left: 20px;}
+	.testStory .childField {background: #B8B8B8;}
+}
+</style>
+</head>
+<body>
+	<div class="testStory">
+	<fieldset>
+		<legend>Description</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>Juana Mariana Gonzales is selected as the patient and her record is opened in the EMR.&nbsp;</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>Comments</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>No Comments</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>PreCondition</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>Juana Mariana Gonzales&nbsp;Initial Data Load completed.</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>PostCondition</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>Juana Mariana Gonzales is the active working patient in the EMR.</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>Test Objectives</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p><em>Select New Patient:</em> The system must allow a user to enter distinguishing information about patients so that providers can uniquely identify patients who have similar sounding names or other similar identifying information. &nbsp;For example, twins living in the same household will have similar dates of birth, addresses, and may have similar names. EHRs or other clinical software must be able to store information to successfully match with patients in immunization registries, if the information is available. The information includes the mother&rsquo;s maiden name, whether the patient was part of a multiple birth, and the order of the multiple birth. This information allows the provider to correctly identify the patient and also helps assure a match when the EHR send the patient&rsquo;s information to external systems such as an immunization registry.</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>Evaluation Criteria</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>Tester shall verify that the product can distinguish Juana Mariana Gonzales from similar sounding names using all of the pediatric demographics:</p>
+
+<div>
+<p>&nbsp;</p>
+
+<ul>
+	<li>Patient ID (previously listed as &ldquo;Medicaid Number&rdquo;) -&nbsp;<strong>Vendor supplied</strong></li>
+	<li>Patient ID: Assigning Authority ID (i.e., owning source)/Facility Name -&nbsp;<strong>Shoreline Pediatrics&nbsp;</strong></li>
+	<li>Patient ID: Type (e.g., medical record number, IIS ID) -&nbsp;<strong>Vendor supplied</strong></li>
+	<li>Patient Name: First -&nbsp;<strong>Juana&nbsp;</strong></li>
+	<li>Patient Name: Middle -&nbsp;<strong>Mariana&nbsp;</strong></li>
+	<li>Patient Date of Birth -&nbsp;<strong>12/23/2009&nbsp;</strong></li>
+	<li>Birth Time -&nbsp;<strong>11:05&nbsp;</strong></li>
+	<li>Patient Gender (Administrative Sex) -&nbsp;<strong>F</strong></li>
+	<li>Patient Multiple Birth Indicator -&nbsp;<strong>No&nbsp;</strong></li>
+	<li>Patient Birth Order - &nbsp;<strong>NA&nbsp;</strong></li>
+	<li>Responsible Person Name: First -&nbsp;<strong>Joanna&nbsp;</strong></li>
+	<li>Responsible Person Name: Middle -&nbsp;<strong>Merida&nbsp;</strong></li>
+	<li>Responsible Person Name: Last -&nbsp;<strong>Gonzales</strong></li>
+	<li>Responsible Person Name: Relationship to Patient -&nbsp;<strong>Grandmother (or Grandparent)&nbsp;</strong></li>
+	<li>Mother&rsquo;s Name: First -&nbsp;<strong>Maria&nbsp;</strong></li>
+	<li>Mother&rsquo;s Name: Middle -<strong>Merida</strong></li>
+	<li>Mother&rsquo;s Name: Last -&nbsp;<strong>Gonzales</strong></li>
+	<li>Mother&rsquo;s Name: Maiden Last -&nbsp;<strong>Acosta&nbsp;</strong></li>
+	<li>Patient Address: Street -&nbsp;<strong>4345 Standish Way&nbsp;</strong></li>
+	<li>Patient Address: City -&nbsp;<strong>Stamford</strong></li>
+	<li>Patient Address: State -&nbsp;<strong>CT&nbsp;</strong></li>
+	<li>Patient Address: Country -&nbsp;<strong>US</strong><strong>&nbsp;</strong></li>
+	<li>Patient Address: Zipcode -&nbsp;<strong>06903&nbsp;</strong></li>
+	<li>Patient Address: County of Residence -&nbsp;<strong>Fairfield&nbsp;</strong></li>
+	<li>Race - <strong>White</strong></li>
+	<li>Ethnicity -&nbsp;<strong>Hispanic or Latino&nbsp;</strong></li>
+	<li>Birthing Facility Name (Birth Delivery Location Address BDL) -&nbsp;<strong>Shoreline Hospital&nbsp;325 Shorline Drive, Stamford Connecticut 06901&nbsp;</strong></li>
+	<li>Patient Birth State -&nbsp;<strong>CT</strong></li>
+	<li>Patient Primary Language -&nbsp;<strong>English&nbsp;</strong></li>
+	<li>Patient Telephone Number -&nbsp;<strong>(203) 555-1212&nbsp;</strong></li>
+	<li>Patient Telephone Number Type (e.g., home, cell) -&nbsp;<strong>home&nbsp;</strong></li>
+	<li>Patient E-mail Address -&nbsp;<strong>jmg@gmail.com&nbsp;</strong></li>
+	<li>Publicity Code&nbsp;<strong>&nbsp;</strong></li>
+	<li>Protection Indicator<strong>&nbsp;</strong></li>
+	<li>Protection Indicator Effective Date<strong>&nbsp;</strong></li>
+	<li>Immunization Registry Status<strong>&nbsp;</strong></li>
+	<li>Preferred Contact Method -&nbsp;<strong>Phone &nbsp;</strong></li>
+</ul>
+</div>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>Notes to Testers</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>No Note</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	</div>
+</body>
+</html>

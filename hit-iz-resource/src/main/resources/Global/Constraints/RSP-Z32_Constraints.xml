@@ -632,7 +632,7 @@
                                     <PlainText Path="2[1]" Text="CE" IgnoreCase="false"/>
                                 </AND>
                             </NOT>
-                            <StringList Path="5[1].1[1]" CSV="V01,V02,V03,V04,V05,V06,V07,V08"/>
+                            <ValueSet Path="5[1]" ValueSetID="HL70064_IZ" BindingStrength="R" BindingLocation="1"/>
                         </OR>
                     </Assertion>
                 </Constraint>

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="ASCII" standalone="no"?>
+<html>
+<head>
+<style type="text/css" media="print,screen">
+	.testStory maskByMediaType {display: table;}
+	.testStory table tbody tr th {font-size: 70%;}
+	.testStory table tbody tr td {font-size: 70%;}
+	.testStory table tbody tr th {text-align: left; background: #C6DEFF;}
+	.testStory table thead tr th {text-align: center; font-size: 70%;}
+	.testStory table thead tr th:first-child {width: 15%;}
+	.testStory table thead tr th:nth-child(2) {width: 35%;}
+	.testStory table thead tr th:nth-child(3) {width: 35%;}
+	.testStory table thead tr th:last-child {width: 10%;}
+	.testStory table {width: 98%; border: 1px groove; table-layout: fixed; margin: 0 auto; border-collapse: collapse; page-break-inside: avoid;}
+	.testStory table tr {border: 3px groove;}
+	.testStory table th {border: 2px groove;}
+	.testStory table td {border: 2px groove;}
+	.testStory table thead {border: 1px groove; background: #446BEC; text-align: left;}
+	.testStory table tbody tr td {text-align: left}
+	.testStory .embSpace {padding-left: 10px;}
+	.testStory .embSubSpace {padding-left: 20px;}
+	.testStory .childField {background: #B8B8B8;}
+}
+</style>
+</head>
+<body>
+	<div class="testStory">
+	<fieldset>
+		<legend>Description</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>The EHR vendor loads demographic data for Juana Mariana Gonzales.</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>Comments</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>Set-up step evaluating EMR functions for capturing and storing patient pediatric demographic data. There is no transaction associated with this test step.</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>PreCondition</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>No PreCondition</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>PostCondition</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>The EMR has recorded all of the pediatric demographic &nbsp;in the record created for Juana Mariana Gonzales.</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>Test Objectives</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p><strong><em>Register New Patients:</em></strong>&nbsp;The system must allow a user to enter distinguishing information about patients so that providers can uniquely identify patients who have similar sounding names or other similar identifying information. &nbsp;For example, twins living in the same household will have similar dates of birth, addresses, and may have similar names. EHRs or other clinical software must be able to store information to successfully match with patients in immunization registries, if the information is available. The information includes the mother&rsquo;s maiden name, whether the patient was part of a multiple birth, and the order of the multiple birth. This information allows the provider to correctly identify the patient and also helps assure a match when the EHR send the patient&rsquo;s information to external systems such as an immunization registry.</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>Evaluation Criteria</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>Evaluation Criteria: Vendor successfully records all demographic data provided, and in particular&nbsp;(Mother&#39;s maiden name, multiple birth, birth order), with all required attributes indicated by [Y]:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="width:879px">
+	<tbody>
+		<tr>
+			<td style="height:20px; width:367px">Patient ID (previously listed as &ldquo;Medicaid Number&rdquo;)</td>
+			<td style="width:367px">Vendor supplied</td>
+			<td style="width:145px">Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient ID: Assigning Authority ID (i.e., owning source)/Facility Name</td>
+			<td>Shoreline Pediatrics</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient ID: Type (e.g., medical record number, IIS ID)</td>
+			<td>Vendor supplied</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Name: First&nbsp;</td>
+			<td>Juana</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Name: Middle</td>
+			<td>Mariana</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Name: Last</td>
+			<td>Gonzales</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Date of Birth</td>
+			<td>12/23/2009</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:60px">Birth Time</td>
+			<td>11:05</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td style="height:80px">Patient Gender (Administrative Sex)</td>
+			<td>F</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Multiple Birth Indicator</td>
+			<td>No</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Birth Order</td>
+			<td>NA</td>
+			<td>C</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Responsible Person Name: First</td>
+			<td>Joanna</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Responsible Person Name: Middle</td>
+			<td>Merida</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Responsible Person Name: Last</td>
+			<td>Gonzales</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Responsible Person Name: Relationship to Patient</td>
+			<td>Grandmother</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Mother&rsquo;s Name: First</td>
+			<td>Maria</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Mother&rsquo;s Name: Middle</td>
+			<td>Merida</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Mother&rsquo;s Name: Last</td>
+			<td>Gonzales</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Mother&rsquo;s Name: Maiden Last</td>
+			<td>Acosta</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Address: Street</td>
+			<td>4345 Standish Way</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Address: City</td>
+			<td>Stamford</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Address: State</td>
+			<td>CT</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Address: Country</td>
+			<td>USA</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Address: Zipcode</td>
+			<td>06903</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Address: County of Residence</td>
+			<td>Fairfield</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Race</td>
+			<td>Other</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Ethnicity</td>
+			<td>Hispanic or Latino</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:40px">Birthing Facility Name (Birth Delivery Location Address BDL)</td>
+			<td style="width:367px">Shoreline Hospital<br />
+			325 Shorline Drive, Stamford Connecticut 06901</td>
+			<td>[Y - birthing facility name, not address]</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Birth State</td>
+			<td>CT</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Primary Language</td>
+			<td>English</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Telephone Number</td>
+			<td>(203) 555-1212</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient Telephone Number Type (e.g., home, cell)</td>
+			<td>home</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Patient E-mail Address</td>
+			<td>jmg@gmail.com</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Publicity Code</td>
+			<td>&nbsp;</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Protection Indicator</td>
+			<td>&nbsp;</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Protection Indicator Effective Date</td>
+			<td>&nbsp;</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td style="height:20px">Immunization Registry Status</td>
+			<td>&nbsp;</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td style="height:20px; width:367px">Preferred Contact Method</td>
+			<td>Phone</td>
+			<td>Y</td>
+		</tr>
+	</tbody>
+</table>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	
+	<fieldset>
+		<legend>Notes to Testers</legend>
+		<table>
+		<thead>
+			<tr>
+				<th colspan="1" style="height: 20px" />
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><p>No Note</p>
+</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+
+	<br />
+	</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name" : "Record an adverse reaction",
+  "position" : 2,
+  "messageId" : null,
+  "valueSetLibraryId" : null,
+  "constraintId" : null,
+  "type" : null,
+  "description" : "The Provider records in the EMR an adverse reaction of persistent, inconsolable crying lasting > 3 hours within 48 hours of dose."
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "Order IPV and view prior reaction",
+  "position" : 1,
+  "messageId" : null,
+  "valueSetLibraryId" : null,
+  "constraintId" : null,
+  "type" : "",
+  "description" : "The provider selects to order IPV and views information about the prior febrile seizure post-IPV vaccine."
+}
