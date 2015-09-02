@@ -1,0 +1,9 @@
+{
+  "name" : "Enter Initial Clinical Information for Mariela",
+  "position" : 2,
+  "messageId" : null,
+  "valueSetLibraryId" : null,
+  "constraintId" : null,
+  "type" : "",
+  "description" : "The EHR captures structured data indicating that Mariela has a fever in the current visit."
+}

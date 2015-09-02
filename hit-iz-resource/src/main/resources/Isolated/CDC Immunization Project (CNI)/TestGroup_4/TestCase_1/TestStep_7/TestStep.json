@@ -1,0 +1,9 @@
+{
+  "name" : "Records MMRV Vaccine administration route with data validation checking",
+  "position" : 7,
+  "messageId" : null,
+  "valueSetLibraryId" : null,
+  "constraintId" : null,
+  "type" : null,
+  "description" : "The provider records the vaccine administration route in the EMR and is prevented from incorrectly documenting vaccine route"
+}

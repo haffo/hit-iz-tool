@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConformanceContext UUID="f0365fbf-5b3c-46d8-91a5-cbae9d907881">
+<ConformanceContext UUID="8d496cc9-72ae-4c8d-80c7-725b6efb3b66">
   <Constraints>
     <Group>
       <ByName Name="RSP_K11">
-        <Constraint ID="TCAMT_MSA[1].1[1]" Target="3[1].1[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSA[1].1[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
-          <Description>MSA[1].1[1] SHALL be valued 'AA.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="3[1].1[1]" Text="AA"/>
-          </Assertion>
-        </Constraint>
         <Constraint ID="TCAMT_QAK[1].2[1]_2" Target="5[1].2[1]">
           <Reference GeneratedBy="TCAMT" ReferencePath="QAK[1].2[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
           <Description>QAK[1].2[1] SHALL be valued.</Description>
@@ -23,6 +16,13 @@
           <Description>QAK[1].2[1] SHALL be valued 'OK.</Description>
           <Assertion>
             <PlainText IgnoreCase="false" Path="5[1].2[1]" Text="OK"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCAMT_MSA[1].1[1]" Target="3[1].1[1]">
+          <Reference GeneratedBy="TCAMT" ReferencePath="MSA[1].1[1]" Source="Test Case" TestDataCategorization="Test Case Fixed"/>
+          <Description>MSA[1].1[1] SHALL be valued 'AA.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="3[1].1[1]" Text="AA"/>
           </Assertion>
         </Constraint>
       </ByName>

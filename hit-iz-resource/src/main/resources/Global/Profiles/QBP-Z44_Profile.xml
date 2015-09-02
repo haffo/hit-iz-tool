@@ -146,10 +146,10 @@
 		<Datatype ID="CE_IZ" Name="CE" Description="Coded Element">
 			<Component Name="Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="50"/>
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Coding System" Usage="R" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Name of Coding System" Usage="R" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
 			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 		</Datatype>
 		<Datatype ID="XAD_IZ" Name="XAD" Description="Extended Address">
 			<Component Name="Street Address" Usage="RE" Datatype="SAD_IZ" MinLength="1" MaxLength="184"/>

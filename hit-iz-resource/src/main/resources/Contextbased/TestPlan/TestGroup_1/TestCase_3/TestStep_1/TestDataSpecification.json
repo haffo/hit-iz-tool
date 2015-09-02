@@ -1,5 +1,5 @@
 {
-"version" : "2.1",
+"version" : "2.2",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -63,7 +63,6 @@
 				{"element" : "Entered By", "data" : "Lily Jackson"},
 				{"element" : "Ordered By", "data" : "Wilma Thomas"},
 					{"element" : "obx", "data" : 
-					},
 					{
 						"title":"Observations",
 						"elements" : 

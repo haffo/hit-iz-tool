@@ -1,0 +1,9 @@
+{
+  "name" : "Produce Overdue Immunizations Cohort Report",
+  "position" : 1,
+  "messageId" : null,
+  "valueSetLibraryId" : null,
+  "constraintId" : null,
+  "type" : "",
+  "description" : "The provider uses the EMR to create a report for all patient vaccinations overdue with the contact information."
+}

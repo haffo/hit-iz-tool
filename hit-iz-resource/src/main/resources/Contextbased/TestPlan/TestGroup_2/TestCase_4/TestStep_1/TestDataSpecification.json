@@ -1,5 +1,5 @@
 {
-"version" : "2.1",
+"version" : "2.2",
 "profile" : "QBP_Q11",
 "tables":
 [
@@ -9,7 +9,7 @@
 			[
 				{"element" : "Patient Name", "data" : "Sam S Johnson"},
 				{"element" : "Date/Time of Birth", "data" : "02/14/1980"},
-				{"element" : "Sex", "data" : "M"},
+				{"element" : "Sex", "data" : "Male"},
 				{"element" : "Patient Address", "data" : "10 East Main St Pretty Valley MI "},
 				{"element" : "Patient Phone", "data" : "(734)555-6712"}
 			]

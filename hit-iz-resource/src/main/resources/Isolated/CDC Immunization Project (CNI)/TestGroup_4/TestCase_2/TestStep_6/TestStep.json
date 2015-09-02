@@ -1,0 +1,9 @@
+{
+  "name" : "Records Influenza Vaccine administration with VFC eligibility checking",
+  "position" : 6,
+  "messageId" : null,
+  "valueSetLibraryId" : null,
+  "constraintId" : null,
+  "type" : "",
+  "description" : "The provider records the vaccine administration from a VFC source and alerted that the patient is not VFC eligible."
+}

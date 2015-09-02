@@ -1,0 +1,9 @@
+{
+  "name" : "Record Hepatitis B Vaccine administration",
+  "position" : 5,
+  "messageId" : null,
+  "valueSetLibraryId" : null,
+  "constraintId" : null,
+  "type" : "",
+  "description" : "The EMR is able to document all attributes associated with the new vaccine administration."
+}

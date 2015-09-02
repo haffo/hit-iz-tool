@@ -86,8 +86,8 @@
                     </Condition>
                 </Predicate>
             </ByID>
-            <ByID ID="EI_IZ_RSP_Z42">
-                <Predicate ID="[EI_IZ_RSP_Z42]2[1]" Target="2[1]" TrueUsage="R" FalseUsage="O">
+            <ByID ID="EI_IZ">
+                <Predicate ID="[EI_IZ]2[1]" Target="2[1]" TrueUsage="R" FalseUsage="O">
                     <Description>If EI.3 (Universal ID) is not valued.</Description>
                     <Condition>
                         <NOT>
@@ -95,7 +95,7 @@
                         </NOT>
                     </Condition>
                 </Predicate>
-                <Predicate ID="[EI_IZ_RSP_Z42]3[1]" Target="3[1]" TrueUsage="R" FalseUsage="O">
+                <Predicate ID="[EI_IZ]3[1]" Target="3[1]" TrueUsage="R" FalseUsage="O">
                     <Description>If EI.2 (Namespace ID) is not valued.</Description>
                     <Condition>
                         <NOT>
@@ -103,7 +103,7 @@
                         </NOT>
                     </Condition>
                 </Predicate>
-                <Predicate ID="[EI_IZ_RSP_Z42]4[1]" Target="4[1]" TrueUsage="R" FalseUsage="X">
+                <Predicate ID="[EI_IZ]4[1]" Target="4[1]" TrueUsage="R" FalseUsage="X">
                     <Description>If EI.3 (Universal ID) is valued.</Description>
                     <Condition>
                         <Presence Path="3[1]"/>
@@ -249,7 +249,7 @@
     </Predicates>
     <Constraints>
         <Datatype>
-            <ByID ID="EI_IZ_RSP_Z42">
+            <ByID ID="EI_IZ">
                 <Constraint ID="IZ-3" Target="3[1]">
                     <Description>The value of EI.3 (Universal ID) SHALL be formatted with ISO-compliant OID.</Description>
                     <Assertion>

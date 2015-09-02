@@ -126,7 +126,7 @@
 			<Field Name="Date/Time of Birth" Usage="R" Min="1" Max="1" Datatype="TS_NZ" MinLength="1" MaxLength="26" ItemNo="00110"/>
 			<Field Name="Administrative Sex" Usage="R" Min="1" Max="1" Datatype="IS" MinLength="1" MaxLength="1" Binding="HL70001_IZ" BindingStrength="R" ItemNo="00111"/>
 			<Field Name="Patient Alias" Usage="X" Min="0" Max="0" Datatype="XPN_IZ" MinLength="1" MaxLength="250" ItemNo="00112"/>
-			<Field Name="Race" Usage="RE" Min="0" Max="*" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="HL70005_IZ" BindingStrength="R" BindingLocation="1" ItemNo="00113"/>
+			<Field Name="Race" Usage="RE" Min="0" Max="*" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="CDCREC_R_IZ" BindingStrength="R" BindingLocation="1" ItemNo="00113"/>
 			<Field Name="Patient Address" Usage="RE" Min="0" Max="*" Datatype="XAD_IZ" MinLength="1" MaxLength="250" ItemNo="00114"/>
 			<Field Name="County Code" Usage="X" Min="0" Max="0" Datatype="IS" MinLength="1" MaxLength="4" ItemNo="00115"/>
 			<Field Name="Phone Number - Home" Usage="RE" Min="0" Max="*" Datatype="XTN_IZ" MinLength="1" MaxLength="250" ItemNo="00116"/>
@@ -138,7 +138,7 @@
 			<Field Name="SSN Number - Patient" Usage="X" Min="0" Max="0" Datatype="ST" MinLength="1" MaxLength="16" ItemNo="00122"/>
 			<Field Name="Driver's License Number - Patient" Usage="X" Min="0" Max="0" Datatype="DLN" MinLength="1" MaxLength="25" ItemNo="00123"/>
 			<Field Name="Mother's Identifier" Usage="X" Min="0" Max="0" Datatype="CX" MinLength="1" MaxLength="250" ItemNo="00124"/>
-			<Field Name="Ethnic Group" Usage="RE" Min="0" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="CDCREC" BindingStrength="R" BindingLocation="1" ItemNo="00125"/>
+			<Field Name="Ethnic Group" Usage="RE" Min="0" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="CDCREC_E_IZ" BindingStrength="R" BindingLocation="1" ItemNo="00125"/>
 			<Field Name="Birth Place" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="250" ItemNo="00126"/>
 			<Field Name="Multiple Birth Indicator" Usage="RE" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70136_IZ" BindingStrength="R" ItemNo="00127"/>
 			<Field Name="Birth Order" Usage="C" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="2" ItemNo="00128"/>
@@ -261,10 +261,10 @@
 		<Datatype ID="CWE_IZ" Name="CWE" Description="Coded with Exceptions">
 			<Component Name="Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Name of Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 			<Component Name="Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
 			<Component Name="Alternate Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
 			<Component Name="Original Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
@@ -337,10 +337,10 @@
 		<Datatype ID="CE_IZ" Name="CE" Description="Coded Element">
 			<Component Name="Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="50"/>
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Coding System" Usage="R" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Name of Coding System" Usage="R" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
 			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 		</Datatype>
 		<Datatype ID="XPN_IZ_ST" Name="XPN" Description="Extended Person Name">
 			<Component Name="Family Name" Usage="O" Datatype="FN" MinLength="1" MaxLength="194"/>
