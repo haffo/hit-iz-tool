@@ -12,6 +12,7 @@
 
 package gov.nist.hit.iz.web.controller;
 
+import gov.nist.healthcare.unified.model.EnhancedReport;
 import gov.nist.hit.core.domain.MessageCommand;
 import gov.nist.hit.core.domain.TestContext;
 import gov.nist.hit.core.hl7v2.service.message.Er7ValidationReportGenerator;
@@ -129,30 +130,37 @@ public class TestContextController extends TestingController {
   }
 
   @RequestMapping(value = "/{testContextId}/validateMessage", method = RequestMethod.POST)
-  public HashMap<String, Object> validate(@PathVariable final Long testContextId,
+  public HashMap<String, String> validate(@PathVariable final Long testContextId,
       @RequestBody final MessageCommand command) throws MessageValidationException {
     try {
-      HashMap<String, Object> resultMap = new HashMap<String, Object>();
+      HashMap<String, String> resultMap = new HashMap<String, String>();
       TestContext testContext = testContext(testContextId);
-      String hl7Report =
-          messageValidator.validate(command.getName(), getMessageContent(command), testContext
-              .getConformanceProfile().getSourceId(), testContext.getConformanceProfile()
-              .getIntegrationProfile().getXml(), testContext.getVocabularyLibrary().getXml(),
-              testContext.getConstraints().getXml(),
+      String message = getMessageContent(command);
+      String json =
+          messageValidator.validate(command.getName(), command.getContextType(),
+              getMessageContent(command), testContext.getConformanceProfile().getSourceId(),
+              testContext.getConformanceProfile().getIntegrationProfile().getXml(), testContext
+                  .getVocabularyLibrary().getXml(), testContext.getConstraints().getXml(),
               testContext.getAddditionalConstraints() != null ? testContext
                   .getAddditionalConstraints().getXml() : null);
-      resultMap.put("hl7Report", hl7Report);
 
+      EnhancedReport report = EnhancedReport.from("json", json);
       if (command.isDqa()) {
-        CompactReportModel crm =
-            ProcessMessageHL7.process(command.getContent(), command.getFacilityId());
-        resultMap.put("dqaReport", crm);
+        // Perform a DQA validation
+        CompactReportModel dqa_results =
+            ProcessMessageHL7.process(message, command.getFacilityId());
+        report.put(dqa_results.toSections());
       }
+
+      resultMap.put("json", report.to("json").toString());
+      resultMap.put("html", report.render("iz-report", null));
 
       return resultMap;
     } catch (MessageException e) {
       throw new MessageValidationException(e.getMessage());
     } catch (MessageValidationException e) {
+      throw new MessageValidationException(e.getMessage());
+    } catch (Exception e) {
       throw new MessageValidationException(e.getMessage());
     }
   }

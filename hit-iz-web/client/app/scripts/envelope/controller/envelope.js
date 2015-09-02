@@ -61,7 +61,7 @@ angular.module('envelope')
 
 
 angular.module('envelope')
-    .controller('EnvelopeTestCaseCtrl', ['$scope', '$window', '$rootScope', 'Envelope', 'ngTreetableParams', 'EnvelopeTestCaseListLoader', function ($scope, $window, $rootScope, Envelope,ngTreetableParams, EnvelopeTestCaseListLoader) {
+    .controller('EnvelopeTestCaseCtrl', ['$scope', '$window', '$rootScope', 'Envelope', 'ngTreetableParams', 'EnvelopeTestCaseListLoader','$timeout', function ($scope, $window, $rootScope, Envelope,ngTreetableParams, EnvelopeTestCaseListLoader,$timeout) {
 
         $scope.selectedTestCase = Envelope.selectedTestCase;
         $scope.testCase = Envelope.testCase;
@@ -98,19 +98,25 @@ angular.module('envelope')
          };
 
         $scope.refreshEditor = function () {
-            $scope.$broadcast("envelope:editor:init");
+            $timeout(function() {
+                $scope.$broadcast("envelope:editor:init");
+            });
         };
 
         $scope.selectTestCase = function (node) {
             $scope.selectedTestCase = node;
-            $rootScope.$broadcast('env:testCaseSelected');
+            $timeout(function() {
+                $rootScope.$broadcast('env:testCaseSelected');
+            });
 
         };
 
         $scope.loadTestCase = function () {
             Envelope.testCase = $scope.selectedTestCase;
             $scope.testCase = Envelope.testCase;
-            $rootScope.$broadcast('env:testCaseLoaded',$scope.testCase);
+            $timeout(function() {
+                $rootScope.$broadcast('env:testCaseLoaded', $scope.testCase);
+            });
         };
     }]);
 
@@ -228,50 +234,13 @@ angular.module('envelope')
                 XmlTreeUtils.expandTree($scope.envelopeTree);
             }, true);
 
-//
-//            $scope.$on("refreshPanel", function (event) {
-//                $scope.refreshEditor();
-//            });
-
             $rootScope.$on('env:testCaseLoaded', function (event) {
                 $scope.testCase = Envelope.testCase;
                 $scope.message('');
             });
 
-
-//            $scope.$watch(function () {
-//                return Envelope.message.updateIndicator;
-//            }, function (token) {
-//                if (token !== "0") {
-//                    $scope.validateMessage();
-//                    $scope.parse();
-//                }
-//            }, true);
-
-//            $scope.$watch(function () {
-//                return Envelope.testCase.id;
-//            }, function (token) {
-//                if (token != null) {
-//                    $scope.validateMessage();
-//                }
-//            }, true);
-
-
             $scope.setValidationResult({});
             $scope.refreshEditor();
-
-
-
-//
-//            $scope.$watch(function () {
-//                return Envelope.testCase.id;
-//            }, function () {
-//                $scope.parse();
-//            }, true);
-
-
-
-
 
 
         };
@@ -420,9 +389,7 @@ angular.module('envelope')
                 $scope.testCase = Envelope.testCase;
 
             });
-
         };
-
 
         $scope.downloadAs = function (format) {
             //var data = angular.fromJson({"xmlReport": EnvelopeMessageValidationResult.xml});
@@ -430,6 +397,3 @@ angular.module('envelope')
         };
 
     }]);
-
-
-'use strict';

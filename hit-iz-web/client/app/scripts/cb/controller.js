@@ -20,7 +20,7 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBExecutionCtrl', ['$scope', '$window', '$rootScope', function ($scope, $window, $rootScope) {
+    .controller('CBExecutionCtrl', ['$scope', '$window', '$rootScope', '$timeout', function ($scope, $window, $rootScope,$timeout) {
         $scope.loading = true;
         $scope.error = null;
         $scope.tabs = new Array();
@@ -45,8 +45,12 @@ angular.module('cb')
             $rootScope.$on('cb:testCaseLoaded', function (event, testCase) {
                 $rootScope.setSubActive('/cb_execution');
                 $scope.testCase = testCase;
-                $rootScope.$broadcast('cb:profileLoaded', $scope.testCase.testContext.profile);
-                $rootScope.$broadcast('cb:valueSetLibraryLoaded', $scope.testCase.testContext.vocabularyLibrary);
+                $timeout(function() {
+                    $rootScope.$broadcast('cb:profileLoaded', $scope.testCase.testContext.profile);
+                });
+                $timeout(function() {
+                    $rootScope.$broadcast('cb:valueSetLibraryLoaded', $scope.testCase.testContext.vocabularyLibrary);
+                });
             });
         };
 
@@ -157,14 +161,20 @@ angular.module('cb')
 
 
         $scope.selectTestCase = function (node) {
-            $scope.selectedTestCase = node;
-            $rootScope.$broadcast('cb:testCaseSelected',$scope.selectedTestCase);
+            if($scope.selectedTestCase == null || $scope.selectedTestCase.id != node.id) {
+                $scope.selectedTestCase = node;
+                $timeout(function () {
+                    $rootScope.$broadcast('cb:testCaseSelected', $scope.selectedTestCase);
+                });
+            }
         };
 
         $scope.loadTestCase = function () {
             CB.testCase = $scope.selectedTestCase;
             $scope.testCase = CB.testCase;
-            $rootScope.$broadcast('cb:testCaseLoaded', $scope.testCase);
+            $timeout(function() {
+                $rootScope.$broadcast('cb:testCaseLoaded', $scope.testCase);
+            });
         };
 
         $scope.expand = function(event){
@@ -331,7 +341,7 @@ angular.module('cb')
             $scope.vError = null;
             if ($scope.cb.testCase != null && $scope.cb.message.content !== "") {
                 try {
-                    var validator =  new Er7MessageValidator().validate($scope.cb.testCase.testContext.id, $scope.cb.message.content, '', $scope.dqaOptions.checked,"1223");
+                    var validator =  new Er7MessageValidator().validate($scope.cb.testCase.testContext.id, $scope.cb.message.content, '', $scope.dqaOptions.checked,"1223", "Based");
                      validator.then(function (mvResult) {
                         $scope.vLoading = false;
                         $scope.loadValidationResult(mvResult);
@@ -353,7 +363,9 @@ angular.module('cb')
         };
 
         $scope.loadValidationResult = function (mvResult) {
-            $rootScope.$broadcast('cb:validationResultLoaded', mvResult);
+            $timeout(function() {
+                $rootScope.$broadcast('cb:validationResultLoaded', mvResult);
+            });
         };
 
         $scope.select = function (element) {

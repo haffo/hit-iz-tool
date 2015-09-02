@@ -3,7 +3,7 @@
         <tab ng-click="showValidationTable(validationResult.errors.categories[0],'errors')" active="active.errors[validationResult.errors.categories[0].title]">
             <tab-heading>
                 <input type="checkbox"
-                        ng-click="showFailures('errors', validationResult.errors.categories[0].data, $event)"
+                        ng-click="showFailures('errors', validationResult.errors.categories[0], $event)"
                         >
                 <span class="badge failure failure-errors"
                       ng-bind="validationResult.errors.categories[0].data.length"></span>
@@ -15,7 +15,7 @@
                          ng-click="showValidationTable(category,'errors')">
                         <tab-heading>
                             <input type="checkbox"
-                                    ng-click="showFailures('errors',category.data, $event)"
+                                    ng-click="showFailures('errors',category, $event)"
                                     >
                             <span class="badge failure failure-errors" ng-bind="category.data.length"></span>
                             {{category.title}}
@@ -28,7 +28,7 @@
         <tab ng-click="showValidationTable(validationResult.warnings.categories[0],'warnings')">
             <tab-heading>
                 <input type="checkbox"
-                        ng-click="showFailures('warnings',validationResult.warnings.categories[0].data, $event)"
+                        ng-click="showFailures('warnings',validationResult.warnings.categories[0], $event)"
                         >
         <span class="badge failure failure-warnings"
               ng-bind="validationResult.warnings.categories[0].data.length"></span> Warnings
@@ -39,7 +39,7 @@
                          ng-click="showValidationTable(category,'warnings')">
                         <tab-heading>
                             <input type="checkbox"
-                                    ng-click="showFailures('warnings',category.data, $event)"
+                                    ng-click="showFailures('warnings',category, $event)"
                                     >
                             <span class="badge failure failure-warnings" ng-bind="category.data.length"></span>
                             {{category.title}}
@@ -50,7 +50,7 @@
         <tab ng-click="showValidationTable(validationResult.alerts.categories[0],'alerts')">
             <tab-heading>
                 <input type="checkbox"
-                        ng-click="showFailures('alerts',validationResult.alerts.categories[0].data, $event)"
+                        ng-click="showFailures('alerts',validationResult.alerts.categories[0], $event)"
                         >
                 <span class="badge failure failure-alerts"
                       ng-bind="validationResult.alerts.categories[0].data.length"></span>
@@ -62,7 +62,7 @@
                          ng-click="showValidationTable(category,'alerts')">
                         <tab-heading>
                             <input type="checkbox"
-                                    ng-click="showFailures('alerts',category.data, $event)"
+                                    ng-click="showFailures('alerts',category, $event)"
                                     >
                             <span class="badge failure failure-alerts" ng-bind="category.data.length"></span>
                             {{category.title}}

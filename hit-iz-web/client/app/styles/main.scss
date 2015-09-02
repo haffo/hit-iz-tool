@@ -437,23 +437,7 @@ ul.result-settings {
   width: 500px;
 }
 
-.constraint_trim {
-  //  display: inline-block;
-  //  overflow: hidden;
-  //  max-width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  //  line-height: px;
-  //  position: relative;
-}
 
-.constraint_verbose {
-  //  display: inline-block;
-  //  overflow: hidden;
-  //  max-width: 100%;
-  //     line-height: 10px;
-  //  position: relative;
-}
 
 //.profile-viewer-cs-trim {
 //  max-width: 500px;
@@ -1511,8 +1495,10 @@ li.validation-result-subtab {
   border-color: #bce8f1;
   color: white;
 }
+
+
 .message {
-  max-height: 400px !important;
+  max-height: 600px !important;
   overflow: auto;
 }
 
@@ -1539,4 +1525,58 @@ li.validation-result-subtab {
 }
 
 
+.concise-view {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}
 
+.predicate-concise-view {
+  max-width: 250px;
+}
+//
+.cs-concise-view {
+  max-width: 100%;
+}
+
+.expanded-view {
+  display: block;
+  text-align:left;
+//  margin-top: 1px;
+//  margin-bottom: 1px;
+//  margin-left: 0;
+//  margin-right: 0;
+}
+
+//.constraints-tooltip{
+////  background-color: black;
+//
+//}
+
+.tooltip.constraints-tooltip .tooltip-inner {
+  color: white;
+  background-color: black;
+}
+
+//.pvt{
+//  width:800px;
+//}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+
+.nav-tabs > li.focus > a, .nav-tabs > li > a:focus, .nav-tabs > li.active > a:focus {
+  background-color: #428bca;
+  border-color: #bce8f1;
+  color: white;
+}
+
+.valueset {
+  display: block;
+  text-align:left;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 0;
+    margin-right: 0;
+}

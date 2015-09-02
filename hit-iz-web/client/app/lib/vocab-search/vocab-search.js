@@ -42,8 +42,10 @@
 //            });
 
             $rootScope.$on($scope.type + ':valueSetLibraryLoaded', function (event, vocabularyLibrary) {
-                $scope.vocabularyLibrary = vocabularyLibrary;
-                $scope.init($scope.vocabularyLibrary);
+                if($scope.vocabularyLibrary === null || $scope.vocabularyLibrary.id != vocabularyLibrary.id) {
+                    $scope.vocabularyLibrary = vocabularyLibrary;
+                    $scope.init($scope.vocabularyLibrary);
+                }
             });
 
 //            $rootScope.$on($scope.type + ':valueSetIdsCollected', function (event, valueSetIds) {
@@ -82,9 +84,10 @@
                         $scope.error = "Sorry, Cannot load the vocabulary.";
                         $scope.loading = false;
                     });
+                }else{
+                    $scope.valueSetDefinitionGroups = null;
                 }
             };
-
 
             $scope.searchTableValues = function () {
                 $scope.selectedValueSetDefinition = null;

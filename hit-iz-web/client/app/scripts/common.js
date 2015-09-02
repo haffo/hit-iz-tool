@@ -395,7 +395,7 @@ angular.module('commonServices').factory('Er7MessageValidator', function ($http,
     var Er7MessageValidator = function () {
     };
 
-    Er7MessageValidator.prototype.validate = function (testContextId, content, name, dqaChecked,facilityId) {
+    Er7MessageValidator.prototype.validate = function (testContextId, content, name, dqaChecked,facilityId, contextType) {
         var delay = $q.defer();
         if (!HL7EditorUtils.isHL7(content)) {
             delay.reject("Message provided is not an HL7 v2 message");
@@ -409,7 +409,7 @@ angular.module('commonServices').factory('Er7MessageValidator', function ($http,
 //                    delay.reject(response.data);
 //                }
 //            );
-            $http.post('api/testcontext/'+ testContextId + '/validateMessage', angular.fromJson({"content": content, "dqa":dqaChecked, "facilityId":"1223"})).then(
+            $http.post('api/testcontext/'+ testContextId + '/validateMessage', angular.fromJson({"content": content, "dqa":dqaChecked, "facilityId":"1223", "contextType":contextType})).then(
                 function (object) {
                     try {
                         delay.resolve(angular.fromJson(object.data));

@@ -508,18 +508,18 @@ angular.module('hl7').factory('HL7Utils', function () {
                     }
                     case "FIELD":
                     {
-                        // MSH[1].7[1]
-                        return path.split("-")[1].split(".")[0];
+                        // MSH[1]-4[1]
+                        return path.split("-")[1].split("[")[0];
                     }
                     case "COMPONENT":
                     {
-                        // MSH[1].7[1].3[1]
-                        return path.split(".")[1];
+                        // MSH[1]-4[1].1
+                         return path.split(".")[1];
                     }
                     case "SUB_COMPONENT":
                     {
-                        // MSH[1].7[1].3[1].4[1]
-                        return path.split(".")[2];
+                        // MSH[1]-4[1].1.2
+                         return path.split(".")[2];
                     }
                 }
             }catch(e){
@@ -538,18 +538,19 @@ angular.module('hl7').factory('HL7Utils', function () {
                         }
                         case "FIELD":
                         {
-                            // MSH[1].7[1]
+
+                            // MSH[1]-4[1]
                             return path.split("-")[1].split("[")[1].split("]")[0];
                         }
                         case "COMPONENT":
                         {
-                            // MSH[1].7[1].3[1]
-                            return path.split("-")[2].split("[")[1].split("]")[0];
+ //                            return path.split("-")[2].split("[")[1].split("]")[0];
+                            return 1;
                         }
                         case "SUB_COMPONENT":
                         {
-                            // MSH[1].7[1].3[1].4[1]
-                            return path.split("-")[3].split("[")[1].split("]")[0];
+ //                            return path.split("-")[3].split("[")[1].split("]")[0];
+                            return 1;
                         }
                 }
             }catch(e){
@@ -558,12 +559,16 @@ angular.module('hl7').factory('HL7Utils', function () {
         },
 
         getType: function (path) {
+
+            //MSH[1]-3[1].1
+
             if(path.indexOf("-") > 0){
-                if (path.split(".").length === 1) {
+                var path =  path.split("-")[1];
+                if (path.split(".").length === 0) {
                     return "FIELD";
-                } else if (path.split(".").length === 2) {
+                } else if (path.split(".").length === 1) {
                     return "COMPONENT";
-                } else if (path.split(".").length === 3) {
+                } else if (path.split(".").length === 2) {
                     return "SUB_COMPONENT";
                 }
             }else{
@@ -581,83 +586,6 @@ angular.module('hl7').factory('HL7Utils', function () {
 
 });
 
-//
-//angular.module('hl7').factory('ValidationBinder',
-//    [ 'HL7TreeUtils', function (HL7TreeUtils) {
-//        return  {
-//            tree: null,
-//            editor: null,
-//            result: null,
-//            init: function (tree, editor, result) {
-//                this.tree = tree;
-//                this.editor = editor;
-//                this.result = result;
-//                var firstNode = tree.get_first_branch();
-//                var children = tree.get_siblings(firstNode);
-//                if (children && children.length > 0) {
-//                    for (var i = 0; i < children.length; i++) {
-//                        this.initNode(children[i]);
-//                    }
-//                }
-//            },
-//            initNode: function (node) {
-//                this.setEndIndex(node);
-//                this.setValidationResults(node);
-//                var children = this.tree.get_children(node);
-//                if (children && children.length > 0) {
-//                    for (var i = 0; i < children.length; i++) {
-//                        this.initNode(children[i]);
-//                    }
-//                }
-//            },
-//
-//            setEndIndex: function (node) {
-//                var endIndex = HL7TreeUtils.getEndIndex(node, this.editor.doc.getValue());
-//                node.data.endIndex = endIndex;
-//            },
-//
-//
-//            setValidationResults: function (node) {
-//                node["validation"] = [];
-//                node.validation["errors"] = [];
-//                node.validation["alerts"] = [];
-//                node.validation["informationals"] = [];
-//
-//                if (this.result.errors.data && this.result.errors.data.length > 0) {
-//                    for (var i = 0; i < this.result.errors.data.length; i++) {
-//                        var error = this.result.errors.data[i];
-//                        if (error.path === node.data.path) {
-//                            node.validation.errors.push(error);
-//                        }
-//                    }
-//                }
-//                if (this.result.alerts.data && this.result.alerts.data.length > 0) {
-//                    for (var i = 0; i < this.result.alerts.data.length; i++) {
-//                        var error = this.result.alerts.data[i];
-//                        if (error.path === node.data.path) {
-//                            node.validation.alerts.push(error);
-//                        }
-//                    }
-//
-//                }
-//
-//                if (this.result.informationals.data && this.result.informationals.data.length > 0) {
-//                    for (var i = 0; i < this.result.informationals.data.length; i++) {
-//                        var error = this.result.informationals.data[i];
-//                        if (error.path === node.data.path) {
-//                            node.validation.informationals.push(error);
-//                        }
-//                    }
-//                }
-//            },
-//
-//            clear: function () {
-//                this.tree = null;
-//                this.editor = null;
-//                this.result = null;
-//            }
-//        }
-//    }]);
 
 angular.module('hl7').factory('HL7TreeUtils',
     ['$rootScope', '$http', '$q', 'HL7CursorUtils', 'HL7Utils', function ($rootScope, $http, $q, HL7CursorUtils, HL7Utils) {
@@ -701,7 +629,8 @@ angular.module('hl7').factory('HL7TreeUtils',
             findNodeByPath: function (tree, node, lineNumber, path) {
                 if (path.startsWith(node.data.path)) {
                     if (angular.equals(node.data.path , path)) {
-                        return this.findLastChild(tree, node);
+//                        return this.findLastChild(tree, node);
+                        return node;
                     }
                     var children = tree.get_children(node);
                     if (children && children.length > 0) {
@@ -792,6 +721,7 @@ angular.module('hl7').factory('HL7TreeUtils',
                         treeObject.expand_branch(found);
                     }
                 }
+                return found;
             },
             selectNodeByPath: function (treeObject, lineNumber, path) {
                 var found = this.findByPath(treeObject, lineNumber, path);
@@ -803,6 +733,8 @@ angular.module('hl7').factory('HL7TreeUtils',
                         treeObject.expand_branch(found);
                     }
                 }
+                return found;
+
             },
 
             /**

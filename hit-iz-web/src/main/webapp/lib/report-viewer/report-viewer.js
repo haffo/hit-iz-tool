@@ -20,48 +20,24 @@
     ]);
 
     mod
-        .controller('ReportViewerCtrl', ['$scope', '$rootScope', 'ngTreetableParams', 'ReportService', function ($scope, $rootScope, ngTreetableParams, ReportService) {
+        .controller('ReportViewerCtrl', ['$scope', '$rootScope', 'ngTreetableParams', 'ReportService', '$compile',function ($scope, $rootScope, ngTreetableParams, ReportService,$compile) {
             var reportService = new ReportService();
             $scope.report = null;
 
             $rootScope.$on($scope.type + ':reportLoaded', function (event, report) {
                 $scope.report = report;
-                if ($scope.report !== null && !angular.equals( $scope.report.result, {})) {
-                    $scope.report["metaData"] = {
-                        reportHeader: {
-                            title: "Message Validation Report",
-                            date: new Date().getTime()
-                        },
-                        validationTypeHeader: {
-                            title: "Validation Type",
-                            type: ""
-                        },
-                        toolHeader: {
-                            title: "Testing Tool",
-                            name: "",
-                            versionRelease: "1.0"
-                        },
-                        profileHeader: {
-                            name: "Profile Name",
-                            organization: "NIST",
-                            type: "See Profile MetaData Slide",
-                            profileVersion: "",
-                            profileDate: "",
-                            standard: ""
-                        },
-                        messageHeader: {
-                            encoding: ""
-                        },
-                        summaryHeader: {
-                            errorCount:  $scope.report.result.errors.categories[0].data.length,
-                            warningCount:  $scope.report.result.warnings.categories[0].data.length,
-                            informationalCount:  $scope.report.result.informationals.categories[0].data.length,
-                            alertCount:  $scope.report.result.alerts.categories[0].data.length,
-                            affirmativeCount:  $scope.report.result.affirmatives.categories[0].data.length
-                        }
-                    };
-                }
+                $scope.compile();
             });
+
+            $scope.compile = function () {
+                    var element = $('#'+$scope.type +'-report');
+                    if($scope.report != null) {
+                        element.html($scope.report.html);
+                    }else{
+                        element.html('');
+                    }
+                    $compile(element.contents())($scope);
+            };
 
             $scope.downloadAs = function (format) {
                 reportService.downloadByFormat($scope.report, format);

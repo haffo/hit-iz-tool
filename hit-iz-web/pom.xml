@@ -211,11 +211,11 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.openimmunizationsoftware.dqa</groupId>
+			<groupId>org.openimmunizationsoftware.dqa.nist</groupId>
 			<artifactId>ois-dqa-core</artifactId>
-			<version>1.8.3-SNAPSHOT</version>
- 		</dependency>
-
+			<version>1.8.5-SNAPSHOT</version>
+		</dependency>
+		
 	</dependencies>
 
 	<repositories>

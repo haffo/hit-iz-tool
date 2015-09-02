@@ -13,7 +13,7 @@ angular.module('connectivity')
 
 
 angular.module('connectivity')
-    .controller('ConnectivityTestCaseCtrl', ['$scope', 'Connectivity', 'ngTreetableParams', '$rootScope', 'ConnectivityTestCaseListLoader', '$cookies', function ($scope, Connectivity, ngTreetableParams, $rootScope, ConnectivityTestCaseListLoader,$cookies) {
+    .controller('ConnectivityTestCaseCtrl', ['$scope', 'Connectivity', 'ngTreetableParams', '$rootScope', 'ConnectivityTestCaseListLoader', '$cookies', '$timeout', function ($scope, Connectivity, ngTreetableParams, $rootScope, ConnectivityTestCaseListLoader,$cookies,$timeout) {
 
         $scope.connectivity = Connectivity;
         $scope.loading = true;
@@ -25,7 +25,9 @@ angular.module('connectivity')
 
         $scope.selectTestCase = function (node) {
             $scope.selectedTestCase = node;
-            $rootScope.$broadcast('conn:testCaseSelected');
+            $timeout(function() {
+                $rootScope.$broadcast('conn:testCaseSelected');
+            });
         };
 
         $scope.init = function () {
@@ -57,7 +59,9 @@ angular.module('connectivity')
         $scope.loadTestCase = function () {
             Connectivity.testCase = $scope.selectedTestCase;
             $scope.testCase = Connectivity.testCase;
-            $rootScope.$broadcast('conn:testCaseLoaded');
+            $timeout(function() {
+                $rootScope.$broadcast('conn:testCaseLoaded');
+            });
         };
     }]);
 
@@ -228,10 +232,14 @@ angular.module('connectivity')
             };
 
             $scope.triggerReqEvent = function (message) {
-                $rootScope.$broadcast('conn:reqMessage',message);
+                $timeout(function() {
+                    $rootScope.$broadcast('conn:reqMessage', message);
+                });
             };
             $scope.triggerRespEvent = function (message) {
-                $rootScope.$broadcast('conn:respMessage',message);
+                $timeout(function() {
+                    $rootScope.$broadcast('conn:respMessage', message);
+                });
             };
 
 

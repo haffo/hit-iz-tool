@@ -3,7 +3,7 @@
 </div>
 <div id="tcReady" ng-show="!loading">
 <tabset>
-<tab heading="Test Story" active="tabs[0]" ng-show="testCase.testStory !== null">
+<tab heading="Test Story" active="tabs[0]" ng-show="testCase.testStory !== null" select="compileArtifact('testStory')">
     <div class="panel panel-info">
         <div class="panel-body">
             <div>
@@ -28,7 +28,7 @@
  </tab>
 
 <tab heading="Test Data Specification" active="tabs[1]"
-     ng-show="testCase.testDataSpecification !== null">
+     ng-show="testCase.testDataSpecification !== null" ng-click="tabs[1] = true; compileArtifact('testDataSpecification')">
     <div class="panel panel-info">
         <div class="panel-body">
             <div class="pull-right" style="margin-bottom: 20px">
@@ -47,7 +47,7 @@
     </div>
 </tab>
 
-<tab heading="Message Content" ng-show="testCase.messageContent !== null" active="tabs[2]">
+<tab heading="Message Content" ng-show="testCase.messageContent !== null" active="tabs[2]" ng-click="tabs[2] = true; compileArtifact('messageContent')">
     <div class="panel panel-info">
         <div class="panel-body">
             <div class="pull-right" style="padding-top:10px; margin-bottom: 20px">
@@ -68,7 +68,7 @@
 
 
 
-<tab heading="Juror Document" ng-show="testCase.jurorDocument !== null" active="tabs[3]">
+<tab heading="Juror Document" ng-show="testCase.jurorDocument !== null" active="tabs[3]" ng-click="tabs[3] = true; compileArtifact('jurorDocument')">
     <div class="panel panel-info">
         <div class="panel-body">
             <div class="pull-right">
@@ -83,14 +83,14 @@
             </div>
             <br/>
             <br/>
-            <div class="testcase-content" id="jurordoc">
+            <div class="testcase-content">
                 <div id="jurorDocument"/>
             </div>
         </div>
     </div>
 </tab>
 
-<tab heading="Example Message" active="tabs[4]"
+<tab heading="Example Message" active="tabs[4]" ng-click="tabs[4] = true; buildTextEditor()"
      ng-show="testCase.testContext && testCase.testContext.message && testCase.testContext.message!== null && testCase.testContext.message.content != null">
     <div class="panel panel-info">
         <div class="panel-body">
@@ -102,7 +102,11 @@
             </div>
             <br/>
             <br/>
-            <pre class="message" ng-bind="testCase.testContext.message.content"></pre>
+             <div id="exampleMsg" class="testcase-content"/>
+
+        <!--<pre class="message" ng-bind="testCase.testContext.message.content"></pre>-->
+
+
         </div>
     </div>
 </tab>

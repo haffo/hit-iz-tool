@@ -128,12 +128,16 @@ angular.module('isolated')
 
         $scope.selectTestCase = function (node) {
             $scope.selectedTestCase = node;
-            $rootScope.$broadcast('isolated:testCaseSelected', $scope.selectedTestCase);
+            $timeout(function() {
+                $rootScope.$broadcast('isolated:testCaseSelected', $scope.selectedTestCase);
+            });
         };
 
         $scope.loadTestCase = function () {
             $scope.testCase = angular.copy($scope.selectedTestCase);
-            $rootScope.$broadcast('isolated:testCaseLoaded', $scope.testCase);
+            $timeout(function() {
+                $rootScope.$broadcast('isolated:testCaseLoaded', $scope.testCase);
+            });
         };
 
         $scope.downloadTestStory = function () {
@@ -163,7 +167,7 @@ angular.module('isolated')
 
 
 angular.module('isolated')
-    .controller('IsolatedSystemExecutionCtrl', ['$scope', '$window', '$rootScope', 'IsolatedSystem', '$modal', 'IsolatedSystemInitiator', 'IsolatedSystemClock', 'XmlEscaper', 'Endpoint', 'IsolatedExecutionService', function ($scope, $window, $rootScope, IsolatedSystem, $modal, IsolatedSystemInitiator, IsolatedSystemClock, XmlEscaper, Endpoint, IsolatedExecutionService) {
+    .controller('IsolatedSystemExecutionCtrl', ['$scope', '$window', '$rootScope', 'IsolatedSystem', '$modal', 'IsolatedSystemInitiator', 'IsolatedSystemClock', 'XmlEscaper', 'Endpoint', 'IsolatedExecutionService', '$timeout', function ($scope, $window, $rootScope, IsolatedSystem, $modal, IsolatedSystemInitiator, IsolatedSystemClock, XmlEscaper, Endpoint, IsolatedExecutionService,$timeout) {
         $scope.loading = true;
         $scope.error = null;
         $scope.tabs = new Array();
@@ -251,7 +255,9 @@ angular.module('isolated')
         };
 
         $scope.resetTestCase = function () {
-            $rootScope.$broadcast('isolated:testCaseLoaded', $scope.testCase);
+            $timeout(function() {
+                $rootScope.$broadcast('isolated:testCaseLoaded', $scope.testCase);
+            });
         };
 
         $scope.selectTestStep = function (testStep) {
@@ -262,9 +268,15 @@ angular.module('isolated')
                     IsolatedExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
                 }
                 if (!$scope.isManualStep(testStep) && testStep.testContext && testStep.testContext != null) {
-                    $rootScope.$broadcast('isolated:testStepLoaded', testStep);
-                    $rootScope.$broadcast('isolated:profileLoaded', testStep.testContext.profile);
-                    $rootScope.$broadcast('isolated:valueSetLibraryLoaded', testStep.testContext.vocabularyLibrary);
+                    $timeout(function() {
+                        $rootScope.$broadcast('isolated:testStepLoaded', testStep);
+                    });
+                    $timeout(function() {
+                        $rootScope.$broadcast('isolated:profileLoaded', testStep.testContext.profile);
+                    });
+                    $timeout(function() {
+                        $rootScope.$broadcast('isolated:valueSetLibraryLoaded', testStep.testContext.vocabularyLibrary);
+                    });
                 }
             }
         };
@@ -272,7 +284,9 @@ angular.module('isolated')
         $scope.clearTestStep = function () {
             IsolatedSystem.testStep = null;
             $scope.testStep = null;
-            $rootScope.$broadcast('isolated:removeTestStep');
+            $timeout(function() {
+                $rootScope.$broadcast('isolated:removeTestStep');
+            });
         };
 
 
@@ -332,7 +346,9 @@ angular.module('isolated')
                     if ($scope.isSutInitiator(testStep)) {
                         IsolatedExecutionService.setExecutionMessage(testStep, null);
                     }
-                    $rootScope.$broadcast('isolated:clearEditor');
+                    $timeout(function() {
+                        $rootScope.$broadcast('isolated:clearEditor');
+                    });
                 }
                 $scope.selectTestStep(testStep);
             }
@@ -424,15 +440,6 @@ angular.module('isolated')
                     $scope.executeTestStep(testStep);
                 }
             });
-
-//            $rootScope.$on('isolated:setNextStepMessage', function (event, message) {
-//                var nextStep = $scope.findNextStep($scope.testStep.position);
-//                if (nextStep != null && !$scope.isManualStep(nextStep)) {
-//                    IsolatedExecutionService.setExecutionMessage(nextStep, message);
-//                    $scope.completeStep(nextStep);
-//                }
-//            });
-
         };
 
 
@@ -548,7 +555,9 @@ angular.module('isolated')
                                         var receivedMessage = parseRequest(incoming);
                                         IsolatedExecutionService.setExecutionMessage($scope.testStep, receivedMessage);
                                         $scope.completeStep($scope.testStep);
-                                        $rootScope.$broadcast('isolated:setEditorContent', receivedMessage);
+                                        $timeout(function() {
+                                            $rootScope.$broadcast('isolated:setEditorContent', receivedMessage);
+                                        });
                                     } catch (error) {
                                         $scope.error = errors[2];
                                         $scope.logger.log(inboundLogs[4]);
@@ -797,7 +806,7 @@ angular.module('isolated')
                     } else {
                         if ($scope.isolated.message.content !== '') {
                             try {
-                                var validator = new Er7MessageValidator().validate($scope.testStep.testContext.id, $scope.isolated.message.content, '', false, "1223");
+                                var validator = new Er7MessageValidator().validate($scope.testStep.testContext.id, $scope.isolated.message.content, '', false, "1223","Based");
                                 validator.then(function (mvResult) {
                                     $scope.vLoading = false;
                                     $scope.loadValidationResult(mvResult);
@@ -823,7 +832,9 @@ angular.module('isolated')
 
         $scope.loadValidationResult = function (mvResult) {
             if ($scope.testStep != null) {
-                $rootScope.$broadcast('isolated:validationResultLoaded', mvResult);
+                $timeout(function() {
+                    $rootScope.$broadcast('isolated:validationResultLoaded', mvResult);
+                });
             }
         };
 

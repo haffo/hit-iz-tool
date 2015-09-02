@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    angular.module('ngTreetable', [])
+    angular.module('ngTreetable', ['ngCookies'])
 
     /**
      * @ngdoc service
@@ -33,9 +33,12 @@
                 this.refresh = function() {}
 
 
+                this.onInitialized = function(){}
+
+
                 if (angular.isObject(baseConfiguration)) {
                     angular.forEach(baseConfiguration, function(val, key) {
-                        if (['getNodes', 'getTemplate', 'options'].indexOf(key) > -1) {
+                        if (['getNodes', 'getTemplate', 'options','onInitialized'].indexOf(key) > -1) {
                             self[key] = val;
                         } else {
                             $log.warn('ngTreetableParams - Ignoring unexpected property "' + key + '".');
@@ -134,16 +137,6 @@
                 while (rootNodes.length > 0) {
                     table.treetable('removeNode', rootNodes[0].id);
                 }
-
-//                table.data('treetable').tree = {};
-//                table.data('treetable').nodes = [];
-//                table.data('treetable').roots = [];
-
-//                table.data("treetable", []);
-
-
-//                table.data('treetable').nodes = [];
-//                table = $element;
                 $scope.addChildren(null, $scope.shouldExpand());
             };
 
@@ -151,6 +144,11 @@
                 $scope.options.initialState = state;
                 $scope.refresh();
             };
+
+            $scope.getNode = function(id) {
+                return table.treetable("node", id);
+            };
+
 
             $scope.toggleExpand = function(id, expand){
 //
@@ -180,6 +178,7 @@
 
             params.refreshWithState = $scope.refreshWithState;
             params.toggleExpand = $scope.toggleExpand;
+            params.getNode = $scope.getNode;
 
             /**
              * Build options for the internal treetable library.
@@ -187,9 +186,9 @@
             $scope.getOptions = function() {
                 var opts = angular.extend({
                     expandable: true,
-                     onNodeExpand: $scope.onNodeExpand,
+                    onNodeExpand: $scope.onNodeExpand,
                     onNodeCollapse: $scope.onNodeCollapse
-                }, params.options);
+                 }, params.options);
 
                 if (params.options) {
                     // Inject required event handlers before custom ones
@@ -226,24 +225,25 @@
             }
         }])
 
-        .directive('ttNode', [function() {
+        .directive('ttNode', ['$cookies',function($cookies) {
             var ttNodeCounter = 0;
             return {
                 restrict: 'AC',
                 scope: {
                     isBranch: '=',
-                    parent: '='
+                    parent: '=',
+                    data: '='
                 },
                 link: function(scope, element, attrs) {
                     var branch = angular.isDefined(scope.isBranch) ? scope.isBranch : true;
 
                     // Look for a parent set by the tt-tree directive if one isn't explicitly set
                     var parent = angular.isDefined(scope.parent) ? scope.parent : scope.$parent._ttParentId;
-
+                    var id = ttNodeCounter;
                     element.attr('data-tt-id', ttNodeCounter++);
                     element.attr('data-tt-branch', branch);
                     element.attr('data-tt-parent-id', parent);
-                }
+                 }
             }
 
         }]);
