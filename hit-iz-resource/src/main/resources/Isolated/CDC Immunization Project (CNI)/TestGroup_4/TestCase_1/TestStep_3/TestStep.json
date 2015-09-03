@@ -1,9 +1,0 @@
-{
-  "name" : "Order Influenza vaccine and view allergy alert",
-  "position" : 3,
-  "messageId" : null,
-  "valueSetLibraryId" : null,
-  "constraintId" : null,
-  "type" : "",
-  "description" : "The provider orders inactivated influenza vaccine and is notified that the patient as allergy to egg albumin."
-}
