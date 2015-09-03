@@ -1,9 +1,0 @@
-{
-  "name" : "Order intranasal, live virus influenza vaccine and view asthma contraindication",
-  "position" : 1,
-  "messageId" : null,
-  "valueSetLibraryId" : null,
-  "constraintId" : null,
-  "type" : "",
-  "description" : "Selects selects to order intranasal, live virus influenza vaccine and views information about patient asthma problem which is a contraindication to the intranasal vaccine."
-}

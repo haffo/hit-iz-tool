@@ -1,9 +1,0 @@
-{
-  "name" : "Order MMRV Vaccine",
-  "position" : 4,
-  "messageId" : null,
-  "valueSetLibraryId" : null,
-  "constraintId" : null,
-  "type" : "",
-  "description" : "The provider orders an MMRV vaccine as a catch-up dose."
-}

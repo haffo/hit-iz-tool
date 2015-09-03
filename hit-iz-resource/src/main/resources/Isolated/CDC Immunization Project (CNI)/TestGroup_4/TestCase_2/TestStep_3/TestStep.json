@@ -1,9 +1,0 @@
-{
-  "name" : "Orders administration of DTaP vaccine and alerted that the dose is too early",
-  "position" : 3,
-  "messageId" : null,
-  "valueSetLibraryId" : null,
-  "constraintId" : null,
-  "type" : "",
-  "description" : "The provider orders a DTaP vaccine (dose 5). The EMR provides an alert that the vaccine dose is too early."
-}
