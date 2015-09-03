@@ -45,10 +45,10 @@
                     $scope.testCase['testDataSpecification'] = result['testDataSpecification'];
                     $scope.testCase['messageContent'] = result['messageContent'];
                     $scope.testCase['testPackage'] = result['testPackage'];
-                    $scope.compileArtifact('testStory');
-                    $scope.compileArtifact('jurorDocument');
-                    $scope.compileArtifact('testDataSpecification');
-                    $scope.compileArtifact('messageContent');
+                   $scope.compileArtifact('testStory');
+//                    $scope.compileArtifact('jurorDocument');
+//                    $scope.compileArtifact('testDataSpecification');
+//                    $scope.compileArtifact('messageContent');
                     $scope.loading = false;
                 }, function (error) {
                     $scope.testCase['testStory'] = null;
