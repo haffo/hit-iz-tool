@@ -481,7 +481,7 @@ angular.module('isolated')
                 $scope.logger.init();
                 $scope.received = '';
                 $scope.logger.log(outboundLogs[0]);
-                var sender = new IsolatedSystemInitiator().send($scope.user, $scope.testStep.id, XmlEscaper.encodeXml($scope.outboundMessage()));
+                var sender = new IsolatedSystemInitiator().send($scope.user, $scope.testStep.id,$scope.outboundMessage());
                 sender.then(function (response) {
                     var received = response.incoming;
                     var sent = response.outgoing;

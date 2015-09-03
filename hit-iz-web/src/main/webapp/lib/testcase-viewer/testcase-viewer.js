@@ -45,10 +45,10 @@
                     $scope.testCase['testDataSpecification'] = result['testDataSpecification'];
                     $scope.testCase['messageContent'] = result['messageContent'];
                     $scope.testCase['testPackage'] = result['testPackage'];
-                   $scope.compileArtifact('testStory');
-//                    $scope.compileArtifact('jurorDocument');
-//                    $scope.compileArtifact('testDataSpecification');
-//                    $scope.compileArtifact('messageContent');
+                    $scope.compileArtifact('testStory');
+                    $scope.uncompileArtifact('jurorDocument');
+                    $scope.uncompileArtifact('testDataSpecification');
+                    $scope.uncompileArtifact('messageContent');
                     $scope.loading = false;
                 }, function (error) {
                     $scope.testCase['testStory'] = null;
@@ -61,10 +61,19 @@
             });
 
             $scope.compileArtifact = function (artifactType) {
-                if ($scope.testCase && $scope.testCase !== null && $scope.testCase[artifactType] !== null) {
+                if ($scope.testCase && $scope.testCase !== null && $scope.testCase[artifactType] && $scope.testCase[artifactType] !== null) {
                     var element = $('#' + artifactType);
-                    element.html($scope.testCase[artifactType].html);
-                    $compile(element.contents())($scope);
+                    if(element.html() == '') {
+                        element.html($scope.testCase[artifactType].html);
+                        $compile(element.contents())($scope);
+                    }
+                }
+            };
+
+            $scope.uncompileArtifact = function (artifactType) {
+                var element = $('#' + artifactType);
+                if(element && element != null) {
+                    element.html('');
                 }
             };
 
