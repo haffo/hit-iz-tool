@@ -35,9 +35,6 @@
                 $scope.tabs[3] = false;
                 $scope.tabs[4] = false;
                 $scope.testCase = testCase;
-                if($scope.editor && $scope.editor != null) {
-                    $scope.editor.toTextArea();
-                }
                 $scope.loading = true;
                 testCaseViewerService.artifacts(testCase.type, testCase.id).then(function (result) {
                     $scope.testCase['testStory'] = result['testStory'];
@@ -45,13 +42,20 @@
                     $scope.testCase['testDataSpecification'] = result['testDataSpecification'];
                     $scope.testCase['messageContent'] = result['messageContent'];
                     $scope.testCase['testPackage'] = result['testPackage'];
-                    $scope.compileArtifact('testStory');
+                    if(testCase.type === 'TestPlan'){
+                        $scope.compileArtifact('testPackage');
+                        $scope.uncompileArtifact('testStory');
+                    }else{
+                        $scope.compileArtifact('testStory');
+                        $scope.uncompileArtifact('testPackage');
+                    }
                     $scope.uncompileArtifact('jurorDocument');
                     $scope.uncompileArtifact('testDataSpecification');
                     $scope.uncompileArtifact('messageContent');
                     $scope.loading = false;
                 }, function (error) {
                     $scope.testCase['testStory'] = null;
+                    $scope.testCase['testPackage'] = null;
                     $scope.testCase['jurorDocument'] = null;
                     $scope.testCase['testDataSpecification'] = null;
                     $scope.testCase['messageContent'] = null;

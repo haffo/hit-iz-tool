@@ -48,14 +48,12 @@
                                       <!--<i class="fa fa-play"></i>Start-->
                                   <!--</button>-->
                             <!--</span>-->
-                            <span class="pull-right" ng-show="selectedTestCase.type === 'TestStep'">
-                                <!--<button title="Download Test Package" type="button" class="btn btn-xs btn-primary"-->
-                                         <!--ng-show="selectedTestCase.testPackage != null"-->
-                                         <!--ng-click="selectedTestCase.downloadTestPackage()">-->
-                                    <!--<i class="fa fa-download"></i>-->
-                                    <!--Download Package-->
-                                <!--</button>-->
-                                <button title="Start Test" type="button" class="btn btn-sm btn-success" ng-click="loadTestCase()">
+                            <span class="pull-right">
+                                <button title="Download Test Package" type="button" class="btn btn-sm btn-primary" ng-show="selectedTestCase.testPackage && selectedTestCase.testPackage != null && selectedTestCase.testPackage.pdfPath != null" ng-click="downloadArtifact(selectedTestCase.testPackage.pdfPath)">
+                                    <i class="fa fa-download"></i>
+                                    Download Test Package
+                                </button>
+                                <button title="Start Test" ng-show="selectedTestCase.type === 'TestStep'" type="button" class="btn btn-sm btn-success" ng-click="loadTestCase()">
                                     <i class="fa fa-play"></i>Start
                                 </button>
                              </span>
@@ -63,7 +61,6 @@
                         <div class="panel-body" ng-show="selectedTestCase != null">
 
                             <div>
-
                                 <div ng-show="error != null">
                                     <div class="alert alert-danger" role="alert" ng-bind="error"></div>
                                 </div>

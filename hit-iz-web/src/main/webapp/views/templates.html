@@ -219,8 +219,19 @@
     </tr>
 </script>
 
+<script type="text/ng-template" id="CBTestPlan.html">
+    <tr tt-node style="white-space: nowrap"
+        is-branch="node.children != null && node.children.length > 0">
+        <td style="padding-top:0px;  padding-bottom:0px; white-space: nowrap">
+            <a class="point"
+               ng-click="selectTestCase(node)">{{::node.name}}</a>
+            <!--<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">-->
+        </td>
+    </tr>
+</script>
 
-<script type="text/ng-template" id="CBTestPlanOrTestCaseGroup.html">
+
+<script type="text/ng-template" id="CBTestCaseGroup.html">
     <tr tt-node style="white-space: nowrap"
         is-branch="node.children != null && node.children.length > 0">
         <td style="padding-top:0px;  padding-bottom:0px; white-space: nowrap">
@@ -306,7 +317,19 @@
 </script>
 
 
-<script type="text/ng-template" id="IsolatedTestPlanOrTestCaseGroup.html">
+<script type="text/ng-template" id="IsolatedTestPlan.html">
+    <tr tt-node style="white-space: nowrap"
+        is-branch="node.children != null && node.children.length > 0">
+        <td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap">
+            <a class="point"
+               ng-click="selectTestCase(node)">{{::node.name}}</a>
+        </td>
+    </tr>
+</script>
+
+
+
+<script type="text/ng-template" id="IsolatedTestCaseGroup.html">
     <tr tt-node style="white-space: nowrap"
         is-branch="node.children != null && node.children.length > 0">
         <td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap">

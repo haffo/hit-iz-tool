@@ -49,9 +49,9 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @RequestMapping("/soap")
 @RestController
-public class SoapController extends TestingController {
+public class SOAPController extends TestingController {
 
-  static final Logger logger = LoggerFactory.getLogger(SoapController.class);
+  static final Logger logger = LoggerFactory.getLogger(SOAPController.class);
 
   @Autowired
   @Qualifier("soapMessageParser")

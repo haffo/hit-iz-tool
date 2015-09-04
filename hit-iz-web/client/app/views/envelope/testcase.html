@@ -48,7 +48,7 @@
                                   ng-show="selectedTestCase.sutType == undefined">
                                 <button title="Download Test Procedure" type="button" class="btn btn-sm btn-primary"
                                         ng-show="selectedTestCase != null && selectedTestCase != null && selectedTestCase.testProcedurePath != null"
-                                        ng-click="selectedTestCase.downloadTestProcedure()">
+                                        ng-click="downloadArtifact(selectedTestCase.testProcedurePath)">
                                     <i class="fa fa-download"></i>Download Test Procedure
                                 </button>
                             </span>
@@ -57,7 +57,7 @@
                                   ng-show="selectedTestCase.sutType != undefined">
                                 <button title="Download Test Package" type="button" class="btn btn-sm btn-primary"
                                         ng-show="selectedTestCase != null && selectedTestCase != null && selectedTestCase.testPackagePath != null"
-                                        ng-click="selectedTestCase.downloadTestPackage()">
+                                        ng-click="downloadArtifact(selectedTestCase.testPackagePath)">
                                     <i class="fa fa-download"></i>Download Package
                                 </button>
 
@@ -77,6 +77,7 @@
                         <div ng-show="error == null">
 
                             <div class="container">
+
                                 <div class="row" ng-show="selectedTestCase.sutType != undefined">
                                     <tabset>
                                         <tab>

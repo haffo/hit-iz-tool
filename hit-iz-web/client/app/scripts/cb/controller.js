@@ -130,8 +130,10 @@ angular.module('cb')
                         return 'CBTestCase.html';
                     }else if(node.type === 'TestStep'){
                         return  'CBTestStep.html';
-                    }else if(node.type === 'TestPlan' || node.type === 'TestCaseGroup'){
-                        return  'CBTestPlanOrTestCaseGroup.html';
+                    }else if(node.type === 'TestPlan'){
+                        return  'CBTestPlan.html';
+                    }else if(node.type === 'TestCaseGroup'){
+                        return  'CBTestCaseGroup.html';
                     }
                 }
             });
@@ -168,6 +170,13 @@ angular.module('cb')
                 });
             }
         };
+
+        $scope.selectTestPlan = function (node) {
+            if($scope.selectedTestCase == null || $scope.selectedTestCase.id != node.id) {
+                $scope.selectedTestCase = node;
+            }
+        };
+
 
         $scope.loadTestCase = function () {
             CB.testCase = $scope.selectedTestCase;

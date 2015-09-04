@@ -63,6 +63,9 @@ angular.module('connectivity')
                 $rootScope.$broadcast('conn:testCaseLoaded');
             });
         };
+
+
+
     }]);
 
 angular.module('connectivity')

@@ -169,6 +169,7 @@
                 if (mvResult !== null) {
                     validationResult = new NewValidationResult();
                     validationResult.init(mvResult.json);
+                    mvResult['result'] = validationResult;
                 }
                 $timeout(function() {
                     $rootScope.$broadcast($scope.type + ':reportLoaded', mvResult);
@@ -390,11 +391,13 @@
 
         NewValidationResult.prototype.init = function (result) {
             ValidationResult.prototype.clear.call(this);
-            this.json = angular.fromJson(result);
-            this.loadDetection(this.json.detections['Error']);
-            this.loadDetection(this.json.detections['Alert']);
-            this.loadDetection(this.json.detections['Warning']);
-            this.loadDetection(this.json.detections['Informational']);
+            if(result) {
+                this.json = angular.fromJson(result);
+                this.loadDetection(this.json.detections['Error']);
+                this.loadDetection(this.json.detections['Alert']);
+                this.loadDetection(this.json.detections['Warning']);
+                this.loadDetection(this.json.detections['Informational']);
+            }
 
         };
         return NewValidationResult;

@@ -15,6 +15,7 @@ package gov.nist.hit.iz.web.controller;
 import gov.nist.hit.core.domain.AbstractTestCase;
 import gov.nist.hit.core.domain.TestArtifact;
 import gov.nist.hit.core.repo.TestCaseRepository;
+import gov.nist.hit.core.repo.TestPlanRepository;
 import gov.nist.hit.core.repo.TestStepRepository;
 import gov.nist.hit.core.service.exception.MessageException;
 import gov.nist.hit.core.service.exception.TestCaseException;
@@ -58,6 +59,8 @@ public class TestArtifactController extends TestingController {
   @Autowired
   private TestStepRepository testStepRepository;
 
+  @Autowired
+  private TestPlanRepository testPlanRepository;
 
   @RequestMapping(value = "/download", method = RequestMethod.POST,
       consumes = "application/x-www-form-urlencoded; charset=UTF-8")
@@ -69,6 +72,18 @@ public class TestArtifactController extends TestingController {
         String fileName = path.substring(path.lastIndexOf("/") + 1);
         content = TestArtifactController.class.getResourceAsStream("/" + path);
         response.setContentType("application/pdf");
+        response.setHeader("Content-disposition", "attachment;filename=" + fileName);
+        FileCopyUtils.copy(content, response.getOutputStream());
+      } else if (path != null && path.endsWith("docx")) {
+        InputStream content = null;
+        String fileName = path.substring(path.lastIndexOf("/") + 1);
+        if (!path.startsWith("/")) {
+          content = TestArtifactController.class.getResourceAsStream("/" + path);
+        } else {
+          content = TestArtifactController.class.getResourceAsStream(path);
+        }
+        response
+            .setContentType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
         response.setHeader("Content-disposition", "attachment;filename=" + fileName);
         FileCopyUtils.copy(content, response.getOutputStream());
       }
@@ -127,6 +142,8 @@ public class TestArtifactController extends TestingController {
       obj = testCaseRepository.findOne(testId);
     } else if ("TestStep".equalsIgnoreCase(type)) {
       obj = testStepRepository.findOne(testId);
+    } else if ("TestPlan".equalsIgnoreCase(type)) {
+      obj = testPlanRepository.findOne(testId);
     }
     if (obj != null) {
       result.put("jurorDocument", obj.getJurorDocument());

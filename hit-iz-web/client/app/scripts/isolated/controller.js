@@ -97,8 +97,10 @@ angular.module('isolated')
                         return 'IsolatedTestCase.html';
                     }else if(node.type === 'TestStep'){
                         return node.connectionType === 'TA_MANUAL' || node.connectionType === 'SUT_MANUAL' ? 'IsolatedManualTestStep.html': node.connectionType === 'TA_INITIATOR' || node.connectionType === 'SUT_INITIATOR' ? 'IsolatedInitiatorTestStep.html' : node.connectionType === 'TA_RESPONDER' || node.connectionType === 'SUT_RESPONDER' ? 'IsolatedResponderTestStep.html':'IsolatedResponderTestStep.html';
-                    }else if(node.type === 'TestPlan' || node.type === 'TestCaseGroup'){
-                        return 'IsolatedTestPlanOrTestCaseGroup.html';
+                    }else if(node.type === 'TestPlan'){
+                        return 'IsolatedTestPlan.html';
+                    }else if(node.type === 'TestCaseGroup'){
+                        return 'IsolatedTestCaseGroup.html';
                     }
                  }
             });
@@ -132,6 +134,13 @@ angular.module('isolated')
                 $rootScope.$broadcast('isolated:testCaseSelected', $scope.selectedTestCase);
             });
         };
+
+        $scope.selectTestPlan = function (node) {
+            if($scope.selectedTestCase == null || $scope.selectedTestCase.id != node.id) {
+                $scope.selectedTestCase = node;
+            }
+        };
+
 
         $scope.loadTestCase = function () {
             $scope.testCase = angular.copy($scope.selectedTestCase);
@@ -490,6 +499,7 @@ angular.module('isolated')
                     $scope.logger.log(outboundLogs[2]);
                     $scope.logger.log(received);
                     try {
+                        $scope.completeStep($scope.testStep);
                         var rspMessage = parseResponse(received);
                         $scope.logger.log(outboundLogs[3]);
                         $scope.setNextStepMessage(rspMessage);
@@ -770,6 +780,21 @@ angular.module('isolated')
             }
         };
 
+
+        $scope.loadExampleMessage = function () {
+            if ($scope.testStep != null) {
+                var testContext = $scope.testStep.testContext;
+                if (testContext) {
+                    var message = testContext.message && testContext.message != null ? testContext.message.content : '';
+                    IsolatedExecutionService.setExecutionMessage($scope.testStep, message);
+                    $scope.nodelay = true;
+                    $scope.selectedMessage = {'content': message};
+                    $scope.isolated.editor.instance.doc.setValue(message);
+                    $scope.execute();
+                }
+            }
+        };
+
         $scope.setLoadRate = function (value) {
             $scope.loadRate = value;
         };
@@ -780,10 +805,30 @@ angular.module('isolated')
                 fixedGutter: true,
                 theme: "elegant",
                 mode: 'edi',
-                readOnly: true,
+                readOnly: false,
                 showCursorWhenSelecting: true
             });
             $scope.editor.setSize("100%", 350);
+
+            $scope.editor.on("keyup", function () {
+                $timeout(function () {
+                    var msg = $scope.editor.doc.getValue();
+                    $scope.error = null;
+                    if ($scope.tokenPromise) {
+                        $timeout.cancel($scope.tokenPromise);
+                        $scope.tokenPromise = undefined;
+                    }
+                    if (msg.trim() !== '') {
+                        $scope.tokenPromise = $timeout(function () {
+                            $scope.execute();
+                        }, $scope.loadRate);
+                    } else {
+                        $scope.execute();
+                    }
+                });
+            });
+
+
             $scope.editor.on("dblclick", function (editor) {
                 $timeout(function () {
                     var coordinate = HL7CursorUtils.getCoordinate($scope.editor);
@@ -861,14 +906,13 @@ angular.module('isolated')
             $scope.mError = null;
             if ($scope.editor) {
                 $scope.editor.doc.setValue('');
-                //$scope.execute();
+                $scope.execute();
             }
         };
 
         $scope.saveMessage = function () {
             $scope.isolated.message.download();
         };
-
 
         $scope.parseMessage = function () {
             if ($scope.testStep != null) {
@@ -910,6 +954,8 @@ angular.module('isolated')
             $scope.mError = null;
             $scope.vError = null;
             $scope.isolated.message.content = $scope.isolated.editor.instance.doc.getValue();
+            IsolatedExecutionService.deleteValidationReport($scope.testStep);
+            IsolatedExecutionService.deleteMessageTree($scope.testStep);
             $scope.validateMessage();
             $scope.parseMessage();
         };

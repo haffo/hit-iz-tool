@@ -218,6 +218,23 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
         }
     };
 
+
+    $rootScope.downloadArtifact = function (path) {
+        var form = document.createElement("form");
+        form.action = "api/testartifact/download";
+        form.method = "POST";
+        form.target = "_target";
+        var input = document.createElement("input");
+        input.name = "path";
+        input.value = path;
+        form.appendChild(input);
+        form.style.display = 'none';
+        document.body.appendChild(form);
+        form.submit();
+    };
+
+
+
     $rootScope.tabs = new Array();
 
     $rootScope.compile = function (content) {

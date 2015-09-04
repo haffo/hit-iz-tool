@@ -3,10 +3,10 @@ package gov.nist.hit.iz.service;
 import gov.nist.hit.core.domain.SutType;
 import gov.nist.hit.core.domain.TestStory;
 import gov.nist.hit.core.service.util.FileUtil;
-import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.domain.ConnectivityTestCase;
 import gov.nist.hit.iz.domain.ConnectivityTestContext;
 import gov.nist.hit.iz.domain.ConnectivityTestPlan;
+import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.domain.ValidationPhase;
 
 import java.io.IOException;
@@ -40,6 +40,7 @@ public class SoapConnectivityTestPlanParser extends TestPlanParser {
     testCase.setInstructionsText(FileUtil.getContent(testCasePath + "/instructions.txt"));
     testCase.setTestDataSpecificationImage(FileUtil.getByteArray(testCasePath
         + "/testDataSpecification.png"));
+    testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
     TestStory testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));

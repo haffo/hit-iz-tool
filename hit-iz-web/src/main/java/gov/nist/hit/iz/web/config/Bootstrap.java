@@ -21,7 +21,7 @@ import gov.nist.hit.iz.repo.ConnectivityTestPlanRepository;
 import gov.nist.hit.iz.repo.EnvelopeTestPlanRepository;
 import gov.nist.hit.iz.service.SoapConnectivityTestPlanParser;
 import gov.nist.hit.iz.service.SoapEnvelopeTestPlanParser;
-import gov.nist.hit.iz.web.controller.SoapController;
+import gov.nist.hit.iz.web.controller.SOAPController;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -37,7 +37,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class Bootstrap implements InitializingBean {
 
-  static final Logger logger = LoggerFactory.getLogger(SoapController.class);
+  static final Logger logger = LoggerFactory.getLogger(SOAPController.class);
 
   @Autowired
   EnvelopeTestPlanRepository soapEnvTestPlanRepository;

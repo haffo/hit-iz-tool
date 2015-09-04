@@ -118,6 +118,9 @@ angular.module('envelope')
                 $rootScope.$broadcast('env:testCaseLoaded', $scope.testCase);
             });
         };
+
+
+
     }]);
 
 angular.module('envelope')

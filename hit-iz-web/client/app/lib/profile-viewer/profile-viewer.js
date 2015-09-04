@@ -20,7 +20,7 @@
     ]);
 
     mod
-        .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'PvTreetableParams', 'ProfileService', '$http', '$filter', '$cookies', '$sce', function ($scope, $rootScope, PvTreetableParams, ProfileService, $http, $filter, $cookies, $sce) {
+        .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'PvTreetableParams', 'ProfileService', '$http', '$filter', '$cookies', '$sce', '$timeout', function ($scope, $rootScope, PvTreetableParams, ProfileService, $http, $filter, $cookies, $sce,$timeout) {
             $scope.testCase = null;
             $scope.elements = [];
             $scope.confStatements = [];
