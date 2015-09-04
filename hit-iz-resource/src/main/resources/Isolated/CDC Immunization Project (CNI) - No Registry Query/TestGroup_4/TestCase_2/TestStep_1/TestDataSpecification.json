@@ -1,5 +1,5 @@
 {
-"version" : "2.3",
+"version" : "2.4",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -40,7 +40,10 @@ USA "},
 				{"element" : "Relationship", "data" : "Father"},
 				{"element" : "Address", "data" : "4623 Standish Way Stamford CT 06903 "},
 				{"element" : "Phone Number", "data" : "(203)555-1213"},		]
-		},
+		{
+			"title":"Vaccine Administration Information[*]",
+
+<accordion>		},
 		{
 			"title":"Vaccine Administration Information",
 			"elements" : 
@@ -666,6 +669,7 @@ SA"},
 				{"element" : "Entered By", "data" : "J. Martinez"},
 				{"element" : "Ordered By", "data" : "J. Rodriguez"},		]
 
+</accordion>
 		}
 ]
 }

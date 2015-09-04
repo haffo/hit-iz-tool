@@ -1,5 +1,5 @@
 {
-"version" : "2.3",
+"version" : "2.4",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -32,7 +32,10 @@ USA "},
 				{"element" : "Protection Indicator", "data" : "No"},
 				{"element" : "Protection Indicator Effective Date", "data" : "06/24/2015"}
 			]
-		},
+		{
+			"title":"Vaccine Administration Information[*]",
+
+<accordion>		},
 		{
 			"title":"Vaccine Administration Information",
 			"elements" : 
@@ -112,6 +115,7 @@ USA "},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
 				{"element" : "Ordered By", "data" : ""},		]
 
+</accordion>
 		}
 ]
 }

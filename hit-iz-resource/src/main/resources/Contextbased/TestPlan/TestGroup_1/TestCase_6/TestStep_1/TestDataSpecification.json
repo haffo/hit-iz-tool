@@ -1,5 +1,5 @@
 {
-"version" : "2.3",
+"version" : "2.4",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -40,7 +40,10 @@ USA "},
 				{"element" : "Relationship", "data" : "Father"},
 				{"element" : "Address", "data" : "924 Sycamore Lane Bozeman MT 59715 USA "},
 				{"element" : "Phone Number", "data" : "(406)555-5835"},		]
-		},
+		{
+			"title":"Vaccine Administration Information[*]",
+
+<accordion>		},
 		{
 			"title":"Vaccine Administration Information",
 			"elements" : 
@@ -168,6 +171,7 @@ USA "},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
 				{"element" : "Ordered By", "data" : ""},		]
 
+</accordion>
 		}
 ]
 }
