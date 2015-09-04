@@ -233,7 +233,7 @@
 			<ValueElement Value="SIS" CodeSystem="HL70063" DisplayName="Sister"/>
 			<ValueElement Value="SPO" CodeSystem="HL70063" DisplayName="Spouse"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="Hl70396_IZ" Name="Coding system" DisplayClassifier="1:CDC-HL7-IZ">
+		<ValueSetDefinition BindingIdentifier="HL70396_IZ" Name="Coding system" DisplayClassifier="1:CDC-HL7-IZ">
 			<ValueElement Value="99zzz or L" CodeSystem="HL70396" DisplayName="Local general code (where z is an alphanumeric character)"/>
 			<ValueElement Value="ACR" CodeSystem="HL70396" DisplayName="American College of Radiology finding codes"/>
 			<ValueElement Value="ACTCODE" CodeSystem="HL70396" DisplayName="Table of HL7 Version 3 ActCode values"/>
