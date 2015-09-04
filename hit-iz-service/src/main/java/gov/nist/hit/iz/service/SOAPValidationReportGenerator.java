@@ -23,23 +23,23 @@ import org.apache.log4j.Logger;
  * @author Harold Affo (NIST)
  */
 
-public abstract class SoapValidationReportGenerator extends ValidationReportGenerator {
+public abstract class SOAPValidationReportGenerator extends ValidationReportGenerator {
 	
 	private final static Logger logger = Logger
-			.getLogger(SoapValidationReportGenerator.class);
+			.getLogger(SOAPValidationReportGenerator.class);
 	
 	private static final String HTML_XSL = "/xslt/html.xsl";
 
 	private static final String PDF_XSL = "/xslt/pdf.xsl";
 
-	public SoapValidationReportGenerator() {
+	public SOAPValidationReportGenerator() {
 
 	}
 	
 	@Override
 	public String getPdfConversionXslt() {
 		try {
-			return IOUtils.toString(SoapValidationReportGenerator.class
+			return IOUtils.toString(SOAPValidationReportGenerator.class
 					.getResourceAsStream(PDF_XSL));
 		} catch (IOException e) {
 			logger.error(e,e);
@@ -50,7 +50,7 @@ public abstract class SoapValidationReportGenerator extends ValidationReportGene
 	@Override
 	public String getHtmlConversionXslt() {
 		try {
-			return IOUtils.toString(SoapValidationReportGenerator.class
+			return IOUtils.toString(SOAPValidationReportGenerator.class
 					.getResourceAsStream(HTML_XSL));
 		} catch (IOException e) {
 			logger.error(e,e);

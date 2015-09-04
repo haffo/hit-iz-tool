@@ -15,7 +15,7 @@ import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.service.exception.SoapValidationException;
 
 
-public interface SoapMessageValidator {
+public interface SOAPMessageValidator {
 
   public ValidationResult validate(String soap, String title, String... options)
       throws SoapValidationException;

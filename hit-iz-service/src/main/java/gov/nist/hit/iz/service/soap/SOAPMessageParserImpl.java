@@ -12,18 +12,20 @@
 package gov.nist.hit.iz.service.soap;
 
 import gov.nist.hit.core.domain.MessageModel;
-import gov.nist.hit.core.service.MessageParser;
+import gov.nist.hit.core.service.exception.MessageParserException;
 import gov.nist.hit.core.service.exception.SoapMessageParserException;
 import gov.nist.hit.core.service.exception.XmlParserException;
-import gov.nist.hit.iz.service.XmlMessageParser;
+import gov.nist.hit.iz.service.XMLMessageParser;
 
-public class SoapMessageParser implements MessageParser {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-  public SoapMessageParser(XmlMessageParser xmlMessageParser) {
-    this.xmlMessageParser = xmlMessageParser;
-  }
+@Service
+public class SOAPMessageParserImpl extends SOAPMessageParser {
 
-  private XmlMessageParser xmlMessageParser;
+
+  @Autowired
+  private XMLMessageParser xmlMessageParser;
 
   @Override
   public MessageModel parse(String soapXml, String... options) throws SoapMessageParserException {
@@ -31,14 +33,16 @@ public class SoapMessageParser implements MessageParser {
       return xmlMessageParser.parse(soapXml, options);
     } catch (XmlParserException e) {
       throw new SoapMessageParserException(e);
+    } catch (MessageParserException e) {
+      throw new SoapMessageParserException(e);
     }
   }
 
-  public XmlMessageParser getXmlMessageParser() {
+  public XMLMessageParser getXmlMessageParser() {
     return xmlMessageParser;
   }
 
-  public void setXmlMessageParser(XmlMessageParser xmlMessageParser) {
+  public void setXmlMessageParser(XMLMessageParser xmlMessageParser) {
     this.xmlMessageParser = xmlMessageParser;
   }
 

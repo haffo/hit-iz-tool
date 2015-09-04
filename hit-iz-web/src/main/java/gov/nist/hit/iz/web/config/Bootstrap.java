@@ -19,8 +19,8 @@ import gov.nist.hit.iz.domain.ConnectivityTestPlan;
 import gov.nist.hit.iz.domain.EnvelopeTestPlan;
 import gov.nist.hit.iz.repo.ConnectivityTestPlanRepository;
 import gov.nist.hit.iz.repo.EnvelopeTestPlanRepository;
-import gov.nist.hit.iz.service.SoapConnectivityTestPlanParser;
-import gov.nist.hit.iz.service.SoapEnvelopeTestPlanParser;
+import gov.nist.hit.iz.service.SOAPConnectivityTestPlanParser;
+import gov.nist.hit.iz.service.SOAPEnvelopeTestPlanParser;
 import gov.nist.hit.iz.web.controller.SOAPController;
 
 import java.io.IOException;
@@ -80,7 +80,7 @@ public class Bootstrap implements InitializingBean {
    * @throws URISyntaxException
    */
   private void soapEnv() throws IOException, ProfileParserException, URISyntaxException {
-    SoapEnvelopeTestPlanParser parser = new SoapEnvelopeTestPlanParser();
+    SOAPEnvelopeTestPlanParser parser = new SOAPEnvelopeTestPlanParser();
     List<EnvelopeTestPlan> testPlans = parser.create();
     for (int i = 0; i < testPlans.size(); i++) {
       soapEnvTestPlanRepository.save(testPlans.get(i));
@@ -93,7 +93,7 @@ public class Bootstrap implements InitializingBean {
    * @throws URISyntaxException
    */
   private void soapConn() throws IOException, URISyntaxException {
-    SoapConnectivityTestPlanParser parser = new SoapConnectivityTestPlanParser();
+    SOAPConnectivityTestPlanParser parser = new SOAPConnectivityTestPlanParser();
     List<ConnectivityTestPlan> testPlans = parser.create();
     for (int i = 0; i < testPlans.size(); i++) {
       soapConnTestPlanRepository.save(testPlans.get(i));

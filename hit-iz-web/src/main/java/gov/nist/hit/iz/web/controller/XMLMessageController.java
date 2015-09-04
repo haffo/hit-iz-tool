@@ -17,14 +17,13 @@ import gov.nist.hit.core.domain.MessageElement;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.service.exception.XmlFormatterException;
 import gov.nist.hit.core.service.exception.XmlParserException;
-import gov.nist.hit.iz.service.XmlMessageParser;
+import gov.nist.hit.iz.service.XMLMessageParser;
 
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,26 +35,31 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping("/xml")
 @RestController
-public class XmlMessageController extends TestingController {
+public class XMLMessageController extends TestingController {
 
-  static final Logger logger = LoggerFactory.getLogger(XmlMessageController.class);
+  static final Logger logger = LoggerFactory.getLogger(XMLMessageController.class);
 
   @Autowired
-  @Qualifier("xmlMessageParser")
-  private XmlMessageParser parser;
+  private XMLMessageParser xmlMessageParser;
 
-  public XmlMessageParser getParser() {
-    return parser;
+
+
+  public XMLMessageParser getXmlMessageParser() {
+    return xmlMessageParser;
   }
 
-  public void setParser(XmlMessageParser parser) {
-    this.parser = parser;
+  public void setXmlMessageParser(XMLMessageParser xmlMessageParser) {
+    this.xmlMessageParser = xmlMessageParser;
   }
 
   @RequestMapping(value = "/parse", method = RequestMethod.POST, consumes = "application/json")
   public List<MessageElement> parse(@RequestBody Command soapCommand) throws XmlParserException {
     logger.info("Parsing soap" + soapCommand.getContent());
-    return parser.parse(soapCommand.getContent(), "").getElements();
+    try {
+      return xmlMessageParser.parse(soapCommand.getContent(), "").getElements();
+    } catch (gov.nist.hit.core.service.exception.MessageParserException e) {
+      throw new XmlParserException(e);
+    }
   }
 
   @RequestMapping(value = "/format", method = RequestMethod.POST, consumes = "application/json")

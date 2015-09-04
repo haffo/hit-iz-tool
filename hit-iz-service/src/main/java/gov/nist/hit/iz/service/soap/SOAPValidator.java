@@ -46,7 +46,7 @@ import org.apache.xmlbeans.XmlObject;
 import org.apache.xmlbeans.XmlOptions;
 import org.w3c.dom.Node;
 
-public class SoapValidator {
+public class SOAPValidator {
 
   /**
    * Validate a SoapMessage against the W3C schema
@@ -191,7 +191,7 @@ public class SoapValidator {
     StringBuilder result = new StringBuilder();
     StreamSource schematron = new StreamSource(schematronFile);
     StreamSource skeleton =
-        new StreamSource(SoapValidator.class.getClassLoader().getResourceAsStream(
+        new StreamSource(SOAPValidator.class.getClassLoader().getResourceAsStream(
             MessageValidationConstants.XSLT_SKELETON));
     // MDI: I think this next line converts a "phase" section in the Schematron file to XSLT, with
     // the results going into 'schematronTransform'
@@ -209,7 +209,7 @@ public class SoapValidator {
     StringBuilder result = new StringBuilder();
     StreamSource schematron = new StreamSource(schematronFile);
     StreamSource skeleton =
-        new StreamSource(SoapValidator.class.getClassLoader().getResourceAsStream(
+        new StreamSource(SOAPValidator.class.getClassLoader().getResourceAsStream(
             MessageValidationConstants.XSLT_SKELETON));
     Node schematronTransform = doTransform(schematron, skeleton, phase);
     result.append(doTransform(xml.getDomNode(), schematronTransform));

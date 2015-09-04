@@ -16,18 +16,17 @@ import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.service.exception.SoapValidationException;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
-public class SoapMessageValidatorImpl implements SoapMessageValidator {
+@Service
+public class SOAPMessageValidatorImpl implements SOAPMessageValidator {
 
-  private String schematronPath;
+  private final String schematronPath = "/schema/soap_rules.sch";
 
-  private final static Logger logger = Logger.getLogger(SoapMessageValidatorImpl.class);
+  private final static Logger logger = Logger.getLogger(SOAPMessageValidatorImpl.class);
 
-  public SoapMessageValidatorImpl() {}
+  public SOAPMessageValidatorImpl() {}
 
-  public SoapMessageValidatorImpl(String schematronPath) {
-    this.schematronPath = schematronPath;
-  }
 
   @Override
   public ValidationResult validate(String soap, String title, String... options)
@@ -37,8 +36,8 @@ public class SoapMessageValidatorImpl implements SoapMessageValidator {
         throw new SoapValidationException("No schematron found");
       gov.nist.healthcare.core.validation.soap.SoapValidationResult tmp =
           new CDCSoapValidation().validate(new SoapMessage(soap),
-              SoapMessageValidatorImpl.class.getResourceAsStream(schematronPath), options);
-      return  new SoapValidationResult(tmp, title);
+              SOAPMessageValidatorImpl.class.getResourceAsStream(schematronPath), options);
+      return new SOAPValidationResult(tmp, title);
     } catch (RuntimeException e) {
       logger.error(e.getMessage());
       throw new SoapValidationException(e);

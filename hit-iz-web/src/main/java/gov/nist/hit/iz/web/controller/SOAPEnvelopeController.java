@@ -14,17 +14,16 @@ package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
 import gov.nist.hit.core.domain.ValidationResult;
+import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.SoapValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
-import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.iz.domain.EnvelopeTestCase;
 import gov.nist.hit.iz.domain.EnvelopeTestContext;
 import gov.nist.hit.iz.domain.EnvelopeTestPlan;
 import gov.nist.hit.iz.repo.EnvelopeTestCaseRepository;
 import gov.nist.hit.iz.repo.EnvelopeTestPlanRepository;
-import gov.nist.hit.iz.service.SoapValidationReportGenerator;
-import gov.nist.hit.iz.service.soap.SoapMessageParser;
-import gov.nist.hit.iz.service.soap.SoapMessageValidator;
+import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
+import gov.nist.hit.iz.service.soap.SOAPMessageValidator;
 import gov.nist.hit.iz.web.utils.Utils;
 
 import java.util.List;
@@ -45,12 +44,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/envelope")
-public class EnvelopeController extends TestingController {
+public class SOAPEnvelopeController extends TestingController {
 
-  static final Logger logger = LoggerFactory.getLogger(EnvelopeController.class);
+  static final Logger logger = LoggerFactory.getLogger(SOAPEnvelopeController.class);
 
   @Autowired
-  private SoapMessageValidator soapValidator;
+  private SOAPMessageValidator soapValidator;
 
   @Autowired
   private EnvelopeTestPlanRepository testPlanRepository;
@@ -58,11 +57,9 @@ public class EnvelopeController extends TestingController {
   @Autowired
   private EnvelopeTestCaseRepository testCaseRepository;
 
-  @Autowired
-  private SoapMessageParser soapParser;
 
   @Autowired
-  private SoapValidationReportGenerator reportService;
+  private SOAPValidationReportGenerator reportService;
 
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
   public List<EnvelopeTestPlan> testCases() {

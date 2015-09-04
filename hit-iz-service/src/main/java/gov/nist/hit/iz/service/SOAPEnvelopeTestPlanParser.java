@@ -23,7 +23,7 @@ import org.codehaus.jackson.JsonProcessingException;
  * @author Harold Affo
  * 
  */
-public class SoapEnvelopeTestPlanParser extends TestPlanParser {
+public class SOAPEnvelopeTestPlanParser extends TestPlanParser {
 
   public List<EnvelopeTestPlan> create() throws JsonProcessingException, IOException,
       ProfileParserException, URISyntaxException {

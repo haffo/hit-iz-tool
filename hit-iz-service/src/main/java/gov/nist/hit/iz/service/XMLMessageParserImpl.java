@@ -15,7 +15,6 @@ import gov.nist.hit.core.domain.MessageElement;
 import gov.nist.hit.core.domain.MessageModel;
 import gov.nist.hit.core.domain.XmlMessageElementData;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.service.MessageParser;
 import gov.nist.hit.core.service.exception.XmlParserException;
 
 import java.io.IOException;
@@ -25,10 +24,13 @@ import java.util.List;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
+import org.springframework.stereotype.Service;
 
-public class XmlMessageParser implements MessageParser {
 
-  public XmlMessageParser() {
+@Service
+public class XMLMessageParserImpl extends XMLMessageParser {
+
+  public XMLMessageParserImpl() {
     super();
   }
 

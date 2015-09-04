@@ -27,14 +27,14 @@ import org.apache.xmlbeans.XmlException;
  * 
  * @author Harold Affo (NIST)
  */
-public class SoapValidationResult extends ValidationResult {
+public class SOAPValidationResult extends ValidationResult {
 
-  private static Logger logger = Logger.getLogger(SoapValidationResult.class);
+  private static Logger logger = Logger.getLogger(SOAPValidationResult.class);
 
 
-  public SoapValidationResult() {}
+  public SOAPValidationResult() {}
 
-  public SoapValidationResult(gov.nist.healthcare.core.validation.soap.SoapValidationResult result,
+  public SOAPValidationResult(gov.nist.healthcare.core.validation.soap.SoapValidationResult result,
       String title) {
     if (result != null) {
 

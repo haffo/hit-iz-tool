@@ -12,26 +12,28 @@
 package gov.nist.hit.iz.service.soap;
 
 import gov.nist.hit.core.service.exception.SoapValidationReportException;
-import gov.nist.hit.iz.service.SoapValidationReportGenerator;
+import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 
 import java.io.IOException;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Harold Affo (NIST)
  */
 
-public class SoapValidationReportGeneratorImpl extends SoapValidationReportGenerator {
+@Service
+public class SOAPValidationReportGeneratorImpl extends SOAPValidationReportGenerator {
 
-  private final static Logger logger = Logger.getLogger(SoapValidationReportGeneratorImpl.class);
+  private final static Logger logger = Logger.getLogger(SOAPValidationReportGeneratorImpl.class);
 
   private static final String HTML_XSL = "/xslt/SOAPHTML.xsl";
 
   private static final String PDF_XSL = "/xslt/SOAPHTML.xsl";
 
-  public SoapValidationReportGeneratorImpl() {
+  public SOAPValidationReportGeneratorImpl() {
 
   }
 
@@ -66,7 +68,7 @@ public class SoapValidationReportGeneratorImpl extends SoapValidationReportGener
   @Override
   public String getPdfConversionXslt() {
     try {
-      return IOUtils.toString(SoapValidationReportGeneratorImpl.class.getResourceAsStream(PDF_XSL));
+      return IOUtils.toString(SOAPValidationReportGeneratorImpl.class.getResourceAsStream(PDF_XSL));
     } catch (IOException e) {
       logger.error(e, e);
       throw new SoapValidationReportException(e.getMessage());
@@ -77,7 +79,7 @@ public class SoapValidationReportGeneratorImpl extends SoapValidationReportGener
   public String getHtmlConversionXslt() {
     try {
       return IOUtils
-          .toString(SoapValidationReportGeneratorImpl.class.getResourceAsStream(HTML_XSL));
+          .toString(SOAPValidationReportGeneratorImpl.class.getResourceAsStream(HTML_XSL));
     } catch (IOException e) {
       logger.error(e, e);
       throw new SoapValidationReportException(e.getMessage());

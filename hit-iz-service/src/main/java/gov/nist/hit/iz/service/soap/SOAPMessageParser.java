@@ -9,36 +9,12 @@
  * works bear some notice that they are derived from it, and any modified versions bear some notice
  * that they have been modified.
  */
+package gov.nist.hit.iz.service.soap;
 
-package gov.nist.hit.iz.web.config;
+import gov.nist.hit.core.service.MessageParser;
 
-import gov.nist.hit.iz.service.IISReceiver;
-import gov.nist.hit.iz.service.Receiver;
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
-
-/**
- * @author Harold Affo (NIST)
- * 
- */
-
-@Configuration
-@ImportResource("classpath:/iztool-ws-context.xml")
-public class WebBeanConfig {
+public abstract class SOAPMessageParser implements MessageParser {
 
 
-
-  @Bean
-  public SimpleJaxWsServiceExporter simpleJaxWsServiceExporter() {
-    return new SimpleJaxWsServiceExporter();
-  }
-
-  @Bean
-  public Receiver receiver() {
-    return new IISReceiver();
-  }
 
 }

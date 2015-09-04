@@ -17,7 +17,6 @@ import gov.nist.hit.core.domain.TransactionCommand;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.repo.TransactionRepository;
-import gov.nist.hit.core.service.MessageParser;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.SoapValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
@@ -30,8 +29,9 @@ import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.repo.ConnectivityTestCaseRepository;
 import gov.nist.hit.iz.repo.ConnectivityTestContextRepository;
 import gov.nist.hit.iz.repo.ConnectivityTestPlanRepository;
-import gov.nist.hit.iz.service.SoapValidationReportGenerator;
-import gov.nist.hit.iz.service.soap.SoapMessageValidator;
+import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
+import gov.nist.hit.iz.service.soap.SOAPMessageParser;
+import gov.nist.hit.iz.service.soap.SOAPMessageValidator;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 import gov.nist.hit.iz.web.utils.Utils;
 
@@ -40,7 +40,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,13 +53,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/connectivity")
-public class ConnectivityController extends TestingController {
+public class SOAPConnectivityController extends TestingController {
 
-  static final Logger logger = LoggerFactory.getLogger(ConnectivityController.class);
+  static final Logger logger = LoggerFactory.getLogger(SOAPConnectivityController.class);
 
   @Autowired
-  @Qualifier("soapMessageValidator")
-  private SoapMessageValidator soapValidator;
+  private SOAPMessageValidator soapValidator;
 
   @Autowired
   private TransportClient transportClient;
@@ -75,11 +73,10 @@ public class ConnectivityController extends TestingController {
   private ConnectivityTestCaseRepository testCaseRepository;
 
   @Autowired
-  @Qualifier("soapMessageParser")
-  private MessageParser soapParser;
+  private SOAPMessageParser soapMessageParser;
 
   @Autowired
-  private SoapValidationReportGenerator reportService;
+  private SOAPValidationReportGenerator reportService;
 
   @Autowired
   protected TransactionRepository transactionRepository;
@@ -92,12 +89,12 @@ public class ConnectivityController extends TestingController {
     this.transactionRepository = transactionRepository;
   }
 
-  public MessageParser getSoapParser() {
-    return soapParser;
+  public SOAPMessageParser getSoapParser() {
+    return soapMessageParser;
   }
 
-  public void setSoapParser(MessageParser soapParser) {
-    this.soapParser = soapParser;
+  public void setSoapMessageParser(SOAPMessageParser soapMessageParser) {
+    this.soapMessageParser = soapMessageParser;
   }
 
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)

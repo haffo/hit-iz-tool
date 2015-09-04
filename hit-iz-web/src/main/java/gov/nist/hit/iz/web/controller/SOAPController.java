@@ -13,10 +13,11 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.service.MessageParser;
 import gov.nist.hit.core.service.ValidationReportGenerator;
 import gov.nist.hit.core.service.exception.MessageException;
 import gov.nist.hit.core.service.exception.SoapValidationReportException;
+import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
+import gov.nist.hit.iz.service.soap.SOAPMessageParser;
 import gov.nist.hit.iz.web.exception.EnvelopeException;
 
 import java.io.IOException;
@@ -33,7 +34,6 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,18 +54,16 @@ public class SOAPController extends TestingController {
   static final Logger logger = LoggerFactory.getLogger(SOAPController.class);
 
   @Autowired
-  @Qualifier("soapMessageParser")
-  private MessageParser soapParser;
+  private SOAPMessageParser soapParser;
 
   @Autowired
-  @Qualifier("soapReportGenerator")
-  private ValidationReportGenerator reportService;
+  private SOAPValidationReportGenerator reportService;
 
   public ValidationReportGenerator getReportService() {
     return reportService;
   }
 
-  public void setReportService(ValidationReportGenerator reportService) {
+  public void setReportService(SOAPValidationReportGenerator reportService) {
     this.reportService = reportService;
   }
 
