@@ -1,5 +1,5 @@
 {
-"version" : "2.3",
+"version" : "2.4",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -42,7 +42,10 @@ USA "},
 				{"element" : "Relationship", "data" : "Grandparent"},
 				{"element" : "Address", "data" : "4345 Standish Way Stamford CT 06901 "},
 				{"element" : "Phone Number", "data" : "(203)555-1212"},		]
-		},
+		{
+			"title":"Vaccine Administration Information[*]",
+
+<accordion>		},
 		{
 			"title":"Vaccine Administration Information",
 			"elements" : 
@@ -868,6 +871,7 @@ virus vaccine"},
 					}
 		]
 
+</accordion>
 		}
 ]
 }

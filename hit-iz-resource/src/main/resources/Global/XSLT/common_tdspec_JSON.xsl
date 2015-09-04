@@ -1,7 +1,7 @@
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:util="http://hl7.nist.gov/data-specs/util" xpath-default-namespace="" exclude-result-prefixes="xs" version="2.0">
 	<!-- param: output   values: json | jquery-tab-html | ng-tab-html    default: plain-html -->
 	<xsl:param name="output" select="'json'"/>
-	<xsl:variable name="version" select="'2.3'"/>
+	<xsl:variable name="version" select="'2.4'"/>
 	<!-- Release notes author:sriniadhi.work@gmail.com
 
 	2.1:  Tabset support
@@ -49,6 +49,24 @@
 		<!-- Add profile information if it is json -->
 		<xsl:value-of select="util:start(name(.), 'test-data-specs-main')"/>
 		<!-- - - - programatically determine if it is a VXU or a QBP - -->
+		
+		<xsl:if test="$output = 'ng-tab-html'">
+				<xsl:variable name="full">
+					<xsl:call-template name="_main"/>
+				</xsl:variable>
+				
+				<xsl:value-of select="util:begin-tab('FULL', 'All Segments', '', false())"/>
+				
+				<xsl:value-of select="util:strip-tabsets($full)"/>
+				<xsl:value-of select="util:end-tab($ind1, false())"/>
+				
+		</xsl:if>
+		
+		<xsl:call-template name="_main"/>
+		<xsl:value-of select="util:end($ind1)"/>
+	</xsl:template>
+
+	<xsl:template name="_main">
 		<xsl:variable name="message-type">
 			<xsl:choose>
 				<xsl:when test="starts-with(name(.), 'SS')">
@@ -68,11 +86,14 @@
 		
 		<!-- - - - - - Patient information - - - - - - - - - - - -->
 		<xsl:if test="$message-type = $VXU">
-			<xsl:apply-templates select="//PID">
-			</xsl:apply-templates>
+			<xsl:call-template name="display-repeating-segment-in-accordion">
+				<xsl:with-param name="segments" select="//PID"/>
+			</xsl:call-template>
 		</xsl:if>
 		<xsl:if test="$message-type = $QBP">
-			<xsl:apply-templates select="//QPD"/>
+			<xsl:call-template name="display-repeating-segment-in-accordion">
+				<xsl:with-param name="segments" select="//QPD"/>
+			</xsl:call-template>
 		</xsl:if>
 		<!-- - - - - - Patient information - - - - - - - - - - - -->
 		<xsl:if test="$message-type = $ACK">
@@ -83,26 +104,73 @@
 		</xsl:if>
 		<xsl:if test="$message-type = $VXU">
 			<!-- - - - - - Immunization Registry information - - - - - - - - - - - -->
-			<xsl:apply-templates select="//PD1"/>
-			<xsl:apply-templates select="//NK1"/>
+			<xsl:call-template name="display-repeating-segment-in-accordion">
+				<xsl:with-param name="segments" select="//PD1"/>
+			</xsl:call-template>
+			<xsl:call-template name="display-repeating-segment-in-accordion">
+				<xsl:with-param name="segments" select="//NK1"/>
+			</xsl:call-template>
 			<!-- - - - - - Vaccine Administration Information - - - - - - - - -->
-			<xsl:apply-templates select="//RXA"/>
+			<xsl:call-template name="display-repeating-segment-in-accordion">
+				<xsl:with-param name="segments" select="//RXA"/>
+			</xsl:call-template>
 		</xsl:if>
 		<xsl:if test="$message-type = $SS">
 			<!-- - - - - - Immunization Registry information - - - - - - - - - - - -->
-			<xsl:apply-templates select="//PID" mode="Syndromic"/>
-			<xsl:apply-templates select="//PV1" mode="Syndromic"/>
-			<xsl:apply-templates select="//OBX" mode="Syndromic"/>
+			<xsl:call-template name="display-repeating-segment-in-accordion">
+				<xsl:with-param name="segments" select="//PID"/>
+			</xsl:call-template>
+			<xsl:call-template name="display-repeating-segment-in-accordion">
+				<xsl:with-param name="segments" select="//PV1"/>
+			</xsl:call-template>
+			<xsl:call-template name="display-repeating-segment-in-accordion">
+				<xsl:with-param name="segments" select="//OBX"/>
+			</xsl:call-template>
 		</xsl:if>
-		<xsl:value-of select="util:end($ind1)"/>
 	</xsl:template>
 	<!-- Indentation values so that the output is readable -->
 	<xsl:variable name="ind1" select="'&#x9;&#x9;'"/>
 	<xsl:variable name="ind2" select="'&#x9;&#x9;&#x9;&#x9;&#x9;'"/>
+
+	<!-- - - - - - display-segment-in-groups - - - - - - - - - - - -->
+	<xsl:template name="display-repeating-segment-in-accordion">
+		<xsl:param name="segments"/>
+		
+		 <xsl:variable name="multiple-segs" as="xs:boolean">
+			 <xsl:value-of select="count($segments) &gt; 1"/>
+		 </xsl:variable>					
+
+		<xsl:if test="$multiple-segs">
+			<xsl:value-of select="util:title('title', concat(util:segdesc(name($segments[1])), '[*]'),  concat(util:segdesc(name($segments[1])), '[*]'), $ind1, false(), false())"/>
+			<xsl:value-of select="util:tag('accordion', '')"/> 
+		</xsl:if>
+		
+		 <xsl:for-each select="$segments">
+				<xsl:variable name="index">
+					<xsl:if test="$multiple-segs">
+						<xsl:value-of select="concat(' - ', position())"/>
+					</xsl:if>
+				</xsl:variable>
+						
+				<xsl:apply-templates select=".">
+					<xsl:with-param name="vertical-orientation" as="xs:boolean" select="$multiple-segs"/>
+					<xsl:with-param name="counter" select="$index"/>
+				</xsl:apply-templates>
+		</xsl:for-each>
+					
+		<xsl:if test="$multiple-segs">
+			<xsl:value-of select="util:tag('/accordion', '')"/> 
+			<xsl:value-of select="util:end-tab($ind1, false())"/>
+		</xsl:if>
+
+	</xsl:template>
 	
 	<!-- - - - - - Patient information - - - - - - - - - - - -->
 	<xsl:template match="PID">
-		<xsl:value-of select="util:title('title', 'Patient Information', 'Patient Information', $ind1, false(), false())"/>
+		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="counter"/>
+		
+		<xsl:value-of select="util:title('title', concat('Patient Information', $counter), 'Patient Information', $ind1, false(), $vertical-orientation)"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Patient Name', concat(util:format-with-space(.//PID.5.2), util:format-with-space(.//PID.5.3),.//PID.5.1.1), $ind1)"/>
 		<xsl:value-of select="util:element('Mother''s Maiden Name', concat(util:format-with-space(.//PID.6.2), .//PID.6.1.1), $ind1)"/>
@@ -126,32 +194,38 @@
 			<xsl:value-of select="util:element(concat('Race', util:blank-if-1(position())), PID.10.2, $ind1)"/>
 		</xsl:for-each>
 		<xsl:value-of select="util:element('Ethnic Group',.//PID.22.2, $ind1)"/>
-		<xsl:value-of select="util:last-element('Birth Order',.//PID.25, $ind1)"/>
+		<xsl:value-of select="util:last-element('Birth Order',.//PID.25, $ind1, $vertical-orientation)"/>
 	</xsl:template>
 	<!-- - - - - - Patient information for QPD - - - - - - - - - - - -->
 	<xsl:template match="QPD">
-		<xsl:value-of select="util:title('title', 'Patient Information', 'Patient Information', $ind1, false(), false())"/>
+		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="counter"/>
+		<xsl:value-of select="util:title('title', concat('Patient Information', $counter), 'Patient Information', $ind1, false(), $vertical-orientation)"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Patient Name', concat(util:format-with-space (.//QPD.4.2), util:format-with-space(.//QPD.4.3), .//QPD.4.1.1), $ind1)"/>
 		<xsl:value-of select="util:element('Date/Time of Birth', util:format-date (.//QPD.6.1), $ind1)"/>
 		<xsl:value-of select="util:element('Sex', util:admin-sex(.//QPD.7), $ind1)"/>
 		<xsl:value-of select="util:element('Patient Address', util:format-address(.//QPD.8.1.1, .//QPD.8.3, .//QPD.8.4, '', ''), $ind1)"/>
-		<xsl:value-of select="util:last-element('Patient Phone', util:format-tel (.//QPD.9.6, .//QPD.9.7), $ind1)"/>
+		<xsl:value-of select="util:last-element('Patient Phone', util:format-tel (.//QPD.9.6, .//QPD.9.7), $ind1, $vertical-orientation)"/>
 	</xsl:template>
 	<!-- - - - - - Immunization Registry information - - - - - - - - - - - -->
 	<xsl:template match="PD1">
-		<xsl:value-of select="util:title('title', 'Immunization Registry Information', 'Immunization Registry Information', $ind1, true(), false())"/>
+		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="counter"/>
+		<xsl:value-of select="util:title('title', concat('Immunization Registry Information', $counter), 'Immunization Registry Information', $ind1, true(), $vertical-orientation)"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Immunization Registry Status', .//PD1.16, $ind1)"/>
 		<xsl:value-of select="util:element('Immunization Registry Status Effective Date', util:format-date(.//PD1.17), $ind1)"/>
 		<xsl:value-of select="util:element('Publicity Code', .//PD1.11.2, $ind1)"/>
 		<xsl:value-of select="util:element('Publicity Code Effective Date', util:format-date(.//PD1.18), $ind1)"/>
 		<xsl:value-of select="util:element('Protection Indicator', util:protection-indicator(.//PD1.12), $ind1)"/>
-		<xsl:value-of select="util:last-element('Protection Indicator Effective Date', util:format-date(.//PD1.13), $ind1)"/>
+		<xsl:value-of select="util:last-element('Protection Indicator Effective Date', util:format-date(.//PD1.13), $ind1, $vertical-orientation)"/>
 	</xsl:template>
 	<!-- - - - - - Guardian or Responsible Party - - - - - - - - - - - -->
 	<xsl:template match="NK1">
-		<xsl:value-of select="util:title('title', 'Guardian or Responsible Party', 'Guardian or Responsible Party', $ind1, true(), false())"/>
+		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="counter"/>
+		<xsl:value-of select="util:title('title', concat('Guardian or Responsible Party', $counter), 'Guardian or Responsible Party', $ind1, true(), $vertical-orientation)"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Name', concat(util:format-with-space(.//NK1.2.2), util:format-with-space(.//NK1.2.3), .//NK1.2.1.1), $ind1)"/>
 		<xsl:value-of select="util:element('Relationship', .//NK1.3.2, $ind1)"/>
@@ -161,12 +235,14 @@
 		<xsl:for-each select="NK1.5">
 			<xsl:value-of select="util:element('Phone Number', util:format-tel(NK1.5.6, NK1.5.7), $ind1)"/>
 		</xsl:for-each>
-		<xsl:value-of select="util:end-elements($ind1, false())"/>
+		<xsl:value-of select="util:end-elements($ind1, $vertical-orientation)"/>
 	</xsl:template>
 	
 	<!-- - - - - - Patient information - - - - - - - - - - - -->
 	<xsl:template match="PID" mode="Syndromic">
-			<xsl:value-of select="util:title('title', 'Patient Information', 'Patient Information', $ind1, false(), false())"/>
+		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="counter"/>
+			<xsl:value-of select="util:title('title', concat('Patient Information', $counter), 'Patient Information', $ind1, false(), $vertical-orientation)"/>
 			<xsl:value-of select="util:elements($ind1)"/>
 			<xsl:value-of select="util:element('Name', util:valueset(PID.5.7, 'HL70200'), $ind1)"/> <!--                      ????????????????????????????                                  PID.5[2].7 ????? -->
 			<xsl:value-of select="util:element('Sex', util:valueset(PID.8, 'PHVS_AdministrativeSex_HL7_2x'), $ind1)"/>
@@ -188,7 +264,9 @@
 
 	<!-- - - - - - Patient Visit information - - - - - - - - - - - -->
 	<xsl:template match="PV1" mode="Syndromic">
-			<xsl:value-of select="util:title('title', 'Visit Information', 'Visit Information', $ind1, false(), false())"/>
+		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="counter"/>
+			<xsl:value-of select="util:title('title', concat('Visit Information', $counter), 'Visit Information', $ind1, false(), $vertical-orientation)"/>
 			<xsl:value-of select="util:elements($ind1)"/>
 			<xsl:value-of select="util:element('Admit or Encounter Reason', util:value-or-valueset(PID.10.2, PID.10.1, 'CDCREC'), $ind1)"/>
 			<xsl:value-of select="util:element('Admit Date and Time', util:format-date(.//PV1.44.1), $ind1)"/> <!-- - - - - - time? - - - - - - - - - - - -->
@@ -206,7 +284,9 @@
 	<!-- - - - - - Vaccine Administration Information - - - - - - - - - - - -->
 	<!-- Note the OBX subtable. Also, that the grouping based on OBX.4 -->
 	<xsl:template match="RXA">
-		<xsl:value-of select="util:title('title', 'Vaccine Administration Information', 'Vaccine Administration Information', $ind1, true(), false())"/>
+		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="counter"/>
+		<xsl:value-of select="util:title('title', concat('Vaccine Administration Information', $counter), 'Vaccine Administration Information', $ind1, true(), $vertical-orientation)"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Administered Code', .//RXA.5.2, $ind1)"/>
 		<xsl:value-of select="util:element('Date/Time Start of Administration', util:format-date(.//RXA.3.1), $ind1)"/>
@@ -243,15 +323,15 @@
 				</xsl:for-each-group>
 				<xsl:choose>
 					<xsl:when test="$generate-plain-html">
-						<xsl:value-of select="util:end-obx-elements($ind2)"/>
+						<xsl:value-of select="util:end-obx-elements($ind2, $vertical-orientation)"/>
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:value-of select="concat($nl, $indent, util:end-obx-elements($ind2), $ind2, '}', $nl, $ind2, '}', $nl, $ind1, ']', $nl)"/>
+						<xsl:value-of select="concat($nl, $indent, util:end-obx-elements($ind2, $vertical-orientation), $ind2, '}', $nl, $ind2, '}', $nl, $ind1, ']', $nl)"/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:value-of select="util:end-elements($ind1, false())"/>
+				<xsl:value-of select="util:end-elements($ind1, $vertical-orientation)"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -444,6 +524,8 @@
 	<xsl:template xmlns:fo="http://www.w3.org/1999/XSL/Format" name="css">
 		<style xmlns="" type="text/css">
 			@media screen {
+			.test-data-specs-main legend {text-align:center;font-size:110%; font-weight:bold;}					
+			.test-data-specs-main .nav-tabs {font-weight:bold;}					
 			.test-data-specs-main .tds_obxGrpSpl {background:#B8B8B8;}
 			.test-data-specs-main maskByMediaType {display:table;}
 			.test-data-specs-main table tbody tr th {font-size:95%}
@@ -466,9 +548,12 @@
 			.test-data-specs-main .pgBrk {padding-top:15px;}
 			.test-data-specs-main .er7Msg {width:100%;}
 			.test-data-specs-main .embSpace {padding-left:15px;}			
+			.test-data-specs-main .panel-heading { background-color: #C2E0FF !important; }					
 			}
 			
 			@media print {
+			.test-data-specs-main legend {text-align:center;font-size:110%; font-weight:bold;}					
+			.test-data-specs-main .nav-tabs {font-weight:bold;}					
 			.test-data-specs-main .obxGrpSpl {background:#B8B8B8;}
 			.test-data-specs-main maskByMediaType {display:table;}
 			.test-data-specs-main table tbody tr th {font-size:90%}
@@ -497,6 +582,7 @@
 			.test-data-specs-main .er7MsgNote{width:100%;font-style:italic;font-size:80%;}
 			.test-data-specs-main .embSpace {padding-left:15px;}
 			.test-data-specs-main .embSubSpace {padding-left:25px;}
+			.test-data-specs-main .panel-heading { background-color: #C2E0FF !important; }					
 			}
 		</style>
 	</xsl:template>
@@ -1591,17 +1677,17 @@
             </TableDefinition>
         </Tables>
     </xsl:variable>
-	<xsl:function name="util:format-trailing">
+	<xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:format-trailing">
 		<xsl:param name="value"/>
 		<xsl:param name="padding"/>
 		<xsl:value-of select="$value"/>
 		<xsl:if test="$value != ''">
 			<xsl:value-of select="$padding"/>
 		</xsl:if>
-	</xsl:function><xsl:function name="util:format-with-space">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:format-with-space">
 		<xsl:param name="value"/>
 		<xsl:value-of select="util:format-trailing($value, ' ')"/>
-	</xsl:function><xsl:function name="util:format-tel">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:format-tel">
 		<xsl:param name="areacode"/>
 		<xsl:param name="phonenumberin"/>
 		<!-- pad it so that length problems don't happen -->
@@ -1612,7 +1698,7 @@
 			<xsl:variable name="idCode" select="substring($phonenumber,4,4)"/>
 			<xsl:value-of select="concat($areaCode,$localCode,$idCode)"/>
 		</xsl:if>
-	</xsl:function><xsl:function name="util:format-address">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:format-address">
 		<xsl:param name="street"/>
 		<xsl:param name="city"/>
 		<xsl:param name="state"/>
@@ -1621,7 +1707,7 @@
 
 		<xsl:value-of select="concat(util:format-with-space($street), util:format-with-space($city), util:format-with-space($state), util:format-with-space($zip), util:format-with-space($country))"/>
 
-	</xsl:function><xsl:function name="util:tags">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:tags">
 		<xsl:param name="tag"/>		
 		<xsl:param name="content"/>		
 		<xsl:param name="ind"/>
@@ -1636,7 +1722,7 @@
 		<xsl:text disable-output-escaping="yes">&lt;/</xsl:text>
 		<xsl:value-of select="$tag"/>
 		<xsl:text disable-output-escaping="yes">&gt;</xsl:text>		
-	</xsl:function><xsl:function name="util:tag">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:tag">
 		<xsl:param name="tag"/>		
 		<xsl:param name="ind"/>
 		
@@ -1645,7 +1731,7 @@
 		<xsl:value-of select="$tag"/>
 		<xsl:text disable-output-escaping="yes">&gt;</xsl:text>	
 		
-	</xsl:function><xsl:function name="util:format-date">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:format-date">
 		<xsl:param name="elementDataIn"/>
 		<!-- pad it so that length problems don't happen -->
 		<xsl:variable name="elementData" select="concat($elementDataIn, '                ')"/>
@@ -1657,7 +1743,7 @@
 			<!-- <xsl:value-of select="format-date(xs:date(concat($month,$day,$year)),'[D1o] 
 				[MNn], [Y]', 'en', (), ())"/> -->
 		</xsl:if>
-	</xsl:function><xsl:function name="util:start">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:start">
 		<xsl:param name="profile"/>
 		<xsl:param name="div"/>
 		<xsl:choose>
@@ -1682,7 +1768,7 @@
 				<xsl:value-of select="concat('{', $nl, '&quot;version&quot; : &quot;', $version, '&quot;,', $nl, '&quot;profile&quot; : &quot;', $profile, '&quot;,', $nl, '&quot;tables&quot;:', $nl, '[', $nl)"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:begin-obx-table">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:begin-obx-table">
 		<xsl:param name="ind"/>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">				
@@ -1691,7 +1777,7 @@
 				<xsl:value-of select="concat($nl, $ind, '{&quot;element&quot; : &quot;obx&quot;, &quot;data&quot; : ', $nl)"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:end-obx-group">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:end-obx-group">
 		<xsl:param name="ind"/>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">
@@ -1704,7 +1790,7 @@
 				<xsl:value-of select="util:element('', '', $ind)"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:variable name="indent" select="'&#x9;'"/><xsl:variable name="nl" select="'&#xA;'"/><xsl:function name="util:title">
+	</xsl:function><xsl:variable xmlns:xalan="http://xml.apache.org/xslt" name="indent" select="'&#x9;'"/><xsl:variable xmlns:xalan="http://xml.apache.org/xslt" name="nl" select="'&#xA;'"/><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:title">
 		<xsl:param name="name"/>
 		<xsl:param name="tabname"/>
 		<xsl:param name="value"/>
@@ -1719,7 +1805,7 @@
 						<xsl:when test="$generate-plain-html">
 							<xsl:value-of select="util:tag('/table', $ind)"/>
 							<xsl:value-of select="util:tag('br/', $ind)"/>
-							<xsl:value-of select="util:end-tab($ind, false())"/>
+							<xsl:value-of select="util:end-tab($ind, $vertical-orientation)"/>
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:value-of select="concat($ind, '},', $nl)"/>
@@ -1738,7 +1824,7 @@
 				<xsl:value-of select="concat($prelude, $ind, '{', $nl, $ind, $indent, '&quot;', $name, '&quot;', ':', '&quot;', $value, '&quot;,', $nl)"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:title-no-tab">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:title-no-tab">
 		<xsl:param name="name"/>
 		<xsl:param name="tabname"/>
 		<xsl:param name="value"/>
@@ -1754,7 +1840,7 @@
 					<xsl:value-of select="util:title($name, $tabname, $value, $ind, $endprevioustable, false())"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:begin-tab">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:begin-tab">
 		<xsl:param name="tabname"/>
 		<xsl:param name="val"/>
 		<xsl:param name="ind"/>
@@ -1770,7 +1856,7 @@
 					<xsl:value-of select="util:tags('legend', $val, $ind)"/>
 			</xsl:when>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:end-tab">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:end-tab">
 		<xsl:param name="ind"/>
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:choose>
@@ -1782,7 +1868,7 @@
 				<xsl:value-of select="util:tag('/fieldset', '')"/>
 			</xsl:when>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:elements">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:elements">
 		<xsl:param name="ind"/>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">				
@@ -1796,7 +1882,7 @@
 				<xsl:value-of select="concat($ind, $indent, '&quot;elements&quot; : ', $nl, $ind, $indent, '[')"/> 
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:message-elements">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:message-elements">
 		<xsl:param name="ind"/>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">				
@@ -1812,8 +1898,9 @@
 				<xsl:value-of select="concat($ind, $indent, '&quot;elements&quot; : ', $nl, $ind, $indent, '[')"/> 
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:end-obx-elements">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:end-obx-elements">
 		<xsl:param name="ind"/>
+		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">	
 				<xsl:variable name="end-elements">
@@ -1821,7 +1908,7 @@
 					<xsl:value-of select="util:tag('br/', $ind)"/>
 					<xsl:value-of select="util:tag('/fieldset', $ind)"/>
 					<xsl:value-of select="util:tag('/table', $ind)"/>
-					<xsl:value-of select="util:end-tab($ind, false())"/>
+					<xsl:value-of select="util:end-tab($ind, $vertical-orientation)"/>
 				</xsl:variable>
 				<xsl:value-of select="$end-elements"/>
 			</xsl:when>
@@ -1829,7 +1916,7 @@
 				<xsl:value-of select="concat($ind, ']', $nl)"/> 
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:end-elements">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:end-elements">
 		<xsl:param name="ind"/>
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:choose>
@@ -1845,26 +1932,27 @@
 				<xsl:value-of select="concat($ind, ']', $nl)"/> 
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:element">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:element">
 		<xsl:param name="name"/>
 		<xsl:param name="value"/>
 		<xsl:param name="ind"/>
 		<xsl:value-of select="util:element-with-delimiter($name, $value, ',', $ind)"/>
-	</xsl:function><xsl:function name="util:last-element">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:last-element">
 		<xsl:param name="name"/>
 		<xsl:param name="value"/>
 		<xsl:param name="ind"/>
+		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">				
 				<xsl:value-of select="util:element-with-delimiter($name, $value, '', $ind)"/>
 				<xsl:value-of select="util:tag('/table', $ind)"/>
-				<xsl:value-of select="util:end-tab($ind, false())"/>
+				<xsl:value-of select="util:end-tab($ind, $vertical-orientation)"/>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="concat(util:element-with-delimiter($name, $value, '', $ind), $nl, $ind, $indent, ']', $nl)"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:end-table">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:end-table">
 		<xsl:param name="ind"/>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">				
@@ -1874,7 +1962,7 @@
 			<xsl:otherwise>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:single-element">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:single-element">
 		<xsl:param name="name"/>
 		<xsl:param name="ind"/>
 		<xsl:choose>
@@ -1890,7 +1978,7 @@
 				<xsl:value-of select="util:element-with-delimiter($name, '', ',', $ind)"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:element-with-delimiter">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:element-with-delimiter">
 		<xsl:param name="name"/>
 		<xsl:param name="value"/>
 		<xsl:param name="trailing"/>
@@ -1916,7 +2004,7 @@
 				<xsl:value-of select="concat($nl, $ind, $indent, $indent, '{&quot;element&quot; : &quot;', $name, '&quot;, &quot;data&quot; : &quot;', $value, '&quot;}', $trailing)"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:message-element-with-delimiter">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:message-element-with-delimiter">
 		<xsl:param name="location"/>
 		<xsl:param name="dataelement"/>
 		<xsl:param name="data"/>
@@ -1947,7 +2035,7 @@
 				<xsl:value-of select="concat($nl, $ind, $indent, $indent,         '{&quot;location&quot; : &quot;', $location, '&quot;, &quot;dataelement&quot; : &quot;', $dataelement, '&quot;, &quot;data&quot; : &quot;', $data, '&quot;, &quot;categorization&quot; : &quot;', $categorization, '&quot;}', $trailing)"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:end">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:end">
 		<xsl:param name="ind"/>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">	
@@ -1960,7 +2048,7 @@
 				<xsl:value-of select="concat($nl, $ind, '}', $nl, ']', $nl, '}')"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:blank-if-1">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:blank-if-1">
 		<xsl:param name="pos"/>
 		<xsl:choose>
 			<xsl:when test="$pos = 1">	
@@ -1969,7 +2057,7 @@
 				<xsl:value-of select="$pos - 1"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:action-code">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:action-code">
 		<xsl:param name="code"/>
 		<xsl:choose>
 			<xsl:when test="$code = 'A'">	
@@ -1985,7 +2073,7 @@
 				<xsl:value-of select="$code"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:admin-sex">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:admin-sex">
 		<xsl:param name="code"/>
 		<xsl:choose>
 			<xsl:when test="$code = 'F'">	
@@ -2001,7 +2089,7 @@
 				<xsl:value-of select="$code"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:protection-indicator">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:protection-indicator">
 		<xsl:param name="code"/>
 		<xsl:choose>
 			<xsl:when test="$code = 'N'">	
@@ -2014,7 +2102,7 @@
 				<xsl:value-of select="$code"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:IfEmptyThenElse">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:IfEmptyThenElse">
 		<xsl:param name="data"/>
 		<xsl:param name="ifData"/>
 		<xsl:param name="ifNotData"/>
@@ -2026,7 +2114,7 @@
 					<xsl:value-of select="$ifNotData"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:IfThenElse">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:IfThenElse">
 		<xsl:param name="cond" as="xs:boolean"/>
 		<xsl:param name="ifData"/>
 		<xsl:param name="ifNotData"/>
@@ -2038,11 +2126,11 @@
 					<xsl:value-of select="$ifNotData"/>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:function><xsl:function name="util:valueset">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:valueset">
 		<xsl:param name="key"/>
 		<xsl:param name="tablename"/>
 		<xsl:value-of select="$HL7Tables/Tables/TableDefinition[@Id=$tablename]/TableElement[@Code=$key]/@DisplayName"/>
-	</xsl:function><xsl:function name="util:value-or-valueset">
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:value-or-valueset">
 		<xsl:param name="value"/>
 		<xsl:param name="key"/>
 		<xsl:param name="tablename"/>
@@ -2052,6 +2140,35 @@
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="$value"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:strip-tabsets">
+		<xsl:param name="html"/>
+		
+		<xsl:value-of select="replace(replace($html, '(&lt;tab heading=&quot;.*&quot;)|(&lt;tabset)|(&lt;accordion(-group)?)', '&lt;div'),                     '(&lt;/tab&gt;)|(&lt;/tabset&gt;)|(&lt;/accordion(-group)?&gt;)', '&lt;/div&gt;')"/>
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:segdesc">
+		<xsl:param name="seg"/>
+		<xsl:choose>
+			<xsl:when test="$seg = 'PID' or $seg = 'QPD'">
+				<xsl:value-of select="'Patient Information'"/>
+			</xsl:when>
+			<xsl:when test="$seg = 'PD1'">
+				<xsl:value-of select="'Immunization Registry Information'"/>
+			</xsl:when>
+			<xsl:when test="$seg = 'PV1'">
+				<xsl:value-of select="'Patient Visit Information'"/>
+			</xsl:when>
+			<xsl:when test="$seg = 'NK1'">
+				<xsl:value-of select="'Guardian or Responsible Party'"/>
+			</xsl:when>
+			<xsl:when test="$seg = 'OBX'">
+				<xsl:value-of select="'Observations'"/>
+			</xsl:when>
+			<xsl:when test="$seg = 'RXA'">
+				<xsl:value-of select="'Vaccine Administration Information'"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="'Other'"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:function>

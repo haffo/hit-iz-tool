@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ValueSetLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../ValueSets.xsd" ValueSetLibraryIdentifier="5674a4b2-0e26-4f6a-9dc8-ba78a4727c83" Description="Automatically generated vacab for VXU_V04" Name="Vocab for VXU_V04" OrganizationName="HL7 NIST" Status="Active" ValueSetLibraryVersion="20150821-1">
+<ValueSetLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/ValueSets.xsd" ValueSetLibraryIdentifier="5674a4b2-0e26-4f6a-9dc8-ba78a4727c83" Description="Automatically generated vacab for VXU_V04" Name="Vocab for VXU_V04" OrganizationName="HL7 NIST" Status="Active" ValueSetLibraryVersion="20150821-1">
 	<NoValidation>
 		<BindingIdentifier>0110</BindingIdentifier>
 		<BindingIdentifier>0018</BindingIdentifier>
@@ -296,7 +296,7 @@
 			<ValueElement Value="NA" CodeSystem="HL70322" DisplayName="Not Administered"/>
 			<ValueElement Value="PA" CodeSystem="HL70322" DisplayName="Partially Administered"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="Hl70396_IZ" Name="Coding system" DisplayClassifier="1:CDC-HL7-IZ">
+		<ValueSetDefinition BindingIdentifier="HL70396_IZ" Name="Coding system" DisplayClassifier="1:CDC-HL7-IZ">
 			<ValueElement Value="99zzz or L" CodeSystem="HL70396" DisplayName="Local general code (where z is an alphanumeric character)"/>
 			<ValueElement Value="ACR" CodeSystem="HL70396" DisplayName="American College of Radiology finding codes"/>
 			<ValueElement Value="ACTCODE" CodeSystem="HL70396" DisplayName="Table of HL7 Version 3 ActCode values"/>
@@ -590,14 +590,14 @@
 			<ValueElement Value="2.5.1" CodeSystem="0104" DisplayName="Release 2.5.1  April 2007"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70064_IZ" Name="Publicity code" DisplayClassifier="1:CDC-HL7-IZ">
-			<ValueElement Value="V01 " CodeSystem="HL70064" DisplayName="Not VFC eligible "/>
-			<ValueElement Value="V02 " CodeSystem="HL70064" DisplayName="VFC eligible-Medicaid/Medicaid Managed Care "/>
-			<ValueElement Value="V03 " CodeSystem="HL70064" DisplayName="VFC eligible- Uninsured "/>
-			<ValueElement Value="V04 " CodeSystem="HL70064" DisplayName="VFC eligible- American Indian/Alaskan Native "/>
-			<ValueElement Value="V05 " CodeSystem="HL70064" DisplayName="VFC eligible-Federally Qualified Health Center Patient (under-insured) "/>
-			<ValueElement Value="V06 " CodeSystem="HL70064" DisplayName="Deprecated [VFC eligible- State specific eligibility (e.g. S-CHIP plan)] "/>
-			<ValueElement Value="V07 " CodeSystem="HL70064" DisplayName="Local-specific eligibility "/>
-			<ValueElement Value="V08 " CodeSystem="HL70064" DisplayName="Deprecated [Not VFC eligible-underinsured] "/>
+			<ValueElement Value="V01" CodeSystem="HL70064" DisplayName="Not VFC eligible "/>
+			<ValueElement Value="V02" CodeSystem="HL70064" DisplayName="VFC eligible-Medicaid/Medicaid Managed Care "/>
+			<ValueElement Value="V03" CodeSystem="HL70064" DisplayName="VFC eligible- Uninsured "/>
+			<ValueElement Value="V04" CodeSystem="HL70064" DisplayName="VFC eligible- American Indian/Alaskan Native "/>
+			<ValueElement Value="V05" CodeSystem="HL70064" DisplayName="VFC eligible-Federally Qualified Health Center Patient (under-insured) "/>
+			<ValueElement Value="V06" CodeSystem="HL70064" DisplayName="Deprecated [VFC eligible- State specific eligibility (e.g. S-CHIP plan)] "/>
+			<ValueElement Value="V07" CodeSystem="HL70064" DisplayName="Local-specific eligibility "/>
+			<ValueElement Value="V08" CodeSystem="HL70064" DisplayName="Deprecated [Not VFC eligible-underinsured] "/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="NIP001" Name="Immunization information source" DisplayClassifier="2:CDC-IZ">
 			<ValueElement Value="00" CodeSystem="NIP001" DisplayName="New immunization record"/>
@@ -809,7 +809,7 @@
 			<ValueElement Value="t" CodeSystem="UCUM" DisplayName="tonne"/>
 			<ValueElement Value="%{vol}" CodeSystem="UCUM" DisplayName="VolumePercent [Volume Fraction Units]"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="UCUM_0353_IZ" Name="Volume Mass Units" DisplayClassifier="2:CDC-IZ">
+		<ValueSetDefinition BindingIdentifier="UCUM_0353_IZ" Name="Volume Mass Units" Description="This is value set is a combination of UCUM and the value “NA” drawn from HL70353. This accommodates cases where there is not a Unit of Measure." DisplayClassifier="2:CDC-IZ">
 			<ValueElement Value="[bbl_us]" CodeSystem="UCUM" DisplayName="barrel"/>
 			<ValueElement Value="[bf_i]" CodeSystem="UCUM" DisplayName="board foot"/>
 			<ValueElement Value="[bu_br]" CodeSystem="UCUM" DisplayName="bushel"/>
