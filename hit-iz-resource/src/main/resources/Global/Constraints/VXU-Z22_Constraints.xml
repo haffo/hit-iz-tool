@@ -614,7 +614,7 @@
 				</Constraint>
 				
 				<Constraint ID="ONC-1" Target="5[1]">
-					<Description>If the value of RXA-9.1 (Identifier) is '00' then the value of RXA-5 (Administered Code) SHALL be one of codes listed in the Value Set: NDC.</Description>
+					<Description>If the value of RXA-9.1 (Identifier) is '00' (New Administered Vaccine) then the value of RXA-5 (Administered Code) SHALL be one of codes listed in the Value Set: NDC.</Description>
 					<Assertion>
 						<IMPLY>
 							<PlainText Path="9[1].1[1]" Text="00" IgnoreCase="false"/>
@@ -624,7 +624,7 @@
 				</Constraint>
 				
 				<Constraint ID="ONC-2" Target="5[1]">
-					<Description>If the value of RXA-9.1 (Identifier) is NOT '00' then the value of RXA-5 (Administered Code) SHALL be one of codes listed in the Value Set: CVX.</Description>
+					<Description>If the value of RXA-9.1 (Identifier) is '01', ‘02’, ‘03’, ‘04’, ‘05’, ‘06’, ‘07’, or ‘08’ (Historical Vaccine)  then the value of RXA-5 (Administered Code) SHALL be one of codes listed in the Value Set: CVX.</Description>
 					<Assertion>
 						<IMPLY>
 							<NOT>
