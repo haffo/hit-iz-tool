@@ -10,7 +10,7 @@
 		<BindingIdentifier>HL70362_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70363_IZ</BindingIdentifier>
 	</NoValidation>
-	<ValueSetDefinitions Group="CDC" Order="">
+	<ValueSetDefinitions>
 		<ValueSetDefinition BindingIdentifier="HL70003_IZ" Name="Event type" DisplayClassifier="1:CDC-HL7-IZ">
 			<ValueElement Value="V04" CodeSystem="HL70003" DisplayName="V04"/>
 			<ValueElement Value="K11" CodeSystem="HL70003" DisplayName="K11"/>
