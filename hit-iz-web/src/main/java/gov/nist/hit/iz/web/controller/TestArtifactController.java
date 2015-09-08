@@ -62,39 +62,6 @@ public class TestArtifactController extends TestingController {
   @Autowired
   private TestPlanRepository testPlanRepository;
 
-  @RequestMapping(value = "/download", method = RequestMethod.POST,
-      consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-  public String download(@RequestParam("path") String path, HttpServletRequest request,
-      HttpServletResponse response) throws MessageException {
-    try {
-      if (path != null && path.endsWith("pdf")) {
-        InputStream content = null;
-        String fileName = path.substring(path.lastIndexOf("/") + 1);
-        content = TestArtifactController.class.getResourceAsStream("/" + path);
-        response.setContentType("application/pdf");
-        response.setHeader("Content-disposition", "attachment;filename=" + fileName);
-        FileCopyUtils.copy(content, response.getOutputStream());
-      } else if (path != null && path.endsWith("docx")) {
-        InputStream content = null;
-        String fileName = path.substring(path.lastIndexOf("/") + 1);
-        if (!path.startsWith("/")) {
-          content = TestArtifactController.class.getResourceAsStream("/" + path);
-        } else {
-          content = TestArtifactController.class.getResourceAsStream(path);
-        }
-        response
-            .setContentType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
-        response.setHeader("Content-disposition", "attachment;filename=" + fileName);
-        FileCopyUtils.copy(content, response.getOutputStream());
-      }
-
-      throw new IllegalArgumentException("Invalid Path Provided");
-    } catch (IOException e) {
-      logger.debug("Failed to download the test package ");
-      throw new TestCaseException("Cannot download the artifact " + e.getMessage());
-    }
-
-  }
 
 
   @RequestMapping(value = "/generateJurorDoc/pdf", method = RequestMethod.POST,
