@@ -1,9 +1,11 @@
 {
   "name" : "Transmit the updated vaccination report with adverse reaction to the registry",
   "position" : 3,
-  "messageId" : "aa72383a-7b48-46e5-a74a-82e019591fe7",
-  "valueSetLibraryId" : "5674a4b2-0e26-4f6a-9dc8-ba78a4727c83",
-  "constraintId" : "2decb2ea-0b10-4c4c-9906-14e41392da67",
+  "hl7v2" : {
+    "messageId" : "aa72383a-7b48-46e5-a74a-82e019591fe7",
+    "constraintId" : "2decb2ea-0b10-4c4c-9906-14e41392da67",
+    "valueSetLibraryId" : "5674a4b2-0e26-4f6a-9dc8-ba78a4727c83"
+  },
   "type" : "SUT_INITIATOR",
   "description" : "The EMR generates a Z22 Send Unsolicited Immunization Update Using a VXU correctly and without omission according to supplied test data."
 }

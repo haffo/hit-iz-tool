@@ -811,7 +811,7 @@
 			<ValueElement Value="t" CodeSystem="UCUM" DisplayName="tonne"/>
 			<ValueElement Value="%{vol}" CodeSystem="UCUM" DisplayName="VolumePercent [Volume Fraction Units]"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="UCUM_0353_IZ" Name="Volume Mass Units" Description="This is value set is a combination of UCUM and the value “NA” drawn from HL70353. This accommodates cases where there is not a Unit of Measure.">
+		<ValueSetDefinition BindingIdentifier="UCUM_0353_IZ" Name="Volume Mass Units" Description="This is value set is a combination of UCUM and the value 'NA' drawn from HL70353. This accommodates cases where there is not a Unit of Measure.">
 			<ValueElement Value="[bbl_us]" CodeSystem="UCUM" DisplayName="barrel"/>
 			<ValueElement Value="[bf_i]" CodeSystem="UCUM" DisplayName="board foot"/>
 			<ValueElement Value="[bu_br]" CodeSystem="UCUM" DisplayName="bushel"/>
