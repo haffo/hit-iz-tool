@@ -338,7 +338,8 @@
 			<ValueElement Value="SPO" CodeSystem="HL70063" DisplayName="Spouse"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70396_IZ" Name="Coding system">
-			<ValueElement Value="99zzz or L" CodeSystem="HL70396" DisplayName="Local general code (where z is an alphanumeric character)"/>
+			<ValueElement Value="99zzz" CodeSystem="HL70396" DisplayName="Local general code (where z is an alphanumeric character)"/>
+			<ValueElement Value="L" CodeSystem="HL70396" DisplayName="Local code"/>
 			<ValueElement Value="ACR" CodeSystem="HL70396" DisplayName="American College of Radiology finding codes"/>
 			<ValueElement Value="ACTCODE" CodeSystem="HL70396" DisplayName="Table of HL7 Version 3 ActCode values"/>
 			<ValueElement Value="ACTRELSS" CodeSystem="HL70396" DisplayName="'Used to indicate that the target of the relationship will be a filtered subset of the total related set of targets.' Used when there is a need to limit the number of components to the first, the last, the next, the total, the average or some other filtered or calculated subset."/>
