@@ -9036,6 +9036,16 @@ Dohme Corp", "categorization" : "Test Case Fixed"},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC12", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "fever of &amp;gt;40.5C
+(105F) within 48 hours of dose", "categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -9202,6 +9212,16 @@ elig cat", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC elig ",
+"categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"HL70064", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -9368,6 +9388,16 @@ elig cat", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC elig ",
+"categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"HL70064", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -9422,6 +9452,16 @@ elig cat", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC elig ",
+"categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"HL70064", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -9476,6 +9516,16 @@ elig cat", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC9", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "persistent, inconsolable
+crying lasting &amp;gt; 3 hours within 48 hours of dose", "categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
