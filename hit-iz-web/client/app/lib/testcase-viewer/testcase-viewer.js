@@ -42,16 +42,18 @@
                     $scope.testCase['testDataSpecification'] = result['testDataSpecification'];
                     $scope.testCase['messageContent'] = result['messageContent'];
                     $scope.testCase['testPackage'] = result['testPackage'];
-                    if(testCase.type === 'TestPlan'){
-                        $scope.compileArtifact('testPackage');
-                        $scope.uncompileArtifact('testStory');
-                    }else{
-                        $scope.compileArtifact('testStory');
-                        $scope.uncompileArtifact('testPackage');
-                    }
+
+                    $scope.uncompileArtifact('testStory');
                     $scope.uncompileArtifact('jurorDocument');
                     $scope.uncompileArtifact('testDataSpecification');
                     $scope.uncompileArtifact('messageContent');
+                    $scope.uncompileArtifact('testPackage');
+
+                    if(testCase.type === 'TestPlan'){
+                        $scope.compileArtifact('testPackage');
+                    }else{
+                        $scope.compileArtifact('testStory');
+                    }
                     $scope.loading = false;
                 }, function (error) {
                     $scope.testCase['testStory'] = null;
@@ -159,10 +161,20 @@
                 }
             };
 
-
             $scope.toHTML = function (content) {
                 return $sce.trustAsHtml(content);
             };
+
+            var getSizeByContent = function (content) {
+                 var tabs = content.split("\n");
+                if(tabs.length === 0)
+                tabs = content.split("\t");
+                if(tabs.length === 0)
+                tabs = content.split("\r");
+                var length = tabs.length > 30 ? 30:tabs.length+3;
+                return parseInt((420 * length)/30);
+            };
+
 
             $scope.buildTextEditor = function(){
                $timeout(function() {
@@ -180,9 +192,7 @@
                            gutters: ["CodeMirror-linenumbers", "cm-edi-segment-name"]
                        });
                     }
-
-//                   $scope.editor.setSize("100%", 500);
-
+                   $scope.editor.setSize("100%", getSizeByContent($scope.editor.getValue()));
 //                 $scope.editor.setValue($scope.testCase.testContext.message.content);
 //             $scope.editor.setSize("100%", 350);
                },100);

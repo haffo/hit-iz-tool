@@ -3,26 +3,31 @@
 </div>
 <div id="tcReady" ng-show="!loading">
     <div ng-show="testCase.type !== 'TestPlan'">
-     <tabset>
+        <tabset>
             <tab heading="Test Story" active="tabs[0]" select="compileArtifact('testStory')">
                 <div class="panel panel-info">
                     <div class="panel-body">
                         <div>
-                            <div class="pull-right" style="margin-bottom: 20px" ng-show="testCase.testStory !== null">
+                            <div class="pull-right" ng-show="testCase.testStory !== null">
                                 <button title="Download Test Story" type="button" class="btn btn-sm btn-primary"
                                         ng-click="downloadTestArtifact(testCase.testStory.pdfPath)">
                                     <i class="fa fa-download"></i>&nbsp;Download PDF
                                 </button>
                             </div>
-                            <br/>
-                            <br/>
 
+                            <br />
+                            <br />
+
+                            <div class="panel panel-info">
+                                <div class="panel-body">
                             <div class="testcase-content">
                                 <div id="testStory" ng-show="testCase.testStory !== null"/>
                                 <div ng-show="testCase.testStory === null">
                                     No Test Story found.
                                 </div>
                             </div>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -33,19 +38,24 @@
                  ng-click="tabs[1] = true; compileArtifact('testDataSpecification')">
                 <div class="panel panel-info">
                     <div class="panel-body">
-                        <div class="pull-right" style="margin-bottom: 20px">
+                        <div class="pull-right">
                             <button title="Download Test Data Specification" type="button"
                                     class="btn btn-sm btn-primary"
                                     ng-click="downloadTestArtifact(testCase.testDataSpecification.pdfPath)">
                                 <i class="fa fa-download"></i>&nbsp;Download PDF
                             </button>
                         </div>
-                        <br/>
-                        <br/>
 
+                        <br />
+                        <br />
+
+                        <div class="panel panel-info">
+                            <div class="panel-body">
                         <div class="testcase-content">
                             <div id="testDataSpecification"/>
                         </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </tab>
@@ -54,18 +64,23 @@
                  active="tabs[2]" ng-click="tabs[2] = true; compileArtifact('messageContent')">
                 <div class="panel panel-info">
                     <div class="panel-body">
-                        <div class="pull-right" style="padding-top:10px; margin-bottom: 20px">
+                        <div class="pull-right">
                             <button title="Download Message Content" type="button" class="btn btn-sm btn-primary"
                                     ng-click="downloadTestArtifact(testCase.messageContent.pdfPath)">
                                 <i class="fa fa-download"></i>&nbsp;Download PDF
                             </button>
                         </div>
-                        <br/>
-                        <br/>
 
+                        <br />
+                        <br />
+
+                        <div class="panel panel-info">
+                            <div class="panel-body">
                         <div class="testcase-content">
                             <div id="messageContent"></div>
                         </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </tab>
@@ -85,12 +100,17 @@
                                 <i class="fa fa-download"></i>&nbsp;Download PDF
                             </button>
                         </div>
-                        <br/>
-                        <br/>
 
+                        <br />
+                        <br />
+
+                        <div class="panel panel-info">
+                            <div class="panel-body">
                         <div class="testcase-content">
                             <div id="jurorDocument"/>
                         </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </tab>
@@ -105,10 +125,14 @@
                                 <i class="fa fa-download"></i>&nbsp;Download
                             </button>
                         </div>
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
 
-                        <div id="exampleMsg" class="testcase-content"/>
+                        <div class="panel panel-info">
+                            <div class="panel-body">
+                                <div id="exampleMsg" class="testcase-content"/>
+                            </div>
+                        </div>
 
                         <!--<pre class="message" ng-bind="testCase.testContext.message.content"></pre>-->
 
@@ -126,14 +150,15 @@
             </div>
             <div class="panel-body">
                 <!--<div class="pull-right" style="margin-bottom: 20px">-->
-                    <!--<button title="Download Test Package" type="button"-->
-                            <!--class="btn btn-sm btn-primary"-->
-                            <!--ng-click="downloadTestArtifact(testCase.testPackage.pdfPath)">-->
-                        <!--<i class="fa fa-download"></i>&nbsp;Download PDF-->
-                    <!--</button>-->
+                <!--<button title="Download Test Package" type="button"-->
+                <!--class="btn btn-sm btn-primary"-->
+                <!--ng-click="downloadTestArtifact(testCase.testPackage.pdfPath)">-->
+                <!--<i class="fa fa-download"></i>&nbsp;Download PDF-->
+                <!--</button>-->
                 <!--</div>-->
-                <br/>
-                <br/>
+                <br />
+                <br />
+
                 <div class="testcase-content">
                     <div id="testPackage"/>
                 </div>
@@ -142,4 +167,4 @@
 
     </div>
 
- </div>
+</div>

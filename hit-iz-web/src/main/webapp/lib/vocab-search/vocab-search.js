@@ -294,7 +294,7 @@
                     templateUrl: 'TableFoundCtrl.html',
                     controller: 'ValueSetDetailsCtrl',
                     windowClass: 'app-modal-window',
-                    animation:true,
+                    animation:false,
                     keyboard:true,
                     backdrop:true,
                     resolve: {
@@ -349,6 +349,11 @@
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
+
+        $scope.close = function () {
+            $modalInstance.close($scope.table);
+        };
+
     });
 
 
