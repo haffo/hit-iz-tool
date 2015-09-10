@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSetLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Description="NIST Created" Name="Vocab for T22" ValueSetLibraryIdentifier="T22-ValueSets" ValueSetLibraryVersion="1.0" xsi:noNamespaceSchemaLocation="../ValueSets.xsd">  
-  <ValueSetDefinitions> 
+<ValueSetLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Description="NIST Created" Name="Vocab for T22" ValueSetLibraryIdentifier="T22-ValueSets" ValueSetLibraryVersion="1.0" xsi:noNamespaceSchemaLocation="../Schema/ValueSets.xsd">  
+  <ValueSetDefinitions Group="TEST" Order="1"> 
     <ValueSetDefinition BindingIdentifier="HL70001_US_IZ.1" ContentDefinition="Extensional" Extensibility="Closed" Name="Administrative Sex" Oid="2.16.840.1.113883.12..1" Stability="Static"> 
       <ValueElement CodeSystem="HL70001" CodeSystemVersion="2.5.1" DisplayName="Ambiguous" Usage="P" Value="A"/>  
       <ValueElement CodeSystem="HL70001" CodeSystemVersion="2.5.1" DisplayName="Female" Usage="R" Value="F"/>  
