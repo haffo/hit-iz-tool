@@ -17,7 +17,7 @@
             <div ng-show="error == null">
                 <tabset>
                     <tab ng-repeat="valueSetDefinitionGroup in valueSetDefinitionGroups | orderBy : 'position'"
-                         heading="{{valueSetDefinitionGroup.name}}">
+                         heading="{{valueSetDefinitionGroup.grouping}}">
                         <div class="panel panel-info">
                             <div class="panel-body">
                                 <div ng-controller="VocabGroupCtrl"

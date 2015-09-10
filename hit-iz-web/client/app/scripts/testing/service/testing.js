@@ -59,3 +59,32 @@ angular.module('hit-tool-services').factory('TestingSettings',
         return service;
     }]
 );
+
+
+angular.module('hit-tool-services').factory('StorageService',
+    ['$rootScope','localStorageService', function ($rootScope, localStorageService) {
+        var service = {
+            activeTab:0,
+            remove: function (key) {
+                return localStorageService.remove(key);
+            },
+
+            removeList: function removeItems(key1, key2, key3) {
+                return localStorageService.remove(key1, key2, key3);
+            },
+
+            clearAll: function () {
+                return localStorageService.clearAll();
+            },
+            set : function(key, val) {
+                return localStorageService.set(key, val);
+            },
+            get: function(key) {
+                return localStorageService.get(key);
+            }
+        };
+        return service;
+    }]
+);
+
+

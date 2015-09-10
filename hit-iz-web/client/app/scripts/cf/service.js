@@ -17,27 +17,34 @@ angular.module('cf').factory('CF',
     }]);
 
 
-angular.module('cf').factory('CFTestCaseListLoader', ['$q', '$http',
-    function ($q, $http) {
+angular.module('cf').factory('CFTestCaseListLoader', ['$q', '$http', 'StorageService','$timeout',
+    function ($q, $http, StorageService,$timeout) {
         return function () {
             var delay = $q.defer();
-            $http.get("api/cf/testcases").then(
-                function (object) {
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//            $http.get('../../resources/cf/testCases.json').then(
-//                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
+            if (StorageService.get('cf-testcases') != null) {
+                $timeout(function() {
+                    delay.resolve(angular.fromJson(StorageService.get('cf-testcases')));
+                }, 500);
+             } else {
+                $http.get("api/cf/testcases").then(
+                    function (object) {
+//                        StorageService.set('cf-testcases', object.data);
+                        delay.resolve(angular.fromJson(object.data));
+                    },
+                    function (response) {
+                        delay.reject(response.data);
+                    }
+                );
+//                $http.get('../../resources/cf/testCases.json').then(
+//                    function (object) {
+////                        StorageService.set('cf-testcases', object.data);
+//                        delay.resolve(angular.fromJson(object.data));
+//                    },
+//                    function (response) {
+//                        delay.reject(response.data);
+//                    }
+//                );
+            }
 
             return delay.promise;
         };

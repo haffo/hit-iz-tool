@@ -17,6 +17,7 @@ var app = angular.module('tool', [
     'ngRoute',
     'ui.bootstrap',
     'ngCookies',
+    'LocalStorageModule',
     'ngResource',
     'ngSanitize',
     'ngAnimate',
@@ -48,7 +49,12 @@ var app = angular.module('tool', [
     'hit-testcase-viewer'
 ]);
 
-app.config(function ($routeProvider, $httpProvider) {
+app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider) {
+
+    localStorageServiceProvider
+        .setPrefix('hit-iz-tool')
+        .setStorageType('sessionStorage');
+
     $routeProvider
         .when('/', {
             templateUrl: 'views/home.html'
@@ -123,13 +129,13 @@ app.config(function ($routeProvider, $httpProvider) {
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sce,$templateCache,$compile) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile) {
 
     $rootScope.appInfo = {};
 
-    new AppInfo().then(function(appInfo){
+    new AppInfo().then(function (appInfo) {
         $rootScope.appInfo = appInfo;
-    }, function(error){
+    }, function (error) {
         $rootScope.appInfo = {};
     });
 
@@ -137,7 +143,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
     $rootScope.$watch(function () {
         return $location.path();
     }, function (newLocation, oldLocation) {
-        if(newLocation != null) {
+        if (newLocation != null) {
             $rootScope.setActive(newLocation);
         }
     });
@@ -147,13 +153,12 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
     };
 
 
-
     $rootScope.setActive = function (path) {
         if (path === '' || path === '/') {
             $location.path('/home');
         } else {
             $rootScope.activePath = path;
-         }
+        }
     };
 
     $rootScope.isSubActive = function (path) {
@@ -187,7 +192,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
     };
 
     $rootScope.toHTML = function (content) {
-         return $sce.trustAsHtml(content);
+        return $sce.trustAsHtml(content);
         //return  content;
     };
 
@@ -207,7 +212,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
     $rootScope.initAppInfo = function () {
         var delay = $q.defer();
         if ($rootScope.appInfo === null) {
-            return new AppInfo().then(function(appInfo){
+            return new AppInfo().then(function (appInfo) {
                 $rootScope.appInfo = appInfo;
                 delay.resolve($rootScope.appInfo);
                 return delay.promise;
@@ -234,7 +239,6 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
     };
 
 
-
     $rootScope.tabs = new Array();
 
     $rootScope.compile = function (content) {
@@ -257,8 +261,6 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
 //        );
         return $compile(content);
     };
-
-
 
 
 });

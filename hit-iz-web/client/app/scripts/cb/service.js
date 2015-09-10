@@ -25,12 +25,18 @@ angular.module('cb').factory('CB',
     }]);
 
 
-angular.module('cb').factory('CBTestCaseListLoader', ['$q','$http',
-    function ($q,$http) {
+angular.module('cb').factory('CBTestCaseListLoader', ['$q','$http','StorageService','$timeout',
+    function ($q,$http,StorageService,$timeout) {
         return function() {
             var delay = $q.defer();
+            if (StorageService.get('cb-testcases') != null) {
+                $timeout(function() {
+                    delay.resolve(angular.fromJson(StorageService.get('cb-testcases')));
+                }, 500);
+            } else {
             $http.get("api/cb/testcases").then(
                 function (object) {
+//                    StorageService.set('cb-testcases', object.data);
                     delay.resolve(angular.fromJson(object.data));
                 },
                 function (response) {
@@ -40,12 +46,14 @@ angular.module('cb').factory('CBTestCaseListLoader', ['$q','$http',
 //
 //                $http.get('../../resources/cb/testPlans.json').then(
 //                    function (object) {
+////                         StorageService.set('cb-testcases',object.data);
 //                        delay.resolve(angular.fromJson(object.data));
 //                    },
 //                    function (response) {
 //                        delay.reject(response.data);
 //                    }
 //                );
+            }
 
             return delay.promise;
         };
