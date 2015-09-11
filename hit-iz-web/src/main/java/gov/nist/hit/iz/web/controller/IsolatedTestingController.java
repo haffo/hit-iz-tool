@@ -72,8 +72,6 @@ public class IsolatedTestingController extends TestingController {
             .getResourceAsStream("/templates/SubmitSingleMessage.xml"));
   }
 
-
-
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
   public List<TestPlan> testCases() {
     logger.info("Fetching all isolated system test cases...");

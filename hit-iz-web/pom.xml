@@ -95,7 +95,6 @@
 			</exclusions>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
@@ -215,7 +214,7 @@
 			<artifactId>ois-dqa-core</artifactId>
 			<version>1.8.5-SNAPSHOT</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<repositories>

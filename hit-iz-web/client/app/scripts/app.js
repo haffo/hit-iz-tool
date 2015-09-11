@@ -52,7 +52,7 @@ var app = angular.module('tool', [
 app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider) {
 
     localStorageServiceProvider
-        .setPrefix('hit-iz-tool')
+        .setPrefix('hit-tool')
         .setStorageType('sessionStorage');
 
     $routeProvider
@@ -129,9 +129,12 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider)
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService) {
 
     $rootScope.appInfo = {};
+
+
+
 
     new AppInfo().then(function (appInfo) {
         $rootScope.appInfo = appInfo;
@@ -167,6 +170,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 
     $rootScope.setSubActive = function (path) {
         $rootScope.subActivePath = path;
+        StorageService.set(StorageService.ACTIVE_SUB_TAB_KEY, path);
     };
 
 
@@ -261,10 +265,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 //        );
         return $compile(content);
     };
-
-
 });
-
 
 angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
     .controller('CarouselController', ['$scope', '$timeout', '$transition', '$q', function ($scope, $timeout, $transition, $q) {

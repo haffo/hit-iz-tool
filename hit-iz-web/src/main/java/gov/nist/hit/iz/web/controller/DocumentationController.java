@@ -28,11 +28,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Harold Affo (NIST)
  * 
  */
-@RequestMapping("/cf")
+@RequestMapping("/documentation")
 @RestController
-public class CFTestingController extends TestingController {
+public class DocumentationController extends TestingController {
 
-  static final Logger logger = LoggerFactory.getLogger(CFTestingController.class);
+  static final Logger logger = LoggerFactory.getLogger(DocumentationController.class);
 
   @Autowired
   private TestStepRepository testCaseRepository;

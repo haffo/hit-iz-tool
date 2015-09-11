@@ -1,19 +1,21 @@
 'use strict';
 angular.module('connectivity')
-    .controller('ConnectivityTestingCtrl', ['$scope', 'Connectivity', '$rootScope', function ($scope, Connectivity, $rootScope) {
+    .controller('ConnectivityTestingCtrl', ['$scope', 'Connectivity', '$rootScope', 'StorageService', function ($scope, Connectivity, $rootScope,StorageService) {
         $scope.init = function () {
-            $rootScope.setSubActive('/connectivity_testcase');
+            var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
+            if(tab == null || tab != '/connectivity_execution') tab =  '/connectivity_testcase';
+            $rootScope.setSubActive(tab);
         };
 
-        $rootScope.$on('conn:testCaseLoaded', function (event) {
-            $rootScope.setSubActive('/connectivity_execution');
-        });
+        $rootScope.$on('conn:testCaseLoaded', function (event, tab) {
+            $rootScope.setSubActive(tab && tab != null ? tab:'/connectivity_execution');
+         });
 
     }]);
 
 
 angular.module('connectivity')
-    .controller('ConnectivityTestCaseCtrl', ['$scope', 'Connectivity', 'ngTreetableParams', '$rootScope', 'ConnectivityTestCaseListLoader', '$cookies', '$timeout', function ($scope, Connectivity, ngTreetableParams, $rootScope, ConnectivityTestCaseListLoader,$cookies,$timeout) {
+    .controller('ConnectivityTestCaseCtrl', ['$scope', 'Connectivity', 'ngTreetableParams', '$rootScope', 'ConnectivityTestCaseListLoader', '$cookies', '$timeout','StorageService','TestCaseService', function ($scope, Connectivity, ngTreetableParams, $rootScope, ConnectivityTestCaseListLoader,$cookies,$timeout,StorageService,TestCaseService) {
 
         $scope.connectivity = Connectivity;
         $scope.loading = true;
@@ -22,9 +24,13 @@ angular.module('connectivity')
         $scope.testCase = Connectivity.testCase;
         $scope.selectedTestCase = Connectivity.selectedTestCase;
         $scope.testCaseTree = {};
+        var testCaseService = new TestCaseService();
+
 
         $scope.selectTestCase = function (node) {
             $scope.selectedTestCase = node;
+            StorageService.set(StorageService.SOAP_CONN_SELECTED_TESTCASE_ID_KEY, node.id);
+            StorageService.set(StorageService.SOAP_CONN_SELECTED_TESTCASE_TYPE_KEY, node.type);
             $timeout(function() {
                 $rootScope.$broadcast('conn:testCaseSelected');
             });
@@ -47,7 +53,39 @@ angular.module('connectivity')
             var tcLoader = new ConnectivityTestCaseListLoader();
             tcLoader.then(function (testCases) {
                 $scope.testCases = testCases;
-                $scope.params.refresh();
+                var testCase = null;
+                var id = StorageService.get(StorageService.SOAP_CONN_SELECTED_TESTCASE_ID_KEY);
+                var type = StorageService.get(StorageService.SOAP_CONN_SELECTED_TESTCASE_TYPE_KEY);
+                if (id != null && type != null) {
+                    for (var i = 0; i < $scope.testCases.length; i++) {
+                        var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
+                        if (found != null) {
+                            testCase = found;
+                            break;
+                        }
+                    }
+                    if (testCase != null) {
+                        $scope.selectTestCase(testCase);
+                    }
+                }
+                testCase = null;
+                id = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY);
+                type = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY);
+                if (id != null && type != null) {
+                    for (var i = 0; i < $scope.testCases.length; i++) {
+                        var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
+                        if (found != null) {
+                            testCase = found;
+                            break;
+                        }
+                    }
+                    if (testCase != null) {
+                        var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
+                        $scope.loadTestCase(testCase,tab);
+                    }
+                }
+
+                $scope.params.refreshWithState('expanded');
                 $scope.loading = false;
                 $scope.error = null;
             }, function (error) {
@@ -56,11 +94,19 @@ angular.module('connectivity')
             });
         };
 
-        $scope.loadTestCase = function () {
-            Connectivity.testCase = $scope.selectedTestCase;
+        $scope.loadTestCase = function (testCase,tab) {
+            Connectivity.testCase = testCase;
             $scope.testCase = Connectivity.testCase;
+            var id = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY);
+            var type = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY);
+            if (id != $scope.testCase.id || type != $scope.testCase.type) {
+                StorageService.set(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY, $scope.testCase.id);
+                StorageService.set(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY, $scope.testCase.type);
+                StorageService.remove(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY);
+                StorageService.remove(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY);
+            }
             $timeout(function() {
-                $rootScope.$broadcast('conn:testCaseLoaded');
+                $rootScope.$broadcast('conn:testCaseLoaded',tab);
             });
         };
 
@@ -69,8 +115,8 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal', 'Endpoint','$cookies',
-        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal, Endpoint,$cookies) {
+    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal', 'Endpoint','$cookies','StorageService',
+        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal, Endpoint,$cookies,StorageService) {
 
             $scope.logger = Connectivity.logger;
             $scope.loading = false;
@@ -199,6 +245,15 @@ angular.module('connectivity')
                         Connectivity.user.receiverPassword = user.receiverPassword;
                         Connectivity.user.receiverFacilityId = user.receiverFacilityId;
                         Connectivity.user.receiverEndpoint = user.receiverEndpoint;
+//                        StorageService.set(StorageService.SOAP_COMM_SENDER_USERNAME_KEY,Connectivity.user.senderUsername);
+//                        StorageService.set(StorageService.SOAP_COMM_SENDER_PWD_KEY,Connectivity.user.senderPassword);
+//                        StorageService.set(StorageService.SOAP_COMM_SENDER_FACILITYID_KEY,Connectivity.user.senderFacilityID);
+
+                        StorageService.set(StorageService.SOAP_COMM_RECEIVER_USERNAME_KEY,Connectivity.user.receiverUsername);
+                        StorageService.set(StorageService.SOAP_COMM_RECEIVER_PWD_KEY,Connectivity.user.receiverPassword);
+                        StorageService.set(StorageService.SOAP_COMM_RECEIVER_FACILITYID_KEY,Connectivity.user.receiverFacilityId);
+                        StorageService.set(StorageService.SOAP_COMM_RECEIVER_ENDPOINT_KEY,Connectivity.user.receiverEndpoint);
+
 //                        $cookies.put('ConnectivityUser', angular.toJson(Connectivity.user));
                         $scope.triggerRespEvent('');
                         $scope.send();
@@ -252,7 +307,7 @@ angular.module('connectivity')
 'use strict';
 
 angular.module('connectivity')
-    .controller('ConnectivityReqCtrl', ['$scope', '$http', 'Connectivity', 'XmlFormatter', '$window', 'XmlEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', function ($scope, $http, Connectivity, XmlFormatter, $window, XmlEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal) {
+    .controller('ConnectivityReqCtrl', ['$scope', '$http', 'Connectivity', 'XmlFormatter', '$window', 'XmlEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', 'StorageService', function ($scope, $http, Connectivity, XmlFormatter, $window, XmlEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal,StorageService) {
 
         $scope.eLoading = false;
         $scope.vError = null;
@@ -428,9 +483,10 @@ angular.module('connectivity')
 
             $rootScope.$on('conn:testCaseLoaded', function (event) {
                 $scope.testCase = Connectivity.testCase;
-                var message = Connectivity.testCase.sutType == 'RECEIVER' ? Connectivity.testCase.testContext.message : '';
-                $scope.reqMessage(message);
-                $scope.triggerRespEvent('');
+                var req = Connectivity.testCase.sutType == 'RECEIVER' ? Connectivity.testCase.testContext.message : StorageService.get(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY) != null ? StorageService.get(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY): '';
+                $scope.reqMessage(req);
+//                var rsp = StorageService.get(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY);
+//                $scope.triggerRespEvent(rsp != null ? rsp:'');
              });
 
             $rootScope.$on('conn:reqMessage', function (event, message) {
@@ -451,6 +507,7 @@ angular.module('connectivity')
         $scope.reqMessage = function (message) {
             $scope.request.message.content = message;
             $scope.editor.doc.setValue(message);
+            StorageService.set(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY, message);
             $scope.validateMessage();
         };
 
@@ -611,7 +668,7 @@ angular.module('connectivity')
     });
 
 angular.module('connectivity')
-    .controller('ConnectivityRespCtrl', ['$scope', '$http', 'Connectivity', '$window', 'XmlFormatter', 'XmlEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', function ($scope, $http, Connectivity, $window, XmlFormatter, XmlEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal) {
+    .controller('ConnectivityRespCtrl', ['$scope', '$http', 'Connectivity', '$window', 'XmlFormatter', 'XmlEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', 'StorageService',function ($scope, $http, Connectivity, $window, XmlFormatter, XmlEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal,StorageService) {
         $scope.testCase = Connectivity.testCase;
         $scope.response = Connectivity.response;
         $scope.selectedTestCase = Connectivity.selectedTestCase;
@@ -694,7 +751,8 @@ angular.module('connectivity')
             $rootScope.$on('conn:testCaseLoaded', function (event) {
                 $scope.testCase = Connectivity.testCase;
                 $scope.refreshEditor();
-                $scope.clearMessage();
+                var rsp = StorageService.get(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY);
+                $scope.respMessage(rsp != null ? rsp:'');
             });
 
             $rootScope.$on('conn:respMessage', function (event, message) {
@@ -709,6 +767,7 @@ angular.module('connectivity')
         $scope.respMessage = function (message) {
             $scope.response.message.content = message;
             $scope.editor.doc.setValue(message);
+            StorageService.set(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY,message);
             $scope.refreshEditor();
             $scope.validateMessage();
         };

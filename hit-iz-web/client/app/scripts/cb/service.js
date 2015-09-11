@@ -29,31 +29,23 @@ angular.module('cb').factory('CBTestCaseListLoader', ['$q','$http','StorageServi
     function ($q,$http,StorageService,$timeout) {
         return function() {
             var delay = $q.defer();
-            if (StorageService.get('cb-testcases') != null) {
-                $timeout(function() {
-                    delay.resolve(angular.fromJson(StorageService.get('cb-testcases')));
-                }, 500);
-            } else {
-            $http.get("api/cb/testcases").then(
-                function (object) {
-//                    StorageService.set('cb-testcases', object.data);
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
+//            $http.get("api/cb/testcases").then(
+//                function (object) {
+//                     delay.resolve(angular.fromJson(object.data));
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
 //
-//                $http.get('../../resources/cb/testPlans.json').then(
-//                    function (object) {
-////                         StorageService.set('cb-testcases',object.data);
-//                        delay.resolve(angular.fromJson(object.data));
-//                    },
-//                    function (response) {
-//                        delay.reject(response.data);
-//                    }
-//                );
-            }
+                $http.get('../../resources/cb/testPlans.json').then(
+                    function (object) {
+                         delay.resolve(angular.fromJson(object.data));
+                    },
+                    function (response) {
+                        delay.reject(response.data);
+                    }
+                );
 
             return delay.promise;
         };

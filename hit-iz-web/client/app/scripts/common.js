@@ -176,7 +176,7 @@ angular.module('commonServices').factory('ValidationResult', function (Validatio
         this.alerts = new ValidationResultItem();
         this.warnings = new ValidationResultItem();
         this.informationals = new ValidationResultItem();
-         this.updateId();
+        this.updateId();
     };
 
     ValidationResult.prototype.init = function (object) {
@@ -321,6 +321,168 @@ angular.module('commonServices').factory('Tree', function () {
 });
 
 
+angular.module('commonServices').factory('TestCaseService', function ($filter) {
+    var TestCaseService = function () {
+
+    };
+
+    TestCaseService.prototype.findOneById = function (id, testCase) {
+        if (testCase) {
+            if (id === testCase.id) {
+                return testCase;
+            }
+            if (testCase.children && testCase.children != null && testCase.children.length > 0) {
+                for (var i = 0; i < testCase.children.length; i++) {
+                    var found = this.findOneById(id,testCase.children[i]);
+                    if (found != null) {
+                        return found;
+                    }
+                }
+            }
+        }
+        return null;
+    };
+
+    TestCaseService.prototype.findOneByIdAndType = function (id, type, testCase) {
+        if (testCase) {
+            if (id === testCase.id && type === testCase.type) {
+                return testCase;
+            }
+            if (testCase.children && testCase.children != null && testCase.children.length > 0) {
+                for (var i = 0; i < testCase.children.length; i++) {
+                    var found = this.findOneByIdAndType(id, type,testCase.children[i]);
+                    if (found != null) {
+                        return found;
+                    }
+                }
+            }
+        }
+        return null;
+    };
+
+
+    TestCaseService.prototype.buildTree = function (node) {
+        var that = this;
+        if (node.testCases) {
+            if (!node["children"]) {
+                node["children"] = node.testCases;
+            } else {
+                angular.forEach(node.testCases, function (testCase) {
+                    node["children"].push(testCase);
+                    that.buildTree(testCase);
+                });
+            }
+            node["children"] = $filter('orderBy')(node["children"], 'position');
+            delete node.testCases;
+        }
+
+        if (node.testCaseGroups) {
+            if (!node["children"]) {
+                node["children"] = node.testCaseGroups;
+            } else {
+                angular.forEach(node.testCaseGroups, function (testCaseGroup) {
+                    node["children"].push(testCaseGroup);
+                    that.buildTree(testCaseGroup);
+                });
+            }
+            node["children"] = $filter('orderBy')(node["children"], 'position');
+            delete node.testCaseGroups;
+        }
+
+        if (node.testSteps) {
+            if (!node["children"]) {
+                node["children"] = node.testSteps;
+            } else {
+                angular.forEach(node.testSteps, function (testStep) {
+                    node["children"].push(testStep);
+                    that.buildTree(testStep);
+                });
+            }
+            node["children"] = $filter('orderBy')(node["children"], 'position');
+            delete node.testSteps;
+        }
+
+        if (node.children) {
+            angular.forEach(node.children, function (child) {
+                that.buildTree(child);
+            });
+        }
+    };
+
+
+    return TestCaseService;
+});
+
+
+angular.module('commonServices').factory('StorageService',
+    ['$rootScope', 'localStorageService', function ($rootScope, localStorageService) {
+        var service = {
+            CF_EDITOR_CONTENT_KEY: 'CF_EDITOR_CONTENT',
+            CF_LOADED_TESTCASE_ID_KEY: 'CF_LOADED_TESTCASE_ID',
+            CF_LOADED_TESTCASE_TYPE_KEY: 'CF_LOADED_TESTCASE_TYPE',
+
+            CB_EDITOR_CONTENT_KEY: 'CB_EDITOR_CONTENT',
+            CB_SELECTED_TESTCASE_ID_KEY: 'CB_SELECTED_TESTCASE_ID',
+            CB_SELECTED_TESTCASE_TYPE_KEY: 'CB_SELECTED_TESTCASE_TYPE',
+            CB_LOADED_TESTCASE_ID_KEY: 'CB_LOADED_TESTCASE_ID',
+            CB_LOADED_TESTCASE_TYPE_KEY: 'CB_LOADED_TESTCASE_TYPE',
+
+            ISOLATED_EDITOR_CONTENT_KEY: 'ISOLATED_EDITOR_CONTENT',
+            ISOLATED_SELECTED_TESTCASE_ID_KEY: 'ISOLATED_SELECTED_TESTCASE_ID',
+            ISOLATED_LOADED_TESTCASE_ID_KEY: 'ISOLATED_LOADED_TESTCASE_ID',
+            ISOLATED_LOADED_TESTSTEP_ID_KEY: 'ISOLATED_LOADED_TESTSTEP_ID',
+            ISOLATED_LOADED_TESTSTEP_TYPE_KEY: 'ISOLATED_LOADED_TESTSTEP_TYPE',
+            ISOLATED_SELECTED_TESTCASE_TYPE_KEY: 'ISOLATED_SELECTED_TESTCASE_TYPE',
+            ISOLATED_LOADED_TESTCASE_TYPE_KEY: 'ISOLATED_LOADED_TESTCASE_TYPE',
+
+            SOAP_ENV_EDITOR_CONTENT_KEY: 'SOAP_ENV_EDITOR_CONTENT',
+            SOAP_ENV_SELECTED_TESTCASE_ID_KEY: 'SOAP_ENV_SELECTED_TESTCASE_ID',
+            SOAP_ENV_SELECTED_TESTCASE_TYPE_KEY: 'SOAP_ENV_SELECTED_TESTCASE_TYPE',
+            SOAP_ENV_LOADED_TESTCASE_ID_KEY: 'SOAP_ENV_LOADED_TESTCASE_ID',
+            SOAP_ENV_LOADED_TESTCASE_TYPE_KEY: 'SOAP_ENV_LOADED_TESTCASE_TYPE',
+
+            SOAP_CONN_REQ_EDITOR_CONTENT_KEY: 'SOAP_CONN_REQ_EDITOR_CONTENT',
+            SOAP_CONN_RESP_EDITOR_CONTENT_KEY: 'SOAP_CONN_REQ_EDITOR_CONTENT',
+            SOAP_CONN_SELECTED_TESTCASE_ID_KEY: 'SOAP_CONN_SELECTED_TESTCASE_ID',
+            SOAP_CONN_SELECTED_TESTCASE_TYPE_KEY: 'SOAP_CONN_SELECTED_TESTCASE_TYPE',
+            SOAP_CONN_LOADED_TESTCASE_ID_KEY: 'SOAP_CONN_LOADED_TESTCASE_ID',
+            SOAP_CONN_LOADED_TESTCASE_TYPE_KEY: 'SOAP_CONN_LOADED_TESTCASE_TYPE',
+
+            ACTIVE_SUB_TAB_KEY: 'ACTIVE_SUB_TAB',
+            SOAP_COMM_SENDER_USERNAME_KEY: 'SOAP_COMM_SENDER_USERNAME',
+            SOAP_COMM_SENDER_PWD_KEY: 'SOAP_COMM_SENDER_PWD',
+            SOAP_COMM_SENDER_ENDPOINT_KEY: 'SOAP_COMM_SENDER_ENDPOINT',
+            SOAP_COMM_SENDER_FACILITYID_KEY: 'SOAP_COMM_SENDER_FACILITYID',
+
+            SOAP_COMM_RECEIVER_USERNAME_KEY: 'SOAP_COMM_RECEIVER_USERNAME',
+            SOAP_COMM_RECEIVER_PWD_KEY: 'SOAP_COMM_RECEIVER_PWD',
+            SOAP_COMM_RECEIVER_ENDPOINT_KEY: 'SOAP_COMM_RECEIVER_ENDPOINT',
+            SOAP_COMM_RECEIVER_FACILITYID_KEY: 'SOAP_COMM_RECEIVER_FACILITYID',
+
+
+            remove: function (key) {
+                return localStorageService.remove(key);
+            },
+
+            removeList: function removeItems(key1, key2, key3) {
+                return localStorageService.remove(key1, key2, key3);
+            },
+
+            clearAll: function () {
+                return localStorageService.clearAll();
+            },
+            set: function (key, val) {
+                return localStorageService.set(key, val);
+            },
+            get: function (key) {
+                return localStorageService.get(key);
+            }
+        };
+        return service;
+    }]
+);
+
+
 angular.module('commonServices').factory('Er7Message', function ($http, $q, Message) {
     var Er7Message = function () {
         Message.apply(this, arguments);
@@ -395,32 +557,32 @@ angular.module('commonServices').factory('Er7MessageValidator', function ($http,
     var Er7MessageValidator = function () {
     };
 
-    Er7MessageValidator.prototype.validate = function (testContextId, content, name, dqaChecked,facilityId, contextType) {
+    Er7MessageValidator.prototype.validate = function (testContextId, content, name, dqaChecked, facilityId, contextType) {
         var delay = $q.defer();
         if (!HL7EditorUtils.isHL7(content)) {
             delay.reject("Message provided is not an HL7 v2 message");
         } else {
 //
-//            $http.get('../../resources/cf/newValidationResult3.json').then(
-//                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-            $http.post('api/testcontext/'+ testContextId + '/validateMessage', angular.fromJson({"content": content, "dqa":dqaChecked, "facilityId":"1223", "contextType":contextType})).then(
+            $http.get('../../resources/cf/newValidationResult3.json').then(
                 function (object) {
-                    try {
-                        delay.resolve(angular.fromJson(object.data));
-                    } catch (e) {
-                        delay.reject("Invalid character in the message");
-                    }
+                    delay.resolve(angular.fromJson(object.data));
                 },
                 function (response) {
                     delay.reject(response.data);
                 }
             );
+//            $http.post('api/testcontext/' + testContextId + '/validateMessage', angular.fromJson({"content": content, "dqa": dqaChecked, "facilityId": "1223", "contextType": contextType})).then(
+//                function (object) {
+//                    try {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    } catch (e) {
+//                        delay.reject("Invalid character in the message");
+//                    }
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
         }
         return delay.promise;
     };
@@ -437,16 +599,7 @@ angular.module('commonServices').factory('Er7MessageParser', function ($http, $q
         if (!HL7EditorUtils.isHL7(content)) {
             delay.reject("Message provided is not an HL7 v2 message");
         } else {
-             $http.post('api/testcontext/' + testContextId + '/parseMessage', angular.fromJson({"content": content})).then(
-                function (object) {
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//            $http.get('../../resources/cf/messageObject.json').then(
+//            $http.post('api/testcontext/' + testContextId + '/parseMessage', angular.fromJson({"content": content})).then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
 //                },
@@ -454,6 +607,15 @@ angular.module('commonServices').factory('Er7MessageParser', function ($http, $q
 //                    delay.reject(response.data);
 //                }
 //            );
+
+            $http.get('../../resources/cf/messageObject.json').then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
         }
 
         return delay.promise;
@@ -632,26 +794,7 @@ angular.module('commonServices').factory('TransactionUser', function (Endpoint, 
         var self = this;
 //        var data = angular.fromJson({"username": self.username, "tokenId": self.tokenId, "id": self.id});
         var data = angular.fromJson({"id": self.id});
-        $http.post('api/transaction/initUser', data).then(
-            function (response) {
-                var user = angular.fromJson(response.data);
-                self.id = user.id;
-                self.senderUsername = user.username;
-                self.senderPassword = user.password;
-                self.senderFacilityID = user.facilityID;
-                self.receiverUsername = null;
-                self.receiverPassword = null;
-                self.endpoint = new Endpoint(user.endpoint);
-                self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
-                delay.resolve(true);
-            },
-            function (response) {
-                delay.reject(response);
-            }
-        );
-
-//
-//        $http.get('../../resources/connectivity/user.json').then(
+//        $http.post('api/transaction/initUser', data).then(
 //            function (response) {
 //                var user = angular.fromJson(response.data);
 //                self.id = user.id;
@@ -660,6 +803,7 @@ angular.module('commonServices').factory('TransactionUser', function (Endpoint, 
 //                self.senderFacilityID = user.facilityID;
 //                self.receiverUsername = null;
 //                self.receiverPassword = null;
+//                self.endpoint = new Endpoint(user.endpoint);
 //                self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
 //                delay.resolve(true);
 //            },
@@ -667,6 +811,24 @@ angular.module('commonServices').factory('TransactionUser', function (Endpoint, 
 //                delay.reject(response);
 //            }
 //        );
+
+//
+        $http.get('../../resources/connectivity/user.json').then(
+            function (response) {
+                var user = angular.fromJson(response.data);
+                self.id = user.id;
+                self.senderUsername = user.username;
+                self.senderPassword = user.password;
+                self.senderFacilityID = user.facilityID;
+                self.receiverUsername = null;
+                self.receiverPassword = null;
+                self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
+                delay.resolve(true);
+            },
+            function (response) {
+                delay.reject(response);
+            }
+        );
 
         return delay.promise;
     };
@@ -690,19 +852,7 @@ angular.module('commonServices').factory('Transaction', function ($q, $http) {
         var delay = $q.defer();
         var self = this;
         var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID});
-        $http.post('api/transaction', data).then(
-            function (response) {
-                var transaction = angular.fromJson(response.data);
-                self.incoming = transaction.incoming;
-                self.outgoing = transaction.outgoing;
-                delay.resolve(transaction);
-            },
-            function (response) {
-                delay.reject(null);
-            }
-        );
-
-//        $http.get('../../resources/connectivity/transaction.json').then(
+//        $http.post('api/transaction', data).then(
 //            function (response) {
 //                var transaction = angular.fromJson(response.data);
 //                self.incoming = transaction.incoming;
@@ -713,6 +863,18 @@ angular.module('commonServices').factory('Transaction', function ($q, $http) {
 //                delay.reject(null);
 //            }
 //        );
+
+        $http.get('../../resources/connectivity/transaction.json').then(
+            function (response) {
+                var transaction = angular.fromJson(response.data);
+                self.incoming = transaction.incoming;
+                self.outgoing = transaction.outgoing;
+                delay.resolve(transaction);
+            },
+            function (response) {
+                delay.reject(null);
+            }
+        );
 
         return delay.promise;
     };
@@ -734,57 +896,57 @@ angular.module('commonServices').factory('Transaction', function ($q, $http) {
         var self = this;
         var delay = $q.defer();
         var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID});
-        $http.post('api/transaction/close', data).then(
-            function (response) {
-                self.running = true;
-                self.clearMessages();
-                delay.resolve(true);
-            },
-            function (response) {
-                self.running = false;
-                delay.reject(null);
-            }
-        );
+//        $http.post('api/transaction/close', data).then(
+//            function (response) {
+//                self.running = true;
+//                self.clearMessages();
+//                delay.resolve(true);
+//            },
+//            function (response) {
+//                self.running = false;
+//                delay.reject(null);
+//            }
+//        );
 
-//                $http.get('../../resources/connectivity/clearFacilityId.json').then(
-//                    function (response) {
-//
-//                        self.clearMessages();
-//                        delay.resolve(true);
-//                    },
-//                    function (response) {
-//                        delay.reject(null);
-//                    }
-//                );
+                $http.get('../../resources/connectivity/clearFacilityId.json').then(
+                    function (response) {
+
+                        self.clearMessages();
+                        delay.resolve(true);
+                    },
+                    function (response) {
+                        delay.reject(null);
+                    }
+                );
         return delay.promise;
     };
 
     Transaction.prototype.openConnection = function (responseMessageId) {
         var self = this;
         var delay = $q.defer();
-        var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID, "responseMessageId":responseMessageId});
-        $http.post('api/transaction/open', data).then(
-            function (response) {
-                self.running = true;
-                self.clearMessages();
-                delay.resolve(true);
-            },
-            function (response) {
-                self.running = false;
-                delay.reject(null);
-            }
-        );
+        var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID, "responseMessageId": responseMessageId});
+//        $http.post('api/transaction/open', data).then(
+//            function (response) {
+//                self.running = true;
+//                self.clearMessages();
+//                delay.resolve(true);
+//            },
+//            function (response) {
+//                self.running = false;
+//                delay.reject(null);
+//            }
+//        );
 
-//                $http.get('../../resources/connectivity/initFacilityId.json').then(
-//                    function (response) {
-//                        self.running = true;
-//                        delay.resolve(true);
-//                    },
-//                    function (response) {
-//                        self.running = false;
-//                        delay.reject(null);
-//                    }
-//                );
+                $http.get('../../resources/connectivity/initFacilityId.json').then(
+                    function (response) {
+                        self.running = true;
+                        delay.resolve(true);
+                    },
+                    function (response) {
+                        self.running = false;
+                        delay.reject(null);
+                    }
+                );
 
 
         return delay.promise;

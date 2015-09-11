@@ -119,54 +119,57 @@ public class WebServiceServer implements TransportServer {
   // }
 
 
-  private String updateOutboundMessage(String inboundMessage, String outboundMessage)
-      throws MalformedMessageException {
-    Er7Message inEr7 = new Er7Message(inboundMessage);
-    Er7Message outEr7 = new Er7Message(outboundMessage);
-    MessageLocation msh31 = new MessageLocation("MSH[1].3[1].1");
-    MessageLocation msh32 = new MessageLocation("MSH[1].3[1].2");
-    MessageLocation msh33 = new MessageLocation("MSH[1].3[1].3");
-    MessageLocation msh41 = new MessageLocation("MSH[1].4[1].1");
-    MessageLocation msh42 = new MessageLocation("MSH[1].4[1].2");
-    MessageLocation msh43 = new MessageLocation("MSH[1].4[1].3");
-    MessageLocation msh10 = new MessageLocation("MSH[1].10[1]");
-    MessageLocation msh51 = new MessageLocation("MSH[1].5[1].1");
-    MessageLocation msh52 = new MessageLocation("MSH[1].5[1].2");
-    MessageLocation msh53 = new MessageLocation("MSH[1].5[1].3");
-    MessageLocation msh61 = new MessageLocation("MSH[1].6[1].1");
-    MessageLocation msh62 = new MessageLocation("MSH[1].6[1].2");
-    MessageLocation msh63 = new MessageLocation("MSH[1].6[1].3");
-    MessageLocation msa2 = new MessageLocation("MSA[1].2[1]");
-    String inMsh31Value = inEr7.getValue(msh31);
-    String inMsh32Value = inEr7.getValue(msh32);
-    String inMsh33Value = inEr7.getValue(msh33);
-    String inMsh41Value = inEr7.getValue(msh41);
-    String inMsh42Value = inEr7.getValue(msh42);
-    String inMsh43Value = inEr7.getValue(msh43);
-    String inMsh10Value = inEr7.getValue(msh10);
-    String outMsh51 = outEr7.getValue(msh51);
-    String outMsh52 = outEr7.getValue(msh52);
-    String outMsh53 = outEr7.getValue(msh53);
-    String outMsh61 = outEr7.getValue(msh61);
-    String outMsh62 = outEr7.getValue(msh62);
-    String outMsh63 = outEr7.getValue(msh63);
-    String outMsa2 = outEr7.getValue(msa2);
-    if (inMsh31Value != null && outMsh51 != null)
-      outEr7.replaceValue(msh51, inMsh31Value);
-    if (inMsh32Value != null && outMsh52 != null)
-      outEr7.replaceValue(msh52, inMsh32Value);
-    if (inMsh33Value != null && outMsh53 != null)
-      outEr7.replaceValue(msh53, inMsh33Value);
-    if (inMsh41Value != null && outMsh61 != null)
-      outEr7.replaceValue(msh61, inMsh41Value);
-    if (inMsh42Value != null && outMsh62 != null)
-      outEr7.replaceValue(msh62, inMsh42Value);
-    if (inMsh43Value != null && outMsh63 != null)
-      outEr7.replaceValue(msh63, inMsh43Value);
-    if (inMsh10Value != null && outMsa2 != null)
-      outEr7.replaceValue(msa2, inMsh10Value);
-    outboundMessage = outEr7.getMessageAsString();
+  private String updateOutboundMessage(String inboundMessage, String outboundMessage) {
+    try {
+      Er7Message inEr7 = new Er7Message(inboundMessage);
+      Er7Message outEr7 = new Er7Message(outboundMessage);
+      MessageLocation msh31 = new MessageLocation("MSH[1].3[1].1");
+      MessageLocation msh32 = new MessageLocation("MSH[1].3[1].2");
+      MessageLocation msh33 = new MessageLocation("MSH[1].3[1].3");
+      MessageLocation msh41 = new MessageLocation("MSH[1].4[1].1");
+      MessageLocation msh42 = new MessageLocation("MSH[1].4[1].2");
+      MessageLocation msh43 = new MessageLocation("MSH[1].4[1].3");
+      MessageLocation msh10 = new MessageLocation("MSH[1].10[1]");
+      MessageLocation msh51 = new MessageLocation("MSH[1].5[1].1");
+      MessageLocation msh52 = new MessageLocation("MSH[1].5[1].2");
+      MessageLocation msh53 = new MessageLocation("MSH[1].5[1].3");
+      MessageLocation msh61 = new MessageLocation("MSH[1].6[1].1");
+      MessageLocation msh62 = new MessageLocation("MSH[1].6[1].2");
+      MessageLocation msh63 = new MessageLocation("MSH[1].6[1].3");
+      MessageLocation msa2 = new MessageLocation("MSA[1].2[1]");
+      String inMsh31Value = inEr7.getValue(msh31);
+      String inMsh32Value = inEr7.getValue(msh32);
+      String inMsh33Value = inEr7.getValue(msh33);
+      String inMsh41Value = inEr7.getValue(msh41);
+      String inMsh42Value = inEr7.getValue(msh42);
+      String inMsh43Value = inEr7.getValue(msh43);
+      String inMsh10Value = inEr7.getValue(msh10);
+      String outMsh51 = outEr7.getValue(msh51);
+      String outMsh52 = outEr7.getValue(msh52);
+      String outMsh53 = outEr7.getValue(msh53);
+      String outMsh61 = outEr7.getValue(msh61);
+      String outMsh62 = outEr7.getValue(msh62);
+      String outMsh63 = outEr7.getValue(msh63);
+      String outMsa2 = outEr7.getValue(msa2);
+      if (inMsh31Value != null && outMsh51 != null)
+        outEr7.replaceValue(msh51, inMsh31Value);
+      if (inMsh32Value != null && outMsh52 != null)
+        outEr7.replaceValue(msh52, inMsh32Value);
+      if (inMsh33Value != null && outMsh53 != null)
+        outEr7.replaceValue(msh53, inMsh33Value);
+      if (inMsh41Value != null && outMsh61 != null)
+        outEr7.replaceValue(msh61, inMsh41Value);
+      if (inMsh42Value != null && outMsh62 != null)
+        outEr7.replaceValue(msh62, inMsh42Value);
+      if (inMsh43Value != null && outMsh63 != null)
+        outEr7.replaceValue(msh63, inMsh43Value);
+      if (inMsh10Value != null && outMsa2 != null)
+        outEr7.replaceValue(msa2, inMsh10Value);
+      outboundMessage = outEr7.getMessageAsString();
+    } catch (MalformedMessageException e) {
+    }
     return outboundMessage;
+
   }
 
   private SubmitSingleMessageResponseType getSubmitSingleMessageResponse(String inboundMessage,
@@ -196,9 +199,6 @@ public class WebServiceServer implements TransportServer {
       throw new TransportServerException("ERROR: We were unable to generate the outbound message."
           + e.getMessage());
     } catch (JAXBException e) {
-      throw new TransportServerException("ERROR: We were unable to generate the outbound message."
-          + e.getMessage());
-    } catch (MalformedMessageException e) {
       throw new TransportServerException("ERROR: We were unable to generate the outbound message."
           + e.getMessage());
     }

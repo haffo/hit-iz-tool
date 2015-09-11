@@ -2,7 +2,12 @@
 
 
 angular.module('isolated').factory('IsolatedSystem',
-    ['$http', '$q', 'Editor', 'EDICursor', 'Er7Message', 'ValidationSettings', 'Tree', 'TransactionUser', '$rootScope', 'Logger',function ($http, $q, Editor, EDICursor, Er7Message, ValidationSettings,Tree,TransactionUser,$rootScope,Logger) {
+    ['$http', '$q', 'Editor', 'EDICursor', 'Er7Message', 'ValidationSettings', 'Tree', 'TransactionUser', '$rootScope', 'Logger','StorageService',function ($http, $q, Editor, EDICursor, Er7Message, ValidationSettings,Tree,TransactionUser,$rootScope,Logger,StorageService) {
+        var user = new TransactionUser();
+        user.receiverUsername = StorageService.get(StorageService.SOAP_COMM_RECEIVER_USERNAME_KEY);
+        user.receiverPassword = StorageService.get(StorageService.SOAP_COMM_RECEIVER_PWD_KEY);
+        user.receiverFacilityId = StorageService.get(StorageService.SOAP_COMM_RECEIVER_FACILITYID_KEY);
+        user.receiverEndpoint = StorageService.get(StorageService.SOAP_COMM_RECEIVER_ENDPOINT_KEY);
         var IsolatedSystem = {
             testCase: null,
             testStep: null,
@@ -13,7 +18,7 @@ angular.module('isolated').factory('IsolatedSystem',
             message: new Er7Message(),
             validationSettings: new ValidationSettings(),
             logger: new Logger(),
-            user: new TransactionUser(),
+            user: user,
             setContent: function (value) {
                 IsolatedSystem.message.content = value;
                 IsolatedSystem.editor.instance.doc.setValue(value);
@@ -32,23 +37,23 @@ angular.module('isolated').factory('IsolatedSystemTestCaseListLoader', ['$q','$h
     function ($q,$http) {
         return function() {
             var delay = $q.defer();
-            $http.get("api/isolated/testcases").then(
-                function (object) {
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
+//            $http.get("api/isolated/testcases").then(
+//                function (object) {
+//                    delay.resolve(angular.fromJson(object.data));
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
 
-//                $http.get('../../resources/isolated/testPlans.json').then(
-//                    function (object) {
-//                        delay.resolve(angular.fromJson(object.data));
-//                    },
-//                    function (response) {
-//                        delay.reject(response.data);
-//                    }
-//                );
+                $http.get('../../resources/isolated/testPlans.json').then(
+                    function (object) {
+                        delay.resolve(angular.fromJson(object.data));
+                    },
+                    function (response) {
+                        delay.reject(response.data);
+                    }
+                );
 
             return delay.promise;
         };
@@ -65,23 +70,23 @@ angular.module('isolated').factory('IsolatedSystemInitiator',
         IsolatedSystemInitiator.prototype.send = function (user, testCaseId, content) {
             var delay = $q.defer();
             var data = angular.fromJson({"testCaseId": testCaseId, "content": content, "endpoint": user.receiverEndpoint, "u": user.receiverUsername, "p": user.receiverPassword, "facilityId": user.receiverFacilityId});
-//            $http.post('api/isolated/soap/send', data, {timeout: 60000}).then(
-//                function (response) {
-//                    delay.resolve(angular.fromJson(response.data));
-//                },
-//                function (response) {
-//                    delay.reject(response);
-//                }
-//            );
-
-            $http.get('../../resources/isolated/send.json').then(
+            $http.post('api/isolated/soap/send', data, {timeout: 60000}).then(
                 function (response) {
                     delay.resolve(angular.fromJson(response.data));
                 },
                 function (response) {
-                    delay.reject('Sorry,we did not get a response');
+                    delay.reject(response);
                 }
             );
+
+//            $http.get('../../resources/isolated/send.json').then(
+//                function (response) {
+//                    delay.resolve(angular.fromJson(response.data));
+//                },
+//                function (response) {
+//                    delay.reject('Sorry,we did not get a response');
+//                }
+//            );
             return delay.promise;
         };
 
