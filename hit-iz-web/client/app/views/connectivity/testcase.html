@@ -8,14 +8,9 @@
                     <div ng-show="!loading">
                         <div ng-show="error == null">
                             <div class="container-testcase">
-                            <table tt-table tt-params="params" class="table table-hover no_border">
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
+                                <testcase-tree tree-control="tree"  icon-leaf=""
+                                               is-selectable="isSelectable(branch)"
+                                               on-select="selectTestCase(branch)"></testcase-tree>
                         </div>
                         </div>
                         <div ng-show="error != null">
@@ -44,7 +39,7 @@
 
                             <span class="pull-right"
                                   ng-show=" selectedTestCase.sutType == undefined">
-                                <button title="Download Test Procedure" type="button" class="btn btn-sm btn-primary"
+                                <button title="Download Test Procedure" type="button" class="btn btn-xs btn-primary"
                                         ng-show="selectedTestCase.testProcedurePath != undefined && selectedTestCase.testProcedurePath != null"
                                         ng-click="downloadArtifact(selectedTestCase.testProcedurePath)">
                                     <i class="fa fa-download"></i>
@@ -55,7 +50,7 @@
                             <span class="pull-right"
                                   ng-show="selectedTestCase.sutType != undefined">
 
-                                <button title="Download Test Package" type="button" class="btn btn-sm btn-primary"
+                                <button title="Download Test Package" type="button" class="btn btn-xs btn-primary"
                                         ng-show="selectedTestCase.testPackagePath != undefined && selectedTestCase.testPackagePath != null"
                                         ng-click="downloadArtifact(selectedTestCase.testPackagePath)">
                                     <i class="fa fa-download"></i>
@@ -63,7 +58,7 @@
                                 </button>
 
 
-                                <button title="Load TestCase" type="button" class="btn btn-sm btn-success"
+                                <button title="Load TestCase" type="button" class="btn btn-xs btn-success"
                                         ng-show="selectedTestCase != null"
                                         ng-click="loadTestCase(selectedTestCase,'/connectivity_execution')">
                                     <i class="fa fa-play"></i>Start

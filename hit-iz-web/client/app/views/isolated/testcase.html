@@ -7,17 +7,10 @@
                 <div class="panel-body">
                     <div ng-show="!loading">
                         <div ng-show="error === null">
-                            <!--<abn-tree tree-control="testCaseTree" tree-data="testCases" icon-leaf=""-->
-                                      <!--on-select="selectTestCase(branch)"></abn-tree>-->
                             <div class="container-testcase">
-                            <table tt-table tt-params="params" class="table table-hover no_border">
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
+                                <testcase-tree tree-control="tree" icon-leaf=""
+                                               is-selectable="isSelectable(branch)"
+                                               on-select="selectTestCase(branch)"></testcase-tree>
                                </div>
                         </div>
                         <div ng-show="error != null">
@@ -39,13 +32,13 @@
                                {{selectedTestCase.type}}: {{selectedTestCase.name}}
                             </span>
                             <span class="pull-right" style="margin-bottom: 3px">
-                                  <button title="Download Test Package" type="button" class="btn btn-sm btn-primary"
+                                  <button title="Download Test Package" type="button" class="btn btn-xs btn-primary"
                                            ng-show="selectedTestCase.testPackage && selectedTestCase.testPackage != null && selectedTestCase.testPackage.pdfPath != null"
                                            ng-click="downloadArtifact(selectedTestCase.testPackage.pdfPath)">
                                        <i class="fa fa-download"></i>
                                        Download Test Package
                                   </button>
-                                  <button ng-show="selectedTestCase.type==='TestCase'" title="Start Test" type="button" class="btn btn-sm btn-success"
+                                  <button ng-show="selectedTestCase.type==='TestCase'" title="Start Test" type="button" class="btn btn-xs btn-success"
                                           ng-click="loadTestCase(selectedTestCase,'/isolated_execution')">
                                       <i class="fa fa-play"></i>Start
                                   </button>

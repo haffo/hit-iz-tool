@@ -1,18 +1,20 @@
 (function () {
     var module;
 
-    module = angular.module('angularBootstrapNavTree', []);
+    module = angular.module('hit-testcase-tree', []);
 
-    module.directive('abnTree', [
-        '$timeout', function ($timeout) {
+    module.directive('testcaseTree', [
+        '$timeout', function ($timeout, $rootScope) {
             return {
                 restrict: 'E',
-                 templateUrl: 'lib/angular-bootstrap-nav-tree/abn_tree_template.html',
-                 replace: true,
+                templateUrl: 'lib/testcase-tree/testcase-tree.html',
+                replace: true,
                 scope: {
                     onSelect: '&',
                     initialSelection: '@',
-                    treeControl: '='
+                    treeControl: '=',
+                    isSelectable: '&',
+                    treeChange: '='
                 },
                 link: function (scope, element, attrs) {
                     var error, expand_all_parents, expand_level, for_all_ancestors, for_each_branch, get_parent, n, on_treeData_change, select_branch, selected_branch, tree;
@@ -33,10 +35,8 @@
                     if (attrs.expandLevel == null) {
                         attrs.expandLevel = '3';
                     }
-                    expand_level = parseInt(attrs.expandLevel, 10);
-
                     scope.treeData = [];
-
+                    expand_level = parseInt(attrs.expandLevel, 10);
                     if (!scope.treeData) {
                         alert('no treeData defined for the tree!');
                         return;
@@ -109,12 +109,23 @@
                         }
                     };
 
+                    scope.is_node_selectable = function (branch) {
+                        return scope.isSelectable({
+                            branch: branch
+                        });
+                    };
+
+                    scope.get_icon_type = function (branch) {
+                        var connType = branch['connectionType'];
+                        return  connType === 'TA_MANUAL' || connType === 'SUT_MANUAL' ? 'fa fa-check-square-o' : connType === 'TA_INITIATOR' || connType === 'SUT_INITIATOR' ? 'fa fa-arrow-right' : connType === 'TA_RESPONDER' || connType === 'SUT_RESPONDER' ? 'fa fa-arrow-left' : null;
+                    };
+
                     scope.toggle_expand = function (branch) {
-                        scope.set_expand(branch, !branch.expanded);
+                        scope.set_expand(branch,!branch.expanded);
                         on_treeData_change();
                     };
 
-                    scope.set_expand = function (branch, value) {
+                    scope.set_expand = function (branch,value) {
                         branch.expanded = value;
                     };
 
@@ -145,6 +156,7 @@
                     };
                     scope.tree_rows = [];
                     on_treeData_change = function () {
+                        console.log("change detected: " + scope.treeData.length);
                         var add_branch_to_list, root_branch, _i, _len, _ref, _results;
                         for_each_branch(function (b, level) {
                             if (!b.uid) {
@@ -212,6 +224,7 @@
                                 level: level,
                                 branch: branch,
                                 label: branch.label,
+                                type: branch.type,
                                 tree_icon: tree_icon,
                                 visible: visible
                             });
@@ -234,11 +247,6 @@
                         }
                         return _results;
                     };
-//
-//                    scope.$watch('treeData.length'
-//                        , function () {
-//                            on_treeData_change();
-//                        }, true);
 
                     if (attrs.initialSelection != null) {
                         for_each_branch(function (b) {
@@ -258,21 +266,17 @@
                     if (scope.treeControl != null) {
                         if (angular.isObject(scope.treeControl)) {
                             tree = scope.treeControl;
-                            tree.expand_all = function () {
-                                return for_each_branch(function (b, level) {
-                                    return b.expanded = true;
-                                });
-                            };
 
                             tree.build_all = function (treeData) {
                                 scope.treeData = treeData;
                                 on_treeData_change();
                             };
 
-                            tree.refresh_all = function (treeData) {
-                                on_treeData_change();
+                            tree.expand_all = function () {
+                                return for_each_branch(function (b, level) {
+                                    return b.expanded = true;
+                                });
                             };
-
                             tree.collapse_all = function () {
                                 return for_each_branch(function (b, level) {
                                     return b.expanded = false;

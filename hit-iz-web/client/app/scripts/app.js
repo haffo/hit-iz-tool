@@ -46,7 +46,8 @@ var app = angular.module('tool', [
     'hit-validation-result',
     'hit-vocab-search',
     'hit-report-viewer',
-    'hit-testcase-viewer'
+    'hit-testcase-viewer',
+    'hit-testcase-tree'
 ]);
 
 app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider) {

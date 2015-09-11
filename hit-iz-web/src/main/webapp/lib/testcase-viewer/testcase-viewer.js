@@ -20,12 +20,10 @@
     ]);
 
     mod
-        .controller('TestCaseViewerCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseViewerService', '$compile', '$timeout', function ($scope, $rootScope, $sce, TestCaseViewerService, $compile,$timeout) {
+        .controller('TestCaseViewerCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseViewerService', '$compile', '$timeout',function ($scope, $rootScope, $sce, TestCaseViewerService, $compile,$timeout) {
             $scope.tabs = [];
             $scope.loading = false;
             $scope.editor = null;
-
-
 
             var testCaseViewerService = new TestCaseViewerService();
             $rootScope.$on($scope.type + ':testCaseSelected', function (event, testCase) {

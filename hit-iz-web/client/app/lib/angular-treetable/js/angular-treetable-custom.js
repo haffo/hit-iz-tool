@@ -236,6 +236,7 @@
                 },
                 link: function(scope, element, attrs) {
                     var branch = angular.isDefined(scope.isBranch) ? scope.isBranch : true;
+                    var data = angular.isDefined(scope.data) ? scope.data : undefined;
 
                     // Look for a parent set by the tt-tree directive if one isn't explicitly set
                     var parent = angular.isDefined(scope.parent) ? scope.parent : scope.$parent._ttParentId;
@@ -243,9 +244,12 @@
                     element.attr('data-tt-id', ttNodeCounter++);
                     element.attr('data-tt-branch', branch);
                     element.attr('data-tt-parent-id', parent);
-                 }
+                    if(data) {
+                        element.attr('data-tt-node-id', data.id);
+                        element.attr('data-tt-node-type', data.type);
+                    }
+                }
             }
-
         }]);
 
 })();

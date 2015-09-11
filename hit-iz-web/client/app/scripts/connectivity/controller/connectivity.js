@@ -15,25 +15,27 @@ angular.module('connectivity')
 
 
 angular.module('connectivity')
-    .controller('ConnectivityTestCaseCtrl', ['$scope', 'Connectivity', 'ngTreetableParams', '$rootScope', 'ConnectivityTestCaseListLoader', '$cookies', '$timeout','StorageService','TestCaseService', function ($scope, Connectivity, ngTreetableParams, $rootScope, ConnectivityTestCaseListLoader,$cookies,$timeout,StorageService,TestCaseService) {
+    .controller('ConnectivityTestCaseCtrl', ['$scope', 'Connectivity', '$rootScope', 'ConnectivityTestCaseListLoader', '$cookies', '$timeout','StorageService','TestCaseService', function ($scope, Connectivity, $rootScope, ConnectivityTestCaseListLoader,$cookies,$timeout,StorageService,TestCaseService) {
 
         $scope.connectivity = Connectivity;
         $scope.loading = true;
         $scope.error = null;
         $scope.testCases = [];
+        $scope.tree = {};
         $scope.testCase = Connectivity.testCase;
         $scope.selectedTestCase = Connectivity.selectedTestCase;
-        $scope.testCaseTree = {};
         var testCaseService = new TestCaseService();
 
 
         $scope.selectTestCase = function (node) {
-            $scope.selectedTestCase = node;
-            StorageService.set(StorageService.SOAP_CONN_SELECTED_TESTCASE_ID_KEY, node.id);
-            StorageService.set(StorageService.SOAP_CONN_SELECTED_TESTCASE_TYPE_KEY, node.type);
-            $timeout(function() {
-                $rootScope.$broadcast('conn:testCaseSelected');
-            });
+            $timeout(function () {
+                $scope.selectedTestCase = node;
+                StorageService.set(StorageService.SOAP_CONN_SELECTED_TESTCASE_ID_KEY, node.id);
+                StorageService.set(StorageService.SOAP_CONN_SELECTED_TESTCASE_TYPE_KEY, node.type);
+                $timeout(function () {
+                    $rootScope.$broadcast('conn:testCaseSelected');
+                });
+            },0);
         };
 
         $scope.init = function () {
@@ -41,18 +43,10 @@ angular.module('connectivity')
             $scope.loading = true;
             $scope.testCases = [];
 
-            $scope.params = new ngTreetableParams({
-                getNodes: function (parent) {
-                    return parent && parent != null ? parent.children : $scope.testCases;
-                },
-                getTemplate: function (node) {
-                    return 'SOAPTestCase.html';
-                }
-            });
-
             var tcLoader = new ConnectivityTestCaseListLoader();
             tcLoader.then(function (testCases) {
                 $scope.testCases = testCases;
+                $scope.tree.build_all($scope.testCases);
                 var testCase = null;
                 var id = StorageService.get(StorageService.SOAP_CONN_SELECTED_TESTCASE_ID_KEY);
                 var type = StorageService.get(StorageService.SOAP_CONN_SELECTED_TESTCASE_TYPE_KEY);
@@ -66,6 +60,7 @@ angular.module('connectivity')
                     }
                     if (testCase != null) {
                         $scope.selectTestCase(testCase);
+                        $scope.selectNode(id,type);
                     }
                 }
                 testCase = null;
@@ -85,8 +80,7 @@ angular.module('connectivity')
                     }
                 }
 
-                $scope.params.refreshWithState('expanded');
-                $scope.loading = false;
+                 $scope.loading = false;
                 $scope.error = null;
             }, function (error) {
                 $scope.error = "Sorry, Failed to fetch the test cases. Please refresh page and try again.";
@@ -95,20 +89,35 @@ angular.module('connectivity')
         };
 
         $scope.loadTestCase = function (testCase,tab) {
-            Connectivity.testCase = testCase;
-            $scope.testCase = Connectivity.testCase;
-            var id = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY);
-            var type = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY);
-            if (id != $scope.testCase.id || type != $scope.testCase.type) {
-                StorageService.set(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY, $scope.testCase.id);
-                StorageService.set(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY, $scope.testCase.type);
-                StorageService.remove(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY);
-                StorageService.remove(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY);
-            }
-            $timeout(function() {
-                $rootScope.$broadcast('conn:testCaseLoaded',tab);
+            $timeout(function () {
+                Connectivity.testCase = testCase;
+                $scope.testCase = Connectivity.testCase;
+                var id = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY);
+                var type = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY);
+                if (id != $scope.testCase.id || type != $scope.testCase.type) {
+                    StorageService.set(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY, $scope.testCase.id);
+                    StorageService.set(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY, $scope.testCase.type);
+                    StorageService.remove(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY);
+                    StorageService.remove(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY);
+                }
+                $timeout(function () {
+                    $rootScope.$broadcast('conn:testCaseLoaded', tab);
+                });
             });
         };
+
+
+        $scope.isSelectable = function (node) {
+            return true;
+        };
+
+
+        $scope.selectNode = function (id,type) {
+            $timeout(function () {
+                testCaseService.selectNodeByIdAndType($scope.tree, id, type);
+            },0);
+        };
+
 
 
 

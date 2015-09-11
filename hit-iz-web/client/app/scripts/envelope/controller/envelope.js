@@ -63,14 +63,14 @@ angular.module('envelope')
 
 
 angular.module('envelope')
-    .controller('EnvelopeTestCaseCtrl', ['$scope', '$window', '$rootScope', 'Envelope', 'ngTreetableParams', 'EnvelopeTestCaseListLoader', '$timeout', 'StorageService', 'TestCaseService', function ($scope, $window, $rootScope, Envelope, ngTreetableParams, EnvelopeTestCaseListLoader, $timeout, StorageService, TestCaseService) {
+    .controller('EnvelopeTestCaseCtrl', ['$scope', '$window', '$rootScope', 'Envelope', 'EnvelopeTestCaseListLoader', '$timeout', 'StorageService', 'TestCaseService', function ($scope, $window, $rootScope, Envelope, EnvelopeTestCaseListLoader, $timeout, StorageService, TestCaseService) {
 
         $scope.selectedTestCase = Envelope.selectedTestCase;
         $scope.testCase = Envelope.testCase;
         $scope.testCases = [];
         $scope.loading = true;
         $scope.error = null;
-        $scope.testCaseTree = {};
+        $scope.tree = {};
         var testCaseService = new TestCaseService();
 
         /**
@@ -80,19 +80,11 @@ angular.module('envelope')
             $scope.error = null;
             $scope.testCases = [];
             $scope.loading = true;
-            $scope.params = new ngTreetableParams({
-                getNodes: function (parent) {
-                    return parent && parent != null ? parent.children : $scope.testCases;
-                },
-                getTemplate: function (node) {
-                    return 'SOAPTestCase.html';
-                }
-            });
             var tcLoader = new EnvelopeTestCaseListLoader();
             tcLoader.then(function (testCases) {
                 $scope.error = null;
                 $scope.testCases = testCases;
-
+                $scope.tree.build_all($scope.testCases);
                 var testCase = null;
                 var id = StorageService.get(StorageService.SOAP_ENV_SELECTED_TESTCASE_ID_KEY);
                 var type = StorageService.get(StorageService.SOAP_ENV_SELECTED_TESTCASE_TYPE_KEY);
@@ -106,6 +98,7 @@ angular.module('envelope')
                     }
                     if (testCase != null) {
                         $scope.selectTestCase(testCase);
+                        $scope.selectNode(id,type);
                     }
                 }
                 testCase = null;
@@ -124,8 +117,7 @@ angular.module('envelope')
                         $scope.loadTestCase(testCase,tab);
                     }
                 }
-                $scope.params.refreshWithState('expanded');
-                $scope.loading = false;
+                 $scope.loading = false;
             }, function (error) {
                 $scope.loading = false;
                 $scope.error = "Sorry,Cannot fetch the test cases. Please refresh the page.";
@@ -139,16 +131,25 @@ angular.module('envelope')
         };
 
         $scope.selectTestCase = function (node) {
-            $scope.selectedTestCase = node;
-            StorageService.set(StorageService.SOAP_ENV_SELECTED_TESTCASE_ID_KEY, node.id);
-            StorageService.set(StorageService.SOAP_ENV_SELECTED_TESTCASE_TYPE_KEY, node.type);
             $timeout(function () {
-                $rootScope.$broadcast('env:testCaseSelected');
+                $scope.selectedTestCase = node;
+                StorageService.set(StorageService.SOAP_ENV_SELECTED_TESTCASE_ID_KEY, node.id);
+                StorageService.set(StorageService.SOAP_ENV_SELECTED_TESTCASE_TYPE_KEY, node.type);
+                $timeout(function () {
+                    $rootScope.$broadcast('env:testCaseSelected');
+                });
             });
-
         };
 
+        $scope.selectNode = function (id,type) {
+            $timeout(function () {
+                testCaseService.selectNodeByIdAndType($scope.tree, id, type);
+            });
+        };
+
+
         $scope.loadTestCase = function (testCase,tab) {
+            $timeout(function () {
             if (testCase.type === 'TestCase') {
                 Envelope.testCase = testCase;
                 $scope.testCase = Envelope.testCase;
@@ -162,7 +163,11 @@ angular.module('envelope')
                 $timeout(function () {
                     $rootScope.$broadcast('env:testCaseLoaded', $scope.testCase,tab);
                 });
-            }
+            }});
+        };
+
+        $scope.isSelectable = function (node) {
+            return true;
         };
 
 
@@ -188,7 +193,7 @@ angular.module('envelope')
         $scope.validationResult = Envelope.validationResult;
 
 
-        $scope.envelopeObject = [];
+//        $scope.envelopeObject = [];
         $scope.tError = null;
         $scope.envelopeTree = {};
         $scope.tLoading = false;
@@ -276,11 +281,11 @@ angular.module('envelope')
                 XmlTreeUtils.selectNode($scope.envelopeTree, Envelope.cursor);
             }, true);
 
-            $scope.$watch(function () {
-                return $scope.envelopeObject;
-            }, function () {
-                XmlTreeUtils.expandTree($scope.envelopeTree);
-            }, true);
+//            $scope.$watch(function () {
+//                return $scope.envelopeObject;
+//            }, function () {
+//                XmlTreeUtils.expandTree($scope.envelopeTree);
+//            }, true);
 
             $rootScope.$on('env:testCaseLoaded', function (event) {
                 $scope.testCase = Envelope.testCase;
@@ -377,19 +382,21 @@ angular.module('envelope')
 
         $scope.parse = function () {
             $scope.tLoading = true;
-            $scope.envelopeObject = [];
             $scope.tError = null;
             if (Envelope.testCase.id !== null && Envelope.getContent() != '') {
                 var loader = new XmlParser(Envelope.getContent());
                 loader.then(function (value) {
                     $scope.tLoading = false;
-                    $scope.envelopeObject = value;
-                }, function (tError) {
+                    $scope.envelopeTree.build_all(value);
+                    XmlTreeUtils.expandTree($scope.envelopeTree);
+                 }, function (tError) {
                     $scope.tLoading = false;
                     $scope.tError = tError;
+                    $scope.envelopeTree.build_all([]);
                 });
             } else {
                 $scope.tLoading = false;
+                $scope.envelopeTree.build_all([]);
             }
         };
 

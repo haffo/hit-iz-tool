@@ -15,22 +15,22 @@ The first selector is for Angular 1.1.5
 The second selector is for Angular 1.2.0
 
 */
-.abn-tree-animate-enter,
-li.abn-tree-row.ng-enter {
+.testcase-tree-animate-enter,
+tr.testcase-tree-row.ng-enter {
     transition: 200ms linear all;
     position: relative;
     display: block;
     opacity: 0;
     max-height:0px;
 }
-.abn-tree-animate-enter.abn-tree-animate-enter-active,
-li.abn-tree-row.ng-enter-active{
+.testcase-tree-animate-enter.testcase-tree-animate-enter-active,
+tr.testcase-tree-row.ng-enter-active{
     opacity: 1;
     max-height:30px;
 }
 
-.abn-tree-animate-leave,
-li.abn-tree-row.ng-leave {
+.testcase-tree-animate-leave,
+tr.testcase-tree-row.ng-leave {
     transition: 200ms linear all;
     position: relative;
     display: block;
@@ -38,8 +38,8 @@ li.abn-tree-row.ng-leave {
     max-height: 30px;
     opacity: 1;
 }
-.abn-tree-animate-leave.abn-tree-animate-leave-active,
-li.abn-tree-row.ng-leave-active {
+.testcase-tree-animate-leave.testcase-tree-animate-leave-active,
+tr.testcase-tree-row.ng-leave-active {
     height: 0px;
     max-height:0px;
     opacity: 0;
@@ -52,14 +52,12 @@ Angular 1.2.0 Animation
 */
 
 
-.abn-tree-animate.ng-enter{
+.testcase-tree-animate.ng-enter{
 
 }
-.abn-tree-animate.ng-enter{
+.testcase-tree-animate.ng-enter{
 
 }
-
-
 
 
 /*
@@ -67,125 +65,126 @@ Angular 1.2.0 Animation
 -----------------------------------------
    begin normal css stuff
 */
-ul.abn-tree li.abn-tree-row {
+table.testcase-tree tr.testcase-tree-row {
     padding: 0px;
     margin:0px;
 }
 
-ul.abn-tree li.abn-tree-row a {
+table.testcase-tree tr.testcase-tree-row td {
     padding: 3px 10px;
 }
 
-ul.abn-tree i.indented {
+table.testcase-tree tr td i.indented {
     padding: 2px;
 }
 
-.abn-tree {
+.testcase-tree {
     cursor: pointer;
 }
-ul.nav.abn-tree .level-1 .indented {
+table.testcase-tree .level-1 .indented {
     position: relative;
     left: 0px;
 }
-ul.nav.abn-tree .level-2 .indented {
+table.testcase-tree .level-2 .indented {
     position: relative;
     left: 20px;
 }
-ul.nav.abn-tree .level-3 .indented {
+table.testcase-tree .level-3 .indented {
     position: relative;
     left: 40px;
 }
-ul.nav.abn-tree .level-4 .indented {
+table.testcase-tree .level-4 .indented {
     position: relative;
     left: 60px;
 }
-ul.nav.abn-tree .level-5 .indented {
+table.testcase-tree .level-5 .indented {
     position: relative;
     left: 80px;
 }
-ul.nav.abn-tree .level-6 .indented {
+table.testcase-tree .level-6 .indented {
     position: relative;
     left: 100px;
 }
-ul.nav.nav-list.abn-tree .level-7 .indented {
+table.testcase-tree .level-7 .indented {
     position: relative;
     left: 120px;
 }
-ul.nav.nav-list.abn-tree .level-8 .indented {
+table.testcase-tree .level-8 .indented {
     position: relative;
     left: 140px;
 }
-ul.nav.nav-list.abn-tree .level-9 .indented {
+table.testcase-tree .level-9 .indented {
     position: relative;
     left: 160px;
 }
 
-ul.nav.nav-list.abn-tree .level-10 .indented {
+table.testcase-tree .level-10 .indented {
     position: relative;
     left: 180px;
 }
 
 
-ul.nav.nav-list.abn-tree .level-11 .indented {
+table.testcase-tree .level-11 .indented {
     position: relative;
     left: 200px;
 }
 
 
-ul.nav.nav-list.abn-tree .level-12 .indented {
+table.testcase-tree .level-12 .indented {
     position: relative;
     left: 220px;
 }
 
 
-ul.nav.nav-list.abn-tree .level-13 .indented {
+table.testcase-tree .level-13 .indented {
     position: relative;
     left: 240px;
 }
 
 
-ul.nav.nav-list.abn-tree .level-14 .indented {
+table.testcase-tree .level-14 .indented {
     position: relative;
     left: 260px;
 }
 
-ul.nav.nav-list.abn-tree .level-15 .indented {
+table.testcase-tree .level-15 .indented {
     position: relative;
     left: 280px;
 }
 
-ul.nav.nav-list.abn-tree .level-16 .indented {
+table.testcase-tree .level-16 .indented {
     position: relative;
     left: 300px;
 }
 
-ul.nav.nav-list.abn-tree .level-17 .indented {
+table.testcase-tree .level-17 .indented {
     position: relative;
     left: 320px;
 }
 
-ul.nav.nav-list.abn-tree .level-18 .indented {
+table.testcase-tree .level-18 .indented {
     position: relative;
     left: 340px;
 }
 
-ul.nav.nav-list.abn-tree .level-19 .indented {
+table.testcase-tree .level-19 .indented {
     position: relative;
     left: 350px;
 }
 
 
 
-/*.abn-tree-row .active {*/
+
+/*.testcase-tree-row .active {*/
 /*background: #ffef8f;*/
 /*color: #ffef8f;*/
 /*}*/
 
-ul.abn-tree li.abn-tree-row a {
+table.testcase-tree tr.testcase-tree-row td {
     color: #363636;
 }
 
-ul.abn-tree li.abn-tree-row.active a {
+table.testcase-tree tr.testcase-tree-row.active td {
     background: #ffef8f;
     color: #363636;
 }

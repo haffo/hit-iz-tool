@@ -29,10 +29,11 @@ angular.module('isolated')
 
 
 angular.module('isolated')
-    .controller('IsolatedSystemTestCaseCtrl', ['$scope', '$filter', '$window', '$rootScope', 'IsolatedSystem', 'ngTreetableParams', '$timeout', 'IsolatedSystemTestCaseListLoader', 'StorageService', 'TestCaseService', function ($scope, $filter, $window, $rootScope, IsolatedSystem, ngTreetableParams, $timeout, IsolatedSystemTestCaseListLoader, StorageService, TestCaseService) {
+    .controller('IsolatedSystemTestCaseCtrl', ['$scope', '$filter', '$window', '$rootScope', 'IsolatedSystem', '$timeout', 'IsolatedSystemTestCaseListLoader', 'StorageService', 'TestCaseService', function ($scope, $filter, $window, $rootScope, IsolatedSystem, $timeout, IsolatedSystemTestCaseListLoader, StorageService, TestCaseService) {
         $scope.selectedTestCase = IsolatedSystem.selectedTestCase;
         $scope.testCase = IsolatedSystem.testCase;
         $scope.testCases = [];
+        $scope.tree = {};
         $scope.loading = true;
         $scope.error = null;
         var testCaseService = new TestCaseService();
@@ -42,24 +43,6 @@ angular.module('isolated')
             $scope.error = null;
             $scope.loading = true;
 
-
-            $scope.params = new ngTreetableParams({
-                getNodes: function (parent) {
-                    return parent && parent != null ? parent.children : $scope.testCases;
-                },
-                getTemplate: function (node) {
-                    if (node.type === 'TestCase') {
-                        return 'IsolatedTestCase.html';
-                    } else if (node.type === 'TestStep') {
-                        return node.connectionType === 'TA_MANUAL' || node.connectionType === 'SUT_MANUAL' ? 'IsolatedManualTestStep.html' : node.connectionType === 'TA_INITIATOR' || node.connectionType === 'SUT_INITIATOR' ? 'IsolatedInitiatorTestStep.html' : node.connectionType === 'TA_RESPONDER' || node.connectionType === 'SUT_RESPONDER' ? 'IsolatedResponderTestStep.html' : 'IsolatedResponderTestStep.html';
-                    } else if (node.type === 'TestPlan') {
-                        return 'IsolatedTestPlan.html';
-                    } else if (node.type === 'TestCaseGroup') {
-                        return 'IsolatedTestCaseGroup.html';
-                    }
-                }
-            });
-
             var tcLoader = new IsolatedSystemTestCaseListLoader();
             tcLoader.then(function (testCases) {
                 $scope.error = null;
@@ -67,6 +50,7 @@ angular.module('isolated')
                     testCaseService.buildTree(testPlan);
                 });
                 $scope.testCases = testCases;
+                $scope.tree.build_all($scope.testCases);
                 var testCase = null;
                 var id = StorageService.get(StorageService.ISOLATED_SELECTED_TESTCASE_ID_KEY);
                 var type = StorageService.get(StorageService.ISOLATED_SELECTED_TESTCASE_TYPE_KEY);
@@ -80,6 +64,7 @@ angular.module('isolated')
                     }
                     if (testCase != null) {
                         $scope.selectTestCase(testCase);
+                        $scope.selectNode(id,type);
                     }
                 }
 
@@ -102,8 +87,7 @@ angular.module('isolated')
                     }
                 }
 
-                $scope.params.refresh();
-                $scope.loading = false;
+                 $scope.loading = false;
             }, function (error) {
                 $scope.loading = false;
                 $scope.error = "Sorry,cannot load the test cases. Please refresh your page and try again.";
@@ -118,13 +102,21 @@ angular.module('isolated')
             }, 1000);
         };
 
-        $scope.selectTestCase = function (node) {
-            $scope.selectedTestCase = node;
-            StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_ID_KEY, node.id);
-            StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_TYPE_KEY, node.type);
+        $scope.selectNode = function (id,type) {
             $timeout(function () {
-                $rootScope.$broadcast('isolated:testCaseSelected', $scope.selectedTestCase);
-            });
+                testCaseService.selectNodeByIdAndType($scope.tree, id,type);
+            },0);
+        };
+
+        $scope.selectTestCase = function (node) {
+            $timeout(function () {
+                $scope.selectedTestCase = node;
+                StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_ID_KEY, node.id);
+                StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_TYPE_KEY, node.type);
+                $timeout(function () {
+                    $rootScope.$broadcast('isolated:testCaseSelected', $scope.selectedTestCase);
+                });
+            },0);
         };
 
         $scope.selectTestPlan = function (node) {
@@ -135,6 +127,7 @@ angular.module('isolated')
 
 
         $scope.loadTestCase = function (testCase, tab) {
+            $timeout(function () {
             if(testCase.type ==='TestCase') {
                 $scope.testCase = angular.copy(testCase);
                 if (StorageService.get(StorageService.ISOLATED_LOADED_TESTCASE_ID_KEY) != $scope.testCase.id || StorageService.get(StorageService.ISOLATED_LOADED_TESTCASE_TYPE_KEY) != $scope.testCase.type) {
@@ -147,7 +140,7 @@ angular.module('isolated')
                 $timeout(function () {
                     $rootScope.$broadcast('isolated:testCaseLoaded', $scope.testCase,tab);
                 });
-            }
+            }});
         };
 
 
@@ -173,6 +166,11 @@ angular.module('isolated')
                 form.submit();
             }
         };
+
+        $scope.isSelectable = function (node) {
+            return node.type !== "TestCaseGroup";
+        };
+
 
     }]);
 
@@ -729,7 +727,6 @@ angular.module('isolated')
         $scope.resized = false;
         $scope.selectedItem = null;
         $scope.activeTab = 0;
-        $scope.messageObject = [];
         $scope.tError = null;
         $scope.tLoading = false;
 
@@ -898,11 +895,18 @@ angular.module('isolated')
 
         $scope.loadMessageObject = function (messageObject) {
             if ($scope.testStep != null) {
-                $scope.messageObject = messageObject;
+                $scope.buildMessageTree(messageObject);
                 var tree = messageObject && messageObject != null && messageObject.length > 0 ? messageObject : undefined;
                 IsolatedExecutionService.setMessageTree($scope.testStep, tree);
             }
         };
+
+        $scope.buildMessageTree = function (messageObject) {
+            if ($scope.testStep != null) {
+                $scope.isolated.tree.root.build_all(messageObject);
+            }
+        };
+
 
         $scope.select = function (element) {
             if (element != undefined && element.path != null && element.line != -1) {
@@ -931,7 +935,7 @@ angular.module('isolated')
                 $timeout(function () {
                     $scope.tLoading = true;
                     if (IsolatedExecutionService.getMessageTree($scope.testStep) != undefined) { // model exist result exit ?
-                        $scope.messageObject = IsolatedExecutionService.getMessageTree($scope.testStep);
+                        $scope.buildMessageTree(IsolatedExecutionService.getMessageTree($scope.testStep));
                         $scope.tLoading = false;
                     } else {
                         if ($scope.isolated.message.content != '') {

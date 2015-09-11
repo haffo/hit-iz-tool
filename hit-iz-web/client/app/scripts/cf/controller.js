@@ -2,13 +2,14 @@
 
 
 angular.module('cf')
-    .controller('CFTestingCtrl', ['$scope', '$http', 'CF', '$window', '$modal', '$filter', '$rootScope', 'ngTreetableParams', 'CFTestCaseListLoader', '$timeout', 'StorageService', 'TestCaseService', function ($scope, $http, CF, $window, $modal, $filter, $rootScope, ngTreetableParams, CFTestCaseListLoader, $timeout, StorageService, TestCaseService) {
+    .controller('CFTestingCtrl', ['$scope', '$http', 'CF', '$window', '$modal', '$filter', '$rootScope', 'CFTestCaseListLoader', '$timeout', 'StorageService', 'TestCaseService', function ($scope, $http, CF, $window, $modal, $filter, $rootScope, CFTestCaseListLoader, $timeout, StorageService, TestCaseService) {
 
         $scope.cf = CF;
         $scope.loading = false;
         $scope.error = null;
         $scope.testCases = [];
         $scope.testCase = null;
+        $scope.tree = {};
         $scope.tabs = new Array();
         $scope.error = null;
 
@@ -30,7 +31,8 @@ angular.module('cf')
             return testCase.parentName + " - " + testCase.label;
         };
 
-        $scope.loadTestCase = function (testCase) {
+        $scope.selectTestCase = function (testCase) {
+            $timeout(function () {
             if(testCase.testContext && testCase.testContext != null) {
                 CF.testCase = testCase;
                 $scope.testCase = CF.testCase;
@@ -48,7 +50,7 @@ angular.module('cf')
                 $timeout(function () {
                     $rootScope.$broadcast('cf:valueSetLibraryLoaded', $scope.testCase.testContext.vocabularyLibrary);
                 });
-            }
+            }});
         };
 
         $scope.init = function () {
@@ -56,25 +58,13 @@ angular.module('cf')
             $scope.error = null;
             $scope.loading = true;
             $scope.testCases = [];
-            $scope.params = new ngTreetableParams({
-                getNodes: function (parent) {
-                    return parent && parent != null ? parent.children : $scope.testCases;
-                },
-                getTemplate: function (node) {
-                    if (!node.testContext || node.testContext === null) {
-                        return 'CFTestCase.html';
-                    } else {
-                        return  'CFTestStep.html';
-                    }
-                }
-            });
-
             var tcLoader = new CFTestCaseListLoader();
             tcLoader.then(function (testCases) {
                 angular.forEach(testCases, function (testPlan) {
                     $scope.sortByPosition(testPlan);
                 });
                 $scope.testCases = $filter('orderBy')(testCases, 'position');
+                $scope.tree.build_all($scope.testCases);
                 var testCase = null;
                 var id = StorageService.get(StorageService.CF_LOADED_TESTCASE_ID_KEY);
                 if (id != null) {
@@ -87,21 +77,25 @@ angular.module('cf')
                     }
                 }
                 if (testCase == null) testCase = $scope.testCases[0];
-                $scope.loadTestCase(testCase);
+                $scope.selectNode(testCase.id);
+                $scope.selectTestCase(testCase);
                 $scope.loading = false;
                 $scope.error = null;
-                $scope.params.refresh();
-            }, function (error) {
+             }, function (error) {
                 $scope.error = "Sorry,cannot load the profiles";
                 $scope.loading = false;
             });
         };
 
-        $scope.expandChildren = function (node) {
-            $scope.params.expandChildren(node);
+
+        $scope.selectNode = function (id,type) {
+            $timeout(function () {
+                testCaseService.selectNodeByIdAndType($scope.tree, id);
+            },0);
         };
 
         $scope.sortByPosition = function (obj) {
+            obj.label = obj.name;
             if (obj.children) {
                 obj.children = $filter('orderBy')(obj.children, 'position');
                 angular.forEach(obj.children, function (child) {
@@ -118,6 +112,11 @@ angular.module('cf')
                 controller: 'CFProfileInfoCtrl'
             });
         };
+
+        $scope.isSelectable = function (node) {
+            return node.testContext && node.testContext != null;
+        };
+
 
     }]);
 
@@ -152,7 +151,6 @@ angular.module('cf')
         $scope.selectedItem = null;
         $scope.activeTab = 0;
 
-        $scope.messageObject = [];
         $scope.tError = null;
         $scope.tLoading = false;
         $scope.dqaOptions = {
@@ -351,13 +349,13 @@ angular.module('cf')
                 var parsed = new Er7MessageParser().parse($scope.cf.testCase.testContext.id, $scope.cf.message.content, $scope.cf.testCase.label);
                 parsed.then(function (value) {
                     $scope.tLoading = false;
-                    $scope.messageObject = value;
+                    $scope.cf.tree.root.build_all(value);
                 }, function (error) {
                     $scope.tLoading = false;
                     $scope.tError = error;
                 });
             } else {
-                $scope.messageObject = [];
+                $scope.cf.tree.root.build_all([]);
                 $scope.tError = null;
                 $scope.tLoading = false;
             }

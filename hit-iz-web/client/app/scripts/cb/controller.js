@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('cb')
-    .controller('CBTestingCtrl', ['$scope', '$window', '$rootScope', 'CB','StorageService', function ($scope, $window, $rootScope, CB, StorageService) {
+    .controller('CBTestingCtrl', ['$scope', '$window', '$rootScope', 'CB', 'StorageService', function ($scope, $window, $rootScope, CB, StorageService) {
 
         $scope.init = function () {
             var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
-            if(tab == null || tab != '/cb_execution') tab =  '/cb_testcase';
+            if (tab == null || tab != '/cb_execution') tab = '/cb_testcase';
             $rootScope.setSubActive(tab);
         };
 
@@ -21,7 +21,7 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBExecutionCtrl', ['$scope', '$window', '$rootScope', '$timeout', 'StorageService',function ($scope, $window, $rootScope, $timeout,StorageService) {
+    .controller('CBExecutionCtrl', ['$scope', '$window', '$rootScope', '$timeout', 'StorageService', function ($scope, $window, $rootScope, $timeout, StorageService) {
         $scope.loading = true;
         $scope.error = null;
         $scope.tabs = new Array();
@@ -44,7 +44,7 @@ angular.module('cb')
             $scope.loading = false;
             $scope.setActiveTab(0);
             $rootScope.$on('cb:testCaseLoaded', function (event, testCase, tab) {
-                $rootScope.setSubActive(tab && tab != null ? tab:'/cb_execution');
+                $rootScope.setSubActive(tab && tab != null ? tab : '/cb_execution');
                 $scope.testCase = testCase;
                 $timeout(function () {
                     $rootScope.$broadcast('cb:profileLoaded', $scope.testCase.testContext.profile);
@@ -59,35 +59,18 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBTestCaseCtrl', ['$scope', '$window', '$filter', '$rootScope', 'CB', 'ngTreetableParams', '$timeout', 'CBTestCaseListLoader', '$sce', 'StorageService', 'TestCaseService', function ($scope, $window, $filter, $rootScope, CB, ngTreetableParams, $timeout, CBTestCaseListLoader, $sce, StorageService, TestCaseService) {
+    .controller('CBTestCaseCtrl', ['$scope', '$window', '$filter', '$rootScope', 'CB', '$timeout', 'CBTestCaseListLoader', '$sce', 'StorageService', 'TestCaseService', function ($scope, $window, $filter, $rootScope, CB, $timeout, CBTestCaseListLoader, $sce, StorageService, TestCaseService) {
         $scope.selectedTestCase = CB.selectedTestCase;
         $scope.testCase = CB.testCase;
         $scope.testCases = [];
+        $scope.tree = {};
         $scope.loading = true;
         $scope.error = null;
         var testCaseService = new TestCaseService();
-
         $scope.init = function () {
             $scope.error = null;
             $scope.loading = true;
 
-
-            $scope.params = new ngTreetableParams({
-                getNodes: function (parent) {
-                    return parent && parent != null ? parent.children : $scope.testCases;
-                },
-                getTemplate: function (node) {
-                    if (node.type === 'TestCase') {
-                        return 'CBTestCase.html';
-                    } else if (node.type === 'TestStep') {
-                        return  'CBTestStep.html';
-                    } else if (node.type === 'TestPlan') {
-                        return  'CBTestPlan.html';
-                    } else if (node.type === 'TestCaseGroup') {
-                        return  'CBTestCaseGroup.html';
-                    }
-                }
-            });
 
             var tcLoader = new CBTestCaseListLoader();
             tcLoader.then(function (testCases) {
@@ -96,6 +79,7 @@ angular.module('cb')
                     testCaseService.buildTree(testPlan);
                 });
                 $scope.testCases = testCases;
+                $scope.tree.build_all($scope.testCases);
 
                 var testCase = null;
                 var id = StorageService.get(StorageService.CB_SELECTED_TESTCASE_ID_KEY);
@@ -110,6 +94,7 @@ angular.module('cb')
                     }
                     if (testCase != null) {
                         $scope.selectTestCase(testCase);
+                        $scope.selectNode(id, type);
                     }
                 }
 
@@ -126,10 +111,9 @@ angular.module('cb')
                     }
                     if (testCase != null) {
                         var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
-                        $scope.loadTestCase(testCase,tab);
+                        $scope.loadTestCase(testCase, tab);
                     }
                 }
-                $scope.params.refresh();
                 $scope.loading = false;
             }, function (error) {
                 $scope.loading = false;
@@ -146,16 +130,30 @@ angular.module('cb')
         };
 
 
-        $scope.selectTestCase = function (node) {
-            if ($scope.selectedTestCase == null || $scope.selectedTestCase.id != node.id) {
-                $scope.selectedTestCase = node;
-                StorageService.set(StorageService.CB_SELECTED_TESTCASE_ID_KEY, node.id);
-                StorageService.set(StorageService.CB_SELECTED_TESTCASE_TYPE_KEY, node.type);
-                $timeout(function () {
-                    $rootScope.$broadcast('cb:testCaseSelected', $scope.selectedTestCase);
-                });
-            }
+        $scope.isSelectable = function (node) {
+            return node.type !== "TestCaseGroup";
         };
+
+        $scope.selectTestCase = function (node) {
+            $timeout(function () {
+                if ($scope.selectedTestCase == null || $scope.selectedTestCase.id != node.id) {
+                    $scope.selectedTestCase = node;
+                    StorageService.set(StorageService.CB_SELECTED_TESTCASE_ID_KEY, node.id);
+                    StorageService.set(StorageService.CB_SELECTED_TESTCASE_TYPE_KEY, node.type);
+                    $timeout(function () {
+                        $rootScope.$broadcast('cb:testCaseSelected', $scope.selectedTestCase);
+                    });
+                }
+            },0);
+
+        };
+
+        $scope.selectNode = function (id,type) {
+            $timeout(function () {
+                testCaseService.selectNodeByIdAndType($scope.tree, id, type);
+            },0);
+        };
+
 
         $scope.selectTestPlan = function (node) {
             if ($scope.selectedTestCase == null || $scope.selectedTestCase.id != node.id) {
@@ -164,27 +162,27 @@ angular.module('cb')
         };
 
 
-        $scope.loadTestCase = function (testCase,tab) {
-            if(testCase.type ==='TestStep') {
-                CB.testCase = testCase;
-                $scope.testCase = CB.testCase;
-                var id = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
-                var type = StorageService.get(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
-                if (id != $scope.testCase.id || type!= $scope.testCase.type) {
-                    StorageService.set(StorageService.CB_LOADED_TESTCASE_ID_KEY, $scope.testCase.id);
-                    StorageService.set(StorageService.CB_LOADED_TESTCASE_TYPE_KEY, $scope.testCase.type);
-                    StorageService.remove(StorageService.CB_EDITOR_CONTENT_KEY);
+        $scope.loadTestCase = function (testCase, tab) {
+            $timeout(function () {
+                if (testCase.type === 'TestStep') {
+                    CB.testCase = testCase;
+                    $scope.testCase = CB.testCase;
+                    var id = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
+                    var type = StorageService.get(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
+                    if (id != $scope.testCase.id || type != $scope.testCase.type) {
+                        StorageService.set(StorageService.CB_LOADED_TESTCASE_ID_KEY, $scope.testCase.id);
+                        StorageService.set(StorageService.CB_LOADED_TESTCASE_TYPE_KEY, $scope.testCase.type);
+                        StorageService.remove(StorageService.CB_EDITOR_CONTENT_KEY);
+                    }
+                    $timeout(function () {
+                        $rootScope.$broadcast('cb:testCaseLoaded', $scope.testCase, tab);
+                    });
                 }
-                $timeout(function () {
-                    $rootScope.$broadcast('cb:testCaseLoaded', $scope.testCase,tab);
-                });
-            }
+            });
         };
 
         $scope.expand = function (event) {
-            var inputElment = event.currentTarget || event.srcElement;
-            var id = inputElment.parentElement.parentElement.attributes['data-tt-id'].nodeValue;
-            $scope.params.toggleExpand(id, true);
+
         };
 
 
@@ -400,13 +398,13 @@ angular.module('cb')
                 var parsed = new Er7MessageParser().parse($scope.cb.testCase.testContext.id, $scope.cb.message.content);
                 parsed.then(function (value) {
                     $scope.tLoading = false;
-                    $scope.messageObject = value;
+                    $scope.cb.tree.root.build_all(value);
                 }, function (error) {
                     $scope.tLoading = false;
                     $scope.tError = error;
                 });
             } else {
-                $scope.messageObject = [];
+                $scope.cb.tree.root.build_all([]);
                 $scope.tError = null;
                 $scope.tLoading = false;
             }

@@ -8,27 +8,27 @@ angular.module('xml').factory('XmlParser', ['$http', '$q', function ($http, $q) 
         var delay = $q.defer();
         var data = angular.fromJson({"content": xml});
 
-        $http.get('../../resources/soap/soap.json').then(
-            function (object) {
-                delay.resolve(angular.fromJson(object.data));
-            },
-            function (response) {
-                if (response.status === 404) {
-                    delay.reject('Cannot parse the content');
-                } else {
-                    delay.reject('Unable to parse the content');
-                }
-            }
-        );
-
-//        $http.post("api/xml/parse", data, {timeout: 60000}).then(
+//        $http.get('../../resources/soap/soap.json').then(
 //            function (object) {
 //                delay.resolve(angular.fromJson(object.data));
 //            },
 //            function (response) {
-//                delay.reject(response.data);
+//                if (response.status === 404) {
+//                    delay.reject('Cannot parse the content');
+//                } else {
+//                    delay.reject('Unable to parse the content');
+//                }
 //            }
 //        );
+
+        $http.post("api/xml/parse", data, {timeout: 60000}).then(
+            function (object) {
+                delay.resolve(angular.fromJson(object.data));
+            },
+            function (response) {
+                delay.reject(response.data);
+            }
+        );
         return delay.promise;
     };
 }]);
