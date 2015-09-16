@@ -489,7 +489,7 @@ angular.module('commonServices').factory('StorageService',
             SOAP_ENV_LOADED_TESTCASE_TYPE_KEY: 'SOAP_ENV_LOADED_TESTCASE_TYPE',
 
             SOAP_CONN_REQ_EDITOR_CONTENT_KEY: 'SOAP_CONN_REQ_EDITOR_CONTENT',
-            SOAP_CONN_RESP_EDITOR_CONTENT_KEY: 'SOAP_CONN_REQ_EDITOR_CONTENT',
+            SOAP_CONN_RESP_EDITOR_CONTENT_KEY: 'SOAP_CONN_RESP_EDITOR_CONTENT',
             SOAP_CONN_SELECTED_TESTCASE_ID_KEY: 'SOAP_CONN_SELECTED_TESTCASE_ID',
             SOAP_CONN_SELECTED_TESTCASE_TYPE_KEY: 'SOAP_CONN_SELECTED_TESTCASE_TYPE',
             SOAP_CONN_LOADED_TESTCASE_ID_KEY: 'SOAP_CONN_LOADED_TESTCASE_ID',
@@ -848,8 +848,6 @@ angular.module('commonServices').factory('TransactionUser', function (Endpoint, 
                 self.senderUsername = user.username;
                 self.senderPassword = user.password;
                 self.senderFacilityID = user.facilityID;
-                self.receiverUsername = null;
-                self.receiverPassword = null;
                 self.endpoint = new Endpoint(user.endpoint);
                 self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
                 delay.resolve(true);
@@ -867,8 +865,7 @@ angular.module('commonServices').factory('TransactionUser', function (Endpoint, 
 //                self.senderUsername = user.username;
 //                self.senderPassword = user.password;
 //                self.senderFacilityID = user.facilityID;
-//                self.receiverUsername = null;
-//                self.receiverPassword = null;
+//        self.endpoint = new Endpoint(user.endpoint);
 //                self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
 //                delay.resolve(true);
 //            },
@@ -954,7 +951,7 @@ angular.module('commonServices').factory('Transaction', function ($q, $http) {
                 delay.reject(null);
             }
         );
-
+//
 //        $http.get('../../resources/connectivity/clearFacilityId.json').then(
 //            function (response) {
 //
@@ -972,17 +969,17 @@ angular.module('commonServices').factory('Transaction', function ($q, $http) {
         var self = this;
         var delay = $q.defer();
         var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID, "responseMessageId": responseMessageId});
-//        $http.post('api/transaction/open', data).then(
-//            function (response) {
-//                self.running = true;
-//                self.clearMessages();
-//                delay.resolve(true);
-//            },
-//            function (response) {
-//                self.running = false;
-//                delay.reject(null);
-//            }
-//        );
+        $http.post('api/transaction/open', data).then(
+            function (response) {
+                self.running = true;
+                self.clearMessages();
+                delay.resolve(true);
+            },
+            function (response) {
+                self.running = false;
+                delay.reject(null);
+            }
+        );
 
 //        $http.get('../../resources/connectivity/initFacilityId.json').then(
 //            function (response) {

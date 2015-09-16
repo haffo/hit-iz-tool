@@ -1,1 +1,11 @@
-{"url":"http://hit-dev.nist.gov:8098/iztool"}
+{
+    "url": "http://hit-dev.nist.gov:8098/iztool",
+"version": "1.0-beta",
+"date": "09/14/2015 02:57:52",
+"name": "",
+"domain": "",
+"header": "",
+"adminEmail": "robert.snelick@nist.gov",
+"homeTitle": "",
+"homeContent": ""
+}

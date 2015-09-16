@@ -26,9 +26,9 @@ import gov.nist.hit.iz.domain.ConnectivityTestCase;
 import gov.nist.hit.iz.domain.ConnectivityTestContext;
 import gov.nist.hit.iz.domain.ConnectivityTestPlan;
 import gov.nist.hit.iz.domain.IZTestType;
-import gov.nist.hit.iz.repo.ConnectivityTestCaseRepository;
-import gov.nist.hit.iz.repo.ConnectivityTestContextRepository;
-import gov.nist.hit.iz.repo.ConnectivityTestPlanRepository;
+import gov.nist.hit.iz.repo.SOAPConnectivityTestCaseRepository;
+import gov.nist.hit.iz.repo.SOAPConnectivityTestContextRepository;
+import gov.nist.hit.iz.repo.SOAPConnectivityTestPlanRepository;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.soap.SOAPMessageParser;
 import gov.nist.hit.iz.service.soap.SOAPMessageValidator;
@@ -64,13 +64,13 @@ public class SOAPConnectivityController extends TestingController {
   private TransportClient transportClient;
 
   @Autowired
-  private ConnectivityTestContextRepository testContextRepository;
+  private SOAPConnectivityTestContextRepository testContextRepository;
 
   @Autowired
-  private ConnectivityTestPlanRepository testPlanRepository;
+  private SOAPConnectivityTestPlanRepository testPlanRepository;
 
   @Autowired
-  private ConnectivityTestCaseRepository testCaseRepository;
+  private SOAPConnectivityTestCaseRepository testCaseRepository;
 
   @Autowired
   private SOAPMessageParser soapMessageParser;

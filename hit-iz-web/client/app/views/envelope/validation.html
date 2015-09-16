@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div ng-show="tLoading" style="text-align:center">
-                    <img class="ajax-loading" ng-src="images/ajax.gif" alt="loading..."/>
+                    <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
                         <span></span>
                         <input type="file" name="file" id="file" multiple="false" ng-disabled="disabled">
                          </span>
-                                <span class="" ng-bind="fileName"></span>
+                                <!--<span class="" ng-bind="fileName"></span>-->
                                 <button title="Download" type="button" class="btn btn-xs btn-primary"
                                          ng-click="saveMessage()">
                                     <i class="fa fa-download"></i>Download

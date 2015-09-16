@@ -122,8 +122,7 @@
                     <span ng-show="row.connectionType != 'TA_MANUAL' && row.connectionType != 'SUT_MANUAL'">
                     <span ng-show="getValidationStatus(row) < 0 && row.id !== testStep.id">Not started</span>
                         <span ng-show="getValidationStatus(row) < 0 && row.id === testStep.id">
-                             <i title="In progress"
-                                class="fa fa-spinner"></i>
+                              In Progress
                         </span>
                     <span ng-show="getValidationStatus(row) > 0">
                               <i title="Message is Invalid"

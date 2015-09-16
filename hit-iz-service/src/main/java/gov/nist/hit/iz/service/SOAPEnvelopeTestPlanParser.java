@@ -5,10 +5,10 @@ import gov.nist.hit.core.domain.SutType;
 import gov.nist.hit.core.domain.TestStory;
 import gov.nist.hit.core.service.exception.ProfileParserException;
 import gov.nist.hit.core.service.util.FileUtil;
-import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.domain.EnvelopeTestCase;
 import gov.nist.hit.iz.domain.EnvelopeTestContext;
 import gov.nist.hit.iz.domain.EnvelopeTestPlan;
+import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.domain.ValidationPhase;
 
 import java.io.IOException;
@@ -23,7 +23,7 @@ import org.codehaus.jackson.JsonProcessingException;
  * @author Harold Affo
  * 
  */
-public class SOAPEnvelopeTestPlanParser extends TestPlanParser {
+public class SOAPEnvelopeTestPlanParser {
 
   public List<EnvelopeTestPlan> create() throws JsonProcessingException, IOException,
       ProfileParserException, URISyntaxException {

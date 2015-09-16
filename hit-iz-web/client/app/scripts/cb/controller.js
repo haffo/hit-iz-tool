@@ -135,8 +135,7 @@ angular.module('cb')
         };
 
         $scope.selectTestCase = function (node) {
-            $timeout(function () {
-                if ($scope.selectedTestCase == null || $scope.selectedTestCase.id != node.id) {
+                 if ($scope.selectedTestCase == null || $scope.selectedTestCase.id != node.id) {
                     $scope.selectedTestCase = node;
                     StorageService.set(StorageService.CB_SELECTED_TESTCASE_ID_KEY, node.id);
                     StorageService.set(StorageService.CB_SELECTED_TESTCASE_TYPE_KEY, node.type);
@@ -144,9 +143,7 @@ angular.module('cb')
                         $rootScope.$broadcast('cb:testCaseSelected', $scope.selectedTestCase);
                     });
                 }
-            },0);
-
-        };
+         };
 
         $scope.selectNode = function (id,type) {
             $timeout(function () {
@@ -273,15 +270,18 @@ angular.module('cb')
             var message = $scope.cb.testCase.testContext.message;
             var content = message && message != null ? message.content : null;
             if (content != null && content != "") {
+                $scope.editor.doc.setValue(content);
+                $scope.cb.message.id = null;
+                $scope.cb.message.name = '';
                 $scope.nodelay = true;
-                $scope.selectedMessage = $scope.cb.testCase.testContext.message;
-                if ($scope.selectedMessage != null && $scope.selectedMessage.content != null) {
-                    $scope.editor.doc.setValue($scope.selectedMessage.content);
-                } else {
-                    $scope.editor.doc.setValue('');
-                    $scope.cb.message.id = null;
-                    $scope.cb.message.name = '';
-                }
+//                $scope.selectedMessage = $scope.cb.testCase.testContext.message;
+//                if ($scope.selectedMessage != null && $scope.selectedMessage.content != null) {
+//                    $scope.editor.doc.setValue($scope.selectedMessage.content);
+//                } else {
+//                    $scope.editor.doc.setValue('');
+//                    $scope.cb.message.id = null;
+//                    $scope.cb.message.name = '';
+//                }
                 $scope.execute();
             }
         };

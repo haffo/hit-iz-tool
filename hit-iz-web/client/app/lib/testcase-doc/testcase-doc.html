@@ -1,0 +1,28 @@
+<div ng-show="data != null">
+
+    <accordion>
+        <accordion-group heading="{{data.title}}">
+            <button title="Download Complete TestCase" type="button" class="btn btn-xs btn-primary"
+                    ng-click="downloadCompleteTestPackage()">
+                <i class="fa fa-check-circle"></i>
+                Download Complete TestCase (.zip)
+            </button>
+
+            <button title="Download Example Messages" type="button" class="btn btn-xs btn-primary"
+                    ng-click="downloadExampleMessages()">
+                <i class="fa fa-check-circle"></i>
+                Download Example Messages (.zip)
+            </button>
+
+            <br/>
+            <br/>
+
+            <!--<div class="container-testcase">-->
+                <testcase-doc-tree tree-control="tree"></testcase-doc-tree>
+            <!--</div>-->
+
+        </accordion-group>
+    </accordion>
+
+
+</div>

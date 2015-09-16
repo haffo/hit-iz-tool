@@ -11,10 +11,13 @@
  */
 package gov.nist.hit.iz.service.soap;
 
-import gov.nist.hit.core.service.MessageParser;
+import gov.nist.hit.core.domain.MessageModel;
+import gov.nist.hit.core.service.exception.MessageParserException;
 
-public abstract class SOAPMessageParser implements MessageParser {
+public abstract class SOAPMessageParser {
 
+  public abstract MessageModel parse(String message, String... options)
+      throws MessageParserException;
 
 
 }

@@ -45,7 +45,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping("/isolated")
 @RestController
-public class IsolatedTestingController extends TestingController {
+public class IsolatedTestingController {
 
 
   static final Logger logger = LoggerFactory.getLogger(IsolatedTestingController.class);

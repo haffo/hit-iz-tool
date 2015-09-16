@@ -14,50 +14,50 @@ AngularJS Animations...
 The first selector is for Angular 1.1.5
 The second selector is for Angular 1.2.0
 
-*/
-.abn-tree-animate-enter,
-li.abn-tree-row.ng-enter {
-    transition: 200ms linear all;
-    position: relative;
-    display: block;
-    opacity: 0;
-    max-height:0px;
-}
-.abn-tree-animate-enter.abn-tree-animate-enter-active,
-li.abn-tree-row.ng-enter-active{
-    opacity: 1;
-    max-height:30px;
-}
+/**/
+/*.abn-tree-animate-enter,*/
+/*li.abn-tree-row.ng-enter {*/
+    /*transition: 200ms linear all;*/
+    /*position: relative;*/
+    /*display: block;*/
+    /*opacity: 0;*/
+    /*max-height:0px;*/
+/*}*/
+/*.abn-tree-animate-enter.abn-tree-animate-enter-active,*/
+/*li.abn-tree-row.ng-enter-active{*/
+    /*opacity: 1;*/
+    /*max-height:30px;*/
+/*}*/
 
-.abn-tree-animate-leave,
-li.abn-tree-row.ng-leave {
-    transition: 200ms linear all;
-    position: relative;
-    display: block;
-    height:30px;
-    max-height: 30px;
-    opacity: 1;
-}
-.abn-tree-animate-leave.abn-tree-animate-leave-active,
-li.abn-tree-row.ng-leave-active {
-    height: 0px;
-    max-height:0px;
-    opacity: 0;
-}
-
-
-/*
-------------------------------------------
-Angular 1.2.0 Animation
-*/
+/*.abn-tree-animate-leave,*/
+/*li.abn-tree-row.ng-leave {*/
+    /*transition: 200ms linear all;*/
+    /*position: relative;*/
+    /*display: block;*/
+    /*height:30px;*/
+    /*max-height: 30px;*/
+    /*opacity: 1;*/
+/*}*/
+/*.abn-tree-animate-leave.abn-tree-animate-leave-active,*/
+/*li.abn-tree-row.ng-leave-active {*/
+    /*height: 0px;*/
+    /*max-height:0px;*/
+    /*opacity: 0;*/
+/*}*/
 
 
-.abn-tree-animate.ng-enter{
+/**/
+/*------------------------------------------*/
+/*Angular 1.2.0 Animation*/
+/**/
 
-}
-.abn-tree-animate.ng-enter{
 
-}
+/*.abn-tree-animate.ng-enter{*/
+
+/*}*/
+/*.abn-tree-animate.ng-enter{*/
+
+/*}*/
 
 
 

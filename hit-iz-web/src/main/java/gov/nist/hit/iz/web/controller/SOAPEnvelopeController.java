@@ -20,8 +20,8 @@ import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.iz.domain.EnvelopeTestCase;
 import gov.nist.hit.iz.domain.EnvelopeTestContext;
 import gov.nist.hit.iz.domain.EnvelopeTestPlan;
-import gov.nist.hit.iz.repo.EnvelopeTestCaseRepository;
-import gov.nist.hit.iz.repo.EnvelopeTestPlanRepository;
+import gov.nist.hit.iz.repo.SOAPEnvelopeTestCaseRepository;
+import gov.nist.hit.iz.repo.SOAPEnvelopeTestPlanRepository;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.soap.SOAPMessageValidator;
 import gov.nist.hit.iz.web.utils.Utils;
@@ -52,10 +52,10 @@ public class SOAPEnvelopeController extends TestingController {
   private SOAPMessageValidator soapValidator;
 
   @Autowired
-  private EnvelopeTestPlanRepository testPlanRepository;
+  private SOAPEnvelopeTestPlanRepository testPlanRepository;
 
   @Autowired
-  private EnvelopeTestCaseRepository testCaseRepository;
+  private SOAPEnvelopeTestCaseRepository testCaseRepository;
 
 
   @Autowired

@@ -13,12 +13,11 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.service.ValidationReportGenerator;
 import gov.nist.hit.core.service.exception.MessageException;
 import gov.nist.hit.core.service.exception.SoapValidationReportException;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.soap.SOAPMessageParser;
-import gov.nist.hit.iz.web.exception.EnvelopeException;
+import gov.nist.hit.iz.web.exception.SOAPEnvelopeException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -59,7 +58,7 @@ public class SOAPController extends TestingController {
   @Autowired
   private SOAPValidationReportGenerator reportService;
 
-  public ValidationReportGenerator getReportService() {
+  public SOAPValidationReportGenerator getReportService() {
     return reportService;
   }
 
@@ -146,7 +145,7 @@ public class SOAPController extends TestingController {
       // Validate that it is an xml file
       return new Command(IOUtils.toString(xmlPart.getInputStream()));
     } catch (IOException e) {
-      throw new EnvelopeException("Cannot upload the file provided");
+      throw new SOAPEnvelopeException("Cannot upload the file provided");
     }
   }
 

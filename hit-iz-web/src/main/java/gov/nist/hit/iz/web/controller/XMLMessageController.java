@@ -17,7 +17,7 @@ import gov.nist.hit.core.domain.MessageElement;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.service.exception.XmlFormatterException;
 import gov.nist.hit.core.service.exception.XmlParserException;
-import gov.nist.hit.iz.service.XMLMessageParser;
+import gov.nist.hit.iz.service.soap.SOAPMessageParser;
 
 import java.util.List;
 
@@ -33,30 +33,30 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Harold Affo (NIST)
  * 
  */
-@RequestMapping("/xml")
+@RequestMapping("/xmlgeneric")
 @RestController
-public class XMLMessageController extends TestingController {
+public class XMLMessageController {
 
   static final Logger logger = LoggerFactory.getLogger(XMLMessageController.class);
 
   @Autowired
-  private XMLMessageParser xmlMessageParser;
+  private SOAPMessageParser messageParser;
 
 
 
-  public XMLMessageParser getXmlMessageParser() {
-    return xmlMessageParser;
+  public SOAPMessageParser getMessageParser() {
+    return messageParser;
   }
 
-  public void setXmlMessageParser(XMLMessageParser xmlMessageParser) {
-    this.xmlMessageParser = xmlMessageParser;
+  public void setMessageParser(SOAPMessageParser messageParser) {
+    this.messageParser = messageParser;
   }
 
   @RequestMapping(value = "/parse", method = RequestMethod.POST, consumes = "application/json")
   public List<MessageElement> parse(@RequestBody Command soapCommand) throws XmlParserException {
     logger.info("Parsing soap" + soapCommand.getContent());
     try {
-      return xmlMessageParser.parse(soapCommand.getContent(), "").getElements();
+      return messageParser.parse(soapCommand.getContent()).getElements();
     } catch (gov.nist.hit.core.service.exception.MessageParserException e) {
       throw new XmlParserException(e);
     }

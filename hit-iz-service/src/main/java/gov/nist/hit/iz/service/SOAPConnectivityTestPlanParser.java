@@ -21,7 +21,7 @@ import org.codehaus.jackson.JsonProcessingException;
  * @author Harold Affo
  * 
  */
-public class SOAPConnectivityTestPlanParser extends TestPlanParser {
+public class SOAPConnectivityTestPlanParser {
 
   public List<ConnectivityTestPlan> create() throws JsonProcessingException, IOException,
       URISyntaxException {

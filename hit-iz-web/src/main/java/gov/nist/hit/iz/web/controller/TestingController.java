@@ -23,9 +23,9 @@ import gov.nist.hit.core.service.exception.ValidationReportException;
 import gov.nist.hit.core.service.exception.XmlFormatterException;
 import gov.nist.hit.core.service.exception.XmlParserException;
 import gov.nist.hit.core.transport.TransportClientException;
-import gov.nist.hit.iz.repo.EnvelopeTestCaseRepository;
-import gov.nist.hit.iz.repo.EnvelopeTestPlanRepository;
-import gov.nist.hit.iz.web.exception.EnvelopeException;
+import gov.nist.hit.iz.repo.SOAPEnvelopeTestCaseRepository;
+import gov.nist.hit.iz.repo.SOAPEnvelopeTestPlanRepository;
+import gov.nist.hit.iz.web.exception.SOAPEnvelopeException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,29 +49,29 @@ public abstract class TestingController {
   }
 
   @Autowired
-  protected EnvelopeTestCaseRepository testCaseRepository;
+  protected SOAPEnvelopeTestCaseRepository testCaseRepository;
 
   @Autowired
-  protected EnvelopeTestPlanRepository testPlanRepository;
+  protected SOAPEnvelopeTestPlanRepository testPlanRepository;
 
   @Autowired
   protected UserRepository userRepository;
 
-  public EnvelopeTestCaseRepository getTestCaseRepository() {
+  public SOAPEnvelopeTestCaseRepository getTestCaseRepository() {
     return testCaseRepository;
   }
 
-  public void setTestCaseRepository(EnvelopeTestCaseRepository testCaseRepository) {
+  public void setTestCaseRepository(SOAPEnvelopeTestCaseRepository testCaseRepository) {
     this.testCaseRepository = testCaseRepository;
   }
 
 
 
-  public EnvelopeTestPlanRepository getTestPlanRepository() {
+  public SOAPEnvelopeTestPlanRepository getTestPlanRepository() {
     return testPlanRepository;
   }
 
-  public void setTestPlanRepository(EnvelopeTestPlanRepository testPlanRepository) {
+  public void setTestPlanRepository(SOAPEnvelopeTestPlanRepository testPlanRepository) {
     this.testPlanRepository = testPlanRepository;
   }
 
@@ -148,9 +148,9 @@ public abstract class TestingController {
     return "Sorry, validation failed.\n";
   }
 
-  @ExceptionHandler(EnvelopeException.class)
+  @ExceptionHandler(SOAPEnvelopeException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
-  public String soapException(EnvelopeException ex) {
+  public String soapException(SOAPEnvelopeException ex) {
     logger.debug(ex.getMessage());
     return "Sorry, an issue occured";
   }

@@ -94,9 +94,9 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider)
             redirectTo: '/'
         });
 
-//    $httpProvider.responseInterceptors.push('503Interceptor');
-//    $httpProvider.responseInterceptors.push('sessionTimeoutInterceptor');
-//    $httpProvider.responseInterceptors.push('404Interceptor');
+
+
+
 });
 
 //app.factory('503Interceptor', function ($injector, $q, $rootScope) {
@@ -130,11 +130,11 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider)
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService,$window,$route) {
 
     $rootScope.appInfo = {};
 
-
+    $rootScope.stackPosition =0;
 
 
     new AppInfo().then(function (appInfo) {
@@ -147,9 +147,44 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     $rootScope.$watch(function () {
         return $location.path();
     }, function (newLocation, oldLocation) {
-        if (newLocation != null) {
-            $rootScope.setActive(newLocation);
+
+        //true only for onPopState
+        if($rootScope.activePath === newLocation) {
+
+            var back,
+                historyState = $window.history.state;
+
+            back = !!(historyState && historyState.position <= $rootScope.stackPosition);
+
+            if (back) {
+                //back button
+                $rootScope.stackPosition--;
+            } else {
+                //forward button
+                $rootScope.stackPosition++;
+            }
+
+        } else {
+            //normal-way change of page (via link click)
+
+            if ($route.current) {
+
+                $window.history.replaceState({
+                    position: $rootScope.stackPosition
+                });
+
+                $rootScope.stackPosition++;
+
+            }
+//
+//            if (newLocation != null) {
+//                $rootScope.setActive(newLocation);
+//            }
+
         }
+
+
+
     });
 
     $rootScope.isActive = function (path) {
@@ -266,6 +301,15 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 //        );
         return $compile(content);
     };
+
+
+
+
+    $rootScope.$on('$locationChangeSuccess', function() {
+         //$rootScope.activePath = $location.path();
+        $rootScope.setActive($location.path());
+    });
+
 });
 
 angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])

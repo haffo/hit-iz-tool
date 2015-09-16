@@ -149,8 +149,7 @@ angular.module('envelope')
 
 
         $scope.loadTestCase = function (testCase,tab) {
-            $timeout(function () {
-            if (testCase.type === 'TestCase') {
+             if (testCase.type === 'TestCase') {
                 Envelope.testCase = testCase;
                 $scope.testCase = Envelope.testCase;
                 var id = StorageService.get(StorageService.SOAP_ENV_LOADED_TESTCASE_ID_KEY);
@@ -163,7 +162,7 @@ angular.module('envelope')
                 $timeout(function () {
                     $rootScope.$broadcast('env:testCaseLoaded', $scope.testCase,tab);
                 });
-            }});
+            }
         };
 
         $scope.isSelectable = function (node) {

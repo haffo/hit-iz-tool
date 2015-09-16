@@ -1,8 +1,6 @@
 /**
  * Created by haffo on 10/20/14.
  */
-
-
 angular.module('soap').factory('SoapValidationReportGenerator', ['$http', '$q', function ($http, $q) {
     return function (xmlReport, format) {
         var delay = $q.defer();

@@ -26,7 +26,6 @@ angular.module('connectivity')
         $scope.selectedTestCase = Connectivity.selectedTestCase;
         var testCaseService = new TestCaseService();
 
-
         $scope.selectTestCase = function (node) {
             $timeout(function () {
                 $scope.selectedTestCase = node;
@@ -35,7 +34,7 @@ angular.module('connectivity')
                 $timeout(function () {
                     $rootScope.$broadcast('conn:testCaseSelected');
                 });
-            },0);
+            });
         };
 
         $scope.init = function () {
@@ -89,8 +88,7 @@ angular.module('connectivity')
         };
 
         $scope.loadTestCase = function (testCase,tab) {
-            $timeout(function () {
-                Connectivity.testCase = testCase;
+                 Connectivity.testCase = testCase;
                 $scope.testCase = Connectivity.testCase;
                 var id = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY);
                 var type = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY);
@@ -103,9 +101,7 @@ angular.module('connectivity')
                 $timeout(function () {
                     $rootScope.$broadcast('conn:testCaseLoaded', tab);
                 });
-            });
         };
-
 
         $scope.isSelectable = function (node) {
             return true;
@@ -235,15 +231,7 @@ angular.module('connectivity')
             $scope.configureReceiver = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'TransactionConfigureReceiver.html',
-                    controller: 'ConnectivityConfigureReceiverCtrl',
-                    resolve: {
-                        testCase: function () {
-                            return Connectivity.testCase;
-                        },
-                        user: function () {
-                            return Connectivity.user;
-                        }
-                    }
+                    controller: 'ConnectivityConfigureReceiverCtrl'
                 });
                 modalInstance.result.then(function (user) {
                     if(user.save === true) {
@@ -268,10 +256,9 @@ angular.module('connectivity')
                         $scope.send();
                     }
                   }, function () {
-                     $scope.triggerRespEvent('');
+                     //$scope.triggerRespEvent('');
                 });
             };
-
 
             $scope.viewReceiver = function () {
                 var modalInstance = $modal.open({
@@ -405,9 +392,6 @@ angular.module('connectivity')
                 });
             }
         };
-
-
-
 
         $scope.clearMessage = function () {
             $scope.error = null;
@@ -572,9 +556,9 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityConfigureReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, user) {
-        $scope.testCase = testCase;
-        $scope.user = angular.copy(user);
+    .controller('ConnectivityConfigureReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance) {
+        $scope.testCase = Connectivity.testCase;
+        $scope.user = angular.copy(Connectivity.user);
         $scope.user.save = false;
         $scope.send = function () {
             $scope.user.save = true;
@@ -584,18 +568,13 @@ angular.module('connectivity')
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
-
-//      $scope.hasRequestContent = function () {
-//            return  $scope.message != null && $scope.message != '';
-//      };
-
     });
 
 
 angular.module('connectivity')
     .controller('ConnectivityViewReceiverConfigurationCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, user) {
-        $scope.testCase = testCase;
-        $scope.user = user;
+        $scope.testCase = Connectivity.testCase;
+        $scope.user =  Connectivity.user;
         $scope.close = function () {
             $modalInstance.close();
         };
@@ -920,9 +899,9 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, user, logger, ConnectivityClock, message) {
+    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, logger, ConnectivityClock, message) {
         $scope.testCase = testCase;
-        $scope.user = user;
+        $scope.user = Connectivity.user;
         $scope.logger = logger;
         $scope.endpoint = $scope.user.endpoint;
         $scope.message = message;

@@ -26,10 +26,8 @@ import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
  */
 
 @Configuration
-@ImportResource("classpath:/iztool-ws-context.xml")
+@ImportResource("classpath:/app-ws-context.xml")
 public class WebBeanConfig {
-
-
 
   @Bean
   public SimpleJaxWsServiceExporter simpleJaxWsServiceExporter() {
