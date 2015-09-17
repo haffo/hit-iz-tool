@@ -24,3 +24,4 @@ angular.module('hit-tool-directives').directive('compile', function ($compile) {
         );
     };
 });
+

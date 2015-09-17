@@ -1,0 +1,24 @@
+<table  class="table table-hover no_border testcase-tree">
+     <tr ng-repeat="row in tree_rows | filter:{visible:true} track by row.branch.uid" style="white-space: nowrap"
+        ng-class="'level-' + {{ row.level }} + (row.branch.selected ? ' active':'')" class="testcase-tree-row">
+        <td class="testcase-tree-col">
+            <i ng-class="row.tree_icon"  ng-click="toggle_expand(row.branch)" class="indented tree-icon">
+            </i>
+            <a  ng-if="is_node_selectable(row.branch)"
+               ng-click="user_clicks_branch(row.branch)">
+                <span style="white-space: nowrap" class="indented tree-label" >
+                     <i ng-class="get_icon_type(row.branch)"></i>
+                    {{ row.label }} </span>
+            </a>
+            <span ng-if="!is_node_selectable(row.branch)" class="nopointer"
+               >
+               <span style="white-space: nowrap" class="indented tree-label">{{ row.label }} </span>
+            </span>
+        </td>
+    </tr>
+ </table>
+
+
+
+
+

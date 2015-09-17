@@ -7,11 +7,9 @@
         '$timeout', function ($timeout) {
             return {
                 restrict: 'E',
-                //templateUrl: '/lib/angular-bootstrap-nav-tree/abn_tree_template.html',
-                template: "<ul class=\"nav nav-list nav-pills nav-stacked abn-tree cf-tree\">\n  <li ng-repeat=\"row in tree_rows | filter:{visible:true} track by row.branch.uid\" ng-animate=\"'abn-tree-animate'\" ng-class=\"'level-' + {{ row.level }} + (row.branch.selected ? ' active':'')\" class=\"abn-tree-row\">\n    <a ng-click=\"user_clicks_branch(row.branch)\">\n      <i ng-class=\"row.tree_icon\" ng-click=\"row.branch.expanded = !row.branch.expanded\" class=\"indented tree-icon\"> </i>\n      <span class=\"indented tree-label\">{{ row.label }} </span>\n    </a>\n  </li>\n</ul>",
-                replace: true,
+                 templateUrl: 'lib/angular-bootstrap-nav-tree/abn_tree_template.html',
+                 replace: true,
                 scope: {
-                    treeData: '=',
                     onSelect: '&',
                     initialSelection: '@',
                     treeControl: '='
@@ -19,7 +17,7 @@
                 link: function (scope, element, attrs) {
                     var error, expand_all_parents, expand_level, for_all_ancestors, for_each_branch, get_parent, n, on_treeData_change, select_branch, selected_branch, tree;
                     error = function (s) {
-                       // console.log('ERROR:' + s);
+                        // console.log('ERROR:' + s);
                         debugger;
                         return void 0;
                     };
@@ -36,6 +34,9 @@
                         attrs.expandLevel = '3';
                     }
                     expand_level = parseInt(attrs.expandLevel, 10);
+
+                    scope.treeData = [];
+
                     if (!scope.treeData) {
                         alert('no treeData defined for the tree!');
                         return;
@@ -107,6 +108,16 @@
                             return select_branch(branch);
                         }
                     };
+
+                    scope.toggle_expand = function (branch) {
+                        scope.set_expand(branch, !branch.expanded);
+                        on_treeData_change();
+                    };
+
+                    scope.set_expand = function (branch, value) {
+                        branch.expanded = value;
+                    };
+
                     get_parent = function (child) {
                         var parent;
                         parent = void 0;
@@ -223,7 +234,12 @@
                         }
                         return _results;
                     };
-                    scope.$watch('treeData', on_treeData_change, true);
+//
+//                    scope.$watch('treeData.length'
+//                        , function () {
+//                            on_treeData_change();
+//                        }, true);
+
                     if (attrs.initialSelection != null) {
                         for_each_branch(function (b) {
                             if (b.label === attrs.initialSelection) {
@@ -247,6 +263,16 @@
                                     return b.expanded = true;
                                 });
                             };
+
+                            tree.build_all = function (treeData) {
+                                scope.treeData = treeData;
+                                on_treeData_change();
+                            };
+
+                            tree.refresh_all = function (treeData) {
+                                on_treeData_change();
+                            };
+
                             tree.collapse_all = function () {
                                 return for_each_branch(function (b, level) {
                                     return b.expanded = false;
@@ -308,6 +334,7 @@
                                 }
                                 if (b != null) {
                                     b.expanded = true;
+                                    on_treeData_change();
                                     return b;
                                 }
                             };
@@ -317,6 +344,7 @@
                                 }
                                 if (b != null) {
                                     b.expanded = false;
+                                    on_treeData_change();
                                     return b;
                                 }
                             };

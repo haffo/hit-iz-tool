@@ -16,8 +16,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.iz.service.XmlMessageParser;
-import gov.nist.hit.iz.web.controller.XmlMessageController;
+import gov.nist.hit.iz.service.XMLMessageParser;
+import gov.nist.hit.iz.web.controller.XMLMessageController;
 
 import java.io.IOException;
 
@@ -40,7 +40,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class XmlMessageControllerTest {
 
   @InjectMocks
-  XmlMessageController xmlMessageController;
+  XMLMessageController xmlMessageController;
 
   MockMvc mockMvc;
 
@@ -50,7 +50,7 @@ public class XmlMessageControllerTest {
   @Before
   public void setup() {
     MockitoAnnotations.initMocks(this);
-    xmlMessageController.setParser(new XmlMessageParser());
+    xmlMessageController.setParser(new XMLMessageParser());
     mockMvc = standaloneSetup(xmlMessageController).build();
   }
 

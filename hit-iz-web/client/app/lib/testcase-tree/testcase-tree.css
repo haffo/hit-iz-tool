@@ -1,0 +1,191 @@
+/*
+   abn-tree.css
+
+   style for the angular-bootstrap-nav-tree
+   for both Bootstrap 2 and Bootstrap 3
+
+*/
+
+
+
+/* ------------------------------------------
+AngularJS Animations...
+
+The first selector is for Angular 1.1.5
+The second selector is for Angular 1.2.0
+
+/**/
+/*.testcase-tree-animate-enter,*/
+/*tr.testcase-tree-row.ng-enter {*/
+    /*transition: 200ms linear all;*/
+    /*position: relative;*/
+    /*display: block;*/
+    /*opacity: 0;*/
+    /*max-height:0px;*/
+/*}*/
+/*.testcase-tree-animate-enter.testcase-tree-animate-enter-active,*/
+/*tr.testcase-tree-row.ng-enter-active{*/
+    /*opacity: 1;*/
+    /*max-height:30px;*/
+/*}*/
+
+/*.testcase-tree-animate-leave,*/
+/*tr.testcase-tree-row.ng-leave {*/
+    /*transition: 200ms linear all;*/
+    /*position: relative;*/
+    /*display: block;*/
+    /*height:30px;*/
+    /*max-height: 30px;*/
+    /*opacity: 1;*/
+/*}*/
+/*.testcase-tree-animate-leave.testcase-tree-animate-leave-active,*/
+/*tr.testcase-tree-row.ng-leave-active {*/
+    /*height: 0px;*/
+    /*max-height:0px;*/
+    /*opacity: 0;*/
+/*}*/
+
+
+/**/
+/*------------------------------------------*/
+/*Angular 1.2.0 Animation*/
+/**/
+
+
+/*.testcase-tree-animate.ng-enter{*/
+
+/*}*/
+/*.testcase-tree-animate.ng-enter{*/
+
+/*}*/
+
+
+/*
+   end animation stuff
+-----------------------------------------
+   begin normal css stuff
+*/
+table.testcase-tree tr.testcase-tree-row {
+    padding: 0px;
+    margin:0px;
+}
+
+table.testcase-tree tr.testcase-tree-row td {
+    padding: 3px 10px;
+}
+
+table.testcase-tree tr td i.indented {
+    padding: 2px;
+}
+
+.testcase-tree {
+    cursor: pointer;
+}
+table.testcase-tree .level-1 .indented {
+    position: relative;
+    left: 0px;
+}
+table.testcase-tree .level-2 .indented {
+    position: relative;
+    left: 20px;
+}
+table.testcase-tree .level-3 .indented {
+    position: relative;
+    left: 40px;
+}
+table.testcase-tree .level-4 .indented {
+    position: relative;
+    left: 60px;
+}
+table.testcase-tree .level-5 .indented {
+    position: relative;
+    left: 80px;
+}
+table.testcase-tree .level-6 .indented {
+    position: relative;
+    left: 100px;
+}
+table.testcase-tree .level-7 .indented {
+    position: relative;
+    left: 120px;
+}
+table.testcase-tree .level-8 .indented {
+    position: relative;
+    left: 140px;
+}
+table.testcase-tree .level-9 .indented {
+    position: relative;
+    left: 160px;
+}
+
+table.testcase-tree .level-10 .indented {
+    position: relative;
+    left: 180px;
+}
+
+
+table.testcase-tree .level-11 .indented {
+    position: relative;
+    left: 200px;
+}
+
+
+table.testcase-tree .level-12 .indented {
+    position: relative;
+    left: 220px;
+}
+
+
+table.testcase-tree .level-13 .indented {
+    position: relative;
+    left: 240px;
+}
+
+
+table.testcase-tree .level-14 .indented {
+    position: relative;
+    left: 260px;
+}
+
+table.testcase-tree .level-15 .indented {
+    position: relative;
+    left: 280px;
+}
+
+table.testcase-tree .level-16 .indented {
+    position: relative;
+    left: 300px;
+}
+
+table.testcase-tree .level-17 .indented {
+    position: relative;
+    left: 320px;
+}
+
+table.testcase-tree .level-18 .indented {
+    position: relative;
+    left: 340px;
+}
+
+table.testcase-tree .level-19 .indented {
+    position: relative;
+    left: 350px;
+}
+
+
+
+
+/*.testcase-tree-row .active {*/
+/*background: #ffef8f;*/
+/*color: #ffef8f;*/
+/*}*/
+
+table.testcase-tree tr.testcase-tree-row td {
+    color: #363636;
+}
+
+table.testcase-tree tr.testcase-tree-row.active td {
+    background: #ffef8f;
+    color: #363636;
+}
+

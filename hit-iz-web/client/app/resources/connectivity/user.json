@@ -1,2 +1,1 @@
-{"username":"vendor_7","password":"vendor_7","facilityID":"vendor_7","faultUsername":"faultUser_7","faultPassword"
-    :"faultPwd_7"}
+{"username": "vendor_7", "password": "vendor_7", "facilityID": "vendor_7", "faultUsername": "faultUser_7", "faultPassword": "faultPwd_7",  "endpoint": "http://hit-dev.nist.gov:8098/iztool"}

@@ -101,7 +101,7 @@
                 </div>
             </div>
             <div class="col-md-12" ng-show="warning != null">
-                <div class="alert alert-info" role="alert" compile="warning"></div>
+                <div class="alert alert-warning" role="alert" compile="warning"></div>
             </div>
         </div>
 
@@ -183,68 +183,176 @@
 </script>
 
 
-<script type="text/ng-template" id="CBTestCase.html">
-    <tr tt-node style="white-space: nowrap"
-        is-branch="node.children != null && node.children.length > 0">
-        <td style="padding-top:0px;  padding-bottom:0px; white-space: nowrap"
-            ng-class="{ 'node-active': node.id === selectedTestCase.id && (node.type === 'TestStep' ||  node.type  === 'TestCase') && node.type === selectedTestCase.type}">
-            <a class="point" ng-show="node.type  === 'TestCase'"
-               ng-click="selectTestCase(node)">{{node.name}}</a>
-            <a class="point" ng-show="node.type === 'TestStep'"
-               ng-click="selectTestCase(node)">{{node.position}}.{{node.name}}</a>
-            <span ng-if="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.name}}</span>
-            <!--<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">-->
-        </td>
-    </tr>
-</script>
 
-<!--<script type="text/ng-template" id="CFTestCase.html">-->
-<!--<tr style="padding:0" tt-node ng-class="{ 'btn-profile-active': node.id === testCase.id}" class="btn-profile" ng-click="loadTestCase(node)" role="button"-->
-<!--is-branch="node.children != null && node.children.length > 0">-->
-<!--<td>{{node.name}}</td>-->
-<!--</tr>-->
+
+
+<!--<script type="text/ng-template" id="SOAPTestCase.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+        <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && node.type === selectedTestCase.type}"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap" class="tc-tree-node">-->
+            <!--<a class="point" ng-click="selectTestCase(node)">{{::node.label}}</a>-->
+        <!--</td>-->
+    <!--</tr>-->
 <!--</script>-->
 
-<script type="text/ng-template" id="CFTestCase.html">
-    <tr tt-node style="white-space: nowrap"
-        is-branch="node.children != null && node.children.length > 0">
-        <td style="padding:0;white-space: nowrap"
-            ng-class="{ 'node-active': node.id === testCase.id && node.type === testCase.type}">
-            <a class="point" ng-show="node.testContext && node.testContext !== null" ng-click="loadTestCase(node)">{{node.name}}</a>
-            <span ng-if="!node.testContext || node.testContext === null">{{node.name}}</span>
-            <!--<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">-->
-        </td>
-    </tr>
-</script>
+<!--<script type="text/ng-template" id="CBTestCase.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding-top:0px;  padding-bottom:0px; white-space: nowrap"-->
+            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && 'TestCase' === selectedTestCase.type}">-->
+            <!--<a class="point"-->
+               <!--ng-click="selectTestCase(node)">{{::node.name}}</a>-->
+            <!--&lt;!&ndash;<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">&ndash;&gt;-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
 
-<script type="text/ng-template" id="SOAPTestCase.html">
-    <tr tt-node style="white-space: nowrap"
-        ng-class="{ 'node-active': node.id === selectedTestCase.id && node.type === selectedTestCase.type}"
-        is-branch="node.children != null && node.children.length > 0">
-        <td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap" class="tc-tree-node">
-            <a class="point" ng-click="selectTestCase(node)">{{node.label}}</a>
-        </td>
-    </tr>
-</script>
+<!--<script type="text/ng-template" id="CBTestStep.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding-top:0px;  padding-bottom:0px; white-space: nowrap"-->
+            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && 'TestStep' === selectedTestCase.type}">-->
+            <!--<a class="point"-->
+               <!--ng-click="selectTestCase(node)">{{::node.position}}.{{::node.name}}</a>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
+
+<!--<script type="text/ng-template" id="CBTestPlan.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding-top:0px;  padding-bottom:0px; white-space: nowrap">-->
+            <!--<a class="point"-->
+               <!--ng-click="selectTestCase(node)">{{::node.name}}</a>-->
+            <!--&lt;!&ndash;<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">&ndash;&gt;-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
 
 
-<script type="text/ng-template" id="IsolatedSystemTestCase.html">
-    <tr tt-node style="white-space: nowrap"
-        is-branch="node.children != null && node.children.length > 0">
-        <td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap"
-            ng-class="{ 'node-active': node.id === selectedTestCase.id && (node.type === 'TestStep' ||  node.type  === 'TestCase')}">
-            <a class="point" ng-show="node.type  === 'TestCase'"
-               ng-click="selectTestCase(node)">{{node.name}}</a>
-            <a class="point" ng-show="node.type === 'TestStep'"
-               ng-click="selectTestCase(node)">
-                <i ng-if="node.connectionType === 'TA_MANUAL' || node.connectionType === 'SUT_MANUAL'"
-                   class="fa fa-check-square-o"></i>
-                <i ng-if="node.connectionType === 'TA_INITIATOR' || node.connectionType === 'SUT_INITIATOR'"
-                   class="fa fa-arrow-right"></i>
-                <i ng-if="node.connectionType === 'TA_RESPONDER' || node.connectionType === 'SUT_RESPONDER'"
-                   class="fa fa-arrow-left"></i>
-                {{node.position}}. {{node.name}}</a>
-            <span ng-show="node.type === 'TestPlan' || node.type === 'TestCaseGroup'">{{node.name}}</span>
-        </td>
-    </tr>
-</script>
+<!--<script type="text/ng-template" id="CBTestCaseGroup.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding-top:0px;  padding-bottom:0px; white-space: nowrap">-->
+            <!--<span>{{::node.name}}</span>-->
+            <!--&lt;!&ndash;<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">&ndash;&gt;-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
+
+<!--<script type="text/ng-template" id="CFTestCase.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding:0;white-space: nowrap"-->
+            <!--ng-class="{ 'node-active': node.id === testCase.id && node.type === testCase.type}">-->
+             <!--<span>{{::node.name}}</span>-->
+            <!--&lt;!&ndash;<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">&ndash;&gt;-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
+
+<!--<script type="text/ng-template" id="CFTestStep.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding:0;white-space: nowrap"-->
+            <!--ng-class="{ 'node-active': node.id === testCase.id && node.type === testCase.type}">-->
+            <!--<a class="point" ng-click="loadTestCase(node)">{{::node.name}}</a>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
+
+
+
+<!--<script type="text/ng-template" id="IsolatedTestCase.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap"-->
+            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && node.type  === 'TestCase'}">-->
+            <!--<a class="point"-->
+               <!--ng-click="selectTestCase(node)">{{::node.name}}</a>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
+
+<!--<script type="text/ng-template" id="IsolatedResponderTestStep.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap"-->
+            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && node.type === selectedTestCase.type}">-->
+            <!--<a class="point"-->
+               <!--ng-click="selectTestCase(node)">-->
+                <!--<i  class="fa fa-arrow-left"></i>-->
+                <!--{{::node.position}}. {{::node.name}}</a>-->
+         <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
+
+<!--<script type="text/ng-template" id="IsolatedInitiatorTestStep.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap"-->
+            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && node.type === selectedTestCase.type}">-->
+            <!--<a class="point"-->
+               <!--ng-click="selectTestCase(node)">-->
+                <!--<i-->
+                   <!--class="fa fa-arrow-right"></i>-->
+                <!--{{::node.position}}. {{::node.name}}</a>-->
+         <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
+
+<!--<script type="text/ng-template" id="IsolatedManualTestStep.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap"-->
+            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && (node.type === 'TestStep' ||  node.type  === 'TestCase')}">-->
+            <!--<a class="point"-->
+               <!--ng-click="selectTestCase(node)">-->
+                <!--<i-->
+                   <!--class="fa fa-check-square-o"></i>-->
+                <!--{{::node.position}}. {{::node.name}}</a>-->
+         <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
+
+
+<!--<script type="text/ng-template" id="IsolatedTestPlan.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap">-->
+            <!--<a class="point"-->
+               <!--ng-click="selectTestCase(node)">{{::node.name}}</a>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
+
+
+
+<!--<script type="text/ng-template" id="IsolatedTestCaseGroup.html">-->
+    <!--<tr tt-node style="white-space: nowrap"-->
+       <!--data="node"-->
+        <!--is-branch="node.children != null && node.children.length > 0">-->
+        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap">-->
+            <!--<span>{{::node.name}}</span>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</script>-->
+
+
+
+
+
+

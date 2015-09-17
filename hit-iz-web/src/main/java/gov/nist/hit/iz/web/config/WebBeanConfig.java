@@ -12,16 +12,8 @@
 
 package gov.nist.hit.iz.web.config;
 
-import gov.nist.hit.core.service.MessageParser;
 import gov.nist.hit.iz.service.IISReceiver;
 import gov.nist.hit.iz.service.Receiver;
-import gov.nist.hit.iz.service.SoapValidationReportGenerator;
-import gov.nist.hit.iz.service.XmlMessageParser;
-import gov.nist.hit.iz.service.XmlMessageParser;
-import gov.nist.hit.iz.service.soap.SoapMessageParser;
-import gov.nist.hit.iz.service.soap.SoapMessageValidator;
-import gov.nist.hit.iz.service.soap.SoapMessageValidatorImpl;
-import gov.nist.hit.iz.service.soap.SoapValidationReportGeneratorImpl;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,42 +26,8 @@ import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
  */
 
 @Configuration
-@ImportResource("classpath:/iztool-ws-context.xml")
+@ImportResource("classpath:/app-ws-context.xml")
 public class WebBeanConfig {
-
-  @Bean(name = "soapMessageValidator")
-  public SoapMessageValidator soapValidator() {
-    return new SoapMessageValidatorImpl("/schema/soap_rules.sch");
-  }
-
-  // @Bean
-  // public TableLibraryUnmarshaller tableLibraryUnmarshaller() {
-  // return new TableLibraryUnmarshallerImpl();
-  // }
-
-  // @Bean
-  // public VocabularySearchServiceImpl vocabularySearchService(
-  // TableLibraryUnmarshaller tableLibraryUnmarshaller,
-  // TableLibrariesRepository vocabularyCollectionRepository) {
-  // return new VocabularySearchServiceImpl(tableLibraryUnmarshaller,
-  // vocabularyCollectionRepository);
-  // }
-
-  @Bean(name = "soapMessageParser")
-  public MessageParser soapParser(XmlMessageParser xmlParser) {
-    return new SoapMessageParser(xmlParser);
-  }
-
-  @Bean(name = "xmlMessageParser")
-  public XmlMessageParser xmlParser() {
-    return new XmlMessageParser();
-  }
-
-
-  @Bean(name = "soapReportGenerator")
-  public SoapValidationReportGenerator soapReportGenerator() {
-    return new SoapValidationReportGeneratorImpl();
-  }
 
   @Bean
   public SimpleJaxWsServiceExporter simpleJaxWsServiceExporter() {

@@ -14,7 +14,7 @@
                         <div class="panel-body container-message-tree">
                             <div ng-show="!tLoading">
                                 <div ng-show="tError === null" class="message-tree">
-                                    <abn-tree tree-control="cf.tree.root" tree-data="messageObject" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
+                                    <abn-tree tree-control="cf.tree.root" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
 
                                     <!--<treecontrol class="tree-light"-->
                                                  <!--tree-model="messageObject"-->
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <div ng-show="tLoading" style="text-align:center">
-                                <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                                <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
             </span>
                             <span class="row fileupload-buttonbar pull-right">
                                 <span ng-show="true">
-                                <input type="checkbox" ng-model="dqaOptions.checked">DQA
+                                <input type="checkbox" ng-change="execute()" ng-model="dqaOptions.checked">DQA
                                 </span>
                                 <button title="Validate" type="button" class="btn btn-xs btn-success" ng-click="execute()">
                                     <i class="fa fa-check-circle"></i>
@@ -142,7 +142,7 @@
 
                                     </div>
                                     <div ng-show="vLoading" style="text-align:center">
-                                        <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                                        <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                                     </div>
                                 </div>
                             </div>

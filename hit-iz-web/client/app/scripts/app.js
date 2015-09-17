@@ -17,15 +17,13 @@ var app = angular.module('tool', [
     'ngRoute',
     'ui.bootstrap',
     'ngCookies',
+    'LocalStorageModule',
     'ngResource',
     'ngSanitize',
     'ngAnimate',
     'ui.bootstrap',
     'angularBootstrapNavTree',
-    'ui.grid', 'ui.grid.infiniteScroll',
-    'ui.grid.treeView',
     'QuickList',
-    'treeControl',
 //    'ngGrid',
 //    'treeGrid',
 //    'angular-loading-bar',
@@ -48,10 +46,16 @@ var app = angular.module('tool', [
     'hit-validation-result',
     'hit-vocab-search',
     'hit-report-viewer',
-    'hit-testcase-viewer'
+    'hit-testcase-viewer',
+    'hit-testcase-tree'
 ]);
 
-app.config(function ($routeProvider, $httpProvider) {
+app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider) {
+
+    localStorageServiceProvider
+        .setPrefix('hit-tool')
+        .setStorageType('sessionStorage');
+
     $routeProvider
         .when('/', {
             templateUrl: 'views/home.html'
@@ -90,9 +94,9 @@ app.config(function ($routeProvider, $httpProvider) {
             redirectTo: '/'
         });
 
-//    $httpProvider.responseInterceptors.push('503Interceptor');
-//    $httpProvider.responseInterceptors.push('sessionTimeoutInterceptor');
-//    $httpProvider.responseInterceptors.push('404Interceptor');
+
+
+
 });
 
 //app.factory('503Interceptor', function ($injector, $q, $rootScope) {
@@ -126,13 +130,16 @@ app.config(function ($routeProvider, $httpProvider) {
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sce,$templateCache) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService,$window,$route) {
 
     $rootScope.appInfo = {};
 
-    new AppInfo().then(function(appInfo){
+    $rootScope.stackPosition =0;
+
+
+    new AppInfo().then(function (appInfo) {
         $rootScope.appInfo = appInfo;
-    }, function(error){
+    }, function (error) {
         $rootScope.appInfo = {};
     });
 
@@ -140,9 +147,44 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
     $rootScope.$watch(function () {
         return $location.path();
     }, function (newLocation, oldLocation) {
-        if(newLocation != null) {
-            $rootScope.setActive(newLocation);
+
+        //true only for onPopState
+        if($rootScope.activePath === newLocation) {
+
+            var back,
+                historyState = $window.history.state;
+
+            back = !!(historyState && historyState.position <= $rootScope.stackPosition);
+
+            if (back) {
+                //back button
+                $rootScope.stackPosition--;
+            } else {
+                //forward button
+                $rootScope.stackPosition++;
+            }
+
+        } else {
+            //normal-way change of page (via link click)
+
+            if ($route.current) {
+
+                $window.history.replaceState({
+                    position: $rootScope.stackPosition
+                });
+
+                $rootScope.stackPosition++;
+
+            }
+//
+//            if (newLocation != null) {
+//                $rootScope.setActive(newLocation);
+//            }
+
         }
+
+
+
     });
 
     $rootScope.isActive = function (path) {
@@ -150,13 +192,12 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
     };
 
 
-
     $rootScope.setActive = function (path) {
         if (path === '' || path === '/') {
             $location.path('/home');
         } else {
             $rootScope.activePath = path;
-         }
+        }
     };
 
     $rootScope.isSubActive = function (path) {
@@ -165,6 +206,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
 
     $rootScope.setSubActive = function (path) {
         $rootScope.subActivePath = path;
+        StorageService.set(StorageService.ACTIVE_SUB_TAB_KEY, path);
     };
 
 
@@ -190,7 +232,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
     };
 
     $rootScope.toHTML = function (content) {
-         return $sce.trustAsHtml(content);
+        return $sce.trustAsHtml(content);
         //return  content;
     };
 
@@ -210,7 +252,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
     $rootScope.initAppInfo = function () {
         var delay = $q.defer();
         if ($rootScope.appInfo === null) {
-            return new AppInfo().then(function(appInfo){
+            return new AppInfo().then(function (appInfo) {
                 $rootScope.appInfo = appInfo;
                 delay.resolve($rootScope.appInfo);
                 return delay.promise;
@@ -221,14 +263,54 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo,$q,$sc
         }
     };
 
+
+    $rootScope.downloadArtifact = function (path) {
+        var form = document.createElement("form");
+        form.action = "api/testartifact/download";
+        form.method = "POST";
+        form.target = "_target";
+        var input = document.createElement("input");
+        input.name = "path";
+        input.value = path;
+        form.appendChild(input);
+        form.style.display = 'none';
+        document.body.appendChild(form);
+        form.submit();
+    };
+
+
     $rootScope.tabs = new Array();
 
+    $rootScope.compile = function (content) {
+//        scope.$watch(
+//            function(scope) {
+//                // watch the 'compile' expression for changes
+//                return scope.$eval(attrs.compile);
+//            },
+//            function(value) {
+//                // when the 'compile' expression changes
+//                // assign it into the current DOM
+//                element.html(value);
+//
+//                // compile the new DOM and link it to the current
+//                // scope.
+//                // NOTE: we only compile .childNodes so that
+//                // we don't get into infinite loop compiling ourselves
+//                return $compile(content);
+//            }
+//        );
+        return $compile(content);
+    };
 
 
 
+
+    $rootScope.$on('$locationChangeSuccess', function() {
+         //$rootScope.activePath = $location.path();
+        $rootScope.setActive($location.path());
+    });
 
 });
-
 
 angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
     .controller('CarouselController', ['$scope', '$timeout', '$transition', '$q', function ($scope, $timeout, $transition, $q) {

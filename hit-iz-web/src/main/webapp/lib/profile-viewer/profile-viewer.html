@@ -1,5 +1,5 @@
 <div ng-show="loading" style="text-align:center">
-    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+    <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
 </div>
 <div ng-show="!loading">
     <div ng-show="error !== null">
@@ -10,29 +10,33 @@
             <div class="" style="margin-bottom: 10px;">
 
                 <div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">
-                    <label class="btn   btn-cf-outline" ng-click="options.relevance = true" ng-class="{'active': options.relevance}">
+                    <label class="btn   btn-cf-outline" ng-click="setAllRelevance(true)"
+                           ng-class="{'active': options.relevance}">
                         <input type="radio" ng-model="options.relevance" autocomplete="off" checked>R,RE,C (only)
                     </label>
-                    <label class="btn  btn-cf-outline" ng-click="options.relevance = false" ng-class="{'active': !options.relevance}">
-                        <input type="radio" ng-model="options.relevance"  autocomplete="off">R,RE,C,O,X (All)
+                    <label class="btn  btn-cf-outline" ng-click="setAllRelevance(false)"
+                           ng-class="{'active': !options.relevance}">
+                        <input type="radio" ng-model="options.relevance" autocomplete="off">R,RE,C,O,X (All)
                     </label>
                 </div>
 
                 <div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">
-                    <label class="btn   btn-cf-outline" ng-click="options.concise = true" ng-class="{'active': options.concise}">
-                        <input type="radio"   ng-model="options.concise"  autocomplete="off" checked>Concise View
+                    <label class="btn   btn-cf-outline"   ng-click="setAllConcise(true)"
+                           ng-class="{'active': options.concise}">
+                        <input type="radio" ng-model="options.concise" autocomplete="off" checked>Concise View
                     </label>
-                    <label class="btn btn-cf-outline" ng-click="options.concise = false" ng-class="{'active': !options.concise}">
+                    <label class="btn btn-cf-outline"  ng-click="setAllConcise(false)"
+                           ng-class="{'active': !options.concise}">
                         <input type="radio" ng-model="options.concise" autocomplete="off">Expanded View
                     </label>
                 </div>
                 <!--<div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">-->
-                    <!--<label class="btn   btn-cf-outline"   ng-click="collapseAll(true)" ng-class="{'active': options.collapse}">-->
-                        <!--<input type="radio"   ng-model="options.collapse"  autocomplete="off" checked>Collapse All-->
-                    <!--</label>-->
-                    <!--<label class="btn btn-cf-outline"  ng-click="collapseAll(false)" ng-class="{'active': !options.collapse}">-->
-                        <!--<input type="radio" ng-model="options.collapse" autocomplete="off">Expand All-->
-                    <!--</label>-->
+                <!--<label class="btn   btn-cf-outline"   ng-click="collapseAll(true)" ng-class="{'active': options.collapse}">-->
+                <!--<input type="radio"   ng-model="options.collapse"  autocomplete="off" checked>Collapse All-->
+                <!--</label>-->
+                <!--<label class="btn btn-cf-outline"  ng-click="collapseAll(false)" ng-class="{'active': !options.collapse}">-->
+                <!--<input type="radio" ng-model="options.collapse" autocomplete="off">Expand All-->
+                <!--</label>-->
                 <!--</div>-->
                 <span class="pull-right">
                      <span style="margin-left:10px">
@@ -71,11 +75,11 @@
             <div class="">
 
                 <ul class="nav nav-tabs">
-                    <li ng-show="show(element)"
+                    <li ng-show="isRelevant(element)"
                         ng-repeat="element in elements"
                         ng-class="{'active':nodeData != null && nodeData.name === element.name && !confStatementsActive}">
                         <a
-                                ng-click="getNodeContent(element)">{{element.name}}</a></li>
+                                ng-click="getNodeContent(element)">{{::element.name}}</a></li>
                     <li
                             ng-class="{'active':confStatementsActive}"><a
                             ng-click="showConfStatements()">Conformance Statements</a></li>
@@ -84,19 +88,19 @@
             </div>
             <div class="">
                 <div ng-show="!confStatementsActive" class="container-profile-table">
-                    <table tt-table tt-params="params" class="table table-striped table-bordered table-condensed"
-                            >
+                    <table pv-table pv-params="params" class="table table-striped table-bordered table-condensed pvt"
+                           ng-show="isRelevant(nodeData)">
                         <thead class="tbl-header">
                         <tr>
                             <th class="col-fixed-450">Name</th>
                             <th class="col-fixed-80">Usage</th>
-                            <th class="col-fixed-80" ng-hide="nodeData.type === 'DATATYPE'">Cardinality</th>
+                            <th class="col-fixed-80" ng-show="nodeData.type !== 'DATATYPE'">Cardinality</th>
                             <th class="col-fixed-80" ng-show="nodeData.type === 'MESSAGE'">Ref</th>
-                            <th class="col-fixed-100" ng-hide="nodeData.type === 'MESSAGE'">Datatype</th>
-                            <th class="col-fixed-80" ng-hide="nodeData.type === 'MESSAGE'">Length</th>
-                            <th class="col-fixed-150" ng-hide="nodeData.type === 'MESSAGE'">ValueSet</th>
-                            <th>Predicate</th>
-                            <th>Conformance Statement</th>
+                            <th class="col-fixed-100" ng-show="nodeData.type !== 'MESSAGE'">Datatype</th>
+                            <th class="col-fixed-80" ng-show="nodeData.type !== 'MESSAGE'">Length</th>
+                            <th class="col-fixed-150" ng-show="nodeData.type !== 'MESSAGE'">ValueSet</th>
+                            <th class="col-predicate">Predicate</th>
+                            <th class="col-css">Conformance Statement</th>
                         </tr>
                         </thead>
                         <tbody class=""></tbody>
@@ -126,8 +130,8 @@
                         </thead>
                         <tbody>
                         <tr quick-ng-repeat="row in tmpConfStatements">
-                            <td ng-bind="row.id"></td>
-                            <td ng-bind="row.description"></td>
+                            <td ng-bind="::row.id"></td>
+                            <td ng-bind="::row.description"></td>
                         </tr>
                         </tbody>
                         <tfoot>
@@ -144,92 +148,190 @@
     </div>
 </div>
 
-<script type="text/ng-template" id="ProfileViewerNode.html">
-    <tr ng-show="show(node)" tt-node
+<script type="text/ng-template" id="MessageNode.html">
+    <tr  pv-node data="node"
         is-branch="isBranch(node)">
         <td class="col-fixed-450">
-            <img ng-show="node.icon != null"
-                 style="width:15px; height:15px"
-                 ng-src="images/{{node.icon}}">
-                                <span ng-if="node.type === 'FIELD' || node.type === 'COMPONENT' || node.type === 'SUBCOMPONENT'">
-                                    <span ng-show="nodeData.type !== 'DATATYPE'">{{node.path}}:{{node.name}}</span>
-                                    <span ng-show="nodeData.type === 'DATATYPE'">{{node.position}}:{{node.name}}</span>
-                                 </span>
-            <span ng-if="node.type === 'DATATYPE'">{{node.id}}:{{node.longName}}</span>
-            <span ng-if="node.type === 'SEGMENT'">{{node.name}}:{{node.longName}}</span>
-            <span ng-if="node.type === 'SEGMENT_REF'">{{node.name}}:{{node.longName}}</span>
-            <span ng-if="node.type === 'GROUP'">{{node.name}}</span>
+            <img
+                    style="width:15px; height:15px"
+                    ng-src="images/{{::node.icon}}">
+            <span ng-show="node.type === 'GROUP'">{{::node.name}}</span>
+            <span ng-show="node.type === 'SEGMENT_REF'">{{::node.name}}:{{::node.longName}}</span>
         </td>
         <td class="col-fixed-80">
-            <span ng-show="node.type === 'DATATYPE'">-</span>
-                                <span ng-hide="node.type === 'DATATYPE'">
-                                <span
-                                        ng-show="!node.predicates || node.predicates == null || node.predicates.length == 0"
-                                        ng-bind="node.usage"></span>
-                                <span ng-show="node.predicates != null && node.predicates.length > 0">C({{node.predicates[0].trueUsage}}/{{node.predicates[0].falseUsage}})</span>
-                                </span>
+                                 <span
+                                         ng-show="!node.predicates || node.predicates == null || node.predicates.length == 0"
+                                         >{{::node.usage}}</span>
+            <span ng-show="node.predicates != null && node.predicates.length > 0">C({{::node.predicates[0].trueUsage}}/{{::node.predicates[0].falseUsage}})</span>
         </td>
-        <td class="col-fixed-80" ng-hide="nodeData.type === 'DATATYPE'">
-            <span ng-show="node.type === 'DATATYPE'">-</span>
-                                <span ng-hide="node.type === 'DATATYPE'">
-                                <span
-                                        ng-show="node.minOccurs != undefined && node.maxOccurs != undefined">[{{node.minOccurs}}, {{node.maxOccurs}}]</span>
-                                </span>
+        <td class="col-fixed-80">
+                                 <span
+                                         ng-show="node.minOccurs != undefined && node.maxOccurs != undefined">[{{::node.minOccurs}}, {{::node.maxOccurs}}]</span>
         </td>
-        <td class="col-fixed-80" ng-hide="nodeData.type != 'MESSAGE'"><a class="point"
-                                                                         ng-click="showRefSegment(node.reference.id)"
-                                                                         ng-bind="node.reference.name"></a>
+        <td class="col-fixed-80"><a class="point"
+                                    ng-click="showRefSegment(node.reference.id)"
+                                    ng-bind="node.reference.name"></a>
         </td>
-        <td class="col-fixed-100" ng-hide="nodeData.type=== 'MESSAGE'">
-            <span ng-show="node.type === 'DATATYPE'">-</span>
-                                <span ng-hide="node.type === 'DATATYPE'">
-                                <span
-                                        ng-bind="node.dataType"></span>
-                                </span>
-
+        <td class="col-predicate">
+            <span class="predicate-concise-view concise-view"  ng-show="options.concise" tooltip-html="getPredicatesAsMultipleLinesString(node)"  tooltip-append-to-body="true" tooltip-class="constraints-tooltip" ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger tooltip-animation="false" tooltip-placement="left" />
+            <span ng-repeat="predicate in node.predicates" ng-show="!options.concise">
+                <span  class="expanded-view">
+                    {{::predicate.description}}
+                </span>
+            </span>
         </td>
-        <td class="col-fixed-80" ng-hide="nodeData.type=== 'MESSAGE'">
-            <span ng-show="node.type === 'DATATYPE'">-</span>
-                                <span ng-hide="node.type === 'DATATYPE'">
-                                <span
-                                        ng-show="node.minLength && node.maxLength">[{{node.minLength}},{{node.maxLength}}]</span>
-                                    </span>
-        </td>
-        <td class="col-fixed-150" ng-hide="nodeData.type== 'MESSAGE'">
-            <span ng-show="node.type === 'DATATYPE'">-</span>
-                                <span ng-hide="node.type === 'DATATYPE'">
-                                <a class="point"
-                                   ng-click="showValueSetDefinition(node.table)"
-                                   ng-bind="node.table"></a>
-                                 </span>
-        </td>
-
-        <td>
-                                            <span ng-show="options.concise" class="constraint_trim">
-                                              <span ng-repeat="predicate in node.predicates">
-                                                 {{predicate.description}}
-                                              </span>
-                                            </span>
-                                         <span ng-show="!options.concise" class="constraint_verbose">
-                                              <p ng-repeat="predicate in node.predicates">
-                                                  {{predicate.description}}
-                                              </p>
-                                            </span>
-        </td>
-        <td>
-
-                                 <span ng-show="options.concise" class="constraint_trim">
-                                               <span ng-repeat="conStatement in node.conformanceStatements">
-                                                    {{conStatement.id}} : {{conStatement.description}}
-                                             </span>
-                                            </span>
-                                         <span ng-show="!options.concise" class="constraint_verbose">
-                                              <p ng-repeat="conStatement in node.conformanceStatements">
-                                                  {{conStatement.id}} : {{conStatement.description}}
-                                              </p>
-                                            </span>
+        <td class="col-cs">
+            <span class="cs-concise-view concise-view"  ng-show="options.concise" tooltip-html="getConfStatementsAsMultipleLinesString(node)" tooltip-append-to-body="true"  tooltip-class="constraints-tooltip"  ng-bind-html="getConfStatementsAsOneLineString(node)" tooltip-trigger tooltip-animation="false" tooltip-placement="left" />
+            <span ng-repeat="conStatement in node.conformanceStatements" ng-show="!options.concise">
+                <span  class="expanded-view">
+                   {{::conStatement.id}} : {{::conStatement.description}}
+                </span>
+            </span>
         </td>
     </tr>
 </script>
+
+
+<script type="text/ng-template" id="SegmentNode.html">
+    <tr   pv-node
+        data="node"
+        is-branch="isBranch(node)">
+        <td class="col-fixed-450">
+            <img
+                    style="width:15px; height:15px"
+                    ng-src="images/{{::node.icon}}">
+            <span>{{::node.path}}:{{::node.name}}</span>
+        </td>
+        <td class="col-fixed-80">
+                                 <span
+                                         ng-show="!node.predicates || node.predicates == null || node.predicates.length == 0"
+                                         >{{::node.usage}}</span>
+            <span ng-show="node.predicates != null && node.predicates.length > 0">C({{::node.predicates[0].trueUsage}}/{{::node.predicates[0].falseUsage}})</span>
+        </td>
+        <td class="col-fixed-80">
+                                 <span
+                                         ng-show="node.minOccurs != undefined && node.maxOccurs != undefined">[{{::node.minOccurs}}, {{::node.maxOccurs}}]</span>
+        </td>
+        <td class="col-fixed-100">
+            <span>{{::node.dataType}}</span>
+
+        </td>
+        <td class="col-fixed-80">
+                                 <span
+                                         ng-show="node.minLength && node.maxLength">[{{::node.minLength}},{{::node.maxLength}}]</span>
+        </td>
+        <td class="col-fixed-150">
+            <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset" ng-click="showValueSetDefinition(valueSet)">{{::valueSet}}</a>
+        </td>
+        <td class="col-predicate">
+            <span class="predicate-concise-view concise-view"  ng-show="options.concise" tooltip-html="getPredicatesAsMultipleLinesString(node)"  tooltip-append-to-body="true" tooltip-class="constraints-tooltip" ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger tooltip-animation="false" tooltip-placement="left" />
+            <span ng-repeat="predicate in node.predicates" ng-show="!options.concise">
+                <span  class="expanded-view">
+                    {{::predicate.description}}
+                </span>
+            </span>
+        </td>
+        <td class="col-cs">
+            <span class="cs-concise-view concise-view"  ng-show="options.concise" tooltip-html="getConfStatementsAsMultipleLinesString(node)" tooltip-append-to-body="true"  tooltip-class="constraints-tooltip"  ng-bind-html="getConfStatementsAsOneLineString(node)" tooltip-trigger tooltip-animation="false" tooltip-placement="left" />
+            <span ng-repeat="conStatement in node.conformanceStatements" ng-show="!options.concise">
+                <span  class="expanded-view">
+                   {{::conStatement.id}} : {{::conStatement.description}}
+                </span>
+            </span>
+        </td>
+    </tr>
+</script>
+
+
+<script type="text/ng-template" id="DatatypeNode.html">
+    <tr   pv-node data="node"
+        is-branch="isBranch(node)">
+        <td class="col-fixed-450">
+            <img
+                    style="width:15px; height:15px"
+                    ng-src="images/{{::node.icon}}">
+            <span ng-show="node.type === 'FIELD' || node.type === 'COMPONENT' || node.type === 'SUBCOMPONENT'">
+            <span>{{::node.position}}:{{::node.name}}</span>
+            </span>
+            <span ng-show="node.type === 'DATATYPE'">{{::node.id}}:{{::node.longName}}</span>
+        </td>
+        <td class="col-fixed-80">
+            <span ng-show="!node.predicates || node.predicates == null || node.predicates.length == 0">{{::node.usage}}</span>
+            <span ng-show="node.predicates != null && node.predicates.length > 0">C({{::node.predicates[0].trueUsage}}/{{::node.predicates[0].falseUsage}})</span>
+        </td>
+        <td class="col-fixed-100">
+            <span ng-show="node.type === 'DATATYPE'">-</span>
+            <span ng-show="node.type !== 'DATATYPE'">{{::node.dataType}}</span>
+        </td>
+        <td class="col-fixed-80">
+                                 <span
+                                         ng-show="node.minLength && node.maxLength">[{{::node.minLength}},{{::node.maxLength}}]</span>
+        </td>
+        <td class="col-fixed-150">
+            <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset" ng-click="showValueSetDefinition(valueSet)">{{::valueSet}}</a>
+        </td>
+
+        <td class="col-predicate">
+            <span class="predicate-concise-view concise-view"  ng-show="options.concise" tooltip-html="getPredicatesAsMultipleLinesString(node)"  tooltip-append-to-body="true" tooltip-class="constraints-tooltip" ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger tooltip-animation="false" tooltip-placement="left" />
+            <span ng-repeat="predicate in node.predicates" ng-show="!options.concise">
+                <span  class="expanded-view">
+                    {{::predicate.description}}
+                </span>
+            </span>
+        </td>
+        <td class="col-cs">
+            <span class="cs-concise-view concise-view"  ng-show="options.concise" tooltip-html="getConfStatementsAsMultipleLinesString(node)" tooltip-append-to-body="true"  tooltip-class="constraints-tooltip"  ng-bind-html="getConfStatementsAsOneLineString(node)" tooltip-trigger tooltip-animation="false" tooltip-placement="left" />
+            <span ng-repeat="conStatement in node.conformanceStatements" ng-show="!options.concise">
+                <span  class="expanded-view">
+                   {{::conStatement.id}} : {{::conStatement.description}}
+                </span>
+            </span>
+        </td>
+    </tr>
+</script>
+
+<script type="text/ng-template" id="FieldOrComponentNode.html">
+    <tr   pv-node data="node"
+        is-branch="isBranch(node)">
+        <td class="col-fixed-450">
+            <img
+                    style="width:15px; height:15px"
+                    ng-src="images/{{::node.icon}}">
+            <span>{{::node.position}}:{{::node.name}}</span>
+        </td>
+        <td class="col-fixed-80">
+            <span ng-show="!node.predicates || node.predicates == null || node.predicates.length == 0">{{::node.usage}}</span>
+            <span ng-show="node.predicates != null && node.predicates.length > 0">C({{::node.predicates[0].trueUsage}}/{{::node.predicates[0].falseUsage}})</span>
+        </td>
+        <td class="col-fixed-100">
+            <span>{{::node.dataType}}</span>
+        </td>
+        <td class="col-fixed-80">
+                                 <span
+                                         ng-show="node.minLength && node.maxLength">[{{::node.minLength}},{{::node.maxLength}}]</span>
+        </td>
+        <td class="col-fixed-150">
+            <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset" ng-click="showValueSetDefinition(valueSet)">{{::valueSet}}</a>
+        </td>
+
+        <td class="col-predicate">
+            <span class="predicate-concise-view concise-view"  ng-show="options.concise" tooltip-html="getPredicatesAsMultipleLinesString(node)"  tooltip-append-to-body="true" tooltip-class="constraints-tooltip" ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger tooltip-animation="false" tooltip-placement="left" />
+            <span ng-repeat="predicate in node.predicates" ng-show="!options.concise">
+                <span  class="expanded-view">
+                    {{::predicate.description}}
+                </span>
+            </span>
+        </td>
+        <td class="col-cs">
+            <span class="cs-concise-view concise-view"  ng-show="options.concise" tooltip-html="getConfStatementsAsMultipleLinesString(node)" tooltip-append-to-body="true"  tooltip-class="constraints-tooltip"  ng-bind-html="getConfStatementsAsOneLineString(node)" tooltip-trigger tooltip-animation="false" tooltip-placement="left" />
+            <span ng-repeat="conStatement in node.conformanceStatements" ng-show="!options.concise">
+                <span  class="expanded-view">
+                   {{::conStatement.id}} : {{::conStatement.description}}
+                </span>
+            </span>
+        </td>
+    </tr>
+</script>
+
 
 

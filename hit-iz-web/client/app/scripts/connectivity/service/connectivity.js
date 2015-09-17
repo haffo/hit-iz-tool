@@ -1,13 +1,24 @@
 'use strict';
 angular.module('connectivity').factory('Connectivity',
-    ['$rootScope', '$http', '$q', 'HL7', 'ConnectivityPart',  'Logger', 'Endpoint', 'TransactionUser', function ($rootScope, $http, $q, HL7, ConnectivityPart,Logger, Endpoint, TransactionUser) {
+    ['$rootScope', '$http', '$q', 'HL7', 'ConnectivityPart',  'Logger', 'Endpoint', 'TransactionUser', 'StorageService', function ($rootScope, $http, $q, HL7, ConnectivityPart,Logger, Endpoint, TransactionUser,StorageService) {
+
+        var initUser = function(){
+            var user = new TransactionUser();
+            user.receiverUsername = StorageService.get(StorageService.SOAP_COMM_RECEIVER_USERNAME_KEY);
+            user.receiverPassword = StorageService.get(StorageService.SOAP_COMM_RECEIVER_PWD_KEY);
+            user.receiverFacilityId = StorageService.get(StorageService.SOAP_COMM_RECEIVER_FACILITYID_KEY);
+            user.receiverEndpoint = StorageService.get(StorageService.SOAP_COMM_RECEIVER_ENDPOINT_KEY);
+            return user;
+        };
+
+
         var Connectivity = {
             testCase: null,
             selectedTestCase: null,
             logger: new Logger(),
             request: new ConnectivityPart(),
             response: new ConnectivityPart(),
-            user: new TransactionUser()
+            user: initUser()
         };
         return Connectivity;
     }]);

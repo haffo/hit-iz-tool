@@ -25,22 +25,22 @@ angular.module('cb').factory('CB',
     }]);
 
 
-angular.module('cb').factory('CBTestCaseListLoader', ['$q','$http',
-    function ($q,$http) {
+angular.module('cb').factory('CBTestCaseListLoader', ['$q','$http','StorageService','$timeout',
+    function ($q,$http,StorageService,$timeout) {
         return function() {
             var delay = $q.defer();
             $http.get("api/cb/testcases").then(
                 function (object) {
-                    delay.resolve(angular.fromJson(object.data));
+                     delay.resolve(angular.fromJson(object.data));
                 },
                 function (response) {
                     delay.reject(response.data);
                 }
             );
-
+//
 //                $http.get('../../resources/cb/testPlans.json').then(
 //                    function (object) {
-//                        delay.resolve(angular.fromJson(object.data));
+//                         delay.resolve(angular.fromJson(object.data));
 //                    },
 //                    function (response) {
 //                        delay.reject(response.data);

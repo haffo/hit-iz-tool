@@ -16,9 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 
 public class WebAppInitializer implements WebApplicationInitializer
@@ -30,14 +28,7 @@ public class WebAppInitializer implements WebApplicationInitializer
 
     final AnnotationConfigWebApplicationContext root = new AnnotationConfigWebApplicationContext();
     root.setServletContext(servletContext);
-    root.scan("gov.nist.hit");
-    // web app servlet
-    servletContext.addListener(new ContextLoaderListener(root));
-    Dynamic servlet = servletContext.addServlet("hit-iz-api", new DispatcherServlet(root));
-    servlet.setLoadOnStartup(1);
-    servlet.addMapping("/api/*");
-    servlet.setAsyncSupported(true);
-
+    root.scan("gov.nist.hit.iz.ws");
     // web service servlet
     MessageDispatcherServlet dispatcher = new MessageDispatcherServlet(root);
     dispatcher.setTransformWsdlLocations(true);
@@ -45,7 +36,6 @@ public class WebAppInitializer implements WebApplicationInitializer
     webservices.setLoadOnStartup(2);
     webservices.addMapping("/ws/*");
     webservices.addMapping("*.wsdl");
-
   }
 
 }

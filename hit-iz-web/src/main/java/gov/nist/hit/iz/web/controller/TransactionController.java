@@ -12,6 +12,7 @@
 
 package gov.nist.hit.iz.web.controller;
 
+import gov.nist.hit.core.api.util.UserCommand;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.TransactionStatus;
 import gov.nist.hit.core.domain.User;
@@ -20,8 +21,7 @@ import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.core.transport.TransportClient;
 import gov.nist.hit.iz.domain.SecurityFaultCredentials;
-import gov.nist.hit.iz.repo.SecurityFaultCredentialsRepository;
-import gov.nist.hit.iz.web.model.UserCommand;
+import gov.nist.hit.iz.repo.SOAPSecurityFaultCredentialsRepository;
 import gov.nist.hit.iz.web.utils.Utils;
 
 import java.util.List;
@@ -100,7 +100,7 @@ public class TransactionController extends TestingController {
   protected TransactionRepository transactionRepository;
 
   @Autowired
-  protected SecurityFaultCredentialsRepository securityFaultCredentialsRepository;
+  protected SOAPSecurityFaultCredentialsRepository securityFaultCredentialsRepository;
 
   public TransactionRepository getTransactionRepository() {
     return transactionRepository;

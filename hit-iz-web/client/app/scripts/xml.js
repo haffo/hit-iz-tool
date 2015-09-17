@@ -1,8 +1,6 @@
 /**
  * Created by haffo on 10/20/14.
  */
-
-
 angular.module('xml').factory('XmlParser', ['$http', '$q', function ($http, $q) {
     return function (xml) {
         var delay = $q.defer();
@@ -21,7 +19,7 @@ angular.module('xml').factory('XmlParser', ['$http', '$q', function ($http, $q) 
 //            }
 //        );
 
-        $http.post("api/xml/parse", data, {timeout: 60000}).then(
+        $http.post("api/xmlgeneric/parse", data, {timeout: 60000}).then(
             function (object) {
                 delay.resolve(angular.fromJson(object.data));
             },
@@ -100,7 +98,7 @@ angular.module('xml').factory('XmlFormatter', ['$http', '$q', function ($http, $
 //            }
 //        );
 
-        $http.post("api/xml/format", data, {timeout: 60000}).then(
+        $http.post("api/xmlgeneric/format", data, {timeout: 60000}).then(
             function (response) {
                 delay.resolve(response.data.content);
             },

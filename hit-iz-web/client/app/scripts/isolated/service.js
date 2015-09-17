@@ -2,7 +2,17 @@
 
 
 angular.module('isolated').factory('IsolatedSystem',
-    ['$http', '$q', 'Editor', 'EDICursor', 'Er7Message', 'ValidationSettings', 'Tree', 'TransactionUser', '$rootScope', 'Logger',function ($http, $q, Editor, EDICursor, Er7Message, ValidationSettings,Tree,TransactionUser,$rootScope,Logger) {
+    ['$http', '$q', 'Editor', 'EDICursor', 'Er7Message', 'ValidationSettings', 'Tree', 'TransactionUser', '$rootScope', 'Logger','StorageService',function ($http, $q, Editor, EDICursor, Er7Message, ValidationSettings,Tree,TransactionUser,$rootScope,Logger,StorageService) {
+
+        var initUser = function(){
+            var user = new TransactionUser();
+            user.receiverUsername = StorageService.get(StorageService.SOAP_COMM_RECEIVER_USERNAME_KEY);
+            user.receiverPassword = StorageService.get(StorageService.SOAP_COMM_RECEIVER_PWD_KEY);
+            user.receiverFacilityId = StorageService.get(StorageService.SOAP_COMM_RECEIVER_FACILITYID_KEY);
+            user.receiverEndpoint = StorageService.get(StorageService.SOAP_COMM_RECEIVER_ENDPOINT_KEY);
+            return user;
+        };
+
         var IsolatedSystem = {
             testCase: null,
             testStep: null,
@@ -13,7 +23,7 @@ angular.module('isolated').factory('IsolatedSystem',
             message: new Er7Message(),
             validationSettings: new ValidationSettings(),
             logger: new Logger(),
-            user: new TransactionUser(),
+            user:  initUser(),
             setContent: function (value) {
                 IsolatedSystem.message.content = value;
                 IsolatedSystem.editor.instance.doc.setValue(value);
@@ -97,6 +107,7 @@ angular.module('isolated').factory('IsolatedExecutionService',
         };
 
         IsolatedExecutionService.setExecutionStatus = function (step, value) {
+            if(step != null)
             step.executionStatus = value;
         };
 
@@ -113,7 +124,9 @@ angular.module('isolated').factory('IsolatedExecutionService',
         };
 
         IsolatedExecutionService.setExecutionMessage = function (step, value) {
+            if(step != null)
             step.executionMessage = value;
+
         };
 
         IsolatedExecutionService.getExecutionMessage = function (step) {
@@ -122,6 +135,7 @@ angular.module('isolated').factory('IsolatedExecutionService',
 
 
         IsolatedExecutionService.setMessageTree = function (step, value) {
+            if(step != null)
             step.messageTree = value;
         };
 
@@ -139,19 +153,26 @@ angular.module('isolated').factory('IsolatedExecutionService',
 
 
         IsolatedExecutionService.deleteExecutionStatus = function (step) {
+            if(step != null)
             delete step.executionStatus;
         };
 
         IsolatedExecutionService.deleteValidationReport = function (step) {
-            delete step.validationReport ;
+            if(step && step.validationReport) {
+                delete step.validationReport ;
+            }
         };
 
         IsolatedExecutionService.deleteExecutionMessage = function (step) {
-            delete step.executionMessage;
+            if(step && step.executionMessage) {
+                delete step.executionMessage;
+            }
         };
 
         IsolatedExecutionService.deleteMessageTree = function (step) {
-            delete step.messageTree ;
+            if(step && step.messageTree) {
+                delete step.messageTree;
+            }
         };
 
 

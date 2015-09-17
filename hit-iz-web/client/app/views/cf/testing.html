@@ -8,21 +8,16 @@
                     </div>
                     <div class="panel-body">
                         <div class="container-testcase">
-                            <table tt-table tt-params="params" class="table table-hover no_border">
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
+                            <testcase-tree tree-control="tree"   icon-leaf=""
+                                           is-selectable="isSelectable(branch)"
+                                           on-select="selectTestCase(branch)"></testcase-tree>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-10">
                 <div ng-show="loading" style="text-align:center">
-                    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                    <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                 </div>
 
                 <div ng-show="!loading">

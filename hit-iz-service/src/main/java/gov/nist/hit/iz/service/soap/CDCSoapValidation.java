@@ -144,7 +144,7 @@ public class CDCSoapValidation {
 		ArrayList<MessageFailureV3> soapFailures = new ArrayList<MessageFailureV3>();
 		// schematron validation
 		XmlObject soapXml = soapMessage.getMessageDoc();
-		soapFailures.addAll(new SoapValidator().validate(soapXml, schematron,
+		soapFailures.addAll(new SOAPValidator().validate(soapXml, schematron,
 				phase));
 		if (phase.equals("submitSingleMessage_Request")) {
 			soapFailures.addAll(verifySubmitSingleMessageRequest(

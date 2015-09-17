@@ -54,7 +54,6 @@ body {
 .header,
 .marketing,
 .footer {
-  padding-left: 15px;
   padding-right: 15px;
 }
 
@@ -381,6 +380,8 @@ ul.result-settings {
   background-color: #f0f0f0;
 }
 
+
+
 .nav-tabs > li > a {
   border-color: #bce8f1;
   background-color: #d9edf7;
@@ -436,23 +437,7 @@ ul.result-settings {
   width: 500px;
 }
 
-.constraint_trim {
-  //  display: inline-block;
-  //  overflow: hidden;
-  //  max-width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  //  line-height: px;
-  //  position: relative;
-}
 
-.constraint_verbose {
-  //  display: inline-block;
-  //  overflow: hidden;
-  //  max-width: 100%;
-  //     line-height: 10px;
-  //  position: relative;
-}
 
 //.profile-viewer-cs-trim {
 //  max-width: 500px;
@@ -1445,14 +1430,15 @@ table.cf-profiles {
 //  border-bottom: 6px solid #ffec9d;
 //}
 
+
 .nav-tabs > li > a {
   color: #003399;
   border-radius: 0px;
 }
 
-.nav-tabs > li > a:hover {
-  color: #003399;
-}
+//.nav-tabs > li > a:hover {
+//  color: #003399;
+//}
 //
 //.navbar-text > a {
 //  color: black;
@@ -1509,8 +1495,10 @@ li.validation-result-subtab {
   border-color: #bce8f1;
   color: white;
 }
+
+
 .message {
-  max-height: 400px !important;
+  max-height: 600px !important;
   overflow: auto;
 }
 
@@ -1537,4 +1525,67 @@ li.validation-result-subtab {
 }
 
 
+.concise-view {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}
 
+.predicate-concise-view {
+  max-width: 250px;
+}
+//
+.cs-concise-view {
+  max-width: 100%;
+}
+
+.expanded-view {
+  display: block;
+  text-align:left;
+//  margin-top: 1px;
+//  margin-bottom: 1px;
+//  margin-left: 0;
+//  margin-right: 0;
+}
+
+//.constraints-tooltip{
+////  background-color: black;
+//
+//}
+
+.tooltip.constraints-tooltip .tooltip-inner {
+  color: white;
+  background-color: black;
+}
+
+//.pvt{
+//  width:800px;
+//}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+
+.nav-tabs > li.focus > a, .nav-tabs > li > a:focus, .nav-tabs > li.active > a:focus {
+  background-color: #428bca;
+  border-color: #bce8f1;
+  color: white;
+}
+
+.valueset {
+  display: block;
+  text-align:left;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+}
+
+.nopointer{
+  cursor:text;
+}

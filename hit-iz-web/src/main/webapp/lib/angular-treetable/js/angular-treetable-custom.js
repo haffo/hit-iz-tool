@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    angular.module('ngTreetable', [])
+    angular.module('ngTreetable', ['ngCookies'])
 
     /**
      * @ngdoc service
@@ -33,9 +33,12 @@
                 this.refresh = function() {}
 
 
+                this.onInitialized = function(){}
+
+
                 if (angular.isObject(baseConfiguration)) {
                     angular.forEach(baseConfiguration, function(val, key) {
-                        if (['getNodes', 'getTemplate', 'options'].indexOf(key) > -1) {
+                        if (['getNodes', 'getTemplate', 'options','onInitialized'].indexOf(key) > -1) {
                             self[key] = val;
                         } else {
                             $log.warn('ngTreetableParams - Ignoring unexpected property "' + key + '".');
@@ -77,7 +80,7 @@
              * @param shouldExpand whether all descendants of `parentElement` should also be expanded
              */
             $scope.addChildren = function(parentElement, shouldExpand) {
-                var parentNode = parentElement ? parentElement.scope().node : null;
+                var parentNode = parentElement && parentElement.scope() ? parentElement.scope().node : null;
                 var parentId = parentElement ? parentElement.data('ttId') : null;
 
                 if (parentElement) {
@@ -101,7 +104,7 @@
                             });
                         }
 
-                        if (parentElement) {
+                        if (parentElement && parentElement.scope()) {
                             parentElement.scope().loading = false;
                         }
                     });
@@ -142,6 +145,11 @@
                 $scope.refresh();
             };
 
+            $scope.getNode = function(id) {
+                return table.treetable("node", id);
+            };
+
+
             $scope.toggleExpand = function(id, expand){
 //
 //                var node = table.treetable('node', id);
@@ -164,11 +172,13 @@
 
             // attach to params for convenience
             params.refresh = $scope.refresh;
+            params.force = true;
 //          params.expand = $scope.expandChildren;
 //          params.collapse = $scope.collapseChildren;
 
             params.refreshWithState = $scope.refreshWithState;
             params.toggleExpand = $scope.toggleExpand;
+            params.getNode = $scope.getNode;
 
             /**
              * Build options for the internal treetable library.
@@ -178,7 +188,7 @@
                     expandable: true,
                     onNodeExpand: $scope.onNodeExpand,
                     onNodeCollapse: $scope.onNodeCollapse
-                }, params.options);
+                 }, params.options);
 
                 if (params.options) {
                     // Inject required event handlers before custom ones
@@ -215,26 +225,31 @@
             }
         }])
 
-        .directive('ttNode', [function() {
+        .directive('ttNode', ['$cookies',function($cookies) {
             var ttNodeCounter = 0;
             return {
                 restrict: 'AC',
                 scope: {
                     isBranch: '=',
-                    parent: '='
+                    parent: '=',
+                    data: '='
                 },
                 link: function(scope, element, attrs) {
                     var branch = angular.isDefined(scope.isBranch) ? scope.isBranch : true;
+                    var data = angular.isDefined(scope.data) ? scope.data : undefined;
 
                     // Look for a parent set by the tt-tree directive if one isn't explicitly set
                     var parent = angular.isDefined(scope.parent) ? scope.parent : scope.$parent._ttParentId;
-
+                    var id = ttNodeCounter;
                     element.attr('data-tt-id', ttNodeCounter++);
                     element.attr('data-tt-branch', branch);
                     element.attr('data-tt-parent-id', parent);
+                    if(data) {
+                        element.attr('data-tt-node-id', data.id);
+                        element.attr('data-tt-node-type', data.type);
+                    }
                 }
             }
-
         }]);
 
 })();

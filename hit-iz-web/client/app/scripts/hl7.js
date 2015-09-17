@@ -1,348 +1,3 @@
-'use strict';
-
-angular.module('hl7').factory('HL7',
-    ['$rootScope', '$http', '$q', function ($rootScope, $http, $q) {
-        var services = {
-            Report: {
-                generate: function (url, xmlReport) {
-                    var delay = $q.defer();
-                    $http({
-                        url: url,
-                        data: $.param({'xmlReport': xmlReport}),
-                        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-                        method: 'POST',
-                        timeout: 60000
-                    }).success(function (data) {
-                        delay.resolve(angular.fromJson(data));
-                    }).error(function (err) {
-                        delay.reject(err);
-                    });
-                    return delay.promise;
-                },
-
-                download: function (url, xmlReport) {
-                    var form = document.createElement("form");
-                    form.action = url;
-                    form.method = "POST";
-                    form.target = "_target";
-                    var input = document.createElement("textarea");
-                    input.name = "xmlReport";
-                    input.value = xmlReport;
-                    form.appendChild(input);
-                    form.style.display = 'none';
-                    document.body.appendChild(form);
-                    form.submit();
-                }
-            },
-            Message: {
-                parse: function (url, er7Message) {
-                    var delay = $q.defer();
-                    var data = angular.fromJson({"er7Message": er7Message});
-                    $http.post(url, data, {timeout: 60000}).then(
-                        function (object) {
-                            delay.resolve(angular.fromJson(object.data));
-                        },
-                        function (response) {
-                            delay.reject(response.data);
-                        }
-                    );
-                    return delay.promise;
-                },
-                get: function (url) {
-                    var delay = $q.defer();
-                    $http.get(url, {timeout: 60000}).then(
-                        function (response) {
-                            delay.resolve(angular.fromJson(response.data));
-                        },
-                        function (response) {
-                            delay.reject(response.data);
-                        }
-                    );
-                    return delay.promise;
-                },
-                validate: function (url, er7Message) {
-                    var delay = $q.defer();
-                    var data = angular.fromJson({"er7Message": er7Message});
-                    $http.post(url, data, {timeout: 60000}).then(
-                        function (object) {
-                            delay.resolve(angular.fromJson(object.data));
-                        },
-                        function (response) {
-                            delay.reject(response.data);
-                        }
-                    );
-                    return delay.promise;
-                },
-
-                download: function (er7Message) {
-                    var form = document.createElement("form");
-                    form.action = "api/hl7/message/download";
-                    form.method = "POST";
-                    form.target = "_target";
-                    var input = document.createElement("textarea");
-                    input.name = "er7Message";
-                    input.value = er7Message;
-                    form.appendChild(input);
-                    form.style.display = 'none';
-                    document.body.appendChild(form);
-                    form.submit();
-                }
-            },
-            Profile: {
-                get: function (url) {
-                    var delay = $q.defer();
-                    $http.get(url, {timeout: 60000}).then(
-                        function (response) {
-                            delay.resolve(angular.fromJson(response.data));
-                        },
-                        function (response) {
-                            delay.reject(response.data);
-                        }
-                    );
-                    return delay.promise;
-                },
-                parse: function (url) {
-                    var delay = $q.defer();
-                    $http.get(url, {timeout: 60000}).then(
-                        function (object) {
-                            delay.resolve(angular.fromJson(object.data));
-                        },
-                        function (response) {
-                            delay.reject(response.data);
-                        }
-                    );
-                    return delay.promise;
-                }
-            },
-            MessageListLoader: {
-                get: function (url) {
-                    var delay = $q.defer();
-                    $http.get(url, {timeout: 60000}).then(
-                        function (response) {
-                            delay.resolve(angular.fromJson(response.data));
-                        },
-                        function (response) {
-                            delay.reject(response.data);
-                        }
-                    );
-                    return delay.promise;
-                }
-            },
-
-
-            ValidationResultItem: function () {
-                return {
-                    data: [],
-                    updateIndicator: '0',
-                    show: true,
-                    setData: function (data) {
-                        this.data = data;
-                        this.notify();
-                    },
-                    notify: function () {
-                        this.updateIndicator = new Date().getTime();
-                    }
-                }
-            },
-
-            ValidationResult: function (key) {
-                return{
-                    key: key,
-                    xml: '',
-                    errors: services.ValidationResultItem(),
-                    affirmatives: services.ValidationResultItem(),
-                    ignores: services.ValidationResultItem(),
-                    alerts: services.ValidationResultItem(),
-                    warnings: services.ValidationResultItem(),
-                    saveState: function () {
-                        sessionStorage.setItem(this.key, this.content);
-                    },
-
-                    restoreState: function () {
-                        this.content = sessionStorage.getItem(this.key);
-                    },
-                    hasState: function () {
-                        return sessionStorage.getItem(this.key) !== {xml: ''} && sessionStorage.getItem(this.key) != null;
-                    },
-                    getState: function () {
-                        return sessionStorage.getItem(this.key);
-                    },
-                    getContent: function () {
-                        return  this.content;
-                    },
-                    setContent: function (value) {
-                        this.content = value;
-                    }
-                }
-            },
-            CurrentMessage: function (key) {
-                return{
-                    key: key,
-                    updateIndicator: '0',
-                    data: {id: -1, content: '', name: ''},
-                    clear: function () {
-                        this.setId(-1);
-                        this.setContent('');
-                        this.setName('');
-                        sessionStorage.setItem(this.key, null);
-                    },
-                    storeMessage: function () {
-                        sessionStorage.setItem(this.key, this.data.content);
-                    },
-                    getStoredMessage: function () {
-                        return sessionStorage.getItem(this.key);
-                    },
-                    getId: function () {
-                        return  this.data.id;
-                    },
-                    setId: function (id) {
-                        this.data.id = id;
-                    },
-                    getContent: function () {
-                        return  this.data.content;
-                    },
-                    setContent: function (content) {
-                        this.data.content = content;
-                        this.storeMessage();
-                        this.notifyChange();
-                    },
-                    setName: function (name) {
-                        this.data.name = name;
-                    },
-                    setData: function (id, content, name) {
-                        this.data.id = id;
-                        this.setContent(content);
-                        this.Name(name);
-                    },
-                    getData: function () {
-                        return this.data;
-                    },
-                    notifyChange: function () {
-                        this.updateIndicator = new Date().getTime();
-                    }
-                }
-            },
-
-
-            Editor: function () {
-                return {
-                    updateIndicator: '0',
-                    editor: null,
-                    notifyChange: function () {
-                        this.updateIndicator = new Date().getTime();
-                    }
-                }
-            },
-            ExampleMessages: function (key) {
-                return {
-                    key: key,
-                    data: null,
-                    updateIndicator: '0',
-                    clear: function () {
-                        sessionStorage.setItem(this.key, null);
-                    },
-                    saveState: function () {
-                        sessionStorage.setItem(this.key, angular.toJson(this.data));
-                    },
-                    restoreState: function () {
-                        this.data = this.getState();
-                    },
-                    restoreContentState: function () {
-                        this.data = this.getState();
-                        this.notifyChange();
-                    },
-                    hasState: function () {
-                        return sessionStorage.getItem(this.key) != null;
-                    },
-                    getState: function () {
-                        return angular.fromJson(sessionStorage.getItem(this.key));
-                    },
-                    setData: function (data) {
-                        this.data = data;
-                        this.notifyChange();
-                        this.saveState();
-                    },
-                    getData: function () {
-                        return this.data;
-                    },
-                    notifyChange: function () {
-                        this.updateIndicator = new Date().getTime();
-                    }
-                }
-            },
-
-            Cursor: function () {
-                return {
-                    line: 1, startIndex: -1, endIndex: -1, index: -1, segment: "", triggerTree: undefined
-                }
-            },
-
-
-            TestCase: {
-                get: function (url) {
-                    var delay = $q.defer();
-                    $http.get(url, {timeout: 60000}).then(
-                        function (response) {
-                            delay.resolve(angular.fromJson(response.data));
-                        },
-                        function (response) {
-                            delay.reject(response.data);
-                        }
-                    );
-                    return delay.promise;
-                },
-
-                new: function (key) {
-                    return {
-                        key: key,
-                        id: -1,
-                        saveState: function () {
-                            sessionStorage.setItem(this.key, this.id);
-                        },
-
-                        restoreState: function () {
-                            this.id = sessionStorage.getItem(this.key);
-                        },
-                        hasState: function () {
-                            return sessionStorage.getItem(this.key) != null && sessionStorage.getItem(this.key) != '' && parseInt(sessionStorage.getItem(this.key)) != -1;
-                        },
-                        getState: function () {
-                            return sessionStorage.getItem(this.key);
-                        },
-                        getId: function () {
-                            return  this.id;
-                        },
-                        setId: function (value) {
-                            this.id = value;
-                        },
-                        get: function (url) {
-                            var delay = $q.defer();
-                            $http.get(url, {timeout: 60000}).then(
-                                function (response) {
-                                    delay.resolve(angular.fromJson(response.data));
-                                },
-                                function (response) {
-                                    delay.reject(response.data);
-                                }
-                            );
-                            return delay.promise;
-                        }
-                    }
-                }
-            }
-        }
-        return services;
-    }]);
-
-
-angular.module('hl7').factory('HL7NodeFinder',
-    ['$rootScope', '$http', '$q', 'HL7TreeUtils', function ($rootScope, $http, $q, HL7TreeUtils) {
-        return  {
-
-        }
-    }]);
-
-
 angular.module('hl7').factory('HL7CursorUtils',
     ['$rootScope', '$http', '$q', 'HL7EditorUtils', function ($rootScope, $http, $q, HL7EditorUtils) {
         return  {
@@ -508,18 +163,18 @@ angular.module('hl7').factory('HL7Utils', function () {
                     }
                     case "FIELD":
                     {
-                        // MSH[1].7[1]
-                        return path.split("-")[1].split(".")[0];
+                        // MSH[1]-4[1]
+                        return path.split("-")[1].split("[")[0];
                     }
                     case "COMPONENT":
                     {
-                        // MSH[1].7[1].3[1]
-                        return path.split(".")[1];
+                        // MSH[1]-4[1].1
+                         return path.split(".")[1];
                     }
                     case "SUB_COMPONENT":
                     {
-                        // MSH[1].7[1].3[1].4[1]
-                        return path.split(".")[2];
+                        // MSH[1]-4[1].1.2
+                         return path.split(".")[2];
                     }
                 }
             }catch(e){
@@ -538,18 +193,19 @@ angular.module('hl7').factory('HL7Utils', function () {
                         }
                         case "FIELD":
                         {
-                            // MSH[1].7[1]
+
+                            // MSH[1]-4[1]
                             return path.split("-")[1].split("[")[1].split("]")[0];
                         }
                         case "COMPONENT":
                         {
-                            // MSH[1].7[1].3[1]
-                            return path.split("-")[2].split("[")[1].split("]")[0];
+ //                            return path.split("-")[2].split("[")[1].split("]")[0];
+                            return 1;
                         }
                         case "SUB_COMPONENT":
                         {
-                            // MSH[1].7[1].3[1].4[1]
-                            return path.split("-")[3].split("[")[1].split("]")[0];
+ //                            return path.split("-")[3].split("[")[1].split("]")[0];
+                            return 1;
                         }
                 }
             }catch(e){
@@ -558,12 +214,16 @@ angular.module('hl7').factory('HL7Utils', function () {
         },
 
         getType: function (path) {
+
+            //MSH[1]-3[1].1
+
             if(path.indexOf("-") > 0){
-                if (path.split(".").length === 1) {
+                var path =  path.split("-")[1];
+                if (path.split(".").length === 0) {
                     return "FIELD";
-                } else if (path.split(".").length === 2) {
+                } else if (path.split(".").length === 1) {
                     return "COMPONENT";
-                } else if (path.split(".").length === 3) {
+                } else if (path.split(".").length === 2) {
                     return "SUB_COMPONENT";
                 }
             }else{
@@ -575,89 +235,10 @@ angular.module('hl7').factory('HL7Utils', function () {
         prettyPath: function (path) {
             return path.replace(/\[[^\]]*?\]/g, '');
          }
-
-
     }
 
 });
 
-//
-//angular.module('hl7').factory('ValidationBinder',
-//    [ 'HL7TreeUtils', function (HL7TreeUtils) {
-//        return  {
-//            tree: null,
-//            editor: null,
-//            result: null,
-//            init: function (tree, editor, result) {
-//                this.tree = tree;
-//                this.editor = editor;
-//                this.result = result;
-//                var firstNode = tree.get_first_branch();
-//                var children = tree.get_siblings(firstNode);
-//                if (children && children.length > 0) {
-//                    for (var i = 0; i < children.length; i++) {
-//                        this.initNode(children[i]);
-//                    }
-//                }
-//            },
-//            initNode: function (node) {
-//                this.setEndIndex(node);
-//                this.setValidationResults(node);
-//                var children = this.tree.get_children(node);
-//                if (children && children.length > 0) {
-//                    for (var i = 0; i < children.length; i++) {
-//                        this.initNode(children[i]);
-//                    }
-//                }
-//            },
-//
-//            setEndIndex: function (node) {
-//                var endIndex = HL7TreeUtils.getEndIndex(node, this.editor.doc.getValue());
-//                node.data.endIndex = endIndex;
-//            },
-//
-//
-//            setValidationResults: function (node) {
-//                node["validation"] = [];
-//                node.validation["errors"] = [];
-//                node.validation["alerts"] = [];
-//                node.validation["informationals"] = [];
-//
-//                if (this.result.errors.data && this.result.errors.data.length > 0) {
-//                    for (var i = 0; i < this.result.errors.data.length; i++) {
-//                        var error = this.result.errors.data[i];
-//                        if (error.path === node.data.path) {
-//                            node.validation.errors.push(error);
-//                        }
-//                    }
-//                }
-//                if (this.result.alerts.data && this.result.alerts.data.length > 0) {
-//                    for (var i = 0; i < this.result.alerts.data.length; i++) {
-//                        var error = this.result.alerts.data[i];
-//                        if (error.path === node.data.path) {
-//                            node.validation.alerts.push(error);
-//                        }
-//                    }
-//
-//                }
-//
-//                if (this.result.informationals.data && this.result.informationals.data.length > 0) {
-//                    for (var i = 0; i < this.result.informationals.data.length; i++) {
-//                        var error = this.result.informationals.data[i];
-//                        if (error.path === node.data.path) {
-//                            node.validation.informationals.push(error);
-//                        }
-//                    }
-//                }
-//            },
-//
-//            clear: function () {
-//                this.tree = null;
-//                this.editor = null;
-//                this.result = null;
-//            }
-//        }
-//    }]);
 
 angular.module('hl7').factory('HL7TreeUtils',
     ['$rootScope', '$http', '$q', 'HL7CursorUtils', 'HL7Utils', function ($rootScope, $http, $q, HL7CursorUtils, HL7Utils) {
@@ -701,7 +282,8 @@ angular.module('hl7').factory('HL7TreeUtils',
             findNodeByPath: function (tree, node, lineNumber, path) {
                 if (path.startsWith(node.data.path)) {
                     if (angular.equals(node.data.path , path)) {
-                        return this.findLastChild(tree, node);
+//                        return this.findLastChild(tree, node);
+                        return node;
                     }
                     var children = tree.get_children(node);
                     if (children && children.length > 0) {
@@ -792,6 +374,7 @@ angular.module('hl7').factory('HL7TreeUtils',
                         treeObject.expand_branch(found);
                     }
                 }
+                return found;
             },
             selectNodeByPath: function (treeObject, lineNumber, path) {
                 var found = this.findByPath(treeObject, lineNumber, path);
@@ -803,6 +386,8 @@ angular.module('hl7').factory('HL7TreeUtils',
                         treeObject.expand_branch(found);
                     }
                 }
+                return found;
+
             },
 
             /**

@@ -1,35 +1,37 @@
 <div ng-controller="CBTestCaseCtrl" ng-init="init()">
     <!--<ul class="clearfix mainSubNav">-->
-        <!--<li class="current"><a href="#/cb_testcase">Test Selection</a></li>-->
-        <!--<li><a href="#/cb_execution">Test Execution</a></li>-->
+    <!--<li class="current"><a href="#/cb_testcase">Test Selection</a></li>-->
+    <!--<li><a href="#/cb_execution">Test Execution</a></li>-->
     <!--</ul>-->
     <div class="row" style="margin:10px">
         <div class="col-md-3">
             <div class="panel panel-info">
                 <!-- Default panel contents -->
-                <div class="panel-heading"><i class="glyphicon glyphicon-list"></i>Test Cases</div>
+                <div class="panel-heading">
+                    <i class="glyphicon glyphicon-list"></i>Test Cases</div>
                 <div class="panel-body">
                     <div ng-show="!loading">
                         <div ng-show="error === null">
-                            <!--<abn-tree tree-control="testCaseTree" tree-data="testCases" icon-leaf=""-->
-                                      <!--on-select="selectTestCase(branch)"></abn-tree>-->
+
                             <div class="container-testcase">
-                            <table tt-table="" tt-params="params" class="table table-hover no_border">
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                               </div>
+                                <!--<table tt-table tt-params="params" class="table table-hover no_border">-->
+                                <!--<thead>-->
+                                <!--<tr>-->
+                                <!--<th></th>-->
+                                <!--</tr>-->
+                                <!--</thead>-->
+                                <!--<tbody></tbody>-->
+                                <!--</table>-->
+                                <testcase-tree tree-control="tree" icon-leaf="" is-selectable="isSelectable(branch)" on-select="selectTestCase(branch)"></testcase-tree>
+
+                            </div>
                         </div>
                         <div ng-show="error != null">
                             <div class="alert alert-danger" role="alert" ng-bind="error"></div>
                         </div>
                     </div>
                     <div ng-show="loading" style="text-align:center">
-                        <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                        <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                     </div>
                 </div>
             </div>
@@ -43,19 +45,17 @@
                                {{selectedTestCase.type}}: {{selectedTestCase.name}}
                             </span>
                             <!--<span class="pull-right" ng-show=" selectedTestCase.type==='TestCase' && selectedTestCase.category === 'Isolated' ">-->
-                                  <!--<button title="Start Test" type="button" class="btn btn-sm btn-success"-->
-                                          <!--ng-click="loadTestCase()">-->
-                                      <!--<i class="fa fa-play"></i>Start-->
-                                  <!--</button>-->
+                            <!--<button title="Start Test" type="button" class="btn btn-sm btn-success"-->
+                            <!--ng-click="loadTestCase()">-->
+                            <!--<i class="fa fa-play"></i>Start-->
+                            <!--</button>-->
                             <!--</span>-->
-                            <span class="pull-right" ng-show="selectedTestCase.type === 'TestStep'">
-                                <!--<button title="Download Test Package" type="button" class="btn btn-xs btn-primary"-->
-                                         <!--ng-show="selectedTestCase.testPackage != null"-->
-                                         <!--ng-click="selectedTestCase.downloadTestPackage()">-->
-                                    <!--<i class="fa fa-download"></i>-->
-                                    <!--Download Package-->
-                                <!--</button>-->
-                                <button title="Start Test" type="button" class="btn btn-sm btn-success" ng-click="loadTestCase()">
+                            <span class="pull-right">
+                                <button title="Download Test Package" type="button" class="btn btn-xs btn-primary" ng-show="selectedTestCase.testPackage && selectedTestCase.testPackage != null && selectedTestCase.testPackage.pdfPath != null" ng-click="downloadArtifact(selectedTestCase.testPackage.pdfPath)">
+                                    <i class="fa fa-download"></i>
+                                    Download Test Package
+                                </button>
+                                <button title="Start Test" ng-show="selectedTestCase.type === 'TestStep'" type="button" class="btn btn-xs btn-success" ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
                                     <i class="fa fa-play"></i>Start
                                 </button>
                              </span>
@@ -63,7 +63,6 @@
                         <div class="panel-body" ng-show="selectedTestCase != null">
 
                             <div>
-
                                 <div ng-show="error != null">
                                     <div class="alert alert-danger" role="alert" ng-bind="error"></div>
                                 </div>
@@ -72,7 +71,7 @@
 
                                     <div class="">
                                         <div class="">
-                                                <div testcase-viewer="" type="cb">
+                                            <div testcase-viewer="" type="cb">
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +82,7 @@
 
                 </div>
             </div>
-</div>
+        </div>
 
-</div>
     </div>
+</div>

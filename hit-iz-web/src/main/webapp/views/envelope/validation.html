@@ -17,7 +17,7 @@
                 <div ng-show="!tLoading">
                     <div ng-show="tError == null">
                         <div ng-show="hasContent()">
-                            <abn-tree tree-control="envelopeTree" tree-data="envelopeObject" icon-leaf="" on-select="onEnvelopeNodeSelect(branch)"></abn-tree>
+                            <abn-tree tree-control="envelopeTree" icon-leaf="" on-select="onEnvelopeNodeSelect(branch)"></abn-tree>
                         </div>
                     </div>
                     <div ng-show="tError != null">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div ng-show="tLoading" style="text-align:center">
-                    <img class="ajax-loading" ng-src="images/ajax.gif" alt="loading...">
+                    <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
                         <span></span>
                         <input type="file" name="file" id="file" multiple="false" ng-disabled="disabled">
                          </span>
-                                <span class="" ng-bind="fileName"></span>
+                                <!--<span class="" ng-bind="fileName"></span>-->
                                 <button title="Download" type="button" class="btn btn-xs btn-primary" ng-click="saveMessage()">
                                     <i class="fa fa-download"></i>Download
                                 </button>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="panel-body message-content">
                         <div ng-show="eLoading" style="text-align:center">
-                             <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                             <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                         </div>
 
                         <div ng-show="eError != null">
@@ -233,7 +233,7 @@
                             </div>
                         </div>
                         <div ng-show="rLoading" style="text-align:center">
-                            <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                            <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                         </div>
                     </div>
                 </div>
