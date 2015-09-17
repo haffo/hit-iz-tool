@@ -634,14 +634,16 @@
 			<ValueElement Value="RD" CodeSystem="HL70126" DisplayName="records"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70064_IZ" Name="Publicity code">
-			<ValueElement Value="V01 " CodeSystem="HL70064" DisplayName="Not VFC eligible "/>
-			<ValueElement Value="V02 " CodeSystem="HL70064" DisplayName="VFC eligible-Medicaid/Medicaid Managed Care "/>
-			<ValueElement Value="V03 " CodeSystem="HL70064" DisplayName="VFC eligible- Uninsured "/>
-			<ValueElement Value="V04 " CodeSystem="HL70064" DisplayName="VFC eligible- American Indian/Alaskan Native "/>
-			<ValueElement Value="V05 " CodeSystem="HL70064" DisplayName="VFC eligible-Federally Qualified Health Center Patient (under-insured) "/>
-			<ValueElement Value="V06 " CodeSystem="HL70064" DisplayName="Deprecated [VFC eligible- State specific eligibility (e.g. S-CHIP plan)] "/>
-			<ValueElement Value="V07 " CodeSystem="HL70064" DisplayName="Local-specific eligibility "/>
-			<ValueElement Value="V08 " CodeSystem="HL70064" DisplayName="Deprecated [Not VFC eligible-underinsured] "/>
+			<ValueElement Value="V01" DisplayName="Not VFC eligible" CodeSystem="HL70064"/>
+			<ValueElement Value="V02" DisplayName="VFC eligible – Medicaid/Medicaid Managed Care" CodeSystem="HL70064"/>
+			<ValueElement Value="V03" DisplayName="VFC eligible – Uninsured" CodeSystem="HL70064"/>
+			<ValueElement Value="V04" DisplayName="VFC eligible – American Indian/Alaska native" CodeSystem="HL70064"/>
+			<ValueElement Value="V05" DisplayName="VFC eligible – underinsured at FQHC/RHC/deputized provider" CodeSystem="HL70064"/>
+			<ValueElement Value="V22" DisplayName="CHIP" CodeSystem="HL70064"/>
+			<ValueElement Value="V23" DisplayName="317" CodeSystem="HL70064"/>
+			<ValueElement Value="V24" DisplayName="Medicare" CodeSystem="HL70064"/>
+			<ValueElement Value="V25" DisplayName="State program eligibility" CodeSystem="HL70064"/>
+			<ValueElement Value="***" DisplayName="Specific state codes" CodeSystem="HL70064"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
 	<ValueSetDefinitions Group="CDC-IZ" Order="2">
@@ -1262,12 +1264,6 @@
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_ImmunizationFundingSource_IIS" Name="Immunization Funding Source (IIS)">
 			<ValueElement Value="PHC70" CodeSystem="CDCPHINVS" DisplayName="Private funds "/>
-			<ValueElement Value="VXC1" CodeSystem="CDCPHINVS" DisplayName="Federal funds "/>
-			<ValueElement Value="VXC2" CodeSystem="CDCPHINVS" DisplayName="State funds"/>
-			<ValueElement Value="PHC68" CodeSystem="CDCPHINVS" DisplayName="Military funds "/>
-			<ValueElement Value="VXC3" CodeSystem="CDCPHINVS" DisplayName="Tribal funds"/>
-			<ValueElement Value="OTH" CodeSystem="NULLFL" DisplayName="Other "/>
-			<ValueElement Value="UNK" CodeSystem="NULLFL" DisplayName="Unspecified"/>
 			<ValueElement Value="VXC50" CodeSystem="CDCPHINVS" DisplayName="Public"/>
 			<ValueElement Value="VXC51" CodeSystem="CDCPHINVS" DisplayName="Public VFC"/>
 			<ValueElement Value="VXC52" CodeSystem="CDCPHINVS" DisplayName="Public non-VFC"/>

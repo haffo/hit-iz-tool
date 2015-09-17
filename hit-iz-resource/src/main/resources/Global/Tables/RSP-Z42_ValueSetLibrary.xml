@@ -1180,12 +1180,6 @@
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_ImmunizationFundingSource_IIS" Name="Immunization Funding Source (IIS)">
 			<ValueElement Value="PHC70" CodeSystem="CDCPHINVS" DisplayName="Private funds "/>
-			<ValueElement Value="VXC1" CodeSystem="CDCPHINVS" DisplayName="Federal funds "/>
-			<ValueElement Value="VXC2" CodeSystem="CDCPHINVS" DisplayName="State funds"/>
-			<ValueElement Value="PHC68" CodeSystem="CDCPHINVS" DisplayName="Military funds "/>
-			<ValueElement Value="VXC3" CodeSystem="CDCPHINVS" DisplayName="Tribal funds"/>
-			<ValueElement Value="OTH" CodeSystem="NULLFL" DisplayName="Other "/>
-			<ValueElement Value="UNK" CodeSystem="NULLFL" DisplayName="Unspecified"/>
 			<ValueElement Value="VXC50" CodeSystem="CDCPHINVS" DisplayName="Public"/>
 			<ValueElement Value="VXC51" CodeSystem="CDCPHINVS" DisplayName="Public VFC"/>
 			<ValueElement Value="VXC52" CodeSystem="CDCPHINVS" DisplayName="Public non-VFC"/>

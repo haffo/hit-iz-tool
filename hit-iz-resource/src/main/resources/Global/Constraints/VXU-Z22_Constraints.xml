@@ -711,10 +711,7 @@
 		<Group>
 			<ByID ID="VXU_V04.ORDER">
 				<Constraint ID="IZ-24" Target="5[1].1[1]">
-					<Description> If RXA-20 is valued "CP" or "PA" and the first occurrence of RXA- 9.1 is valued “00” and RXA-5.1 is valued with a CVX code from table PHVS_VISVaccines_IIS (See Appendix A) then for each vaccine information statement that was shared there SHALL be:
-						• one OBX segment with OBX-3.1 valued “69764-9” (bar coded) and one OBX with OBX-3.1 valued “29769-7” (presentation /delivery date) associated. Both OBX shall have the same value in OBX-4
-						OR
-						• one OBX segment with OBX-3.1 valued “30956-7” (vaccine type) and one OBX segment with OBX-3.1 valued “29768-9” (version date) and one OBX with OBX-3.1 valued “29769-7” (presentation /delivery date) associated. All three OBX shall have the same value in OBX-4 </Description>
+					<Description> If RXA-20 is valued 'CP' or 'PA' and the first occurrence of RXA- 9.1 is valued '00' and RXA-5.1 is valued with a CVX code from table PHVS_VISVaccines_IIS (See Appendix A) then for each vaccine information statement that was shared there SHALL be:[one OBX segment with OBX-3.1 valued '69764-9' (bar coded) and one OBX with OBX-3.1 valued '29769-7' (presentation or delivery date) associated. Both OBX shall have the same value in OBX-4] OR[one OBX segment with OBX-3.1 valued '30956-7' (vaccine type) and one OBX segment with OBX-3.1 valued '29768-9' (version date) and one OBX with OBX-3.1 valued '29769-7' (presentation or delivery date) associated. All three OBX shall have the same value in OBX-4] </Description>
 					<Assertion>
 						<IMPLY>
 							<AND>
