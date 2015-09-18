@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ConformanceContext UUID="2decb2ea-0b10-4c4c-9906-14e41392da67" xsi:noNamespaceSchemaLocation="../ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ConformanceContext UUID="2decb2ea-0b10-4c4c-9906-14e41392da67" xsi:noNamespaceSchemaLocation="../Schema/ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<MetaData>
-		<Description>Conformance context for VXU_V04, Version: 20150821-1</Description>
+		<Description>Conformance context for VXU_V04, Version: 20150918-1</Description>
 	</MetaData>
 	<Predicates>
 		<Datatype>
@@ -624,7 +624,7 @@
 				</Constraint>
 				
 				<Constraint ID="ONC-2" Target="5[1]">
-					<Description>If the value of RXA-9.1 (Identifier) is '01', ‘02’, ‘03’, ‘04’, ‘05’, ‘06’, ‘07’, or ‘08’ (Historical Vaccine)  then the value of RXA-5 (Administered Code) SHALL be one of codes listed in the Value Set: CVX.</Description>
+					<Description>If the value of RXA-9.1 (Identifier) is '01', '02', '03', '04', '05', '06', '07', or '08' (Historical Vaccine)  then the value of RXA-5 (Administered Code) SHALL be one of codes listed in the Value Set: CVX.</Description>
 					<Assertion>
 						<IMPLY>
 							<NOT>
