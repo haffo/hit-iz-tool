@@ -53,7 +53,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/connectivity")
-public class SOAPConnectivityController extends TestingController {
+public class SOAPConnectivityController {
 
   static final Logger logger = LoggerFactory.getLogger(SOAPConnectivityController.class);
 

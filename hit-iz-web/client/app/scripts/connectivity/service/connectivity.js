@@ -1,6 +1,6 @@
 'use strict';
 angular.module('connectivity').factory('Connectivity',
-    ['$rootScope', '$http', '$q', 'HL7', 'ConnectivityPart',  'Logger', 'Endpoint', 'TransactionUser', 'StorageService', function ($rootScope, $http, $q, HL7, ConnectivityPart,Logger, Endpoint, TransactionUser,StorageService) {
+    ['$rootScope', '$http', '$q', 'ConnectivityPart',  'Logger', 'Endpoint', 'TransactionUser', 'StorageService', function ($rootScope, $http, $q, ConnectivityPart,Logger, Endpoint, TransactionUser,StorageService) {
 
         var initUser = function(){
             var user = new TransactionUser();
@@ -139,7 +139,7 @@ angular.module('connectivity').factory('ConnectivityValidator',
     }]);
 
 angular.module('connectivity').factory('ConnectivityPart',
-    ['$rootScope', '$http', '$q', 'HL7', 'Editor', 'XmlCursor', 'ValidationResult', 'ConnectivityReport', 'Message', 'ValidationSettings', function ($rootScope, $http, $q, HL7, Editor, XmlCursor, ValidationResult, ConnectivityReport, Message, ValidationSettings) {
+    ['$rootScope', '$http', '$q', 'Editor', 'XmlCursor', 'ValidationResult', 'ConnectivityReport', 'Message', 'ValidationSettings', function ($rootScope, $http, $q, Editor, XmlCursor, ValidationResult, ConnectivityReport, Message, ValidationSettings) {
 
         var ConnectivityPart = function () {
             this.editor = new Editor();

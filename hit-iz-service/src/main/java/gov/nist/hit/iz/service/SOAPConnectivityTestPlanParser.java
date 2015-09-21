@@ -23,6 +23,12 @@ import org.codehaus.jackson.JsonProcessingException;
  */
 public class SOAPConnectivityTestPlanParser {
 
+  private final String domain;
+
+  public SOAPConnectivityTestPlanParser(String domain) {
+    this.domain = domain;
+  }
+
   public List<ConnectivityTestPlan> create() throws JsonProcessingException, IOException,
       URISyntaxException {
     List<ConnectivityTestPlan> testPlans = new ArrayList<ConnectivityTestPlan>();
@@ -35,7 +41,7 @@ public class SOAPConnectivityTestPlanParser {
     testCase.setName("SOAPCON_1_BasicMessage_ConnectivityRequest");
     testCase.setSutType(SutType.SENDER);
     testCase.setTestType(IZTestType.SENDER_CONNECTIVITY.toString());
-    testCasePath = "/Connectivity/sender/SOAPCON_1_BasicMessage_ConnectivityRequest";
+    testCasePath = this.domain + "/Connectivity/sender/SOAPCON_1_BasicMessage_ConnectivityRequest";
     testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
     testCase.setInstructionsText(FileUtil.getContent(testCasePath + "/instructions.txt"));
     testCase.setTestDataSpecificationImage(FileUtil.getByteArray(testCasePath
@@ -57,6 +63,7 @@ public class SOAPConnectivityTestPlanParser {
     // testCase = new TestCase();
     // testCase.setName("SOAPCON_2_MessageContentDe-capsulation_Connectivity");
     // testCasePath =
+    // this.domain +
     // "/Connectivity/sender/SOAPCON_2_MessageContentDe-capsulation_Connectivity";
     // testCase.setTestType(IZTestType.SENDER_SUBMIT_SINGLE_MESSAGE.toString());
     // testCase.setSutType(SutType.SENDER);
@@ -76,7 +83,7 @@ public class SOAPConnectivityTestPlanParser {
 
     testCase = new ConnectivityTestCase();
     testCase.setName("SOAPCON_3_SubmitSingleMessage_Message");
-    testCasePath = "/Connectivity/sender/SOAPCON_3_SubmitSingleMessage_Message";
+    testCasePath = this.domain + "/Connectivity/sender/SOAPCON_3_SubmitSingleMessage_Message";
     testCase.setTestType(IZTestType.SENDER_SUBMIT_SINGLE_MESSAGE.toString());
     testCase.setSutType(SutType.SENDER);
     context = new ConnectivityTestContext();
@@ -105,7 +112,8 @@ public class SOAPConnectivityTestPlanParser {
     testCase = new ConnectivityTestCase();
     testCase.setSutType(SutType.RECEIVER);
     testCase.setName("SOAPCON_1_BasicMessage_ConnectivityResponse");
-    testCasePath = "/Connectivity/receiver/SOAPCON_1_BasicMessage_ConnectivityResponse";
+    testCasePath =
+        this.domain + "/Connectivity/receiver/SOAPCON_1_BasicMessage_ConnectivityResponse";
     testCase.setTestType(IZTestType.RECEIVER_CONNECTIVITY.toString());
     context = new ConnectivityTestContext();
     context.setRequestValidationPhase(ValidationPhase.connectivityTest_Request.toString());
@@ -128,7 +136,7 @@ public class SOAPConnectivityTestPlanParser {
     testCase = new ConnectivityTestCase();
     testCase.setSutType(SutType.RECEIVER);
     testCase.setName("SOAPCON_2_SubmitSingleMessage_Response");
-    testCasePath = "/Connectivity/receiver/SOAPCON_2_SubmitSingleMessage_Response";
+    testCasePath = this.domain + "/Connectivity/receiver/SOAPCON_2_SubmitSingleMessage_Response";
     testCase.setTestType(IZTestType.RECEIVER_SUBMIT_SINGLE_MESSAGE.toString());
     context = new ConnectivityTestContext();
     context.setRequestValidationPhase(ValidationPhase.submitSingleMessage_Request.toString());
@@ -151,7 +159,9 @@ public class SOAPConnectivityTestPlanParser {
     testCase = new ConnectivityTestCase();
     testCase.setSutType(SutType.RECEIVER);
     testCase.setName("SOAPCON_3_FaultDetection-Generation_AuthenticationFault");
-    testCasePath = "/Connectivity/receiver/SOAPCON_3_FaultDetection-Generation_AuthenticationFault";
+    testCasePath =
+        this.domain
+            + "/Connectivity/receiver/SOAPCON_3_FaultDetection-Generation_AuthenticationFault";
     testCase.setTestType(IZTestType.RECEIVER_SUBMIT_SINGLE_MESSAGE.toString());
     context = new ConnectivityTestContext();
     context.setRequestValidationPhase(ValidationPhase.submitSingleMessage_Request.toString());
@@ -174,7 +184,8 @@ public class SOAPConnectivityTestPlanParser {
     testCase = new ConnectivityTestCase();
     testCase.setSutType(SutType.RECEIVER);
     testCase.setName("SOAPCON_4_FaultDetection-Generation_MessageSizeFault");
-    testCasePath = "/Connectivity/receiver/SOAPCON_4_FaultDetection-Generation_MessageSizeFault";
+    testCasePath =
+        this.domain + "/Connectivity/receiver/SOAPCON_4_FaultDetection-Generation_MessageSizeFault";
     testCase.setTestType(IZTestType.RECEIVER_SUBMIT_SINGLE_MESSAGE.toString());
     context = new ConnectivityTestContext();
     context.setRequestValidationPhase(ValidationPhase.submitSingleMessage_Request.toString());
@@ -199,7 +210,9 @@ public class SOAPConnectivityTestPlanParser {
     testCase = new ConnectivityTestCase();
     testCase.setSutType(SutType.RECEIVER);
     testCase.setName("SOAPCON_5_FaultDetection-Generation_UnsupportedOp_Fault");
-    testCasePath = "/Connectivity/receiver/SOAPCON_5_FaultDetection-Generation_UnsupportedOp_Fault";
+    testCasePath =
+        this.domain
+            + "/Connectivity/receiver/SOAPCON_5_FaultDetection-Generation_UnsupportedOp_Fault";
 
     testCase.setTestType(IZTestType.RECEIVER_UNSUPPORTED_OPERATION.toString());
     context = new ConnectivityTestContext();

@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SOAPMessageValidatorImpl implements SOAPMessageValidator {
 
-  private final String schematronPath = "/schema/soap_rules.sch";
+  private final String schematronPath = "/soap/schema/soap_rules.sch";
 
   private final static Logger logger = Logger.getLogger(SOAPMessageValidatorImpl.class);
 

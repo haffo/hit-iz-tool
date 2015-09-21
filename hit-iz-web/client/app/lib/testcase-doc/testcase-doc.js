@@ -10,7 +10,7 @@
                 scope: {
                     stage: '@'
                 },
-                templateUrl: '/testcase-doc.html',
+                templateUrl: 'lib/testcase-doc/testcase-doc.html',
                 replace: false,
                 controller: 'TestCaseDocumentationCtrl'
             };
@@ -19,28 +19,41 @@
 
 
     mod
-        .controller('TestCaseDocumentationCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'TestCaseDocumentationLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, TestCaseDocumentationLoader) {
+        .controller('TestCaseDocumentationCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'TestCaseDocumentationLoader', 'ngTreetableParams', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, TestCaseDocumentationLoader,ngTreetableParams) {
+            $scope.context = null;
             $scope.data = null;
             $scope.loading = false;
             $scope.error = null;
             var testCaseLoader = new TestCaseDocumentationLoader();
             $scope.error = null;
             $scope.tree = {};
-
             if ($scope.stage != null && $scope.stage != '') {
                 $scope.loading = true;
-                var tcLoader = testCaseLoader.getOneByStage('CB');
+                var tcLoader = testCaseLoader.getOneByStage($scope.stage);
                 tcLoader.then(function (data) {
                     $scope.error = null;
-                    $scope.data = data;
-                    $scope.data.json = angular.fromJson($scope.data.json);
-                    $scope.tree.build_all($scope.data.json);
+                    $scope.context = data;
+                    $scope.data = angular.fromJson($scope.context.json);
+                    $scope.params.refresh();
                     $scope.loading = false;
                 }, function (error) {
                     $scope.loading = false;
                     $scope.error = "Sorry, failed to load the documents";
                 });
             }
+
+
+            $scope.params = new ngTreetableParams({
+                getNodes: function (parent) {
+                    return parent ? parent.children : $scope.data != null ? $scope.data.children:[];
+                },
+                getTemplate: function (node) {
+                    return 'TestCaseDocumentationNode.html';
+                },
+                options: {
+                    initialState: 'collapsed'
+                }
+            });
 
 
             $scope.downloadCompleteTestPackage = function () {
@@ -123,16 +136,7 @@
             TestCaseDocumentationLoader.prototype.getOneByStage = function (stage) {
                 var delay = $q.defer();
 //
-//                $http.get('../../resources/documentation/testcases.json').then(
-//            function (object) {
-//                delay.resolve(angular.fromJson(object.data));
-//            },
-//            function (response) {
-//                delay.reject(response.data);
-//            }
-//                );
-
-                $http.get('api/documentation/testcases', {params: {"stage": stage}, timeout: 60000}).then(
+                $http.get('../../resources/documentation/cb.json').then(
                     function (object) {
                         delay.resolve(angular.fromJson(object.data));
                     },
@@ -140,25 +144,33 @@
                         delay.reject(response.data);
                     }
                 );
+
+//                $http.get('api/documentation/testcases', {params: {"stage": stage}, timeout: 60000}).then(
+//                    function (object) {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    },
+//                    function (response) {
+//                        delay.reject(response.data);
+//                    }
+//                );
                 return delay.promise;
             };
 
 
             return TestCaseDocumentationLoader;
-        }]);
+        }
+        ]);
 
 
     mod.directive('testcaseDocTree', [
         '$timeout', function ($timeout, $rootScope) {
             return {
                 restrict: 'E',
-                templateUrl: 'lib/testcase-doc-tree/testcase-doc-tree.html',
+                templateUrl: 'lib/testcase-doc/testcase-doc-tree.html',
                 replace: true,
                 scope: {
-                    onSelect: '&',
-                    treeControl: '=',
-                    stage: '='
-                },
+                    treeControl: '='
+                 },
                 link: function (scope, element, attrs) {
                     var error, expand_all_parents, expand_level, for_all_ancestors, for_each_branch, get_parent, n, on_treeData_change, select_branch, selected_branch, tree;
                     error = function (s) {
@@ -258,10 +270,10 @@
                         });
                     };
 
-                    scope.get_icon_type = function (branch) {
-                        var connType = branch['connectionType'];
-                        return  connType === 'TA_MANUAL' || connType === 'SUT_MANUAL' ? 'fa fa-check-square-o' : connType === 'TA_INITIATOR' || connType === 'SUT_INITIATOR' ? 'fa fa-arrow-right' : connType === 'TA_RESPONDER' || connType === 'SUT_RESPONDER' ? 'fa fa-arrow-left' : null;
-                    };
+//                    scope.get_icon_type = function (branch) {
+//                        var connType = branch['connectionType'];
+//                        return  connType === 'TA_MANUAL' || connType === 'SUT_MANUAL' ? 'fa fa-check-square-o' : connType === 'TA_INITIATOR' || connType === 'SUT_INITIATOR' ? 'fa fa-arrow-right' : connType === 'TA_RESPONDER' || connType === 'SUT_RESPONDER' ? 'fa fa-arrow-left' : null;
+//                    };
 
                     scope.toggle_expand = function (branch) {
                         scope.set_expand(branch, !branch.expanded);

@@ -20,40 +20,40 @@
         </td>
 
         <td>
-            <span ng-if="row.tsPath === null"></span>
-            <a ng-if="row.tsPath != null" ng-click="downloadByPath(row.tsPath)">{{row.title}}_Test_Story.pdf</a>
+            <span ng-if="row.tsPath === null">-</span>
+            <a ng-if="row.tsPath != null" ng-click="downloadByPath(row.tsPath)">Test_Story.pdf</a>
         </td>
 
         <td>
-            <span ng-if="row.mcPath === null"></span>
-            <a ng-if="row.mcPath != null" ng-click="downloadByPath(row.mcPath)">{{row.title}}_Message_Content.pdf</a>
+            <span ng-if="row.mcPath === null">-</span>
+            <a ng-if="row.mcPath != null" ng-click="downloadByPath(row.mcPath)">Message_Content.pdf</a>
         </td>
         <td>
-            <span ng-if="row.tdsPath === null"></span>
-            <a ng-if="row.tdsPath != null" ng-click="downloadByPath(row.tdsPath)">{{row.title}}_Test_Data_Specification.pdf</a>
+            <span ng-if="row.tdsPath === null">-</span>
+            <a ng-if="row.tdsPath != null" ng-click="downloadByPath(row.tdsPath)">Test_Data_Specification.pdf</a>
         </td>
         <td>
-            <span ng-if="row.jdPath === null"></span>
-            <a ng-if="row.jdPath != null" ng-click="downloadByPath(row.jdPath)">{{row.title}}_Juror_Document.pdf</a>
+            <span ng-if="row.jdPath === null">-</span>
+            <a ng-if="row.jdPath != null" ng-click="downloadByPath(row.jdPath)">Juror_Document.pdf</a>
         </td>
 
         <td>
-            <span ng-if="row.tpPath === null"></span>
-            <a ng-if="row.tpPath != null" ng-click="downloadByPath(row.tpPath)">{{row.title}}_Test_Package.pdf</a>
+            <span ng-if="row.tpPath === null">-</span>
+            <a ng-if="row.tpPath != null" ng-click="downloadByPath(row.tpPath)">Test_Package.pdf</a>
         </td>
 
         <td>
             <span ng-if="!row.exMsgPresent">-</span>
-            <a ng-if="row.exMsgPresent" ng-click="downloadMessage(row)">{{row.title}}_Message.txt</a>
+            <a ng-if="row.exMsgPresent" ng-click="downloadMessage(row)">Message.txt</a>
         </td>
 
         <td>
             <span ng-if="!row.xmlConfProfilePresent">-</span>
-            <a ng-if="row.xmlConfProfilePresent" ng-click="downloadConfProfile(row)">{{row.title}}_Profile.xml</a>
+            <a ng-if="row.xmlConfProfilePresent" ng-click="downloadConfProfile(row)">Profile.xml</a>
         </td>
         <td>
-            <span ng-if="row.xmlValueSetLibraryPresent === null"></span>
-            <a ng-if="row.xmlValueSetLibraryPresent != null" ng-click="downloadValueSetLib(row)">{{row.title}}_ValueSet_Library.xml</a>
+            <span ng-if="row.xmlValueSetLibraryPresent === null">-</span>
+            <a ng-if="row.xmlValueSetLibraryPresent != null" ng-click="downloadValueSetLib(row)">ValueSet_Library.xml</a>
         </td>
     </tr>
 </table>

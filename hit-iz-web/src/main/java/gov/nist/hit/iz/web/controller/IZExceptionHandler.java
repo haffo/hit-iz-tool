@@ -9,16 +9,24 @@
  * works bear some notice that they are derived from it, and any modified versions bear some notice
  * that they have been modified.
  */
-package gov.nist.hit.iz.service.soap;
 
-import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
+package gov.nist.hit.iz.web.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 /**
  * @author Harold Affo (NIST)
+ * 
  */
+@ControllerAdvice
+public class IZExceptionHandler {
+  static final Logger logger = LoggerFactory.getLogger(IZExceptionHandler.class);
 
-public class SOAPValidationReportGeneratorImpl extends SOAPValidationReportGenerator {
-  public SOAPValidationReportGeneratorImpl() {
-
+  public IZExceptionHandler() {
+    super();
   }
+
+
 }

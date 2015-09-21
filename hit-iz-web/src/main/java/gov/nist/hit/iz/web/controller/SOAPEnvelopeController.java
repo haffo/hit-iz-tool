@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/envelope")
-public class SOAPEnvelopeController extends TestingController {
+public class SOAPEnvelopeController {
 
   static final Logger logger = LoggerFactory.getLogger(SOAPEnvelopeController.class);
 

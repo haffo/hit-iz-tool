@@ -26,12 +26,6 @@
 
 		<dependency>
 			<groupId>gov.nist.hit.core.hl7v2</groupId>
-			<artifactId>hit-core-hl7v2-domain</artifactId>
-			<version>${hithl7v2.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>gov.nist.hit.core.hl7v2</groupId>
 			<artifactId>hit-core-hl7v2-service</artifactId>
 			<version>${hithl7v2.version}</version>
 		</dependency>

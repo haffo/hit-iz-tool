@@ -1,18 +1,19 @@
 'use strict';
 
 angular.module('xml', []);
-angular.module('hl7', []);
+angular.module('hl7v2', []);
 angular.module('commonServices', []);
-angular.module('common', ['ngResource', 'my.resource', 'xml', 'hl7']);
+angular.module('common', ['ngResource', 'my.resource', 'xml', 'hl7v2']);
 angular.module('soap', ['common']);
-angular.module('cf', ['common']);
+angular.module('cf', ['common','hl7v2']);
 angular.module('doc', ['common']);
-angular.module('cb', ['common']);
+angular.module('cb', ['common','hl7v2']);
 angular.module('envelope', ['soap']);
 angular.module('connectivity', ['soap']);
-angular.module('isolated', ['common']);
+angular.module('isolated', ['common','hl7v2']);
 angular.module('hit-tool-directives', []);
 angular.module('hit-tool-services', ['common']);
+angular.module('documentation', []);
 var app = angular.module('tool', [
     'ngRoute',
     'ui.bootstrap',
@@ -24,12 +25,9 @@ var app = angular.module('tool', [
     'ui.bootstrap',
     'angularBootstrapNavTree',
     'QuickList',
-//    'ngGrid',
-//    'treeGrid',
-//    'angular-loading-bar',
     'soap',
     'xml',
-    'hl7',
+    'hl7v2',
     'envelope',
     'connectivity',
     'cf',
@@ -47,7 +45,10 @@ var app = angular.module('tool', [
     'hit-vocab-search',
     'hit-report-viewer',
     'hit-testcase-viewer',
-    'hit-testcase-tree'
+    'hit-testcase-tree',
+    'hit-testcase-doc',
+    'hit-dqa',
+    'documentation'
 ]);
 
 app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider) {

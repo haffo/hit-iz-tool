@@ -16,7 +16,7 @@ package gov.nist.healthcare.hl7.v2.iz.tool.web.unit;
  * @author Harold Affo
  * 
  */
-public class ConnectivityUtilTest {
+public class SOAPConnectivityUtilTest {
 
   // @Rule
   // public ExpectedException thrown = ExpectedException.none();

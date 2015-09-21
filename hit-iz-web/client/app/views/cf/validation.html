@@ -16,16 +16,6 @@
                                 <div ng-show="tError === null" class="message-tree">
                                     <abn-tree tree-control="cf.tree.root" icon-leaf=""
                                               on-select="onNodeSelect(branch)"></abn-tree>
-
-                                    <!--<treecontrol class="tree-light"-->
-                                                 <!--tree-model="messageObject"-->
-                                                 <!--options="treeOptions"-->
-                                                 <!--on-selection="onNodeSelect(node)"-->
-                                                 <!--selected-node="selectedTreeNode">-->
-                                        <!--{{node.label}}-->
-                                    <!--</treecontrol>-->
-
-
                                 </div>
                                 <div ng-show="tError !== null">
                                     <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
@@ -76,10 +66,12 @@
 
             </span>
                             <span class="row fileupload-buttonbar  pull-right">
-                                <span ng-show="true">
-                                <input type="checkbox" ng-change="execute()"
-                                       ng-model="dqaOptions.checked">DQA
-                                </span>
+                                <button title="Validate" type="button" class="btn btn-xs btn-primary"
+                                        ng-click="showDQAOptions()">
+                                    <i class="fa fa-cog"></i>
+                                    DQA Options
+                                </button>
+
                                 <button title="Validate" type="button" class="btn btn-xs btn-success"
                                         ng-click="execute()">
                                     <i class="fa fa-check-circle"></i>

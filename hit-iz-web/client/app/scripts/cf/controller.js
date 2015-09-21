@@ -153,10 +153,23 @@ angular.module('cf')
 
         $scope.tError = null;
         $scope.tLoading = false;
-        $scope.dqaOptions = {
-            checked: false
-        };
 
+        $scope.dqaCodes = StorageService.get(StorageService.DQA_OPTIONS_KEY) != null ? angular.fromJson(StorageService.get(StorageService.DQA_OPTIONS_KEY)):[];
+
+        $scope.showDQAOptions = function(){
+            var modalInstance = $modal.open({
+                templateUrl: 'DQAConfig.html',
+                controller: 'DQAConfigCtrl',
+                windowClass: 'dq-modal',
+                animation:true,
+                keyboard:false,
+                backdrop:false
+            });
+            modalInstance.result.then(function (selectedCodes) {
+                $scope.dqaCodes = selectedCodes;
+            }, function () {
+            });
+        };
 
         $scope.hasContent = function () {
             return  $scope.cf.message.content != '' && $scope.cf.message.content != null;
@@ -285,7 +298,7 @@ angular.module('cf')
                     var id = $scope.cf.testCase.testContext.id;
                     var content = $scope.cf.message.content;
                     var label = $scope.cf.testCase.label;
-                    var validated = new Er7MessageValidator().validate(id, content, label, $scope.dqaOptions.checked, "1223", "Free");
+                    var validated = new Er7MessageValidator().validate(id, content, label, $scope.dqaCodes, "1223", "Free");
                     validated.then(function (mvResult) {
                         $scope.vLoading = false;
                         $scope.loadValidationResult(mvResult);

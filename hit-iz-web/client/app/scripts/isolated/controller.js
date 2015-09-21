@@ -856,7 +856,7 @@ angular.module('isolated')
                     } else {
                         if ($scope.isolated.message.content !== '') {
                             try {
-                                var validator = new Er7MessageValidator().validate($scope.testStep.testContext.id, $scope.isolated.message.content, '', false, "1223", "Based");
+                                var validator = new Er7MessageValidator().validate($scope.testStep.testContext.id, $scope.isolated.message.content, '', [], "1223", "Based");
                                 validator.then(function (mvResult) {
                                     $scope.vLoading = false;
                                     $scope.loadValidationResult(mvResult);

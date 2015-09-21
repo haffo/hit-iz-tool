@@ -25,16 +25,23 @@ import org.codehaus.jackson.JsonProcessingException;
  */
 public class SOAPEnvelopeTestPlanParser {
 
+  private final String domain;
+
+  public SOAPEnvelopeTestPlanParser(String domain) {
+    this.domain = domain;
+  }
+
   public List<EnvelopeTestPlan> create() throws JsonProcessingException, IOException,
       ProfileParserException, URISyntaxException {
     List<EnvelopeTestPlan> testPlans = new ArrayList<EnvelopeTestPlan>();
 
     EnvelopeTestPlan testPlan = new EnvelopeTestPlan();
     testPlan.setName("Generic");
-    testPlan.setTestProcedurePath("/Envelope/generic/TP_NIST-CDC_SOAP_Envelope_Testing.docx");
+    testPlan.setTestProcedurePath(this.domain
+        + "/Envelope/generic/TP_NIST-CDC_SOAP_Envelope_Testing.docx");
     EnvelopeTestCase testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_1_Min_Test");
-    String testCasePath = "/Envelope/generic/SOAPENV_1_Min_Test";
+    String testCasePath = this.domain + "/Envelope/generic/SOAPENV_1_Min_Test";
     testCase.setTestType(IZTestType.GENERIC.toString());
     EnvelopeTestContext testContext = new EnvelopeTestContext();
     testContext.setValidationPhase(ValidationPhase.envelope.toString());
@@ -54,10 +61,11 @@ public class SOAPEnvelopeTestPlanParser {
 
     testPlan = new EnvelopeTestPlan();
     testPlan.setName("Sender(Initiator)");
-    testPlan.setTestProcedurePath("/Envelope/sender/TP_NIST-CDC_Sender_SOAP_Envelope_Testing.docx");
+    testPlan.setTestProcedurePath(this.domain
+        + "/Envelope/sender/TP_NIST-CDC_Sender_SOAP_Envelope_Testing.docx");
     testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_1_ConnectivityMessage_Request");
-    testCasePath = "/Envelope/sender/SOAPENV_1_ConnectivityMessage_Request";
+    testCasePath = this.domain + "/Envelope/sender/SOAPENV_1_ConnectivityMessage_Request";
     testCase.setTestType(IZTestType.SENDER_CONNECTIVITY.toString());
     testCase.setMessageContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
     testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
@@ -81,7 +89,7 @@ public class SOAPEnvelopeTestPlanParser {
     testCase.setTestContext(testContext);
     testContext.setValidationPhase(ValidationPhase.submitSingleMessage_Request.toString());
     testCase.setName("SOAPENV_2_SubmitSingleMessage_Request");
-    testCasePath = "/Envelope/sender/SOAPENV_2_SubmitSingleMessage_Request";
+    testCasePath = this.domain + "/Envelope/sender/SOAPENV_2_SubmitSingleMessage_Request";
     testCase.setTestType(IZTestType.SENDER_SUBMIT_SINGLE_MESSAGE.toString());
     testStory = testCase.getTestStory();
     testCase.setMessageContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
@@ -102,7 +110,7 @@ public class SOAPEnvelopeTestPlanParser {
     testPlan.setName("Receiver(Responder)");
     testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_1_ConnectivityMessage_Response");
-    testCasePath = "/Envelope/receiver/SOAPENV_1_ConnectivityMessage_Response";
+    testCasePath = this.domain + "/Envelope/receiver/SOAPENV_1_ConnectivityMessage_Response";
     testCase.setTestType(IZTestType.RECEIVER_CONNECTIVITY.toString());
     testStory = testCase.getTestStory();
     testCase.setMessageContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
@@ -123,7 +131,7 @@ public class SOAPEnvelopeTestPlanParser {
     testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_2_SubmitSingleMessage_Response");
     testCase.setTestType(IZTestType.RECEIVER_SUBMIT_SINGLE_MESSAGE.toString());
-    testCasePath = "/Envelope/receiver/SOAPENV_2_SubmitSingleMessage_Response";
+    testCasePath = this.domain + "/Envelope/receiver/SOAPENV_2_SubmitSingleMessage_Response";
     testCase.setMessageContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
     testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
     testCase.setInstructionsText(FileUtil.getContent(testCasePath + "/instructions.txt"));
@@ -141,7 +149,7 @@ public class SOAPEnvelopeTestPlanParser {
 
     testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_3_MessageTooLarge_Fault");
-    testCasePath = "/Envelope/receiver/SOAPENV_3_MessageTooLarge_Fault";
+    testCasePath = this.domain + "/Envelope/receiver/SOAPENV_3_MessageTooLarge_Fault";
     testCase.setTestType(IZTestType.RECEIVER_MESSAGE_TOO_LARGE.toString());
     testStory = testCase.getTestStory();
     testCase.setMessageContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
@@ -161,7 +169,7 @@ public class SOAPEnvelopeTestPlanParser {
 
     testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_4_Security_Fault");
-    testCasePath = "/Envelope/receiver/SOAPENV_4_Security_Fault";
+    testCasePath = this.domain + "/Envelope/receiver/SOAPENV_4_Security_Fault";
     testCase.setTestType(IZTestType.RECEIVER_SECURITY_FAULT.toString());
     testCase.setMessageContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
     testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
@@ -180,7 +188,7 @@ public class SOAPEnvelopeTestPlanParser {
 
     testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_5_UnsupportedOperation_Fault");
-    testCasePath = "/Envelope/receiver/SOAPENV_5_UnsupportedOperation_Fault";
+    testCasePath = this.domain + "/Envelope/receiver/SOAPENV_5_UnsupportedOperation_Fault";
     testCase.setTestType(IZTestType.RECEIVER_UNSUPPORTED_OPERATION.toString());
     testContext = new EnvelopeTestContext();
     testCase.setTestContext(testContext);
@@ -199,7 +207,7 @@ public class SOAPEnvelopeTestPlanParser {
 
     testCase = new EnvelopeTestCase();
     testCase.setName("SOAPENV_6_Unknown_Fault");
-    testCasePath = "/Envelope/receiver/SOAPENV_6_Unknown_Fault";
+    testCasePath = this.domain + "/Envelope/receiver/SOAPENV_6_Unknown_Fault";
     testCase.setTestType(IZTestType.RECEIVER_UNKNOWN_FAULT.toString());
     testContext = new EnvelopeTestContext();
     testCase.setTestContext(testContext);
@@ -217,8 +225,8 @@ public class SOAPEnvelopeTestPlanParser {
     testCase.setSutType(SutType.RECEIVER);
     testPlan.addTestCase(testCase);
 
-    testPlan
-        .setTestProcedurePath("/Envelope/receiver/TP_NIST-CDC_Receiver_SOAP_Envelope_Testing.docx");
+    testPlan.setTestProcedurePath(this.domain
+        + "/Envelope/receiver/TP_NIST-CDC_Receiver_SOAP_Envelope_Testing.docx");
     testPlans.add(testPlan);
     return testPlans;
   }

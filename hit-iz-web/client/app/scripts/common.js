@@ -505,7 +505,7 @@ angular.module('commonServices').factory('StorageService',
             SOAP_COMM_RECEIVER_PWD_KEY: 'SOAP_COMM_RECEIVER_PWD',
             SOAP_COMM_RECEIVER_ENDPOINT_KEY: 'SOAP_COMM_RECEIVER_ENDPOINT',
             SOAP_COMM_RECEIVER_FACILITYID_KEY: 'SOAP_COMM_RECEIVER_FACILITYID',
-
+            DQA_OPTIONS_KEY: 'DQA_OPTIONS_KEY',
 
             remove: function (key) {
                 return localStorageService.remove(key);
@@ -599,108 +599,6 @@ angular.module('commonServices').factory('DataInstanceReport', function ($http, 
     };
     return DataInstanceReport;
 });
-
-angular.module('commonServices').factory('Er7MessageValidator', function ($http, $q, HL7EditorUtils) {
-    var Er7MessageValidator = function () {
-    };
-
-    Er7MessageValidator.prototype.validate = function (testContextId, content, name, dqaChecked, facilityId, contextType) {
-        var delay = $q.defer();
-        if (!HL7EditorUtils.isHL7(content)) {
-            delay.reject("Message provided is not an HL7 v2 message");
-        } else {
-//
-//            $http.get('../../resources/cf/newValidationResult3.json').then(
-//                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-            $http.post('api/testcontext/' + testContextId + '/validateMessage', angular.fromJson({"content": content, "dqa": dqaChecked, "facilityId": "1223", "contextType": contextType})).then(
-                function (object) {
-                    try {
-                        delay.resolve(angular.fromJson(object.data));
-                    } catch (e) {
-                        delay.reject("Invalid character in the message");
-                    }
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-        }
-        return delay.promise;
-    };
-
-    return Er7MessageValidator;
-});
-
-angular.module('commonServices').factory('Er7MessageParser', function ($http, $q, HL7EditorUtils) {
-    var Er7MessageParser = function () {
-    };
-
-    Er7MessageParser.prototype.parse = function (testContextId, content, name) {
-        var delay = $q.defer();
-        if (!HL7EditorUtils.isHL7(content)) {
-            delay.reject("Message provided is not an HL7 v2 message");
-        } else {
-            $http.post('api/testcontext/' + testContextId + '/parseMessage', angular.fromJson({"content": content})).then(
-                function (object) {
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//            $http.get('../../resources/cf/messageObject.json').then(
-//                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-        }
-
-        return delay.promise;
-    };
-
-    return Er7MessageParser;
-});
-
-
-//angular.module('commonServices').factory('DQAMessageValidator', function ($http, $q) {
-//    var DQAMessageValidator = function () {
-//    };
-//
-//    DQAMessageValidator.prototype.validate = function (testContextId, content, facilityId) {
-//        var delay = $q.defer();
-//
-//        $http.post('api/testcontext/' + testContextId + '/dqaValidateMessage', angular.fromJson({"content": content, "facilityId": facilityId})).then(
-//            function (object) {
-//                delay.resolve(angular.fromJson(object.data));
-//            },
-//            function (response) {
-//                delay.reject(response.data);
-//            }
-//        );
-//
-////        $http.get('../../resources/cf/newValidationResult4.json').then(
-////            function (object) {
-////                delay.resolve(angular.fromJson(object.data));
-////            },
-////            function (response) {
-////                delay.reject(response.data);
-////            }
-////        );
-//        return delay.promise;
-//    };
-//
-//    return DQAMessageValidator;
-//});
 
 angular.module('commonServices').factory('NewValidationReport', function ($http, $q) {
     var NewValidationReport = function () {

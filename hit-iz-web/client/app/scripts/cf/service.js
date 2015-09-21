@@ -2,7 +2,7 @@
 
 
 angular.module('cf').factory('CF',
-    ['$rootScope', '$http', '$q', 'HL7', 'Editor', 'EDICursor', 'Er7Message', 'Tree', function ($rootScope, $http, $q, HL7, Editor, EDICursor, Er7Message, Tree) {
+    ['$rootScope', '$http', '$q', 'Editor', 'EDICursor', 'Er7Message', 'Tree', function ($rootScope, $http, $q, Editor, EDICursor, Er7Message, Tree) {
         var CF = {
             editor: new Editor(),
             cursor: new EDICursor(),

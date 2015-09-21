@@ -12,8 +12,16 @@
 
 package gov.nist.hit.iz.web.config;
 
+import gov.nist.hit.core.hl7v2.service.HL7V2MessageValidator;
+import gov.nist.hit.core.hl7v2.service.HL7V2ResourcebundleLoaderImpl;
+import gov.nist.hit.core.service.ResourcebundleLoader;
+import gov.nist.hit.core.service.ValidationReportGenerator;
+import gov.nist.hit.core.service.ValidationReportGeneratorImpl;
+import gov.nist.hit.iz.service.HL7V2MessageValidatorImpl;
 import gov.nist.hit.iz.service.IISReceiver;
 import gov.nist.hit.iz.service.Receiver;
+import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
+import gov.nist.hit.iz.service.soap.SOAPValidationReportGeneratorImpl;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,7 +35,7 @@ import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
 
 @Configuration
 @ImportResource("classpath:/app-ws-context.xml")
-public class WebBeanConfig {
+public class IZWebBeanConfig {
 
   @Bean
   public SimpleJaxWsServiceExporter simpleJaxWsServiceExporter() {
@@ -38,5 +46,27 @@ public class WebBeanConfig {
   public Receiver receiver() {
     return new IISReceiver();
   }
+
+  @Bean
+  public HL7V2MessageValidator hl7v2MessageValidator() {
+    return new HL7V2MessageValidatorImpl();
+  }
+
+  @Bean
+  public ResourcebundleLoader resourcebundleLoader() {
+    return new HL7V2ResourcebundleLoaderImpl();
+  }
+
+  @Bean
+  public SOAPValidationReportGenerator soapValidationReportGenerator() {
+    return new SOAPValidationReportGeneratorImpl();
+  }
+
+  @Bean
+  public ValidationReportGenerator validationReportGenerator() {
+    return new ValidationReportGeneratorImpl();
+  }
+
+
 
 }

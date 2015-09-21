@@ -159,8 +159,8 @@
                 <div class="page-header">
                     <h3>Log
                         <!--<button title="Clear" type="button" class="pull-right btn btn-xs btn-default"-->
-                                <!--ng-click="logger.clear()">-->
-                            <!--<span class="glyphicon glyphicon-remove"></span>-->
+                        <!--ng-click="logger.clear()">-->
+                        <!--<span class="glyphicon glyphicon-remove"></span>-->
                         <!--</button>-->
                     </h3>
                 </div>
@@ -182,177 +182,100 @@
     </div>
 </script>
 
+<script type="text/ng-template" id="DQAConfig.html">
+    <div class="modal-header">
+        <h3 class="modal-title">DQA Options Panel</h3>
+    </div>
+    <div class="modal-body">
 
+        <div class="row">
 
+            <button ng-click="selectAll()" type="button"
+                    title="Save" class="btn btn-xs btn-primary">
+                <i class="fa fa-check-square-o"></i> Select All
+            </button>
 
+            <button ng-click="unselectAll()" type="button"
+                    title="Unselect All" class="btn btn-xs btn-primary">
+                <i class="fa fa-square-o"></i> Unselect All
+            </button>
+        </div>
 
-<!--<script type="text/ng-template" id="SOAPTestCase.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-        <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && node.type === selectedTestCase.type}"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap" class="tc-tree-node">-->
-            <!--<a class="point" ng-click="selectTestCase(node)">{{::node.label}}</a>-->
-        <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
+        <div class="row">
+            <div class="cols-md-10">
+                <div class="page-header">
+                    <span style="font-weight: bold; font-size: 18px">Errors Options</span>
 
-<!--<script type="text/ng-template" id="CBTestCase.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding-top:0px;  padding-bottom:0px; white-space: nowrap"-->
-            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && 'TestCase' === selectedTestCase.type}">-->
-            <!--<a class="point"-->
-               <!--ng-click="selectTestCase(node)">{{::node.name}}</a>-->
-            <!--&lt;!&ndash;<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">&ndash;&gt;-->
-        <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
+                    <button ng-click="selectAllCodes('errors')" type="button"
+                            title="Select All Errors" class="btn btn-xs btn-danger">
+                        <i class="fa fa-check-square-o"></i> Select All Errors
+                    </button>
 
-<!--<script type="text/ng-template" id="CBTestStep.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding-top:0px;  padding-bottom:0px; white-space: nowrap"-->
-            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && 'TestStep' === selectedTestCase.type}">-->
-            <!--<a class="point"-->
-               <!--ng-click="selectTestCase(node)">{{::node.position}}.{{::node.name}}</a>-->
-        <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
+                    <button ng-click="unselectAllCodes('errors')" type="button"
+                            title="Unselect All Errors" class="btn btn-xs btn-danger">
+                        <i class="fa fa-square-o"></i> Unselect All Errors
+                    </button>
+                </div>
+                <table class="table table-striped table-condensed table-bordered">
+                    <thead class="tbl-header">
+                    <th></th>
+                    <th>Code</th>
+                    <th>Description</th>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in options.errors">
+                        <td cs-select="row">
+                            <input ng-click="onCodeCheck($event, row.code)"
+                                   ng-checked="selectedCodes.indexOf(row.code) >= 0"
+                                   type="checkbox"></td>
+                        <td>{{row.code}}</td>
+                        <td>{{row.desc}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cols-md-10">
+                <div class="page-header">
+                    <span style="font-weight: bold; font-size: 18px">Warnings Options</span>
+                    <button ng-click="selectAllCodes('warnings')" type="button"
+                            title="Select All Warnings" class="btn btn-xs btn-warning">
+                        <i class="fa fa-check-square-o"></i> Select All Warnings
+                    </button>
 
-<!--<script type="text/ng-template" id="CBTestPlan.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding-top:0px;  padding-bottom:0px; white-space: nowrap">-->
-            <!--<a class="point"-->
-               <!--ng-click="selectTestCase(node)">{{::node.name}}</a>-->
-            <!--&lt;!&ndash;<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">&ndash;&gt;-->
-        <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
-
-
-<!--<script type="text/ng-template" id="CBTestCaseGroup.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding-top:0px;  padding-bottom:0px; white-space: nowrap">-->
-            <!--<span>{{::node.name}}</span>-->
-            <!--&lt;!&ndash;<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">&ndash;&gt;-->
-        <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
-
-<!--<script type="text/ng-template" id="CFTestCase.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding:0;white-space: nowrap"-->
-            <!--ng-class="{ 'node-active': node.id === testCase.id && node.type === testCase.type}">-->
-             <!--<span>{{::node.name}}</span>-->
-            <!--&lt;!&ndash;<input ng-if="node.children != null && node.children.length > 0" title="Expand All" ng-click="expand($event)" type="checkbox">&ndash;&gt;-->
-        <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
-
-<!--<script type="text/ng-template" id="CFTestStep.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding:0;white-space: nowrap"-->
-            <!--ng-class="{ 'node-active': node.id === testCase.id && node.type === testCase.type}">-->
-            <!--<a class="point" ng-click="loadTestCase(node)">{{::node.name}}</a>-->
-        <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
-
-
-
-<!--<script type="text/ng-template" id="IsolatedTestCase.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap"-->
-            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && node.type  === 'TestCase'}">-->
-            <!--<a class="point"-->
-               <!--ng-click="selectTestCase(node)">{{::node.name}}</a>-->
-        <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
-
-<!--<script type="text/ng-template" id="IsolatedResponderTestStep.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap"-->
-            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && node.type === selectedTestCase.type}">-->
-            <!--<a class="point"-->
-               <!--ng-click="selectTestCase(node)">-->
-                <!--<i  class="fa fa-arrow-left"></i>-->
-                <!--{{::node.position}}. {{::node.name}}</a>-->
-         <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
-
-<!--<script type="text/ng-template" id="IsolatedInitiatorTestStep.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap"-->
-            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && node.type === selectedTestCase.type}">-->
-            <!--<a class="point"-->
-               <!--ng-click="selectTestCase(node)">-->
-                <!--<i-->
-                   <!--class="fa fa-arrow-right"></i>-->
-                <!--{{::node.position}}. {{::node.name}}</a>-->
-         <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
-
-<!--<script type="text/ng-template" id="IsolatedManualTestStep.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap"-->
-            <!--ng-class="{ 'node-active': node.id === selectedTestCase.id && (node.type === 'TestStep' ||  node.type  === 'TestCase')}">-->
-            <!--<a class="point"-->
-               <!--ng-click="selectTestCase(node)">-->
-                <!--<i-->
-                   <!--class="fa fa-check-square-o"></i>-->
-                <!--{{::node.position}}. {{::node.name}}</a>-->
-         <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
-
-
-<!--<script type="text/ng-template" id="IsolatedTestPlan.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap">-->
-            <!--<a class="point"-->
-               <!--ng-click="selectTestCase(node)">{{::node.name}}</a>-->
-        <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
-
-
-
-<!--<script type="text/ng-template" id="IsolatedTestCaseGroup.html">-->
-    <!--<tr tt-node style="white-space: nowrap"-->
-       <!--data="node"-->
-        <!--is-branch="node.children != null && node.children.length > 0">-->
-        <!--<td style="padding-top:0px;  padding-bottom:0px;white-space: nowrap">-->
-            <!--<span>{{::node.name}}</span>-->
-        <!--</td>-->
-    <!--</tr>-->
-<!--</script>-->
-
-
-
-
-
-
+                    <button ng-click="unselectAllCodes('warnings')" type="button"
+                            title="Unselect All Warnings" class="btn btn-xs btn-warning">
+                        <i class="fa fa-square-o"></i> Unselect All Warnings
+                    </button>
+                </div>
+                <table class="table table-striped table-condensed table-bordered">
+                    <thead class="tbl-header">
+                    <th></th>
+                    <th>Code</th>
+                    <th>Description</th>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in options.warnings">
+                        <td cs-select="row">
+                            <input ng-click="onCodeCheck($event, row.code)"
+                                   ng-checked="selectedCodes.indexOf(row.code) >= 0"
+                                   type="checkbox"></td>
+                        <td>{{row.code}}</td>
+                        <td>{{row.desc}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button ng-click="save()" type="button"
+                title="Save" class="btn btn-sm btn-success">
+            <i class="fa fa-check"></i> Save
+        </button>
+        <button ng-click="cancel()" type="button"
+                title="Cancel" class="btn btn-sm btn-primary">
+            <i class="fa fa-times"></i>
+            Cancel
+        </button>
+    </div>
+</script>

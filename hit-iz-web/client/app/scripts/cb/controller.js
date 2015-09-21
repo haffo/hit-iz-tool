@@ -135,20 +135,20 @@ angular.module('cb')
         };
 
         $scope.selectTestCase = function (node) {
-                 if ($scope.selectedTestCase == null || $scope.selectedTestCase.id != node.id) {
-                    $scope.selectedTestCase = node;
-                    StorageService.set(StorageService.CB_SELECTED_TESTCASE_ID_KEY, node.id);
-                    StorageService.set(StorageService.CB_SELECTED_TESTCASE_TYPE_KEY, node.type);
-                    $timeout(function () {
-                        $rootScope.$broadcast('cb:testCaseSelected', $scope.selectedTestCase);
-                    });
-                }
-         };
+            if ($scope.selectedTestCase == null || $scope.selectedTestCase.id != node.id) {
+                $scope.selectedTestCase = node;
+                StorageService.set(StorageService.CB_SELECTED_TESTCASE_ID_KEY, node.id);
+                StorageService.set(StorageService.CB_SELECTED_TESTCASE_TYPE_KEY, node.type);
+                $timeout(function () {
+                    $rootScope.$broadcast('cb:testCaseSelected', $scope.selectedTestCase);
+                });
+            }
+        };
 
-        $scope.selectNode = function (id,type) {
+        $scope.selectNode = function (id, type) {
             $timeout(function () {
                 testCaseService.selectNodeByIdAndType($scope.tree, id, type);
-            },0);
+            }, 0);
         };
 
 
@@ -214,9 +214,21 @@ angular.module('cb')
         $scope.messageObject = [];
         $scope.tError = null;
         $scope.tLoading = false;
+        $scope.dqaCodes = StorageService.get(StorageService.DQA_OPTIONS_KEY) != null ? angular.fromJson(StorageService.get(StorageService.DQA_OPTIONS_KEY)):[];
 
-        $scope.dqaOptions = {
-            checked: false
+        $scope.showDQAOptions = function(){
+            var modalInstance = $modal.open({
+                templateUrl: 'DQAConfig.html',
+                controller: 'DQAConfigCtrl',
+                windowClass: 'dq-modal',
+                animation:true,
+                keyboard:false,
+                backdrop:false
+            });
+            modalInstance.result.then(function (selectedCodes) {
+                $scope.dqaCodes = selectedCodes;
+            }, function () {
+            });
         };
 
         $scope.hasContent = function () {
@@ -342,7 +354,7 @@ angular.module('cb')
             $scope.vError = null;
             if ($scope.cb.testCase != null && $scope.cb.message.content !== "") {
                 try {
-                    var validator = new Er7MessageValidator().validate($scope.cb.testCase.testContext.id, $scope.cb.message.content, '', $scope.dqaOptions.checked, "1223", "Based");
+                    var validator = new Er7MessageValidator().validate($scope.cb.testCase.testContext.id, $scope.cb.message.content, '', $scope.dqaCodes, "1223", "Based");
                     validator.then(function (mvResult) {
                         $scope.vLoading = false;
                         $scope.loadValidationResult(mvResult);
@@ -472,8 +484,8 @@ angular.module('cb')
 
         };
 
-    }])
-;
+    }]);
+
 
 angular.module('cb')
     .controller('CBProfileViewerCtrl', ['$scope', 'CB', function ($scope, CB) {

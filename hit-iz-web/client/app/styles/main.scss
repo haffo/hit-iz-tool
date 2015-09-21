@@ -1589,3 +1589,9 @@ li.validation-result-subtab {
 .nopointer{
   cursor:text;
 }
+
+.dq-modal .modal-dialog {
+  width: 60%;
+  height: 100%;
+  overflow-y: auto;
+}

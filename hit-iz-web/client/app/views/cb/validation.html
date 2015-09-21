@@ -69,10 +69,11 @@
             </span>
                             <span class="row fileupload-buttonbar  pull-right">
 
-                                <span ng-show="true">
-                                <input type="checkbox" ng-change="execute()"
-                                       ng-model="dqaOptions.checked">DQA
-                                </span>
+                                <button title="Validate" type="button" class="btn btn-xs btn-primary"
+                                        ng-click="showDQAOptions()">
+                                    <i class="fa fa-cog"></i>
+                                    DQA Options
+                                </button>
 
                                 <button title="Validate" type="button" class="btn btn-xs btn-success"
                                         ng-click="execute()">

@@ -26,15 +26,16 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class Bootstrap implements InitializingBean {
+public class Bootstrap {
 
   static final Logger logger = LoggerFactory.getLogger(SOAPController.class);
 
@@ -47,10 +48,9 @@ public class Bootstrap implements InitializingBean {
   @Autowired
   UserRepository userRepository;
 
-  @Autowired
-  @Override
+  @PostConstruct
   @Transactional()
-  public void afterPropertiesSet() throws Exception {
+  public void init() throws Exception {
     System.setProperty("javax.xml.parsers.SAXParserFactory",
         "com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl");
     logger.info("Bootstrapping data...");
@@ -67,7 +67,7 @@ public class Bootstrap implements InitializingBean {
    * @throws URISyntaxException
    */
   private void soapEnv() throws IOException, ProfileParserException, URISyntaxException {
-    SOAPEnvelopeTestPlanParser parser = new SOAPEnvelopeTestPlanParser();
+    SOAPEnvelopeTestPlanParser parser = new SOAPEnvelopeTestPlanParser("/soap");
     List<EnvelopeTestPlan> testPlans = parser.create();
     for (int i = 0; i < testPlans.size(); i++) {
       soapEnvTestPlanRepository.save(testPlans.get(i));
@@ -80,7 +80,7 @@ public class Bootstrap implements InitializingBean {
    * @throws URISyntaxException
    */
   private void soapConn() throws IOException, URISyntaxException {
-    SOAPConnectivityTestPlanParser parser = new SOAPConnectivityTestPlanParser();
+    SOAPConnectivityTestPlanParser parser = new SOAPConnectivityTestPlanParser("/soap");
     List<ConnectivityTestPlan> testPlans = parser.create();
     for (int i = 0; i < testPlans.size(); i++) {
       soapConnTestPlanRepository.save(testPlans.get(i));
