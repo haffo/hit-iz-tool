@@ -2,8 +2,8 @@
 
 
 	<!-- param: output   values: json | jquery-tab-html | ng-tab-html    default: plain-html -->
-	<xsl:param name="output" select="'json'"/>
-	<xsl:variable name="version" select="'1.2'"/>
+	<xsl:param name="output" select="'json'" />
+	<xsl:variable name="version" select="'1.3'"/>
 	<!-- Release notes author: sriniadhi.work@gmail.com
 
 
@@ -305,7 +305,8 @@
 					.message-content  td.SubComponent {padding-left:25px;}
 					.message-content  td.noData {background:#B8B8B8;}
 					.message-content  .Field .noData {background:rgb(198, 222, 255);}
-					.message-content .panel-heading { background-color:#C2E0FF !important; }					
+					.message-content .panel-heading { font: bold; background-color:#D9EDF7 !important; }					
+					.message-content .accordion-heading { font-weight:bold; font-size:90%;  color: #003399;}										
                     }
                     @media print {
 					.message-content legend {text-align:center;font-size:110%; font-weight:bold;}					
@@ -332,7 +333,8 @@
                     .message-content  .SubComponent {padding-left:20px;}
                     .message-content td.noData {background:#B8B8B8;}
 					.message-content  td.noData {background:rgb(198, 222, 255);;}
-					.message-content .panel-heading { background-color:#C2E0FF !important; }										
+					.message-content .panel-heading { font: bold; background-color:#D9EDF7 !important; }										
+					.message-content .accordion-heading { font-weight:bold;  font-size:90%; color: #003399;}										
                     }
                     @page {
                     counter-increment: page;
@@ -1521,6 +1523,7 @@
 						<xsl:value-of select="'--'"/>
 				</xsl:variable>
 				<xsl:value-of select="util:tag($comment-string, '')"/>
+				<xsl:value-of select="util:tag('fieldset', '')"/>
 				<xsl:value-of select="util:tag(concat('div class=&quot;',  $div, '&quot;'), '')"/>
 				
 				<!-- generate tabset outer block for angular -->
@@ -1609,11 +1612,25 @@
 		<xsl:param name="val"/>
 		<xsl:param name="ind"/>
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		
+		<!-- use the tabname to convert into a valid javascript variable name that is used to track open and close of the accordions -->
+		<xsl:variable name="isOpenVar" select="concat('xsl', replace($tabname, '[ \\-]', ''))"/>
 		<xsl:choose>
 			<xsl:when test="$output = 'ng-tab-html'">
-				<xsl:value-of select="util:tag(concat(util:IfThenElse($vertical-orientation, 'accordion-group type=&quot;pills&quot;', 'tab'), ' heading=&quot;', $tabname, '&quot; vertical=&quot;', $vertical-orientation, '&quot;'), '')"/>
+				<xsl:value-of select="util:tag(concat(util:IfThenElse($vertical-orientation,                   concat('accordion-group type=&quot;pills&quot; style=&quot;margin-top:0;border: 1px ridge  #C6DEFF;&quot; is-open=&quot;', $isOpenVar, '&quot; '), 'tab'),                   util:IfThenElse($vertical-orientation, '', concat(' heading=&quot;', $tabname, '&quot; ')), ' vertical=&quot;', $vertical-orientation, '&quot;'), '')"/>
+				<xsl:if test="$vertical-orientation">
+						<xsl:value-of select="util:tag('accordion-heading', '')"/>						
+						<xsl:value-of select="util:tag('span class=&quot;clearfix&quot;', '')"/>
+						<xsl:value-of select="util:tag('span class=&quot;accordion-heading pull-left&quot;', '')"/>
+						<xsl:value-of select="util:tag(concat('i class=&quot;pull-left glyphicon&quot; ng-class=&quot;{''glyphicon-arrow-down'': ', $isOpenVar, ', ''glyphicon-play'': !', $isOpenVar, '}&quot;'), '')"/>
+						<xsl:value-of select="' '"/>
+						<xsl:value-of select="util:tag('/i', '')"/>
+						<xsl:value-of select="$tabname"/>
+						<xsl:value-of select="util:tag('/span', '')"/>
+						<xsl:value-of select="util:tag('/span', '')"/>
+						<xsl:value-of select="util:tag('/accordion-heading', '')"/>
+				</xsl:if>
 				<xsl:value-of select="util:tag('fieldset', $ind)"/>
-				<xsl:value-of select="util:tags('legend', $val, $ind)"/>
 			</xsl:when>
 			<xsl:when test="$output = 'plain-html'"> 
 				<xsl:value-of select="util:tag('fieldset', $ind)"/>
@@ -1807,6 +1824,7 @@
 					<xsl:value-of select="util:tag('/tabset', '')"/>
 				</xsl:if>
 				<xsl:value-of select="util:tag('/div', $ind)"/>
+				<xsl:value-of select="util:tag('/fieldset', '')"/>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="concat($nl, $ind, '}', $nl, ']', $nl, '}')"/>
@@ -1909,7 +1927,12 @@
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:strip-tabsets">
 		<xsl:param name="html"/>
 		
-		<xsl:value-of select="replace(replace($html, '(&lt;tab heading=&quot;.*&quot;)|(&lt;tabset)|(&lt;accordion(-group)?)', '&lt;div'),                     '(&lt;/tab&gt;)|(&lt;/tabset&gt;)|(&lt;/accordion(-group)?&gt;)', '&lt;/div&gt;')"/>
+		<xsl:variable name="pass1" select="replace($html, 'tab heading=&quot;([^&quot;]*)&quot; *vertical=&quot;false&quot;', 'fieldset&gt; &lt;legend&gt; $1 &lt;/legend')"/>
+		<xsl:variable name="pass2" select="replace($pass1, '/tab&gt;', '/fieldset&gt;')"/>
+		<xsl:variable name="pass3" select="replace($pass2, 'span class=&quot;accordion-heading pull-left&quot;', 'span')"/>
+		<xsl:variable name="pass4" select="replace($pass3, 'i class=&quot;pull-left glyphicon&quot; ng-', 'i ')"/>
+		<xsl:variable name="pass5" select="replace($pass4, 'accordion-heading', 'legend')"/>
+		<xsl:value-of select="replace(replace($pass5, '(&lt;tab heading=&quot;.*&quot;)|(&lt;tabset)|(&lt;accordion((-group)|(-heading))?)', '&lt;div'),                     '(&lt;/tab&gt;)|(&lt;/tabset&gt;)|(&lt;/accordion((-group)|(-heading))?&gt;)', '&lt;/div&gt;')"/>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:segdesc">
 		<xsl:param name="seg"/>
 		<xsl:choose>

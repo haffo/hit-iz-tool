@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ValueSetLibrary xsi:noNamespaceSchemaLocation="../Schema/ValueSets.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Description="Automatically generated vacab for RSP_K11" Name="Vocab for RSP_K11" OrganizationName="HL7 NIST" Status="Active" ValueSetLibraryIdentifier="e3996dd4-81e0-47e4-a77d-1be4213b4cba" ValueSetLibraryVersion="20150821-1">
+<ValueSetLibrary xsi:noNamespaceSchemaLocation="../Schema/ValueSets.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Description="Automatically generated vacab for RSP_K11" Name="Vocab for RSP_K11" OrganizationName="HL7 NIST" Status="Active" ValueSetLibraryIdentifier="e3996dd4-81e0-47e4-a77d-1be4213b4cba" ValueSetLibraryVersion="20150918-1">
 	<NoValidation>
 		<BindingIdentifier>HL70363_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70362_IZ</BindingIdentifier>

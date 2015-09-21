@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ConformanceProfile ID="aa3a45ab-4921-47dd-8ed1-e0f14f2c8f00" xsi:noNamespaceSchemaLocation="../Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData Name="RSP_K11" OrgName="NIST" Version="20150821-1"/>
+<ConformanceProfile ID="aa3a45ab-4921-47dd-8ed1-e0f14f2c8f00" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<MetaData Name="RSP_K11" OrgName="NIST" Version="20150918-1"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
 		<Encoding>XML</Encoding>
