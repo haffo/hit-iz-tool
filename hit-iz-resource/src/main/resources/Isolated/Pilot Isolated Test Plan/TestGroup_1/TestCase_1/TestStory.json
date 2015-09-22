@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "<p>The practice site for the scenario is Shoreline Pediatrics. The EHR vendor loads demographic data and clinical history for Juana Mariana Gonzales. The data includes immunizations provided by the practice.</p>\r\n\r\n<p>The vendor also enters:</p>\r\n\r\n<p>&bull; Two vaccines administered at other sites</p>\r\n\r\n<p>&nbsp; &nbsp;o an influenza vaccine given at a local pharmacy</p>\r\n\r\n<p>&nbsp; &nbsp;o an inactivated polio vaccine given elsewhere and not reported to the registry &ndash; the history includes an adverse reaction (febrile seizure) 8 hours after the vaccine was administered</p>\r\n\r\n<p>&bull; Adverse reaction to inactivated polio vaccine (febrile seizure) and the date and source of information</p>\r\n\r\n<p>&bull; Allergy to egg albumin administered at this site (the registry has different CVX date and lot number information for this vaccine)</p>\r\n\r\n<p>NOTE: the historical vaccines will be imported during the Registry query &nbsp;(e.g. from another practice)</p>\r\n",
-  "comments" : "<p>Set-up step evaluating EMR functions for capturing and storing patient pediatric demographic data, historical immunizations, and clinical conditions. There is no transaction associated with this test step.</p>\r\n",
-  "preCondition" : "<p>No PreCondition</p>\r\n",
-  "postCondition" : "<p>The EMR has recorded all of the pediatric demographic data, historical immunizations, and clinical conditions &nbsp;in the record created for Juana Mariana Gonzales&nbsp;using the test data provided.</p>\r\n",
-  "testObjectives" : "<p>No Test Objectives</p>\r\n",
-  "evaluationCriteria" : "<p>No evaluation criteria</p>\r\n",
-  "notes" : "<p>No Note</p>\r\n"
-}

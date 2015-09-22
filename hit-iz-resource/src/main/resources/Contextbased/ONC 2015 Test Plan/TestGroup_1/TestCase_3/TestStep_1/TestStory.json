@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<p>An 11.5 year old female, Katherine Mackenzie Benton, is brought to the West Clinic for a third and final dose of HPV vaccine. She is accompanied by her mother Kari Michelle Benton (nee Jones). A clinic staff member collects basic patient demographic information including name, date of birth and sex. The mother is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, the mother agrees that the child should receive the HPV vaccine, but she chooses not to share the data once it is incorporated into the local IIS. A clinic provider, Wilma Thomas (physician ID 654) places an order for the vaccination. While the patient is covered by insurance, the plan does not cover this vaccination and she qualifies for Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - Underinsured. An appropriate dose&nbsp;of HPV (CERVARIX) is selected from the clinic&rsquo;s stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the dose to the patient and then enters the data into the EHR and transmits it to the IIS.</p>\r\n",
+  "comments" : "<p>No Comments</p>\r\n",
+  "preCondition" : "<p>No PreCondition</p>\r\n",
+  "postCondition" : "<p>No PostCondition</p>\r\n",
+  "testObjectives" : "<p>No Test Objectives</p>\r\n",
+  "evaluationCriteria" : "<p>No evaluation criteria</p>\r\n",
+  "notes" : "<p>No Note</p>\r\n"
+}

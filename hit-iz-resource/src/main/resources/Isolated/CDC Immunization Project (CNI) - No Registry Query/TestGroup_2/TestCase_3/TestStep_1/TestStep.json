@@ -1,6 +1,0 @@
-{
-  "name" : "Display the Evaluated Immunization History for Mariela Gonzales Morales",
-  "description" : "The Provider uses the EMR to view the immunization history in Mariela Gonzales Morales ' record in the local system.",
-  "type" : "SUT_MANUAL",
-  "position" : 1
-}

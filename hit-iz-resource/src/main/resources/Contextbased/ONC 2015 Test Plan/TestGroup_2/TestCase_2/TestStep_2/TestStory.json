@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : " Query is returned for Clement S Stanley. Clement has a number of historical dose records, including one for small pox. This vaccine is not validated and so has no dose validity. All other doses are valid. Mr. Stanley is due for a pneumococcal vaccine and an influenza vaccine.",
+  "comments" : "No Comments",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "Deomonstrate capability to receive a response file with a number of doses adminsitered, both current and historical. Also demonstrate capability to display a vaccination that is not validated.",
+  "evaluationCriteria" : "No evaluation criteria",
+  "notes" : "No Note"
+}

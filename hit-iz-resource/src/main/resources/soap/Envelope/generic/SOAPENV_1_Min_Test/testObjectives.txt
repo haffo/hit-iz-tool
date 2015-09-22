@@ -1,6 +1,0 @@
-The generated SOAP message will demonstrate these minimal capabilities: 
-<ul>
-<li>element Envelope with child element Body as defined by the SOAP 1.2 standard</li>
-<li>user-chosen (conformant) XML content within Body (including no content) is permitted</li>
-<li>optional SOAP 1.2 elements (e.g. Header) are permissible but not required</li>
-</ul>

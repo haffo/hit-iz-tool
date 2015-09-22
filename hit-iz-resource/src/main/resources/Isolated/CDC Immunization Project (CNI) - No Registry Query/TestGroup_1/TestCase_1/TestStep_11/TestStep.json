@@ -1,6 +1,0 @@
-{
-  "name" : "Enter Pneumococcal,Doses 1-4 of 4",
-  "description" : "Patient History  for Pneumococcal is entered into the EMR.",
-  "type" : "SUT_MANUAL",
-  "position" : 11
-}

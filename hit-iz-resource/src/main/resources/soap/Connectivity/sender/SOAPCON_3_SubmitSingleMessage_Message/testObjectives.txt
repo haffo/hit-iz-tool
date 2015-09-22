@@ -1,6 +1,0 @@
-The body of the SOAP message must contain:
-<ul>
-<li>the element submitSingleMessage, as defined in the CDC WSDL 1.0</li>
-<li>the hl7Message element set to a single HL7 v2 message (properly formatted for inclusion within XML, e.g. CDATA) </li>
-<li>the tool-assigned string values for the username, password and facilityID elements</li>
-</ul>

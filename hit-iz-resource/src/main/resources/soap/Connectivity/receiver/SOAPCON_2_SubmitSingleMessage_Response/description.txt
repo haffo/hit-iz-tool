@@ -1,1 +1,0 @@
-This test evaluates the capability of a receiver (responder) technology conforming to the SOAP 1.2 standard and CDC WSDL 1.0 to receive a SOAP request message (containing an HL7 message), and respond appropriately.

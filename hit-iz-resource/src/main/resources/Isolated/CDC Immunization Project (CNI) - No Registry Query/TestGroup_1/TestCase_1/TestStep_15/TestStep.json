@@ -1,6 +1,0 @@
-{
-  "name" : "Enter MMRV Dose1 and 2 of 3",
-  "description" : "Patient History  for MMRV is entered into the EMR.",
-  "type" : "SUT_MANUAL",
-  "position" : 15
-}

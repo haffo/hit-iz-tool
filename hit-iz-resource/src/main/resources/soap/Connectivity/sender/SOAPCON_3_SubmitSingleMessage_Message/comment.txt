@@ -1,1 +1,0 @@
-The username, password and facilityID for this test are obtained from the test data provided in the test tool. 

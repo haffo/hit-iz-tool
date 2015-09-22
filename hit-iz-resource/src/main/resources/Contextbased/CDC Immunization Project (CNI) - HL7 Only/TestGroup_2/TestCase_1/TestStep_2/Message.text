@@ -1,0 +1,285 @@
+MSH|^~\&|MYIIS|MyStateIIS|MYEHR|Myclinic|20091130020020-0500||RSP^K11^RSP_K11|7731029|P|2.5.1|||NE|NE|||||Z42^CDCPHINVS|A_Clinic^SOME_SYSTEM^^^^X68^AN^^^A_Clinic1234|
+MSA|AA|793543||||
+QAK|37374859|OK|Z44^Request Evaluated History and Forecast^CDCPHINVS|||
+QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS|37374859||Gonzales^Juana^Mariana^^^^L|Acosta^Maria^Merida^^^^M|200912231105|F|4345 Standish Way^^Stamford^CT^^^L|^PRN^PH^^1^203^5551212||||
+PID|1||123456^^^MYEHR^MR~987633^^^MYIIS^SR||Gonzales^Juana^Mariana^^^^L|Acosta^Maria^Merida^^^^M|200911231105|F||2106-3^White^HL70396|4345 Standish Way^^Stamford^CT^06903^USA^L||^^^^1^203^5551212||eng^English^ISO639|||||||2135-2^Hispanic or Latino^CDCREC|||||||||||||||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20091123|20091123|08^hepatitis B vaccine, pediatric or pediatric/adolescent dosage^CVX^58160-0820-11^ENGERIX-B^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC||||6332FK33|20101214|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LT^Left Thigh^HL70163||||
+OBX|1|CE|30956-7^vaccine type^LN|1|31^Hep B Peds NOS^CVX ||||||F
+OBX|2|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|3|NM|30973-2^dose number in series^LN|3|1|NA^^HL70353|||||F
+OBX|4|NM|59782-3^number of doses in series^LN|3|3|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100115|20100115|45^hepatitis B vaccine, unspecified formulation^CVX^58160-0820-11^ENGERIX-B^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC||||6352FK1|20101001|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|RT^Right Thigh^HL70163||||
+OBX|5|CE|30956-7^vaccine type^LN|1|31^Hep B Peds NOS^CVX ||||||F
+OBX|6|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|7|NM|30973-2^dose number in series^LN|3|2|NA^^HL70353|||||F
+OBX|8|NM|59782-3^number of doses in series^LN|3|3|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20101030|20101030|08^hepatitis B vaccine, pediatric or pediatric/adolescent dosage^CVX^58160-0820-11^ENGERIX-B^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC||||6352FK24|20120831|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LT^Left Thigh^HL70163||||
+OBX|9|CE|30956-7^vaccine type^LN|1|31^Hep B Peds NOS^CVX ||||||F
+OBX|10|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|11|NM|30973-2^dose number in series^LN|3|3|NA^^HL70353|||||F
+OBX|12|NM|59782-3^number of doses in series^LN|3|3|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100122|20100122|107^diphtheria, tetanus toxoids and acellular pertussis vaccine, unspecified^CVX^49281-0286-01^DAPTACEL^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC||||D409QS2341|20111130|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LT^Left Thigh^HL70163||||
+OBX|13|CE|30956-7^vaccine type^LN|1|107^diphtheria, tetanus toxoids and acellular pertussis vaccine, unspecified^CVX ||||||F
+OBX|14|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|15|NM|30973-2^dose number in series^LN|3|1|NA^^HL70353|||||F
+OBX|16|NM|59782-3^number of doses in series^LN|3|5|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+OBX|2|TS|29768-9^VIS Publication Date^LN|1|20070517||||||F|||20100122
+OBX|2|DT|29769-7^VIS presented^LN|2|20100122||||||F
+OBX|3|CE|69764-9^Document type^LN|2|253088698300003511070517^Diphtheria/Tetanus/Pertussis (DTaP) VIS^cdcgs1vis||||||F<
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100323|20100323|106^diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis^CVX^49281-0286-01^DAPTACEL^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC||||D409QS2433|20110904|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|RT^Right Thigh^HL70163||||
+OBX|17|CE|30956-7^vaccine type^LN|1|107^diphtheria, tetanus toxoids and acellular pertussis vaccine, unspecified^CVX ||||||F
+OBX|18|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|19|NM|30973-2^dose number in series^LN|3|2|NA^^HL70353|||||F
+OBX|20|NM|59782-3^number of doses in series^LN|3|5|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+OBX|2|TS|29768-9^VIS Publication Date^LN|1|20070517||||||F|||20100323
+OBX|2|DT|29769-7^VIS presented^LN|2|20100323||||||F
+OBX|3|CE|69764-9^Document type^LN|2|253088698300003511070517^Diphtheria/Tetanus/Pertussis (DTaP) VIS^cdcgs1vis||||||F<
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100522|20100522|106^diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis^CVX^49281-0286-01^DAPTACEL^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC||||D409QS3255|20101201|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LT^Left Thigh^HL70163||||
+OBX|21|CE|31044-1^Reaction^LN|1|VXC12^fever of >40.5C (105F) within 48 hours of dose^CDCPHINVS||||||F|||20100523|||||||||||
+OBX|22|CE|30956-7^vaccine type^LN|1|107^diphtheria, tetanus toxoids and acellular pertussis vaccine, unspecified^CVX ||||||F
+OBX|23|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|24|NM|30973-2^dose number in series^LN|3|3|NA^^HL70353|||||F
+OBX|25|NM|59782-3^number of doses in series^LN|3|5|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+OBX|2|TS|29768-9^VIS Publication Date^LN|1|20070517||||||F|||20100522
+OBX|2|DT|29769-7^VIS presented^LN|2|20100522||||||F
+OBX|3|CE|69764-9^Document type^LN|2|253088698300003511070517^Diphtheria/Tetanus/Pertussis (DTaP) VIS^cdcgs1vis||||||F<
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20110221|20110221|106^diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis^CVX^49281-0286-01^DAPTACEL^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC||||D409QS249|20110301|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LD^Left Deltoid^HL70163||||
+OBX|26|CE|30956-7^vaccine type^LN|1|107^diphtheria, tetanus toxoids and acellular pertussis vaccine, unspecified^CVX ||||||F
+OBX|27|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|28|NM|30973-2^dose number in series^LN|3|4|NA^^HL70353|||||F
+OBX|29|NM|59782-3^number of doses in series^LN|3|5|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+OBX|2|TS|29768-9^VIS Publication Date^LN|1|20070517||||||F|||20110221
+OBX|2|DT|29769-7^VIS presented^LN|2|20110221||||||F
+OBX|3|CE|69764-9^Document type^LN|2|253088698300003511070517^Diphtheria/Tetanus/Pertussis (DTaP) VIS^cdcgs1vis||||||F<
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100122|20100122|49^Haemophilus influenzae type b vaccine, PRP-OMP conjugate^CVX^00006-4897-00^PedvaxHIB^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC||||7M54K9245|20100324|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|RT^Right Thigh^HL70163||||
+OBX|30|CE|30956-7^vaccine type^LN|1|17^Hib, unspecified formulation^CVX||||||F
+OBX|31|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|32|NM|30973-2^dose number in series^LN|3|1|NA^^HL70353|||||F
+OBX|33|NM|59782-3^number of doses in series^LN|3|4|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100323|20100323|49^Haemophilus influenzae type b vaccine, PRP-OMP conjugate^CVX^00006-4897-00^PedvaxHIB^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||7M55K3342|20101030|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LT^Left Thigh^HL70163||||
+OBX|34|CE|30956-7^vaccine type^LN|1|17^Hib, unspecified formulation^CVX||||||F
+OBX|35|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|36|NM|30973-2^dose number in series^LN|3|2|NA^^HL70353|||||F
+OBX|37|NM|59782-3^number of doses in series^LN|3|4|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100522|20100522|49^Haemophilus influenzae type b vaccine, PRP-OMP conjugate^CVX^00006-4897-00^PedvaxHIB^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||7M75K4566|20100523|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|RT^Right Thigh^HL70163||||
+OBX|38|CE|30956-7^vaccine type^LN|1|17^Hib, unspecified formulation^CVX||||||F
+OBX|39|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|40|NM|30973-2^dose number in series^LN|3|3|NA^^HL70353|||||F
+OBX|41|NM|59782-3^number of doses in series^LN|3|4|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20110221|20110221|49^Haemophilus influenzae type b vaccine, PRP-OMP conjugate^CVX^00006-4897-00^PedvaxHIB^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||7M53K5534|20110222|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LD^Left Deltoid^HL70163||||
+OBX|42|CE|30956-7^vaccine type^LN|1|17^Hib, unspecified formulation^CVX ||||||F
+OBX|43|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|44|NM|30973-2^dose number in series^LN|3|4|NA^^HL70353|||||F
+OBX|45|NM|59782-3^number of doses in series^LN|3|4|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100122|20100122|10^poliovirus vaccine, inactivated^CVX^49281-0860-55^IPOL^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D333PV2431|20101004|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C38299^SC^NCIT^SC^Subcutaneous^HL70162|LD^Left Deltoid^HL70163||||
+OBX|46|CE|30956-7^vaccine type^LN|1|10^poliovirus vaccine, inactivated^CVX ||||||F
+OBX|47|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|48|NM|30973-2^dose number in series^LN|3|1|NA^^HL70353|||||F
+OBX|49|NM|59782-3^number of doses in series^LN|3|4|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100323|20100323|10^poliovirus vaccine, inactivated^CVX^49281-0860-55^IPOL^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D333PV4344|20100323|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C38299^SC^NCIT^SC^Subcutaneous^HL70162|LD^Left Deltoid^HL70163||||
+OBX|50|CE|30956-7^vaccine type^LN|1|10^poliovirus vaccine, inactivated^CVX||||||F
+OBX|51|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|52|NM|30973-2^dose number in series^LN|3|2|NA^^HL70353|||||F
+OBX|53|NM|59782-3^number of doses in series^LN|3|4|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100121|20100121|133^pneumococcal conjugate vaccine, 13 valent^CVX^00005-1971-05^PREVNAR 13^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||P243V3281|20100130|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LT^Left Thigh^HL70163||||
+OBX|54|CE|30956-7^vaccine type^LN|1|109^pneumococcal, unspecified formulation^CVX||||||F
+OBX|55|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|56|NM|30973-2^dose number in series^LN|3|3|NA^^HL70353|||||F
+OBX|57|NM|59782-3^number of doses in series^LN|3|4|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100323|20100323|133^pneumococcal conjugate vaccine, 13 valent^CVX^00005-1971-05^PREVNAR 13^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||P343V8321|20100330|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LT^Left Thigh^HL70163||||
+OBX|58|CE|30956-7^vaccine type^LN|1|109^pneumococcal, unspecified formulation^CVX||||||F
+OBX|59|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|60|NM|30973-2^dose number in series^LN|3|4|NA^^HL70353|||||F
+OBX|61|NM|59782-3^number of doses in series^LN|3|4|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100522|20100522|133^pneumococcal conjugate vaccine, 13 valent^CVX^00005-1971-05^PREVNAR 13^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||P853V2164|20100830|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|RT^Right Thigh^HL70163||||
+OBX|62|CE|30956-7^vaccine type^LN|1|109^pneumococcal, unspecified formulation^CVX ||||||F
+OBX|63|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|64|NM|30973-2^dose number in series^LN|3|1|NA^^HL70353|||||F
+OBX|65|NM|59782-3^number of doses in series^LN|3|4|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20110221|20110221|133^pneumococcal conjugate vaccine, 13 valent^CVX^00005-1971-05^PREVNAR 13^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||P853V58532|20110418|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LD^Left Deltoid^HL70163||||
+OBX|66|CE|30956-7^vaccine type^LN|1|109^pneumococcal, unspecified formulation^CVX ||||||F
+OBX|67|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|68|NM|30973-2^dose number in series^LN|3|2|NA^^HL70353|||||F
+OBX|69|NM|59782-3^number of doses in series^LN|3|4|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100122|20100122|119^rotavirus, live, monovalent vaccine^CVX^58160-0854-52^ROTARIX^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||6359RV533|20100215|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LT^Left Thigh^HL70163||||
+OBX|70|CE|30956-7^vaccine type^LN|1|122^rotavirus, unspecified formulation^CVX ||||||F
+OBX|71|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|72|NM|30973-2^dose number in series^LN|3|1|NA^^HL70353|||||F
+OBX|73|NM|59782-3^number of doses in series^LN|3|3|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100122|20100122|119^rotavirus, live, monovalent vaccine^CVX^58160-0854-52^ROTARIX^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||6359RV533|20100215|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|RT^Right Thigh^HL70163||||
+OBX|74|CE|30956-7^vaccine type^LN|1|122^rotavirus, unspecified formulation^CVX ||||||F
+OBX|75|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|76|NM|30973-2^dose number in series^LN|3|1|NA^^HL70353|||||F
+OBX|77|NM|59782-3^number of doses in series^LN|3|3|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20100925|20100925|161^Influenza, injectable,quadrivalent, preservative free, pediatric^CVX^49281-0514-25^FLUZONE QUADRIVALENT^NDC|0.25|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D8043IN8734|20110312|PMC^Sanofi PasteurGlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LT^Left Thigh^HL70163||||
+OBX|78|CE|30956-7^vaccine type^LN|1|88^influenza, unspecified formulation^CVX||||||F
+OBX|79|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|80|NM|30973-2^dose number in series^LN|3|1|NA^^HL70353|||||F
+OBX|81|NM|59782-3^number of doses in series^LN|3|2|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20101027|20101027|161^Influenza, injectable,quadrivalent, preservative free, pediatric^CVX^49281-0514-25^FLUZONE QUADRIVALENT^NDC|0.25|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D8043IN8734|20110312|PMC^Sanofi PasteurGlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|RT^Right Thigh^HL70163||||
+OBX|82|CE|30956-7^vaccine type^LN|1|88^influenza, unspecified formulation^CVX ||||||F
+OBX|83|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|84|NM|30973-2^dose number in series^LN|3|2|NA^^HL70353|||||F
+OBX|85|NM|59782-3^number of doses in series^LN|3|2|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20111002|20111002|161^Influenza, injectable,quadrivalent, preservative free, pediatric^CVX^49281-0514-25^FLUZONE QUADRIVALENT^NDC|.25|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D9334IN9333|20120522|PMC^Sanofi PasteurGlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LD^Left Deltoid^HL70163||||
+OBX|86|CE|30956-7^vaccine type^LN|1|88^influenza, unspecified formulation^CVX ||||||F
+OBX|87|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20121104|20121104|161^Influenza, injectable,quadrivalent, preservative free, pediatric^CVX^49281-0514-25^FLUZONE QUADRIVALENT^NDC|0.25|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D9553IN2243|20120430|PMC^Sanofi PasteurGlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LD^Left Deltoid^HL70163||||
+OBX|88|CE|30956-7^vaccine type^LN|1|88^influenza, unspecified formulation^CVX ||||||F
+OBX|89|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20111123|20111123|83^hepatitis A vaccine, pediatric/adolescent dosage, 2 dose schedule^CVX^58160-0825-52^HAVRIX^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||6359RT33|20120124|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|RD^Right Deltoid^HL70163||||
+OBX|90|CE|30956-7^vaccine type^LN|1|85^Hep A, unspecified formulation^CVX ||||||F
+OBX|91|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|92|NM|30973-2^dose number in series^LN|3|1|NA^^HL70353|||||F
+OBX|93|NM|59782-3^number of doses in series^LN|3|2|NA^^HL70353|||||F
+OBX|2|TS|29768-9^VIS Publication Date^LN|1|20111025||||||F|||20111123
+OBX|2|DT|29769-7^VIS presented^LN|2|20111123||||||F
+OBX|3|CE|69764-9^Document type^LN|2|253088698300004211111025^Hepatitis A VIS^cdcgs1vis||||||F<
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20120523|20120523|83^hepatitis A vaccine, pediatric/adolescent dosage, 2 dose schedule^CVX^58160-0825-52^HAVRIX^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||6359RT48|20120911|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LD^Left Deltoid^HL70163||||
+OBX|94|CE|30956-7^vaccine type^LN|1|85^Hep A, unspecified formulation^CVX ||||||F
+OBX|95|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|96|NM|30973-2^dose number in series^LN|3|2|NA^^HL70353|||||F
+OBX|97|NM|59782-3^number of doses in series^LN|3|2|NA^^HL70353|||||F
+OBX|2|TS|29768-9^VIS Publication Date^LN|1|20111025||||||F|||20120523
+OBX|2|DT|29769-7^VIS presented^LN|2|20120523||||||F
+OBX|3|CE|69764-9^Document type^LN|2|253088698300004211111025^Hepatitis A VIS^cdcgs1vis||||||F<
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||^Shoreline Pediatrics||||||||||||||
+RXA|0|1|20101023|20101023|94^measles, mumps, rubella, and varicella virus vaccine^CVX^00006-4999-00^ProQuad^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Molina^Sandra|^^^DCS_DC^^^^^400 Shoreline Drive^^Stamford^CT^06901||||7W27V7491|20101215|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LT^Left Thigh^HL70163||||
+OBX|98|CE|30956-7^vaccine type^LN|1|94^MMRV^CVX ||||||F
+OBX|99|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|100|ID|59781-5^Dose validity^LN|3|N||||||F
+OBX|101|CE|30982-3^Reason code^LN|3|264499004^Early^SCT||||||F
+OBX|2|TS|29768-9^VIS Publication Date^LN|1|20100521||||||F|||20101023
+OBX|2|DT|29769-7^VIS presented^LN|2|20101023||||||F
+OBX|3|CE|69764-9^Document type^LN|2|253088698300013411100521^Measles/Mumps/Rubella/Varicella VIS||||||F<
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||^Oceanview Pediatrics||||||||||||||
+RXA|0|1|20121122|20121122|94^measles, mumps, rubella, and varicella virus vaccine^CVX^00006-4999-00^ProQuad^NDC|0.5|mL^^UCUM||00^new immunization record^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||7W87V3452|20130413|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LD^Left Deltoid^HL70163||||
+OBX|102|CE|30956-7^vaccine type^LN|1|94^MMRV^CVX ||||||F
+OBX|103|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|104|NM|30973-2^dose number in series^LN|3|1|NA^^HL70353|||||F
+OBX|105|NM|59782-3^number of doses in series^LN|3|2|NA^^HL70353|||||F
+OBX|100|ID|59781-5^Dose validity^LN|3|Y||||||F
+OBX|2|TS|29768-9^VIS Publication Date^LN|1|20100521||||||F|||20121122
+OBX|2|DT|29769-7^VIS presented^LN|2|20121122||||||F
+OBX|3|CE|69764-9^Document type^LN|2|253088698300013411100521^Measles/Mumps/Rubella/Varicella VIS||||||F<
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||STIIS^StateIIS^HL70362
+RXA|0|1|20091031|20091031|998^no vaccine admin^CVX|999||| |||||||||||NA 
+OBX|106|CE|30956-7^vaccine type^LN|1|10^IPV^CVX ||||||F
+OBX|107|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|108|DT|30980-7^Date vaccination due^LN|1|20100522||||||F
+OBX|108|DT|30981-5^Earliest date to give^LN|1|20100522||||||F
+OBX|108|DT|59777-3^Latest date next dose may be given^LN|1|20110522||||||F
+OBX|108|DT|59778-1^Date dose is overdue^LN|1|20110523||||||F
+OBX|109|NM|30973-2^dose number in series^LN|1|4|NA^^HL70353|||||F|||20141216
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||STIIS^StateIIS^HL70362
+RXA|0|1|20091031|20091031|998^no vaccine admin^CVX|999||| |||||||||||NA 
+OBX|106|CE|30956-7^vaccine type^LN|1|10^IPV^CVX ||||||F
+OBX|107|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|108|DT|30980-7^Date vaccination due^LN|1|20131122||||||F
+OBX|108|DT|30981-5^Earliest date to give^LN|1|20131122||||||F
+OBX|108|DT|59777-3^Latest date next dose may be given^LN|1|20151122||||||F
+OBX|108|DT|59778-1^Date dose is overdue^LN|1|20151123||||||F
+OBX|109|NM|30973-2^dose number in series^LN|1|4|NA^^HL70353|||||F|||20141216
+OBX|77|NM|59782-3^number of doses in series^LN|1|4|NA^^HL70353|||||F
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||STIIS^StateIIS^HL70362
+RXA|0|1|20091031|20091031|998^no vaccine admin^CVX|999||| |||||||||||NA 
+OBX|106|CE|30956-7^vaccine type^LN|1|88^influenza, unspecified formulation^CVX||||||F
+OBX|107|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|108|DT|30981-5^Earliest date to give^LN|1|20150901||||||F
+OBX|108|DT|30980-7^Date vaccination due^LN|1|20150901||||||F
+OBX|108|DT|59777-3^Latest date next dose may be given^LN|1|20160131||||||F
+OBX|109|NM|30973-2^dose number in series^LN|1|4|NA^^HL70353|||||F|||20141216
+OBX|77|NM|59782-3^number of doses in series^LN|1|4|NA^^HL70353|||||F
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||STIIS^StateIIS^HL70362
+RXA|0|1|20091031|20091031|998^no vaccine admin^CVX|999||| |||||||||||NA 
+OBX|110|CE|30956-7^vaccine type^LN |2|03^MMR^CVX||||||F
+OBX|111|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|108|DT|30981-5^Earliest date to give^LN|1|20131122||||||F
+OBX|112|DT|30980-7^Date vaccination due^LN|1|20131122||||||F
+OBX|108|DT|59777-3^Latest date next dose may be given^LN|1|20151122||||||F
+OBX|108|DT|59778-1^Date dose is overdue^LN|1|20151123||||||F
+OBX|113|NM|30973-2^dose number in series^LN|1|2|NA^^HL70353|||||F|||20141216
+OBX|77|NM|59782-3^number of doses in series^LN|1|2|NA^^HL70353|||||F
+ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||STIIS^StateIIS^HL70362
+RXA|0|1|20091031|20091031|998^no vaccine admin^CVX|999||| |||||||||||NA 
+OBX|114|CE|30956-7^vaccine type^LN |1|21^Varicella^CVX||||||F
+OBX|115|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20141216
+OBX|108|DT|30981-5^Earliest date to give^LN|1|20131122||||||F
+OBX|112|DT|30980-7^Date vaccination due^LN|1|20131122||||||F
+OBX|108|DT|59777-3^Latest date next dose may be given^LN|1|20151122||||||F
+OBX|108|DT|59778-1^Date dose is overdue^LN|1|20151123||||||F
+OBX|117|NM|30973-2^dose number in series^LN|1|2|NA^^HL70353|||||F|||20141216
+OBX|77|NM|59782-3^number of doses in series^LN|1|2|NA^^HL70353|||||F
