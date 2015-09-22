@@ -1,0 +1,8 @@
+<ol>
+<li>The Tester configures the NIST Test Tool with Username, Password, FacilityID, and Endpoint information.</li>
+<li>The Tester causes the NIST Test Tool to electronically generate and transmit to the System Under Test a SOAP message that conforms to the SOAP 1.2 standard but not to the CDC WSDL 1.0 because it does not contain either a submitSingleMessage or a connectivityTest element</li>
+<li>The System Under Test electronically generates and transmits to the EHR-S Test Agent in the NIST Test Tool a SOAP response message UnsupportedOperationFault that conforms to the SOAP 1.2 standard and CDC WSDL 1.0 and that is used for transporting an appropriate HL7 fault response message to a sender (initiator) system</li>
+<li>The Test Tool validates the SOAP response message for conformance to the SOAP 1.2 standard and CDC WSDL 1.0 </li>
+<li>The Test Tool generates a Validation Report listing the results of the validation</li>
+<li>The Tester reviews the Validation Report and compares the results to the Objectives and Evaluation Criteria associated with the Receiver SOAPCON_5_FaultDetection-Generation_UnsupportedOpFaults Test Case</li>
+</ol>

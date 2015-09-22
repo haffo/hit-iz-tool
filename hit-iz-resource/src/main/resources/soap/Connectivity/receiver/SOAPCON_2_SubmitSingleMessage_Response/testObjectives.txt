@@ -1,0 +1,6 @@
+<p>The receiver (responder) technology will demonstrate the ability to: </p>
+<ul>
+<li>Receive a SOAP message with the Body element containing submitSingleMessage, as defined in the CDC WSDL 1.0, and arbitrary conforming values for all child elements:  username, password, facilityID, and hl7Message</li>
+<li>Transmit a SOAP response message to the sender (initiator) that contains the element submitSingleMessageResponse, as defined in the CDC WSDL 1.0 with the return child element containing a valid HL7 message</li>
+</ul>
+

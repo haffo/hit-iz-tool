@@ -1,0 +1,9 @@
+The sender (initiator) technology will demonstrate the ability to: 
+<ul>
+<li>Connect to a web service endpoint specified by the NIST test tool and transmit a SOAP message with a Body element containing:
+<ul>
+<li>the element connectivityTest, as defined in the CDC WSDL 1.0</li>
+<li>user-chosen, non-empty, conformant string value for the child element of connectivityTest:  echoBack</li>
+</ul>
+</li>
+</ul>

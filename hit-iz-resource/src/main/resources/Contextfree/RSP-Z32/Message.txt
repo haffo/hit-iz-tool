@@ -1,9 +1,0 @@
-MSH|^~\&|MYIIS|MyStateIIS|MYEHR|Myclinic|20091130020020-0500||RSP^K11^RSP_K11|7731029|P|2.5.1|||NE|NE|||||Z32^CDCPHINVS|A_System^SOME_SYSTEM^^^^1.2.3.5&&^AN^^^A_Syst1234^|A_Clinic^SOME_SYSTEM^^^^X68&&^AN^^^A_Clinic1234^
-MSA|AA|793543
-QAK|37374859|OK|Z34^Request Immunization History^CDCPHINVS
-QPD|Z34^Request Immunization History^CDCPHINVS |37374859||Child^Bobbie^Q^^^^L|Que^Suzy^^^^^M|20050512|M|10 East Main St^^Myfaircity^GA^^^L
-PID|1||123456^^^MYEHR^MR~987633^^^MYIIS^SR||Child^Robert^Quenton^^^^L|Que^Suzy^^^^^M|20070706|M|||32 Prescott Street Ave^^Warwick^MA^02452^USA^L
-PD1||||||||||||N|20091130
-NK1|1|Child^Suzy^^^^^L|MTH^Mother^HL70063
-ORC|RE||142324567^YOUR_EHR|||||||^Shotgiver^Fred||^Orderwriter^Sally^^^^^^^^^^^^^^^^^^MD
-RXA|0|1|20120814||140^Influenza, seasonal, injectable, preservative free^CVX|0.5|mL^MilliLiter [SI Volume Units]^UCUM||00^New immunization record^NIP001|7832-1^Lemon^Mike^A^^^^^NIST-AA-1^^^^PRN|^^^X68||||Z0860BB|20121104|CSL^CSL Behring^MVX|||CP|A

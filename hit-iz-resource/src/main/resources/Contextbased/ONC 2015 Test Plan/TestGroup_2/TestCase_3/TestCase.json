@@ -1,5 +1,0 @@
-{
-  "name" : "Q R TC-3",
-  "position" : 3,
-  "description" : "Tests ability to send a query and receive a response where no patients are found."
-}
