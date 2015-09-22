@@ -16,8 +16,8 @@ import gov.nist.hit.core.domain.MessageModel;
 import gov.nist.hit.core.domain.XMLMessageElementData;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.service.exception.MessageParserException;
-import gov.nist.hit.core.service.exception.SoapMessageParserException;
 import gov.nist.hit.core.service.exception.XmlParserException;
+import gov.nist.hit.iz.service.exception.SoapMessageParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;

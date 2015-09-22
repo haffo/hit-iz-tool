@@ -11,9 +11,9 @@
  */
 package gov.nist.hit.iz.service;
 
-import gov.nist.hit.core.service.exception.SoapValidationReportException;
 import gov.nist.hit.core.service.exception.ValidationReportException;
 import gov.nist.hit.core.service.util.HtmlUtil;
+import gov.nist.hit.iz.service.exception.SoapValidationReportException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

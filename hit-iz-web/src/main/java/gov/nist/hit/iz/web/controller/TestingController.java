@@ -16,8 +16,6 @@ import gov.nist.healthcare.core.validation.message.MessageValidationException;
 import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.exception.MessageParserException;
 import gov.nist.hit.core.service.exception.ProfileParserException;
-import gov.nist.hit.core.service.exception.SoapValidationException;
-import gov.nist.hit.core.service.exception.SoapValidationReportException;
 import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.core.service.exception.ValidationReportException;
 import gov.nist.hit.core.service.exception.XmlFormatterException;
@@ -25,6 +23,8 @@ import gov.nist.hit.core.service.exception.XmlParserException;
 import gov.nist.hit.core.transport.TransportClientException;
 import gov.nist.hit.iz.repo.SOAPEnvelopeTestCaseRepository;
 import gov.nist.hit.iz.repo.SOAPEnvelopeTestPlanRepository;
+import gov.nist.hit.iz.service.exception.SoapValidationException;
+import gov.nist.hit.iz.service.exception.SoapValidationReportException;
 import gov.nist.hit.iz.web.exception.SOAPEnvelopeException;
 
 import org.slf4j.Logger;

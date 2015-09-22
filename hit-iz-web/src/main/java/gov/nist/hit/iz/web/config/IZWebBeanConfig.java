@@ -12,6 +12,8 @@
 
 package gov.nist.hit.iz.web.config;
 
+import gov.nist.hit.core.hl7v2.service.HL7V2MessageParser;
+import gov.nist.hit.core.hl7v2.service.HL7V2MessageParserImpl;
 import gov.nist.hit.core.hl7v2.service.HL7V2MessageValidator;
 import gov.nist.hit.core.hl7v2.service.HL7V2ResourcebundleLoaderImpl;
 import gov.nist.hit.core.service.ResourcebundleLoader;
@@ -50,6 +52,11 @@ public class IZWebBeanConfig {
   @Bean
   public HL7V2MessageValidator hl7v2MessageValidator() {
     return new HL7V2MessageValidatorImpl();
+  }
+
+  @Bean
+  public HL7V2MessageParser hl7v2MessageParser() {
+    return new HL7V2MessageParserImpl();
   }
 
   @Bean

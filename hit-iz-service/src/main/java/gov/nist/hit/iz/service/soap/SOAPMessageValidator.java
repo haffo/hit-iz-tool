@@ -12,7 +12,7 @@
 package gov.nist.hit.iz.service.soap;
 
 import gov.nist.hit.core.domain.ValidationResult;
-import gov.nist.hit.core.service.exception.SoapValidationException;
+import gov.nist.hit.iz.service.exception.SoapValidationException;
 
 
 public interface SOAPMessageValidator {

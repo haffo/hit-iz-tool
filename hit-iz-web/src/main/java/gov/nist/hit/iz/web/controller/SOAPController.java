@@ -14,8 +14,8 @@ package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
 import gov.nist.hit.core.service.exception.MessageException;
-import gov.nist.hit.core.service.exception.SoapValidationReportException;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
+import gov.nist.hit.iz.service.exception.SoapValidationReportException;
 import gov.nist.hit.iz.service.soap.SOAPMessageParser;
 import gov.nist.hit.iz.web.exception.SOAPEnvelopeException;
 
@@ -24,7 +24,6 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Callable;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -116,26 +115,21 @@ public class SOAPController extends TestingController {
 
   @RequestMapping(value = "/report/generate/{format}", method = RequestMethod.POST,
       consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-  public Callable<Map<String, String>> generate(@PathVariable final String format,
+  public Map<String, String> generate(@PathVariable final String format,
       @RequestParam("xmlReport") final String xmlReport) {
-    return new Callable<Map<String, String>>() {
-      @Override
-      public Map<String, String> call() throws Exception {
-        logger.info("Generating validation report in " + format);
-        if (xmlReport == null) {
-          throw new SoapValidationReportException("No xml report found in the request");
-        }
-        if ("HTML".equalsIgnoreCase(format)) {
-          HashMap<String, String> map = new HashMap<String, String>();
-          map.put("htmlReport", createHtml(xmlReport));
-          logger.info("Validation report in " + format + " Generated");
-          return map;
-        } else {
-          throw new SoapValidationReportException("Unsupported Soap Validation Report format "
-              + format);
-        }
-      }
-    };
+    logger.info("Generating validation report in " + format);
+    if (xmlReport == null) {
+      throw new SoapValidationReportException("No xml report found in the request");
+    }
+    if ("HTML".equalsIgnoreCase(format)) {
+      HashMap<String, String> map = new HashMap<String, String>();
+      map.put("htmlReport", createHtml(xmlReport));
+      logger.info("Validation report in " + format + " Generated");
+      return map;
+    } else {
+      throw new SoapValidationReportException("Unsupported Soap Validation Report format " + format);
+    }
+
   }
 
   @RequestMapping(value = "/upload", method = RequestMethod.POST,

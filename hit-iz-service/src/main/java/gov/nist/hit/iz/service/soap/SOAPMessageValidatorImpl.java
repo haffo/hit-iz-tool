@@ -13,7 +13,7 @@ package gov.nist.hit.iz.service.soap;
 
 import gov.nist.healthcare.core.validation.soap.SoapMessage;
 import gov.nist.hit.core.domain.ValidationResult;
-import gov.nist.hit.core.service.exception.SoapValidationException;
+import gov.nist.hit.iz.service.exception.SoapValidationException;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;

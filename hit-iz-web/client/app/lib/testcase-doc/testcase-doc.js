@@ -19,7 +19,7 @@
 
 
     mod
-        .controller('TestCaseDocumentationCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'TestCaseDocumentationLoader', 'ngTreetableParams', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, TestCaseDocumentationLoader,ngTreetableParams) {
+        .controller('TestCaseDocumentationCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'TestCaseDocumentationLoader', 'ngTreetableParams', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, TestCaseDocumentationLoader, ngTreetableParams) {
             $scope.context = null;
             $scope.data = null;
             $scope.loading = false;
@@ -45,7 +45,7 @@
 
             $scope.params = new ngTreetableParams({
                 getNodes: function (parent) {
-                    return parent ? parent.children : $scope.data != null ? $scope.data.children:[];
+                    return parent ? parent.children : $scope.data != null ? $scope.data.children : [];
                 },
                 getTemplate: function (node) {
                     return 'TestCaseDocumentationNode.html';
@@ -55,23 +55,42 @@
                 }
             });
 
-
-            $scope.downloadCompleteTestPackage = function () {
-
+            $scope.downloadCompleteTestPackage = function (stage) {
+                if (stage != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/testPackages";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "stage";
+                    input.value = stage;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
             };
 
-            $scope.downloadExampleMessages = function () {
-
+            $scope.downloadExampleMessages = function (stage) {
+                if (stage != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/exampleMessages";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "stage";
+                    input.value = stage;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
             };
 
-            $scope.downloadExpleMessage = function (row) {
-
-            };
-
-            $scope.downloadByPath = function (path, title) {
+            $scope.downloadArtifact = function (path, title) {
                 if (path != null && title) {
                     var form = document.createElement("form");
-                    form.action = "api/documentation/downloadByPath";
+                    form.action = "api/documentation/artifact";
                     form.method = "POST";
                     form.target = "_target";
                     var input = document.createElement("input");
@@ -88,19 +107,24 @@
                 }
             };
 
-            $scope.downloadMessage = function (row) {
-                $scope.downloadArtifact(row.id, row.type, "api/documentation/downloadMessage");
+            $scope.formatUrl = function (format) {
+                return "api/" + format + "/documentation/";
             };
 
-            $scope.downloadConfProfile = function (row) {
-                $scope.downloadArtifact(row.id, row.type, "api/documentation/downloadProfile");
+
+            $scope.downloadMessage = function (row) {
+                $scope.downloadContextFile(row.id, row.type, $scope.formatUrl(row.format) + "message", row.title);
+            };
+
+            $scope.downloadProfile = function (row) {
+                $scope.downloadContextFile(row.id, row.type, $scope.formatUrl(row.format) + "profile", row.title);
             };
 
             $scope.downloadValueSetLib = function (row) {
-                $scope.downloadArtifact(row.id, row.type, "api/documentation/downloadValueSetlib");
+                $scope.downloadContextFile(row.id, row.type, $scope.formatUrl(row.format) + "valuesetlib", row.title);
             };
 
-            $scope.downloadArtifact = function (targetId, targetType, targetUrl) {
+            $scope.downloadContextFile = function (targetId, targetType, targetUrl, targetTitle) {
                 if (targetId != null && targetType != null && targetUrl != null) {
                     var form = document.createElement("form");
                     form.action = targetUrl;
@@ -115,6 +139,13 @@
                     input.name = "targetType";
                     input.value = targetType;
                     form.appendChild(input);
+
+
+                    input = document.createElement("input");
+                    input.name = "targetTitle";
+                    input.value = targetTitle;
+                    form.appendChild(input);
+
 
                     form.style.display = 'none';
                     document.body.appendChild(form);
@@ -136,16 +167,7 @@
             TestCaseDocumentationLoader.prototype.getOneByStage = function (stage) {
                 var delay = $q.defer();
 //
-                $http.get('../../resources/documentation/cb.json').then(
-                    function (object) {
-                        delay.resolve(angular.fromJson(object.data));
-                    },
-                    function (response) {
-                        delay.reject(response.data);
-                    }
-                );
-
-//                $http.get('api/documentation/testcases', {params: {"stage": stage}, timeout: 60000}).then(
+//                $http.get('../../resources/documentation/cb.json').then(
 //                    function (object) {
 //                        delay.resolve(angular.fromJson(object.data));
 //                    },
@@ -153,6 +175,15 @@
 //                        delay.reject(response.data);
 //                    }
 //                );
+
+                $http.get('api/documentation/testcases', {params: {"stage": stage}, timeout: 60000}).then(
+                    function (object) {
+                        delay.resolve(angular.fromJson(object.data));
+                    },
+                    function (response) {
+                        delay.reject(response.data);
+                    }
+                );
                 return delay.promise;
             };
 
@@ -170,7 +201,7 @@
                 replace: true,
                 scope: {
                     treeControl: '='
-                 },
+                },
                 link: function (scope, element, attrs) {
                     var error, expand_all_parents, expand_level, for_all_ancestors, for_each_branch, get_parent, n, on_treeData_change, select_branch, selected_branch, tree;
                     error = function (s) {

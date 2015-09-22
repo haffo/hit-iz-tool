@@ -15,7 +15,6 @@ package gov.nist.hit.iz.web.controller;
 import gov.nist.hit.core.domain.Command;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.service.exception.MessageValidationException;
-import gov.nist.hit.core.service.exception.SoapValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.iz.domain.EnvelopeTestCase;
 import gov.nist.hit.iz.domain.EnvelopeTestContext;
@@ -23,6 +22,7 @@ import gov.nist.hit.iz.domain.EnvelopeTestPlan;
 import gov.nist.hit.iz.repo.SOAPEnvelopeTestCaseRepository;
 import gov.nist.hit.iz.repo.SOAPEnvelopeTestPlanRepository;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
+import gov.nist.hit.iz.service.exception.SoapValidationException;
 import gov.nist.hit.iz.service.soap.SOAPMessageValidator;
 import gov.nist.hit.iz.web.utils.Utils;
 
