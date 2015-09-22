@@ -26,7 +26,7 @@
 			<ValueElement Value="Q11" CodeSystem="HL70003" DisplayName="Q11"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70301_IZ" Name="Universal ID type">
-			<ValueElement Value="OID" CodeSystem="HL70301" DisplayName="OID"/>
+			<ValueElement Value="ISO" CodeSystem="HL70301" DisplayName="OID"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70136_IZ" Name="Yes/No indicator">
 			<ValueElement Value="Y" CodeSystem="HL70136" DisplayName="Yes"/>
