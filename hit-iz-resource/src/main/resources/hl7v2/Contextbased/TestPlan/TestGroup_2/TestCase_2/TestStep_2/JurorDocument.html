@@ -123,16 +123,31 @@
          color:#0840F8;
          }
       </style>
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script type="text/javascript">
-         $(function(){
+      <script>
+         function comment(){
          
          $("textarea").on("keyup",function (){
          var h=$(this);
-         h.height(30).height(h[0].scrollHeight);
+         h.height(20).height(h[0].scrollHeight);
          });
          
-         });
+         }
+         if(typeof jQuery =='undefined') {
+         var headTag = document.getElementsByTagName("head")[0];
+         var jqTag = document.createElement('script');
+         jqTag.type = 'text/javascript';
+         jqTag.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js';
+         jqTag.onload = comment;
+         headTag.appendChild(jqTag);
+         }
+         else {  
+         $(document).ready(function (){
+         
+         comment();
+         
+         })
+         
+         }
          
       </script>
    </head>
@@ -154,29 +169,29 @@
                <tr>
                   <th>Juror ID</th>
                   <td>
-                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50"></input>
+                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
                </tr>
                <tr>
                   <th>Juror Name</th>
                   <td>
-                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50"></input>
+                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
                </tr>
                <tr>
                   <th>HIT System Tested</th>
                   <td>
-                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50"></input>
+                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
                </tr>
                <tr>
                   <th>Inspection Date/Time</th>
                   <td>
-                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50"></input>
+                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
                </tr>
                <tr>
-                  <th>Inspection Settlement</th>
+                  <th>Inspection Settlement (Pass/Fail)</th>
                   <td>
                      <table id="inspectionStatus">
                         <thead>
@@ -188,10 +203,10 @@
                         <tbody>
                            <tr>
                               <td>
-                                 <input type="checkbox"></input>
+                                 <input type="checkbox" value=""></input>
                               </td>
                               <td>
-                                 <input type="checkbox"></input>
+                                 <input type="checkbox" value=""></input>
                               </td>
                            </tr>
                         </tbody>
@@ -201,13 +216,13 @@
                <tr>
                   <th>Reason Failed</th>
                   <td>
-                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50"></input>
+                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
                </tr>
                <tr>
                   <th>Juror Comments</th>
                   <td>
-                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50"></input>
+                     <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
                </tr>
             </tbody>
@@ -258,7 +273,7 @@
                   <td>02/14/1950</td>
                   <td> Male </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
             </tbody>
@@ -299,7 +314,7 @@
                <tr>
                   <td>ACIP</td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
             </tbody>
@@ -329,7 +344,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -340,7 +355,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -351,7 +366,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -362,7 +377,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -373,7 +388,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -384,7 +399,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -395,7 +410,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -406,7 +421,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -417,7 +432,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -428,7 +443,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -439,7 +454,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -450,7 +465,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -461,7 +476,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td> Complete </td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
             </tbody>
@@ -502,7 +517,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
@@ -513,7 +528,7 @@
                   <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#F2F2F2">
-                     <textarea maxLength="100" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
+                     <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
             </tbody>

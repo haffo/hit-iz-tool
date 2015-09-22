@@ -1,5 +1,5 @@
 {
-"version" : "1.2",
+"version" : "1.4",
 "profile" : "MessageContent",
 "tables":
 [
@@ -377,7 +377,7 @@ Initials Thereof", "data" : "S", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS ", "categorization" : ""},
+"HL70362 ", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -415,7 +415,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS ", "categorization" : ""},
+"HL70362 ", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -453,7 +453,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS ", "categorization" : ""},
+"HL70362 ", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -491,7 +491,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS ", "categorization" : ""},
+"HL70362 ", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -529,7 +529,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS ", "categorization" : ""},
+"HL70362 ", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -567,7 +567,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS ", "categorization" : ""},
+"HL70362 ", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -605,7 +605,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS ", "categorization" : ""},
+"HL70362 ", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -643,7 +643,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -681,7 +681,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -719,7 +719,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -757,7 +757,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -795,7 +795,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -871,7 +871,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",

@@ -1,5 +1,5 @@
 {
-"version" : "2.4",
+"version" : "2.6",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -72,7 +72,7 @@
 - Underinsured"},
 							{"element" : "Document Type", "data" : "Human papillomavirus Vaccine (Cervarix)
 VIS"},
-							{"element" : "Date Vis Presented", "data" : ""},
+							{"element" : "Date Vis Presented", "data" : "06/24/2015"},
 						]
 					}
 					}

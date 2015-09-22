@@ -1,5 +1,5 @@
 {
-"version" : "2.4",
+"version" : "2.6",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -73,7 +73,7 @@
 							{"element" : "Vaccine Funding Source", "data" : "Private"},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "Not VFC Eligible"},
 							{"element" : "Document Type", "data" : "Measles/Mumps/Rubella/Varicella VIS"},
-							{"element" : "Date Vis Presented", "data" : ""},
+							{"element" : "Date Vis Presented", "data" : "06/25/2015"},
 						]
 					}
 					}
@@ -108,10 +108,10 @@
 							{"element" : "Vaccine Funding Source", "data" : "Private"},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "Not VFC Eligible"},
 							{"element" : "Document Type", "data" : "Polio VIS"},
-							{"element" : "Date Vis Presented", "data" : ""},
+							{"element" : "Date Vis Presented", "data" : "06/25/2015"},
 							{"element" : "Document Type", "data" : "Diphtheria/Tetanus/Pertussis (DTaP)
 VIS"},
-							{"element" : "Date Vis Presented", "data" : ""},
+							{"element" : "Date Vis Presented", "data" : "06/25/2015"},
 						]
 					}
 					}

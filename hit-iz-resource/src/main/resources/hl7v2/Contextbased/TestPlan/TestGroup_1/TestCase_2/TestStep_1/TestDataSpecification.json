@@ -1,5 +1,5 @@
 {
-"version" : "2.4",
+"version" : "2.6",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -65,7 +65,7 @@ USA "},
 							{"element" : "Vaccine Funding Source", "data" : "Private"},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "Not VFC Eligible"},
 							{"element" : "Document Type", "data" : "Tetanus/Diphtheria (Td) VIS"},
-							{"element" : "Date Vis Presented", "data" : ""},
+							{"element" : "Date Vis Presented", "data" : "06/24/2015"},
 						]
 					}
 					}
