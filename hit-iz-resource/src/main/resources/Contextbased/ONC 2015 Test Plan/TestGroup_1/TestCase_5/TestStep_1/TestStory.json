@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<p>An 18 month old male, Daryl Andre Johnson, is brought to the West Clinic for a well child visit by his father James Terrance Johnson. Daryl&rsquo;s twin brother, born 5 minutes before Daryl, was not able to make it to the clinic. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient&rsquo;s vaccination history and determines that the child requires a Hep A vaccination. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The father is given the Vaccine Information Sheet (VIS) to review. After reading it, the father agrees that the child should receive the Hep A vaccine He also agrees that the data should be shared once it is incorporated into the local IIS. An appropriate dose of Hep A (VAQTA) is selected from the clinic&rsquo;s stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient, however the patient moves unexpectedly during the administration and only a portion of the dose is actually administered. The clinician enters the data into the EHR as a partial administration and transmits it to the IIS.</p>\r\n",
+  "comments" : "<p>No Comments</p>\r\n",
+  "preCondition" : "<p>No PreCondition</p>\r\n",
+  "postCondition" : "<p>No PostCondition</p>\r\n",
+  "testObjectives" : "<p>No Test Objectives</p>\r\n",
+  "evaluationCriteria" : "<p>No evaluation criteria</p>\r\n",
+  "notes" : "<p>No Note</p>\r\n"
+}

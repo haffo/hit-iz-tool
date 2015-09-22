@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<p>A young adult is seen by a clinician. The clinician uses the EHR to request and evaluated history and forecast. &nbsp;The IIS returns an evaluated history and forecast for that person.</p>\r\n",
+  "comments" : "<p>No Comments</p>\r\n",
+  "preCondition" : "<p>The person has a record in the IIS.</p>\r\n",
+  "postCondition" : "<p>No PostCondition</p>\r\n",
+  "testObjectives" : "<p>Evaluates EHR ability to create a well formed query for a young adult. Evaluates EHR ability to accept a response with evaluated history and forecast for that person.</p>\r\n",
+  "evaluationCriteria" : "<p>No evaluation criteria</p>\r\n",
+  "notes" : "<p>No Note</p>\r\n"
+}

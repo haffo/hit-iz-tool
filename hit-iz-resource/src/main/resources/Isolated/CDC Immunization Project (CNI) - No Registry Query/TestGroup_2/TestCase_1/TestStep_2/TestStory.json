@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<p>Once the vaccine history is entered in the EMR, the provider views the vaccine forecast.&nbsp;</p>\r\n",
+  "comments" : "<p>No Comments</p>\r\n",
+  "preCondition" : "<p>Vaccine History is is available in the EMR record for Juana Mariana Gonzales.</p>\r\n",
+  "postCondition" : "<p>A vaccine forecast based upon the complete vaccine history in the EMR is available to the user.&nbsp;</p>\r\n",
+  "testObjectives" : "<p><em>View Reconciled Immunization Forecast: </em>The EHR or other clinical software system has the ability to re-evaluate and update the immunization forecast using a patient&rsquo;s newly updated immunization history, where the updated forecast results from the reconciliation of immunization data contained in the public health immunization registry with immunization data contained in the EHR. Processing the new forecast can be internal to the EHR or it can use an external forecasting service.</p>\r\n",
+  "evaluationCriteria" : "<p>Tester verifies that the vendor can display the immunization forecast based upon the reconciled vaccination history:</p>\r\n\r\n<div style=\"font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;\">1.&nbsp;Verify that the EMR does not include in reconciled vaccine forecast:</div>\r\n\r\n<div>IPV due on&nbsp;5/22/2010</div>\r\n\r\n<div>2.&nbsp;Verify that the EMR includes in reconciled vaccine forecast:</div>\r\n\r\n<div>\r\n<div>IPV&nbsp;due on&nbsp;11/22/2013</div>\r\n</div>\r\n\r\n<div>\r\n<div>MMR&nbsp;due on&nbsp;5/22/2011</div>\r\n</div>\r\n\r\n<div>\r\n<div>Varicella&nbsp;due on&nbsp;5/22/2011</div>\r\n</div>\r\n\r\n<div>influenza, unspecified formulation due on&nbsp;10/21/2015</div>\r\n\r\n<div>&nbsp;</div>\r\n",
+  "notes" : "<p>No Note</p>\r\n"
+}

@@ -1,0 +1,6 @@
+{
+  "name" : "Enter Influenza History Doses",
+  "description" : "Patient History for Influenza is entered into the EMR.",
+  "type" : "SUT_MANUAL",
+  "position" : 13
+}

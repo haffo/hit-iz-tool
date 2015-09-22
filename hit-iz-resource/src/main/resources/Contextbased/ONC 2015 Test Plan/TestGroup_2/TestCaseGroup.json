@@ -1,0 +1,5 @@
+{
+  "name" : "Evaluated History and Forecast Group",
+  "position" : 2,
+  "description" : "This set of tests evaluates the EHR's ability to create well-formed queries and gracefully accept the response messages. It evaluates that the clinician is shown the results of the query."
+}

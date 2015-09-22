@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<p>The provider documents in the EMR the clinical history of an allergy to egg albumin.</p>\r\n",
+  "comments" : "<p>No Comments</p>\r\n",
+  "preCondition" : "<p>The EMR has recorded all of the pediatric demographic in the record created for Juana Mariana Gonzales.</p>\r\n",
+  "postCondition" : "<p>The clinical history of the allergy to egg albumin is documented in the&nbsp;record created for Juana Mariana Gonzales</p>\r\n",
+  "testObjectives" : "<p>Supporting data for: <em>Modify Antigen Recommendations Based on Allergy History: </em>The system notifies the provider of any conflicts between recommended vaccines in the updated forecast and the patient&rsquo;s active allergies.&nbsp;</p>\r\n",
+  "evaluationCriteria" : "<p>Evaluation Criteria:&nbsp;Vendor successfully records all clinical allergy data provided with all required attributes indicated by [Y]:</p>\r\n\r\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse; width:659pt\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"height:30.0pt; width:275pt\">Allergy Sugstance/Agent</td>\r\n\t\t\t<td style=\"width:275pt\">Egg Albumin Allergy (e.g. 213020009 Egg protein allergy (disorder), Allergy to eggs (disorder) 91930004)</td>\r\n\t\t\t<td style=\"width:109pt\">Y</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"height:30.0pt; width:275pt\">Date (allergy status known - e.g. thru testing or date of the allergy)</td>\r\n\t\t\t<td>8/31/2014</td>\r\n\t\t\t<td>Y</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n",
+  "notes" : "<p>No Note</p>\r\n"
+}

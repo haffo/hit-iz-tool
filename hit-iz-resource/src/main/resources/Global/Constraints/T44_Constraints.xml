@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConformanceContext UUID="T44-Constraints" xsi:noNamespaceSchemaLocation="../ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<MetaData>
+		<Description>Conformance context for T44</Description>
+	</MetaData>
+	<Predicates>
+		<Datatype/>
+		<Segment/>
+		<Group/>
+	</Predicates>
+	<Constraints>
+		<Datatype/>
+		<Segment/>
+		<Group/>
+	</Constraints>
+</ConformanceContext>

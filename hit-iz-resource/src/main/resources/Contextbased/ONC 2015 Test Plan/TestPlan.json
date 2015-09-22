@@ -1,0 +1,5 @@
+{
+  "name" : "ONC 2015 Test Plan",
+  "type" : "DataInstance",
+  "description" : "This set of tests evaluate the ability to send queries and receive the responses."
+}

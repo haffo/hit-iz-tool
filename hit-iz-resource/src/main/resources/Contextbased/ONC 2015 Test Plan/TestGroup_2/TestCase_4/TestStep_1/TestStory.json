@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<p>This test sends a query that will find too many matches.&nbsp;</p>\r\n",
+  "comments" : "<p>The sending system will need to accept a response indicating that too many matches were found.&nbsp;</p>\r\n",
+  "preCondition" : "<p>More than one person in the IIS matching the parameters in the query&nbsp;exists.</p>\r\n",
+  "postCondition" : "<p>Response indicates that there are more than one match (too many) and the clinician is informed.</p>\r\n",
+  "testObjectives" : "<p>No Test Objectives</p>\r\n",
+  "evaluationCriteria" : "<p>No evaluation criteria</p>\r\n",
+  "notes" : "<p>No Note</p>\r\n"
+}

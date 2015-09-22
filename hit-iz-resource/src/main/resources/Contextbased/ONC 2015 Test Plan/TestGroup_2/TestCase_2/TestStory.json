@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<p>This test requests an evaluated history and forecast for an adult with a small pox vaccination.</p>\r\n",
+  "comments" : "<p>No Comments</p>\r\n",
+  "preCondition" : "<p>No PreCondition</p>\r\n",
+  "postCondition" : "<p>No PostCondition</p>\r\n",
+  "testObjectives" : "<p>The objective is to evaluate the ability of the EHR to gracefully handle an immunization with no validation and not forecast.</p>\r\n",
+  "evaluationCriteria" : "<p>No evaluation criteria</p>\r\n",
+  "notes" : "<p>No Note</p>\r\n"
+}
