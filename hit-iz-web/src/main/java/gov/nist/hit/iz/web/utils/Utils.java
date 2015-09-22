@@ -42,7 +42,7 @@ public class Utils {
   public static String getUrl(HttpServletRequest request) {
     String scheme = request.getScheme();
     String host = request.getHeader("Host");
-    return scheme + "://" + host + "/iztool";
+    return scheme + "://" + host + request.getContextPath();
   }
 
 }

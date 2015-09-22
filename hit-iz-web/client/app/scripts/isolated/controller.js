@@ -851,7 +851,7 @@ angular.module('isolated')
                     $scope.vLoading = true;
                     $scope.vError = null;
                     if (IsolatedExecutionService.getValidationResult($scope.testStep) != undefined) { // validation result exit ?
-                        $scope.loadValidationResult(IsolatedExecutionService.getValidationResult($scope.testStep).json);
+                        $scope.loadValidationResult(IsolatedExecutionService.getValidationResult($scope.testStep));
                         $scope.vLoading = false;
                     } else {
                         if ($scope.isolated.message.content !== '') {

@@ -174,9 +174,13 @@
                 var report = null;
                 var validationResult = null;
                 if (mvResult !== null) {
-                    validationResult = new NewValidationResult();
-                    validationResult.init(mvResult.json);
-                    mvResult['result'] = validationResult;
+                    if(!mvResult.result) {
+                        validationResult = new NewValidationResult();
+                        validationResult.init(mvResult.json);
+                        mvResult['result'] = validationResult;
+                    }else{
+                        validationResult = mvResult.result;
+                    }
                 }
                 $timeout(function() {
                     $rootScope.$broadcast($scope.type + ':reportLoaded', mvResult);

@@ -46,7 +46,7 @@ var app = angular.module('tool', [
     'hit-report-viewer',
     'hit-testcase-viewer',
     'hit-testcase-tree',
-    'hit-testcase-doc',
+    'hit-doc',
     'hit-dqa',
     'documentation'
 ]);
@@ -172,7 +172,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 
                 $window.history.replaceState({
                     position: $rootScope.stackPosition
-                });
+                },'');
 
                 $rootScope.stackPosition++;
 

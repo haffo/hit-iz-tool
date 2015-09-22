@@ -1,6 +1,20 @@
 (function () {
 
-    var mod = angular.module('hit-testcase-doc', []);
+    var mod = angular.module('hit-doc', []);
+
+    mod.directive('documentationViewer', [
+        function () {
+            return {
+                restrict: 'A',
+                scope: {
+                    stage: '@'
+                },
+                templateUrl: 'lib/documentation-viewer/documentation-viewer.html',
+                replace: false,
+                controller: 'DocumentationCtrl'
+            };
+        }
+    ]);
 
 
     mod.directive('testcaseDoc', [
@@ -10,12 +24,160 @@
                 scope: {
                     stage: '@'
                 },
-                templateUrl: 'lib/testcase-doc/testcase-doc.html',
+                templateUrl: 'lib/documentation-viewer/testcase-doc.html',
                 replace: false,
                 controller: 'TestCaseDocumentationCtrl'
             };
         }
     ]);
+
+
+    mod.directive('knownIssues', [
+        function () {
+            return {
+                restrict: 'A',
+                templateUrl: 'lib/documentation-viewer/known-issues.html',
+                replace: false,
+                controller: 'KnownIssuesCtrl'
+            };
+        }
+    ]);
+
+    mod.directive('releaseNotes', [
+        function () {
+            return {
+                restrict: 'A',
+                templateUrl: 'lib/documentation-viewer/release-notes.html',
+                replace: false,
+                controller: 'ReleaseNotesCtrl'
+            };
+        }
+    ]);
+
+
+    mod.directive('userDocs', [
+        function () {
+            return {
+                restrict: 'A',
+                templateUrl: 'lib/documentation-viewer/user-docs.html',
+                replace: false,
+                controller: 'UserDocsCtrl'
+            };
+        }
+    ]);
+
+
+    mod
+        .controller('DocumentationCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout) {
+            $scope.status = {userDoc: true};
+
+        }]);
+
+
+    mod
+        .controller('UserDocsCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'UserDocListLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, UserDocListLoader) {
+            $scope.docs = [];
+            $scope.loading = true;
+            $scope.error = null;
+
+            var loader = new UserDocListLoader();
+            loader.then(function (result) {
+                $scope.loading = false;
+                $scope.docs = result;
+            }, function (error) {
+                $scope.loading = false;
+                $scope.error = null;
+                $scope.docs = [];
+            });
+
+            $scope.isLink = function (path) {
+                return path != null && path.startsWith("http");
+            };
+
+            $scope.downloadDocument = function (path) {
+                if (path != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadDocument";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "path";
+                    input.value = path;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            }
+
+        }]);
+
+
+    mod
+        .controller('ReleaseNotesCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'ReleaseNoteListLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, ReleaseNoteListLoader) {
+            $scope.docs = [];
+            $scope.loading = false;
+            $scope.error = null;
+            var loader = new ReleaseNoteListLoader();
+            loader.then(function (result) {
+                $scope.loading = false;
+                $scope.docs = result;
+            }, function (error) {
+                $scope.loading = false;
+                $scope.error = null;
+                $scope.docs = [];
+            });
+
+            $scope.downloadDocument = function (path) {
+                if (path != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadDocument";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "path";
+                    input.value = path;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            }
+        }]);
+
+
+    mod
+        .controller('KnownIssuesCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'KnownIssueListLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, KnownIssueListLoader) {
+            $scope.docs = [];
+            $scope.loading = false;
+            $scope.error = null;
+            var loader = new KnownIssueListLoader();
+            loader.then(function (result) {
+                $scope.loading = false;
+                $scope.docs = result;
+            }, function (error) {
+                $scope.loading = false;
+                $scope.error = null;
+                $scope.docs = [];
+            });
+
+            $scope.downloadDocument = function (path) {
+                if (path != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadDocument";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "path";
+                    input.value = path;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            }
+
+        }]);
 
 
     mod
@@ -197,7 +359,7 @@
         '$timeout', function ($timeout, $rootScope) {
             return {
                 restrict: 'E',
-                templateUrl: 'lib/testcase-doc/testcase-doc-tree.html',
+                templateUrl: '/testcase-doc-tree.html',
                 replace: true,
                 scope: {
                     treeControl: '='
@@ -706,5 +868,87 @@
             };
         }
     ]);
+
+    mod.factory('KnownIssueListLoader', ['$q', '$http', 'StorageService', '$timeout',
+        function ($q, $http, StorageService, $timeout) {
+            return function () {
+                var delay = $q.defer();
+                $http.get("api/documentation/knownissues").then(
+                    function (object) {
+                        delay.resolve(angular.fromJson(object.data));
+                    },
+                    function (response) {
+                        delay.reject(response.data);
+                    }
+                );
+//                $http.get('../../resources/documentation/docs.json').then(
+//                    function (object) {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    },
+//                    function (response) {
+//                        delay.reject(response.data);
+//                    }
+//                );
+
+                return delay.promise;
+            };
+        }
+    ]);
+
+
+    mod.factory('ReleaseNoteListLoader', ['$q', '$http', 'StorageService', '$timeout',
+        function ($q, $http, StorageService, $timeout) {
+            return function () {
+                var delay = $q.defer();
+                $http.get("api/documentation/releasenotes").then(
+                    function (object) {
+                        delay.resolve(angular.fromJson(object.data));
+                    },
+                    function (response) {
+                        delay.reject(response.data);
+                    }
+                );
+//
+//                $http.get('../../resources/documentation/docs.json').then(
+//                    function (object) {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    },
+//                    function (response) {
+//                        delay.reject(response.data);
+//                    }
+//                );
+
+                return delay.promise;
+            };
+        }
+    ]);
+
+    mod.factory('UserDocListLoader', ['$q', '$http', 'StorageService', '$timeout',
+        function ($q, $http, StorageService, $timeout) {
+            return function () {
+                var delay = $q.defer();
+                $http.get("api/documentation/userdocs").then(
+                    function (object) {
+                        delay.resolve(angular.fromJson(object.data));
+                    },
+                    function (response) {
+                        delay.reject(response.data);
+                    }
+                );
+//
+//                $http.get('../../resources/documentation/docs.json').then(
+//                    function (object) {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    },
+//                    function (response) {
+//                        delay.reject(response.data);
+//                    }
+//                );
+
+                return delay.promise;
+            };
+        }
+    ]);
+
 
 }).call(this);

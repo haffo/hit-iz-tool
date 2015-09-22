@@ -23,7 +23,9 @@
 <div ng-show="testCase != null">
 <div class="row" ng-show="testCase.sutType === 'SENDER' && testCase.testType === 'SENDER_CONNECTIVITY'">
     <div class="col-sm-10">
-        <p>Please collect and validate your incoming/outgoing messages in the <a ng-click="selectTestingType(0)">Stage 1: SOAP Envelope</a></p>
+        <p>Please collect and validate your incoming/outgoing messages in the <a href="#/soapEnv"><span class="badge">1</span>
+            <i class="fa fa-envelope"></i>
+            SOAP Envelope</a></p>
         <div class="panel panel-info">
             <!-- Default panel contents -->
             <div class="panel-heading">Configuration Information
