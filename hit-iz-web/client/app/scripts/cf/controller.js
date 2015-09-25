@@ -108,7 +108,7 @@ angular.module('cf')
         $scope.openProfileInfo = function () {
             var modalInstance = $modal.open({
                 templateUrl: 'CFProfileInfoCtrl.html',
-                windowClass: 'app-modal-window',
+                windowClass: 'profile-modal',
                 controller: 'CFProfileInfoCtrl'
             });
         };

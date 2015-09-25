@@ -1602,3 +1602,9 @@ li.validation-result-subtab {
   max-height: 800px !important;
   overflow: auto;
 }
+
+.profile-modal .modal-dialog {
+  width: 60%;
+  height: 80%;
+  overflow-y: auto;
+}

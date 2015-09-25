@@ -4,13 +4,13 @@ import gov.nist.healthcare.unified.model.EnhancedReport;
 import gov.nist.hit.core.domain.MessageValidationCommand;
 import gov.nist.hit.core.domain.MessageValidationResult;
 import gov.nist.hit.core.domain.TestContext;
-import gov.nist.hit.core.hl7v2.service.HL7V2MessageValidator;
+import gov.nist.hit.core.hl7v2.service.HL7V2MessageValidatorImpl;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 
 import org.openimmunizationsoftware.dqa.nist.CompactReportModel;
 import org.openimmunizationsoftware.dqa.nist.ProcessMessageHL7;
 
-public class HL7V2MessageValidatorImpl extends HL7V2MessageValidator {
+public class IZHL7V2MessageValidatorImpl extends HL7V2MessageValidatorImpl {
 
   @Override
   public MessageValidationResult validate(TestContext testContext, MessageValidationCommand command)

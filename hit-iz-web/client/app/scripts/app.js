@@ -192,7 +192,6 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
         return path === $rootScope.activePath;
     };
 
-
     $rootScope.setActive = function (path) {
         if (path === '' || path === '/') {
             $location.path('/home');

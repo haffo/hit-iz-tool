@@ -46,6 +46,7 @@ angular.module('cb')
             $rootScope.$on('cb:testCaseLoaded', function (event, testCase, tab) {
                 $rootScope.setSubActive(tab && tab != null ? tab : '/cb_execution');
                 $scope.testCase = testCase;
+                $scope.setActiveTab(0);
                 $timeout(function () {
                     $rootScope.$broadcast('cb:profileLoaded', $scope.testCase.testContext.profile);
                 });
