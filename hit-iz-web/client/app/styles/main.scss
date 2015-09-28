@@ -1287,10 +1287,10 @@ table.cf-profiles {
 }
 
 .container-validation-table {
-  //  height: 350px !important;
-  max-height: 380px !important;
-  overflow: auto;
-  //  margin-top: 20px;
+//    height: 350px !important;
+//  max-height: 380px !important;
+//  overflow: auto;
+//    margin-top: 20px;
 }
 
 .iz-vocab-table {
@@ -1607,4 +1607,70 @@ li.validation-result-subtab {
   width: 60%;
   height: 80%;
   overflow-y: auto;
+}
+
+.st-sort-ascent:before {
+  content: '\25B2';
+}
+
+.st-sort-descent:before {
+  content: '\25BC';
+}
+
+table.table-fix-header {
+  max-height: 366px !important;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+table.table-fix-header * {
+  box-sizing: inherit;
+  -moz-box-sizing: inherit;
+}
+
+
+table.table-fix-header > thead {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+
+table.table-fix-header  > tbody {
+  overflow-y: scroll;
+  display: inline-block;
+}
+
+
+table.table-fix-header > thead > tr, table.table-fix-header > tbody > tr, table.table-fix-header > tfoot > tr {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+
+table.table-fix-header > thead, table.table-fix-header  > tfoot {
+  flex-shrink: 0;
+}
+
+
+table.table-fix-header > th, table.table-fix-header > tbody {
+//  width: 20%; /* this can vary */
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+
+
+table.table-fix-header  > tfoot {
+  display: inline-block;
+}
+
+
+table.table-fix-header > tfoot td {
+  width: 100%;
+  display: inline-block;
 }

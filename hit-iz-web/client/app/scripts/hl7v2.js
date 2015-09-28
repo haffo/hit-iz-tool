@@ -464,26 +464,26 @@ angular.module('hl7v2').factory('Er7MessageValidator', function ($http, $q, HL7E
             delay.reject("Message provided is not an HL7 v2 message");
         } else {
 //
-//            $http.get('../../resources/cf/newValidationResult3.json').then(
-//                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-            $http.post('api/hl7v2/testcontext/' + testContextId + '/validateMessage', angular.fromJson({"content": content, "dqaCodes": dqaCodes, "facilityId": "1223", "contextType": contextType})).then(
+            $http.get('../../resources/cf/newValidationResult3.json').then(
                 function (object) {
-                    try {
-                        delay.resolve(angular.fromJson(object.data));
-                    } catch (e) {
-                        delay.reject("Invalid character in the message");
-                    }
+                    delay.resolve(angular.fromJson(object.data));
                 },
                 function (response) {
                     delay.reject(response.data);
                 }
             );
+//            $http.post('api/hl7v2/testcontext/' + testContextId + '/validateMessage', angular.fromJson({"content": content, "dqaCodes": dqaCodes, "facilityId": "1223", "contextType": contextType})).then(
+//                function (object) {
+//                    try {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    } catch (e) {
+//                        delay.reject("Invalid character in the message");
+//                    }
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
         }
         return delay.promise;
     };
@@ -500,16 +500,7 @@ angular.module('hl7v2').factory('Er7MessageParser', function ($http, $q, HL7Edit
         if (!HL7EditorUtils.isHL7(content)) {
             delay.reject("Message provided is not an HL7 v2 message");
         } else {
-            $http.post('api/hl7v2/testcontext/' + testContextId + '/parseMessage', angular.fromJson({"content": content})).then(
-                function (object) {
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//            $http.get('../../resources/cf/messageObject.json').then(
+//            $http.post('api/hl7v2/testcontext/' + testContextId + '/parseMessage', angular.fromJson({"content": content})).then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
 //                },
@@ -517,6 +508,15 @@ angular.module('hl7v2').factory('Er7MessageParser', function ($http, $q, HL7Edit
 //                    delay.reject(response.data);
 //                }
 //            );
+
+            $http.get('../../resources/cf/messageObject.json').then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
         }
 
         return delay.promise;
