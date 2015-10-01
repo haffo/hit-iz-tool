@@ -468,27 +468,27 @@
 
         ProfileService.prototype.getJson = function (id) {
             var delay = $q.defer();
-//            $http.post('api/profile/' + id).then(
-//                function (object) {
-//                    try {
-//                        delay.resolve(angular.fromJson(object.data));
-//                    } catch (e) {
-//                        delay.reject("Invalid character");
-//                    }
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-
-            $http.get('../../resources/cf/profile.json').then(
+            $http.post('api/profile/' + id).then(
                 function (object) {
-                    delay.resolve(angular.fromJson(object.data));
+                    try {
+                        delay.resolve(angular.fromJson(object.data));
+                    } catch (e) {
+                        delay.reject("Invalid character");
+                    }
                 },
                 function (response) {
                     delay.reject(response.data);
                 }
             );
+
+//            $http.get('../../resources/cf/profile.json').then(
+//                function (object) {
+//                    delay.resolve(angular.fromJson(object.data));
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
 
             return delay.promise;
         };
