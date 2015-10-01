@@ -39,6 +39,7 @@
     mod
         .controller('ValidationResultCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'ValidationResultHighlighter', '$sce', 'HL7TreeUtils', 'HL7EditorUtils', 'NewValidationResult', '$timeout', function ($scope, $filter, $modal, $rootScope, ValidationResultHighlighter, $sce, HL7TreeUtils, HL7EditorUtils,NewValidationResult,$timeout) {
             $scope.validationTabs = new Array();
+
             $scope.activeTab = 0;
             $scope.validationResult = null;
             $scope.loadingCategory = false;
@@ -159,6 +160,8 @@
             };
 
 
+
+
             $scope.select = function (element) {
                 if (element != undefined && element.path != null && element.line != -1) {
                     var node = HL7TreeUtils.selectNodeByPath($scope.tree.root, element.line, element.path);
@@ -222,6 +225,12 @@
             $scope.toHTML = function (content) {
                 return $sce.trustAsHtml(content);
             };
+
+
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+
+
+
         }]);
 
 

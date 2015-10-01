@@ -33,9 +33,9 @@
             $scope.profileService = new ProfileService();
             $scope.loading = false;
             $scope.error = null;
-            $scope.csWidth = 0;
-            $scope.predWidth = 0;
-            $scope.tableWidth = 0;
+            $scope.csWidth = null;
+            $scope.predWidth = null;
+            $scope.tableWidth = null;
 
             $scope.options = {
                 concise: true,
@@ -232,6 +232,14 @@
                     $scope.nodeData = selectedNode;
                     $scope.options.collapse = selectedNode.type !== 'MESSAGE';
                     $scope.refresh();
+                    $timeout(function() {
+                        $scope.predWidth = null;
+                        $scope.tableWidth = null;
+                        $scope.csWidth = null;
+                        $scope.getCsWidth();
+                        $scope.getPredWidth();
+                    },100);
+
                 }
 //                $scope.setAllRelevance($scope.options.relevance);
             };
@@ -332,18 +340,38 @@
             $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
 
 
-            $scope.setColumnsWidth = function () {
-                var tableWidth = $(".profile-table").width();
-                if(tableWidth > 0) {
-                    var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 700 : 950;
-                    var left = tableWidth - otherColumsWidth;
-                    $scope.predWidth = parseInt(left / 3) + "px";
-                    $scope.csWidth = 2 * parseInt(left / 3) + "px";
-                }else{
-                    $scope.predWidth = "auto";
-                    $scope.csWidth = "auto";
+            $scope.getTableWidth = function () {
+                if($scope.tableWidth === null) {
+                    $scope.tableWidth = $("#executionPanel").width();
                 }
+                return $scope.tableWidth;
+            };
+
+            $scope.getCsWidth = function(){
+                if($scope.csWidth === null){
+                    var tableWidth = $scope.getTableWidth();
+                    if(tableWidth > 0) {
+                        var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 700 : 950;
+                        var left = tableWidth - otherColumsWidth;
+                        $scope.csWidth = {"width" : 2 * parseInt(left / 3) + "px"};
+                    }
+                }
+                return $scope.csWidth;
+            };
+
+            $scope.getPredWidth = function(){
+                if($scope.predWidth === null){
+                    var tableWidth = $scope.getTableWidth();
+                    if(tableWidth > 0) {
+                        var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 700 : 950;
+                        var left = tableWidth - otherColumsWidth;
+                        $scope.predWidth = {"width" :parseInt(left / 3) + "px"};
+                     }
+                }
+                return $scope.predWidth;
             }
+
+
 
         }]);
 
@@ -565,8 +593,38 @@
             var data = params.getNodes(parentNode);
             var elementPromises = [];
             angular.forEach(data, function (node) {
+                  elementPromises.push($scope.compileElement(node, parentId, parentNode));
+             });
+
+            $q.all(elementPromises).then(function (newElements) {
+                var parentTtNode = parentId != null ? table.treetable("node", parentId) : null;
+
+                $element.treetable('loadBranch', parentTtNode, newElements);
+
+                if (shouldExpand) {
+                    angular.forEach(newElements, function (el) {
+                        $scope.addChildren($(el), shouldExpand);
+                    });
+                }
+                if (parentElement && parentElement.scope()) {
+                    parentElement.scope().loading = false;
+                }
+            });
+        };
+
+        $scope.addRelevantChildren = function (parentElement, shouldExpand) {
+            var parentNode = parentElement && parentElement.scope() ? parentElement.scope().node : null;
+            var parentId = parentElement ? parentElement.data('ttId') : null;
+
+            if (parentElement) {
+                parentElement.scope().loading = true;
+            }
+
+            var data = params.getNodes(parentNode);
+            var elementPromises = [];
+            angular.forEach(data, function (node) {
                 if(params.isRelevant(node)) {
-                    elementPromises.push($scope.compileElement(node, parentId, parentNode));
+                elementPromises.push($scope.compileElement(node, parentId, parentNode));
                 }
             });
 
@@ -586,13 +644,14 @@
             });
         };
 
+
         /**
          * Callback for onNodeExpand to add nodes.
          */
         $scope.onNodeExpand = function () {
             if (this.row.scope().loading) return; // make sure we're not already loading
             table.treetable('unloadBranch', this); // make sure we don't double-load
-            $scope.addChildren(this.row, $scope.shouldExpand());
+            $scope.addRelevantChildren(this.row, $scope.shouldExpand());
             var id = this.row ? this.row.data('ttId') : null;
             //$scope.toggleNodeView(id);
         };

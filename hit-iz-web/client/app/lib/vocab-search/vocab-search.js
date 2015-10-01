@@ -147,7 +147,7 @@
 
 
     angular.module('hit-vocab-search')
-        .controller('VocabGroupCtrl', ['$scope', '$timeout', '$rootScope',function ($scope, $timeout,$rootScope) {
+        .controller('VocabGroupCtrl', ['$scope', '$timeout', '$rootScope', '$filter',function ($scope, $timeout,$rootScope,$filter) {
             $scope.tableList = [];
             $scope.tmpList = [].concat($scope.tableList);
             $scope.error = null;
@@ -157,8 +157,9 @@
             $scope.init = function (tableLibrary) {
                 if (tableLibrary) {
                     $scope.tableLibrary = tableLibrary;
-                    $scope.tableList = tableLibrary.valueSetDefinitions;
+                    $scope.tableList =  $filter('orderBy')(tableLibrary.valueSetDefinitions, 'bindingIdentifier');
                     $scope.tmpList = [].concat($scope.tableList);
+
                 }
             };
         }]);
@@ -341,11 +342,11 @@
     });
 
 
-    mod.controller('ValueSetDetailsCtrl', function ($scope, $modalInstance, table,$rootScope) {
+    mod.controller('ValueSetDetailsCtrl', function ($scope, $modalInstance, table,$rootScope,$filter) {
         $scope.table = table;
         $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
-
-        $scope.tmpValueSetElements = [].concat(table != null ? table.valueSetElements : []);
+        table.valueSetElements=  $filter('orderBy')(table != null ? table.valueSetElements: [], 'bindingIdentifier');
+        $scope.tmpValueSetElements = [].concat($scope.valueSetElements);
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };

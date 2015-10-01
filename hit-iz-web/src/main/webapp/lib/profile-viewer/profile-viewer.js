@@ -20,7 +20,7 @@
     ]);
 
     mod
-        .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'PvTreetableParams', 'ProfileService', '$http', '$filter', '$cookies', '$sce', '$timeout', function ($scope, $rootScope, PvTreetableParams, ProfileService, $http, $filter, $cookies, $sce,$timeout) {
+        .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'PvTreetableParams', 'ProfileService', '$http', '$filter', '$cookies', '$sce', '$timeout', function ($scope, $rootScope, PvTreetableParams, ProfileService, $http, $filter, $cookies, $sce, $timeout) {
             $scope.testCase = null;
             $scope.elements = [];
             $scope.confStatements = [];
@@ -33,6 +33,10 @@
             $scope.profileService = new ProfileService();
             $scope.loading = false;
             $scope.error = null;
+            $scope.csWidth = null;
+            $scope.predWidth = null;
+            $scope.tableWidth = null;
+
             $scope.options = {
                 concise: true,
                 relevance: true,
@@ -181,6 +185,9 @@
                 getRelevance: function () {
                     return $scope.options.relevance;
                 },
+                isRelevant: function (node) {
+                    return $scope.isRelevant(node);
+                },
                 getConcise: function () {
                     return $scope.options.concise;
                 },
@@ -219,10 +226,20 @@
 
             $scope.getNodeContent = function (selectedNode) {
                 if (selectedNode != null) {
+                    $scope.csWidth = 0;
+                    $scope.predWidth = 0;
                     $scope.confStatementsActive = false;
                     $scope.nodeData = selectedNode;
                     $scope.options.collapse = selectedNode.type !== 'MESSAGE';
                     $scope.refresh();
+                    $timeout(function() {
+                        $scope.predWidth = null;
+                        $scope.tableWidth = null;
+                        $scope.csWidth = null;
+                        $scope.getCsWidth();
+                        $scope.getPredWidth();
+                    },100);
+
                 }
 //                $scope.setAllRelevance($scope.options.relevance);
             };
@@ -320,6 +337,42 @@
             };
 
 
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+
+
+            $scope.getTableWidth = function () {
+                if($scope.tableWidth === null) {
+                    $scope.tableWidth = $("#executionPanel").width();
+                }
+                return $scope.tableWidth;
+            };
+
+            $scope.getCsWidth = function(){
+                if($scope.csWidth === null){
+                    var tableWidth = $scope.getTableWidth();
+                    if(tableWidth > 0) {
+                        var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 700 : 950;
+                        var left = tableWidth - otherColumsWidth;
+                        $scope.csWidth = {"width" : 2 * parseInt(left / 3) + "px"};
+                    }
+                }
+                return $scope.csWidth;
+            };
+
+            $scope.getPredWidth = function(){
+                if($scope.predWidth === null){
+                    var tableWidth = $scope.getTableWidth();
+                    if(tableWidth > 0) {
+                        var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 700 : 950;
+                        var left = tableWidth - otherColumsWidth;
+                        $scope.predWidth = {"width" :parseInt(left / 3) + "px"};
+                     }
+                }
+                return $scope.predWidth;
+            }
+
+
+
         }]);
 
     mod.directive('stRatio', function () {
@@ -415,27 +468,27 @@
 
         ProfileService.prototype.getJson = function (id) {
             var delay = $q.defer();
-            $http.post('api/profile/' + id).then(
-                function (object) {
-                    try {
-                        delay.resolve(angular.fromJson(object.data));
-                    } catch (e) {
-                        delay.reject("Invalid character");
-                    }
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//            $http.get('../../resources/cf/profile.json').then(
+//            $http.post('api/profile/' + id).then(
 //                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
+//                    try {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    } catch (e) {
+//                        delay.reject("Invalid character");
+//                    }
 //                },
 //                function (response) {
 //                    delay.reject(response.data);
 //                }
 //            );
+
+            $http.get('../../resources/cf/profile.json').then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
 
             return delay.promise;
         };
@@ -465,6 +518,9 @@
             this.toggleConcise = function () {
             }
 
+            this.isRelevant = function (node) {
+            }
+
             /**
              * @ngdoc method
              * @param {<any>} node A node returned from getNodes
@@ -485,7 +541,7 @@
 
             if (angular.isObject(baseConfiguration)) {
                 angular.forEach(baseConfiguration, function (val, key) {
-                    if (['getNodes', 'getTemplate', 'options', 'getRelevance', 'toggleRelevance', 'toggleConcise', 'getConcise'].indexOf(key) > -1) {
+                    if (['getNodes', 'getTemplate', 'options', 'getRelevance', 'toggleRelevance', 'toggleConcise', 'getConcise','isRelevant'].indexOf(key) > -1) {
                         self[key] = val;
                     } else {
                         $log.warn('PvTreetableParams - Ignoring unexpected property "' + key + '".');
@@ -537,7 +593,39 @@
             var data = params.getNodes(parentNode);
             var elementPromises = [];
             angular.forEach(data, function (node) {
+                  elementPromises.push($scope.compileElement(node, parentId, parentNode));
+             });
+
+            $q.all(elementPromises).then(function (newElements) {
+                var parentTtNode = parentId != null ? table.treetable("node", parentId) : null;
+
+                $element.treetable('loadBranch', parentTtNode, newElements);
+
+                if (shouldExpand) {
+                    angular.forEach(newElements, function (el) {
+                        $scope.addChildren($(el), shouldExpand);
+                    });
+                }
+                if (parentElement && parentElement.scope()) {
+                    parentElement.scope().loading = false;
+                }
+            });
+        };
+
+        $scope.addRelevantChildren = function (parentElement, shouldExpand) {
+            var parentNode = parentElement && parentElement.scope() ? parentElement.scope().node : null;
+            var parentId = parentElement ? parentElement.data('ttId') : null;
+
+            if (parentElement) {
+                parentElement.scope().loading = true;
+            }
+
+            var data = params.getNodes(parentNode);
+            var elementPromises = [];
+            angular.forEach(data, function (node) {
+                if(params.isRelevant(node)) {
                 elementPromises.push($scope.compileElement(node, parentId, parentNode));
+                }
             });
 
             $q.all(elementPromises).then(function (newElements) {
@@ -556,13 +644,14 @@
             });
         };
 
+
         /**
          * Callback for onNodeExpand to add nodes.
          */
         $scope.onNodeExpand = function () {
             if (this.row.scope().loading) return; // make sure we're not already loading
             table.treetable('unloadBranch', this); // make sure we don't double-load
-            $scope.addChildren(this.row, $scope.shouldExpand());
+            $scope.addRelevantChildren(this.row, $scope.shouldExpand());
             var id = this.row ? this.row.data('ttId') : null;
             //$scope.toggleNodeView(id);
         };
