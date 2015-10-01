@@ -137,6 +137,8 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 
     $rootScope.stackPosition =0;
 
+    $rootScope.scrollbarWidth = null;
+
 
     new AppInfo().then(function (appInfo) {
         $rootScope.appInfo = appInfo;
@@ -309,6 +311,39 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
          //$rootScope.activePath = $location.path();
         $rootScope.setActive($location.path());
     });
+
+
+    $rootScope.getScrollbarWidth = function() {
+
+        if($rootScope.scrollbarWidth == null) {
+            var outer = document.createElement("div");
+            outer.style.visibility = "hidden";
+            outer.style.width = "100px";
+            outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+
+            document.body.appendChild(outer);
+
+            var widthNoScroll = outer.offsetWidth;
+            // force scrollbars
+            outer.style.overflow = "scroll";
+
+            // add innerdiv
+            var inner = document.createElement("div");
+            inner.style.width = "100%";
+            outer.appendChild(inner);
+
+            var widthWithScroll = inner.offsetWidth;
+
+            // remove divs
+            outer.parentNode.removeChild(outer);
+
+            $rootScope.scrollbarWidth = widthNoScroll - widthWithScroll;
+        }
+
+        return $rootScope.scrollbarWidth;
+    };
+
+
 
 });
 

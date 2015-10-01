@@ -36,6 +36,9 @@
             $scope.vocabularyService = new VocabularyService();
             $scope.loading = false;
 
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+
+
 //            $rootScope.$on($scope.type + ':valueSetLibraryLoaded', function (event, vocabularyLibrary) {
 //                $scope.vocabularyLibrary = vocabularyLibrary;
 //                $scope.init($scope.valueSetIds, $scope.vocabularyLibrary);
@@ -144,11 +147,12 @@
 
 
     angular.module('hit-vocab-search')
-        .controller('VocabGroupCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
+        .controller('VocabGroupCtrl', ['$scope', '$timeout', '$rootScope',function ($scope, $timeout,$rootScope) {
             $scope.tableList = [];
             $scope.tmpList = [].concat($scope.tableList);
             $scope.error = null;
             $scope.tableLibrary = null;
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
 
             $scope.init = function (tableLibrary) {
                 if (tableLibrary) {
@@ -306,27 +310,27 @@
 
         VocabularyService.prototype.getJson = function (id) {
             var delay = $q.defer();
-            $http.post('api/valueSetLibrary/' + id).then(
-                function (object) {
-                    try {
-                        delay.resolve(angular.fromJson(object.data));
-                    } catch (e) {
-                        delay.reject("Invalid character");
-                    }
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//            $http.get('../../resources/cf/vocab.json').then(
+//            $http.post('api/valueSetLibrary/' + id).then(
 //                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
+//                    try {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    } catch (e) {
+//                        delay.reject("Invalid character");
+//                    }
 //                },
 //                function (response) {
 //                    delay.reject(response.data);
 //                }
 //            );
+
+            $http.get('../../resources/cf/vocab.json').then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
 
             return delay.promise;
         };
@@ -337,8 +341,10 @@
     });
 
 
-    mod.controller('ValueSetDetailsCtrl', function ($scope, $modalInstance, table) {
+    mod.controller('ValueSetDetailsCtrl', function ($scope, $modalInstance, table,$rootScope) {
         $scope.table = table;
+        $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+
         $scope.tmpValueSetElements = [].concat(table != null ? table.valueSetElements : []);
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');

@@ -20,7 +20,7 @@
     ]);
 
     mod
-        .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'PvTreetableParams', 'ProfileService', '$http', '$filter', '$cookies', '$sce', '$timeout', function ($scope, $rootScope, PvTreetableParams, ProfileService, $http, $filter, $cookies, $sce,$timeout) {
+        .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'PvTreetableParams', 'ProfileService', '$http', '$filter', '$cookies', '$sce', '$timeout', function ($scope, $rootScope, PvTreetableParams, ProfileService, $http, $filter, $cookies, $sce, $timeout) {
             $scope.testCase = null;
             $scope.elements = [];
             $scope.confStatements = [];
@@ -33,6 +33,10 @@
             $scope.profileService = new ProfileService();
             $scope.loading = false;
             $scope.error = null;
+            $scope.csWidth = 0;
+            $scope.predWidth = 0;
+            $scope.tableWidth = 0;
+
             $scope.options = {
                 concise: true,
                 relevance: true,
@@ -219,9 +223,12 @@
 
             $scope.getNodeContent = function (selectedNode) {
                 if (selectedNode != null) {
+                    $scope.csWidth = 0;
+                    $scope.predWidth = 0;
                     $scope.confStatementsActive = false;
                     $scope.nodeData = selectedNode;
                     $scope.options.collapse = selectedNode.type !== 'MESSAGE';
+                    $scope.setColumnsWidth();
                     $scope.refresh();
                 }
 //                $scope.setAllRelevance($scope.options.relevance);
@@ -320,6 +327,22 @@
             };
 
 
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+
+
+            $scope.setColumnsWidth = function () {
+                var tableWidth = $(".profile-table").width();
+                if(tableWidth > 0) {
+                    var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 700 : 950;
+                    var left = tableWidth - otherColumsWidth;
+                    $scope.predWidth = parseInt(left / 3) + "px";
+                    $scope.csWidth = 2 * parseInt(left / 3) + "px";
+                }else{
+                    $scope.predWidth = "auto";
+                    $scope.csWidth = "auto";
+                }
+            }
+
         }]);
 
     mod.directive('stRatio', function () {
@@ -415,27 +438,27 @@
 
         ProfileService.prototype.getJson = function (id) {
             var delay = $q.defer();
-            $http.post('api/profile/' + id).then(
-                function (object) {
-                    try {
-                        delay.resolve(angular.fromJson(object.data));
-                    } catch (e) {
-                        delay.reject("Invalid character");
-                    }
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//            $http.get('../../resources/cf/profile.json').then(
+//            $http.post('api/profile/' + id).then(
 //                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
+//                    try {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    } catch (e) {
+//                        delay.reject("Invalid character");
+//                    }
 //                },
 //                function (response) {
 //                    delay.reject(response.data);
 //                }
 //            );
+
+            $http.get('../../resources/cf/profile.json').then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
 
             return delay.promise;
         };
