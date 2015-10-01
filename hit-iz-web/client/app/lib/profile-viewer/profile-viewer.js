@@ -185,6 +185,9 @@
                 getRelevance: function () {
                     return $scope.options.relevance;
                 },
+                isRelevant: function (node) {
+                    return $scope.isRelevant(node);
+                },
                 getConcise: function () {
                     return $scope.options.concise;
                 },
@@ -228,7 +231,6 @@
                     $scope.confStatementsActive = false;
                     $scope.nodeData = selectedNode;
                     $scope.options.collapse = selectedNode.type !== 'MESSAGE';
-                    $scope.setColumnsWidth();
                     $scope.refresh();
                 }
 //                $scope.setAllRelevance($scope.options.relevance);
@@ -488,6 +490,9 @@
             this.toggleConcise = function () {
             }
 
+            this.isRelevant = function (node) {
+            }
+
             /**
              * @ngdoc method
              * @param {<any>} node A node returned from getNodes
@@ -508,7 +513,7 @@
 
             if (angular.isObject(baseConfiguration)) {
                 angular.forEach(baseConfiguration, function (val, key) {
-                    if (['getNodes', 'getTemplate', 'options', 'getRelevance', 'toggleRelevance', 'toggleConcise', 'getConcise'].indexOf(key) > -1) {
+                    if (['getNodes', 'getTemplate', 'options', 'getRelevance', 'toggleRelevance', 'toggleConcise', 'getConcise','isRelevant'].indexOf(key) > -1) {
                         self[key] = val;
                     } else {
                         $log.warn('PvTreetableParams - Ignoring unexpected property "' + key + '".');
@@ -560,7 +565,9 @@
             var data = params.getNodes(parentNode);
             var elementPromises = [];
             angular.forEach(data, function (node) {
-                elementPromises.push($scope.compileElement(node, parentId, parentNode));
+                if(params.isRelevant(node)) {
+                    elementPromises.push($scope.compileElement(node, parentId, parentNode));
+                }
             });
 
             $q.all(elementPromises).then(function (newElements) {
