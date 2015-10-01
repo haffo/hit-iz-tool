@@ -25,7 +25,7 @@
 			<ValueElement Value="6" CodeSystem="HL70533" DisplayName="Required observation missing"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70301_IZ" Name="Universal ID type">
-			<ValueElement Value="ISO" CodeSystem="HL70301" DisplayName="OID"/>
+			<ValueElement Value="ISO" CodeSystem="HL70301" DisplayName="ISO"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70363_IZ" Name="Assigning Authority" Extensibility="Open">
 			<ValueElement Value="AKA" CodeSystem="HL70363" DisplayName="ALASKA"/>

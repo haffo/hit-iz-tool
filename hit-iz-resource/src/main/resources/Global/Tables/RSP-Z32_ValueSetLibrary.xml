@@ -76,7 +76,7 @@
 			<ValueElement Value="6" CodeSystem="HL70533" DisplayName="Required observation missing"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70301_IZ" Name="Universal ID type">
-			<ValueElement Value="ISO" CodeSystem="HL70301" DisplayName="OID"/>
+			<ValueElement Value="ISO" CodeSystem="HL70301" DisplayName="ISO"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70001_IZ" Name="Sex">
 			<ValueElement Value="F" CodeSystem="HL70001" DisplayName="Female"/>
@@ -635,10 +635,10 @@
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70064_IZ" Name="Publicity code">
 			<ValueElement Value="V01" DisplayName="Not VFC eligible" CodeSystem="HL70064"/>
-			<ValueElement Value="V02" DisplayName="VFC eligible – Medicaid/Medicaid Managed Care" CodeSystem="HL70064"/>
-			<ValueElement Value="V03" DisplayName="VFC eligible – Uninsured" CodeSystem="HL70064"/>
-			<ValueElement Value="V04" DisplayName="VFC eligible – American Indian/Alaska native" CodeSystem="HL70064"/>
-			<ValueElement Value="V05" DisplayName="VFC eligible – underinsured at FQHC/RHC/deputized provider" CodeSystem="HL70064"/>
+			<ValueElement Value="V02" DisplayName="VFC eligible - Medicaid/Medicaid Managed Care" CodeSystem="HL70064"/>
+			<ValueElement Value="V03" DisplayName="VFC eligible - Uninsured" CodeSystem="HL70064"/>
+			<ValueElement Value="V04" DisplayName="VFC eligible - American Indian/Alaska native" CodeSystem="HL70064"/>
+			<ValueElement Value="V05" DisplayName="VFC eligible - underinsured at FQHC/RHC/deputized provider" CodeSystem="HL70064"/>
 			<ValueElement Value="V22" DisplayName="CHIP" CodeSystem="HL70064"/>
 			<ValueElement Value="V23" DisplayName="317" CodeSystem="HL70064"/>
 			<ValueElement Value="V24" DisplayName="Medicare" CodeSystem="HL70064"/>

@@ -75,7 +75,7 @@
 			<Field Name="Software Install Date" Usage="O" Min="0" Max="1" Datatype="TS_IZ" MinLength="1" MaxLength="26" ItemNo="01839"/>
 		</Segment>
 		<Segment ID="PID_IZ 1_5" Name="PID" Description="Patient Identification">
-			<Field Name="Set ID - PID" Usage="R" Min="0" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00104"/>
+			<Field Name="Set ID - PID" Usage="R" Min="1" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00104"/>
 			<Field Name="Patient ID" Usage="X" Min="0" Max="0" Datatype="CX" MinLength="1" MaxLength="20" ItemNo="00105"/>
 			<Field Name="Patient Identifier List" Usage="R" Min="1" Max="*" Datatype="CX_IZ" MinLength="1" MaxLength="250" ItemNo="00106"/>
 			<Field Name="Alternate Patient ID - PID" Usage="X" Min="0" Max="0" Datatype="CX" MinLength="1" MaxLength="20" ItemNo="00107"/>
