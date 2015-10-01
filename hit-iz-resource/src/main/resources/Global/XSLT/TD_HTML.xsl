@@ -4,7 +4,7 @@
 	<!--xsl:param name="output" select="'jquery-tab-html'" -->
 	<!--xsl:param name="output" select="'plain-html'"/ -->
 	<xsl:param name="output" select="'ng-tab-html'"/>
-	<xsl:variable name="version" select="'2.6'"/>
+	<xsl:variable name="version" select="'2.7'"/>
 	<!-- Release notes author:sriniadhi.work@gmail.com
 
 	2.1:  Tabset support
@@ -100,10 +100,10 @@
 		</xsl:if>
 		<!-- - - - - - Patient information - - - - - - - - - - - -->
 		<xsl:if test="$message-type = $ACK">
-			<xsl:value-of select="util:title('title', 'Patient Information', 'Patient Information', $ind1, false(), false())"/>
+			<xsl:value-of select="util:title('title', 'Patient Information', 'Patient Information', $ind1, false(), false(), false())"/>
 			<xsl:value-of select="util:elements($ind1)"/>
 			<xsl:value-of select="util:single-element('This information will be automatically supplied by the System', $ind1)"/>
-			<xsl:value-of select="util:end-elements($ind1, false())"/>
+			<xsl:value-of select="util:end-elements($ind1, false(), false())"/>
 		</xsl:if>
 		<xsl:if test="$message-type = $VXU">
 			<!-- - - - - - Immunization Registry information - - - - - - - - - - - -->
@@ -147,7 +147,7 @@
 		 </xsl:variable>					
 
 		<xsl:if test="$multiple-segs">
-			<xsl:value-of select="util:title('title', concat(util:segdesc(name($segments[1])), '[*]'),  concat(util:segdesc(name($segments[1])), '[*]'), $ind1, false(), false())"/>
+			<xsl:value-of select="util:title('title', concat(util:segdesc(name($segments[1])), '[*]'),  concat(util:segdesc(name($segments[1])), '[*]'), $ind1, false(), false(), false())"/>
 			<xsl:value-of select="util:tag('accordion', '')"/> 
 		</xsl:if>
 		
@@ -199,7 +199,7 @@
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:param name="counter"/>
 		
-		<xsl:value-of select="util:title('title', concat('Patient Information', $counter), 'Patient Information', $ind1, false(), $vertical-orientation)"/>
+		<xsl:value-of select="util:title('title', concat('Patient Information', $counter), 'Patient Information', $ind1, false(), $vertical-orientation, false())"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Patient Name', concat(util:format-with-space(.//PID.5.2), util:format-with-space(.//PID.5.3),.//PID.5.1.1), $ind1)"/>
 		<xsl:value-of select="util:element('Mother''s Maiden Name', concat(util:format-with-space(.//PID.6.2), .//PID.6.1.1), $ind1)"/>
@@ -223,38 +223,38 @@
 			<xsl:value-of select="util:element(concat('Race', util:blank-if-1(position())), PID.10.2, $ind1)"/>
 		</xsl:for-each>
 		<xsl:value-of select="util:element('Ethnic Group',.//PID.22.2, $ind1)"/>
-		<xsl:value-of select="util:last-element('Birth Order',.//PID.25, $ind1, $vertical-orientation)"/>
+		<xsl:value-of select="util:last-element('Birth Order',.//PID.25, $ind1, $vertical-orientation, false())"/>
 	</xsl:template>
 	<!-- - - - - - Patient information for QPD - - - - - - - - - - - -->
 	<xsl:template match="QPD">
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:param name="counter"/>
-		<xsl:value-of select="util:title('title', concat('Patient Information', $counter), 'Patient Information', $ind1, false(), $vertical-orientation)"/>
+		<xsl:value-of select="util:title('title', concat('Patient Information', $counter), 'Patient Information', $ind1, false(), $vertical-orientation, false())"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Patient Name', concat(util:format-with-space (.//QPD.4.2), util:format-with-space(.//QPD.4.3), .//QPD.4.1.1), $ind1)"/>
 		<xsl:value-of select="util:element('Date/Time of Birth', util:format-date (.//QPD.6.1), $ind1)"/>
 		<xsl:value-of select="util:element('Sex', util:admin-sex(.//QPD.7), $ind1)"/>
 		<xsl:value-of select="util:element('Patient Address', util:format-address(.//QPD.8.1.1, .//QPD.8.3, .//QPD.8.4, '', ''), $ind1)"/>
-		<xsl:value-of select="util:last-element('Patient Phone', util:format-tel (.//QPD.9.6, .//QPD.9.7), $ind1, $vertical-orientation)"/>
+		<xsl:value-of select="util:last-element('Patient Phone', util:format-tel (.//QPD.9.6, .//QPD.9.7), $ind1, $vertical-orientation, false())"/>
 	</xsl:template>
 	<!-- - - - - - Immunization Registry information - - - - - - - - - - - -->
 	<xsl:template match="PD1">
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:param name="counter"/>
-		<xsl:value-of select="util:title('title', concat('Immunization Registry Information', $counter), 'Immunization Registry Information', $ind1, true(), $vertical-orientation)"/>
+		<xsl:value-of select="util:title('title', concat('Immunization Registry Information', $counter), 'Immunization Registry Information', $ind1, true(), $vertical-orientation, false())"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Immunization Registry Status', .//PD1.16, $ind1)"/>
 		<xsl:value-of select="util:element('Immunization Registry Status Effective Date', util:format-date(.//PD1.17), $ind1)"/>
 		<xsl:value-of select="util:element('Publicity Code', .//PD1.11.2, $ind1)"/>
 		<xsl:value-of select="util:element('Publicity Code Effective Date', util:format-date(.//PD1.18), $ind1)"/>
 		<xsl:value-of select="util:element('Protection Indicator', util:protection-indicator(.//PD1.12), $ind1)"/>
-		<xsl:value-of select="util:last-element('Protection Indicator Effective Date', util:format-date(.//PD1.13), $ind1, $vertical-orientation)"/>
+		<xsl:value-of select="util:last-element('Protection Indicator Effective Date', util:format-date(.//PD1.13), $ind1, $vertical-orientation, false())"/>
 	</xsl:template>
 	<!-- - - - - - Guardian or Responsible Party - - - - - - - - - - - -->
 	<xsl:template match="NK1">
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:param name="counter"/>
-		<xsl:value-of select="util:title('title', concat('Guardian or Responsible Party', $counter), 'Guardian or Responsible Party', $ind1, true(), $vertical-orientation)"/>
+		<xsl:value-of select="util:title('title', concat('Guardian or Responsible Party', $counter), 'Guardian or Responsible Party', $ind1, true(), $vertical-orientation, false())"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Name', concat(util:format-with-space(.//NK1.2.2), util:format-with-space(.//NK1.2.3), .//NK1.2.1.1), $ind1)"/>
 		<xsl:value-of select="util:element('Relationship', .//NK1.3.2, $ind1)"/>
@@ -264,14 +264,14 @@
 		<xsl:for-each select="NK1.5">
 			<xsl:value-of select="util:element('Phone Number', util:format-tel(NK1.5.6, NK1.5.7), $ind1)"/>
 		</xsl:for-each>
-		<xsl:value-of select="util:end-elements($ind1, $vertical-orientation)"/>
+		<xsl:value-of select="util:end-elements($ind1, $vertical-orientation, false())"/>
 	</xsl:template>
 	
 	<!-- - - - - - Patient information - - - - - - - - - - - -->
 	<xsl:template match="PID" mode="Syndromic">
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:param name="counter"/>
-			<xsl:value-of select="util:title('title', concat('Patient Information', $counter), 'Patient Information', $ind1, false(), $vertical-orientation)"/>
+			<xsl:value-of select="util:title('title', concat('Patient Information', $counter), 'Patient Information', $ind1, false(), $vertical-orientation, false())"/>
 			<xsl:value-of select="util:elements($ind1)"/>
 			 <!--                      ????????????????????????????                                  PID.5[2].7 ????? -->
 			<xsl:value-of select="util:element('Name', util:valueset(.//PID.5.7, 'HL70200'), $ind1)"/>
@@ -293,7 +293,7 @@
 				<xsl:value-of select="util:element('Patient Death Indicator', util:IfThenElse($yes, 'Yes', .//PID.30), $ind1)"/> 
 			</xsl:if>
 			
-			<xsl:value-of select="util:end-elements($ind1, $vertical-orientation)"/>
+			<xsl:value-of select="util:end-elements($ind1, $vertical-orientation, false())"/>
 	</xsl:template>
 	
 
@@ -301,7 +301,7 @@
 	<xsl:template match="PV1" mode="Syndromic">
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:param name="counter"/>
-			<xsl:value-of select="util:title('title', concat('Visit Information', $counter), 'Visit Information', $ind1, false(), $vertical-orientation)"/>
+			<xsl:value-of select="util:title('title', concat('Visit Information', $counter), 'Visit Information', $ind1, false(), $vertical-orientation, false())"/>
 			<xsl:value-of select="util:elements($ind1)"/>
 			<xsl:variable name="encounter-reason">
 				<xsl:choose>
@@ -346,7 +346,7 @@
 				</xsl:variable>
 				<xsl:value-of select="util:element('Diagnosis', ..//DG1.3.3, $ind1)"/>  
 			</xsl:for-each>
-			<xsl:value-of select="util:end-elements($ind1, $vertical-orientation)"/>
+			<xsl:value-of select="util:end-elements($ind1, $vertical-orientation, false())"/>
 	</xsl:template>
 	
 
@@ -355,7 +355,7 @@
 	<xsl:template match="RXA">
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:param name="counter"/>
-		<xsl:value-of select="util:title('title', concat('Vaccine Administration Information', $counter), 'Vaccine Administration Information', $ind1, true(), $vertical-orientation)"/>
+		<xsl:value-of select="util:title('title', concat('Vaccine Administration Information', $counter), 'Vaccine Administration Information', $ind1, true(), $vertical-orientation, false())"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Administered Code', .//RXA.5.2, $ind1)"/>
 		<xsl:value-of select="util:element('Date/Time Start of Administration', util:format-date(.//RXA.3.1), $ind1)"/>
@@ -400,7 +400,7 @@
 				</xsl:choose>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:value-of select="util:end-elements($ind1, $vertical-orientation)"/>
+				<xsl:value-of select="util:end-elements($ind1, $vertical-orientation, false())"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -438,7 +438,7 @@
 	<xsl:template match="OBX" mode="Syndromic">
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
 		<xsl:param name="counter"/>
-		<xsl:value-of select="util:title('title', concat('Observation Results Information', $counter), 'Observation Results Information', $ind1, true(), $vertical-orientation)"/>
+		<xsl:value-of select="util:title('title', concat('Observation Results Information', $counter), 'Observation Results Information', $ind1, true(), $vertical-orientation, false())"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Observation  Identifier', util:valueset(.//OBX.3.1, 'Observation Identifier Syndromic Surveillance'), $ind1)"/>
 		
@@ -479,7 +479,7 @@
 		</xsl:variable>
 		
 		<xsl:value-of select="util:element('Units', $units, $ind1)"/>
-		<xsl:value-of select="util:last-element('Observation Results Status', util:valueset(.//OBX.11, 'HL70085'), $ind1, $vertical-orientation)"/>
+		<xsl:value-of select="util:last-element('Observation Results Status', util:valueset(.//OBX.11, 'HL70085'), $ind1, $vertical-orientation, false())"/>
 		
 		<!--filter mask="OBX.6.1" title="Units" codeSystems="PHVS_TemperatureUnit_UCUM:PHVS_PulseOximetryUnit_UCUM:PHVS_AgeUnit_SyndromicSurveillance"/-->
 	</xsl:template>
@@ -661,7 +661,8 @@
 			.test-data-specs-main .er7Msg {width:100%;}
 			.test-data-specs-main .embSpace {padding-left:15px;}			
 			.test-data-specs-main .accordion-heading { font-weight:bold; font-size:90%;}										
-			.test-data-specs-main .accordion-heading i.glyphicon:after { content: "\00a0 "; }									
+			.test-data-specs-main .accordion-heading i.fa:after { content: "\00a0 "; }									
+			.test-data-specs-main  panel { margin: 10px 5px 5px 5px; }
 			}
 			
 			@media print {
@@ -696,7 +697,8 @@
 			.test-data-specs-main .embSpace {padding-left:15px;}
 			.test-data-specs-main .embSubSpace {padding-left:25px;}
 			.test-data-specs-main .accordion-heading { font-weight:bold; font-size:90%; }										
-			.test-data-specs-main .accordion-heading i.glyphicon:after { content: "\00a0 "; }									
+			.test-data-specs-main .accordion-heading i.fa:after { content: "\00a0 "; }									
+			.test-data-specs-main  panel { margin: 10px 5px 5px 5px; }
 			}
 		</style>
 	</xsl:template>
@@ -2350,6 +2352,7 @@
 		<xsl:param name="ind"/>
 		<xsl:param name="endprevioustable" as="xs:boolean"/>
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="full" as="xs:boolean"/>
 		
 		<xsl:variable name="prelude">
 			<xsl:choose>
@@ -2371,7 +2374,9 @@
 		</xsl:variable>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">
-				<xsl:value-of select="util:begin-tab($tabname, $value, '', $vertical-orientation)"/>
+				<xsl:if test="not($full)">
+					<xsl:value-of select="util:begin-tab($tabname, $value, '', $vertical-orientation)"/>
+				</xsl:if>
 			 </xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="concat($prelude, $ind, '{', $nl, $ind, $indent, '&quot;', $name, '&quot;', ':', '&quot;', $value, '&quot;,', $nl)"/>
@@ -2390,7 +2395,7 @@
 					<xsl:value-of select="util:tags('legend', $value, $ind)"/>
 			</xsl:when>
 			<xsl:otherwise>
-					<xsl:value-of select="util:title($name, $tabname, $value, $ind, $endprevioustable, false())"/>
+					<xsl:value-of select="util:title($name, $tabname, $value, $ind, $endprevioustable, false(), true())"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:begin-tab">
@@ -2408,13 +2413,15 @@
 						<xsl:value-of select="util:tag('accordion-heading', '')"/>						
 						<xsl:value-of select="util:tag('span class=&quot;clearfix&quot;', '')"/>
 						<xsl:value-of select="util:tag('span class=&quot;accordion-heading pull-left&quot;', '')"/>
-						<xsl:value-of select="util:tag(concat('i class=&quot;pull-left glyphicon&quot; ng-class=&quot;{''glyphicon-arrow-down'': ', $isOpenVar, ', ''glyphicon-play'': !', $isOpenVar, '}&quot;'), '')"/>
+						<xsl:value-of select="util:tag(concat('i class=&quot;pull-left fa&quot; ng-class=&quot;{''fa-caret-down'': ', $isOpenVar, ', ''fa-caret-right'': !', $isOpenVar, '}&quot;'), '')"/>
 						<xsl:value-of select="util:tag('/i', '')"/>
 						<xsl:value-of select="$tabname"/>
 						<xsl:value-of select="util:tag('/span', '')"/>
 						<xsl:value-of select="util:tag('/span', '')"/>
 						<xsl:value-of select="util:tag('/accordion-heading', '')"/>
 				</xsl:if>
+				<xsl:value-of select="util:tag('div class=&quot;panel panel-info&quot;', $ind)"/>
+				<xsl:value-of select="util:tag('div class=&quot;panel-body&quot;', $ind)"/>
 				<xsl:value-of select="util:tag('fieldset', $ind)"/>
 			</xsl:when>
 			<xsl:when test="$output = 'plain-html'"> 
@@ -2428,6 +2435,8 @@
 		<xsl:choose>
 			<xsl:when test="$output = 'ng-tab-html'">
 				<xsl:value-of select="util:tag('/fieldset', '')"/>
+				<xsl:value-of select="util:tag('/div', '')"/>
+				<xsl:value-of select="util:tag('/div', '')"/>
 				<xsl:value-of select="util:tag(util:IfThenElse($vertical-orientation, '/accordion-group', '/tab'), '')"/>
 			</xsl:when>
 			<xsl:when test="$output = 'plain-html'">
@@ -2484,12 +2493,15 @@
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:end-elements">
 		<xsl:param name="ind"/>
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="full" as="xs:boolean"/>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">	
 				<xsl:variable name="end-elements">
 					<xsl:value-of select="util:tag('/table', $ind)"/>
 					<xsl:value-of select="util:tag('br/', $ind)"/>
-					<xsl:value-of select="util:end-tab($ind, $vertical-orientation)"/>
+					<xsl:if test="not($full)">
+						<xsl:value-of select="util:end-tab($ind, $vertical-orientation)"/>
+					</xsl:if>
 					</xsl:variable>
 				<xsl:value-of select="$end-elements"/>
 			</xsl:when>
@@ -2507,10 +2519,14 @@
 		<xsl:param name="value"/>
 		<xsl:param name="ind"/>
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="full" as="xs:boolean"/>
+
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">				
 				<xsl:value-of select="util:element-with-delimiter($name, $value, '', $ind)"/>
-				<xsl:value-of select="util:tag('/table', $ind)"/>
+				<xsl:if test="not($full)">
+					<xsl:value-of select="util:tag('/table', $ind)"/>
+				</xsl:if>
 				<xsl:value-of select="util:end-tab($ind, $vertical-orientation)"/>
 			</xsl:when>
 			<xsl:otherwise>
@@ -2732,7 +2748,7 @@
 		<xsl:variable name="pass1" select="replace($html, 'tab heading=&quot;([^&quot;]*)&quot; *vertical=&quot;false&quot;', 'fieldset&gt; &lt;legend&gt; $1 &lt;/legend')"/>
 		<xsl:variable name="pass2" select="replace($pass1, '/tab&gt;', '/fieldset&gt;')"/>
 		<xsl:variable name="pass3" select="replace($pass2, 'span class=&quot;accordion-heading pull-left&quot;', 'span')"/>
-		<xsl:variable name="pass4" select="replace($pass3, 'i class=&quot;pull-left glyphicon&quot; ng-', 'i ')"/>
+		<xsl:variable name="pass4" select="replace($pass3, 'i class=&quot;pull-left fa&quot; ng-', 'i ')"/>
 		<xsl:variable name="pass5" select="replace($pass4, 'accordion-heading', 'legend')"/>
 		<xsl:value-of select="replace(replace($pass5, '(&lt;tab heading=&quot;.*&quot;)|(&lt;tabset)|(&lt;accordion((-group)|(-heading))?)', '&lt;div'),                     '(&lt;/tab&gt;)|(&lt;/tabset&gt;)|(&lt;/accordion((-group)|(-heading))?&gt;)', '&lt;/div&gt;')"/>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:segdesc">

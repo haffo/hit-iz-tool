@@ -6,7 +6,7 @@
 	<!--xsl:param name="output" select="'jquery-tab-html'" -->
 	<!--xsl:param name="output" select="'plain-html'"/-->
 	<xsl:param name="output" select="'json'"/>
-	<xsl:variable name="version" select="'1.4'"/>
+	<xsl:variable name="version" select="'1.6'"/>
 	<!-- Release notes author: sriniadhi.work@gmail.com
 
 
@@ -23,7 +23,7 @@
 	<xsl:variable name="generate-plain-html" select="$output = 'plain-html' or $output = 'ng-tab-html'"/>
 	
 	<!--  Use this section for supportd profiles -->
-	<xsl:variable name="VXU" select="'VXU'"/>
+	<xsl:variable name="VXU" select="'VXU'"/> 
 	<xsl:variable name="QBP" select="'QBP'"/>
 	<xsl:variable name="ACK" select="'ACK'"/>
 	<xsl:variable name="SS" select="'SS'"/>
@@ -60,7 +60,7 @@
 		<xsl:value-of select="util:start(name(.), 'message-content')"/>		
 		<xsl:if test="$output = 'ng-tab-html'">
 				<xsl:variable name="full">
-					<xsl:call-template name="_main"/>
+					<xsl:call-template name="_full"/>
 				</xsl:variable>
 				
 				<xsl:value-of select="util:begin-tab('FULL', 'All Segments', '', false())"/>
@@ -74,6 +74,15 @@
 			
 		<xsl:value-of select="util:end($ind1)"/>
 	</xsl:template>
+
+
+	<xsl:template name="_full">
+		<xsl:apply-templates select="Segment">
+			<xsl:with-param name="vertical-orientation" as="xs:boolean" select="false()"/>
+			<xsl:with-param name="counter" select="''"/>
+			<xsl:with-param name="full" select="false()"/>
+		</xsl:apply-templates>
+	</xsl:template>
 	
 	<xsl:template name="_main">
 		 <xsl:for-each-group select="Segment" group-by="@Name">
@@ -81,7 +90,7 @@
 						 <xsl:value-of select="count(current-group()) &gt; 1"/>
 					 </xsl:variable>					
 					<xsl:if test="$multiple-segs">
-						<xsl:value-of select="util:title('title', concat(@Name, '[*]'),  concat(@Name, '[*]'), $ind1, false(), false())"/>
+						<xsl:value-of select="util:title('title', concat(@Name, '[*]'),  concat(@Name, '[*]'), $ind1, false(), false(), false())"/>
 						<xsl:value-of select="util:tag('accordion', '')"/> 
 					</xsl:if>
 					<xsl:for-each select="current-group()">
@@ -94,6 +103,7 @@
 						<xsl:apply-templates select=".">
 							<xsl:with-param name="vertical-orientation" as="xs:boolean" select="$multiple-segs"/>
 							<xsl:with-param name="counter" select="$index"/>
+							<xsl:with-param name="full" select="false()"/>
 						</xsl:apply-templates>
 					</xsl:for-each>
 					
@@ -103,6 +113,8 @@
 					</xsl:if>
 		 </xsl:for-each-group>
 	</xsl:template>
+	
+	
 	<!-- Indentation values so that the output is readable -->
 	<xsl:variable name="ind1" select="'&#x9;&#x9;'"/>
 	<xsl:variable name="ind2" select="'&#x9;&#x9;&#x9;&#x9;&#x9;'"/>
@@ -112,10 +124,11 @@
 	<xsl:template match="Segment">
 		<xsl:param name="vertical-orientation" as="xs:boolean" select="false()"/>
 		<xsl:param name="counter" select="''"/>
-		<xsl:value-of select="util:title('title', concat(@Name, $counter), concat(@Name, ' : ', @Description), $ind1, false(), $vertical-orientation)"/>
+		<xsl:param name="full" as="xs:boolean"/>
+		<xsl:value-of select="util:title('title', concat(@Name, $counter), concat(@Name, ' : ', @Description), $ind1, false(), $vertical-orientation, $full)"/>
 		<xsl:value-of select="util:message-elements($ind1)"/>
 		<xsl:apply-templates select="Field"/>
-		<xsl:value-of select="util:end-elements($ind1, $vertical-orientation)"/>
+		<xsl:value-of select="util:end-elements($ind1, $vertical-orientation, $full)"/>
 	</xsl:template>
 	
 	<xsl:template match="Field">
@@ -309,7 +322,8 @@
 					.message-content  td.noData {background:#B8B8B8;}
 					.message-content  .Field .noData {background:rgb(198, 222, 255);}
 					.message-content .accordion-heading { font-weight:bold; font-size:90%; }	
-					.message-content .accordion-heading i.glyphicon:after { content: "\00a0 "; }									
+					.message-content .accordion-heading i.fa:after { content: "\00a0 "; }									
+					.message-content  panel { margin: 10px 5px 5px 5px; }
                     }
                     @media print {
 					.message-content legend {text-align:center;font-size:110%; font-weight:bold;}					
@@ -337,7 +351,8 @@
                     .message-content td.noData {background:#B8B8B8;}
 					.message-content  td.noData {background:rgb(198, 222, 255);;}
 					.message-content .accordion-heading { font-weight:bold;  font-size:90%; }										
-					.message-content .accordion-heading i.glyphicon:after { content: "\00a0 "; }									
+					.message-content .accordion-heading i.fa:after { content: "\00a0 "; }									
+					.message-content  panel { margin: 10px 5px 5px 5px; }
                     }
                     @page {
                     counter-increment: page;
@@ -2005,6 +2020,7 @@
 		<xsl:param name="ind"/>
 		<xsl:param name="endprevioustable" as="xs:boolean"/>
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="full" as="xs:boolean"/>
 		
 		<xsl:variable name="prelude">
 			<xsl:choose>
@@ -2026,7 +2042,9 @@
 		</xsl:variable>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">
-				<xsl:value-of select="util:begin-tab($tabname, $value, '', $vertical-orientation)"/>
+				<xsl:if test="not($full)">
+					<xsl:value-of select="util:begin-tab($tabname, $value, '', $vertical-orientation)"/>
+				</xsl:if>
 			 </xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="concat($prelude, $ind, '{', $nl, $ind, $indent, '&quot;', $name, '&quot;', ':', '&quot;', $value, '&quot;,', $nl)"/>
@@ -2045,7 +2063,7 @@
 					<xsl:value-of select="util:tags('legend', $value, $ind)"/>
 			</xsl:when>
 			<xsl:otherwise>
-					<xsl:value-of select="util:title($name, $tabname, $value, $ind, $endprevioustable, false())"/>
+					<xsl:value-of select="util:title($name, $tabname, $value, $ind, $endprevioustable, false(), true())"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:begin-tab">
@@ -2063,13 +2081,15 @@
 						<xsl:value-of select="util:tag('accordion-heading', '')"/>						
 						<xsl:value-of select="util:tag('span class=&quot;clearfix&quot;', '')"/>
 						<xsl:value-of select="util:tag('span class=&quot;accordion-heading pull-left&quot;', '')"/>
-						<xsl:value-of select="util:tag(concat('i class=&quot;pull-left glyphicon&quot; ng-class=&quot;{''glyphicon-arrow-down'': ', $isOpenVar, ', ''glyphicon-play'': !', $isOpenVar, '}&quot;'), '')"/>
+						<xsl:value-of select="util:tag(concat('i class=&quot;pull-left fa&quot; ng-class=&quot;{''fa-caret-down'': ', $isOpenVar, ', ''fa-caret-right'': !', $isOpenVar, '}&quot;'), '')"/>
 						<xsl:value-of select="util:tag('/i', '')"/>
 						<xsl:value-of select="$tabname"/>
 						<xsl:value-of select="util:tag('/span', '')"/>
 						<xsl:value-of select="util:tag('/span', '')"/>
 						<xsl:value-of select="util:tag('/accordion-heading', '')"/>
 				</xsl:if>
+				<xsl:value-of select="util:tag('div class=&quot;panel panel-info&quot;', $ind)"/>
+				<xsl:value-of select="util:tag('div class=&quot;panel-body&quot;', $ind)"/>
 				<xsl:value-of select="util:tag('fieldset', $ind)"/>
 			</xsl:when>
 			<xsl:when test="$output = 'plain-html'"> 
@@ -2083,6 +2103,8 @@
 		<xsl:choose>
 			<xsl:when test="$output = 'ng-tab-html'">
 				<xsl:value-of select="util:tag('/fieldset', '')"/>
+				<xsl:value-of select="util:tag('/div', '')"/>
+				<xsl:value-of select="util:tag('/div', '')"/>
 				<xsl:value-of select="util:tag(util:IfThenElse($vertical-orientation, '/accordion-group', '/tab'), '')"/>
 			</xsl:when>
 			<xsl:when test="$output = 'plain-html'">
@@ -2139,12 +2161,15 @@
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:end-elements">
 		<xsl:param name="ind"/>
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="full" as="xs:boolean"/>
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">	
 				<xsl:variable name="end-elements">
 					<xsl:value-of select="util:tag('/table', $ind)"/>
 					<xsl:value-of select="util:tag('br/', $ind)"/>
-					<xsl:value-of select="util:end-tab($ind, $vertical-orientation)"/>
+					<xsl:if test="not($full)">
+						<xsl:value-of select="util:end-tab($ind, $vertical-orientation)"/>
+					</xsl:if>
 					</xsl:variable>
 				<xsl:value-of select="$end-elements"/>
 			</xsl:when>
@@ -2162,10 +2187,14 @@
 		<xsl:param name="value"/>
 		<xsl:param name="ind"/>
 		<xsl:param name="vertical-orientation" as="xs:boolean"/>
+		<xsl:param name="full" as="xs:boolean"/>
+
 		<xsl:choose>
 			<xsl:when test="$generate-plain-html">				
 				<xsl:value-of select="util:element-with-delimiter($name, $value, '', $ind)"/>
-				<xsl:value-of select="util:tag('/table', $ind)"/>
+				<xsl:if test="not($full)">
+					<xsl:value-of select="util:tag('/table', $ind)"/>
+				</xsl:if>
 				<xsl:value-of select="util:end-tab($ind, $vertical-orientation)"/>
 			</xsl:when>
 			<xsl:otherwise>
@@ -2387,7 +2416,7 @@
 		<xsl:variable name="pass1" select="replace($html, 'tab heading=&quot;([^&quot;]*)&quot; *vertical=&quot;false&quot;', 'fieldset&gt; &lt;legend&gt; $1 &lt;/legend')"/>
 		<xsl:variable name="pass2" select="replace($pass1, '/tab&gt;', '/fieldset&gt;')"/>
 		<xsl:variable name="pass3" select="replace($pass2, 'span class=&quot;accordion-heading pull-left&quot;', 'span')"/>
-		<xsl:variable name="pass4" select="replace($pass3, 'i class=&quot;pull-left glyphicon&quot; ng-', 'i ')"/>
+		<xsl:variable name="pass4" select="replace($pass3, 'i class=&quot;pull-left fa&quot; ng-', 'i ')"/>
 		<xsl:variable name="pass5" select="replace($pass4, 'accordion-heading', 'legend')"/>
 		<xsl:value-of select="replace(replace($pass5, '(&lt;tab heading=&quot;.*&quot;)|(&lt;tabset)|(&lt;accordion((-group)|(-heading))?)', '&lt;div'),                     '(&lt;/tab&gt;)|(&lt;/tabset&gt;)|(&lt;/accordion((-group)|(-heading))?&gt;)', '&lt;/div&gt;')"/>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:segdesc">

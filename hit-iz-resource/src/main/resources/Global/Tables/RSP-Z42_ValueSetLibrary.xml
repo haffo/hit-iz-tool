@@ -49,7 +49,7 @@
 			<ValueElement Value="6" CodeSystem="HL70533" DisplayName="Required observation missing"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70301_IZ" Name="Universal ID type">
-			<ValueElement Value="ISO" CodeSystem="HL70301" DisplayName="OID"/>
+			<ValueElement Value="ISO" CodeSystem="HL70301" DisplayName="ISO"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70001_IZ" Name="Sex">
 			<ValueElement Value="F" CodeSystem="HL70001" DisplayName="Female"/>
