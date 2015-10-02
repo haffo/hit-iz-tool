@@ -42,14 +42,14 @@
 			<Segment Ref="MSH_IZ_V15_Z23" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT_Base" Usage="O" Min="0" Max="*"/>
 			<Segment Ref="MSA_IZ_V15_Z23_Z31_Z32_Z42" Usage="R" Min="1" Max="1"/>
-			<Segment Ref="ERR_IZ_V15_Z23_Z31_Z42" Usage="RE" Min="0" Max="*"/>
+			<Segment Ref="ERR_IZ_V15_Z23_Z31_Z32_Z42" Usage="RE" Min="0" Max="*"/>
 		</Message>
 		
 		<Message ID="2c1dc85c-4d4f-48ea-948a-835c1dc6436a" Name="Z31" Type="RSP" Event="K11" StructID="RSP_K11" Description="Segment pattern response">
 			<Segment Ref="MSH_IZ_V15_Z31" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT_Base" Usage="X" Min="0" Max="*"/>
 			<Segment Ref="MSA_IZ_V15_Z23_Z31_Z32_Z42" Usage="R" Min="1" Max="1"/>
-			<Segment Ref="ERR_IZ_V15_Z23_Z31_Z42" Usage="RE" Min="0" Max="1"/>
+			<Segment Ref="ERR_IZ_V15_Z23_Z31_Z32_Z42" Usage="RE" Min="0" Max="1"/>
 			<Segment Ref="QAK_IZ_V15_Z31_Z32_Z42" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="QPD_IZ_V15_Z31_Z32_Z42" Usage="R" Min="1" Max="1"/>
 			<Group ID="RSP_K11.ROW_DEFINITION" Name="RSP_K11.ROW_DEFINITION" Usage="X" Min="0" Max="1">
@@ -68,7 +68,7 @@
 			<Segment Ref="MSH_IZ_V15_Z32" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT_Base" Usage="O" Min="0" Max="*"/>
 			<Segment Ref="MSA_IZ_V15_Z23_Z31_Z32_Z42" Usage="R" Min="1" Max="1"/>
-			<Segment Ref="ERR_IZ_V15_Z32" Usage="RE" Min="0" Max="1"/>
+			<Segment Ref="ERR_IZ_V15_Z23_Z31_Z32_Z42" Usage="RE" Min="0" Max="1"/>
 			<Segment Ref="QAK_IZ_V15_Z31_Z32_Z42" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="QPD_IZ_V15_Z31_Z32_Z42" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="PID_IZ_V15_Z32" Usage="R" Min="1" Max="1"/>
@@ -92,7 +92,7 @@
 			<Segment Ref="MSH_IZ_V15_Z42" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT_Base" Usage="X" Min="0" Max="*"/>
 			<Segment Ref="MSA_IZ_V15_Z23_Z31_Z32_Z42" Usage="R" Min="1" Max="1"/>
-			<Segment Ref="ERR_IZ_V15_Z23_Z31_Z42" Usage="RE" Min="0" Max="1"/>
+			<Segment Ref="ERR_IZ_V15_Z23_Z31_Z32_Z42" Usage="RE" Min="0" Max="1"/>
 			<Segment Ref="QAK_IZ_V15_Z31_Z32_Z42" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="QPD_IZ_V15_Z31_Z32_Z42" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="PID_IZ_V15_Z42" Usage="R" Min="1" Max="1"/>
@@ -113,22 +113,7 @@
 			<Field Name="Continuation Style" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0398" BindingStrength="R" ItemNo="01354"/>
 		</Segment>
 		
-		<Segment ID="ERR_IZ_V15_Z23_Z31_Z42" Name="ERR" Description="Error">
-			<Field Name="Error Code and Location" Usage="X" Min="0" Max="0" Datatype="ELD" MinLength="1" MaxLength="493" ItemNo="00024"/>
-			<Field Name="Error Location" Usage="RE" Min="0" Max="1" Datatype="ERL_IZ" MinLength="1" MaxLength="18" ItemNo="01812"/>
-			<Field Name="HL7 Error Code" Usage="R" Min="1" Max="1" Datatype="CWE_IZ" MinLength="1" MaxLength="705" Binding="HL70357_IZ" BindingStrength="R" BindingLocation="1" ItemNo="01813"/>
-			<Field Name="Severity" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70516_IZ" BindingStrength="R" ItemNo="01814"/>
-			<Field Name="Application Error Code" Usage="RE" Min="0" Max="1" Datatype="CWE_IZ" MinLength="1" MaxLength="705" Binding="HL70533_IZ" BindingStrength="R" BindingLocation="1" ItemNo="01815"/>
-			<Field Name="Application Error Parameter" Usage="O" Min="0" Max="10" Datatype="ST" MinLength="1" MaxLength="80" ItemNo="01816"/>
-			<Field Name="Diagnostic Information" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="2048" ItemNo="01817"/>
-			<Field Name="User Message" Usage="RE" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="250" ItemNo="01818"/>
-			<Field Name="Inform Person Indicator" Usage="O" Min="0" Max="*" Datatype="IS" MinLength="1" MaxLength="20" Binding="0517" BindingStrength="R" ItemNo="01819"/>
-			<Field Name="Override Type" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="705" Binding="0518" BindingStrength="R" BindingLocation="1" ItemNo="01820"/>
-			<Field Name="Override Reason Code" Usage="O" Min="0" Max="*" Datatype="CWE" MinLength="1" MaxLength="705" Binding="0519" BindingStrength="R" BindingLocation="1" ItemNo="01821"/>
-			<Field Name="Help Desk Contact Point" Usage="O" Min="0" Max="*" Datatype="XTN" MinLength="1" MaxLength="652" ItemNo="01822"/>
-		</Segment>
-		
-		<Segment ID="ERR_IZ_V15_Z32" Name="ERR" Description="Error">
+		<Segment ID="ERR_IZ_V15_Z23_Z31_Z32_Z42" Name="ERR" Description="Error">
 			<Field Name="Error Code and Location" Usage="X" Min="0" Max="0" Datatype="ELD" MinLength="1" MaxLength="493" ItemNo="00024"/>
 			<Field Name="Error Location" Usage="RE" Min="0" Max="1" Datatype="ERL_IZ" MinLength="1" MaxLength="18" ItemNo="01812"/>
 			<Field Name="HL7 Error Code" Usage="R" Min="1" Max="1" Datatype="CWE_IZ" MinLength="1" MaxLength="705" Binding="HL70357_IZ" BindingStrength="R" BindingLocation="1" ItemNo="01813"/>
@@ -142,6 +127,8 @@
 			<Field Name="Override Reason Code" Usage="O" Min="0" Max="*" Datatype="CWE" MinLength="1" MaxLength="705" Binding="0519" BindingStrength="R" BindingLocation="1" ItemNo="01821"/>
 			<Field Name="Help Desk Contact Point" Usage="O" Min="0" Max="*" Datatype="XTN" MinLength="1" MaxLength="652" ItemNo="01822"/>
 		</Segment>
+		
+		
 		
 		<Segment ID="GT1_Base" Name="GT1" Description="Guarantor">
 			<Field Name="Set ID - GT1" Usage="R" Min="1" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00405"/>
@@ -574,7 +561,7 @@
 			<Field Name="Date/Time of the Observation" Usage="RE" Min="0" Max="1" Datatype="TS_NZ" MinLength="1" MaxLength="26" ItemNo="00582"/>
 			<Field Name="Producer's Reference" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00583"/>
 			<Field Name="Responsible Observer" Usage="O" Min="0" Max="*" Datatype="XCN_IZ" MinLength="1" MaxLength="250" ItemNo="00584"/>
-			<Field Name="Observation Method" Usage="C" Min="0" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="PHVS_FundingEligibilityObsMethod_IIS" BindingStrength="R" BindingLocation="1" ItemNo="00936"/>
+			<Field Name="Observation Method" Usage="O" Min="0" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="PHVS_FundingEligibilityObsMethod_IIS" BindingStrength="R" BindingLocation="1" ItemNo="00936"/>
 			<Field Name="Equipment Instance Identifier" Usage="O" Min="0" Max="*" Datatype="EI" MinLength="1" MaxLength="22" ItemNo="01479"/>
 			<Field Name="Date/Time of the Analysis" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="01480"/>
 			<Field Name="Reserved for harmonization with V2.6" Usage="X" Min="0" Max="0" Datatype="varies" MinLength="0" MaxLength="0" ItemNo="09999"/>
@@ -980,7 +967,7 @@
 		
 		<Segment ID="QAK_IZ_V15_Z31_Z32_Z42" Name="QAK" Description="Query Acknowledgment">
 			<Field Name="Query Tag" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="32" ItemNo="00696"/>
-			<Field Name="Query Response Status" Usage="RE" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70208_IZ" BindingStrength="R" ItemNo="00708"/>
+			<Field Name="Query Response Status" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70208_IZ" BindingStrength="R" ItemNo="00708"/>
 			<Field Name="Message Query Name" Usage="R" Min="1" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="0471" BindingStrength="R" BindingLocation="1" ItemNo="01375"/>
 			<Field Name="Hit Count" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="10" ItemNo="01434"/>
 			<Field Name="This payload" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="10" ItemNo="01622"/>

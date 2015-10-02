@@ -136,8 +136,9 @@
                     </immunizationScheduleUsed>
 
                     <xsl:for-each select="//RXA.5.1[. != '998']/../../..">
-                        <xsl:for-each
-                            select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
+                        <xsl:for-each select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
+                            
+                            <xsl:variable name="position" select="position()"/>
                             <evaluatedImmunizationHistory>
                                 <vaccineGroup>
                                     <xsl:value-of select="OBX/OBX.5/OBX.5.2"/>
@@ -149,8 +150,7 @@
 
                                     <xsl:when test="../RXA/RXA.3/RXA.3.1 != ''">
                                         <dateAdministered>
-                                            <xsl:value-of
-                                                select="util:format-date(../RXA/RXA.3/RXA.3.1)"/>
+                                            <xsl:value-of select="util:format-date(../RXA/RXA.3/RXA.3.1)"/>
                                             <!-- <xsl:call-template name="dateTime">
                                     <xsl:with-param name="dateS" select="../RXA/RXA.3/RXA.3.1"></xsl:with-param>
                                 </xsl:call-template> -->
@@ -163,15 +163,15 @@
 
                                 <xsl:choose>
                                     <xsl:when
-                                        test="exists(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../..)">
+                                        test="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                         <xsl:for-each
-                                            select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../..">
+                                            select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                             <xsl:if test="position() = 1">
                                                 <xsl:choose>
-                                                  <xsl:when test="OBX.5/OBX.5.1 = 'Y'">
+                                                  <xsl:when test="OBX/OBX.5/OBX.5.1 = 'Y'">
                                                   <validDose>YES</validDose>
                                                   </xsl:when>
-                                                  <xsl:when test="OBX.5/OBX.5.1 = 'N'">
+                                                  <xsl:when test="OBX/OBX.5/OBX.5.1 = 'N'">
                                                   <validDose>NO</validDose>
                                                   </xsl:when>
                                                   <xsl:otherwise>
@@ -185,13 +185,13 @@
                                 </xsl:choose>
                                 <xsl:choose>
                                     <xsl:when
-                                        test="exists(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../..)">
+                                        test="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                         <xsl:for-each
-                                            select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../..">
+                                            select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                             <xsl:if test="position() = 1">
 
                                                 <validityReason>
-                                                  <xsl:value-of select="OBX.5/OBX.5.2"/>
+                                                  <xsl:value-of select="OBX/OBX.5/OBX.5.2"/>
                                                 </validityReason>
 
                                             </xsl:if>
@@ -233,8 +233,8 @@
                     </xsl:for-each>
                     <xsl:for-each select="//RXA.5.1[. = '998']/../../..">
 
-                        <xsl:for-each
-                            select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
+                        <xsl:for-each select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
+                            <xsl:variable name="position" select="position()"/>
                             <immunizationForecast>
                                 <vaccineGroup>
                                     <xsl:value-of select="OBX/OBX.5/OBX.5.2"/>
@@ -242,17 +242,17 @@
                                 <xsl:choose>
 
                                     <xsl:when
-                                        test="exists(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30980-7']/../..)">
+                                        test="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30980-7']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                         <xsl:for-each
-                                            select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30980-7']/../..">
+                                            select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30980-7']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                             <xsl:if test="position() = 1">
                                                 <xsl:choose>
 
-                                                  <xsl:when test="OBX.5/OBX.5.1 != ''">
+                                                  <xsl:when test="OBX/OBX.5/OBX.5.1 != ''">
 
                                                   <dueDate>
                                                   <xsl:value-of
-                                                  select="util:format-date(OBX.5/OBX.5.1)"/>
+                                                  select="util:format-date(OBX/OBX.5/OBX.5.1)"/>
                                                   <!--  <xsl:call-template name="dateTime">
                                                     <xsl:with-param name="dateS" select="OBX.5/OBX.5.1"></xsl:with-param>
                                                 </xsl:call-template> -->
@@ -272,17 +272,17 @@
                                 <xsl:choose>
 
                                     <xsl:when
-                                        test="exists(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30981-5']/../..)">
+                                        test="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30981-5']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                         <xsl:for-each
-                                            select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30981-5']/../..">
+                                            select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30981-5']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                             <xsl:if test="position() = 1">
                                                 <xsl:choose>
 
-                                                  <xsl:when test="OBX.5/OBX.5.1 != ''">
+                                                  <xsl:when test="OBX/OBX.5/OBX.5.1 != ''">
 
                                                   <earlyDate>
                                                   <xsl:value-of
-                                                  select="util:format-date(OBX.5/OBX.5.1)"/>
+                                                  select="util:format-date(OBX/OBX.5/OBX.5.1)"/>
                                                   <!--  <xsl:call-template name="dateTime">
                                                     <xsl:with-param name="dateS" select="OBX.5/OBX.5.1"></xsl:with-param>
                                                 </xsl:call-template> -->
@@ -302,16 +302,16 @@
                                 <xsl:choose>
 
                                     <xsl:when
-                                        test="exists(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59777-3']/../..)">
+                                        test="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59777-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                         <xsl:for-each
-                                            select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59777-3']/../..">
+                                            select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59777-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                             <xsl:if test="position() = 1">
                                                 <xsl:choose>
 
-                                                  <xsl:when test="OBX.5/OBX.5.1 != ''">
+                                                  <xsl:when test="OBX/OBX.5/OBX.5.1 != ''">
                                                   <latestDate>
                                                   <xsl:value-of
-                                                  select="util:format-date(OBX.5/OBX.5.1)"/>
+                                                  select="util:format-date(OBX/OBX.5/OBX.5.1)"/>
                                                   <!--
                                                     <xsl:call-template name="dateTime">
                                                         <xsl:with-param name="dateS"
@@ -333,12 +333,12 @@
                                 <xsl:choose>
 
                                     <xsl:when
-                                        test="exists(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../..)">
+                                        test="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                         <xsl:for-each
-                                            select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../..">
+                                            select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                             <xsl:if test="position() = 1">
                                                 <seriesStatus>
-                                                  <xsl:value-of select="OBX.5/OBX.5.2"/>
+                                                  <xsl:value-of select="OBX/OBX.5/OBX.5.2"/>
 
                                                 </seriesStatus>
                                             </xsl:if>
@@ -351,12 +351,12 @@
                                 <xsl:choose>
 
                                     <xsl:when
-                                        test="exists(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../..)">
+                                        test="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                         <xsl:for-each
-                                            select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../..">
+                                            select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                             <xsl:if test="position() = 1">
                                                 <forecastReason>
-                                                  <xsl:value-of select="OBX.5/OBX.5.2"/>
+                                                  <xsl:value-of select="OBX/OBX.5/OBX.5.2"/>
 
                                                 </forecastReason>
                                             </xsl:if>

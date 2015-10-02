@@ -255,8 +255,8 @@
                                         <td>
                                             <p>The receiving HIT system being tested shall process
                                                 the Z23 ACK error notification message correctly;
-                                                the issue identified in the error notification
-                                                  <u>must be made visible</u> in the system.</p>
+                                                the issue identified in the error notification <u>must
+                                                be made visible</u> in the system.</p>
                                             <!-- <xsl:for-each select="//ERR">
                                                 <p align="center">
                                                   <xsl:value-of select="ERR.8"/>
