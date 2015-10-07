@@ -1,5 +1,5 @@
 {
-"version" : "2.6",
+"version" : "2.9.3",
 "profile" : "QBP_Q11",
 "tables":
 [
@@ -8,7 +8,7 @@
 			"elements" : 
 			[
 				{"element" : "Patient Name", "data" : "Juan Marcel Gonzales"},
-				{"element" : "Date/Time of Birth", "data" : "11/23/2011"},
+				{"element" : "Date/Time of Birth", "data" : "11/23/2011 11:00 "},
 				{"element" : "Sex", "data" : "Male"},
 				{"element" : "Patient Address", "data" : "4623 Standish Way Stamford CT "},
 				{"element" : "Patient Phone", "data" : "(203)555-1213"}

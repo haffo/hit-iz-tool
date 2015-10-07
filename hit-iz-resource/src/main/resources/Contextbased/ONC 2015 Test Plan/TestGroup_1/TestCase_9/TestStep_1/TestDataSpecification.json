@@ -1,5 +1,5 @@
 {
-"version" : "2.6",
+"version" : "2.9.3",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -12,10 +12,10 @@
 				{"element" : "ID Number", "data" : "77100 "},
 				{"element" : "Date/Time of Birth", "data" : "05/16/2015"},
 				{"element" : "Administrative Sex", "data" : "Female"},
-				{"element" : "Patient Address ", "data" : "901 North 12th St Bozeman MT 59715
+				{"element" : "Patient Address 1", "data" : "901 North 12th St Bozeman MT 59715
 USA "},
 				{"element" : "Local Number", "data" : "(406)555-2262"},
-				{"element" : "Race", "data" : "African American"},
+				{"element" : "Race1", "data" : "African American"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
 				{"element" : "Birth Order", "data" : "1"}
 			]
@@ -38,7 +38,7 @@ USA "},
 			[
 				{"element" : "Name", "data" : "Ellen Broadbent"},
 				{"element" : "Relationship", "data" : "Mother"},
-				{"element" : "Address", "data" : "901 North 12th St Bozeman MT 59715 USA "},
+				{"element" : "Address1", "data" : "901 North 12th St Bozeman MT 59715 USA "},
 				{"element" : "Phone Number", "data" : "(406)555-2262"},		]
 		},
 		{
@@ -68,10 +68,15 @@ USA "},
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Private"},
+							{"element" : "", "data" : ""},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "Not VFC Eligible"},
+							{"element" : "", "data" : ""},
 							{"element" : "Document Type", "data" : "Hepatitis B VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/25/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]

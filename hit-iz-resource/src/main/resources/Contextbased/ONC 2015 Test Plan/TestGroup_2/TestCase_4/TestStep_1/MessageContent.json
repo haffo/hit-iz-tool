@@ -1,5 +1,5 @@
 {
-"version" : "1.4",
+"version" : "1.7",
 "profile" : "MessageContent",
 "tables":
 [
@@ -8,9 +8,9 @@
 			"elements" : 
 			[
 				{"location" : "MSH.1", "dataelement" : "Field Separator", "data" : "|", "categorization"
-: "Test Case Fixed"},
+: "Value-Profile Fixed"},
 				{"location" : "MSH.2", "dataelement" : "Encoding Characters", "data" : "^~\&amp;",
-"categorization" : "Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "MyEHR",
@@ -56,7 +56,7 @@
 							{"location" : "MSH.9.3", "dataelement" : "Message Structure", "data" : "QBP_Q11",
 "categorization" : ""},
 				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "113533469",
-"categorization" : "Content Indifferent"},
+"categorization" : "Presence-Content Indifferent"},
 				{"location" : "MSH.11", "dataelement" : "Processing ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.11.1", "dataelement" : "Processing ID", "data" : "P", "categorization"
@@ -66,9 +66,9 @@
 							{"location" : "MSH.12.1", "dataelement" : "Version ID", "data" : "2.5.1", "categorization"
 : ""},
 				{"location" : "MSH.15", "dataelement" : "Accept Acknowledgment Type", "data" :
-"ER", "categorization" : "Test Case Fixed"},
+"ER", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.16", "dataelement" : "Application Acknowledgment Type", "data"
-: "AL", "categorization" : "Test Case Fixed"},
+: "AL", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.21", "dataelement" : "Message Profile Identifier", "data" :
 "", "categorization" : ""},
 							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z44",
@@ -128,7 +128,7 @@ History and Forecast", "categorization" : ""},
 							{"location" : "QPD.1.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "QPD.2", "dataelement" : "Query Tag", "data" : "3137374859", "categorization"
-: "Content Indifferent"},
+: "Presence-Content Indifferent"},
 				{"location" : "QPD.3", "dataelement" : "PatientList", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.3.1", "dataelement" : "ID Number", "data" : "177993456",
@@ -186,7 +186,7 @@ Initials Thereof", "data" : "S", "categorization" : ""},
 							{"location" : "QPD.6.1", "dataelement" : "Time", "data" : "19800214", "categorization"
 : ""},
 				{"location" : "QPD.7", "dataelement" : "Patient Sex", "data" : "M", "categorization"
-: "Test Case Fixed"},
+: "Value-Profile Fixed"},
 				{"location" : "QPD.8", "dataelement" : "Patient Address", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.8.1", "dataelement" : "Street Address", "data" : "", "categorization"

@@ -1,5 +1,5 @@
 {
-"version" : "2.6",
+"version" : "2.9.3",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -12,10 +12,10 @@
 				{"element" : "ID Number", "data" : "89778 "},
 				{"element" : "Date/Time of Birth", "data" : "12/21/2003"},
 				{"element" : "Administrative Sex", "data" : "Female"},
-				{"element" : "Patient Address ", "data" : "89 West 21st Ave Bozeman MT 59715 USA
-"},
+				{"element" : "Patient Address 1", "data" : "89 West 21st Ave Bozeman MT 59715
+USA "},
 				{"element" : "Local Number", "data" : "(406)555-4019"},
-				{"element" : "Race", "data" : "White"},
+				{"element" : "Race1", "data" : "White"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
 				{"element" : "Birth Order", "data" : "1"}
 			]
@@ -38,7 +38,7 @@
 			[
 				{"element" : "Name", "data" : "Kari Michelle Benton"},
 				{"element" : "Relationship", "data" : "Mother"},
-				{"element" : "Address", "data" : "89 West 21st Ave Bozeman MT 59715 USA "},
+				{"element" : "Address1", "data" : "89 West 21st Ave Bozeman MT 59715 USA "},
 				{"element" : "Phone Number", "data" : "(406)555-4019"},		]
 		},
 		{
@@ -68,12 +68,17 @@
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Public"},
+							{"element" : "", "data" : ""},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "VFC Eligible
 - Underinsured"},
+							{"element" : "", "data" : ""},
 							{"element" : "Document Type", "data" : "Human papillomavirus Vaccine (Cervarix)
 VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/24/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]

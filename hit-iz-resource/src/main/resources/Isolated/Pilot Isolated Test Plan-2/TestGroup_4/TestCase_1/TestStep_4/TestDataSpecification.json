@@ -1,5 +1,5 @@
 {
-"version" : "2.6",
+"version" : "2.9.3",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -10,14 +10,14 @@
 				{"element" : "Patient Name", "data" : "Juana Mariana Gonzales"},
 				{"element" : "Mother's Maiden Name", "data" : "Maria Acosta"},
 				{"element" : "ID Number", "data" : "123456 987633 "},
-				{"element" : "Date/Time of Birth", "data" : "12/23/2009"},
+				{"element" : "Date/Time of Birth", "data" : "12/23/2009 11:05 "},
 				{"element" : "Administrative Sex", "data" : "Female"},
-				{"element" : "Patient Address ", "data" : "4345 Standish Way Stamford CT 06903
+				{"element" : "Patient Address 1", "data" : "4345 Standish Way Stamford CT 06903
 USA "},
-				{"element" : "Patient Address 1", "data" : "325 Shorline Drive Stamford CT 06901
+				{"element" : "Patient Address 2", "data" : "325 Shorline Drive Stamford CT 06901
 "},
 				{"element" : "Local Number", "data" : "(203)555-1212"},
-				{"element" : "Race", "data" : "Other Race"},
+				{"element" : "Race1", "data" : "Other Race"},
 				{"element" : "Ethnic Group", "data" : "Hispanic or Latino"},
 				{"element" : "Birth Order", "data" : ""}
 			]
@@ -40,7 +40,7 @@ USA "},
 			[
 				{"element" : "Name", "data" : "Joanna Merida Gonzales"},
 				{"element" : "Relationship", "data" : "Grandparent"},
-				{"element" : "Address", "data" : "4345 Standish Way Stamford CT 06901 "},
+				{"element" : "Address1", "data" : "4345 Standish Way Stamford CT 06901 "},
 				{"element" : "Phone Number", "data" : "(203)555-1212"},		]
 		{
 			"title":"Vaccine Administration Information[*]",
@@ -196,7 +196,10 @@ agency"},
 						"elements" : 
 						[
 							{"element" : "Reaction", "data" : "fever of >40.5C (105F) within 48 hours of dose"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]
@@ -708,7 +711,10 @@ written record"},
 							{"element" : "VIS Publication Date", "data" : "08/19/2014"},
 							{"element" : "VIS Presentation Date", "data" : "07/15/2015"},
 							{"element" : "vaccine fund pgm elig cat", "data" : "Not VFC elig"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]
@@ -866,7 +872,10 @@ virus vaccine"},
 							{"element" : "vaccine fund pgm elig cat", "data" : "Not VFC elig"},
 							{"element" : "vaccine fund pgm elig cat", "data" : "Not VFC elig"},
 							{"element" : "Reaction", "data" : "persistent, inconsolable crying lasting > 3 hours within 48 hours of dose"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]

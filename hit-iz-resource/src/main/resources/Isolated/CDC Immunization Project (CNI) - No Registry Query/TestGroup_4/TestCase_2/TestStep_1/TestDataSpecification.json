@@ -1,5 +1,5 @@
 {
-"version" : "2.6",
+"version" : "2.9.3",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -10,12 +10,12 @@
 				{"element" : "Patient Name", "data" : "Juan Marcel Gonzales"},
 				{"element" : "Mother's Maiden Name", "data" : "Anita Morales"},
 				{"element" : "ID Number", "data" : "123456 987633 "},
-				{"element" : "Date/Time of Birth", "data" : "11/23/2011"},
+				{"element" : "Date/Time of Birth", "data" : "11/23/2011 11:00 "},
 				{"element" : "Administrative Sex", "data" : "Male"},
-				{"element" : "Patient Address ", "data" : "4623 Standish Way Stamford CT 06903
+				{"element" : "Patient Address 1", "data" : "4623 Standish Way Stamford CT 06903
 USA "},
 				{"element" : "Local Number", "data" : "(203)555-1213"},
-				{"element" : "Race", "data" : "Other Race"},
+				{"element" : "Race1", "data" : "Other Race"},
 				{"element" : "Ethnic Group", "data" : "Hispanic or Latino"},
 				{"element" : "Birth Order", "data" : ""}
 			]
@@ -38,7 +38,7 @@ USA "},
 			[
 				{"element" : "Name", "data" : "Manuel Marcel Gonzales"},
 				{"element" : "Relationship", "data" : "Father"},
-				{"element" : "Address", "data" : "4623 Standish Way Stamford CT 06903 "},
+				{"element" : "Address1", "data" : "4623 Standish Way Stamford CT 06903 "},
 				{"element" : "Phone Number", "data" : "(203)555-1213"},		]
 		{
 			"title":"Vaccine Administration Information[*]",
@@ -120,7 +120,10 @@ SA"},
 							{"element" : "VIS Publication Date", "data" : "02/02/2012"},
 							{"element" : "VIS Presentation Date", "data" : "07/15/2015"},
 							{"element" : "vaccine fund pgm elig cat", "data" : "Not VFC elig"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]
@@ -596,7 +599,10 @@ SA"},
 							{"element" : "VIS Publication Date", "data" : "08/19/2014"},
 							{"element" : "VIS Presentation Date", "data" : "07/15/2015"},
 							{"element" : "vaccine fund pgm elig cat", "data" : "Not VFC elig"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]
