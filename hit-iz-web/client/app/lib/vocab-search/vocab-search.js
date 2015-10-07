@@ -302,10 +302,6 @@
                         }
                     }
                 });
-
-                modalInstance.result.then(function (selectedItem) {
-                 }, function () {
-                });
             }
         };
 
@@ -336,23 +332,21 @@
             return delay.promise;
         };
 
-
         return VocabularyService;
 
     });
 
 
     mod.controller('ValueSetDetailsCtrl', function ($scope, $modalInstance, table,$rootScope,$filter) {
-        $scope.table = table;
+        $scope.valueSet = table;
         $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
-        table.valueSetElements=  $filter('orderBy')(table != null ? table.valueSetElements: [], 'bindingIdentifier');
-        $scope.tmpValueSetElements = [].concat($scope.valueSetElements);
+        //table.valueSetElements=  $filter('orderBy')(table != null ? table.valueSetElements: [], 'bindingIdentifier');
+        $scope.tmpValueSetElements = [].concat(table != null ? table.valueSetElements: []);
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
-
         $scope.close = function () {
-            $modalInstance.close($scope.table);
+            $modalInstance.close();
         };
 
     });

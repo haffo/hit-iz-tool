@@ -9,7 +9,7 @@
  * works bear some notice that they are derived from it, and any modified versions bear some notice
  * that they have been modified.
  */
-package gov.nist.hit.iz.web.config;
+package gov.nist.hit.iz.ws;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 
-public class WebAppInitializer implements WebApplicationInitializer
+public class WSAppInitializer implements WebApplicationInitializer
 
 {
 

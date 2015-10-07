@@ -20,15 +20,11 @@ import gov.nist.hit.core.service.ResourcebundleLoader;
 import gov.nist.hit.core.service.ValidationReportGenerator;
 import gov.nist.hit.core.service.ValidationReportGeneratorImpl;
 import gov.nist.hit.iz.service.IZHL7V2MessageValidatorImpl;
-import gov.nist.hit.iz.service.IISReceiver;
-import gov.nist.hit.iz.service.Receiver;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.soap.SOAPValidationReportGeneratorImpl;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
 
 /**
  * @author Harold Affo (NIST)
@@ -36,18 +32,7 @@ import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
  */
 
 @Configuration
-@ImportResource("classpath:/app-ws-context.xml")
 public class IZWebBeanConfig {
-
-  @Bean
-  public SimpleJaxWsServiceExporter simpleJaxWsServiceExporter() {
-    return new SimpleJaxWsServiceExporter();
-  }
-
-  @Bean
-  public Receiver receiver() {
-    return new IISReceiver();
-  }
 
   @Bean
   public HL7V2MessageValidator hl7v2MessageValidator() {

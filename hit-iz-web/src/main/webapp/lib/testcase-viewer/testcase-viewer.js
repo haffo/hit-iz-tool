@@ -39,16 +39,15 @@
                     $scope.testCase['jurorDocument'] = result['jurorDocument'];
                     $scope.testCase['testDataSpecification'] = result['testDataSpecification'];
                     $scope.testCase['messageContent'] = result['messageContent'];
-                    $scope.testCase['testPackage'] = result['testPackage'];
 
                     $scope.uncompileArtifact('testStory');
                     $scope.uncompileArtifact('jurorDocument');
                     $scope.uncompileArtifact('testDataSpecification');
                     $scope.uncompileArtifact('messageContent');
-                    $scope.uncompileArtifact('testPackage');
+                    $scope.uncompileArtifact('testDescription');
 
                     if(testCase.type === 'TestPlan'){
-                        $scope.compileArtifact('testPackage');
+                        $scope.compileArtifact('testDescription');
                     }else{
                         $scope.compileArtifact('testStory');
                     }
@@ -59,7 +58,6 @@
                     $scope.testCase['jurorDocument'] = null;
                     $scope.testCase['testDataSpecification'] = null;
                     $scope.testCase['messageContent'] = null;
-                    $scope.testCase['testPackage'] = null;
                     $scope.loading = false;
                 });
             });

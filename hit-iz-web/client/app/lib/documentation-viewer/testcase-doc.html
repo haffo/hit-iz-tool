@@ -7,17 +7,18 @@
                 {{data.title}}
             </accordion-heading>
 
-            <!--<button title="Download Complete TestCase" type="button" class="btn btn-sm btn-primary"-->
-                    <!--ng-click="downloadCompleteTestPackage(data.stage)">-->
-                <!--<i class="fa fa-check-circle"></i>-->
-                <!--Download Complete TestPackage (.zip)-->
-            <!--</button>-->
 
-            <!--<button title="Download Example Messages" type="button" class="btn btn-sm btn-primary"-->
-                    <!--ng-click="downloadExampleMessages(data.stage)">-->
-                <!--<i class="fa fa-check-circle"></i>-->
-                <!--Download Example Messages (.zip)-->
-            <!--</button>-->
+            <button ng-show="data.stage != 'CF'" title="Download Complete TestCase" type="button" class="btn btn-sm btn-primary"
+                    ng-click="downloadCompleteTestPackage(data.stage)">
+                <i class="fa fa-check-circle"></i>
+                Download Complete TestPackage (.zip)
+            </button>
+
+            <button title="Download Example Messages" type="button" class="btn btn-sm btn-primary"
+                    ng-click="downloadExampleMessages(data.stage)">
+                <i class="fa fa-check-circle"></i>
+                Download Example Messages (.zip)
+            </button>
 
             <br/>
             <br/>
