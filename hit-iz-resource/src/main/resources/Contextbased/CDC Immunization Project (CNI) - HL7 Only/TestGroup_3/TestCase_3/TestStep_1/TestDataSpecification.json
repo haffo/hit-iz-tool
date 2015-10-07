@@ -1,5 +1,5 @@
 {
-"version" : "2.6",
+"version" : "2.9.3",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -10,14 +10,14 @@
 				{"element" : "Patient Name", "data" : "Mariela Gonzales Morales"},
 				{"element" : "Mother's Maiden Name", "data" : "Joanna Gonzales"},
 				{"element" : "ID Number", "data" : "123456 987633 "},
-				{"element" : "Date/Time of Birth", "data" : "05/30/2015"},
+				{"element" : "Date/Time of Birth", "data" : "05/30/2015 11:15 "},
 				{"element" : "Administrative Sex", "data" : "Female"},
-				{"element" : "Patient Address ", "data" : "3321 Standish Way Stamford CT 06903
+				{"element" : "Patient Address 1", "data" : "3321 Standish Way Stamford CT 06903
 USA "},
-				{"element" : "Patient Address 1", "data" : "325 Shorline Drive Stamford CT 06901
+				{"element" : "Patient Address 2", "data" : "325 Shorline Drive Stamford CT 06901
 "},
 				{"element" : "Local Number", "data" : "(203)555-1214"},
-				{"element" : "Race", "data" : "White"},
+				{"element" : "Race1", "data" : "White"},
 				{"element" : "Ethnic Group", "data" : "Hispanic or Latino"},
 				{"element" : "Birth Order", "data" : ""}
 			]
@@ -40,7 +40,7 @@ USA "},
 			[
 				{"element" : "Name", "data" : "Joanna Gonzales Morales"},
 				{"element" : "Relationship", "data" : "Mother"},
-				{"element" : "Address", "data" : "4623 Standish Way Stamford CT 06903 "},
+				{"element" : "Address1", "data" : "4623 Standish Way Stamford CT 06903 "},
 				{"element" : "Phone Number", "data" : "(203)555-1213"},		]
 		{
 			"title":"Vaccine Administration Information[*]",
@@ -103,7 +103,10 @@ illness"},
 : "07/15/2015"},
 							{"element" : "Vaccination temporary contraindication/precaution expiration
 date", "data" : "08/15/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]
@@ -140,7 +143,10 @@ illness"},
 : "07/15/2015"},
 							{"element" : "Vaccination temporary contraindication/precaution expiration
 date", "data" : "08/15/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]
@@ -177,7 +183,10 @@ illness"},
 : "07/15/2015"},
 							{"element" : "Vaccination temporary contraindication/precaution expiration
 date", "data" : "08/15/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]
@@ -215,7 +224,10 @@ illness"},
 : "07/15/2015"},
 							{"element" : "Vaccination temporary contraindication/precaution expiration
 date", "data" : "08/15/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]
@@ -252,7 +264,10 @@ illness"},
 : "07/15/2015"},
 							{"element" : "Vaccination temporary contraindication/precaution expiration
 date", "data" : "08/15/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]

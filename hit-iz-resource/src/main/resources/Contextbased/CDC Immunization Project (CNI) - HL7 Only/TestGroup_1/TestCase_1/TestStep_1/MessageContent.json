@@ -1,5 +1,5 @@
 {
-"version" : "1.4",
+"version" : "1.7",
 "profile" : "MessageContent",
 "tables":
 [
@@ -150,7 +150,7 @@ History and Forecast", "categorization" : ""},
 							{"location" : "QPD.4.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "QPD.4.1.1", "dataelement" : "Surname", "data" : "Gonzales",
-"categorization" : "Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 									{"location" : "QPD.4.1.2", "dataelement" : "Own Surname Prefix", "data" :
 "", "categorization" : ""},
 									{"location" : "QPD.4.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -160,17 +160,17 @@ History and Forecast", "categorization" : ""},
 									{"location" : "QPD.4.1.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "QPD.4.2", "dataelement" : "Given Name", "data" : "Juana", "categorization"
-: "Test Case Fixed"},
+: "Value-Profile Fixed"},
 							{"location" : "QPD.4.3", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "Mariana", "categorization" : "Test Case Fixed"},
+Initials Thereof", "data" : "Mariana", "categorization" : "Value-Profile Fixed"},
 							{"location" : "QPD.4.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
-: "Test Case Fixed"},
+: "Value-Profile Fixed"},
 				{"location" : "QPD.5", "dataelement" : "PatientMotherMaidenName", "data" : "",
 "categorization" : ""},
 							{"location" : "QPD.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "QPD.5.1.1", "dataelement" : "Surname", "data" : "Acosta",
-"categorization" : "Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 									{"location" : "QPD.5.1.2", "dataelement" : "Own Surname Prefix", "data" :
 "", "categorization" : ""},
 									{"location" : "QPD.5.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -180,13 +180,13 @@ Initials Thereof", "data" : "Mariana", "categorization" : "Test Case Fixed"},
 									{"location" : "QPD.5.1.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "QPD.5.7", "dataelement" : "Name Type Code", "data" : "M", "categorization"
-: "Test Case Fixed"},
+: "Value-Profile Fixed"},
 				{"location" : "QPD.6", "dataelement" : "PatientDateOfBirth", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.6.1", "dataelement" : "Time", "data" : "200911231105", "categorization"
-: "Test Case Fixed"},
+: "Value-Profile Fixed"},
 				{"location" : "QPD.7", "dataelement" : "Patient Sex", "data" : "F", "categorization"
-: "Test Case Fixed"},
+: "Value-Profile Fixed"},
 				{"location" : "QPD.8", "dataelement" : "Patient Address", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.8.1", "dataelement" : "Street Address", "data" : "", "categorization"
@@ -198,29 +198,29 @@ Initials Thereof", "data" : "Mariana", "categorization" : "Test Case Fixed"},
 									{"location" : "QPD.8.1.3", "dataelement" : "Dwelling Number", "data" : "",
 "categorization" : ""},
 							{"location" : "QPD.8.2", "dataelement" : "Other Designation", "data" : "",
-"categorization" : "Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "QPD.8.3", "dataelement" : "City", "data" : "Stamford", "categorization"
-: "Test Case Fixed"},
+: "Value-Profile Fixed"},
 							{"location" : "QPD.8.4", "dataelement" : "State or Province", "data" : "CT",
-"categorization" : "Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "QPD.8.5", "dataelement" : "Zip or Postal Code", "data" : "06903",
-"categorization" : "Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "QPD.8.6", "dataelement" : "Country", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.8.7", "dataelement" : "Address Type", "data" : "L", "categorization"
-: "Test Case Fixed"},
+: "Value-Profile Fixed"},
 				{"location" : "QPD.9", "dataelement" : "Phone", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.9.2", "dataelement" : "Telecommunication Use Code", "data"
-: "PRN", "categorization" : "Test Case Fixed"},
+: "PRN", "categorization" : "Value-Profile Fixed"},
 							{"location" : "QPD.9.3", "dataelement" : "Telecommunication Equipment Type",
-"data" : "PH", "categorization" : "Test Case Fixed"},
+"data" : "PH", "categorization" : "Value-Profile Fixed"},
 							{"location" : "QPD.9.4", "dataelement" : "Email Address", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.9.6", "dataelement" : "Area/City Code", "data" : "203",
-"categorization" : "Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "QPD.9.7", "dataelement" : "Local Number", "data" : "5551212",
-"categorization" : "Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "QPD.10", "dataelement" : "Multiple birth indicator", "data" : "",
 "categorization" : ""},
 				{"location" : "QPD.11", "dataelement" : "Birth order", "data" : "", "categorization"

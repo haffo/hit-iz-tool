@@ -1,5 +1,5 @@
 {
-"version" : "2.6",
+"version" : "2.9.3",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -12,10 +12,10 @@
 				{"element" : "ID Number", "data" : "22533 "},
 				{"element" : "Date/Time of Birth", "data" : "04/30/2011"},
 				{"element" : "Administrative Sex", "data" : "Female"},
-				{"element" : "Patient Address ", "data" : "12 North Oak St Bozeman MT 59715 USA
+				{"element" : "Patient Address 1", "data" : "12 North Oak St Bozeman MT 59715 USA
 "},
 				{"element" : "Local Number", "data" : "(406)555-2914"},
-				{"element" : "Race", "data" : "White"},
+				{"element" : "Race1", "data" : "White"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
 				{"element" : "Birth Order", "data" : "1"}
 			]
@@ -38,7 +38,7 @@
 			[
 				{"element" : "Name", "data" : "Janelle Trudeau"},
 				{"element" : "Relationship", "data" : "Guardian"},
-				{"element" : "Address", "data" : "12 North Oak St Bozeman MT 59715 USA "},
+				{"element" : "Address1", "data" : "12 North Oak St Bozeman MT 59715 USA "},
 				{"element" : "Phone Number", "data" : "(406)555-2914"},		]
 		{
 			"title":"Vaccine Administration Information[*]",
@@ -71,10 +71,15 @@
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Private"},
+							{"element" : "", "data" : ""},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "Not VFC Eligible"},
+							{"element" : "", "data" : ""},
 							{"element" : "Document Type", "data" : "Measles/Mumps/Rubella/Varicella VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/25/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]
@@ -106,13 +111,19 @@
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Private"},
+							{"element" : "", "data" : ""},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "Not VFC Eligible"},
+							{"element" : "", "data" : ""},
 							{"element" : "Document Type", "data" : "Polio VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/25/2015"},
+							{"element" : "", "data" : ""},
 							{"element" : "Document Type", "data" : "Diphtheria/Tetanus/Pertussis (DTaP)
 VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/25/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]

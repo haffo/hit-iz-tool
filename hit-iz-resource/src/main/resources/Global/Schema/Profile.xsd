@@ -284,6 +284,7 @@
 		</xs:annotation>
 		<xs:group ref="GroupStructure" minOccurs="1" maxOccurs="1"/>
 		<xs:attribute name="ID" type="NonEmptyString" use="required"/>
+		<xs:attribute name="Name" type="NonEmptyString" use="optional"/>
 		<xs:attribute name="Type" type="NonEmptyString" use="required"/>
 		<xs:attribute name="Event" type="NonEmptyString" use="required"/>
 		<xs:attribute name="StructID" type="MsgStructIDType" use="required">

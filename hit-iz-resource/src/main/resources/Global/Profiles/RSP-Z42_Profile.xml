@@ -83,7 +83,7 @@
 		</Segment>
 		<Segment ID="QAK_IZ1_5" Name="QAK" Description="Query Acknowledgment">
 			<Field Name="Query Tag" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="32" ItemNo="00696"/>
-			<Field Name="Query Response Status" Usage="RE" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70208_IZ" BindingStrength="R" ItemNo="00708"/>
+			<Field Name="Query Response Status" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70208_IZ" BindingStrength="R" ItemNo="00708"/>
 			<Field Name="Message Query Name" Usage="R" Min="1" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="0471" BindingStrength="R" BindingLocation="1" ItemNo="01375"/>
 			<Field Name="Hit Count" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="10" ItemNo="01434"/>
 			<Field Name="This payload" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="10" ItemNo="01622"/>

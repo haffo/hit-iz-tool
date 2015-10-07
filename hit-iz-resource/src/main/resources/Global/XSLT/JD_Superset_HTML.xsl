@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:util="http://hl7.nist.gov/juoro-doc/util" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    xmlns:util="http://hl7.nist.gov/juoro-doc/util" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xs util">
     <xsl:output method="xhtml" encoding="UTF-8" indent="yes"/>
     <xsl:template name="commentTemplate">
 
@@ -84,6 +84,59 @@
             <xsl:value-of select="concat($month, $day, $year)"/>
 
         </xsl:if>
+    </xsl:function>
+    <xsl:function name="util:followSiblingDate">
+        <xsl:param name="followSibling"/>
+        <xsl:param name="position"/>
+        <xsl:variable name="value">
+            <xsl:choose>
+                <xsl:when
+                    test="$followSibling[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
+                    
+                    <xsl:for-each
+                        select="$followSibling[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
+                        
+                        <xsl:if test="position() = 1">
+                            <xsl:call-template name="followSibling-with-date">
+                                <xsl:with-param name="node2" select="OBX/OBX.5/OBX.5.1"/>
+                            </xsl:call-template>
+                        </xsl:if>
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <td bgcolor="#D2D2D2"/>
+                </xsl:otherwise>
+            </xsl:choose>
+            
+        </xsl:variable>
+        <xsl:copy-of select="$value"/>
+    </xsl:function>
+    <xsl:function name="util:followSibling">
+        <xsl:param name="followSibling"/>
+        <xsl:param name="position"/>
+        <xsl:variable name="value">
+            <xsl:choose>
+                <xsl:when
+                    test="$followSibling[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
+                    
+                    <xsl:for-each
+                        select="$followSibling[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
+                        
+                        <xsl:if test="position() = 1">
+                            <td>
+                                <xsl:value-of select="OBX/OBX.5/OBX.5.2"/>
+                            </td>
+                            
+                        </xsl:if>
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <td bgcolor="#D2D2D2"/>
+                </xsl:otherwise>
+            </xsl:choose>
+            
+        </xsl:variable>
+        <xsl:copy-of select="$value"/>
     </xsl:function>
     <xsl:template match="/">
         <form>
@@ -247,23 +300,22 @@
                 <body>
 
                     <div class="jurordocument">
-                        <fieldset>
-
+                       
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="2">Evaluated Immunization History and
-                                            Immunization Forecast</th>
+                                        <th colspan="2">Evaluated Immunization History and Immunization
+                                            Forecast</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th>Test Case ID</th>
-
+                                        
                                         <td>
                                             <xsl:value-of select="RSP_K11/@testcaseName"/>
                                         </td>
-
+                                        
                                     </tr>
                                     <tr>
                                         <th>Juror ID</th>
@@ -298,21 +350,21 @@
                                         <td>
                                             <table id="inspectionStatus">
                                                 <thead>
-                                                  <tr>
-                                                  <th>Pass</th>
-                                                  <th>Fail</th>
-                                                  </tr>
+                                                    <tr>
+                                                        <th>Pass</th>
+                                                        <th>Fail</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-
-                                                  <tr>
-                                                  <td>
-                                                  <input type="checkbox" value=""/>
-                                                  </td>
-                                                  <td>
-                                                  <input type="checkbox" value=""/>
-                                                  </td>
-                                                  </tr>
+                                                    
+                                                    <tr>
+                                                        <td>
+                                                            <input type="checkbox" value=""/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" value=""/>
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </td>
@@ -331,7 +383,7 @@
                                                 maxlength="50" value=""/>
                                         </td>
                                     </tr>
-
+                                    
                                 </tbody>
                             </table>
 
@@ -343,7 +395,7 @@
                                     the Tester to use during certification testing for assessing the
                                     EHR technology's ability to display required core data elements
                                     from the information received in the Evaluated Immunization
-                                    History and Immunization Forecast Z42 message. Additional data
+                                    History and Immunization Forecast Z42 response message. Additional data
                                     from the message or from the EHR are permitted to be displayed
                                     by the EHR. Grayed-out fields in the Juror Document indicate
                                     where no data for the data element indicated were included in
@@ -596,7 +648,7 @@
 
                                             <xsl:for-each
                                                 select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
-
+                                                <xsl:variable name="position" select="position()"/>
                                                 <tr id="header">
                                                   <th width="30%">Element Name</th>
                                                   <th width="30%">Data</th>
@@ -850,15 +902,15 @@
                                                   <th>Valid Dose</th>
                                                   <xsl:choose>
                                                   <xsl:when
-                                                  test="exists(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../..)">
+                                                      test="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:for-each
-                                                  select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../..">
+                                                      select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:if test="position() = 1">
                                                   <xsl:choose>
-                                                  <xsl:when test="OBX.5/OBX.5.1 = 'Y'">
+                                                  <xsl:when test="OBX/OBX.5/OBX.5.1 = 'Y'">
                                                   <td>YES</td>
                                                   </xsl:when>
-                                                  <xsl:when test="OBX.5/OBX.5.1 = 'N'">
+                                                  <xsl:when test="OBX/OBX.5/OBX.5.1 = 'N'">
                                                   <td>NO</td>
                                                   </xsl:when>
                                                   </xsl:choose>
@@ -873,24 +925,10 @@
                                                 </tr>
                                                 <tr>
                                                   <th>Validity Reason</th>
-                                                  <xsl:choose>
-                                                  <xsl:when
-                                                  test="exists(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../..)">
-                                                  <xsl:for-each
-                                                  select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../..">
-                                                  <xsl:if test="position() = 1">
-
-                                                  <td>
-                                                  <xsl:value-of select="OBX.5/OBX.5.2"/>
-                                                  </td>
-
-                                                  </xsl:if>
-                                                  </xsl:for-each>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
+                                                  
+                                                    <xsl:copy-of
+                                                        select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../.., $position)"/>
+                                                    
                                                   <xsl:call-template name="commentTemplate"/>
 
                                                 </tr>
@@ -924,13 +962,13 @@
                                                   <th>Dose Number in Series</th>
                                                   <xsl:choose>
                                                   <xsl:when
-                                                  test="exists(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30973-2']/../..)">
+                                                      test="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30973-2']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:for-each
-                                                  select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30973-2']/../..">
+                                                      select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30973-2']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:if test="position() = 1">
 
                                                   <td>
-                                                  <xsl:value-of select="OBX.5/OBX.5.1"/>
+                                                  <xsl:value-of select="OBX/OBX.5/OBX.5.1"/>
                                                   </td>
 
                                                   </xsl:if>
@@ -947,13 +985,13 @@
                                                   <th>Number of Doses in Series</th>
                                                   <xsl:choose>
                                                   <xsl:when
-                                                  test="exists(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59782-3']/../..)">
+                                                      test="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59782-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:for-each
-                                                  select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59782-3']/../..">
+                                                      select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59782-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:if test="position() = 1">
 
                                                   <td>
-                                                  <xsl:value-of select="OBX.5/OBX.5.1"/>
+                                                  <xsl:value-of select="OBX/OBX.5/OBX.5.1"/>
                                                   </td>
 
                                                   </xsl:if>
@@ -968,70 +1006,25 @@
                                                 </tr>
                                                 <tr>
                                                   <th>Immunization Series Name</th>
-                                                  <xsl:choose>
-                                                  <xsl:when
-                                                  test="exists(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59780-7']/../..)">
-                                                  <xsl:for-each
-                                                  select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59780-7']/../..">
-                                                  <xsl:if test="position() = 1">
-
-                                                  <td>
-                                                  <xsl:value-of select="OBX.5/OBX.5.2"/>
-                                                  </td>
-
-                                                  </xsl:if>
-                                                  </xsl:for-each>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
+                                                    <xsl:copy-of
+                                                        select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59780-7']/../../.., $position)"/>
+                                                 
                                                   <xsl:call-template name="commentTemplate"/>
 
                                                 </tr>
                                                 <tr>
                                                   <th>Status in Immunization Series</th>
-                                                  <xsl:choose>
-                                                  <xsl:when
-                                                  test="exists(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../..)">
-                                                  <xsl:for-each
-                                                  select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../..">
-                                                  <xsl:if test="position() = 1">
-
-                                                  <td>
-                                                  <xsl:value-of select="OBX.5/OBX.5.2"/>
-                                                  </td>
-
-                                                  </xsl:if>
-                                                  </xsl:for-each>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
+                                                    <xsl:copy-of
+                                                        select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../../.., $position)"/>
+                                                  
                                                   <xsl:call-template name="commentTemplate"/>
 
                                                 </tr>
                                                 <tr>
                                                   <th>Immunization Schedule Used</th>
-                                                  <xsl:choose>
-                                                  <xsl:when
-                                                  test="exists(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59779-9']/../..)">
-                                                  <xsl:for-each
-                                                  select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59779-9']/../..">
-                                                  <xsl:if test="position() = 1">
-
-                                                  <td>
-                                                  <xsl:value-of select="OBX.5/OBX.5.2"/>
-                                                  </td>
-
-                                                  </xsl:if>
-                                                  </xsl:for-each>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
+                                                    <xsl:copy-of
+                                                        select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59779-9']/../../.., $position)"/>
+                                                  
                                                   <xsl:call-template name="commentTemplate"/>
 
                                                 </tr>
@@ -1074,6 +1067,7 @@
 
                                             <xsl:for-each
                                                 select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
+                                                <xsl:variable name="position" select="position()"/>
                                                 <tr id="header">
                                                   <th width="30%">Element Name</th>
                                                   <th width="30%">Data</th>
@@ -1091,143 +1085,41 @@
                                                 </tr>
                                                 <tr>
                                                   <th>Vaccine Due Date</th>
-                                                  <xsl:choose>
-
-                                                  <xsl:when
-                                                  test="exists(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30980-7']/../..)">
-                                                  <xsl:for-each
-                                                  select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30980-7']/../..">
-                                                  <xsl:if test="position() = 1">
-                                                  <xsl:call-template name="followSibling-with-date">
-                                                  <xsl:with-param name="node2"
-                                                  select="OBX.5/OBX.5.1"/>
-                                                  </xsl:call-template>
-                                                  </xsl:if>
-                                                  </xsl:for-each>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
+                                                    <xsl:copy-of
+                                                        select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30980-7']/../../.., $position)"/>
                                                   <xsl:call-template name="commentTemplate"/>
                                                 </tr>
                                                 <tr>
                                                   <th>Earliest Date to Give</th>
-                                                  <xsl:choose>
-
-                                                  <xsl:when
-                                                  test="exists(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30981-5'])">
-                                                  <xsl:for-each
-                                                  select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30981-5']/../..">
-                                                  <xsl:if test="position() = 1">
-                                                  <xsl:call-template name="followSibling-with-date">
-
-                                                  <xsl:with-param name="node2"
-                                                  select="OBX.5/OBX.5.1"/>
-
-
-                                                  </xsl:call-template>
-                                                  </xsl:if>
-                                                  </xsl:for-each>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
+                                                    <xsl:copy-of
+                                                        select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30981-5']/../../.., $position)"/>
                                                   <xsl:call-template name="commentTemplate"/>
                                                 </tr>
                                                 <tr>
                                                   <th>Latest Date to Give</th>
-                                                  <xsl:choose>
-
-                                                  <xsl:when
-                                                  test="exists(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59777-3']/../..)">
-                                                  <xsl:for-each
-                                                  select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59777-3']/../..">
-                                                  <xsl:if test="position() = 1">
-                                                  <xsl:call-template name="followSibling-with-date">
-
-                                                  <xsl:with-param name="node2"
-                                                  select="OBX.5/OBX.5.1"/>
-
-
-                                                  </xsl:call-template>
-                                                  </xsl:if>
-                                                  </xsl:for-each>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
+                                                    <xsl:copy-of
+                                                        select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59777-3']/../../.., $position)"/>
                                                   <xsl:call-template name="commentTemplate"/>
                                                 </tr>
                                                 <tr>
                                                   <th>Date When Vaccine Overdue</th>
-                                                  <xsl:choose>
-
-                                                  <xsl:when
-                                                  test="exists(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59778-1']/../..)">
-                                                  <xsl:for-each
-                                                  select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59778-1']/../..">
-                                                  <xsl:if test="position() = 1">
-                                                  <xsl:call-template name="followSibling-with-date">
-
-                                                  <xsl:with-param name="node2"
-                                                  select="OBX.5/OBX.5.1"/>
-
-
-                                                  </xsl:call-template>
-                                                  </xsl:if>
-                                                  </xsl:for-each>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
+                                                    <xsl:copy-of
+                                                        select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59778-1']/../../.., $position)"/>
+                                                 
                                                   <xsl:call-template name="commentTemplate"/>
                                                 </tr>
                                                 <tr>
                                                   <th>Status in Immunization Series</th>
-                                                  <xsl:choose>
-
-                                                  <xsl:when
-                                                  test="exists(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../..)">
-                                                  <xsl:for-each
-                                                  select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../..">
-                                                  <xsl:if test="position() = 1">
-                                                  <td>
-                                                  <xsl:value-of select="OBX.5/OBX.5.2"/>
-
-                                                  </td>
-                                                  </xsl:if>
-                                                  </xsl:for-each>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
+                                                    <xsl:copy-of
+                                                        select="util:followSibling(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../../.., $position)"/>
+                                                
                                                   <xsl:call-template name="commentTemplate"/>
                                                 </tr>
                                                 <tr>
                                                   <th>Forecast Reason</th>
-                                                  <xsl:choose>
-
-                                                  <xsl:when
-                                                  test="exists(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../..)">
-                                                  <xsl:for-each
-                                                  select="following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../..">
-                                                  <xsl:if test="position() = 1">
-                                                  <td>
-                                                  <xsl:value-of select="OBX.5/OBX.5.2"/>
-
-                                                  </td>
-                                                  </xsl:if>
-                                                  </xsl:for-each>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
+                                                    <xsl:copy-of
+                                                        select="util:followSibling(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../.., $position)"/>
+                                                    
                                                   <xsl:call-template name="commentTemplate"/>
                                                 </tr>
 
@@ -1245,7 +1137,6 @@
                                 </table>
                             </xsl:if>
 
-                        </fieldset>
                     </div>
                 </body>
             </html>

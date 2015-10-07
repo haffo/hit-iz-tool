@@ -1,5 +1,5 @@
 {
-"version" : "1.4",
+"version" : "1.7",
 "profile" : "MessageContent",
 "tables":
 [
@@ -209,29 +209,29 @@ Initials Thereof", "data" : "Diego", "categorization" : ""},
 : ""},
 							{"location" : "PID.11.7", "dataelement" : "Address Type", "data" : "P", "categorization"
 : ""},
-				{"location" : "PID.13", "dataelement" : "Phone Number - Home", "data" : "", "categorization"
-: ""},
-							{"location" : "PID.13.2", "dataelement" : "Telecommunication Use Code", "data"
-: "PRN", "categorization" : ""},
-							{"location" : "PID.13.3", "dataelement" : "Telecommunication Equipment Type",
+				{"location" : "PID.13[1]", "dataelement" : "Phone Number - Home", "data" : "",
+"categorization" : ""},
+							{"location" : "PID.13[1].2", "dataelement" : "Telecommunication Use Code",
+"data" : "PRN", "categorization" : ""},
+							{"location" : "PID.13[1].3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "PH", "categorization" : ""},
-							{"location" : "PID.13.4", "dataelement" : "Email Address", "data" : "", "categorization"
-: ""},
-							{"location" : "PID.13.6", "dataelement" : "Area/City Code", "data" : "406",
+							{"location" : "PID.13[1].4", "dataelement" : "Email Address", "data" : "",
 "categorization" : ""},
-							{"location" : "PID.13.7", "dataelement" : "Local Number", "data" : "5555815",
+							{"location" : "PID.13[1].6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : ""},
-				{"location" : "PID.13", "dataelement" : "Phone Number - Home", "data" : "", "categorization"
-: ""},
-							{"location" : "PID.13.2", "dataelement" : "Telecommunication Use Code", "data"
-: "NET", "categorization" : ""},
-							{"location" : "PID.13.3", "dataelement" : "Telecommunication Equipment Type",
+							{"location" : "PID.13[1].7", "dataelement" : "Local Number", "data" : "5555815",
+"categorization" : ""},
+				{"location" : "PID.13[2]", "dataelement" : "Phone Number - Home", "data" : "",
+"categorization" : ""},
+							{"location" : "PID.13[2].2", "dataelement" : "Telecommunication Use Code",
+"data" : "NET", "categorization" : ""},
+							{"location" : "PID.13[2].3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "", "categorization" : ""},
-							{"location" : "PID.13.4", "dataelement" : "Email Address", "data" : "Manuel.Vasquez@isp.com",
+							{"location" : "PID.13[2].4", "dataelement" : "Email Address", "data" : "Manuel.Vasquez@isp.com",
 "categorization" : ""},
-							{"location" : "PID.13.6", "dataelement" : "Area/City Code", "data" : "", "categorization"
-: ""},
-							{"location" : "PID.13.7", "dataelement" : "Local Number", "data" : "", "categorization"
+							{"location" : "PID.13[2].6", "dataelement" : "Area/City Code", "data" : "",
+"categorization" : ""},
+							{"location" : "PID.13[2].7", "dataelement" : "Local Number", "data" : "", "categorization"
 : ""},
 				{"location" : "PID.22", "dataelement" : "Ethnic Group", "data" : "", "categorization"
 : ""},

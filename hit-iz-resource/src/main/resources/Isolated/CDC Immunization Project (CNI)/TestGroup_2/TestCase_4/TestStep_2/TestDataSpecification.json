@@ -1,5 +1,5 @@
 {
-"version" : "2.6",
+"version" : "2.9.3",
 "profile" : "QBP_Q11",
 "tables":
 [
@@ -8,7 +8,7 @@
 			"elements" : 
 			[
 				{"element" : "Patient Name", "data" : "Juana Maria Gonzales Morales"},
-				{"element" : "Date/Time of Birth", "data" : "05/30/2015"},
+				{"element" : "Date/Time of Birth", "data" : "05/30/2015 11:15 "},
 				{"element" : "Sex", "data" : "Female"},
 				{"element" : "Patient Address", "data" : "3321 Standish Way Stamford CT "},
 				{"element" : "Patient Phone", "data" : "(203)555-1214"}

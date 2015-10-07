@@ -1,5 +1,5 @@
 {
-"version" : "2.6",
+"version" : "2.9.3",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -12,10 +12,10 @@
 				{"element" : "ID Number", "data" : "3123 "},
 				{"element" : "Date/Time of Birth", "data" : "04/15/2015"},
 				{"element" : "Administrative Sex", "data" : "Male"},
-				{"element" : "Patient Address ", "data" : "543 Blount Drive Bozeman MT 59715 USA
-"},
+				{"element" : "Patient Address 1", "data" : "543 Blount Drive Bozeman MT 59715
+USA "},
 				{"element" : "Local Number", "data" : "(406)555-7690"},
-				{"element" : "Race", "data" : "American Indian or Alaska Native"},
+				{"element" : "Race1", "data" : "American Indian or Alaska Native"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
 				{"element" : "Birth Order", "data" : "1"}
 			]
@@ -41,7 +41,7 @@
 			[
 				{"element" : "Name", "data" : "Maria Elizabeth Richardson"},
 				{"element" : "Relationship", "data" : "Mother"},
-				{"element" : "Address", "data" : "543 Blount Drive Bozeman MT 59715 USA "},
+				{"element" : "Address1", "data" : "543 Blount Drive Bozeman MT 59715 USA "},
 				{"element" : "Phone Number", "data" : "(406)555-7690"},		]
 		},
 		{
@@ -50,7 +50,7 @@
 			[
 				{"element" : "Name", "data" : "John William Richardson"},
 				{"element" : "Relationship", "data" : "Father"},
-				{"element" : "Address", "data" : "543 Blount Drive Bozeman MT 59715 USA "},
+				{"element" : "Address1", "data" : "543 Blount Drive Bozeman MT 59715 USA "},
 				{"element" : "Phone Number", "data" : "(406)555-8299"},		]
 
 </accordion>		{
@@ -84,16 +84,23 @@
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Public"},
+							{"element" : "", "data" : ""},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "VFC Eligible
 - American Indian/Alaska Native"},
+							{"element" : "", "data" : ""},
 							{"element" : "Document Type", "data" : "Polio VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/24/2015"},
+							{"element" : "", "data" : ""},
 							{"element" : "Document Type", "data" : "Hepatitis B VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/24/2015"},
+							{"element" : "", "data" : ""},
 							{"element" : "Document Type", "data" : "Diphtheria/Tetanus/Pertussis (DTaP)
 VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/24/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]
@@ -125,11 +132,16 @@ VIS"},
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Public"},
+							{"element" : "", "data" : ""},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "VFC Eligible
 - American Indian/Alaska Native"},
+							{"element" : "", "data" : ""},
 							{"element" : "Document Type", "data" : "Rotavirus VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/24/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]
@@ -161,11 +173,16 @@ VIS"},
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Public"},
+							{"element" : "", "data" : ""},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "VFC Eligible
 - American Indian/Alaska Native"},
+							{"element" : "", "data" : ""},
 							{"element" : "Document Type", "data" : "Pneumococcal Conjugate (PCV13) VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/24/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]

@@ -1,162 +1,123 @@
 <?xml version="1.0" encoding="ASCII" standalone="no"?>
 <html>
 <head>
-<style type="text/css" media="print,screen">
-	.testStory maskByMediaType {display: table;}
-	.testStory table tbody tr th {font-size: 70%;}
-	.testStory table tbody tr td {font-size: 70%;}
-	.testStory table tbody tr th {text-align: left; background: #C6DEFF;}
-	.testStory table thead tr th {text-align: center; font-size: 70%;}
-	.testStory table thead tr th:first-child {width: 15%;}
-	.testStory table thead tr th:nth-child(2) {width: 35%;}
-	.testStory table thead tr th:nth-child(3) {width: 35%;}
-	.testStory table thead tr th:last-child {width: 10%;}
-	.testStory table {width: 98%; border: 1px groove; table-layout: fixed; margin: 0 auto; border-collapse: collapse; page-break-inside: avoid;}
-	.testStory table tr {border: 3px groove;}
-	.testStory table th {border: 2px groove;}
-	.testStory table td {border: 2px groove;}
-	.testStory table thead {border: 1px groove; background: #446BEC; text-align: left;}
-	.testStory table tbody tr td {text-align: left}
-	.testStory .embSpace {padding-left: 10px;}
-	.testStory .embSubSpace {padding-left: 20px;}
-	.testStory .childField {background: #B8B8B8;}
+<style xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:util="http://hl7.nist.gov/data-specs/util" type="text/css">
+					@media screen {
+					.testStory legend {text-align:center;font-size:110%; font-weight:bold;}					
+					.testStory  {text-align:center;page-break-inside: avoid;}
+                    .testStory maskByMediaType {display:table;}
+                    .testStory  table tbody tr th {font-size:100%;}
+                    .testStory  table tbody tr td {font-size:90%;}
+                    .testStory  table tbody tr th {text-align:center;background:#436BEC}
+					.testStory  table { width:98%;border: 1px groove;table-layout: fixed; margin:0 auto;border-collapse: collapse;page-break-inside: avoid;}
+                    .testStory  table  tr { border: 3px groove; }
+                    .testStory  table  th { border: 2px groove;}
+                    .testStory  table  td { border: 2px groove; }
+                    .testStory  table tbody tr td {text-align:left}
+                    }
+                    @media print {
+					.testStory legend {text-align:center;font-size:110%; font-weight:bold;}					
+					.testStory  {text-align:center;page-break-inside: avoid;}
+                    .testStory maskByMediaType {display:table;}
+                    .testStory  table tbody tr th {font-size:100%;}
+                    .testStory  table tbody tr td {font-size:90%;}
+                    .testStory  table tbody tr th {text-align:center;background:#436BEC}
+					.testStory  table { width:98%;border: 1px groove;table-layout: fixed; margin:0 auto;border-collapse: collapse;page-break-inside: avoid;}
+                    .testStory  table  tr { border: 3px groove; }
+                    .testStory  table  th { border: 2px groove;}
+                    .testStory  table  td { border: 2px groove; }
+                    .testStory  table tbody tr td {text-align:left}
+                    }
+                    @page {
+                    counter-increment: page;
+					@bottom-center {
+                    content: "Page " counter(page);
+                    }
+                    }
+                    @page :left {
+                    margin-left: 5%;
+                    margin-right: 5%;
+                    }
+                    @page :right {
+                    margin-left: 5%;
+                    margin-right: 5%;
+                    }
 }
 </style>
 </head>
 <body>
 	<div class="testStory">
 	<fieldset>
-		<legend>Description</legend>
 		<table>
-		<thead>
 			<tr>
-				<th colspan="1" style="height: 20px" />
+				<th colspan="1">Description</th>
 			</tr>
-		</thead>
-		<tbody>
 			<tr>
 				<td><p>A 1 month old female, Ashley Jennifer Broadbent, is brought to the West Clinic for a well child visit by her mother Ellen Broadbent (nee Layton). A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient&rsquo;s vaccination history and determines that the child requires a Hep B vaccination. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The mother is given the Vaccine Information Sheet (VIS) to review. After reading it, she agrees that the child should receive the Hep B vaccine. She also agrees that the data should be shared once it is incorporated into the local IIS. An appropriate dose of Hep B (ENGERIX-B)&nbsp;is selected from the clinic&rsquo;s stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and enters the data into the EHR and transmits it to the IIS.</p>
 </td>
 			</tr>
-		</tbody>
-	</table>
-	</fieldset>
-
-	<br />
-	
-	<fieldset>
-		<legend>Comments</legend>
+		</table>
+		<br />
 		<table>
-		<thead>
 			<tr>
-				<th colspan="1" style="height: 20px" />
+				<th colspan="1">Comments</th>
 			</tr>
-		</thead>
-		<tbody>
 			<tr>
 				<td><p>No Comments</p>
 </td>
 			</tr>
-		</tbody>
-	</table>
-	</fieldset>
-
-	<br />
-	
-	<fieldset>
-		<legend>PreCondition</legend>
+		</table>
+		<br />
 		<table>
-		<thead>
 			<tr>
-				<th colspan="1" style="height: 20px" />
+				<th colspan="1">PreCondition</th>
 			</tr>
-		</thead>
-		<tbody>
 			<tr>
 				<td><p>No PreCondition</p>
 </td>
 			</tr>
-		</tbody>
-	</table>
-	</fieldset>
-
-	<br />
-	
-	<fieldset>
-		<legend>PostCondition</legend>
+		</table>
+		<br />
 		<table>
-		<thead>
 			<tr>
-				<th colspan="1" style="height: 20px" />
+				<th colspan="1">PostCondition</th>
 			</tr>
-		</thead>
-		<tbody>
 			<tr>
 				<td><p>No PostCondition</p>
 </td>
 			</tr>
-		</tbody>
-	</table>
-	</fieldset>
-
-	<br />
-	
-	<fieldset>
-		<legend>Test Objectives</legend>
+		</table>
+		<br />
 		<table>
-		<thead>
 			<tr>
-				<th colspan="1" style="height: 20px" />
+				<th colspan="1">Test Objectives</th>
 			</tr>
-		</thead>
-		<tbody>
 			<tr>
 				<td><p>No Test Objectives</p>
 </td>
 			</tr>
-		</tbody>
-	</table>
-	</fieldset>
-
-	<br />
-	
-	<fieldset>
-		<legend>Evaluation Criteria</legend>
+		</table>
+		<br />
 		<table>
-		<thead>
 			<tr>
-				<th colspan="1" style="height: 20px" />
+				<th colspan="1">Evaluation Criteria</th>
 			</tr>
-		</thead>
-		<tbody>
 			<tr>
 				<td><p>No evaluation criteria</p>
 </td>
 			</tr>
-		</tbody>
-	</table>
-	</fieldset>
-
-	<br />
-	
-	<fieldset>
-		<legend>Notes to Testers</legend>
+		</table>
+		<br />
 		<table>
-		<thead>
 			<tr>
-				<th colspan="1" style="height: 20px" />
+				<th colspan="1">Notes to Testers</th>
 			</tr>
-		</thead>
-		<tbody>
 			<tr>
 				<td><p>No Note</p>
 </td>
 			</tr>
-		</tbody>
-	</table>
+		</table>
 	</fieldset>
-
-	<br />
 	</div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 {
-"version" : "1.4",
+"version" : "1.7",
 "profile" : "MessageContent",
 "tables":
 [
@@ -229,20 +229,20 @@ Initials Thereof", "data" : "S", "categorization" : ""},
 			"title":"RCP : Response Control Parameter",
 			"elements" : 
 			[
-				{"location" : "RCP.1", "dataelement" : "Query Priority", "data" : "I ", "categorization"
+				{"location" : "RCP.1", "dataelement" : "Query Priority", "data" : "I", "categorization"
 : ""},
 				{"location" : "RCP.2", "dataelement" : "Quantity Limited Request", "data" : "",
 "categorization" : ""},
-							{"location" : "RCP.2.1", "dataelement" : "Quantity", "data" : "", "categorization"
+							{"location" : "RCP.2.1", "dataelement" : "Quantity", "data" : "1", "categorization"
 : ""},
 							{"location" : "RCP.2.2", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
-									{"location" : "RCP.2.2.1", "dataelement" : "Identifier", "data" : "", "categorization"
+									{"location" : "RCP.2.2.1", "dataelement" : "Identifier", "data" : "RD", "categorization"
 : ""},
-									{"location" : "RCP.2.2.2", "dataelement" : "Text", "data" : "", "categorization"
+									{"location" : "RCP.2.2.2", "dataelement" : "Text", "data" : "Records", "categorization"
 : ""},
 									{"location" : "RCP.2.2.3", "dataelement" : "Name of Coding System", "data"
-: "", "categorization" : ""},
+: "HL70126 ", "categorization" : ""},
 									{"location" : "RCP.2.2.4", "dataelement" : "Alternate Identifier", "data"
 : "", "categorization" : ""},
 									{"location" : "RCP.2.2.5", "dataelement" : "Alternate Text", "data" : "",

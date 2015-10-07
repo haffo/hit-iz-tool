@@ -1,5 +1,5 @@
 {
-"version" : "2.6",
+"version" : "2.9.3",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -12,11 +12,11 @@
 				{"element" : "ID Number", "data" : "90012 "},
 				{"element" : "Date/Time of Birth", "data" : "06/15/1983"},
 				{"element" : "Administrative Sex", "data" : "Female"},
-				{"element" : "Patient Address ", "data" : "9200 Wellington Trail Bozeman MT 59715
+				{"element" : "Patient Address 1", "data" : "9200 Wellington Trail Bozeman MT 59715
 USA "},
 				{"element" : "Local Number", "data" : "(406)555-7896"},
 				{"element" : "Email", "data" : "Elise.Wong@isp.com"},
-				{"element" : "Race", "data" : "Asian"},
+				{"element" : "Race1", "data" : "Asian"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
 				{"element" : "Birth Order", "data" : "1"}
 			]
@@ -63,10 +63,15 @@ USA "},
 						"elements" : 
 						[
 							{"element" : "Vaccine Funding Source", "data" : "Private"},
+							{"element" : "", "data" : ""},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "Not VFC Eligible"},
+							{"element" : "", "data" : ""},
 							{"element" : "Document Type", "data" : "Tetanus/Diphtheria (Td) VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/24/2015"},
-						]
+	
+	]					}
+					}
+		]
 					}
 					}
 		]

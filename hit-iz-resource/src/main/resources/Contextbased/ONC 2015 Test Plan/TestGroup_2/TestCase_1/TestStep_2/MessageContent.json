@@ -1,5 +1,5 @@
 {
-"version" : "1.4",
+"version" : "1.7",
 "profile" : "MessageContent",
 "tables":
 [
@@ -116,17 +116,17 @@
 			"elements" : 
 			[
 				{"location" : "MSA.1", "dataelement" : "Acknowledgment Code", "data" : "AA", "categorization"
-: "Test Case Fixed"},
+: "Value-Profile Fixed"},
 				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "793543",
-"categorization" : "System Generated"},		]
+"categorization" : "Presence-System Generated"},		]
 		{
 			"title":"QAK : Query Acknowledgment",
 			"elements" : 
 			[
 				{"location" : "QAK.1", "dataelement" : "Query Tag", "data" : "37374859", "categorization"
-: "System Generated"},
+: "Presence-System Generated"},
 				{"location" : "QAK.2", "dataelement" : "Query Response Status", "data" : "OK",
-"categorization" : "Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "QAK.3", "dataelement" : "Message Query Name", "data" : "", "categorization"
 : ""},
 							{"location" : "QAK.3.1", "dataelement" : "Identifier", "data" : "Z44", "categorization"
@@ -259,38 +259,38 @@ Initials Thereof", "data" : "S", "categorization" : ""},
 			[
 				{"location" : "PID.1", "dataelement" : "Set ID - PID", "data" : "1", "categorization"
 : ""},
-				{"location" : "PID.3", "dataelement" : "Patient Identifier List", "data" : "",
-"categorization" : ""},
-							{"location" : "PID.3.1", "dataelement" : "ID Number", "data" : "12993456",
-"categorization" : ""},
-							{"location" : "PID.3.3", "dataelement" : "Check Digit Scheme", "data" : "",
-"categorization" : ""},
-							{"location" : "PID.3.4", "dataelement" : "Assigning Authority", "data" : "",
-"categorization" : ""},
-									{"location" : "PID.3.4.1", "dataelement" : "Namespace ID", "data" : "MYEHR",
-"categorization" : ""},
-									{"location" : "PID.3.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
-: ""},
-									{"location" : "PID.3.4.3", "dataelement" : "Universal ID Type", "data" :
+				{"location" : "PID.3[1]", "dataelement" : "Patient Identifier List", "data" :
 "", "categorization" : ""},
-							{"location" : "PID.3.5", "dataelement" : "Identifier Type Code", "data" : "MR",
+							{"location" : "PID.3[1].1", "dataelement" : "ID Number", "data" : "12993456",
 "categorization" : ""},
-				{"location" : "PID.3", "dataelement" : "Patient Identifier List", "data" : "",
-"categorization" : ""},
-							{"location" : "PID.3.1", "dataelement" : "ID Number", "data" : "34500907",
-"categorization" : ""},
-							{"location" : "PID.3.3", "dataelement" : "Check Digit Scheme", "data" : "",
-"categorization" : ""},
-							{"location" : "PID.3.4", "dataelement" : "Assigning Authority", "data" : "",
-"categorization" : ""},
-									{"location" : "PID.3.4.1", "dataelement" : "Namespace ID", "data" : "MyIIS",
-"categorization" : ""},
-									{"location" : "PID.3.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
-: ""},
-									{"location" : "PID.3.4.3", "dataelement" : "Universal ID Type", "data" :
+							{"location" : "PID.3[1].3", "dataelement" : "Check Digit Scheme", "data" :
 "", "categorization" : ""},
-							{"location" : "PID.3.5", "dataelement" : "Identifier Type Code", "data" : "SR",
+							{"location" : "PID.3[1].4", "dataelement" : "Assigning Authority", "data" :
+"", "categorization" : ""},
+									{"location" : "PID.3[1].4.1", "dataelement" : "Namespace ID", "data" : "MYEHR",
 "categorization" : ""},
+									{"location" : "PID.3[1].4.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "PID.3[1].4.3", "dataelement" : "Universal ID Type", "data"
+: "", "categorization" : ""},
+							{"location" : "PID.3[1].5", "dataelement" : "Identifier Type Code", "data"
+: "MR", "categorization" : ""},
+				{"location" : "PID.3[2]", "dataelement" : "Patient Identifier List", "data" :
+"", "categorization" : ""},
+							{"location" : "PID.3[2].1", "dataelement" : "ID Number", "data" : "34500907",
+"categorization" : ""},
+							{"location" : "PID.3[2].3", "dataelement" : "Check Digit Scheme", "data" :
+"", "categorization" : ""},
+							{"location" : "PID.3[2].4", "dataelement" : "Assigning Authority", "data" :
+"", "categorization" : ""},
+									{"location" : "PID.3[2].4.1", "dataelement" : "Namespace ID", "data" : "MyIIS",
+"categorization" : ""},
+									{"location" : "PID.3[2].4.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "PID.3[2].4.3", "dataelement" : "Universal ID Type", "data"
+: "", "categorization" : ""},
+							{"location" : "PID.3[2].5", "dataelement" : "Identifier Type Code", "data"
+: "SR", "categorization" : ""},
 				{"location" : "PID.5", "dataelement" : "Patient Name", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
