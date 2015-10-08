@@ -162,11 +162,13 @@
     <script src="lib/lrInfiniteScroll/lrInfiniteScroll.js"></script>
     <script src="lib/profile-viewer/profile-viewer.js"></script>
     <script src="lib/vocab-search/vocab-search.js"></script>
+    <script src="lib/dqa/dqa.js"></script>
     <script src="lib/validation-result/validation-result.js"></script>
     <script src="lib/report-viewer/report-viewer.js"></script>
     <script src="lib/testcase-viewer/testcase-viewer.js"></script>
     <script src="lib/testcase-tree/testcase-tree.js"></script>
     <script src="lib/documentation-viewer/documentation-viewer.js"></script>
+
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
@@ -174,28 +176,27 @@
     <script src="scripts/my.resource.js"></script>
     <script src="scripts/testing/service/testing.js"></script>
     <script src="scripts/soap.js"></script>
-    <script src="scripts/envelope/service/envelope.js"></script>
+    <script src="scripts/envelope/service.js"></script>
     <script src="scripts/cf/service.js"></script>
     <script src="scripts/cb/service.js"></script>
-    <script src="scripts/connectivity/service/connectivity.js"></script>
+    <script src="scripts/connectivity/service.js"></script>
     <script src="scripts/isolated/service.js"></script>
     <script src="scripts/vocab/service/vocab.js"></script>
     <script src="scripts/contact/service/contact.js"></script>
     <script src="scripts/hl7v2.js"></script>
     <script src="scripts/xml.js"></script>
     <script src="scripts/common.js"></script>
-    <script src="scripts/dqa.js"></script>
     <!-- Controllers-->
     <script src="scripts/main/controller/main.js"></script>
     <script src="scripts/testing/controller/testing.js"></script>
     <script src="scripts/cf/controller.js"></script>
     <script src="scripts/cb/controller.js"></script>
-    <script src="scripts/envelope/controller/envelope.js"></script>
+    <script src="scripts/envelope/controller.js"></script>
     <script src="scripts/isolated/controller.js"></script>
     <script src="scripts/contact/controller/contact.js"></script>
     <script src="scripts/about/controller/about.js"></script>
     <script src="scripts/header/controller/header.js"></script>
-    <script src="scripts/connectivity/controller/connectivity.js"></script>
+    <script src="scripts/connectivity/controller.js"></script>
     <script src="scripts/directives/directives.js"></script>
 
 
@@ -203,6 +204,8 @@
 
     <div ng-include="'views/error.html'"></div>
     <div ng-include="'views/templates.html'"></div>
+    <div ng-include="'lib/dqa/dqa.html'"></div>
+    <div ng-include="'lib/vocab-search/valueset-found-modal.html'"></div>
 
     <script>
 //        $(document).ready(function() {

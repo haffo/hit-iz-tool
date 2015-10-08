@@ -2,15 +2,15 @@
   "name": "iztool",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "1.4.5",
-    "angular-animate": "1.4.5",
+    "angular": "1.4.7",
+    "angular-animate": "1.4.7",
     "angular-bootstrap": "~0.13.4",
-    "angular-cookies": "1.4.5",
+    "angular-cookies": "1.4.7",
     "angular-loading-bar": "0.4.3",
     "angular-local-storage": "~0.2.2",
-    "angular-resource": "1.4.5",
-    "angular-route": "1.4.5",
-    "angular-sanitize": "1.4.5",
+    "angular-resource": "1.4.7",
+    "angular-route": "1.4.7",
+    "angular-sanitize": "1.4.7",
     "angular-smart-table": "2.0.1",
     "es5-shim": "~2.1.0",
     "jquery": "1.11.0",
@@ -19,8 +19,8 @@
     "sass-bootstrap": "~3.0.2"
   },
   "devDependencies": {
-    "angular-mocks": "1.4.5",
-    "angular-scenario": "1.4.5"
+    "angular-mocks": "1.4.7",
+    "angular-scenario": "1.4.7"
   },
   "resolutions": {
     "angular-bootstrap": "~0.13.4"

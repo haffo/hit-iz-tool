@@ -1,0 +1,112 @@
+<script type="text/ng-template" id="DQAConfig.html">
+    <div class="modal-header">
+        <span style="font-weight: bold; font-size: 20px">
+            DQA Options Panel
+        </span>
+        <span class="pull-right">
+            <button ng-click="save()" type="button"
+                    title="Save" class="btn btn-xs btn-success">
+                <i class="fa fa-check"></i> Save
+            </button>
+        <button ng-click="cancel()" type="button"
+                title="Cancel" class="btn btn-xs btn-primary">
+            <i class="fa fa-times"></i>
+            Cancel
+        </button>
+
+        </span>
+
+    </div>
+    <div class="modal-body">
+
+        <div class="row">
+
+            <button ng-click="selectAll()" type="button"
+                    title="Save" class="btn btn-xs btn-primary">
+                <i class="fa fa-check-square-o"></i> Select All
+            </button>
+
+            <button ng-click="unselectAll()" type="button"
+                    title="Unselect All" class="btn btn-xs btn-primary">
+                <i class="fa fa-square-o"></i> Unselect All
+            </button>
+        </div>
+
+        <div class="row">
+            <div class="cols-md-10">
+                <div class="page-header">
+                    <span style="font-weight: bold; font-size: 18px">Errors Options</span>
+
+                    <button ng-click="selectAllCodes('errors')" type="button"
+                            title="Select All Errors" class="btn btn-xs btn-danger">
+                        <i class="fa fa-check-square-o"></i> Select All Errors
+                    </button>
+
+                    <button ng-click="unselectAllCodes('errors')" type="button"
+                            title="Unselect All Errors" class="btn btn-xs btn-danger">
+                        <i class="fa fa-square-o"></i> Unselect All Errors
+                    </button>
+                </div>
+                <table class="table table-striped table-condensed table-bordered">
+                    <thead class="tbl-header">
+                    <th></th>
+                    <th>Code</th>
+                    <th>Description</th>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in options.errors">
+                        <td cs-select="row">
+                            <input ng-click="onCodeCheck($event, row.code)"
+                                   ng-checked="selectedCodes.indexOf(row.code) >= 0"
+                                   type="checkbox"></td>
+                        <td>{{row.code}}</td>
+                        <td>{{row.desc}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cols-md-10">
+                <div class="page-header">
+                    <span style="font-weight: bold; font-size: 18px">Warnings Options</span>
+                    <button ng-click="selectAllCodes('warnings')" type="button"
+                            title="Select All Warnings" class="btn btn-xs btn-warning">
+                        <i class="fa fa-check-square-o"></i> Select All Warnings
+                    </button>
+
+                    <button ng-click="unselectAllCodes('warnings')" type="button"
+                            title="Unselect All Warnings" class="btn btn-xs btn-warning">
+                        <i class="fa fa-square-o"></i> Unselect All Warnings
+                    </button>
+                </div>
+                <table class="table table-striped table-condensed table-bordered">
+                    <thead class="tbl-header">
+                    <th></th>
+                    <th>Code</th>
+                    <th>Description</th>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in options.warnings">
+                        <td cs-select="row">
+                            <input ng-click="onCodeCheck($event, row.code)"
+                                   ng-checked="selectedCodes.indexOf(row.code) >= 0"
+                                   type="checkbox"></td>
+                        <td>{{row.code}}</td>
+                        <td>{{row.desc}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button ng-click="save()" type="button"
+                title="Save" class="btn btn-xs btn-success">
+            <i class="fa fa-check"></i> Save
+        </button>
+        <button ng-click="cancel()" type="button"
+                title="Cancel" class="btn btn-xs btn-primary">
+            <i class="fa fa-times"></i>
+            Cancel
+        </button>
+    </div>
+</script>
