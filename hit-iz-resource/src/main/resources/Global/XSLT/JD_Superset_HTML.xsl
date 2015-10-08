@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:util="http://hl7.nist.gov/juoro-doc/util" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xs util">
+    xmlns:util="http://hl7.nist.gov/juoro-doc/util" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    exclude-result-prefixes="xs util">
     <xsl:output method="xhtml" encoding="UTF-8" indent="yes"/>
     <xsl:template name="commentTemplate">
 
@@ -8,7 +9,7 @@
             <!--   <div  contentEditable="true" style="width: 100%; height: 100%; border: none; resize: none; max-width: 300px;">
                 <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;</div>-->
             <textarea maxLength="100" rows="1"
-                style="width: 100%; height: 100%; border: 1px; background: 1px  #EDEDED; resize:vertical; "> </textarea>
+                style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; "> </textarea>
 
         </td>
 
@@ -92,10 +93,10 @@
             <xsl:choose>
                 <xsl:when
                     test="$followSibling[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
-                    
+
                     <xsl:for-each
                         select="$followSibling[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
-                        
+
                         <xsl:if test="position() = 1">
                             <xsl:call-template name="followSibling-with-date">
                                 <xsl:with-param name="node2" select="OBX/OBX.5/OBX.5.1"/>
@@ -107,7 +108,7 @@
                     <td bgcolor="#D2D2D2"/>
                 </xsl:otherwise>
             </xsl:choose>
-            
+
         </xsl:variable>
         <xsl:copy-of select="$value"/>
     </xsl:function>
@@ -118,15 +119,15 @@
             <xsl:choose>
                 <xsl:when
                     test="$followSibling[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
-                    
+
                     <xsl:for-each
                         select="$followSibling[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
-                        
+
                         <xsl:if test="position() = 1">
                             <td>
                                 <xsl:value-of select="OBX/OBX.5/OBX.5.2"/>
                             </td>
-                            
+
                         </xsl:if>
                     </xsl:for-each>
                 </xsl:when>
@@ -134,7 +135,7 @@
                     <td bgcolor="#D2D2D2"/>
                 </xsl:otherwise>
             </xsl:choose>
-            
+
         </xsl:variable>
         <xsl:copy-of select="$value"/>
     </xsl:function>
@@ -159,7 +160,7 @@
                             .jurordocument fieldset{
                                 font-size:x-small;
                             }
-                            .jurordocument table{
+                            .jurordocument table tr{
                                 page-break-inside:avoid;
                             }
                             .jurordocument table th{
@@ -202,7 +203,7 @@
                         .jurordocument fieldset{
                             width:98%;
                             border:1px solid #446BEC;
-                            page-break-inside:avoid;
+                          
                         }
                         .embSpace{
                             padding-left:25px;
@@ -218,6 +219,7 @@
                         }
                         .jurordocument table tr{
                             border:1px groove;
+                            page-break-inside:avoid;
                         }
                         .jurordocument table th{
                             border:1px groove;
@@ -300,421 +302,419 @@
                 <body>
 
                     <div class="jurordocument">
-                       
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th colspan="2">Evaluated Immunization History and Immunization
-                                            Forecast</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>Test Case ID</th>
-                                        
-                                        <td>
-                                            <xsl:value-of select="RSP_K11/@testcaseName"/>
-                                        </td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <th>Juror ID</th>
-                                        <td>
-                                            <input style="background: 1px  #E2E2E2;" type="text"
-                                                maxlength="50" value=""/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Juror Name</th>
-                                        <td>
-                                            <input style="background: 1px  #E2E2E2;" type="text"
-                                                maxlength="50" value=""/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>HIT System Tested</th>
-                                        <td>
-                                            <input style="background: 1px  #E2E2E2;" type="text"
-                                                maxlength="50" value=""/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Inspection Date/Time</th>
-                                        <td>
-                                            <input style="background: 1px  #E2E2E2;" type="text"
-                                                maxlength="50" value=""/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Inspection Settlement (Pass/Fail)</th>
-                                        <td>
-                                            <table id="inspectionStatus">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Pass</th>
-                                                        <th>Fail</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    
-                                                    <tr>
-                                                        <td>
-                                                            <input type="checkbox" value=""/>
-                                                        </td>
-                                                        <td>
-                                                            <input type="checkbox" value=""/>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Reason Failed</th>
-                                        <td>
-                                            <input style="background: 1px  #E2E2E2;" type="text"
-                                                maxlength="50" value=""/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Juror Comments</th>
-                                        <td>
-                                            <input style="background: 1px  #E2E2E2;" type="text"
-                                                maxlength="50" value=""/>
-                                        </td>
-                                    </tr>
-                                    
-                                </tbody>
-                            </table>
 
-                            <h3>DISPLAY VERIFICATION</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Evaluated Immunization History and Immunization
+                                        Forecast</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Test Case ID</th>
 
+                                    <td>
+                                        <xsl:value-of select="RSP_K11/@testcaseName"/>
+                                    </td>
 
-                            <fieldset>
-                                <p>This Test Case-specific Juror Document provides a checklist for
-                                    the Tester to use during certification testing for assessing the
-                                    EHR technology's ability to display required core data elements
-                                    from the information received in the Evaluated Immunization
-                                    History and Immunization Forecast Z42 response message. Additional data
-                                    from the message or from the EHR are permitted to be displayed
-                                    by the EHR. Grayed-out fields in the Juror Document indicate
-                                    where no data for the data element indicated were included in
-                                    the Z42 message for the given Test Case.</p>
-                                <p>The format of this Juror Document is for ease-of-use by the
-                                    Tester and does not indicate how the EHR display must be
-                                    designed.</p>
-                                <p>The Evaluated Immunization History and Immunization Forecast data
-                                    shown in this Juror Document are derived from the Z42 message
-                                    provided with the given Test Case; equivalent data are permitted
-                                    to be displayed by the EHR. The column headings are meant to
-                                    convey the kind of data to be displayed; equivalent
-                                    labels/column headings are permitted to be displayed by the
-                                    EHR.</p>
-                            </fieldset>
-                            <br/>
-                            <!-- Patient Information -->
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th colspan="3">Patient Information</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr id="header">
-                                        <th width="30%">Element Name</th>
-                                        <th width="30%">Data</th>
-                                        <th width="40%">Tester Comment</th>
-                                    </tr>
-                                    <xsl:for-each select="//PID">
-                                        <xsl:for-each select="PID.3">
-                                            <tr>
-                                                <th colspan="3">Patient Identifier</th>
-                                            </tr>
-                                            <tr>
-                                                <th style="text-indent: 40px">ID Number</th>
+                                </tr>
+                                <tr>
+                                    <th>Juror ID</th>
+                                    <td>
+                                        <input style="background: 1px  #E2E2E2;" type="text"
+                                            maxlength="50" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Juror Name</th>
+                                    <td>
+                                        <input style="background: 1px  #E2E2E2;" type="text"
+                                            maxlength="50" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>HIT System Tested</th>
+                                    <td>
+                                        <input style="background: 1px  #E2E2E2;" type="text"
+                                            maxlength="50" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Inspection Date/Time</th>
+                                    <td>
+                                        <input style="background: 1px  #E2E2E2;" type="text"
+                                            maxlength="50" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Inspection Settlement (Pass/Fail)</th>
+                                    <td>
+                                        <table id="inspectionStatus">
+                                            <thead>
+                                                <tr>
+                                                  <th>Pass</th>
+                                                  <th>Fail</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                                <xsl:call-template name="testExistence">
-                                                  <xsl:with-param name="node" select="PID.3.1"/>
-                                                </xsl:call-template>
-
-
-                                                <xsl:call-template name="commentTemplate"/>
-
-                                            </tr>
-                                            <tr>
-                                                <th style="text-indent: 40px" colspan="3">Assigning
-                                                  Authority</th>
-                                            </tr>
-                                            <tr>
-                                                <th style="text-indent: 60px">Namespace ID</th>
-                                                <xsl:call-template name="testExistence">
-                                                  <xsl:with-param name="node"
-                                                  select="PID.3.4/PID.3.4.1"/>
-                                                </xsl:call-template>
-
-
-                                                <xsl:call-template name="commentTemplate"/>
-
-                                            </tr>
-                                            <tr>
-                                                <th style="text-indent: 40px">ID Type</th>
-                                                <xsl:call-template name="testExistence">
-                                                  <xsl:with-param name="node" select="PID.3.5"/>
-                                                </xsl:call-template>
-
-
-                                                <xsl:call-template name="commentTemplate"/>
-                                            </tr>
-                                        </xsl:for-each>
-
-                                        <tr>
-                                            <th>Name</th>
-                                            <xsl:choose>
-                                                <xsl:when test="exists(PID.5)">
+                                                <tr>
                                                   <td>
+                                                  <input type="checkbox" value=""/>
+                                                  </td>
+                                                  <td>
+                                                  <input type="checkbox" value=""/>
+                                                  </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Reason Failed</th>
+                                    <td>
+                                        <input style="background: 1px  #E2E2E2;" type="text"
+                                            maxlength="50" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Juror Comments</th>
+                                    <td>
+                                        <input style="background: 1px  #E2E2E2;" type="text"
+                                            maxlength="50" value=""/>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <h3>DISPLAY VERIFICATION</h3>
+
+
+                        <fieldset>
+                            <p>This Test Case-specific Juror Document provides a checklist for the
+                                Tester to use during certification testing for assessing the EHR
+                                technology's ability to display required core data elements from the
+                                information received in the Evaluated Immunization History and
+                                Immunization Forecast Z42 response message. Additional data from the
+                                message or from the EHR are permitted to be displayed by the EHR.
+                                Grayed-out fields in the Juror Document indicate where no data for
+                                the data element indicated were included in the Z42 message for the
+                                given Test Case.</p>
+                            <p>The format of this Juror Document is for ease-of-use by the Tester
+                                and does not indicate how the EHR display must be designed.</p>
+                            <p>The Evaluated Immunization History and Immunization Forecast data
+                                shown in this Juror Document are derived from the Z42 message
+                                provided with the given Test Case; equivalent data are permitted to
+                                be displayed by the EHR. The column headings are meant to convey the
+                                kind of data to be displayed; equivalent labels/column headings are
+                                permitted to be displayed by the EHR.</p>
+                        </fieldset>
+                        <br/>
+                        <!-- Patient Information -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="3">Patient Information</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="header">
+                                    <th width="30%">Element Name</th>
+                                    <th width="30%">Data</th>
+                                    <th width="40%">Tester Comment</th>
+                                </tr>
+                                <xsl:for-each select="//PID">
+                                    <xsl:for-each select="PID.3">
+                                        <tr>
+                                            <th colspan="3">Patient Identifier</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-indent: 40px">ID Number</th>
+
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node" select="PID.3.1"/>
+                                            </xsl:call-template>
+
+
+                                            <xsl:call-template name="commentTemplate"/>
+
+                                        </tr>
+                                        <tr>
+                                            <th style="text-indent: 40px" colspan="3">Assigning
+                                                Authority</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-indent: 60px">Namespace ID</th>
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node"
+                                                  select="PID.3.4/PID.3.4.1"/>
+                                            </xsl:call-template>
+
+
+                                            <xsl:call-template name="commentTemplate"/>
+
+                                        </tr>
+                                        <tr>
+                                            <th style="text-indent: 40px">ID Type</th>
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node" select="PID.3.5"/>
+                                            </xsl:call-template>
+
+
+                                            <xsl:call-template name="commentTemplate"/>
+                                        </tr>
+                                    </xsl:for-each>
+
+                                    <tr>
+                                        <th>Name</th>
+                                        <xsl:choose>
+                                            <xsl:when test="exists(PID.5)">
+                                                <td>
 
                                                   <xsl:value-of
                                                   select="concat(PID.5/PID.5.2, ' ', PID.5/PID.5.3, ' ', PID.5/PID.5.1/PID.5.1.1)"
                                                   />
-                                                  </td>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                            <xsl:call-template name="commentTemplate"/>
-                                        </tr>
-                                        <tr>
-                                            <th>Date of Birth</th>
-                                            <xsl:call-template name="testExistence-with-date">
-                                                <xsl:with-param name="node" select="PID.7/PID.7.1"/>
-                                            </xsl:call-template>
-                                            <xsl:call-template name="commentTemplate"/>
-                                        </tr>
+                                                </td>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <td bgcolor="#D2D2D2"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                        <xsl:call-template name="commentTemplate"/>
+                                    </tr>
+                                    <tr>
+                                        <th>Date of Birth</th>
+                                        <xsl:call-template name="testExistence-with-date">
+                                            <xsl:with-param name="node" select="PID.7/PID.7.1"/>
+                                        </xsl:call-template>
+                                        <xsl:call-template name="commentTemplate"/>
+                                    </tr>
 
-                                        <tr>
-                                            <th>Sex</th>
+                                    <tr>
+                                        <th>Sex</th>
 
-                                            <xsl:choose>
-                                                <xsl:when test="exists(PID.8)">
-                                                  <xsl:choose>
+                                        <xsl:choose>
+                                            <xsl:when test="exists(PID.8)">
+                                                <xsl:choose>
                                                   <xsl:when test="PID.8 = 'F'">
                                                   <td> Female </td>
                                                   </xsl:when>
                                                   <xsl:when test="PID.8 = 'M'">
                                                   <td> Male </td>
                                                   </xsl:when>
-                                                  </xsl:choose>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
+                                                </xsl:choose>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <td bgcolor="#D2D2D2"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+
+                                        <xsl:call-template name="commentTemplate"/>
+
+                                    </tr>
+                                    <xsl:for-each select="PID.11">
+
+                                        <tr>
+                                            <th colspan="3">
+                                                <xsl:value-of
+                                                  select="concat('Address', ' ', position())"/>
+                                            </th>
+                                        </tr>
+
+
+                                        <tr>
+                                            <th style="text-indent: 40px">Street</th>
+
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node"
+                                                  select="PID.11.1/PID.11.1.1"/>
+                                            </xsl:call-template>
+
 
                                             <xsl:call-template name="commentTemplate"/>
-
                                         </tr>
-                                        <xsl:for-each select="PID.11">
-
-                                            <tr>
-                                                <th colspan="3">
-                                                  <xsl:value-of
-                                                  select="concat('Address', ' ', position())"/>
-                                                </th>
-                                            </tr>
-
-
-                                            <tr>
-                                                <th style="text-indent: 40px">Street</th>
-
-                                                <xsl:call-template name="testExistence">
-                                                  <xsl:with-param name="node"
-                                                  select="PID.11.1/PID.11.1.1"/>
-                                                </xsl:call-template>
-
-
-                                                <xsl:call-template name="commentTemplate"/>
-                                            </tr>
-                                            <tr>
-                                                <th style="text-indent: 40px">Other Designation</th>
-
-                                                <xsl:call-template name="testExistence">
-                                                  <xsl:with-param name="node" select="PID.11.2"/>
-                                                </xsl:call-template>
-
-
-                                                <xsl:call-template name="commentTemplate"/>
-                                            </tr>
-                                            <tr>
-                                                <th style="text-indent: 40px">City</th>
-
-                                                <xsl:call-template name="testExistence">
-                                                  <xsl:with-param name="node" select="PID.11.3"/>
-                                                </xsl:call-template>
-
-
-                                                <xsl:call-template name="commentTemplate"/>
-                                            </tr>
-                                            <tr>
-                                                <th style="text-indent: 40px">State</th>
-
-                                                <xsl:call-template name="testExistence">
-                                                  <xsl:with-param name="node" select="PID.11.4"/>
-                                                </xsl:call-template>
-
-                                                <xsl:call-template name="commentTemplate"/>
-                                            </tr>
-                                            <tr>
-                                                <th style="text-indent: 40px">Zip Code</th>
-
-                                                <xsl:call-template name="testExistence">
-                                                  <xsl:with-param name="node" select="PID.11.5"/>
-                                                </xsl:call-template>
-
-                                                <xsl:call-template name="commentTemplate"/>
-                                            </tr>
-                                            <tr>
-                                                <th style="text-indent: 40px">Country</th>
-
-                                                <xsl:call-template name="testExistence">
-                                                  <xsl:with-param name="node" select="PID.11.6"/>
-                                                </xsl:call-template>
-
-                                                <xsl:call-template name="commentTemplate"/>
-                                            </tr>
-                                            <tr>
-                                                <th style="text-indent: 40px">Address Type</th>
-
-                                                <xsl:call-template name="testExistence">
-                                                  <xsl:with-param name="node" select="PID.11.7"/>
-                                                </xsl:call-template>
-
-                                                <xsl:call-template name="commentTemplate"/>
-                                            </tr>
-                                        </xsl:for-each>
                                         <tr>
-                                            <th>Mother's Maiden Name</th>
-                                            <xsl:choose>
-                                                <xsl:when test="exists(PID.6)">
+                                            <th style="text-indent: 40px">Other Designation</th>
 
-                                                  <td>
-                                                  <xsl:value-of
-                                                  select="concat(PID.6/PID.6.2, ' ', PID.6/PID.6.3, ' ', PID.6/PID.6.1/PID.6.1.1)"
-                                                  />
-                                                  </td>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node" select="PID.11.2"/>
+                                            </xsl:call-template>
+
+
+                                            <xsl:call-template name="commentTemplate"/>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-indent: 40px">City</th>
+
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node" select="PID.11.3"/>
+                                            </xsl:call-template>
+
+
+                                            <xsl:call-template name="commentTemplate"/>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-indent: 40px">State</th>
+
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node" select="PID.11.4"/>
+                                            </xsl:call-template>
+
+                                            <xsl:call-template name="commentTemplate"/>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-indent: 40px">Zip Code</th>
+
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node" select="PID.11.5"/>
+                                            </xsl:call-template>
+
+                                            <xsl:call-template name="commentTemplate"/>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-indent: 40px">Country</th>
+
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node" select="PID.11.6"/>
+                                            </xsl:call-template>
+
+                                            <xsl:call-template name="commentTemplate"/>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-indent: 40px">Address Type</th>
+
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node" select="PID.11.7"/>
+                                            </xsl:call-template>
+
                                             <xsl:call-template name="commentTemplate"/>
                                         </tr>
                                     </xsl:for-each>
-
-                                </tbody>
-                                <tfoot>
                                     <tr>
-                                        <td colspan="3">When displayed in the EHR with the Evaluated
-                                            Immunization History and Immunization Forecast, these
-                                            patient demographics data may be derived from either the
-                                            received immunization message or the EHR patient record.
-                                            When displaying demographics from the patient record,
-                                            the EHR must be able to demonstrate a linkage between
-                                            the demographics in the message (primarily the patient
-                                            ID in PID-3.1) and the patient record used for display
-                                            to ensure that the message was associated with the
-                                            appropriate patient. </td>
+                                        <th>Mother's Maiden Name</th>
+                                        <xsl:choose>
+                                            <xsl:when test="exists(PID.6)">
+
+                                                <td>
+                                                  <xsl:value-of
+                                                  select="concat(PID.6/PID.6.2, ' ', PID.6/PID.6.3, ' ', PID.6/PID.6.1/PID.6.1.1)"
+                                                  />
+                                                </td>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <td bgcolor="#D2D2D2"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                        <xsl:call-template name="commentTemplate"/>
                                     </tr>
-                                </tfoot>
-                            </table>
-                            <br/>
+                                </xsl:for-each>
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3">When displayed in the EHR with the Evaluated
+                                        Immunization History and Immunization Forecast, these
+                                        patient demographics data may be derived from either the
+                                        received immunization message or the EHR patient record.
+                                        When displaying demographics from the patient record, the
+                                        EHR must be able to demonstrate a linkage between the
+                                        demographics in the message (primarily the patient ID in
+                                        PID-3.1) and the patient record used for display to ensure
+                                        that the message was associated with the appropriate
+                                        patient. </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <br/>
 
 
 
-                            <!-- Evaluation Immunization history Where RXA.5.1 != 998 go into the below table-->
-                            <xsl:if
-                                test="exists(//RXA.5.1[. != '998']/../../../RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7'])">
+                        <!-- Evaluation Immunization history Where RXA.5.1 != 998 go into the below table-->
+                        <xsl:if
+                            test="exists(//RXA.5.1[. != '998']/../../../RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7'])">
 
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">Evaluated Immunization History
-                                                Information</th>
-                                        </tr>
-                                    </thead>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">Evaluated Immunization History
+                                            Information</th>
+                                    </tr>
+                                </thead>
 
-                                    <tbody>
-                                        <xsl:for-each select="//RXA.5.1[. != '998']/../../..">
+                                <tbody>
+                                    <xsl:for-each select="//RXA.5.1[. != '998']/../../..">
 
-                                            <xsl:for-each
-                                                select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
-                                                <xsl:variable name="position" select="position()"/>
-                                                <tr id="header">
-                                                  <th width="30%">Element Name</th>
-                                                  <th width="30%">Data</th>
-                                                  <th width="40%">Tester Comment</th>
-                                                </tr>
+                                        <xsl:for-each
+                                            select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
+                                            <xsl:variable name="position" select="position()"/>
+                                            <tr id="header">
+                                                <th width="30%">Element Name</th>
+                                                <th width="30%">Data</th>
+                                                <th width="40%">Tester Comment</th>
+                                            </tr>
 
-                                                <tr>
-                                                  <th>Entering Organization</th>
+                                            <tr>
+                                                <th>Entering Organization</th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../ORC/ORC.17/ORC.17.2"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Vaccine Group</th>
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Vaccine Group</th>
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="OBX/OBX.5/OBX.5.2"/>
-                                                  </xsl:call-template>
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Vaccine Administered</th>
-                                                  <xsl:call-template name="testExistence">
+                                                </xsl:call-template>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Vaccine Administered</th>
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.5/RXA.5.2"/>
-                                                  </xsl:call-template>
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th> Refusal Reason </th>
+                                                </xsl:call-template>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th> Refusal Reason </th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.18/RXA.18.2"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th> Date/Time Administration-Start </th>
-                                                  <xsl:call-template name="testExistence-with-date">
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th> Date/Time Administration-Start </th>
+                                                <xsl:call-template name="testExistence-with-date">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.3/RXA.3.1"/>
-                                                  </xsl:call-template>
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th> Date/Time Administration-End </th>
+                                                </xsl:call-template>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th> Date/Time Administration-End </th>
 
-                                                  <xsl:call-template name="testExistence-with-date">
+                                                <xsl:call-template name="testExistence-with-date">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.4/RXA.4.1"/>
-                                                  </xsl:call-template>
-                                                  <xsl:call-template name="commentTemplate"/>
+                                                </xsl:call-template>
+                                                <xsl:call-template name="commentTemplate"/>
 
-                                                </tr>
-                                                <tr>
-                                                  <th> Administered Amount </th>
-                                                  <xsl:choose>
+                                            </tr>
+                                            <tr>
+                                                <th> Administered Amount </th>
+                                                <xsl:choose>
                                                   <xsl:when test="../RXA/RXA.6 != 999">
                                                   <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node" select="../RXA/RXA.6"
@@ -724,72 +724,72 @@
                                                   <xsl:otherwise>
                                                   <td bgcolor="#D2D2D2"/>
                                                   </xsl:otherwise>
-                                                  </xsl:choose>
+                                                </xsl:choose>
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Administered Units of Measure</th>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Administered Units of Measure</th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.7/RXA.7.1"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Route of Administration</th>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Route of Administration</th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXR/RXR.1/RXR.1.2"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Administration Site</th>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Administration Site</th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXR/RXR.2/RXR.2.2"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
 
-                                                <tr>
-                                                  <th> Substance Manufacturer Name </th>
+                                            <tr>
+                                                <th> Substance Manufacturer Name </th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.17/RXA.17.2"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th> Administration Notes </th>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th> Administration Notes </th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.9/RXA.9.2"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
+                                                <xsl:call-template name="commentTemplate"/>
 
-                                                </tr>
-                                                <tr>
-                                                  <th colspan="3">Administering Provider </th>
-                                                </tr>
-                                                <tr>
-                                                  <th style="text-indent: 40px">Name</th>
-                                                  <xsl:choose>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="3">Administering Provider </th>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-indent: 40px">Name</th>
+                                                <xsl:choose>
                                                   <xsl:when test="exists(../RXA/RXA.10)">
 
                                                   <td>
@@ -801,110 +801,109 @@
                                                   <xsl:otherwise>
                                                   <td bgcolor="#D2D2D2"/>
                                                   </xsl:otherwise>
-                                                  </xsl:choose>
+                                                </xsl:choose>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th style="text-indent: 40px">ID Number</th>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-indent: 40px">ID Number</th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.10/RXA.10.1"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th colspan="3">Administered-at Location</th>
-                                                </tr>
-                                                <tr>
-                                                  <th style="text-indent: 40px"> Facility ID </th>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="3">Administered-at Location</th>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-indent: 40px"> Facility ID </th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.11/RXA.11.4/RXA.11.4.1"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
+                                                <xsl:call-template name="commentTemplate"/>
 
-                                                </tr>
+                                            </tr>
 
-                                                <tr>
-                                                  <th style="text-indent: 40px">Street Address</th>
+                                            <tr>
+                                                <th style="text-indent: 40px">Street Address</th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.11/RXA.11.9"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th style="text-indent: 40px">Other
-                                                  Designation</th>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-indent: 40px">Other Designation</th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.11/RXA.11.10"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th style="text-indent: 40px">City</th>
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-indent: 40px">City</th>
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.11/RXA.11.11"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th style="text-indent: 40px">State</th>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-indent: 40px">State</th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.11/RXA.11.12"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th style="text-indent: 40px">Zip Code</th>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-indent: 40px">Zip Code</th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.11/RXA.11.13"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th style="text-indent: 40px">Country</th>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-indent: 40px">Country</th>
 
-                                                  <xsl:call-template name="testExistence">
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.11/RXA.11.14"/>
-                                                  </xsl:call-template>
+                                                </xsl:call-template>
 
 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
 
-                                                <tr>
-                                                  <th>Valid Dose</th>
-                                                  <xsl:choose>
+                                            <tr>
+                                                <th>Valid Dose</th>
+                                                <xsl:choose>
                                                   <xsl:when
-                                                      test="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
+                                                  test="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:for-each
-                                                      select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
+                                                  select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:if test="position() = 1">
                                                   <xsl:choose>
                                                   <xsl:when test="OBX/OBX.5/OBX.5.1 = 'Y'">
@@ -920,21 +919,21 @@
                                                   <xsl:otherwise>
                                                   <td bgcolor="#D2D2D2"/>
                                                   </xsl:otherwise>
-                                                  </xsl:choose>
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Validity Reason</th>
-                                                  
-                                                    <xsl:copy-of
-                                                        select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../.., $position)"/>
-                                                    
-                                                  <xsl:call-template name="commentTemplate"/>
+                                                </xsl:choose>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Validity Reason</th>
 
-                                                </tr>
-                                                <tr>
-                                                  <th>Completion Status*</th>
-                                                  <xsl:choose>
+                                                <xsl:copy-of
+                                                  select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../.., $position)"/>
+
+                                                <xsl:call-template name="commentTemplate"/>
+
+                                            </tr>
+                                            <tr>
+                                                <th>Completion Status*</th>
+                                                <xsl:choose>
                                                   <xsl:when test="exists(../RXA/RXA.20)">
                                                   <xsl:choose>
                                                   <xsl:when test="../RXA/RXA.20 = 'CP'">
@@ -954,17 +953,17 @@
                                                   <xsl:otherwise>
                                                   <td bgcolor="#D2D2D2"/>
                                                   </xsl:otherwise>
-                                                  </xsl:choose>
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
+                                                </xsl:choose>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
 
-                                                <tr>
-                                                  <th>Dose Number in Series</th>
-                                                  <xsl:choose>
+                                            <tr>
+                                                <th>Dose Number in Series</th>
+                                                <xsl:choose>
                                                   <xsl:when
-                                                      test="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30973-2']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
+                                                  test="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30973-2']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:for-each
-                                                      select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30973-2']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
+                                                  select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30973-2']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:if test="position() = 1">
 
                                                   <td>
@@ -977,17 +976,17 @@
                                                   <xsl:otherwise>
                                                   <td bgcolor="#D2D2D2"/>
                                                   </xsl:otherwise>
-                                                  </xsl:choose>
-                                                  <xsl:call-template name="commentTemplate"/>
+                                                </xsl:choose>
+                                                <xsl:call-template name="commentTemplate"/>
 
-                                                </tr>
-                                                <tr>
-                                                  <th>Number of Doses in Series</th>
-                                                  <xsl:choose>
+                                            </tr>
+                                            <tr>
+                                                <th>Number of Doses in Series</th>
+                                                <xsl:choose>
                                                   <xsl:when
-                                                      test="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59782-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
+                                                  test="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59782-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:for-each
-                                                      select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59782-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
+                                                  select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59782-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:if test="position() = 1">
 
                                                   <td>
@@ -1000,142 +999,142 @@
                                                   <xsl:otherwise>
                                                   <td bgcolor="#D2D2D2"/>
                                                   </xsl:otherwise>
-                                                  </xsl:choose>
-                                                  <xsl:call-template name="commentTemplate"/>
+                                                </xsl:choose>
+                                                <xsl:call-template name="commentTemplate"/>
 
-                                                </tr>
-                                                <tr>
-                                                  <th>Immunization Series Name</th>
-                                                    <xsl:copy-of
-                                                        select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59780-7']/../../.., $position)"/>
-                                                 
-                                                  <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Immunization Series Name</th>
+                                                <xsl:copy-of
+                                                  select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59780-7']/../../.., $position)"/>
 
-                                                </tr>
-                                                <tr>
-                                                  <th>Status in Immunization Series</th>
-                                                    <xsl:copy-of
-                                                        select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../../.., $position)"/>
-                                                  
-                                                  <xsl:call-template name="commentTemplate"/>
+                                                <xsl:call-template name="commentTemplate"/>
 
-                                                </tr>
-                                                <tr>
-                                                  <th>Immunization Schedule Used</th>
-                                                    <xsl:copy-of
-                                                        select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59779-9']/../../.., $position)"/>
-                                                  
-                                                  <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Status in Immunization Series</th>
+                                                <xsl:copy-of
+                                                  select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../../.., $position)"/>
 
-                                                </tr>
-                                                <tr>
-                                                  <td colspan="3"
-                                                  ><xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;</td>
-                                                </tr>
+                                                <xsl:call-template name="commentTemplate"/>
 
-                                            </xsl:for-each>
+                                            </tr>
+                                            <tr>
+                                                <th>Immunization Schedule Used</th>
+                                                <xsl:copy-of
+                                                  select="util:followSibling(following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59779-9']/../../.., $position)"/>
+
+                                                <xsl:call-template name="commentTemplate"/>
+
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                  <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;</td>
+                                            </tr>
+
                                         </xsl:for-each>
+                                    </xsl:for-each>
 
-                                    </tbody>
-
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="3">* "Completion Status" refers to the
-                                                status of the dose of vaccine administered on the
-                                                indicated date and may be interpreted as "Dose
-                                                Status". A status of "Complete" means that the
-                                                vaccine dose was "completely administered" as
-                                                opposed to "partially administered". </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-
-                                <br/>
-                            </xsl:if>
-                            <!-- Immunization Forecast where RXA.5.1=998 go to the below table-->
-                            <xsl:if
-                                test="//RXA.5.1[. = '998']/../../../RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">Immunization Forecast</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        <xsl:for-each select="//RXA.5.1[. = '998']/../../..">
-
-                                            <xsl:for-each
-                                                select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
-                                                <xsl:variable name="position" select="position()"/>
-                                                <tr id="header">
-                                                  <th width="30%">Element Name</th>
-                                                  <th width="30%">Data</th>
-                                                  <th width="40%">Tester Comment</th>
-                                                </tr>
+                                    <tr>
+                                        <td colspan="3">* "Completion Status" refers to the status
+                                            of the dose of vaccine administered on the indicated
+                                            date and may be interpreted as "Dose Status". A status
+                                            of "Complete" means that the vaccine dose was
+                                            "completely administered" as opposed to "partially
+                                            administered". </td>
+                                    </tr>
+                                </tbody>
 
 
-                                                <tr>
-                                                  <th>Vaccine Group</th>
-                                                  <xsl:call-template name="testExistence">
+                            </table>
+
+                            <br/>
+                        </xsl:if>
+                        <!-- Immunization Forecast where RXA.5.1=998 go to the below table-->
+                        <xsl:if
+                            test="//RXA.5.1[. = '998']/../../../RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">Immunization Forecast</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <xsl:for-each select="//RXA.5.1[. = '998']/../../..">
+
+                                        <xsl:for-each
+                                            select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
+                                            <xsl:variable name="position" select="position()"/>
+                                            <tr id="header">
+                                                <th width="30%">Element Name</th>
+                                                <th width="30%">Data</th>
+                                                <th width="40%">Tester Comment</th>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th>Vaccine Group</th>
+                                                <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
                                                   select="OBX/OBX.5/OBX.5.2"/>
-                                                  </xsl:call-template>
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Vaccine Due Date</th>
-                                                    <xsl:copy-of
-                                                        select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30980-7']/../../.., $position)"/>
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Earliest Date to Give</th>
-                                                    <xsl:copy-of
-                                                        select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30981-5']/../../.., $position)"/>
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Latest Date to Give</th>
-                                                    <xsl:copy-of
-                                                        select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59777-3']/../../.., $position)"/>
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Date When Vaccine Overdue</th>
-                                                    <xsl:copy-of
-                                                        select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59778-1']/../../.., $position)"/>
-                                                 
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Status in Immunization Series</th>
-                                                    <xsl:copy-of
-                                                        select="util:followSibling(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../../.., $position)"/>
-                                                
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
-                                                <tr>
-                                                  <th>Forecast Reason</th>
-                                                    <xsl:copy-of
-                                                        select="util:followSibling(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../.., $position)"/>
-                                                    
-                                                  <xsl:call-template name="commentTemplate"/>
-                                                </tr>
+                                                </xsl:call-template>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Vaccine Due Date</th>
+                                                <xsl:copy-of
+                                                  select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30980-7']/../../.., $position)"/>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Earliest Date to Give</th>
+                                                <xsl:copy-of
+                                                  select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30981-5']/../../.., $position)"/>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Latest Date to Give</th>
+                                                <xsl:copy-of
+                                                  select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59777-3']/../../.., $position)"/>
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Date When Vaccine Overdue</th>
+                                                <xsl:copy-of
+                                                  select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59778-1']/../../.., $position)"/>
 
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Status in Immunization Series</th>
+                                                <xsl:copy-of
+                                                  select="util:followSibling(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../../.., $position)"/>
 
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+                                            <tr>
+                                                <th>Forecast Reason</th>
+                                                <xsl:copy-of
+                                                  select="util:followSibling(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../.., $position)"/>
+
+                                                <xsl:call-template name="commentTemplate"/>
+                                            </tr>
+
+                                            <xsl:if test="position() != last()">
                                                 <tr>
-                                                  <td colspan="3"
-                                                  ><xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;</td>
+                                                  <td colspan="3">
+                                                  <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;</td>
                                                 </tr>
-                                            </xsl:for-each>
+                                            </xsl:if>
                                         </xsl:for-each>
+                                    </xsl:for-each>
 
 
-                                    </tbody>
+                                </tbody>
 
-                                </table>
-                            </xsl:if>
+                            </table>
+                        </xsl:if>
 
                     </div>
                 </body>
