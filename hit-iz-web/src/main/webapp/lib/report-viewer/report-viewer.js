@@ -20,7 +20,7 @@
     ]);
 
     mod
-        .controller('ReportViewerCtrl', ['$scope', '$rootScope', 'ngTreetableParams', 'ReportService', '$compile',function ($scope, $rootScope, ngTreetableParams, ReportService,$compile) {
+        .controller('ReportViewerCtrl', ['$scope', '$rootScope', 'ngTreetableParams', 'ReportService', '$compile', function ($scope, $rootScope, ngTreetableParams, ReportService, $compile) {
             var reportService = new ReportService();
             $scope.report = null;
 
@@ -30,17 +30,17 @@
             });
 
             $scope.compile = function () {
-                    var element = $('#'+$scope.type +'-report');
-                    if($scope.report != null) {
-                        element.html($scope.report.html);
-                    }else{
-                        element.html('');
-                    }
-                    $compile(element.contents())($scope);
+                var element = $('#' + $scope.type + '-report');
+                if ($scope.report != null) {
+                    element.html($scope.report.html);
+                } else {
+                    element.html('');
+                }
+                $compile(element.contents())($scope);
             };
 
             $scope.downloadAs = function (format) {
-                reportService.downloadByFormat($scope.report, format);
+                return reportService.downloadAs($scope.report.json, format);
             };
         }]);
 
@@ -54,14 +54,14 @@
             }
         };
 
-        ReportService.prototype.download = function (url) {
+        ReportService.prototype.download = function (url, json) {
             var form = document.createElement("form");
             form.action = url;
             form.method = "POST";
             form.target = "_target";
             var input = document.createElement("textarea");
-            input.name = "jsonReport";
-            input.value = this.content;
+            input.name = "json";
+            input.value = json;
             form.appendChild(input);
             form.style.display = 'none';
             document.body.appendChild(form);
@@ -69,11 +69,11 @@
         };
 
 
-        ReportService.prototype.generate = function (url) {
+        ReportService.prototype.generate = function (url, json) {
             var delay = $q.defer();
             $http({
                 url: url,
-                data: $.param({'jsonReport': this.content }),
+                data: $.param({'json': json}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                 method: 'POST',
                 timeout: 60000
@@ -89,8 +89,8 @@
             return this.generate("api/report/generateAs/" + format, json);
         };
 
-        ReportService.prototype.downloadByFormat = function (json, format) {
-            return this.generate("api/report/downloadAs/" + format, json);
+        ReportService.prototype.downloadAs = function (json, format) {
+            return this.download("api/report/downloadAs/" + format, json);
         };
 
         return ReportService;

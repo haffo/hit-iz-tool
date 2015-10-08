@@ -34,6 +34,16 @@ mod
             ]
         };
 
+        $scope.onCheckAllChange = function ($event,type) {
+            var checkbox = $event.target;
+            if(checkbox.checked){
+                $scope.selectAllCodes(type);
+            }else{
+                $scope.unselectAllCodes(type);
+            }
+        };
+
+
         $scope.onCodeCheck = function ($event,code) {
             var checkbox = $event.target;
             if(checkbox.checked){
@@ -57,17 +67,23 @@ mod
             }
         };
 
-        $scope.selectAll = function (code) {
+        $scope.selectAll = function ($event) {
             $scope.selectedCodes = [];
-            $scope.selectAllCodes('errors');
-            $scope.selectAllCodes('warnings');
+            var checkbox = $event.target;
+            if(checkbox.checked){
+                $scope.selectAllCodes('errors');
+                $scope.selectAllCodes('warnings');
+            }else{
+                $scope.unselectAllCodes('errors');
+                $scope.unselectAllCodes('warnings');
+            }
         };
 
-        $scope.unselectAll = function (code) {
-            $scope.selectedCodes = [];
-            $scope.unselectAllCodes('errors');
-            $scope.unselectAllCodes('warnings');
-        };
+//        $scope.unselectAll = function (code) {
+//            $scope.selectedCodes = [];
+//            $scope.unselectAllCodes('errors');
+//            $scope.unselectAllCodes('warnings');
+//        };
 
 
         $scope.selectAllCodes = function (type) {

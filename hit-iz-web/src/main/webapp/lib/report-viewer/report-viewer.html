@@ -2,45 +2,70 @@
 <!--<h3>{{cb.testCase.type}}: {{cb.testCase.name}}</h3>-->
 <!--</div>-->
 <div class="row" style="margin-top: 0px">
-<div class="col-md-10">
-<!--<div class="panel panel-info">-->
-<!--&lt;!&ndash; Default panel contents &ndash;&gt;-->
-<!--<div class="panel-heading"><i class="glyphicon glyphicon-list"></i>Validation Report-->
-<!--</div>-->
-<!--<div class="panel-body">-->
-<div ng-show="report && report !== null" class="cf-report" style="padding-top:20px">
-<!--<button type="button" class="btn btn-xs btn-info" ng-click="download()"-->
-<!--disabled="{{currentMessage.content === null || currentMessage.content === ''}}">-->
-<!--<span class="glyphicon glyphicon-save">Download</span>-->
-<!--</button>-->
+    <div class="col-md-10">
+        <!--<div class="panel panel-info">-->
+        <!--&lt;!&ndash; Default panel contents &ndash;&gt;-->
+        <!--<div class="panel-heading"><i class="glyphicon glyphicon-list"></i>Validation Report-->
+        <!--</div>-->
+        <!--<div class="panel-body">-->
+        <div ng-show="report && report !== null" class="cf-report" style="padding-top:20px">
+            <!--<button type="button" class="btn btn-xs btn-info" ng-click="download()"-->
+                    <!--disabled="{{currentMessage.content === null || currentMessage.content === ''}}">-->
+                <!--<span class="glyphicon glyphicon-save">Download</span>-->
+            <!--</button>-->
 
-<!--<button type="button" class="btn btn-xs btn-info" ng-click="upload()">-->
-<!--<span class="glyphicon glyphicon-save">Upload</span>-->
-<!--</button>-->
-<!--<div class="btn-group">-->
-<!--<button type="button" class="btn btn-sm btn-primary dropdown-toggle"-->
-<!--data-toggle="dropdown">-->
-<!--<span class="glyphicon glyphicon-save">Save As</span> <span class="caret"></span>-->
-<!--</button>-->
-<!--<ul class="dropdown-menu" role="menu">-->
-<!--<li><a ng-click="downloadAs('PDF')">Pdf</a></li>-->
-<!--<li><a ng-click="downloadAs('DOC')">Word</a></li>-->
-<!--<li><a ng-click="downloadAs('XML')">Xml</a></li>-->
-<!--<li><a ng-click="downloadAs('HTML')">Html</a></li>-->
-<!--</ul>-->
-<!--</div>-->
+            <!--<button type="button" class="btn btn-xs btn-info" ng-click="upload()">-->
+                <!--<span class="glyphicon glyphicon-save">Upload</span>-->
+            <!--</button>-->
+            <!--<div class="btn-group">-->
+                <!--<button type="button" class="btn btn-sm btn-primary dropdown-toggle"-->
+                        <!--data-toggle="dropdown">-->
+                    <!--<span class="glyphicon glyphicon-save">Save As</span> <span class="caret"></span>-->
+                <!--</button>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a ng-click="downloadAs('PDF')">Pdf</a></li>-->
+                    <!--<li><a ng-click="downloadAs('DOC')">Word</a></li>-->
+                    <!--<li><a ng-click="downloadAs('XML')">Xml</a></li>-->
+                    <!--<li><a ng-click="downloadAs('HTML')">Html</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
 
-<div>
-    <div id="{{type}}-report"></div>
-</div>
+            <!--<button type="button" class="btn btn-primary btn-sm" ng-click="downloadAs('PDF')">-->
+                <!--<i class="fa fa-file-pdf-o"></i>PDF-->
+            <!--</button>-->
+
+            <a style="margin-right: 10px" class="point" ng-click="downloadAs('PDF')" ><img src="images/pdf.png" style="height:30px;width:30px"></a>
+            <a style="margin-right: 10px" class="point" ng-click="downloadAs('DOC')" ><img src="images/word.png" style="height:30px;width:30px"></a>
+            <a style="margin-right: 10px" class="point" ng-click="downloadAs('XML')" ><img src="images/xml.png" style="height:30px;width:30px"></a>
+            <a style="margin-right: 10px" class="point" ng-click="downloadAs('HTML')" ><img src="images/html.png" style="height:30px;width:30px"></a>
 
 
-</div>
 
-<div ng-show="!report || report === null">
-    No report generated.
-</div>
+            <!--<button type="button" class="btn btn-sm btn-primary" ng-click="downloadAs('DOC')">-->
+                <!--<i class="fa fa-file-word-o"></i>-->
+                <!--Word-->
+            <!--</button>-->
+            <!--<button type="button" class="btn btn-sm btn-primary" ng-click="downloadAs('XML')">-->
+                <!--<i class="fa fa-code"></i>Xml-->
+            <!--</button>-->
+            <!--<button type="button" class="btn btn-sm btn-primary" ng-click="downloadAs('HTML')">-->
+                <!--<i class="fa fa-code"></i>-->
+                <!--</i>Html-->
+            <!--</button>-->
+            <br/>
+            <br/>
 
-</div>
+            <div>
+                <div id="{{type}}-report"></div>
+            </div>
+
+
+        </div>
+
+        <div ng-show="!report || report === null">
+            No report generated.
+        </div>
+
+    </div>
 </div>
 
