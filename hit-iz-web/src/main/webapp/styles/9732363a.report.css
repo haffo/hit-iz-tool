@@ -1,0 +1,105 @@
+
+.row4 a, .row3 a {
+    color: #003399;
+    text-decoration: underline;
+}
+
+.row4 a:hover, .row3 a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.headerReport {
+    width: 250px;
+}
+
+.row1 {
+    font-weight: bold;
+    font-size: 15px;
+    color: #000000;
+    vertical-align: top;
+    background-color: #d9edf7;
+    width: 100px;
+}
+
+.row2 {
+    background-color: #f0f0f0;
+    width: 100px;
+}
+
+.row3 {
+    vertical-align: top;
+}
+
+.row5 {
+    font-weight: bold;
+    background-color: #FFD630;
+    vertical-align: top;
+}
+
+.row6 {
+    vertical-align: top;
+    background-color: #f0f0f0;
+    width: 100px;
+}
+
+.forumline {
+    background-color: #FFFFFF;
+    border: 1px #006699 solid;
+    width: 90%;
+}
+
+.maintitle {
+    font-weight: bold;
+    font-size: 22px;
+    font-family: Georgia, Verdana;
+    text-decoration: none;
+    line-height: 100%;
+    color: #000000;
+}
+
+.title-background {
+    background-color: #d9edf7;
+}
+
+.report-section {
+    margin-bottom: 20px;
+}
+
+.cf-report-category {
+// margin-bottom:10px;
+}
+
+.cf-tbody {
+//  border: 1px white solid;
+}
+
+.alert-info-2 {
+    background-color: #428bca;
+    border-color: #bce8f1;
+    color: #40629f;
+}
+
+.border_bottom {
+    border-bottom: 1pt #006699 solid;
+}
+
+.border_right {
+    border-right: 1pt #006699 solid;
+}
+
+.alternate0 {
+    background: white;
+}
+
+.alternate1 {
+    background: #f0f0f0;
+}
+
+table.forumline > tr > td {
+    border: 1px;
+}
+
+.col-fixed-130 {
+    width: 130px;
+}

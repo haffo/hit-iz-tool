@@ -32,7 +32,7 @@ public class WSAppInitializer implements WebApplicationInitializer
     // web service servlet
     MessageDispatcherServlet dispatcher = new MessageDispatcherServlet(root);
     dispatcher.setTransformWsdlLocations(true);
-    final Dynamic webservices = servletContext.addServlet("iztool-ws", dispatcher);
+    final Dynamic webservices = servletContext.addServlet("iztool-webservice", dispatcher);
     webservices.setLoadOnStartup(2);
     webservices.addMapping("/ws/*");
     webservices.addMapping("*.wsdl");

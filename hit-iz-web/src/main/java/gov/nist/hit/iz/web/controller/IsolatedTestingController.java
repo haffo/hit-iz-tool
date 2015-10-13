@@ -19,9 +19,9 @@ import gov.nist.hit.core.domain.TestPlan;
 import gov.nist.hit.core.domain.TestStep;
 import gov.nist.hit.core.domain.TransactionCommand;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.repo.TestCaseRepository;
-import gov.nist.hit.core.repo.TestPlanRepository;
-import gov.nist.hit.core.repo.TestStepRepository;
+import gov.nist.hit.core.service.TestCaseService;
+import gov.nist.hit.core.service.TestPlanService;
+import gov.nist.hit.core.service.TestStepService;
 import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.core.transport.TransportClient;
 import gov.nist.hit.core.transport.TransportClientException;
@@ -54,14 +54,14 @@ public class IsolatedTestingController {
   String SUMBIT_SINGLE_MESSAGE_TEMPLATE = null;
 
   @Autowired
-  private TestPlanRepository testPlanRepository;
+  private TestPlanService testPlanService;
+
+  @Autowired
+  private TestCaseService testCaseService;
 
 
   @Autowired
-  private TestCaseRepository testCaseRepository;
-
-  @Autowired
-  private TestStepRepository testStepRepository;
+  private TestStepService testStepService;
 
   @Autowired
   private TransportClient transportClient;
@@ -75,21 +75,21 @@ public class IsolatedTestingController {
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
   public List<TestPlan> testCases() {
     logger.info("Fetching all isolated system test cases...");
-    List<TestPlan> testPlans = testPlanRepository.findAllByStage(Stage.ISOLATED);
+    List<TestPlan> testPlans = testPlanService.findAllByStage(Stage.ISOLATED);
     return testPlans;
   }
 
   @RequestMapping(value = "/testcases/{testCaseId}", method = RequestMethod.GET)
   public TestCase testCase(@PathVariable final Long testCaseId) {
     logger.info("Fetching  test case...");
-    TestCase testCase = testCaseRepository.findOne(testCaseId);
+    TestCase testCase = testCaseService.findOne(testCaseId);
     return testCase;
   }
 
   @RequestMapping(value = "/teststeps/{testStepId}", method = RequestMethod.GET)
   public TestStep testStep(@PathVariable final Long testStepId) {
     logger.info("Fetching  test step...");
-    TestStep testStep = testStepRepository.findOne(testStepId);
+    TestStep testStep = testStepService.findOne(testStepId);
     return testStep;
   }
 
@@ -101,7 +101,7 @@ public class IsolatedTestingController {
     logger.info("Sending ... " + command);
     try {
       Long testCaseId = command.getTestCaseId();
-      TestStep testStep = testStepRepository.findOne(testCaseId);
+      TestStep testStep = testStepService.findOne(testCaseId);
       if (testStep == null)
         throw new TestCaseException("Unknown test step with id=" + testCaseId);
       String request = command.getContent();
