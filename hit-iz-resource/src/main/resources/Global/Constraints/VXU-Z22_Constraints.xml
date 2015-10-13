@@ -718,6 +718,21 @@
 						</OR>
 					</Assertion>
 				</Constraint>
+				<Constraint ID="IZ-23" Target="5[1].1[1].3[1].1[1]">
+					<Description> If RXA-20 is valued 'CP' or 'PA' and the first occurrence of RXA-9.1 (Administration Note.code) is '00' then the message SHALL include an OBX segment associated with the RXA with OBX-3.1 shall equal '64994-7'</Description>
+					<Assertion>
+						<IMPLY>
+							<AND>
+								<PlainText Path="3[1].9[1].1[1]" Text="00" IgnoreCase="false"/>
+								<StringList Path="3[1].20[1]" CSV="CP,PA"/>
+							</AND>
+							<AND>
+								<Presence Path="5[1]"/>
+								<PlainText Path="5[*].1[1].3[1].1[1]" Text="64994-7" IgnoreCase="false" AtLeastOnce="true" />
+							</AND>
+						</IMPLY>
+					</Assertion>
+				</Constraint>
 			</ByID>
 			<ByID ID="aa72383a-7b48-46e5-a74a-82e019591fe7">
 				<Constraint ID="IZ-20" Target="9[1].5[1].1[1]">
@@ -727,6 +742,7 @@
 					</Assertion>
 				</Constraint>
 			</ByID>
+			
 		</Group>
 	</Constraints>
 </ConformanceContext>
