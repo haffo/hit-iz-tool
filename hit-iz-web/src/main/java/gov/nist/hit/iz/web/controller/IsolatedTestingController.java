@@ -34,6 +34,7 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,6 +73,7 @@ public class IsolatedTestingController {
             .getResourceAsStream("/templates/SubmitSingleMessage.xml"));
   }
 
+  @Cacheable(value = "testCaseCache", key = "'isolated-testcases'")
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
   public List<TestPlan> testCases() {
     logger.info("Fetching all isolated system test cases...");
@@ -92,7 +94,6 @@ public class IsolatedTestingController {
     TestStep testStep = testStepService.findOne(testStepId);
     return testStep;
   }
-
 
 
   @RequestMapping(value = "/soap/send", method = RequestMethod.POST)

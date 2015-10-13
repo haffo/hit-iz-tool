@@ -139,7 +139,7 @@ angular.module('cf')
         $scope.vLoading = true;
         $scope.mError = null;
         $scope.mLoading = true;
-
+        $scope.delimeters = [];
         $scope.counter = 0;
         $scope.type = "cf";
         $scope.loadRate = 4000;
@@ -362,13 +362,15 @@ angular.module('cf')
                 var parsed = new Er7MessageParser().parse($scope.cf.testCase.testContext.id, $scope.cf.message.content, $scope.cf.testCase.label);
                 parsed.then(function (value) {
                     $scope.tLoading = false;
-                    $scope.cf.tree.root.build_all(value);
+                    $scope.cf.tree.root.build_all(value.elements);
+                    $scope.delimeters = value.delimeters;
                 }, function (error) {
                     $scope.tLoading = false;
                     $scope.tError = error;
                 });
             } else {
                 $scope.cf.tree.root.build_all([]);
+                $scope.delimeters = [];
                 $scope.tError = null;
                 $scope.tLoading = false;
             }

@@ -200,6 +200,7 @@ angular.module('cb')
         $scope.vLoading = true;
         $scope.mError = null;
         $scope.mLoading = true;
+        $scope.delimeters = [];
 
         $scope.counter = 0;
         $scope.type = "cb";
@@ -411,13 +412,15 @@ angular.module('cb')
                 var parsed = new Er7MessageParser().parse($scope.cb.testCase.testContext.id, $scope.cb.message.content);
                 parsed.then(function (value) {
                     $scope.tLoading = false;
-                    $scope.cb.tree.root.build_all(value);
+                    $scope.cb.tree.root.build_all(value.elements);
+                    $scope.delimeters = value.delimeters;
                 }, function (error) {
                     $scope.tLoading = false;
                     $scope.tError = error;
                 });
             } else {
                 $scope.cb.tree.root.build_all([]);
+                $scope.delimeters = [];
                 $scope.tError = null;
                 $scope.tLoading = false;
             }
