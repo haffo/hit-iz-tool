@@ -119,21 +119,25 @@
 		<xs:attribute name="Path" type="PathType" use="required"/>
 		<xs:attribute name="Text" type="NonEmptyString" use="required"/>
 		<xs:attribute name="IgnoreCase" type="xs:boolean" use="required"/>
+		<xs:attribute name="AtLeastOnce" type="xs:boolean" use="optional"/>
 	</xs:complexType>
 	
 	<xs:complexType name="FormatType">
 		<xs:attribute name="Path" type="PathType" use="required"/>
 		<xs:attribute name="Regex" type="NonEmptyString" use="required"/>
+		<xs:attribute name="AtLeastOnce" type="xs:boolean" use="optional"/>
 	</xs:complexType>
 	
 	<xs:complexType name="NumberListType">
 		<xs:attribute name="Path" type="PathType" use="required"/>
 		<xs:attribute name="CSV" type="CommaSeparatedNumberType" use="required"/>
+		<xs:attribute name="AtLeastOnce" type="xs:boolean" use="optional"/>
 	</xs:complexType>
 	
 	<xs:complexType name="StringListType">
 		<xs:attribute name="Path" type="PathType" use="required"/>
 		<xs:attribute name="CSV" type="CommaSeparatedStringType" use="required"/>
+		<xs:attribute name="AtLeastOnce" type="xs:boolean" use="optional"/>
 	</xs:complexType>
 	
 	<xs:complexType name="SimpleValueType">
@@ -155,31 +159,31 @@
           ============================================================================================================= -->
 	
 	<xs:complexType name="NOTType">
-		<xs:group ref="ExpressionGroup" minOccurs="1" maxOccurs="1"/>
+		<xs:group ref="AnyExpressionGroup" minOccurs="1" maxOccurs="1"/>
 	</xs:complexType>
 	
 	<xs:complexType name="ANDType">
-		<xs:group ref="ExpressionGroup" minOccurs="2" maxOccurs="2"/>
+		<xs:group ref="AnyExpressionGroup" minOccurs="2" maxOccurs="2"/>
 	</xs:complexType>
 	
 	<xs:complexType name="ORType">
-		<xs:group ref="ExpressionGroup" minOccurs="2" maxOccurs="2"/>
+		<xs:group ref="AnyExpressionGroup" minOccurs="2" maxOccurs="2"/>
 	</xs:complexType>
 	
 	<xs:complexType name="XORType">
-		<xs:group ref="ExpressionGroup" minOccurs="2" maxOccurs="2"/>
+		<xs:group ref="AnyExpressionGroup" minOccurs="2" maxOccurs="2"/>
 	</xs:complexType>
 	
 	<xs:complexType name="ImplyType">
-		<xs:group ref="ExpressionGroup" minOccurs="2" maxOccurs="2"/>
+		<xs:group ref="AnyExpressionGroup" minOccurs="2" maxOccurs="2"/>
 	</xs:complexType>
 	
 	<xs:complexType name="ForallType">
-		<xs:group ref="ExpressionGroup" minOccurs="2" maxOccurs="unbounded"/>
+		<xs:group ref="AnyExpressionGroup" minOccurs="2" maxOccurs="unbounded"/>
 	</xs:complexType>
 	
 	<xs:complexType name="ExistType">
-		<xs:group ref="ExpressionGroup" minOccurs="2" maxOccurs="unbounded"/>
+		<xs:group ref="AnyExpressionGroup" minOccurs="2" maxOccurs="unbounded"/>
 	</xs:complexType>
 	
 	<xs:complexType name="PluginType">
@@ -192,6 +196,11 @@
 	
 	<xs:complexType name="SetIdType">
 		<xs:attribute name="Path" type="PathType" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="IZSetIdType">
+		<xs:attribute name="Parent" type="PathType" use="required"/>
+		<xs:attribute name="Element" type="PathType" use="required"/>
 	</xs:complexType>
 	
 	<xs:group name="ExpressionGroup">
@@ -218,6 +227,7 @@
 			<xs:element name="FORALL" type="ForallType" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="EXIST" type="ExistType" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="SetID" type="SetIdType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="IZSetID" type="IZSetIdType" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Plugin" type="PluginType" minOccurs="1" maxOccurs="1"/>
 		</xs:choice>
 	</xs:group>
