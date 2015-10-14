@@ -73,6 +73,32 @@
                 </tab>
             </tabset>
         </tab>
+
+        <tab ng-click="showValidationTable(validationResult.affirmatives.categories[0],'affirmatives')" active="active.affirmatives">
+            <tab-heading>
+                <input type="checkbox"
+                       ng-click="showFailures('affirmatives',validationResult.affirmatives.categories[0], $event)"
+                        >
+                <span class="badge failure failure-affirmatives"
+                      ng-bind="validationResult.affirmatives.categories[0].data.length"></span>
+                Affirmatives
+            </tab-heading>
+
+            <tabset>
+                <tab ng-repeat="category in validationResult.affirmatives.categories" class="validation-result-subtab"
+                     active="subActive.affirmatives[category.title]"
+                     ng-click="showValidationTable(category,'affirmatives')">
+                    <tab-heading>
+                        <input type="checkbox"
+                               ng-click="showFailures('affirmatives',category, $event)"
+                                >
+                        <span class="badge failure failure-affirmatives" ng-bind="category.data.length"></span>
+                        {{category.title}}
+                    </tab-heading>
+                </tab>
+            </tabset>
+        </tab>
+
         <!--<tab ng-if="validationResult.dqa && validationResult.dqa  != null" ng-click="showValidationTable(validationResult.dqa.categories[0].data)">-->
         <!--<tab-heading>-->
         <!--<span class="badge failure failure-dqa"-->
@@ -106,7 +132,12 @@
 
 <script type="text/ng-template" id="ValidationResultDetailsCtrl.html">
     <div class="modal-header modal-wide">
-        <h3 class="modal-title" ng-bind="selectedElement.path"></h3>
+          <span style="font-weight: bold; font-size: 20px">
+            <span  class="modal-title" ng-bind="selectedElement.path"></span>
+          </span>
+         <span class="pull-right">
+             <button class="btn btn-primary" ng-click="ok()">Close</button>
+        </span>
     </div>
     <div class="modal-body">
         <div class="row">
@@ -123,6 +154,6 @@
     </div>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="ok()">Close</button>
+
     </div>
 </script>

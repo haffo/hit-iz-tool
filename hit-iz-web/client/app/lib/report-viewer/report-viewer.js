@@ -10,7 +10,8 @@
             return {
                 restrict: 'A',
                 scope: {
-                    type: '@'
+                    type: '@',
+                    format: '='
                 },
                 templateUrl: 'lib/report-viewer/report-viewer.html',
                 replace: false,
@@ -20,11 +21,12 @@
     ]);
 
     mod
-        .controller('ReportViewerCtrl', ['$scope', '$rootScope', 'ngTreetableParams', 'ReportService', '$compile', function ($scope, $rootScope, ngTreetableParams, ReportService, $compile) {
-            var reportService = new ReportService();
+        .controller('ReportViewerCtrl', ['$scope', '$rootScope', '$compile', 'ServiceDelegator', function ($scope, $rootScope, $compile, ServiceDelegator) {
+            var reportService = null;
             $scope.report = null;
 
             $rootScope.$on($scope.type + ':reportLoaded', function (event, report) {
+                reportService = ServiceDelegator.getReportService($scope.format);
                 $scope.report = report;
                 $scope.compile();
             });
@@ -44,56 +46,5 @@
             };
         }]);
 
-
-    mod.factory('ReportService', function ($http, $q, $filter) {
-
-        var ReportService = function () {
-            this.content = {
-                metaData: {},
-                result: {}
-            }
-        };
-
-        ReportService.prototype.download = function (url, json) {
-            var form = document.createElement("form");
-            form.action = url;
-            form.method = "POST";
-            form.target = "_target";
-            var input = document.createElement("textarea");
-            input.name = "json";
-            input.value = json;
-            form.appendChild(input);
-            form.style.display = 'none';
-            document.body.appendChild(form);
-            form.submit();
-        };
-
-
-        ReportService.prototype.generate = function (url, json) {
-            var delay = $q.defer();
-            $http({
-                url: url,
-                data: $.param({'json': json}),
-                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-                method: 'POST',
-                timeout: 60000
-            }).success(function (data) {
-                delay.resolve(angular.fromJson(data));
-            }).error(function (err) {
-                delay.reject(err);
-            });
-            return delay.promise;
-        };
-
-        ReportService.prototype.generateByFormat = function (json, format) {
-            return this.generate("api/report/generateAs/" + format, json);
-        };
-
-        ReportService.prototype.downloadAs = function (json, format) {
-            return this.download("api/report/downloadAs/" + format, json);
-        };
-
-        return ReportService;
-    });
 
 })(angular);

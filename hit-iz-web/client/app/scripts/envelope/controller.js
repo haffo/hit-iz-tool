@@ -190,6 +190,17 @@ angular.module('envelope')
         $scope.resized = false;
         $scope.validationSettings = Envelope.validationSettings;
         $scope.validationResult = Envelope.validationResult;
+        $scope.errors = $scope.validationResult.errors;
+        $scope.errorsCollection = [].concat($scope.errors.data);
+        $scope.affirmatives = $scope.validationResult.affirmatives;
+        $scope.affirmativesCollection = [].concat($scope.affirmatives.data);
+        $scope.alerts = $scope.validationResult.alerts;
+        $scope.alertsCollection = [].concat($scope.alerts.data);
+        $scope.ignores = $scope.validationResult.ignores;
+        $scope.ignoresCollection = [].concat($scope.ignores.data);
+        $scope.warnings = $scope.validationResult.warnings;
+        $scope.warningsCollection = [].concat($scope.warnings.data);
+
 
 
 //        $scope.envelopeObject = [];
@@ -371,6 +382,12 @@ angular.module('envelope')
 
         $scope.setValidationResult = function (result) {
             Envelope.validationResult.init(result);
+            $scope.validationResult = Envelope.validationResult;
+            $scope.errors = $scope.validationResult.errors;
+            $scope.affirmatives = $scope.validationResult.affirmatives;
+            $scope.alerts = $scope.validationResult.alerts;
+            $scope.ignores = $scope.validationResult.ignores;
+            $scope.warnings = $scope.validationResult.warnings;
         };
 
         $scope.select = function (element) {

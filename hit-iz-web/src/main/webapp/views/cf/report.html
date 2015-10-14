@@ -2,7 +2,7 @@
     <div class="panel panel-info">
         <div class="panel-body">
     <div ng-show="cf.testCase != null">
-        <div report-viewer="" type="cf"></div>
+        <div report-viewer="" type="cf" format="cf.testCase.testContext.format"></div>
     </div>
     <div ng-show="cf.testCase === null">
         No Profile Selected.

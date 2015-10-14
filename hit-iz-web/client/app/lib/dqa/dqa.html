@@ -1,12 +1,10 @@
 <script type="text/ng-template" id="DQAConfig.html">
     <div class="modal-header">
         <span style="font-weight: bold; font-size: 20px">
-            DQA Options
+            DQA Options | <input ng-click="selectAll($event)"
+                                    type="checkbox"> All
         </span>
         <span class="pull-right">
-            <input ng-click="selectAll($event)"
-                   type="checkbox"> All
-
             <button ng-click="save()" type="button"
                     title="Save" class="btn btn-xs btn-primary">
                 <i class="fa fa-check"></i> Save

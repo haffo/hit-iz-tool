@@ -46,7 +46,7 @@
                     $scope.uncompileArtifact('messageContent');
                     $scope.uncompileArtifact('testDescription');
 
-                    if(testCase.type === 'TestPlan'){
+                    if(testCase.type === 'TestPlan' || testCase.type === 'TestCaseGroup'){
                         $scope.compileArtifact('testDescription');
                     }else{
                         $scope.compileArtifact('testStory');
@@ -63,11 +63,20 @@
             });
 
             $scope.compileArtifact = function (artifactType) {
-                if ($scope.testCase && $scope.testCase !== null && $scope.testCase[artifactType] && $scope.testCase[artifactType] !== null) {
-                    var element = $('#' + artifactType);
-                    if(element.html() == '') {
-                        element.html($scope.testCase[artifactType].html);
-                        $compile(element.contents())($scope);
+                if ($scope.testCase && $scope.testCase !== null){
+                    if(artifactType === 'testDescription') {
+                        var element = $('#testDescription');
+                        if (element.html() == '') {
+                            var cont = $scope.testCase['description'] != null && $scope.testCase['description'] != '' ? $scope.testCase['description']: 'No description available';
+                            element.html(cont);
+                            $compile(element.contents())($scope);
+                        }
+                    }else  if ($scope.testCase[artifactType] && $scope.testCase[artifactType] !== null) {
+                        var element = $('#' + artifactType);
+                        if (element.html() == '') {
+                            element.html($scope.testCase[artifactType].html);
+                            $compile(element.contents())($scope);
+                        }
                     }
                 }
             };

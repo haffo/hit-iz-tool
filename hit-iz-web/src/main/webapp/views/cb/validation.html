@@ -46,16 +46,16 @@
                                 <span ng-show="loadRate == 10000000000000000">Disable</span>
                                 <span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a ng-click="setLoadRate(10000000000000000)">Disable</a></li>
-                                <li><a ng-click="setLoadRate(1000)">1 second</a></li>
-                                <li><a ng-click="setLoadRate(2000)">2 seconds</a></li>
-                                <li><a ng-click="setLoadRate(3000)">3 seconds</a></li>
-                                <li><a ng-click="setLoadRate(4000)">4 seconds</a></li>
-                                <li><a ng-click="setLoadRate(5000)">5 seconds</a></li>
-                                <li><a ng-click="setLoadRate(6000)">6 seconds</a></li>
-                                <li><a ng-click="setLoadRate(7000)">7 seconds</a></li>
-                                <li><a ng-click="setLoadRate(8000)">8 seconds</a></li>
+                            <ul class="dropdown-menu point" role="menu">
+                                <li><a class="point" ng-click="setLoadRate(10000000000000000)">Disable</a></li>
+                                <li><a class="point" ng-click="setLoadRate(1000)">1 second</a></li>
+                                <li><a class="point" ng-click="setLoadRate(2000)">2 seconds</a></li>
+                                <li><a class="point" ng-click="setLoadRate(3000)">3 seconds</a></li>
+                                <li><a class="point" ng-click="setLoadRate(4000)">4 seconds</a></li>
+                                <li><a class="point" ng-click="setLoadRate(5000)">5 seconds</a></li>
+                                <li><a class="point" ng-click="setLoadRate(6000)">6 seconds</a></li>
+                                <li><a class="point" ng-click="setLoadRate(7000)">7 seconds</a></li>
+                                <li><a class="point" ng-click="setLoadRate(8000)">8 seconds</a></li>
                             </ul>
                         </div>
 
@@ -64,7 +64,7 @@
 
                                 <button title="Validate" type="button" class="btn btn-xs btn-primary" ng-click="showDQAOptions()">
                                     <i class="fa fa-cog"></i>
-                                    DQA Options
+                                    DQA
                                 </button>
 
                                 <button title="Validate" type="button" class="btn btn-xs btn-success" ng-click="execute()">
@@ -128,7 +128,7 @@
                                                 </div>
                                                 <div ng-show="!vLoading">
                                                     <div ng-show="!vError || vError == null">
-                                                        <div validation-result="" type="cb" message="cb.message" editor="cb.editor" tree="cb.tree" cursor="cb.cursor"></div>
+                                                        <div validation-result="" type="cb" message="cb.message" format="cb.testCase.testContext.format" editor="cb.editor" tree="cb.tree" cursor="cb.cursor"></div>
                                                     </div>
                                                     <div ng-show="vError != null">
                                                         <div class="alert alert-danger" role="alert" ng-bind="vError"></div>

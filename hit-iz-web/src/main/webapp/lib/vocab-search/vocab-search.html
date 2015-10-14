@@ -79,9 +79,9 @@
 <div class="panel-body vocab-search-result">
 
 <form class="form-inline" name="searchValueForm" ng-submit="searchTableValues()">
-    <div class="form-group">
-        <input type="text" ng-model="searchString" placeholder="Value" class="form-control input-sm"/>
-        <select ng-model="selectionCriteria" required ng-change="clearSearchResults()" class="form-control input-sm">
+    <div class="">
+        <input type="text" ng-model="searchString" class="input-sm" />
+        <select ng-model="selectionCriteria" required ng-change="clearSearchResults()" class="input-sm">
             <option value="TableId">Binding Identifier</option>
             <option value="Value">Value (Code)</option>
             <option value="ValueSetCode">Value Set Code</option>

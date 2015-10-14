@@ -9,7 +9,7 @@
                    class="table table-striped table-bordered table-condensed table-fix-header validation-result-table">
                 <thead>
                 <!--<tr ng-show="data.length >= 100">-->
-                    <!--<th colspan="5" class="text-center" >-->
+                    <!--<th colspan="5" class="text-center" st-ratio="100">-->
                         <!--<div class="validation-pagination" st-pagination="" st-items-by-page="100" st-displayed-pages="10"></div>-->
                     <!--</th>-->
                 <!--</tr>-->
@@ -44,6 +44,13 @@
                     </td>
                 </tr>
                 </tbody>
+                <tfoot>
+                 <tr ng-show="data.length >= 100">
+                    <th colspan="5" class="text-center" st-ratio="100">
+                        <div class="validation-pagination" st-pagination="" st-items-by-page="100" st-displayed-pages="10"></div>
+                    </th>
+                </tr>
+                </tfoot>
             </table>
         </div>
     </div>

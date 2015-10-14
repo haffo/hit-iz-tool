@@ -67,6 +67,12 @@
                         <table st-table="tmpValueSetElements" st-safe-src="valueSet.valueSetElements"
                                class="table table-striped table-bordered ng-table-text stTable table-fix-header vocab-result-table">
                             <thead>
+                            <tr>
+                                <th colspan="3" st-ratio="100">
+                                    <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+                                </th>
+                            </tr>
+
                             <tr class="tbl-header" style="margin-right: {{scrollbarWidth}}px;">
                                 <th st-ratio="30" st-sort="code">Value (Code)</th>
                                 <th st-ratio="30" st-sort="codesys">Code Sys</th>
@@ -74,11 +80,7 @@
                                 <!--<th st-ratio="50" st-sort="source">Source</th>-->
                                 <!--<th st-ratio="50" st-sort="usage">Usage</th>-->
                             </tr>
-                            <tr>
-                                <th colspan="3" st-ratio="100">
-                                    <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
-                                </th>
-                            </tr>
+
                             </thead>
                             <tbody>
 
@@ -111,10 +113,10 @@
         Sorry, Could not find this table in the library.
     </div>
     </div>
-    <div class="modal-footer">
-        <button title="Close" type="button" class="pull-right btn btn-sm btn-primary"
-                ng-click="cancel()">
-            <i class="fa fa-times"></i>Close
-        </button>
-    </div>
+    <!--<div class="modal-footer">-->
+        <!--<button title="Close" type="button" class="pull-right btn btn-sm btn-primary"-->
+                <!--ng-click="cancel()">-->
+            <!--<i class="fa fa-times"></i>Close-->
+        <!--</button>-->
+    <!--</div>-->
 </script>

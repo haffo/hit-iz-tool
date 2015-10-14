@@ -1,12 +1,17 @@
 <div style="margin-bottom: 20px;margin-top: 5px" ng-controller="IsolatedSystemVocabularyCtrl">
-         <div ng-show="isolated.testStep != null">
+
+    <div class="panel-body">
+        <div ng-show="isolated.testStep!= null && isolated.testStep.testContext != null && isolated.testStep.testContext.vocabularyLibrary && isolated.testStep.testContext.vocabularyLibrary!= null">
             <!--<div class="page-header">-->
-                <!--<h3>{{isolated.testCase.type}}: {{isolated.testCase.name}}</h3>-->
+            <!--<h3>{{isolated.testStep.type}}: {{isolated.testStep.name}}</h3>-->
             <!--</div>-->
-            <div vocab-search="" type="isolated"></div>
+            <div vocab-search="" type="cf"></div>
         </div>
-        <div ng-show="isolated.testStep === null">
+        <div ng-show="isolated.testStep!= null && isolated.testStep.testContext != null &&  (!isolated.testStep.testContext.vocabularyLibrary || isolated.testStep.testContext.vocabularyLibrary === null)">
+            No Vocabulary Associated to This Test Step.
+        </div>
+        <div ng-show="isolated.testStep=== null">
             <div class="col-md-10"> No Test Step Loaded.</div>
         </div>
-
+    </div>
 </div>

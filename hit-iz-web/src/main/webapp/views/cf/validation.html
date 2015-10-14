@@ -37,31 +37,32 @@
 
 
 
-                        <div class="btn-group">
-                            <button title="Refresh at the interval of {{loadRate/1000}} second(s)" type="button" class="btn btn-xs btn-primary" data-toggle="dropdown">
-                                <i class="fa fa-refresh"></i>
-                                <span ng-show="loadRate != 10000000000000000">{{loadRate/1000}}s</span>
-                                <span ng-show="loadRate == 10000000000000000">Disable</span>
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a ng-click="setLoadRate(10000000000000000)">Disable</a></li>
-                                <li><a ng-click="setLoadRate(1000)">1 second</a></li>
-                                <li><a ng-click="setLoadRate(2000)">2 seconds</a></li>
-                                <li><a ng-click="setLoadRate(3000)">3 seconds</a></li>
-                                <li><a ng-click="setLoadRate(4000)">4 seconds</a></li>
-                                <li><a ng-click="setLoadRate(5000)">5 seconds</a></li>
-                                <li><a ng-click="setLoadRate(6000)">6 seconds</a></li>
-                                <li><a ng-click="setLoadRate(7000)">7 seconds</a></li>
-                                <li><a ng-click="setLoadRate(8000)">8 seconds</a></li>
-                            </ul>
-                        </div>
+                       <div class="btn-group">
+                           <button title="Refresh at the interval of {{loadRate/1000}} second(s)" type="button" class="btn btn-xs btn-primary" data-toggle="dropdown">
+                               <i class="fa fa-refresh"></i>
+                               <span ng-show="loadRate != 10000000000000000">{{loadRate/1000}}s</span>
+                               <span ng-show="loadRate == 10000000000000000">Disable</span>
+                               <span class="caret"></span>
+                           </button>
+                           <ul class="dropdown-menu point" role="menu">
+                               <li><a class="point" ng-click="setLoadRate(10000000000000000)">Disable</a></li>
+                               <li><a class="point" ng-click="setLoadRate(1000)">1 second</a></li>
+                               <li><a class="point" ng-click="setLoadRate(2000)">2 seconds</a></li>
+                               <li><a class="point" ng-click="setLoadRate(3000)">3 seconds</a></li>
+                               <li><a class="point" ng-click="setLoadRate(4000)">4 seconds</a></li>
+                               <li><a class="point" ng-click="setLoadRate(5000)">5 seconds</a></li>
+                               <li><a class="point" ng-click="setLoadRate(6000)">6 seconds</a></li>
+                               <li><a class="point" ng-click="setLoadRate(7000)">7 seconds</a></li>
+                               <li><a class="point" ng-click="setLoadRate(8000)">8 seconds</a></li>
+                           </ul>
+                       </div>
+
 
             </span>
                             <span class="row fileupload-buttonbar pull-right">
                                 <button title="Validate" type="button" class="btn btn-xs btn-primary" ng-click="showDQAOptions()">
                                     <i class="fa fa-cog"></i>
-                                    DQA Options
+                                    DQA
                                 </button>
 
                                 <button title="Validate" type="button" class="btn btn-xs btn-success" ng-click="execute()">
@@ -129,7 +130,7 @@
                                         </div>
 
                                         <div ng-show="!vError || vError == null">
-                                            <div validation-result="" type="cf" message="cf.message" editor="cf.editor" dqa="true" tree="cf.tree" cursor="cf.cursor"></div>
+                                            <div validation-result="" type="cf" message="cf.message" editor="cf.editor" dqa="true" format="cf.testCase.testContext.format" tree="cf.tree" cursor="cf.cursor"></div>
                                         </div>
 
                                     </div>

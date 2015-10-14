@@ -16,7 +16,8 @@
                     dqa: '=',
                     tree: '=',
                     editor: '=',
-                    cursor: '='
+                    cursor: '=',
+                    format: '='
                 },
                 templateUrl: 'lib/validation-result/validation-result.html',
                 replace: false,
@@ -37,8 +38,9 @@
     ]);
 
     mod
-        .controller('ValidationResultCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'ValidationResultHighlighter', '$sce', 'HL7TreeUtils', 'HL7EditorUtils', 'NewValidationResult', '$timeout', function ($scope, $filter, $modal, $rootScope, ValidationResultHighlighter, $sce, HL7TreeUtils, HL7EditorUtils, NewValidationResult, $timeout) {
+        .controller('ValidationResultCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'ValidationResultHighlighter', '$sce', 'NewValidationResult', '$timeout', 'ServiceDelegator',function ($scope, $filter, $modal, $rootScope, ValidationResultHighlighter, $sce, NewValidationResult, $timeout,ServiceDelegator) {
             $scope.validationTabs = new Array();
+
 
             $scope.activeTab = 0;
             $scope.validationResult = null;
@@ -173,19 +175,25 @@
                 $scope.loadingCategory = false;
             };
 
-
             $scope.select = function (element) {
                 if (element != undefined && element.path != null && element.line != -1) {
-                    var node = HL7TreeUtils.selectNodeByPath($scope.tree.root, element.line, element.path);
+                    var node = $scope.treeService.selectNodeByPath($scope.tree.root, element.line, element.path);
                     var data = node != null ? node.data : null;
-                    var endIndex = HL7TreeUtils.getEndIndex(node, $scope.editor.instance.getValue());
+                    var endIndex = $scope.treeService.getEndIndex(node, $scope.editor.instance.getValue());
                     data.endIndex = endIndex;
                     $scope.cursor.init(data != null ? data.lineNumber : element.line, data != null ? data.startIndex - 1 : element.column - 1, data != null ? data.endIndex - 1 : element.column - 1, data != null ? data.startIndex - 1 : element.column - 1, false);
-                    HL7EditorUtils.select($scope.editor.instance, $scope.cursor);
+                    if($scope.editorService != null) {
+                        $scope.editorService.select($scope.editor.instance, $scope.cursor);
+                    }
                 }
             };
 
             $rootScope.$on($scope.type + ':validationResultLoaded', function (event, mvResult) {
+                if($scope.format != null) {
+                    $scope.editorService = ServiceDelegator.getEditorService($scope.format);
+                    $scope.treeService = ServiceDelegator.getTreeService($scope.format);
+                    $scope.cursorService = ServiceDelegator.getCursorService($scope.format);
+                }
                 var report = null;
                 var validationResult = null;
                 if (mvResult !== null) {
@@ -203,7 +211,7 @@
 
                 $scope.validationResult = validationResult;
                 if ($scope.validationResult && $scope.validationResult != null) {
-                    $scope.validResultHighlither = new ValidationResultHighlighter($scope.failuresConfig, $scope.message, $scope.validationResult, $scope.tree, $scope.editor, $scope.highlighterChecks);
+                    $scope.validResultHighlither = new ValidationResultHighlighter($scope.failuresConfig, $scope.message, $scope.validationResult, $scope.tree, $scope.editor, $scope.highlighterChecks, $scope.treeService);
                     $scope.failuresConfig.errors.checked = false;
                     $scope.failuresConfig.warnings.checked = false;
                     $scope.failuresConfig.alerts.checked = false;
@@ -244,15 +252,13 @@
                 return $sce.trustAsHtml(content);
             };
 
-
             $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
-
 
         }]);
 
 
-    mod.factory('ValidationResultHighlighter', function ($http, $q, HL7TreeUtils) {
-        var ValidationResultHighlighter = function (failuresConfig, message, result, tree, editor, checkboxConfig) {
+    mod.factory('ValidationResultHighlighter', function ($http, $q) {
+        var ValidationResultHighlighter = function (failuresConfig, message, result, tree, editor, checkboxConfig,treeService) {
             this.failuresConfig = failuresConfig;
             this.histMarksMap = {};
             this.message = message;
@@ -260,6 +266,7 @@
             this.tree = tree;
             this.editor = editor;
             this.checkboxConfig = checkboxConfig;
+            this.treeService = treeService;
         };
 
         ValidationResultHighlighter.prototype.getHistMarksMap = function () {
@@ -293,12 +300,13 @@
                 var editor = this.editor;
                 var content = this.message.content;
                 var histMarksMap = this.histMarksMap;
+                var that = this;
                 if (!hitMarks || hitMarks.length === 0) {
                     this.checkboxConfig[type][category.title] = true;
                     angular.forEach(failures, function (failure) {
-                        var node = HL7TreeUtils.findByPath(root, failure.line, failure.path);
+                        var node = that.treeService.findByPath(root, failure.line, failure.path);
                         if (node != null && node.data && node.data != null) {
-                            var endIndex = HL7TreeUtils.getEndIndex(node, content) - 1;
+                            var endIndex =  that.treeService.getEndIndex(node, content) - 1;
                             var startIndex = node.data.startIndex - 1;
                             var line = parseInt(failure.line) - 1;
                             var markText = editor.instance.doc.markText({
@@ -328,7 +336,7 @@
     });
 
 
-    mod.factory('NewValidationResult', function (ValidationResult, HL7Utils, ValidationResultItem) {
+    mod.factory('NewValidationResult', function (ValidationResult, ValidationResultItem) {
         var NewValidationResult = function (key) {
             ValidationResult.apply(this, arguments);
             this.json = null;

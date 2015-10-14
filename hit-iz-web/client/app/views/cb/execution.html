@@ -28,13 +28,13 @@
 
                             <div ng-include="'views/cb/report.html'"></div>
                         </tab>
-                        <tab disabled="disabled()" select="setActiveTab(2)" active="tabs[2]">
+                        <tab disabled="disabled()" select="setActiveTab(2)" active="tabs[2]" ng-show="testCase.testContext.profile && testCase.testContext.profile!= null">
                             <tab-heading>
                                 <i class="fa fa-th-list"></i>Profile Viewer
                             </tab-heading>
                             <div ng-include="'views/cb/profileViewer.html'"></div>
                         </tab>
-                        <tab disabled="disabled()" select="setActiveTab(3)" active="tabs[3]">
+                        <tab disabled="disabled()" select="setActiveTab(3)" active="tabs[3]" ng-show="testCase.testContext.vocabularyLibrary && testCase.testContext.vocabularyLibrary!= null">
                             <tab-heading>
                                 <i class="fa fa-book"></i>ValueSets
                             </tab-heading>

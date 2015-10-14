@@ -7,8 +7,8 @@
 .cm-s-elegant span.cm-keyword {color: #730;}
 .cm-s-elegant span.cm-builtin {color: #30a;}
 .cm-s-elegant span.cm-error {background-color: #fdd;}
-.cm-s-elegant span.cm-edi-field-separator {color: #000099;}
-.cm-s-elegant span.cm-edi-component-separator {color: #FF3300;}
-.cm-s-elegant span.cm-edi-subcomponent-separator {color: #006600;}
-.cm-s-elegant span.cm-edi-continuation-separator {color: #FF00FF;}
-.cm-s-elegant span.cm-edi-segment-name {font-weight:bold;color:black;width:3em}
+.cm-s-elegant span.cm-field-separator {color: #000099;}
+.cm-s-elegant span.cm-component-separator {color: #FF3300;}
+.cm-s-elegant span.cm-subcomponent-separator {color: #006600;}
+.cm-s-elegant span.cm-continuation-separator {color: #FF00FF;}
+.cm-s-elegant span.cm-segment-name {font-weight:bold;color:black;}

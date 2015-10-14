@@ -38,7 +38,7 @@ angular.module('cb').factory('CBTestCaseListLoader', ['$q','$http','StorageServi
                 }
             );
 //
-//                $http.get('../../resources/cb/testPlans.json').then(
+//                $http.get('../../resources/cb/testCases.json').then(
 //                    function (object) {
 //                         delay.resolve(angular.fromJson(object.data));
 //                    },

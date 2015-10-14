@@ -132,7 +132,7 @@ angular.module('cb')
 
 
         $scope.isSelectable = function (node) {
-            return node.type !== "TestCaseGroup";
+            return true;
         };
 
         $scope.selectTestCase = function (node) {
@@ -188,7 +188,7 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBValidatorCtrl', ['$scope', '$http', 'CB', '$window', 'HL7EditorUtils', 'HL7CursorUtils', '$timeout', 'HL7TreeUtils', '$modal', 'NewValidationResult', '$rootScope', 'Er7MessageValidator', 'Er7MessageParser', 'StorageService', function ($scope, $http, CB, $window, HL7EditorUtils, HL7CursorUtils, $timeout, HL7TreeUtils, $modal, NewValidationResult, $rootScope, Er7MessageValidator, Er7MessageParser, StorageService) {
+    .controller('CBValidatorCtrl', ['$scope', '$http', 'CB', '$window', '$timeout', '$modal', 'NewValidationResult', '$rootScope', 'ServiceDelegator', 'StorageService', function ($scope, $http, CB, $window, $timeout, $modal, NewValidationResult, $rootScope, ServiceDelegator, StorageService) {
 
         $scope.cb = CB;
         $scope.testCase = CB.testCase;
@@ -200,8 +200,11 @@ angular.module('cb')
         $scope.vLoading = true;
         $scope.mError = null;
         $scope.mLoading = true;
-        $scope.delimeters = [];
-
+        $scope.validator = null;
+        $scope.editorService = null;
+        $scope.treeService = null;
+        $scope.cursorService = null;
+        $scope.parser = null;
         $scope.counter = 0;
         $scope.type = "cb";
         $scope.loadRate = 4000;
@@ -216,16 +219,16 @@ angular.module('cb')
         $scope.messageObject = [];
         $scope.tError = null;
         $scope.tLoading = false;
-        $scope.dqaCodes = StorageService.get(StorageService.DQA_OPTIONS_KEY) != null ? angular.fromJson(StorageService.get(StorageService.DQA_OPTIONS_KEY)):[];
+        $scope.dqaCodes = StorageService.get(StorageService.DQA_OPTIONS_KEY) != null ? angular.fromJson(StorageService.get(StorageService.DQA_OPTIONS_KEY)) : [];
 
-        $scope.showDQAOptions = function(){
+        $scope.showDQAOptions = function () {
             var modalInstance = $modal.open({
                 templateUrl: 'DQAConfig.html',
                 controller: 'DQAConfigCtrl',
                 windowClass: 'dq-modal',
-                animation:true,
-                keyboard:false,
-                backdrop:false
+                animation: true,
+                keyboard: false,
+                backdrop: false
             });
             modalInstance.result.then(function (selectedCodes) {
                 $scope.dqaCodes = selectedCodes;
@@ -288,14 +291,6 @@ angular.module('cb')
                 $scope.cb.message.id = null;
                 $scope.cb.message.name = '';
                 $scope.nodelay = true;
-//                $scope.selectedMessage = $scope.cb.testCase.testContext.message;
-//                if ($scope.selectedMessage != null && $scope.selectedMessage.content != null) {
-//                    $scope.editor.doc.setValue($scope.selectedMessage.content);
-//                } else {
-//                    $scope.editor.doc.setValue('');
-//                    $scope.cb.message.id = null;
-//                    $scope.cb.message.name = '';
-//                }
                 $scope.execute();
             }
         };
@@ -309,7 +304,6 @@ angular.module('cb')
                 lineNumbers: true,
                 fixedGutter: true,
                 theme: "elegant",
-                mode: 'edi',
                 readOnly: false,
                 showCursorWhenSelecting: true
             });
@@ -336,9 +330,9 @@ angular.module('cb')
 
             $scope.editor.on("dblclick", function (editor) {
                 $timeout(function () {
-                    var coordinate = HL7CursorUtils.getCoordinate($scope.editor);
+                    var coordinate = $scope.cursorService.getCoordinate($scope.editor);
                     $scope.cb.cursor.init(coordinate.line, coordinate.startIndex, coordinate.endIndex, coordinate.index, true);
-                    HL7TreeUtils.selectNodeByIndex($scope.cb.tree.root, CB.cursor, CB.message.content);
+                    $scope.treeService.selectNodeByIndex($scope.cb.tree.root, CB.cursor, CB.message.content);
                 });
             });
 
@@ -356,7 +350,7 @@ angular.module('cb')
             $scope.vError = null;
             if ($scope.cb.testCase != null && $scope.cb.message.content !== "") {
                 try {
-                    var validator = new Er7MessageValidator().validate($scope.cb.testCase.testContext.id, $scope.cb.message.content, '', $scope.dqaCodes, "1223", "Based");
+                    var validator = $scope.validator.validate($scope.cb.testCase.testContext.id, $scope.cb.message.content, $scope.cb.testCase.label, "Based", $scope.dqaCodes, "1223");
                     validator.then(function (mvResult) {
                         $scope.vLoading = false;
                         $scope.loadValidationResult(mvResult);
@@ -385,10 +379,10 @@ angular.module('cb')
 
         $scope.select = function (element) {
             if (element != undefined && element.path != null && element.line != -1) {
-                var node = HL7TreeUtils.selectNodeByPath($scope.cb.tree.root, element.line, element.path);
+                var node = $scope.treeService.selectNodeByPath($scope.cb.tree.root, element.line, element.path);
                 var data = node != null ? node.data : null;
                 $scope.cb.cursor.init(data != null ? data.lineNumber : element.line, data != null ? data.startIndex - 1 : element.column - 1, data != null ? data.endIndex - 1 : element.column - 1, data != null ? data.startIndex - 1 : element.column - 1, false)
-                HL7EditorUtils.select($scope.editor, $scope.cb.cursor);
+                $scope.editorService.select($scope.editor, $scope.cb.cursor);
             }
         };
 
@@ -407,29 +401,30 @@ angular.module('cb')
         };
 
         $scope.parseMessage = function () {
-            $scope.tLoading = true;
-            if ($scope.cb.testCase != null && $scope.cb.message.content != '') {
-                var parsed = new Er7MessageParser().parse($scope.cb.testCase.testContext.id, $scope.cb.message.content);
+            if ($scope.cb.testCase != null && $scope.cb.testCase.testContext != null && $scope.cb.message.content != '') {
+                $scope.tLoading = true;
+                var parsed = $scope.parser.parse($scope.cb.testCase.testContext.id, $scope.cb.message.content);
                 parsed.then(function (value) {
                     $scope.tLoading = false;
                     $scope.cb.tree.root.build_all(value.elements);
-                    $scope.delimeters = value.delimeters;
+                    ServiceDelegator.updateEditorMode($scope.editor, value.delimeters, $scope.testCase.testContext.format);
+                    $scope.editorService.setEditor($scope.editor);
+                    $scope.treeService.setEditor($scope.editor);
                 }, function (error) {
                     $scope.tLoading = false;
                     $scope.tError = error;
                 });
             } else {
                 $scope.cb.tree.root.build_all([]);
-                $scope.delimeters = [];
                 $scope.tError = null;
                 $scope.tLoading = false;
             }
         };
 
         $scope.onNodeSelect = function (node) {
-            var index = HL7TreeUtils.getEndIndex(node, $scope.cb.message.content);
+            var index = $scope.treeService.getEndIndex(node, $scope.cb.message.content);
             $scope.cb.cursor.init(node.data.lineNumber, node.data.startIndex - 1, index - 1, node.data.startIndex - 1, false);
-            HL7EditorUtils.select($scope.editor, $scope.cb.cursor);
+            $scope.editorService.select($scope.editor, $scope.cb.cursor);
         };
 
         $scope.execute = function () {
@@ -456,11 +451,9 @@ angular.module('cb')
 
             $scope.initCodemirror();
             $scope.refreshEditor();
-//            $scope.loadValidationResult({});
 
             $scope.$on('cb:refreshEditor', function (event) {
                 $scope.refreshEditor();
-//                event.preventDefault();
             });
 
             $rootScope.$on('cb:testCaseLoaded', function (event, testCase) {
@@ -470,22 +463,17 @@ angular.module('cb')
                     var content = StorageService.get(StorageService.CB_EDITOR_CONTENT_KEY) == null ? '' : StorageService.get(StorageService.CB_EDITOR_CONTENT_KEY);
                     $scope.nodelay = true;
                     $scope.mError = null;
+                    $scope.validator = ServiceDelegator.getMessageValidator($scope.testCase.testContext.format);
+                    $scope.parser = ServiceDelegator.getMessageParser($scope.testCase.testContext.format);
+                    $scope.editorService = ServiceDelegator.getEditorService($scope.testCase.testContext.format);
+                    $scope.treeService = ServiceDelegator.getTreeService($scope.testCase.testContext.format);
+                    $scope.cursorService = ServiceDelegator.getCursorService($scope.testCase.testContext.format);
                     if ($scope.editor) {
                         $scope.editor.doc.setValue(content);
                         $scope.execute();
                     }
                 }
             });
-
-//            $scope.$watch(
-//                function() {
-//                    return $scope.dqaOptions.checked;
-//                },
-//                function(checked) {
-//                    $scope.execute();
-//                }
-//            );
-
         };
 
     }]);

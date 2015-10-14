@@ -377,13 +377,13 @@
                 <div ng-include="'views/isolated/report.html'"></div>
             </tab>
 
-            <tab>
+            <tab ng-show="testStep.testContext.profile && testStep.testContext.profile!= null">
                 <tab-heading>
                     <i class="fa fa-th-list"></i>Profile Viewer
                 </tab-heading>
                 <div ng-include="'views/isolated/profileViewer.html'"></div>
             </tab>
-            <tab>
+            <tab ng-show="testStep.testContext.vocabularyLibrary && testStep.testContext.vocabularyLibrary!= null">
                 <tab-heading>
                     <i class="fa fa-book"></i>Vocabulary
                 </tab-heading>
@@ -396,22 +396,23 @@
                 </tab-heading>
                 <div class="panel panel-info">
                     <div class="panel-body">
-                <div class="pull-right">
-                    <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"-->
+                        <div class="pull-right">
+                            <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"-->
                             <!--ng-click="downloadJurorDoc('isolated_jurordoc',testStep.name)">-->
-                        <!--<i class="fa fa-download"></i> PDF-->
-                    <!--</button>-->
-                    <button title="Download Juror Document" type="button" class="btn btn-sm btn-primary" ng-click="downloadTestArtifact(testStep.jurorDocument.pdfPath)">
-                        <i class="fa fa-download"></i> PDF
-                    </button>
+                            <!--<i class="fa fa-download"></i> PDF-->
+                            <!--</button>-->
+                            <button title="Download Juror Document" type="button" class="btn btn-sm btn-primary" ng-click="downloadTestArtifact(testStep.jurorDocument.pdfPath)">
+                                <i class="fa fa-download"></i> PDF
+                            </button>
 
-                </div>
-                <br>
-                <br>
-                <div class="testcase-content" id="isolated_jurordoc">
-                    <div compile="testStep.jurorDocument.html">
-                </div>
-                </div>
+                        </div>
+                        <br>
+                        <br>
+
+                        <div class="testcase-content" id="isolated_jurordoc">
+                            <div compile="testStep.jurorDocument.html">
+                        </div>
+                    </div>
                 </div>
             </tab>
 

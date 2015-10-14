@@ -1,12 +1,20 @@
 <div ng-controller="CFVocabularyCtrl">
     <div class="panel panel-info">
         <div class="panel-body">
-             <div ng-show="cf.testCase != null">
+            <div ng-show="cf.testCase != null && cf.testCase.testContext != null && cf.testCase.testContext.vocabularyLibrary && cf.testCase.testContext.vocabularyLibrary!= null">
+                <!--<div class="page-header">-->
+                <!--<h3>{{cf.testCase.type}}: {{cf.testCase.name}}</h3>-->
+                <!--</div>-->
                 <div vocab-search="" type="cf"></div>
             </div>
-            <div ng-show="cf.testCase == null">
-                <div class="col-md-10"> No Profile Selected.</div>
+
+            <div ng-show="cf.testCase != null && cf.testCase.testContext != null &&  (!cf.testCase.testContext.vocabularyLibrary || cf.testCase.testContext.vocabularyLibrary === null)">
+                No Vocabulary Associated to This TestCase.
             </div>
-</div>
+
+            <div ng-show="cf.testCase === null">
+                <div class="col-md-10"> No TestCase Loaded.</div>
+            </div>
+        </div>
         </div>
  </div>

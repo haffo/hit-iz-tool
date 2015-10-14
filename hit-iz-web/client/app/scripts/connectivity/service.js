@@ -1,8 +1,8 @@
 'use strict';
 angular.module('connectivity').factory('Connectivity',
-    ['$rootScope', '$http', '$q', 'ConnectivityPart',  'Logger', 'Endpoint', 'TransactionUser', 'StorageService', function ($rootScope, $http, $q, ConnectivityPart,Logger, Endpoint, TransactionUser,StorageService) {
+    ['$rootScope', '$http', '$q', 'ConnectivityPart', 'Logger', 'Endpoint', 'TransactionUser', 'StorageService', function ($rootScope, $http, $q, ConnectivityPart, Logger, Endpoint, TransactionUser, StorageService) {
 
-        var initUser = function(){
+        var initUser = function () {
             var user = new TransactionUser();
             user.receiverUsername = StorageService.get(StorageService.SOAP_COMM_RECEIVER_USERNAME_KEY);
             user.receiverPassword = StorageService.get(StorageService.SOAP_COMM_RECEIVER_PWD_KEY);
@@ -41,14 +41,14 @@ angular.module('connectivity').factory('ConnectivityTestCaseListLoader', ['$q', 
 //                }
 //            );
 //
-                $http.get('api/connectivity/testcases', {timeout: 60000}).then(
-                    function (response) {
-                        delay.resolve(angular.fromJson(response.data));
-                    },
-                    function (response) {
-                        delay.reject("Sorry, failed to fetch the test cases. Please refresh your page.");
-                    }
-                );
+            $http.get('api/connectivity/testcases', {timeout: 60000}).then(
+                function (response) {
+                    delay.resolve(angular.fromJson(response.data));
+                },
+                function (response) {
+                    delay.reject("Sorry, failed to fetch the test cases. Please refresh your page.");
+                }
+            );
 
             return delay.promise;
         };
@@ -64,14 +64,14 @@ angular.module('connectivity').factory('ConnectivityInitiator',
         ConnectivityInitiator.prototype.send = function (user, testCaseId, content) {
             var delay = $q.defer();
             var data = angular.fromJson({"testCaseId": testCaseId, "content": content, "endpoint": user.receiverEndpoint, "u": user.receiverUsername, "p": user.receiverPassword, "facilityId": user.receiverFacilityId});
-                $http.post('api/connectivity/send', data, {timeout: 60000}).then(
-                    function (response) {
-                        delay.resolve(angular.fromJson(response.data));
-                    },
-                    function (response) {
-                        delay.reject(response);
-                    }
-                );
+            $http.post('api/connectivity/send', data, {timeout: 60000}).then(
+                function (response) {
+                    delay.resolve(angular.fromJson(response.data));
+                },
+                function (response) {
+                    delay.reject(response);
+                }
+            );
 
 //            $http.get('../../resources/connectivity/send.json').then(
 //                function (response) {
@@ -90,16 +90,16 @@ angular.module('connectivity').factory('ConnectivityInitiator',
 
 
 angular.module('connectivity').factory('ConnectivityValidator',
-    ['$q', '$http', 'XmlEditorUtils', function ($q, $http,XmlEditorUtils) {
+    ['$q', '$http', 'XmlEditorUtils', function ($q, $http, XmlEditorUtils) {
 
         var ConnectivityValidator = function () {
         };
 
         ConnectivityValidator.prototype.validate = function (content, testCaseId, userId, type, reqMessage) {
             var delay = $q.defer();
-            if(!XmlEditorUtils.isXML(content)){
+            if (!XmlEditorUtils.isXML(content)) {
                 delay.reject("Message provided is not an xml message");
-            }else {
+            } else {
 
 //            var data = angular.fromJson({"content": this.message.content, "testCaseId": testCaseId,"userId": userId});
 
@@ -122,14 +122,14 @@ angular.module('connectivity').factory('ConnectivityValidator',
 //                    }
 //                );
 
-            $http.post('api/connectivity/validate', data, {timeout: 60000}).then(
-                function (object) {
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
+                $http.post('api/connectivity/validate', data, {timeout: 60000}).then(
+                    function (object) {
+                        delay.resolve(angular.fromJson(object.data));
+                    },
+                    function (response) {
+                        delay.reject(response.data);
+                    }
+                );
             }
             return delay.promise;
         };

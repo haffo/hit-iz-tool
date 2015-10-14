@@ -2,7 +2,7 @@
     <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
 </div>
 <div id="tcReady" ng-show="!loading">
-    <div ng-show="testCase.type !== 'TestPlan'">
+    <div ng-show="testCase.type !== 'TestPlan' && testCase.type !== 'TestCaseGroup'">
         <tabset>
             <tab heading="Test Story" active="tabs[0]" select="compileArtifact('testStory')">
                 <div class="panel panel-info">
@@ -143,28 +143,10 @@
         </tabset>
     </div>
 
-    <div ng-show="testCase.type === 'TestPlan'">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                Test Plan Description
-            </div>
-            <div class="panel-body">
-                <!--<div class="pull-right" style="margin-bottom: 20px">-->
-                <!--<button title="Download Test Package" type="button"-->
-                <!--class="btn btn-sm btn-primary"-->
-                <!--ng-click="downloadTestArtifact(testCase.testPackage.pdfPath)">-->
-                <!--<i class="fa fa-download"></i>&nbsp;Download PDF-->
-                <!--</button>-->
-                <!--</div>-->
-                <br />
-                <br />
-
-                <div class="testcase-content">
+    <div ng-show="testCase.type === 'TestPlan' || testCase.type === 'TestCaseGroup'">
+                  <div class="testcase-content">
                     <div id="testDescription"/>
                 </div>
-            </div>
-        </div>
-
-    </div>
+     </div>
 
 </div>

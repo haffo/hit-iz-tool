@@ -1,16 +1,14 @@
 'use strict';
 
-angular.module('xml', []);
-angular.module('hl7v2', []);
 angular.module('commonServices', []);
-angular.module('common', ['ngResource', 'my.resource', 'xml', 'hl7v2']);
+angular.module('common', ['ngResource', 'my.resource', 'default', 'xml', 'hl7v2-edi', 'hl7v2', 'edi']);
 angular.module('soap', ['common']);
-angular.module('cf', ['common','hl7v2']);
+angular.module('cf', ['common']);
 angular.module('doc', ['common']);
-angular.module('cb', ['common','hl7v2']);
+angular.module('cb', ['common']);
 angular.module('envelope', ['soap']);
 angular.module('connectivity', ['soap']);
-angular.module('isolated', ['common','hl7v2']);
+angular.module('isolated', ['common']);
 angular.module('hit-tool-directives', []);
 angular.module('hit-tool-services', ['common']);
 angular.module('documentation', []);
@@ -25,9 +23,13 @@ var app = angular.module('tool', [
     'ui.bootstrap',
     'angularBootstrapNavTree',
     'QuickList',
+    'format',
     'soap',
+    'default',
+    'hl7v2-edi',
     'xml',
     'hl7v2',
+    'edi',
     'envelope',
     'connectivity',
     'cf',
@@ -461,7 +463,13 @@ angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function 
 
 
 
-
+angular.module('hit-tool-services').controller('TableFoundCtrl', function ($scope, $modalInstance, table) {
+    $scope.table = table;
+    $scope.tmpTableElements = [].concat(table != null ? table.valueSetElements : []);
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+});
 
 
 

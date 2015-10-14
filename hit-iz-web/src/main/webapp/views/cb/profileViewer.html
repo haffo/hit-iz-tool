@@ -1,12 +1,17 @@
 <div ng-controller="CBProfileViewerCtrl">
     <div class="panel panel-info">
         <div class="panel-body">
-            <div ng-show="cb.testCase != null">
+            <div ng-show="cb.testCase != null && cb.testCase.testContext.profile && cb.testCase.testContext.profile!= null">
                 <div profile-viewer="" type="cb"></div>
             </div>
+            <div ng-show="cb.testCase != null &&  cb.testCase.testContext != null &&  (!cb.testCase.testContext.profile || cb.testCase.testContext.profile === null)">
+                No Profile Associated to This TestCase.
+            </div>
+
             <div ng-show="cb.testCase === null">
                 No TestCase Loaded.
             </div>
+
         </div>
     </div>
 </div>
