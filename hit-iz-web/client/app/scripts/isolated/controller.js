@@ -274,7 +274,7 @@ angular.module('isolated')
             StorageService.set(StorageService.ISOLATED_LOADED_TESTSTEP_TYPE_KEY, $scope.testStep.type);
             StorageService.set(StorageService.ISOLATED_LOADED_TESTSTEP_ID_KEY, $scope.testStep.id);
             if (testStep != null) {
-                if (testStep.executionMessage === undefined && testStep['connectionType'] === 'TA_INITIATOR') {
+                if (testStep.executionMessage === undefined && testStep['testingType'] === 'TA_INITIATOR') {
                     IsolatedExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
                 }
                 if (!$scope.isManualStep(testStep) && testStep.testContext && testStep.testContext != null) {
@@ -310,11 +310,11 @@ angular.module('isolated')
 
 
         $scope.isManualStep = function (testStep) {
-            return testStep['connectionType'] === 'TA_MANUAL' || testStep['connectionType'] === 'SUT_MANUAL';
+            return testStep['testingType'] === 'TA_MANUAL' || testStep['testingType'] === 'SUT_MANUAL';
         };
 
         $scope.isSutInitiator = function (testStep) {
-            return testStep['connectionType'] == 'SUT_INITIATOR';
+            return testStep['testingType'] == 'SUT_INITIATOR';
         };
 
         $scope.isStepCompleted = function (testStep) {
@@ -538,81 +538,83 @@ angular.module('isolated')
 
         $scope.startListening = function () {
             var nextStep = $scope.findNextStep($scope.testStep.position);
-            var rspMessageId = nextStep.testContext.message.id;
-            $scope.configCollapsed = false;
-            $scope.logger.clear();
-            $scope.counter = 0;
-            $scope.connecting = true;
-            $scope.error = null;
-            $scope.warning = null;
-            var received = '';
-            var sent = '';
-            $scope.log(inboundLogs[0]);
-            $scope.user.transaction.openConnection(rspMessageId).then(function (response) {
-                    $scope.log(inboundLogs[1]);
-                    var execute = function () {
-                        ++$scope.counter;
-                        $scope.log(inboundLogs[2] + $scope.counter + "s");
-                        $scope.user.transaction.messages().then(function (response) {
-                            var incoming = $scope.user.transaction.incoming;
-                            var outbound = $scope.user.transaction.outgoing;
-                            if ($scope.counter < $scope.counterMax) {
-                                if (incoming != null && incoming != '' && received == '') {
-                                    $scope.log(inboundLogs[3]);
-                                    $scope.log(incoming);
-                                    received = incoming;
-                                    try {
-                                        var receivedMessage = parseRequest(incoming);
-                                        IsolatedExecutionService.setExecutionMessage($scope.testStep, receivedMessage);
-                                        $timeout(function () {
-                                            $rootScope.$broadcast('isolated:setEditorContent', receivedMessage);
-                                        });
-                                    } catch (error) {
-                                        $scope.error = errors[2];
-                                        $scope.logger.log(inboundLogs[4]);
+            if(nextStep != null) {
+                var rspMessageId = nextStep.testContext.message.id;
+                $scope.configCollapsed = false;
+                $scope.logger.clear();
+                $scope.counter = 0;
+                $scope.connecting = true;
+                $scope.error = null;
+                $scope.warning = null;
+                var received = '';
+                var sent = '';
+                $scope.log(inboundLogs[0]);
+                $scope.user.transaction.openConnection(rspMessageId).then(function (response) {
+                        $scope.log(inboundLogs[1]);
+                        var execute = function () {
+                            ++$scope.counter;
+                            $scope.log(inboundLogs[2] + $scope.counter + "s");
+                            $scope.user.transaction.messages().then(function (response) {
+                                var incoming = $scope.user.transaction.incoming;
+                                var outbound = $scope.user.transaction.outgoing;
+                                if ($scope.counter < $scope.counterMax) {
+                                    if (incoming != null && incoming != '' && received == '') {
+                                        $scope.log(inboundLogs[3]);
+                                        $scope.log(incoming);
+                                        received = incoming;
+                                        try {
+                                            var receivedMessage = parseRequest(incoming);
+                                            IsolatedExecutionService.setExecutionMessage($scope.testStep, receivedMessage);
+                                            $timeout(function () {
+                                                $rootScope.$broadcast('isolated:setEditorContent', receivedMessage);
+                                            });
+                                        } catch (error) {
+                                            $scope.error = errors[2];
+                                            $scope.logger.log(inboundLogs[4]);
+                                        }
                                     }
-                                }
-                                if (outbound != null && outbound != '' && sent == '') {
-                                    $scope.log(inboundLogs[12]);
-                                    $scope.log(outbound);
-                                    sent = outbound;
-                                    try {
-                                        var sentMessage = parseResponse(outbound);
-                                        $scope.setNextStepMessage(sentMessage);
-                                    } catch (error) {
-                                        $scope.error = errors[3];
-                                        $scope.logger.log(inboundLogs[5]);
-                                        $scope.logger.log(inboundLogs[6]);
+                                    if (outbound != null && outbound != '' && sent == '') {
+                                        $scope.log(inboundLogs[12]);
+                                        $scope.log(outbound);
+                                        sent = outbound;
+                                        try {
+                                            var sentMessage = parseResponse(outbound);
+                                            $scope.setNextStepMessage(sentMessage);
+                                        } catch (error) {
+                                            $scope.error = errors[3];
+                                            $scope.logger.log(inboundLogs[5]);
+                                            $scope.logger.log(inboundLogs[6]);
+                                        }
                                     }
-                                }
-                                if (incoming != '' && outbound != '' && incoming != null && outbound != null) {
+                                    if (incoming != '' && outbound != '' && incoming != null && outbound != null) {
+                                        $scope.stopListening();
+                                    }
+                                } else {
+                                    if (incoming == null || incoming == '') {
+                                        $scope.warning = inboundLogs[7];
+                                        $scope.log(inboundLogs[8]);
+                                    } else if (outbound == null || outbound == '') {
+                                        $scope.log(inboundLogs[9]);
+                                    }
                                     $scope.stopListening();
                                 }
-                            } else {
-                                if (incoming == null || incoming == '') {
-                                    $scope.warning = inboundLogs[7];
-                                    $scope.log(inboundLogs[8]);
-                                } else if (outbound == null || outbound == '') {
-                                    $scope.log(inboundLogs[9]);
-                                }
+                            }, function (error) {
+                                $scope.error = error;
+                                $scope.log("Error: " + error);
+                                $scope.received = '';
+                                $scope.sent = '';
                                 $scope.stopListening();
-                            }
-                        }, function (error) {
-                            $scope.error = error;
-                            $scope.log("Error: " + error);
-                            $scope.received = '';
-                            $scope.sent = '';
-                            $scope.stopListening();
-                        });
-                    };
-                    IsolatedSystemClock.start(execute);
-                }, function (error) {
-                    $scope.log(inboundLogs[10] + "Error: " + error);
-                    $scope.log(inboundLogs[11]);
-                    $scope.connecting = false;
-                    $scope.error = error;
-                }
-            );
+                            });
+                        };
+                        IsolatedSystemClock.start(execute);
+                    }, function (error) {
+                        $scope.log(inboundLogs[10] + "Error: " + error);
+                        $scope.log(inboundLogs[11]);
+                        $scope.connecting = false;
+                        $scope.error = error;
+                    }
+                );
+            }
         };
 
 //        $scope.configureReceiver = function () {
@@ -747,7 +749,7 @@ angular.module('isolated')
                 $(this).fileupload('option', 'autoUpload'))) {
                 data.process().done(function () {
                     var fileName = data.files[0].name;
-                    data.url = 'api/hl7/message/upload';
+                    data.url = 'api/message/upload';
                     var jqXHR = data.submit()
                         .success(function (result, textStatus, jqXHR) {
                             $scope.nodelay = true;

@@ -14,7 +14,7 @@
 
 package gov.nist.hit.iz.domain;
 
-import gov.nist.hit.core.domain.TestType;
+import gov.nist.hit.core.domain.ObjectType;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -40,7 +40,7 @@ public class SoapTestPlan implements java.io.Serializable {
 
 	protected String testProcedurePath;
 
-	transient protected final TestType type = TestType.TestPlan;
+	transient protected final ObjectType type = ObjectType.TestPlan;
 
 	public SoapTestPlan() {
 		super();
@@ -91,7 +91,7 @@ public class SoapTestPlan implements java.io.Serializable {
 		this.testProcedurePath = testProcedurePath;
 	}
 
-	public TestType getType() {
+	public ObjectType getType() {
 		return type;
 	}
 

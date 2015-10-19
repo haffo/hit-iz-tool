@@ -2,9 +2,7 @@
     <tabset>
         <tab ng-click="showValidationTable(validationResult.errors.categories[0],'errors')" active="active.errors">
             <tab-heading>
-                <input type="checkbox"
-                       ng-click="showFailures('errors', validationResult.errors.categories[0], $event)"
-                        >
+
                 <span class="badge failure failure-errors"
                       ng-bind="validationResult.errors.categories[0].data.length"></span>
                 Errors
@@ -13,11 +11,10 @@
             <tabset>
                 <tab ng-repeat="category in validationResult.errors.categories" class="validation-result-subtab"
                      active="subActive.errors[category.title]"
+                     ng-if="category.data.length > 0"
                      ng-click="showValidationTable(category,'errors')">
                     <tab-heading>
-                        <input type="checkbox"
-                               ng-click="showFailures('errors',category, $event)"
-                                >
+
                         <span class="badge failure failure-errors" ng-bind="category.data.length"></span>
                         {{category.title}}
                     </tab-heading>
@@ -28,9 +25,7 @@
         <tab ng-click="showValidationTable(validationResult.warnings.categories[0],'warnings')"
              active="active.warnings">
             <tab-heading>
-                <input type="checkbox"
-                       ng-click="showFailures('warnings',validationResult.warnings.categories[0], $event)"
-                        >
+
         <span class="badge failure failure-warnings"
               ng-bind="validationResult.warnings.categories[0].data.length"></span> Warnings
             </tab-heading>
@@ -38,11 +33,10 @@
             <tabset>
                 <tab ng-repeat="category in validationResult.warnings.categories" class="validation-result-subtab"
                      active="subActive.warnings[category.title]"
+                     ng-if="category.data.length > 0"
                      ng-click="showValidationTable(category,'warnings')">
                     <tab-heading>
-                        <input type="checkbox"
-                               ng-click="showFailures('warnings',category, $event)"
-                                >
+
                         <span class="badge failure failure-warnings" ng-bind="category.data.length"></span>
                         {{category.title}}
                     </tab-heading>
@@ -51,9 +45,7 @@
         </tab>
         <tab ng-click="showValidationTable(validationResult.alerts.categories[0],'alerts')" active="active.alerts">
             <tab-heading>
-                <input type="checkbox"
-                       ng-click="showFailures('alerts',validationResult.alerts.categories[0], $event)"
-                        >
+
                 <span class="badge failure failure-alerts"
                       ng-bind="validationResult.alerts.categories[0].data.length"></span>
                 Alerts
@@ -62,11 +54,10 @@
             <tabset>
                 <tab ng-repeat="category in validationResult.alerts.categories" class="validation-result-subtab"
                      active="subActive.alerts[category.title]"
+                     ng-if="category.data.length > 0"
                      ng-click="showValidationTable(category,'alerts')">
                     <tab-heading>
-                        <input type="checkbox"
-                               ng-click="showFailures('alerts',category, $event)"
-                                >
+
                         <span class="badge failure failure-alerts" ng-bind="category.data.length"></span>
                         {{category.title}}
                     </tab-heading>
@@ -76,9 +67,7 @@
 
         <tab ng-click="showValidationTable(validationResult.affirmatives.categories[0],'affirmatives')" active="active.affirmatives">
             <tab-heading>
-                <input type="checkbox"
-                       ng-click="showFailures('affirmatives',validationResult.affirmatives.categories[0], $event)"
-                        >
+
                 <span class="badge failure failure-affirmatives"
                       ng-bind="validationResult.affirmatives.categories[0].data.length"></span>
                 Affirmatives
@@ -87,11 +76,10 @@
             <tabset>
                 <tab ng-repeat="category in validationResult.affirmatives.categories" class="validation-result-subtab"
                      active="subActive.affirmatives[category.title]"
+                     ng-if="category.data.length > 0"
                      ng-click="showValidationTable(category,'affirmatives')">
                     <tab-heading>
-                        <input type="checkbox"
-                               ng-click="showFailures('affirmatives',category, $event)"
-                                >
+
                         <span class="badge failure failure-affirmatives" ng-bind="category.data.length"></span>
                         {{category.title}}
                     </tab-heading>
@@ -117,8 +105,8 @@
         <!--</tab>-->
     </tabset>
     <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="container-validation-table">
+        <div class="panel-body container-validation-table">
+            <div class="">
                 <div validation-result-table></div>
             </div>
         </div>

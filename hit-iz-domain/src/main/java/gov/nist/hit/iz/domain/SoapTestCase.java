@@ -14,7 +14,7 @@ package gov.nist.hit.iz.domain;
 
 import gov.nist.hit.core.domain.SutType;
 import gov.nist.hit.core.domain.TestStory;
-import gov.nist.hit.core.domain.TestType;
+import gov.nist.hit.core.domain.ObjectType;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -50,7 +50,7 @@ public class SoapTestCase implements java.io.Serializable {
 
   protected String testPackagePath;
 
-  transient protected TestType type = TestType.TestCase;
+  transient protected ObjectType type = ObjectType.TestCase;
 
   protected int position;
 
@@ -188,7 +188,7 @@ public class SoapTestCase implements java.io.Serializable {
     this.testDataSpecificationImage2 = testDataSpecificationImage2;
   }
 
-  public TestType getType() {
+  public ObjectType getType() {
     return type;
   }
 

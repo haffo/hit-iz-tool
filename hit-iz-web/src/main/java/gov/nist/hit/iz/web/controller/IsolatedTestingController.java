@@ -13,7 +13,7 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.domain.Stage;
+import gov.nist.hit.core.domain.TestingStage;
 import gov.nist.hit.core.domain.TestCase;
 import gov.nist.hit.core.domain.TestPlan;
 import gov.nist.hit.core.domain.TestStep;
@@ -77,7 +77,7 @@ public class IsolatedTestingController {
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
   public List<TestPlan> testCases() {
     logger.info("Fetching all isolated system test cases...");
-    List<TestPlan> testPlans = testPlanService.findAllByStage(Stage.ISOLATED);
+    List<TestPlan> testPlans = testPlanService.findAllByStage(TestingStage.ISOLATED);
     return testPlans;
   }
 

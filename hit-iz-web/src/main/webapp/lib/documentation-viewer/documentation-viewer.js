@@ -464,7 +464,7 @@
                     };
 
 //                    scope.get_icon_type = function (branch) {
-//                        var connType = branch['connectionType'];
+//                        var connType = branch['testingType'];
 //                        return  connType === 'TA_MANUAL' || connType === 'SUT_MANUAL' ? 'fa fa-check-square-o' : connType === 'TA_INITIATOR' || connType === 'SUT_INITIATOR' ? 'fa fa-arrow-right' : connType === 'TA_RESPONDER' || connType === 'SUT_RESPONDER' ? 'fa fa-arrow-left' : null;
 //                    };
 

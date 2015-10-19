@@ -104,9 +104,9 @@
                         }
                     };
                     scope.user_clicks_branch = function (branch) {
-                        if (branch !== selected_branch) {
+                        //if (branch !== selected_branch) {
                             return select_branch(branch);
-                        }
+                        //}
                     };
 
                     scope.is_node_selectable = function (branch) {
@@ -116,16 +116,20 @@
                     };
 
                     scope.get_icon_type = function (branch) {
-                        var connType = branch['connectionType'];
-                        return  connType === 'TA_MANUAL' || connType === 'SUT_MANUAL' ? 'fa fa-check-square-o' : connType === 'TA_INITIATOR' || connType === 'SUT_INITIATOR' ? 'fa fa-arrow-right' : connType === 'TA_RESPONDER' || connType === 'SUT_RESPONDER' ? 'fa fa-arrow-left' : null;
+                        if (branch.type === 'TestObject' || branch.type === 'TestStep') {
+                            var connType = branch['testingType'];
+                            return  connType === 'TA_MANUAL' || connType === 'SUT_MANUAL' ? 'fa fa-wrench' : connType === 'TA_INITIATOR' || connType === 'SUT_INITIATOR' ? 'fa fa-arrow-right' : connType === 'TA_RESPONDER' || connType === 'SUT_RESPONDER' ? 'fa fa-arrow-left' : 'fa fa-check-square-o';
+                        } else {
+                            return '';
+                        }
                     };
 
                     scope.toggle_expand = function (branch) {
-                        scope.set_expand(branch,!branch.expanded);
+                        scope.set_expand(branch, !branch.expanded);
                         on_treeData_change();
                     };
 
-                    scope.set_expand = function (branch,value) {
+                    scope.set_expand = function (branch, value) {
                         branch.expanded = value;
                     };
 
@@ -156,7 +160,7 @@
                     };
                     scope.tree_rows = [];
                     on_treeData_change = function () {
-                         var add_branch_to_list, root_branch, _i, _len, _ref, _results;
+                        var add_branch_to_list, root_branch, _i, _len, _ref, _results;
                         for_each_branch(function (b, level) {
                             if (!b.uid) {
                                 return b.uid = "" + Math.random();

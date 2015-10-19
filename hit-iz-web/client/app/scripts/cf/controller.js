@@ -202,7 +202,7 @@ angular.module('cf')
                 $(this).fileupload('option', 'autoUpload'))) {
                 data.process().done(function () {
                     var fileName = data.files[0].name;
-                    data.url = 'api/hl7/message/upload';
+                    data.url = 'api/message/upload';
                     var jqXHR = data.submit()
                         .success(function (result, textStatus, jqXHR) {
                             $scope.nodelay = true;

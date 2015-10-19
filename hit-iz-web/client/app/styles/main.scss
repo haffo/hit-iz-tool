@@ -1300,12 +1300,6 @@ table.cf-profiles {
   height: 470px;
 }
 
-.container-validation-table {
-//    height: 350px !important;
-//  max-height: 380px !important;
-//  overflow: auto;
-//    margin-top: 20px;
-}
 
 
 
@@ -1701,10 +1695,6 @@ li.validation-result-subtab {
 //  display: inline-block;
 //}
 
-table.validation-result-table {
-  max-height: 366px !important;
-}
-
 
 table.table-fix-header {
   box-sizing: border-box;
@@ -1800,10 +1790,6 @@ table.profile-table{
 }
 
 
-table.validation-result-table {
-  max-height: 366px !important;
-}
-
 
 .container-confstatement-table {
 //  height: 500px !important;
@@ -1872,4 +1858,18 @@ table.vocab-result-table {
   max-width: 100%;
 }
 
+
+.container-validation-table {
+  max-height: 395px;
+  overflow: none;
+  //    height: 350px !important;
+  //  max-height: 380px !important;
+  //  overflow: auto;
+  //    margin-top: 20px;
+}
+
+
+table.validation-result-table {
+  max-height: 340px !important;
+}
 
