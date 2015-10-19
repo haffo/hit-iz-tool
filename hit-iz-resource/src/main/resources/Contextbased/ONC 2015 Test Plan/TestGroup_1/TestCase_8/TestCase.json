@@ -1,5 +1,5 @@
 {
-  "name" : "TC-8",
+  "name" : "IZ-AD-8_New_Admin_Error",
   "position" : 8,
-  "description" : "Historical administration resulting in fatal error"
+  "description" : "New administration resulting in soft error"
 }

@@ -1,320 +1,635 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConformanceContext UUID="bd06cf7f-ded5-4088-9fdb-3fb3ed2903e1">
+<ConformanceContext UUID="391b2852-bac4-4cb0-8d85-ab60f3c93efb">
   <Constraints>
     <Group>
       <ByName Name="ACK">
-        <Constraint ID="TCAMT_ERR[1].2[1].3[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].3[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-1-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].3[1]_2" Target="4[1].2[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].3[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].2[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-1" Target="4[1].4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[1].4[1](Severity) does not match the expected value: 'W'.</Description>
           <Assertion>
-            <Presence Path="4[1].2[1]"/>
+            <PlainText IgnoreCase="false" Path="4[1].4[1]" Text="W"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].3[1]_3" Target="4[1].2[1].3[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].3[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].2[1].3[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-2-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].3[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="4[1].2[1].3[1]"/>
+            <Presence Path="4[2]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].3[1].3[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].3[1].3[1]" Source="Test Case" TestDataCategorization="Presence Length-System Generated"/>
-          <Description>ERR[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-2-3" Target="4[2].3[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].3[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ERR[2].3[1].2[1](Text) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].3[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-3-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].3[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].3[1].3[1]_3" Target="4[1].3[1].3[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].3[1].3[1]" Source="Test Case" TestDataCategorization="Presence Length-System Generated"/>
-          <Description>ERR[1].3[1].3[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-3-3" Target="4[1].3[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].3[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at ERR[1].3[1].3[1](Name of Coding System) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1].3[1].3[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].8[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].8[1]" Source="Test Case" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>ERR[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="4[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_ERR[1].8[1]_2" Target="4[1].8[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].8[1]" Source="Test Case" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>ERR[1].8[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="4[1].8[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_MSH[1].23[1].1[1]_2" Target="1[1].23[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].23[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>MSH[1].23[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="1[1].23[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_MSH[1].23[1].1[1]_3" Target="1[1].23[1].1[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].23[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>MSH[1].23[1].1[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="1[1].23[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].1[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="4[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].1[1]_2" Target="4[1].2[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].2[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="4[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_MSH[1].3[1].1[1]_2" Target="1[1].3[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].3[1].1[1]" Source="Test Case" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>MSH[1].3[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="1[1].3[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_MSH[1].3[1].1[1]_3" Target="1[1].3[1].1[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].3[1].1[1]" Source="Test Case" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>MSH[1].3[1].1[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="1[1].3[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_MSH[1].6[1].1[1]_2" Target="1[1].6[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].6[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>MSH[1].6[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="1[1].6[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_MSH[1].6[1].1[1]_3" Target="1[1].6[1].1[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].6[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>MSH[1].6[1].1[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="1[1].6[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_MSH[1].21[1].2[1]_3" Target="1[1].21[1].2[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].21[1].2[1]" Source="Test Case" TestDataCategorization="Presence Length-System Generated"/>
-          <Description>MSH[1].21[1].2[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="1[1].21[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_ERR[1].4[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].4[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="4[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_ERR[1].5[1].1[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].5[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="4[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_ERR[1].5[1].1[1]_2" Target="4[1].5[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].5[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].5[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="4[1].5[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].2[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].2[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="4[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].2[1]_2" Target="4[1].2[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].2[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].2[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="4[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_MSH[1].22[1].1[1]_2" Target="1[1].22[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].22[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>MSH[1].22[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="1[1].22[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_MSH[1].22[1].1[1]_3" Target="1[1].22[1].1[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].22[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>MSH[1].22[1].1[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="1[1].22[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_MSH[1].5[1].1[1]_2" Target="1[1].5[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].5[1].1[1]" Source="Test Case" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>MSH[1].5[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-5-2" Target="1[1].5[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of MSH[1].5[1](Receiving Application) is expected to be present.</Description>
           <Assertion>
             <Presence Path="1[1].5[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_MSH[1].5[1].1[1]_3" Target="1[1].5[1].1[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].5[1].1[1]" Source="Test Case" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>MSH[1].5[1].1[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-5-3" Target="1[1].5[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at MSH[1].5[1].1[1](Namespace ID) is expected to be present.</Description>
           <Assertion>
             <Presence Path="1[1].5[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].5[1].2[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].5[1].2[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-6" Target="1[1].21[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at MSH[1].21[1].1[1](Entity Identifier) does not match the expected value: 'Z23'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="1[1].21[1].1[1]" Text="Z23"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-7-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-7-2" Target="4[2].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2].2[1](Error Location) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-7" Target="4[2].2[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[2].2[1].1[1](Segment ID) does not match the expected value: 'RXR'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[2].2[1].1[1]" Text="RXR"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-10-3" Target="1[1].21[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at MSH[1].21[1].2[1](Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].21[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-10" Target="1[1].21[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at MSH[1].21[1].2[1](Namespace ID) does not match the expected value: 'CDCPHINVS'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="1[1].21[1].2[1]" Text="CDCPHINVS"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-13-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-13-2" Target="4[2].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2].2[1](Error Location) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-13" Target="4[2].2[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[2].2[1].2[1](Segment Sequence) does not match the expected value: '2'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[2].2[1].2[1]" Text="2"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-18-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].5[1].2[1]_2" Target="4[1].5[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].5[1].2[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].5[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-18-2" Target="4[1].5[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1].5[1](Application Error Code) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1].5[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].5[1].2[1]_3" Target="4[1].5[1].2[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].5[1].2[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].5[1].2[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-18" Target="4[1].5[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[1].5[1].1[1](Identifier) does not match the expected value: '5'.</Description>
           <Assertion>
-            <Presence Path="4[1].5[1].2[1]"/>
+            <PlainText IgnoreCase="false" Path="4[1].5[1].1[1]" Text="5"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].6[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].6[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-19-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].6[1]_2" Target="4[1].2[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].6[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].2[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-19-2" Target="4[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1].2[1](Error Location) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1].2[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].6[1]_3" Target="4[1].2[1].6[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].6[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].2[1].6[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-19" Target="4[1].2[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[1].2[1].1[1](Segment ID) does not match the expected value: 'RXR'.</Description>
           <Assertion>
-            <Presence Path="4[1].2[1].6[1]"/>
+            <PlainText IgnoreCase="false" Path="4[1].2[1].1[1]" Text="RXR"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_MSH[1].4[1].1[1]_2" Target="1[1].4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].4[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>MSH[1].4[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-20-2" Target="1[1].22[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of MSH[1].22[1](Sending Responsible Organization) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="1[1].4[1]"/>
+            <Presence Path="1[1].22[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_MSH[1].4[1].1[1]_3" Target="1[1].4[1].1[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="MSH[1].4[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>MSH[1].4[1].1[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-20-3" Target="1[1].22[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at MSH[1].22[1].1[1](Organization Name) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="1[1].4[1].1[1]"/>
+            <Presence Path="1[1].22[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].5[1].3[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].5[1].3[1]" Source="Test Case" TestDataCategorization="Presence Length-System Generated"/>
-          <Description>ERR[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-21-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-21" Target="4[2].4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[2].4[1](Severity) does not match the expected value: 'W'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[2].4[1]" Text="W"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-24-2" Target="1[1].23[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of MSH[1].23[1](Receiving Responsible Organization) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].23[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-24-3" Target="1[1].23[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at MSH[1].23[1].1[1](Organization Name) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].23[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-25-2" Target="1[1].6[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].6[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of MSH[1].6[1](Receiving Facility) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].6[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-25-3" Target="1[1].6[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].6[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at MSH[1].6[1].1[1](Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].6[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-28-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].8[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-28-2" Target="4[2].8[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].8[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ERR[2].8[1](User Message) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].8[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-31-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].5[1].3[1]_2" Target="4[1].5[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].5[1].3[1]" Source="Test Case" TestDataCategorization="Presence Length-System Generated"/>
-          <Description>ERR[1].5[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-31" Target="4[1].3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[1].3[1].1[1](Identifier) does not match the expected value: '999'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[1].3[1].1[1]" Text="999"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-35-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-35" Target="4[2].3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[2].3[1].1[1](Identifier) does not match the expected value: '999'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[2].3[1].1[1]" Text="999"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-36-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-36-2" Target="4[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1].2[1](Error Location) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-36-3" Target="4[1].2[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at ERR[1].2[1].3[1](Field Position) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1].2[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-36" Target="4[1].2[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[1].2[1].3[1](Field Position) does not match the expected value: '2'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[1].2[1].3[1]" Text="2"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-37-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-37-2" Target="4[1].5[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1].5[1](Application Error Code) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1].5[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].5[1].3[1]_3" Target="4[1].5[1].3[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].5[1].3[1]" Source="Test Case" TestDataCategorization="Presence Length-System Generated"/>
-          <Description>ERR[1].5[1].3[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-37-3" Target="4[1].5[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at ERR[1].5[1].3[1](Name of Coding System) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1].5[1].3[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].4[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].4[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-40-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-40-2" Target="4[2].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2].2[1](Error Location) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-40-3" Target="4[2].2[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at ERR[2].2[1].3[1](Field Position) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].2[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-40" Target="4[2].2[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[2].2[1].3[1](Field Position) does not match the expected value: '2'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[2].2[1].3[1]" Text="2"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-42-2" Target="1[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of MSH[1].3[1](Sending Application) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-42-3" Target="1[1].3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at MSH[1].3[1].1[1](Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].3[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-43-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].5[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-43-2" Target="4[2].5[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].5[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of ERR[2].5[1](Application Error Code) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].5[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-43-3" Target="4[2].5[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].5[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ERR[2].5[1].2[1](Text) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].5[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-47-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].4[1]_2" Target="4[1].2[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].4[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].2[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-47-2" Target="4[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1].2[1](Error Location) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1].2[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].4[1]_3" Target="4[1].2[1].4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].4[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].2[1].4[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-47-3" Target="4[1].2[1].4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at ERR[1].2[1].4[1](Field Repetition) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1].2[1].4[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].5[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].5[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-47" Target="4[1].2[1].4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[1].2[1].4[1](Field Repetition) does not match the expected value: '1'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[1].2[1].4[1]" Text="1"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-48" Target="3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSA[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at MSA[1].1[1](Acknowledgment Code) does not match the expected value: 'AE'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="3[1].1[1]" Text="AE"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-54-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-54-2" Target="4[2].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2].2[1](Error Location) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-54-3" Target="4[2].2[1].4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at ERR[2].2[1].4[1](Field Repetition) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].2[1].4[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-54" Target="4[2].2[1].4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[2].2[1].4[1](Field Repetition) does not match the expected value: '1'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[2].2[1].4[1]" Text="1"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-60-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].8[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].5[1]_2" Target="4[1].2[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].5[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].2[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-60-2" Target="4[1].8[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].8[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ERR[1].8[1](User Message) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1].8[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-64-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-64-2" Target="4[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1].2[1](Error Location) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1].2[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].2[1].5[1]_3" Target="4[1].2[1].5[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].2[1].5[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].2[1].5[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-64" Target="4[1].2[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[1].2[1].2[1](Segment Sequence) does not match the expected value: '1'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[1].2[1].2[1]" Text="1"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-66-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].5[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-66-2" Target="4[1].5[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].5[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of ERR[1].5[1](Application Error Code) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1].5[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-66-3" Target="4[1].5[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].5[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ERR[1].5[1].2[1](Text) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1].5[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-67-2" Target="1[1].4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].4[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of MSH[1].4[1](Sending Facility) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].4[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-67-3" Target="1[1].4[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].4[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at MSH[1].4[1].1[1](Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].4[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-68-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].3[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-68-3" Target="4[2].3[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].3[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at ERR[2].3[1].3[1](Name of Coding System) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].3[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-70-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-70-2" Target="4[2].5[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2].5[1](Application Error Code) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].5[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-70-3" Target="4[2].5[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at ERR[2].5[1].3[1](Name of Coding System) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].5[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-72-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-72-2" Target="4[2].5[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2].5[1](Application Error Code) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].5[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-72" Target="4[2].5[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[2].5[1].1[1](Identifier) does not match the expected value: '5'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[2].5[1].1[1]" Text="5"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-78-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].5[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-78-2" Target="4[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].5[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[1].2[1](Error Location) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-78-3" Target="4[1].2[1].5[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].5[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at ERR[1].2[1].5[1](Component Number) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1].2[1].5[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].3[1].1[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].3[1].1[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-78" Target="4[1].2[1].5[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].2[1].5[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[1].2[1].5[1](Component Number) does not match the expected value: '1'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[1].2[1].5[1]" Text="1"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-79-1" Target="4[2]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].5[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2](ERR) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-79-2" Target="4[2].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].5[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. A descendant of ERR[2].2[1](Error Location) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-79-3" Target="4[2].2[1].5[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].5[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at ERR[2].2[1].5[1](Component Number) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[2].2[1].5[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-79" Target="4[2].2[1].5[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[2].2[1].5[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ERR[2].2[1].5[1](Component Number) does not match the expected value: '1'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="4[2].2[1].5[1]" Text="1"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-80-1" Target="4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].3[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. A descendant of ERR[1](ERR) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCAMT_ERR[1].3[1].2[1]_1" Target="4[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].3[1].2[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1] SHALL be valued.</Description>
-          <Assertion>
-            <Presence Path="4[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCAMT_ERR[1].3[1].2[1]_3" Target="4[1].3[1].2[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="ERR[1].3[1].2[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>ERR[1].3[1].2[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-80-3" Target="4[1].3[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ERR[1].3[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ERR[1].3[1].2[1](Text) is expected to be present.</Description>
           <Assertion>
             <Presence Path="4[1].3[1].2[1]"/>
           </Assertion>

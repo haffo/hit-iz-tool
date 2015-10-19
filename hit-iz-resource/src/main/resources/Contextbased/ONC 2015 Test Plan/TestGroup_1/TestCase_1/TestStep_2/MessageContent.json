@@ -8,9 +8,9 @@
 			"elements" : 
 			[
 				{"location" : "MSH.1", "dataelement" : "Field Separator", "data" : "|", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "MSH.2", "dataelement" : "Encoding Characters", "data" : "^~\&amp;",
-"categorization" : "Presence Length-System Generated"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "", "categorization"
@@ -22,7 +22,7 @@
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "IIS", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -38,7 +38,7 @@
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "wcEHR",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -50,11 +50,11 @@
 				{"location" : "MSH.9", "dataelement" : "Message Type", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.9.1", "dataelement" : "Message Code", "data" : "ACK", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 							{"location" : "MSH.9.2", "dataelement" : "Trigger Event", "data" : "V04", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 							{"location" : "MSH.9.3", "dataelement" : "Message Structure", "data" : "ACK",
-"categorization" : "Presence Length-System Generated"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "23628",
 "categorization" : "Presence-System Generated"},
 				{"location" : "MSH.11", "dataelement" : "Processing ID", "data" : "", "categorization"
@@ -64,17 +64,17 @@
 				{"location" : "MSH.12", "dataelement" : "Version ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.12.1", "dataelement" : "Version ID", "data" : "2.5.1", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "MSH.15", "dataelement" : "Accept Acknowledgment Type", "data" :
-"NE", "categorization" : "Presence Length-System Generated"},
+"NE", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.16", "dataelement" : "Application Acknowledgment Type", "data"
-: "NE", "categorization" : "Presence Length-System Generated"},
+: "NE", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.21", "dataelement" : "Message Profile Identifier", "data" :
 "", "categorization" : ""},
 							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z23",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS",
-"categorization" : "Presence Length-System Generated"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.21.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.21.4", "dataelement" : "Universal ID Type", "data" : "",
@@ -82,15 +82,15 @@
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
 							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "IIS",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : ""},
+"", "categorization" : "Indifferent"},
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
@@ -98,15 +98,15 @@
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
 							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "wcEHR
-", "categorization" : "Value-Profile Fixed"},
+", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : ""},
+"", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
@@ -116,7 +116,7 @@
 			"elements" : 
 			[
 				{"location" : "MSA.1", "dataelement" : "Acknowledgment Code", "data" : "AA", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "12462",
 "categorization" : "Presence-System Generated"},		]
 

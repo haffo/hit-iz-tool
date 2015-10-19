@@ -7,15 +7,15 @@
 			"title":"Patient Information",
 			"elements" : 
 			[
-				{"element" : "Patient Name", "data" : "Ashley Jennifer Broadbent"},
-				{"element" : "Mother's Maiden Name", "data" : "Layton"},
-				{"element" : "ID Number", "data" : "77100 "},
-				{"element" : "Date/Time of Birth", "data" : "05/16/2015"},
+				{"element" : "Patient Name", "data" : "Lacy Wells"},
+				{"element" : "Mother's Maiden Name", "data" : ""},
+				{"element" : "ID Number", "data" : "22533 "},
+				{"element" : "Date/Time of Birth", "data" : "04/30/2011"},
 				{"element" : "Administrative Sex", "data" : "Female"},
-				{"element" : "Patient Address 1", "data" : "901 North 12th St Bozeman MT 59715
-USA "},
-				{"element" : "Local Number", "data" : "(406)555-2262"},
-				{"element" : "Race1", "data" : "African American"},
+				{"element" : "Patient Address 1", "data" : "12 North Oak St Bozeman MT 59715 USA
+"},
+				{"element" : "Local Number", "data" : "(406)555-2914"},
+				{"element" : "Race1", "data" : "White"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
 				{"element" : "Birth Order", "data" : "1"}
 			]
@@ -25,8 +25,8 @@ USA "},
 			"elements" : 
 			[
 				{"element" : "Immunization Registry Status", "data" : "A"},
-				{"element" : "Immunization Registry Status Effective Date", "data" : "05/16/2015"},
-				{"element" : "Publicity Code", "data" : "Reminder/recall - no calls"},
+				{"element" : "Immunization Registry Status Effective Date", "data" : "04/30/2011"},
+				{"element" : "Publicity Code", "data" : "No reminder/recall"},
 				{"element" : "Publicity Code Effective Date", "data" : "06/25/2015"},
 				{"element" : "Protection Indicator", "data" : "No"},
 				{"element" : "Protection Indicator Effective Date", "data" : "06/25/2015"}
@@ -36,29 +36,32 @@ USA "},
 			"title":"Guardian or Responsible Party",
 			"elements" : 
 			[
-				{"element" : "Name", "data" : "Ellen Broadbent"},
-				{"element" : "Relationship", "data" : "Mother"},
-				{"element" : "Address1", "data" : "901 North 12th St Bozeman MT 59715 USA "},
-				{"element" : "Phone Number", "data" : "(406)555-2262"},		]
-		},
+				{"element" : "Name", "data" : "Janelle Trudeau"},
+				{"element" : "Relationship", "data" : "Guardian"},
+				{"element" : "Address1", "data" : "12 North Oak St Bozeman MT 59715 USA "},
+				{"element" : "Phone Number", "data" : "(406)555-2914"},		]
+		{
+			"title":"Vaccine Administration Information[*]",
+
+<accordion>		},
 		{
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code", "data" : "ENGERIX-B"},
+				{"element" : "Administered Code", "data" : "ProQuad"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/25/2015"},
 				{"element" : "Administered Amount", "data" : "0.5"},
 				{"element" : "Administered Units", "data" : "mL"},
 				{"element" : "Administration Notes", "data" : "New Record"},
 				{"element" : "Administering Provider", "data" : "Lily Jackson"},
-				{"element" : "Substance Lot Number", "data" : "797397"},
-				{"element" : "Substance Expiration Date", "data" : "12/03/2015"},
-				{"element" : "Substance Manufacturer Name", "data" : "GlaxoSmithKline"},
+				{"element" : "Substance Lot Number", "data" : "407453"},
+				{"element" : "Substance Expiration Date", "data" : "10/15/2015"},
+				{"element" : "Substance Manufacturer Name", "data" : "Merck and Co., Inc."},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
 				{"element" : "Completion Status", "data" : "CP"},
 				{"element" : "Action Code", "data" : "Add"},
-				{"element" : "Route", "data" : "Intramuscular"},
-				{"element" : "Administration Site", "data" : "Left Thigh"},
+				{"element" : "Route", "data" : "Subcutaneous"},
+				{"element" : "Administration Site", "data" : "Right Deltoid"},
 				{"element" : "Entering Organization", "data" : "West Clinic"},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
 				{"element" : "Ordered By", "data" : "Wilma Thomas"},
@@ -71,7 +74,51 @@ USA "},
 							{"element" : "", "data" : ""},
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "Not VFC Eligible"},
 							{"element" : "", "data" : ""},
-							{"element" : "Document Type", "data" : "Hepatitis B VIS"},
+							{"element" : "Document Type", "data" : "Measles/Mumps/Rubella/Varicella VIS"},
+							{"element" : "Date Vis Presented", "data" : "06/25/2015"},
+	
+	]					}
+					}
+		]
+					}
+					}
+		]
+		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Code", "data" : "KINRIX"},
+				{"element" : "Date/Time Start of Administration", "data" : "06/25/2015"},
+				{"element" : "Administered Amount", "data" : "0.5"},
+				{"element" : "Administered Units", "data" : "mL"},
+				{"element" : "Administration Notes", "data" : "New Record"},
+				{"element" : "Administering Provider", "data" : "Lily Jackson"},
+				{"element" : "Substance Lot Number", "data" : "88402"},
+				{"element" : "Substance Expiration Date", "data" : "07/30/2015"},
+				{"element" : "Substance Manufacturer Name", "data" : "GlaxoSmithKline"},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Action Code", "data" : "Add"},
+				{"element" : "Route", "data" : "Intramuscular"},
+				{"element" : "Administration Site", "data" : "Left Deltoid"},
+				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : "Wilma Thomas"},
+					{"element" : "obx", "data" : 
+					{
+						"title":"Observations",
+						"elements" : 
+						[
+							{"element" : "Vaccine Funding Source", "data" : "Private"},
+							{"element" : "", "data" : ""},
+							{"element" : "Vaccine Funding Program Eligibility", "data" : "Not VFC Eligible"},
+							{"element" : "", "data" : ""},
+							{"element" : "Document Type", "data" : "Polio VIS"},
+							{"element" : "Date Vis Presented", "data" : "06/25/2015"},
+							{"element" : "", "data" : ""},
+							{"element" : "Document Type", "data" : "Diphtheria/Tetanus/Pertussis (DTaP)
+VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/25/2015"},
 	
 	]					}
@@ -81,6 +128,7 @@ USA "},
 					}
 		]
 
+</accordion>
 		}
 ]
 }

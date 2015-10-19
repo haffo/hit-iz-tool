@@ -1,4 +1,4 @@
-MSH|^~\&||wcEHR||IIS|20150625103328.757-0500||VXU^V04^VXU_V04|81883|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|wcEHR|IIS
+MSH|^~\&|wcApp|wcEHR|iisApp|IIS|20150625103328.757-0500||VXU^V04^VXU_V04|81883|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|wcEHR|IIS
 PID|1||77100^^^wcEHR^MR||Broadbent^Ashley^Jennifer^^^^L|Layton^^^^^^M|20150516|F||2054-5^African American^CDCREC|901 North 12th St^^Bozeman^MT^59715^USA^P||^PRN^PH^^^406^5552262|||||||||2186-5^Not Hispanic or Latino^CDCREC||N|1|||||N
 PD1|||||||||||03^Reminder/recall - no calls^HL70215|N|20150625|||A|20150516|20150625
 NK1|1|Broadbent^Ellen^^^^^L|MTH^Mother^HL70063|901 North 12th St^^Bozeman^MT^59715^USA^P|^PRN^PH^^^406^5552262

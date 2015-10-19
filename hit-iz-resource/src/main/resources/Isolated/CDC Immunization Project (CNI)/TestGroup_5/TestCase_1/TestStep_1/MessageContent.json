@@ -154,7 +154,7 @@ Iz Reg", "categorization" : ""},
 							{"location" : "PID.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "PID.5.1.1", "dataelement" : "Surname", "data" : "Gonzales",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 									{"location" : "PID.5.1.2", "dataelement" : "Own Surname Prefix", "data" :
 "", "categorization" : ""},
 									{"location" : "PID.5.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -164,17 +164,17 @@ Iz Reg", "categorization" : ""},
 									{"location" : "PID.5.1.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "PID.5.2", "dataelement" : "Given Name", "data" : "Juana", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "PID.5.3", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "Mariana", "categorization" : "Value-Profile Fixed"},
+Initials Thereof", "data" : "Mariana", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.5.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.6", "dataelement" : "Mother's Maiden Name", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.6.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "PID.6.1.1", "dataelement" : "Surname", "data" : "Acosta",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 									{"location" : "PID.6.1.2", "dataelement" : "Own Surname Prefix", "data" :
 "", "categorization" : ""},
 									{"location" : "PID.6.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -184,21 +184,21 @@ Initials Thereof", "data" : "Mariana", "categorization" : "Value-Profile Fixed"}
 									{"location" : "PID.6.1.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "PID.6.7", "dataelement" : "Name Type Code", "data" : "M", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.7", "dataelement" : "Date/Time of Birth", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.7.1", "dataelement" : "Time", "data" : "200911231105", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.8", "dataelement" : "Administrative Sex", "data" : "F", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.10", "dataelement" : "Race", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.10.1", "dataelement" : "Identifier", "data" : "2106-3",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.10.2", "dataelement" : "Text", "data" : "White", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "PID.10.3", "dataelement" : "Name of Coding System", "data" :
-"HL70005", "categorization" : "Value-Profile Fixed"},
+"HL70005", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.10.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.10.6", "dataelement" : "Name of Alternate Coding System",
@@ -208,7 +208,7 @@ Initials Thereof", "data" : "Mariana", "categorization" : "Value-Profile Fixed"}
 							{"location" : "PID.11[1].1", "dataelement" : "Street Address", "data" : "",
 "categorization" : ""},
 									{"location" : "PID.11[1].1.1", "dataelement" : "Street or Mailing Address",
-"data" : "4345 Standish Way", "categorization" : "Value-Profile Fixed"},
+"data" : "4345 Standish Way", "categorization" : "Value-Test Case Fixed"},
 									{"location" : "PID.11[1].1.2", "dataelement" : "Street Name", "data" : "",
 "categorization" : ""},
 									{"location" : "PID.11[1].1.3", "dataelement" : "Dwelling Number", "data"
@@ -216,15 +216,15 @@ Initials Thereof", "data" : "Mariana", "categorization" : "Value-Profile Fixed"}
 							{"location" : "PID.11[1].2", "dataelement" : "Other Designation", "data" :
 "", "categorization" : ""},
 							{"location" : "PID.11[1].3", "dataelement" : "City", "data" : "Stamford", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "PID.11[1].4", "dataelement" : "State or Province", "data" :
-"CT", "categorization" : "Value-Profile Fixed"},
+"CT", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.11[1].5", "dataelement" : "Zip or Postal Code", "data" :
-"06903", "categorization" : "Value-Profile Fixed"},
+"06903", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.11[1].6", "dataelement" : "Country", "data" : "USA", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "PID.11[1].7", "dataelement" : "Address Type", "data" : "L",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "PID.11[2]", "dataelement" : "Patient Address", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.11[2].1", "dataelement" : "Street Address", "data" : "",
@@ -240,33 +240,33 @@ Initials Thereof", "data" : "Mariana", "categorization" : "Value-Profile Fixed"}
 							{"location" : "PID.11[2].3", "dataelement" : "City", "data" : "Stamford", "categorization"
 : ""},
 							{"location" : "PID.11[2].4", "dataelement" : "State or Province", "data" :
-"CT", "categorization" : "Value-Profile Fixed"},
+"CT", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.11[2].5", "dataelement" : "Zip or Postal Code", "data" :
 "06901", "categorization" : ""},
 							{"location" : "PID.11[2].6", "dataelement" : "Country", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.11[2].7", "dataelement" : "Address Type", "data" : "BDL",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "PID.13", "dataelement" : "Phone Number - Home", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.13.2", "dataelement" : "Telecommunication Use Code", "data"
-: "PRN", "categorization" : "Value-Profile Fixed"},
+: "PRN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13.3", "dataelement" : "Telecommunication Equipment Type",
-"data" : "PH", "categorization" : "Value-Profile Fixed"},
+"data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13.4", "dataelement" : "Email Address", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.13.6", "dataelement" : "Area/City Code", "data" : "203",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13.7", "dataelement" : "Local Number", "data" : "5551212",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "PID.22", "dataelement" : "Ethnic Group", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.22.1", "dataelement" : "Identifier", "data" : "2135-2",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.22.2", "dataelement" : "Text", "data" : "Hispanic or Latino",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.22.3", "dataelement" : "Name of Coding System", "data" :
-"CDCREC", "categorization" : "Value-Profile Fixed"},
+"CDCREC", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.22.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.22.6", "dataelement" : "Name of Alternate Coding System",
@@ -328,19 +328,19 @@ Date", "data" : "20120701", "categorization" : ""},
 									{"location" : "NK1.2.1.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "NK1.2.2", "dataelement" : "Given Name", "data" : "Joanna", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "NK1.2.3", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "Merida", "categorization" : "Value-Profile Fixed"},
+Initials Thereof", "data" : "Merida", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.2.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "NK1.3", "dataelement" : "Relationship", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.3.1", "dataelement" : "Identifier", "data" : "GRP", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "NK1.3.2", "dataelement" : "Text", "data" : "Grandparent", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "NK1.3.3", "dataelement" : "Name of Coding System", "data" :
-"HL70063", "categorization" : "Value-Profile Fixed"},
+"HL70063", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.3.6", "dataelement" : "Name of Alternate Coding System",
@@ -350,7 +350,7 @@ Initials Thereof", "data" : "Merida", "categorization" : "Value-Profile Fixed"},
 							{"location" : "NK1.4.1", "dataelement" : "Street Address", "data" : "", "categorization"
 : ""},
 									{"location" : "NK1.4.1.1", "dataelement" : "Street or Mailing Address", "data"
-: "4345 Standish Way", "categorization" : "Value-Profile Fixed"},
+: "4345 Standish Way", "categorization" : "Value-Test Case Fixed"},
 									{"location" : "NK1.4.1.2", "dataelement" : "Street Name", "data" : "", "categorization"
 : ""},
 									{"location" : "NK1.4.1.3", "dataelement" : "Dwelling Number", "data" : "",
@@ -358,27 +358,27 @@ Initials Thereof", "data" : "Merida", "categorization" : "Value-Profile Fixed"},
 							{"location" : "NK1.4.2", "dataelement" : "Other Designation", "data" : "",
 "categorization" : ""},
 							{"location" : "NK1.4.3", "dataelement" : "City", "data" : "Stamford", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "NK1.4.4", "dataelement" : "State or Province", "data" : "CT",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.4.5", "dataelement" : "Zip or Postal Code", "data" : "06901",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.4.6", "dataelement" : "Country", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.4.7", "dataelement" : "Address Type", "data" : "L", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "NK1.5", "dataelement" : "Phone Number", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.5.2", "dataelement" : "Telecommunication Use Code", "data"
-: "PRN", "categorization" : "Value-Profile Fixed"},
+: "PRN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.5.3", "dataelement" : "Telecommunication Equipment Type",
-"data" : "PH", "categorization" : "Value-Profile Fixed"},
+"data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.5.4", "dataelement" : "Email Address", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.5.6", "dataelement" : "Area/City Code", "data" : "203",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.5.7", "dataelement" : "Local Number", "data" : "5551212
-", "categorization" : "Value-Profile Fixed"},		]
+", "categorization" : "Value-Test Case Fixed"},		]
 		{
 			"title":"ORC[*]",
 
@@ -1001,7 +1001,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "ORC.12.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "L",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.12.12", "dataelement" : "Check Digit Scheme", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
@@ -3171,7 +3171,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "ORC.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.10.2.1", "dataelement" : "Surname", "data" : "Molina",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 									{"location" : "ORC.10.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "ORC.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -3181,7 +3181,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "ORC.10.2.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "ORC.10.3", "dataelement" : "Given Name", "data" : "Sandra",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.10.4", "dataelement" : "Second and Further Given Names or
 Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "ORC.10.9", "dataelement" : "Assigning Authority", "data" : "",
@@ -3205,7 +3205,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "ORC.12.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.12.2.1", "dataelement" : "Surname", "data" : "Smith",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 									{"location" : "ORC.12.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "ORC.12.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -3215,7 +3215,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "ORC.12.2.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "ORC.12.3", "dataelement" : "Given Name", "data" : "Frank", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "ORC.12.4", "dataelement" : "Second and Further Given Names or
 Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "ORC.12.9", "dataelement" : "Assigning Authority", "data" : "",
@@ -3227,7 +3227,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "ORC.12.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "L",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.12.12", "dataelement" : "Check Digit Scheme", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
@@ -3237,7 +3237,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "SP", "categorization"
 : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Shoreline Pediatrics",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
 "HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
@@ -3807,7 +3807,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "ORC.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.10.2.1", "dataelement" : "Surname", "data" : "Molina",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 									{"location" : "ORC.10.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "ORC.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -3817,7 +3817,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "ORC.10.2.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "ORC.10.3", "dataelement" : "Given Name", "data" : "Sandra",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.10.4", "dataelement" : "Second and Further Given Names or
 Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "ORC.10.9", "dataelement" : "Assigning Authority", "data" : "",
@@ -3841,7 +3841,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "ORC.12.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.12.2.1", "dataelement" : "Surname", "data" : "Smith",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 									{"location" : "ORC.12.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "ORC.12.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -3851,7 +3851,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "ORC.12.2.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "ORC.12.3", "dataelement" : "Given Name", "data" : "Frank", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "ORC.12.4", "dataelement" : "Second and Further Given Names or
 Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "ORC.12.9", "dataelement" : "Assigning Authority", "data" : "",
@@ -3863,7 +3863,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "ORC.12.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "L",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.12.12", "dataelement" : "Check Digit Scheme", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
@@ -3873,7 +3873,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "SP", "categorization"
 : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Shoreline Pediatrics",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
 "HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
@@ -7227,25 +7227,25 @@ Initials Thereof", "data" : "", "categorization" : ""},
 				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "149", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "influenza, live,
-intranasal, quadrivalent", "categorization" : "Value-Profile Fixed"},
+intranasal, quadrivalent", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX", "categorization" : "Value-Profile Fixed"},
+"CVX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.5.5", "dataelement" : "Alternate Text", "data" : "FluMist
-Quadrivalent", "categorization" : "Value-Profile Fixed"},
+Quadrivalent", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "NDC", "categorization" : "Value-Profile Fixed"},
+"data" : "NDC", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "0.2",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "mL", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
-"UCUM", "categorization" : "Value-Profile Fixed"},
+"UCUM", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.7.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.6", "dataelement" : "Name of Alternate Coding System",
@@ -7253,11 +7253,11 @@ Quadrivalent", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "00", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "New immunization
-record", "categorization" : "Value-Profile Fixed"},
+record", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
-"NIP001", "categorization" : "Value-Profile Fixed"},
+"NIP001", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.9.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.6", "dataelement" : "Name of Alternate Coding System",
@@ -7269,7 +7269,7 @@ record", "categorization" : "Value-Profile Fixed"},
 							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "Molina",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 									{"location" : "RXA.10.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "RXA.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -7279,7 +7279,7 @@ record", "categorization" : "Value-Profile Fixed"},
 									{"location" : "RXA.10.2.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "Sandra",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
 Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
@@ -7307,19 +7307,19 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 				{"location" : "RXA.15", "dataelement" : "Substance Lot Number", "data" : "8L4B3521",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXA.16", "dataelement" : "Substance Expiration Date", "data" :
 "", "categorization" : ""},
 							{"location" : "RXA.16.1", "dataelement" : "Time", "data" : "20150815", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
 : "", "categorization" : ""},
 							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "MED", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "MedImmune,LLC",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
-"MVX", "categorization" : "Value-Profile Fixed"},
+"MVX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -7337,7 +7337,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
 : ""},		]
 		{
@@ -7995,25 +7995,25 @@ Dohme Corp", "categorization" : ""},
 				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "94", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "measles, mumps,
-rubella, and varicella virus vaccine", "categorization" : "Value-Profile Fixed"},
+rubella, and varicella virus vaccine", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX", "categorization" : "Value-Profile Fixed"},
+"CVX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.5.5", "dataelement" : "Alternate Text", "data" : "ProQuad",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "NDC", "categorization" : "Value-Profile Fixed"},
+"data" : "NDC", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "0.5",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "mL", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
-"UCUM", "categorization" : "Value-Profile Fixed"},
+"UCUM", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.7.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.6", "dataelement" : "Name of Alternate Coding System",
@@ -8021,11 +8021,11 @@ rubella, and varicella virus vaccine", "categorization" : "Value-Profile Fixed"}
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "00", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "New immunization
-record", "categorization" : "Value-Profile Fixed"},
+record", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
-"NIP001", "categorization" : "Value-Profile Fixed"},
+"NIP001", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.9.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.6", "dataelement" : "Name of Alternate Coding System",
@@ -8037,7 +8037,7 @@ record", "categorization" : "Value-Profile Fixed"},
 							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "Molina",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 									{"location" : "RXA.10.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "RXA.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -8047,7 +8047,7 @@ record", "categorization" : "Value-Profile Fixed"},
 									{"location" : "RXA.10.2.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "Sandra",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
 Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
@@ -8075,19 +8075,19 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 				{"location" : "RXA.15", "dataelement" : "Substance Lot Number", "data" : "7W87V3687",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXA.16", "dataelement" : "Substance Expiration Date", "data" :
 "", "categorization" : ""},
 							{"location" : "RXA.16.1", "dataelement" : "Time", "data" : "20150715", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
 : "", "categorization" : ""},
 							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "MSD", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "Merck Sharp \T\
-Dohme Corp", "categorization" : "Value-Profile Fixed"},
+Dohme Corp", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
-"MVX", "categorization" : "Value-Profile Fixed"},
+"MVX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -8105,7 +8105,7 @@ Dohme Corp", "categorization" : "Value-Profile Fixed"},
 							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
 : ""},		]
 
@@ -8819,15 +8819,15 @@ Dohme Corp", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXR.1", "dataelement" : "Route", "data" : "", "categorization"
 : ""},
 							{"location" : "RXR.1.1", "dataelement" : "Identifier", "data" : "C38284", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXR.1.2", "dataelement" : "Text", "data" : "Nasal", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXR.1.3", "dataelement" : "Name of Coding System", "data" :
-"NCIT", "categorization" : "Value-Profile Fixed"},
+"NCIT", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXR.1.5", "dataelement" : "Alternate Text", "data" : "Nasal",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXR.1.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "HL70162", "categorization" : "Value-Profile Fixed"},
+"data" : "HL70162", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXR.2", "dataelement" : "Administration Site", "data" : "", "categorization"
 : ""},
 							{"location" : "RXR.2.1", "dataelement" : "Identifier", "data" : "BN", "categorization"
@@ -8987,23 +8987,23 @@ Dohme Corp", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXR.1", "dataelement" : "Route", "data" : "", "categorization"
 : ""},
 							{"location" : "RXR.1.1", "dataelement" : "Identifier", "data" : "C38299", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXR.1.2", "dataelement" : "Text", "data" : "Subcutaneous", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXR.1.3", "dataelement" : "Name of Coding System", "data" :
-"NCIT", "categorization" : "Value-Profile Fixed"},
+"NCIT", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXR.1.5", "dataelement" : "Alternate Text", "data" : "Subcutaneous",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXR.1.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "HL70162", "categorization" : "Value-Profile Fixed"},
+"data" : "HL70162", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXR.2", "dataelement" : "Administration Site", "data" : "", "categorization"
 : ""},
 							{"location" : "RXR.2.1", "dataelement" : "Identifier", "data" : "LD", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXR.2.2", "dataelement" : "Text", "data" : "Left Deltoid", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXR.2.3", "dataelement" : "Name of Coding System", "data" :
-"HL70163 ", "categorization" : "Value-Profile Fixed"},
+"HL70163 ", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXR.2.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "RXR.2.6", "dataelement" : "Name of Alternate Coding System",
@@ -9036,16 +9036,6 @@ Dohme Corp", "categorization" : "Value-Profile Fixed"},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC12", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "fever of &amp;gt;40.5C
-(105F) within 48 hours of dose", "categorization" : ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -9087,11 +9077,11 @@ Dohme Corp", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
 "categorization" : ""},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "29768-9",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "VIS Publication
-Date", "categorization" : "Value-Profile Fixed"},
+Date", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : "Value-Profile Fixed"},
+"LN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
@@ -9143,11 +9133,11 @@ Date", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
 "categorization" : ""},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "29769-7",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "VIS Presentation
-Date", "categorization" : "Value-Profile Fixed"},
+Date", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : "Value-Profile Fixed"},
+"LN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
@@ -9199,11 +9189,11 @@ Date", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
 "categorization" : ""},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "64994-7",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine fund pgm
-elig cat", "categorization" : "Value-Profile Fixed"},
+elig cat", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : "Value-Profile Fixed"},
+"LN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
@@ -9212,16 +9202,6 @@ elig cat", "categorization" : "Value-Profile Fixed"},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC elig ",
-"categorization" : ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"HL70064", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -9263,11 +9243,11 @@ elig cat", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
 "categorization" : ""},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "29768-9",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "VIS Publication
-Date", "categorization" : "Value-Profile Fixed"},
+Date", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : "Value-Profile Fixed"},
+"LN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
@@ -9319,11 +9299,11 @@ Date", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
 "categorization" : ""},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "29769-7",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "VIS Presentation
-Date", "categorization" : "Value-Profile Fixed"},
+Date", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : "Value-Profile Fixed"},
+"LN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
@@ -9375,11 +9355,11 @@ Date", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
 "categorization" : ""},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "64994-7",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine fund pgm
-elig cat", "categorization" : "Value-Profile Fixed"},
+elig cat", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : "Value-Profile Fixed"},
+"LN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
@@ -9388,16 +9368,6 @@ elig cat", "categorization" : "Value-Profile Fixed"},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC elig ",
-"categorization" : ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"HL70064", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"

@@ -8,9 +8,9 @@
 			"elements" : 
 			[
 				{"location" : "MSH.1", "dataelement" : "Field Separator", "data" : "|", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "MSH.2", "dataelement" : "Encoding Characters", "data" : "^~\&amp;",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "MyEHR",
@@ -66,9 +66,9 @@
 							{"location" : "MSH.12.1", "dataelement" : "Version ID", "data" : "2.5.1", "categorization"
 : ""},
 				{"location" : "MSH.15", "dataelement" : "Accept Acknowledgment Type", "data" :
-"ER", "categorization" : "Value-Profile Fixed"},
+"ER", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "MSH.16", "dataelement" : "Application Acknowledgment Type", "data"
-: "AL", "categorization" : "Value-Profile Fixed"},
+: "AL", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "MSH.21", "dataelement" : "Message Profile Identifier", "data" :
 "", "categorization" : ""},
 							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z44",
@@ -186,7 +186,7 @@ Initials Thereof", "data" : "S", "categorization" : ""},
 							{"location" : "QPD.6.1", "dataelement" : "Time", "data" : "19800214", "categorization"
 : ""},
 				{"location" : "QPD.7", "dataelement" : "Patient Sex", "data" : "M", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "QPD.8", "dataelement" : "Patient Address", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.8.1", "dataelement" : "Street Address", "data" : "", "categorization"

@@ -651,7 +651,7 @@
 			<Component Name="Prefix (e.g., DR)" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
 			<Component Name="Degree (e.g., MD)" Usage="X" Datatype="IS" MinLength="1" MaxLength="5" Binding="0360" BindingStrength="R"/>
 			<Component Name="Source Table" Usage="O" Datatype="IS" MinLength="1" MaxLength="4" Binding="0297" BindingStrength="R"/>
-			<Component Name="Assigning Authority" Usage="C" Datatype="HD" MinLength="1" MaxLength="227" Binding="HL70363_IZ" BindingStrength="R" BindingLocation="1"/>
+			<Component Name="Assigning Authority" Usage="C" Datatype="HD_IZ" MinLength="1" MaxLength="227" Binding="HL70363_IZ" BindingStrength="R" BindingLocation="1"/>
 			<Component Name="Name Type Code" Usage="RE" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70200_IZ" BindingStrength="R"/>
 			<Component Name="Identifier Check Digit" Usage="O" Datatype="ST" MinLength="1" MaxLength="1"/>
 			<Component Name="Check Digit Scheme" Usage="C" Datatype="ID" MinLength="1" MaxLength="3" Binding="0061" BindingStrength="R"/>

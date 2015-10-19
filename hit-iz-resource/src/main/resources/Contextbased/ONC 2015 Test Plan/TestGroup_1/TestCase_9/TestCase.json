@@ -1,5 +1,5 @@
 {
-  "name" : "TC-9",
+  "name" : "IZ-AD-9_New_Admin_Mult_Errors",
   "position" : 9,
-  "description" : "New administration resulting in soft error"
+  "description" : "New administration resulting in multiple soft errors"
 }

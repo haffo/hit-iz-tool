@@ -1,4 +1,4 @@
-MSH|^~\&||wcEHR||IIS|20150624093847.804-0500||VXU^V04^VXU_V04|77732|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|wcEHR|IIS
+MSH|^~\&|wcApp|wcEHR|iisApp|IIS|20150624093847.804-0500||VXU^V04^VXU_V04|77732|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|wcEHR|IIS
 PID|1||89778^^^wcEHR^MR||Benton^Katherine^Mackenzie^^^^L|Jones^^^^^^M|20031221|F||2106-3^White^CDCREC|89 West 21st Ave^^Bozeman^MT^59715^USA^P||^PRN^PH^^^406^5554019|||||||||2186-5^Not Hispanic or Latino^CDCREC||N|1|||||N
 PD1|||||||||||01^No reminder/recall^HL70215|Y|20150624|||A|20031221|20150624
 NK1|1|Benton^Kari^Michelle^^^^L|MTH^Mother^HL70063|89 West 21st Ave^^Bozeman^MT^59715^USA^P|^PRN^PH^^^406^5554019
