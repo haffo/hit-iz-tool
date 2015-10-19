@@ -1,5 +1,5 @@
 {
-  "name" : "TC-5",
+  "name" : "IZ-AD-5_Child_Refusal",
   "position" : 5,
-  "description" : "Child partial administration"
+  "description" : "Child administration with refusal. Also test multiple birth indicator."
 }

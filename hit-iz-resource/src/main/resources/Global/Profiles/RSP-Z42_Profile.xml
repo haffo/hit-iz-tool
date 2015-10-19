@@ -71,7 +71,7 @@
 			<Field Name="Error Code and Location" Usage="X" Min="0" Max="0" Datatype="ELD" MinLength="1" MaxLength="493" ItemNo="00024"/>
 			<Field Name="Error Location" Usage="RE" Min="0" Max="1" Datatype="ERL_IZ" MinLength="1" MaxLength="18" ItemNo="01812"/>
 			<Field Name="HL7 Error Code" Usage="R" Min="1" Max="1" Datatype="CWE_IZ" MinLength="1" MaxLength="705" Binding="HL70357_IZ" BindingStrength="R" BindingLocation="1" ItemNo="01813"/>
-			<Field Name="Severity" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70516_IZ" BindingStrength="R" ItemNo="01814"/>
+			<Field Name="Severity" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70516_IZ" BindingStrength="R" ItemNo="01814"/>
 			<Field Name="Application Error Code" Usage="RE" Min="0" Max="1" Datatype="CWE_IZ" MinLength="1" MaxLength="705" Binding="HL70533_IZ" BindingStrength="R" BindingLocation="1" ItemNo="01815"/>
 			<Field Name="Application Error Parameter" Usage="O" Min="0" Max="10" Datatype="ST" MinLength="1" MaxLength="80" ItemNo="01816"/>
 			<Field Name="Diagnostic Information" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="2048" ItemNo="01817"/>
@@ -263,7 +263,7 @@
 			<Component Name="Prefix (e.g., DR)" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
 			<Component Name="Degree (e.g., MD)" Usage="X" Datatype="IS" MinLength="1" MaxLength="5" Binding="0360" BindingStrength="R"/>
 			<Component Name="Source Table" Usage="O" Datatype="IS" MinLength="1" MaxLength="4" Binding="0297" BindingStrength="R"/>
-			<Component Name="Assigning Authority" Usage="C" Datatype="HD" MinLength="1" MaxLength="227" Binding="HL70363_IZ" BindingStrength="R" BindingLocation="1"/>
+			<Component Name="Assigning Authority" Usage="C" Datatype="HD_IZ" MinLength="1" MaxLength="227" Binding="HL70363_IZ" BindingStrength="R" BindingLocation="1"/>
 			<Component Name="Name Type Code" Usage="RE" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70200_IZ" BindingStrength="R"/>
 			<Component Name="Identifier Check Digit" Usage="O" Datatype="ST" MinLength="1" MaxLength="1"/>
 			<Component Name="Check Digit Scheme" Usage="C" Datatype="ID" MinLength="1" MaxLength="3" Binding="0061" BindingStrength="R"/>

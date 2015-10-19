@@ -1,6 +1,6 @@
-MSH|^~\&||wcEHR||IIS|20150625115038.030-0500||VXU^V04^VXU_V04|10746|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|wcEHR|IIS
+MSH|^~\&|wcApp|wcEHR|iisApp|IIS|20150625115038.030-0500||VXU^V04^VXU_V04|10746|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|wcEHR|IIS
 PID|1||22533^^^wcEHR^MR||Wells^Lacy^^^^^L||20110430|F||2106-3^White^CDCREC|12 North Oak St^^Bozeman^MT^59715^USA^P||^PRN^PH^^^406^5552914|||||||||2186-5^Not Hispanic or Latino^CDCREC||N|1|||||N
-PD1|||||||||||01^No reminder/recall^HL70215|Y|20150625|||A|20110430|20150625
+PD1|||||||||||01^No reminder/recall^HL70215|N|20150625|||A|20110430|20150625
 NK1|1|Trudeau^Janelle^^^^^L|GRD^Guardian^HL70063|12 North Oak St^^Bozeman^MT^59715^USA^P|^PRN^PH^^^406^5552914
 ORC|RE|657^wcEHR|68544^wcEHR|||||||7824^Jackson^Lily^Suzanne^^^^^wcEHR^L^^^PRN||654^Thomas^Wilma^Elizabeth^^^^^wcEHR^L^^^MD|||||wcEHR^West Clinic^HL70362
 RXA|0|1|20150625||00006-4171-01^ProQuad^NDC|0.5|mL^mL^UCUM||00^New Record^NIP001|7824^Jackson^Lily^Suzanne^^^^^wcEHR^L^^^PRN|^^^wcEHR||||407453|20151015|MSD^Merck and Co., Inc.^MVX|||CP|A

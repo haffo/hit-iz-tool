@@ -1,4 +1,4 @@
-MSH|^~\&||wcEHR||IIS|20150625121047.839-0500||VXU^V04^VXU_V04|35560|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|wcEHR|IIS
+MSH|^~\&|wcApp|wcEHR|iisApp|IIS|20150625121047.839-0500||VXU^V04^VXU_V04|35560|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|wcEHR|IIS
 PID|1||7120^^^wcEHR^MR||Barrett^Helen^^^^^L||19500317|F||2106-3^White^CDCREC|763 Main St^^Bozeman^MT^59715^USA^P||^PRN^PH^^^406^5554064~^NET^^Helen.Barrett@isp.com|||||||||2186-5^Not Hispanic or Latino^CDCREC||N|1|||||N
 PD1|||||||||||06^Recall only - any method^HL70215|Y|20150625|||A|19500317|20150625
 ORC|RE|7646^wcEHR|53100^wcEHR|||||||7824^Jackson^Lily^Suzanne^^^^^wcEHR^L^^^PRN|||||||wcEHR^West Clinic^HL70362

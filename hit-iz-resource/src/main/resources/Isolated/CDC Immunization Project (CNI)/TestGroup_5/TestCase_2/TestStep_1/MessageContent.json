@@ -164,17 +164,17 @@ Iz Reg", "categorization" : ""},
 									{"location" : "PID.5.1.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "PID.5.2", "dataelement" : "Given Name", "data" : "Juan", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "PID.5.3", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "Marcel", "categorization" : "Value-Profile Fixed"},
+Initials Thereof", "data" : "Marcel", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.5.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.6", "dataelement" : "Mother's Maiden Name", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.6.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "PID.6.1.1", "dataelement" : "Surname", "data" : "Morales",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 									{"location" : "PID.6.1.2", "dataelement" : "Own Surname Prefix", "data" :
 "", "categorization" : ""},
 									{"location" : "PID.6.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -184,21 +184,21 @@ Initials Thereof", "data" : "Marcel", "categorization" : "Value-Profile Fixed"},
 									{"location" : "PID.6.1.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "PID.6.7", "dataelement" : "Name Type Code", "data" : "M", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.7", "dataelement" : "Date/Time of Birth", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.7.1", "dataelement" : "Time", "data" : "201111231100", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.8", "dataelement" : "Administrative Sex", "data" : "M", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.10", "dataelement" : "Race", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.10.1", "dataelement" : "Identifier", "data" : "2106-3",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.10.2", "dataelement" : "Text", "data" : "White", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "PID.10.3", "dataelement" : "Name of Coding System", "data" :
-"HL70005", "categorization" : "Value-Profile Fixed"},
+"HL70005", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.10.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.10.6", "dataelement" : "Name of Alternate Coding System",
@@ -208,7 +208,7 @@ Initials Thereof", "data" : "Marcel", "categorization" : "Value-Profile Fixed"},
 							{"location" : "PID.11.1", "dataelement" : "Street Address", "data" : "", "categorization"
 : ""},
 									{"location" : "PID.11.1.1", "dataelement" : "Street or Mailing Address",
-"data" : "4623 Standish Way", "categorization" : "Value-Profile Fixed"},
+"data" : "4623 Standish Way", "categorization" : "Value-Test Case Fixed"},
 									{"location" : "PID.11.1.2", "dataelement" : "Street Name", "data" : "", "categorization"
 : ""},
 									{"location" : "PID.11.1.3", "dataelement" : "Dwelling Number", "data" : "",
@@ -216,35 +216,35 @@ Initials Thereof", "data" : "Marcel", "categorization" : "Value-Profile Fixed"},
 							{"location" : "PID.11.2", "dataelement" : "Other Designation", "data" : "",
 "categorization" : ""},
 							{"location" : "PID.11.3", "dataelement" : "City", "data" : "Stamford", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "PID.11.4", "dataelement" : "State or Province", "data" : "CT",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.11.5", "dataelement" : "Zip or Postal Code", "data" : "06903",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.11.6", "dataelement" : "Country", "data" : "USA", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "PID.11.7", "dataelement" : "Address Type", "data" : "L", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.13", "dataelement" : "Phone Number - Home", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.13.2", "dataelement" : "Telecommunication Use Code", "data"
-: "PRN", "categorization" : "Value-Profile Fixed"},
+: "PRN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13.3", "dataelement" : "Telecommunication Equipment Type",
-"data" : "PH", "categorization" : "Value-Profile Fixed"},
+"data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13.4", "dataelement" : "Email Address", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.13.6", "dataelement" : "Area/City Code", "data" : "203",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13.7", "dataelement" : "Local Number", "data" : "5551213",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "PID.22", "dataelement" : "Ethnic Group", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.22.1", "dataelement" : "Identifier", "data" : "2135-2",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.22.2", "dataelement" : "Text", "data" : "Hispanic or Latino",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.22.3", "dataelement" : "Name of Coding System", "data" :
-"CDCREC", "categorization" : "Value-Profile Fixed"},
+"CDCREC", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.22.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.22.6", "dataelement" : "Name of Alternate Coding System",
@@ -296,7 +296,7 @@ Date", "data" : "20120701", "categorization" : ""},
 							{"location" : "NK1.2.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "NK1.2.1.1", "dataelement" : "Surname", "data" : "Gonzales",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 									{"location" : "NK1.2.1.2", "dataelement" : "Own Surname Prefix", "data" :
 "", "categorization" : ""},
 									{"location" : "NK1.2.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -306,19 +306,19 @@ Date", "data" : "20120701", "categorization" : ""},
 									{"location" : "NK1.2.1.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "NK1.2.2", "dataelement" : "Given Name", "data" : "Manuel", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "NK1.2.3", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "Marcel", "categorization" : "Value-Profile Fixed"},
+Initials Thereof", "data" : "Marcel", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.2.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "NK1.3", "dataelement" : "Relationship", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.3.1", "dataelement" : "Identifier", "data" : "FTH", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "NK1.3.2", "dataelement" : "Text", "data" : "Father", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "NK1.3.3", "dataelement" : "Name of Coding System", "data" :
-"HL70063", "categorization" : "Value-Profile Fixed"},
+"HL70063", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.3.6", "dataelement" : "Name of Alternate Coding System",
@@ -328,7 +328,7 @@ Initials Thereof", "data" : "Marcel", "categorization" : "Value-Profile Fixed"},
 							{"location" : "NK1.4.1", "dataelement" : "Street Address", "data" : "", "categorization"
 : ""},
 									{"location" : "NK1.4.1.1", "dataelement" : "Street or Mailing Address", "data"
-: "4623 Standish Way", "categorization" : "Value-Profile Fixed"},
+: "4623 Standish Way", "categorization" : "Value-Test Case Fixed"},
 									{"location" : "NK1.4.1.2", "dataelement" : "Street Name", "data" : "", "categorization"
 : ""},
 									{"location" : "NK1.4.1.3", "dataelement" : "Dwelling Number", "data" : "",
@@ -336,11 +336,11 @@ Initials Thereof", "data" : "Marcel", "categorization" : "Value-Profile Fixed"},
 							{"location" : "NK1.4.2", "dataelement" : "Other Designation", "data" : "",
 "categorization" : ""},
 							{"location" : "NK1.4.3", "dataelement" : "City", "data" : "Stamford", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "NK1.4.4", "dataelement" : "State or Province", "data" : "CT",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.4.5", "dataelement" : "Zip or Postal Code", "data" : "06903",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.4.6", "dataelement" : "Country", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.4.7", "dataelement" : "Address Type", "data" : "L", "categorization"
@@ -348,15 +348,15 @@ Initials Thereof", "data" : "Marcel", "categorization" : "Value-Profile Fixed"},
 				{"location" : "NK1.5", "dataelement" : "Phone Number", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.5.2", "dataelement" : "Telecommunication Use Code", "data"
-: "PRN", "categorization" : "Value-Profile Fixed"},
+: "PRN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.5.3", "dataelement" : "Telecommunication Equipment Type",
-"data" : "PH", "categorization" : "Value-Profile Fixed"},
+"data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.5.4", "dataelement" : "Email Address", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.5.6", "dataelement" : "Area/City Code", "data" : "203",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.5.7", "dataelement" : "Local Number", "data" : "5551213
-", "categorization" : "Value-Profile Fixed"},		]
+", "categorization" : "Value-Test Case Fixed"},		]
 		{
 			"title":"ORC[*]",
 

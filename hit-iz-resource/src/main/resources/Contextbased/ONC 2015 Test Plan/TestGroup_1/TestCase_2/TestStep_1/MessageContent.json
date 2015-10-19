@@ -8,13 +8,13 @@
 			"elements" : 
 			[
 				{"location" : "MSH.1", "dataelement" : "Field Separator", "data" : "|", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "MSH.2", "dataelement" : "Encoding Characters", "data" : "^~\&amp;",
-"categorization" : "Presence Length-System Generated"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "wcApp",
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -22,15 +22,15 @@
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "wcEHR",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : "Indifferent"},
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "iisApp",
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -38,7 +38,7 @@
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "IIS", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -46,35 +46,35 @@
 				{"location" : "MSH.7", "dataelement" : "Date/Time Of Message", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.7.1", "dataelement" : "Time", "data" : "20150624084727.655-0500",
-"categorization" : ""},
+"categorization" : "Presence-System Generated"},
 				{"location" : "MSH.9", "dataelement" : "Message Type", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.9.1", "dataelement" : "Message Code", "data" : "VXU", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 							{"location" : "MSH.9.2", "dataelement" : "Trigger Event", "data" : "V04", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 							{"location" : "MSH.9.3", "dataelement" : "Message Structure", "data" : "VXU_V04",
-"categorization" : "Presence Length-System Generated"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "72268",
 "categorization" : "Presence-System Generated"},
 				{"location" : "MSH.11", "dataelement" : "Processing ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.11.1", "dataelement" : "Processing ID", "data" : "P", "categorization"
-: ""},
+: "Presence-Content Indifferent"},
 				{"location" : "MSH.12", "dataelement" : "Version ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.12.1", "dataelement" : "Version ID", "data" : "2.5.1", "categorization"
-: ""},
+: "Value-Profile Fixed"},
 				{"location" : "MSH.15", "dataelement" : "Accept Acknowledgment Type", "data" :
-"ER", "categorization" : "Presence Length-System Generated"},
+"ER", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.16", "dataelement" : "Application Acknowledgment Type", "data"
-: "AL", "categorization" : "Presence Length-System Generated"},
+: "AL", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.21", "dataelement" : "Message Profile Identifier", "data" :
 "", "categorization" : ""},
 							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z22",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS",
-"categorization" : "Presence Length-System Generated"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.21.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.21.4", "dataelement" : "Universal ID Type", "data" : "",
@@ -82,31 +82,31 @@
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
 							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "wcEHR",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : ""},
+"", "categorization" : "Indifferent"},
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
 : "", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "IIS
-", "categorization" : "Value-Profile Fixed"},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "IIS",
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : ""},
+"", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
@@ -116,7 +116,7 @@
 			"elements" : 
 			[
 				{"location" : "PID.1", "dataelement" : "Set ID - PID", "data" : "1", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "PID.3", "dataelement" : "Patient Identifier List", "data" : "",
 "categorization" : ""},
 							{"location" : "PID.3.1", "dataelement" : "ID Number", "data" : "90012", "categorization"
@@ -158,7 +158,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 							{"location" : "PID.6.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "PID.6.1.1", "dataelement" : "Surname", "data" : "", "categorization"
-: ""},
+: "Presence-Content Indifferent"},
 									{"location" : "PID.6.1.2", "dataelement" : "Own Surname Prefix", "data" :
 "", "categorization" : ""},
 									{"location" : "PID.6.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -168,7 +168,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 									{"location" : "PID.6.1.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "PID.6.7", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: ""},
+: "Value-Profile Fixed"},
 				{"location" : "PID.7", "dataelement" : "Date/Time of Birth", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.7.1", "dataelement" : "Time", "data" : "19830615", "categorization"
@@ -182,7 +182,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 							{"location" : "PID.10.2", "dataelement" : "Text", "data" : "Asian", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "PID.10.3", "dataelement" : "Name of Coding System", "data" :
-"CDCREC", "categorization" : "Presence Length-System Generated"},
+"CDCREC", "categorization" : "Value-Profile Fixed"},
 							{"location" : "PID.10.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "PID.10.6", "dataelement" : "Name of Alternate Coding System",
@@ -214,9 +214,9 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 							{"location" : "PID.13[1].2", "dataelement" : "Telecommunication Use Code",
 "data" : "PRN", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.13[1].3", "dataelement" : "Telecommunication Equipment Type",
-"data" : "PH", "categorization" : "Presence-Content Indifferent"},
+"data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13[1].4", "dataelement" : "Email Address", "data" : "",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "NonPresence"},
 							{"location" : "PID.13[1].6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.13[1].7", "dataelement" : "Local Number", "data" : "5557896",
@@ -224,15 +224,15 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 				{"location" : "PID.13[2]", "dataelement" : "Phone Number - Home", "data" : "",
 "categorization" : ""},
 							{"location" : "PID.13[2].2", "dataelement" : "Telecommunication Use Code",
-"data" : "NET", "categorization" : "Presence-Content Indifferent"},
+"data" : "NET", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13[2].3", "dataelement" : "Telecommunication Equipment Type",
-"data" : "", "categorization" : "Presence-Content Indifferent"},
+"data" : "Internet", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13[2].4", "dataelement" : "Email Address", "data" : "Elise.Wong@isp.com",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.13[2].6", "dataelement" : "Area/City Code", "data" : "",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "NonPresence"},
 							{"location" : "PID.13[2].7", "dataelement" : "Local Number", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "NonPresence"},
 				{"location" : "PID.22", "dataelement" : "Ethnic Group", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.22.1", "dataelement" : "Identifier", "data" : "2186-5",
@@ -240,7 +240,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 							{"location" : "PID.22.2", "dataelement" : "Text", "data" : "Not Hispanic or
 Latino", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.22.3", "dataelement" : "Name of Coding System", "data" :
-"CDCREC", "categorization" : "Presence Length-System Generated"},
+"CDCREC", "categorization" : "Value-Profile Fixed"},
 							{"location" : "PID.22.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "PID.22.6", "dataelement" : "Name of Alternate Coding System",
@@ -252,9 +252,9 @@ Latino", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "PID.29", "dataelement" : "Patient Death Date and Time", "data"
 : "", "categorization" : ""},
 							{"location" : "PID.29.1", "dataelement" : "Time", "data" : "", "categorization"
-: ""},
-				{"location" : "PID.30", "dataelement" : "Patient Death Indicator", "data" : "N
-", "categorization" : "Presence-Content Indifferent"},		]
+: "Indifferent"},
+				{"location" : "PID.30", "dataelement" : "Patient Death Indicator", "data" : "N",
+"categorization" : "Presence-Content Indifferent"},		]
 		{
 			"title":"PD1 : Patient Additional Demographic",
 			"elements" : 
@@ -262,7 +262,7 @@ Latino", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "PD1.11", "dataelement" : "Publicity Code", "data" : "", "categorization"
 : ""},
 							{"location" : "PD1.11.1", "dataelement" : "Identifier", "data" : "02", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 							{"location" : "PD1.11.2", "dataelement" : "Text", "data" : "Reminder/recall
 - any method", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PD1.11.3", "dataelement" : "Name of Coding System", "data" :
@@ -272,7 +272,7 @@ Latino", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PD1.11.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "PD1.12", "dataelement" : "Protection Indicator", "data" : "N",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "PD1.13", "dataelement" : "Protection Indicator Effective Date",
 "data" : "20150624", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "PD1.16", "dataelement" : "Immunization Registry Status", "data"
@@ -289,7 +289,7 @@ Date", "data" : "19830615", "categorization" : "Presence-Content Indifferent"},
 			"elements" : 
 			[
 				{"location" : "ORC.1", "dataelement" : "Order Control", "data" : "RE", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "ORC.2", "dataelement" : "Placer Order Number", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.2.1", "dataelement" : "Entity Identifier", "data" : "4422",
@@ -317,7 +317,7 @@ Date", "data" : "19830615", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "ORC.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.10.2.1", "dataelement" : "Surname", "data" : "Jackson",
-"categorization" : ""},
+"categorization" : "Presence-Content Indifferent"},
 									{"location" : "ORC.10.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "ORC.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -333,7 +333,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "ORC.10.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.10.9.1", "dataelement" : "Namespace ID", "data" : "wcEHR",
-"categorization" : ""},
+"categorization" : "Presence-Content Indifferent"},
 									{"location" : "ORC.10.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.10.9.3", "dataelement" : "Universal ID Type", "data" :
@@ -351,7 +351,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "ORC.12.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.12.2.1", "dataelement" : "Surname", "data" : "Thomas",
-"categorization" : ""},
+"categorization" : "Presence-Content Indifferent"},
 									{"location" : "ORC.12.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "ORC.12.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -367,7 +367,7 @@ Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content In
 							{"location" : "ORC.12.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.12.9.1", "dataelement" : "Namespace ID", "data" : "wcEHR",
-"categorization" : ""},
+"categorization" : "Presence-Content Indifferent"},
 									{"location" : "ORC.12.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.12.9.3", "dataelement" : "Universal ID Type", "data" :
@@ -385,7 +385,7 @@ Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content In
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "West Clinic", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : "Presence-Content Indifferent"},
+"HL70362 ", "categorization" : "Value-Profile Fixed"},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -395,7 +395,7 @@ Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content In
 			"elements" : 
 			[
 				{"location" : "ORC.1", "dataelement" : "Order Control", "data" : "RE", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "ORC.2", "dataelement" : "Placer Order Number", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.2.1", "dataelement" : "Entity Identifier", "data" : "6139",
@@ -423,7 +423,7 @@ Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content In
 							{"location" : "ORC.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.10.2.1", "dataelement" : "Surname", "data" : "Jackson",
-"categorization" : ""},
+"categorization" : "Presence-Content Indifferent"},
 									{"location" : "ORC.10.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "ORC.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -439,7 +439,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "ORC.10.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.10.9.1", "dataelement" : "Namespace ID", "data" : "wcEHR",
-"categorization" : ""},
+"categorization" : "Presence-Content Indifferent"},
 									{"location" : "ORC.10.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.10.9.3", "dataelement" : "Universal ID Type", "data" :
@@ -453,11 +453,11 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 				{"location" : "ORC.12", "dataelement" : "Ordering Provider", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.12.1", "dataelement" : "ID Number", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.12.2.1", "dataelement" : "Surname", "data" : "", "categorization"
-: ""},
+: "Indifferent"},
 									{"location" : "ORC.12.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "ORC.12.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -467,23 +467,23 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 									{"location" : "ORC.12.2.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "ORC.12.3", "dataelement" : "Given Name", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.4", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent"},
+Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "ORC.12.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.12.9.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "ORC.12.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.12.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.12", "dataelement" : "Check Digit Scheme", "data" : "",
 "categorization" : "Indifferent"},
 							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Presence-Content Indifferent"},
+"", "categorization" : "Indifferent"},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "wcEHR", "categorization"
@@ -491,7 +491,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "West Clinic", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : "Presence-Content Indifferent"},
+"HL70362 ", "categorization" : "Value-Profile Fixed"},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -501,7 +501,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 			"elements" : 
 			[
 				{"location" : "ORC.1", "dataelement" : "Order Control", "data" : "RE", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "ORC.2", "dataelement" : "Placer Order Number", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.2.1", "dataelement" : "Entity Identifier", "data" : "7600",
@@ -529,7 +529,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 							{"location" : "ORC.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.10.2.1", "dataelement" : "Surname", "data" : "Jackson",
-"categorization" : ""},
+"categorization" : "Presence-Content Indifferent"},
 									{"location" : "ORC.10.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "ORC.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -545,7 +545,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "ORC.10.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.10.9.1", "dataelement" : "Namespace ID", "data" : "wcEHR",
-"categorization" : ""},
+"categorization" : "Presence-Content Indifferent"},
 									{"location" : "ORC.10.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.10.9.3", "dataelement" : "Universal ID Type", "data" :
@@ -559,11 +559,11 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 				{"location" : "ORC.12", "dataelement" : "Ordering Provider", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.12.1", "dataelement" : "ID Number", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.12.2.1", "dataelement" : "Surname", "data" : "", "categorization"
-: ""},
+: "Indifferent"},
 									{"location" : "ORC.12.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "ORC.12.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -573,23 +573,23 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 									{"location" : "ORC.12.2.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "ORC.12.3", "dataelement" : "Given Name", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.4", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent"},
+Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "ORC.12.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.12.9.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "ORC.12.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.12.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.12", "dataelement" : "Check Digit Scheme", "data" : "",
 "categorization" : "Indifferent"},
 							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Presence-Content Indifferent"},
+"", "categorization" : "Indifferent"},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "wcEHR", "categorization"
@@ -597,7 +597,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "West Clinic", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : "Presence-Content Indifferent"},
+"HL70362 ", "categorization" : "Value-Profile Fixed"},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -611,35 +611,35 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 			"elements" : 
 			[
 				{"location" : "RXA.1", "dataelement" : "Give Sub-ID Counter", "data" : "0", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "RXA.2", "dataelement" : "Administration Sub-ID Counter", "data"
-: "1", "categorization" : "Presence Length-System Generated"},
+: "1", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.3", "dataelement" : "Date/Time Start of Administration", "data"
 : "", "categorization" : ""},
 							{"location" : "RXA.3.1", "dataelement" : "Time", "data" : "20150624", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "49281-0215-88",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "TENIVAC", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
-"NDC", "categorization" : "Value-Profile Fixed"},
+"NDC", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.5.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "0.5",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "mL", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "mL", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
-"UCUM", "categorization" : "Value-Profile Fixed"},
+"UCUM", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.7.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.7.6", "dataelement" : "Name of Alternate Coding System",
@@ -647,7 +647,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "00", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "New Record", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
@@ -663,7 +663,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "Jackson",
-"categorization" : ""},
+"categorization" : "Presence-Content Indifferent"},
 									{"location" : "RXA.10.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "RXA.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -679,7 +679,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "wcEHR",
-"categorization" : ""},
+"categorization" : "Presence-Content Indifferent"},
 									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
@@ -701,19 +701,19 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 				{"location" : "RXA.15", "dataelement" : "Substance Lot Number", "data" : "315841",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Presence-Content Indifferent"},
 				{"location" : "RXA.16", "dataelement" : "Substance Expiration Date", "data" :
 "", "categorization" : ""},
 							{"location" : "RXA.16.1", "dataelement" : "Time", "data" : "20151216", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
 : "", "categorization" : ""},
 							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "PMC", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "Sanofi Pasteur",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
-"MVX", "categorization" : "Value-Profile Fixed"},
+"MVX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -721,61 +721,61 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "RXA.18.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "RXA.18.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A ", "categorization"
-: "Value-Profile Fixed"},		]
+: "Value-Test Case Fixed"},		]
 		{
 			"title":"RXA : Pharmacy/Treatment Administration",
 			"elements" : 
 			[
 				{"location" : "RXA.1", "dataelement" : "Give Sub-ID Counter", "data" : "0", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "RXA.2", "dataelement" : "Administration Sub-ID Counter", "data"
-: "1", "categorization" : "Presence Length-System Generated"},
+: "1", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.3", "dataelement" : "Date/Time Start of Administration", "data"
 : "", "categorization" : ""},
 							{"location" : "RXA.3.1", "dataelement" : "Time", "data" : "20141012", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "88", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "influenza, unspecified
 formulation", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX", "categorization" : "Value-Profile Fixed"},
+"CVX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.5.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "NonPresence"},
 							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "NonPresence"},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "NonPresence"},
 							{"location" : "RXA.7.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "RXA.7.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : "Indifferent"},
+"data" : "", "categorization" : "NonPresence"},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "Historical Administration",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
@@ -787,11 +787,11 @@ formulation", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
-: ""},
+: "Indifferent"},
 									{"location" : "RXA.10.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "RXA.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -801,47 +801,47 @@ formulation", "categorization" : "Presence-Content Indifferent"},
 									{"location" : "RXA.10.2.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent"},
+Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.12", "dataelement" : "Check Digit Scheme", "data" : "",
 "categorization" : "Indifferent"},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Presence-Content Indifferent"},
+"", "categorization" : "Indifferent"},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 				{"location" : "RXA.15", "dataelement" : "Substance Lot Number", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 				{"location" : "RXA.16", "dataelement" : "Substance Expiration Date", "data" :
 "", "categorization" : ""},
 							{"location" : "RXA.16.1", "dataelement" : "Time", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
 : "", "categorization" : ""},
 							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "RXA.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -849,61 +849,61 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "RXA.18.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "RXA.18.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A ", "categorization"
-: "Value-Profile Fixed"},		]
+: "Value-Test Case Fixed"},		]
 		{
 			"title":"RXA : Pharmacy/Treatment Administration",
 			"elements" : 
 			[
 				{"location" : "RXA.1", "dataelement" : "Give Sub-ID Counter", "data" : "0", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "RXA.2", "dataelement" : "Administration Sub-ID Counter", "data"
-: "1", "categorization" : "Presence Length-System Generated"},
+: "1", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.3", "dataelement" : "Date/Time Start of Administration", "data"
 : "", "categorization" : ""},
 							{"location" : "RXA.3.1", "dataelement" : "Time", "data" : "20131112", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "88", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "influenza, unspecified
 formulation", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX", "categorization" : "Value-Profile Fixed"},
+"CVX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.5.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "NonPresence"},
 							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "NonPresence"},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "NonPresence"},
 							{"location" : "RXA.7.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "RXA.7.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : "Indifferent"},
+"data" : "", "categorization" : "NonPresence"},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "Historical Administration",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
@@ -915,11 +915,11 @@ formulation", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
-: ""},
+: "Indifferent"},
 									{"location" : "RXA.10.2.2", "dataelement" : "Own Surname Prefix", "data"
 : "", "categorization" : ""},
 									{"location" : "RXA.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -929,47 +929,47 @@ formulation", "categorization" : "Presence-Content Indifferent"},
 									{"location" : "RXA.10.2.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent"},
+Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.12", "dataelement" : "Check Digit Scheme", "data" : "",
 "categorization" : "Indifferent"},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Presence-Content Indifferent"},
+"", "categorization" : "Indifferent"},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 				{"location" : "RXA.15", "dataelement" : "Substance Lot Number", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 				{"location" : "RXA.16", "dataelement" : "Substance Expiration Date", "data" :
 "", "categorization" : ""},
 							{"location" : "RXA.16.1", "dataelement" : "Time", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
 : "", "categorization" : ""},
 							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "RXA.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -977,19 +977,19 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "RXA.18.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "RXA.18.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
-: "Value-Profile Fixed"},
-				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
-: "Value-Profile Fixed"},		]
+: "Value-Test Case Fixed"},
+				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A ", "categorization"
+: "Value-Test Case Fixed"},		]
 
 </accordion>		{
 			"title":"RXR : Pharmacy/Treatment Route",
@@ -998,7 +998,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 				{"location" : "RXR.1", "dataelement" : "Route", "data" : "", "categorization"
 : ""},
 							{"location" : "RXR.1.1", "dataelement" : "Identifier", "data" : "C28161", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 							{"location" : "RXR.1.2", "dataelement" : "Text", "data" : "Intramuscular",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "RXR.1.3", "dataelement" : "Name of Coding System", "data" :
@@ -1010,7 +1010,7 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 				{"location" : "RXR.2", "dataelement" : "Administration Site", "data" : "", "categorization"
 : ""},
 							{"location" : "RXR.2.1", "dataelement" : "Identifier", "data" : "RD", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 							{"location" : "RXR.2.2", "dataelement" : "Text", "data" : "Right Deltoid",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "RXR.2.3", "dataelement" : "Name of Coding System", "data" :
@@ -1027,13 +1027,13 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 			"elements" : 
 			[
 				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
-: "Presence-Content Indifferent"},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : "Value-Profile Fixed"},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: "Value-Test Case Fixed"},
 				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
 "categorization" : ""},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30963-3",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Vaccine Funding
 Source", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
@@ -1043,15 +1043,15 @@ Source", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "PHC70", "categorization"
-: ""},
+: "Value-Test Case Fixed"},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Private", "categorization"
-: ""},
+: "Presence-Content Indifferent"},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
+"CDCPHINVS", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
@@ -1059,17 +1059,17 @@ Source", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : "Presence Length-System Generated"},
+"F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150624 ", "categorization"
@@ -1077,11 +1077,11 @@ Source", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "OBX.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "OBX.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -1091,13 +1091,13 @@ Source", "categorization" : "Presence-Content Indifferent"},
 			"elements" : 
 			[
 				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
-: "Presence-Content Indifferent"},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : "Value-Profile Fixed"},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: "Value-Test Case Fixed"},
 				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
 "categorization" : ""},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "64994-7",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Vaccine Funding
 Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
@@ -1107,15 +1107,15 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
-: ""},
+: "Value-Test Case Fixed"},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC Eligible",
-"categorization" : ""},
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"HL70064", "categorization" : ""},
+"HL70064", "categorization" : "Value-Profile Fixed"},
 							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
@@ -1123,17 +1123,17 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : "Presence Length-System Generated"},
+"F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150624", "categorization"
@@ -1141,7 +1141,7 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "VXC40", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "per immunization",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
@@ -1155,13 +1155,13 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 			"elements" : 
 			[
 				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
-: "Presence-Content Indifferent"},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : "Value-Profile Fixed"},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: "Value-Test Case Fixed"},
 				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
 "categorization" : ""},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "69764-9",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Document Type",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
@@ -1171,15 +1171,15 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300028811150224",
-"categorization" : ""},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Tetanus/Diphtheria
-(Td) VIS", "categorization" : ""},
+(Td) VIS", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"cdcgs1vis", "categorization" : ""},
+"cdcgs1vis", "categorization" : "Value-Profile Fixed"},
 							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
@@ -1187,17 +1187,17 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : "Presence Length-System Generated"},
+"F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150624 ", "categorization"
@@ -1205,11 +1205,11 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "OBX.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "OBX.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -1219,13 +1219,13 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 			"elements" : 
 			[
 				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "4", "categorization"
-: "Presence-Content Indifferent"},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
 : "Value-Profile Fixed"},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
+: "Value-Test Case Fixed"},
 				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
 "categorization" : ""},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "29769-7",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Date Vis Presented",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
@@ -1235,23 +1235,23 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
-: "Value-Profile Fixed"},
+: "Presence-Content Indifferent"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20150624",
 "categorization" : "Presence-Content Indifferent"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : "Presence Length-System Generated"},
+"F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150624 ", "categorization"
@@ -1259,11 +1259,11 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "OBX.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "OBX.17.6", "dataelement" : "Name of Alternate Coding System",

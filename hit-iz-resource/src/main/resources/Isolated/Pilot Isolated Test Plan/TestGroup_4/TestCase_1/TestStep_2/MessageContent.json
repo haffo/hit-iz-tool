@@ -8,13 +8,13 @@
 			"elements" : 
 			[
 				{"location" : "MSH.1", "dataelement" : "Field Separator", "data" : "|", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "MSH.2", "dataelement" : "Encoding Characters", "data" : "^~\&amp;",
-"categorization" : "Presence Length-System Generated"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NIST APP",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -22,7 +22,7 @@
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NIST Test
-Iz Reg", "categorization" : "Value-Profile Fixed"},
+Iz Reg", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -30,7 +30,7 @@ Iz Reg", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "Test EHR
-Application", "categorization" : "Value-Profile Fixed"},
+Application", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -38,7 +38,7 @@ Application", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "X68", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -56,25 +56,25 @@ Application", "categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.9.3", "dataelement" : "Message Structure", "data" : "ACK",
 "categorization" : ""},
 				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "NIST-IZ-ACK-001.01",
-"categorization" : "Value-Profile Fixed"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "MSH.11", "dataelement" : "Processing ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.11.1", "dataelement" : "Processing ID", "data" : "T", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "MSH.12", "dataelement" : "Version ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.12.1", "dataelement" : "Version ID", "data" : "2.5.1", "categorization"
-: "Presence Length-System Generated"},
+: "Value-Profile Fixed"},
 				{"location" : "MSH.15", "dataelement" : "Accept Acknowledgment Type", "data" :
-"NE", "categorization" : "Presence Length-System Generated"},
+"NE", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.16", "dataelement" : "Application Acknowledgment Type", "data"
-: "NE", "categorization" : "Presence Length-System Generated"},
+: "NE", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.21", "dataelement" : "Message Profile Identifier", "data" :
 "", "categorization" : ""},
 							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z23",
-"categorization" : "Presence Length-System Generated"},
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS
-", "categorization" : "Presence Length-System Generated"},
+", "categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.21.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.21.4", "dataelement" : "Universal ID Type", "data" : "",
@@ -116,9 +116,9 @@ Application", "categorization" : "Value-Profile Fixed"},
 			"elements" : 
 			[
 				{"location" : "MSA.1", "dataelement" : "Acknowledgment Code", "data" : "AA", "categorization"
-: "Value-Profile Fixed"},
+: "Value-Test Case Fixed"},
 				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "NIST-IZ-001.01",
-"categorization" : "Value-Profile Fixed"},		]
+"categorization" : "Value-Test Case Fixed"},		]
 
 		}
 ]

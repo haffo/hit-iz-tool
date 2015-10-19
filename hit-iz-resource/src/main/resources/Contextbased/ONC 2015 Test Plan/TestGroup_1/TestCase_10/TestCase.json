@@ -1,5 +1,5 @@
 {
-  "name" : "TC-10",
+  "name" : "IZ-AD-10_Historical_System_Error",
   "position" : 10,
-  "description" : "New administration resulting in multiple soft errors"
+  "description" : "Historical administration resulting in system error"
 }

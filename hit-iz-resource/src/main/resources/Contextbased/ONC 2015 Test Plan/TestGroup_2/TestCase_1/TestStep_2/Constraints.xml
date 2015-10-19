@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConformanceContext UUID="ffa898aa-fc6e-4464-bfe2-8c4f4ba89e36">
+<ConformanceContext UUID="2294b0e7-f16b-406d-8948-bcc06e9c391f">
   <Constraints>
     <Group>
       <ByName Name="RSP_K11">
-        <Constraint ID="TCAMT_QAK[1].2[1]_2" Target="5[1].2[1]">
-          <Reference GeneratedBy="TCAMT" ReferencePath="QAK[1].2[1]" Source="Test Case" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>QAK[1].2[1] SHALL be valued.</Description>
+        <Constraint ID="TCA-1-2" Target="5[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QAK[1].2[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QAK[1].2[1](Query Response Status) is expected to be present.</Description>
           <Assertion>
             <Presence Path="5[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-1" Target="5[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QAK[1].2[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at QAK[1].2[1](Query Response Status) does not match the expected value: 'OK'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="5[1].2[1]" Text="OK"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-3" Target="3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSA[1].1[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at MSA[1].1[1](Acknowledgment Code) does not match the expected value: 'AA'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="3[1].1[1]" Text="AA"/>
           </Assertion>
         </Constraint>
       </ByName>

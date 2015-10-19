@@ -137,7 +137,7 @@
             <tbody>
                <tr>
                   <th>Test Case ID</th>
-                  <td>TC-7</td>
+                  <td>IZ-AD-7_Historical_Error</td>
                </tr>
                <tr>
                   <th>Juror ID</th>
@@ -207,7 +207,7 @@
                health information technology's ability to receive and process a
                Return an Acknowledgement Z23 message (in response to a "Send
                Unsolicited Immunization Update Using a VXU" Z22 message) in
-               which NO Error is returned in the message. 
+               which an Error is returned in the message. 
             </p>
             <p>The exact wording and format of the display in the health
                information technology (HIT) is not in-scope for this test.
@@ -224,11 +224,11 @@
                <tr>
                   <td>
                      <p>The receiving HIT system being tested shall process
-                        the Z23 ACK message correctly; a positive
-                        notification indicating that the ACK message was
-                        processed correctly 
-                        <u>need not be made visible</u>
-                        in the system.
+                        the Z23 ACK error notification message correctly;
+                        the issue identified in the error notification 
+                        <u>must
+                           be made visible
+                        </u> in the system.
                      </p>
                   </td>
                </tr>
