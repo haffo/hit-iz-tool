@@ -263,8 +263,8 @@
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Name of Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
+			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999" Hide="true"/>
+			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R" Hide="true"/>
 			<Component Name="Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
 			<Component Name="Alternate Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
 			<Component Name="Original Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
@@ -339,8 +339,8 @@
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Name of Coding System" Usage="R" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
-			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
+			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999" Hide="true" />
+			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R" Hide="true"/>
 		</Datatype>
 		<Datatype ID="XPN_IZ_ST" Name="XPN" Description="Extended Person Name">
 			<Component Name="Family Name" Usage="O" Datatype="FN" MinLength="1" MaxLength="194"/>
