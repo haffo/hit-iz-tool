@@ -54,12 +54,12 @@
                         </td>
                     </tr>
                     </tbody>
-                    <tfoot>
-                    <tr ng-show="currentCategory.data.length >= 100">
-                        <th colspan="5" class="text-center" st-ratio="100">
+                    <tfoot ng-show="currentCategory.data.length >= 100">
+                    <tr style="margin-right:{{scrollbarWidth}}px">
+                        <td colspan="5" class="text-center" st-ratio="100">
                             <div class="validation-pagination" st-pagination="" st-items-by-page="100"
                                  st-displayed-pages="10"></div>
-                        </th>
+                        </td>
                     </tr>
                     </tfoot>
                 </table>

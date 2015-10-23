@@ -7,18 +7,28 @@
                     <div class="panel-heading point" ng-click="openProfileInfo()"><i class="fa fa-list"></i>Profiles <i class="point fa fa-info-circle"></i>
                     </div>
                     <div class="panel-body">
-                        <div class="container-testcase">
-                            <testcase-tree tree-control="tree" icon-leaf="" is-selectable="isSelectable(branch)" on-select="selectTestCase(branch)"></testcase-tree>
+                        <div ng-show="!loading">
+                            <div ng-show="error === null">
+                                <div class="container-testcase">
+                                    <testcase-tree tree-control="tree" icon-leaf="" is-selectable="isSelectable(branch)" on-select="selectTestCase(branch)"></testcase-tree>
+                                </div>
+                            </div>
+                            <div ng-show="error != null">
+                                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+                            </div>
+                        </div>
+                        <div ng-show="loading" style="text-align:center">
+                            <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-10">
-                <div ng-show="loading" style="text-align:center">
+                <div ng-show="loadingTC" style="text-align:center">
                     <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                 </div>
 
-                <div ng-show="!loading">
+                <div ng-show="!loadingTC">
                 <div ng-show="cf.testCase !== null" id="executionPanel">
                     <div class="panel panel-info">
                         <!-- Default panel contents -->

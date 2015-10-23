@@ -2,9 +2,19 @@
     <div class="panel panel-info">
         <div class="panel-body">
 
-            <div class="row" ng-show="error != null">
-                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+            <!--<div class="row" ng-show="error != null">-->
+                <!--<div class="alert alert-danger" role="alert" ng-bind="error"></div>-->
+            <!--</div>-->
+            <div ng-show="tError !== null">
+                <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
             </div>
+            <div ng-show="mError != null">
+                <div class="alert alert-danger" role="alert" ng-bind="mError"></div>
+            </div>
+            <div ng-show="vError != null">
+                <div class="alert alert-danger" role="alert" ng-bind="vError"></div>
+            </div>
+
             <div class="row">
                 <div class="col-md-4">
                     <div class="panel panel-info">
@@ -15,9 +25,6 @@
                             <div ng-show="!tLoading">
                                 <div ng-show="tError === null" class="message-tree">
                                     <abn-tree tree-control="cf.tree.root" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
-                                </div>
-                                <div ng-show="tError !== null">
-                                    <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
                                 </div>
                             </div>
                             <div ng-show="tLoading" style="text-align:center">
@@ -99,11 +106,6 @@
                                     </form>
                                 </div>
                                 <div class="panel-body container-message-editor">
-
-                                    <div ng-show="mError != null">
-                                        <div class="alert alert-danger" role="alert" ng-bind="mError"></div>
-                                    </div>
-
                                     <div class="form-group">
                                         <textarea type="cf" class="form-control" id="cfTextArea" name="cfTextArea" wrap="off" style="overflow:auto"></textarea>
                                     </div>
@@ -124,11 +126,6 @@
                                 <div class="panel-body container-validation-result">
 
                                     <div ng-show="!vLoading">
-
-                                        <div ng-show="vError != null">
-                                            <div class="alert alert-danger" role="alert" ng-bind="vError"></div>
-                                        </div>
-
                                         <div ng-show="!vError || vError == null">
                                             <div validation-result="" type="cf" message="cf.message" editor="cf.editor" dqa="true" format="cf.testCase.testContext.format" tree="cf.tree" cursor="cf.cursor"></div>
                                         </div>

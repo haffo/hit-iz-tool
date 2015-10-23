@@ -20,7 +20,7 @@
     mod
         .controller('VocabSearchCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'VocabularyService', function ($scope, $filter, $modal, $rootScope, VocabularyService) {
             $scope.selectedValueSetDefinition = null;
-            $scope.tmpTableElements = [];
+             $scope.tmpTableElements = [];
             $scope.sourceData = [];
             $scope.selectedItem = [];
             $scope.error = null;
@@ -45,9 +45,11 @@
 //            });
 
             $rootScope.$on($scope.type + ':valueSetLibraryLoaded', function (event, vocabularyLibrary) {
-                if($scope.vocabularyLibrary === null || $scope.vocabularyLibrary.id != vocabularyLibrary.id) {
+                if(vocabularyLibrary != null && ($scope.vocabularyLibrary === null || $scope.vocabularyLibrary.id != vocabularyLibrary.id)) {
                     $scope.vocabularyLibrary = vocabularyLibrary;
                     $scope.init($scope.vocabularyLibrary);
+                }else{
+                    $scope.vocabularyLibrary = null;
                 }
             });
 
@@ -142,9 +144,22 @@
                 return $scope.selectedValueSetDefinition != null && $scope.selectedTableLibrary && $scope.selectedTableLibrary.noValidation && $scope.selectedTableLibrary.noValidation.ids && $scope.selectedTableLibrary.noValidation.ids.indexOf($scope.selectedValueSetDefinition.bindingIdentifier) > 0;
             };
 
+            $scope.openCopyrightDlg = function () {
+                var modalInstance = $modal.open({
+                    templateUrl: 'ValueSetCopyrightCtrl.html',
+                    windowClass: 'base-modal',
+                    controller: 'ValueSetCopyrightCtrl'
+                });
+            };
+
 
         }]);
 
+    angular.module('hit-vocab-search').controller('ValueSetCopyrightCtrl', function ($scope, $modalInstance) {
+        $scope.close = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    });
 
     angular.module('hit-vocab-search')
         .controller('VocabGroupCtrl', ['$scope', '$timeout', '$rootScope', '$filter',function ($scope, $timeout,$rootScope,$filter) {
@@ -292,7 +307,7 @@
                 var modalInstance = $modal.open({
                     templateUrl: 'TableFoundCtrl.html',
                     controller: 'ValueSetDetailsCtrl',
-                    windowClass: 'app-modal-window',
+                    windowClass: 'valueset-modal',
                     animation:false,
                     keyboard:true,
                     backdrop:true,

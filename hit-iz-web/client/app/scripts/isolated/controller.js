@@ -63,7 +63,7 @@ angular.module('isolated')
                         }
                     }
                     if (testCase != null) {
-                        $scope.selectTestCase(testCase);
+//                        $scope.selectTestCase(testCase);
                         $scope.selectNode(id, type);
                     }
                 }
@@ -538,7 +538,7 @@ angular.module('isolated')
 
         $scope.startListening = function () {
             var nextStep = $scope.findNextStep($scope.testStep.position);
-            if(nextStep != null) {
+            if (nextStep != null) {
                 var rspMessageId = nextStep.testContext.message.id;
                 $scope.configCollapsed = false;
                 $scope.logger.clear();
@@ -844,37 +844,42 @@ angular.module('isolated')
         };
 
         $scope.validateMessage = function () {
-            if ($scope.testStep != null) {
-                 if (IsolatedExecutionService.getValidationResult($scope.testStep) != undefined) { // validation result exit ?
-                    $scope.loadValidationResult(IsolatedExecutionService.getValidationResult($scope.testStep));
-                    $scope.vLoading = false;
-                    $scope.vError = null;
-                } else {
-                    if ($scope.isolated.message.content !== '' && $scope.testStep.testContext != null) {
-                        try {
-                            $scope.vLoading = true;
-                            $scope.vError = null;
-                            var validator = $scope.validator.validate($scope.testStep.testContext.id, $scope.isolated.message.content, '', "Based", [], "1223");
-                            validator.then(function (mvResult) {
-                                $scope.vLoading = false;
-                                $scope.loadValidationResult(mvResult);
-                            }, function (error) {
-                                $scope.vLoading = false;
-                                $scope.vError = error;
-                                $scope.loadValidationResult(null);
-                            });
-                        } catch (e) {
-                            $scope.vLoading = false;
-                            $scope.vError = e;
-                            $scope.loadValidationResult(null);
-                        }
-                    } else {
-                        $scope.loadValidationResult(null);
+            try {
+                if ($scope.testStep != null) {
+                    if (IsolatedExecutionService.getValidationResult($scope.testStep) != undefined) { // validation result exit ?
+                        $scope.loadValidationResult(IsolatedExecutionService.getValidationResult($scope.testStep));
                         $scope.vLoading = false;
                         $scope.vError = null;
+                    } else {
+                        if ($scope.isolated.message.content !== '' && $scope.testStep.testContext != null) {
+                            try {
+                                $scope.vLoading = true;
+                                $scope.vError = null;
+                                var validator = $scope.validator.validate($scope.testStep.testContext.id, $scope.isolated.message.content, '', "Based", [], "1223");
+                                validator.then(function (mvResult) {
+                                    $scope.vLoading = false;
+                                    $scope.loadValidationResult(mvResult);
+                                }, function (error) {
+                                    $scope.vLoading = false;
+                                    $scope.vError = error;
+                                    $scope.loadValidationResult(null);
+                                });
+                            } catch (e) {
+                                $scope.vLoading = false;
+                                $scope.vError = e;
+                                $scope.loadValidationResult(null);
+                            }
+                        } else {
+                            $scope.loadValidationResult(null);
+                            $scope.vLoading = false;
+                            $scope.vError = null;
+                        }
                     }
                 }
-             }
+            } catch (error) {
+                $scope.vLoading = false;
+                $scope.vError = null;
+            }
         };
 
         $scope.loadValidationResult = function (mvResult) {
@@ -932,28 +937,33 @@ angular.module('isolated')
         };
 
         $scope.parseMessage = function () {
-            if ($scope.testStep != null) {
-                if (IsolatedExecutionService.getMessageTree($scope.testStep) != undefined) { // model exist result exit ?
-                    $scope.buildMessageTree(IsolatedExecutionService.getMessageTree($scope.testStep));
-                    $scope.tLoading = false;
-                } else {
-                    if ($scope.isolated.message.content != '' && $scope.testStep.testContext != null) {
-                        $scope.tLoading = true;
-                        var parsed = $scope.parser.parse($scope.testStep.testContext.id, $scope.isolated.message.content);
-                        parsed.then(function (value) {
-                            $scope.tLoading = false;
-                            $scope.loadMessageObject(value);
-                        }, function (error) {
-                            $scope.tLoading = false;
-                            $scope.tError = error;
-                            $scope.loadMessageObject([]);
-                        });
-                    } else {
-                        $scope.loadMessageObject([]);
-                        $scope.tError = null;
+            try {
+                if ($scope.testStep != null) {
+                    if (IsolatedExecutionService.getMessageTree($scope.testStep) != undefined) { // model exist result exit ?
+                        $scope.buildMessageTree(IsolatedExecutionService.getMessageTree($scope.testStep));
                         $scope.tLoading = false;
+                    } else {
+                        if ($scope.isolated.message.content != '' && $scope.testStep.testContext != null) {
+                            $scope.tLoading = true;
+                            var parsed = $scope.parser.parse($scope.testStep.testContext.id, $scope.isolated.message.content);
+                            parsed.then(function (value) {
+                                $scope.tLoading = false;
+                                $scope.loadMessageObject(value);
+                            }, function (error) {
+                                $scope.tLoading = false;
+                                $scope.tError = error;
+                                $scope.loadMessageObject([]);
+                            });
+                        } else {
+                            $scope.loadMessageObject([]);
+                            $scope.tError = null;
+                            $scope.tLoading = false;
+                        }
                     }
                 }
+            } catch (error) {
+                $scope.tLoading = false;
+                $scope.tError = error;
             }
         };
 
@@ -969,8 +979,6 @@ angular.module('isolated')
             $scope.mError = null;
             $scope.vError = null;
             $scope.isolated.message.content = $scope.isolated.editor.instance.doc.getValue();
-//            IsolatedExecutionService.deleteValidationReport($scope.testStep);
-//            IsolatedExecutionService.deleteMessageTree($scope.testStep);
             $scope.validateMessage();
             $scope.parseMessage();
         };
@@ -999,8 +1007,7 @@ angular.module('isolated')
             $rootScope.$on('isolated:reportLoaded', function (event, report) {
                 if ($scope.testStep != null) {
                     IsolatedExecutionService.setValidationReport($scope.testStep, report);
-                    //IsolatedExecutionService.setValidationResult($scope.testStep, report != null ? report.result: undefined);
-                }
+                 }
             });
 
             $rootScope.$on('isolated:testStepLoaded', function (event, testStep) {

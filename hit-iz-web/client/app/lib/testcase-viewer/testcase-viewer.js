@@ -185,21 +185,21 @@
                $timeout(function() {
                    if($scope.editor && $scope.editor != null){
                        $scope.editor.setValue($scope.testCase.testContext.message.content);
+                       $timeout(function () {
+                           $("#exampleMsg").scrollLeft();
+                        }, 1000);
                    }else {
                         $scope.editor = CodeMirror(document.getElementById("exampleMsg"), {
                            value: $scope.testCase.testContext.message.content,
                            lineNumbers: true,
                            fixedGutter: true,
                            theme: "elegant",
-                           mode: 'edi',
+                           mode: $scope.testCase.testContext.format,
                            readOnly: true,
-                           showCursorWhenSelecting: false,
-                           gutters: ["CodeMirror-linenumbers", "cm-edi-segment-name"]
+                           showCursorWhenSelecting: true
                        });
                     }
                    $scope.editor.setSize("100%", getSizeByContent($scope.editor.getValue()));
-//                 $scope.editor.setValue($scope.testCase.testContext.message.content);
-//             $scope.editor.setSize("100%", 350);
                },100);
             };
         }]);

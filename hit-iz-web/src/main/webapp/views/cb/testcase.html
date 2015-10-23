@@ -8,7 +8,8 @@
             <div class="panel panel-info">
                 <!-- Default panel contents -->
                 <div class="panel-heading">
-                    <i class="glyphicon glyphicon-list"></i>Test Cases</div>
+                    <i class="glyphicon glyphicon-list"></i>Test Cases
+                </div>
                 <div class="panel-body">
                     <div ng-show="!loading">
                         <div ng-show="error === null">
@@ -37,7 +38,7 @@
             </div>
         </div>
         <div class="col-md-9">
-            <div class="">
+            <div ng-show="!loadingTC">
                 <div class="" ng-show="selectedTestCase != null">
                     <div class="panel panel-info">
                         <div class="panel-heading">
@@ -60,19 +61,16 @@
                                 </button>
                              </span>
                         </div>
-                        <div class="panel-body" ng-show="selectedTestCase != null">
+                        <div class="panel-body">
+                            <div ng-show="error != null">
+                                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+                            </div>
 
-                            <div>
-                                <div ng-show="error != null">
-                                    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
-                                </div>
+                            <div ng-show="error===null">
 
-                                <div ng-show="error===null">
-
+                                <div class="">
                                     <div class="">
-                                        <div class="">
-                                            <div testcase-viewer="" type="cb">
-                                        </div>
+                                        <div testcase-viewer="" type="cb">
                                     </div>
                                 </div>
                             </div>
@@ -81,6 +79,9 @@
                     </div>
 
                 </div>
+            </div>
+            <div ng-show="loadingTC" style="text-align:center">
+                <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
             </div>
         </div>
 

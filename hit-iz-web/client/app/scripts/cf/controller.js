@@ -6,6 +6,7 @@ angular.module('cf')
 
         $scope.cf = CF;
         $scope.loading = false;
+        $scope.loadingTC = false;
         $scope.error = null;
         $scope.testCases = [];
         $scope.testCase = null;
@@ -32,6 +33,7 @@ angular.module('cf')
         };
 
         $scope.selectTestCase = function (testCase) {
+            $scope.loadingTC = true;
             $timeout(function () {
                 if (testCase.testContext && testCase.testContext != null) {
                     CF.testCase = testCase;
@@ -41,16 +43,11 @@ angular.module('cf')
                         StorageService.set(StorageService.CF_LOADED_TESTCASE_ID_KEY, testCase.id);
                         StorageService.remove(StorageService.CF_EDITOR_CONTENT_KEY);
                     }
-                    $timeout(function () {
-                        $rootScope.$broadcast('cf:testCaseLoaded', $scope.testCase);
-                    });
-                    $timeout(function () {
-                        $rootScope.$broadcast('cf:profileLoaded', $scope.testCase.testContext.profile);
-                    });
-                    $timeout(function () {
-                        $rootScope.$broadcast('cf:valueSetLibraryLoaded', $scope.testCase.testContext.vocabularyLibrary);
-                    });
+                    $rootScope.$broadcast('cf:testCaseLoaded', $scope.testCase);
+                    $rootScope.$broadcast('cf:profileLoaded', $scope.testCase.testContext.profile);
+                    $rootScope.$broadcast('cf:valueSetLibraryLoaded', $scope.testCase.testContext.vocabularyLibrary);
                 }
+                $scope.loadingTC = false;
             });
         };
 
@@ -78,8 +75,8 @@ angular.module('cf')
                     }
                 }
                 if (testCase == null) testCase = $scope.testCases[0];
-                $scope.selectNode(testCase.id,testCase.type);
-                $scope.selectTestCase(testCase);
+                $scope.selectNode(testCase.id, testCase.type);
+//                $scope.selectTestCase(testCase);
                 $scope.loading = false;
                 $scope.error = null;
             }, function (error) {
@@ -91,7 +88,7 @@ angular.module('cf')
 
         $scope.selectNode = function (id, type) {
             $timeout(function () {
-                testCaseService.selectNodeByIdAndType($scope.tree, id,type);
+                testCaseService.selectNodeByIdAndType($scope.tree, id, type);
             }, 0);
         };
 
@@ -294,16 +291,16 @@ angular.module('cf')
          * Validate the content of the editor
          */
         $scope.validateMessage = function () {
-            $scope.vLoading = true;
-            $scope.vError = null;
-            $scope.dqaError = null;
-            $scope.cf.dqaValidationResult = null;
-            if ($scope.cf.testCase != null && $scope.cf.message.content !== "") {
-                try {
+            try {
+                $scope.vLoading = true;
+                $scope.vError = null;
+                $scope.dqaError = null;
+                $scope.cf.dqaValidationResult = null;
+                if ($scope.cf.testCase != null && $scope.cf.message.content !== "") {
                     var id = $scope.cf.testCase.testContext.id;
                     var content = $scope.cf.message.content;
                     var label = $scope.cf.testCase.label;
-                    var validated = $scope.validator.validate(id, content, "", "Free",$scope.dqaCodes, "1223");
+                    var validated = $scope.validator.validate(id, content, "", "Free", $scope.dqaCodes, "1223");
                     validated.then(function (mvResult) {
                         $scope.vLoading = false;
                         $scope.loadValidationResult(mvResult);
@@ -312,15 +309,15 @@ angular.module('cf')
                         $scope.vError = error;
                         $scope.loadValidationResult(null);
                     });
-                } catch (e) {
-                    $scope.vLoading = false;
-                    $scope.vError = e;
+                } else {
                     $scope.loadValidationResult(null);
+                    $scope.vLoading = false;
+                    $scope.vError = null;
                 }
-            } else {
-                $scope.loadValidationResult(null);
+            } catch (error) {
                 $scope.vLoading = false;
-                $scope.vError = null;
+                $scope.vError = error;
+                $scope.loadValidationResult(null);
             }
         };
 
@@ -353,24 +350,28 @@ angular.module('cf')
         };
 
         $scope.parseMessage = function () {
-            if ($scope.cf.testCase != null && $scope.cf.testCase.testContext != null && $scope.cf.message.content != '') {
-                $scope.tLoading = true;
-                var parsed = $scope.parser.parse($scope.cf.testCase.testContext.id, $scope.cf.message.content);
-                parsed.then(function (value) {
+            try {
+                if ($scope.cf.testCase != null && $scope.cf.testCase.testContext != null && $scope.cf.message.content != '') {
+                    $scope.tLoading = true;
+                    var parsed = $scope.parser.parse($scope.cf.testCase.testContext.id, $scope.cf.message.content);
+                    parsed.then(function (value) {
+                        $scope.tLoading = false;
+                        $scope.cf.tree.root.build_all(value.elements);
+                        ServiceDelegator.updateEditorMode($scope.editor, value.delimeters, $scope.cf.testCase.testContext.format);
+                        $scope.editorService.setEditor($scope.editor);
+                        $scope.treeService.setEditor($scope.editor);
+                    }, function (error) {
+                        $scope.tLoading = false;
+                        $scope.tError = error;
+                    });
+                } else {
+                    $scope.cf.tree.root.build_all([]);
+                    $scope.tError = null;
                     $scope.tLoading = false;
-                    $scope.cf.tree.root.build_all(value.elements);
-                    ServiceDelegator.updateEditorMode($scope.editor, value.delimeters, $scope.cf.testCase.testContext.format);
-                    $scope.editorService.setEditor($scope.editor);
-                    $scope.treeService.setEditor($scope.editor);
-                }, function (error) {
-                    $scope.tLoading = false;
-                    $scope.tError = error;
-                });
-            } else {
-                $scope.cf.tree.root.build_all([]);
-                $scope.delimeters = [];
-                $scope.tError = null;
+                }
+            } catch (error) {
                 $scope.tLoading = false;
+                $scope.tError = error;
             }
         };
 
@@ -410,23 +411,24 @@ angular.module('cf')
             });
 
             $rootScope.$on('cf:testCaseLoaded', function (event, testCase) {
-                $scope.testCase = testCase;
-                $scope.refreshEditor();
-                if ($scope.testCase != null) {
-                    var content = StorageService.get(StorageService.CF_EDITOR_CONTENT_KEY) == null ? '' : StorageService.get(StorageService.CF_EDITOR_CONTENT_KEY);
-                    $scope.nodelay = true;
-                    $scope.mError = null;
-                    $scope.validator = ServiceDelegator.getMessageValidator($scope.testCase.testContext.format);
-                    $scope.parser = ServiceDelegator.getMessageParser($scope.testCase.testContext.format);
-                    $scope.editorService = ServiceDelegator.getEditorService($scope.testCase.testContext.format);
-                    $scope.treeService = ServiceDelegator.getTreeService($scope.testCase.testContext.format);
-                    $scope.cursorService = ServiceDelegator.getCursorService($scope.testCase.testContext.format);
-
-                    if ($scope.editor) {
-                        $scope.editor.doc.setValue(content);
-                        $scope.execute();
+                $timeout(function () {
+                    $scope.testCase = testCase;
+                    $scope.refreshEditor();
+                    if ($scope.testCase != null) {
+                        var content = StorageService.get(StorageService.CF_EDITOR_CONTENT_KEY) == null ? '' : StorageService.get(StorageService.CF_EDITOR_CONTENT_KEY);
+                        $scope.nodelay = true;
+                        $scope.mError = null;
+                        $scope.validator = ServiceDelegator.getMessageValidator($scope.testCase.testContext.format);
+                        $scope.parser = ServiceDelegator.getMessageParser($scope.testCase.testContext.format);
+                        $scope.editorService = ServiceDelegator.getEditorService($scope.testCase.testContext.format);
+                        $scope.treeService = ServiceDelegator.getTreeService($scope.testCase.testContext.format);
+                        $scope.cursorService = ServiceDelegator.getCursorService($scope.testCase.testContext.format);
+                        if ($scope.editor) {
+                            $scope.editor.doc.setValue(content);
+                            $scope.execute();
+                        }
                     }
-                }
+                });
             });
         };
 
