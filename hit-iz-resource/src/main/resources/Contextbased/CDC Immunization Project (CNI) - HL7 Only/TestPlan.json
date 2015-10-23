@@ -1,5 +1,6 @@
 {
   "name" : "CDC Immunization Project (CNI) - HL7 Only",
   "type" : "DataInstance",
-  "description" : "No Description"
+  "description" : "No Description",
+  "skip":true
 }

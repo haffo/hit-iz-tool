@@ -1,5 +1,6 @@
 {
   "name" : "CDC Immunization Project (CNI) - No Registry Query",
   "type" : "Isolated",
-  "description" : "No Description"
+  "description" : "No Description",
+   "skip":true
 }
