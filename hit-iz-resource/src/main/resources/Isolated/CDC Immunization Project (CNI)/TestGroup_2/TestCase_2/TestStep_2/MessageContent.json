@@ -97,7 +97,7 @@
 : "", "categorization" : ""},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : " ",
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "",
 "categorization" : ""},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
@@ -233,7 +233,7 @@ Initials Thereof", "data" : "Marcel", "categorization" : "Value-Test Case Fixed"
 : ""},
 				{"location" : "RCP.2", "dataelement" : "Quantity Limited Request", "data" : "",
 "categorization" : ""},
-							{"location" : "RCP.2.1", "dataelement" : "Quantity", "data" : " ", "categorization"
+							{"location" : "RCP.2.1", "dataelement" : "Quantity", "data" : "", "categorization"
 : ""},
 							{"location" : "RCP.2.2", "dataelement" : "Units", "data" : "", "categorization"
 : ""},

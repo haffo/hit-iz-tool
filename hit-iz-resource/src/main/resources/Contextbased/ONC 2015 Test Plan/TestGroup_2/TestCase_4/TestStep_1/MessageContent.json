@@ -97,8 +97,8 @@
 : "6439432", "categorization" : ""},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "StatePH
-", "categorization" : ""},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "StatePH",
+"categorization" : ""},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
@@ -219,8 +219,8 @@ Initials Thereof", "data" : "S", "categorization" : ""},
 : ""},
 							{"location" : "QPD.9.6", "dataelement" : "Area/City Code", "data" : "734",
 "categorization" : ""},
-							{"location" : "QPD.9.7", "dataelement" : "Local Number", "data" : "5556712
-", "categorization" : ""},
+							{"location" : "QPD.9.7", "dataelement" : "Local Number", "data" : "5556712",
+"categorization" : ""},
 				{"location" : "QPD.10", "dataelement" : "Multiple birth indicator", "data" : "",
 "categorization" : ""},
 				{"location" : "QPD.11", "dataelement" : "Birth order", "data" : "", "categorization"

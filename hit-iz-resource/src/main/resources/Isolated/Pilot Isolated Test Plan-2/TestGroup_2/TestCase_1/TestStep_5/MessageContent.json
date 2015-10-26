@@ -97,7 +97,7 @@
 : "A_Clinic1234", "categorization" : ""},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : " ",
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "",
 "categorization" : ""},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
@@ -1403,7 +1403,7 @@ Initials Thereof", "data" : "Mariana", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "StateIIS", "categorization"
 : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -1441,7 +1441,7 @@ Initials Thereof", "data" : "Mariana", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "StateIIS", "categorization"
 : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -1479,7 +1479,7 @@ Initials Thereof", "data" : "Mariana", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "StateIIS", "categorization"
 : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -1517,7 +1517,7 @@ Initials Thereof", "data" : "Mariana", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "StateIIS", "categorization"
 : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -1555,7 +1555,7 @@ Initials Thereof", "data" : "Mariana", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "StateIIS", "categorization"
 : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -4586,8 +4586,8 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
-				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA  ",
-"categorization" : ""},		]
+				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
+: ""},		]
 		{
 			"title":"RXA : Pharmacy/Treatment Administration",
 			"elements" : 
@@ -4694,8 +4694,8 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
-				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA  ",
-"categorization" : ""},		]
+				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
+: ""},		]
 		{
 			"title":"RXA : Pharmacy/Treatment Administration",
 			"elements" : 
@@ -4802,8 +4802,8 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
-				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA  ",
-"categorization" : ""},		]
+				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
+: ""},		]
 		{
 			"title":"RXA : Pharmacy/Treatment Administration",
 			"elements" : 
@@ -4910,8 +4910,8 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
-				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA  ",
-"categorization" : ""},		]
+				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
+: ""},		]
 		{
 			"title":"RXA : Pharmacy/Treatment Administration",
 			"elements" : 
@@ -5018,8 +5018,8 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
-				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA  ",
-"categorization" : ""},		]
+				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
+: ""},		]
 
 </accordion>		{
 			"title":"RXR[*]",
@@ -5821,7 +5821,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -5866,7 +5866,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -5905,7 +5905,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -5947,7 +5947,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -5989,7 +5989,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6031,7 +6031,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6076,7 +6076,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -6115,7 +6115,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6157,7 +6157,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6199,7 +6199,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6241,7 +6241,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6286,7 +6286,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -6325,7 +6325,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6367,7 +6367,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6409,7 +6409,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6451,7 +6451,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6496,7 +6496,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -6535,7 +6535,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6577,7 +6577,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6619,7 +6619,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6666,7 +6666,7 @@ Date", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20100122 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20100122", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -6705,7 +6705,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6747,7 +6747,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F&amp;lt; ", "categorization" : ""},
+"F&amp;lt;", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6789,7 +6789,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6834,7 +6834,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -6873,7 +6873,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6915,7 +6915,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -6957,7 +6957,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7004,7 +7004,7 @@ Date", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20100323 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20100323", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -7043,7 +7043,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7085,7 +7085,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F&amp;lt; ", "categorization" : ""},
+"F&amp;lt;", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7169,7 +7169,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7214,7 +7214,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -7253,7 +7253,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7295,7 +7295,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7337,7 +7337,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7384,7 +7384,7 @@ Date", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20100522 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20100522", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -7423,7 +7423,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7465,7 +7465,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F&amp;lt; ", "categorization" : ""},
+"F&amp;lt;", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7507,7 +7507,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7552,7 +7552,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -7591,7 +7591,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7633,7 +7633,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7675,7 +7675,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7722,7 +7722,7 @@ Date", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20110221 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20110221", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -7761,7 +7761,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7803,7 +7803,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F&amp;lt; ", "categorization" : ""},
+"F&amp;lt;", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7845,7 +7845,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7890,7 +7890,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -7929,7 +7929,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -7971,7 +7971,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8013,7 +8013,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8055,7 +8055,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8100,7 +8100,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -8139,7 +8139,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8181,7 +8181,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8223,7 +8223,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8265,7 +8265,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8310,7 +8310,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -8349,7 +8349,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8391,7 +8391,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8433,7 +8433,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8475,7 +8475,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8520,7 +8520,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -8559,7 +8559,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8601,7 +8601,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8643,7 +8643,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8685,7 +8685,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8730,7 +8730,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -8769,7 +8769,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8811,7 +8811,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8853,7 +8853,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8895,7 +8895,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -8940,7 +8940,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -8979,7 +8979,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9021,7 +9021,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9063,7 +9063,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9105,7 +9105,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9150,7 +9150,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -9189,7 +9189,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9231,7 +9231,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9273,7 +9273,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9315,7 +9315,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9360,7 +9360,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -9399,7 +9399,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9441,7 +9441,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9483,7 +9483,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9525,7 +9525,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9570,7 +9570,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -9609,7 +9609,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9651,7 +9651,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9693,7 +9693,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9735,7 +9735,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9780,7 +9780,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -9819,7 +9819,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9861,7 +9861,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9903,7 +9903,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9945,7 +9945,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -9990,7 +9990,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -10029,7 +10029,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10071,7 +10071,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10113,7 +10113,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10155,7 +10155,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10200,7 +10200,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -10239,7 +10239,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10281,7 +10281,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10323,7 +10323,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10365,7 +10365,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10410,7 +10410,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -10449,7 +10449,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10491,7 +10491,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10533,7 +10533,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10575,7 +10575,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10620,7 +10620,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -10659,7 +10659,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10701,7 +10701,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10743,7 +10743,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10785,7 +10785,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10830,7 +10830,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -10869,7 +10869,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10914,7 +10914,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -10953,7 +10953,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -10998,7 +10998,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -11037,7 +11037,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11079,7 +11079,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11126,7 +11126,7 @@ Date", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20111123 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20111123", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -11165,7 +11165,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11207,7 +11207,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F&amp;lt; ", "categorization" : ""},
+"F&amp;lt;", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11249,7 +11249,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11294,7 +11294,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -11333,7 +11333,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11375,7 +11375,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11422,7 +11422,7 @@ Date", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20120523 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20120523", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -11461,7 +11461,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11503,7 +11503,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F&amp;lt; ", "categorization" : ""},
+"F&amp;lt;", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11545,7 +11545,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11590,7 +11590,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -11629,7 +11629,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11671,7 +11671,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11718,7 +11718,7 @@ Date", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20101023 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20101023", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -11757,7 +11757,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11799,7 +11799,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F&amp;lt; ", "categorization" : ""},
+"F&amp;lt;", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11841,7 +11841,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11886,7 +11886,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -11925,7 +11925,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -11967,7 +11967,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12009,7 +12009,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12056,7 +12056,7 @@ Date", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20121122 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20121122", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -12095,7 +12095,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12137,7 +12137,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F&amp;lt; ", "categorization" : ""},
+"F&amp;lt;", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12179,7 +12179,7 @@ Date", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12224,7 +12224,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -12263,7 +12263,7 @@ due", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12305,7 +12305,7 @@ give", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12347,7 +12347,7 @@ dose may be given", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12389,7 +12389,7 @@ dose may be given", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12434,7 +12434,7 @@ dose may be given", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -12473,7 +12473,7 @@ dose may be given", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12518,7 +12518,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -12557,7 +12557,7 @@ due", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12599,7 +12599,7 @@ give", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12641,7 +12641,7 @@ dose may be given", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12683,7 +12683,7 @@ dose may be given", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12728,7 +12728,7 @@ dose may be given", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -12767,7 +12767,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12809,7 +12809,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12854,7 +12854,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -12893,7 +12893,7 @@ give", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12935,7 +12935,7 @@ due", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -12977,7 +12977,7 @@ dose may be given", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13022,7 +13022,7 @@ dose may be given", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -13061,7 +13061,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13103,7 +13103,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13148,7 +13148,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -13187,7 +13187,7 @@ give", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13229,7 +13229,7 @@ due", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13271,7 +13271,7 @@ dose may be given", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13313,7 +13313,7 @@ dose may be given", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13358,7 +13358,7 @@ dose may be given", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -13397,7 +13397,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13439,7 +13439,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13484,7 +13484,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -13523,7 +13523,7 @@ give", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13565,7 +13565,7 @@ due", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13607,7 +13607,7 @@ dose may be given", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13649,7 +13649,7 @@ dose may be given", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -13694,7 +13694,7 @@ dose may be given", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141216", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -13733,7 +13733,7 @@ in series", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"

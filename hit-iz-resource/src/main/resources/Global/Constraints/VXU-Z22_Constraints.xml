@@ -516,7 +516,7 @@
 						<PlainText Path="1[1]" Text="0" IgnoreCase="false"/>
 					</Assertion>
 				</Constraint>
-				<Constraint ID=" IZ-29" Target="2[1]">
+				<Constraint ID="IZ-29" Target="2[1]">
 					<Description>The value of RXA.2 (Administration Sub-ID Counter) SHALL be '1'.</Description>
 					<Assertion>
 						<PlainText Path="2[1]" Text="1" IgnoreCase="false"/>

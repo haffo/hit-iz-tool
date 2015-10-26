@@ -97,8 +97,8 @@
 : "6439432", "categorization" : ""},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "StatePH
-", "categorization" : ""},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "StatePH",
+"categorization" : ""},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
@@ -247,8 +247,8 @@ Initials Thereof", "data" : "S", "categorization" : ""},
 : ""},
 							{"location" : "QPD.9.6", "dataelement" : "Area/City Code", "data" : "690",
 "categorization" : ""},
-							{"location" : "QPD.9.7", "dataelement" : "Local Number", "data" : "1231234
-", "categorization" : ""},
+							{"location" : "QPD.9.7", "dataelement" : "Local Number", "data" : "1231234",
+"categorization" : ""},
 				{"location" : "QPD.10", "dataelement" : "Multiple birth indicator", "data" : "",
 "categorization" : ""},
 				{"location" : "QPD.11", "dataelement" : "Birth order", "data" : "", "categorization"
@@ -337,7 +337,7 @@ Initials Thereof", "data" : "S", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "PID.11.6", "dataelement" : "Country", "data" : "", "categorization"
 : ""},
-							{"location" : "PID.11.7", "dataelement" : "Address Type", "data" : "L ", "categorization"
+							{"location" : "PID.11.7", "dataelement" : "Address Type", "data" : "L", "categorization"
 : ""},
 				{"location" : "PID.30", "dataelement" : "Patient Death Indicator", "data" : "",
 "categorization" : ""},		]
@@ -377,7 +377,7 @@ Initials Thereof", "data" : "S", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -415,7 +415,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -453,7 +453,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -491,7 +491,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -529,7 +529,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -567,7 +567,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -605,7 +605,7 @@ System", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -2420,6 +2420,16 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX ", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2462,6 +2472,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2478,7 +2498,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -2520,7 +2540,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -2546,6 +2566,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX ", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2588,6 +2618,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2604,7 +2644,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -2646,7 +2686,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -2672,6 +2712,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX ", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2714,6 +2764,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2730,7 +2790,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -2772,7 +2832,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -2798,6 +2858,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "107", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "DTAP NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX ", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2811,7 +2881,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -2840,6 +2910,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2856,7 +2936,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -2898,7 +2978,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -2924,6 +3004,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "89", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "polio NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX ", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2937,7 +3027,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -2966,6 +3056,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2982,7 +3082,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -3024,7 +3124,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -3050,6 +3150,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "89", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "polio NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3063,7 +3173,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F ", "categorization" : ""},
+"F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
@@ -3092,6 +3202,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3108,7 +3228,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -3150,7 +3270,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -3176,6 +3296,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "89", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "polio NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3218,6 +3348,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3234,7 +3374,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -3276,7 +3416,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -3302,6 +3442,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "89", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "polio NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3344,6 +3494,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3402,7 +3562,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -3428,6 +3588,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "33", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "pneumococcal ppv23",
+"categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3470,6 +3640,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3528,7 +3708,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -3554,6 +3734,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "139", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Td NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3596,6 +3786,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3654,7 +3854,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -3680,6 +3880,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "88", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "influenza NOS",
+"categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX ", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3722,6 +3932,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3780,7 +4000,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -3806,6 +4026,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "88", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "influenza NOS",
+"categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX ", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3848,6 +4078,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3906,7 +4146,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -3932,6 +4172,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "88", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "influenza NOS",
+"categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX ", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -3974,6 +4224,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -4032,7 +4292,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20141031", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -4058,6 +4318,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "152", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "pcv NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX ", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -4100,6 +4370,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -4226,6 +4506,16 @@ give", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "88", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "influenza NOS",
+"categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX ", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -4268,6 +4558,16 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"

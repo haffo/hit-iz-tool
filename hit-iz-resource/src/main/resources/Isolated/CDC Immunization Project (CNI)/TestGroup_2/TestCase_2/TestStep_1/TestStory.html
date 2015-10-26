@@ -1,173 +1,432 @@
-<?xml version="1.0" encoding="ASCII" standalone="no"?>
-<html>
-<head>
-<style xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:util="http://hl7.nist.gov/data-specs/util" type="text/css">
-					@media screen {
-					.testStory legend {text-align:center;font-size:130%; font-weight:bold;}					
-					.testStory  {text-align:center;page-break-inside: avoid;}
-                    .testStory maskByMediaType {display:table;}
-                    .testStory  table tbody tr th {font-size:120%;}
-                    .testStory  table tbody tr td {font-size:110%;}
-                    .testStory  table tbody tr th {text-align:center;background:#436BEC}
-					.testStory  table { width:98%;border: 1px groove;table-layout: fixed; margin:0 auto;border-collapse: collapse;page-break-inside: avoid;}
-                    .testStory  table  tr { border: 3px groove; }
-                    .testStory  table  th { border: 2px groove;}
-                    .testStory  table  td { border: 2px groove; }
-                    .testStory  table tbody tr td {text-align:left}
-                    }
-                    @media print {
-					.testStory legend {text-align:center;font-size:130%; font-weight:bold;}					
-					.testStory  {text-align:center;page-break-inside: avoid;}
-                    .testStory maskByMediaType {display:table;}
-                    .testStory  table tbody tr th {font-size:120%;}
-                    .testStory  table tbody tr td {font-size:110%;}
-                    .testStory  table tbody tr th {text-align:center;background:#436BEC}
-					.testStory  table { width:98%;border: 1px groove;table-layout: fixed; margin:0 auto;border-collapse: collapse;page-break-inside: avoid;}
-                    .testStory  table  tr { border: 3px groove; }
-                    .testStory  table  th { border: 2px groove;}
-                    .testStory  table  td { border: 2px groove; }
-                    .testStory  table tbody tr td {text-align:left}
-                    }
-                    @page {
-                    counter-increment: page;
-					@bottom-center {
-                    content: "Page " counter(page);
-                    }
-                    }
-                    @page :left {
-                    margin-left: 5%;
-                    margin-right: 5%;
-                    }
-                    @page :right {
-                    margin-left: 5%;
-                    margin-right: 5%;
-                    }
-}
+<?xml version="1.0" encoding="UTF-8"?><meta xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" type="text/css">
+   @media screen{
+   .test-story-main legend{
+   text-align:center;
+   font-size:110%;
+   font-weight:bold;
+   }
+   .test-story-main .nav-tabs{
+   font-weight:bold;
+   }
+   .test-story-main .tds_obxGrpSpl{
+   background:#B8B8B8;
+   }
+   .test-story-main maskByMediaType{
+   display:table;
+   }
+   .test-story-main table tbody tr th{
+   font-size:95%
+   }
+   .test-story-main table tbody tr td{
+   font-size:100%;
+   }
+   .test-story-main table tbody tr th{
+   text-align:center;
+   background:#C6DEFF
+   }
+   .test-story-main fieldset{
+   text-align:center;
+   }
+   .test-story-main table{
+   width:98%;
+   border:1px groove;
+   table-layout:fixed;
+   margin:0 auto;
+   border-collapse:collapse;
+   }
+   .test-story-main table tr{
+   border:2px groove;
+   }
+   .test-story-main table th{
+   border:2px groove;
+   }
+   .test-story-main table td{
+   border:1px groove;
+   }
+   .test-story-main table thead{
+   border:1px groove;
+   background:#446BEC;
+   text-align:center;
+   }
+   .test-story-main .separator{
+   background:rgb(240, 240, 255);
+   text-align:left;
+   }
+   .test-story-main table tbody tr td{
+   text-align:left
+   }
+   .test-story-main .noData{
+   background:#B8B8B8;
+   }
+   .test-story-main .childField{
+   background:#B8B8B8;
+   }
+   .test-story-main .title{
+   text-align:left;
+   }
+   .test-story-main h3{
+   text-align:center;
+   page-break-inside:avoid;
+   }
+   .test-story-main h2{
+   text-align:center;
+   }
+   .test-story-main h1{
+   text-align:center;
+   }
+   .test-story-main .pgBrk{
+   padding-top:15px;
+   }
+   .test-story-main .er7Msg{
+   width:100%;
+   }
+   .test-story-main .embSpace{
+   padding-left:15px;
+   }
+   .test-story-main .accordion-heading{
+   font-weight:bold;
+   font-size:90%;
+   }
+   .test-story-main .accordion-heading i.fa:after{
+   content:"\00a0 ";
+   }
+   .test-story-main panel{
+   margin:10px 5px 5px 5px;
+   }
+   }
+   
+   @media print{
+   .test-story-main legend{
+   text-align:center;
+   font-size:110%;
+   font-weight:bold;
+   }
+   .test-story-main .nav-tabs{
+   font-weight:bold;
+   }
+   .test-story-main .obxGrpSpl{
+   background:#B8B8B8;
+   }
+   .test-story-main maskByMediaType{
+   display:table;
+   }
+   .test-story-main table tbody tr th{
+   font-size:90%
+   }
+   .test-story-main table tbody tr td{
+   font-size:90%;
+   }
+   .test-story-main table tbody tr th{
+   text-align:left;
+   background:#C6DEFF
+   }
+   .test-story-main table thead tr th{
+   text-align:center;
+   background:#4682B4
+   }
+   .test-story-main fieldset{
+   text-align:center;
+   page-break-inside:avoid;
+   }
+   .test-story-main table{
+   width:98%;
+   border:1px groove;
+   table-layout:fixed;
+   margin:0 auto;
+   page-break-inside:avoid;
+   border-collapse:collapse;
+   }
+   .test-story-main table tr{
+   border:2px groove;
+   }
+   .test-story-main table th{
+   border:2px groove;
+   }
+   .test-story-main table td{
+   border:1px groove;
+   }
+   .test-story-main table thead{
+   border:1px groove;
+   background:#446BEC;
+   text-align:left;
+   }
+   .test-story-main .separator{
+   background:rgb(240, 240, 255);
+   text-align:left;
+   }
+   .test-story-main table tbody tr td{
+   text-align:left;
+   }
+   .test-story-main .noData{
+   background:#B8B8B8;
+   }
+   .test-story-main .childField{
+   background:#B8B8B8;
+   }
+   .test-story-main .tds_title{
+   text-align:left;
+   margin-bottom:1%
+   }
+   .test-story-main h3{
+   text-align:center;
+   }
+   .test-story-main h2{
+   text-align:center;
+   }
+   .test-story-main h1{
+   text-align:center;
+   }
+   .test-story-main .tds_pgBrk{
+   page-break-after:always;
+   }
+   .test-story-main #er7Message table{
+   border:0px;
+   width:80%
+   }
+   .test-story-main #er7Message td{
+   background:#B8B8B8;
+   font-size:65%;
+   margin-top:6.0pt;
+   border:0px;
+   text-wrap:preserve-breaks;
+   white-space:pre;
+   }
+   .test-story-main .er7Msg{
+   width:100%;
+   font-size:80%;
+   }
+   .test-story-main .er7MsgNote{
+   width:100%;
+   font-style:italic;
+   font-size:80%;
+   }
+   .test-story-main .embSpace{
+   padding-left:15px;
+   }
+   .test-story-main .embSubSpace{
+   padding-left:25px;
+   }
+   .test-story-main .accordion-heading{
+   font-weight:bold;
+   font-size:90%;
+   }
+   .test-story-main .accordion-heading i.fa:after{
+   content:"\00a0 ";
+   }
+   .test-story-main panel{
+   margin:10px 5px 5px 5px;
+   }
+   }
 </style>
-</head>
-<body>
-	<div class="testStory">
-	<fieldset>
+<!-- generated by TestStory_v1.xslt Version:1.0   Profile:TestStory-->
+<fieldset>
+<div class="test-story-main">
+<tabset>
+<tab heading="FULL"  vertical="false">
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+<fieldset> <legend> Description </legend>
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
 		<table>
-			<tr>
-				<th colspan="1">Description</th>
-			</tr>
-			<tr>
-				<td><p>Juan Marcel Gonzales is selected as the patient and his record is opened in the EMR.&nbsp;</p>
-</td>
-			</tr>
+		<tr>
+		<td><p>Juan Marcel Gonzales is selected as the patient and his record is opened in the EMR.&amp;nbsp;</p>
+		</td></tr>
 		</table>
-		<br />
-		<table>
-			<tr>
-				<th colspan="1">Comments</th>
-			</tr>
-			<tr>
-				<td><p>No Comments</p>
-</td>
-			</tr>
-		</table>
-		<br />
-		<table>
-			<tr>
-				<th colspan="1">PreCondition</th>
-			</tr>
-			<tr>
-				<td><p>Juan Marcel Gonzales&nbsp;Initial Data Load completed.</p>
-</td>
-			</tr>
-		</table>
-		<br />
-		<table>
-			<tr>
-				<th colspan="1">PostCondition</th>
-			</tr>
-			<tr>
-				<td><p>Juan Marcel Gonzales is the active working patient in the EMR.</p>
-</td>
-			</tr>
-		</table>
-		<br />
-		<table>
-			<tr>
-				<th colspan="1">Test Objectives</th>
-			</tr>
-			<tr>
-				<td><p><em>Select New Patient:</em>&nbsp;The system must allow a user to enter distinguishing information about patients so that providers can uniquely identify patients who have similar sounding names or other similar identifying information. &nbsp;For example, twins living in the same household will have similar dates of birth, addresses, and may have similar names. EHRs or other clinical software must be able to store information to successfully match with patients in immunization registries, if the information is available. The information includes the mother&rsquo;s maiden name, whether the patient was part of a multiple birth, and the order of the multiple birth. This information allows the provider to correctly identify the patient and also helps assure a match when the EHR send the patient&rsquo;s information to external systems such as an immunization registry.</p>
-</td>
-			</tr>
-		</table>
-		<br />
-		<table>
-			<tr>
-				<th colspan="1">Evaluation Criteria</th>
-			</tr>
-			<tr>
-				<td><p>Tester shall verify that the product can distinguish Juan Marcel Gonzales from similar sounding names using all of the pediatric demographics:</p>
-
-<div>
-<p>&nbsp;</p>
-
-<ul>
-</ul>
+		<br/>
+</fieldset>
 </div>
-
-<div>
-<ul>
-	<li>Patient ID (previously listed as &ldquo;Medicaid Number&rdquo;) -&nbsp;<strong>Vendor supplied&nbsp;</strong></li>
-	<li>Patient ID: Assigning Authority ID (i.e., owning source)/Facility Name -&nbsp;<strong>Shoreline Pediatrics&nbsp;</strong></li>
-	<li>Patient ID: Type (e.g., medical record number, IIS ID) -&nbsp;<strong>Vendor supplied&nbsp;</strong></li>
-	<li>Patient Name: First -&nbsp;<strong>Juan&nbsp;</strong></li>
-	<li>Patient Name: Middle -&nbsp;<strong>Marcel&nbsp;</strong></li>
-	<li>Patient Name: Last -&nbsp;<strong>Gonzales&nbsp;</strong></li>
-	<li>Patient Date of Birth -&nbsp;<strong>11/23/2011 &nbsp;</strong></li>
-	<li>Birth Time -&nbsp;<strong>11:00&nbsp;</strong></li>
-	<li>Patient Gender (Administrative Sex) -&nbsp;<strong>&nbsp;M&nbsp;</strong></li>
-	<li>Patient Multiple Birth Indicator -&nbsp;<strong>No&nbsp;</strong></li>
-	<li>Patient Birth Order - &nbsp;<strong>NA&nbsp;</strong></li>
-	<li>Responsible Person Name: First -&nbsp;<strong>Manuel&nbsp;</strong></li>
-	<li>Responsible Person Name: Middle -&nbsp;<strong>Marcel&nbsp;</strong></li>
-	<li>Responsible Person Name: Last -&nbsp;<strong>Gonzales&nbsp;</strong></li>
-	<li>Responsible Person Name: Relationship to Patient -&nbsp;<strong>Father&nbsp;</strong></li>
-	<li>Mother&rsquo;s Name: First -&nbsp;<strong>Anita&nbsp;</strong></li>
-	<li>Mother&rsquo;s Name: Middle -&nbsp;<strong>Francesca&nbsp;</strong></li>
-	<li>Mother&rsquo;s Name: Last -&nbsp;<strong>Gonzales&nbsp;</strong></li>
-	<li>Mother&rsquo;s Name: Maiden Last -&nbsp;<strong>Morales&nbsp;</strong></li>
-	<li>Patient Address: Street -&nbsp;<strong>4623 Standish Way&nbsp;</strong></li>
-	<li>Patient Address: City -&nbsp;<strong>Stamford&nbsp;</strong></li>
-	<li>Patient Address: State -&nbsp;<strong>CT&nbsp;</strong></li>
-	<li>Patient Address: Country -&nbsp;<strong>US</strong><strong>&nbsp;</strong></li>
-	<li>Patient Address: Zipcode -&nbsp;<strong>06903&nbsp;</strong></li>
-	<li>Patient Address: County of Residence -&nbsp;<strong>Fairfield&nbsp;</strong></li>
-	<li>Race - <strong>White</strong></li>
-	<li>Ethnicity -&nbsp;<strong>Hispanic or Latino&nbsp;</strong></li>
-	<li>Birthing Facility Name (Birth Delivery Location Address BDL) -&nbsp;<strong>Shoreline Hospital&nbsp;325 Shorline Drive, Stamford Connecticut 06901 &nbsp;</strong></li>
-	<li>Patient Birth State -&nbsp;<strong>CT&nbsp;</strong></li>
-	<li>Patient Primary Language -&nbsp;<strong>English&nbsp;</strong></li>
-	<li>Patient Telephone Number -&nbsp;<strong>(203) 555-1213&nbsp;</strong></li>
-	<li>Patient Telephone Number Type (e.g., home, cell) -&nbsp;<strong>home&nbsp;</strong></li>
-	<li>Patient E-mail Address -&nbsp;<strong>&nbsp;</strong></li>
-	<li>Publicity Code&nbsp;<strong>&nbsp;</strong></li>
-	<li>Protection Indicator<strong>&nbsp;</strong></li>
-	<li>Protection Indicator Effective Date<strong>&nbsp;</strong></li>
-	<li>Immunization Registry Status<strong>&nbsp;</strong></li>
-	<li>Preferred Contact Method -&nbsp;<strong>Phone &nbsp;</strong></li>
-</ul>
 </div>
-</td>
-			</tr>
-		</table>
-		<br />
+</fieldset>
+<fieldset> <legend> Comments </legend>
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
 		<table>
-			<tr>
-				<th colspan="1">Notes to Testers</th>
-			</tr>
-			<tr>
-				<td><p>No Note</p>
-</td>
-			</tr>
+		<tr>
+		<td><p>No Comments</p>
+		</td></tr>
 		</table>
-	</fieldset>
-	</div>
-</body>
-</html>
+		<br/>
+</fieldset>
+</div>
+</div>
+</fieldset>
+<fieldset> <legend> Pre Condition </legend>
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p>Juan Marcel Gonzales&amp;nbsp;Initial Data Load completed.</p>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</fieldset>
+<fieldset> <legend> Post Condition </legend>
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p>Juan Marcel Gonzales is the active working patient in the EMR.</p>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</fieldset>
+<fieldset> <legend> Test Objectives </legend>
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p><em>Select New Patient:</em>&amp;nbsp;The system must allow a user to enter distinguishing information about patients so that providers can uniquely identify patients who have similar sounding names or other similar identifying information. &amp;nbsp;For example, twins living in the same household will have similar dates of birth, addresses, and may have similar names. EHRs or other clinical software must be able to store information to successfully match with patients in immunization registries, if the information is available. The information includes the mother&amp;rsquo;s maiden name, whether the patient was part of a multiple birth, and the order of the multiple birth. This information allows the provider to correctly identify the patient and also helps assure a match when the EHR send the patient&amp;rsquo;s information to external systems such as an immunization registry.</p>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</fieldset>
+<fieldset> <legend> Evaluation Criteria </legend>
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p>Tester shall verify that the product can distinguish Juan Marcel Gonzales from similar sounding names using all of the pediatric demographics:</p> <div> <p>&amp;nbsp;</p> <ul> </ul> </div> <div> <ul> <li>Patient ID (previously listed as &amp;ldquo;Medicaid Number&amp;rdquo;) -&amp;nbsp;<strong>Vendor supplied&amp;nbsp;</strong></li> <li>Patient ID: Assigning Authority ID (i.e., owning source)/Facility Name -&amp;nbsp;<strong>Shoreline Pediatrics&amp;nbsp;</strong></li> <li>Patient ID: Type (e.g., medical record number, IIS ID) -&amp;nbsp;<strong>Vendor supplied&amp;nbsp;</strong></li> <li>Patient Name: First -&amp;nbsp;<strong>Juan&amp;nbsp;</strong></li> <li>Patient Name: Middle -&amp;nbsp;<strong>Marcel&amp;nbsp;</strong></li> <li>Patient Name: Last -&amp;nbsp;<strong>Gonzales&amp;nbsp;</strong></li> <li>Patient Date of Birth -&amp;nbsp;<strong>11/23/2011 &amp;nbsp;</strong></li> <li>Birth Time -&amp;nbsp;<strong>11:00&amp;nbsp;</strong></li> <li>Patient Gender (Administrative Sex) -&amp;nbsp;<strong>&amp;nbsp;M&amp;nbsp;</strong></li> <li>Patient Multiple Birth Indicator -&amp;nbsp;<strong>No&amp;nbsp;</strong></li> <li>Patient Birth Order - &amp;nbsp;<strong>NA&amp;nbsp;</strong></li> <li>Responsible Person Name: First -&amp;nbsp;<strong>Manuel&amp;nbsp;</strong></li> <li>Responsible Person Name: Middle -&amp;nbsp;<strong>Marcel&amp;nbsp;</strong></li> <li>Responsible Person Name: Last -&amp;nbsp;<strong>Gonzales&amp;nbsp;</strong></li> <li>Responsible Person Name: Relationship to Patient -&amp;nbsp;<strong>Father&amp;nbsp;</strong></li> <li>Mother&amp;rsquo;s Name: First -&amp;nbsp;<strong>Anita&amp;nbsp;</strong></li> <li>Mother&amp;rsquo;s Name: Middle -&amp;nbsp;<strong>Francesca&amp;nbsp;</strong></li> <li>Mother&amp;rsquo;s Name: Last -&amp;nbsp;<strong>Gonzales&amp;nbsp;</strong></li> <li>Mother&amp;rsquo;s Name: Maiden Last -&amp;nbsp;<strong>Morales&amp;nbsp;</strong></li> <li>Patient Address: Street -&amp;nbsp;<strong>4623 Standish Way&amp;nbsp;</strong></li> <li>Patient Address: City -&amp;nbsp;<strong>Stamford&amp;nbsp;</strong></li> <li>Patient Address: State -&amp;nbsp;<strong>CT&amp;nbsp;</strong></li> <li>Patient Address: Country -&amp;nbsp;<strong>US</strong><strong>&amp;nbsp;</strong></li> <li>Patient Address: Zipcode -&amp;nbsp;<strong>06903&amp;nbsp;</strong></li> <li>Patient Address: County of Residence -&amp;nbsp;<strong>Fairfield&amp;nbsp;</strong></li> <li>Race - <strong>White</strong></li> <li>Ethnicity -&amp;nbsp;<strong>Hispanic or Latino&amp;nbsp;</strong></li> <li>Birthing Facility Name (Birth Delivery Location Address BDL) -&amp;nbsp;<strong>Shoreline Hospital&amp;nbsp;325 Shorline Drive, Stamford Connecticut 06901 &amp;nbsp;</strong></li> <li>Patient Birth State -&amp;nbsp;<strong>CT&amp;nbsp;</strong></li> <li>Patient Primary Language -&amp;nbsp;<strong>English&amp;nbsp;</strong></li> <li>Patient Telephone Number -&amp;nbsp;<strong>(203) 555-1213&amp;nbsp;</strong></li> <li>Patient Telephone Number Type (e.g., home, cell) -&amp;nbsp;<strong>home&amp;nbsp;</strong></li> <li>Patient E-mail Address -&amp;nbsp;<strong>&amp;nbsp;</strong></li> <li>Publicity Code&amp;nbsp;<strong>&amp;nbsp;</strong></li> <li>Protection Indicator<strong>&amp;nbsp;</strong></li> <li>Protection Indicator Effective Date<strong>&amp;nbsp;</strong></li> <li>Immunization Registry Status<strong>&amp;nbsp;</strong></li> <li>Preferred Contact Method -&amp;nbsp;<strong>Phone &amp;nbsp;</strong></li> </ul> </div>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</fieldset>
+<fieldset> <legend> Notes for Testers </legend>
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p>No Note</p>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</fieldset>
+</fieldset>
+</div>
+</div>
+</tab>
+<tab heading="Description"  vertical="false">
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p>Juan Marcel Gonzales is selected as the patient and his record is opened in the EMR.&amp;nbsp;</p>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</tab>
+<tab heading="Comments"  vertical="false">
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p>No Comments</p>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</tab>
+<tab heading="Pre Condition"  vertical="false">
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p>Juan Marcel Gonzales&amp;nbsp;Initial Data Load completed.</p>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</tab>
+<tab heading="Post Condition"  vertical="false">
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p>Juan Marcel Gonzales is the active working patient in the EMR.</p>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</tab>
+<tab heading="Test Objectives"  vertical="false">
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p><em>Select New Patient:</em>&amp;nbsp;The system must allow a user to enter distinguishing information about patients so that providers can uniquely identify patients who have similar sounding names or other similar identifying information. &amp;nbsp;For example, twins living in the same household will have similar dates of birth, addresses, and may have similar names. EHRs or other clinical software must be able to store information to successfully match with patients in immunization registries, if the information is available. The information includes the mother&amp;rsquo;s maiden name, whether the patient was part of a multiple birth, and the order of the multiple birth. This information allows the provider to correctly identify the patient and also helps assure a match when the EHR send the patient&amp;rsquo;s information to external systems such as an immunization registry.</p>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</tab>
+<tab heading="Evaluation Criteria"  vertical="false">
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p>Tester shall verify that the product can distinguish Juan Marcel Gonzales from similar sounding names using all of the pediatric demographics:</p> <div> <p>&amp;nbsp;</p> <ul> </ul> </div> <div> <ul> <li>Patient ID (previously listed as &amp;ldquo;Medicaid Number&amp;rdquo;) -&amp;nbsp;<strong>Vendor supplied&amp;nbsp;</strong></li> <li>Patient ID: Assigning Authority ID (i.e., owning source)/Facility Name -&amp;nbsp;<strong>Shoreline Pediatrics&amp;nbsp;</strong></li> <li>Patient ID: Type (e.g., medical record number, IIS ID) -&amp;nbsp;<strong>Vendor supplied&amp;nbsp;</strong></li> <li>Patient Name: First -&amp;nbsp;<strong>Juan&amp;nbsp;</strong></li> <li>Patient Name: Middle -&amp;nbsp;<strong>Marcel&amp;nbsp;</strong></li> <li>Patient Name: Last -&amp;nbsp;<strong>Gonzales&amp;nbsp;</strong></li> <li>Patient Date of Birth -&amp;nbsp;<strong>11/23/2011 &amp;nbsp;</strong></li> <li>Birth Time -&amp;nbsp;<strong>11:00&amp;nbsp;</strong></li> <li>Patient Gender (Administrative Sex) -&amp;nbsp;<strong>&amp;nbsp;M&amp;nbsp;</strong></li> <li>Patient Multiple Birth Indicator -&amp;nbsp;<strong>No&amp;nbsp;</strong></li> <li>Patient Birth Order - &amp;nbsp;<strong>NA&amp;nbsp;</strong></li> <li>Responsible Person Name: First -&amp;nbsp;<strong>Manuel&amp;nbsp;</strong></li> <li>Responsible Person Name: Middle -&amp;nbsp;<strong>Marcel&amp;nbsp;</strong></li> <li>Responsible Person Name: Last -&amp;nbsp;<strong>Gonzales&amp;nbsp;</strong></li> <li>Responsible Person Name: Relationship to Patient -&amp;nbsp;<strong>Father&amp;nbsp;</strong></li> <li>Mother&amp;rsquo;s Name: First -&amp;nbsp;<strong>Anita&amp;nbsp;</strong></li> <li>Mother&amp;rsquo;s Name: Middle -&amp;nbsp;<strong>Francesca&amp;nbsp;</strong></li> <li>Mother&amp;rsquo;s Name: Last -&amp;nbsp;<strong>Gonzales&amp;nbsp;</strong></li> <li>Mother&amp;rsquo;s Name: Maiden Last -&amp;nbsp;<strong>Morales&amp;nbsp;</strong></li> <li>Patient Address: Street -&amp;nbsp;<strong>4623 Standish Way&amp;nbsp;</strong></li> <li>Patient Address: City -&amp;nbsp;<strong>Stamford&amp;nbsp;</strong></li> <li>Patient Address: State -&amp;nbsp;<strong>CT&amp;nbsp;</strong></li> <li>Patient Address: Country -&amp;nbsp;<strong>US</strong><strong>&amp;nbsp;</strong></li> <li>Patient Address: Zipcode -&amp;nbsp;<strong>06903&amp;nbsp;</strong></li> <li>Patient Address: County of Residence -&amp;nbsp;<strong>Fairfield&amp;nbsp;</strong></li> <li>Race - <strong>White</strong></li> <li>Ethnicity -&amp;nbsp;<strong>Hispanic or Latino&amp;nbsp;</strong></li> <li>Birthing Facility Name (Birth Delivery Location Address BDL) -&amp;nbsp;<strong>Shoreline Hospital&amp;nbsp;325 Shorline Drive, Stamford Connecticut 06901 &amp;nbsp;</strong></li> <li>Patient Birth State -&amp;nbsp;<strong>CT&amp;nbsp;</strong></li> <li>Patient Primary Language -&amp;nbsp;<strong>English&amp;nbsp;</strong></li> <li>Patient Telephone Number -&amp;nbsp;<strong>(203) 555-1213&amp;nbsp;</strong></li> <li>Patient Telephone Number Type (e.g., home, cell) -&amp;nbsp;<strong>home&amp;nbsp;</strong></li> <li>Patient E-mail Address -&amp;nbsp;<strong>&amp;nbsp;</strong></li> <li>Publicity Code&amp;nbsp;<strong>&amp;nbsp;</strong></li> <li>Protection Indicator<strong>&amp;nbsp;</strong></li> <li>Protection Indicator Effective Date<strong>&amp;nbsp;</strong></li> <li>Immunization Registry Status<strong>&amp;nbsp;</strong></li> <li>Preferred Contact Method -&amp;nbsp;<strong>Phone &amp;nbsp;</strong></li> </ul> </div>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</tab>
+<tab heading="Notes for Testers"  vertical="false">
+<div class="panel panel-info">
+<div class="panel-body">
+<fieldset>
+		<table>
+		<tr>
+		<td><p>No Note</p>
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</div>
+</tab>
+</tabset>
+		</div>
+</fieldset>
