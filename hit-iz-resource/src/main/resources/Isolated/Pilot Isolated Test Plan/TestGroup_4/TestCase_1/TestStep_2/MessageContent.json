@@ -73,8 +73,8 @@ Application", "categorization" : "Value-Test Case Fixed"},
 "", "categorization" : ""},
 							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z23",
 "categorization" : "Value-Profile Fixed"},
-							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS
-", "categorization" : "Value-Profile Fixed"},
+							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS",
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.21.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.21.4", "dataelement" : "Universal ID Type", "data" : "",

@@ -97,8 +97,8 @@
 : "", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "IIS
-", "categorization" : "Presence-Content Indifferent"},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "IIS",
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
@@ -158,7 +158,7 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "PID.6.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "PID.6.1.1", "dataelement" : "Surname", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 									{"location" : "PID.6.1.2", "dataelement" : "Own Surname Prefix", "data" :
 "", "categorization" : ""},
 									{"location" : "PID.6.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -168,7 +168,7 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 									{"location" : "PID.6.1.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "PID.6.7", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 				{"location" : "PID.7", "dataelement" : "Date/Time of Birth", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.7.1", "dataelement" : "Time", "data" : "20110430", "categorization"
@@ -241,8 +241,8 @@ Latino", "categorization" : "Presence-Content Indifferent"},
 : "", "categorization" : ""},
 							{"location" : "PID.29.1", "dataelement" : "Time", "data" : "", "categorization"
 : "Indifferent"},
-				{"location" : "PID.30", "dataelement" : "Patient Death Indicator", "data" : "N
-", "categorization" : "Presence-Content Indifferent"},		]
+				{"location" : "PID.30", "dataelement" : "Patient Death Indicator", "data" : "N",
+"categorization" : "Presence-Content Indifferent"},		]
 		{
 			"title":"PD1 : Patient Additional Demographic",
 			"elements" : 
@@ -268,7 +268,7 @@ Latino", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "PD1.17", "dataelement" : "Immunization Registry Status Effective
 Date", "data" : "20110430", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "PD1.18", "dataelement" : "Publicity Code Effective Date", "data"
-: "20150625 ", "categorization" : "Presence-Content Indifferent"},		]
+: "20150625", "categorization" : "Presence-Content Indifferent"},		]
 		{
 			"title":"NK1 : Next of Kin / Associated Parties",
 			"elements" : 
@@ -339,8 +339,8 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 : "NonPresence"},
 							{"location" : "NK1.5.6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
-							{"location" : "NK1.5.7", "dataelement" : "Local Number", "data" : "5552914
-", "categorization" : "Presence-Content Indifferent"},		]
+							{"location" : "NK1.5.7", "dataelement" : "Local Number", "data" : "5552914",
+"categorization" : "Presence-Content Indifferent"},		]
 		{
 			"title":"ORC[*]",
 
@@ -445,7 +445,7 @@ Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content In
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "West Clinic", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : "Value-Profile Fixed"},
+"HL70362", "categorization" : "Value-Profile Fixed"},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -551,7 +551,7 @@ Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content In
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "West Clinic", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : "Value-Profile Fixed"},
+"HL70362", "categorization" : "Value-Profile Fixed"},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -686,7 +686,7 @@ Inc.", "categorization" : "Presence-Content Indifferent"},
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
 : "Value-Test Case Fixed"},
-				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A ", "categorization"
+				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
 : "Value-Test Case Fixed"},		]
 		{
 			"title":"RXA : Pharmacy/Treatment Administration",
@@ -814,7 +814,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
 : "Value-Test Case Fixed"},
-				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A ", "categorization"
+				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
 : "Value-Test Case Fixed"},		]
 
 </accordion>		{
@@ -843,7 +843,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "RXR.2.2", "dataelement" : "Text", "data" : "Right Deltoid",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "RXR.2.3", "dataelement" : "Name of Coding System", "data" :
-"HL70163 ", "categorization" : "Value-Profile Fixed"},
+"HL70163", "categorization" : "Value-Profile Fixed"},
 							{"location" : "RXR.2.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXR.2.6", "dataelement" : "Name of Alternate Coding System",
@@ -871,7 +871,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "RXR.2.2", "dataelement" : "Text", "data" : "Left Deltoid", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "RXR.2.3", "dataelement" : "Name of Coding System", "data" :
-"HL70163 ", "categorization" : "Value-Profile Fixed"},
+"HL70163", "categorization" : "Value-Profile Fixed"},
 							{"location" : "RXR.2.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXR.2.6", "dataelement" : "Name of Alternate Coding System",
@@ -904,6 +904,16 @@ Source", "categorization" : "Presence-Content Indifferent"},
 : "Presence-Content Indifferent"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "PHC70", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Private", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -920,7 +930,7 @@ Source", "categorization" : "Presence-Content Indifferent"},
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625", "categorization"
 : "Presence-System Generated"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -958,6 +968,16 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 : "Presence-Content Indifferent"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC Eligible",
+"categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"HL70064", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -983,7 +1003,7 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "per immunization",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS ", "categorization" : "Value-Profile Fixed"},
+"CDCPHINVS", "categorization" : "Value-Profile Fixed"},
 							{"location" : "OBX.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "OBX.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -1012,6 +1032,16 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 : "Presence-Content Indifferent"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300013411100521",
+"categorization" : ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Measles/Mumps/Rubella/Varicella
+VIS", "categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"cdcgs1vis", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1028,7 +1058,7 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625", "categorization"
 : "Presence-System Generated"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -1082,7 +1112,7 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625", "categorization"
 : "Presence-System Generated"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -1120,6 +1150,16 @@ Source", "categorization" : "Presence-Content Indifferent"},
 : "Presence-Content Indifferent"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "PHC70", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Private", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1136,7 +1176,7 @@ Source", "categorization" : "Presence-Content Indifferent"},
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625", "categorization"
 : "Presence-System Generated"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -1174,6 +1214,16 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 : "Presence-Content Indifferent"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC Eligible",
+"categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"HL70064", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1199,7 +1249,7 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "per immunization",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS ", "categorization" : "Value-Profile Fixed"},
+"CDCPHINVS", "categorization" : "Value-Profile Fixed"},
 							{"location" : "OBX.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "OBX.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -1228,6 +1278,16 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 : "Presence-Content Indifferent"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300017211111108",
+"categorization" : ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Polio VIS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"cdcgs1vis", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1244,7 +1304,7 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625", "categorization"
 : "Presence-System Generated"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -1298,7 +1358,7 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625", "categorization"
 : "Presence-System Generated"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -1336,6 +1396,16 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 : "Presence-Content Indifferent"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300003511070517",
+"categorization" : ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Diphtheria/Tetanus/Pertussis
+(DTaP) VIS", "categorization" : ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"cdcgs1vis", "categorization" : ""},
+							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1352,7 +1422,7 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625", "categorization"
 : "Presence-System Generated"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -1406,7 +1476,7 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625", "categorization"
 : "Presence-System Generated"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},

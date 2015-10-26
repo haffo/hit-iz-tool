@@ -97,8 +97,8 @@
 : "", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "wcEHR
-", "categorization" : "Presence-Content Indifferent"},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "wcEHR",
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",

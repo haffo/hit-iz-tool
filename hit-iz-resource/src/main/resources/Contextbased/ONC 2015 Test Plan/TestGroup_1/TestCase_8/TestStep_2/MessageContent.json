@@ -97,8 +97,8 @@
 : "", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "wcEHR
-", "categorization" : "Presence-Content Indifferent"},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "wcEHR",
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
@@ -117,7 +117,7 @@
 			[
 				{"location" : "MSA.1", "dataelement" : "Acknowledgment Code", "data" : "AE", "categorization"
 : "Value-Test Case Fixed"},
-				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "81883 ",
+				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "81883",
 "categorization" : "Presence-System Generated"},		]
 		{
 			"title":"ERR : Error",
@@ -164,7 +164,7 @@ found", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "ERR.5.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "ERR.8", "dataelement" : "User Message", "data" : "Administration
-Site not recognized - site data will not be saved ", "categorization" : "Presence-Content
+Site not recognized - site data will not be saved", "categorization" : "Presence-Content
 Indifferent"},		]
 
 		}

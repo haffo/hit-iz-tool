@@ -97,8 +97,8 @@
 : "", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "IIS
-", "categorization" : "Presence-Content Indifferent"},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "IIS",
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
@@ -158,7 +158,7 @@ Initials Thereof", "data" : "Diego", "categorization" : "Presence-Content Indiff
 							{"location" : "PID.6.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "PID.6.1.1", "dataelement" : "Surname", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 									{"location" : "PID.6.1.2", "dataelement" : "Own Surname Prefix", "data" :
 "", "categorization" : ""},
 									{"location" : "PID.6.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
@@ -168,7 +168,7 @@ Initials Thereof", "data" : "Diego", "categorization" : "Presence-Content Indiff
 									{"location" : "PID.6.1.5", "dataelement" : "Surname From Partner/Spouse",
 "data" : "", "categorization" : ""},
 							{"location" : "PID.6.7", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 				{"location" : "PID.7", "dataelement" : "Date/Time of Birth", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.7.1", "dataelement" : "Time", "data" : "19470215", "categorization"
@@ -253,8 +253,8 @@ Initials Thereof", "data" : "Diego", "categorization" : "Presence-Content Indiff
 : "", "categorization" : ""},
 							{"location" : "PID.29.1", "dataelement" : "Time", "data" : "", "categorization"
 : "Indifferent"},
-				{"location" : "PID.30", "dataelement" : "Patient Death Indicator", "data" : "N
-", "categorization" : "Presence-Content Indifferent"},		]
+				{"location" : "PID.30", "dataelement" : "Patient Death Indicator", "data" : "N",
+"categorization" : "Presence-Content Indifferent"},		]
 		{
 			"title":"PD1 : Patient Additional Demographic",
 			"elements" : 
@@ -280,7 +280,7 @@ Initials Thereof", "data" : "Diego", "categorization" : "Presence-Content Indiff
 				{"location" : "PD1.17", "dataelement" : "Immunization Registry Status Effective
 Date", "data" : "20150625", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "PD1.18", "dataelement" : "Publicity Code Effective Date", "data"
-: "20150625 ", "categorization" : "Presence-Content Indifferent"},		]
+: "20150625", "categorization" : "Presence-Content Indifferent"},		]
 		{
 			"title":"ORC : Common Order",
 			"elements" : 
@@ -382,7 +382,7 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "West Clinic", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362 ", "categorization" : "Value-Profile Fixed"},
+"HL70362", "categorization" : "Value-Profile Fixed"},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -513,7 +513,7 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 "data" : "", "categorization" : "Indifferent"},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
 : "Value-Test Case Fixed"},
-				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A ", "categorization"
+				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
 : "Value-Test Case Fixed"},		]
 
 		}

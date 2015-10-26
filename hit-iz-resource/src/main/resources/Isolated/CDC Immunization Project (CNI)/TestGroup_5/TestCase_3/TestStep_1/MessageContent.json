@@ -73,8 +73,8 @@ Iz Reg", "categorization" : ""},
 "", "categorization" : ""},
 							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z22",
 "categorization" : ""},
-							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS
-", "categorization" : ""},
+							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS",
+"categorization" : ""},
 							{"location" : "MSH.21.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.21.4", "dataelement" : "Universal ID Type", "data" : "",
@@ -306,7 +306,7 @@ Initials Thereof", "data" : "Gonzales", "categorization" : "Value-Test Case Fixe
 				{"location" : "PD1.17", "dataelement" : "Immunization Registry Status Effective
 Date", "data" : "20120701", "categorization" : ""},
 				{"location" : "PD1.18", "dataelement" : "Publicity Code Effective Date", "data"
-: "20120701 ", "categorization" : ""},		]
+: "20120701", "categorization" : ""},		]
 		{
 			"title":"NK1 : Next of Kin / Associated Parties",
 			"elements" : 
@@ -377,8 +377,8 @@ Initials Thereof", "data" : "Gonzales", "categorization" : "Value-Test Case Fixe
 : ""},
 							{"location" : "NK1.5.6", "dataelement" : "Area/City Code", "data" : "203",
 "categorization" : "Value-Test Case Fixed"},
-							{"location" : "NK1.5.7", "dataelement" : "Local Number", "data" : "5551213
-", "categorization" : "Value-Test Case Fixed"},		]
+							{"location" : "NK1.5.7", "dataelement" : "Local Number", "data" : "5551213",
+"categorization" : "Value-Test Case Fixed"},		]
 		{
 			"title":"ORC[*]",
 
@@ -1276,7 +1276,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
 : "Value-Test Case Fixed"},
-				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A ", "categorization"
+				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
 : ""},		]
 		{
 			"title":"RXA : Pharmacy/Treatment Administration",
@@ -1404,7 +1404,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
 : "Value-Test Case Fixed"},
-				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A ", "categorization"
+				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
 : ""},		]
 		{
 			"title":"RXA : Pharmacy/Treatment Administration",
@@ -1532,7 +1532,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
 : "Value-Test Case Fixed"},
-				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A ", "categorization"
+				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
 : ""},		]
 		{
 			"title":"RXA : Pharmacy/Treatment Administration",
@@ -1660,7 +1660,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
 : "Value-Test Case Fixed"},
-				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A ", "categorization"
+				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
 : ""},		]
 		{
 			"title":"RXA : Pharmacy/Treatment Administration",
@@ -1788,7 +1788,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
 : "Value-Test Case Fixed"},
-				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A ", "categorization"
+				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
 : ""},		]
 
 </accordion>		{
@@ -1872,7 +1872,7 @@ moderate-to-severe illness", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -1928,7 +1928,7 @@ effective date", "categorization" : "Value-Test Case Fixed"},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -1985,7 +1985,7 @@ Fixed"},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2049,7 +2049,7 @@ moderate-to-severe illness", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2105,7 +2105,7 @@ effective date", "categorization" : "Value-Test Case Fixed"},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2162,7 +2162,7 @@ Fixed"},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2226,7 +2226,7 @@ moderate-to-severe illness", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2282,7 +2282,7 @@ effective date", "categorization" : "Value-Test Case Fixed"},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2339,7 +2339,7 @@ Fixed"},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2403,7 +2403,7 @@ moderate-to-severe illness", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2459,7 +2459,7 @@ effective date", "categorization" : "Value-Test Case Fixed"},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2516,7 +2516,7 @@ Fixed"},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2580,7 +2580,7 @@ moderate-to-severe illness", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2636,7 +2636,7 @@ effective date", "categorization" : "Value-Test Case Fixed"},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
@@ -2693,7 +2693,7 @@ Fixed"},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715 ", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150715", "categorization"
 : ""},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
