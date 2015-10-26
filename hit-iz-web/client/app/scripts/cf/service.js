@@ -21,7 +21,6 @@ angular.module('cf').factory('CFTestCaseListLoader', ['$q', '$http', 'StorageSer
     function ($q, $http, StorageService,$timeout) {
         return function () {
             var delay = $q.defer();
-
                 $http.get("api/cf/testcases").then(
                     function (object) {
                          delay.resolve(angular.fromJson(object.data));

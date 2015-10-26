@@ -24,16 +24,16 @@
                   ng-model="logger.content"></textarea>
     </div>
     <!--<div class="modal-footer">-->
-        <!--<button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"-->
-                <!--title="Send" class="btn btn-sm btn-success">-->
-            <!--<i class="fa fa-arrow-right"></i>-->
-            <!--Send <span ng-show="connecting"><i class="fa fa-spinner"></i> Remaining: {{counter}}s </span>-->
-        <!--</button>-->
+    <!--<button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"-->
+    <!--title="Send" class="btn btn-sm btn-success">-->
+    <!--<i class="fa fa-arrow-right"></i>-->
+    <!--Send <span ng-show="connecting"><i class="fa fa-spinner"></i> Remaining: {{counter}}s </span>-->
+    <!--</button>-->
 
-        <!--<button title="Close" type="button" class="pull-right btn btn-sm btn-primary"-->
-                <!--ng-click="close()">-->
-            <!--<i class="fa fa-times"></i>Close-->
-        <!--</button>-->
+    <!--<button title="Close" type="button" class="pull-right btn btn-sm btn-primary"-->
+    <!--ng-click="close()">-->
+    <!--<i class="fa fa-times"></i>Close-->
+    <!--</button>-->
     <!--</div>-->
 </script>
 
@@ -90,15 +90,15 @@
         </div>
     </div>
     <!--<div class="modal-footer">-->
-        <!--<button ng-click="send()" type="button" ng-disabled="receiverForm1.$invalid"-->
-                <!--title="Send" class="btn btn-xs btn-primary">-->
-            <!--<i class="fa fa-play"></i> Send-->
-        <!--</button>-->
-        <!--<button ng-click="cancel()" type="button"-->
-                <!--title="Cancel" class="btn btn-xs btn-warning">-->
-            <!--<i class="fa fa-times"></i>-->
-            <!--Cancel-->
-        <!--</button>-->
+    <!--<button ng-click="send()" type="button" ng-disabled="receiverForm1.$invalid"-->
+    <!--title="Send" class="btn btn-xs btn-primary">-->
+    <!--<i class="fa fa-play"></i> Send-->
+    <!--</button>-->
+    <!--<button ng-click="cancel()" type="button"-->
+    <!--title="Cancel" class="btn btn-xs btn-warning">-->
+    <!--<i class="fa fa-times"></i>-->
+    <!--Cancel-->
+    <!--</button>-->
     <!--</div>-->
 </script>
 
@@ -212,11 +212,30 @@
         </div>
     </div>
     <!--<div class="modal-footer">-->
-        <!--<button title="Close" type="button" class="pull-right btn btn-xs btn-primary"-->
-                <!--ng-click="close()">-->
-            <!--<i class="fa fa-times"></i>Close-->
-        <!--</button>-->
+    <!--<button title="Close" type="button" class="pull-right btn btn-xs btn-primary"-->
+    <!--ng-click="close()">-->
+    <!--<i class="fa fa-times"></i>Close-->
+    <!--</button>-->
     <!--</div>-->
 </script>
+
+<script type="text/ng-template" id="ValidationResultInfoCtrl.html">
+    <div class="modal-header">
+                <span style="font-weight: bold; font-size: 20px">
+                    Validation Result Information
+                </span>
+                <span class="pull-right">
+                    <button class="btn btn-primary btn-sm" ng-click="close()"><i class="fa fa-times"></i> Close</button>
+                </span>
+    </div>
+    <div class="modal-body">
+        <div ng-if="appInfo.validationResultInfo != null" ng-bind-html="appInfo.validationResultInfo">
+        </div>
+        <div ng-if="appInfo.validationResultInfo == null">
+            No information available.
+        </div>
+    </div>
+</script>
+
 
 

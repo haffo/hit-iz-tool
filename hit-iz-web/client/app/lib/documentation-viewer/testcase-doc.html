@@ -1,48 +1,54 @@
-<div ng-show="data != null" class="" style="margin:10px">
-    <accordion close-others="true">
-        <accordion-group panel-class="panel-info" is-open="status[data.stage]">
-            <accordion-heading>
-                <i class="fa"
-                   ng-class="{'fa-caret-down': status[data.stage], 'fa-caret-right': !status[data.stage]}"></i>
-                {{data.title}}
-            </accordion-heading>
+<div ng-show="error === null">
+    <div ng-show="data != null" class="" style="margin:10px">
+        <accordion close-others="true">
+            <accordion-group panel-class="panel-info" is-open="status[data.stage]">
+                <accordion-heading>
+                    <i class="fa"
+                       ng-class="{'fa-caret-down': status[data.stage], 'fa-caret-right': !status[data.stage]}"></i>
+                    {{data.title}}
+                </accordion-heading>
 
 
-            <button ng-show="data.stage != 'CF'" title="Download Complete TestCase" type="button" class="btn btn-sm btn-primary"
-                    ng-click="downloadCompleteTestPackage(data.stage)">
-                <i class="fa fa-check-circle"></i>
-                Download Complete TestPackage (.zip)
-            </button>
+                <button ng-show="data.stage != 'CF'" title="Download Complete TestCase" type="button"
+                        class="btn btn-sm btn-primary"
+                        ng-click="downloadCompleteTestPackage(data.stage)">
+                    <i class="fa fa-check-circle"></i>
+                    Download Complete TestPackage (.zip)
+                </button>
 
-            <button title="Download Example Messages" type="button" class="btn btn-sm btn-primary"
-                    ng-click="downloadExampleMessages(data.stage)">
-                <i class="fa fa-check-circle"></i>
-                Download Example Messages (.zip)
-            </button>
+                <button title="Download Example Messages" type="button" class="btn btn-sm btn-primary"
+                        ng-click="downloadExampleMessages(data.stage)">
+                    <i class="fa fa-check-circle"></i>
+                    Download Example Messages (.zip)
+                </button>
 
-            <br/>
-            <br/>
+                <br/>
+                <br/>
 
-            <div class="container-doc-testcase-tree ">
-                <table tt-table tt-params="params" class="table table-striped table-bordered table-condensed">
-                    <thead class="tbl-header">
-                    <tr>
-                        <th>Test Case Name</th>
-                        <th>Test Story</th>
-                        <th>Message Content</th>
-                        <th>Test Data Specification</th>
-                        <th>Juror Document</th>
-                        <th>Test Package</th>
-                        <th>Example Message</th>
-                        <th>Conformance Profile</th>
-                        <th>ValueSet Library</th>
-                    </tr>
-                    </thead>
-                    <tbody class=""></tbody>
-                </table>
-            </div>
-        </accordion-group>
-    </accordion>
+                <div class="container-doc-testcase-tree ">
+                    <table tt-table tt-params="params" class="table table-striped table-bordered table-condensed">
+                        <thead class="tbl-header">
+                        <tr>
+                            <th>Test Case Name</th>
+                            <th>Test Story</th>
+                            <th>Message Content</th>
+                            <th>Test Data Specification</th>
+                            <th>Juror Document</th>
+                            <th>Test Package</th>
+                            <th>Example Message</th>
+                            <th>Conformance Profile</th>
+                            <th>ValueSet Library</th>
+                        </tr>
+                        </thead>
+                        <tbody class=""></tbody>
+                    </table>
+                </div>
+            </accordion-group>
+        </accordion>
+    </div>
+</div>
+<div ng-show="error !== null">
+    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
 </div>
 
 <script type="text/ng-template" id="TestCaseDocumentationNode.html">
@@ -81,11 +87,13 @@
 
         <td>
             <span ng-if="!node.xmlConfProfilePresent">-</span>
-            <a ng-if="node.xmlConfProfilePresent && (node.format === 'hl7v2' || node.format === 'edi')" class="point" ng-click="downloadProfile(node)">Profile.json</a>
+            <a ng-if="node.xmlConfProfilePresent && (node.format === 'hl7v2' || node.format === 'edi')" class="point"
+               ng-click="downloadProfile(node)">Profile.json</a>
         </td>
         <td>
             <span ng-if="!node.xmlValueSetLibraryPresent">-</span>
-            <a ng-if="node.xmlValueSetLibraryPresent && (node.format === 'hl7v2' || node.format === 'edi')" class="point" ng-click="downloadValueSetLib(node)">ValueSetLibrary.json</a>
+            <a ng-if="node.xmlValueSetLibraryPresent && (node.format === 'hl7v2' || node.format === 'edi')"
+               class="point" ng-click="downloadValueSetLib(node)">ValueSetLibrary.json</a>
         </td>
 
     </tr>
