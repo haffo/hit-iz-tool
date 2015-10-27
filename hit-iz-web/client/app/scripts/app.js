@@ -105,7 +105,8 @@ app.factory('dataChangedInterceptor', ['$q','$rootScope', function($q, $rootScop
     var responseInterceptor = {
         response: function(resp) {
             var deferred = $q.defer();
-            if (resp.config.headers['dTime'] && resp.config.headers['dTime'] != null && $rootScope.appInfo.date != null && resp.config.headers['dTime'] !== $rootScope.appInfo.date){
+            var dTime =  resp.config.headers['dTime'];
+            if (dTime && dTime != null && $rootScope.appInfo.date != null && dTime!== $rootScope.appInfo.date){
                 $rootScope.openVersionChangeDlg();
             }
             deferred.resolve(resp);
