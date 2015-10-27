@@ -374,6 +374,11 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
         });
     };
 
+    $rootScope.nav = function (target) {
+        $location.path(target);
+    };
+
+
 });
 
 

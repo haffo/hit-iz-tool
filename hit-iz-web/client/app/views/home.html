@@ -1,161 +1,233 @@
 <div class="iz-home">
 
+<div class="container" style="margin-bottom: 20px">
+<div class="row">
+<div class="panel panel-info">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+        <i class="glyphicon glyphicon-list"></i> {{appInfo.homeTitle}}
+    </div>
+    <div class="panel-body">
+        <div style="text-align: left">
 
-    <div class="container" style="margin-bottom: 20px">
-        <div class="row">
-            <div class="panel panel-info">
-                <!-- Default panel contents -->
-                <div class="panel-heading">
-                    <i class="glyphicon glyphicon-list"></i> {{appInfo.homeTitle}}
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="panel panel-info">
+
+                        <div class="panel-body">
+                            <span style="font-size: 14px; font-weight: bold">Supporting:</span>
+                            <ul style="text-align: left">
+                                <br/>
+                                <li>CDC SOAP Validation</li>
+                                <li>HL7 V2.5.1 Immunization Message Implementation Guide
+                                    Release 1.5
+                                </li>
+                                <li>EHR and IIS Functional Capabilities (2016)</li>
+                                <li style="color: red">2015 ONC Health IT Certification</li>
+                            </ul>
+                            <p style="text-align: left">The NIST Immunization Test Suite supports a broad
+                                range of testing in support of the Immunization Community, including transport,
+                                messaging (content), and functional.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <div
-                            ng-bind-html="appInfo.homeContent">
+
+                <div class="col-md-3">
+                    <div class="panel panel-info">
+
+                        <div class="panel-body">
+                            <div>
+						<span style="font-size: 14px; font-weight: bold">2015 ONC
+							Health IT Certification</span>
+                                <a style="border:0px" class="btn btn-info btn-xs point" href="#/cb" role="button">
+                                    <i class="fa fa-play"></i> ONC Testing
+                                </a>
+                                <hr/>
+                                <p style="text-align: left">The NIST Immunization Test Suite is the test tool used for certifying ONC 2015 Edition Health IT Modules. The capability used for ONC Certification can be accessed by navigating to the ONC 2015 Test Plan found on the HL7 Context-based tab. The ONC 2015 Test Plan is used to certify Modules for the §170.315(f)(1) Transmission to Immunization Registries ONC criterion.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="panel panel-info">
+                        <div class="panel-body">
+                            <div>
+                                <span style="font-size: 14px; font-weight: bold">Have a Question?</span>
+                                <hr/>
+                                <p style="text-align: left;display: block;"> A Google Group <a class="point" ng-href="https://groups.google.com/forum/#!forum/hl7v2-immunization-testing">(HL7v2 Immunization Testing) </a> has been established for discussion/questions about the Implementation Guide, testing tool, and testing issues. No membership is required. A Google account is required for posting.
+                                    <span style="color:red">Note: The same Google Group is being used for submitting questions/comments related to the 2014 and 2015 Editions of the NIST Certification Test Tool and general Immunization related topics. When asking questions, please specify the edition of the tool and version of the standard to which the questions apply.</span>
+                                </p>
+                                <ul>
+                                    <li>Site: <a class="point"  ng-href="https://groups.google.com/d/forum/hl7v2-immunization-testing">https://groups.google.com/d/forum/hl7v2-immunization-testing</a> </li>
+                                    <li>Email: hl7v2-immunization-testing@googlegroups.com</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="panel panel-info">
+                        <div class="panel-body">
+                            <div>
+                                <span style="font-size: 14px; font-weight: bold">Supported Browsers</span>
+                                <hr/>
+                                <p style="text-align: left">The following browsers are supported: Internet
+                                    Explorer versions 9 and 10,
+                                    Firefox, Safari, and Chrome. <span style="color:red">Recommended browsers are Firefox and Chrome.</span>
+                                </p>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div id="myCarousel" class="carousel container slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
-            <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
-            <!--<li data-target="#myCarousel" data-slide-to="3"></li>-->
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="images/overview_stages.gif" alt="Immunization Test Suite Components">
-            </div>
+<div style="text-align: center">
 
-            <!--<div class="item">-->
-                <!--<img src="images/iz_stages.gif" alt="Immunization Test Suite – Focus of Each Testing Stage">-->
-            <!--</div>-->
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-md-2">
+            <a style="border:0px" class="btn btn-default" href="#/soapEnv" role="button"><img class="img-circle"
+                                                                                              ng-src="images/SOAP Envelope.png"
+                                                                                              alt="SOAP Envelope"
+                                                                                              style="width: 100px; height: 100px;">
 
-            <!--<div class="item">-->
-                <!--<img src="images/iz_stage_benefit.gif" alt="Benefits of Immunization Test Suite Stages">-->
-            <!--</div>-->
-
-            <!--<div class="item">-->
-                <!--<div class="carousel-caption" id="hippaNotice">-->
-                    <!--<h1>HIPPA Patient Confidentiality Notice</h1>-->
-
-                    <!--<p style="text-align: left; font-size:22px">-->
-                        <!--In compliance with HIPAA Requirements, parties using the NIST HL7 V2 Validation Tools via this-->
-                        <!--NIST Web site shall not use real data about living, identifiable individuals. Parties shall-->
-                        <!--adhere to all Federal Regulations including, but not limited to the Health Insurance Portability-->
-                        <!--and Accountability Act of 1996 (HIPAA).-->
-                    <!--</p>-->
-
-                    <!--<p style="text-align: left; font-size:22px">-->
-                        <!--Due to patient confidentiality issues (e.g., HIPPA requirements regarding PHI), this software-->
-                        <!--should not be used via the NIST Web site for validation of messages containing real patient-->
-                        <!--information. With proper precautions in place to maintain patient confidentiality, if an-->
-                        <!--organization downloads the Validation Tool and uses it locally the Tool can validate messages-->
-                        <!--with real patient information.-->
-                    <!--</p>-->
-                    <!--&lt;!&ndash;<p><a class="btn btn-lg btn-info" href="#" role="button">Learn more</a></p>&ndash;&gt;-->
-                <!--</div>-->
-            <!--</div>-->
-
-        </div>
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left blue" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right blue" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing" style="text-align: center">
-
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-            <div class="col-lg-2">
-                <a style="border:0px" class="btn btn-default" href="#/soapEnv" role="button"><img class="img-circle"
-                                                                                                  ng-src="images/SOAP Envelope.png"
-                                                                                                  alt="SOAP Envelope"
-                                                                                                  style="width: 120px; height: 120px;">
-
-                    <p>
-                            <span style="margin-top:5px" class="btn btn-info" role="button"><i
+                <p>
+                            <span style="margin-top:5px" class="btn btn-info btn-sm" role="button"><i
                                     class="fa fa-play"></i>Start Testing </span>
-                    </p>
-                </a>
-            </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-lg-2">
-                <a style="border:0px" class="btn btn-default" href="#/soapConn" role="button"><img
-                        class="img-circle"
-                        ng-src="images/SOAP Connectivity.png"
-                        alt="SOAP Connectivity"
-                        style="width: 120px; height: 120px;">
+                </p>
+            </a>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-md-2">
+            <a style="border:0px" class="btn btn-default" href="#/soapConn" role="button"><img
+                    class="img-circle"
+                    ng-src="images/SOAP Connectivity.png"
+                    alt="SOAP Connectivity"
+                    style="width: 100px; height: 100px;">
 
-                    <p><span style="margin-top:5px" class="btn btn-info" role="button"><i class="fa fa-play"></i>Start Testing </span>
-                    </p>
-                </a>
-                <!--<h4>Soap Connectivity Testing</h4>-->
-                <!--<p></p>-->
-                <!--<p><a class="btn btn-default" href="#/testing" ng-click="selectTestingType(1)" role="button">Start Testing </a></p>-->
-            </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-lg-2">
-                <a style="border:0px" style="border:0px" class="btn btn-default" href="#/cf" role="button">
-                    <img class="img-circle" ng-src="images/HL7 Context-free.png" alt="HL7 Context-free"
-                         style="width: 120px; height: 120px;">
+                <p><span style="margin-top:5px" class="btn btn-info btn-sm" role="button"><i class="fa fa-play"></i>Start Testing </span>
+                </p>
+            </a>
+            <!--<h4>Soap Connectivity Testing</h4>-->
+            <!--<p></p>-->
+            <!--<p><a class="btn btn-default" href="#/testing" ng-click="selectTestingType(1)" role="button">Start Testing </a></p>-->
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-md-2">
+            <a style="border:0px" style="border:0px" class="btn btn-default" href="#/cf" role="button">
+                <img class="img-circle" ng-src="images/HL7 Context-free.png" alt="HL7 Context-free"
+                     style="width: 100px; height: 100px;">
 
-                    <p><span style="margin-top:5px" class="btn btn-info" role="button"><i class="fa fa-play"></i>Start Testing </span>
-                    </p>
-                </a>
-
-            </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-lg-2">
-                <a style="border:0px" class="btn btn-default" href="#/cb" role="button"><img class="img-circle"
-                                                                                             ng-src="images/HL7 Context-based.png"
-                                                                                             alt="HL7 Context-based"
-                                                                                             style="width: 120px; height: 120px;">
-
-                    <p><span style="margin-top:5px" class="btn btn-info" role="button"><i class="fa fa-play"></i>Start Testing</span>
-                    </p>
-                </a>
-                <!--<!--<h4>HL7 Context-based Testing</h4>-->
-                <!--<p></p>-->
-                <!--<p><a class="btn btn-default" href="#/testing" ng-click="selectTestingType(3)" role="button">Start Testing </a></p>-->
-            </div>
-            <!-- /.col-lg-4 -->
-
-            <div class="col-lg-2">
-                <a style="border:0px" class="btn btn-default" ng-disabled="false" href="#/is" role="button"><img
-                        class="img-circle" ng-src="images/ehr-iis.png" alt="EHR-S/IIS Functional"
-                        style="width: 120px; height: 120px;">
-
-                    <p><span style="margin-top:5px" class="btn btn-info" role="button"><i class="fa fa-play"></i>Start Testing </span>
-                    </p>
-                </a>
-                <!--<!--<h4>EHR-S Functional Testing</h4>-->
-                <!--<p></p>-->
-                <!--<p><a class="btn btn-default" ng-disabled="true" href="#/testing" ng-click="selectTestingType(4)" role="button">Start Testing </a></p>-->
-            </div>
-            <!-- /.col-lg-4 -->
-
+                <p><span style="margin-top:5px" class="btn btn-info btn-sm" role="button"><i class="fa fa-play"></i>Start Testing </span>
+                </p>
+            </a>
 
         </div>
-        <!-- /.row -->
+        <!-- /.col-lg-4 -->
+        <div class="col-md-2">
+            <a style="border:0px" class="btn btn-default" href="#/cb" role="button"><img class="img-circle"
+                                                                                         ng-src="images/HL7 Context-based.png"
+                                                                                         alt="HL7 Context-based"
+                                                                                         style="width: 100px; height: 100px;">
+
+                <p><span style="margin-top:5px" class="btn btn-info btn-sm" role="button"><i class="fa fa-play"></i>Start Testing</span>
+                </p>
+            </a>
+            <!--<!--<h4>HL7 Context-based Testing</h4>-->
+            <!--<p></p>-->
+            <!--<p><a class="btn btn-default" href="#/testing" ng-click="selectTestingType(3)" role="button">Start Testing </a></p>-->
+        </div>
+        <!-- /.col-lg-4 -->
+
+        <div class="col-md-2">
+            <a style="border:0px" class="btn btn-default" ng-disabled="false" href="#/is" role="button"><img
+                    class="img-circle" ng-src="images/ehr-iis.png" alt="EHR-S/IIS Functional"
+                    style="width: 100px; height: 100px;">
+
+                <p><span style="margin-top:5px" class="btn btn-info btn-sm" role="button"><i class="fa fa-play"></i>Start Testing </span>
+                </p>
+            </a>
+            <!--<!--<h4>EHR-S Functional Testing</h4>-->
+            <!--<p></p>-->
+            <!--<p><a class="btn btn-default" ng-disabled="true" href="#/testing" ng-click="selectTestingType(4)" role="button">Start Testing </a></p>-->
+        </div>
+        <!-- /.col-lg-4 -->
+
+
     </div>
+    <!-- /.row -->
+</div>
 
 
-    <br/>
-    <br/>
-    <br/>
+<div id="myCarousel" class="carousel container slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
+        <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
+        <!--<li data-target="#myCarousel" data-slide-to="3"></li>-->
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="images/overview_stages.gif" alt="Immunization Test Suite Components">
+        </div>
+
+        <!--<div class="item">-->
+        <!--<img src="images/iz_stages.gif" alt="Immunization Test Suite – Focus of Each Testing Stage">-->
+        <!--</div>-->
+
+        <!--<div class="item">-->
+        <!--<img src="images/iz_stage_benefit.gif" alt="Benefits of Immunization Test Suite Stages">-->
+        <!--</div>-->
+
+        <!--<div class="item">-->
+        <!--<div class="carousel-caption" id="hippaNotice">-->
+        <!--<h1>HIPPA Patient Confidentiality Notice</h1>-->
+
+        <!--<p style="text-align: left; font-size:22px">-->
+        <!--In compliance with HIPAA Requirements, parties using the NIST HL7 V2 Validation Tools via this-->
+        <!--NIST Web site shall not use real data about living, identifiable individuals. Parties shall-->
+        <!--adhere to all Federal Regulations including, but not limited to the Health Insurance Portability-->
+        <!--and Accountability Act of 1996 (HIPAA).-->
+        <!--</p>-->
+
+        <!--<p style="text-align: left; font-size:22px">-->
+        <!--Due to patient confidentiality issues (e.g., HIPPA requirements regarding PHI), this software-->
+        <!--should not be used via the NIST Web site for validation of messages containing real patient-->
+        <!--information. With proper precautions in place to maintain patient confidentiality, if an-->
+        <!--organization downloads the Validation Tool and uses it locally the Tool can validate messages-->
+        <!--with real patient information.-->
+        <!--</p>-->
+        <!--&lt;!&ndash;<p><a class="btn btn-lg btn-info" href="#" role="button">Learn more</a></p>&ndash;&gt;
+        -->
+        <!--</div>-->
+        <!--</div>-->
+
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left blue" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right blue" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
 
+<br/>
+<br/>
+<br/>
+
+
+</div>
+</div>
 </div>
