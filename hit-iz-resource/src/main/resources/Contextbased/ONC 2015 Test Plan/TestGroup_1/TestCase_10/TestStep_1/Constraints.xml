@@ -1,228 +1,462 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConformanceContext UUID="74509f69-906f-4270-8b45-7222836c845b">
+<ConformanceContext UUID="ebf55f08-f4aa-4546-bee1-9324b54badd9">
   <Constraints>
     <Group>
       <ByName Name="VXU_V04">
-        <Constraint ID="TCA-3" Target="9[1].1[1].2[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].2[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].2[1].1[1](Entity Identifier) is expected to be present.</Description>
+        <Constraint ID="TCA-1" Target="3[1].13[1].6[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[1].6[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].13[1].6[1](Area/City Code) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="9[1].1[1].2[1].1[1]"/>
+            <Presence Path="3[1].13[1].6[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-9" Target="1[1].22[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at MSH[1].22[1].1[1](Organization Name) is expected to be present.</Description>
+        <Constraint ID="TCA-3" Target="3[1].13[2].4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].13[2].4[1](Email Address) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="1[1].22[1].1[1]"/>
+            <Presence Path="3[1].13[2].4[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-13" Target="3[1].13[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].13[1].2[1](Telecommunication Use Code) is expected to be present.</Description>
+        <Constraint ID="TCA-4" Target="4[1].16[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].16[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PD1[1].16[1](Immunization Registry Status) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="3[1].13[1].2[1]"/>
+            <Presence Path="4[1].16[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-18" Target="9[1].1[1].3[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].3[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].3[1].2[1](Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].1[1].3[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-19" Target="9[1].3[1].9[1].2[1]">
+        <Constraint ID="TCA-5" Target="9[1].3[1].9[1].2[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].9[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].9[1].2[1](Text) is expected to be present.</Description>
           <Assertion>
             <Presence Path="9[1].3[1].9[1].2[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-21" Target="9[1].1[1].10[1].4[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].4[1](Second and Further Given Names or Initials Thereof) is expected to be present.</Description>
+        <Constraint ID="TCA-6" Target="4[1].17[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].17[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PD1[1].17[1](Immunization Registry Status Effective Date) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="9[1].1[1].10[1].4[1]"/>
+            <Presence Path="4[1].17[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-22" Target="4[1].18[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].18[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PD1[1].18[1](Publicity Code Effective Date) is expected to be present.</Description>
+        <Constraint ID="TCA-7" Target="9[1].1[1].2[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].2[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].2[1].1[1](Entity Identifier) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="4[1].18[1]"/>
+            <Presence Path="9[1].1[1].2[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-25" Target="4[1].11[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].11[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PD1[1].11[1].1[1](Identifier) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="4[1].11[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-30" Target="3[1].13[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[1].7[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].13[1].7[1](Local Number) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].13[1].7[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-31" Target="4[1].11[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].11[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PD1[1].11[1].2[1](Text) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="4[1].11[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-32" Target="9[1].1[1].17[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].17[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].17[1].1[1](Identifier) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].1[1].17[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-36" Target="3[1].24[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].24[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].24[1](Multiple Birth Indicator) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].24[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-38" Target="4[1].11[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].11[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at PD1[1].11[1].3[1](Name of Coding System) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="4[1].11[1].3[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-39" Target="3[1].11[1].4[1]">
+        <Constraint ID="TCA-9" Target="3[1].11[1].4[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].11[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at PID[1].11[1].4[1](State or Province) is expected to be present.</Description>
           <Assertion>
             <Presence Path="3[1].11[1].4[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-41" Target="3[1].3[1].4[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].3[1].4[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].3[1].4[1].1[1](Namespace ID) is expected to be present.</Description>
+        <Constraint ID="TCA-10" Target="3[1].13[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at PID[1].13[1].3[1](Telecommunication Equipment Type) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="3[1].3[1].4[1].1[1]"/>
+            <Presence Path="3[1].13[1].3[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-44" Target="9[1].3[1].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].3[1].1[1](Time) is expected to be present.</Description>
+        <Constraint ID="TCA-10" Target="3[1].13[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at PID[1].13[1].3[1](Telecommunication Equipment Type) does not match the expected value: 'PH'.</Description>
           <Assertion>
-            <Presence Path="9[1].3[1].3[1].1[1]"/>
+            <PlainText IgnoreCase="false" Path="3[1].13[1].3[1]" Text="PH"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-46" Target="9[1].1[1].10[1].13[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].13[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].13[1](Identifier Type Code) is expected to be present.</Description>
+        <Constraint ID="TCA-12" Target="9[1].3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].1[1](Give Sub-ID Counter) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="9[1].1[1].10[1].13[1]"/>
+            <Presence Path="9[1].3[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-47" Target="9[1].1[1].10[1].10[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].10[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].10[1](Name Type Code) is expected to be present.</Description>
+        <Constraint ID="TCA-13" Target="4[1].12[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].12[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at PD1[1].12[1](Protection Indicator) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="9[1].1[1].10[1].10[1]"/>
+            <Presence Path="4[1].12[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-49" Target="9[1].1[1].17[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].17[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].17[1].3[1](Name of Coding System) is expected to be present.</Description>
+        <Constraint ID="TCA-13" Target="4[1].12[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].12[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at PD1[1].12[1](Protection Indicator) does not match the expected value: 'N'.</Description>
           <Assertion>
-            <Presence Path="9[1].1[1].17[1].3[1]"/>
+            <PlainText IgnoreCase="false" Path="4[1].12[1]" Text="N"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-51" Target="9[1].3[1].5[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].5[1].3[1](Name of Coding System) is expected to be present.</Description>
+        <Constraint ID="TCA-14" Target="3[1].11[1].6[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].11[1].6[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].11[1].6[1](Country) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="9[1].3[1].5[1].3[1]"/>
+            <Presence Path="3[1].11[1].6[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-51" Target="9[1].3[1].5[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at ORDER[1].RXA[1].5[1].3[1](Name of Coding System) does not match the expected value: 'CVX'.</Description>
+        <Constraint ID="TCA-17" Target="4[1].13[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].13[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PD1[1].13[1](Protection Indicator Effective Date) is expected to be present.</Description>
           <Assertion>
-            <PlainText IgnoreCase="false" Path="9[1].3[1].5[1].3[1]" Text="CVX"/>
+            <Presence Path="4[1].13[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-52" Target="9[1].3[1].7[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].7[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="NonPresence"/>
-          <Description>Unexpected content found. The value at ORDER[1].RXA[1].7[1].3[1](Name of Coding System) is not expected to be valued for test case.</Description>
+        <Constraint ID="TCA-18" Target="9[1].3[1].9[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].9[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].9[1].3[1](Name of Coding System) is expected to be present.</Description>
           <Assertion>
-            <NOT>
-              <Presence Path="9[1].3[1].7[1].3[1]"/>
-            </NOT>
+            <Presence Path="9[1].3[1].9[1].3[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-53" Target="3[1].5[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].5[1].3[1](Second and Further Given Names or Initials Thereof) is expected to be present.</Description>
+        <Constraint ID="TCA-19" Target="3[1].13[2].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at PID[1].13[2].2[1](Telecommunication Use Code) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="3[1].5[1].3[1]"/>
+            <Presence Path="3[1].13[2].2[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-54" Target="1[1].4[1].1[1]">
+        <Constraint ID="TCA-19" Target="3[1].13[2].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at PID[1].13[2].2[1](Telecommunication Use Code) does not match the expected value: 'NET'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="3[1].13[2].2[1]" Text="NET"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-22" Target="3[1].22[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].22[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at PID[1].22[1].3[1](Name of Coding System) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].22[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-23" Target="1[1].4[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].4[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at MSH[1].4[1].1[1](Namespace ID) is expected to be present.</Description>
           <Assertion>
             <Presence Path="1[1].4[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-63" Target="9[1].1[1].10[1].9[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].9[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].9[1].1[1](Namespace ID) is expected to be present.</Description>
+        <Constraint ID="TCA-24" Target="9[1].1[1].3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].3[1].1[1](Entity Identifier) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="9[1].1[1].10[1].9[1].1[1]"/>
+            <Presence Path="9[1].1[1].3[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-64" Target="9[1].1[1].10[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].1[1](ID Number) is expected to be present.</Description>
+        <Constraint ID="TCA-25" Target="3[1].11[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].11[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].11[1].3[1](City) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="9[1].1[1].10[1].1[1]"/>
+            <Presence Path="3[1].11[1].3[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-68" Target="3[1].11[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].11[1].7[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].11[1].7[1](Address Type) is expected to be present.</Description>
+        <Constraint ID="TCA-26" Target="4[1].11[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].11[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PD1[1].11[1].1[1](Identifier) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="3[1].11[1].7[1]"/>
+            <Presence Path="4[1].11[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-70" Target="3[1].11[1].5[1]">
+        <Constraint ID="TCA-27" Target="3[1].13[2].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at PID[1].13[2].3[1](Telecommunication Equipment Type) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].13[2].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-27" Target="3[1].13[2].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at PID[1].13[2].3[1](Telecommunication Equipment Type) does not match the expected value: 'Internet'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="3[1].13[2].3[1]" Text="Internet"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-29" Target="9[1].3[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].2[1](Administration Sub-ID Counter) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].3[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-30" Target="4[1].11[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].11[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at PD1[1].11[1].3[1](Name of Coding System) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1].11[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-32" Target="3[1].11[1].5[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].11[1].5[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at PID[1].11[1].5[1](Zip or Postal Code) is expected to be present.</Description>
           <Assertion>
             <Presence Path="3[1].11[1].5[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-71" Target="9[1].3[1].7[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].7[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="NonPresence"/>
-          <Description>Unexpected content found. The value at ORDER[1].RXA[1].7[1].1[1](Identifier) is not expected to be valued for test case.</Description>
+        <Constraint ID="TCA-33" Target="9[1].1[1].10[1].13[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].13[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].13[1](Identifier Type Code) is expected to be present.</Description>
           <Assertion>
-            <NOT>
-              <Presence Path="9[1].3[1].7[1].1[1]"/>
-            </NOT>
+            <Presence Path="9[1].1[1].10[1].13[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-72" Target="9[1].3[1].21[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].21[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].21[1](Action Code - RXA) is expected to be present.</Description>
+        <Constraint ID="TCA-34" Target="3[1].11[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].11[1].7[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].11[1].7[1](Address Type) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="9[1].3[1].21[1]"/>
+            <Presence Path="3[1].11[1].7[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-72" Target="9[1].3[1].21[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].21[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at ORDER[1].RXA[1].21[1](Action Code - RXA) does not match the expected value: 'A'.</Description>
+        <Constraint ID="TCA-35" Target="1[1].3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at MSH[1].3[1].1[1](Namespace ID) is expected to be present.</Description>
           <Assertion>
-            <PlainText IgnoreCase="false" Path="9[1].3[1].21[1]" Text="A"/>
+            <Presence Path="1[1].3[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-37" Target="3[1].30[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].30[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].30[1](Patient Death Indicator) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].30[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-38" Target="9[1].3[1].9[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].9[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].9[1].1[1](Identifier) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].3[1].9[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-38" Target="9[1].3[1].9[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].9[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ORDER[1].RXA[1].9[1].1[1](Identifier) does not match the expected value: '01'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="9[1].3[1].9[1].1[1]" Text="01"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-39" Target="9[1].3[1].20[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].20[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].20[1](Completion Status) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].3[1].20[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-39" Target="9[1].3[1].20[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].20[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ORDER[1].RXA[1].20[1](Completion Status) does not match the expected value: 'CP'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="9[1].3[1].20[1]" Text="CP"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-40" Target="3[1].22[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].22[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].22[1].2[1](Text) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].22[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-41" Target="1[1].23[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at MSH[1].23[1].1[1](Organization Name) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].23[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-43" Target="3[1].5[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].5[1].3[1](Second and Further Given Names or Initials Thereof) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].5[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-44" Target="9[1].1[1].10[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].1[1](ID Number) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].1[1].10[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-45" Target="9[1].1[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].1[1](Order Control) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].1[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-46" Target="9[1].1[1].10[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].3[1](Given Name) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].1[1].10[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-47" Target="3[1].13[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].13[1].2[1](Telecommunication Use Code) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].13[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-49" Target="1[1].5[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at MSH[1].5[1].1[1](Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].5[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-51" Target="1[1].21[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at MSH[1].21[1].2[1](Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].21[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-51" Target="1[1].21[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at MSH[1].21[1].2[1](Namespace ID) does not match the expected value: 'CDCPHINVS'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="1[1].21[1].2[1]" Text="CDCPHINVS"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-53" Target="3[1].10[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].10[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at PID[1].10[1].3[1](Name of Coding System) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].10[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-55" Target="9[1].1[1].10[1].9[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].9[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].9[1].1[1](Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].1[1].10[1].9[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-56" Target="9[1].1[1].10[1].10[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].10[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].10[1](Name Type Code) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].1[1].10[1].10[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-58" Target="9[1].1[1].2[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].2[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].2[1].2[1](Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].1[1].2[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-59" Target="3[1].10[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].10[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].10[1].1[1](Identifier) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].10[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-60" Target="9[1].1[1].10[1].4[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].4[1](Second and Further Given Names or Initials Thereof) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].1[1].10[1].4[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-61" Target="9[1].1[1].17[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].17[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].17[1].2[1](Text) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].1[1].17[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-62" Target="3[1].10[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].10[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].10[1].2[1](Text) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].10[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-63" Target="3[1].24[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].24[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].24[1](Multiple Birth Indicator) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].24[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-64" Target="1[1].21[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at MSH[1].21[1].1[1](Entity Identifier) does not match the expected value: 'Z22'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="1[1].21[1].1[1]" Text="Z22"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-65" Target="1[1].22[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at MSH[1].22[1].1[1](Organization Name) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].22[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-66" Target="9[1].1[1].17[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].17[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].17[1].3[1](Name of Coding System) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].1[1].17[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-68" Target="9[1].1[1].17[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].17[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].17[1].1[1](Identifier) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].1[1].17[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-69" Target="9[1].3[1].5[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].5[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].5[1].2[1](Text) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].3[1].5[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-70" Target="4[1].18[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].18[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PD1[1].18[1](Publicity Code Effective Date) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1].18[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-71" Target="9[1].1[1].10[1].2[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].2[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].2[1].1[1](Surname) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].1[1].10[1].2[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-72" Target="3[1].13[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[1].7[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].13[1].7[1](Local Number) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].13[1].7[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-73" Target="9[1].3[1].3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].3[1].1[1](Time) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].3[1].3[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-74" Target="9[1].3[1].6[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].6[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].6[1](Administered Amount) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="9[1].3[1].6[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-74" Target="9[1].3[1].6[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].6[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ORDER[1].RXA[1].6[1](Administered Amount) does not match the expected value: '999'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="9[1].3[1].6[1]" Text="999"/>
           </Assertion>
         </Constraint>
         <Constraint ID="TCA-75" Target="3[1].22[1].1[1]">
@@ -232,387 +466,81 @@
             <Presence Path="3[1].22[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-76" Target="3[1].11[1].1[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].11[1].1[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].11[1].1[1].1[1](Street or Mailing Address) is expected to be present.</Description>
+        <Constraint ID="TCA-77" Target="9[1].1[1].3[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].3[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].3[1].2[1](Namespace ID) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="3[1].11[1].1[1].1[1]"/>
+            <Presence Path="9[1].1[1].3[1].2[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-77" Target="3[1].13[2].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].7[1]" Source="DataInstanceTestCase" TestDataCategorization="NonPresence"/>
-          <Description>Unexpected content found. The value at PID[1].13[2].7[1](Local Number) is not expected to be valued for test case.</Description>
+        <Constraint ID="TCA-80" Target="4[1].11[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].11[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PD1[1].11[1].2[1](Text) is expected to be present.</Description>
           <Assertion>
-            <NOT>
-              <Presence Path="3[1].13[2].7[1]"/>
-            </NOT>
+            <Presence Path="4[1].11[1].2[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-78" Target="3[1].11[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].11[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].11[1].3[1](City) is expected to be present.</Description>
+        <Constraint ID="TCA-81" Target="3[1].3[1].4[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].3[1].4[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].3[1].4[1].1[1](Namespace ID) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="3[1].11[1].3[1]"/>
+            <Presence Path="3[1].3[1].4[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-79" Target="3[1].13[2].4[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].4[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].13[2].4[1](Email Address) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].13[2].4[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-91" Target="3[1].22[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].22[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at PID[1].22[1].3[1](Name of Coding System) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].22[1].3[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-92" Target="3[1].13[1].4[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[1].4[1]" Source="DataInstanceTestCase" TestDataCategorization="NonPresence"/>
-          <Description>Unexpected content found. The value at PID[1].13[1].4[1](Email Address) is not expected to be valued for test case.</Description>
-          <Assertion>
-            <NOT>
-              <Presence Path="3[1].13[1].4[1]"/>
-            </NOT>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-93" Target="9[1].1[1].10[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].3[1](Given Name) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].1[1].10[1].3[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-95" Target="4[1].12[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].12[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at PD1[1].12[1](Protection Indicator) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="4[1].12[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-95" Target="4[1].12[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].12[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at PD1[1].12[1](Protection Indicator) does not match the expected value: 'N'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="4[1].12[1]" Text="N"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-96" Target="9[1].3[1].20[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].20[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].20[1](Completion Status) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].3[1].20[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-96" Target="9[1].3[1].20[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].20[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at ORDER[1].RXA[1].20[1](Completion Status) does not match the expected value: 'CP'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="9[1].3[1].20[1]" Text="CP"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-97" Target="9[1].3[1].9[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].9[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].9[1].3[1](Name of Coding System) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].3[1].9[1].3[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-98" Target="3[1].22[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].22[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].22[1].2[1](Text) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].22[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-99" Target="9[1].3[1].7[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].7[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="NonPresence"/>
-          <Description>Unexpected content found. The value at ORDER[1].RXA[1].7[1].2[1](Text) is not expected to be valued for test case.</Description>
-          <Assertion>
-            <NOT>
-              <Presence Path="9[1].3[1].7[1].2[1]"/>
-            </NOT>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-101" Target="9[1].3[1].5[1].1[1]">
+        <Constraint ID="TCA-82" Target="9[1].3[1].5[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].5[1].1[1](Identifier) is expected to be present.</Description>
           <Assertion>
             <Presence Path="9[1].3[1].5[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-101" Target="9[1].3[1].5[1].1[1]">
+        <Constraint ID="TCA-82" Target="9[1].3[1].5[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected test case fixed content is missing. The value at ORDER[1].RXA[1].5[1].1[1](Identifier) does not match the expected value: '152'.</Description>
           <Assertion>
             <PlainText IgnoreCase="false" Path="9[1].3[1].5[1].1[1]" Text="152"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-102" Target="3[1].10[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].10[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at PID[1].10[1].3[1](Name of Coding System) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].10[1].3[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-103" Target="4[1].17[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].17[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PD1[1].17[1](Immunization Registry Status Effective Date) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="4[1].17[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-104" Target="9[1].1[1].2[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].2[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].2[1].2[1](Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].1[1].2[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-106" Target="9[1].1[1].17[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].17[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].17[1].2[1](Text) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].1[1].17[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-107" Target="3[1].30[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].30[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].30[1](Patient Death Indicator) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].30[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-109" Target="9[1].1[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].1[1](Order Control) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].1[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-111" Target="3[1].13[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at PID[1].13[1].3[1](Telecommunication Equipment Type) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].13[1].3[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-111" Target="3[1].13[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at PID[1].13[1].3[1](Telecommunication Equipment Type) does not match the expected value: 'PH'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="3[1].13[1].3[1]" Text="PH"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-112" Target="9[1].3[1].6[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].6[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].6[1](Administered Amount) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].3[1].6[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-112" Target="9[1].3[1].6[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].6[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at ORDER[1].RXA[1].6[1](Administered Amount) does not match the expected value: '999'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="9[1].3[1].6[1]" Text="999"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-115" Target="4[1].13[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].13[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PD1[1].13[1](Protection Indicator Effective Date) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="4[1].13[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-116" Target="1[1].23[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at MSH[1].23[1].1[1](Organization Name) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].23[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-121" Target="4[1].16[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PD1[1].16[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PD1[1].16[1](Immunization Registry Status) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="4[1].16[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-125" Target="3[1].13[2].6[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].6[1]" Source="DataInstanceTestCase" TestDataCategorization="NonPresence"/>
-          <Description>Unexpected content found. The value at PID[1].13[2].6[1](Area/City Code) is not expected to be valued for test case.</Description>
-          <Assertion>
-            <NOT>
-              <Presence Path="3[1].13[2].6[1]"/>
-            </NOT>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-129" Target="1[1].6[1].1[1]">
+        <Constraint ID="TCA-83" Target="1[1].6[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].6[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at MSH[1].6[1].1[1](Namespace ID) is expected to be present.</Description>
           <Assertion>
             <Presence Path="1[1].6[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-132" Target="9[1].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].1[1](Give Sub-ID Counter) is expected to be present.</Description>
+        <Constraint ID="TCA-84" Target="3[1].11[1].1[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].11[1].1[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
+          <Description>Expected content is missing. The empty value at PID[1].11[1].1[1].1[1](Street or Mailing Address) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="9[1].3[1].1[1]"/>
+            <Presence Path="3[1].11[1].1[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-133" Target="9[1].3[1].9[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].9[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].9[1].1[1](Identifier) is expected to be present.</Description>
+        <Constraint ID="TCA-85" Target="9[1].3[1].21[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].21[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].21[1](Action Code - RXA) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="9[1].3[1].9[1].1[1]"/>
+            <Presence Path="9[1].3[1].21[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-133" Target="9[1].3[1].9[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].9[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at ORDER[1].RXA[1].9[1].1[1](Identifier) does not match the expected value: '01'.</Description>
+        <Constraint ID="TCA-85" Target="9[1].3[1].21[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].21[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ORDER[1].RXA[1].21[1](Action Code - RXA) does not match the expected value: 'A'.</Description>
           <Assertion>
-            <PlainText IgnoreCase="false" Path="9[1].3[1].9[1].1[1]" Text="01"/>
+            <PlainText IgnoreCase="false" Path="9[1].3[1].21[1]" Text="A"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-137" Target="3[1].13[1].6[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[1].6[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].13[1].6[1](Area/City Code) is expected to be present.</Description>
+        <Constraint ID="TCA-86" Target="9[1].3[1].5[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].5[1].3[1](Name of Coding System) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="3[1].13[1].6[1]"/>
+            <Presence Path="9[1].3[1].5[1].3[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-140" Target="9[1].1[1].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].3[1].1[1](Entity Identifier) is expected to be present.</Description>
+        <Constraint ID="TCA-86" Target="9[1].3[1].5[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].5[1].3[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at ORDER[1].RXA[1].5[1].3[1](Name of Coding System) does not match the expected value: 'CVX'.</Description>
           <Assertion>
-            <Presence Path="9[1].1[1].3[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-142" Target="9[1].3[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].2[1](Administration Sub-ID Counter) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].3[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-144" Target="1[1].21[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at MSH[1].21[1].2[1](Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].21[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-144" Target="1[1].21[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at MSH[1].21[1].2[1](Namespace ID) does not match the expected value: 'CDCPHINVS'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="1[1].21[1].2[1]" Text="CDCPHINVS"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-148" Target="9[1].3[1].7[1].5[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].7[1].5[1]" Source="DataInstanceTestCase" TestDataCategorization="NonPresence"/>
-          <Description>Unexpected content found. The value at ORDER[1].RXA[1].7[1].5[1](Alternate Text) is not expected to be valued for test case.</Description>
-          <Assertion>
-            <NOT>
-              <Presence Path="9[1].3[1].7[1].5[1]"/>
-            </NOT>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-149" Target="3[1].13[2].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at PID[1].13[2].3[1](Telecommunication Equipment Type) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].13[2].3[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-149" Target="3[1].13[2].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at PID[1].13[2].3[1](Telecommunication Equipment Type) does not match the expected value: 'Internet'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="3[1].13[2].3[1]" Text="Internet"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-150" Target="3[1].11[1].6[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].11[1].6[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].11[1].6[1](Country) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].11[1].6[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-155" Target="9[1].1[1].10[1].2[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].ORC[1].10[1].2[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].ORC[1].10[1].2[1].1[1](Surname) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].1[1].10[1].2[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-156" Target="1[1].5[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].5[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at MSH[1].5[1].1[1](Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].5[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-157" Target="3[1].10[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].10[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].10[1].1[1](Identifier) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].10[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-159" Target="9[1].3[1].5[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].5[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at ORDER[1].RXA[1].5[1].2[1](Text) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="9[1].3[1].5[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-161" Target="1[1].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].3[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at MSH[1].3[1].1[1](Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].3[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-162" Target="3[1].13[2].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at PID[1].13[2].2[1](Telecommunication Use Code) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].13[2].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-162" Target="3[1].13[2].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].13[2].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at PID[1].13[2].2[1](Telecommunication Use Code) does not match the expected value: 'NET'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="3[1].13[2].2[1]" Text="NET"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-163" Target="9[1].3[1].7[1].6[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER[1].RXA[1].7[1].6[1]" Source="DataInstanceTestCase" TestDataCategorization="NonPresence"/>
-          <Description>Unexpected content found. The value at ORDER[1].RXA[1].7[1].6[1](Name of Alternate Coding System) is not expected to be valued for test case.</Description>
-          <Assertion>
-            <NOT>
-              <Presence Path="9[1].3[1].7[1].6[1]"/>
-            </NOT>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-165" Target="3[1].10[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].10[1].2[1]" Source="DataInstanceTestCase" TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID[1].10[1].2[1](Text) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].10[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-166" Target="1[1].21[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].1[1]" Source="DataInstanceTestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at MSH[1].21[1].1[1](Entity Identifier) does not match the expected value: 'Z22'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="1[1].21[1].1[1]" Text="Z22"/>
+            <PlainText IgnoreCase="false" Path="9[1].3[1].5[1].3[1]" Text="CVX"/>
           </Assertion>
         </Constraint>
       </ByName>

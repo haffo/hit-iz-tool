@@ -97,8 +97,8 @@
 : "", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "wcEHR",
-"categorization" : "Presence-Content Indifferent"},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "wcEHR
+", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
@@ -117,7 +117,7 @@
 			[
 				{"location" : "MSA.1", "dataelement" : "Acknowledgment Code", "data" : "AE", "categorization"
 : "Value-Test Case Fixed"},
-				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "81883",
+				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "81883 ",
 "categorization" : "Presence-System Generated"},		]
 		{
 			"title":"ERR : Error",
@@ -134,7 +134,7 @@
 							{"location" : "ERR.2.4", "dataelement" : "Field Repetition", "data" : "1",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "ERR.2.5", "dataelement" : "Component Number", "data" : "1",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Indifferent"},
 							{"location" : "ERR.2.6", "dataelement" : "Sub-Component Number", "data" : "",
 "categorization" : "Indifferent"},
 				{"location" : "ERR.3", "dataelement" : "HL7 Error Code", "data" : "", "categorization"

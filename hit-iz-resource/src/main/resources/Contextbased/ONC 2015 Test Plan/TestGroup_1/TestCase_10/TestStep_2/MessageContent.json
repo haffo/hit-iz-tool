@@ -154,11 +154,11 @@ ID", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "ERR.5", "dataelement" : "Application Error Code", "data" : "",
 "categorization" : ""},
 							{"location" : "ERR.5.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Indifferent"},
+: "Value-Test Case Fixed"},
 							{"location" : "ERR.5.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Indifferent"},
+: "Presence-Content Indifferent"},
 							{"location" : "ERR.5.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Indifferent"},
+"", "categorization" : "Value-Profile Fixed"},
 							{"location" : "ERR.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "ERR.5.6", "dataelement" : "Name of Alternate Coding System",
