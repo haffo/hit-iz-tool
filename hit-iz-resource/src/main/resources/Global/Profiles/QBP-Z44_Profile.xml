@@ -66,7 +66,7 @@
 		</Segment>
 		<Segment ID="RCP_IZ" Name="RCP" Description="Response Control Parameter">
 			<Field Name="Query Priority" Usage="RE" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70091_IZ" BindingStrength="R" ItemNo="00027"/>
-			<Field Name="Quantity Limited Request" Usage="R" Min="1" Max="1" Datatype="CQ_IZ" MinLength="1" MaxLength="10" Binding="HL70126_IZ" BindingStrength="R" ItemNo="00031" BindingLocation="1"/>
+			<Field Name="Quantity Limited Request" Usage="R" Min="1" Max="1" Datatype="CQ_IZ" MinLength="1" MaxLength="10" ItemNo="00031" />
 			<Field Name="Response Modality" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0394" BindingStrength="R" BindingLocation="1" ItemNo="01440"/>
 			<Field Name="Execution and Delivery Time" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="01441"/>
 			<Field Name="Modify Indicator" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0395" BindingStrength="R" ItemNo="01443"/>

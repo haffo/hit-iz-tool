@@ -524,9 +524,6 @@
                                         </tr>
 
                                     </xsl:for-each>
-
-                                </tbody>
-                                <tfoot>
                                     <tr>
                                         <td colspan="5">When displayed in the EHR with the Evaluated
                                             Immunization History and Immunization Forecast, these
@@ -539,7 +536,8 @@
                                             to ensure that the message was associated with the
                                             appropriate patient. </td>
                                     </tr>
-                                </tfoot>
+                                </tbody>
+
                             </table>
                             <br/>
                             <table>
@@ -684,9 +682,6 @@
                                                 </tr>
                                             </xsl:for-each>
                                         </xsl:for-each>
-
-                                    </tbody>
-                                    <tfoot>
                                         <tr>
                                             <td colspan="7">* "Completion Status" refers to the
                                                 status of the dose of vaccine administered on the
@@ -695,7 +690,8 @@
                                                 vaccine dose was "completely administered" as
                                                 opposed to "partially administered". </td>
                                         </tr>
-                                    </tfoot>
+                                    </tbody>
+
                                 </table>
 
                                 <br/>
@@ -802,9 +798,6 @@
                                         <xsl:apply-templates select="."/>
 
                                     </xsl:for-each>
-
-                                </tbody>
-                                <tfoot>
                                     <tr>
                                         <td colspan="5">When displayed in the EHR with the
                                             notification indicating that a Return Acknowledgement
@@ -812,7 +805,8 @@
                                             patient demographics data are derived from the EHR
                                             patient record.</td>
                                     </tr>
-                                </tfoot>
+                                </tbody>
+
                             </table>
                             <br/>
                             <table>
@@ -880,9 +874,6 @@
                                         <xsl:apply-templates select="."/>
 
                                     </xsl:for-each>
-
-                                </tbody>
-                                <tfoot>
                                     <tr>
                                         <td colspan="5">When displayed in the EHR with the
                                             notification indicating that a Return Acknowledgement
@@ -890,7 +881,8 @@
                                             patient demographics data are derived from the EHR
                                             patient record.</td>
                                     </tr>
-                                </tfoot>
+                                </tbody>
+
                             </table>
                             <br/>
                             <table>
