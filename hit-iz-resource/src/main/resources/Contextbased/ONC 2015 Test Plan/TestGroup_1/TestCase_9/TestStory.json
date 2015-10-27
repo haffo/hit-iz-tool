@@ -1,5 +1,5 @@
 {
-  "teststorydesc" : "<span style=\"color: rgb(79, 79, 79); font-family: Arial, sans-serif; font-size: 16.7199993133545px; line-height: 21.7360000610352px; text-align: justify; background-color: rgb(255, 255, 255);\">A patient is seen at a clinic. A new administration is recorded. The IIS is able to process the administration message but finds multiple soft errors (warnings) which it returns in the acknowledgement message.&nbsp;</span>",
+  "teststorydesc" : "<span style=\"color: rgb(79, 79, 79); font-family: Arial, sans-serif; font-size: 16.7199993133545px; line-height: 21.7360000610352px; text-align: justify; background-color: rgb(255, 255, 255);\">A patient is seen at a clinic. A new administration is recorded. The IIS is able to process the administration message but finds multiple soft errors (warnings) which it returns in the acknowledgement message. </span>",
   "comments" : "No Comments",
   "preCondition" : "No PreCondition",
   "postCondition" : "The returned error must be visible in the EHR.",
