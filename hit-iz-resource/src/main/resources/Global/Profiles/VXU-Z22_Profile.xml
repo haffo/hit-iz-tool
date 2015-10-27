@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ConformanceProfile ID="d6d1b7ed-6851-4cc3-9244-a4f79b2e9a79" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData Name="VXU_V04" OrgName="NIST" Version="20150918-1"/>
+<ConformanceProfile ID="d6d1b7ed-6851-4cc3-9244-a4f79b2e9a79" Type="Constrainable" HL7Version="2.5.1" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<MetaData Name="Implementation Guide for Immunization Messaging" OrgName="NIST" Version="1.5" Date="10/1/2014"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
 		<Encoding>XML</Encoding>
 	</Encodings>
 	<Messages>
-		<Message ID="aa72383a-7b48-46e5-a74a-82e019591fe7" Type="VXU" Event="V04" StructID="VXU_V04" Description="Unsolicited vaccination record update">
+		<Message ID="aa72383a-7b48-46e5-a74a-82e019591fe7" Type="VXU" Event="V04" StructID="VXU_V04" Description="Unsolicited Immunization Update">
 			<Segment Ref="MSH_IZ 1_5_Z22" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT_219" Usage="O" Min="0" Max="*"/>
 			<Segment Ref="PID_IZ 1_5" Usage="R" Min="1" Max="1"/>

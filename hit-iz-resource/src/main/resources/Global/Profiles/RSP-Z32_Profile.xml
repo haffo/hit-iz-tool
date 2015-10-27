@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ConformanceProfile ID="d7c1bc36-e039-4ae8-b1ec-ac22389eef30" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData Name="RSP_K11" OrgName="NIST" Version="20150918-1"/>
+<ConformanceProfile ID="d7c1bc36-e039-4ae8-b1ec-ac22389eef30" Type="Constrainable" HL7Version="2.5.1" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<MetaData Name="Implementation Guide for Immunization Messaging" OrgName="NIST" Version="1.5" Date="10/1/2014"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
 		<Encoding>XML</Encoding>
 	</Encodings>
 	<Messages>
-		<Message ID="dc3368ee-35e9-4724-bc27-37f774867090" Type="RSP" Event="K11" StructID="RSP_K11" Description="Segment pattern response">
+		<Message ID="dc3368ee-35e9-4724-bc27-37f774867090" Type="RSP" Event="K11" StructID="RSP_K11" Description="Return Complete Immunization  History">
 			<Segment Ref="MSH_IZ32" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT" Usage="O" Min="0" Max="*"/>
 			<Segment Ref="MSA_IZ1_5" Usage="R" Min="1" Max="1"/>

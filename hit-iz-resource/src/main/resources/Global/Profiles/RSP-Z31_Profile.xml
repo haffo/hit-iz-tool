@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ConformanceProfile ID="aa3a45ab-4921-47dd-8ed1-e0f14f2c8f00" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData Name="RSP_K11" OrgName="NIST" Version="20150918-1"/>
+<ConformanceProfile ID="aa3a45ab-4921-47dd-8ed1-e0f14f2c8f00" Type="Constrainable" HL7Version="2.5.1" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<MetaData Name="Implementation Guide for Immunization Messaging" OrgName="NIST" Version="1.5" Date="10/1/2014"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
 		<Encoding>XML</Encoding>
 	</Encodings>
 	<Messages>
-		<Message ID="2c1dc85c-4d4f-48ea-948a-835c1dc6436a" Type="RSP" Event="K11" StructID="RSP_K11" Description="Segment pattern response">
+		<Message ID="2c1dc85c-4d4f-48ea-948a-835c1dc6436a" Type="RSP" Event="K11" StructID="RSP_K11" Description="Return a List of Candidates">
 			<Segment Ref="MSH_IZ31" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT_IZ_V5_RSP_Z32_146" Usage="X" Min="0" Max="*"/>
 			<Segment Ref="MSA_IZ1_5" Usage="R" Min="1" Max="1"/>
