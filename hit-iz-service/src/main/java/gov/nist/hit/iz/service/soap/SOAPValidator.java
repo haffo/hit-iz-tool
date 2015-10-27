@@ -199,7 +199,6 @@ public class SOAPValidator {
 
     Node schematronTransform = doTransform(schematron, skeleton, phase);
     result.append(doTransform(xml.getDomNode(), schematronTransform));
-    // System.out.println(result);
     XmlObject xmlResult = XmlObject.Factory.parse(result.toString());
     return getMessageFailures(xmlResult);
   }
@@ -213,7 +212,6 @@ public class SOAPValidator {
             MessageValidationConstants.XSLT_SKELETON));
     Node schematronTransform = doTransform(schematron, skeleton, phase);
     result.append(doTransform(xml.getDomNode(), schematronTransform));
-    // System.out.println(result);
     XmlObject xmlResult = XmlObject.Factory.parse(result.toString());
     return getMessageFailures(xmlResult);
   }
