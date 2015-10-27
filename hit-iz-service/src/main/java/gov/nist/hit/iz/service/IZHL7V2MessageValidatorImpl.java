@@ -40,6 +40,7 @@ public class IZHL7V2MessageValidatorImpl extends HL7V2MessageValidatorImpl {
       f.restrain(restriction);
       // Filter report
       report = f.filter(report);
+      report = Filter.removeDuplicate(report);
 
       return new MessageValidationResult(report.to("json").toString(), report.render("iz-report",
           null));

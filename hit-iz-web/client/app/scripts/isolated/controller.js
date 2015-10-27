@@ -855,7 +855,7 @@ angular.module('isolated')
                             try {
                                 $scope.vLoading = true;
                                 $scope.vError = null;
-                                var validator = $scope.validator.validate($scope.testStep.testContext.id, $scope.isolated.message.content, '', "Based", [], "1223");
+                                var validator = $scope.validator.validate($scope.testStep.testContext.id, $scope.isolated.message.content, $scope.testStep.nav, "Based", [], "1223");
                                 validator.then(function (mvResult) {
                                     $scope.vLoading = false;
                                     $scope.loadValidationResult(mvResult);
@@ -905,14 +905,15 @@ angular.module('isolated')
         $scope.buildMessageTree = function (messageObject) {
             if ($scope.testStep != null) {
                 var elements = messageObject && messageObject != null && messageObject.elements ? messageObject.elements : [];
-                $scope.isolated.tree.root.build_all(elements);
+                if (typeof $scope.isolated.tree.root.build_all == 'function') {
+                    $scope.cb.tree.root.build_all(elements);
+                }
                 var delimeters = messageObject && messageObject != null && messageObject.delimeters ? messageObject.delimeters : [];
                 ServiceDelegator.updateEditorMode($scope.editor, delimeters, $scope.testStep.testContext.format);
                 $scope.editorService.setEditor($scope.editor);
                 $scope.treeService.setEditor($scope.editor);
             }
         };
-
 
         $scope.select = function (element) {
             if (element != undefined && element.path != null && element.line != -1) {

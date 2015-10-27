@@ -350,7 +350,7 @@ angular.module('cb')
                 $scope.vLoading = true;
                 $scope.vError = null;
                 if ($scope.cb.testCase != null && $scope.cb.message.content !== "") {
-                    var validator = $scope.validator.validate($scope.cb.testCase.testContext.id, $scope.cb.message.content, $scope.cb.testCase.label, "Based", $scope.dqaCodes, "1223");
+                    var validator = $scope.validator.validate($scope.cb.testCase.testContext.id, $scope.cb.message.content, $scope.cb.testCase.nav, "Based", $scope.dqaCodes, "1223");
                     validator.then(function (mvResult) {
                         $scope.vLoading = false;
                         $scope.loadValidationResult(mvResult);
@@ -416,7 +416,9 @@ angular.module('cb')
                         $scope.tError = error;
                     });
                 } else {
-                    $scope.cb.tree.root.build_all([]);
+                    if (typeof $scope.cb.tree.root.build_all == 'function') {
+                        $scope.cb.tree.root.build_all([]);
+                    }
                     $scope.tError = null;
                     $scope.tLoading = false;
                 }

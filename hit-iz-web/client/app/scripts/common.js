@@ -367,14 +367,31 @@ angular.module('commonServices').factory('TestCaseService', function ($filter) {
         } else {
             node.label = node.name;
         }
+
+        if(!node['nav']) node['nav'] = {};
+
         var that = this;
         if (node.testCases) {
             if (!node["children"]) {
                 node["children"] = node.testCases;
+                angular.forEach(node.children, function (testCase) {
+                    testCase['nav'] = {};
+                    testCase['nav']['testStep'] = null;
+                    testCase['nav'] = {};
+                    testCase['nav']['testCase'] = testCase.name;
+                    testCase['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+                    testCase['nav']['testGroup'] = node.type === 'TestCaseGroup' ? node.name : node['nav'].testGroup;
+                    that.buildTree(testCase );
+                });
             } else {
                 angular.forEach(node.testCases, function (testCase) {
                     node["children"].push(testCase);
-                    that.buildTree(testCase);
+                    testCase['nav'] = {};
+                    testCase['nav']['testStep'] = null;
+                    testCase['nav']['testCase'] = testCase.name;
+                    testCase['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+                    testCase['nav']['testGroup'] = node.type === 'TestCaseGroup' ? node.name : node['nav'].testGroup;
+                    that.buildTree(testCase );
                 });
             }
             node["children"] = $filter('orderBy')(node["children"], 'position');
@@ -384,9 +401,23 @@ angular.module('commonServices').factory('TestCaseService', function ($filter) {
         if (node.testCaseGroups) {
             if (!node["children"]) {
                 node["children"] = node.testCaseGroups;
+                 angular.forEach(node.children, function (testCaseGroup) {
+                    testCaseGroup['nav'] = {};
+                    //node["children"].push(testCaseGroup);
+                    testCaseGroup['nav']['testCase'] = null;
+                    testCaseGroup['nav']['testStep'] = null;
+                    testCaseGroup['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+                    testCaseGroup['nav']['testGroup'] = node.type === 'TestCaseGroup' ? node.name : node['nav'].testGroup;
+                    that.buildTree(testCaseGroup);
+                });
             } else {
                 angular.forEach(node.testCaseGroups, function (testCaseGroup) {
                     node["children"].push(testCaseGroup);
+                    testCaseGroup['nav'] = {};
+                    testCaseGroup['nav']['testCase'] = null;
+                    testCaseGroup['nav']['testStep'] = null;
+                    testCaseGroup['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+                    testCaseGroup['nav']['testGroup'] = node.type === 'TestCaseGroup' ? node.name : node['nav'].testGroup;
                     that.buildTree(testCaseGroup);
                 });
             }
@@ -397,19 +428,50 @@ angular.module('commonServices').factory('TestCaseService', function ($filter) {
         if (node.testSteps) {
             if (!node["children"]) {
                 node["children"] = node.testSteps;
+                angular.forEach(node.children, function (testStep) {
+                    testStep['nav'] = {};
+                    //node["children"].push(testStep);
+                    testStep['nav']['testCase'] = node.name;
+                    testStep['nav']['testStep'] = testStep.position + "." + testStep.name;
+                    testStep['nav']['testPlan'] = node['nav'].testPlan;
+                    testStep['nav']['testGroup'] = node['nav'].testGroup;
+                    that.buildTree(testStep);
+                });
             } else {
                 angular.forEach(node.testSteps, function (testStep) {
                     node["children"].push(testStep);
+                    testStep['nav'] = {};
+                    testStep['nav']['testCase'] = node.name;
+                    testStep['nav']['testStep'] = testStep.position + "." + testStep.name;
+                    testStep['nav']['testPlan'] = node['nav'].testPlan;
+                    testStep['nav']['testGroup'] = node['nav'].testGroup;
                     that.buildTree(testStep);
                 });
             }
             node["children"] = $filter('orderBy')(node["children"], 'position');
             delete node.testSteps;
         }
+     };
 
-        if (node.children) {
-            angular.forEach(node.children, function (child) {
-                that.buildTree(child);
+
+    TestCaseService.prototype.buildCFTestCases = function (obj) {
+        obj.label = !obj.children ? obj.position + "." + obj.name: obj.name;
+        obj['nav'] = {};
+        obj['nav']['testStep'] = obj.label;
+        obj['nav']['testCase'] = null;
+        obj['nav']['testPlan'] =null;
+        obj['nav']['testGroup'] =null;
+
+        if (obj.children) {
+            var that = this;
+            obj.children = $filter('orderBy')(obj.children, 'position');
+            angular.forEach(obj.children, function (child) {
+                child['nav'] = {};
+                child['nav']['testStep'] = child.label;
+                child['nav']['testCase'] = obj.label;
+                child['nav']['testPlan'] = obj['nav'].testPlan;
+                child['nav']['testGroup'] =null;
+                that.buildCFTestCases(child);
             });
         }
     };

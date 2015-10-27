@@ -59,7 +59,7 @@ angular.module('cf')
             var tcLoader = new CFTestCaseListLoader();
             tcLoader.then(function (testCases) {
                 angular.forEach(testCases, function (testPlan) {
-                    $scope.sortByPosition(testPlan);
+                    testCaseService.buildCFTestCases(testPlan);
                 });
                 $scope.testCases = $filter('orderBy')(testCases, 'position');
                 $scope.tree.build_all($scope.testCases);
@@ -92,15 +92,7 @@ angular.module('cf')
             }, 0);
         };
 
-        $scope.sortByPosition = function (obj) {
-            obj.label = obj.name;
-            if (obj.children) {
-                obj.children = $filter('orderBy')(obj.children, 'position');
-                angular.forEach(obj.children, function (child) {
-                    $scope.sortByPosition(child);
-                });
-            }
-        };
+
 
 
         $scope.openProfileInfo = function () {
@@ -300,7 +292,7 @@ angular.module('cf')
                     var id = $scope.cf.testCase.testContext.id;
                     var content = $scope.cf.message.content;
                     var label = $scope.cf.testCase.label;
-                    var validated = $scope.validator.validate(id, content, "", "Free", $scope.dqaCodes, "1223");
+                    var validated = $scope.validator.validate(id, content, $scope.cf.testCase.nav, "Free", $scope.dqaCodes, "1223");
                     validated.then(function (mvResult) {
                         $scope.vLoading = false;
                         $scope.loadValidationResult(mvResult);
@@ -365,7 +357,9 @@ angular.module('cf')
                         $scope.tError = error;
                     });
                 } else {
-                    $scope.cf.tree.root.build_all([]);
+                    if (typeof $scope.cf.tree.root.build_all == 'function') {
+                        $scope.cf.tree.root.build_all([]);
+                    }
                     $scope.tError = null;
                     $scope.tLoading = false;
                 }

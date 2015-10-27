@@ -3,7 +3,7 @@
         <div class="panel-body">
             <div ng-show="cb.testCase != null">
                 <!--<div class="row" ng-show="error != null">-->
-                    <!--<div class="alert alert-danger" role="alert" ng-bind="error"></div>-->
+                <!--<div class="alert alert-danger" role="alert" ng-bind="error"></div>-->
                 <!--</div>-->
 
                 <div ng-show="tError !== null">
@@ -118,7 +118,14 @@
                                             <div class="panel-heading">
                                                 <i class="fa fa-check-square-o"></i>
                                                 Message Validation Result
+
+                                                <a title="View Result Categories" ng-click="openValidationResultInfo()">
+                                                    <i class="point fa fa-info-circle"></i>
+                                                </a>
      <span class="pull-right">
+
+
+
                                 <button title="View Report" type="button" class="btn btn-xs btn-primary" ng-click="setActiveTab(1)">
                                     <i class="fa fa-eye"></i>
                                     Report

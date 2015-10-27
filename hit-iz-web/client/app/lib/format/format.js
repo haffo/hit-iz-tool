@@ -287,10 +287,10 @@ angular.module('format').factory('MessageValidatorClass', function ($http, $q, $
         this.format = format;
     };
 
-    MessageValidatorClass.prototype.validate = function (testContextId, content, name, contextType,dqaCodes, facilityId) {
+    MessageValidatorClass.prototype.validate = function (testContextId, content, nav, contextType,dqaCodes, facilityId) {
         var delay = $q.defer();
         if (this.format && this.format != null) {
-            $http.post('api/' + this.format + '/testcontext/' + testContextId + '/validateMessage', angular.fromJson({"content": content, "contextType": contextType,"dqaCodes": dqaCodes, "facilityId": facilityId})).then(
+            $http.post('api/' + this.format + '/testcontext/' + testContextId + '/validateMessage', angular.fromJson({"content": content, "contextType": contextType,"dqaCodes": dqaCodes, "facilityId": facilityId, "nav":nav})).then(
                 function (object) {
                     try {
                         delay.resolve(angular.fromJson(object.data));
@@ -299,7 +299,8 @@ angular.module('format').factory('MessageValidatorClass', function ($http, $q, $
                     }
                 },
                 function (response) {
-                    delay.reject(response.data);
+//                    delay.reject(response.data);
+                    delay.reject("Failed to validate the message.");
                 }
             );
 
@@ -347,7 +348,9 @@ angular.module('format').factory('MessageParserClass', function ($http, $q, $tim
                     delay.resolve(angular.fromJson(object.data));
                 },
                 function (response) {
-                    delay.reject(response.data);
+                    //delay.reject(response.data);
+                    delay.reject("Failed to parse the message.");
+
                 }
             );
 //            $http.get('../../resources/cf/messageObject.json').then(

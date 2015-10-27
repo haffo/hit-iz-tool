@@ -103,7 +103,7 @@
             <i class="fa fa-search"></i>
             Search
         </button>
-        <a ng-click="openCopyrightDlg()" ng-show="appInfo.valueSetCopyright != null && appInfo.valueSetCopyright != ''">Copyright
+        <a class="point" ng-click="openCopyrightDlg()">Copyright
         </a>
     </div>
 </form>
@@ -342,12 +342,13 @@
                     Copyright
                 </span>
                 <span class="pull-right">
-                    <button class="btn btn-primary btn-sm" ng-click="close()"><i class="fa fa-times"></i> Close</button>
+                   <a ng-click="close()"><i class="fa fa-times"></i></a>
                 </span>
     </div>
     <div class="modal-body profile-info-body">
         <div class="profile-info">
-            <div ng-bind-html="appInfo.copyright"/>
+            <div ng-show="appInfo.valueSetCopyright != null" ng-bind-html="appInfo.valueSetCopyright"></div>
+            <div ng-show="appInfo.valueSetCopyright == null">No Copyright found.</div>
         </div>
     </div>
 </script>

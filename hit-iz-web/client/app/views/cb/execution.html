@@ -3,8 +3,10 @@
         <div ng-show="!loading">
             <div class="">
                 <ol class="breadcrumb" ng-show="testCase != null" style="font-weight: bold">
-                    <li>{{testCase.parentName}}</li>
-                    <li>{{testCase.name}}</li>
+                    <li ng-show="testCase['nav'].testPlan != null">{{testCase['nav'].testPlan}}</li>
+                    <li ng-show="testCase['nav'].testGroup != null">{{testCase['nav'].testGroup}}</li>
+                    <li ng-show="testCase['nav'].testCase != null">{{testCase['nav'].testCase}}</li>
+                    <li ng-show="testCase['nav'].testStep != null">{{testCase['nav'].testStep}}</li>
                 </ol>
                 <span ng-show="testCase == null" style="text-align:center">No Test Case Loaded.</span>
             </div>

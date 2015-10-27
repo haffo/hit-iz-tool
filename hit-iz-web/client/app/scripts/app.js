@@ -97,10 +97,24 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider)
             redirectTo: '/'
         });
 
-
-
+    $httpProvider.interceptors.push('dataChangedInterceptor');
 
 });
+
+app.factory('dataChangedInterceptor', ['$q','$rootScope', function($q, $rootScope) {
+    var responseInterceptor = {
+        response: function(resp) {
+            var deferred = $q.defer();
+            if (resp.config.headers['dTime'] && resp.config.headers['dTime'] != null && $rootScope.appInfo.date != null && resp.config.headers['dTime'] !== $rootScope.appInfo.date){
+                $rootScope.openVersionChangeDlg();
+            }
+            deferred.resolve(resp);
+            return deferred.promise;
+        }
+    };
+
+    return responseInterceptor;
+}]);
 
 //app.factory('503Interceptor', function ($injector, $q, $rootScope) {
 //    return function (responsePromise) {
@@ -133,11 +147,11 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider)
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService,$window,$route) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route) {
 
     $rootScope.appInfo = {};
 
-    $rootScope.stackPosition =0;
+    $rootScope.stackPosition = 0;
 
     $rootScope.scrollbarWidth = null;
 
@@ -154,7 +168,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     }, function (newLocation, oldLocation) {
 
         //true only for onPopState
-        if($rootScope.activePath === newLocation) {
+        if ($rootScope.activePath === newLocation) {
 
             var back,
                 historyState = $window.history.state;
@@ -176,7 +190,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 
                 $window.history.replaceState({
                     position: $rootScope.stackPosition
-                },'');
+                }, '');
 
                 $rootScope.stackPosition++;
 
@@ -187,7 +201,6 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 //            }
 
         }
-
 
 
     });
@@ -307,17 +320,15 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     };
 
 
-
-
-    $rootScope.$on('$locationChangeSuccess', function() {
-         //$rootScope.activePath = $location.path();
+    $rootScope.$on('$locationChangeSuccess', function () {
+        //$rootScope.activePath = $location.path();
         $rootScope.setActive($location.path());
     });
 
 
-    $rootScope.getScrollbarWidth = function() {
+    $rootScope.getScrollbarWidth = function () {
 
-        if($rootScope.scrollbarWidth == null) {
+        if ($rootScope.scrollbarWidth == null) {
             var outer = document.createElement("div");
             outer.style.visibility = "hidden";
             outer.style.width = "100px";
@@ -346,8 +357,26 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     };
 
 
+    $rootScope.openValidationResultInfo = function () {
+        var modalInstance = $modal.open({
+            templateUrl: 'ValidationResultInfoCtrl.html',
+            windowClass: 'profile-modal',
+            controller: 'ValidationResultInfoCtrl'
+        });
+    };
+
+    $rootScope.openVersionChangeDlg = function () {
+        var modalInstance = $modal.open({
+            templateUrl: 'VersionChangeCtrl.html',
+            size:'lg',
+            keyboard:'false',
+            controller: 'VersionChangeCtrl'
+        });
+    };
 
 });
+
+
 
 angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
     .controller('CarouselController', ['$scope', '$timeout', '$transition', '$q', function ($scope, $timeout, $transition, $q) {
@@ -462,14 +491,34 @@ angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function 
 }]);
 
 
-
-angular.module('hit-tool-services').controller('TableFoundCtrl', function ($scope, $modalInstance, table) {
+app.controller('TableFoundCtrl', function ($scope, $modalInstance, table) {
     $scope.table = table;
     $scope.tmpTableElements = [].concat(table != null ? table.valueSetElements : []);
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
 });
+
+
+app.controller('ValidationResultInfoCtrl', [ '$scope', '$modalInstance',
+    function ($scope, $modalInstance) {
+        $scope.close = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    }
+]);
+
+
+app.controller('VersionChangeCtrl', [ '$scope', '$modalInstance','StorageService','$window',
+    function ($scope, $modalInstance,StorageService,$window) {
+        $scope.refresh = function () {
+            StorageService.clearAll();
+            $modalInstance.close($window.location.reload());
+        };
+    }
+]);
+
+
 
 
 
