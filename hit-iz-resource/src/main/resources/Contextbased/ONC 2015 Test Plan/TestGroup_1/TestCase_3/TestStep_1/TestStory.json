@@ -3,7 +3,7 @@
   "comments" : "<p>No Comments</p>\r\n",
   "preCondition" : "<p>No PreCondition</p>\r\n",
   "postCondition" : "<p>No PostCondition</p>\r\n",
-  "testObjectives" : "<p>No Test Objectives</p>\r\n",
+  "testObjectives" : "<ul><li>No consent given</li><li>Full middle name<br></li></ul>",
   "evaluationCriteria" : "<p>No evaluation criteria</p>\r\n",
   "notes" : "<p>No Note</p>\r\n"
 }
