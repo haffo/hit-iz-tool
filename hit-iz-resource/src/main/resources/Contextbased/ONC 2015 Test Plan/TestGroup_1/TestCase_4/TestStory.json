@@ -3,7 +3,7 @@
   "comments" : "No Comments",
   "preCondition" : "No PreCondition",
   "postCondition" : "No PostCondition",
-  "testObjectives" : "<font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333330154419px;\">This test case assesses the ability of the EHR to create &nbsp;a delete message for a previously sent administration.</span></font>",
+  "testObjectives" : "<font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333330154419px;\">This test case assesses the ability of the EHR to create  a delete message for a previously sent administration.</span></font>",
   "evaluationCriteria" : "No evaluation criteria",
   "notes" : "No Note"
 }

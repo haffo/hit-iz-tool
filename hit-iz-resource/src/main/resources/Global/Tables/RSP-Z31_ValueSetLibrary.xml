@@ -542,6 +542,7 @@
 			<ValueElement Value="Z42" CodeSystem="CDCPHINVS" DisplayName="Return Evaluated History and Forecast"/>
 			<ValueElement Value="Z32" CodeSystem="CDCPHINVS" DisplayName="Return Immunization History"/>
 			<ValueElement Value="Z22" CodeSystem="CDCPHINVS" DisplayName="Send Immunization History"/>
+			<ValueElement Value="Z33" CodeSystem="CDCPHINVS" DisplayName="Return an acknowledgement with no person records"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
 	<ValueSetDefinitions Group="HL7" Order="3">

@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConformanceContext UUID="56361f5b-a597-41e1-b04d-01dd0459d9a6">
+<ConformanceContext UUID="c20ca739-090f-4812-a24f-9ccea6fa66ab">
   <Constraints>
     <Group>
       <ByName Name="QBP_Q11">
-        <Constraint ID="TCA-3" Target="1[1].15[1]">
+        <Constraint ID="TCA-2" Target="1[1].15[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].15[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected test case fixed content is missing. The value at MSH[1].15[1](Accept Acknowledgment Type) does not match the expected value: 'ER'.</Description>
           <Assertion>
             <PlainText IgnoreCase="false" Path="1[1].15[1]" Text="ER"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-4" Target="1[1].16[1]">
+        <Constraint ID="TCA-3" Target="1[1].16[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].16[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected test case fixed content is missing. The value at MSH[1].16[1](Application Acknowledgment Type) does not match the expected value: 'AL'.</Description>
           <Assertion>
             <PlainText IgnoreCase="false" Path="1[1].16[1]" Text="AL"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-5" Target="1[1].2[1]">
+        <Constraint ID="TCA-4" Target="1[1].2[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].2[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected test case fixed content is missing. The value at MSH[1].2[1](Encoding Characters) does not match the expected value: '^~\&amp;'.</Description>
           <Assertion>
             <PlainText IgnoreCase="false" Path="1[1].2[1]" Text="^~\&amp;"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-5" Target="3[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].7[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD[1].7[1](Patient Sex) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].7[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-5" Target="3[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].7[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected test case fixed content is missing. The value at QPD[1].7[1](Patient Sex) does not match the expected value: 'M'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="false" Path="3[1].7[1]" Text="M"/>
           </Assertion>
         </Constraint>
         <Constraint ID="TCA-6" Target="1[1].1[1]">
@@ -30,20 +44,6 @@
           <Description>Expected test case fixed content is missing. The value at MSH[1].1[1](Field Separator) does not match the expected value: '|'.</Description>
           <Assertion>
             <PlainText IgnoreCase="false" Path="1[1].1[1]" Text="|"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-7" Target="3[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].7[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD[1].7[1](Patient Sex) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].7[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-7" Target="3[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].7[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected test case fixed content is missing. The value at QPD[1].7[1](Patient Sex) does not match the expected value: 'M'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="false" Path="3[1].7[1]" Text="M"/>
           </Assertion>
         </Constraint>
       </ByName>
