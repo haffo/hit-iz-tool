@@ -1,6 +1,6 @@
 .carousel {
-    height: 600px;
-    margin-bottom: 60px;
+    height: 450px;
+    margin-bottom: 20px;
 }
 
 .carousel-caption {
@@ -13,14 +13,14 @@
 }
 
 .carousel .item {
-    height: 600px;
+    height: 450px;
     background:white url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
 }
 .carousel-inner > .item > img {
     /*position: absolute;*/
     /*top: 0;*/
     /*left: 0;*/
-    height: 500px;
+    height: 400px;
     margin: 0 auto;
 }
 
