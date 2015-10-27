@@ -225,15 +225,31 @@
                     Validation Result Information
                 </span>
                 <span class="pull-right">
-                    <button class="btn btn-primary btn-sm" ng-click="close()"><i class="fa fa-times"></i> Close</button>
+                     <a ng-click="close()"> <i class="fa fa-times"></i></a>
                 </span>
     </div>
     <div class="modal-body">
-        <div ng-if="appInfo.validationResultInfo != null" ng-bind-html="appInfo.validationResultInfo">
+        <div class="validation-result-info-content">
+            <div ng-if="appInfo.validationResultInfo != null" ng-bind-html="appInfo.validationResultInfo">
+            </div>
+            <div ng-if="appInfo.validationResultInfo == null">
+                No information available.
+            </div>
         </div>
-        <div ng-if="appInfo.validationResultInfo == null">
-            No information available.
-        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="VersionChangeCtrl.html">
+    <div class="modal-header">
+                <span style="font-weight: bold; font-size: 20px">
+                    Server Data has Changed
+                </span>
+                <span class="pull-right">
+                    <button class="btn btn-primary btn-sm" ng-click="close()"><i class="fa fa-times"></i></button>
+                </span>
+    </div>
+    <div class="modal-body">
+         The data has changed on the server. Please <a ng-click="refresh()">click here to refresh</a> your application.
     </div>
 </script>
 

@@ -97,8 +97,24 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider)
             redirectTo: '/'
         });
 
+    $httpProvider.interceptors.push('dataChangedInterceptor');
 
 });
+
+app.factory('dataChangedInterceptor', ['$q','$rootScope', function($q, $rootScope) {
+    var responseInterceptor = {
+        response: function(resp) {
+            var deferred = $q.defer();
+            if (resp.config.headers['dTime'] && resp.config.headers['dTime'] != null && $rootScope.appInfo.date != null && resp.config.headers['dTime'] !== $rootScope.appInfo.date){
+                $rootScope.openVersionChangeDlg();
+            }
+            deferred.resolve(resp);
+            return deferred.promise;
+        }
+    };
+
+    return responseInterceptor;
+}]);
 
 //app.factory('503Interceptor', function ($injector, $q, $rootScope) {
 //    return function (responsePromise) {
@@ -343,9 +359,18 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 
     $rootScope.openValidationResultInfo = function () {
         var modalInstance = $modal.open({
-            templateUrl: 'ValidationResultInfo.html',
+            templateUrl: 'ValidationResultInfoCtrl.html',
             windowClass: 'profile-modal',
             controller: 'ValidationResultInfoCtrl'
+        });
+    };
+
+    $rootScope.openVersionChangeDlg = function () {
+        var modalInstance = $modal.open({
+            templateUrl: 'VersionChangeCtrl.html',
+            size:'lg',
+            keyboard:'false',
+            controller: 'VersionChangeCtrl'
         });
     };
 
@@ -482,6 +507,18 @@ app.controller('ValidationResultInfoCtrl', [ '$scope', '$modalInstance',
         };
     }
 ]);
+
+
+app.controller('VersionChangeCtrl', [ '$scope', '$modalInstance','StorageService','$window',
+    function ($scope, $modalInstance,StorageService,$window) {
+        $scope.refresh = function () {
+            StorageService.clearAll();
+            $modalInstance.close($window.location.reload());
+        };
+    }
+]);
+
+
 
 
 

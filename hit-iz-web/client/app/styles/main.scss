@@ -1892,5 +1892,12 @@ table.validation-result-table {
   height: 90%;
 }
 
+.validation-result-info-content {
+  max-height: 700px !important;
+  width: 100% !important;
+  overflow: auto;
+}
+
+
 
 

@@ -10,7 +10,7 @@
             <td class="box">
                 <div>
                     <h5>Deployment Information</h5>
-                    <span>Date: {{appInfo.date}}, </span>
+                    <span>Date: {{appInfo.date |  date: 'MM/dd/yyyy HH:mm:ss'}}, </span>
                     <span>Version: {{appInfo.version}}</span>
                 </div>
             </td>
