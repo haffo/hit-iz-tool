@@ -292,7 +292,7 @@ angular.module('cf')
                     var id = $scope.cf.testCase.testContext.id;
                     var content = $scope.cf.message.content;
                     var label = $scope.cf.testCase.label;
-                    var validated = $scope.validator.validate(id, content, $scope.cf.testCase.nav, "Free", $scope.dqaCodes, "1223");
+                    var validated = $scope.validator.validate(id, content, {}, "Free", $scope.dqaCodes, "1223");
                     validated.then(function (mvResult) {
                         $scope.vLoading = false;
                         $scope.loadValidationResult(mvResult);
