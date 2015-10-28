@@ -6,7 +6,21 @@
     <div class="col-md-10" ng-show="uploadError != null">
         <div class="alert alert-danger" role="alert" ng-bind="uploadError"></div>
     </div>
+
+
+    <div ng-show="eError != null">
+        <div class="alert alert-danger" role="alert" ng-bind="eError"></div>
+    </div>
+    <div ng-show="tError != null">
+        <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
+    </div>
+
+    <div ng-show="vError != null">
+        <div class="alert alert-danger" role="alert" ng-bind="vError"></div>
+    </div>
+
 </div>
+
 <div class="row">
 <div class="col-md-3">
     <div class="panel panel-info">
@@ -19,9 +33,6 @@
                     <div ng-show="hasContent()">
                         <abn-tree tree-control="envelopeTree" icon-leaf="" on-select="onEnvelopeNodeSelect(branch)"></abn-tree>
                     </div>
-                </div>
-                <div ng-show="tError != null">
-                    <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
                 </div>
             </div>
             <div ng-show="tLoading" style="text-align:center">
@@ -69,10 +80,6 @@
         <div ng-show="eLoading" style="text-align:center">
             <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
         </div>
-
-        <div ng-show="eError != null">
-            <div class="alert alert-danger" role="alert" ng-bind="eError"></div>
-        </div>
         <div id="editor_container form-group">
             <textarea class="form-control" type="envelope" id="envelopeTextArea" wrap="off" style="overflow:auto"></textarea>
         </div>
@@ -86,13 +93,8 @@
     </div>
     <div class="panel-body result-container">
 
-        <div ng-show="!rLoading">
-
-            <div ng-show="rError != null">
-                <div class="alert alert-danger" role="alert" ng-bind="rError"></div>
-            </div>
-
-            <div ng-show="!rError || error == rError">
+        <div ng-show="!vLoading">
+            <div ng-show="!vError || vError == null">
                 <tabset>
                     <tab>
                         <tab-heading>
@@ -235,7 +237,7 @@
                 </tabset>
             </div>
         </div>
-        <div ng-show="rLoading" style="text-align:center">
+        <div ng-show="vLoading" style="text-align:center">
             <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
         </div>
     </div>

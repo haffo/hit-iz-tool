@@ -267,13 +267,14 @@ angular.module('cf')
 
             $scope.editor.on("dblclick", function (editor) {
                 $timeout(function () {
-                    var coordinate = $scope.cursorService.getCoordinate($scope.editor);
-                    $scope.cf.cursor.init(coordinate.line, coordinate.startIndex, coordinate.endIndex, coordinate.index, true);
+                    var coordinate = $scope.cursorService.getCoordinate($scope.editor, $scope.cf.tree);
+                    coordinate.lineNumber = coordinate.line;
+                    coordinate.startIndex = coordinate.startIndex +1;
+                    coordinate.endIndex = coordinate.endIndex +1;
+                    $scope.cf.cursor.init(coordinate, true);
                     $scope.treeService.selectNodeByIndex($scope.cf.tree.root, CF.cursor, CF.message.content);
                 });
             });
-
-            $scope.cf.editor.instance = $scope.editor;
 
             $scope.refreshEditor();
 
@@ -370,8 +371,8 @@ angular.module('cf')
         };
 
         $scope.onNodeSelect = function (node) {
-            var index = $scope.treeService.getEndIndex(node, $scope.cf.message.content);
-            $scope.cf.cursor.init(node.data.lineNumber, node.data.startIndex - 1, index - 1, node.data.startIndex - 1, false);
+            $scope.treeService.getEndIndex(node, $scope.cf.message.content);
+            $scope.cf.cursor.init(node.data, false);
             $scope.editorService.select($scope.editor, $scope.cf.cursor);
         };
 
@@ -396,9 +397,7 @@ angular.module('cf')
             $scope.tError = null;
             $scope.mError = null;
             $scope.vError = null;
-
             $scope.initCodemirror();
-
 
             $scope.$on('cf:refreshEditor', function (event) {
                 $scope.refreshEditor();
@@ -407,11 +406,13 @@ angular.module('cf')
             $rootScope.$on('cf:testCaseLoaded', function (event, testCase) {
                 $timeout(function () {
                     $scope.testCase = testCase;
-                    $scope.refreshEditor();
                     if ($scope.testCase != null) {
                         var content = StorageService.get(StorageService.CF_EDITOR_CONTENT_KEY) == null ? '' : StorageService.get(StorageService.CF_EDITOR_CONTENT_KEY);
                         $scope.nodelay = true;
                         $scope.mError = null;
+                        $scope.cf.editor = ServiceDelegator.getEditor($scope.testCase.testContext.format);
+                        $scope.cf.editor.instance = $scope.editor;
+                        $scope.cf.cursor = ServiceDelegator.getCursor($scope.testCase.testContext.format);
                         $scope.validator = ServiceDelegator.getMessageValidator($scope.testCase.testContext.format);
                         $scope.parser = ServiceDelegator.getMessageParser($scope.testCase.testContext.format);
                         $scope.editorService = ServiceDelegator.getEditorService($scope.testCase.testContext.format);
@@ -422,6 +423,7 @@ angular.module('cf')
                             $scope.execute();
                         }
                     }
+                    $scope.refreshEditor();
                 });
             });
         };

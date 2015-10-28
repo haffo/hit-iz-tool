@@ -99,7 +99,7 @@ angular.module('hl7v2-edi').factory('HL7V2EDICursorServiceClass',
 
 
 angular.module('hl7v2-edi').factory('HL7V2EDIEditorServiceClass',
-    ['$rootScope', '$http', '$q', 'EditorService', function ($rootScope, $http, $q, EditorService) {
+    ['EditorService', function (EditorService) {
 
         var HL7V2EDIEditorServiceClass = function () {
             EditorService.call(this, arguments);
@@ -141,6 +141,51 @@ angular.module('hl7v2-edi').factory('HL7V2EDIEditorServiceClass',
         return HL7V2EDIEditorServiceClass;
 
     }]);
+
+
+angular.module('hl7v2-edi').factory('HL7V2EDICursorClass',
+    ['CursorClass', function (CursorClass) {
+
+        var HL7V2EDICursorClass = function () {
+            CursorClass.call(this, arguments);
+            this.line = 1;
+            this.startIndex = -1;
+            this.endIndex = -1;
+            this.index = -1;
+            this.segment = "";
+            this.updateIndicator = '0';
+            this.triggerTree = undefined;
+        };
+
+        HL7V2EDICursorClass.prototype = Object.create(CursorClass.prototype);
+        HL7V2EDICursorClass.prototype.constructor = HL7V2EDICursorClass;
+
+        HL7V2EDICursorClass.prototype.init = function (coordinate, triggerTree) {
+            this.line = coordinate.lineNumber;
+            this.startIndex = coordinate.startIndex - 1;
+            this.endIndex = coordinate.endIndex - 1;
+            this.index = coordinate.startIndex - 1;
+            this.triggerTree = triggerTree;
+            this.notify();
+        };
+
+        HL7V2EDICursorClass.prototype.notify = function () {
+            this.updateIndicator = new Date().getTime();
+        };
+
+        return HL7V2EDICursorClass;
+
+    }]);
+
+
+angular.module('format').factory('HL7V2EDIEditorClass', function (EditorClass) {
+    var HL7V2EDIEditorClass = function () {
+        EditorClass.call(this, arguments);
+    };
+    HL7V2EDIEditorClass.prototype = Object.create(EditorClass.prototype);
+    HL7V2EDIEditorClass.prototype.constructor = HL7V2EDIEditorClass;
+    return HL7V2EDIEditorClass;
+});
 
 
 angular.module('hl7v2-edi').factory('HL7V2EDIUtils', function () {
@@ -368,8 +413,8 @@ angular.module('hl7v2-edi').factory('HL7V2EDITreeServiceClass',
                 if (data.endIndex != undefined && data.endIndex != -1) {
                     return data.endIndex;
                 }
-
-                return this.getEndColumn(data.lineNumber, data.startIndex, data.type, data.path, message);
+                data.endIndex =  this.getEndColumn(data.lineNumber, data.startIndex, data.type, data.path, message);
+                return data.endIndex;
             } catch (error) {
                 return -1;
             }

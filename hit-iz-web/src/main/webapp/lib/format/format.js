@@ -52,6 +52,13 @@ angular.module('format').factory('CursorService',
             return 0;
         };
 
+
+        CursorService.prototype.setCursor = function (cursor) {
+            this.cursor = cursor;
+        };
+
+
+
         return CursorService;
     }]);
 
@@ -100,56 +107,6 @@ angular.module('format').factory('TreeService',
         var TreeService = function () {
             this.editor = null;
         };
-
-
-//        /**
-//         *
-//         * @param tree
-//         * @param cursorObject
-//         * @returns {*}
-//         */
-//        TreeService.prototype.findByIndex = function (tree, cursorObject, message) {
-//            return null;
-//        };
-//
-//        /**
-//         *
-//         * @param tree
-//         * @param line
-//         * @param path
-//         * @returns {*}
-//         */
-//        TreeService.prototype.findByPath = function (tree, line, path) {
-//            return null;
-//        };
-//
-//        /**
-//         *
-//         * @param tree
-//         * @param node
-//         * @param lineNumber
-//         * @param startIndex
-//         * @param endIndex
-//         * @returns {*}
-//         */
-//        TreeService.prototype.findNodeByPath = function (tree, node, lineNumber, path) {
-//            return null;
-//        };
-//
-//        /**
-//         *
-//         * @param tree
-//         * @param node
-//         * @param lineNumber
-//         * @param startIndex
-//         * @param endIndex
-//         * @returns {*}
-//         */
-//        TreeService.prototype.findNodeByIndex = function (tree, node, lineNumber, startIndex, endIndex, message) {
-//            return null;
-//        };
-//
-//
 
         /**
          *
@@ -299,13 +256,21 @@ angular.module('format').factory('MessageValidatorClass', function ($http, $q, $
                     }
                 },
                 function (response) {
-//                    delay.reject(response.data);
-                    delay.reject("Failed to validate the message.");
+                    delay.reject(response.data);
                 }
             );
 
 //
 //            $http.get('../../resources/cf/newValidationResult3.json').then(
+//                function (object) {
+//                    delay.resolve(angular.fromJson(object.data));
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
+
+//            $http.get('../../resources/erx/soap-validate-response.json').then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
 //                },
@@ -348,12 +313,19 @@ angular.module('format').factory('MessageParserClass', function ($http, $q, $tim
                     delay.resolve(angular.fromJson(object.data));
                 },
                 function (response) {
-                    //delay.reject(response.data);
-                    delay.reject("Failed to parse the message.");
-
+                    delay.reject(response.data);
                 }
             );
+
 //            $http.get('../../resources/cf/messageObject.json').then(
+//                function (object) {
+//                    delay.resolve(angular.fromJson(object.data));
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
+//            $http.get('../../resources/erx/soap-parse-response.json').then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
 //                },
@@ -372,6 +344,64 @@ angular.module('format').factory('MessageParserClass', function ($http, $q, $tim
 
     return MessageParserClass;
 });
+
+
+
+angular.module('format').factory('CursorClass', function () {
+    var CursorClass = function () {
+        this.updateIndicator = '0';
+    };
+
+    CursorClass.prototype.init = function () {
+         this.notify();
+    };
+
+    CursorClass.prototype.notify = function () {
+        this.updateIndicator = new Date().getTime();
+    };
+
+    return CursorClass;
+});
+
+angular.module('format').factory('EditorClass', function ($http, $q) {
+    var EditorClass = function () {
+        this.instance = null;
+        this.updateIndicator = '0';
+        this.id = null;
+        this.name = '';
+    };
+
+    EditorClass.prototype.notifyChange = function () {
+        this.updateIndicator = new Date().getTime();
+    };
+
+    EditorClass.prototype.init = function (editor) {
+        if (editor != undefined) {
+            this.instance = editor;
+        }
+    };
+
+    EditorClass.prototype.getContent = function () {
+        if (this.instance != undefined) {
+            return this.instance.doc.getValue();
+        }
+        return null;
+    };
+
+    EditorClass.prototype.setContent = function (content) {
+        if (this.instance != undefined) {
+            this.instance.doc.setValue(content);
+            this.notifyChange();
+        }
+    };
+
+
+    return EditorClass;
+});
+
+
+
+
 
 angular.module('format').factory('ReportServiceClass', function ($http, $q, $filter) {
     this.format = null;
@@ -427,9 +457,9 @@ angular.module('format').factory('ReportServiceClass', function ($http, $q, $fil
         }
     };
 
-    ReportServiceClass.prototype.downloadAs = function (json, targetFormat) {
+    ReportServiceClass.prototype.downloadAs = function (json, format) {
         if (this.format && this.format != null) {
-            return this.download("api/" + this.format + "/report/downloadAs/" + targetFormat, json);
+            return this.download("api/" + this.format + "/report/downloadAs/" + format, json);
         }
         return;
     };
@@ -438,7 +468,541 @@ angular.module('format').factory('ReportServiceClass', function ($http, $q, $fil
 });
 
 
-angular.module('format').factory('ServiceDelegator', function (EDIMessageValidator, HL7V2MessageValidator,XMLMessageValidator, HL7V2MessageParser, EDIMessageParser, XMLMessageParser, HL7V2CursorService, HL7V2EditorService, HL7V2TreeService, EDICursorService, EDIEditorService, EDITreeService, XMLCursorService, XMLEditorService, XMLTreeService, DefaultMessageValidator, DefaultMessageParser, DefaultCursorService, DefaultEditorService, DefaultTreeService, HL7V2ReportService, EDIReportService, XMLReportService, DefaultReportService) {
+angular.module('format').factory('Tree', function () {
+    var Tree = function () {
+        this.id = null;
+        this.root = {};
+    };
+    return Tree;
+});
+
+angular.module('format').factory('Message', function ($http, $q) {
+    var Message = function () {
+        this.id = null;
+        this.name = '';
+        this.content = '';
+        this.description = '';
+        this.updateIndicator = "0";
+    };
+
+    Message.prototype.notifyChange = function () {
+        this.updateIndicator = new Date().getTime();
+    };
+
+
+    Message.prototype.setContent = function (content) {
+        this.content = content != undefined ? content : '';
+        this.notifyChange();
+    };
+
+    Message.prototype.init = function (m) {
+        this.id = m.id;
+        this.name = m.name;
+        this.description = m.description;
+        this.setContent(m.content);
+    };
+
+
+    Message.prototype.download = function () {
+        var form = document.createElement("form");
+        form.action = "api/message/download";
+        form.method = "POST";
+        form.target = "_target";
+        var input = document.createElement("textarea");
+        input.name = "content";
+        input.value = this.content;
+        form.appendChild(input);
+        form.style.display = 'none';
+        document.body.appendChild(form);
+        form.submit();
+    };
+
+    return Message;
+});
+
+
+angular.module('format').factory('Report', function ($http, $q) {
+    var Report = function () {
+        this.html = null;
+    };
+    Report.prototype.generate = function (url, xmlReport) {
+        var delay = $q.defer();
+        $http({
+            url: url,
+            data: $.param({'xmlReport': xmlReport}),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+            method: 'POST',
+            timeout: 60000
+        }).success(function (data) {
+            delay.resolve(angular.fromJson(data));
+        }).error(function (err) {
+            delay.reject(err);
+        });
+        return delay.promise;
+    };
+
+    Report.prototype.download = function (url, xmlReport) {
+        var form = document.createElement("form");
+        form.action = url;
+        form.method = "POST";
+        form.target = "_target";
+        var input = document.createElement("textarea");
+        input.name = "xmlReport";
+        input.value = xmlReport;
+        form.appendChild(input);
+        form.style.display = 'none';
+        document.body.appendChild(form);
+        form.submit();
+    };
+
+    return Report;
+});
+
+
+
+angular.module('format').factory('TestCaseService', function ($filter) {
+    var TestCaseService = function () {
+
+    };
+
+    TestCaseService.prototype.findOneById = function (id, testCase) {
+        if (testCase) {
+            if (id === testCase.id) {
+                return testCase;
+            }
+            if (testCase.children && testCase.children != null && testCase.children.length > 0) {
+                for (var i = 0; i < testCase.children.length; i++) {
+                    var found = this.findOneById(id, testCase.children[i]);
+                    if (found != null) {
+                        return found;
+                    }
+                }
+            }
+        }
+        return null;
+    };
+
+    TestCaseService.prototype.findOneByIdAndType = function (id, type, testCase) {
+        if (testCase) {
+            if (id === testCase.id && type === testCase.type) {
+                return testCase;
+            }
+            if (testCase.children && testCase.children != null && testCase.children.length > 0) {
+                for (var i = 0; i < testCase.children.length; i++) {
+                    var found = this.findOneByIdAndType(id, type, testCase.children[i]);
+                    if (found != null) {
+                        return found;
+                    }
+                }
+            }
+        }
+        return null;
+    };
+
+
+    TestCaseService.prototype.buildTree = function (node) {
+        if (node.type === 'TestStep') {
+            node.label = node.position + "." + node.name;
+        } else {
+            node.label = node.name;
+        }
+
+        if(!node['nav']) node['nav'] = {};
+
+        var that = this;
+        if (node.testCases) {
+            if (!node["children"]) {
+                node["children"] = node.testCases;
+                angular.forEach(node.children, function (testCase) {
+                    testCase['nav'] = {};
+                    testCase['nav']['testStep'] = null;
+                    testCase['nav'] = {};
+                    testCase['nav']['testCase'] = testCase.name;
+                    testCase['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+                    testCase['nav']['testGroup'] = node.type === 'TestCaseGroup' ? node.name : node['nav'].testGroup;
+                    that.buildTree(testCase );
+                });
+            } else {
+                angular.forEach(node.testCases, function (testCase) {
+                    node["children"].push(testCase);
+                    testCase['nav'] = {};
+                    testCase['nav']['testStep'] = null;
+                    testCase['nav']['testCase'] = testCase.name;
+                    testCase['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+                    testCase['nav']['testGroup'] = node.type === 'TestCaseGroup' ? node.name : node['nav'].testGroup;
+                    that.buildTree(testCase );
+                });
+            }
+            node["children"] = $filter('orderBy')(node["children"], 'position');
+            delete node.testCases;
+        }
+
+        if (node.testCaseGroups) {
+            if (!node["children"]) {
+                node["children"] = node.testCaseGroups;
+                angular.forEach(node.children, function (testCaseGroup) {
+                    testCaseGroup['nav'] = {};
+                    //node["children"].push(testCaseGroup);
+                    testCaseGroup['nav']['testCase'] = null;
+                    testCaseGroup['nav']['testStep'] = null;
+                    testCaseGroup['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+                    testCaseGroup['nav']['testGroup'] = node.type === 'TestCaseGroup' ? node.name : node['nav'].testGroup;
+                    that.buildTree(testCaseGroup);
+                });
+            } else {
+                angular.forEach(node.testCaseGroups, function (testCaseGroup) {
+                    node["children"].push(testCaseGroup);
+                    testCaseGroup['nav'] = {};
+                    testCaseGroup['nav']['testCase'] = null;
+                    testCaseGroup['nav']['testStep'] = null;
+                    testCaseGroup['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+                    testCaseGroup['nav']['testGroup'] = node.type === 'TestCaseGroup' ? node.name : node['nav'].testGroup;
+                    that.buildTree(testCaseGroup);
+                });
+            }
+            node["children"] = $filter('orderBy')(node["children"], 'position');
+            delete node.testCaseGroups;
+        }
+
+        if (node.testSteps) {
+            if (!node["children"]) {
+                node["children"] = node.testSteps;
+                angular.forEach(node.children, function (testStep) {
+                    testStep['nav'] = {};
+                    //node["children"].push(testStep);
+                    testStep['nav']['testCase'] = node.name;
+                    testStep['nav']['testStep'] = testStep.position + "." + testStep.name;
+                    testStep['nav']['testPlan'] = node['nav'].testPlan;
+                    testStep['nav']['testGroup'] = node['nav'].testGroup;
+                    that.buildTree(testStep);
+                });
+            } else {
+                angular.forEach(node.testSteps, function (testStep) {
+                    node["children"].push(testStep);
+                    testStep['nav'] = {};
+                    testStep['nav']['testCase'] = node.name;
+                    testStep['nav']['testStep'] = testStep.position + "." + testStep.name;
+                    testStep['nav']['testPlan'] = node['nav'].testPlan;
+                    testStep['nav']['testGroup'] = node['nav'].testGroup;
+                    that.buildTree(testStep);
+                });
+            }
+            node["children"] = $filter('orderBy')(node["children"], 'position');
+            delete node.testSteps;
+        }
+    };
+
+
+    TestCaseService.prototype.buildCFTestCases = function (obj) {
+        obj.label = !obj.children ? obj.position + "." + obj.name: obj.name;
+        obj['nav'] = {};
+        obj['nav']['testStep'] = obj.label;
+        obj['nav']['testCase'] = null;
+        obj['nav']['testPlan'] =null;
+        obj['nav']['testGroup'] =null;
+
+        if (obj.children) {
+            var that = this;
+            obj.children = $filter('orderBy')(obj.children, 'position');
+            angular.forEach(obj.children, function (child) {
+                child['nav'] = {};
+                child['nav']['testStep'] = child.label;
+                child['nav']['testCase'] = obj.label;
+                child['nav']['testPlan'] = obj['nav'].testPlan;
+                child['nav']['testGroup'] =null;
+                that.buildCFTestCases(child);
+            });
+        }
+    };
+
+
+    TestCaseService.prototype.findNode = function (tree, node, id, type) {
+        if (node.id === id && ((type != undefined && node.type === type) || (!type && !node.type))) {
+            return node;
+        }
+        var children = tree.get_children(node);
+        if (children && children.length > 0) {
+            for (var i = 0; i < children.length; i++) {
+                var found = this.findNode(tree, children[i],  id, type);
+                if (found != null) {
+                    return found;
+                }
+            }
+        }
+        return null;
+    };
+
+
+    TestCaseService.prototype.selectNodeByIdAndType = function (tree, id, type) {
+        if (id != null && tree != null) {
+            var foundNode = null;
+            var firstNode = tree.get_first_branch();
+            var children = tree.get_siblings(firstNode);
+            if (children && children.length > 0) {
+                for (var i = 0; i < children.length; i++) {
+                    var found = this.findNode(tree, children[i], id, type);
+                    if (found != null) {
+                        foundNode = found;
+                        break;
+                    }
+                }
+            }
+            if (foundNode != null) {
+                tree.collapse_all();
+                tree.select_branch(foundNode);
+                tree.expand_branch(foundNode);
+            }
+        }
+    };
+
+    return TestCaseService;
+});
+
+
+angular.module('format').factory('DataInstanceReport', function ($http, NewValidationReport) {
+    var DataInstanceReport = function () {
+        NewValidationReport.call(this, arguments);
+    };
+
+    DataInstanceReport.prototype = Object.create(NewValidationReport.prototype);
+    DataInstanceReport.prototype.constructor = DataInstanceReport;
+
+    DataInstanceReport.prototype.generateByFormat = function (json, format) {
+        return this.generate("api/report/generateAs/" + format, json);
+    };
+
+    DataInstanceReport.prototype.downloadByFormat = function (json, format) {
+        return this.generate("api/report/downloadAs/" + format, json);
+    };
+    return DataInstanceReport;
+});
+
+angular.module('format').factory('NewValidationReport', function ($http, $q) {
+    var NewValidationReport = function () {
+        this.content = {
+            metaData: {},
+            result: {}
+        }
+    };
+    NewValidationReport.prototype.download = function (url) {
+        var form = document.createElement("form");
+        form.action = url;
+        form.method = "POST";
+        form.target = "_target";
+        var input = document.createElement("textarea");
+        input.name = "jsonReport";
+        input.value = this.content;
+        form.appendChild(input);
+        form.style.display = 'none';
+        document.body.appendChild(form);
+        form.submit();
+    };
+
+
+    NewValidationReport.prototype.generate = function (url) {
+        var delay = $q.defer();
+        $http({
+            url: url,
+            data: $.param({'jsonReport': this.content }),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+            method: 'POST',
+            timeout: 60000
+        }).success(function (data) {
+            delay.resolve(angular.fromJson(data));
+        }).error(function (err) {
+            delay.reject(err);
+        });
+        return delay.promise;
+    };
+
+
+    return NewValidationReport;
+});
+
+
+angular.module('format').factory('Logger', function () {
+    var Logger = function () {
+        this.content = '';
+    };
+
+    Logger.prototype.log = function (value) {
+        this.content = this.content + "\n" + this.getCurrentTime() + ":" + value;
+    };
+
+    Logger.prototype.clear = function () {
+        this.content = '';
+    };
+
+    Logger.prototype.init = function () {
+        this.clear();
+    };
+
+
+    Logger.prototype.getCurrentTime = function () {
+        var now = new Date();
+        return (((now.getMonth() + 1) < 10) ? "0" : "") + (now.getMonth() + 1) + "/" + ((now.getDate() < 10) ? "0" : "") + now.getDate() + "/" + now.getFullYear() + " - " +
+            ((now.getHours() < 10) ? "0" : "") + now.getHours() + ":" + ((now.getMinutes() < 10) ? "0" : "") + now.getMinutes() + ":" + ((now.getSeconds() < 10) ? "0" : "") + now.getSeconds();
+    };
+    return Logger;
+});
+
+
+angular.module('format').factory('Endpoint', function () {
+    var Endpoint = function () {
+        this.value = null;
+    };
+
+    var Endpoint = function (url) {
+        this.value = url;
+    };
+
+    return Endpoint;
+});
+
+
+
+angular.module('format').factory('SecurityFaultCredentials', function ($q, $http) {
+
+    var SecurityFaultCredentials = function () {
+        this.username = null;
+        this.password = null;
+    };
+
+    SecurityFaultCredentials.prototype.init = function (username, password) {
+        this.username = username;
+        this.password = password;
+    };
+
+    return SecurityFaultCredentials;
+});
+
+
+angular.module('format').factory('Clock', function ($interval) {
+    var Clock = function (intervl) {
+        this.value = undefined;
+        this.intervl = intervl;
+    };
+    Clock.prototype.start = function (fn) {
+        if (angular.isDefined(this.value)) {
+            this.stop();
+        }
+        this.value = $interval(fn, this.intervl);
+    };
+    Clock.prototype.stop = function () {
+        if (angular.isDefined(this.value)) {
+            $interval.cancel(this.value);
+            this.value = undefined;
+        }
+    };
+    return Clock;
+});
+
+
+
+angular.module('format').factory('ValidationResultItem', function () {
+    var ValidationResultItem = function () {
+        this.data = [];
+        this.categories = [];
+        this.categories.push({"title": "All", "data": []});
+        this.show = true;
+        this.updateIndicator = '0';
+    };
+
+    ValidationResultItem.prototype.init = function (data) {
+        this.data = data;
+        this.categories = [];
+        this.categories.push({"title": "All", "data": []});
+        this.show = true;
+        this.notify();
+    };
+    ValidationResultItem.prototype.notify = function () {
+        this.updateIndicator = new Date().getTime();
+    };
+    return ValidationResultItem;
+});
+
+
+angular.module('format').factory('ValidationSettings', function () {
+    var ValidationSettings = function () {
+        this.errors = true;
+        this.affirmatives = true;
+        this.ignores = true;
+        this.alerts = true;
+        this.warnings = true;
+    };
+    return ValidationSettings;
+});
+
+angular.module('format').factory('ValidationResult', function (ValidationResultItem, $q) {
+    var ValidationResult = function (key) {
+        this.key = key;
+        this.xml = '';
+        this.errors = new ValidationResultItem();
+        this.affirmatives = new ValidationResultItem();
+        this.ignores = new ValidationResultItem();
+        this.alerts = new ValidationResultItem();
+        this.warnings = new ValidationResultItem();
+        this.informationals = new ValidationResultItem();
+        this.id = '';
+    };
+
+
+    ValidationResult.prototype.updateId = function () {
+        this.id = new Date().getTime();
+    };
+
+
+    ValidationResult.prototype.clear = function () {
+        this.xml = '';
+        this.errors = new ValidationResultItem();
+        this.affirmatives = new ValidationResultItem();
+        this.ignores = new ValidationResultItem();
+        this.alerts = new ValidationResultItem();
+        this.warnings = new ValidationResultItem();
+        this.informationals = new ValidationResultItem();
+        this.updateId();
+    };
+
+    ValidationResult.prototype.init = function (object) {
+        this.xml = object.xml;
+        this.errors.init(object.errors);
+        this.affirmatives.init(object.affirmatives);
+        this.ignores.init(object.ignores);
+        this.alerts.init(object.alerts);
+        this.warnings.init(object.warnings);
+        this.informationals.init(object.informationals);
+        this.updateId();
+    };
+
+
+    ValidationResult.prototype.saveState = function () {
+        sessionStorage.setItem(this.key, this.content);
+    };
+
+    ValidationResult.prototype.restoreState = function () {
+        this.content = sessionStorage.getItem(this.key);
+    };
+    ValidationResult.prototype.hasState = function () {
+        return sessionStorage.getItem(this.key) !== {xml: ''} && sessionStorage.getItem(this.key) != null;
+    };
+    ValidationResult.prototype.getState = function () {
+        return sessionStorage.getItem(this.key);
+    };
+    ValidationResult.prototype.getContent = function () {
+        return  this.content;
+    };
+    ValidationResult.prototype.setContent = function (value) {
+        this.content = value;
+    };
+
+    return ValidationResult;
+});
+
+
+
+
+
+angular.module('format').factory('ServiceDelegator', function (HL7V2MessageValidator, EDIMessageValidator, XMLMessageValidator, HL7V2MessageParser, EDIMessageParser, XMLMessageParser, HL7V2CursorService, HL7V2EditorService, HL7V2TreeService, EDICursorService, EDIEditorService, EDITreeService, XMLCursorService, XMLEditorService, XMLTreeService, DefaultMessageValidator, DefaultMessageParser, DefaultCursorService, DefaultEditorService, DefaultTreeService, HL7V2ReportService, EDIReportService, XMLReportService, DefaultReportService,XMLCursor,EDICursor,HL7V2Cursor,DefaultCursor,  XMLEditor,EDIEditor,HL7V2Editor,DefaultEditor) {
     return {
         getMessageValidator: function (format) {
             if (format === 'hl7v2') {
@@ -462,9 +1026,9 @@ angular.module('format').factory('ServiceDelegator', function (EDIMessageValidat
         },
         getMode: function (format) {
             if (format === 'hl7v2') {
-                return  'hl7v2';
+                return  "hl7v2";
             } else if (format === 'xml') {
-                return  "xml'";
+                return  "xml";
             } else if (format === 'edi') {
                 return  "edi";
             }
@@ -477,13 +1041,14 @@ angular.module('format').factory('ServiceDelegator', function (EDIMessageValidat
                     name: mode,
                     separators: delimeters
                 });
+                editor.setOption("theme", format !== 'xml' ? "elegant": "default");
             }
         },
         getCursorService: function (format) {
             if (format === 'hl7v2') {
                 return  HL7V2CursorService;
             } else if (format === 'xml') {
-                return  XMLEditorService;
+                return  XMLCursorService;
             } else if (format === 'edi') {
                 return  EDICursorService;
             }
@@ -518,6 +1083,26 @@ angular.module('format').factory('ServiceDelegator', function (EDIMessageValidat
                 return  EDIReportService;
             }
             return DefaultReportService;
+        },
+        getCursor: function (format) {
+            if (format === 'hl7v2') {
+                return  HL7V2Cursor;
+            } else if (format === 'xml') {
+                return  XMLCursor;
+            } else if (format === 'edi') {
+                return  EDICursor;
+            }
+            return DefaultCursor;
+        },
+        getEditor: function (format) {
+            if (format === 'hl7v2') {
+                return  HL7V2Editor;
+            } else if (format === 'xml') {
+                return  XMLEditor;
+            } else if (format === 'edi') {
+                return  EDIEditor;
+            }
+            return DefaultEditor;
         }
     }
 });

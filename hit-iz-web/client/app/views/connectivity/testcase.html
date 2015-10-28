@@ -8,9 +8,15 @@
                     <div ng-show="!loading">
                         <div ng-show="error == null">
                             <div class="container-testcase">
+                                <div ng-show="testCases != null && testCases.length > 0">
                                 <testcase-tree tree-control="tree"  icon-leaf=""
                                                is-selectable="isSelectable(branch)"
                                                on-select="selectTestCase(branch)"></testcase-tree>
+                                </div>
+                                <div ng-show="testCases == null || testCases.length == 0">
+                                    No TestCase Available
+                                </div>
+
                         </div>
                         </div>
                         <div ng-show="error != null">

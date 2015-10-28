@@ -23,6 +23,15 @@ angular.module('default').factory('DefaultMessageParser', function (MessageParse
 
 });
 
-angular.module('default').factory('DefaultReportService', function ($http, $q, ReportServiceClass) {
+angular.module('default').factory('DefaultReportService', function (ReportServiceClass) {
     return new ReportServiceClass();
+});
+
+
+angular.module('default').factory('DefaultCursor', function (CursorClass) {
+    return new CursorClass();
+});
+
+angular.module('default').factory('DefaultEditor', function (EditorClass) {
+    return new EditorClass();
 });

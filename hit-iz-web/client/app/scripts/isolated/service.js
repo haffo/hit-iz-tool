@@ -2,7 +2,7 @@
 
 
 angular.module('isolated').factory('IsolatedSystem',
-    ['$http', '$q', 'Editor', 'EDICursor', 'Er7Message', 'ValidationSettings', 'Tree', 'TransactionUser', '$rootScope', 'Logger','StorageService',function ($http, $q, Editor, EDICursor, Er7Message, ValidationSettings,Tree,TransactionUser,$rootScope,Logger,StorageService) {
+    ['$http', '$q', 'Message', 'ValidationSettings', 'Tree', 'TransactionUser', '$rootScope', 'Logger','StorageService',function ($http, $q, Message, ValidationSettings,Tree,TransactionUser,$rootScope,Logger,StorageService) {
 
         var initUser = function(){
             var user = new TransactionUser();
@@ -17,10 +17,10 @@ angular.module('isolated').factory('IsolatedSystem',
             testCase: null,
             testStep: null,
             selectedTestCase: null,
-            editor: new Editor(),
+            editor:null,
             tree: new Tree(),
-            cursor: new EDICursor(),
-            message: new Er7Message(),
+            cursor: null,
+            message: new Message(),
             validationSettings: new ValidationSettings(),
             logger: new Logger(),
             user:  initUser(),

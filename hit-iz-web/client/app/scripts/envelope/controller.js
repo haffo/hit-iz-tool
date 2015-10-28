@@ -173,7 +173,7 @@ angular.module('envelope')
     }]);
 
 angular.module('envelope')
-    .controller('EnvelopeValidatorCtrl', ['$scope', '$http', '$window', 'XmlFormatter', 'Envelope', 'XmlEditorUtils', '$rootScope', 'XmlParser', 'XmlTreeUtils', 'EnvelopeValidator', '$timeout', 'StorageService', function ($scope, $http, $window, XmlFormatter, Envelope, XmlEditorUtils, $rootScope, XmlParser, XmlTreeUtils, EnvelopeValidator, $timeout, StorageService) {
+    .controller('EnvelopeValidatorCtrl', ['$scope', '$http', '$window', 'SOAPFormatter', 'Envelope', 'SOAPEditorUtils', '$rootScope', 'SOAPParser', 'SOAPTreeUtils', 'EnvelopeValidator', '$timeout', 'StorageService', function ($scope, $http, $window, SOAPFormatter, Envelope, SOAPEditorUtils, $rootScope, SOAPParser, SOAPTreeUtils, EnvelopeValidator, $timeout, StorageService) {
         $scope.testCase = Envelope.testCase;
         $scope.selectedTestCase = Envelope.selectedTestCase;
         $scope.vLoading = true;
@@ -185,8 +185,8 @@ angular.module('envelope')
         $scope.editorInit = false;
         $scope.eError = null;
 
-        $scope.rLoading = false;
-        $scope.rError = null;
+        $scope.vLoading = false;
+        $scope.vError = null;
         $scope.resized = false;
         $scope.validationSettings = Envelope.validationSettings;
         $scope.validationResult = Envelope.validationResult;
@@ -219,7 +219,7 @@ angular.module('envelope')
 
         $scope.loadExampleMessage = function () {
             var content = Envelope.testCase.testContext.exampleMessage.content;
-            var formatter = new XmlFormatter(content);
+            var formatter = new SOAPFormatter(content);
             formatter.then(function (formatted) {
                 $scope.message(formatted);
             }, function (error) {
@@ -240,17 +240,17 @@ angular.module('envelope')
 
 
         $scope.validate = function () {
-            $scope.error = null;
+            $scope.vError = null;
             var backup = Envelope.editor.instance.doc.getValue();
             if (backup != '') {
-                $scope.validating = true;
-                var formatter = new XmlFormatter(backup);
+                $scope.vLoading = true;
+                var formatter = new SOAPFormatter(backup);
                 formatter.then(function (formatted) {
-                    $scope.validating = false;
+                    $scope.vLoading = false;
                     $scope.message(formatted);
                 }, function (error) {
-                    $scope.validating = false;
-                    $scope.error = error;
+                    $scope.vLoading = false;
+                    $scope.vError = error;
                 });
             } else {
                 $scope.message('');
@@ -282,19 +282,19 @@ angular.module('envelope')
             $scope.$watch(function () {
                 return Envelope.cursor.updateIndicator;
             }, function () {
-                XmlEditorUtils.select(Envelope.cursor, $scope.editor);
+                SOAPEditorUtils.select(Envelope.cursor, $scope.editor);
             }, true);
 
             $scope.$watch(function () {
                 return Envelope.cursor.toString();
             }, function () {
-                XmlTreeUtils.selectNode($scope.envelopeTree, Envelope.cursor);
+                SOAPTreeUtils.selectNode($scope.envelopeTree, Envelope.cursor);
             }, true);
 
 //            $scope.$watch(function () {
 //                return $scope.envelopeObject;
 //            }, function () {
-//                XmlTreeUtils.expandTree($scope.envelopeTree);
+//                SOAPTreeUtils.expandTree($scope.envelopeTree);
 //            }, true);
 
             $rootScope.$on('env:testCaseLoaded', function (event) {
@@ -361,22 +361,22 @@ angular.module('envelope')
 
 
         $scope.validateMessage = function () {
-            $scope.rLoading = true;
-            $scope.rError = null;
+            $scope.vLoading = true;
+            $scope.vError = null;
             if (Envelope.testCase.id != null && Envelope.editor.instance != null && Envelope.editor.instance.doc.getValue() != '') {
                 var validated = new EnvelopeValidator().validate(Envelope.message.content, Envelope.testCase.id);
                 validated.then(function (result) {
-                    $scope.rLoading = false;
+                    $scope.vLoading = false;
                     $scope.setValidationResult(result);
                 }, function (error) {
-                    $scope.rLoading = false;
-                    $scope.rError = error;
+                    $scope.vLoading = false;
+                    $scope.vError = error;
                     $scope.setValidationResult({});
                 });
             } else {
                 $scope.setValidationResult({});
-                $scope.rLoading = false;
-                $scope.rError = null;
+                $scope.vLoading = false;
+                $scope.vError = null;
             }
         };
 
@@ -400,11 +400,11 @@ angular.module('envelope')
             $scope.tLoading = true;
             $scope.tError = null;
             if (Envelope.testCase.id !== null && Envelope.getContent() != '') {
-                var loader = new XmlParser(Envelope.getContent());
+                var loader = new SOAPParser(Envelope.getContent());
                 loader.then(function (value) {
                     $scope.tLoading = false;
                     $scope.envelopeTree.build_all(value);
-                    XmlTreeUtils.expandTree($scope.envelopeTree);
+                    SOAPTreeUtils.expandTree($scope.envelopeTree);
                  }, function (tError) {
                     $scope.tLoading = false;
                     $scope.tError = tError;
@@ -418,7 +418,7 @@ angular.module('envelope')
 
 
         $scope.onEnvelopeNodeSelect = function (node) {
-            XmlTreeUtils.setCoordinate(node, Envelope.cursor);
+            SOAPTreeUtils.setCoordinate(node, Envelope.cursor);
         };
 
 

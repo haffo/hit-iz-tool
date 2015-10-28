@@ -1900,5 +1900,19 @@ table.validation-result-table {
 
 hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
 
+.home-page-panel {
+  height:300px;
+}
+
+
+.home-page-panel-content {
+  max-height: 250px !important;
+  overflow: auto;
+  text-align: left;
+}
+
+.home-page-onc {
+  max-height: 210px !important;
+ }
 
 

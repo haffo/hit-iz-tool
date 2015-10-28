@@ -1,5 +1,6 @@
 {
   "name" : "Pilot Isolated Test Plan-2",
   "type" : "Isolated",
-  "description" : "Targeted test plan to assess Isolated System Testing Automation"
+  "description" : "Targeted test plan to assess Isolated System Testing Automation",
+      "skip":false
 }

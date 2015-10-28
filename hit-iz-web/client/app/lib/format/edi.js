@@ -42,7 +42,7 @@ angular.module('edi').factory('EDITreeService',
     }]);
 
 
-angular.module('edi').factory('EDIMessageValidator', function (MessageValidatorClass) {
+angular.module('edi').factory('EDIMessageValidator', function ($http, $q, MessageValidatorClass) {
 
     var EDIMessageValidatorClass = function () {
         MessageValidatorClass.call(this, 'edi');
@@ -54,7 +54,7 @@ angular.module('edi').factory('EDIMessageValidator', function (MessageValidatorC
     return new EDIMessageValidatorClass();
 });
 
-angular.module('edi').factory('EDIMessageParser', function (MessageParserClass) {
+angular.module('edi').factory('EDIMessageParser', function ($http, $q, MessageParserClass) {
     var EDIMessageParserClass = function () {
         MessageParserClass.call(this, 'edi');
     };
@@ -63,7 +63,7 @@ angular.module('edi').factory('EDIMessageParser', function (MessageParserClass) 
     return new EDIMessageParserClass();
 });
 
-angular.module('edi').factory('EDIReportService', function (ReportServiceClass) {
+angular.module('edi').factory('EDIReportService', function ($http, $q, ReportServiceClass) {
     var EDIReportServiceClass = function () {
         ReportServiceClass.call(this, 'edi');
     };
@@ -73,7 +73,13 @@ angular.module('edi').factory('EDIReportService', function (ReportServiceClass) 
     return new EDIReportServiceClass();
 });
 
+angular.module('edi').factory('EDICursor', function (HL7V2EDICursorClass) {
+    return new HL7V2EDICursorClass();
+});
 
 
+angular.module('edi').factory('EDIEditor', function (HL7V2EDIEditorClass) {
+    return new HL7V2EDIEditorClass();
+});
 
 

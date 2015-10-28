@@ -164,12 +164,15 @@
             $scope.select = function (element) {
                 if (element != undefined && element.path != null && element.line != -1) {
                     var node = $scope.treeService.selectNodeByPath($scope.tree.root, element.line, element.path);
-                    var data = node != null ? node.data : null;
-                    var endIndex = $scope.treeService.getEndIndex(node, $scope.editor.instance.getValue());
-                    data.endIndex = endIndex;
-                    $scope.cursor.init(data != null ? data.lineNumber : element.line, data != null ? data.startIndex - 1 : element.column - 1, data != null ? data.endIndex - 1 : element.column - 1, data != null ? data.startIndex - 1 : element.column - 1, false);
-                    if($scope.editorService != null) {
-                        $scope.editorService.select($scope.editor.instance, $scope.cursor);
+                    if(node != null) {
+                        var endIndex = $scope.treeService.getEndIndex(node, $scope.editor.instance.getValue());
+                        node.data.endIndex = endIndex;
+                        var coordinate = angular.copy(node.data);
+                        coordinate.lineNumber = element.line;
+                        $scope.cursor.init(coordinate, false);
+                        if ($scope.editorService != null) {
+                            $scope.editorService.select($scope.editor.instance, $scope.cursor);
+                        }
                     }
                 }
             };
@@ -323,14 +326,16 @@
                     angular.forEach(failures, function (failure) {
                         var node = that.treeService.findByPath(root, failure.line, failure.path);
                         if (node != null && node.data && node.data != null) {
-                            var endIndex =  that.treeService.getEndIndex(node, content) - 1;
-                            var startIndex = node.data.startIndex - 1;
-                            var line = parseInt(failure.line) - 1;
+                            that.treeService.getEndIndex(node, content);
+                            var startLine = parseInt(node.data.start && node.data.start != null ? node.data.start.line : failure.line) -1;
+                            var endLine = parseInt(node.data.end && node.data.end != null ? node.data.end.line: failure.line) -1;
+                            var startIndex = parseInt(node.data.start && node.data.start != null ? node.data.start.index: node.data.startIndex) -1;
+                            var endIndex = parseInt(node.data.end && node.data.end != null ? node.data.end.index: node.data.endIndex) -1;
                             var markText = editor.instance.doc.markText({
-                                line: line,
+                                line: startLine,
                                 ch: startIndex
                             }, {
-                                line: line,
+                                line: endLine,
                                 ch: endIndex
                             }, {atomic: true, className: colorClass, clearWhenEmpty: true, clearOnEnter: true, title: failure.description
                             });
@@ -368,22 +373,27 @@
                      angular.forEach(failures, function (failure) {
                         var node = that.treeService.findByPath(root, failure.line, failure.path);
                         if (node != null && node.data && node.data != null) {
-                            var endIndex =  that.treeService.getEndIndex(node, content) - 1;
-                            var startIndex = node.data.startIndex - 1;
-                            var line = parseInt(failure.line) - 1;
-                            var markText = editor.instance.doc.markText({
-                                line: line,
-                                ch: startIndex
-                            }, {
-                                line: line,
-                                ch: endIndex
-                            }, {atomic: true, className: colorClass, clearWhenEmpty: true, clearOnEnter: true, title: failure.description
-                            });
+                            try {
+                                that.treeService.getEndIndex(node, content);
+                                var startLine = parseInt(node.data.start && node.data.start != null ? node.data.start.line : failure.line) - 1;
+                                var endLine = parseInt(node.data.end && node.data.end != null ? node.data.end.line : failure.line) - 1;
+                                var startIndex = parseInt(node.data.start && node.data.start != null ? node.data.start.index : node.data.startIndex) - 1;
+                                var endIndex = parseInt(node.data.end && node.data.end != null ? node.data.end.index : node.data.endIndex) - 1;
+                                var markText = editor.instance.doc.markText({
+                                    line: startLine,
+                                    ch: startIndex
+                                }, {
+                                    line: endLine,
+                                    ch: endIndex
+                                }, {atomic: true, className: colorClass, clearWhenEmpty: true, clearOnEnter: true, title: failure.description
+                                });
+                                if (!histMarksMap[type]) {
+                                    histMarksMap[type] = [];
+                                }
+                                histMarksMap[type].push(markText);
+                            }catch(e){
 
-                            if (!histMarksMap[type]) {
-                                histMarksMap[type] = [];
                             }
-                            histMarksMap[type].push(markText);
                         }
                     });
                 } else {
@@ -391,8 +401,6 @@
                 }
             }
         };
-
-
 
         return ValidationResultHighlighter;
     });

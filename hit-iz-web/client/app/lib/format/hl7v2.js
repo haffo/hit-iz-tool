@@ -1,4 +1,3 @@
-
 angular.module('hl7v2', ['hl7v2-edi']);
 
 angular.module('hl7v2').factory('HL7V2CursorService',
@@ -78,4 +77,11 @@ angular.module('hl7v2').factory('HL7V2ReportService', function (ReportServiceCla
     return new HL7V2ReportServiceClass();
 });
 
+angular.module('hl7v2').factory('HL7V2Cursor', function (HL7V2EDICursorClass) {
+    return new HL7V2EDICursorClass();
+});
 
+
+angular.module('hl7v2').factory('HL7V2Editor', function (HL7V2EDIEditorClass) {
+    return new HL7V2EDIEditorClass();
+});

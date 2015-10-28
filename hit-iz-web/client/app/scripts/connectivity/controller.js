@@ -303,7 +303,7 @@ angular.module('connectivity')
 'use strict';
 
 angular.module('connectivity')
-    .controller('ConnectivityReqCtrl', ['$scope', '$http', 'Connectivity', 'XmlFormatter', '$window', 'XmlEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', 'StorageService', function ($scope, $http, Connectivity, XmlFormatter, $window, XmlEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal,StorageService) {
+    .controller('ConnectivityReqCtrl', ['$scope', '$http', 'Connectivity', 'SOAPFormatter', '$window', 'SOAPEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', 'StorageService', function ($scope, $http, Connectivity, SOAPFormatter, $window, SOAPEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal,StorageService) {
 
         $scope.eLoading = false;
         $scope.vError = null;
@@ -382,7 +382,7 @@ angular.module('connectivity')
             var backup = $scope.request.editor.instance.doc.getValue();
             if (backup != null && backup != '') {
                 $scope.validating = true;
-                var validator = new XmlFormatter(backup);
+                var validator = new SOAPFormatter(backup);
                 validator.then(function (formatted) {
                     $scope.validating = false;
                      $scope.reqMessage(formatted);
@@ -489,7 +489,7 @@ angular.module('connectivity')
             $scope.$watch(function () {
                 return $scope.request.cursor.updateIndicator;
             }, function () {
-                XmlEditorUtils.select($scope.request.cursor, $scope.request.editor.instance);
+                SOAPEditorUtils.select($scope.request.cursor, $scope.request.editor.instance);
             }, true);
 
             $scope.setValidationResult({});
@@ -656,7 +656,7 @@ angular.module('connectivity')
     });
 
 angular.module('connectivity')
-    .controller('ConnectivityRespCtrl', ['$scope', '$http', 'Connectivity', '$window', 'XmlFormatter', 'XmlEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', 'StorageService',function ($scope, $http, Connectivity, $window, XmlFormatter, XmlEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal,StorageService) {
+    .controller('ConnectivityRespCtrl', ['$scope', '$http', 'Connectivity', '$window', 'SOAPFormatter', 'SOAPEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', 'StorageService',function ($scope, $http, Connectivity, $window, SOAPFormatter, SOAPEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal,StorageService) {
         $scope.testCase = Connectivity.testCase;
         $scope.response = Connectivity.response;
         $scope.selectedTestCase = Connectivity.selectedTestCase;
@@ -733,7 +733,7 @@ angular.module('connectivity')
             $scope.$watch(function () {
                 return  $scope.response.cursor.updateIndicator;
             }, function () {
-                XmlEditorUtils.select($scope.response.cursor, $scope.editor);
+                SOAPEditorUtils.select($scope.response.cursor, $scope.editor);
             }, true);
 
             $rootScope.$on('conn:testCaseLoaded', function (event) {
@@ -801,7 +801,7 @@ angular.module('connectivity')
             var backup = $scope.response.editor.instance.doc.getValue();
             if (backup != null && backup != '') {
                 $scope.validating = true;
-                var validator = new XmlFormatter(backup);
+                var validator = new SOAPFormatter(backup);
                 validator.then(function (formatted) {
                     $scope.validating = false;
                     $scope.respMessage(formatted);

@@ -20,10 +20,11 @@
     ]);
 
     mod
-        .controller('TestCaseViewerCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseViewerService', '$compile', '$timeout',function ($scope, $rootScope, $sce, TestCaseViewerService, $compile,$timeout) {
+        .controller('TestCaseViewerCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseViewerService', '$compile', '$timeout', function ($scope, $rootScope, $sce, TestCaseViewerService, $compile, $timeout) {
             $scope.tabs = [];
             $scope.loading = false;
             $scope.editor = null;
+            $scope.error = null;
 
             var testCaseViewerService = new TestCaseViewerService();
             $rootScope.$on($scope.type + ':testCaseSelected', function (event, testCase) {
@@ -34,6 +35,7 @@
                 $scope.tabs[4] = false;
                 $scope.testCase = testCase;
                 $scope.loading = true;
+                $scope.error = null;
                 testCaseViewerService.artifacts(testCase.type, testCase.id).then(function (result) {
                     $scope.testCase['testStory'] = result['testStory'];
                     $scope.testCase['jurorDocument'] = result['jurorDocument'];
@@ -46,12 +48,13 @@
                     $scope.uncompileArtifact('messageContent');
                     $scope.uncompileArtifact('testDescription');
 
-                    if(testCase.type === 'TestPlan' || testCase.type === 'TestCaseGroup'){
+                    if (testCase.type === 'TestPlan' || testCase.type === 'TestCaseGroup') {
                         $scope.compileArtifact('testDescription');
-                    }else{
+                    } else {
                         $scope.compileArtifact('testStory');
                     }
                     $scope.loading = false;
+                    $scope.error = null;
                 }, function (error) {
                     $scope.testCase['testStory'] = null;
                     $scope.testCase['testPackage'] = null;
@@ -59,31 +62,32 @@
                     $scope.testCase['testDataSpecification'] = null;
                     $scope.testCase['messageContent'] = null;
                     $scope.loading = false;
+                    $scope.error = "Failed To Load TestCase Details";
                 });
             });
 
             $scope.compileArtifact = function (artifactType) {
-                if ($scope.testCase && $scope.testCase !== null){
-                    if(artifactType === 'testDescription') {
-                        var element = $('#testDescription');
-                        if (element.html() == '') {
-                            var cont = $scope.testCase['description'] != null && $scope.testCase['description'] != '' ? $scope.testCase['description']: 'No description available';
-                            element.html(cont);
-                            $compile(element.contents())($scope);
-                        }
-                    }else  if ($scope.testCase[artifactType] && $scope.testCase[artifactType] !== null) {
-                        var element = $('#' + artifactType);
-                        if (element.html() == '') {
-                            element.html($scope.testCase[artifactType].html);
-                            $compile(element.contents())($scope);
-                        }
+                if ($scope.testCase && $scope.testCase !== null) {
+                    var cont = null;
+                    var element = null;
+                    if (artifactType === 'testDescription') {
+                        element = $('#testDescription');
+                        cont = $scope.testCase['description'] != null && $scope.testCase['description'] != '' ? $scope.testCase['description'] : 'No description available';
+                    } else if ($scope.testCase[artifactType] && $scope.testCase[artifactType] !== null) {
+                        element = $('#' + artifactType);
+                        cont = $scope.testCase[artifactType].html;
+                    }
+
+                    if (cont && element && cont != null && element != null) {
+                        element.html(cont);
+                        $compile(element.contents())($scope);
                     }
                 }
             };
 
             $scope.uncompileArtifact = function (artifactType) {
                 var element = $('#' + artifactType);
-                if(element && element != null) {
+                if (element && element != null) {
                     element.html('');
                 }
             };
@@ -171,36 +175,36 @@
             };
 
             var getSizeByContent = function (content) {
-                 var tabs = content.split("\n");
-                if(tabs.length === 0)
-                tabs = content.split("\t");
-                if(tabs.length === 0)
-                tabs = content.split("\r");
-                var length = tabs.length > 30 ? 30:tabs.length+3;
-                return parseInt((420 * length)/30);
+                var tabs = content.split("\n");
+                if (tabs.length === 0)
+                    tabs = content.split("\t");
+                if (tabs.length === 0)
+                    tabs = content.split("\r");
+                var length = tabs.length > 30 ? 30 : tabs.length + 3;
+                return parseInt((420 * length) / 30);
             };
 
 
-            $scope.buildTextEditor = function(){
-               $timeout(function() {
-                   if($scope.editor && $scope.editor != null){
-                       $scope.editor.setValue($scope.testCase.testContext.message.content);
-                       $timeout(function () {
-                           $("#exampleMsg").scrollLeft();
+            $scope.buildTextEditor = function () {
+                $timeout(function () {
+                    if ($scope.editor && $scope.editor != null) {
+                        $scope.editor.setValue($scope.testCase.testContext.message.content);
+                        $timeout(function () {
+                            $("#exampleMsg").scrollLeft();
                         }, 1000);
-                   }else {
+                    } else {
                         $scope.editor = CodeMirror(document.getElementById("exampleMsg"), {
-                           value: $scope.testCase.testContext.message.content,
-                           lineNumbers: true,
-                           fixedGutter: true,
-                           theme: "elegant",
-                           mode: $scope.testCase.testContext.format,
-                           readOnly: true,
-                           showCursorWhenSelecting: true
-                       });
+                            value: $scope.testCase.testContext.message.content,
+                            lineNumbers: true,
+                            fixedGutter: true,
+                            theme: "elegant",
+                            mode: $scope.testCase.testContext.format,
+                            readOnly: true,
+                            showCursorWhenSelecting: true
+                        });
                     }
-                   $scope.editor.setSize("100%", getSizeByContent($scope.editor.getValue()));
-               },100);
+                    $scope.editor.setSize("100%", getSizeByContent($scope.editor.getValue()));
+                }, 100);
             };
         }]);
 

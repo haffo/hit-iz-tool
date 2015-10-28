@@ -90,14 +90,14 @@ angular.module('connectivity').factory('ConnectivityInitiator',
 
 
 angular.module('connectivity').factory('ConnectivityValidator',
-    ['$q', '$http', 'XmlEditorUtils', function ($q, $http, XmlEditorUtils) {
+    ['$q', '$http', 'SOAPEditorUtils', function ($q, $http, SOAPEditorUtils) {
 
         var ConnectivityValidator = function () {
         };
 
         ConnectivityValidator.prototype.validate = function (content, testCaseId, userId, type, reqMessage) {
             var delay = $q.defer();
-            if (!XmlEditorUtils.isXML(content)) {
+            if (!SOAPEditorUtils.isXML(content)) {
                 delay.reject("Message provided is not an xml message");
             } else {
 
@@ -139,11 +139,11 @@ angular.module('connectivity').factory('ConnectivityValidator',
     }]);
 
 angular.module('connectivity').factory('ConnectivityPart',
-    ['$rootScope', '$http', '$q', 'Editor', 'XmlCursor', 'ValidationResult', 'ConnectivityReport', 'Message', 'ValidationSettings', function ($rootScope, $http, $q, Editor, XmlCursor, ValidationResult, ConnectivityReport, Message, ValidationSettings) {
+    ['$rootScope', '$http', '$q', 'SOAPEditor', 'SOAPCursor', 'ValidationResult', 'ConnectivityReport', 'Message', 'ValidationSettings', function ($rootScope, $http, $q, SOAPEditor, SOAPCursor, ValidationResult, ConnectivityReport, Message, ValidationSettings) {
 
         var ConnectivityPart = function () {
-            this.editor = new Editor();
-            this.cursor = new XmlCursor();
+            this.editor = new SOAPEditor();
+            this.cursor = new SOAPCursor();
             this.validationResult = new ValidationResult();
             this.message = new Message();
             this.report = new ConnectivityReport();

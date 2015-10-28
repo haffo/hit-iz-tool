@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('commonServices', []);
-angular.module('common', ['ngResource', 'my.resource', 'default', 'xml', 'hl7v2-edi', 'hl7v2', 'edi']);
-angular.module('soap', ['common']);
+angular.module('common', ['ngResource', 'my.resource', 'default', 'xml', 'hl7v2-edi', 'hl7v2', 'edi','soap']);
 angular.module('cf', ['common']);
 angular.module('doc', ['common']);
 angular.module('cb', ['common']);
@@ -30,6 +29,7 @@ var app = angular.module('tool', [
     'xml',
     'hl7v2',
     'edi',
+    'soap',
     'envelope',
     'connectivity',
     'cf',

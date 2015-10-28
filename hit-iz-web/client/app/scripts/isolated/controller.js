@@ -83,7 +83,7 @@ angular.module('isolated')
                     }
                     if (testCase != null) {
                         var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
-                        $scope.loadTestCase(testCase, tab);
+                        $scope.loadTestCase(testCase, tab,false);
                     }
                 }
 
@@ -125,12 +125,12 @@ angular.module('isolated')
             }
         };
 
-        $scope.loadTestCase = function (testCase, tab) {
+        $scope.loadTestCase = function (testCase, tab,clear) {
             if (testCase.type === 'TestCase') {
                 $scope.testCase = angular.copy(testCase);
-                if (StorageService.get(StorageService.ISOLATED_LOADED_TESTCASE_ID_KEY) != $scope.testCase.id || StorageService.get(StorageService.ISOLATED_LOADED_TESTCASE_TYPE_KEY) != $scope.testCase.type) {
-                    StorageService.set(StorageService.ISOLATED_LOADED_TESTCASE_ID_KEY, $scope.testCase.id);
-                    StorageService.set(StorageService.ISOLATED_LOADED_TESTCASE_TYPE_KEY, $scope.testCase.type);
+                StorageService.set(StorageService.ISOLATED_LOADED_TESTCASE_ID_KEY, $scope.testCase.id);
+                StorageService.set(StorageService.ISOLATED_LOADED_TESTCASE_TYPE_KEY, $scope.testCase.type);
+                if(clear === undefined || clear === true){
                     StorageService.remove(StorageService.ISOLATED_EDITOR_CONTENT_KEY);
                     StorageService.remove(StorageService.ISOLATED_LOADED_TESTSTEP_TYPE_KEY);
                     StorageService.remove(StorageService.ISOLATED_LOADED_TESTSTEP_ID_KEY);
@@ -831,15 +831,16 @@ angular.module('isolated')
                 });
             });
 
-
             $scope.editor.on("dblclick", function (editor) {
                 $timeout(function () {
-                    var coordinate = $scope.cursorService.getCoordinate($scope.editor);
-                    $scope.isolated.cursor.init(coordinate.line, coordinate.startIndex, coordinate.endIndex, coordinate.index, true);
+                    var coordinate = $scope.cursorService.getCoordinate($scope.editor, $scope.isolated.tree);
+                    coordinate.lineNumber = coordinate.line;
+                    coordinate.startIndex = coordinate.startIndex +1;
+                    coordinate.endIndex = coordinate.endIndex +1;
+                    $scope.cf.cursor.init(coordinate, true);
                     $scope.treeService.selectNodeByIndex($scope.isolated.tree.root, IsolatedSystem.cursor, IsolatedSystem.message.content);
                 });
             });
-            $scope.isolated.editor.instance = $scope.editor;
             $scope.refreshEditor();
         };
 
@@ -915,15 +916,6 @@ angular.module('isolated')
             }
         };
 
-        $scope.select = function (element) {
-            if (element != undefined && element.path != null && element.line != -1) {
-                var node = $scope.treeService.selectNodeByPath($scope.isolated.tree.root, element.line, element.path);
-                var data = node != null ? node.data : null;
-                $scope.isolated.cursor.init(data != null ? data.lineNumber : element.line, data != null ? data.startIndex - 1 : element.column - 1, data != null ? data.endIndex - 1 : element.column - 1, data != null ? data.startIndex - 1 : element.column - 1, false);
-                $scope.editorService.select($scope.editor, $scope.isolated.cursor);
-            }
-        };
-
         $scope.clearMessage = function () {
             $scope.nodelay = true;
             $scope.mError = null;
@@ -969,9 +961,10 @@ angular.module('isolated')
         };
 
         $scope.onNodeSelect = function (node) {
-            var index = $scope.treeService.getEndIndex(node, $scope.isolated.message.content);
-            $scope.isolated.cursor.init(node.data.lineNumber, node.data.startIndex - 1, index - 1, node.data.startIndex - 1, false);
+            $scope.treeService.getEndIndex(node, $scope.isolated.message.content);
+            $scope.isolated.cursor.init(node.data, false);
             $scope.editorService.select($scope.editor, $scope.isolated.cursor);
+
         };
 
         $scope.execute = function () {
@@ -992,9 +985,7 @@ angular.module('isolated')
             $scope.tError = null;
             $scope.mError = null;
             $scope.vError = null;
-
             $scope.initCodemirror();
-
             $scope.loadValidationResult(null);
 
             $scope.$on('isolated:refreshEditor', function (event) {
@@ -1012,13 +1003,16 @@ angular.module('isolated')
             });
 
             $rootScope.$on('isolated:testStepLoaded', function (event, testStep) {
-                $scope.refreshEditor();
                 $scope.testStep = testStep;
+                $scope.isolated.editor = ServiceDelegator.getEditor($scope.testStep.testContext.format);
+                $scope.isolated.editor.instance = $scope.editor;
+                $scope.isolated.cursor = ServiceDelegator.getCursor($scope.testStep.testContext.format);
                 $scope.validator = ServiceDelegator.getMessageValidator($scope.testStep.testContext.format);
                 $scope.parser = ServiceDelegator.getMessageParser($scope.testStep.testContext.format);
                 $scope.editorService = ServiceDelegator.getEditorService($scope.testStep.testContext.format);
                 $scope.treeService = ServiceDelegator.getTreeService($scope.testStep.testContext.format);
                 $scope.cursorService = ServiceDelegator.getCursorService($scope.testStep.testContext.format);
+                $scope.refreshEditor();
                 $scope.loadMessage();
             });
 

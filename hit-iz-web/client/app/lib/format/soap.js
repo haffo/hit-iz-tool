@@ -1,7 +1,7 @@
 /**
  * Created by haffo on 10/20/14.
  */
-angular.module('soap', []);
+angular.module('soap', ['format']);
 angular.module('soap').factory('SoapValidationReportGenerator', ['$http', '$q', function ($http, $q) {
     return function (xmlReport, format) {
         var delay = $q.defer();
@@ -43,7 +43,7 @@ angular.module('soap').factory('SoapValidationReportDownloader', ['$http', '$q',
 /**
  * Created by haffo on 10/20/14.
  */
-angular.module('soap').factory('XmlParser', ['$http', '$q', function ($http, $q) {
+angular.module('soap').factory('SOAPParser', ['$http', '$q', function ($http, $q) {
     return function (xml) {
         var delay = $q.defer();
         var data = angular.fromJson({"content": xml});
@@ -74,7 +74,7 @@ angular.module('soap').factory('XmlParser', ['$http', '$q', function ($http, $q)
 }]);
 
 
-angular.module('soap').factory('XmlEscaper',
+angular.module('soap').factory('SOAPEscaper',
     [function () {
         var xml_special_to_escaped_one_map = {
             '&': '&',
@@ -91,7 +91,7 @@ angular.module('soap').factory('XmlEscaper',
         };
 
 
-        var XmlEscaper = {
+        var SOAPEscaper = {
 
             encodeXml: function (string) {
 //                return string.replace(/([\&"&lt;>])/g, function (str, item) {
@@ -118,11 +118,11 @@ angular.module('soap').factory('XmlEscaper',
             }
         };
 
-        return XmlEscaper;
+        return SOAPEscaper;
     }]);
 
 
-angular.module('soap').factory('XmlFormatter', ['$http', '$q', function ($http, $q) {
+angular.module('soap').factory('SOAPFormatter', ['$http', '$q', function ($http, $q) {
     return function (xml) {
         var delay = $q.defer();
         var data = angular.fromJson({"content": xml});
@@ -153,7 +153,7 @@ angular.module('soap').factory('XmlFormatter', ['$http', '$q', function ($http, 
 }]);
 
 
-angular.module('soap').factory('XmlNodeFinder',
+angular.module('soap').factory('SOAPNodeFinder',
     ['$rootScope', function ($rootScope) {
         return  {
             /**
@@ -202,7 +202,7 @@ angular.module('soap').factory('XmlNodeFinder',
     }]);
 
 
-angular.module('soap').factory('XmlCursorUtils',
+angular.module('soap').factory('SOAPCursorUtils',
     ['$rootScope', function ($rootScope) {
         return  {
             createCoordinate: function (start, end) {
@@ -216,7 +216,7 @@ angular.module('soap').factory('XmlCursorUtils',
     }]);
 
 
-angular.module('soap').factory('XmlEditorUtils',
+angular.module('soap').factory('SOAPEditorUtils',
     ['$rootScope', '$http', '$q', function ($rootScope, $http, $q) {
         return  {
             select: function (cursorObject, editorObject) {
@@ -234,8 +234,8 @@ angular.module('soap').factory('XmlEditorUtils',
         }
     }]);
 
-angular.module('soap').factory('XmlTreeUtils',
-    ['$rootScope', '$http', '$q', 'XmlNodeFinder', 'XmlCursorUtils', function ($rootScope, $http, $q, XmlNodeFinder, XmlCursorUtils) {
+angular.module('soap').factory('SOAPTreeUtils',
+    ['$rootScope', '$http', '$q', 'SOAPNodeFinder', 'SOAPCursorUtils', function ($rootScope, $http, $q, SOAPNodeFinder, SOAPCursorUtils) {
         return  {
             /**
              *
@@ -243,7 +243,7 @@ angular.module('soap').factory('XmlTreeUtils',
              * @param cursorObject
              */
             selectNode: function (treeObject, cursorObject) {
-                var found = XmlNodeFinder.find(treeObject, cursorObject);
+                var found = SOAPNodeFinder.find(treeObject, cursorObject);
                 if (found !== null) {
                     var selectedNode = treeObject.get_selected_branch();
                     if (selectedNode !== found) {
@@ -263,7 +263,7 @@ angular.module('soap').factory('XmlTreeUtils',
              * @returns {*|Object|Array|string|number|Object|Array|Date|string|number}
              */
             getCoordinate: function (node) {
-                return XmlCursorUtils.createCoordinate(node.data.start, node.data.end);
+                return SOAPCursorUtils.createCoordinate(node.data.start, node.data.end);
             },
 
             /**
@@ -312,3 +312,51 @@ angular.module('soap').factory('XmlTreeUtils',
             }
         }
     }]);
+
+
+angular.module('soap').factory('SOAPCursor', function () {
+    var SOAPCursor = function () {
+        this.line = -1;
+        this.start = {line: 1, index: -1};
+        this.end = {line: 1, index: -1};
+        this.updateIndicator = '0';
+    };
+
+    SOAPCursor.prototype.setLine = function (line) {
+        this.line = line;
+        this.notify();
+    };
+
+
+    SOAPCursor.prototype.toString = function (line) {
+        return  this.line + "," + this.start + "," + this.end;
+    };
+
+    SOAPCursor.prototype.notify = function () {
+        this.updateIndicator = new Date().getTime();
+    };
+
+    return SOAPCursor;
+});
+
+angular.module('soap').factory('SOAPEditor', function (EditorClass) {
+    var SOAPEditor = function () {
+        EditorClass.apply(this, arguments);
+    };
+
+    SOAPEditor.prototype = Object.create(EditorClass.prototype);
+    SOAPEditor.prototype.constructor = SOAPEditor;
+
+    SOAPEditor.prototype.format = function () {
+        this.instance.doc.setValue(this.instance.doc.getValue().replace(/\n/g, "")
+            .replace(/[\t ]+\</g, "<")
+            .replace(/\>[\t ]+\</g, "><")
+            .replace(/\>[\t ]+$/g, ">"));
+        var totalLines = this.instance.lineCount();
+        var totalChars = this.instance.getTextArea().value.length;
+        this.instance.autoFormatRange({line: 0, ch: 0}, {line: totalLines, ch: totalChars});
+    };
+
+    return SOAPEditor;
+});
+
