@@ -45,46 +45,51 @@ angular.module('isolated')
 
             var tcLoader = new IsolatedSystemTestCaseListLoader();
             tcLoader.then(function (testCases) {
-                $scope.error = null;
-                angular.forEach(testCases, function (testPlan) {
-                    testCaseService.buildTree(testPlan);
-                });
-                $scope.testCases = testCases;
-                $scope.tree.build_all($scope.testCases);
-                var testCase = null;
-                var id = StorageService.get(StorageService.ISOLATED_SELECTED_TESTCASE_ID_KEY);
-                var type = StorageService.get(StorageService.ISOLATED_SELECTED_TESTCASE_TYPE_KEY);
-                if (id != null && type != null) {
-                    for (var i = 0; i < $scope.testCases.length; i++) {
-                        var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
-                        if (found != null) {
-                            testCase = found;
-                            break;
-                        }
-                    }
-                    if (testCase != null) {
-//                        $scope.selectTestCase(testCase);
-                        $scope.selectNode(id, type);
-                    }
-                }
+                if (typeof $scope.tree.build_all == 'function') {
+                    $scope.error = null;
+                    angular.forEach(testCases, function (testPlan) {
+                        testCaseService.buildTree(testPlan);
+                    });
+                    $scope.testCases = testCases;
 
-                testCase = null;
-                id = StorageService.get(StorageService.ISOLATED_LOADED_TESTCASE_ID_KEY);
-                type = StorageService.get(StorageService.ISOLATED_LOADED_TESTCASE_TYPE_KEY);
-                if (id != null && type != null) {
+                    $scope.tree.build_all($scope.testCases);
+                    var testCase = null;
                     var id = StorageService.get(StorageService.ISOLATED_SELECTED_TESTCASE_ID_KEY);
                     var type = StorageService.get(StorageService.ISOLATED_SELECTED_TESTCASE_TYPE_KEY);
-                    for (var i = 0; i < $scope.testCases.length; i++) {
-                        var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
-                        if (found != null) {
-                            testCase = found;
-                            break;
+                    if (id != null && type != null) {
+                        for (var i = 0; i < $scope.testCases.length; i++) {
+                            var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
+                            if (found != null) {
+                                testCase = found;
+                                break;
+                            }
+                        }
+                        if (testCase != null) {
+//                        $scope.selectTestCase(testCase);
+                            $scope.selectNode(id, type);
                         }
                     }
-                    if (testCase != null) {
-                        var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
-                        $scope.loadTestCase(testCase, tab,false);
+
+                    testCase = null;
+                    id = StorageService.get(StorageService.ISOLATED_LOADED_TESTCASE_ID_KEY);
+                    type = StorageService.get(StorageService.ISOLATED_LOADED_TESTCASE_TYPE_KEY);
+                    if (id != null && type != null) {
+                        var id = StorageService.get(StorageService.ISOLATED_SELECTED_TESTCASE_ID_KEY);
+                        var type = StorageService.get(StorageService.ISOLATED_SELECTED_TESTCASE_TYPE_KEY);
+                        for (var i = 0; i < $scope.testCases.length; i++) {
+                            var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
+                            if (found != null) {
+                                testCase = found;
+                                break;
+                            }
+                        }
+                        if (testCase != null) {
+                            var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
+                            $scope.loadTestCase(testCase, tab, false);
+                        }
                     }
+                } else {
+                    $scope.error = "Ooops, Something went wrong. Please refresh your page. We are sorry for the inconvenience.";
                 }
 
                 $scope.loading = false;
@@ -92,14 +97,6 @@ angular.module('isolated')
                 $scope.loading = false;
                 $scope.error = "Sorry,cannot load the test cases. Please refresh your page and try again.";
             });
-        };
-
-        $scope.refreshEditor = function () {
-            $timeout(function () {
-                if ($scope.editor) {
-                    $scope.editor.refresh();
-                }
-            }, 1000);
         };
 
         $scope.selectNode = function (id, type) {
@@ -114,7 +111,7 @@ angular.module('isolated')
                 StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_ID_KEY, node.id);
                 StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_TYPE_KEY, node.type);
                 $timeout(function () {
-                    $rootScope.$broadcast('isolated:testCaseSelected', $scope.selectedTestCase);
+                    $scope.$broadcast('isolated:testCaseSelected', $scope.selectedTestCase);
                 });
             }, 0);
         };
@@ -125,18 +122,18 @@ angular.module('isolated')
             }
         };
 
-        $scope.loadTestCase = function (testCase, tab,clear) {
+        $scope.loadTestCase = function (testCase, tab, clear) {
             if (testCase.type === 'TestCase') {
                 $scope.testCase = angular.copy(testCase);
                 StorageService.set(StorageService.ISOLATED_LOADED_TESTCASE_ID_KEY, $scope.testCase.id);
                 StorageService.set(StorageService.ISOLATED_LOADED_TESTCASE_TYPE_KEY, $scope.testCase.type);
-                if(clear === undefined || clear === true){
+                if (clear === undefined || clear === true) {
                     StorageService.remove(StorageService.ISOLATED_EDITOR_CONTENT_KEY);
                     StorageService.remove(StorageService.ISOLATED_LOADED_TESTSTEP_TYPE_KEY);
                     StorageService.remove(StorageService.ISOLATED_LOADED_TESTSTEP_ID_KEY);
                 }
                 $timeout(function () {
-                    $rootScope.$broadcast('isolated:testCaseLoaded', $scope.testCase, tab);
+                    $rootScope.$emit('isolated:testCaseLoaded', $scope.testCase, tab);
                 });
             }
         };
@@ -173,7 +170,7 @@ angular.module('isolated')
 
 
 angular.module('isolated')
-    .controller('IsolatedSystemExecutionCtrl', ['$scope', '$window', '$rootScope', 'IsolatedSystem', '$modal', 'IsolatedSystemInitiator', 'IsolatedSystemClock', 'XmlEscaper', 'Endpoint', 'IsolatedExecutionService', '$timeout', 'StorageService', function ($scope, $window, $rootScope, IsolatedSystem, $modal, IsolatedSystemInitiator, IsolatedSystemClock, XmlEscaper, Endpoint, IsolatedExecutionService, $timeout, StorageService) {
+    .controller('IsolatedSystemExecutionCtrl', ['$scope', '$window', '$rootScope', 'IsolatedSystem', '$modal', 'IsolatedSystemInitiator', 'IsolatedSystemClock', 'SOAPEscaper', 'Endpoint', 'IsolatedExecutionService', '$timeout', 'StorageService', function ($scope, $window, $rootScope, IsolatedSystem, $modal, IsolatedSystemInitiator, IsolatedSystemClock, SOAPEscaper, Endpoint, IsolatedExecutionService, $timeout, StorageService) {
         $scope.loading = true;
         $scope.error = null;
         $scope.tabs = new Array();
@@ -234,14 +231,14 @@ angular.module('isolated')
         var parseRequest = function (incoming) {
             var x2js = new X2JS();
             var receivedJson = x2js.xml_str2json(incoming);
-            var receivedMessage = XmlEscaper.decodeXml(receivedJson.Envelope.Body.submitSingleMessage.hl7Message.toString());
+            var receivedMessage = SOAPEscaper.decodeXml(receivedJson.Envelope.Body.submitSingleMessage.hl7Message.toString());
             return receivedMessage;
         };
 
         var parseResponse = function (outbound) {
             var x2js = new X2JS();
             var sentMessageJson = x2js.xml_str2json(outbound);
-            var sentMessage = XmlEscaper.decodeXml(sentMessageJson.Envelope.Body.submitSingleMessageResponse.return.toString());
+            var sentMessage = SOAPEscaper.decodeXml(sentMessageJson.Envelope.Body.submitSingleMessageResponse.return.toString());
             return sentMessage;
         };
 
@@ -264,7 +261,7 @@ angular.module('isolated')
             $timeout(function () {
                 StorageService.remove(StorageService.ISOLATED_LOADED_TESTSTEP_TYPE_KEY);
                 StorageService.remove(StorageService.ISOLATED_LOADED_TESTSTEP_ID_KEY);
-                $rootScope.$broadcast('isolated:testCaseLoaded', $scope.testCase);
+                $rootScope.$emit('isolated:testCaseLoaded', $scope.testCase);
             });
         };
 
@@ -278,15 +275,9 @@ angular.module('isolated')
                     IsolatedExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
                 }
                 if (!$scope.isManualStep(testStep) && testStep.testContext && testStep.testContext != null) {
-                    $timeout(function () {
-                        $rootScope.$broadcast('isolated:testStepLoaded', testStep);
-                    });
-                    $timeout(function () {
-                        $rootScope.$broadcast('isolated:profileLoaded', testStep.testContext.profile);
-                    });
-                    $timeout(function () {
-                        $rootScope.$broadcast('isolated:valueSetLibraryLoaded', testStep.testContext.vocabularyLibrary);
-                    });
+                    $scope.$broadcast('isolated:testStepLoaded', testStep);
+                    $scope.$broadcast('isolated:profileLoaded', testStep.testContext.profile);
+                    $scope.$broadcast('isolated:valueSetLibraryLoaded', testStep.testContext.vocabularyLibrary);
                 }
             }
         };
@@ -295,7 +286,7 @@ angular.module('isolated')
             IsolatedSystem.testStep = null;
             $scope.testStep = null;
             $timeout(function () {
-                $rootScope.$broadcast('isolated:removeTestStep');
+                $scope.$broadcast('isolated:removeTestStep');
             });
         };
 
@@ -566,7 +557,7 @@ angular.module('isolated')
                                             var receivedMessage = parseRequest(incoming);
                                             IsolatedExecutionService.setExecutionMessage($scope.testStep, receivedMessage);
                                             $timeout(function () {
-                                                $rootScope.$broadcast('isolated:setEditorContent', receivedMessage);
+                                                $scope.$broadcast('isolated:setEditorContent', receivedMessage);
                                             });
                                         } catch (error) {
                                             $scope.error = errors[2];
@@ -733,7 +724,7 @@ angular.module('isolated')
         $scope.refreshEditor = function () {
             $timeout(function () {
                 $scope.editor.refresh();
-            }, 1000);
+            },1000);
         };
 
         $scope.options = {
@@ -835,13 +826,12 @@ angular.module('isolated')
                 $timeout(function () {
                     var coordinate = $scope.cursorService.getCoordinate($scope.editor, $scope.isolated.tree);
                     coordinate.lineNumber = coordinate.line;
-                    coordinate.startIndex = coordinate.startIndex +1;
-                    coordinate.endIndex = coordinate.endIndex +1;
-                    $scope.cf.cursor.init(coordinate, true);
+                    coordinate.startIndex = coordinate.startIndex + 1;
+                    coordinate.endIndex = coordinate.endIndex + 1;
+                    $scope.isolated.cursor.init(coordinate, true);
                     $scope.treeService.selectNodeByIndex($scope.isolated.tree.root, IsolatedSystem.cursor, IsolatedSystem.message.content);
                 });
             });
-            $scope.refreshEditor();
         };
 
         $scope.validateMessage = function () {
@@ -907,7 +897,7 @@ angular.module('isolated')
             if ($scope.testStep != null) {
                 var elements = messageObject && messageObject != null && messageObject.elements ? messageObject.elements : [];
                 if (typeof $scope.isolated.tree.root.build_all == 'function') {
-                    $scope.cb.tree.root.build_all(elements);
+                    $scope.isolated.tree.root.build_all(elements);
                 }
                 var delimeters = messageObject && messageObject != null && messageObject.delimeters ? messageObject.delimeters : [];
                 ServiceDelegator.updateEditorMode($scope.editor, delimeters, $scope.testStep.testContext.format);
@@ -919,6 +909,10 @@ angular.module('isolated')
         $scope.clearMessage = function () {
             $scope.nodelay = true;
             $scope.mError = null;
+            if($scope.testStep != null) {
+                IsolatedExecutionService.deleteValidationReport($scope.testStep);
+                IsolatedExecutionService.deleteMessageTree($scope.testStep);
+            }
             if ($scope.editor) {
                 $scope.editor.doc.setValue('');
                 $scope.execute();
@@ -972,7 +966,8 @@ angular.module('isolated')
             $scope.tError = null;
             $scope.mError = null;
             $scope.vError = null;
-            $scope.isolated.message.content = $scope.isolated.editor.instance.doc.getValue();
+            $scope.isolated.message.content = $scope.editor.doc.getValue();
+            $scope.refreshEditor();
             $scope.validateMessage();
             $scope.parseMessage();
         };
@@ -999,10 +994,10 @@ angular.module('isolated')
             $rootScope.$on('isolated:reportLoaded', function (event, report) {
                 if ($scope.testStep != null) {
                     IsolatedExecutionService.setValidationReport($scope.testStep, report);
-                 }
+                }
             });
 
-            $rootScope.$on('isolated:testStepLoaded', function (event, testStep) {
+            $scope.$on('isolated:testStepLoaded', function (event, testStep) {
                 $scope.testStep = testStep;
                 $scope.isolated.editor = ServiceDelegator.getEditor($scope.testStep.testContext.format);
                 $scope.isolated.editor.instance = $scope.editor;
@@ -1012,16 +1007,14 @@ angular.module('isolated')
                 $scope.editorService = ServiceDelegator.getEditorService($scope.testStep.testContext.format);
                 $scope.treeService = ServiceDelegator.getTreeService($scope.testStep.testContext.format);
                 $scope.cursorService = ServiceDelegator.getCursorService($scope.testStep.testContext.format);
-                $scope.refreshEditor();
                 $scope.loadMessage();
             });
 
-            $rootScope.$on('isolated:removeTestStep', function (event, testStep) {
+            $scope.$on('isolated:removeTestStep', function (event, testStep) {
                 $scope.testStep = null;
             });
 
-            $rootScope.$on('isolated:setEditorContent', function (event, message) {
-                $scope.refreshEditor();
+            $scope.$on('isolated:setEditorContent', function (event, message) {
                 $scope.nodelay = true;
                 var content = message == null ? '' : message;
                 $scope.editor.doc.setValue(content);

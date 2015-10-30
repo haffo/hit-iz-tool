@@ -42,9 +42,9 @@ var app = angular.module('tool', [
     'commonServices',
     'smart-table',
     'doc',
+    'hit-vocab-search',
     'hit-profile-viewer',
     'hit-validation-result',
-    'hit-vocab-search',
     'hit-report-viewer',
     'hit-testcase-viewer',
     'hit-testcase-tree',
@@ -148,7 +148,7 @@ app.factory('dataChangedInterceptor', ['$q','$rootScope', function($q, $rootScop
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route,$timeout) {
 
     $rootScope.appInfo = {};
 

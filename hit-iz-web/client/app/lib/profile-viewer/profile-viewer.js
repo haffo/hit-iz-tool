@@ -104,9 +104,7 @@
 
 
             $scope.showValueSetDefinition = function (tableId) {
-                $timeout(function () {
-                    $rootScope.$broadcast($scope.type + ':showValueSetDefinition', tableId);
-                });
+                     $rootScope.$emit($scope.type + ':showValueSetDefinition', tableId);
             };
 
             $scope.getValueSet = function (tableStr) {
@@ -116,7 +114,7 @@
                 return [];
             };
 
-            $rootScope.$on($scope.type + ':profileLoaded', function (event, profile) {
+            $scope.$on($scope.type + ':profileLoaded', function (event, profile) {
                 if (profile && profile.id != null) {
                     if ($scope.profile === null || $scope.profile.id != profile.id) {
                         $scope.loading = true;

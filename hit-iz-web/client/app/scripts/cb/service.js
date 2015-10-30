@@ -2,7 +2,7 @@
 
 
 angular.module('cb').factory('CB',
-    ['$http', '$q',  'Message', 'ValidationSettings', 'Tree', function ($http, $q, Message, ValidationSettings,Tree) {
+    ['$http', '$q',  'Er7Message', 'ValidationSettings', 'Tree', function ($http, $q, Message, ValidationSettings,Tree) {
         var CB = {
             testCase: null,
             selectedTestCase: null,

@@ -12,9 +12,20 @@
 
 package gov.nist.hit.iz.web.controller;
 
+import gov.nist.hit.core.service.exception.XmlFormatterException;
+import gov.nist.hit.core.service.exception.XmlParserException;
+import gov.nist.hit.core.transport.TransportClientException;
+import gov.nist.hit.iz.service.exception.SoapValidationException;
+import gov.nist.hit.iz.service.exception.SoapValidationReportException;
+import gov.nist.hit.iz.web.exception.SOAPEnvelopeException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * @author Harold Affo (NIST)
@@ -27,6 +38,52 @@ public class IZExceptionHandler {
   public IZExceptionHandler() {
     super();
   }
+
+
+  @ExceptionHandler(SoapValidationException.class)
+  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+  public String soapValidationException(SoapValidationException ex) {
+    logger.debug(ex.getMessage());
+    return "Sorry, validation Failed.\n";
+  }
+
+  @ExceptionHandler(TransportClientException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  public String transportClientException(TransportClientException ex) {
+    logger.debug(ex.getMessage());
+    return "Sorry, connection failed.";
+  }
+
+
+  @ExceptionHandler(SoapValidationReportException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  @ResponseBody
+  public String reportException(SoapValidationReportException ex) {
+    logger.debug(ex.getMessage());
+    return "Sorry, validation failed.\n";
+  }
+
+  @ExceptionHandler(SOAPEnvelopeException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  public String soapException(SOAPEnvelopeException ex) {
+    logger.debug(ex.getMessage());
+    return "Sorry, an issue occured";
+  }
+
+  @ExceptionHandler(XmlParserException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  public String xmlParserException(XmlParserException ex) {
+    logger.debug(ex.getMessage());
+    return "Malformed xml content.";
+  }
+
+  @ExceptionHandler(XmlFormatterException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  public String xmlFormatterException(XmlFormatterException ex) {
+    logger.debug(ex.getMessage());
+    return "Malformed xml content.";
+  }
+
 
 
 }

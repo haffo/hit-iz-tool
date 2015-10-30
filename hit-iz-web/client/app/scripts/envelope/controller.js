@@ -251,6 +251,10 @@ angular.module('envelope')
                 }, function (error) {
                     $scope.vLoading = false;
                     $scope.vError = error;
+                    $scope.setValidationResult({});
+                    if(typeof $scope.envelopeTree.build_all == 'function') {
+                        $scope.envelopeTree.build_all([]);
+                    }
                 });
             } else {
                 $scope.message('');

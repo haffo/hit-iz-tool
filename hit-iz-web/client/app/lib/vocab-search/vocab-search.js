@@ -20,7 +20,7 @@
     mod
         .controller('VocabSearchCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'VocabularyService', function ($scope, $filter, $modal, $rootScope, VocabularyService) {
             $scope.selectedValueSetDefinition = null;
-             $scope.tmpTableElements = [];
+            $scope.tmpTableElements = [];
             $scope.sourceData = [];
             $scope.selectedItem = [];
             $scope.error = null;
@@ -44,7 +44,7 @@
 //                $scope.init($scope.valueSetIds, $scope.vocabularyLibrary);
 //            });
 
-            $rootScope.$on($scope.type + ':valueSetLibraryLoaded', function (event, vocabularyLibrary) {
+            $scope.$on($scope.type + ':valueSetLibraryLoaded', function (event, vocabularyLibrary) {
                 if(vocabularyLibrary != null && ($scope.vocabularyLibrary === null || $scope.vocabularyLibrary.id != vocabularyLibrary.id)) {
                     $scope.vocabularyLibrary = vocabularyLibrary;
                     $scope.init($scope.vocabularyLibrary);

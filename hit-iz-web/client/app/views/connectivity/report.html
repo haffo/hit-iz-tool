@@ -19,17 +19,24 @@
                             <!--<button type="button" class="btn btn-xs btn-info" ng-click="upload()">-->
                             <!--<span class="glyphicon glyphicon-save">Upload</span>-->
                             <!--</button>-->
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
-                                    <span class="glyphicon glyphicon-save">Save As</span> <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a ng-click="downloadAs('PDF')">Pdf</a></li>
-                                    <li><a ng-click="downloadAs('DOC')">Word</a></li>
-                                    <li><a ng-click="downloadAs('XML')">Xml</a></li>
-                                    <li><a ng-click="downloadAs('HTML')">Html</a></li>
-                                </ul>
-                            </div>
+                            <!--<div class="btn-group">-->
+                                <!--<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                                    <!--<span class="glyphicon glyphicon-save">Save As</span> <span class="caret"></span>-->
+                                <!--</button>-->
+                                <!--<ul class="dropdown-menu" role="menu">-->
+                                    <!--<li><a ng-click="downloadAs('PDF')">Pdf</a></li>-->
+                                    <!--<li><a ng-click="downloadAs('DOC')">Word</a></li>-->
+                                    <!--<li><a ng-click="downloadAs('XML')">Xml</a></li>-->
+                                    <!--<li><a ng-click="downloadAs('HTML')">Html</a></li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+
+                            <a style="margin-right: 10px" class="point" ng-click="downloadAs('PDF')" ><img src="images/pdf.png" style="height:30px;width:30px"></a>
+                            <a style="margin-right: 10px" class="point" ng-click="downloadAs('DOC')" ><img src="images/word.png" style="height:30px;width:30px"></a>
+                            <a style="margin-right: 10px" class="point" ng-click="downloadAs('XML')" ><img src="images/xml.png" style="height:30px;width:30px"></a>
+                            <a style="margin-right: 10px" class="point" ng-click="downloadAs('HTML')" ><img src="images/html.png" style="height:30px;width:30px"></a>
+
+
                             <br />
                             <br />
                             <div ng-bind-html="toHTML(soapEnvHtmlReport)"></div>

@@ -2,16 +2,16 @@
 
 
 angular.module('cf').factory('CF',
-    ['$rootScope', '$http', '$q', 'Message', 'Tree', function ($rootScope, $http, $q, Message, Tree) {
+    ['$rootScope', '$http', '$q', 'Er7Message', 'Tree', function ($rootScope, $http, $q, Message, Tree) {
         var CF = {
             editor: null,
             cursor: null,
             tree: new Tree(),
-            dqaValidationResult: null,
             testCase: null,
             selectedTestCase: null,
             message: new Message(),
-            searchTableId: 0        };
+            searchTableId: 0
+        };
 
         return CF;
     }]);
