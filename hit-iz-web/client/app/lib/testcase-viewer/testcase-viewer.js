@@ -27,7 +27,7 @@
             $scope.error = null;
 
             var testCaseViewerService = new TestCaseViewerService();
-            $rootScope.$on($scope.type + ':testCaseSelected', function (event, testCase) {
+            $scope.$on($scope.type + ':testCaseSelected', function (event, testCase) {
                 $scope.tabs[0] = true;
                 $scope.tabs[1] = false;
                 $scope.tabs[2] = false;

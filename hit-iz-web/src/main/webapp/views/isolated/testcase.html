@@ -10,16 +10,19 @@
                             <div class="container-testcase">
 
                                 <div ng-show="testCases != null && testCases.length > 0">
-                                <testcase-tree tree-control="tree" icon-leaf="" is-selectable="isSelectable(branch)" on-select="selectTestCase(branch)"></testcase-tree>
+                                    <testcase-tree tree-control="tree" icon-leaf="" is-selectable="isSelectable(branch)" on-select="selectTestCase(branch)"></testcase-tree>
                                 </div>
                                 <div ng-show="testCases == null || testCases.length == 0">
                                     No TestCase Available
-                               </div>
+                                </div>
+                            </div>
                         </div>
+
                         <div ng-show="error != null">
                             <div class="alert alert-danger" role="alert" ng-bind="error"></div>
                         </div>
                     </div>
+
                     <div ng-show="loading" style="text-align:center">
                         <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                     </div>
@@ -36,8 +39,8 @@
                             </span>
                             <span class="pull-right" style="margin-bottom: 3px">
                                   <button title="Download Test Package" type="button" class="btn btn-xs btn-primary" ng-show="selectedTestCase.testPackage && selectedTestCase.testPackage != null && selectedTestCase.testPackage.pdfPath != null" ng-click="downloadArtifact(selectedTestCase.testPackage.pdfPath)">
-                                       <i class="fa fa-download"></i>
-                                       Download Test Package
+                                      <i class="fa fa-download"></i>
+                                      Download Test Package
                                   </button>
                                   <button ng-show="selectedTestCase.type==='TestCase'" title="Start Test" type="button" class="btn btn-xs btn-success" ng-click="loadTestCase(selectedTestCase,'/isolated_execution')">
                                       <i class="fa fa-play"></i>Start
@@ -45,19 +48,19 @@
                             </span>
                         </div>
                         <div class="panel-body">
-                                 <div ng-show="error != null">
-                                    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
-                                </div>
+                            <div ng-show="error != null">
+                                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+                            </div>
 
-                                <div ng-show="error===null">
+                            <div ng-show="error===null">
 
+                                <div class="">
                                     <div class="">
-                                        <div class="">
-                                            <div testcase-viewer="" type="isolated">
-                                        </div>
+                                        <div testcase-viewer="" type="isolated">
                                     </div>
                                 </div>
-                         </div>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -65,4 +68,4 @@
             </div>
         </div>
     </div>
-</div></div>
+</div>

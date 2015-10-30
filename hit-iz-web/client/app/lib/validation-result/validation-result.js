@@ -177,7 +177,7 @@
                 }
             };
 
-            $rootScope.$on($scope.type + ':validationResultLoaded', function (event, mvResult) {
+            $scope.$on($scope.type + ':validationResultLoaded', function (event, mvResult) {
                 if($scope.format != null) {
                     $scope.editorService = ServiceDelegator.getEditorService($scope.format);
                     $scope.treeService = ServiceDelegator.getTreeService($scope.format);
@@ -195,7 +195,7 @@
                     }
                 }
                 $timeout(function () {
-                    $rootScope.$broadcast($scope.type + ':reportLoaded', mvResult);
+                    $scope.$emit($scope.type + ':reportLoaded', mvResult);
                 });
 
                 $scope.validationResult = validationResult;

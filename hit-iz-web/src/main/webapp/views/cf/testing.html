@@ -1,40 +1,39 @@
 <div ng-controller="CFTestingCtrl" ng-init="init()" class="" style="margin-top:10px;margin-left: 10px;margin-right: 10px">
-    <div ng-show="error == null">
-        <div class="row" style="">
-            <div class="col-md-2">
-                <div class="panel panel-info">
-                    <!-- Default panel contents -->
-                    <div class="panel-heading point" ng-click="openProfileInfo()"><i class="fa fa-list"></i>Profiles <i class="point fa fa-info-circle"></i>
-                    </div>
-                    <div class="panel-body">
-                        <div ng-show="!loading">
-                            <div ng-show="error === null">
-                                <div class="container-testcase">
-                                    <div ng-show="testCases != null && testCases.length > 0">
+    <div class="row" style="">
+        <div class="col-md-2">
+            <div class="panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading point" ng-click="openProfileInfo()"><i class="fa fa-list"></i>Profiles <i class="point fa fa-info-circle"></i>
+                </div>
+                <div class="panel-body">
+                    <div ng-show="!loading">
+                        <div ng-show="error === null">
+                            <div class="container-testcase">
+                                <div ng-show="testCases != null && testCases.length > 0">
                                     <testcase-tree tree-control="tree" icon-leaf="" is-selectable="isSelectable(branch)" on-select="selectTestCase(branch)"></testcase-tree>
-</div>
-                                    <div ng-show="testCases == null || testCases.length == 0">
-                                        No TestCase Available
-                                    </div>
-
                                 </div>
-                            </div>
-                            <div ng-show="error != null">
-                                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+                                <div ng-show="testCases == null || testCases.length == 0">
+                                    No TestCase Available
+                                </div>
+
                             </div>
                         </div>
-                        <div ng-show="loading" style="text-align:center">
-                            <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+                        <div ng-show="error != null">
+                            <div class="alert alert-danger" role="alert" ng-bind="error"></div>
                         </div>
+                    </div>
+                    <div ng-show="loading" style="text-align:center">
+                        <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                     </div>
                 </div>
             </div>
-            <div class="col-md-10">
-                <div ng-show="loadingTC" style="text-align:center">
-                    <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
-                </div>
+        </div>
+        <div class="col-md-10">
+            <div ng-show="loadingTC" style="text-align:center">
+                <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+            </div>
 
-                <div ng-show="!loadingTC">
+            <div ng-show="!loadingTC">
                 <div ng-show="cf.testCase !== null" id="executionPanel">
                     <div class="panel panel-info">
                         <!-- Default panel contents -->
@@ -42,76 +41,68 @@
                             {{cf.testCase.label}}
                         </div>
                         <div class="panel-body">
-                    <tabset>
-                        <tab select="setActiveTab(0)" active="tabs[0]">
-                            <tab-heading>
-                                <i class="fa fa-check-circle"></i>Validation
-                            </tab-heading>
+                            <tabset>
+                                <tab select="setActiveTab(0)" active="tabs[0]">
+                                    <tab-heading>
+                                        <i class="fa fa-check-circle"></i>Validation
+                                    </tab-heading>
 
-                            <div ng-include="'views/cf/validation.html'"></div>
-                        </tab>
-                        <tab select="setActiveTab(1)" active="tabs[1]">
-                            <tab-heading>
-                                <i class="fa fa-file"></i>
-                                Report
-                            </tab-heading>
-                            <div ng-include="'views/cf/report.html'"></div>
-                        </tab>
-                        <tab select="setActiveTab(2)" active="tabs[2]">
-                            <tab-heading>
-                                <i class="fa fa-th-list"></i>
-                                Profile Viewer
-                            </tab-heading>
-                            <div ng-include="'views/cf/profileViewer.html'"></div>
-                        </tab>
-                        <tab select="setActiveTab(3)" active="tabs[3]">
-                            <tab-heading>
-                                <i class="fa fa-book"></i>
-                                ValueSets
-                            </tab-heading>
-                            <div ng-include="'views/cf/vocabulary.html'"></div>
-                        </tab>
-                        <!--<tab select="setActiveTab(4)" active="tabs[4]">-->
-                        <!--<tab-heading>-->
-                        <!--<i class="glyphicon glyphicon-help"></i>Instructions-->
-                        <!--</tab-heading>-->
+                                    <div ng-include="'views/cf/validation.html'"></div>
+                                </tab>
+                                <tab select="setActiveTab(1)" active="tabs[1]">
+                                    <tab-heading>
+                                        <i class="fa fa-file"></i>
+                                        Report
+                                    </tab-heading>
+                                    <div ng-include="'views/cf/report.html'"></div>
+                                </tab>
+                                <tab select="setActiveTab(2)" active="tabs[2]">
+                                    <tab-heading>
+                                        <i class="fa fa-th-list"></i>
+                                        Profile Viewer
+                                    </tab-heading>
+                                    <div ng-include="'views/cf/profileViewer.html'"></div>
+                                </tab>
+                                <tab select="setActiveTab(3)" active="tabs[3]">
+                                    <tab-heading>
+                                        <i class="fa fa-book"></i>
+                                        ValueSets
+                                    </tab-heading>
+                                    <div ng-include="'views/cf/vocabulary.html'"></div>
+                                </tab>
+                                <!--<tab select="setActiveTab(4)" active="tabs[4]">-->
+                                <!--<tab-heading>-->
+                                <!--<i class="glyphicon glyphicon-help"></i>Instructions-->
+                                <!--</tab-heading>-->
 
-                        <!--<div ng-include="'views/cf/instruction.html'"></div>-->
-                        <!--</tab>-->
-                    </tabset>
-                            </div>
+                                <!--<div ng-include="'views/cf/instruction.html'"></div>-->
+                                <!--</tab>-->
+                            </tabset>
                         </div>
+                    </div>
                 </div>
 
-    </div>
+            </div>
         </div>
 
-
-
     </div>
 </div>
 
-    <div ng-show="error != null" class="col-xs-10" style="margin-left:20px; margin-top: 20px">
-        <div class="alert alert-danger" role="alert" ng-bind="error"></div>
-    </div>
-
-</div>
-
-    <script type="text/ng-template" id="CFProfileInfoCtrl.html">
-             <div class="modal-header">
+<script type="text/ng-template" id="CFProfileInfoCtrl.html">
+    <div class="modal-header">
                 <span style="font-weight: bold; font-size: 20px">
                     Profile Information
                 </span>
                 <span class="pull-right">
-                    <button class="btn btn-primary btn-sm" ng-click="close()"> <i class="fa fa-times"></i> Close</button>
+                    <button class="btn btn-primary btn-sm" ng-click="close()"><i class="fa fa-times"></i> Close</button>
                 </span>
-            </div>
-             <div class="modal-body">
-                 <div ng-bind-html="appInfo.profileInfo" />
-            </div>
-             <!--<div class="modal-footer">-->
-                  <!--<span class="pull-right">-->
-                        <!--<button class="btn btn-primary btn-sm" ng-click="close()"> <i class="fa fa-times"></i> Close</button>-->
-                  <!--</span>-->
-            <!--</div>-->
-     </script>
+    </div>
+    <div class="modal-body">
+        <div ng-bind-html="appInfo.profileInfo"/>
+    </div>
+    <!--<div class="modal-footer">-->
+    <!--<span class="pull-right">-->
+    <!--<button class="btn btn-primary btn-sm" ng-click="close()"> <i class="fa fa-times"></i> Close</button>-->
+    <!--</span>-->
+    <!--</div>-->
+</script>

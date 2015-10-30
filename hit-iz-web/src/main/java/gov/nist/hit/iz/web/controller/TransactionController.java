@@ -17,6 +17,7 @@ import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.TransactionStatus;
 import gov.nist.hit.core.domain.User;
 import gov.nist.hit.core.repo.TransactionRepository;
+import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.core.transport.TransportClient;
@@ -47,12 +48,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/transaction")
-public class TransactionController extends TestingController {
+public class TransactionController {
 
   static final Logger logger = LoggerFactory.getLogger(TransactionController.class);
 
   @Autowired
   private TransportClient transportClient;
+
+  @Autowired
+  protected UserRepository userRepository;
 
 
   @Transactional()

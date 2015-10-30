@@ -13,6 +13,7 @@
 package gov.nist.hit.iz.web.config;
 
 import gov.nist.hit.core.repo.UserRepository;
+import gov.nist.hit.core.service.ResourcebundleLoader;
 import gov.nist.hit.core.service.exception.ProfileParserException;
 import gov.nist.hit.iz.domain.ConnectivityTestPlan;
 import gov.nist.hit.iz.domain.EnvelopeTestPlan;
@@ -48,6 +49,11 @@ public class IZBootstrap {
   @Autowired
   UserRepository userRepository;
 
+
+  @Autowired
+  ResourcebundleLoader resourcebundleLoader;
+
+
   @PostConstruct
   @Transactional()
   public void init() throws Exception {
@@ -56,6 +62,7 @@ public class IZBootstrap {
     logger.info("Bootstrapping data...");
     soapEnv();
     soapConn();
+    resourcebundleLoader.load();
     logger.info("...Bootstrapping completed");
   }
 

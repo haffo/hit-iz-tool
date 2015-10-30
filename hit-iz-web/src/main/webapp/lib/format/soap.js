@@ -126,7 +126,7 @@ angular.module('soap').factory('SOAPFormatter', ['$http', '$q', function ($http,
     return function (xml) {
         var delay = $q.defer();
         var data = angular.fromJson({"content": xml});
-
+        if(xml.trim().startsWith("<")) {
 //        $http.get('../../resources/soap/formatted.xml').then(
 //            function (object) {
 //                delay.resolve(object.data);
@@ -139,15 +139,17 @@ angular.module('soap').factory('SOAPFormatter', ['$http', '$q', function ($http,
 //                }
 //            }
 //        );
-
-        $http.post("api/xmlgeneric/format", data, {timeout: 60000}).then(
-            function (response) {
-                delay.resolve(response.data.content);
-            },
-            function (response) {
-                delay.reject(response.data);
-            }
-        );
+            $http.post("api/xmlgeneric/format", data, {timeout: 60000}).then(
+                function (response) {
+                    delay.resolve(response.data.content);
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
+        }else{
+            delay.reject("Malformed xml content");
+        }
         return delay.promise;
     };
 }]);
@@ -163,12 +165,14 @@ angular.module('soap').factory('SOAPNodeFinder',
              * @returns {*}
              */
             find: function (tree, cursor) {
-                var firstNode = tree.get_first_branch();
-                var children = tree.get_siblings(firstNode);
-                if (children) {
-                    var envelopeNode = children[0];
-                    if (envelopeNode == null) return null;
-                    return this.findNode(tree, envelopeNode, cursor.line);
+                if(typeof tree.get_first_branch === 'function') {
+                    var firstNode = tree.get_first_branch();
+                    var children = tree.get_siblings(firstNode);
+                    if (children) {
+                        var envelopeNode = children[0];
+                        if (envelopeNode == null) return null;
+                        return this.findNode(tree, envelopeNode, cursor.line);
+                    }
                 }
                 return null;
             },

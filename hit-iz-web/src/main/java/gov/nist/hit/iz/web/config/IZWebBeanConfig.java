@@ -46,8 +46,11 @@ public class IZWebBeanConfig {
 
   @Bean
   public ResourcebundleLoader resourcebundleLoader() {
-    return new HL7V2ResourcebundleLoaderImpl();
+    HL7V2ResourcebundleLoaderImpl rs = new HL7V2ResourcebundleLoaderImpl();
+    return rs;
   }
+
+
 
   @Bean
   public SOAPValidationReportGenerator soapValidationReportGenerator() {

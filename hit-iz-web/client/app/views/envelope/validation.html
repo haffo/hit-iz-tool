@@ -3,20 +3,21 @@
 <div class="panel-body">
 <div ng-show="testCase != null">
 <div class="row">
-    <div class="col-md-10" ng-show="uploadError != null">
+    <div class="col-md-10" >
+        <div ng-show="uploadError != null">
         <div class="alert alert-danger" role="alert" ng-bind="uploadError"></div>
-    </div>
+</div>
+        <div ng-show="eError != null">
+            <div class="alert alert-danger" role="alert" ng-bind="eError"></div>
+        </div>
+        <div ng-show="tError != null">
+            <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
+        </div>
 
+        <div ng-show="vError != null">
+            <div class="alert alert-danger" role="alert" ng-bind="vError"></div>
+        </div>
 
-    <div ng-show="eError != null">
-        <div class="alert alert-danger" role="alert" ng-bind="eError"></div>
-    </div>
-    <div ng-show="tError != null">
-        <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
-    </div>
-
-    <div ng-show="vError != null">
-        <div class="alert alert-danger" role="alert" ng-bind="vError"></div>
     </div>
 
 </div>
