@@ -293,6 +293,7 @@
 		</xs:annotation>
 		<xs:group ref="GroupStructure" minOccurs="1" maxOccurs="1"/>
 		<xs:attribute name="ID" type="NonEmptyString" use="required"/>
+		<xs:attribute name="Identifier" type="NonEmptyString" use="optional"/>
 		<xs:attribute name="Name" type="NonEmptyString" use="optional"/>
 		<xs:attribute name="Type" type="NonEmptyString" use="required"/>
 		<xs:attribute name="Event" type="NonEmptyString" use="required"/>
@@ -301,7 +302,7 @@
 				<xs:documentation>The HL7 message structure code, as identified in MSH-9.3 (see HL7 Table 0354 - Message Structure Type).</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="Description" type="NonEmptyString" use="optional">
+		<xs:attribute name="Description" type="xs:string" use="optional">
 			<xs:annotation>
 				<xs:documentation>A description of the event carried by this message.</xs:documentation>
 			</xs:annotation>
@@ -309,7 +310,12 @@
 	</xs:complexType>
 
 	<xs:complexType name="MetaDataType">
-		<xs:attribute name="Name" type="NonEmptyString" use="required">
+		<xs:attribute name="SpecificationName" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Provides a name that clearly and concisely defines the message exchange being profiled.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Name" type="xs:string" use="required">
 			<xs:annotation>
 				<xs:documentation>Provides a name that clearly and concisely defines the message exchange being profiled.</xs:documentation>
 			</xs:annotation>
@@ -342,8 +348,7 @@
 				<xs:documentation>This provides a list of key-words that relate to the profile and that may be useful in profile searches.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="Date" type="NonEmptyString" use="optional">
-		</xs:attribute>
+		<xs:attribute name="Date" type="NonEmptyString" use="optional"> </xs:attribute>
 	</xs:complexType>
 
 	<xs:complexType name="ConformanceProfileType">
