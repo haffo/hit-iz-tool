@@ -2271,6 +2271,22 @@
 				<xsl:value-of select="concat($ind, $indent, '&quot;elements&quot; : ', $nl, $ind, $indent, '[')"/>
 			</xsl:otherwise>
 		</xsl:choose>
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:title-and-elements">
+		<xsl:param name="title"/>
+		<xsl:param name="ind"/>
+		<xsl:choose>
+			<xsl:when test="$generate-plain-html">
+				<xsl:value-of select="util:tag('table', $ind)"/>
+				<xsl:value-of select="util:tag('tr', $ind)"/>
+				<xsl:value-of select="util:tag('th colspan=2 ', $ind)"/>
+				<xsl:value-of select="$title"/>
+				<xsl:value-of select="util:tag('/th ', $ind)"/>
+				<xsl:value-of select="util:tag('/tr', $ind)"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="concat($ind, $indent, '&quot;elements&quot; : ', $nl, $ind, $indent, '[')"/>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:message-elements">
 		<xsl:param name="ind"/>
 		<xsl:choose>
@@ -2327,6 +2343,7 @@
 		<xsl:param name="name"/>
 		<xsl:param name="value"/>
 		<xsl:param name="ind"/>
+		<xsl:message> Processing <xsl:value-of select="$name"/></xsl:message>
 		<xsl:value-of select="util:element-with-delimiter($name, $value, ',', $ind)"/>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:last-element">
 		<xsl:param name="name"/>
@@ -2459,8 +2476,11 @@
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:blank-if-1">
 		<xsl:param name="pos"/>
 		<xsl:param name="total"/>
+		<xsl:message>
+			<xsl:value-of select="$total"/>
+		</xsl:message>
 		<xsl:choose>
-			<xsl:when test="$pos = 1 and $total = 1">
+			<xsl:when test="$total = 1">
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="$pos"/>
@@ -2571,6 +2591,7 @@
 		<xsl:param name="val"/>
 		<xsl:param name="key"/>
 		<xsl:param name="tablename"/>
+		<xsl:message> Valueset:  <xsl:value-of select="$key"/> </xsl:message>
 		<xsl:choose>
 			<xsl:when test="string-length(normalize-space($val)) = 0">
 				<xsl:value-of select="util:valueset($key, $tablename)"/>

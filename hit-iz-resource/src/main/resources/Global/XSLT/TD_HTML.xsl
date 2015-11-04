@@ -4,7 +4,7 @@
 	<!--xsl:param name="output" select="'jquery-tab-html'" -->
 	<!--xsl:param name="output" select="'plain-html'"/ -->
 	<xsl:param name="output" select="'ng-tab-html'"/>
-	<xsl:variable name="version" select="'2.9.3'"/>
+	<xsl:variable name="version" select="'2.9.6'"/>
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
 	<!-- Release notes author:sriniadhi.work@gmail.com
@@ -12,7 +12,7 @@
 	2.1:  Tabset support
 	2.2:  Adding support for SS and major refactoring into imports and includes
 	2.8:  Bugfixes for SS
-	2.9:  Adding LRI support (.1 = fixed OBR.28[1], .2 bugfixes for SS, .3 LRI repeating elements)
+	2.9:  Adding LRI support (.1 = fixed OBR.28[1], .2 bugfixes for SS, .3 LRI repeating elements .4: bug fix regarding repeating race/ethnicgroup/address) .5 added qpd.3.1 patient identifier, also fixing QPD.address info .6 more birth order stuff z22 as well
 
 
 	-->
@@ -270,7 +270,7 @@
 		<xsl:value-of select="util:element('Date/Time of Birth',util:format-date(.//PID.7.1), $ind1)"/>
 		<xsl:value-of select="util:element('Administrative Sex', util:admin-sex(.//PID.8), $ind1)"/>
 		<xsl:for-each select="PID.11">
-			<xsl:value-of select="util:element(concat('Patient Address', ' ', util:blank-if-1(position(), count(PID.11))), util:format-address(PID.11.1/PID.11.1.1, PID.11.3, PID.11.4, PID.11.5, PID.11.6), $ind1)"/>
+			<xsl:value-of select="util:element(concat('Patient Address', ' ', util:blank-if-1(position(), count(..//PID.11))), util:format-address(PID.11.1/PID.11.1.1, PID.11.3, PID.11.4, PID.11.5, PID.11.6), $ind1)"/>
 		</xsl:for-each>
 		<xsl:for-each select="PID.13">
 			<xsl:choose>
@@ -283,9 +283,12 @@
 			</xsl:choose>
 		</xsl:for-each>
 		<xsl:for-each select="PID.10">
-			<xsl:value-of select="util:element(concat('Race', util:blank-if-1(position(), count(PID.10))), .//PID.10.2, $ind1)"/>
+			<xsl:value-of select="util:element(concat('Race', util:blank-if-1(position(), count(..//PID.10))), .//PID.10.2, $ind1)"/>
 		</xsl:for-each>
-		<xsl:value-of select="util:element('Ethnic Group',.//PID.22.2, $ind1)"/>
+		<xsl:for-each select="PID.22">
+			<xsl:value-of select="util:element(concat('Ethnic Group', util:blank-if-1(position(), count(..//PID.22))), .//PID.22.2, $ind1)"/>
+		</xsl:for-each>
+		<xsl:value-of select="util:element('Multiple Birth Indicator',.//PID.24, $ind1)"/>
 		<xsl:value-of select="util:last-element('Birth Order',.//PID.25, $ind1, $vertical-orientation, false())"/>
 	</xsl:template>
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
@@ -299,10 +302,14 @@
 		<xsl:value-of select="util:title('title', concat('Patient Information', $counter), 'Patient Information', $ind1, false(), $vertical-orientation, false())"/>
 		<xsl:value-of select="util:elements($ind1)"/>
 		<xsl:value-of select="util:element('Patient Name', concat(util:format-with-space (.//QPD.4.2), util:format-with-space(.//QPD.4.3), .//QPD.4.1.1), $ind1)"/>
+		<xsl:value-of select="util:element('Mother''s Maiden Name', .//QPD.5.1.1, $ind1)"/>
+		<xsl:value-of select="util:element('ID Number', concat(util:format-with-space (.//QPD.3.1[1]), .//QPD.3.1[2]), $ind1)"/>
 		<xsl:value-of select="util:element('Date/Time of Birth', util:format-date (.//QPD.6.1), $ind1)"/>
 		<xsl:value-of select="util:element('Sex', util:admin-sex(.//QPD.7), $ind1)"/>
-		<xsl:value-of select="util:element('Patient Address', util:format-address(.//QPD.8.1.1, .//QPD.8.3, .//QPD.8.4, '', ''), $ind1)"/>
-		<xsl:value-of select="util:last-element('Patient Phone', util:format-tel (.//QPD.9.6, .//QPD.9.7), $ind1, $vertical-orientation, false())"/>
+		<xsl:value-of select="util:element('Patient Address', util:format-address(.//QPD.8.1.1, .//QPD.8.3, .//QPD.8.4, .//QPD.8.5, .//QPD.8.6), $ind1)"/>
+		<xsl:value-of select="util:element('Patient Phone', util:format-tel (.//QPD.9.6, .//QPD.9.7), $ind1)"/>
+		<xsl:value-of select="util:element('Birth Indicator',.//QPD.10, $ind1)"/>
+		<xsl:value-of select="util:last-element('Birth Order',.//QPD.11, $ind1, $vertical-orientation, false())"/>
 	</xsl:template>
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
@@ -334,7 +341,7 @@
 		<xsl:value-of select="util:element('Name', concat(util:format-with-space(.//NK1.2.2), util:format-with-space(.//NK1.2.3), .//NK1.2.1.1), $ind1)"/>
 		<xsl:value-of select="util:element('Relationship', .//NK1.3.2, $ind1)"/>
 		<xsl:for-each select="NK1.4">
-			<xsl:value-of select="util:element(concat('Address', util:blank-if-1(position(), count(NK1.4))), util:format-address(.//NK1.4.1.1, .//NK1.4.3, .//NK1.4.4, .//NK1.4.5, .//NK1.4.6), $ind1)"/>
+			<xsl:value-of select="util:element(concat('Address', util:blank-if-1(position(), count(..//NK1.4))), util:format-address(.//NK1.4.1.1, .//NK1.4.3, .//NK1.4.4, .//NK1.4.5, .//NK1.4.6), $ind1)"/>
 		</xsl:for-each>
 		<xsl:for-each select="NK1.5">
 			<xsl:value-of select="util:element('Phone Number', util:format-tel(NK1.5.6, NK1.5.7), $ind1)"/>
@@ -360,9 +367,11 @@
 		<xsl:value-of select="util:element('Name', util:valueset(.//PID.5[2]/PID.5.7, 'HL70200'), $ind1)"/>
 		<xsl:value-of select="util:element('Sex', util:valueset(.//PID.8, 'PHVS_AdministrativeSex_HL7_2x'), $ind1)"/>
 		<xsl:for-each select="PID.10">
-			<xsl:value-of select="util:element(concat('Race', util:blank-if-1(position(), count(PID.10))), util:value-or-valueset(.//PID.10.2, .//PID.10.1, 'CDCREC'), $ind1)"/>
+			<xsl:value-of select="util:element(concat('Race', util:blank-if-1(position(), count(..//PID.10))), util:value-or-valueset(.//PID.10.2, .//PID.10.1, 'CDCREC'), $ind1)"/>
 		</xsl:for-each>
-		<xsl:value-of select="util:element('Ethnic Group', util:value-or-valueset(.//PID.22.2, .//PID.22.1, 'CDCREC'), $ind1)"/>
+		<xsl:for-each select="PID.22">
+			<xsl:value-of select="util:element(concat('Ethnic Group', util:blank-if-1(position(), count(..//PID.22))), util:value-or-valueset(.//PID.22.2, .//PID.22.1, 'CDCREC'), $ind1)"/>
+		</xsl:for-each>
 		<xsl:value-of select="util:element('City', .//PID.11.3, $ind1)"/>
 		<xsl:value-of select="util:element('State', util:valueset(.//PID.11.4, 'PHVS_State_FIPS_5-2'), $ind1)"/>
 		<xsl:value-of select="util:element('Zip Code', .//PID.11.5, $ind1)"/>
@@ -394,8 +403,8 @@
 		<xsl:value-of select="util:element('Date/Time of Birth',util:format-date(.//PID.7.1), $ind1)"/>
 		<xsl:value-of select="util:element('Administrative Sex', util:admin-sex(.//PID.8), $ind1)"/>
 		<xsl:for-each select="PID.10">
-			<xsl:value-of select="util:element(concat('Race', util:blank-if-1-variant2(position(), count(PID.10))), .//PID.10.2, $ind1)"/>
-			<xsl:value-of select="util:element(concat('Alt Race', util:blank-if-1-variant2(position(), count(PID.10))), .//PID.10.5, $ind1)"/>
+			<xsl:value-of select="util:element(concat('Race', util:blank-if-1-variant2(position(), count(..//PID.10))), .//PID.10.2, $ind1)"/>
+			<xsl:value-of select="util:element(concat('Alt Race', util:blank-if-1-variant2(position(), count(..//PID.10))), .//PID.10.5, $ind1)"/>
 		</xsl:for-each>
 		<xsl:value-of select="util:end-elements($ind1, $vertical-orientation, false())"/>
 	</xsl:template>
@@ -2744,6 +2753,22 @@
 				<xsl:value-of select="concat($ind, $indent, '&quot;elements&quot; : ', $nl, $ind, $indent, '[')"/>
 			</xsl:otherwise>
 		</xsl:choose>
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:title-and-elements">
+		<xsl:param name="title"/>
+		<xsl:param name="ind"/>
+		<xsl:choose>
+			<xsl:when test="$generate-plain-html">
+				<xsl:value-of select="util:tag('table', $ind)"/>
+				<xsl:value-of select="util:tag('tr', $ind)"/>
+				<xsl:value-of select="util:tag('th colspan=2 ', $ind)"/>
+				<xsl:value-of select="$title"/>
+				<xsl:value-of select="util:tag('/th ', $ind)"/>
+				<xsl:value-of select="util:tag('/tr', $ind)"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="concat($ind, $indent, '&quot;elements&quot; : ', $nl, $ind, $indent, '[')"/>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:message-elements">
 		<xsl:param name="ind"/>
 		<xsl:choose>
@@ -2800,6 +2825,7 @@
 		<xsl:param name="name"/>
 		<xsl:param name="value"/>
 		<xsl:param name="ind"/>
+		<xsl:message> Processing <xsl:value-of select="$name"/></xsl:message>
 		<xsl:value-of select="util:element-with-delimiter($name, $value, ',', $ind)"/>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:last-element">
 		<xsl:param name="name"/>
@@ -2932,8 +2958,11 @@
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:blank-if-1">
 		<xsl:param name="pos"/>
 		<xsl:param name="total"/>
+		<xsl:message>
+			<xsl:value-of select="$total"/>
+		</xsl:message>
 		<xsl:choose>
-			<xsl:when test="$pos = 1 and $total = 1">
+			<xsl:when test="$total = 1">
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="$pos"/>
@@ -3044,6 +3073,7 @@
 		<xsl:param name="val"/>
 		<xsl:param name="key"/>
 		<xsl:param name="tablename"/>
+		<xsl:message> Valueset:  <xsl:value-of select="$key"/> </xsl:message>
 		<xsl:choose>
 			<xsl:when test="string-length(normalize-space($val)) = 0">
 				<xsl:value-of select="util:valueset($key, $tablename)"/>

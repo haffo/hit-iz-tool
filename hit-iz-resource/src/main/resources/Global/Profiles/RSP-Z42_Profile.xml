@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
 <ConformanceProfile ID="28c0d805-9607-4ead-b81f-68b9f57e4f3a" Type="Constrainable" HL7Version="2.5.1" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData Name="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014" OrgName="NIST" Version="1.0.Z42" Date="20151027"/>
+	<MetaData Name="Z42 Message profile" OrgName="NIST" Version="1.1.Z42" Date="20151104" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
 		<Encoding>XML</Encoding>
 	</Encodings>
 	<Messages>
-		<Message ID="e13dfbab-8832-4c3f-bfa5-0e9c18e644c4" Type="RSP" Event="K11" StructID="RSP_K11" Description="Return Evaluated History and Forecast">
+		<Message ID="e13dfbab-8832-4c3f-bfa5-0e9c18e644c4" Type="RSP" Event="K11" StructID="RSP_K11" Description="Z42: Return Evaluated History and Forecast" Identifier="Z42" Name="Return Evaluated History and Forecast">
 			<Segment Ref="MSH_IZ 1_5_Z42" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT_IZ_V_5_RSP_Z32_146" Usage="X" Min="0" Max="*"/>
 			<Segment Ref="MSA_IZ1_5" Usage="R" Min="1" Max="1"/>
