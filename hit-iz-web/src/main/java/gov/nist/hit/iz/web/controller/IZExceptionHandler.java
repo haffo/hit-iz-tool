@@ -12,8 +12,6 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.core.service.exception.XmlFormatterException;
-import gov.nist.hit.core.service.exception.XmlParserException;
 import gov.nist.hit.core.transport.TransportClientException;
 import gov.nist.hit.iz.service.exception.SoapValidationException;
 import gov.nist.hit.iz.service.exception.SoapValidationReportException;
@@ -39,7 +37,7 @@ public class IZExceptionHandler {
     super();
   }
 
-
+  @ResponseBody
   @ExceptionHandler(SoapValidationException.class)
   @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
   public String soapValidationException(SoapValidationException ex) {
@@ -47,6 +45,7 @@ public class IZExceptionHandler {
     return "Sorry, validation Failed.\n";
   }
 
+  @ResponseBody
   @ExceptionHandler(TransportClientException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   public String transportClientException(TransportClientException ex) {
@@ -54,36 +53,21 @@ public class IZExceptionHandler {
     return "Sorry, connection failed.";
   }
 
-
+  @ResponseBody
   @ExceptionHandler(SoapValidationReportException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
-  @ResponseBody
   public String reportException(SoapValidationReportException ex) {
     logger.debug(ex.getMessage());
     return "Sorry, validation failed.\n";
   }
 
+  @ResponseBody
   @ExceptionHandler(SOAPEnvelopeException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   public String soapException(SOAPEnvelopeException ex) {
     logger.debug(ex.getMessage());
     return "Sorry, an issue occured";
   }
-
-  @ExceptionHandler(XmlParserException.class)
-  @ResponseStatus(HttpStatus.BAD_REQUEST)
-  public String xmlParserException(XmlParserException ex) {
-    logger.debug(ex.getMessage());
-    return "Malformed xml content.";
-  }
-
-  @ExceptionHandler(XmlFormatterException.class)
-  @ResponseStatus(HttpStatus.BAD_REQUEST)
-  public String xmlFormatterException(XmlFormatterException ex) {
-    logger.debug(ex.getMessage());
-    return "Malformed xml content.";
-  }
-
 
 
 }
