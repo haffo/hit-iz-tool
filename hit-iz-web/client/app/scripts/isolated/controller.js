@@ -271,7 +271,7 @@ angular.module('isolated')
             StorageService.set(StorageService.ISOLATED_LOADED_TESTSTEP_TYPE_KEY, $scope.testStep.type);
             StorageService.set(StorageService.ISOLATED_LOADED_TESTSTEP_ID_KEY, $scope.testStep.id);
             if (testStep != null) {
-                if (testStep.executionMessage === undefined && testStep['testingType'] === 'TA_INITIATOR') {
+                if (!testStep.executionMessage && testStep['testingType'] === 'TA_INITIATOR') {
                     IsolatedExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
                 }
                 if (!$scope.isManualStep(testStep) && testStep.testContext && testStep.testContext != null) {
@@ -347,10 +347,8 @@ angular.module('isolated')
                     if ($scope.isSutInitiator(testStep)) {
                         IsolatedExecutionService.setExecutionMessage(testStep, null);
                     }
-                    $timeout(function () {
-                        $rootScope.$broadcast('isolated:clearEditor');
-                    });
-                }
+//                    $rootScope.$broadcast('isolated:clearEditor');
+                 }
                 $scope.selectTestStep(testStep);
             }
         };
@@ -778,6 +776,8 @@ angular.module('isolated')
 
         $scope.loadExampleMessage = function () {
             if ($scope.testStep != null) {
+                IsolatedExecutionService.deleteValidationReport($scope.testStep);
+                IsolatedExecutionService.deleteMessageTree($scope.testStep);
                 var testContext = $scope.testStep.testContext;
                 if (testContext) {
                     var message = testContext.message && testContext.message != null ? testContext.message.content : '';
@@ -814,9 +814,13 @@ angular.module('isolated')
                     }
                     if (msg.trim() !== '') {
                         $scope.tokenPromise = $timeout(function () {
+                            IsolatedExecutionService.deleteValidationReport($scope.testStep);
+                            IsolatedExecutionService.deleteMessageTree($scope.testStep);
                             $scope.execute();
                         }, $scope.loadRate);
                     } else {
+                        IsolatedExecutionService.deleteValidationReport($scope.testStep);
+                        IsolatedExecutionService.deleteMessageTree($scope.testStep);
                         $scope.execute();
                     }
                 });

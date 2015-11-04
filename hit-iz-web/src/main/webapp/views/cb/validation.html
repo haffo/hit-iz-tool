@@ -2,20 +2,9 @@
     <div class="panel panel-info">
         <div class="panel-body">
             <div ng-show="cb.testCase != null">
-                <!--<div class="row" ng-show="error != null">-->
-                <!--<div class="alert alert-danger" role="alert" ng-bind="error"></div>-->
-                <!--</div>-->
-
-                <div ng-show="tError !== null">
-                    <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
-                </div>
                 <div ng-show="mError != null">
                     <div class="alert alert-danger" role="alert" ng-bind="mError"></div>
                 </div>
-                <div ng-show="vError != null">
-                    <div class="alert alert-danger" role="alert" ng-bind="vError"></div>
-                </div>
-
                 <div class="row">
                     <div class="col-md-4">
                         <div class="panel panel-info">
@@ -26,6 +15,10 @@
                                 <div ng-show="!tLoading">
                                     <div ng-show="tError === null" class="message-tree">
                                         <abn-tree tree-control="cb.tree.root" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
+                                    </div>
+
+                                    <div ng-show="tError !== null">
+                                        <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
                                     </div>
                                 </div>
                                 <div ng-show="tLoading" style="text-align:center">
@@ -140,6 +133,9 @@
                                                 <div ng-show="!vLoading">
                                                     <div ng-show="!vError || vError == null">
                                                         <div validation-result="" type="cb" message="cb.message" format="cb.testCase.testContext.format" editor="cb.editor" tree="cb.tree" cursor="cb.cursor"></div>
+                                                    </div>
+                                                    <div ng-show="vError != null">
+                                                        <div class="alert alert-danger" role="alert" ng-bind="vError"></div>
                                                     </div>
                                                 </div>
                                             </div>
