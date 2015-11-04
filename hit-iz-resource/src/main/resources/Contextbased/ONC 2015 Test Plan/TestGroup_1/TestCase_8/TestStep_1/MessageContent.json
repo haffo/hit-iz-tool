@@ -1,5 +1,5 @@
 {
-"version" : "1.7",
+"version" : "1.8.2",
 "profile" : "MessageContent",
 "tables":
 [
@@ -13,35 +13,35 @@
 "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "wcApp",
-"categorization" : "Presence-Content Indifferent"},
-							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
-: "Indifferent"},
-							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "",
-"categorization" : "Indifferent"},
+							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
+APP", "categorization" : "Presence-Configuration"},
+							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.22",
+"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "ISO",
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "wcEHR",
-"categorization" : "Presence-Content Indifferent"},
-							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
-: "Indifferent"},
-							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
-"categorization" : "Indifferent"},
+							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
+Facility", "categorization" : "Presence-Configuration"},
+							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.23",
+"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "ISO",
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "iisApp",
-"categorization" : "Presence-Content Indifferent"},
-							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
-: "Indifferent"},
-							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
+							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
+APP", "categorization" : "Presence-Content Indifferent"},
+							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.1",
+"categorization" : "Indifferent"},
+							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "ISO",
 "categorization" : "Indifferent"},
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "IIS", "categorization"
-: "Presence-Content Indifferent"},
-							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
-: "Indifferent"},
-							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
+							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
+FAC", "categorization" : "Presence-Content Indifferent"},
+							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.2",
+"categorization" : "Indifferent"},
+							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "ISO",
 "categorization" : "Indifferent"},
 				{"location" : "MSH.7", "dataelement" : "Date/Time Of Message", "data" : "", "categorization"
 : ""},
@@ -81,36 +81,36 @@
 "categorization" : "Indifferent"},
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
-							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "wcEHR",
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NIST",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "",
+									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
 "categorization" : "Indifferent"},
-									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
+									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.30.1",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : "Indifferent"},
+"ISO", "categorization" : "Indifferent"},
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Indifferent"},
+"XX", "categorization" : "Indifferent"},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
-: "", "categorization" : "Indifferent"},
+: "100-6478", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "IIS",
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NIST",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
+									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
 "categorization" : "Indifferent"},
-									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
+									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.30.1",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : "Indifferent"},
+"ISO", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Indifferent"},
+"XX", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
-: "", "categorization" : "Indifferent"},		]
+: "100-6478", "categorization" : "Indifferent"},		]
 		{
 			"title":"PID : Patient Identification",
 			"elements" : 

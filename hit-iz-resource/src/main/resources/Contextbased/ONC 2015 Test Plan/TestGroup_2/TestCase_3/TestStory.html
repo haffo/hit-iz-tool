@@ -238,7 +238,7 @@
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td>No Description
+		<td><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">A female toddler, Donna Victoria Bee, is brought to the local clinic to determine what immunizations have been given and what immunizations are needed. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider uses this information to locate the patient's medical record. </span><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">The staff member then uses the medical record and system capabilities to query the IIS to request an evaluated history and forecast for the patient.<br></span></span><br><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">The IIS performs a search for Donna Victoria Bee and does not find a high-confidence match. The IIS returns a response message indicating no person found to the querying system. It is expected that the requesting system (e.g., EHR-S) process the response message and display some indication to the end user that no matches were found. <br><br><br><br></span></span>
 		</td></tr>
 		</table>
 		<br/>
@@ -264,7 +264,7 @@
 		<th>Pre Condition</th>
 		</tr>
 		<tr>
-		<td>No PreCondition
+		<td>Person exists in the system with the complete demographics as provided in the Test Data Specification.<br><br>Person has Medical Record Number (MR).<br><br>Person does not have a record in the IIS, even though complete demographics are used in the query.
 		</td></tr>
 		</table>
 		<br/>
@@ -277,7 +277,7 @@
 		<th>Post Condition</th>
 		</tr>
 		<tr>
-		<td>No PostCondition
+		<td>The clinician is provided some indication that no matches were found (even if temporal).
 		</td></tr>
 		</table>
 		<br/>
@@ -290,7 +290,7 @@
 		<th>Test Objectives</th>
 		</tr>
 		<tr>
-		<td>No Test Objectives
+		<td>Tests for a maximally valued query message, including use of OIDs, mother's maiden name, fully valued address, birth indicator and birth order. Test the capability of the EHR-S to process a response message that returns no persons found and to provide an indication to the end user.
 		</td></tr>
 		</table>
 		<br/>
@@ -331,7 +331,7 @@
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td>No Description
+		<td><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">A female toddler, Donna Victoria Bee, is brought to the local clinic to determine what immunizations have been given and what immunizations are needed. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider uses this information to locate the patient's medical record. </span><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">The staff member then uses the medical record and system capabilities to query the IIS to request an evaluated history and forecast for the patient.<br></span></span><br><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">The IIS performs a search for Donna Victoria Bee and does not find a high-confidence match. The IIS returns a response message indicating no person found to the querying system. It is expected that the requesting system (e.g., EHR-S) process the response message and display some indication to the end user that no matches were found. <br><br><br><br></span></span>
 		</td></tr>
 		</table>
 		<br/>
@@ -357,7 +357,7 @@
 		<th>Pre Condition</th>
 		</tr>
 		<tr>
-		<td>No PreCondition
+		<td>Person exists in the system with the complete demographics as provided in the Test Data Specification.<br><br>Person has Medical Record Number (MR).<br><br>Person does not have a record in the IIS, even though complete demographics are used in the query.
 		</td></tr>
 		</table>
 		<br/>
@@ -370,7 +370,7 @@
 		<th>Post Condition</th>
 		</tr>
 		<tr>
-		<td>No PostCondition
+		<td>The clinician is provided some indication that no matches were found (even if temporal).
 		</td></tr>
 		</table>
 		<br/>
@@ -383,7 +383,7 @@
 		<th>Test Objectives</th>
 		</tr>
 		<tr>
-		<td>No Test Objectives
+		<td>Tests for a maximally valued query message, including use of OIDs, mother's maiden name, fully valued address, birth indicator and birth order. Test the capability of the EHR-S to process a response message that returns no persons found and to provide an indication to the end user.
 		</td></tr>
 		</table>
 		<br/>

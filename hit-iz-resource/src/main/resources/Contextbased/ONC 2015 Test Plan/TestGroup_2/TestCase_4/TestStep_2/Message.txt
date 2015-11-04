@@ -1,4 +1,4 @@
-MSH|^~\&|MyIIS|StatePH|MYEHR|DCS|20151031145233-0500||RSP^K11^RSP_K11|3533469|P|2.5.1|||NE|NE|||||Z33^CDCPHINVS|DCS^^^^^DCS^XX^^^6439432|StatePH
-MSA|AA|113533469||||
-QAK|3137374859|TM|Z44^request evaluated Immunization history^CDCPHINVS|||
-QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS |3137374859|177993456^^^MYEHR^MR|Johnson^Sam^S^^^^L||19800214|M|10 East Main St^^Pretty Valley^MI^^^L|^PRN^PH^^^734^5556712
+MSH|^~\&|MyIIS|StatePH|MYEHR|DCS|20151031145233-0500||RSP^K11^RSP_K11|NIST-IZ-4.2_Response_TM_K11_Z33|P|2.5.1|||NE|NE|||||Z33^CDCPHINVS|DCS^^^^^DCS^XX^^^6439432|StatePH
+MSA|AA|NIST-IZ-4.1_Query_Q11_Z44||||
+QAK|IZ-4.1-2015|TM|Z44^request evaluated Immunization history^CDCPHINVS|||
+QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS|IZ-4.1-2015|412299^^^MYEHR^MR|McCoy^James^T^^^^L||20110905|M|22 East Branch Way^^Livingston^MT^59047^^L|^PRN^PH^^^406^5556285

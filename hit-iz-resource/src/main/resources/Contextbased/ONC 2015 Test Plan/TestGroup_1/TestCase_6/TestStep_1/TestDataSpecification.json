@@ -1,5 +1,5 @@
 {
-"version" : "2.9.3",
+"version" : "2.9.6",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -12,11 +12,12 @@
 				{"element" : "ID Number", "data" : "8891 "},
 				{"element" : "Date/Time of Birth", "data" : "06/02/2014"},
 				{"element" : "Administrative Sex", "data" : "Male"},
-				{"element" : "Patient Address 1", "data" : "924 Sycamore Lane Bozeman MT 59715
+				{"element" : "Patient Address ", "data" : "924 Sycamore Lane Bozeman MT 59715
 USA "},
 				{"element" : "Local Number", "data" : "(406)555-5835"},
-				{"element" : "Race1", "data" : "White"},
+				{"element" : "Race", "data" : "White"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
+				{"element" : "Multiple Birth Indicator", "data" : "Y"},
 				{"element" : "Birth Order", "data" : "2"}
 			]
 		},
@@ -38,7 +39,7 @@ USA "},
 			[
 				{"element" : "Name", "data" : "Karl Leonard Banks"},
 				{"element" : "Relationship", "data" : "Father"},
-				{"element" : "Address1", "data" : "924 Sycamore Lane Bozeman MT 59715 USA "},
+				{"element" : "Address", "data" : "924 Sycamore Lane Bozeman MT 59715 USA "},
 				{"element" : "Phone Number", "data" : "(406)555-5835"},		]
 		},
 		{

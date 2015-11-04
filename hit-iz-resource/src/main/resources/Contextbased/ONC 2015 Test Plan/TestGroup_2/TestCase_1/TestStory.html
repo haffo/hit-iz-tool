@@ -238,7 +238,7 @@
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td><p>A young adult is seen by a clinician. The clinician uses the EHR to request and evaluated history and forecast. The IIS returns an evaluated history and forecast for that person.</p>
+		<td><p>A male child patient, Bobbie Q. Child, is brought to the clinic for an annual visit. A staff person locates his medical record in the EHR-S. The staff person confirms demographic information, including address. The staff person triggers a request to the IIS for an evaluated history and forecast for the child. The IIS performs a search for Bobbie Q. Child and finds one high-confidence match. The IIS generates an evaluated history and forecast for Bobbie and returns this to the EHR-S. One dose of vaccine was not administrated at the correct age and is marked as not valid. The EHR-S displays the evaluated history and forecast, including the not valid dose. </p>
 		</td></tr>
 		</table>
 		<br/>
@@ -264,7 +264,7 @@
 		<th>Pre Condition</th>
 		</tr>
 		<tr>
-		<td><p>The person has a record in the IIS.</p>
+		<td><p>Person exists in the system with the complete demographics as provided in the Test Data Specification.<br><br>Person has Medical Record Number (MR).<br><br>Person does have an immunization history in the IIS,</p>
 		</td></tr>
 		</table>
 		<br/>
@@ -277,7 +277,7 @@
 		<th>Post Condition</th>
 		</tr>
 		<tr>
-		<td><p>No PostCondition</p>
+		<td><p>The clinician is able to view the evaluated history and forecast from the IIS (even if temporal).<br></p>
 		</td></tr>
 		</table>
 		<br/>
@@ -290,7 +290,7 @@
 		<th>Test Objectives</th>
 		</tr>
 		<tr>
-		<td><p>Evaluates EHR ability to create a well formed query for a young adult. Evaluates EHR ability to accept a response with evaluated history and forecast for that person.</p>
+		<td><p>Evaluates EHR-S ability to create a well formed query for a child. Evaluates EHR-S ability to accept a response with evaluated history and forecast for that person.</p>
 		</td></tr>
 		</table>
 		<br/>
@@ -303,7 +303,7 @@
 		<th>Evaluation Criteria</th>
 		</tr>
 		<tr>
-		<td><p>No evaluation criteria</p>
+		<td><p>Query: Message Validation Report</p><p>Response: Juror Document<br></p>
 		</td></tr>
 		</table>
 		<br/>
@@ -331,7 +331,7 @@
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td><p>A young adult is seen by a clinician. The clinician uses the EHR to request and evaluated history and forecast. The IIS returns an evaluated history and forecast for that person.</p>
+		<td><p>A male child patient, Bobbie Q. Child, is brought to the clinic for an annual visit. A staff person locates his medical record in the EHR-S. The staff person confirms demographic information, including address. The staff person triggers a request to the IIS for an evaluated history and forecast for the child. The IIS performs a search for Bobbie Q. Child and finds one high-confidence match. The IIS generates an evaluated history and forecast for Bobbie and returns this to the EHR-S. One dose of vaccine was not administrated at the correct age and is marked as not valid. The EHR-S displays the evaluated history and forecast, including the not valid dose. </p>
 		</td></tr>
 		</table>
 		<br/>
@@ -357,7 +357,7 @@
 		<th>Pre Condition</th>
 		</tr>
 		<tr>
-		<td><p>The person has a record in the IIS.</p>
+		<td><p>Person exists in the system with the complete demographics as provided in the Test Data Specification.<br><br>Person has Medical Record Number (MR).<br><br>Person does have an immunization history in the IIS,</p>
 		</td></tr>
 		</table>
 		<br/>
@@ -370,7 +370,7 @@
 		<th>Post Condition</th>
 		</tr>
 		<tr>
-		<td><p>No PostCondition</p>
+		<td><p>The clinician is able to view the evaluated history and forecast from the IIS (even if temporal).<br></p>
 		</td></tr>
 		</table>
 		<br/>
@@ -383,7 +383,7 @@
 		<th>Test Objectives</th>
 		</tr>
 		<tr>
-		<td><p>Evaluates EHR ability to create a well formed query for a young adult. Evaluates EHR ability to accept a response with evaluated history and forecast for that person.</p>
+		<td><p>Evaluates EHR-S ability to create a well formed query for a child. Evaluates EHR-S ability to accept a response with evaluated history and forecast for that person.</p>
 		</td></tr>
 		</table>
 		<br/>
@@ -396,7 +396,7 @@
 		<th>Evaluation Criteria</th>
 		</tr>
 		<tr>
-		<td><p>No evaluation criteria</p>
+		<td><p>Query: Message Validation Report</p><p>Response: Juror Document<br></p>
 		</td></tr>
 		</table>
 		<br/>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
 <ConformanceProfile ID="56fca537-ef99-407a-8e48-93e998a9463b" Type="Constrainable" HL7Version="2.5.1" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData Name="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014" OrgName="NIST" Version="1.0.Z33" Date="20151027"/>
+	<MetaData Name="Z33 Message profile" OrgName="NIST" Version="1.1.Z33" Date="20151104" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
 		<Encoding>XML</Encoding>
 	</Encodings>
 	<Messages>
-		<Message ID="6a54b5a1-3d50-423e-9f84-8a721ad76342" Type="RSP" Event="K11" StructID="RSP_K11" Description="Return an acknowledgement with no person records">
+		<Message ID="6a54b5a1-3d50-423e-9f84-8a721ad76342" Type="RSP" Event="K11" StructID="RSP_K11" Description="Z33:Return an acknowledgement with no person records" Identifier="Z33" Name="Return an acknowledgement with no person records">
 			<Segment Ref="MSH_IZ 1_5_Z33" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT_IZ_V_5_RSP_Z32_146" Usage="X" Min="0" Max="*"/>
 			<Segment Ref="MSA_IZ1_5" Usage="R" Min="1" Max="1"/>

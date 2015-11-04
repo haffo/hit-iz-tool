@@ -4,7 +4,7 @@
 	<!--xsl:param name="output" select="'jquery-tab-html'" -->
 	<!--xsl:param name="output" select="'plain-html'"/-->
 	<xsl:param name="output" select="'ng-tab-html'"/>
-	<xsl:variable name="version" select="'1.7'"/>
+	<xsl:variable name="version" select="'1.8.2'"/>
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
@@ -12,6 +12,7 @@
 	<!-- Release notes author: sriniadhi.work@gmail.com
 		1.7: Added repeatition indicators for Fields. Do we need it for components?
 		1.8: PID- instead of PID. in the message content. Also added [n] for field prefixes that are repeating. Component/Subcomponent repetitions need to be addressed in the future.
+				.1 : changed the font size similar to tdspec in _css_messagecontent.xsl .2 empty categorizations in the message generate grayed out data - reverting
 	-->
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
@@ -397,8 +398,8 @@
 					.message-content .nav-tabs {font-weight:bold;}					
 					.message-content fieldset {text-align:center;}
                     .message-content maskByMediaType {display:table;}
-					.message-content table tbody tr th {font-size:100%}
-					.message-content table tbody tr td {font-size:90%;}
+					.message-content table tbody tr th {font-size:95%}
+					.message-content table tbody tr td {font-size:100%;}
 					.message-content table tbody tr th {text-align:left;background:#436BEC}
 					.message-content table thead tr th {text-align:center;}
 					.message-content table thead tr th:first-child {width:15%;}
@@ -2271,6 +2272,22 @@
 				<xsl:value-of select="concat($ind, $indent, '&quot;elements&quot; : ', $nl, $ind, $indent, '[')"/>
 			</xsl:otherwise>
 		</xsl:choose>
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:title-and-elements">
+		<xsl:param name="title"/>
+		<xsl:param name="ind"/>
+		<xsl:choose>
+			<xsl:when test="$generate-plain-html">
+				<xsl:value-of select="util:tag('table', $ind)"/>
+				<xsl:value-of select="util:tag('tr', $ind)"/>
+				<xsl:value-of select="util:tag('th colspan=2 ', $ind)"/>
+				<xsl:value-of select="$title"/>
+				<xsl:value-of select="util:tag('/th ', $ind)"/>
+				<xsl:value-of select="util:tag('/tr', $ind)"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="concat($ind, $indent, '&quot;elements&quot; : ', $nl, $ind, $indent, '[')"/>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:message-elements">
 		<xsl:param name="ind"/>
 		<xsl:choose>
@@ -2327,6 +2344,7 @@
 		<xsl:param name="name"/>
 		<xsl:param name="value"/>
 		<xsl:param name="ind"/>
+		<xsl:message> Processing <xsl:value-of select="$name"/></xsl:message>
 		<xsl:value-of select="util:element-with-delimiter($name, $value, ',', $ind)"/>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:last-element">
 		<xsl:param name="name"/>
@@ -2429,7 +2447,7 @@
 					<xsl:value-of select="util:tag(concat('td class=&quot;', $item-hierarchy, '&quot;'), $ind)"/>
 					<xsl:value-of select="$dataelement"/>
 					<xsl:value-of select="util:tag('/td', $ind)"/>
-					<xsl:value-of select="util:tag(concat('td class=&quot;', util:IfThenElse($isField, $item-hierarchy, util:IfEmptyThenElse($data, 'noData', 'Data')), '&quot;'), $ind)"/>
+					<xsl:value-of select="util:tag(concat('td class=&quot;', util:IfThenElse($isField, $item-hierarchy,  util:IfEmptyThenElse($data, 'noData', 'Data')), '&quot;'), $ind)"/>
 					<xsl:value-of select="$data"/>
 					<xsl:value-of select="util:tag('/td', $ind)"/>
 					<xsl:value-of select="util:tag(concat('td class=&quot;', util:IfThenElse($isField, $item-hierarchy, util:IfEmptyThenElse($categorization, 'noData', 'Data')), '&quot;'), $ind)"/>
@@ -2459,8 +2477,11 @@
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:blank-if-1">
 		<xsl:param name="pos"/>
 		<xsl:param name="total"/>
+		<xsl:message>
+			<xsl:value-of select="$total"/>
+		</xsl:message>
 		<xsl:choose>
-			<xsl:when test="$pos = 1 and $total = 1">
+			<xsl:when test="$total = 1">
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="$pos"/>
@@ -2571,6 +2592,7 @@
 		<xsl:param name="val"/>
 		<xsl:param name="key"/>
 		<xsl:param name="tablename"/>
+		<xsl:message> Valueset:  <xsl:value-of select="$key"/> </xsl:message>
 		<xsl:choose>
 			<xsl:when test="string-length(normalize-space($val)) = 0">
 				<xsl:value-of select="util:valueset($key, $tablename)"/>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
 <ConformanceProfile ID="4bbac646-3ef3-48e1-83b3-8bc8d7632232" Type="Constrainable" HL7Version="2.5.1" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData Name="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014" OrgName="NIST" Version="1.0.Z34" Date="20151027"/>
+	<MetaData Name="Z34 Message profile" OrgName="NIST" Version="1.1.Z34" Date="20151104" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
 		<Encoding>XML</Encoding>
 	</Encodings>
 	<Messages>
-		<Message ID="89df2062-96c4-4cbc-9ef2-817e4b4bc4f1" Type="QBP" Event="Q11" StructID="QBP_Q11" Description="Request a Complete Immunization ">
+		<Message ID="89df2062-96c4-4cbc-9ef2-817e4b4bc4f1" Type="QBP" Event="Q11" StructID="QBP_Q11" Description="Z34: Request a Complete Immunization" Identifier="Z34" Name="Request a Complete Immunization">
 			<Segment Ref="MSH_IZ 1_5_Z34" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT_IZ_V_5_QBP_Z34_3" Usage="O" Min="0" Max="*"/>
 			<Segment Ref="QPD_IZ1_5" Usage="R" Min="1" Max="1"/>
@@ -66,7 +66,7 @@
 		</Segment>
 		<Segment ID="RCP_IZ_1_5" Name="RCP" Description="Response Control Parameter">
 			<Field Name="Query Priority" Usage="RE" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70091_IZ" BindingStrength="R" ItemNo="00027"/>
-			<Field Name="Quantity Limited Request" Usage="R" Min="1" Max="1" Datatype="CQ_IZ" MinLength="1" MaxLength="10" Binding="HL70126_IZ" BindingStrength="R" BindingLocation="1" ItemNo="00031"/>
+			<Field Name="Quantity Limited Request" Usage="R" Min="1" Max="1" Datatype="CQ_IZ" MinLength="1" MaxLength="10" ItemNo="00031"/>
 			<Field Name="Response Modality" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0394" BindingStrength="R" BindingLocation="1" ItemNo="01440"/>
 			<Field Name="Execution and Delivery Time" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="01441"/>
 			<Field Name="Modify Indicator" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0395" BindingStrength="R" ItemNo="01443"/>

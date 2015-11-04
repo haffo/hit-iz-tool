@@ -85,19 +85,19 @@
                 </Predicate>
             </ByID>
             <ByID ID="ERL_IZ">
-                <Predicate ID="[ERL_IZ]4[1]" Target="4[1]" TrueUsage="R" FalseUsage="RE">
+                <Predicate ID="[ERL_IZ]3[1]" Target="3[1]" TrueUsage="R" FalseUsage="RE">
                     <Description>If ERL.4 (Field Repetition) is valued.</Description>
                     <Condition>
                         <Presence Path="4[1]"/>
                     </Condition>
                 </Predicate>
-                <Predicate ID="[ERL_IZ]5[1]" Target="5[1]" TrueUsage="R" FalseUsage="RE">
+                <Predicate ID="[ERL_IZ]4[1]" Target="4[1]" TrueUsage="R" FalseUsage="RE">
                     <Description>If ERL.5 (Component Number) is valued.</Description>
                     <Condition>
                         <Presence Path="5[1]"/>
                     </Condition>
                 </Predicate>
-                <Predicate ID="[ERL_IZ]6[1]" Target="6[1]" TrueUsage="R" FalseUsage="RE">
+                <Predicate ID="[ERL_IZ]5[1]" Target="5[1]" TrueUsage="R" FalseUsage="RE">
                     <Description>If ERL.6 (Sub-Component Number) is valued.</Description>
                     <Condition>
                         <Presence Path="6[1]"/>

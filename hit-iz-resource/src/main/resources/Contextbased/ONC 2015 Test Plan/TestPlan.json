@@ -1,5 +1,5 @@
 {
   "name" : "ONC 2015 Test Plan",
   "type" : "DataInstance",
-  "description" : "This set of tests evaluate the ability to send queries and receive the responses."
+  "description" : "This test plan is to be used for the ONC 2015 Edition Certification Testing of HealthIT. All test cases are required to be executed. The test plan includes a set of Administered Immunizations and a set of Query and Response.<br>"
 }

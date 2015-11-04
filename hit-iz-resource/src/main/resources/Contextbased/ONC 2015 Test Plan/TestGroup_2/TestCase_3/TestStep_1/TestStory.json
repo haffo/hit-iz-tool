@@ -1,9 +1,9 @@
 {
-  "teststorydesc" : " No Description",
+  "teststorydesc" : " <span style=\"color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);\">A female toddler, Donna Victoria Bee, is brought to the local clinic to determine what immunizations have been given and what immunizations are needed. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider uses this information to locate the patient's medical record. </span><span style=\"color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);\"><span style=\"color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);\">The staff member then uses the medical record and system capabilities to query the IIS to request an evaluated history and forecast for the patient.</span><br></span>",
   "comments" : "No Comments",
-  "preCondition" : "No PreCondition",
-  "postCondition" : "No PostCondition",
-  "testObjectives" : "No Test Objectives",
-  "evaluationCriteria" : "No evaluation criteria",
+  "preCondition" : "Person exists in the system with the complete demographics as provided in the Test Data Specification.<br><br>Person has Medical Record Number (MR).<br><br>Person does not have a record in the IIS, even though complete demographics are used in the query.<br>",
+  "postCondition" : "A response message is returned in which no person record is found.<br>",
+  "testObjectives" : "Tests for a maximally valued query message, including use of OIDs, mother's maiden name, fully valued address, birth indicator and birth order.<br>",
+  "evaluationCriteria" : "Message Validation Report<br>",
   "notes" : "No Note"
 }
