@@ -4,7 +4,7 @@
 	<!--xsl:param name="output" select="'jquery-tab-html'" -->
 	<!--xsl:param name="output" select="'plain-html'"/-->
 	<xsl:param name="output" select="'json'"/>
-	<xsl:variable name="version" select="'1.7'"/>
+	<xsl:variable name="version" select="'1.8.2'"/>
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
@@ -12,6 +12,7 @@
 	<!-- Release notes author: sriniadhi.work@gmail.com
 		1.7: Added repeatition indicators for Fields. Do we need it for components?
 		1.8: PID- instead of PID. in the message content. Also added [n] for field prefixes that are repeating. Component/Subcomponent repetitions need to be addressed in the future.
+				.1 : changed the font size similar to tdspec in _css_messagecontent.xsl .2 empty categorizations in the message generate grayed out data - reverting
 	-->
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
@@ -397,8 +398,8 @@
 					.message-content .nav-tabs {font-weight:bold;}					
 					.message-content fieldset {text-align:center;}
                     .message-content maskByMediaType {display:table;}
-					.message-content table tbody tr th {font-size:100%}
-					.message-content table tbody tr td {font-size:90%;}
+					.message-content table tbody tr th {font-size:95%}
+					.message-content table tbody tr td {font-size:100%;}
 					.message-content table tbody tr th {text-align:left;background:#436BEC}
 					.message-content table thead tr th {text-align:center;}
 					.message-content table thead tr th:first-child {width:15%;}
@@ -2446,7 +2447,7 @@
 					<xsl:value-of select="util:tag(concat('td class=&quot;', $item-hierarchy, '&quot;'), $ind)"/>
 					<xsl:value-of select="$dataelement"/>
 					<xsl:value-of select="util:tag('/td', $ind)"/>
-					<xsl:value-of select="util:tag(concat('td class=&quot;', util:IfThenElse($isField, $item-hierarchy, util:IfEmptyThenElse($data, 'noData', 'Data')), '&quot;'), $ind)"/>
+					<xsl:value-of select="util:tag(concat('td class=&quot;', util:IfThenElse($isField, $item-hierarchy,  util:IfEmptyThenElse($data, 'noData', 'Data')), '&quot;'), $ind)"/>
 					<xsl:value-of select="$data"/>
 					<xsl:value-of select="util:tag('/td', $ind)"/>
 					<xsl:value-of select="util:tag(concat('td class=&quot;', util:IfThenElse($isField, $item-hierarchy, util:IfEmptyThenElse($categorization, 'noData', 'Data')), '&quot;'), $ind)"/>

@@ -1,9 +1,9 @@
 {
-  "teststorydesc" : "<p>A young adult is seen by a clinician. The clinician uses the EHR to request and evaluated history and forecast.  The IIS returns an evaluated history and forecast for that person.</p>\r\n",
+  "teststorydesc" : "<p>A male child patient, Bobbie Q. Child, is brought to the\r\nclinic for an annual visit. A staff person locates his medical record in the\r\nEHR-S. The staff person confirms demographic information, including address. The staff person triggers a request to the IIS for an evaluated history and\r\nforecast for the child. \r\n\r\nThe IIS performs a search for Bobbie Q. Child and finds one\r\nhigh-confidence match. The IIS generates an evaluated history and forecast for\r\nBobbie and returns this to the EHR-S. One dose of vaccine was not administrated\r\nat the correct age and is marked as not valid. The EHR-S displays the evaluated\r\nhistory and forecast, including the not valid dose.\r\n\r\n</p>\r\n",
   "comments" : "<p>No Comments</p>\r\n",
-  "preCondition" : "<p>The person has a record in the IIS.</p>\r\n",
-  "postCondition" : "<p>No PostCondition</p>\r\n",
-  "testObjectives" : "<p>Evaluates EHR ability to create a well formed query for a young adult. Evaluates EHR ability to accept a response with evaluated history and forecast for that person.</p>\r\n",
-  "evaluationCriteria" : "<p>No evaluation criteria</p>\r\n",
+  "preCondition" : "<p>Person exists in the system with the complete demographics as provided in the Test Data Specification.<br><br>Person has Medical Record Number (MR).<br><br>Person does have an immunization history in the IIS,</p>\r\n",
+  "postCondition" : "<p>The clinician is able to view the evaluated history and forecast from the IIS (even if temporal).<br></p>\r\n",
+  "testObjectives" : "<p>Evaluates EHR-S ability to create a well formed query for a child. Evaluates EHR-S ability to accept a response with evaluated history and forecast for that person.</p>\r\n",
+  "evaluationCriteria" : "<p>Query: Message Validation Report</p><p>Response: Juror Document<br></p>\r\n",
   "notes" : "<p>No Note</p>\r\n"
 }

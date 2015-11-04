@@ -1,5 +1,5 @@
 {
-"version" : "1.7",
+"version" : "1.8.2",
 "profile" : "MessageContent",
 "tables":
 [
@@ -154,11 +154,11 @@ ID", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "ERR.5", "dataelement" : "Application Error Code", "data" : "",
 "categorization" : ""},
 							{"location" : "ERR.5.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "ERR.5.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ERR.5.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 							{"location" : "ERR.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "ERR.5.6", "dataelement" : "Name of Alternate Coding System",

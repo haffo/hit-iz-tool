@@ -1,5 +1,5 @@
 {
-"version" : "2.9.3",
+"version" : "2.9.6",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -12,12 +12,12 @@
 				{"element" : "ID Number", "data" : "21142 "},
 				{"element" : "Date/Time of Birth", "data" : "02/15/1947"},
 				{"element" : "Administrative Sex", "data" : "Male"},
-				{"element" : "Patient Address 1", "data" : "227 Park Ave Bozeman MT 59715 USA
-"},
+				{"element" : "Patient Address ", "data" : "227 Park Ave Bozeman MT 59715 USA "},
 				{"element" : "Local Number", "data" : "(406)555-5815"},
 				{"element" : "Email", "data" : "Manuel.Vasquez@isp.com"},
-				{"element" : "Race1", "data" : "White"},
+				{"element" : "Race", "data" : "White"},
 				{"element" : "Ethnic Group", "data" : "Hispanic or Latino"},
+				{"element" : "Multiple Birth Indicator", "data" : "N"},
 				{"element" : "Birth Order", "data" : "1"}
 			]
 		},

@@ -5,5 +5,5 @@
   "postCondition" : "No PostCondition",
   "testObjectives" : "No Test Objectives",
   "evaluationCriteria" : "<p>The acknowledgement message is consumed by the system responsible for the content of the administration message without error.</p>\r\n",
-  "notes" : "No Note"
+  "notes" : "<br>"
 }
