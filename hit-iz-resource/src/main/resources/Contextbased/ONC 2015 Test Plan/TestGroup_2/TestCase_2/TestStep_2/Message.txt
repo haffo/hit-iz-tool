@@ -1,9 +1,9 @@
-MSH|^~\&|MyIIS|StatePH|MYEHR|DCS|20141031145233-0500||RSP^K11^RSP_K11|NIST-IZ-QR-2.2_Response_K11_Z42|P|2.5.1|||NE|NE|||||Z42^CDCPHINVS|DCS^^^^^DCS^XX^^^6439432|StatePH
+MSH|^~\&|NIST IIS APP|NIST IIS FAC|NIST EHR APP|NIST EHR Facility|20141031145233-0500||RSP^K11^RSP_K11|NIST-IZ-QR-2.2_Response_K11_Z42|P|2.5.1|||NE|NE|||||Z42^CDCPHINVS|NIST IIS FAC^^^^^NIST-AA-1^XX^^^100-1776|NIST EHR Facility^^^^^NIST-AA-1^XX^^^100-6482
 MSA|AA|NIST-IZ-QR-2.1_Query_Q11_Z44||||
 QAK|IZ-2.1-2015|OK|Z44^request evaluated Immunization history^CDCPHINVS|||
-QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS |37374859|123456^^^MYEHR^MR|Stanley^Clement^S^^^^L|Smith^^^^^^M|19950101|M|10 East Main St^^Titletown^WI^^^L|^PRN^PH^^1^690^1231234
-PID|1||123456^^^MYEHR^MR~34500907^^^MyIIS^SR||Stanley^Clement^S^^^^L||19950101|M|||10 East Main St^^Titletown^WI^^^L
-ORC|RE||193337027^DCS|||||||^Clerk^Myron||^Pediatric^MARY^^^^^^^L^^^^^^^^^^^MD|||||||||||||||||||
+QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS|IZ-2.1-2015|648286^^^NIST MPI^MR|Stanley^Clement^S^^^^L|Smith^^^^^^M|19500214|M|1642 Bear Run^^Boseman^MT^59715^USA^L|^PRN^PH^^1^406^5552020
+PID|1||648286^^^NIST MPI^MR^MR~34500907^^^MyIIS^SR||Stanley^Clement^S^^^^L||19950101|M|||1642 Bear Run^^Boseman^MT^59715^USA^L
+ORC|RE||193337027^DCS|||||||^Clerk^Myron||^Pediatric^Mary^^^^^^^L^^^^^^^^^^^MD|||||||||||||||||||
 RXA|0|1|20151029|20151029|140^seasonal flu^CVX|0.5|mL^^UCUM||00^new immunization record^NIP001|^Sticker^Nurse|^^^DCS_DC||||33k2a||PMC^sanofi^MVX|||CP|A|||||
 RXR|C28161^IM^NCIT|||||
 OBX|1|CE|30956-7^vaccine type^LN|13|88^influenza NOS^CVX ||||||F||||||||||||||

@@ -238,7 +238,7 @@
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td><p><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">A child, James T McCoy, is brought to the local clinic to determine what immunizations have been given and what immunizations are needed. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider uses this information to locate the patient's medical record. </span><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">The staff member then uses the medical record and system capabilities to query the IIS to request an evaluated history and forecast for the patient.<br></span></span><br><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">The IIS performs a search for James T McCoy and finds too many matches. The IIS returns a response message indicating no person found (too many matches) to the querying system. It is expected that the requesting system (e.g., EHR-S) process the response message and display some indication to the end user that the person was not found (too many matches). </span></span></p><p>This test evaluates the ability of the EHR-S to gracefully accept a response where too many matches are found, based on the parameters sent in the query. Note that this query only expects an evaluated history and forecast when an exact match is found.</p>
+		<td>A child, James T McCoy, is brought to the local clinic to determine what immunizations have been given and what immunizations are needed. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider uses this information to locate the patient's medical record. The staff member then uses the medical record and system capabilities to query the IIS to request an evaluated history and forecast for the patient. <br/> The IIS performs a search for James T McCoy and finds too many matches. The IIS returns a response message indicating no person found (too many matches) to the querying system. It is expected that the requesting system (e.g., EHR-S) process the response message and display some indication to the end user that the person was not found (too many matches). <br/> This test evaluates the ability of the EHR-S to gracefully accept a response where too many matches are found, based on the parameters sent in the query. Note that this query only expects an evaluated history and forecast when an exact match is found.
 		</td></tr>
 		</table>
 		<br/>
@@ -251,7 +251,7 @@
 		<th>Comments</th>
 		</tr>
 		<tr>
-		<td><p>The intiating clinician should be alerted to the failure to get an exact match.</p>
+		<td>The intiating clinician should be alerted to the failure to get an exact match.
 		</td></tr>
 		</table>
 		<br/>
@@ -264,7 +264,7 @@
 		<th>Pre Condition</th>
 		</tr>
 		<tr>
-		<td><p>Person exists in the system with the complete demographics as provided in the Test Data Specification.<br><br>Person has Medical Record Number (MR).<br><br>Person may have a record in the IIS, however the IIS is unable narrow the search results to a single match (multiple matches exist).<br></p>
+		<td>Person exists in the system with the complete demographics as provided in the Test Data Specification. <br/> Person has Medical Record Number (MR). <br/> Person may have a record in the IIS, however the IIS is unable narrow the search results to a single match (multiple matches exist).
 		</td></tr>
 		</table>
 		<br/>
@@ -277,7 +277,7 @@
 		<th>Post Condition</th>
 		</tr>
 		<tr>
-		<td><p>The clinician is provided some indication that too many matches were found (even if temporal).</p>
+		<td>The clinician is provided some indication that too many matches were found (even if temporal).
 		</td></tr>
 		</table>
 		<br/>
@@ -290,7 +290,7 @@
 		<th>Test Objectives</th>
 		</tr>
 		<tr>
-		<td><p>Tests for a typically valued query message. Test the capability of the EHR-S to process a response message that returns no persons found (too many matches) and to provide an indication to the end user.</p>
+		<td>Tests for a typically valued query message. Test the capability of the EHR-S to process a response message that returns no persons found (too many matches) and to provide an indication to the end user.
 		</td></tr>
 		</table>
 		<br/>
@@ -303,7 +303,7 @@
 		<th>Evaluation Criteria</th>
 		</tr>
 		<tr>
-		<td><p>Query Message: Message Validation Report</p><p>Response Message: Juror Document. The EHR-S receives the response and alerts the clinician that too many matches were found.</p>
+		<td>Query Message: Message Validation Report <br/> Response Message: Juror Document. The EHR-S receives the response and alerts the clinician that too many matches were found.
 		</td></tr>
 		</table>
 		<br/>
@@ -316,7 +316,7 @@
 		<th>Notes for Testers</th>
 		</tr>
 		<tr>
-		<td><p>No Note</p>
+		<td>The NIST tool is simulating a response from the IIS.
 		</td></tr>
 		</table>
 		<br/>
@@ -331,7 +331,7 @@
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td><p><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">A child, James T McCoy, is brought to the local clinic to determine what immunizations have been given and what immunizations are needed. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider uses this information to locate the patient's medical record. </span><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">The staff member then uses the medical record and system capabilities to query the IIS to request an evaluated history and forecast for the patient.<br></span></span><br><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">The IIS performs a search for James T McCoy and finds too many matches. The IIS returns a response message indicating no person found (too many matches) to the querying system. It is expected that the requesting system (e.g., EHR-S) process the response message and display some indication to the end user that the person was not found (too many matches). </span></span></p><p>This test evaluates the ability of the EHR-S to gracefully accept a response where too many matches are found, based on the parameters sent in the query. Note that this query only expects an evaluated history and forecast when an exact match is found.</p>
+		<td>A child, James T McCoy, is brought to the local clinic to determine what immunizations have been given and what immunizations are needed. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider uses this information to locate the patient's medical record. The staff member then uses the medical record and system capabilities to query the IIS to request an evaluated history and forecast for the patient. <br/> The IIS performs a search for James T McCoy and finds too many matches. The IIS returns a response message indicating no person found (too many matches) to the querying system. It is expected that the requesting system (e.g., EHR-S) process the response message and display some indication to the end user that the person was not found (too many matches). <br/> This test evaluates the ability of the EHR-S to gracefully accept a response where too many matches are found, based on the parameters sent in the query. Note that this query only expects an evaluated history and forecast when an exact match is found.
 		</td></tr>
 		</table>
 		<br/>
@@ -344,7 +344,7 @@
 		<th>Comments</th>
 		</tr>
 		<tr>
-		<td><p>The intiating clinician should be alerted to the failure to get an exact match.</p>
+		<td>The intiating clinician should be alerted to the failure to get an exact match.
 		</td></tr>
 		</table>
 		<br/>
@@ -357,7 +357,7 @@
 		<th>Pre Condition</th>
 		</tr>
 		<tr>
-		<td><p>Person exists in the system with the complete demographics as provided in the Test Data Specification.<br><br>Person has Medical Record Number (MR).<br><br>Person may have a record in the IIS, however the IIS is unable narrow the search results to a single match (multiple matches exist).<br></p>
+		<td>Person exists in the system with the complete demographics as provided in the Test Data Specification. <br/> Person has Medical Record Number (MR). <br/> Person may have a record in the IIS, however the IIS is unable narrow the search results to a single match (multiple matches exist).
 		</td></tr>
 		</table>
 		<br/>
@@ -370,7 +370,7 @@
 		<th>Post Condition</th>
 		</tr>
 		<tr>
-		<td><p>The clinician is provided some indication that too many matches were found (even if temporal).</p>
+		<td>The clinician is provided some indication that too many matches were found (even if temporal).
 		</td></tr>
 		</table>
 		<br/>
@@ -383,7 +383,7 @@
 		<th>Test Objectives</th>
 		</tr>
 		<tr>
-		<td><p>Tests for a typically valued query message. Test the capability of the EHR-S to process a response message that returns no persons found (too many matches) and to provide an indication to the end user.</p>
+		<td>Tests for a typically valued query message. Test the capability of the EHR-S to process a response message that returns no persons found (too many matches) and to provide an indication to the end user.
 		</td></tr>
 		</table>
 		<br/>
@@ -396,7 +396,7 @@
 		<th>Evaluation Criteria</th>
 		</tr>
 		<tr>
-		<td><p>Query Message: Message Validation Report</p><p>Response Message: Juror Document. The EHR-S receives the response and alerts the clinician that too many matches were found.</p>
+		<td>Query Message: Message Validation Report <br/> Response Message: Juror Document. The EHR-S receives the response and alerts the clinician that too many matches were found.
 		</td></tr>
 		</table>
 		<br/>
@@ -409,7 +409,7 @@
 		<th>Notes for Testers</th>
 		</tr>
 		<tr>
-		<td><p>No Note</p>
+		<td>The NIST tool is simulating a response from the IIS.
 		</td></tr>
 		</table>
 		<br/>

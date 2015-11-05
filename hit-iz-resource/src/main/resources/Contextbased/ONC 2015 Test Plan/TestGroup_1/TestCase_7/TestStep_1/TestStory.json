@@ -1,9 +1,9 @@
 {
-  "teststorydesc" : "<p>A 66 year old female, Helen Barrett, comes to the West Clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that she received a Zoster vaccination at a local pharmacy on her 65th birthday. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.</p>\r\n",
-  "comments" : "<p>No Comments</p>\r\n",
-  "preCondition" : "<p>No PreCondition</p>\r\n",
-  "postCondition" : "<p>No PostCondition</p>\r\n",
-  "testObjectives" : "<p>No Test Objectives</p>\r\n",
-  "evaluationCriteria" : "<p>No evaluation criteria</p>\r\n",
-  "notes" : "<p>No Note</p>\r\n"
+  "teststorydesc" : "A 66 year old female, Helen Barrett, comes to the West Clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that she received a Zoster vaccination at a local pharmacy on her 65th birthday. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.",
+  "comments" : "No Comments",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "No Test Objectives",
+  "evaluationCriteria" : "No evaluation criteria",
+  "notes" : "No Note"
 }
