@@ -76,23 +76,24 @@
                             <span class="row fileupload-buttonbar  pull-right">
 
                                 <button title="Validate" type="button" class="btn btn-xs btn-success"
-                                        ng-click="execute()">
+                                        ng-click="execute()" ng-disabled="isTestCaseCompleted()">
                                     <i class="fa fa-check-circle"></i>
                                     Validate
                                 </button>
 
                                   <button title="Load Example" type="button" class="btn btn-xs btn-primary"
                                           ng-click="loadExampleMessage()"
-                                          ng-disabled="!testStep.testContext.message ||  testStep.testContext.message === null || testStep.testContext.message.content === ''"
+                                          ng-disabled="isTestCaseCompleted() || !testStep.testContext.message ||  testStep.testContext.message === null || testStep.testContext.message.content === ''"
                                           >
                                       <i class="fa fa-arrow-circle-down"></i>Load Example
                                   </button>
 
                                 <span title="Browse" class="btn btn-xs btn-primary fileinput-button"
-                                      ng-class="{disabled: disabled}">
+                                      ng-disabled="isTestCaseCompleted()"
+                                      >
                         <i class="fa fa-folder-open"></i>Browse
                         <span></span>
-                        <input type="file" name="file" id="file" multiple="false" ng-disabled="disabled">
+                        <input type="file" name="file" id="file" multiple="false" ng-disabled="isTestCaseCompleted()">
                          </span>
                                 <button title="Download" type="button" class="btn btn-xs btn-primary"
                                         ng-disabled="!hasContent()"
@@ -101,7 +102,7 @@
                                 </button>
 
                                  <button title="Clear" type="button" class="btn btn-xs btn-warning"
-                                         ng-click="clearMessage()">
+                                         ng-click="clearMessage()" ng-disabled="isTestCaseCompleted()">
                                      <i class="fa fa-times"></i>Clear
                                  </button>
 

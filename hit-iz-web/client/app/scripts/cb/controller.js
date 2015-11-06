@@ -453,9 +453,9 @@ angular.module('cb')
                 $scope.vError = null;
                 $scope.cb.message.content = $scope.editor.doc.getValue();
                 StorageService.set(StorageService.CB_EDITOR_CONTENT_KEY, $scope.cb.message.content);
-                $scope.refreshEditor();
                 $scope.validateMessage();
                 $scope.parseMessage();
+                $scope.refreshEditor();
             }
         };
 

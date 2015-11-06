@@ -96,15 +96,15 @@ angular.module('isolated')
         };
 
         $scope.selectNode = function (id, type) {
-                 testCaseService.selectNodeByIdAndType($scope.tree, id, type);
-         };
+            testCaseService.selectNodeByIdAndType($scope.tree, id, type);
+        };
 
         $scope.selectTestCase = function (node) {
-                 $scope.selectedTestCase = node;
-                StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_ID_KEY, node.id);
-                StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_TYPE_KEY, node.type);
-                     $scope.$broadcast('isolated:testCaseSelected', $scope.selectedTestCase);
-          };
+            $scope.selectedTestCase = node;
+            StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_ID_KEY, node.id);
+            StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_TYPE_KEY, node.type);
+            $scope.$broadcast('isolated:testCaseSelected', $scope.selectedTestCase);
+        };
 
         $scope.selectTestPlan = function (node) {
             if ($scope.selectedTestCase == null || $scope.selectedTestCase.id != node.id) {
@@ -271,8 +271,8 @@ angular.module('isolated')
         $scope.clearTestStep = function () {
             IsolatedSystem.testStep = null;
             $scope.testStep = null;
-                 $scope.$broadcast('isolated:removeTestStep');
-         };
+            $scope.$broadcast('isolated:removeTestStep');
+        };
 
 
         $scope.getExecutionStatus = function (testStep) {
@@ -435,7 +435,6 @@ angular.module('isolated')
                 });
 
 
-
                 var testStep = $scope.testCase.children[0];
                 $scope.executeTestStep(testStep);
 
@@ -555,8 +554,8 @@ angular.module('isolated')
                                         try {
                                             var receivedMessage = parseRequest(incoming);
                                             IsolatedExecutionService.setExecutionMessage($scope.testStep, receivedMessage);
-                                                 $scope.$broadcast('isolated:setEditorContent', receivedMessage);
-                                         } catch (error) {
+                                            $scope.$broadcast('isolated:setEditorContent', receivedMessage);
+                                        } catch (error) {
                                             $scope.error = errors[2];
                                             $scope.logger.log(inboundLogs[4]);
                                         }
@@ -835,45 +834,39 @@ angular.module('isolated')
 
         $scope.validateMessage = function () {
             try {
-            if ($scope.testStep != null) {
-                if ($scope.isolated.message.content !== '' && $scope.testStep.testContext != null) {
-                    try {
+                if ($scope.testStep != null) {
+                    if ($scope.isolated.message.content !== '' && $scope.testStep.testContext != null) {
                         $scope.vLoading = true;
                         $scope.vError = null;
                         var validator = $scope.validator.validate($scope.testStep.testContext.id, $scope.isolated.message.content, $scope.testStep.nav, "Based", [], "1223");
                         validator.then(function (mvResult) {
                             $scope.vLoading = false;
-                            $scope.setValidationResult(mvResult);
+                            $scope.loadValidationResult(mvResult);
                         }, function (error) {
                             $scope.vLoading = false;
                             $scope.vError = error;
-                            $scope.setValidationResult(null);
+                            $scope.loadValidationResult(null);
                         });
-                    } catch (e) {
+                    } else {
+                        $scope.loadValidationResult(null);
                         $scope.vLoading = false;
-                        $scope.vError = e;
-                        $scope.setValidationResult(null);
+                        $scope.vError = null;
                     }
-                } else {
-                    $scope.setValidationResult(null);
-                    $scope.vLoading = false;
-                    $scope.vError = null;
                 }
-            }
             } catch (error) {
-                $scope.setValidationResult(null);
+                $scope.loadValidationResult(null);
                 $scope.vLoading = false;
                 $scope.vError = null;
             }
         };
 
-        $scope.setValidationResult = function (mvResult) {
+        $scope.loadValidationResult = function (mvResult) {
             if ($scope.testStep != null) {
                 if (mvResult != null) {
                     IsolatedExecutionService.setExecutionStatus($scope.testStep, 'COMPLETE');
                 }
-                $rootScope.$broadcast('isolated:validationResultLoaded', mvResult);
-             }
+                $scope.$broadcast('isolated:validationResultLoaded', mvResult);
+            }
         };
 
 
@@ -918,23 +911,23 @@ angular.module('isolated')
         $scope.parseMessage = function () {
             try {
                 if ($scope.testStep != null) {
-                        if ($scope.isolated.message.content != '' && $scope.testStep.testContext != null) {
-                            $scope.tLoading = true;
-                            var parsed = $scope.parser.parse($scope.testStep.testContext.id, $scope.isolated.message.content);
-                            parsed.then(function (value) {
-                                $scope.tLoading = false;
-                                $scope.loadMessageObject(value);
-                            }, function (error) {
-                                $scope.tLoading = false;
-                                $scope.tError = error;
-                                $scope.loadMessageObject([]);
-                            });
-                        } else {
-                            $scope.loadMessageObject([]);
-                            $scope.tError = null;
+                    if ($scope.isolated.message.content != '' && $scope.testStep.testContext != null) {
+                        $scope.tLoading = true;
+                        var parsed = $scope.parser.parse($scope.testStep.testContext.id, $scope.isolated.message.content);
+                        parsed.then(function (value) {
                             $scope.tLoading = false;
-                        }
-                 }
+                            $scope.loadMessageObject(value);
+                        }, function (error) {
+                            $scope.tLoading = false;
+                            $scope.tError = error;
+                            $scope.loadMessageObject([]);
+                        });
+                    } else {
+                        $scope.loadMessageObject([]);
+                        $scope.tError = null;
+                        $scope.tLoading = false;
+                    }
+                }
             } catch (error) {
                 $scope.tLoading = false;
                 $scope.tError = error;
@@ -962,7 +955,7 @@ angular.module('isolated')
                 $scope.validateMessage();
                 $scope.parseMessage();
             } else {
-                $scope.setValidationResult(IsolatedExecutionService.getValidationResult($scope.testStep));
+                $scope.loadValidationResult(IsolatedExecutionService.getValidationReport($scope.testStep));
                 $scope.createMessageTree(IsolatedExecutionService.getMessageTree($scope.testStep));
             }
         };
@@ -976,7 +969,7 @@ angular.module('isolated')
             $scope.mError = null;
             $scope.vError = null;
             $scope.initCodemirror();
-            $scope.setValidationResult(null);
+            $scope.loadValidationResult(null);
 
             $scope.$on('isolated:refreshEditor', function (event) {
                 $scope.refreshEditor();
