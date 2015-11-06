@@ -15,14 +15,82 @@
         </td>
 
     </xsl:template>
+    <xsl:function name="util:validDose">
+        <xsl:param name="code"/>
+        <xsl:choose>
+            <xsl:when test="$code = 'N'">
+                <xsl:value-of select="'NO'"/>
+            </xsl:when>
+            <xsl:when test="$code = 'Y'">
+                <xsl:value-of select="'YES'"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$code"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+    <xsl:function name="util:gender">
+        <xsl:param name="code"/>
+        <xsl:choose>
+            <xsl:when test="$code = 'F'">
+                <xsl:value-of select="'Female'"/>
+            </xsl:when>
+            <xsl:when test="$code = 'M'">
+                <xsl:value-of select="'Male'"/>
+            </xsl:when>
+            <xsl:when test="$code = 'U'">
+                <xsl:value-of select="'Unknown/undifferentiated'"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$code"/>
+            </xsl:otherwise>
+        </xsl:choose>
 
+    </xsl:function>
+    <xsl:function name="util:completionStatus">
+        <xsl:param name="code"/>
+        <xsl:choose>
+            <xsl:when test="$code = 'CP'">
+                <xsl:value-of select="'Complete'"/>
+            </xsl:when>
+            <xsl:when test="$code = 'NA'">
+                <xsl:value-of select="'Not Administered'"/>
+            </xsl:when>
+            <xsl:when test="$code = 'PA'">
+                <xsl:value-of select="'Partially Administered'"/>
+            </xsl:when>
+            <xsl:when test="$code = 'RE'">
+                <xsl:value-of select="'Refused'"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$code"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+    <xsl:function name="util:formatData">
+        <xsl:param name="content"/>
+
+        <xsl:variable name="formattedData">
+            <xsl:choose>
+                <xsl:when test="string-length(normalize-space($content)) = 0">
+                    <td bgcolor="#D2D2D2"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <td>
+                        <xsl:value-of select="$content"/>
+                    </td>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:copy-of select="$formattedData"/>
+    </xsl:function>
     <xsl:template name="testExistence">
         <xsl:param name="node"/>
         <xsl:choose>
             <xsl:when test="exists($node)">
-                <td>
-                    <xsl:value-of select="$node"/>
-                </td>
+
+                <xsl:copy-of select="util:formatData($node)"/>
+
             </xsl:when>
             <xsl:otherwise>
                 <td bgcolor="#D2D2D2"/>
@@ -30,7 +98,7 @@
         </xsl:choose>
     </xsl:template>
 
-    <xsl:template name="testExistence-with-date">
+    <!--  <xsl:template name="testExistence-with-date">
         <xsl:param name="node"/>
         <xsl:choose>
             <xsl:when test="exists($node)">
@@ -51,7 +119,7 @@
                 <td bgcolor="#D2D2D2"/>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
+    </xsl:template>-->
     <xsl:template name="followSibling-with-date">
         <xsl:param name="node2"/>
         <xsl:choose>
@@ -102,9 +170,9 @@
                         select="$followSibling[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
 
                         <xsl:if test="position() = 1">
-                            <xsl:call-template name="followSibling-with-date">
-                                <xsl:with-param name="node2" select="OBX/OBX.5/OBX.5.1"/>
-                            </xsl:call-template>
+                            <xsl:copy-of
+                                select="util:formatData(util:format-date(OBX/OBX.5/OBX.5.1))"/>
+
                         </xsl:if>
                     </xsl:for-each>
                 </xsl:when>
@@ -145,13 +213,9 @@
     </xsl:function>
     <xsl:template match="QPD">
         <tr>
-
-
             <xsl:call-template name="testExistence">
                 <xsl:with-param name="node" select="QPD.3/QPD.3.1"/>
             </xsl:call-template>
-
-
 
             <xsl:choose>
                 <xsl:when test="exists(QPD.4)">
@@ -166,25 +230,13 @@
                 </xsl:otherwise>
             </xsl:choose>
 
-
-            <xsl:call-template name="testExistence-with-date">
-                <xsl:with-param name="node" select="QPD.6/QPD.6.1"/>
+            <xsl:call-template name="testExistence">
+                <xsl:with-param name="node" select="util:format-date(QPD.6/QPD.6.1)"/>
             </xsl:call-template>
-            <xsl:choose>
-                <xsl:when test="exists(QPD.7)">
-                    <xsl:choose>
-                        <xsl:when test="QPD.7 = 'F'">
-                            <td> Female </td>
-                        </xsl:when>
-                        <xsl:when test="QPD.7 = 'M'">
-                            <td> Male </td>
-                        </xsl:when>
-                    </xsl:choose>
-                </xsl:when>
-                <xsl:otherwise>
-                    <td bgcolor="#D2D2D2"/>
-                </xsl:otherwise>
-            </xsl:choose>
+            <xsl:call-template name="testExistence">
+                <xsl:with-param name="node" select="util:gender(QPD.7)"/>
+            </xsl:call-template>
+
             <xsl:call-template name="commentTemplate"/>
         </tr>
     </xsl:template>
@@ -195,19 +247,24 @@
 
                 <style type="text/css">
                     @media screen{
-                        .jurordocument fieldset{
-                            font-size:100%;
+                    
+                        .jurordocument table thead tr th{
+                            font-size:120%;
+                            text-align:center;
                         }
                         .jurordocument table tbody tr th{
-                            font-size:90%;
+                            font-size:110%;
                         }
                         .jurordocument table tbody tr td{
-                            font-size:90%;
+                            font-size:120%;
+                        }
+                        .jurordocument .note{
+                            font-size:100%;
                         }
                     }
                     @media print{
                         .jurordocument fieldset{
-                            font-size:x-small;
+                    
                             page-break-inside:avoid;
                         }
                         .jurordocument table{
@@ -219,13 +276,17 @@
                         .jurordocument table tr{
                             page-break-inside:avoid;
                         }
-                        .jurordocument table th{
-                            font-size:x-small;
+                        .jurordocument table thead tr th{
+                            font-size:110%;
+                            text-align:center;
+                        }
+                        .jurordocument table tbody tr th{
+                            font-size:110%;
+                        }
+                        .jurordocument table tbody tr td{
+                            font-size:110%;
                         }
                     
-                        .jurordocument table td{
-                            font-size:xx-small;
-                        }
                         * [type = text]{
                             width:98%;
                             height:15px;
@@ -235,10 +296,10 @@
                     
                         }
                         .jurordocument h3{
-                            font-size:xx-small;
+                            font-size:medium;
                         }
-                        .jurordocument p{
-                            font-size:x-small;
+                        .jurordocument .note{
+                            font-size:100%;
                         }
                     
                     
@@ -261,9 +322,7 @@
                         width:95%;
                         border:1px solid #446BEC;
                     }
-                    .embSpace{
-                        padding-left:25px;
-                    }
+                    
                     .noData{
                         background:#D2D2D2;
                     }
@@ -357,7 +416,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th>Test Case ID</th>
+                                <th class="note">Test Case ID</th>
 
                                 <td>
                                     <xsl:value-of select="RSP_K11/@testcaseName"/>
@@ -365,35 +424,35 @@
 
                             </tr>
                             <tr>
-                                <th>Juror ID</th>
+                                <th class="note">Juror ID</th>
                                 <td>
                                     <input style="background: 1px  #E2E2E2;" type="text"
                                         maxlength="50" value=""/>
                                 </td>
                             </tr>
                             <tr>
-                                <th>Juror Name</th>
+                                <th class="note">Juror Name</th>
                                 <td>
                                     <input style="background: 1px  #E2E2E2;" type="text"
                                         maxlength="50" value=""/>
                                 </td>
                             </tr>
                             <tr>
-                                <th>HIT System Tested</th>
+                                <th class="note">HIT System Tested</th>
                                 <td>
                                     <input style="background: 1px  #E2E2E2;" type="text"
                                         maxlength="50" value=""/>
                                 </td>
                             </tr>
                             <tr>
-                                <th>Inspection Date/Time</th>
+                                <th class="note">Inspection Date/Time</th>
                                 <td>
                                     <input style="background: 1px  #E2E2E2;" type="text"
                                         maxlength="50" value=""/>
                                 </td>
                             </tr>
                             <tr>
-                                <th>Inspection Settlement (Pass/Fail)</th>
+                                <th class="note">Inspection Settlement (Pass/Fail)</th>
                                 <td>
                                     <table id="inspectionStatus">
                                         <thead>
@@ -417,14 +476,14 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Reason Failed</th>
+                                <th class="note">Reason Failed</th>
                                 <td>
                                     <input style="background: 1px  #E2E2E2;" type="text"
                                         maxlength="50" value=""/>
                                 </td>
                             </tr>
                             <tr>
-                                <th>Juror Comments</th>
+                                <th class="note">Juror Comments</th>
                                 <td>
                                     <input style="background: 1px  #E2E2E2;" type="text"
                                         maxlength="50" value=""/>
@@ -433,29 +492,31 @@
 
                         </tbody>
                     </table>
+                    <!-- Juror Document with QAK.2='OK' -->
                     <xsl:choose>
                         <xsl:when test="//QAK/QAK.2[. = 'OK']">
                             <h3>DISPLAY VERIFICATION</h3>
 
 
                             <fieldset>
-                                <p>This Test Case-specific Juror Document provides a checklist for
-                                    the Tester to use during certification testing for assessing the
-                                    EHR technology's ability to display required core data elements
-                                    from the information received in the Evaluated Immunization
-                                    History and Immunization Forecast Z42 response message.
-                                    Additional data from the message or from the EHR are permitted
-                                    to be displayed by the EHR. Grayed-out fields in the Juror
-                                    Document indicate where no data for the data element indicated
-                                    were included in the Z42 message for the given Test Case.</p>
-                                <p>The format of this Juror Document is for ease-of-use by the
-                                    Tester and does not indicate how the EHR display must be
+                                <p class="note">This Test Case-specific Juror Document provides a
+                                    checklist for the Tester to use during certification testing for
+                                    assessing the EHR technology's ability to display required core
+                                    data elements from the information received in the Evaluated
+                                    Immunization History and Immunization Forecast Z42 response
+                                    message. Additional data from the message or from the EHR are
+                                    permitted to be displayed by the EHR. Grayed-out fields in the
+                                    Juror Document indicate where no data for the data element
+                                    indicated were included in the Z42 message for the given Test
+                                    Case.</p>
+                                <p class="note">The format of this Juror Document is for ease-of-use
+                                    by the Tester and does not indicate how the EHR display must be
                                     designed.</p>
-                                <p>The Evaluated Immunization History and Immunization Forecast data
-                                    shown in this Juror Document are derived from the Z42 message
-                                    provided with the given Test Case; equivalent data are permitted
-                                    to be displayed by the EHR. The column headings are meant to
-                                    convey the kind of data to be displayed; equivalent
+                                <p class="note">The Evaluated Immunization History and Immunization
+                                    Forecast data shown in this Juror Document are derived from the
+                                    Z42 message provided with the given Test Case; equivalent data
+                                    are permitted to be displayed by the EHR. The column headings
+                                    are meant to convey the kind of data to be displayed; equivalent
                                     labels/column headings are permitted to be displayed by the
                                     EHR.</p>
                             </fieldset>
@@ -476,17 +537,12 @@
                                         <th>Tester Comment</th>
                                     </tr>
 
-
                                     <xsl:for-each select="//PID">
                                         <tr>
-
-
                                             <xsl:call-template name="testExistence">
                                                 <xsl:with-param name="node"
                                                   select="PID.3[1]/PID.3.1"/>
                                             </xsl:call-template>
-
-
 
                                             <xsl:choose>
                                                 <xsl:when test="exists(PID.5)">
@@ -502,39 +558,30 @@
                                             </xsl:choose>
 
 
-                                            <xsl:call-template name="testExistence-with-date">
-                                                <xsl:with-param name="node" select="PID.7/PID.7.1"/>
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node"
+                                                  select="util:format-date(PID.7/PID.7.1)"/>
                                             </xsl:call-template>
-                                            <xsl:choose>
-                                                <xsl:when test="exists(PID.8)">
-                                                  <xsl:choose>
-                                                  <xsl:when test="PID.8 = 'F'">
-                                                  <td> Female </td>
-                                                  </xsl:when>
-                                                  <xsl:when test="PID.8 = 'M'">
-                                                  <td> Male </td>
-                                                  </xsl:when>
-                                                  </xsl:choose>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
+                                            <xsl:call-template name="testExistence">
+                                                <xsl:with-param name="node"
+                                                  select="util:gender(PID.8)"/>
+                                            </xsl:call-template>
+
                                             <xsl:call-template name="commentTemplate"/>
                                         </tr>
 
                                     </xsl:for-each>
                                     <tr>
-                                        <td colspan="5">When displayed in the EHR with the Evaluated
-                                            Immunization History and Immunization Forecast, these
-                                            patient demographics data may be derived from either the
-                                            received immunization message or the EHR patient record.
-                                            When displaying demographics from the patient record,
-                                            the EHR must be able to demonstrate a linkage between
-                                            the demographics in the message (primarily the patient
-                                            ID in PID-3.1) and the patient record used for display
-                                            to ensure that the message was associated with the
-                                            appropriate patient. </td>
+                                        <td colspan="5" class="note">When displayed in the EHR with
+                                            the Evaluated Immunization History and Immunization
+                                            Forecast, these patient demographics data may be derived
+                                            from either the received immunization message or the EHR
+                                            patient record. When displaying demographics from the
+                                            patient record, the EHR must be able to demonstrate a
+                                            linkage between the demographics in the message
+                                            (primarily the patient ID in PID-3.1) and the patient
+                                            record used for display to ensure that the message was
+                                            associated with the appropriate patient. </td>
                                     </tr>
                                 </tbody>
 
@@ -552,13 +599,11 @@
                             <!-- Immunization schedule used -->
                             <xsl:if test="//OBX.3.1[. = '59779-9']">
                                 <table>
-                                    <thead>
+                                    <tbody>
                                         <tr>
                                             <th> Immunization Schedule Used </th>
                                             <th>Tester Comment</th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
                                         <tr>
                                             <xsl:call-template name="testExistence">
                                                 <xsl:with-param name="node"
@@ -610,9 +655,9 @@
                                                   <xsl:with-param name="node"
                                                   select="../RXA/RXA.5/RXA.5.2"/>
                                                   </xsl:call-template>
-                                                  <xsl:call-template name="testExistence-with-date">
+                                                  <xsl:call-template name="testExistence">
                                                   <xsl:with-param name="node"
-                                                  select="../RXA/RXA.3/RXA.3.1"/>
+                                                  select="util:format-date(../RXA/RXA.3/RXA.3.1)"/>
                                                   </xsl:call-template>
 
                                                   <xsl:choose>
@@ -621,14 +666,11 @@
                                                   <xsl:for-each
                                                   select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59781-5']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:if test="position() = 1">
-                                                  <xsl:choose>
-                                                  <xsl:when test="OBX/OBX.5/OBX.5.1 = 'Y'">
-                                                  <td>YES</td>
-                                                  </xsl:when>
-                                                  <xsl:when test="OBX/OBX.5/OBX.5.1 = 'N'">
-                                                  <td>NO</td>
-                                                  </xsl:when>
-                                                  </xsl:choose>
+                                                  <xsl:call-template name="testExistence">
+                                                  <xsl:with-param name="node"
+                                                  select="util:validDose(OBX/OBX.5/OBX.5.1)"/>
+                                                  </xsl:call-template>
+
                                                   </xsl:if>
                                                   </xsl:for-each>
                                                   </xsl:when>
@@ -643,10 +685,8 @@
                                                   <xsl:for-each
                                                   select="following-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../..[count(preceding-sibling::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..) = $position]">
                                                   <xsl:if test="position() = 1">
-
-                                                  <td>
-                                                  <xsl:value-of select="OBX/OBX.5/OBX.5.2"/>
-                                                  </td>
+                                                  <xsl:copy-of
+                                                  select="util:formatData(OBX/OBX.5/OBX.5.1)"/>
 
                                                   </xsl:if>
                                                   </xsl:for-each>
@@ -655,27 +695,10 @@
                                                   <td bgcolor="#D2D2D2"/>
                                                   </xsl:otherwise>
                                                   </xsl:choose>
-                                                  <xsl:choose>
-                                                  <xsl:when test="exists(../RXA/RXA.20)">
-                                                  <xsl:choose>
-                                                  <xsl:when test="../RXA/RXA.20 = 'CP'">
-                                                  <td> Complete </td>
-                                                  </xsl:when>
-                                                  <xsl:when test="../RXA/RXA.20 = 'NA'">
-                                                  <td> Not Administered </td>
-                                                  </xsl:when>
-                                                  <xsl:when test="../RXA/RXA.20 = 'PA'">
-                                                  <td> Partially Administered </td>
-                                                  </xsl:when>
-                                                  <xsl:when test="../RXA/RXA.20 = 'RE'">
-                                                  <td> Refused </td>
-                                                  </xsl:when>
-                                                  </xsl:choose>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <td bgcolor="#D2D2D2"/>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
+                                                  <xsl:call-template name="testExistence">
+                                                  <xsl:with-param name="node"
+                                                  select="util:completionStatus(../RXA/RXA.20)"/>
+                                                  </xsl:call-template>
 
                                                   <xsl:call-template name="commentTemplate"/>
 
@@ -683,12 +706,13 @@
                                             </xsl:for-each>
                                         </xsl:for-each>
                                         <tr>
-                                            <td colspan="7">* "Completion Status" refers to the
-                                                status of the dose of vaccine administered on the
-                                                indicated date and may be interpreted as "Dose
-                                                Status". A status of "Complete" means that the
-                                                vaccine dose was "completely administered" as
-                                                opposed to "partially administered". </td>
+                                            <td colspan="7" class="note">* "Completion Status"
+                                                refers to the status of the dose of vaccine
+                                                administered on the indicated date and may be
+                                                interpreted as "Dose Status". A status of "Complete"
+                                                means that the vaccine dose was "completely
+                                                administered" as opposed to "partially
+                                                administered". </td>
                                         </tr>
                                     </tbody>
 
@@ -702,7 +726,7 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th colspan="7">Immunization Forecast</th>
+                                            <th colspan="5">Immunization Forecast</th>
                                         </tr>
                                     </thead>
 
@@ -712,8 +736,8 @@
                                             <th>Due Date</th>
                                             <th>Earliest Date To Give</th>
                                             <th>Latest Date to Give</th>
-                                            <th>Series Status</th>
-                                            <th>Forecast Reason</th>
+                                            <!--  <th>Series Status</th>
+                                            <th>Forecast Reason</th> -->
                                             <th>Tester Comment</th>
                                         </tr>
 
@@ -736,10 +760,10 @@
 
                                                   <xsl:copy-of
                                                   select="util:followSiblingDate(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59777-3']/../../.., $position)"/>
-                                                  <xsl:copy-of
+                                                  <!--   <xsl:copy-of
                                                   select="util:followSibling(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '59783-1']/../../.., $position)"/>
                                                   <xsl:copy-of
-                                                  select="util:followSibling(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../.., $position)"/>
+                                                  select="util:followSibling(following::RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30982-3']/../../.., $position)"/> -->
 
 
                                                   <xsl:call-template name="commentTemplate"/>
@@ -754,27 +778,29 @@
                                 </table>
                             </xsl:if>
                         </xsl:when>
+                        <!-- No Person found display with QAK.2 = 'NF'-->
                         <xsl:when test="//QAK/QAK.2[. = 'NF']">
                             <h3>DISPLAY VERIFICATION</h3>
 
 
                             <fieldset>
-                                <p>This Test Case-specific Juror Document provides a checklist for
-                                    the Tester to use during certification testing for assessing the
-                                    EHR technology's ability to display information notifying the
-                                    HIT user that a Return Acknowledgement with No Person Records
-                                    Z33 message was received (in response to an Evaluated
-                                    Immunization History and Immunization Forecast Z44 query
-                                    message). Additional data from the message or from the EHR are
-                                    permitted to be displayed by the EHR. </p>
-                                <p> The format of this Juror Document is for ease-of-use by the
-                                    Tester and does not indicate how the EHR display must be
+                                <p class="note">This Test Case-specific Juror Document provides a
+                                    checklist for the Tester to use during certification testing for
+                                    assessing the EHR technology's ability to display information
+                                    notifying the HIT user that a Return Acknowledgement with No
+                                    Person Records Z33 message was received (in response to an
+                                    Evaluated Immunization History and Immunization Forecast Z44
+                                    query message). Additional data from the message or from the EHR
+                                    are petermitted to be displayed by the EHR. </p>
+                                <p class="no"> The format of this Juror Document is for ease-of-use
+                                    by the Tester and does not indicate how the EHR display must be
                                     designed.</p>
-                                <p> The data shown in this Juror Document are derived from the test
-                                    data provided with the given Test Case; equivalent data are
-                                    permitted to be displayed by the EHR. The column headings are
-                                    meant to convey the kind of data to be displayed; equivalent
-                                    labels/column headings are permitted to be displayed by the EHR. </p>
+                                <p class="note"> The data shown in this Juror Document are derived
+                                    from the test data provided with the given Test Case; equivalent
+                                    data are permitted to be displayed by the EHR. The column
+                                    headings are meant to convey the kind of data to be displayed;
+                                    equivalent labels/column headings are permitted to be displayed
+                                    by the EHR. </p>
 
                             </fieldset>
                             <br/>
@@ -799,11 +825,11 @@
 
                                     </xsl:for-each>
                                     <tr>
-                                        <td colspan="5">When displayed in the EHR with the
-                                            notification indicating that a Return Acknowledgement
-                                            with No Person Records Z33 message was received, these
-                                            patient demographics data are derived from the EHR
-                                            patient record.</td>
+                                        <td colspan="5" class="note">When displayed in the EHR with
+                                            the notification indicating that a Return
+                                            Acknowledgement with No Person Records Z33 message was
+                                            received, these patient demographics data are derived
+                                            from the EHR patient record.</td>
                                     </tr>
                                 </tbody>
 
@@ -828,28 +854,29 @@
                                 </tbody>
                             </table>
                         </xsl:when>
+                        <!-- Too many matches found display with QAK.2 = 'TM' -->
                         <xsl:when test="//QAK/QAK.2[. = 'TM']">
                             <h3>DISPLAY VERIFICATION</h3>
 
 
                             <fieldset>
-                                <p>This Test Case-specific Juror Document provides a checklist for
-                                    the Tester to use during certification testing for assessing the
-                                    EHR technology's ability to display information notifying the
-                                    HIT user that a Return Acknowledgement with No Person Records
-                                    Z33 message was received (in response to an Evaluated
-                                    Immunization History and Immunization Forecast Z44 query
-                                    message). Additional data from the message or from the EHR are
-                                    permitted to be displayed by the EHR. </p>
-                                <p>The format of this Juror Document is for ease-of-use by the
-                                    Tester and does not indicate how the EHR display must be
+                                <p class="note">This Test Case-specific Juror Document provides a
+                                    checklist for the Tester to use during certification testing for
+                                    assessing the EHR technology's ability to display information
+                                    notifying the HIT user that a Return Acknowledgement with No
+                                    Person Records Z33 message was received (in response to an
+                                    Evaluated Immunization History and Immunization Forecast Z44
+                                    query message). Additional data from the message or from the EHR
+                                    are permitted to be displayed by the EHR. </p>
+                                <p class="note">The format of this Juror Document is for ease-of-use
+                                    by the Tester and does not indicate how the EHR display must be
                                     designed.</p>
-                                <p>The data shown in this Juror Document are derived from the test
-                                    data provided with the given Test Case; equivalent data are
-                                    permitted to be displayed by the EHR. The column headings are
-                                    meant to convey the kind of data to be displayed; equivalent
-                                    labels/column headings are permitted to be displayed by the
-                                    EHR.</p>
+                                <p class="note">The data shown in this Juror Document are derived
+                                    from the test data provided with the given Test Case; equivalent
+                                    data are permitted to be displayed by the EHR. The column
+                                    headings are meant to convey the kind of data to be displayed;
+                                    equivalent labels/column headings are permitted to be displayed
+                                    by the EHR.</p>
 
 
                             </fieldset>
@@ -875,11 +902,11 @@
 
                                     </xsl:for-each>
                                     <tr>
-                                        <td colspan="5">When displayed in the EHR with the
-                                            notification indicating that a Return Acknowledgement
-                                            with No Person Records Z33 message was received, these
-                                            patient demographics data are derived from the EHR
-                                            patient record.</td>
+                                        <td colspan="5" class="note">When displayed in the EHR with
+                                            the notification indicating that a Return
+                                            Acknowledgement with No Person Records Z33 message was
+                                            received, these patient demographics data are derived
+                                            from the EHR patient record.</td>
                                     </tr>
                                 </tbody>
 

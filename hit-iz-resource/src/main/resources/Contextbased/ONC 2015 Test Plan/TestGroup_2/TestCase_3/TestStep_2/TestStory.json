@@ -1,7 +1,7 @@
 {
   "teststorydesc" : "The IIS performs a search for Donna Victoria Bee and does not find a high-confidence match. The IIS returns a response message indicating no person found to the querying system.",
   "comments" : "No Comments",
-  "preCondition" : "The patient Donna Victoria Bee exists in the system (e.g., EHR-S) and a query was performed.",
+  "preCondition" : "The patient Donna Victoria Bee exists in the querying system (e.g., EHR-S) and a query was performed. The IIS (simulated by the NIST test tool) does not find a match for the person.<br>",
   "postCondition" : "The response message is processed and the clinician is alerted to fact of no matches.",
   "testObjectives" : "Test the capability of the EHR-S to process a response message that returns no persons found and to provide an indication to the end user.",
   "evaluationCriteria" : "Juror Document. Clinician is notified of no match.",

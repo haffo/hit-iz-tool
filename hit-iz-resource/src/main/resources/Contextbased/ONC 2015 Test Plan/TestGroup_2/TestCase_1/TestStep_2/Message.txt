@@ -10,44 +10,44 @@ OBX|2|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||2
 OBX|3|ID|59781-5^dose validity^LN|1|Y||||||F|||20151031
 ORC|RE||197027^DCS|||||||^Clerk^Myron||^Pediatric^MARY^^^^^^^L^^^^^^^^^^^MD|||||||||||||||||||
 RXA|0|1|20090731|20090314|48^HIB PRP-T^CVX|999|||01^historic immunization record^NIP001|^Sticker^Nurse|^^^DCS_DC||||33k2a||PMC^sanofi^MVX|||CP
-OBX|4|CE|30956-7^vaccine type^LN|2|17^HIB NOS^CVX ||||||F|||20151031|||||||||||
-OBX|5|CE|59779-9^Immunization Schedule used^LN|2|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
-OBX|6|ID|59781-5^dose validity^LN|2|N||||||F|||20151031
-OBX|7|ST|30982-3^Reason applied ^LN|2|Too Young||||||F|||20151031
+OBX|4|CE|30956-7^vaccine type^LN|1|17^HIB NOS^CVX ||||||F|||20151031|||||||||||
+OBX|5|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
+OBX|6|ID|59781-5^dose validity^LN|1|N||||||F|||20151031
+OBX|7|ST|30982-3^Reason applied ^LN|1|Too Young||||||F|||20151031
 ORC|RE||197028^DCS|||||||^Clerk^Myron||^Pediatric^MARY^^^^^^^L^^^^^^^^^^^MD|||||||||||||||||||
 RXA|0|1|20091011|20091011|110^DTAP-Hep B-IPV^CVX|999|||01^historic immunization record^NIP001||||||||SKB^GSK^MVX|||CP
-OBX|7|CE|30956-7^vaccine type^LN|3|45^Hep B NOS^CVX ||||||F||||||||||||||
-OBX|8|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
-OBX|9|ID|59781-5^dose validity^LN|3|Y||||||F|||20151031
-OBX|10|CE|30956-7^vaccine type^LN|4|10^IPV^CVX ||||||F||||||||||||||
-OBX|11|CE|59779-9^Immunization Schedule used^LN|4|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
-OBX|12|ID|59781-5^dose validity^LN|4|Y||||||F|||20151031
-OBX|13|CE|30956-7^vaccine type^LN|5|20^DTAP^CVX ||||||F||||||||||||||
-OBX|14|CE|59779-9^Immunization Schedule used^LN|5|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
-OBX|15|ID|59781-5^dose validity^LN|5|Y||||||F|||20151031
+OBX|7|CE|30956-7^vaccine type^LN|1|45^Hep B NOS^CVX ||||||F||||||||||||||
+OBX|8|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
+OBX|9|ID|59781-5^dose validity^LN|1|Y||||||F|||20151031
+OBX|10|CE|30956-7^vaccine type^LN|2|10^IPV^CVX ||||||F||||||||||||||
+OBX|11|CE|59779-9^Immunization Schedule used^LN|2|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
+OBX|12|ID|59781-5^dose validity^LN|2|Y||||||F|||20151031
+OBX|13|CE|30956-7^vaccine type^LN|3|20^DTAP^CVX ||||||F||||||||||||||
+OBX|14|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
+OBX|15|ID|59781-5^dose validity^LN|3|Y||||||F|||20151031
 ORC|RE||197028^DCS|||||||^Clerk^Myron||^Pediatric^MARY^^^^^^^L^^^^^^^^^^^MD|||||||||||||||||||
 RXA|0|1|20100411|20100411|08^Hep BPEDS^CVX|999|||01^historic immunization record^NIP001|^Sticker^Nurse|||||||SKB^GSK^MVX|||CP||||||
-OBX|16|CE|30956-7^vaccine type^LN|6|45^Hep B NOS^CVX ||||||F|||20151031|||||||||||
-OBX|17|CE|59779-9^Immunization Schedule used^LN|6|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
-OBX|18|ID|59781-5^dose validity^LN|6|Y||||||F|||20151031
+OBX|16|CE|30956-7^vaccine type^LN|1|45^Hep B NOS^CVX ||||||F|||20151031|||||||||||
+OBX|17|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
+OBX|18|ID|59781-5^dose validity^LN|1|Y||||||F|||20151031
 ORC|RE||197028^DCS|||||||^Clerk^Myron||^Pediatric^MARY^^^^^^^L^^^^^^^^^^^MD|||||||||||||||||||
 RXA|0|1|20100415|20100415|03^MMR^CVX|999|||01^historic immunization record^NIP001||||||xy3939||SKB^GSK^MVX|||CP||||||
-OBX|19|CE|30956-7^vaccine type^LN|7|03^MMR^CVX ||||||F|||20151031|||||||||||
-OBX|20|CE|59779-9^Immunization Schedule used^LN|7|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
-OBX|21|ID|59781-5^dose validity^LN|7|N||||||F|||20151031
+OBX|19|CE|30956-7^vaccine type^LN|1|03^MMR^CVX ||||||F|||20151031|||||||||||
+OBX|20|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
+OBX|21|ID|59781-5^dose validity^LN|1|N||||||F|||20151031
 ORC|RE||197023^DCS|||||||^Clerk^Myron|||||||DCS^Dabig Clinical System^StateIIS||||||||||||||
 RXA|0|1|20091031|20091031|998^no vaccine admin^CVX|999||||||||||||||NA||||||
-OBX|22|CE|30956-7^vaccine type^LN|8|03^MMR^CVX ||||||F|||20151031|||||||||||
-OBX|23|CE|59779-9^Immunization Schedule used^LN|8|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
-OBX|24|DT|30980-7^Date vaccination due^LN|8|20100214||||||F|||20151031|||||||||||
-OBX|25|DT|30981-5^Earliest Date to give^LN|8|20100214||||||F|||20151031|||||||||||
-OBX|26|CE|30956-7^vaccine type^LN|9|10^IPV^CVX ||||||F|||20151031|||||||||||
-OBX|27|CE|59779-9^Immunization Schedule used^LN|9|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
-OBX|28|DT|30980-7^Date vaccination due^LN|9|20100214||||||F|||20151031|||||||||||
-OBX|29|DT|30980-7^Date vaccination due^LN|9|20100114||||||F|||20151031|||||||||||
-OBX|28|CE|30956-7^vaccine type^LN|10|107^DTAP^CVX ||||||F|||20151031|||||||||||
-OBX|29|CE|59779-9^Immunization Schedule used^LN|10|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
-OBX|30|DT|30980-7^Date vaccination due^LN|10|20100214||||||F|||20151031|||||||||||
-OBX|31|CE|30956-7^vaccine type^LN|11|10^IPV^CVX ||||||F|||20151031|||||||||||
-OBX|32|CE|59779-9^Immunization Schedule used^LN|11|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
-OBX|33|DT|30980-7^Date vaccination due^LN|11|20100214||||||F|||20151031|||||||||||
+OBX|22|CE|30956-7^vaccine type^LN|1|03^MMR^CVX ||||||F|||20151031|||||||||||
+OBX|23|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
+OBX|24|DT|30980-7^Date vaccination due^LN|1|20100214||||||F|||20151031|||||||||||
+OBX|25|DT|30981-5^Earliest Date to give^LN|1|20100214||||||F|||20151031|||||||||||
+OBX|26|CE|30956-7^vaccine type^LN|2|10^IPV^CVX ||||||F|||20151031|||||||||||
+OBX|27|CE|59779-9^Immunization Schedule used^LN|2|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
+OBX|28|DT|30980-7^Date vaccination due^LN|2|20100214||||||F|||20151031|||||||||||
+OBX|29|DT|30980-7^Date vaccination due^LN|2|20100114||||||F|||20151031|||||||||||
+OBX|28|CE|30956-7^vaccine type^LN|3|107^DTAP^CVX ||||||F|||20151031|||||||||||
+OBX|29|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
+OBX|30|DT|30980-7^Date vaccination due^LN|3|20100214||||||F|||20151031|||||||||||
+OBX|31|CE|30956-7^vaccine type^LN|4|10^IPV^CVX ||||||F|||20151031|||||||||||
+OBX|32|CE|59779-9^Immunization Schedule used^LN|4|VXC16^ACIP^CDCPHINVS||||||F|||20151031|||||||||||
+OBX|33|DT|30980-7^Date vaccination due^LN|4|20100214||||||F|||20151031|||||||||||

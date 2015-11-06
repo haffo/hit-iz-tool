@@ -13,32 +13,32 @@
 "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "MyEHR",
-"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
+APP", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : "Indifferent"},
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "DCS", "categorization"
-: "Presence-Configuration"},
+							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
+Facility", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : "Indifferent"},
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "MyIIS",
-"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
+APP", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : "Indifferent"},
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "StatePH",
-"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
+FAC", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -81,11 +81,11 @@
 "categorization" : "Indifferent"},
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
-							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "DCS",
-"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NIST
+EHR Facility", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "DCS",
+									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
@@ -94,23 +94,23 @@
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
 "XX", "categorization" : "Indifferent"},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
-: "6439432", "categorization" : "Indifferent"},
+: "100-6482", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "StatePH",
-"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NIST
+IIS FAC", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
+									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Indifferent"},
+"XX", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
-: "", "categorization" : "Indifferent"},		]
+: "100-1776", "categorization" : "Indifferent"},		]
 		{
 			"title":"QPD : Query Parameter Definition",
 			"elements" : 
@@ -137,8 +137,8 @@ History and Forecast", "categorization" : "Value-Test Case Fixed"},
 "categorization" : ""},
 							{"location" : "QPD.3.4", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "MYEHR",
-"categorization" : "Value-Test Case Fixed"},
+									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "NIST
+MPI", "categorization" : "Value-Test Case Fixed"},
 									{"location" : "QPD.3.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 									{"location" : "QPD.3.4.3", "dataelement" : "Universal ID Type", "data" :
@@ -149,7 +149,7 @@ History and Forecast", "categorization" : "Value-Test Case Fixed"},
 : ""},
 							{"location" : "QPD.4.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
-									{"location" : "QPD.4.1.1", "dataelement" : "Surname", "data" : "McCoy", "categorization"
+									{"location" : "QPD.4.1.1", "dataelement" : "Surname", "data" : "Smith", "categorization"
 : "Value-Test Case Fixed"},
 									{"location" : "QPD.4.1.2", "dataelement" : "Own Surname Prefix", "data" :
 "", "categorization" : ""},
@@ -162,7 +162,7 @@ History and Forecast", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.4.2", "dataelement" : "Given Name", "data" : "James", "categorization"
 : "Value-Test Case Fixed"},
 							{"location" : "QPD.4.3", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "T", "categorization" : "Value-Test Case Fixed"},
+Initials Thereof", "data" : "", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.4.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
 : "Value-Test Case Fixed"},
 				{"location" : "QPD.5", "dataelement" : "PatientMotherMaidenName", "data" : "",

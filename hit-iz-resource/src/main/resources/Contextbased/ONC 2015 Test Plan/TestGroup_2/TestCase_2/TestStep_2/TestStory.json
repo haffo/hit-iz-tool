@@ -1,7 +1,7 @@
 {
   "teststorydesc" : "The IIS performs a search for Stanley S. Clement and finds one high confidence match. The IIS generates an evaluated history and forecast for Mr. Clement and returns this to the EHR-S. The EHR-S displays the evaluated history and forecast to the staff member.",
   "comments" : "No Comments",
-  "preCondition" : "The IIS (simulated by the NIST test tool) contains an immunization events for the person.",
+  "preCondition" : "A query is performed by the sending system. The IIS (simulated by the NIST test tool) contains an immunization events for the person.",
   "postCondition" : "The response is made available to the EHR-S for processing. The clinician is able to view the evaluated history and forecast from the IIS (even if temporal).",
   "testObjectives" : "Demonstrate the capability to receive a response message containing the evaluated history and forecast; display evaluated history and forecast.",
   "evaluationCriteria" : "<ol><li>Confirms valid receipt and display of response message using the Juror Document.</li></ol>",

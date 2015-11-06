@@ -62,6 +62,16 @@
                     <xsl:when test="PID.8 = 'M'">
                         <gender> Male </gender>
                     </xsl:when>
+                    <xsl:when test="PID.8 = 'U'">
+                        <gender>
+                            <xsl:value-of select="'Unknown/undifferentiated'"/>
+                        </gender>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <gender>
+                            <xsl:value-of select="PID.8"/>
+                        </gender>
+                    </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
@@ -106,6 +116,16 @@
                     <xsl:when test="QPD.7 = 'M'">
                         <gender> Male </gender>
                     </xsl:when>
+                    <xsl:when test="QPD.7 = 'U'">
+                        <gender>
+                            <xsl:value-of select="'Unknown/undifferentiated'"/>
+                        </gender>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <gender>
+                            <xsl:value-of select="QPD.7"/>
+                        </gender>
+                    </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
@@ -136,8 +156,9 @@
                     </immunizationScheduleUsed>
 
                     <xsl:for-each select="//RXA.5.1[. != '998']/../../..">
-                        <xsl:for-each select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
-                            
+                        <xsl:for-each
+                            select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
+
                             <xsl:variable name="position" select="position()"/>
                             <evaluatedImmunizationHistory>
                                 <vaccineGroup>
@@ -150,7 +171,8 @@
 
                                     <xsl:when test="../RXA/RXA.3/RXA.3.1 != ''">
                                         <dateAdministered>
-                                            <xsl:value-of select="util:format-date(../RXA/RXA.3/RXA.3.1)"/>
+                                            <xsl:value-of
+                                                select="util:format-date(../RXA/RXA.3/RXA.3.1)"/>
                                             <!-- <xsl:call-template name="dateTime">
                                     <xsl:with-param name="dateS" select="../RXA/RXA.3/RXA.3.1"></xsl:with-param>
                                 </xsl:call-template> -->
@@ -191,7 +213,7 @@
                                             <xsl:if test="position() = 1">
 
                                                 <validityReason>
-                                                  <xsl:value-of select="OBX/OBX.5/OBX.5.2"/>
+                                                  <xsl:value-of select="OBX/OBX.5/OBX.5.1"/>
                                                 </validityReason>
 
                                             </xsl:if>
@@ -233,7 +255,8 @@
                     </xsl:for-each>
                     <xsl:for-each select="//RXA.5.1[. = '998']/../../..">
 
-                        <xsl:for-each select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
+                        <xsl:for-each
+                            select="RSP_K11.OBSERVATION/OBX/OBX.3/OBX.3.1[. = '30956-7']/../../..">
                             <xsl:variable name="position" select="position()"/>
                             <immunizationForecast>
                                 <vaccineGroup>
@@ -330,6 +353,7 @@
                                         <latestDate/>
                                     </xsl:otherwise>
                                 </xsl:choose>
+                                <!-- 
                                 <xsl:choose>
 
                                     <xsl:when
@@ -365,7 +389,7 @@
                                     <xsl:otherwise>
                                         <forecastReason/>
                                     </xsl:otherwise>
-                                </xsl:choose>
+                                </xsl:choose> -->
                                 <testerComment>
                                     <xsl:text/>
                                 </testerComment>
