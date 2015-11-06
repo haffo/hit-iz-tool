@@ -2,65 +2,6 @@
  * Created by haffo on 11/20/14.
  */
 
-
-
-//angular.module('commonServices').factory('XmlEditor', function (Editor) {
-//    var XmlEditor = function () {
-//        Editor.apply(this, arguments);
-//    };
-//
-//    XmlEditor.prototype = Object.create(Editor.prototype);
-//    XmlEditor.prototype.constructor = XmlEditor;
-//
-//    XmlEditor.prototype.format = function () {
-//        this.instance.doc.setValue(this.instance.doc.getValue().replace(/\n/g, "")
-//            .replace(/[\t ]+\</g, "<")
-//            .replace(/\>[\t ]+\</g, "><")
-//            .replace(/\>[\t ]+$/g, ">"));
-//        var totalLines = this.instance.lineCount();
-//        var totalChars = this.instance.getTextArea().value.length;
-//        this.instance.autoFormatRange({line: 0, ch: 0}, {line: totalLines, ch: totalChars});
-//    };
-//
-//    return XmlEditor;
-//});
-
-
-
-//angular.module('commonServices').factory('Profile', function ($http, $q) {
-//    var Profile = function () {
-//        this.id = null;
-//        this.xml = '';
-//        this.json = '';
-//        this.name = [];
-//        this.description = '';
-//    };
-//
-//
-//    Profile.prototype.notifyChange = function () {
-//        this.updateIndicator = new Date().getTime();
-//    };
-//
-//
-//    Profile.prototype.init = function (data) {
-//        this.id = data.id;
-//        this.xml = data.xml;
-//        this.json = null;
-//        this.name = data.name;
-//        this.description = data.description;
-//    };
-//
-//    Profile.prototype.clear = function () {
-//        this.id = null;
-//        this.xml = null;
-//        this.json = null;
-//        this.name = null;
-//        this.description = null;
-//    };
-//
-//    return Profile;
-//});
-
 angular.module('commonServices').factory('StorageService',
     ['$rootScope', 'localStorageService', function ($rootScope, localStorageService) {
         var service = {

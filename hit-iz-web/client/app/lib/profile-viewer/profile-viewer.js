@@ -104,7 +104,7 @@
 
 
             $scope.showValueSetDefinition = function (tableId) {
-                     $rootScope.$emit($scope.type + ':showValueSetDefinition', tableId);
+                $rootScope.$emit($scope.type + ':showValueSetDefinition', tableId);
             };
 
             $scope.getValueSet = function (tableStr) {
@@ -116,48 +116,46 @@
 
             $scope.$on($scope.type + ':profileLoaded', function (event, profile) {
                 if (profile && profile.id != null) {
-                    if ($scope.profile === null || $scope.profile.id != profile.id) {
+                    $scope.loading = true;
+                    $scope.options.collapse = true;
+                    $scope.profile = profile;
+                    $scope.profileService.getJson($scope.profile.id).then(function (jsonObject) {
+                        $scope.loading = false;
                         $scope.loading = true;
-                        $scope.options.collapse = true;
-                        $scope.profile = profile;
-                        $scope.profileService.getJson($scope.profile.id).then(function (jsonObject) {
-                            $scope.loading = false;
-                            $scope.loading = true;
-                            $scope.nodeData = [];
-                            $scope.loading = false;
-                            profile['json'] = angular.fromJson(jsonObject);
-                            $scope.elements = profile.json.elements;
-                            var datatypes = null;
-                            var segments = [];
-                            var message = null;
-                            var confStatementsMap = {};
-                            $scope.confStatements = [];
-                            angular.forEach($scope.elements, function (element) {
-                                if (element.name === 'Datatypes' && datatypes === null) {
-                                    datatypes = element;
-                                }
-                                if (element.type === 'SEGMENT') {
-                                    segments.push(element);
-                                }
-                                $scope.collectConfStatements(element, confStatementsMap);
-                            });
-                            $scope.confStatements = $filter('orderBy')($scope.confStatements, 'id');
-                            $scope.tmpConfStatements = [].concat($scope.confStatements);
-                            $scope.profileService.setDatatypesTypesAndIcons(datatypes);
+                        $scope.nodeData = [];
+                        $scope.loading = false;
+                        profile['json'] = angular.fromJson(jsonObject);
+                        $scope.elements = profile.json.elements;
+                        var datatypes = null;
+                        var segments = [];
+                        var message = null;
+                        var confStatementsMap = {};
+                        $scope.confStatements = [];
+                        angular.forEach($scope.elements, function (element) {
+                            if (element.name === 'Datatypes' && datatypes === null) {
+                                datatypes = element;
+                            }
+                            if (element.type === 'SEGMENT') {
+                                segments.push(element);
+                            }
+                            $scope.collectConfStatements(element, confStatementsMap);
+                        });
+                        $scope.confStatements = $filter('orderBy')($scope.confStatements, 'id');
+                        $scope.tmpConfStatements = [].concat($scope.confStatements);
+                        $scope.profileService.setDatatypesTypesAndIcons(datatypes);
 //                        var valueSetIds = $scope.profileService.getValueSetIds(segments, datatypes.children);
 //                        $rootScope.$broadcast($scope.type + ':valueSetIdsCollected', valueSetIds);
-                            $scope.getNodeContent($scope.elements[0]);
-                            $scope.loading = false;
-                        }, function (error) {
-                            $scope.error = "Sorry, Cannot load the profile.";
-                            $scope.loading = false;
-                            $scope.nodeData = [];
-                            $scope.elements = [];
-                            $scope.confStatements = [];
-                            $scope.tmpConfStatements = [].concat($scope.confStatements);
-                            $scope.refresh();
-                        });
-                    }
+                        $scope.getNodeContent($scope.elements[0]);
+                        $scope.loading = false;
+                    }, function (error) {
+                        $scope.error = "Sorry, Cannot load the profile.";
+                        $scope.loading = false;
+                        $scope.nodeData = [];
+                        $scope.elements = [];
+                        $scope.confStatements = [];
+                        $scope.tmpConfStatements = [].concat($scope.confStatements);
+                        $scope.refresh();
+                    });
                 } else {
                     $scope.loading = false;
                     $scope.nodeData = [];
@@ -230,13 +228,13 @@
                     $scope.nodeData = selectedNode;
                     $scope.options.collapse = selectedNode.type !== 'MESSAGE';
                     $scope.refresh();
-                    $timeout(function() {
+                    $timeout(function () {
                         $scope.predWidth = null;
                         $scope.tableWidth = null;
                         $scope.csWidth = null;
                         $scope.getCsWidth();
                         $scope.getPredWidth();
-                    },100);
+                    }, 100);
 
                 }
 //                $scope.setAllRelevance($scope.options.relevance);
@@ -339,36 +337,35 @@
 
 
             $scope.getTableWidth = function () {
-                if($scope.tableWidth === null) {
+                if ($scope.tableWidth === null) {
                     $scope.tableWidth = $("#executionPanel").width();
                 }
                 return $scope.tableWidth;
             };
 
-            $scope.getCsWidth = function(){
-                if($scope.csWidth === null){
+            $scope.getCsWidth = function () {
+                if ($scope.csWidth === null) {
                     var tableWidth = $scope.getTableWidth();
-                    if(tableWidth > 0) {
+                    if (tableWidth > 0) {
                         var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 700 : 950;
                         var left = tableWidth - otherColumsWidth;
-                        $scope.csWidth = {"width" : 2 * parseInt(left / 3) + "px"};
+                        $scope.csWidth = {"width": 2 * parseInt(left / 3) + "px"};
                     }
                 }
                 return $scope.csWidth;
             };
 
-            $scope.getPredWidth = function(){
-                if($scope.predWidth === null){
+            $scope.getPredWidth = function () {
+                if ($scope.predWidth === null) {
                     var tableWidth = $scope.getTableWidth();
-                    if(tableWidth > 0) {
+                    if (tableWidth > 0) {
                         var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 700 : 950;
                         var left = tableWidth - otherColumsWidth;
-                        $scope.predWidth = {"width" :parseInt(left / 3) + "px"};
-                     }
+                        $scope.predWidth = {"width": parseInt(left / 3) + "px"};
+                    }
                 }
                 return $scope.predWidth;
             }
-
 
 
         }]);
@@ -539,7 +536,7 @@
 
             if (angular.isObject(baseConfiguration)) {
                 angular.forEach(baseConfiguration, function (val, key) {
-                    if (['getNodes', 'getTemplate', 'options', 'getRelevance', 'toggleRelevance', 'toggleConcise', 'getConcise','isRelevant'].indexOf(key) > -1) {
+                    if (['getNodes', 'getTemplate', 'options', 'getRelevance', 'toggleRelevance', 'toggleConcise', 'getConcise', 'isRelevant'].indexOf(key) > -1) {
                         self[key] = val;
                     } else {
                         $log.warn('PvTreetableParams - Ignoring unexpected property "' + key + '".');
@@ -591,8 +588,8 @@
             var data = params.getNodes(parentNode);
             var elementPromises = [];
             angular.forEach(data, function (node) {
-                  elementPromises.push($scope.compileElement(node, parentId, parentNode));
-             });
+                elementPromises.push($scope.compileElement(node, parentId, parentNode));
+            });
 
             $q.all(elementPromises).then(function (newElements) {
                 var parentTtNode = parentId != null ? table.treetable("node", parentId) : null;
@@ -621,8 +618,8 @@
             var data = params.getNodes(parentNode);
             var elementPromises = [];
             angular.forEach(data, function (node) {
-                if(params.isRelevant(node)) {
-                elementPromises.push($scope.compileElement(node, parentId, parentNode));
+                if (params.isRelevant(node)) {
+                    elementPromises.push($scope.compileElement(node, parentId, parentNode));
                 }
             });
 
