@@ -13,32 +13,32 @@
 "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "MyIIS",
-"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
+APP", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : "Indifferent"},
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "StatePH",
-"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
+Facility", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : "Indifferent"},
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "MYEHR",
-"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
+APP", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : "Indifferent"},
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "DCS", "categorization"
-: "Presence-Configuration"},
+							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
+FAC", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -81,11 +81,11 @@
 "categorization" : "Indifferent"},
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
-							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "DCS",
-"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NIST
+EHR Facility", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "DCS",
+									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
@@ -94,23 +94,23 @@
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
 "XX", "categorization" : "Indifferent"},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
-: "6439432", "categorization" : "Indifferent"},
+: "100-6482", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "StatePH",
-"categorization" : "Presence-Configuration"},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NIST
+IIS FAC", "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
+									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Indifferent"},
+"XX", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
-: "", "categorization" : "Indifferent"},		]
+: "100-1776", "categorization" : "Indifferent"},		]
 		{
 			"title":"QPD : Query Parameter Definition",
 			"elements" : 
@@ -122,7 +122,7 @@
 							{"location" : "QPD.1.2", "dataelement" : "Text", "data" : "Request Evaluated
 History and Forecast", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.1.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS ", "categorization" : "Value-Profile Fixed"},
+"CDCPHINVS", "categorization" : "Value-Profile Fixed"},
 							{"location" : "QPD.1.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.1.6", "dataelement" : "Name of Alternate Coding System",
@@ -131,14 +131,14 @@ History and Forecast", "categorization" : "Value-Test Case Fixed"},
 : "Presence-System Generated"},
 				{"location" : "QPD.3", "dataelement" : "PatientList", "data" : "", "categorization"
 : ""},
-							{"location" : "QPD.3.1", "dataelement" : "ID Number", "data" : "123456", "categorization"
+							{"location" : "QPD.3.1", "dataelement" : "ID Number", "data" : "171122", "categorization"
 : "Value-Test Case Fixed"},
 							{"location" : "QPD.3.3", "dataelement" : "Check Digit Scheme", "data" : "",
 "categorization" : ""},
 							{"location" : "QPD.3.4", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "MYEHR",
-"categorization" : "Value-Test Case Fixed"},
+									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "NIST
+MPI", "categorization" : "Value-Test Case Fixed"},
 									{"location" : "QPD.3.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 									{"location" : "QPD.3.4.3", "dataelement" : "Universal ID Type", "data" :
@@ -192,16 +192,16 @@ Initials Thereof", "data" : "Q", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.8.1", "dataelement" : "Street Address", "data" : "", "categorization"
 : ""},
 									{"location" : "QPD.8.1.1", "dataelement" : "Street or Mailing Address", "data"
-: "10 East Main St", "categorization" : "Value-Test Case Fixed"},
+: "105 Laurel Run Rd", "categorization" : "Value-Test Case Fixed"},
 									{"location" : "QPD.8.1.2", "dataelement" : "Street Name", "data" : "", "categorization"
 : ""},
 									{"location" : "QPD.8.1.3", "dataelement" : "Dwelling Number", "data" : "",
 "categorization" : ""},
 							{"location" : "QPD.8.2", "dataelement" : "Other Designation", "data" : "",
 "categorization" : "Indifferent"},
-							{"location" : "QPD.8.3", "dataelement" : "City", "data" : "Myfaircity", "categorization"
+							{"location" : "QPD.8.3", "dataelement" : "City", "data" : "Bozeman", "categorization"
 : "Value-Test Case Fixed"},
-							{"location" : "QPD.8.4", "dataelement" : "State or Province", "data" : "GA",
+							{"location" : "QPD.8.4", "dataelement" : "State or Province", "data" : "MT",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.8.5", "dataelement" : "Zip or Postal Code", "data" : "",
 "categorization" : "Value-Test Case Fixed"},

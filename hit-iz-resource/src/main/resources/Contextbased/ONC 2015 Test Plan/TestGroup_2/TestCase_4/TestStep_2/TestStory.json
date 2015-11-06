@@ -1,9 +1,9 @@
 {
-  "teststorydesc" : "<p><span style=\"color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);\"><span style=\"color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.2px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.8571px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);\">The\r\n IIS performs a search for James T McCoy and finds too many matches based on the sending system's query (e.g., EHR-S). The IIS returns a response message indicating no \r\nperson found (too many matches) to the querying system. It is expected that the requesting \r\nsystem (e.g., EHR-S) process the response message and display some \r\nindication to the end user that the person was not found (too many matches). </span></span></p>\r\n",
-  "comments" : "<p>No Comments</p>\r\n",
-  "preCondition" : "<p>Person may have a record in the IIS, however the IIS is unable narrow \r\nthe search results to a single match (multiple matches exist).</p>\r\n",
-  "postCondition" : "<p>The clinician is provided some indication that too many matches were found (even if temporal).</p>\r\n",
-  "testObjectives" : "<p>Test the \r\ncapability of the EHR-S to process a response message that \r\nreturns no persons found (too many matches) and to provide an indication to the end user.</p>\r\n",
-  "evaluationCriteria" : "<p>The EHR-S receives the response and alerts the clinician that too many matches were found.</p>\r\n",
-  "notes" : "<p>No Note</p>\r\n"
+  "teststorydesc" : "The IIS performs a search for James Smith and finds too many matches based on the sending system's query (e.g., EHR-S). The IIS returns a response message indicating no person found (too many matches) to the querying system. It is expected that the requesting system (e.g., EHR-S) process the response message and display some indication to the end user that the person was not found (too many matches).",
+  "comments" : "No Comments",
+  "preCondition" : "A query is made to the IIS. Person may have a record in the IIS, however the IIS is unable narrow the search results to a single match (multiple matches exist).",
+  "postCondition" : "The clinician is provided some indication that too many matches were found.",
+  "testObjectives" : "Test the capability of the EHR-S to process a response message that returns no persons found (too many matches) and to provide an indication to the end user.",
+  "evaluationCriteria" : "Juror Document. Clinician is notified that too many matches were found.",
+  "notes" : "No Note"
 }

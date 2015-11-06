@@ -9,11 +9,11 @@
 			[
 				{"element" : "Patient Name", "data" : "Clement S Stanley"},
 				{"element" : "Mother's Maiden Name", "data" : "Smith"},
-				{"element" : "ID Number", "data" : "123456 "},
+				{"element" : "ID Number", "data" : "648286 "},
 				{"element" : "Date/Time of Birth", "data" : "02/14/1950"},
 				{"element" : "Sex", "data" : "Male"},
 				{"element" : "Patient Address", "data" : "1642 Bear Run Boseman MT 59715 USA "},
-				{"element" : "Patient Phone", "data" : "(690)123-1234"},
+				{"element" : "Patient Phone", "data" : "(406)555-2020"},
 				{"element" : "Birth Indicator", "data" : ""},
 				{"element" : "Birth Order", "data" : ""}
 			]

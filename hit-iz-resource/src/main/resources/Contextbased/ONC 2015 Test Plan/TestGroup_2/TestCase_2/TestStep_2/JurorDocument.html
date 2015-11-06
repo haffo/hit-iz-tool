@@ -2,19 +2,24 @@
    <head>
       <style type="text/css">
          @media screen{
-         .jurordocument fieldset{
-         font-size:100%;
+         
+         .jurordocument table thead tr th{
+         font-size:120%;
+         text-align:center;
          }
          .jurordocument table tbody tr th{
-         font-size:90%;
+         font-size:110%;
          }
          .jurordocument table tbody tr td{
-         font-size:90%;
+         font-size:120%;
+         }
+         .jurordocument .note{
+         font-size:100%;
          }
          }
          @media print{
          .jurordocument fieldset{
-         font-size:x-small;
+         
          page-break-inside:avoid;
          }
          .jurordocument table{
@@ -26,13 +31,17 @@
          .jurordocument table tr{
          page-break-inside:avoid;
          }
-         .jurordocument table th{
-         font-size:x-small;
+         .jurordocument table thead tr th{
+         font-size:110%;
+         text-align:center;
+         }
+         .jurordocument table tbody tr th{
+         font-size:110%;
+         }
+         .jurordocument table tbody tr td{
+         font-size:110%;
          }
          
-         .jurordocument table td{
-         font-size:xx-small;
-         }
          * [type = text]{
          width:98%;
          height:15px;
@@ -42,10 +51,10 @@
          
          }
          .jurordocument h3{
-         font-size:xx-small;
+         font-size:medium;
          }
-         .jurordocument p{
-         font-size:x-small;
+         .jurordocument .note{
+         font-size:100%;
          }
          
          
@@ -68,9 +77,7 @@
          width:95%;
          border:1px solid #446BEC;
          }
-         .embSpace{
-         padding-left:25px;
-         }
+         
          .noData{
          background:#D2D2D2;
          }
@@ -163,35 +170,35 @@
             </thead>
             <tbody>
                <tr>
-                  <th>Test Case ID</th>
+                  <th class="note">Test Case ID</th>
                   <td>IZ-QR-2_Query_Adult</td>
                </tr>
                <tr>
-                  <th>Juror ID</th>
+                  <th class="note">Juror ID</th>
                   <td>
                      <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
                </tr>
                <tr>
-                  <th>Juror Name</th>
+                  <th class="note">Juror Name</th>
                   <td>
                      <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
                </tr>
                <tr>
-                  <th>HIT System Tested</th>
+                  <th class="note">HIT System Tested</th>
                   <td>
                      <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
                </tr>
                <tr>
-                  <th>Inspection Date/Time</th>
+                  <th class="note">Inspection Date/Time</th>
                   <td>
                      <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
                </tr>
                <tr>
-                  <th>Inspection Settlement (Pass/Fail)</th>
+                  <th class="note">Inspection Settlement (Pass/Fail)</th>
                   <td>
                      <table id="inspectionStatus">
                         <thead>
@@ -214,13 +221,13 @@
                   </td>
                </tr>
                <tr>
-                  <th>Reason Failed</th>
+                  <th class="note">Reason Failed</th>
                   <td>
                      <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
                </tr>
                <tr>
-                  <th>Juror Comments</th>
+                  <th class="note">Juror Comments</th>
                   <td>
                      <input style="background: 1px  #E2E2E2;" type="text" maxlength="50" value=""></input>
                   </td>
@@ -229,25 +236,26 @@
          </table>
          <h3>DISPLAY VERIFICATION</h3>
          <fieldset>
-            <p>This Test Case-specific Juror Document provides a checklist for
-               the Tester to use during certification testing for assessing the
-               EHR technology's ability to display required core data elements
-               from the information received in the Evaluated Immunization
-               History and Immunization Forecast Z42 response message.
-               Additional data from the message or from the EHR are permitted
-               to be displayed by the EHR. Grayed-out fields in the Juror
-               Document indicate where no data for the data element indicated
-               were included in the Z42 message for the given Test Case.
+            <p class="note">This Test Case-specific Juror Document provides a
+               checklist for the Tester to use during certification testing for
+               assessing the EHR technology's ability to display required core
+               data elements from the information received in the Evaluated
+               Immunization History and Immunization Forecast Z42 response
+               message. Additional data from the message or from the EHR are
+               permitted to be displayed by the EHR. Grayed-out fields in the
+               Juror Document indicate where no data for the data element
+               indicated were included in the Z42 message for the given Test
+               Case.
             </p>
-            <p>The format of this Juror Document is for ease-of-use by the
-               Tester and does not indicate how the EHR display must be
+            <p class="note">The format of this Juror Document is for ease-of-use
+               by the Tester and does not indicate how the EHR display must be
                designed.
             </p>
-            <p>The Evaluated Immunization History and Immunization Forecast data
-               shown in this Juror Document are derived from the Z42 message
-               provided with the given Test Case; equivalent data are permitted
-               to be displayed by the EHR. The column headings are meant to
-               convey the kind of data to be displayed; equivalent
+            <p class="note">The Evaluated Immunization History and Immunization
+               Forecast data shown in this Juror Document are derived from the
+               Z42 message provided with the given Test Case; equivalent data
+               are permitted to be displayed by the EHR. The column headings
+               are meant to convey the kind of data to be displayed; equivalent
                labels/column headings are permitted to be displayed by the
                EHR.
             </p>
@@ -268,25 +276,25 @@
                   <th>Tester Comment</th>
                </tr>
                <tr>
-                  <td>123456</td>
+                  <td>648286</td>
                   <td>Clement S Stanley</td>
                   <td>01/01/1995</td>
-                  <td> Male </td>
+                  <td>Male</td>
                   <td bgcolor="#F2F2F2">
                      <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
-                  <td colspan="5">When displayed in the EHR with the Evaluated
-                     Immunization History and Immunization Forecast, these
-                     patient demographics data may be derived from either the
-                     received immunization message or the EHR patient record.
-                     When displaying demographics from the patient record,
-                     the EHR must be able to demonstrate a linkage between
-                     the demographics in the message (primarily the patient
-                     ID in PID-3.1) and the patient record used for display
-                     to ensure that the message was associated with the
-                     appropriate patient. 
+                  <td colspan="5" class="note">When displayed in the EHR with
+                     the Evaluated Immunization History and Immunization
+                     Forecast, these patient demographics data may be derived
+                     from either the received immunization message or the EHR
+                     patient record. When displaying demographics from the
+                     patient record, the EHR must be able to demonstrate a
+                     linkage between the demographics in the message
+                     (primarily the patient ID in PID-3.1) and the patient
+                     record used for display to ensure that the message was
+                     associated with the appropriate patient. 
                   </td>
                </tr>
             </tbody>
@@ -302,13 +310,11 @@
             </thead>
          </table>
          <table>
-            <thead>
+            <tbody>
                <tr>
                   <th> Immunization Schedule Used </th>
                   <th>Tester Comment</th>
                </tr>
-            </thead>
-            <tbody>
                <tr>
                   <td>ACIP</td>
                   <td bgcolor="#F2F2F2">
@@ -340,18 +346,19 @@
                   <td>10/29/2015</td>
                   <td>YES</td>
                   <td bgcolor="#D2D2D2"></td>
-                  <td> Complete </td>
+                  <td>Complete</td>
                   <td bgcolor="#F2F2F2">
                      <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
                </tr>
                <tr>
-                  <td colspan="7">* "Completion Status" refers to the
-                     status of the dose of vaccine administered on the
-                     indicated date and may be interpreted as "Dose
-                     Status". A status of "Complete" means that the
-                     vaccine dose was "completely administered" as
-                     opposed to "partially administered". 
+                  <td colspan="7" class="note">* "Completion Status"
+                     refers to the status of the dose of vaccine
+                     administered on the indicated date and may be
+                     interpreted as "Dose Status". A status of "Complete"
+                     means that the vaccine dose was "completely
+                     administered" as opposed to "partially
+                     administered". 
                   </td>
                </tr>
             </tbody>
@@ -360,7 +367,7 @@
          <table>
             <thead>
                <tr>
-                  <th colspan="7">Immunization Forecast</th>
+                  <th colspan="5">Immunization Forecast</th>
                </tr>
             </thead>
             <tbody>
@@ -369,16 +376,12 @@
                   <th>Due Date</th>
                   <th>Earliest Date To Give</th>
                   <th>Latest Date to Give</th>
-                  <th>Series Status</th>
-                  <th>Forecast Reason</th>
                   <th>Tester Comment</th>
                </tr>
                <tr>
                   <td>pcv NOS</td>
                   <td>01/01/2060</td>
                   <td>01/01/2060</td>
-                  <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#F2F2F2">
                      <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
@@ -389,8 +392,6 @@
                   <td>09/01/2016</td>
                   <td>09/01/2016</td>
                   <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#F2F2F2">
                      <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
@@ -399,8 +400,6 @@
                   <td>MMR</td>
                   <td>01/01/1996</td>
                   <td>01/01/1996</td>
-                  <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#F2F2F2">
                      <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
@@ -411,8 +410,6 @@
                   <td>01/01/1996</td>
                   <td>01/01/1996</td>
                   <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#F2F2F2">
                      <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
@@ -421,8 +418,6 @@
                   <td>Hep B</td>
                   <td>01/01/1995</td>
                   <td>01/01/1995</td>
-                  <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#F2F2F2">
                      <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
@@ -433,8 +428,6 @@
                   <td>01/01/2011</td>
                   <td>01/01/2011</td>
                   <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#F2F2F2">
                      <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
@@ -444,8 +437,6 @@
                   <td>01/01/1996</td>
                   <td>01/01/1996</td>
                   <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#F2F2F2">
                      <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
                   </td>
@@ -454,8 +445,6 @@
                   <td>TDAP</td>
                   <td>01/01/2002</td>
                   <td>01/01/2002</td>
-                  <td bgcolor="#D2D2D2"></td>
-                  <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#D2D2D2"></td>
                   <td bgcolor="#F2F2F2">
                      <textarea maxLength="100" rows="1" style="width: 100%; height: 100%; border: 1px; background: 1px  #F2F2F2; resize:vertical; overflow-y:hidden "></textarea>
