@@ -47,6 +47,7 @@ angular.module('commonServices').factory('StorageService',
             SOAP_COMM_RECEIVER_ENDPOINT_KEY: 'SOAP_COMM_RECEIVER_ENDPOINT',
             SOAP_COMM_RECEIVER_FACILITYID_KEY: 'SOAP_COMM_RECEIVER_FACILITYID',
             DQA_OPTIONS_KEY: 'DQA_OPTIONS_KEY',
+            SETTINGS_KEY: 'SETTINGS_KEY',
 
             remove: function (key) {
                 return localStorageService.remove(key);

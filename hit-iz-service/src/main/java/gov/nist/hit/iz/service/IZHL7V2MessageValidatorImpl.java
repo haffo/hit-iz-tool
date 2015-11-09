@@ -12,6 +12,7 @@ import gov.nist.hit.core.domain.TestContext;
 import gov.nist.hit.core.hl7v2.service.HL7V2MessageValidatorImpl;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 
+import org.json.JSONObject;
 import org.openimmunizationsoftware.dqa.nist.CompactReportModel;
 import org.openimmunizationsoftware.dqa.nist.ProcessMessageHL7;
 
@@ -43,8 +44,11 @@ public class IZHL7V2MessageValidatorImpl extends HL7V2MessageValidatorImpl {
         // Filter report
         report = f.filter(report);
         report = Filter.removeDuplicate(report);
+
+        JSONObject config = new JSONObject();
+        config.put("excluded", "affirmative");
         return new MessageValidationResult(report.to("json").toString(), report.render("iz-report",
-            null));
+            config));
       }
       throw new MessageValidationException(); // TODO: FIXME
     } catch (RuntimeException e) {

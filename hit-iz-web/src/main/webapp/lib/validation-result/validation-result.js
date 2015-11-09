@@ -38,10 +38,10 @@
     ]);
 
     mod
-        .controller('ValidationResultCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'ValidationResultHighlighter', '$sce', 'NewValidationResult', '$timeout', 'ServiceDelegator',function ($scope, $filter, $modal, $rootScope, ValidationResultHighlighter, $sce, NewValidationResult, $timeout,ServiceDelegator) {
+        .controller('ValidationResultCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'ValidationResultHighlighter', '$sce', 'NewValidationResult', '$timeout', 'ServiceDelegator', 'Settings', function ($scope, $filter, $modal, $rootScope, ValidationResultHighlighter, $sce, NewValidationResult, $timeout,ServiceDelegator,Settings) {
             $scope.validationTabs = new Array();
             $scope.currentType = null;
-
+            $scope.settings = Settings;
 
             $scope.activeTab = 0;
             $scope.validationResult = null;
@@ -178,6 +178,7 @@
             };
 
             $scope.$on($scope.type + ':validationResultLoaded', function (event, mvResult) {
+
                 if($scope.format != null) {
                     $scope.editorService = ServiceDelegator.getEditorService($scope.format);
                     $scope.treeService = ServiceDelegator.getTreeService($scope.format);
@@ -484,8 +485,10 @@
                     this.addResult(this.warnings, entry);
                 } else if (entry['classification'] === 'Alert') {
                     this.addResult(this.alerts, entry);
-                } else if (entry['classification'] === 'Affirmative' || entry['classification'] === 'Informational' || entry['classification'] === 'Info') {
+                } else if (entry['classification'] === 'Affirmative') {
                     this.addResult(this.affirmatives, entry);
+                }else if (entry['classification'] === 'Informational' || entry['classification'] === 'Info') {
+                    this.addResult(this.informationals, entry);
                 }
             } catch (error) {
                 console.log(error);
@@ -512,6 +515,7 @@
                 this.loadDetection(this.json.detections['Alert']);
                 this.loadDetection(this.json.detections['Warning']);
                 this.loadDetection(this.json.detections['Informational']);
+                this.loadDetection(this.json.detections['Affirmative']);
             }
 
         };
