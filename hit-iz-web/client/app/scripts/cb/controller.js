@@ -447,6 +447,10 @@ angular.module('cb')
 
         $scope.execute = function () {
             if ($scope.cb.testCase != null) {
+                if ($scope.tokenPromise) {
+                    $timeout.cancel($scope.tokenPromise);
+                    $scope.tokenPromise = undefined;
+                }
                 $scope.error = null;
                 $scope.tError = null;
                 $scope.mError = null;

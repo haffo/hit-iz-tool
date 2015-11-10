@@ -946,6 +946,10 @@ angular.module('isolated')
             $scope.tError = null;
             $scope.mError = null;
             $scope.vError = null;
+            if ($scope.tokenPromise) {
+                $timeout.cancel($scope.tokenPromise);
+                $scope.tokenPromise = undefined;
+            }
             $scope.refreshEditor();
             $scope.isolated.message.content = $scope.editor.doc.getValue();
             if (!$scope.isTestCaseCompleted()) {

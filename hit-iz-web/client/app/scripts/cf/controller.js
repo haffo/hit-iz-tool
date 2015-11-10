@@ -377,6 +377,10 @@ angular.module('cf')
 
         $scope.execute = function () {
             if ($scope.cf.testCase != null) {
+                if ($scope.tokenPromise) {
+                    $timeout.cancel($scope.tokenPromise);
+                    $scope.tokenPromise = undefined;
+                }
                 $scope.error = null;
                 $scope.tError = null;
                 $scope.mError = null;
