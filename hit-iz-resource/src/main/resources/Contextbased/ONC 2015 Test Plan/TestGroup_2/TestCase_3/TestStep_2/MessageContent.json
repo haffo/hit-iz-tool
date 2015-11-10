@@ -81,11 +81,11 @@ Facility", "categorization" : ""},
 "categorization" : ""},
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
-							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "DCS",
-"categorization" : ""},
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NIST
+IIS FAC", "categorization" : ""},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "DCS",
+									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
 "categorization" : ""},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
@@ -94,23 +94,23 @@ Facility", "categorization" : ""},
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
 "XX", "categorization" : ""},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
-: "6439432", "categorization" : ""},
+: "100-1776", "categorization" : ""},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "StatePH",
-"categorization" : ""},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NIST
+EHR Facility", "categorization" : ""},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
+									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
 "categorization" : ""},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : ""},
+"XX", "categorization" : ""},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
-: "", "categorization" : ""},		]
+: "100-6482", "categorization" : ""},		]
 		{
 			"title":"MSA : Message Acknowledgment",
 			"elements" : 

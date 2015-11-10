@@ -13,104 +13,104 @@
 "categorization" : ""},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "", "categorization"
-: ""},
+							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
+APP", "categorization" : ""},
 							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : ""},
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "", "categorization"
-: ""},
+							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
+FAC", "categorization" : ""},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : ""},
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "", "categorization"
-: ""},
+							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
+APP", "categorization" : ""},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : ""},
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "", "categorization"
-: ""},
+							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
+Facility", "categorization" : ""},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : ""},
 				{"location" : "MSH.7", "dataelement" : "Date/Time Of Message", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.7.1", "dataelement" : "Time", "data" : "", "categorization"
-: ""},
+							{"location" : "MSH.7.1", "dataelement" : "Time", "data" : "20141031145233-0500",
+"categorization" : ""},
 				{"location" : "MSH.9", "dataelement" : "Message Type", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.9.1", "dataelement" : "Message Code", "data" : "", "categorization"
+							{"location" : "MSH.9.1", "dataelement" : "Message Code", "data" : "RSP", "categorization"
 : ""},
-							{"location" : "MSH.9.2", "dataelement" : "Trigger Event", "data" : "", "categorization"
+							{"location" : "MSH.9.2", "dataelement" : "Trigger Event", "data" : "K11", "categorization"
 : ""},
-							{"location" : "MSH.9.3", "dataelement" : "Message Structure", "data" : "",
+							{"location" : "MSH.9.3", "dataelement" : "Message Structure", "data" : "RSP_K11",
 "categorization" : ""},
-				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "", "categorization"
-: ""},
+				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "NIST-IZ-QR-4.2_Response_K11_Z42",
+"categorization" : ""},
 				{"location" : "MSH.11", "dataelement" : "Processing ID", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.11.1", "dataelement" : "Processing ID", "data" : "", "categorization"
+							{"location" : "MSH.11.1", "dataelement" : "Processing ID", "data" : "P", "categorization"
 : ""},
 				{"location" : "MSH.12", "dataelement" : "Version ID", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.12.1", "dataelement" : "Version ID", "data" : "", "categorization"
+							{"location" : "MSH.12.1", "dataelement" : "Version ID", "data" : "2.5.1", "categorization"
 : ""},
 				{"location" : "MSH.15", "dataelement" : "Accept Acknowledgment Type", "data" :
-"", "categorization" : ""},
+"NE", "categorization" : ""},
 				{"location" : "MSH.16", "dataelement" : "Application Acknowledgment Type", "data"
-: "", "categorization" : ""},
+: "NE", "categorization" : ""},
 				{"location" : "MSH.21", "dataelement" : "Message Profile Identifier", "data" :
 "", "categorization" : ""},
-							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "",
+							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z42",
 "categorization" : ""},
-							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "", "categorization"
-: ""},
+							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS",
+"categorization" : ""},
 							{"location" : "MSH.21.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.21.4", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : ""},
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
-							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "",
-"categorization" : ""},
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NIST
+IIS FAC", "categorization" : ""},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "",
+									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
 "categorization" : ""},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : ""},
+"XX", "categorization" : ""},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
-: "", "categorization" : ""},
+: "100-1776", "categorization" : ""},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "",
-"categorization" : ""},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NIST
+EHR Facility", "categorization" : ""},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
+									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
 "categorization" : ""},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : ""},
+"XX", "categorization" : ""},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
-: "", "categorization" : ""},		]
+: "100-6482", "categorization" : ""},		]
 		{
 			"title":"MSA : Message Acknowledgment",
 			"elements" : 

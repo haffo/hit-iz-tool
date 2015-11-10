@@ -56,8 +56,8 @@
 			<Field Name="Software Install Date" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="01839"/>
 		</Segment>
 		<Segment ID="MSA_IZ1_5" Name="MSA" Description="Message Acknowledgment">
-			<Field Name="Acknowledgment Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70008_IZ" BindingStrength="R" ItemNo="00018"/>
-			<Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00010"/>
+			<Field Name="Acknowledgment Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="2" MaxLength="2" Binding="HL70008_IZ" BindingStrength="R" ItemNo="00018"/>
+			<Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="199" ItemNo="00010"/>
 			<Field Name="Text Message" Usage="X" Min="0" Max="0" Datatype="ST" MinLength="1" MaxLength="80" ItemNo="00020"/>
 			<Field Name="Expected Sequence Number" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="15" ItemNo="00021"/>
 			<Field Name="Delayed Acknowledgment Type" Usage="X" Min="0" Max="0" Datatype="NUL" MinLength="1" MaxLength="1" ItemNo="00022"/>

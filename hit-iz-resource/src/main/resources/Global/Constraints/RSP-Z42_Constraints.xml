@@ -536,8 +536,8 @@
         </Segment>
         <Group>
             <ByID ID="e13dfbab-8832-4c3f-bfa5-0e9c18e644c4">
-                <Constraint ID="IZ-20" Target="8[1].4[1].1[1]">
-                    <Description>The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value "1" within a message.</Description>
+                <Constraint ID="NIST-01" Target="8[1].4[1].1[1]">
+                    <Description>The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value "1" within a message or for each group.</Description>
                     <Assertion>
                         <IZSetID Parent="8[*]" Element="4[*].1[*].1[*]" />
                     </Assertion>
