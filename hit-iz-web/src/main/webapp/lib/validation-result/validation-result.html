@@ -1,8 +1,7 @@
 <div ng-show="validationResult !== null">
     <tabset>
-        <tab ng-click="showValidationTable(validationResult.errors.categories[0],'errors')" active="active.errors">
+        <tab ng-click="showValidationTable(validationResult.errors.categories[0],'errors')" active="active.errors" ng-show="settings.options.validation.show.errors">
             <tab-heading>
-
                 <span class="badge failure failure-errors"
                       ng-bind="validationResult.errors.categories[0].data.length"></span>
                 Errors
@@ -22,7 +21,7 @@
             </tabset>
         </tab>
 
-        <tab ng-click="showValidationTable(validationResult.warnings.categories[0],'warnings')"
+        <tab ng-click="showValidationTable(validationResult.warnings.categories[0],'warnings')" ng-show="settings.options.validation.show.warnings"
              active="active.warnings">
             <tab-heading>
 
@@ -43,7 +42,7 @@
                 </tab>
             </tabset>
         </tab>
-        <tab ng-click="showValidationTable(validationResult.alerts.categories[0],'alerts')" active="active.alerts">
+        <tab ng-click="showValidationTable(validationResult.alerts.categories[0],'alerts')" active="active.alerts" ng-show="settings.options.validation.show.alerts">
             <tab-heading>
 
                 <span class="badge failure failure-alerts"
@@ -65,7 +64,7 @@
             </tabset>
         </tab>
 
-        <tab ng-click="showValidationTable(validationResult.affirmatives.categories[0],'affirmatives')" active="active.affirmatives">
+        <tab ng-click="showValidationTable(validationResult.affirmatives.categories[0],'affirmatives')" active="active.affirmatives" ng-show="settings.options.validation.show.affirmatives">
             <tab-heading>
 
                 <span class="badge failure failure-affirmatives"
@@ -104,7 +103,7 @@
         <!--</tabset>-->
         <!--</tab>-->
     </tabset>
-    <div class="panel panel-default">
+    <div class="panel panel-default" ng-show="settings.options.validation.show[currentType]">
         <div class="panel-body container-validation-table">
             <div class="">
                 <div validation-result-table></div>

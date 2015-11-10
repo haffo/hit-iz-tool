@@ -182,7 +182,7 @@ angular.module('cb')
                         StorageService.remove(StorageService.CB_EDITOR_CONTENT_KEY);
                     }
                     $timeout(function () {
-                        $scope.$emit('cb:testCaseLoaded', $scope.testCase, tab);
+                        $rootScope.$broadcast('cb:testCaseLoaded', $scope.testCase, tab);
                     });
                 }
             });
@@ -453,9 +453,9 @@ angular.module('cb')
                 $scope.vError = null;
                 $scope.cb.message.content = $scope.editor.doc.getValue();
                 StorageService.set(StorageService.CB_EDITOR_CONTENT_KEY, $scope.cb.message.content);
-                $scope.refreshEditor();
                 $scope.validateMessage();
                 $scope.parseMessage();
+                $scope.refreshEditor();
             }
         };
 
@@ -473,7 +473,7 @@ angular.module('cb')
                 $scope.refreshEditor();
             });
 
-            $rootScope.$on('cb:testCaseLoaded', function (event, testCase) {
+            $scope.$on('cb:testCaseLoaded', function (event, testCase) {
                 $scope.testCase = testCase;
                  if ($scope.testCase != null) {
                     var content = StorageService.get(StorageService.CB_EDITOR_CONTENT_KEY) == null ? '' : StorageService.get(StorageService.CB_EDITOR_CONTENT_KEY);

@@ -50,6 +50,7 @@ var app = angular.module('tool', [
     'hit-testcase-tree',
     'hit-doc',
     'hit-dqa',
+    'hit-settings',
     'documentation'
 ]);
 
@@ -155,7 +156,6 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     $rootScope.stackPosition = 0;
 
     $rootScope.scrollbarWidth = null;
-
 
     new AppInfo().then(function (appInfo) {
         $rootScope.appInfo = appInfo;
@@ -379,6 +379,14 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
         $location.path(target);
     };
 
+    $rootScope.showSettings = function () {
+        var modalInstance = $modal.open({
+            templateUrl: 'SettingsCtrl.html',
+            size:'lg',
+            keyboard:'false',
+            controller: 'SettingsCtrl'
+        });
+    };
 
 });
 

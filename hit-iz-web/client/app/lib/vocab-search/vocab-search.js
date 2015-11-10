@@ -45,7 +45,7 @@
 //            });
 
             $scope.$on($scope.type + ':valueSetLibraryLoaded', function (event, vocabularyLibrary) {
-                if(vocabularyLibrary != null && ($scope.vocabularyLibrary === null || $scope.vocabularyLibrary.id != vocabularyLibrary.id)) {
+                if(vocabularyLibrary != null) {
                     $scope.vocabularyLibrary = vocabularyLibrary;
                     $scope.init($scope.vocabularyLibrary);
                 }else{

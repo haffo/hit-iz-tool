@@ -1,0 +1,71 @@
+<script type="text/ng-template" id="SettingsCtrl.html">
+    <div class="modal-header">
+        <span style="font-weight: bold; font-size: 20px">
+             <i class="fa fa-cog"></i> Preferences
+        </span>
+        <span class="pull-right">
+            <button ng-click="save()" type="button"
+                    title="Save" class="btn btn-sm btn-success">
+                <i class="fa fa-check-circle"></i> Save
+            </button>
+        <button ng-click="cancel()" type="button"
+                title="Cancel" class="btn btn-sm btn-warning">
+            <i class="fa fa-times"></i>
+            Cancel
+        </button>
+        </span>
+    </div>
+    <div class="modal-body">
+        <!--<div class="row">-->
+        <div class="cols-md-10">
+            <div class="">
+                <span style="font-weight: bold; font-size: 18px">Display Validation Failure Types</span>
+            </div>
+            <hr/>
+            <table class="table table-striped table-condensed table-bordered">
+                <thead class="tbl-header">
+                <th>
+                    <input ng-click="onCheckAllValidationOptions($event)"
+                           ng-checked="isAllValidationOptionsChecked()"
+                           type="checkbox">
+
+                </th>
+                <th>Failure Type</th>
+                 </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <input ng-model="options.validation.show.errors" ng-disabled="true"
+                               type="checkbox"></td>
+                    <td>Errors</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input ng-model="options.validation.show.alerts"
+                               type="checkbox"></td>
+                    <td>Alerts</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input ng-model="options.validation.show.warnings"
+                               type="checkbox"></td>
+                    <td>Warnings</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input ng-model="options.validation.show.affirmatives"
+                               type="checkbox"></td>
+                    <td>Affirmatives</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input ng-model="options.validation.show.informationals"
+                               type="checkbox"></td>
+                    <td>Informationals</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
