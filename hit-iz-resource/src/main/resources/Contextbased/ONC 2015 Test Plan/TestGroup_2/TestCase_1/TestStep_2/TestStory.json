@@ -4,6 +4,6 @@
   "preCondition" : "A query is performed by the sending system. The IIS (simulated by the NIST test tool) contains an immunization events for the person.",
   "postCondition" : "The response is made available to the EHR-S for processing. The clinician is able to view the evaluated history and forecast from the IIS. There is no obligation to incorporate the data into the EHR-S or maintain the displayed evaluated history and forecast.",
   "testObjectives" : "Receive a response message containing the evaluated history and forecast; display evaluated history and forecast.<br>",
-  "evaluationCriteria" : "<ol><li>Confirms valid receipt and display of response message using the Juror Document.</li></ol>",
+  "evaluationCriteria" : "Confirms valid receipt and display of response message using the Juror Document.",
   "notes" : "No Note"
 }
