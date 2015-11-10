@@ -377,7 +377,7 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "West Clinic", "categorization"
 : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL7036", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -567,7 +567,7 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
 System", "categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS", "categorization" : ""},
+"HL70362", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
