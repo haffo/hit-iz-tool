@@ -1,5 +1,5 @@
 {
-  "name" : "IZ-4.2_Response_TM_K11_Z33",
+  "name" : "IZ-QR-4.2_Response_TM_K11_Z33",
   "position" : 2,
   "hl7v2" : {
     "messageId" : "6a54b5a1-3d50-423e-9f84-8a721ad76342",
@@ -7,5 +7,5 @@
     "valueSetLibraryId" : "e3996dd4-81e0-47e4-a77d-1be4213b4cba"
   },
   "type" : null,
-  "description" : "No Description"
+  "description" : "Response message indicating that too matches were found.<br>"
 }

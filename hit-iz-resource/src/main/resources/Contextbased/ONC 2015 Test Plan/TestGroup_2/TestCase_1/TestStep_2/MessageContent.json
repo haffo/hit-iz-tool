@@ -364,20 +364,20 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 : ""},
 							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197023",
 "categorization" : ""},
-							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "DCS", "categorization"
-: ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
+"categorization" : ""},
 							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : ""},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
-							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "DCS", "categorization"
+							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "wc", "categorization"
 : ""},
-							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
-System", "categorization" : ""},
+							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "West Clinic", "categorization"
+: ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"StateIIS", "categorization" : ""},
+"HL7036", "categorization" : ""},
 							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
@@ -552,7 +552,7 @@ System", "categorization" : ""},
 "categorization" : ""},
 				{"location" : "ORC.3", "dataelement" : "Filler Order Number", "data" : "", "categorization"
 : ""},
-							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197023",
+							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "9999",
 "categorization" : ""},
 							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "DCS", "categorization"
 : ""},
@@ -694,7 +694,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : "1", "categorization" : ""},
 				{"location" : "RXA.3", "dataelement" : "Date/Time Start of Administration", "data"
 : "", "categorization" : ""},
-							{"location" : "RXA.3.1", "dataelement" : "Time", "data" : "20090731", "categorization"
+							{"location" : "RXA.3.1", "dataelement" : "Time", "data" : "20090314", "categorization"
 : ""},
 				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
 : ""},
@@ -1252,16 +1252,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1304,16 +1294,300 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59781-5",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "dose validity",
+"categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59781-5",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "dose validity",
+"categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "N", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "4", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ST", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30982-3",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Reason applied ",
+"categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Too Young",
+"categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
+"data" : "", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1394,20 +1668,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "17", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "HIB NOS", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1424,7 +1688,7 @@ used", "categorization" : ""},
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
 : ""},		]
 		{
 			"title":"OBX : Observation/Result",
@@ -1446,20 +1710,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1498,52 +1752,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
 : ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "N", "categorization"
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
 : ""},
-				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : ""},
-				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
-: "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
-: ""},		]
-		{
-			"title":"OBX : Observation/Result",
-			"elements" : 
-			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "7", "categorization"
-: ""},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ST", "categorization"
-: ""},
-				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
-"categorization" : ""},
-							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30982-3",
-"categorization" : ""},
-							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Reason applied ",
-"categorization" : ""},
-							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
-: ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Too Young",
-"categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1582,20 +1794,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1634,20 +1836,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1686,298 +1878,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
-: ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
-: ""},
-				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : ""},
-				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
-: "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
-: ""},		]
-		{
-			"title":"OBX : Observation/Result",
-			"elements" : 
-			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "10", "categorization"
-: ""},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
-: ""},
-				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
-"categorization" : ""},
-							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
-"categorization" : ""},
-							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
-: ""},
-							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
-: ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "10", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "IPV", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : ""},
-				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
-: "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
-: ""},		]
-		{
-			"title":"OBX : Observation/Result",
-			"elements" : 
-			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "11", "categorization"
-: ""},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
-: ""},
-				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
-"categorization" : ""},
-							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
-"categorization" : ""},
-							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
-used", "categorization" : ""},
-							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
-: ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : ""},
-				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
-: "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
-: ""},		]
-		{
-			"title":"OBX : Observation/Result",
-			"elements" : 
-			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "12", "categorization"
-: ""},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
-: ""},
-				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
-"categorization" : ""},
-							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59781-5",
-"categorization" : ""},
-							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "dose validity",
-"categorization" : ""},
-							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
-: ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
-: ""},
-				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : ""},
-				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
-: "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
-: ""},		]
-		{
-			"title":"OBX : Observation/Result",
-			"elements" : 
-			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "13", "categorization"
-: ""},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
-: ""},
-				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
-"categorization" : ""},
-							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
-"categorization" : ""},
-							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
-: ""},
-							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
-: ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "20", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "DTAP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : ""},
-				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
-: "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
-: ""},		]
-		{
-			"title":"OBX : Observation/Result",
-			"elements" : 
-			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "14", "categorization"
-: ""},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
-: ""},
-				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
-"categorization" : ""},
-							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
-"categorization" : ""},
-							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
-used", "categorization" : ""},
-							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
-: ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : ""},
-				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
-: "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
-: ""},		]
-		{
-			"title":"OBX : Observation/Result",
-			"elements" : 
-			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "15", "categorization"
-: ""},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
-: ""},
-				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
-"categorization" : ""},
-							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59781-5",
-"categorization" : ""},
-							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "dose validity",
-"categorization" : ""},
-							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
@@ -2004,7 +1904,7 @@ used", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "16", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : ""},
@@ -2024,16 +1924,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2056,7 +1946,7 @@ used", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "17", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : ""},
@@ -2076,16 +1966,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2108,7 +1988,7 @@ used", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "18", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
 : ""},
@@ -2150,7 +2030,7 @@ used", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "19", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : ""},
@@ -2170,16 +2050,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "03", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "MMR", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2202,7 +2072,7 @@ used", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "20", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : ""},
@@ -2222,16 +2092,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2254,7 +2114,7 @@ used", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "21", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
 : ""},
@@ -2296,7 +2156,7 @@ used", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "22", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : ""},
@@ -2316,16 +2176,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "03", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "MMR", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2348,7 +2198,7 @@ used", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "23", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : ""},
@@ -2368,16 +2218,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2400,7 +2240,7 @@ used", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "24", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
 : ""},
@@ -2442,7 +2282,7 @@ due", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "25", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "4", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
 : ""},
@@ -2484,7 +2324,7 @@ give", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "26", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "5", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : ""},
@@ -2504,16 +2344,6 @@ give", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "10", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "IPV", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2536,7 +2366,7 @@ give", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "27", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "6", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : ""},
@@ -2556,16 +2386,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2588,7 +2408,7 @@ used", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "28", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "7", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
 : ""},
@@ -2630,49 +2450,7 @@ due", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "29", "categorization"
-: ""},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
-: ""},
-				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
-"categorization" : ""},
-							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30980-7",
-"categorization" : ""},
-							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Date vaccination
-due", "categorization" : ""},
-							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
-: ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100114",
-"categorization" : ""},
-				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : ""},
-				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
-: "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
-: ""},		]
-		{
-			"title":"OBX : Observation/Result",
-			"elements" : 
-			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "28", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "8", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : ""},
@@ -2692,16 +2470,6 @@ due", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "107", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "DTAP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2724,7 +2492,7 @@ due", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "29", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "9", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
 : ""},
@@ -2744,16 +2512,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2776,7 +2534,7 @@ used", "categorization" : ""},
 			"title":"OBX : Observation/Result",
 			"elements" : 
 			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "30", "categorization"
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "10", "categorization"
 : ""},
 				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
 : ""},
@@ -2793,152 +2551,6 @@ due", "categorization" : ""},
 							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
 "data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
-: ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100214",
-"categorization" : ""},
-				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : ""},
-				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
-: "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
-: ""},		]
-		{
-			"title":"OBX : Observation/Result",
-			"elements" : 
-			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "31", "categorization"
-: ""},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
-: ""},
-				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
-"categorization" : ""},
-							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
-"categorization" : ""},
-							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
-: ""},
-							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "4", "categorization"
-: ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "10", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "IPV", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : ""},
-				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
-: "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
-: ""},		]
-		{
-			"title":"OBX : Observation/Result",
-			"elements" : 
-			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "32", "categorization"
-: ""},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
-: ""},
-				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
-"categorization" : ""},
-							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
-"categorization" : ""},
-							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
-used", "categorization" : ""},
-							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "4", "categorization"
-: ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
-"F", "categorization" : ""},
-				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
-: "", "categorization" : ""},
-							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
-: ""},		]
-		{
-			"title":"OBX : Observation/Result",
-			"elements" : 
-			[
-				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "33", "categorization"
-: ""},
-				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
-: ""},
-				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
-"categorization" : ""},
-							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30980-7",
-"categorization" : ""},
-							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Date vaccination
-due", "categorization" : ""},
-							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
-"LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
-				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "4", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100214",
 "categorization" : ""},
