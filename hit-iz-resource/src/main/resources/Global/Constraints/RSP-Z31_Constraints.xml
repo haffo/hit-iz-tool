@@ -192,13 +192,13 @@
         <Segment>
             <ByID ID="PID_IZ 1_5_Z31">
                 <Predicate ID="[PID_IZ 1_5_Z31]25[1]" Target="25[1]" TrueUsage="RE" FalseUsage="O">
-                    <Description>If the value of PID.24 (Multiple Birth Indicator) is 'Y'.</Description>
+                    <Description>If the value of PID-24 (Multiple Birth Indicator) is 'Y'.</Description>
                     <Condition>
                         <PlainText Path="24[1]" Text="Y" IgnoreCase="false"/>
                     </Condition>
                 </Predicate>
                 <Predicate ID="[PID_IZ 1_5_Z31]29[1]" Target="29[1]" TrueUsage="RE" FalseUsage="X">
-                    <Description>If the value of PID.30 (Patient Death Indicator) is 'Y'.</Description>
+                    <Description>If the value of PID-30 (Patient Death Indicator) is 'Y'.</Description>
                     <Condition>
                         <PlainText Path="30[1]" Text="Y" IgnoreCase="false"/>
                     </Condition>
@@ -206,19 +206,19 @@
             </ByID>
             <ByID ID="PD1_IZ 1_5">
                 <Predicate ID="[PD1_IZ 1_5]13[1]" Target="13[1]" TrueUsage="RE" FalseUsage="X">
-                    <Description>If PD1.12 (Protection Indicator) is valued.</Description>
+                    <Description>If PD1-12 (Protection Indicator) is valued.</Description>
                     <Condition>
                         <Presence Path="12[1]"/>
                     </Condition>
                 </Predicate>
                 <Predicate ID="[PD1_IZ 1_5]17[1]" Target="17[1]" TrueUsage="RE" FalseUsage="X">
-                    <Description>If PD1.16 (Immunization Registry Status) is valued.</Description>
+                    <Description>If PD1-16 (Immunization Registry Status) is valued.</Description>
                     <Condition>
                         <Presence Path="16[1]"/>
                     </Condition>
                 </Predicate>
                 <Predicate ID="[PD1_IZ 1_5]18[1]" Target="18[1]" TrueUsage="RE" FalseUsage="X">
-                    <Description>If PD1.11 (Publicity Code) is valued.</Description>
+                    <Description>If PD1-11 (Publicity Code) is valued.</Description>
                     <Condition>
                         <Presence Path="11[1]"/>
                     </Condition>
@@ -261,25 +261,25 @@
         <Segment>
             <ByID ID="MSH_IZ31">
                 <Constraint ID="IZ-12" Target="1[1]">
-                    <Description>The value of MSH.1 (Field Separator) SHALL be '|'.</Description>
+                    <Description>The value of MSH-1 (Field Separator) SHALL be '|'.</Description>
                     <Assertion>
                         <PlainText Path="1[1]" Text="|" IgnoreCase="false"/>
                     </Assertion>
                 </Constraint>
                 <Constraint ID="IZ-13" Target="2[1]">
-                    <Description>The value of MSH.2 (Encoding Characters) SHALL be '^~\&amp;'.</Description>
+                    <Description>The value of MSH-2 (Encoding Characters) SHALL be '^~\&amp;'.</Description>
                     <Assertion>
                         <PlainText Path="2[1]" Text="^~\&amp;" IgnoreCase="false"/>
                     </Assertion>
                 </Constraint>
                 <Constraint ID="IZ-TS_Z" Target="7[1]">
-                    <Description>The value of MSH.7.1 (Time) SHALL be formatted with YYYYMMDDHHMMSS+-ZZZZ.</Description>
+                    <Description>The value of MSH-7.1 (Time) SHALL be formatted with YYYYMMDDHHMMSS+-ZZZZ.</Description>
                     <Assertion>
                         <Format Path="7[1].1[1]" Regex="([0-9]{4})((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))(([0-1][0-9])|(2[0-3]))([0-5][0-9])([0-5][0-9]).*((\+|\-)[0-9]{4})"/>
                     </Assertion>
                 </Constraint>
                 <Constraint ID="IZ-59" Target="9[1]">
-                    <Description>The value of MSH.9 (Message Type) SHALL be 'RSP^K11^RSP_K11'.</Description>
+                    <Description>The value of MSH-9 (Message Type) SHALL be 'RSP^K11^RSP_K11'.</Description>
                     <Assertion>
                         <AND>
                             <PlainText Path="9[1].1[1]" Text="RSP" IgnoreCase="false"/>
@@ -291,25 +291,25 @@
                     </Assertion>
                 </Constraint>
                 <Constraint ID="IZ-15" Target="12[1]">
-                    <Description>The value of MSH.12.1 (Version ID) SHALL be '2.5.1'.</Description>
+                    <Description>The value of MSH-12.1 (Version ID) SHALL be '2.5.1'.</Description>
                     <Assertion>
                         <PlainText Path="12[1].1[1]" Text="2.5.1" IgnoreCase="false"/>
                     </Assertion>
                 </Constraint>
                 <Constraint ID="IZ-53" Target="15[1]">
-                    <Description>The value of MSH.15 (Accept Acknowledgment Type) SHALL be 'NE'.</Description>
+                    <Description>The value of MSH-15 (Accept Acknowledgment Type) SHALL be 'NE'.</Description>
                     <Assertion>
                         <PlainText Path="15[1]" Text="NE" IgnoreCase="false"/>
                     </Assertion>
                 </Constraint>
                 <Constraint ID="IZ-52" Target="16[1]">
-                    <Description>The value of MSH.16 (Application Acknowledgment Type) SHALL be 'NE'.</Description>
+                    <Description>The value of MSH-16 (Application Acknowledgment Type) SHALL be 'NE'.</Description>
                     <Assertion>
                         <PlainText Path="16[1]" Text="NE" IgnoreCase="false"/>
                     </Assertion>
                 </Constraint>
                 <Constraint ID="IZ-61" Target="21[1]">
-                    <Description>The value of MSH.21 (Message Profile Identifier) SHALL be 'Z31^CDCPHINVS'.</Description>
+                    <Description>The value of MSH-21 (Message Profile Identifier) SHALL be 'Z31^CDCPHINVS'.</Description>
                     <Assertion>
                         <AND>
                             <PlainText Path="21[1].1[1]" Text="Z31" IgnoreCase="false"/>
@@ -320,7 +320,7 @@
             </ByID>
             <ByID ID="QPD_IZ1_5">
                 <Constraint ID="IZ-67" Target="1[1]">
-                    <Description>The value of QPD.1 (Message Query Name) SHALL be 'Z34^Request Immunization History^CDCPHINVS'.</Description>
+                    <Description>The value of QPD-1 (Message Query Name) SHALL be 'Z34^Request Immunization History^CDCPHINVS'.</Description>
                     <Assertion>
                         <AND>
                             <PlainText Path="1[1].1[1]" Text="Z34" IgnoreCase="false"/>
@@ -332,7 +332,7 @@
                     </Assertion>
                 </Constraint>
                 <Constraint ID="IZ-TS_NZ" Target="6[1]">
-                    <Description>The value of QPD.6.1 (Time) SHALL be formatted with YYYYMMDD.</Description>
+                    <Description>The value of QPD-6.1 (Time) SHALL be formatted with YYYYMMDD.</Description>
                     <Assertion>
                         <Format Path="6[1].1[1]" Regex="((([0-9]{4})((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1])))|(([0-9]{4})((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))(([0-1][0-9])|(2[0-3])))|(([0-9]{4})((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))(([0-1][0-9])|(2[0-3]))([0-5][0-9]))|(([0-9]{4})((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))(([0-1][0-9])|(2[0-3]))([0-5][0-9])([0-5][0-9]))|(([0-9]{4})((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))(([0-1][0-9])|(2[0-3]))([0-5][0-9])([0-5][0-9])\.[0-9][0-9][0-9][0-9]))"/>
                     </Assertion>
