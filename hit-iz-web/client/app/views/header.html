@@ -3,7 +3,7 @@
     <div class="brand" id="appheader">
         <a style="display: inline-block; text-shadow:none" href="#">
             <div id="apptitle">NIST <span style='color:white;'>{{appInfo.name}}</span><span style='color:red; font-size:12px'> {{appInfo.version}}</span></div>
-            <div id="appsubtitle">{{appInfo.domain}}</div>
+            <div ng-if="appInfo.domain != '' && appInfo.domain  != null" id="appsubtitle">{{appInfo.domain}}</div>
         </a>
     </div>
     <div class="navbar-collapse collapse" id="appnavi">

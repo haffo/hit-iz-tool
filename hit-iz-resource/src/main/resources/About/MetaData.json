@@ -2,7 +2,7 @@
     	"version"	: "1.0-beta",
     	"igVersion":"",
     	"name"	:"Immunization Test Suite",
-		"domain"		:"HL7 v2.5.1 Validation Tool",
+		"domain"		:"",
 		"adminEmail"	:"robert.snelick@nist.gov",
 		"description"	:"",
 		"header" 	:"",

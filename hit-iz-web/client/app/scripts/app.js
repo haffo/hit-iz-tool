@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('commonServices', []);
-angular.module('common', ['ngResource', 'my.resource', 'default', 'xml', 'hl7v2-edi', 'hl7v2', 'edi','soap']);
+angular.module('common', ['ngResource', 'my.resource', 'default', 'xml', 'hl7v2-edi', 'hl7v2', 'edi', 'soap']);
 angular.module('cf', ['common']);
 angular.module('doc', ['common']);
 angular.module('cb', ['common']);
@@ -54,6 +54,8 @@ var app = angular.module('tool', [
     'documentation'
 ]);
 
+var httpHeaders;
+
 app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider) {
 
     localStorageServiceProvider
@@ -80,55 +82,80 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider)
             templateUrl: 'views/contact.html'
         })
         .when('/soapEnv', {
-            templateUrl: 'views/envelope/testing.html'
+            templateUrl: 'views/envelope/envelope.html'
         })
         .when('/soapConn', {
-            templateUrl: 'views/connectivity/testing.html'
+            templateUrl: 'views/connectivity/connectivity.html'
         })
         .when('/cf', {
-            templateUrl: 'views/cf/testing.html'
+            templateUrl: 'views/cf/cf.html'
         })
         .when('/is', {
-            templateUrl: 'views/isolated/testing.html'
+            templateUrl: 'views/isolated/isolated.html'
         })
         .when('/cb', {
-            templateUrl: 'views/cb/testing.html'
+            templateUrl: 'views/cb/cb.html'
+        })
+        .when('/blank', {
+            templateUrl: 'blank.html'
         })
         .otherwise({
             redirectTo: '/'
         });
 
-    $httpProvider.interceptors.push('dataChangedInterceptor');
+    $httpProvider.interceptors.push('ErrorInterceptor');
+
+    httpHeaders = $httpProvider.defaults.headers;
+
+
+    $httpProvider.interceptors.push(function ($q, $cookies) {
+        return {
+            'request': function (config) {
+////                if(config.method === 'POST') {
+////                    config.headers['csrfToken'] = $rootScope.appInfo.csrfToken;
+////                }
+////                config.headers['dTime'] = $rootScope.appInfo.date;
+//
+//                console.log(config.headers['csrfToken']);
+//                console.log(config.headers['dTime']);
+                return config;
+            }
+        };
+    });
+
 
 });
 
-app.factory('dataChangedInterceptor', ['$q','$rootScope', function($q, $rootScope) {
-    var responseInterceptor = {
-        response: function(resp) {
-            var deferred = $q.defer();
-            var dTime =  resp.config.headers['dTime'];
-            if (dTime && dTime != null && $rootScope.appInfo.date != null && dTime!== $rootScope.appInfo.date){
-                $rootScope.openVersionChangeDlg();
-            }
-            deferred.resolve(resp);
-            return deferred.promise;
+
+app.factory('ErrorInterceptor', function ($q, $rootScope, $location, StorageService, $window) {
+    var handle = function (response) {
+        if (response.status === 403) {
+            //$location.path("/a");
+//            $location.url("/ir.html");
+//            $window.location="/ir.html";
+             $rootScope.openVersionChangeDlg();
+        } else if (response.status === 401) {
+//            $location.path("/b");
+//            $location.url("/sc.html");
+//            $window.location="/sc.html";
+            $rootScope.openInvalidReqDlg();
+        } else if (response.status === 404) {
+            //$rootScope.openNotFoundDlg();
+        }
+    };
+    return {
+        responseError: function (response) {
+            handle(response);
+            return $q.reject(response);
         }
     };
 
-    return responseInterceptor;
-}]);
+});
 
-//app.factory('503Interceptor', function ($injector, $q, $rootScope) {
-//    return function (responsePromise) {
-//        return responsePromise.then(null, function (errResponse) {
-//            if (errResponse.status === 503) {
-//                $rootScope.showError(errResponse);
-//            } else {
-//                return $q.reject(errResponse);
-//            }
-//        });
-//    };
-//}).factory('sessionTimeoutInterceptor', function ($injector, $q, $rootScope) {
+//
+//
+//
+// .factory('sessionTimeoutInterceptor', function ($injector, $q, $rootScope) {
 //    return function (responsePromise) {
 //        return responsePromise.then(null, function (errResponse) {
 //            if (errResponse.reason === "The session has expired") {
@@ -149,7 +176,8 @@ app.factory('dataChangedInterceptor', ['$q','$rootScope', function($q, $rootScop
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route,$timeout) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http) {
+
 
     $rootScope.appInfo = {};
 
@@ -159,10 +187,12 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 
     new AppInfo().then(function (appInfo) {
         $rootScope.appInfo = appInfo;
+        httpHeaders.common['csrfToken'] = appInfo.csrfToken;
+        httpHeaders.common['dTime'] = appInfo.date;
     }, function (error) {
         $rootScope.appInfo = {};
+        $rootScope.openErrorDlg();
     });
-
 
     $rootScope.$watch(function () {
         return $location.path();
@@ -367,13 +397,89 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     };
 
     $rootScope.openVersionChangeDlg = function () {
-        var modalInstance = $modal.open({
+        $rootScope.blankPage();
+
+        $rootScope.vcModalInstance = $modal.open({
             templateUrl: 'VersionChangeCtrl.html',
-            size:'lg',
-            keyboard:'false',
-            controller: 'VersionChangeCtrl'
+            windowClass: 'error-modal',
+            animation:false,
+            backdrop:true,
+            keyboard: 'false',
+            'controller': 'VersionChangeCtrl'
+        });
+        $rootScope.vcModalInstance.result.then(function () {
+             StorageService.clearAll();
+            $rootScope.index();
+        }, function () {
+             StorageService.clearAll();
+            $rootScope.index();
         });
     };
+
+    $rootScope.openErrorDlg = function () {
+        $rootScope.blankPage();
+        $rootScope.errorModalInstance = $modal.open({
+            templateUrl: 'ErrorCtrl.html',
+            windowClass: 'error-modal',
+            animation:false,
+            backdrop:true,
+            keyboard: 'false',
+            'controller': 'ErrorCtrl'
+        });
+        $rootScope.errorModalInstance.result.then(function () {
+             $rootScope.index();
+        }, function () {
+             $rootScope.index();
+        });
+    };
+
+    $rootScope.blankPage = function () {
+        //$location.path('/blank');
+    };
+
+    $rootScope.index = function () {
+        //$location.path('/home');
+        $window.location.reload();
+    };
+
+    $rootScope.openInvalidReqDlg = function () {
+        $rootScope.blankPage();
+
+        $rootScope.irModalInstance = $modal.open({
+            templateUrl: 'InvalidReqCtrl.html',
+            windowClass: 'error-modal',
+            animation:false,
+            backdrop:true,
+            keyboard: 'false',
+            'controller': 'InvalidReqCtrl'
+        });
+
+        $rootScope.irModalInstance.result.then(function () {
+             $rootScope.index();
+
+        }, function () {
+             $rootScope.index();
+        });
+    };
+
+    $rootScope.openNotFoundDlg = function () {
+        $rootScope.blankPage();
+        $rootScope.nfModalInstance = $modal.open({
+            templateUrl: 'NotFoundCtrl.html',
+            windowClass: 'error-modal',
+            animation:false,
+            backdrop:true,
+            keyboard: 'false',
+            'controller': 'NotFoundCtrl'
+        });
+
+        $rootScope.nfModalInstance.result.then(function () {
+             $rootScope.index();
+        }, function () {
+             $rootScope.index();
+        });
+    };
+
 
     $rootScope.nav = function (target) {
         $location.path(target);
@@ -382,14 +488,13 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     $rootScope.showSettings = function () {
         var modalInstance = $modal.open({
             templateUrl: 'SettingsCtrl.html',
-            size:'lg',
-            keyboard:'false',
+            size: 'lg',
+            keyboard: 'false',
             controller: 'SettingsCtrl'
         });
     };
 
 });
-
 
 
 angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
@@ -436,6 +541,10 @@ app.controller('ErrorDetailsCtrl', function ($scope, $modalInstance, error) {
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
+    };
+
+    $scope.refresh = function () {
+        $modalInstance.close($window.location.reload());
     };
 });
 
@@ -490,7 +599,7 @@ angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function 
                 delay.reject(response.data);
             }
         );
-
+//
 //        $http.get('../../resources/appInfo.json').then(
 //            function (object) {
 //                delay.resolve(angular.fromJson(object.data));
@@ -523,16 +632,55 @@ app.controller('ValidationResultInfoCtrl', [ '$scope', '$modalInstance',
 ]);
 
 
-app.controller('VersionChangeCtrl', [ '$scope', '$modalInstance','StorageService','$window',
-    function ($scope, $modalInstance,StorageService,$window) {
-        $scope.refresh = function () {
-            StorageService.clearAll();
-            $modalInstance.close($window.location.reload());
+app.filter('capitalize', function () {
+    return function (input) {
+        return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
+});
+
+app.directive('stRatio', function () {
+    return {
+
+        link: function (scope, element, attr) {
+            var ratio = +(attr.stRatio);
+            element.css('width', ratio + '%');
+        }
+    };
+});
+
+
+app.controller('InvalidReqCtrl', [ '$scope', '$modalInstance', 'StorageService', '$window',
+    function ($scope, $modalInstance, StorageService, $window) {
+        $scope.close = function () {
+            $modalInstance.close();
         };
     }
 ]);
 
 
+app.controller('ErrorCtrl', [ '$scope', '$modalInstance', 'StorageService', '$window',
+    function ($scope, $modalInstance, StorageService, $window) {
+        $scope.refresh = function () {
+            $modalInstance.close($window.location.reload());
+        };
+    }
+]);
+
+app.controller('VersionChangeCtrl', [ '$scope', '$modalInstance', 'StorageService', '$window',
+    function ($scope, $modalInstance, StorageService, $window) {
+        $scope.close = function () {
+            $modalInstance.close();
+        };
+    }
+]);
+
+app.controller('NotFoundCtrl', [ '$scope', '$modalInstance', 'StorageService', '$window',
+    function ($scope, $modalInstance, StorageService, $window) {
+        $scope.close = function () {
+            $modalInstance.close();
+        };
+    }
+]);
 
 
 

@@ -1,0 +1,16 @@
+<div id="subNavBar" class="subNavBar" ng-controller="ConnectivityTestingCtrl" ng-init="init()">
+
+    <ul class="clearfix mainSubNav">
+        <li ng-click="setSubActive('/connectivity_testcase')" class="jslink"><a ng-class="{'current':isSubActive('/connectivity_testcase')}"> <i class="fa fa-th-list"></i>Test Selection</a></li>
+        <li ng-click="setSubActive('/connectivity_execution')" class="jslink"><a ng-class="{'current':isSubActive('/connectivity_execution')}"> <i class="fa fa-cogs"></i>Test Execution</a></li>
+    </ul>
+
+    <div ng-show="isSubActive('/connectivity_testcase')">
+        <div ng-include="'views/connectivity/testcase.html'"></div>
+    </div>
+
+    <div ng-show="isSubActive('/connectivity_execution')">
+        <div ng-include="'views/connectivity/execution.html'"></div>
+    </div>
+
+</div>

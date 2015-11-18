@@ -387,9 +387,9 @@ angular.module('cf')
                 $scope.vError = null;
                 $scope.cf.message.content = $scope.editor.doc.getValue();
                 StorageService.set(StorageService.CF_EDITOR_CONTENT_KEY, $scope.cf.message.content);
-                $scope.refreshEditor();
                 $scope.validateMessage();
                 $scope.parseMessage();
+                $scope.refreshEditor();
             }
         };
 
