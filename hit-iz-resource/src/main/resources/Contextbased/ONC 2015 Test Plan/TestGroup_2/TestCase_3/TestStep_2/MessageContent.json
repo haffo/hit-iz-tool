@@ -13,33 +13,33 @@
 "categorization" : ""},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
-APP", "categorization" : ""},
-							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.1",
+							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NISTIISAPP",
+"categorization" : ""},
+							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.3",
 "categorization" : ""},
 							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "ISO",
 "categorization" : ""},
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
-FAC", "categorization" : ""},
-							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.2",
+							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NISTIISFAC",
+"categorization" : ""},
+							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.4",
 "categorization" : ""},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "ISO",
 "categorization" : ""},
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
-APP", "categorization" : ""},
-							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.22",
+							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NISTEHRAPP",
+"categorization" : ""},
+							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.1",
 "categorization" : ""},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "ISO",
 "categorization" : ""},
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
-Facility", "categorization" : ""},
-							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.23",
+							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NISTEHRFAC",
+"categorization" : ""},
+							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.2",
 "categorization" : ""},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "ISO",
 "categorization" : ""},
@@ -55,7 +55,7 @@ Facility", "categorization" : ""},
 : ""},
 							{"location" : "MSH.9.3", "dataelement" : "Message Structure", "data" : "RSP_K11",
 "categorization" : ""},
-				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "NIST-IZ-QR-3.2_Respons_NF_K11_Z33",
+				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "NIST-IZ-QR-3.2_Response_NF_K11_Z33",
 "categorization" : ""},
 				{"location" : "MSH.11", "dataelement" : "Processing ID", "data" : "", "categorization"
 : ""},
@@ -81,32 +81,32 @@ Facility", "categorization" : ""},
 "categorization" : ""},
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
-							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NIST
-IIS FAC", "categorization" : ""},
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
+"categorization" : ""},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
+									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-1",
 "categorization" : ""},
-									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
+									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.9",
 "categorization" : ""},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : ""},
+"ISO", "categorization" : ""},
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
 "XX", "categorization" : ""},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
-: "100-1776", "categorization" : ""},
+: "100-3322", "categorization" : ""},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NIST
-EHR Facility", "categorization" : ""},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
+"categorization" : ""},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
+									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-1",
 "categorization" : ""},
-									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
+									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.9",
 "categorization" : ""},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : ""},
+"ISO", "categorization" : ""},
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
 "XX", "categorization" : ""},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
@@ -134,11 +134,7 @@ EHR Facility", "categorization" : ""},
 							{"location" : "QAK.3.2", "dataelement" : "Text", "data" : "request evaluated
 Immunization history", "categorization" : ""},
 							{"location" : "QAK.3.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "QAK.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "QAK.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},		]
+"CDCPHINVS", "categorization" : ""},		]
 		{
 			"title":"QPD : Query Parameter Definition",
 			"elements" : 
@@ -151,18 +147,12 @@ Immunization history", "categorization" : ""},
 History and Forecast", "categorization" : ""},
 							{"location" : "QPD.1.3", "dataelement" : "Name of Coding System", "data" :
 "CDCPHINVS", "categorization" : ""},
-							{"location" : "QPD.1.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "QPD.1.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "QPD.2", "dataelement" : "Query Tag", "data" : "IZ-3.1-2015", "categorization"
 : ""},
 				{"location" : "QPD.3", "dataelement" : "PatientList", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.3.1", "dataelement" : "ID Number", "data" : "177993", "categorization"
 : ""},
-							{"location" : "QPD.3.3", "dataelement" : "Check Digit Scheme", "data" : "",
-"categorization" : ""},
 							{"location" : "QPD.3.4", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "NIST
@@ -179,14 +169,6 @@ MPI", "categorization" : ""},
 : ""},
 									{"location" : "QPD.4.1.1", "dataelement" : "Surname", "data" : "Bee", "categorization"
 : ""},
-									{"location" : "QPD.4.1.2", "dataelement" : "Own Surname Prefix", "data" :
-"", "categorization" : ""},
-									{"location" : "QPD.4.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
-: ""},
-									{"location" : "QPD.4.1.4", "dataelement" : "Surname Prefix From Partner/Spouse",
-"data" : "", "categorization" : ""},
-									{"location" : "QPD.4.1.5", "dataelement" : "Surname From Partner/Spouse",
-"data" : "", "categorization" : ""},
 							{"location" : "QPD.4.2", "dataelement" : "Given Name", "data" : "Donna", "categorization"
 : ""},
 							{"location" : "QPD.4.3", "dataelement" : "Second and Further Given Names or
@@ -199,14 +181,6 @@ Initials Thereof", "data" : "Victoria", "categorization" : ""},
 : ""},
 									{"location" : "QPD.5.1.1", "dataelement" : "Surname", "data" : "Goluchio",
 "categorization" : ""},
-									{"location" : "QPD.5.1.2", "dataelement" : "Own Surname Prefix", "data" :
-"", "categorization" : ""},
-									{"location" : "QPD.5.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
-: ""},
-									{"location" : "QPD.5.1.4", "dataelement" : "Surname Prefix From Partner/Spouse",
-"data" : "", "categorization" : ""},
-									{"location" : "QPD.5.1.5", "dataelement" : "Surname From Partner/Spouse",
-"data" : "", "categorization" : ""},
 							{"location" : "QPD.5.7", "dataelement" : "Name Type Code", "data" : "M", "categorization"
 : ""},
 				{"location" : "QPD.6", "dataelement" : "PatientDateOfBirth", "data" : "", "categorization"
@@ -221,10 +195,6 @@ Initials Thereof", "data" : "Victoria", "categorization" : ""},
 : ""},
 									{"location" : "QPD.8.1.1", "dataelement" : "Street or Mailing Address", "data"
 : "737 Everygreen Road", "categorization" : ""},
-									{"location" : "QPD.8.1.2", "dataelement" : "Street Name", "data" : "", "categorization"
-: ""},
-									{"location" : "QPD.8.1.3", "dataelement" : "Dwelling Number", "data" : "",
-"categorization" : ""},
 							{"location" : "QPD.8.2", "dataelement" : "Other Designation", "data" : "Suite
 511", "categorization" : ""},
 							{"location" : "QPD.8.3", "dataelement" : "City", "data" : "Livingston", "categorization"

@@ -13,32 +13,32 @@
 "categorization" : ""},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
-APP", "categorization" : ""},
+							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NISTIISAPP",
+"categorization" : ""},
 							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : ""},
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NIST IIS
-FAC", "categorization" : ""},
+							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NISTIISFAC",
+"categorization" : ""},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : ""},
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
-APP", "categorization" : ""},
+							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NISTEHRAPP",
+"categorization" : ""},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : ""},
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NIST EHR
-Facility", "categorization" : ""},
+							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NISTEHRFAC",
+"categorization" : ""},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -81,8 +81,8 @@ Facility", "categorization" : ""},
 "categorization" : ""},
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
-							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NIST
-IIS FAC", "categorization" : ""},
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
+"categorization" : ""},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
@@ -97,8 +97,8 @@ IIS FAC", "categorization" : ""},
 : "100-1776", "categorization" : ""},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NIST
-EHR Facility", "categorization" : ""},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
+"categorization" : ""},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
@@ -134,11 +134,7 @@ EHR Facility", "categorization" : ""},
 							{"location" : "QAK.3.2", "dataelement" : "Text", "data" : "request evaluated
 Immunization history", "categorization" : ""},
 							{"location" : "QAK.3.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "QAK.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "QAK.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},		]
+"CDCPHINVS", "categorization" : ""},		]
 		{
 			"title":"QPD : Query Parameter Definition",
 			"elements" : 
@@ -150,23 +146,17 @@ Immunization history", "categorization" : ""},
 							{"location" : "QPD.1.2", "dataelement" : "Text", "data" : "Request Evaluated
 History and Forecast", "categorization" : ""},
 							{"location" : "QPD.1.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS ", "categorization" : ""},
-							{"location" : "QPD.1.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "QPD.1.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
+"CDCPHINVS", "categorization" : ""},
 				{"location" : "QPD.2", "dataelement" : "Query Tag", "data" : "107374859", "categorization"
 : ""},
 				{"location" : "QPD.3", "dataelement" : "PatientList", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.3.1", "dataelement" : "ID Number", "data" : "171122", "categorization"
 : ""},
-							{"location" : "QPD.3.3", "dataelement" : "Check Digit Scheme", "data" : "",
-"categorization" : ""},
 							{"location" : "QPD.3.4", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "NIST
-MPI", "categorization" : ""},
+									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "NIST-MPI-1",
+"categorization" : ""},
 									{"location" : "QPD.3.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 									{"location" : "QPD.3.4.3", "dataelement" : "Universal ID Type", "data" :
@@ -179,14 +169,6 @@ MPI", "categorization" : ""},
 : ""},
 									{"location" : "QPD.4.1.1", "dataelement" : "Surname", "data" : "Child", "categorization"
 : ""},
-									{"location" : "QPD.4.1.2", "dataelement" : "Own Surname Prefix", "data" :
-"", "categorization" : ""},
-									{"location" : "QPD.4.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
-: ""},
-									{"location" : "QPD.4.1.4", "dataelement" : "Surname Prefix From Partner/Spouse",
-"data" : "", "categorization" : ""},
-									{"location" : "QPD.4.1.5", "dataelement" : "Surname From Partner/Spouse",
-"data" : "", "categorization" : ""},
 							{"location" : "QPD.4.2", "dataelement" : "Given Name", "data" : "Bobbie", "categorization"
 : ""},
 							{"location" : "QPD.4.3", "dataelement" : "Second and Further Given Names or
@@ -199,14 +181,6 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 : ""},
 									{"location" : "QPD.5.1.1", "dataelement" : "Surname", "data" : "Que", "categorization"
 : ""},
-									{"location" : "QPD.5.1.2", "dataelement" : "Own Surname Prefix", "data" :
-"", "categorization" : ""},
-									{"location" : "QPD.5.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
-: ""},
-									{"location" : "QPD.5.1.4", "dataelement" : "Surname Prefix From Partner/Spouse",
-"data" : "", "categorization" : ""},
-									{"location" : "QPD.5.1.5", "dataelement" : "Surname From Partner/Spouse",
-"data" : "", "categorization" : ""},
 							{"location" : "QPD.5.7", "dataelement" : "Name Type Code", "data" : "M", "categorization"
 : ""},
 				{"location" : "QPD.6", "dataelement" : "PatientDateOfBirth", "data" : "", "categorization"
@@ -221,10 +195,6 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 : ""},
 									{"location" : "QPD.8.1.1", "dataelement" : "Street or Mailing Address", "data"
 : "105 Laurel Run Rd", "categorization" : ""},
-									{"location" : "QPD.8.1.2", "dataelement" : "Street Name", "data" : "", "categorization"
-: ""},
-									{"location" : "QPD.8.1.3", "dataelement" : "Dwelling Number", "data" : "",
-"categorization" : ""},
 							{"location" : "QPD.8.2", "dataelement" : "Other Designation", "data" : "",
 "categorization" : ""},
 							{"location" : "QPD.8.3", "dataelement" : "City", "data" : "Bozeman", "categorization"
@@ -263,12 +233,10 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 "", "categorization" : ""},
 							{"location" : "PID.3[1].1", "dataelement" : "ID Number", "data" : "171122",
 "categorization" : ""},
-							{"location" : "PID.3[1].3", "dataelement" : "Check Digit Scheme", "data" :
-"", "categorization" : ""},
 							{"location" : "PID.3[1].4", "dataelement" : "Assigning Authority", "data" :
 "", "categorization" : ""},
-									{"location" : "PID.3[1].4.1", "dataelement" : "Namespace ID", "data" : "NIST
-MPI", "categorization" : ""},
+									{"location" : "PID.3[1].4.1", "dataelement" : "Namespace ID", "data" : "NIST-MPI-1",
+"categorization" : ""},
 									{"location" : "PID.3[1].4.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "PID.3[1].4.3", "dataelement" : "Universal ID Type", "data"
@@ -279,11 +247,9 @@ MPI", "categorization" : ""},
 "", "categorization" : ""},
 							{"location" : "PID.3[2].1", "dataelement" : "ID Number", "data" : "34500907",
 "categorization" : ""},
-							{"location" : "PID.3[2].3", "dataelement" : "Check Digit Scheme", "data" :
-"", "categorization" : ""},
 							{"location" : "PID.3[2].4", "dataelement" : "Assigning Authority", "data" :
 "", "categorization" : ""},
-									{"location" : "PID.3[2].4.1", "dataelement" : "Namespace ID", "data" : "MyIIS",
+									{"location" : "PID.3[2].4.1", "dataelement" : "Namespace ID", "data" : "NIST-IIS-MPI",
 "categorization" : ""},
 									{"location" : "PID.3[2].4.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
@@ -297,14 +263,6 @@ MPI", "categorization" : ""},
 : ""},
 									{"location" : "PID.5.1.1", "dataelement" : "Surname", "data" : "Child", "categorization"
 : ""},
-									{"location" : "PID.5.1.2", "dataelement" : "Own Surname Prefix", "data" :
-"", "categorization" : ""},
-									{"location" : "PID.5.1.3", "dataelement" : "Own Surname", "data" : "", "categorization"
-: ""},
-									{"location" : "PID.5.1.4", "dataelement" : "Surname Prefix From Partner/Spouse",
-"data" : "", "categorization" : ""},
-									{"location" : "PID.5.1.5", "dataelement" : "Surname From Partner/Spouse",
-"data" : "", "categorization" : ""},
 							{"location" : "PID.5.2", "dataelement" : "Given Name", "data" : "Bobbie", "categorization"
 : ""},
 							{"location" : "PID.5.3", "dataelement" : "Second and Further Given Names or
@@ -323,10 +281,6 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 : ""},
 									{"location" : "PID.11.1.1", "dataelement" : "Street or Mailing Address",
 "data" : "105 Laurel Run Rd", "categorization" : ""},
-									{"location" : "PID.11.1.2", "dataelement" : "Street Name", "data" : "", "categorization"
-: ""},
-									{"location" : "PID.11.1.3", "dataelement" : "Dwelling Number", "data" : "",
-"categorization" : ""},
 							{"location" : "PID.11.2", "dataelement" : "Other Designation", "data" : "",
 "categorization" : ""},
 							{"location" : "PID.11.3", "dataelement" : "City", "data" : "Bozeman", "categorization"
@@ -364,7 +318,7 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 : ""},
 							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197023",
 "categorization" : ""},
-							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
 "categorization" : ""},
 							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
@@ -372,16 +326,12 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 "categorization" : ""},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
-							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "wc", "categorization"
-: ""},
-							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "West Clinic", "categorization"
-: ""},
+							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
+"categorization" : ""},
+							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "NISTEHRFacility",
+"categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362", "categorization" : ""},
-							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},		]
+"HL70362", "categorization" : ""},		]
 		{
 			"title":"ORC : Common Order",
 			"elements" : 
@@ -402,8 +352,8 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 : ""},
 							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197027",
 "categorization" : ""},
-							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "DCS", "categorization"
-: ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
+"categorization" : ""},
 							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
@@ -415,11 +365,7 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},		]
+"", "categorization" : ""},		]
 		{
 			"title":"ORC : Common Order",
 			"elements" : 
@@ -440,8 +386,8 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 : ""},
 							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197028",
 "categorization" : ""},
-							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "DCS", "categorization"
-: ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
+"categorization" : ""},
 							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
@@ -453,11 +399,7 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},		]
+"", "categorization" : ""},		]
 		{
 			"title":"ORC : Common Order",
 			"elements" : 
@@ -478,8 +420,8 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 : ""},
 							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197028",
 "categorization" : ""},
-							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "DCS", "categorization"
-: ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
+"categorization" : ""},
 							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
@@ -491,11 +433,7 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},		]
+"", "categorization" : ""},		]
 		{
 			"title":"ORC : Common Order",
 			"elements" : 
@@ -516,8 +454,8 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 : ""},
 							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197028",
 "categorization" : ""},
-							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "DCS", "categorization"
-: ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
+"categorization" : ""},
 							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
@@ -529,11 +467,7 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
-							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},		]
+"", "categorization" : ""},		]
 		{
 			"title":"ORC : Common Order",
 			"elements" : 
@@ -554,24 +488,20 @@ Initials Thereof", "data" : "Q", "categorization" : ""},
 : ""},
 							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "9999",
 "categorization" : ""},
-							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "DCS", "categorization"
-: ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
+"categorization" : ""},
 							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : ""},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
-							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "DCS", "categorization"
-: ""},
-							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "Dabig Clinical
-System", "categorization" : ""},
+							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
+"categorization" : ""},
+							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "NISTEHRFacility",
+"categorization" : ""},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362", "categorization" : ""},
-							{"location" : "ORC.17.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "ORC.17.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},		]
+"HL70362", "categorization" : ""},		]
 
 </accordion>		{
 			"title":"RXA[*]",
@@ -596,10 +526,6 @@ System", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
 "CVX", "categorization" : ""},
-							{"location" : "RXA.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
 "categorization" : ""},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
@@ -610,10 +536,6 @@ System", "categorization" : ""},
 : ""},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.7.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.7.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
@@ -622,10 +544,6 @@ System", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
 "NIP001", "categorization" : ""},
-							{"location" : "RXA.9.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.9.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
@@ -634,14 +552,6 @@ System", "categorization" : ""},
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
 : ""},
-									{"location" : "RXA.10.2.2", "dataelement" : "Own Surname Prefix", "data"
-: "", "categorization" : ""},
-									{"location" : "RXA.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
-: ""},
-									{"location" : "RXA.10.2.4", "dataelement" : "Surname Prefix From Partner/Spouse",
-"data" : "", "categorization" : ""},
-									{"location" : "RXA.10.2.5", "dataelement" : "Surname From Partner/Spouse",
-"data" : "", "categorization" : ""},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
@@ -656,8 +566,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "", "categorization" : ""},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
 : ""},
-							{"location" : "RXA.10.12", "dataelement" : "Check Digit Scheme", "data" : "",
-"categorization" : ""},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
 "", "categorization" : ""},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
@@ -678,10 +586,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.18.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
 : ""},		]
 		{
@@ -704,10 +608,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
 "CVX", "categorization" : ""},
-							{"location" : "RXA.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
 "categorization" : ""},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
@@ -718,10 +618,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.7.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.7.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
@@ -730,49 +626,35 @@ Initials Thereof", "data" : "", "categorization" : ""},
 record", "categorization" : ""},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
 "NIP001", "categorization" : ""},
-							{"location" : "RXA.9.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.9.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
 "categorization" : ""},
-							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
+							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "5111", "categorization"
 : ""},
 							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "Sticker",
 "categorization" : ""},
-									{"location" : "RXA.10.2.2", "dataelement" : "Own Surname Prefix", "data"
-: "", "categorization" : ""},
-									{"location" : "RXA.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
-: ""},
-									{"location" : "RXA.10.2.4", "dataelement" : "Surname Prefix From Partner/Spouse",
-"data" : "", "categorization" : ""},
-									{"location" : "RXA.10.2.5", "dataelement" : "Surname From Partner/Spouse",
-"data" : "", "categorization" : ""},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "Nurse", "categorization"
 : ""},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
 Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "",
+									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "NIST-PI-1",
 "categorization" : ""},
 									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.10.12", "dataelement" : "Check Digit Scheme", "data" : "",
+							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "L",
 "categorization" : ""},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : ""},
+"PRN", "categorization" : ""},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
 : ""},
-									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "DCS_DC",
+									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "NIST-Clinic-1",
 "categorization" : ""},
 									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
@@ -786,10 +668,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.18.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
 : ""},		]
 		{
@@ -812,10 +690,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
 "CVX", "categorization" : ""},
-							{"location" : "RXA.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
 "categorization" : ""},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
@@ -826,10 +700,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.7.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.7.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
@@ -838,10 +708,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 record", "categorization" : ""},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
 "NIP001", "categorization" : ""},
-							{"location" : "RXA.9.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.9.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
@@ -850,14 +716,6 @@ record", "categorization" : ""},
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
 : ""},
-									{"location" : "RXA.10.2.2", "dataelement" : "Own Surname Prefix", "data"
-: "", "categorization" : ""},
-									{"location" : "RXA.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
-: ""},
-									{"location" : "RXA.10.2.4", "dataelement" : "Surname Prefix From Partner/Spouse",
-"data" : "", "categorization" : ""},
-									{"location" : "RXA.10.2.5", "dataelement" : "Surname From Partner/Spouse",
-"data" : "", "categorization" : ""},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
@@ -872,8 +730,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "", "categorization" : ""},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
 : ""},
-							{"location" : "RXA.10.12", "dataelement" : "Check Digit Scheme", "data" : "",
-"categorization" : ""},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
 "", "categorization" : ""},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
@@ -894,10 +750,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.18.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
 : ""},		]
 		{
@@ -920,10 +772,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
 "CVX", "categorization" : ""},
-							{"location" : "RXA.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
 "categorization" : ""},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
@@ -934,10 +782,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.7.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.7.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
@@ -946,44 +790,30 @@ Initials Thereof", "data" : "", "categorization" : ""},
 record", "categorization" : ""},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
 "NIP001", "categorization" : ""},
-							{"location" : "RXA.9.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.9.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
 "categorization" : ""},
-							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
+							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "5111", "categorization"
 : ""},
 							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "Sticker",
 "categorization" : ""},
-									{"location" : "RXA.10.2.2", "dataelement" : "Own Surname Prefix", "data"
-: "", "categorization" : ""},
-									{"location" : "RXA.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
-: ""},
-									{"location" : "RXA.10.2.4", "dataelement" : "Surname Prefix From Partner/Spouse",
-"data" : "", "categorization" : ""},
-									{"location" : "RXA.10.2.5", "dataelement" : "Surname From Partner/Spouse",
-"data" : "", "categorization" : ""},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "Nurse", "categorization"
 : ""},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
 Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "",
+									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "NIST-PI-1",
 "categorization" : ""},
 									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.10.12", "dataelement" : "Check Digit Scheme", "data" : "",
+							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "L",
 "categorization" : ""},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : ""},
+"PRN", "categorization" : ""},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
@@ -1002,10 +832,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.18.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
 : ""},		]
 		{
@@ -1028,10 +854,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
 "CVX", "categorization" : ""},
-							{"location" : "RXA.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
 "categorization" : ""},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
@@ -1042,10 +864,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.7.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.7.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
@@ -1054,10 +872,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 record", "categorization" : ""},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
 "NIP001", "categorization" : ""},
-							{"location" : "RXA.9.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.9.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
@@ -1066,14 +880,6 @@ record", "categorization" : ""},
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
 : ""},
-									{"location" : "RXA.10.2.2", "dataelement" : "Own Surname Prefix", "data"
-: "", "categorization" : ""},
-									{"location" : "RXA.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
-: ""},
-									{"location" : "RXA.10.2.4", "dataelement" : "Surname Prefix From Partner/Spouse",
-"data" : "", "categorization" : ""},
-									{"location" : "RXA.10.2.5", "dataelement" : "Surname From Partner/Spouse",
-"data" : "", "categorization" : ""},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
@@ -1088,8 +894,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "", "categorization" : ""},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
 : ""},
-							{"location" : "RXA.10.12", "dataelement" : "Check Digit Scheme", "data" : "",
-"categorization" : ""},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
 "", "categorization" : ""},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
@@ -1110,10 +914,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.18.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
 : ""},		]
 		{
@@ -1136,10 +936,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
 "CVX", "categorization" : ""},
-							{"location" : "RXA.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
 "categorization" : ""},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
@@ -1150,10 +946,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.7.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.7.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1162,10 +954,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.9.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.9.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
@@ -1174,14 +962,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
 : ""},
-									{"location" : "RXA.10.2.2", "dataelement" : "Own Surname Prefix", "data"
-: "", "categorization" : ""},
-									{"location" : "RXA.10.2.3", "dataelement" : "Own Surname", "data" : "", "categorization"
-: ""},
-									{"location" : "RXA.10.2.4", "dataelement" : "Surname Prefix From Partner/Spouse",
-"data" : "", "categorization" : ""},
-									{"location" : "RXA.10.2.5", "dataelement" : "Surname From Partner/Spouse",
-"data" : "", "categorization" : ""},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
@@ -1196,8 +976,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "", "categorization" : ""},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
 : ""},
-							{"location" : "RXA.10.12", "dataelement" : "Check Digit Scheme", "data" : "",
-"categorization" : ""},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
 "", "categorization" : ""},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
@@ -1218,10 +996,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "RXA.18.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "RXA.18.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
 : ""},		]
 
@@ -1244,24 +1018,10 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1270,10 +1030,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1296,24 +1052,10 @@ Initials Thereof", "data" : "", "categorization" : ""},
 used", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1322,10 +1064,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1348,10 +1086,6 @@ used", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
@@ -1364,10 +1098,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1390,24 +1120,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "17", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "HIB NOS", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1416,10 +1132,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1442,24 +1154,10 @@ used", "categorization" : ""},
 used", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1468,10 +1166,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1494,10 +1188,6 @@ used", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "N", "categorization"
@@ -1510,10 +1200,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1536,10 +1222,6 @@ used", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Too Young",
@@ -1552,10 +1234,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1578,24 +1256,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1604,10 +1268,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1630,24 +1290,10 @@ used", "categorization" : ""},
 used", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1656,10 +1302,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1682,10 +1324,6 @@ used", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
@@ -1698,10 +1336,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1724,24 +1358,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "10", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "IPV", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1750,10 +1370,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1776,24 +1392,10 @@ used", "categorization" : ""},
 used", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1802,10 +1404,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1828,10 +1426,6 @@ used", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
@@ -1844,10 +1438,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1870,24 +1460,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "20", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "DTAP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1896,10 +1472,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1922,24 +1494,10 @@ used", "categorization" : ""},
 used", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1948,10 +1506,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -1974,10 +1528,6 @@ used", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
@@ -1990,10 +1540,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2016,24 +1562,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2042,10 +1574,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2068,24 +1596,10 @@ used", "categorization" : ""},
 used", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2094,10 +1608,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2120,10 +1630,6 @@ used", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
@@ -2136,10 +1642,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2162,24 +1664,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "03", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "MMR", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2188,10 +1676,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2214,24 +1698,10 @@ used", "categorization" : ""},
 used", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2240,10 +1710,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2266,10 +1732,6 @@ used", "categorization" : ""},
 "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "N", "categorization"
@@ -2282,10 +1744,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2308,24 +1766,10 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "03", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "MMR", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2334,10 +1778,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2360,24 +1800,10 @@ used", "categorization" : ""},
 used", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2386,10 +1812,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2412,10 +1834,6 @@ used", "categorization" : ""},
 due", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100214",
@@ -2428,10 +1846,6 @@ due", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2454,10 +1868,6 @@ due", "categorization" : ""},
 give", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100214",
@@ -2470,10 +1880,6 @@ give", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2496,24 +1902,10 @@ give", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "10", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "IPV", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2522,10 +1914,6 @@ give", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2548,24 +1936,10 @@ give", "categorization" : ""},
 used", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2574,10 +1948,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2600,10 +1970,6 @@ used", "categorization" : ""},
 due", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100214",
@@ -2616,10 +1982,6 @@ due", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2642,24 +2004,10 @@ due", "categorization" : ""},
 : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "107", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "DTAP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2668,10 +2016,6 @@ due", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2694,24 +2038,10 @@ due", "categorization" : ""},
 used", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
-							{"location" : "OBX.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2720,10 +2050,6 @@ used", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
@@ -2746,10 +2072,6 @@ used", "categorization" : ""},
 due", "categorization" : ""},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : ""},
-							{"location" : "OBX.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100214",
@@ -2762,10 +2084,6 @@ due", "categorization" : ""},
 : ""},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
-							{"location" : "OBX.6.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: ""},
-							{"location" : "OBX.6.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : ""},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : ""},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"

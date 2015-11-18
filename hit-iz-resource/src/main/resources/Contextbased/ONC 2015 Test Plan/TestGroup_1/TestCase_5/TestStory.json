@@ -3,7 +3,7 @@
   "comments" : "No Comments",
   "preCondition" : "No PreCondition",
   "postCondition" : "No PostCondition",
-  "testObjectives" : "This test case assesses the ability of the EHR to create an administration message for child whose parents have refused an immunization.",
-  "evaluationCriteria" : "No evaluation criteria",
+  "testObjectives" : "This test case assesses the ability of the EHR to create an administration message for child whose parents have refused an immunization and to support multiple birth indicator and order.<br>",
+  "evaluationCriteria" : "<br>",
   "notes" : "No Note"
 }

@@ -13,7 +13,7 @@
 "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "iisApp",
+							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NISTIISAPP",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
@@ -21,15 +21,15 @@
 "categorization" : "Indifferent"},
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "IIS", "categorization"
-: "Presence-Content Indifferent"},
+							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NISTIISFAC",
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
 "categorization" : "Indifferent"},
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "wcApp",
+							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NISTEHRAPP",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
@@ -37,7 +37,7 @@
 "categorization" : "Indifferent"},
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
-							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "wcEHR",
+							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NISTEHRFAC",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
@@ -55,7 +55,7 @@
 : "Value-Profile Fixed"},
 							{"location" : "MSH.9.3", "dataelement" : "Message Structure", "data" : "ACK",
 "categorization" : "Value-Profile Fixed"},
-				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "29540",
+				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "NIST-IZ-AD-9.2_Receive_ACK_Z23",
 "categorization" : "Presence-System Generated"},
 				{"location" : "MSH.11", "dataelement" : "Processing ID", "data" : "", "categorization"
 : ""},
@@ -81,7 +81,7 @@
 "categorization" : "Indifferent"},
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
-							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "IIS",
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
@@ -97,7 +97,7 @@
 : "", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "wcEHR",
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
@@ -117,7 +117,7 @@
 			[
 				{"location" : "MSA.1", "dataelement" : "Acknowledgment Code", "data" : "AE", "categorization"
 : "Value-Test Case Fixed"},
-				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "10746",
+				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "NIST-IZ-AD-9.1_Send_V04_Z22",
 "categorization" : "Presence-System Generated"},		]
 		{
 			"title":"ERR[*]",
@@ -148,10 +148,6 @@
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "ERR.3.3", "dataelement" : "Name of Coding System", "data" :
 "HL70357", "categorization" : "Value-Profile Fixed"},
-							{"location" : "ERR.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: "Indifferent"},
-							{"location" : "ERR.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : "Indifferent"},
 				{"location" : "ERR.4", "dataelement" : "Severity", "data" : "W", "categorization"
 : "Value-Test Case Fixed"},
 				{"location" : "ERR.5", "dataelement" : "Application Error Code", "data" : "",
@@ -162,10 +158,6 @@
 found", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "ERR.5.3", "dataelement" : "Name of Coding System", "data" :
 "HL70533", "categorization" : "Value-Profile Fixed"},
-							{"location" : "ERR.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: "Indifferent"},
-							{"location" : "ERR.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : "Indifferent"},
 				{"location" : "ERR.8", "dataelement" : "User Message", "data" : "Administration
 Site not recognized - site data will not be saved", "categorization" : "Presence-Content
 Indifferent"},		]
@@ -195,10 +187,6 @@ Indifferent"},		]
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "ERR.3.3", "dataelement" : "Name of Coding System", "data" :
 "HL70357", "categorization" : "Value-Profile Fixed"},
-							{"location" : "ERR.3.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: "Indifferent"},
-							{"location" : "ERR.3.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : "Indifferent"},
 				{"location" : "ERR.4", "dataelement" : "Severity", "data" : "W", "categorization"
 : "Value-Test Case Fixed"},
 				{"location" : "ERR.5", "dataelement" : "Application Error Code", "data" : "",
@@ -209,10 +197,6 @@ Indifferent"},		]
 found", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "ERR.5.3", "dataelement" : "Name of Coding System", "data" :
 "HL70533", "categorization" : "Value-Profile Fixed"},
-							{"location" : "ERR.5.5", "dataelement" : "Alternate Text", "data" : "", "categorization"
-: "Indifferent"},
-							{"location" : "ERR.5.6", "dataelement" : "Name of Alternate Coding System",
-"data" : "", "categorization" : "Indifferent"},
 				{"location" : "ERR.8", "dataelement" : "User Message", "data" : "Administration
 Site not recognized - site data will not be saved", "categorization" : "Presence-Content
 Indifferent"},		]

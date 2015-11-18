@@ -1,5 +1,5 @@
 {
-"version" : "2.9.6",
+"version" : "2.9.7",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -52,7 +52,7 @@ formulation"},
 				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : ""},
 				{"element" : "Administration Site", "data" : ""},
-				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entering Organization", "data" : "NISTEHRFacility"},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
 				{"element" : "Ordered By", "data" : ""},		]
 

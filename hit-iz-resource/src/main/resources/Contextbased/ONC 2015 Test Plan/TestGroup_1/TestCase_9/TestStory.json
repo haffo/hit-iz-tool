@@ -2,8 +2,8 @@
   "teststorydesc" : "A patient is seen at a clinic. A new administration is recorded. The IIS is able to process the administration message but finds multiple soft errors (warnings) which it returns in the acknowledgement message.",
   "comments" : "No Comments",
   "preCondition" : "No PreCondition",
-  "postCondition" : "The returned error must be visible in the EHR.",
-  "testObjectives" : "This test case assesses the ability of the EHR to accept an acknowledgement message with multiple soft errors being returned by the IIS.",
-  "evaluationCriteria" : "No evaluation criteria",
+  "postCondition" : "The returned warnings must be visible in the EHR.",
+  "testObjectives" : "This test case assesses the ability of the EHR to accept an acknowledgement message with multiple soft errors (warnings) being returned by the IIS.",
+  "evaluationCriteria" : "<br>",
   "notes" : "No Note"
 }

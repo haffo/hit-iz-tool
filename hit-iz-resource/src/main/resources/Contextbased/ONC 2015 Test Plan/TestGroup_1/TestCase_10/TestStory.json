@@ -4,6 +4,6 @@
   "preCondition" : "No PreCondition",
   "postCondition" : "The returned error must be visible in the EHR.",
   "testObjectives" : "This test case assesses the ability of the EHR to accept an acknowledgement message with a fatal system error being returned by the IIS.",
-  "evaluationCriteria" : "No evaluation criteria",
+  "evaluationCriteria" : "<br>",
   "notes" : "No Note"
 }
