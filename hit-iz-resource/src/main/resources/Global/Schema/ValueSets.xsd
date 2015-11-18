@@ -79,7 +79,7 @@
 	<xs:simpleType name="ContentDefinitionType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Extensional"/>
-			<xs:enumeration value="intensional"/>
+			<xs:enumeration value="Intensional"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="StatusType">

@@ -4,6 +4,6 @@
   "preCondition" : "No PreCondition",
   "postCondition" : "No PostCondition",
   "testObjectives" : "This test case assesses the ability of the EHR to create an administration message for a child containing a new administration but an indication that the data should not be shared. Also test the ability of the EHR to support full first and middle names.",
-  "evaluationCriteria" : "No evaluation criteria",
+  "evaluationCriteria" : "<br>",
   "notes" : "No Note"
 }

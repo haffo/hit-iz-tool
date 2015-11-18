@@ -1,5 +1,5 @@
 {
-"version" : "2.9.6",
+"version" : "2.9.7",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -76,7 +76,7 @@
 				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : "Intramuscular"},
 				{"element" : "Administration Site", "data" : "Right Thigh"},
-				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entering Organization", "data" : "NISTEHRFacility"},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
 				{"element" : "Ordered By", "data" : "Wilma Thomas"},
 					{"element" : "obx", "data" : 
@@ -124,7 +124,7 @@ VIS"},
 				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : "Oral"},
 				{"element" : "Administration Site", "data" : ""},
-				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entering Organization", "data" : "NISTEHRFacility"},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
 				{"element" : "Ordered By", "data" : "Wilma Thomas"},
 					{"element" : "obx", "data" : 
@@ -165,7 +165,7 @@ VIS"},
 				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : "Intramuscular"},
 				{"element" : "Administration Site", "data" : "Left Thigh"},
-				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entering Organization", "data" : "NISTEHRFacility"},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
 				{"element" : "Ordered By", "data" : "Wilma Thomas"},
 					{"element" : "obx", "data" : 
@@ -206,7 +206,7 @@ VIS"},
 				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : ""},
 				{"element" : "Administration Site", "data" : ""},
-				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entering Organization", "data" : "NISTEHRFacility"},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
 				{"element" : "Ordered By", "data" : ""},		]
 		},
@@ -228,7 +228,7 @@ VIS"},
 				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : ""},
 				{"element" : "Administration Site", "data" : ""},
-				{"element" : "Entering Organization", "data" : "West Clinic"},
+				{"element" : "Entering Organization", "data" : "NISTEHRFacility"},
 				{"element" : "Entered By", "data" : "Lily Jackson"},
 				{"element" : "Ordered By", "data" : ""},		]
 

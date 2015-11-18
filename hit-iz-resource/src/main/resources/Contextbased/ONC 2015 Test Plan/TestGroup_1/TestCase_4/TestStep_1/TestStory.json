@@ -1,9 +1,9 @@
 {
-  "teststorydesc" : "After administering an HPV vaccination to the 11.5 year old female Katherine Benton the clinician, Lily Jackson (ID 7824) realizes that the vaccination was documented on the incorrect patient chart. She deletes the vaccination from the patient chart and transmits the change to the IIS.",
+  "teststorydesc" : "After administering an HPV vaccination to the eleven and a half year old female Katherine Benton the clinician, Lily Jackson (ID 7824) realizes that the vaccination was documented on the incorrect patient chart. She deletes the vaccination from the patient chart and transmits the change to the IIS.",
   "comments" : "No Comments\r\n",
-  "preCondition" : "No PreCondition\r\n",
+  "preCondition" : "The IZ-AD-3.1_Send_V04_Z22 test step has been successfully completed.\r\n",
   "postCondition" : "No PostCondition\r\n",
-  "testObjectives" : "No Test Objectives\r\n",
-  "evaluationCriteria" : "No evaluation criteria\r\n",
+  "testObjectives" : "Support for sending delete requests.<br>",
+  "evaluationCriteria" : "Message Validation Report\r\n",
   "notes" : "No Note\r\n"
 }

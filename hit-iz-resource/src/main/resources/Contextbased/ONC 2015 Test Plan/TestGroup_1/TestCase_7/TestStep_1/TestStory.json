@@ -1,9 +1,9 @@
 {
-  "teststorydesc" : "A 66 year old female, Helen Barrett, comes to the West Clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that she received a Zoster vaccination at a local pharmacy on her 65th birthday. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.",
+  "teststorydesc" : "A 66 year old female, Helen Barrett, comes to a clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that she received a Zoster vaccination at a local pharmacy on her 65th birthday. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.",
   "comments" : "No Comments",
   "preCondition" : "No PreCondition",
   "postCondition" : "No PostCondition",
-  "testObjectives" : "No Test Objectives",
-  "evaluationCriteria" : "No evaluation criteria",
-  "notes" : "No Note"
+  "testObjectives" : "Support for Sending Responsible Organization (MSH-22) and Receiving Responsible Organization (MSH-23).<br>",
+  "evaluationCriteria" : "Message Validation Report.<br>",
+  "notes" : "Tester should refer to the Message Content tab for expected elements needed to be valued in MSH-22 and MSH-23. Examples values are provided.<br>"
 }
