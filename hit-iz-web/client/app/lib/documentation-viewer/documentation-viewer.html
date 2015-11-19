@@ -22,6 +22,21 @@
         <br />
         <br />
 
+        <accordion-group  panel-class="panel-info" is-open="status.resourceDocs">
+            <accordion-heading>
+                <i class="fa" ng-class="{'fa-caret-down': status.resourceDocs, 'fa-caret-right': !status.resourceDocs}"></i> Resource Documentation
+            </accordion-heading>
+
+            <div resource-doc type="PROFILE" ></div>
+            <div resource-doc type="TABLE" ></div>
+            <div resource-doc type="CONSTRAINT" ></div>
+
+        </accordion-group>
+
+        <br />
+        <br />
+
+
 
         <accordion-group heading="Tool Releases" panel-class="panel-info" is-open="status.releases">
             <accordion-heading>

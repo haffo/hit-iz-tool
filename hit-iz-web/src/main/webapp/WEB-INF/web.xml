@@ -10,9 +10,20 @@
 		<param-name>webAppRootKey</param-name>
 		<param-value>iztool</param-value>
 	</context-param>
+
 	<error-page>
-		<location>/error.html</location>
+		<error-code>404</error-code>
+		<location>/nf.html</location>
 	</error-page>
+	<error-page>
+		<error-code>401</error-code>
+		<location>/ir.html</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/sc.html</location>
+	</error-page>
+
 	<resource-ref>
 		<description>DB Connection</description>
 		<res-ref-name>jdbc/izsuite_jndi</res-ref-name>

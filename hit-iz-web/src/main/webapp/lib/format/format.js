@@ -423,7 +423,7 @@ angular.module('format').factory('ReportServiceClass', function ($http, $q, $fil
         input.value = json;
         form.appendChild(input);
         form.style.display = 'none';
-        document.body.appendChild(form);
+         document.body.appendChild(form);
         form.submit();
     };
 

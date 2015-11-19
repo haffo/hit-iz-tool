@@ -67,9 +67,42 @@
     ]);
 
 
+    mod.directive('resourceDoc', [
+        function () {
+            return {
+                restrict: 'A',
+                scope: {
+                    type: '@'
+                },
+                templateUrl: 'lib/documentation-viewer/resource-doc.html',
+                replace: false,
+                controller: 'ResourceDocsCtrl'
+            };
+        }
+    ]);
+
+
+
     mod
         .controller('DocumentationCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout) {
             $scope.status = {userDoc: true};
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+
+            $scope.downloadDocument = function (path) {
+                if (path != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadDocument";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "path";
+                    input.value = path;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            }
 
         }]);
 
@@ -79,6 +112,7 @@
             $scope.docs = [];
             $scope.loading = true;
             $scope.error = null;
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
 
             var loader = new UserDocListLoader();
             loader.then(function (result) {
@@ -108,6 +142,22 @@
                     document.body.appendChild(form);
                     form.submit();
                 }
+            };
+
+            $scope.gotToDoc = function (path) {
+                if (path != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadDocument";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "path";
+                    input.value = path;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
             }
 
         }]);
@@ -118,6 +168,8 @@
             $scope.docs = [];
             $scope.loading = false;
             $scope.error = null;
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+
             var loader = new ReleaseNoteListLoader();
             loader.then(function (result) {
                 $scope.loading = false;
@@ -143,6 +195,8 @@
                     form.submit();
                 }
             }
+
+
         }]);
 
 
@@ -151,6 +205,8 @@
             $scope.docs = [];
             $scope.loading = false;
             $scope.error = null;
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+
             var loader = new KnownIssueListLoader();
             loader.then(function (result) {
                 $scope.loading = false;
@@ -179,12 +235,67 @@
 
         }]);
 
+    mod
+        .controller('ResourceDocsCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'ResourceDocListLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, ResourceDocListLoader) {
+            $scope.data = null;
+            $scope.loading = false;
+            $scope.error = null;
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+
+            if ($scope.type != null && $scope.type != '') {
+                $scope.loading = true;
+                var listLoader = new ResourceDocListLoader($scope.type);
+                listLoader.then(function (result) {
+                    $scope.error = null;
+                    $scope.data = result;
+                    $scope.loading = false;
+                }, function (error) {
+                    $scope.loading = false;
+                    $scope.error = "Sorry, failed to load the " + $scope.type.toLowerCase() + "s";
+                });
+            }
+
+            $scope.downloadResourceDocs = function () {
+                if ($scope.type != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadResourceDocs";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "type";
+                    input.value = $scope.type;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            };
+
+            $scope.downloadDocument = function (path) {
+                if (path != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadDocument";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "path";
+                    input.value = path;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            }
+
+        }]);
+
 
     mod
         .controller('TestCaseDocumentationCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'TestCaseDocumentationLoader', 'ngTreetableParams', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, TestCaseDocumentationLoader, ngTreetableParams) {
             $scope.context = null;
             $scope.data = null;
             $scope.loading = false;
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
             $scope.error = null;
             var testCaseLoader = new TestCaseDocumentationLoader();
             $scope.error = null;
@@ -194,9 +305,11 @@
                 var tcLoader = testCaseLoader.getOneByStage($scope.stage);
                 tcLoader.then(function (data) {
                     $scope.error = null;
-                    $scope.context = data;
-                    $scope.data = angular.fromJson($scope.context.json);
-                    $scope.params.refresh();
+                    if(data != null) {
+                        $scope.context = data;
+                        $scope.data = angular.fromJson($scope.context.json);
+                        $scope.params.refresh();
+                    }
                     $scope.loading = false;
                 }, function (error) {
                     $scope.loading = false;
@@ -309,6 +422,22 @@
                     form.appendChild(input);
 
 
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            };
+
+            $scope.downloadDocument = function (path) {
+                if (path != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadDocument";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "path";
+                    input.value = path;
+                    form.appendChild(input);
                     form.style.display = 'none';
                     document.body.appendChild(form);
                     form.submit();
@@ -949,6 +1078,26 @@
             };
         }
     ]);
+
+
+    mod.factory('ResourceDocListLoader', ['$q', '$http', 'StorageService', '$timeout',
+        function ($q, $http, StorageService, $timeout) {
+            return function (type) {
+                var delay = $q.defer();
+                $http.get('api/documentation/resourcedocs', {params: {"type": type}, timeout: 60000}).then(
+                    function (object) {
+                        delay.resolve(angular.fromJson(object.data));
+                    },
+                    function (response) {
+                        delay.reject(response.data);
+                    }
+                );
+                return delay.promise;
+            };
+        }
+    ]);
+
+
 
 
 }).call(this);

@@ -17,6 +17,11 @@
     <meta name="description" content="NIST Immunization Tool">
     <meta name="author" content="NIST">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <style>
+        [ng\: cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+                          display: none !important;
+                      }
+    </style>
     <meta name="viewport" content="width=device-width">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -212,6 +217,11 @@
     <div ng-include="'lib/dqa/dqa.html'"></div>
     <div ng-include="'lib/vocab-search/valueset-found-modal.html'"></div>
     <div ng-include="'lib/settings/settings.html'"></div>
+
+    <!--<input style="display:none" name="_csrf" ng-value="{{appInfo.csrfValue}}"/>-->
+    <!--<input style="display:none" name="_csrf_header" ng-value="{{appInfo.csrfHeaderName}}"/>-->
+    <!--<input style="display:none" name="_csrf_header" ng-value="{{appInfo.csrfHeaderName}}"/>-->
+
 
     <script>
 //        $(document).ready(function() {

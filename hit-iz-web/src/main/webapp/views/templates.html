@@ -239,52 +239,75 @@
     </div>
 </script>
 
+
 <script type="text/ng-template" id="VersionChangeCtrl.html">
-    <div class="modal-header">
-                <span style="font-weight: bold; font-size: 20px">
-                    Server Data has Changed
-                </span>
-                <span class="pull-right">
-                    <button class="btn btn-primary btn-sm" ng-click="close()"><i class="fa fa-times"></i></button>
-                </span>
-    </div>
     <div class="modal-body">
-         The data has changed on the server. Please <a ng-click="refresh()">click here to refresh</a> your application.
+        <div ng-include="'sc.html'"></div>
+        <br />
+        <br />
+
+
+        <div style="text-align:center">
+            <a ng-click="close()" type="button"
+               title="Cancel" class="point">
+                <i class="fa fa-refresh"></i>
+                Refresh
+            </a>
+        </div>
+
     </div>
 </script>
 
 
-<script type="text/ng-template" id="SettingsCtrl.html">
-    <div class="modal-header">
-                <span style="font-weight: bold; font-size: 20px">
-                    User Preferences
-                </span>
-                <span class="pull-right">
-                     <a ng-click="close()"> <i class="fa fa-times"></i></a>
-                </span>
-    </div>
+<script type="text/ng-template" id="InvalidReqCtrl.html">
     <div class="modal-body">
-        <div class="validation-result-info-content">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-info">
-                        <!-- Default panel contents -->
-                        <div class="panel-heading"><i class="fa fa-cog"></i> Validation Preferences
-                        </div>
-                        <div class="panel-body">
+        <div ng-include="'ir.html'"></div>
 
+        <br />
+        <br />
 
-
-
-
-
-                        </div>
-                    </div>
-                </div>
-
-               </div>
-
-
+        <div style="text-align:center">
+            <a ng-click="close()" type="button"
+               title="Cancel" class="point">
+                <i class="fa fa-times"></i>
+                Close
+            </a>
         </div>
+
+    </div>
+</script>
+
+<script type="text/ng-template" id="ErrorCtrl.html">
+    <div class="modal-body">
+        <div ng-include="'down.html'"></div>
+
+        <br />
+        <br />
+
+        <div style="text-align:center">
+            <a ng-click="close()" type="button"
+               title="Cancel" class="point">
+                <i class="fa fa-times"></i>
+                Close
+            </a>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="NotFoundCtrl.html">
+    <div class="modal-body">
+        <div ng-include="'nf.html'"></div>
+
+        <br />
+        <br />
+
+        <div style="text-align:center">
+            <a ng-click="close()" type="button"
+                    title="Cancel" class="point">
+                <i class="fa fa-times"></i>
+                Close
+            </a>
+        </div>
+
     </div>
 </script>
