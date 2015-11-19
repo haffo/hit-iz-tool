@@ -11,7 +11,7 @@
                 scope: {
                     type: '@'
                 },
-                templateUrl: 'lib/vocab-search/vocab-search.html',
+                templateUrl: 'VocabSearch.html',
                 replace: false,
                 controller: 'VocabSearchCtrl'
             };

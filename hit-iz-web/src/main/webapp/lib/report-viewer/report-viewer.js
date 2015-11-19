@@ -13,7 +13,7 @@
                     type: '@',
                     format: '='
                 },
-                templateUrl: 'lib/report-viewer/report-viewer.html',
+                templateUrl: 'ReportViewer.html',
                 replace: false,
                 controller: 'ReportViewerCtrl'
             };

@@ -7,7 +7,7 @@
         '$timeout', function ($timeout) {
             return {
                 restrict: 'E',
-                 templateUrl: 'lib/angular-bootstrap-nav-tree/abn_tree_template.html',
+                 templateUrl: 'angularBootstrapNavTree.html',
                  replace: true,
                 scope: {
                     onSelect: '&',

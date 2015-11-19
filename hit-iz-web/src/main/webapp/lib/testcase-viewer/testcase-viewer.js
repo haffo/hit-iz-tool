@@ -13,7 +13,7 @@
                 scope: {
                     type: '@'
                 },
-                templateUrl: 'lib/testcase-viewer/testcase-viewer.html',
+                templateUrl: 'TestCaseViewer.html',
                 controller: 'TestCaseViewerCtrl'
             };
         }

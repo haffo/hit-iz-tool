@@ -7,7 +7,7 @@
         '$timeout', function ($timeout, $rootScope) {
             return {
                 restrict: 'E',
-                templateUrl: 'lib/testcase-tree/testcase-tree.html',
+                templateUrl: 'TestCaseTree.html',
                 replace: true,
                 scope: {
                     onSelect: '&',

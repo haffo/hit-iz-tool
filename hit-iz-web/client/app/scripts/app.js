@@ -136,6 +136,7 @@ app.factory('ErrorInterceptor', function ($q, $rootScope, $location, StorageServ
             //$location.path("/a");
 //            $location.url("/ir.html");
 //            $window.location="/ir.html";
+             response.data = "Invalid Application State";
              $rootScope.openVersionChangeDlg();
         } else if (response.status === 401) {
 //            $location.path("/b");
@@ -495,12 +496,11 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
         });
     };
 
-    $rootScope.$on('$routeChangeStart', function(event, next, current) {
-        if (typeof(current) !== 'undefined'){
-            $templateCache.remove(current.templateUrl);
-        }
-    });
-
+//    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+//        if (typeof(current) !== 'undefined'){
+//            $templateCache.remove(current.templateUrl);
+//        }
+//    });
 });
 
 
@@ -598,16 +598,7 @@ angular.module('commonServices').factory('Clock', function ($interval) {
 angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function ($http, $q) {
     return function () {
         var delay = $q.defer();
-        $http.get('api/appInfo').then(
-            function (object) {
-                delay.resolve(angular.fromJson(object.data));
-            },
-            function (response) {
-                delay.reject(response.data);
-            }
-        );
-//
-//        $http.get('../../resources/appInfo.json').then(
+//        $http.get('api/appInfo').then(
 //            function (object) {
 //                delay.resolve(angular.fromJson(object.data));
 //            },
@@ -615,6 +606,15 @@ angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function 
 //                delay.reject(response.data);
 //            }
 //        );
+//
+        $http.get('../../resources/appInfo.json').then(
+            function (object) {
+                delay.resolve(angular.fromJson(object.data));
+            },
+            function (response) {
+                delay.reject(response.data);
+            }
+        );
 
         return delay.promise;
     };

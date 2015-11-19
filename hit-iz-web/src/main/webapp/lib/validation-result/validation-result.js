@@ -19,7 +19,7 @@
                     cursor: '=',
                     format: '='
                 },
-                templateUrl: 'lib/validation-result/validation-result.html',
+                templateUrl: 'ValidationResult.html',
                 replace: false,
                 controller: 'ValidationResultCtrl'
             };
@@ -31,7 +31,7 @@
         function () {
             return {
                 restrict: 'A',
-                templateUrl: 'lib/validation-result/validation-result-table.html',
+                templateUrl: 'ValidationResultTable.html',
                 replace: false
             };
         }

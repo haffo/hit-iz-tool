@@ -1923,13 +1923,14 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
 
 
 #error {
+//  padding: 30px 10px;
   font-size: 20px;
   line-height: 1.4;
   color: #737373;
   background: #f0f0f0;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-   margin: 0 auto;
+  margin: 0 auto;
 }
 #error > h1 {
   margin: 0 10px;
@@ -1944,6 +1945,8 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
 
 #error > p {
   margin: 1em 0;
+  text-align: center;
+
 }
 
 #error  > ul {
@@ -1951,9 +1954,15 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
   margin: 1em 0;
 }
 
+
 .error-modal .modal-dialog {
   width: 50%;
   height: 50%;
 }
 
 
+.dqa-modal-content {
+  max-height: 700px !important;
+  width: 100% !important;
+  overflow: auto;
+}
