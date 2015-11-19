@@ -32,7 +32,7 @@
 		</Message>
 	</Messages>
 	<Segments>
-		<Segment ID="MSH_IZ32" Name="MSH" Description="Message Header">
+		<Segment ID="MSH_IZ32" Label="MSH_IZ32" Name="MSH" Description="Message Header">
 			<Field Name="Field Separator" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="1" ItemNo="00001"/>
 			<Field Name="Encoding Characters" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="4" MaxLength="4" ItemNo="00002"/>
 			<Field Name="Sending Application" Usage="RE" Min="0" Max="1" Datatype="HD_IZ" MinLength="1" MaxLength="227" Binding="HL70361_IZ" BindingStrength="R" BindingLocation="1" ItemNo="00003"/>
@@ -57,7 +57,7 @@
 			<Field Name="Sending Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" BindingStrength="R" BindingLocation="1"/>
 			<Field Name="Receiving Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" BindingStrength="R" BindingLocation="1"/>
 		</Segment>
-		<Segment ID="SFT" Name="SFT" Description="Software Segment">
+		<Segment ID="SFT" Label="SFT" Name="SFT" Description="Software Segment">
 			<Field Name="Software Vendor Organization" Usage="R" Min="1" Max="1" Datatype="XON" MinLength="1" MaxLength="567" ItemNo="01834"/>
 			<Field Name="Software Certified Version or Release Number" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="15" ItemNo="01835"/>
 			<Field Name="Software Product Name" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="01836"/>
@@ -65,7 +65,7 @@
 			<Field Name="Software Product Information" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="1024" ItemNo="01838"/>
 			<Field Name="Software Install Date" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="01839"/>
 		</Segment>
-		<Segment ID="MSA_IZ1_5" Name="MSA" Description="Message Acknowledgment">
+		<Segment ID="MSA_IZ1_5" Label="MSA_IZ1_5" Name="MSA" Description="Message Acknowledgment">
 			<Field Name="Acknowledgment Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="2" MaxLength="2" Binding="HL70008_IZ" BindingStrength="R" ItemNo="00018"/>
 			<Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="199" ItemNo="00010"/>
 			<Field Name="Text Message" Usage="X" Min="0" Max="0" Datatype="ST" MinLength="1" MaxLength="80" ItemNo="00020"/>
@@ -73,7 +73,7 @@
 			<Field Name="Delayed Acknowledgment Type" Usage="X" Min="0" Max="0" Datatype="NUL" MinLength="1" MaxLength="1" ItemNo="00022"/>
 			<Field Name="Error Condition" Usage="X" Min="0" Max="0" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00023"/>
 		</Segment>
-		<Segment ID="ERR_IZ_1_5" Name="ERR" Description="Error">
+		<Segment ID="ERR_IZ_1_5" Label="ERR_IZ_1_5" Name="ERR" Description="Error">
 			<Field Name="Error Code and Location" Usage="X" Min="0" Max="0" Datatype="ELD" MinLength="1" MaxLength="493" ItemNo="00024"/>
 			<Field Name="Error Location" Usage="RE" Min="0" Max="1" Datatype="ERL_IZ" MinLength="1" MaxLength="18" ItemNo="01812"/>
 			<Field Name="HL7 Error Code" Usage="R" Min="1" Max="1" Datatype="CWE_IZ" MinLength="1" MaxLength="705" Binding="HL70357_IZ" BindingStrength="R" BindingLocation="1" ItemNo="01813"/>
@@ -87,7 +87,7 @@
 			<Field Name="Override Reason Code" Usage="O" Min="0" Max="*" Datatype="CWE" MinLength="1" MaxLength="705" Binding="0519" BindingStrength="R" BindingLocation="1" ItemNo="01821"/>
 			<Field Name="Help Desk Contact Point" Usage="O" Min="0" Max="*" Datatype="XTN" MinLength="1" MaxLength="652" ItemNo="01822"/>
 		</Segment>
-		<Segment ID="QAK_IZ1_5" Name="QAK" Description="Query Acknowledgment">
+		<Segment ID="QAK_IZ1_5" Label="QAK_IZ1_5" Name="QAK" Description="Query Acknowledgment">
 			<Field Name="Query Tag" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="32" ItemNo="00696"/>
 			<Field Name="Query Response Status" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70208_IZ" BindingStrength="R" ItemNo="00708"/>
 			<Field Name="Message Query Name" Usage="R" Min="1" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" ItemNo="01375"/>
@@ -95,7 +95,7 @@
 			<Field Name="This payload" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="10" ItemNo="01622"/>
 			<Field Name="Hits remaining" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="10" ItemNo="01623"/>
 		</Segment>
-		<Segment ID="QPD_IZ1_5" Name="QPD" Description="Query Parameter Definition">
+		<Segment ID="QPD_IZ1_5" Label="QPD_IZ1_5" Name="QPD" Description="Query Parameter Definition">
 			<Field Name="Message Query Name" Usage="R" Min="1" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="HL70471_IZ" BindingStrength="R" BindingLocation="1" ItemNo="01375"/>
 			<Field Name="Query Tag" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="32" ItemNo="00696"/>
 			<Field Name="PatientList" Usage="RE" Min="0" Max="*" Datatype="CX_IZ" MinLength="1" MaxLength="*"/>
@@ -110,7 +110,7 @@
 			<Field Name="Client last updated date" Usage="O" Min="0" Max="1" Datatype="TS_NZ" MinLength="1" MaxLength="*"/>
 			<Field Name="Client last updated facility" Usage="O" Min="0" Max="1" Datatype="HD_IZ" MinLength="1" MaxLength="*"/>
 		</Segment>
-		<Segment ID="PID_IZ 1_5_IZ_Z32_281" Name="PID" Description="Patient Identification">
+		<Segment ID="PID_IZ 1_5_IZ_Z32_281" Label="PID_IZ 1_5_IZ_Z32_281" Name="PID" Description="Patient Identification">
 			<Field Name="Set ID - PID" Usage="R" Min="1" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00104"/>
 			<Field Name="Patient ID" Usage="X" Min="0" Max="0" Datatype="CX" MinLength="1" MaxLength="20" ItemNo="00105"/>
 			<Field Name="Patient Identifier List" Usage="R" Min="1" Max="*" Datatype="CX_IZ" MinLength="1" MaxLength="250" ItemNo="00106"/>
@@ -151,7 +151,7 @@
 			<Field Name="Production Class Code" Usage="O" Min="0" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="0429" BindingStrength="R" BindingLocation="1" ItemNo="01542"/>
 			<Field Name="Tribal Citizenship" Usage="O" Min="0" Max="*" Datatype="CWE_IZ" MinLength="1" MaxLength="250" Binding="0171" BindingStrength="R" BindingLocation="1" ItemNo="01840"/>
 		</Segment>
-		<Segment ID="PD1_IZ 1_5_IZ_Z32_63" Name="PD1" Description="Patient Additional Demographic">
+		<Segment ID="PD1_IZ 1_5_IZ_Z32_63" Label="PD1_IZ 1_5_IZ_Z32_63" Name="PD1" Description="Patient Additional Demographic">
 			<Field Name="Living Dependency" Usage="O" Min="0" Max="*" Datatype="IS" MinLength="1" MaxLength="2" Binding="0223" BindingStrength="R" ItemNo="00755"/>
 			<Field Name="Living Arrangement" Usage="O" Min="0" Max="1" Datatype="IS" MinLength="1" MaxLength="2" Binding="0220" BindingStrength="R" ItemNo="00742"/>
 			<Field Name="Patient Primary Facility" Usage="O" Min="0" Max="*" Datatype="XON_IZ" MinLength="1" MaxLength="250" ItemNo="00756"/>
@@ -174,7 +174,7 @@
 			<Field Name="Military Rank/Grade" Usage="O" Min="0" Max="1" Datatype="IS" MinLength="1" MaxLength="2" Binding="0141" BindingStrength="R" ItemNo="00486"/>
 			<Field Name="Military Status" Usage="O" Min="0" Max="1" Datatype="IS" MinLength="1" MaxLength="3" Binding="0142" BindingStrength="R" ItemNo="01573"/>
 		</Segment>
-		<Segment ID="NK1_IZ 1_5_IZ_Z32_235" Name="NK1" Description="Next of Kin / Associated Parties">
+		<Segment ID="NK1_IZ 1_5_IZ_Z32_235" Label="NK1_IZ 1_5_IZ_Z32_235" Name="NK1" Description="Next of Kin / Associated Parties">
 			<Field Name="Set ID - NK1" Usage="R" Min="1" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00190"/>
 			<Field Name="Name" Usage="R" Min="1" Max="*" Datatype="XPN_IZ" MinLength="1" MaxLength="250" ItemNo="00191"/>
 			<Field Name="Relationship" Usage="R" Min="1" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="HL70063_IZ" BindingStrength="R" BindingLocation="1" ItemNo="00192"/>
@@ -215,7 +215,7 @@
 			<Field Name="Next of Kin Birth Place" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="250" ItemNo="01905"/>
 			<Field Name="VIP Indicator" Usage="O" Min="0" Max="1" Datatype="IS" MinLength="1" MaxLength="2" Binding="0099" BindingStrength="R" ItemNo="00146"/>
 		</Segment>
-		<Segment ID="PV1_IZ_1_5" Name="PV1" Description="Patient Visit">
+		<Segment ID="PV1_IZ_1_5" Label="PV1_IZ_1_5" Name="PV1" Description="Patient Visit">
 			<Field Name="Set ID - PV1" Usage="O" Min="0" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00131"/>
 			<Field Name="Patient Class" Usage="R" Min="1" Max="1" Datatype="IS" MinLength="1" MaxLength="1" Binding="0004" BindingStrength="R" ItemNo="00132"/>
 			<Field Name="Assigned Patient Location" Usage="O" Min="0" Max="1" Datatype="PL" MinLength="1" MaxLength="80" ItemNo="00133"/>
@@ -269,7 +269,7 @@
 			<Field Name="Visit Indicator" Usage="O" Min="0" Max="1" Datatype="IS" MinLength="1" MaxLength="1" Binding="0326" BindingStrength="R" ItemNo="01226"/>
 			<Field Name="Other Healthcare Provider" Usage="X" Min="0" Max="0" Datatype="XCN_IZ" MinLength="1" MaxLength="250" Binding="0010" BindingStrength="R" BindingLocation="1" ItemNo="01274"/>
 		</Segment>
-		<Segment ID="IN1_IZ 1_5_IZ_Z32_132" Name="IN1" Description="Insurance">
+		<Segment ID="IN1_IZ 1_5_IZ_Z32_132" Label="IN1_IZ 1_5_IZ_Z32_132" Name="IN1" Description="Insurance">
 			<Field Name="Set ID - IN1" Usage="R" Min="1" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00426"/>
 			<Field Name="Insurance Plan ID" Usage="R" Min="1" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="0072" BindingStrength="R" BindingLocation="1" ItemNo="00368"/>
 			<Field Name="Insurance Company ID" Usage="R" Min="1" Max="1" Datatype="CX_IZ" MinLength="1" MaxLength="250" ItemNo="00428"/>
@@ -324,7 +324,7 @@
 			<Field Name="Insured's Birth Place" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="250" ItemNo="01899"/>
 			<Field Name="VIP Indicator" Usage="O" Min="0" Max="1" Datatype="IS" MinLength="1" MaxLength="2" Binding="0099" BindingStrength="R" ItemNo="01852"/>
 		</Segment>
-		<Segment ID="ORC_IZ 1_5" Name="ORC" Description="Common Order">
+		<Segment ID="ORC_IZ 1_5" Label="ORC_IZ 1_5" Name="ORC" Description="Common Order">
 			<Field Name="Order Control" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70119_IZ" BindingStrength="R" ItemNo="00215"/>
 			<Field Name="Placer Order Number" Usage="RE" Min="0" Max="1" Datatype="EI_IZ" MinLength="1" MaxLength="22" ItemNo="00216"/>
 			<Field Name="Filler Order Number" Usage="R" Min="1" Max="1" Datatype="EI_IZ" MinLength="1" MaxLength="22" ItemNo="00217"/>
@@ -357,7 +357,7 @@
 			<Field Name="Enterer Authorization Mode" Usage="O" Min="0" Max="1" Datatype="CNE" MinLength="1" MaxLength="250" Binding="0483" BindingStrength="R" BindingLocation="1" ItemNo="01644"/>
 			<Field Name="Parent Universal Service Identifier" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="250" ItemNo="02286"/>
 		</Segment>
-		<Segment ID="RXA_IZ 1_5" Name="RXA" Description="Pharmacy/Treatment Administration">
+		<Segment ID="RXA_IZ 1_5" Label="RXA_IZ 1_5" Name="RXA" Description="Pharmacy/Treatment Administration">
 			<Field Name="Give Sub-ID Counter" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="1" ItemNo="00342"/>
 			<Field Name="Administration Sub-ID Counter" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="1" ItemNo="00344"/>
 			<Field Name="Date/Time Start of Administration" Usage="R" Min="1" Max="1" Datatype="TS_NZ" MinLength="1" MaxLength="26" ItemNo="00345"/>
@@ -385,7 +385,7 @@
 			<Field Name="Administered Barcode Identifier" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="60" ItemNo="01698"/>
 			<Field Name="Pharmacy Order Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0480" BindingStrength="R" ItemNo="01699"/>
 		</Segment>
-		<Segment ID="RXR_IZ 1_5" Name="RXR" Description="Pharmacy/Treatment Route">
+		<Segment ID="RXR_IZ 1_5" Label="RXR_IZ 1_5" Name="RXR" Description="Pharmacy/Treatment Route">
 			<Field Name="Route" Usage="R" Min="1" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="NCIT" BindingStrength="R" BindingLocation="1" ItemNo="00309"/>
 			<Field Name="Administration Site" Usage="RE" Min="0" Max="1" Datatype="CWE_IZ" MinLength="1" MaxLength="250" Binding="HL70163_IZ" BindingStrength="R" BindingLocation="1" ItemNo="00310"/>
 			<Field Name="Administration Device" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0164" BindingStrength="R" BindingLocation="1" ItemNo="00311"/>
@@ -393,7 +393,7 @@
 			<Field Name="Routing Instruction" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="01315"/>
 			<Field Name="Administration Site Modifier" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="250" Binding="0495" BindingStrength="R" BindingLocation="1" ItemNo="01670"/>
 		</Segment>
-		<Segment ID="OBX_IZ 1_5" Name="OBX" Description="Observation/Result">
+		<Segment ID="OBX_IZ 1_5" Label="OBX_IZ 1_5" Name="OBX" Description="Observation/Result">
 			<DynamicMapping>
 				<Mapping Position="5" Reference="2">
 					<Case Value="NM" Datatype="NM"/>
@@ -427,23 +427,23 @@
 			<Field Name="Performing Organization Address" Usage="O" Min="0" Max="1" Datatype="XAD_IZ" MinLength="1" MaxLength="631" ItemNo="02284"/>
 			<Field Name="Performing Organization Medical Director" Usage="O" Min="0" Max="1" Datatype="XCN_IZ" MinLength="1" MaxLength="3002" ItemNo="02285"/>
 		</Segment>
-		<Segment ID="NTE_IZ 1_5" Name="NTE" Description="Notes and Comments">
+		<Segment ID="NTE_IZ 1_5" Label="NTE_IZ 1_5" Name="NTE" Description="Notes and Comments">
 			<Field Name="Set ID - NTE" Usage="O" Min="0" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00096"/>
 			<Field Name="Source of Comment" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="8" Binding="0105" BindingStrength="R" ItemNo="00097"/>
 			<Field Name="Comment" Usage="R" Min="1" Max="1" Datatype="FT" MinLength="1" MaxLength="65333" ItemNo="00098"/>
 			<Field Name="Comment Type" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0364" BindingStrength="R" BindingLocation="1" ItemNo="01318"/>
 		</Segment>
-		<Segment ID="DSC" Name="DSC" Description="Continuation Pointer">
+		<Segment ID="DSC" Label="DSC" Name="DSC" Description="Continuation Pointer">
 			<Field Name="Continuation Pointer" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="180" ItemNo="00014"/>
 			<Field Name="Continuation Style" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0398" BindingStrength="R" ItemNo="01354"/>
 		</Segment>
 	</Segments>
 	<Datatypes>
-		<Datatype ID="TS_Z" Name="TS" Description="Time Stamp">
+		<Datatype ID="TS_Z" Label="TS_Z" Name="TS" Description="Time Stamp">
 			<Component Name="Time" Usage="R" Datatype="DTM" MinLength="1" MaxLength="24"/>
 			<Component Name="Degree of Precision" Usage="X" Datatype="ID" MinLength="1" MaxLength="1" Binding="0529" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="XCN_IZ" Name="XCN" Description="Extended Composite ID Number and Name for Persons">
+		<Datatype ID="XCN_IZ" Label="XCN_IZ" Name="XCN" Description="Extended Composite ID Number and Name for Persons">
 			<Component Name="ID Number" Usage="C" Datatype="ST" MinLength="1" MaxLength="15"/>
 			<Component Name="Family Name" Usage="RE" Datatype="FN" MinLength="1" MaxLength="194"/>
 			<Component Name="Given Name" Usage="RE" Datatype="ST" MinLength="1" MaxLength="30"/>
@@ -468,7 +468,7 @@
 			<Component Name="Assigning Jurisdiction" Usage="O" Datatype="CWE" MinLength="1" MaxLength="705"/>
 			<Component Name="Assigning Agency or Department" Usage="O" Datatype="CWE" MinLength="1" MaxLength="705"/>
 		</Datatype>
-		<Datatype ID="LA2_IZ" Name="LA2" Description="Location with Address Variation 2">
+		<Datatype ID="LA2_IZ" Label="LA2_IZ" Name="LA2" Description="Location with Address Variation 2">
 			<Component Name="Point of Care" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0302" BindingStrength="R"/>
 			<Component Name="Room" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0303" BindingStrength="R"/>
 			<Component Name="Bed" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0304" BindingStrength="R"/>
@@ -486,12 +486,12 @@
 			<Component Name="Address Type" Usage="O" Datatype="ID" MinLength="1" MaxLength="3" Binding="0190" BindingStrength="R"/>
 			<Component Name="Other Geographic Designation" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
 		</Datatype>
-		<Datatype ID="VID_IZ" Name="VID" Description="Version Identifier">
+		<Datatype ID="VID_IZ" Label="VID_IZ" Name="VID" Description="Version Identifier">
 			<Component Name="Version ID" Usage="R" Datatype="ID" MinLength="5" MaxLength="5" Binding="HL70104_IZ" BindingStrength="R"/>
 			<Component Name="Internationalization Code" Usage="O" Datatype="CE" MinLength="1" MaxLength="483" Binding="0399" BindingStrength="R" BindingLocation="1"/>
 			<Component Name="International Version ID" Usage="O" Datatype="CE" MinLength="1" MaxLength="483"/>
 		</Datatype>
-		<Datatype ID="CWE_IZ" Name="CWE" Description="Coded with Exceptions">
+		<Datatype ID="CWE_IZ" Label="CWE_IZ" Name="CWE" Description="Coded with Exceptions">
 			<Component Name="Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Name of Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
@@ -502,11 +502,11 @@
 			<Component Name="Alternate Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
 			<Component Name="Original Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 		</Datatype>
-		<Datatype ID="TS_M" Name="TS" Description="Time Stamp">
+		<Datatype ID="TS_M" Label="TS_M" Name="TS" Description="Time Stamp">
 			<Component Name="Time" Usage="R" Datatype="DTM" MinLength="1" MaxLength="24"/>
 			<Component Name="Degree of Precision" Usage="X" Datatype="ID" MinLength="1" MaxLength="1" Binding="0529" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="ERL_IZ" Name="ERL" Description="Error Location">
+		<Datatype ID="ERL_IZ" Label="ERL_IZ" Name="ERL" Description="Error Location">
 			<Component Name="Segment ID" Usage="R" Datatype="ST" MinLength="3" MaxLength="3"/>
 			<Component Name="Segment Sequence" Usage="R" Datatype="NM" MinLength="1" MaxLength="2"/>
 			<Component Name="Field Position" Usage="C" Datatype="NM" MinLength="1" MaxLength="2"/>
@@ -514,26 +514,26 @@
 			<Component Name="Component Number" Usage="C" Datatype="NM" MinLength="1" MaxLength="2"/>
 			<Component Name="Sub-Component Number" Usage="RE" Datatype="NM" MinLength="1" MaxLength="2"/>
 		</Datatype>
-		<Datatype ID="EI_IZ" Name="EI" Description="Entity Identifier">
+		<Datatype ID="EI_IZ" Label="EI_IZ" Name="EI" Description="Entity Identifier">
 			<Component Name="Entity Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Namespace ID" Usage="C" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70363_IZ" BindingStrength="R"/>
 			<Component Name="Universal ID" Usage="C" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Universal ID Type" Usage="C" Datatype="ID" MinLength="1" MaxLength="6" Binding="HL70301_IZ" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="DR_IZ" Name="DR" Description="Date/Time Range">
+		<Datatype ID="DR_IZ" Label="DR_IZ" Name="DR" Description="Date/Time Range">
 			<Component Name="Range Start Date/Time" Usage="O" Datatype="DTM" MinLength="1" MaxLength="26"/>
 			<Component Name="Range End Date/Time" Usage="O" Datatype="DTM" MinLength="1" MaxLength="26"/>
 		</Datatype>
-		<Datatype ID="MSG_IZ_RSP" Name="MSG" Description="Message Type">
+		<Datatype ID="MSG_IZ_RSP" Label="MSG_IZ_RSP" Name="MSG" Description="Message Type">
 			<Component Name="Message Code" Usage="R" Datatype="ID" MinLength="3" MaxLength="3" Binding="HL70076_IZ" BindingStrength="R"/>
 			<Component Name="Trigger Event" Usage="R" Datatype="ID" MinLength="3" MaxLength="3" Binding="HL70003_IZ" BindingStrength="R"/>
 			<Component Name="Message Structure" Usage="R" Datatype="ID" MinLength="3" MaxLength="7" Binding="HL70354_IZ" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="TS_NZ" Name="TS" Description="Time Stamp">
+		<Datatype ID="TS_NZ" Label="TS_NZ" Name="TS" Description="Time Stamp">
 			<Component Name="Time" Usage="R" Datatype="DTM" MinLength="1" MaxLength="24"/>
 			<Component Name="Degree of Precision" Usage="X" Datatype="ID" MinLength="1" MaxLength="1" Binding="0529" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="XAD_IZ" Name="XAD" Description="Extended Address">
+		<Datatype ID="XAD_IZ" Label="XAD_IZ" Name="XAD" Description="Extended Address">
 			<Component Name="Street Address" Usage="RE" Datatype="SAD_IZ" MinLength="1" MaxLength="184"/>
 			<Component Name="Other Designation" Usage="RE" Datatype="ST" MinLength="1" MaxLength="120"/>
 			<Component Name="City" Usage="RE" Datatype="ST" MinLength="1" MaxLength="50"/>
@@ -549,7 +549,7 @@
 			<Component Name="Effective Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 			<Component Name="Expiration Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 		</Datatype>
-		<Datatype ID="XPN_M" Name="XPN" Description="Extended Person Name">
+		<Datatype ID="XPN_M" Label="XPN_M" Name="XPN" Description="Extended Person Name">
 			<Component Name="Family Name" Usage="R" Datatype="FN" MinLength="1" MaxLength="194"/>
 			<Component Name="Given Name" Usage="O" Datatype="ST" MinLength="1" MaxLength="30"/>
 			<Component Name="Second and Further Given Names or Initials Thereof" Usage="RE" Datatype="ST" MinLength="1" MaxLength="30"/>
@@ -565,12 +565,12 @@
 			<Component Name="Expiration Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 			<Component Name="Professional Suffix" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 		</Datatype>
-		<Datatype ID="HD_IZ" Name="HD" Description="Hierarchic Designator">
+		<Datatype ID="HD_IZ" Label="HD_IZ" Name="HD" Description="Hierarchic Designator">
 			<Component Name="Namespace ID" Usage="C" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70363_IZ" BindingStrength="R"/>
 			<Component Name="Universal ID" Usage="C" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Universal ID Type" Usage="C" Datatype="ID" MinLength="1" MaxLength="6" Binding="HL70301_IZ" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="XTN_IZ" Name="XTN" Description="Extended Telecommunication Number">
+		<Datatype ID="XTN_IZ" Label="XTN_IZ" Name="XTN" Description="Extended Telecommunication Number">
 			<Component Name="Telephone Number" Usage="X" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Telecommunication Use Code" Usage="R" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70201_IZ" BindingStrength="R"/>
 			<Component Name="Telecommunication Equipment Type" Usage="RE" Datatype="ID" MinLength="1" MaxLength="8" Binding="HL70202_IZ" BindingStrength="R"/>
@@ -584,7 +584,7 @@
 			<Component Name="Speed Dial Code" Usage="O" Datatype="ST" MinLength="1" MaxLength="6"/>
 			<Component Name="Unformatted Telephone number" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 		</Datatype>
-		<Datatype ID="CX_IZ" Name="CX" Description="Extended Composite ID with Check Digit">
+		<Datatype ID="CX_IZ" Label="CX_IZ" Name="CX" Description="Extended Composite ID with Check Digit">
 			<Component Name="ID Number" Usage="R" Datatype="ST" MinLength="1" MaxLength="15"/>
 			<Component Name="Check Digit" Usage="O" Datatype="ST" MinLength="1" MaxLength="1"/>
 			<Component Name="Check Digit Scheme" Usage="C" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70061_IZ" BindingStrength="R"/>
@@ -596,11 +596,11 @@
 			<Component Name="Assigning Jurisdiction" Usage="O" Datatype="CWE" MinLength="1" MaxLength="705"/>
 			<Component Name="Assigning Agency or Department" Usage="O" Datatype="CWE" MinLength="1" MaxLength="705"/>
 		</Datatype>
-		<Datatype ID="PT_IZ" Name="PT" Description="Processing Type">
+		<Datatype ID="PT_IZ" Label="PT_IZ" Name="PT" Description="Processing Type">
 			<Component Name="Processing ID" Usage="R" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70103_IZ" BindingStrength="R"/>
 			<Component Name="Processing Mode" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="0207" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="XPN_IZ" Name="XPN" Description="Extended Person Name">
+		<Datatype ID="XPN_IZ" Label="XPN_IZ" Name="XPN" Description="Extended Person Name">
 			<Component Name="Family Name" Usage="R" Datatype="FN" MinLength="1" MaxLength="194"/>
 			<Component Name="Given Name" Usage="R" Datatype="ST" MinLength="1" MaxLength="30"/>
 			<Component Name="Second and Further Given Names or Initials Thereof" Usage="RE" Datatype="ST" MinLength="1" MaxLength="30"/>
@@ -616,11 +616,11 @@
 			<Component Name="Expiration Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 			<Component Name="Professional Suffix" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 		</Datatype>
-		<Datatype ID="CQ_ST" Name="CQ" Description="Composite Quantity with Units">
+		<Datatype ID="CQ_ST" Label="CQ_ST" Name="CQ" Description="Composite Quantity with Units">
 			<Component Name="Quantity" Usage="O" Datatype="NM" MinLength="1" MaxLength="16"/>
 			<Component Name="Units" Usage="O" Datatype="ST" MinLength="1" MaxLength="483" Binding="HL70126_IZ" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="CE_IZ" Name="CE" Description="Coded Element">
+		<Datatype ID="CE_IZ" Label="CE_IZ" Name="CE" Description="Coded Element">
 			<Component Name="Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="50"/>
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Name of Coding System" Usage="R" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
@@ -628,7 +628,7 @@
 			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999" Hide="true"/>
 			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R" Hide="true"/>
 		</Datatype>
-		<Datatype ID="TQ" Name="TQ" Description="Timing Quantity">
+		<Datatype ID="TQ" Label="TQ" Name="TQ" Description="Timing Quantity">
 			<Component Name="Quantity" Usage="O" Datatype="CQ_ST" MinLength="1" MaxLength="267"/>
 			<Component Name="Interval" Usage="O" Datatype="RI" MinLength="1" MaxLength="206"/>
 			<Component Name="Duration" Usage="O" Datatype="ST" MinLength="1" MaxLength="6"/>
@@ -642,7 +642,7 @@
 			<Component Name="Occurrence Duration" Usage="O" Datatype="CE" MinLength="1" MaxLength="483"/>
 			<Component Name="Total Occurrences" Usage="O" Datatype="NM" MinLength="1" MaxLength="4"/>
 		</Datatype>
-		<Datatype ID="XON_IZ" Name="XON" Description="Extended Composite Name and Identification Number for Organizations">
+		<Datatype ID="XON_IZ" Label="XON_IZ" Name="XON" Description="Extended Composite Name and Identification Number for Organizations">
 			<Component Name="Organization Name" Usage="RE" Datatype="ST" MinLength="1" MaxLength="50"/>
 			<Component Name="Organization Name Type Code" Usage="O" Datatype="IS" MinLength="1" MaxLength="20"/>
 			<Component Name="ID Number" Usage="X" Datatype="NM" MinLength="1" MaxLength="4"/>
@@ -654,32 +654,32 @@
 			<Component Name="Name Representation Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="1"/>
 			<Component Name="Organization Identifier" Usage="C" Datatype="ST" MinLength="1" MaxLength="20"/>
 		</Datatype>
-		<Datatype ID="RI" Name="RI" Description="Repeat Interval">
+		<Datatype ID="RI" Label="RI" Name="RI" Description="Repeat Interval">
 			<Component Name="Repeat Pattern" Usage="O" Datatype="IS" MinLength="1" MaxLength="6" Binding="0335" BindingStrength="R"/>
 			<Component Name="Explicit Time Interval" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 		</Datatype>
-		<Datatype ID="DT" Name="DT" Description="Date"/>
-		<Datatype ID="AUI" Name="AUI" Description="Authorization Information">
+		<Datatype ID="DT" Label="DT" Name="DT" Description="Date"/>
+		<Datatype ID="AUI" Label="AUI" Name="AUI" Description="Authorization Information">
 			<Component Name="Authorization Number" Usage="O" Datatype="ST" MinLength="1" MaxLength="30"/>
 			<Component Name="Date" Usage="O" Datatype="DT" MinLength="1" MaxLength="8"/>
 			<Component Name="Source" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 		</Datatype>
-		<Datatype ID="DR" Name="DR" Description="Date/Time Range">
+		<Datatype ID="DR" Label="DR" Name="DR" Description="Date/Time Range">
 			<Component Name="Range Start Date/Time" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 			<Component Name="Range End Date/Time" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 		</Datatype>
-		<Datatype ID="ID" Name="ID" Description="String Data"/>
-		<Datatype ID="SAD" Name="SAD" Description="Street Address">
+		<Datatype ID="ID" Label="ID" Name="ID" Description="String Data"/>
+		<Datatype ID="SAD" Label="SAD" Name="SAD" Description="Street Address">
 			<Component Name="Street or Mailing Address" Usage="O" Datatype="ST" MinLength="1" MaxLength="120"/>
 			<Component Name="Street Name" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
 			<Component Name="Dwelling Number" Usage="O" Datatype="ST" MinLength="1" MaxLength="12"/>
 		</Datatype>
-		<Datatype ID="SAD_IZ" Name="SAD" Description="Street Address">
+		<Datatype ID="SAD_IZ" Label="SAD_IZ" Name="SAD" Description="Street Address">
 			<Component Name="Street or Mailing Address" Usage="R" Datatype="ST" MinLength="1" MaxLength="120"/>
 			<Component Name="Street Name" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
 			<Component Name="Dwelling Number" Usage="O" Datatype="ST" MinLength="1" MaxLength="12"/>
 		</Datatype>
-		<Datatype ID="XTN" Name="XTN" Description="Extended Telecommunication Number">
+		<Datatype ID="XTN" Label="XTN" Name="XTN" Description="Extended Telecommunication Number">
 			<Component Name="Telephone Number" Usage="X" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Telecommunication Use Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="3" Binding="0201" BindingStrength="R"/>
 			<Component Name="Telecommunication Equipment Type" Usage="O" Datatype="ID" MinLength="1" MaxLength="8" Binding="0202" BindingStrength="R"/>
@@ -693,12 +693,12 @@
 			<Component Name="Speed Dial Code" Usage="O" Datatype="ST" MinLength="1" MaxLength="6"/>
 			<Component Name="Unformatted Telephone number" Usage="C" Datatype="ST" MinLength="1" MaxLength="199"/>
 		</Datatype>
-		<Datatype ID="DTM" Name="DTM" Description="Date/Time"/>
-		<Datatype ID="FC" Name="FC" Description="Financial Class">
+		<Datatype ID="DTM" Label="DTM" Name="DTM" Description="Date/Time"/>
+		<Datatype ID="FC" Label="FC" Name="FC" Description="Financial Class">
 			<Component Name="Financial Class Code" Usage="R" Datatype="IS" MinLength="1" MaxLength="20" Binding="0064" BindingStrength="R"/>
 			<Component Name="Effective Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 		</Datatype>
-		<Datatype ID="CWE" Name="CWE" Description="Coded with Exceptions">
+		<Datatype ID="CWE" Label="CWE" Name="CWE" Description="Coded with Exceptions">
 			<Component Name="Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
 			<Component Name="Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Name of Coding System" Usage="O" Datatype="ID" MinLength="1" MaxLength="20" Binding="0396" BindingStrength="R"/>
@@ -709,24 +709,24 @@
 			<Component Name="Alternate Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
 			<Component Name="Original Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 		</Datatype>
-		<Datatype ID="IS" Name="IS" Description="String Data"/>
-		<Datatype ID="MO" Name="MO" Description="Money">
+		<Datatype ID="IS" Label="IS" Name="IS" Description="String Data"/>
+		<Datatype ID="MO" Label="MO" Name="MO" Description="Money">
 			<Component Name="Quantity" Usage="O" Datatype="NM" MinLength="1" MaxLength="16"/>
 			<Component Name="Denomination" Usage="O" Datatype="ID" MinLength="1" MaxLength="3"/>
 		</Datatype>
-		<Datatype ID="varies" Name="varies" Description="varies"/>
-		<Datatype ID="ELD" Name="ELD" Description="Error Location and Description">
+		<Datatype ID="varies" Label="varies" Name="varies" Description="varies"/>
+		<Datatype ID="ELD" Label="ELD" Name="ELD" Description="Error Location and Description">
 			<Component Name="Segment ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="3"/>
 			<Component Name="Segment Sequence" Usage="O" Datatype="NM" MinLength="1" MaxLength="2"/>
 			<Component Name="Field Position" Usage="O" Datatype="NM" MinLength="1" MaxLength="2"/>
 			<Component Name="Code Identifying Error" Usage="O" Datatype="CE" MinLength="1" MaxLength="483" Binding="0357" BindingStrength="R" BindingLocation="1"/>
 		</Datatype>
-		<Datatype ID="NM" Name="NM" Description="Numeric"/>
-		<Datatype ID="DLD" Name="DLD" Description="Discharge Location and Date">
+		<Datatype ID="NM" Label="NM" Name="NM" Description="Numeric"/>
+		<Datatype ID="DLD" Label="DLD" Name="DLD" Description="Discharge Location and Date">
 			<Component Name="Discharge Location" Usage="R" Datatype="IS" MinLength="1" MaxLength="20" Binding="0113" BindingStrength="R"/>
 			<Component Name="Effective Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 		</Datatype>
-		<Datatype ID="OSD" Name="OSD" Description="Order Sequence Definition">
+		<Datatype ID="OSD" Label="OSD" Name="OSD" Description="Order Sequence Definition">
 			<Component Name="Sequence/Results Flag" Usage="R" Datatype="ID" MinLength="1" MaxLength="1" Binding="0524" BindingStrength="R"/>
 			<Component Name="Placer Order Number: Entity Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="15"/>
 			<Component Name="Placer Order Number: Namespace ID" Usage="O" Datatype="IS" MinLength="1" MaxLength="6" Binding="0363" BindingStrength="R"/>
@@ -739,14 +739,14 @@
 			<Component Name="Filler Order Number: Universal ID" Usage="R" Datatype="ST" MinLength="1" MaxLength="15"/>
 			<Component Name="Filler Order Number: Universal ID Type" Usage="O" Datatype="ID" MinLength="1" MaxLength="6" Binding="0301" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="TX" Name="TX" Description="Text Data"/>
-		<Datatype ID="EI" Name="EI" Description="Entity Identifier">
+		<Datatype ID="TX" Label="TX" Name="TX" Description="Text Data"/>
+		<Datatype ID="EI" Label="EI" Name="EI" Description="Entity Identifier">
 			<Component Name="Entity Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Namespace ID" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0363" BindingStrength="R"/>
 			<Component Name="Universal ID" Usage="C" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Universal ID Type" Usage="C" Datatype="ID" MinLength="1" MaxLength="6" Binding="0301" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="XON" Name="XON" Description="Extended Composite Name and Identification Number for Organizations">
+		<Datatype ID="XON" Label="XON" Name="XON" Description="Extended Composite Name and Identification Number for Organizations">
 			<Component Name="Organization Name" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
 			<Component Name="Organization Name Type Code" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0204" BindingStrength="R"/>
 			<Component Name="ID Number" Usage="B" Datatype="NM" MinLength="1" MaxLength="4"/>
@@ -758,31 +758,31 @@
 			<Component Name="Name Representation Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="0465" BindingStrength="R"/>
 			<Component Name="Organization Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
 		</Datatype>
-		<Datatype ID="DLN" Name="DLN" Description="Driver's License Number">
+		<Datatype ID="DLN" Label="DLN" Name="DLN" Description="Driver's License Number">
 			<Component Name="License Number" Usage="R" Datatype="ST" MinLength="1" MaxLength="20"/>
 			<Component Name="Issuing State, Province, Country" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0333" BindingStrength="R"/>
 			<Component Name="Expiration Date" Usage="O" Datatype="DT" MinLength="1" MaxLength="24"/>
 		</Datatype>
-		<Datatype ID="TS" Name="TS" Description="Time Stamp">
+		<Datatype ID="TS" Label="TS" Name="TS" Description="Time Stamp">
 			<Component Name="Time" Usage="R" Datatype="DTM" MinLength="1" MaxLength="24"/>
 			<Component Name="Degree of Precision" Usage="B" Datatype="ID" MinLength="1" MaxLength="1" Binding="0529" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="FT" Name="FT" Description="Formatted Text Data"/>
-		<Datatype ID="ST" Name="ST" Description="String Data"/>
-		<Datatype ID="FN" Name="FN" Description="Family Name">
+		<Datatype ID="FT" Label="FT" Name="FT" Description="Formatted Text Data"/>
+		<Datatype ID="ST" Label="ST" Name="ST" Description="String Data"/>
+		<Datatype ID="FN" Label="FN" Name="FN" Description="Family Name">
 			<Component Name="Surname" Usage="R" Datatype="ST" MinLength="1" MaxLength="50"/>
 			<Component Name="Own Surname Prefix" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
 			<Component Name="Own Surname" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
 			<Component Name="Surname Prefix From Partner/Spouse" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
 			<Component Name="Surname From Partner/Spouse" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
 		</Datatype>
-		<Datatype ID="NUL" Name="NUL" Description="#FIXME#"/>
-		<Datatype ID="HD" Name="HD" Description="Hierarchic Designator">
+		<Datatype ID="NUL" Label="NUL" Name="NUL" Description="#FIXME#"/>
+		<Datatype ID="HD" Label="HD" Name="HD" Description="Hierarchic Designator">
 			<Component Name="Namespace ID" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0300" BindingStrength="R"/>
 			<Component Name="Universal ID" Usage="C" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Universal ID Type" Usage="C" Datatype="ID" MinLength="1" MaxLength="6" Binding="0301" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="CX" Name="CX" Description="Extended Composite ID with Check Digit">
+		<Datatype ID="CX" Label="CX" Name="CX" Description="Extended Composite ID with Check Digit">
 			<Component Name="ID Number" Usage="R" Datatype="ST" MinLength="1" MaxLength="15"/>
 			<Component Name="Check Digit" Usage="O" Datatype="ST" MinLength="1" MaxLength="1"/>
 			<Component Name="Check Digit Scheme" Usage="O" Datatype="ID" MinLength="1" MaxLength="3" Binding="0061" BindingStrength="R"/>
@@ -794,17 +794,17 @@
 			<Component Name="Assigning Jurisdiction" Usage="O" Datatype="CWE" MinLength="1" MaxLength="705"/>
 			<Component Name="Assigning Agency or Department" Usage="O" Datatype="CWE" MinLength="1" MaxLength="705"/>
 		</Datatype>
-		<Datatype ID="JCC" Name="JCC" Description="Job Code/Class">
+		<Datatype ID="JCC" Label="JCC" Name="JCC" Description="Job Code/Class">
 			<Component Name="Job Code" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0327" BindingStrength="R"/>
 			<Component Name="Job Class" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0328" BindingStrength="R"/>
 			<Component Name="Job Description Text" Usage="O" Datatype="TX" MinLength="1" MaxLength="250"/>
 		</Datatype>
-		<Datatype ID="EIP" Name="EIP" Description="Entity Identifier Pair">
+		<Datatype ID="EIP" Label="EIP" Name="EIP" Description="Entity Identifier Pair">
 			<Component Name="Placer Assigned Identifier" Usage="O" Datatype="EI" MinLength="1" MaxLength="427"/>
 			<Component Name="Filler Assigned Identifier" Usage="O" Datatype="EI" MinLength="1" MaxLength="427"/>
 		</Datatype>
-		<Datatype ID="SI" Name="SI" Description="Sequence ID"/>
-		<Datatype ID="PL" Name="PL" Description="Person Location">
+		<Datatype ID="SI" Label="SI" Name="SI" Description="Sequence ID"/>
+		<Datatype ID="PL" Label="PL" Name="PL" Description="Person Location">
 			<Component Name="Point of Care" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0302" BindingStrength="R"/>
 			<Component Name="Room" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0303" BindingStrength="R"/>
 			<Component Name="Bed" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0304" BindingStrength="R"/>
@@ -817,7 +817,7 @@
 			<Component Name="Comprehensive Location Identifier" Usage="O" Datatype="EI" MinLength="1" MaxLength="427"/>
 			<Component Name="Assigning Authority for Location" Usage="O" Datatype="HD" MinLength="1" MaxLength="227"/>
 		</Datatype>
-		<Datatype ID="CNE" Name="CNE" Description="Coded with No Exceptions">
+		<Datatype ID="CNE" Label="CNE" Name="CNE" Description="Coded with No Exceptions">
 			<Component Name="Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="20"/>
 			<Component Name="Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Name of Coding System" Usage="O" Datatype="ID" MinLength="1" MaxLength="20" Binding="0396" BindingStrength="R"/>
@@ -828,7 +828,7 @@
 			<Component Name="Alternate Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
 			<Component Name="Original Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 		</Datatype>
-		<Datatype ID="CE" Name="CE" Description="Coded Element">
+		<Datatype ID="CE" Label="CE" Name="CE" Description="Coded Element">
 			<Component Name="Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
 			<Component Name="Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Name of Coding System" Usage="O" Datatype="ID" MinLength="1" MaxLength="20" Binding="0396" BindingStrength="R"/>
@@ -836,7 +836,7 @@
 			<Component Name="Alternate Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 			<Component Name="Name of Alternate Coding System" Usage="O" Datatype="ID" MinLength="1" MaxLength="20" Binding="0396" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="CP" Name="CP" Description="Composite Price">
+		<Datatype ID="CP" Label="CP" Name="CP" Description="Composite Price">
 			<Component Name="Price" Usage="R" Datatype="MO" MinLength="1" MaxLength="20"/>
 			<Component Name="Price Type" Usage="O" Datatype="ID" MinLength="1" MaxLength="2" Binding="0205" BindingStrength="R"/>
 			<Component Name="From Value" Usage="O" Datatype="NM" MinLength="1" MaxLength="16"/>
@@ -844,6 +844,6 @@
 			<Component Name="Range Units" Usage="O" Datatype="CE" MinLength="1" MaxLength="483"/>
 			<Component Name="Range Type" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="0298" BindingStrength="R"/>
 		</Datatype>
-		<Datatype ID="DT_D" Name="DT" Description="Date"/>
+		<Datatype ID="DT_D" Label="DT_D" Name="DT" Description="Date"/>
 	</Datatypes>
 </ConformanceProfile>

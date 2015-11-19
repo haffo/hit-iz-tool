@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quick Test Case Reference Guide</title>
+
+<style>
+h1 {
+	color: #000099;
+	text-align: center;
+	font-family: "Cambria";
+}
+
+h2 {
+	color: #0066ff;
+	font-family: "Cambria";
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+   border: 1px solid black;
+}
+
+th {
+    text-align: center;
+}
+
+p {
+	font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+	<h1>Quick Test Case Reference Guide</h1>
+	<h1>ONC 2015 Test Plan</h1>
+
+	<h2>Test Case Group: Administration Group</h2>
+<div style="language:en-US;margin-top:0pt;margin-bottom:0pt;margin-left:.31in;
+text-indent:-.31in;text-align:left;direction:ltr;unicode-bidi:embed;mso-line-break-override:
+none;word-break:normal;punctuation-wrap:hanging"><span style="font-size:18.0pt"><span style="mso-special-format:bullet;color:#0070C0;font-family:Wingdings"></span></span><!--[if gte mso 9]><xml>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG></o:AllowPNG>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+
+<p class="MsoNormal"><font size="2"><span style="font-weight: bold;"><span style="font-family:" arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman";mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:="" dark1;mso-font-kerning:12.0pt"="">The administration group is design to test:</span></span></font></p><p class="MsoNormal"><font size="2"><span style="font-weight: bold;"><span style="font-family:" arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman";mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:="" dark1;mso-font-kerning:12.0pt"=""></span></span></font>(1) the creation of a broad scope of immunization messages including support for new and historical administrations, refusals, combination vaccines, patient consent and various observations including VIS and VFC.<br></p><font size="2"><span style="font-size:11.0pt;
+font-family:" arial",sans-serif;mso-fareast-font-family:"times="" new="" roman";="" mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:dark1;="" mso-font-kerning:12.0pt"=""><font size="2"><span style="font-family:"></span></font></span></font><p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal"><font size="2"><span style="font-family:" arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman";mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:="" dark1;mso-font-kerning:12.0pt"="">(2) the receipt and handling of various acknowledgement messages including application accept,
+application error, and application warning.</span><span style="font-family:" arial",sans-serif;="" mso-fareast-font-family:"times="" new="" roman""=""></span></font></p><font size="2">
+
+
+
+</font><p class="MsoNormal"><font size="2"><span style="font-weight: bold;"><span style="font-family:" arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman";mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:="" dark1;mso-font-kerning:12.0pt"="">Test Cases consists of 2 steps:</span></span></font></p><font size="2">
+
+</font><p class="MsoNormal"><font size="2"><span style="font-family:" arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman";mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:="" dark1;mso-font-kerning:12.0pt"="">(1) creating immunization messages based on
+the Immunization Messaging Standard (Z22 Profile) and specific Test Data, and </span><span style="font-family:" arial",sans-serif;color:#0070c0"=""></span></font></p><font size="2">
+
+</font><p class="MsoNormal"><font size="2"><span style="font-family:" arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman";mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:="" dark1;mso-font-kerning:12.0pt"="">(2) receiving acknowledgment messages based on
+the Immunization Messaging Standard (Z23 Profile).</span></font><span style="font-family:" arial",sans-serif;color:#0070c0"=""></span></p>
+
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves></w:TrackMoves>
+  <w:TrackFormatting></w:TrackFormatting>
+  <w:PunctuationKerning></w:PunctuationKerning>
+  <w:ValidateAgainstSchemas></w:ValidateAgainstSchemas>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF></w:DoNotPromoteQF>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables></w:BreakWrappedTables>
+   <w:SnapToGridInCell></w:SnapToGridInCell>
+   <w:WrapTextWithPunct></w:WrapTextWithPunct>
+   <w:UseAsianBreakRules></w:UseAsianBreakRules>
+   <w:DontGrowAutofit></w:DontGrowAutofit>
+   <w:SplitPgBreakAndParaMark></w:SplitPgBreakAndParaMark>
+   <w:EnableOpenTypeKerning></w:EnableOpenTypeKerning>
+   <w:DontFlipMirrorIndents></w:DontFlipMirrorIndents>
+   <w:OverrideTableStyleHps></w:OverrideTableStyleHps>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"></m:mathFont>
+   <m:brkBin m:val="before"></m:brkBin>
+   <m:brkBinSub m:val="--"></m:brkBinSub>
+   <m:smallFrac m:val="off"></m:smallFrac>
+   <m:dispDef></m:dispDef>
+   <m:lMargin m:val="0"></m:lMargin>
+   <m:rMargin m:val="0"></m:rMargin>
+   <m:defJc m:val="centerGroup"></m:defJc>
+   <m:wrapIndent m:val="1440"></m:wrapIndent>
+   <m:intLim m:val="subSup"></m:intLim>
+   <m:naryLim m:val="undOvr"></m:naryLim>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="371">
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 7"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 8"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 9"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 6"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 7"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 8"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 9"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 7"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 8"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 9"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Indent"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="header"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footer"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index heading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="caption"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of figures"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope address"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope return"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote reference"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation reference"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="line number"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="page number"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote reference"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of authorities"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="macro"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="toa heading"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Closing"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Signature"></w:LsdException>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Default Paragraph Font"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Message Header"></w:LsdException>
+  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Salutation"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Date"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Note Heading"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Block Text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hyperlink"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="FollowedHyperlink"></w:LsdException>
+  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"></w:LsdException>
+  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Document Map"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Plain Text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="E-mail Signature"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Top of Form"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Bottom of Form"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal (Web)"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Acronym"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Address"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Cite"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Code"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Definition"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Keyboard"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Preformatted"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Sample"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Typewriter"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Variable"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Table"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation subject"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="No List"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 6"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 7"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 8"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 6"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 7"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 8"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Contemporary"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Elegant"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Professional"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Balloon Text"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" Name="Table Grid"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Theme"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"></w:LsdException>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"></w:LsdException>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"></w:LsdException>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"></w:LsdException>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"></w:LsdException>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"></w:LsdException>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"></w:LsdException>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"></w:LsdException>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"></w:LsdException>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 6"></w:LsdException>
+ </w:LatentStyles>
+</xml><![endif]--><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin-top:0in;
+	mso-para-margin-right:0in;
+	mso-para-margin-bottom:8.0pt;
+	mso-para-margin-left:0in;
+	line-height:107%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;}
+</style>
+<![endif]--></div>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-AD-1_Admin_Chlid</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>A child (infant) is seen at a clinic. Historical vaccinations are recorded and new vaccines are administered and documented.</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-AD-1.1_Send_V04_Z22</th>
+<td><p>Description:</p>A two month old male infant, Russell Clinton Richardson, is brought to a clinic for a well child visit by his mother Maria Elizabeth Richardson (nee Billington) and his father John William Richardson. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child previously received Hepatitis B vaccine 1 day after birth and 1 month after birth. The staff member determines that the patient needs DTaP, Hib, IPV, Rotavirus and Pneumococcal vaccinations. Because of the patient's status of Native American, he qualifies for all Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - American Indian/Alaska Native. The parents are given 5 Vaccine Information Sheets (VIS) to review. After reading them, they agree that the child should receive all the vaccinations recommended. They also agree that the data should be shared once it is incorporated into the local IIS. Appropriate doses of DTaP/Hib/IPV (Pentacel), Rotavirus (RotaTeq) and Pneumococcal (Prevnar 13) are selected from the clinic's stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>No Test Objectives</td>
+</tr>
+<tr>
+<th>IZ-AD-1.2_Receive_ACK_Z23</th>
+<td><p>Description:</p> The IIS returns a positive acknowledgement message indicating that no errors were found during the course of filing the message.<br/><p>Test Objectives:</p>No Test Objectives</td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-AD-2_Admin_Adult</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>An adult is seen at a clinic. Historical vaccinations are recorded and new vaccines are administered and documented.</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-AD-2.1_Send_V04_Z22</th>
+<td><p>Description:</p>A 32 year old female, Elise Wong, visits a clinic for a well woman visit. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that Elise has received her influenza vaccinations on 10/12/2014 and 11/12/2013, but is in need of a tetanus booster. Because of the patient's age she does not qualify for Vaccine For Children (VFC) supplied vaccine. Elise is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, she agrees to receive the recommended vaccination. She also agrees that the data should be shared once it is incorporated into the local IIS. An appropriate dose of Tdap (TENIVAC) is selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p></td>
+</tr>
+<tr>
+<th>IZ-AD-2.2_Receive_ACK_Z23</th>
+<td><p>Description:</p> The IIS returns a positive acknowledgement message indicating that no errors were found during the course of filing the message.<br/><p>Test Objectives:</p><br></td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-AD-3_No_Consent</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>A child is seen at a clinic. A new vaccine is administered and documented but the information is not to shared by the IIS.</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-AD-3.1_Send_V04_Z22</th>
+<td><p>Description:</p>An eleven and a half year old female, Katherine Mackenzie Benton, is brought to a clinic for a third and final dose of HPV vaccine. She is accompanied by her mother Kari Michelle Benton (nee Jones). A clinic staff member collects basic patient demographic information including name, date of birth and sex. The mother is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, the mother agrees that the child should receive the HPV vaccine, but she chooses not to share the data once it is incorporated into the local IIS. A clinic provider, Wilma Thomas (physician ID 654) places an order for the vaccination. While the patient is covered by insurance, the plan does not cover this vaccination and she qualifies for Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - Underinsured. An appropriate dose of HPV (CERVARIX) is selected from the clinic's stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the dose to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support for no consent given<br>Support for a full middle name<br></td>
+</tr>
+<tr>
+<th>IZ-AD-3.2_Receive_ACK_Z23</th>
+<td><p>Description:</p>The IIS returns a positive acknowledgement message indicating that no errors were found during the course of filing the message.<br/><p>Test Objectives:</p><br></td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-AD-4_Delete_Record</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>A child is seen at a clinic. A previously documented vaccination is deleted due to user error.</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-AD-4.1_Send_V04_Z22</th>
+<td><p>Description:</p>After administering an HPV vaccination to the eleven and a half year old female Katherine Benton the clinician, Lily Jackson (ID 7824) realizes that the vaccination was documented on the incorrect patient chart. She deletes the vaccination from the patient chart and transmits the change to the IIS.<br/><p>Test Objectives:</p>Support for sending delete requests.<br></td>
+</tr>
+<tr>
+<th>IZ-AD-4.2_Receive_ACK_Z23</th>
+<td><p>Description:</p> The IIS returns a positive acknowledgement message indicating that no errors were found during the course of filing the message.<br/><p>Test Objectives:</p><br></td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-AD-5_Refusal</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>The second child of a set of twins is seen at a clinic. A new vaccinations are administered but an additional one is refused by the parents.</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-AD-5.1_Send_V04_Z22</th>
+<td><p>Description:</p>A 1 year old male, Tyler Owen Banks, is brought to a clinic for a well child visit. He is accompanied by his father Karl Leonard Banks. Tyler's twin brother, born 5 minutes before Tyler, was not able to make it to the clinic. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Joe Smith (physician ID 123) reviews the patient's vaccination history and determines that the child requires Hib, Hep A, MMR and Varicella vaccinations. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The father is given the appropriate Vaccine Information Sheets (VIS) to review. After reading them, the father agrees that the child should receive the Hib, Hep A and MMR vaccines but refuses the Varicella vaccine. He also agrees that the data should be shared once it is incorporated into the local IIS. Appropriate doses of Hib (HIBERIX), Hep A (VAQTA) and MMR (M-M-R II) are selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 456) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p><br></td>
+</tr>
+<tr>
+<th>IZ-AD-5.2_Recieve_ACK_Z23</th>
+<td><p>Description:</p> The IIS returns a positive acknowledgement message indicating that no errors were found during the course of filing the message.<br/><p>Test Objectives:</p><br></td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-AD-6_Update_Record</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>A child is seen at a clinic. A previously documented vaccination is updated to correct inaccurate information..</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-AD-6.1_Send_V04_Z22</th>
+<td><p>Description:</p>After document vaccinations for Tyler Owen Banks the clinician, Lily Jackson (ID 456) recognizes that an error was made during data entry for the Hepatitis A vaccine. The Lot Number was entered incorrectly. She updates the data in the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support for sending an update request.<br></td>
+</tr>
+<tr>
+<th>IZ-AD-6.2_Receive_ACK_Z23</th>
+<td><p>Description:</p> The IIS returns a positive acknowledgement message indicating that no errors were found during the course of filing the message.<br><br/><p>Test Objectives:</p><br></td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-AD-7_Historical_IIS-Error</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>A patient is seen at a clinic. A historical vaccination is recorded but the IIS is unable to process the administration message, rejects it and returns a fatal error in the acknowledgement message.</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-AD-7.1_Send_V04_Z22</th>
+<td><p>Description:</p>A 66 year old female, Helen Barrett, comes to a clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that she received a Zoster vaccination at a local pharmacy on her 65th birthday. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support for Sending Responsible Organization (MSH-22) and Receiving Responsible Organization (MSH-23).<br></td>
+</tr>
+<tr>
+<th>IZ-AD-7.2_Receive_ACK_Z23</th>
+<td><p>Description:</p> The IIS has a mapping error in their CVX table and is unable to recognize the CVX code sent in RXA-5 even though it is valid. The IIS is unable to identify the appropriate vaccine, which is a required element, and rejects the message. The acknowledgement message returned contains errors for the table mapping, missing required field (RXA-5) and missing required segment (RXA).<br/><p>Test Objectives:</p><br></td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-AD-8_Admin_IIS-Warning</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>A patient is seen at a clinic. A new administration is recorded. The IIS is able to process the administration message but finds a soft error (warning) which it returns in the acknowledgement message.</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-AD-8.1_Send_V04_Z22</th>
+<td><p>Description:</p>A 1 month old female, Ashley Jennifer Broadbent, is brought to a clinic for a well child visit by her mother Ellen Broadbent (nee Layton). A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child requires a Hep B vaccination. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The mother is given the Vaccine Information Sheet (VIS) to review. After reading it, she agrees that the child should receive the Hep B vaccine. She also agrees that the data should be shared once it is incorporated into the local IIS. An appropriate dose of Hep B (ENGERIX-B) is selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support of OIDs.<br></td>
+</tr>
+<tr>
+<th>IZ-AD-8.2_Receive_ACK_Z23</th>
+<td><p>Description:</p>A mapping error in the IIS software results in the IIS being unable to recognize the administration site sent in RXR-2 even though it is valid. The acknowledgement message returned contains a warning for an invalid value.<br/><p>Test Objectives:</p><br></td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-AD-9_Admin_IIS-2Warnings</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>A patient is seen at a clinic. A new administration is recorded. The IIS is able to process the administration message but finds multiple soft errors (warnings) which it returns in the acknowledgement message.</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-AD-9.1_Send_V04_Z22</th>
+<td><p>Description:</p>A 4 year old female, Lacy Wells, is brought to a clinic for a well child visit by her guardian Janelle Trudeau. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child requires DTaP, polio, MMR and varicella vaccinations. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The guardian is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, she agrees that the child should receive all the vaccines. She also agrees that the data should be shared once it is incorporated into the local IIS. Appropriate doses of DTap-IPV (KINRIX) and MMRV (ProQuad) are selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p><br></td>
+</tr>
+<tr>
+<th>IZ-AD-9.2_Receive_ACK_Z23</th>
+<td><p>Description:</p>A mapping error in the IIS software results in the IIS being unable to recognize either administration site sent in RXR-2 even though it is valid. The acknowledgement message returned contains warnings for the invalid values.<br/><p>Test Objectives:</p>Handling of an ACK message returned by the IIS with multiple warnings.<br></td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-AD-10_Historical_IIS-SysError</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>A patient is seen at a clinic. A historical vaccination is recorded but the IIS is unable to process the administration message, rejects it and returns a fatal error in the acknowledgement message.</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-AD-10.1_Send_V04_Z22</th>
+<td><p>Description:</p>A 68 year old male, Manuel Diego Vasquez, comes to a clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that he received a pneumococcal vaccination at a local pharmacy on October 21, 2014. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p><br></td>
+</tr>
+<tr>
+<th>IZ-AD-10.2_Receive_ACK_Z23</th>
+<td><p>Description:</p>Due to an error in the IIS software, the IIS is unable to recognize the HL7 version ID sent in MSH-12 even though it is valid. The acknowledgement message returned contains an error for an unsupported version ID.<br/><p>Test Objectives:</p><br></td>
+</tr>
+</table>
+<br/>
+<h2>Test Case Group: Evaluated History and Forecast Group</h2>
+<span style="font-size:10.0pt;
+line-height:107%;font-family:"><span style="font-weight: bold;">Test the EHR-S
+capability to:<br></span></span>This set of tests evaluates the EHR-S's ability to create well-formed queries and gracefully accept the response messages. It evaluates that the clinician is shown the results of the query. The possibilities include: <span style="font-size:10.0pt;
+font-family:"><span style="font-size:10.0pt;
+font-family:"></span>(1) evaluated history and forecast (2) too many patients
+found, or (3) no patients found. A juror document (inspection check list) is
+provided that indicates the content that is expected to be displayed.</span><br><span style="font-size:10.0pt;
+font-family:" arial="" narrow",sans-serif;mso-fareast-font-family:"times="" new="" roman";="" mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:arial;color:black;="" mso-themecolor:dark1;mso-font-kerning:12.0pt"=""></span><span style="font-size:10.0pt;font-family:" arial="" narrow",sans-serif;mso-bidi-font-family:="" arial"=""></span><span style="font-size:10.0pt;
+font-family:" arial="" narrow",sans-serif;mso-fareast-font-family:"times="" new="" roman";="" mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:arial;color:black;="" mso-themecolor:dark1;mso-font-kerning:12.0pt"=""></span>
+
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves></w:TrackMoves>
+  <w:TrackFormatting></w:TrackFormatting>
+  <w:PunctuationKerning></w:PunctuationKerning>
+  <w:ValidateAgainstSchemas></w:ValidateAgainstSchemas>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF></w:DoNotPromoteQF>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables></w:BreakWrappedTables>
+   <w:SnapToGridInCell></w:SnapToGridInCell>
+   <w:WrapTextWithPunct></w:WrapTextWithPunct>
+   <w:UseAsianBreakRules></w:UseAsianBreakRules>
+   <w:DontGrowAutofit></w:DontGrowAutofit>
+   <w:SplitPgBreakAndParaMark></w:SplitPgBreakAndParaMark>
+   <w:EnableOpenTypeKerning></w:EnableOpenTypeKerning>
+   <w:DontFlipMirrorIndents></w:DontFlipMirrorIndents>
+   <w:OverrideTableStyleHps></w:OverrideTableStyleHps>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"></m:mathFont>
+   <m:brkBin m:val="before"></m:brkBin>
+   <m:brkBinSub m:val="--"></m:brkBinSub>
+   <m:smallFrac m:val="off"></m:smallFrac>
+   <m:dispDef></m:dispDef>
+   <m:lMargin m:val="0"></m:lMargin>
+   <m:rMargin m:val="0"></m:rMargin>
+   <m:defJc m:val="centerGroup"></m:defJc>
+   <m:wrapIndent m:val="1440"></m:wrapIndent>
+   <m:intLim m:val="subSup"></m:intLim>
+   <m:naryLim m:val="undOvr"></m:naryLim>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="371">
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 7"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 8"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 9"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 6"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 7"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 8"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 9"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 7"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 8"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 9"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Indent"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="header"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footer"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index heading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="caption"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of figures"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope address"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope return"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote reference"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation reference"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="line number"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="page number"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote reference"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of authorities"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="macro"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="toa heading"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Closing"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Signature"></w:LsdException>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Default Paragraph Font"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Message Header"></w:LsdException>
+  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Salutation"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Date"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Note Heading"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Block Text"></w:LsdException>
+  <w:LsdException Locked="false" Priority="0" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Hyperlink"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="FollowedHyperlink"></w:LsdException>
+  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"></w:LsdException>
+  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Document Map"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Plain Text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="E-mail Signature"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Top of Form"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Bottom of Form"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal (Web)"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Acronym"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Address"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Cite"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Code"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Definition"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Keyboard"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Preformatted"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Sample"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Typewriter"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Variable"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Table"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation subject"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="No List"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 6"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 7"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 8"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 6"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 7"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 8"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Contemporary"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Elegant"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Professional"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Balloon Text"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" Name="Table Grid"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Theme"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"></w:LsdException>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"></w:LsdException>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"></w:LsdException>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"></w:LsdException>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"></w:LsdException>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"></w:LsdException>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"></w:LsdException>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"></w:LsdException>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"></w:LsdException>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 6"></w:LsdException>
+ </w:LatentStyles>
+</xml><![endif]--><br><span style="font-size:10.0pt;
+line-height:107%;font-family:" arial="" narrow",sans-serif"=""></span><font size="2"><span style="font-weight: bold;"><span style="font-family:">Test Cases consists of 2 steps:</span></span></font><!--[if gte mso 9]><xml>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG></o:AllowPNG>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+
+<p class="MsoNormal" style="margin-left: 0.3366in;"><span style="font-size:10.0pt;
+line-height:107%;font-family:" arial="" narrow",sans-serif"="">(1) create query
+messages based on Immunization Messaging Standard (Z44 Profile) and specific
+Test Data, and <br></span></p><p class="MsoNormal" style="margin-left: 0.3366in;"><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves></w:TrackMoves>
+  <w:TrackFormatting></w:TrackFormatting>
+  <w:PunctuationKerning></w:PunctuationKerning>
+  <w:ValidateAgainstSchemas></w:ValidateAgainstSchemas>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF></w:DoNotPromoteQF>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables></w:BreakWrappedTables>
+   <w:SnapToGridInCell></w:SnapToGridInCell>
+   <w:WrapTextWithPunct></w:WrapTextWithPunct>
+   <w:UseAsianBreakRules></w:UseAsianBreakRules>
+   <w:DontGrowAutofit></w:DontGrowAutofit>
+   <w:SplitPgBreakAndParaMark></w:SplitPgBreakAndParaMark>
+   <w:EnableOpenTypeKerning></w:EnableOpenTypeKerning>
+   <w:DontFlipMirrorIndents></w:DontFlipMirrorIndents>
+   <w:OverrideTableStyleHps></w:OverrideTableStyleHps>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"></m:mathFont>
+   <m:brkBin m:val="before"></m:brkBin>
+   <m:brkBinSub m:val="--"></m:brkBinSub>
+   <m:smallFrac m:val="off"></m:smallFrac>
+   <m:dispDef></m:dispDef>
+   <m:lMargin m:val="0"></m:lMargin>
+   <m:rMargin m:val="0"></m:rMargin>
+   <m:defJc m:val="centerGroup"></m:defJc>
+   <m:wrapIndent m:val="1440"></m:wrapIndent>
+   <m:intLim m:val="subSup"></m:intLim>
+   <m:naryLim m:val="undOvr"></m:naryLim>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="371">
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 7"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 8"></w:LsdException>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 9"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 6"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 7"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 8"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 9"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 7"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 8"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 9"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Indent"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="header"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footer"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index heading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="caption"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of figures"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope address"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope return"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote reference"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation reference"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="line number"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="page number"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote reference"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of authorities"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="macro"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="toa heading"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Closing"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Signature"></w:LsdException>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Default Paragraph Font"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Message Header"></w:LsdException>
+  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Salutation"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Date"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Note Heading"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Block Text"></w:LsdException>
+  <w:LsdException Locked="false" Priority="0" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Hyperlink"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="FollowedHyperlink"></w:LsdException>
+  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"></w:LsdException>
+  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Document Map"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Plain Text"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="E-mail Signature"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Top of Form"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Bottom of Form"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal (Web)"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Acronym"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Address"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Cite"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Code"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Definition"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Keyboard"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Preformatted"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Sample"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Typewriter"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Variable"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Table"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation subject"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="No List"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 6"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 7"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 8"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 4"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 5"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 6"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 7"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 8"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Contemporary"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Elegant"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Professional"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 2"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 3"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Balloon Text"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" Name="Table Grid"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Theme"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"></w:LsdException>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"></w:LsdException>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"></w:LsdException>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"></w:LsdException>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"></w:LsdException>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"></w:LsdException>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"></w:LsdException>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"></w:LsdException>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"></w:LsdException>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"></w:LsdException>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"></w:LsdException>
+  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 1"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 2"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 3"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 4"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 5"></w:LsdException>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 6"></w:LsdException>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 6"></w:LsdException>
+ </w:LatentStyles>
+</xml><![endif]--><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin-top:0in;
+	mso-para-margin-right:0in;
+	mso-para-margin-bottom:8.0pt;
+	mso-para-margin-left:0in;
+	line-height:107%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;}
+</style>
+<![endif]--><span style="font-size:10.0pt;
+line-height:107%;font-family:"Arial Narrow",sans-serif">(2) receive (Z42
+Profile) messages and display evaluated history and forecast OR receive (Z33
+Profile) and<span style="mso-spacerun:yes">? </span>display too many patients
+found or no patients found.</span>
+
+</p>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-QR-1_Query_Child</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>A male child patient, Bobbie Q. Child, is brought to the clinic for an annual visit. A staff person locates his medical record in the EHR-S. The staff person confirms demographic information, including address. The staff person triggers a request to the IIS for an evaluated history and forecast for the child. The IIS performs a search for Bobbie Q. Child and finds one high-confidence match. The IIS generates an evaluated history and forecast for Bobbie and returns this to the EHR-S. One dose of vaccine was not administrated at the correct age and is marked as not valid. The EHR-S displays the evaluated history and forecast, including the not valid dose.</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-QR-1.1_Query_Q11_Z44</th>
+<td><p>Description:</p>A male child patient, Bobbie Q. Child, is brought to the clinic for an annual visit. A staff person locates his medical record in the EHR-S. The staff person confirms demographic information, including address. The Staff person triggers a request to the IIS for an evaluated history and forecast for the child.<br/><p>Test Objectives:</p>Test the ability of the system to successfully create a query message based on the given test data.</td>
+</tr>
+<tr>
+<th>IZ-QR-1.2_Response_K11_Z42</th>
+<td><p>Description:</p>The IIS performs a search for Bobbie Q. Child and finds one high-confidence match. The IIS generates an evaluated history and forecast for Bobbie and returns this to the EHR-S. One dose of vaccine was not administrated at the correct age and is marked as not valid. The EHR-S displays the evaluated history and forecast, including the not valid dose.<br/><p>Test Objectives:</p>Receive a response message containing the evaluated history and forecast; display evaluated history and forecast.<br></td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-QR-2_Query_Adult</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>Query for an adult using the most significant query parameters. The patient is found in the IIS. A response message is returned with a single immunization event and multiple immunization recommendations.
+<br/>
+An adult male patient, Stanley S. Clement presents to the clinic, seeking an immunization for influenza. A clinic staff member locates his medical record in the electronic health record system. The staff member sees that he has previously had an immunization against influenza. The staff member triggers a request to the IIS to request an evaluated history and forecast for the patient. The IIS performs a search for Stanley S. Clement and finds one high confidence match. The IIS generates an evaluated history and forecast for Mr. Clement and returns this to the EHR-S. The EHR-S displays the evaluated history and forecast to the staff member.</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-QR-2.1_Query_Q11_Z44</th>
+<td><p>Description:</p>An adult male patient, Stanley S. Clement presents to the clinic, seeking an immunization for influenza. A clinic staff member locates his medical record in the electronic health record system. The staff member sees that he has previously had an immunization against influenza. The staff member triggers a request to the IIS to request an evaluated history and forecast for the patient.<br/><p>Test Objectives:</p>Test the ability of the system to successfully create a query message based on the given test data.</td>
+</tr>
+<tr>
+<th>IZ-QR-2.2_Response_K11_Z42</th>
+<td><p>Description:</p>The IIS performs a search for Stanley S. Clement and finds one high confidence match. The IIS generates an evaluated history and forecast for Mr. Clement and returns this to the EHR-S. The EHR-S displays the evaluated history and forecast to the staff member.<br/><p>Test Objectives:</p>Demonstrate the capability to receive a response message containing the evaluated history and forecast; display evaluated history and forecast.</td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-QR-3_Query_No_Patients</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>A female toddler, Donna Victoria Bee, is brought to the local clinic to determine what immunizations have been given and what immunizations are needed. A clinic staff member collects basic patient demographic information including name, date of birth, sex, and birth order (Donna was born 3rd in a triplet). A clinic provider uses this information to locate the patient's medical record. The staff member then uses the medical record and system capabilities to query the IIS to request an evaluated history and forecast for the patient.
+<br>
+<br>The IIS performs a search for Donna Victoria Bee and does not find a high-confidence match. The IIS returns a response message indicating no person found to the querying system. It is expected that the requesting system (e.g., EHR-S) process the response message and display some indication to the end user that no matches were found. 
+
+</td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-QR-3.1_Query_Q11_Z44</th>
+<td><p>Description:</p>A female toddler, Donna Victoria Bee, is brought to the local clinic to determine what immunizations have been given and what immunizations are needed. A clinic staff member collects basic patient demographic information including name, date of birth, sex, and birth order (Donna was born 3rd in a triplet). A clinic provider uses this information to locate the patient's medical record. The staff member then uses the medical record and system capabilities to query the IIS to request an evaluated history and forecast for the patient.<br/><p>Test Objectives:</p>Tests for a maximally valued query message, including use of OIDs, mother's maiden name, fully valued address, birth indicator and birth order.</td>
+</tr>
+<tr>
+<th>IZ-QR-3.2_Response_NF_K11_Z33</th>
+<td><p>Description:</p>The IIS performs a search for Donna Victoria Bee and does not find a high-confidence match. The IIS returns a response message indicating no person found to the querying system.<br/><p>Test Objectives:</p>Test the capability of the EHR-S to process a response message that returns no persons found and to provide an indication to the end user.</td>
+</tr>
+</table>
+<br/>
+<table>
+<tr>
+<th>Test Case</th>
+<th>IZ-QR-4_Query_Too_Many</th>
+</tr>
+<tr>
+<td colspan='2'><p>Description:</p>A child, James Smith, is brought to the local clinic to determine what immunizations have been given and what immunizations are needed. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider uses this information to locate the patient's medical record. The staff member then uses the medical record and system capabilities to query the IIS to request an evaluated history and forecast for the patient.
+<br>
+<br>The IIS performs a search for James Smith and finds too many matches. The IIS returns a response message indicating no person found (too many matches) to the querying system. It is expected that the requesting system (e.g., EHR-S) process the response message and display some indication to the end user that the person was not found (too many matches).<br></td>
+</tr>
+<tr>
+<th colspan='2'>Test Steps</th>
+</tr>
+<tr>
+<th>IZ-QR-4.1_Query_Q11_Z44</th>
+<td><p>Description:</p>A child, James Smith, is brought to the local clinic to determine what immunizations have been given and what immunizations are needed. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider uses this information to locate the patient's medical record. The staff member then uses the medical record and system capabilities to query the IIS to request an evaluated history and forecast for the patient.<br/><p>Test Objectives:</p>Tests for a typically valued query message.</td>
+</tr>
+<tr>
+<th>IZ-QR-4.2_Response_TM_K11_Z33</th>
+<td><p>Description:</p>The IIS performs a search for James Smith and finds too many matches based on the sending system's query (e.g., EHR-S). The IIS returns a response message indicating no person found (too many matches) to the querying system. It is expected that the requesting system (e.g., EHR-S) process the response message and display some indication to the end user that the person was not found (too many matches).<br/><p>Test Objectives:</p>Test the capability of the EHR-S to process a response message that returns no persons found (too many matches) and to provide an indication to the end user.</td>
+</tr>
+</table>
+<br/>
+
+
+</body>
+</html>

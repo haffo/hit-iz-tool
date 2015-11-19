@@ -14,7 +14,7 @@
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NISTEHRAPP",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -22,7 +22,7 @@
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NISTEHRFAC",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -30,7 +30,7 @@
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NISTIISAPP",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -38,7 +38,7 @@
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NISTIISFAC",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -72,9 +72,9 @@
 				{"location" : "MSH.21", "dataelement" : "Message Profile Identifier", "data" :
 "", "categorization" : ""},
 							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z22",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.21.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.21.4", "dataelement" : "Universal ID Type", "data" : "",
@@ -82,11 +82,11 @@
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
 							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Configuration"},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
@@ -98,11 +98,11 @@
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
 							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Configuration"},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
@@ -130,7 +130,7 @@
 									{"location" : "PID.3.4.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "PID.3.5", "dataelement" : "Identifier Type Code", "data" : "MR",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "PID.5", "dataelement" : "Patient Name", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
@@ -138,12 +138,11 @@
 									{"location" : "PID.5.1.1", "dataelement" : "Surname", "data" : "Benton",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.5.2", "dataelement" : "Given Name", "data" : "Katherine",
-"categorization" : "Presence Length-Content Indifferent"},
+"categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.5.3", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "Mackenzie", "categorization" : "Presence Length-Content
-Indifferent"},
+Initials Thereof", "data" : "Mackenzie", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.5.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
-: "Presence-Content Indifferent"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.6", "dataelement" : "Mother's Maiden Name", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.6.1", "dataelement" : "Family Name", "data" : "", "categorization"
@@ -157,13 +156,13 @@ Indifferent"},
 							{"location" : "PID.7.1", "dataelement" : "Time", "data" : "20031221", "categorization"
 : "Presence-Content Indifferent"},
 				{"location" : "PID.8", "dataelement" : "Administrative Sex", "data" : "F", "categorization"
-: "Presence-Content Indifferent"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.10", "dataelement" : "Race", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.10.1", "dataelement" : "Identifier", "data" : "2106-3",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.10.2", "dataelement" : "Text", "data" : "White", "categorization"
-: "Presence-Content Indifferent"},
+: "Presence-Test Case Proper"},
 							{"location" : "PID.10.3", "dataelement" : "Name of Coding System", "data" :
 "CDCREC", "categorization" : "Value-Profile Fixed"},
 				{"location" : "PID.11", "dataelement" : "Patient Address", "data" : "", "categorization"
@@ -183,15 +182,15 @@ Indifferent"},
 							{"location" : "PID.11.6", "dataelement" : "Country", "data" : "USA", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "PID.11.7", "dataelement" : "Address Type", "data" : "P", "categorization"
-: "Presence-Content Indifferent"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.13", "dataelement" : "Phone Number - Home", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.13.2", "dataelement" : "Telecommunication Use Code", "data"
-: "PRN", "categorization" : "Presence-Content Indifferent"},
+: "PRN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13.3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13.4", "dataelement" : "Email Address", "data" : "", "categorization"
-: "NonPresence"},
+: "Presence-Content Indifferent"},
 							{"location" : "PID.13.6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.13.7", "dataelement" : "Local Number", "data" : "5554019",
@@ -199,21 +198,21 @@ Indifferent"},
 				{"location" : "PID.22", "dataelement" : "Ethnic Group", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.22.1", "dataelement" : "Identifier", "data" : "2186-5",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.22.2", "dataelement" : "Text", "data" : "Not Hispanic or
-Latino", "categorization" : "Presence-Content Indifferent"},
+Latino", "categorization" : "Presence-Test Case Proper"},
 							{"location" : "PID.22.3", "dataelement" : "Name of Coding System", "data" :
 "CDCREC", "categorization" : "Value-Profile Fixed"},
 				{"location" : "PID.24", "dataelement" : "Multiple Birth Indicator", "data" : "N",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "PID.25", "dataelement" : "Birth Order", "data" : "1", "categorization"
 : "Indifferent"},
 				{"location" : "PID.29", "dataelement" : "Patient Death Date and Time", "data"
 : "", "categorization" : ""},
 							{"location" : "PID.29.1", "dataelement" : "Time", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 				{"location" : "PID.30", "dataelement" : "Patient Death Indicator", "data" : "N",
-"categorization" : "Presence-Content Indifferent"},		]
+"categorization" : "Value-Test Case Fixed"},		]
 		{
 			"title":"PD1 : Patient Additional Demographic",
 			"elements" : 
@@ -221,9 +220,9 @@ Latino", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "PD1.11", "dataelement" : "Publicity Code", "data" : "", "categorization"
 : ""},
 							{"location" : "PD1.11.1", "dataelement" : "Identifier", "data" : "01", "categorization"
-: "Presence-Content Indifferent"},
+: "Value-Test Case Fixed"},
 							{"location" : "PD1.11.2", "dataelement" : "Text", "data" : "No reminder/recall",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "PD1.11.3", "dataelement" : "Name of Coding System", "data" :
 "HL70215", "categorization" : "Value-Profile Fixed"},
 				{"location" : "PD1.12", "dataelement" : "Protection Indicator", "data" : "Y",
@@ -231,7 +230,7 @@ Latino", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "PD1.13", "dataelement" : "Protection Indicator Effective Date",
 "data" : "20150624", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "PD1.16", "dataelement" : "Immunization Registry Status", "data"
-: "A", "categorization" : "Presence-Content Indifferent"},
+: "A", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "PD1.17", "dataelement" : "Immunization Registry Status Effective
 Date", "data" : "20031221", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "PD1.18", "dataelement" : "Publicity Code Effective Date", "data"
@@ -253,13 +252,13 @@ Date", "data" : "20031221", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "NK1.2.3", "dataelement" : "Second and Further Given Names or
 Initials Thereof", "data" : "Michelle", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "NK1.2.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
-: "Presence-Content Indifferent"},
+: "Value-Test Case Fixed"},
 				{"location" : "NK1.3", "dataelement" : "Relationship", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.3.1", "dataelement" : "Identifier", "data" : "MTH", "categorization"
-: "Presence-Content Indifferent"},
+: "Value-Test Case Fixed"},
 							{"location" : "NK1.3.2", "dataelement" : "Text", "data" : "Mother", "categorization"
-: "Presence-Content Indifferent"},
+: "Presence-Test Case Proper"},
 							{"location" : "NK1.3.3", "dataelement" : "Name of Coding System", "data" :
 "HL70063", "categorization" : "Value-Profile Fixed"},
 				{"location" : "NK1.4", "dataelement" : "Address", "data" : "", "categorization"
@@ -279,15 +278,15 @@ Initials Thereof", "data" : "Michelle", "categorization" : "Presence-Content Ind
 							{"location" : "NK1.4.6", "dataelement" : "Country", "data" : "USA", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "NK1.4.7", "dataelement" : "Address Type", "data" : "P", "categorization"
-: "Presence-Content Indifferent"},
+: "Value-Test Case Fixed"},
 				{"location" : "NK1.5", "dataelement" : "Phone Number", "data" : "", "categorization"
 : ""},
 							{"location" : "NK1.5.2", "dataelement" : "Telecommunication Use Code", "data"
-: "PRN", "categorization" : "Presence-Content Indifferent"},
+: "PRN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.5.3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.5.4", "dataelement" : "Email Address", "data" : "", "categorization"
-: "NonPresence"},
+: "Presence-Content Indifferent"},
 							{"location" : "NK1.5.6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "NK1.5.7", "dataelement" : "Local Number", "data" : "5554019",
@@ -335,13 +334,13 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 									{"location" : "ORC.10.9.1", "dataelement" : "Namespace ID", "data" : "NIST-PI-1",
 "categorization" : "Presence-Content Indifferent"},
 									{"location" : "ORC.10.9.2", "dataelement" : "Universal ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "ORC.10.9.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : ""},
+"", "categorization" : "Indifferent"},
 							{"location" : "ORC.10.10", "dataelement" : "Name Type Code", "data" : "L",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.10.13", "dataelement" : "Identifier Type Code", "data" :
-"PRN", "categorization" : "Presence-Content Indifferent"},
+"PRN", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
@@ -367,25 +366,25 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "58160-0830-05",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "CERVARIX", "categorization"
-: "Presence-Content Indifferent"},
+: "Presence-Test Case Proper"},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
-"NDC", "categorization" : "Value-Test Case Fixed"},
+"NDC", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "0.5",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Presence-Test Case Proper"},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "mL", "categorization"
 : "Value-Test Case Fixed"},
 							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "mL", "categorization"
-: "Presence-Content Indifferent"},
+: "Presence-Test Case Proper"},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
-"UCUM", "categorization" : "Value-Test Case Fixed"},
+"UCUM", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "00", "categorization"
 : "Value-Test Case Fixed"},
 							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "New Record", "categorization"
-: "Presence-Content Indifferent"},
+: "Presence-Test Case Proper"},
 							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
 "NIP001", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
@@ -405,13 +404,13 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "NIST-PI-1",
 "categorization" : "Presence-Content Indifferent"},
 									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : ""},
+"", "categorization" : "Indifferent"},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "L",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
-"PRN", "categorization" : "Presence-Content Indifferent"},
+"PRN", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
@@ -431,19 +430,19 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
 : "", "categorization" : ""},
 							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "SKB", "categorization"
-: "Presence-Content Indifferent"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "GlaxoSmithKline",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
-"MVX", "categorization" : "Value-Test Case Fixed"},
+"MVX", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "RXA.18.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Indifferent"},
+"", "categorization" : "NonPresence"},
 				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
 : "Value-Test Case Fixed"},
 				{"location" : "RXA.21", "dataelement" : "Action Code - RXA", "data" : "A", "categorization"
@@ -455,17 +454,17 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 				{"location" : "RXR.1", "dataelement" : "Route", "data" : "", "categorization"
 : ""},
 							{"location" : "RXR.1.1", "dataelement" : "Identifier", "data" : "C28161", "categorization"
-: "Presence-Content Indifferent"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXR.1.2", "dataelement" : "Text", "data" : "Intramuscular",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "RXR.1.3", "dataelement" : "Name of Coding System", "data" :
 "NCIT", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXR.2", "dataelement" : "Administration Site", "data" : "", "categorization"
 : ""},
 							{"location" : "RXR.2.1", "dataelement" : "Identifier", "data" : "RD", "categorization"
-: "Presence-Content Indifferent"},
+: "Value-Test Case Fixed"},
 							{"location" : "RXR.2.2", "dataelement" : "Text", "data" : "Right Deltoid",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "RXR.2.3", "dataelement" : "Name of Coding System", "data" :
 "HL70163", "categorization" : "Value-Profile Fixed"},		]
 		{
@@ -484,41 +483,35 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30963-3",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Vaccine Funding
-Source", "categorization" : "Presence-Content Indifferent"},
+Source", "categorization" : "Presence-Test Case Proper"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
-: "Presence-Content Indifferent"},
+: "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC50", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Public", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Indifferent"},
+"", "categorization" : "NonPresence"},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150624", "categorization"
-: "Presence-System Generated"},
+: "Presence-Content Indifferent"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Indifferent"},
+: "Value-Test Case Fixed"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Indifferent"},
+: "Presence-Test Case Proper"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Indifferent"},		]
+"", "categorization" : "Value-Profile Fixed"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -532,39 +525,33 @@ Source", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "64994-7",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Vaccine Funding
-Program Eligibility", "categorization" : "Presence-Content Indifferent"},
+Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
-: "Presence-Content Indifferent"},
+: "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V05", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "VFC Eligible - Underinsured",
-"categorization" : ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"HL70064", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Indifferent"},
+"", "categorization" : "NonPresence"},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150624", "categorization"
-: "Presence-System Generated"},
+: "Presence-Content Indifferent"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "VXC40", "categorization"
 : "Value-Test Case Fixed"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "per immunization",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
 "CDCPHINVS", "categorization" : "Value-Profile Fixed"},		]
 		{
@@ -580,41 +567,35 @@ Program Eligibility", "categorization" : "Presence-Content Indifferent"},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "69764-9",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Document Type",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
-: "Presence-Content Indifferent"},
+: "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300007311110503",
-"categorization" : ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Human papillomavirus
-Vaccine (Cervarix) VIS", "categorization" : ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"cdcgs1vis", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Indifferent"},
+"", "categorization" : "NonPresence"},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150624", "categorization"
-: "Presence-System Generated"},
+: "Presence-Content Indifferent"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Indifferent"},
+: "Value-Test Case Fixed"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Indifferent"},
+: "Presence-Test Case Proper"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Indifferent"},		]
+"", "categorization" : "Value-Profile Fixed"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -628,35 +609,35 @@ Vaccine (Cervarix) VIS", "categorization" : ""},
 							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "29769-7",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Date Vis Presented",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
 "LN", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
-: "Presence-Content Indifferent"},
+: "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20150624",
 "categorization" : "Presence-Content Indifferent"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Indifferent"},
+"", "categorization" : "NonPresence"},
 				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
 "F", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150624", "categorization"
-: "Presence-System Generated"},
+: "Presence-Content Indifferent"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Indifferent"},
+: "Value-Test Case Fixed"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Indifferent"},
+: "Presence-Test Case Proper"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Indifferent"},		]
+"", "categorization" : "Value-Profile Fixed"},		]
 
 </accordion>
 		}

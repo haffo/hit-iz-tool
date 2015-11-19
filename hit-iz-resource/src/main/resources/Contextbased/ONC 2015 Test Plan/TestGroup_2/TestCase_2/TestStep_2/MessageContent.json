@@ -8,109 +8,109 @@
 			"elements" : 
 			[
 				{"location" : "MSH.1", "dataelement" : "Field Separator", "data" : "|", "categorization"
-: ""},
+: "Value-Profile Fixed"},
 				{"location" : "MSH.2", "dataelement" : "Encoding Characters", "data" : "^~\&amp;",
-"categorization" : ""},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NISTIISAPP",
-"categorization" : ""},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
-: ""},
+: "Indifferent"},
 							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NISTIISFAC",
-"categorization" : ""},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
-: ""},
+: "Indifferent"},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NISTEHRAPP",
-"categorization" : ""},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
-: ""},
+: "Indifferent"},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NISTEHRFAC",
-"categorization" : ""},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
-: ""},
+: "Indifferent"},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 				{"location" : "MSH.7", "dataelement" : "Date/Time Of Message", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.7.1", "dataelement" : "Time", "data" : "20141031145233-0500",
-"categorization" : ""},
+"categorization" : "Presence-System Generated"},
 				{"location" : "MSH.9", "dataelement" : "Message Type", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.9.1", "dataelement" : "Message Code", "data" : "RSP", "categorization"
-: ""},
+: "Value-Profile Fixed"},
 							{"location" : "MSH.9.2", "dataelement" : "Trigger Event", "data" : "K11", "categorization"
-: ""},
+: "Value-Profile Fixed"},
 							{"location" : "MSH.9.3", "dataelement" : "Message Structure", "data" : "RSP_K11",
-"categorization" : ""},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "NIST-IZ-QR-2.2_Response_K11_Z42",
-"categorization" : ""},
+"categorization" : "Presence-System Generated"},
 				{"location" : "MSH.11", "dataelement" : "Processing ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.11.1", "dataelement" : "Processing ID", "data" : "P", "categorization"
-: ""},
+: "Presence-Content Indifferent"},
 				{"location" : "MSH.12", "dataelement" : "Version ID", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.12.1", "dataelement" : "Version ID", "data" : "2.5.1", "categorization"
-: ""},
+: "Value-Profile Fixed"},
 				{"location" : "MSH.15", "dataelement" : "Accept Acknowledgment Type", "data" :
-"NE", "categorization" : ""},
+"NE", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.16", "dataelement" : "Application Acknowledgment Type", "data"
-: "NE", "categorization" : ""},
+: "NE", "categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.21", "dataelement" : "Message Profile Identifier", "data" :
 "", "categorization" : ""},
 							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z42",
-"categorization" : ""},
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS",
-"categorization" : ""},
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.21.3", "dataelement" : "Universal ID", "data" : "", "categorization"
-: ""},
+: "Indifferent"},
 							{"location" : "MSH.21.4", "dataelement" : "Universal ID Type", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
 							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
-"categorization" : ""},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
-"categorization" : ""},
+"categorization" : "Presence-Configuration"},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : ""},
+"", "categorization" : "Indifferent"},
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
-"XX", "categorization" : ""},
+"XX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
-: "100-1776", "categorization" : ""},
+: "100-1776", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
 							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
-"categorization" : ""},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
-"categorization" : ""},
+"categorization" : "Presence-Configuration"},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : ""},
+"", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
-"XX", "categorization" : ""},
+"XX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
-: "100-6482", "categorization" : ""},		]
+: "100-6482", "categorization" : "Presence-Configuration"},		]
 		{
 			"title":"MSA : Message Acknowledgment",
 			"elements" : 
@@ -142,87 +142,87 @@ Immunization history", "categorization" : ""},
 				{"location" : "QPD.1", "dataelement" : "Message Query Name", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.1.1", "dataelement" : "Identifier", "data" : "Z44", "categorization"
-: ""},
+: "Value-Profile Fixed"},
 							{"location" : "QPD.1.2", "dataelement" : "Text", "data" : "Request Evaluated
-History and Forecast", "categorization" : ""},
+History and Forecast", "categorization" : "Value-Profile Fixed"},
 							{"location" : "QPD.1.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
+"CDCPHINVS", "categorization" : "Value-Profile Fixed"},
 				{"location" : "QPD.2", "dataelement" : "Query Tag", "data" : "IZ-2.1-2015", "categorization"
-: ""},
+: "Presence-System Generated"},
 				{"location" : "QPD.3", "dataelement" : "PatientList", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.3.1", "dataelement" : "ID Number", "data" : "648286", "categorization"
-: ""},
+: "Value-Test Case Fixed"},
 							{"location" : "QPD.3.4", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "NIST-MPI-1",
-"categorization" : ""},
+"categorization" : "Value-Test Case Fixed"},
 									{"location" : "QPD.3.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
-: ""},
+: "Indifferent"},
 									{"location" : "QPD.3.4.3", "dataelement" : "Universal ID Type", "data" :
-"", "categorization" : ""},
+"", "categorization" : "Indifferent"},
 							{"location" : "QPD.3.5", "dataelement" : "Identifier Type Code", "data" : "MR",
-"categorization" : ""},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "QPD.4", "dataelement" : "PatientName", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.4.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "QPD.4.1.1", "dataelement" : "Surname", "data" : "Stanley",
-"categorization" : ""},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.4.2", "dataelement" : "Given Name", "data" : "Clement",
-"categorization" : ""},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.4.3", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "S", "categorization" : ""},
+Initials Thereof", "data" : "S", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.4.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
-: ""},
+: "Value-Test Case Fixed"},
 				{"location" : "QPD.5", "dataelement" : "PatientMotherMaidenName", "data" : "",
 "categorization" : ""},
 							{"location" : "QPD.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "QPD.5.1.1", "dataelement" : "Surname", "data" : "Smith", "categorization"
-: ""},
+: "Value-Test Case Fixed"},
 							{"location" : "QPD.5.7", "dataelement" : "Name Type Code", "data" : "M", "categorization"
-: ""},
+: "Value-Profile Fixed"},
 				{"location" : "QPD.6", "dataelement" : "PatientDateOfBirth", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.6.1", "dataelement" : "Time", "data" : "19500214", "categorization"
-: ""},
+: "Value-Test Case Fixed"},
 				{"location" : "QPD.7", "dataelement" : "Patient Sex", "data" : "M", "categorization"
-: ""},
+: "Value-Test Case Fixed"},
 				{"location" : "QPD.8", "dataelement" : "Patient Address", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.8.1", "dataelement" : "Street Address", "data" : "", "categorization"
 : ""},
 									{"location" : "QPD.8.1.1", "dataelement" : "Street or Mailing Address", "data"
-: "1642 Bear Run", "categorization" : ""},
+: "1642 Bear Run", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.8.2", "dataelement" : "Other Designation", "data" : "",
-"categorization" : ""},
+"categorization" : "Indifferent"},
 							{"location" : "QPD.8.3", "dataelement" : "City", "data" : "Boseman", "categorization"
-: ""},
+: "Value-Test Case Fixed"},
 							{"location" : "QPD.8.4", "dataelement" : "State or Province", "data" : "MT",
-"categorization" : ""},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.8.5", "dataelement" : "Zip or Postal Code", "data" : "59715",
-"categorization" : ""},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.8.6", "dataelement" : "Country", "data" : "USA", "categorization"
-: ""},
+: "Value-Test Case Fixed"},
 							{"location" : "QPD.8.7", "dataelement" : "Address Type", "data" : "L", "categorization"
-: ""},
+: "Value-Test Case Fixed"},
 				{"location" : "QPD.9", "dataelement" : "Phone", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.9.2", "dataelement" : "Telecommunication Use Code", "data"
-: "PRN", "categorization" : ""},
+: "PRN", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.9.3", "dataelement" : "Telecommunication Equipment Type",
-"data" : "PH", "categorization" : ""},
+"data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.9.4", "dataelement" : "Email Address", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.9.6", "dataelement" : "Area/City Code", "data" : "406",
-"categorization" : ""},
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.9.7", "dataelement" : "Local Number", "data" : "5552020",
-"categorization" : ""},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "QPD.10", "dataelement" : "Multiple birth indicator", "data" : "",
-"categorization" : ""},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "QPD.11", "dataelement" : "Birth order", "data" : "", "categorization"
-: ""},		]
+: "Value-Test Case Fixed"},		]
 		{
 			"title":"PID : Patient Identification",
 			"elements" : 
@@ -578,12 +578,6 @@ Initials Thereof", "data" : "", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "88", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "influenza NOS",
-"categorization" : ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -618,12 +612,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -692,12 +680,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "152", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "pcv NOS", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -732,12 +714,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -840,12 +816,6 @@ give", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "88", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "influenza NOS",
-"categorization" : ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -880,12 +850,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -988,12 +952,6 @@ give", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "03", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "MMR", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1028,12 +986,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1136,12 +1088,6 @@ give", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "85", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep A", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1176,12 +1122,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1284,12 +1224,6 @@ give", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1324,12 +1258,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1432,12 +1360,6 @@ give", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "108", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "MCV", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1472,12 +1394,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1580,12 +1496,6 @@ give", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "21", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "varicella", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1620,12 +1530,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1728,12 +1632,6 @@ give", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "115", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "TDAP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1768,12 +1666,6 @@ used", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
-: ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
