@@ -99,6 +99,9 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider)
         .when('/blank', {
             templateUrl: 'blank.html'
         })
+        .when('/error', {
+            templateUrl: 'error.html'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -108,20 +111,20 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider)
     httpHeaders = $httpProvider.defaults.headers;
 
 
-    $httpProvider.interceptors.push(function ($q, $cookies) {
-        return {
-            'request': function (config) {
-////                if(config.method === 'POST') {
-////                    config.headers['csrfToken'] = $rootScope.appInfo.csrfToken;
-////                }
-////                config.headers['dTime'] = $rootScope.appInfo.date;
-//
-//                console.log(config.headers['csrfToken']);
-//                console.log(config.headers['dTime']);
-                return config;
-            }
-        };
-    });
+//    $httpProvider.interceptors.push(function ($q, $cookies) {
+//        return {
+//            'request': function (config) {
+//////                if(config.method === 'POST') {
+//////                    config.headers['csrfToken'] = $rootScope.appInfo.csrfToken;
+//////                }
+//////                config.headers['dTime'] = $rootScope.appInfo.date;
+////
+////                console.log(config.headers['csrfToken']);
+////                console.log(config.headers['dTime']);
+//                return config;
+//            }
+//        };
+//    });
 
 
 });
@@ -399,15 +402,14 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     $rootScope.openVersionChangeDlg = function () {
         $rootScope.blankPage();
 
-        $rootScope.vcModalInstance = $modal.open({
+        var vcModalInstance = $modal.open({
             templateUrl: 'VersionChangeCtrl.html',
-            windowClass: 'error-modal',
-            animation:false,
+            size: 'lg',
             backdrop:true,
             keyboard: 'false',
             'controller': 'VersionChangeCtrl'
         });
-        $rootScope.vcModalInstance.result.then(function () {
+        vcModalInstance.result.then(function () {
              StorageService.clearAll();
             $rootScope.index();
         }, function () {
@@ -417,20 +419,20 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     };
 
     $rootScope.openErrorDlg = function () {
-        $rootScope.blankPage();
-        $rootScope.errorModalInstance = $modal.open({
-            templateUrl: 'ErrorCtrl.html',
-            windowClass: 'error-modal',
-            animation:false,
-            backdrop:true,
-            keyboard: 'false',
-            'controller': 'ErrorCtrl'
-        });
-        $rootScope.errorModalInstance.result.then(function () {
-             $rootScope.index();
-        }, function () {
-             $rootScope.index();
-        });
+        $location.path('/error');
+//        $rootScope.blankPage();
+//        $rootScope.errorModalInstance = $modal.open({
+//            templateUrl: 'ErrorCtrl.html',
+//            size: 'lg',
+//            backdrop:true,
+//            keyboard: 'false',
+//            'controller': 'ErrorCtrl'
+//        });
+//        $rootScope.errorModalInstance.result.then(function () {
+//             $rootScope.index();
+//        }, function () {
+//             $rootScope.index();
+//        });
     };
 
     $rootScope.blankPage = function () {
@@ -439,22 +441,22 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 
     $rootScope.index = function () {
         //$location.path('/home');
+        $('#appcontainer').html('');
         $window.location.reload();
     };
 
     $rootScope.openInvalidReqDlg = function () {
         $rootScope.blankPage();
 
-        $rootScope.irModalInstance = $modal.open({
+        var irModalInstance = $modal.open({
             templateUrl: 'InvalidReqCtrl.html',
-            windowClass: 'error-modal',
-            animation:false,
+            size: 'lg',
             backdrop:true,
             keyboard: 'false',
             'controller': 'InvalidReqCtrl'
         });
 
-        $rootScope.irModalInstance.result.then(function () {
+        irModalInstance.result.then(function () {
              $rootScope.index();
 
         }, function () {
@@ -464,16 +466,15 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 
     $rootScope.openNotFoundDlg = function () {
         $rootScope.blankPage();
-        $rootScope.nfModalInstance = $modal.open({
+        var nfModalInstance = $modal.open({
             templateUrl: 'NotFoundCtrl.html',
-            windowClass: 'error-modal',
-            animation:false,
+            size: 'lg',
             backdrop:true,
             keyboard: 'false',
             'controller': 'NotFoundCtrl'
         });
 
-        $rootScope.nfModalInstance.result.then(function () {
+        nfModalInstance.result.then(function () {
              $rootScope.index();
         }, function () {
              $rootScope.index();
@@ -493,6 +494,12 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
             controller: 'SettingsCtrl'
         });
     };
+
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+        if (typeof(current) !== 'undefined'){
+            $templateCache.remove(current.templateUrl);
+        }
+    });
 
 });
 

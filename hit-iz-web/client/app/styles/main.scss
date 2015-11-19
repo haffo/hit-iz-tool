@@ -1917,22 +1917,19 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
   max-height: 210px !important;
  }
 
-[ng\:cloak], [ng-cloak], .ng-cloak {
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
 
 
 #error {
-  padding: 30px 10px;
   font-size: 20px;
   line-height: 1.4;
   color: #737373;
   background: #f0f0f0;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  max-width: 380px;
-  _width: 380px;
-  margin: 0 auto;
+   margin: 0 auto;
 }
 #error > h1 {
   margin: 0 10px;

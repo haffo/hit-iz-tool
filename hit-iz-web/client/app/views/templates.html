@@ -241,63 +241,74 @@
 
 
 <script type="text/ng-template" id="VersionChangeCtrl.html">
-    <div class="modal-header">
-            <div class="pull-right">
-        <button ng-click="close()" type="button"
-                title="Cancel" class="btn btn-sm btn-primary">
-            <i class="fa fa-refresh"></i>
-            Refresh
-        </button>
-        </div>
-    </div>
     <div class="modal-body">
         <div ng-include="'sc.html'"></div>
+        <br />
+        <br />
+
+
+        <div style="text-align:center">
+            <a ng-click="close()" type="button"
+               title="Cancel" class="point">
+                <i class="fa fa-refresh"></i>
+                Refresh
+            </a>
+        </div>
+
     </div>
 </script>
 
 
 <script type="text/ng-template" id="InvalidReqCtrl.html">
-    <div class="modal-header">
-            <div class="pull-right">
-        <button ng-click="close()" type="button"
-                title="Cancel" class="btn btn-sm btn-primary">
-            <i class="fa fa-times"></i>
-            Close
-        </button>
-        </div>
-    </div>
     <div class="modal-body">
         <div ng-include="'ir.html'"></div>
+
+        <br />
+        <br />
+
+        <div style="text-align:center">
+            <a ng-click="close()" type="button"
+               title="Cancel" class="point">
+                <i class="fa fa-times"></i>
+                Close
+            </a>
+        </div>
+
     </div>
 </script>
 
 <script type="text/ng-template" id="ErrorCtrl.html">
-    <div class="modal-header">
-            <div class="pull-right">
-        <button ng-click="close()" type="button"
-                title="Cancel" class="btn btn-sm btn-primary">
-            <i class="fa fa-times"></i>
-            Close
-        </button>
-        </div>
-    </div>
     <div class="modal-body">
         <div ng-include="'down.html'"></div>
+
+        <br />
+        <br />
+
+        <div style="text-align:center">
+            <a ng-click="close()" type="button"
+               title="Cancel" class="point">
+                <i class="fa fa-times"></i>
+                Close
+            </a>
+        </div>
     </div>
 </script>
 
 <script type="text/ng-template" id="NotFoundCtrl.html">
-    <div class="modal-header">
-            <div class="pull-right">
-        <button ng-click="close()" type="button"
-                title="Cancel" class="btn btn-sm btn-primary pull-right">
-            <i class="fa fa-times"></i>
-            Close
-        </button>
-        </div>
-    </div>
     <div class="modal-body">
         <div ng-include="'nf.html'"></div>
+
+        <br />
+        <br />
+
+        <div style="text-align:center">
+            <a ng-click="close()" type="button"
+                    title="Cancel" class="point">
+                <i class="fa fa-times"></i>
+                Close
+            </a>
+        </div>
+
     </div>
 </script>
 
