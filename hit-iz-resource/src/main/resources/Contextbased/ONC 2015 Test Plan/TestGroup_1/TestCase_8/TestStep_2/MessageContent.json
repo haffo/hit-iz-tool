@@ -14,7 +14,7 @@
 				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NISTIISAPP",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.3",
 "categorization" : "Indifferent"},
 							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "ISO",
@@ -22,7 +22,7 @@
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NISTIISFAC",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.4",
 "categorization" : "Indifferent"},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "ISO",
@@ -30,7 +30,7 @@
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NISTEHRAPP",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.1",
 "categorization" : "Indifferent"},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "ISO",
@@ -38,7 +38,7 @@
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NISTEHRFAC",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.2",
 "categorization" : "Indifferent"},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "ISO",
@@ -72,9 +72,9 @@
 				{"location" : "MSH.21", "dataelement" : "Message Profile Identifier", "data" :
 "", "categorization" : ""},
 							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z23",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.21.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.21.4", "dataelement" : "Universal ID Type", "data" : "",
@@ -82,11 +82,11 @@
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
 							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-1",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Configuration"},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.9",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
@@ -98,11 +98,11 @@
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
 							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Presence-Configuration"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-1",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Configuration"},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.9",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
@@ -116,9 +116,9 @@
 			"elements" : 
 			[
 				{"location" : "MSA.1", "dataelement" : "Acknowledgment Code", "data" : "AE", "categorization"
-: "Value-Test Case Fixed"},
+: ""},
 				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "NIST-IZ-AD-8.1_Send_V04_Z22",
-"categorization" : "Presence-System Generated"},		]
+"categorization" : ""},		]
 		{
 			"title":"ERR : Error",
 			"elements" : 
@@ -126,38 +126,37 @@
 				{"location" : "ERR.2", "dataelement" : "Error Location", "data" : "", "categorization"
 : ""},
 							{"location" : "ERR.2.1", "dataelement" : "Segment ID", "data" : "RXR", "categorization"
-: "Value-Test Case Fixed"},
+: ""},
 							{"location" : "ERR.2.2", "dataelement" : "Segment Sequence", "data" : "2",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : ""},
 							{"location" : "ERR.2.3", "dataelement" : "Field Position", "data" : "1", "categorization"
-: "Value-Test Case Fixed"},
+: ""},
 							{"location" : "ERR.2.4", "dataelement" : "Field Repetition", "data" : "1",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : ""},
 							{"location" : "ERR.2.5", "dataelement" : "Component Number", "data" : "1",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : ""},
 							{"location" : "ERR.2.6", "dataelement" : "Sub-Component Number", "data" : "",
-"categorization" : "Indifferent"},
+"categorization" : ""},
 				{"location" : "ERR.3", "dataelement" : "HL7 Error Code", "data" : "", "categorization"
 : ""},
 							{"location" : "ERR.3.1", "dataelement" : "Identifier", "data" : "999", "categorization"
-: "Value-Test Case Fixed"},
+: ""},
 							{"location" : "ERR.3.2", "dataelement" : "Text", "data" : "Application error",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : ""},
 							{"location" : "ERR.3.3", "dataelement" : "Name of Coding System", "data" :
-"HL70357", "categorization" : "Value-Profile Fixed"},
+"HL70357", "categorization" : ""},
 				{"location" : "ERR.4", "dataelement" : "Severity", "data" : "W", "categorization"
-: "Value-Test Case Fixed"},
+: ""},
 				{"location" : "ERR.5", "dataelement" : "Application Error Code", "data" : "",
 "categorization" : ""},
 							{"location" : "ERR.5.1", "dataelement" : "Identifier", "data" : "5", "categorization"
-: "Value-Test Case Fixed"},
+: ""},
 							{"location" : "ERR.5.2", "dataelement" : "Text", "data" : "Table value not
-found", "categorization" : "Presence-Content Indifferent"},
+found", "categorization" : ""},
 							{"location" : "ERR.5.3", "dataelement" : "Name of Coding System", "data" :
-"HL70533", "categorization" : "Value-Profile Fixed"},
+"HL70533", "categorization" : ""},
 				{"location" : "ERR.8", "dataelement" : "User Message", "data" : "Administration
-Site not recognized - site data will not be saved", "categorization" : "Presence-Content
-Indifferent"},		]
+Site not recognized - site data will not be saved", "categorization" : ""},		]
 
 		}
 ]

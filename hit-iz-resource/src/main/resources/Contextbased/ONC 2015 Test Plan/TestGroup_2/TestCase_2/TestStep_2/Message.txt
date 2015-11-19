@@ -4,13 +4,13 @@ QAK|IZ-2.1-2015|OK|Z44^request evaluated Immunization history^CDCPHINVS
 QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS|IZ-2.1-2015|648286^^^NIST-MPI-1^MR|Stanley^Clement^S^^^^L|Smith^^^^^^M|19500214|M|1642 Bear Run^^Boseman^MT^59715^USA^L|^PRN^PH^^1^406^5552020
 PID|1||648286^^^NIST-MPI-1^MR^MR~34500907^^^NIST-IIS-MPI^SR||Stanley^Clement^S^^^^L||19950101|M|||1642 Bear Run^^Bozeman^MT^59715^USA^L
 ORC|RE||193337027^NIST-AA-IZ-2||||||||||||||
-RXA|0|1|20151029|20151029|140^seasonal flu^CVX|0.5|mL^^UCUM||00^new immunization record^NIP001|5111^Sticker^Nurse^^^^^^NIST-PI-1^L^^^PRN|^^^NIST-Clinic-1|||||||||CP|A
+RXA|0|1|20151029||140^seasonal flu^CVX|0.5|mL^^UCUM||00^new immunization record^NIP001|5111^Sticker^Nurse^^^^^^NIST-PI-1^L^^^PRN|^^^NIST-Clinic-1|||||||||CP|A
 RXR|C28161^IM^NCIT
 OBX|1|CE|30956-7^vaccine type^LN|1|88^influenza NOS^CVX ||||||F
 OBX|2|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20151029
 OBX|3|ID|59781-5^dose validity^LN|1|Y||||||F|||20151029
 ORC|RE||9999^NIST-AA-IZ-2||||||||||||||NISTEHRFAC^NISTEHRFacility^HL70362
-RXA|0|1|20151029|20151029|998^no vaccine admin^CVX|999||||||||||||||NA
+RXA|0|1|20151029||998^no vaccine admin^CVX|999||||||||||||||NA
 OBX|4|CE|30956-7^vaccine type^LN|1|152^pcv NOS^CVX ||||||F
 OBX|5|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F
 OBX|6|DT|30980-7^Date vaccination due^LN|1|20600101||||||F
