@@ -217,9 +217,12 @@
 		<Segment ID="OBX_IZ 1_5" Label="OBX_IZ 1_5" Name="OBX" Description="Observation/Result">
 			<DynamicMapping>
 				<Mapping Position="5" Reference="2">
-					<Case Value="NM" Datatype="NM"/>
 					<Case Value="CE" Datatype="CE_IZ"/>
-					<Case Value="DTM" Datatype="DTM"/>
+					<Case Value="DT" Datatype="DT"/>
+					<Case Value="TS" Datatype="TS"/>
+					<Case Value="ST" Datatype="ST"/>
+					<Case Value="NM" Datatype="NM"/>
+					<Case Value="ID" Datatype="ID"/>
 				</Mapping>
 			</DynamicMapping>
 			<Field Name="Set ID - OBX" Usage="R" Min="1" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00569"/>
