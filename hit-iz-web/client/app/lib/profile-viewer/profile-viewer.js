@@ -53,7 +53,7 @@
             };
 
             $scope.isBranch = function (node) {
-                return node.children != null && node.children.length > 0;
+                return node && node.children && node.children != null && node.children.length > 0;
 
 //                if (node.children != null && node.children.length > 0) {
 //                    for (var i = 0; i < node.children.length; i++) {
@@ -76,7 +76,16 @@
             };
 
             $scope.isRelevant = function (node) {
-                return !$scope.options.relevance || ($scope.options.relevance && node.relevent === true);
+//                return !$scope.options.relevance || ($scope.options.relevance && node.relevent === true);
+                return !$scope.options.relevance ? true : node && node.relevent != undefined ? node.relevent : true;
+//                if($scope.options.relevance){
+//                    return node.relevent;
+//                }else{
+//                    return true;
+//                }
+                //return !$scope.options.relevance || ($scope.options.relevance && node.relevent === true);
+
+
             };
 
             $scope.collapseAll = function (collapse) {
@@ -170,7 +179,16 @@
 
             $scope.params = new PvTreetableParams({
                 getNodes: function (parent) {
+                    if (parent && parent.children) {
+                        angular.forEach(parent.children, function (child) {
+                            child['parent'] = parent;
+                        });
+                    }
                     return parent ? parent.children : $scope.nodeData.children;
+                },
+                shouldExpand: function (node) {
+                    return $scope.nodeData.type === 'MESSAGE' && (node && node !== null && (node.type === 'SEGMENT_REF' || node.type === 'GROUP'));
+//                    return false;
                 },
                 toggleRelevance: function () {
                     return $scope.setAllRelevance($scope.options.relevance);
@@ -192,12 +210,12 @@
                         if ($scope.nodeData.type === 'SEGMENT') {
                             return 'SegmentNode.html';
                         } else if ($scope.nodeData.type === 'MESSAGE') {
-                            return 'MessageNode.html';
+                            return node.type === 'SEGMENT_REF' || node.type === 'GROUP' ? 'MessageNode.html' : 'SegmentNode.html';
                         } else if ($scope.nodeData.type === 'DATATYPE') {
                             return node.type === 'DATATYPE' ? 'DatatypeNode.html' : 'FieldOrComponentNode.html';
                         }
                     }
-                    return 'MessageNode.html';
+                    return '';
                 },
                 options: {
                     initialState: 'collapsed'
@@ -209,15 +227,65 @@
                 $scope.params.refreshWithState(!$scope.options.collapse ? 'expanded' : 'collapse');
             };
 
-            $scope.hasARelevantChild = function (node) {
-                if (node.children != null && node.children.length > 0) {
+            $scope.hasRelevantChild = function (node) {
+                if ($scope.isBranch(node)) {
                     for (var i = 0; i < node.children.length; i++) {
-                        if ($scope.isRelevant(node.children[i])) {
+                        var child = node.children[i];
+                        if (!$scope.isRelevant(child) && ($scope.isBranch(child) ? $scope.hasRelevantChild(child):true)) {
                             return true;
                         }
                     }
                 }
                 return false;
+            };
+
+//            $scope.hasRelevantChild = function (node) {
+//                if (node.relevent !== undefined && node.relevent === false){
+//                        return false;
+//                }else if(node.relevent === undefined || node.relevent === true){
+//                    if ($scope.isBranch(node)) {
+//                        for (var i = 0; i < node.children.length; i++) {
+//                            var child = node.children[i];
+//                            if ($scope.hasRelevantChild(child)) {
+//                                return true;
+//                            }
+//                        }
+//                    }
+//                }
+//                return false;
+//            };
+//
+//
+//            $scope.isVisible = function (node) {
+//                if ($scope.isRelevant(node))
+//                    return true;
+//                if ($scope.isBranch(node)) {
+//                    for (var i = 0; i < node.children.length; i++) {
+//                        var child = node.children[i];
+//                        if (! $scope.isVisible(child)) {
+//                            return false;
+//                        }
+//                    }
+//                }
+//                return true;
+//            };
+//
+//
+//            $scope.isLeaf = function (node) {
+//                if (node.children && node.children != null && node.children.length > 0) {
+//                    for (var i = 0; i < node.children.length; i++) {
+//                        var child = node.children[i];
+//                        if ($scope.visible(child)) {
+//                            return true;
+//                        }
+//                    }
+//                }
+//                return false;
+//            };
+
+
+            $scope.visible = function (node) {
+                return node ? $scope.isRelevant(node) && $scope.visible(node.parent) : true;
             };
 
             $scope.getNodeContent = function (selectedNode) {
@@ -226,7 +294,8 @@
                     $scope.predWidth = 0;
                     $scope.confStatementsActive = false;
                     $scope.nodeData = selectedNode;
-                    $scope.options.collapse = selectedNode.type !== 'MESSAGE';
+//                    $scope.options.collapse = selectedNode.type !== 'MESSAGE';
+                    $scope.options.collapse = true;
                     $scope.refresh();
                     $timeout(function () {
                         $scope.predWidth = null;
@@ -242,24 +311,24 @@
 
             $scope.setAllRelevance = function (value) {
                 $scope.options.relevance = value;
-                if (!$scope.options.relevance) {
-                    $('table.pvt tr span.indenter a').show();
-                    $('table.pvt tr.notRelevant').show();
-                } else {
-                    $('table.pvt tr.notRelevant').hide();
-                    var branches = $('table.pvt tr.branch').not('.ng-hide').not('.notRelevant');
-                    for (var i = 0; i < branches.length; i++) {
-                        var branch = $(branches[i]);
-                        var id = branch.attr('data-tt-id');
-                        var node = $rootScope.pvNodesMap[id];
-                        if (node && node !== null && !$scope.hasARelevantChild(node)) {
-                            var a = $(branch[0]).find("td span.indenter a");
-                            if (a) {
-                                $(a[0]).hide();
-                            }
-                        }
-                    }
-                }
+//                if (!$scope.options.relevance) {
+//                    $('table.pvt tr span.indenter a').show();
+//                    $('table.pvt tr.notRelevant').show();
+//                } else {
+//                    $('table.pvt tr.notRelevant').hide();
+//                    var branches = $('table.pvt tr.branch').not('.ng-hide').not('.notRelevant');
+//                    for (var i = 0; i < branches.length; i++) {
+//                        var branch = $(branches[i]);
+//                        var id = branch.attr('data-tt-id');
+//                        var node = $rootScope.pvNodesMap[id];
+//                        if (node && node !== null && !$scope.hasRelevantChild(node)) {
+//                            var a = $(branch[0]).find("td span.indenter a");
+//                            if (a) {
+//                                $(a[0]).hide();
+//                            }
+//                        }
+//                    }
+//                }
             };
 
 
@@ -274,7 +343,7 @@
                         var branch = $(branches[i]);
                         var id = branch.attr('data-tt-id');
                         var node = $rootScope.pvNodesMap[id];
-                        if (node && node !== null && !$scope.hasARelevantChild(node)) {
+                        if (node && node !== null && !$scope.hasRelevantChild(node)) {
                             var a = $(branch[0]).find("td span.indenter a");
                             if (a) {
                                 $(a[0]).hide();
@@ -369,7 +438,6 @@
 
 
         }]);
-
 
 
 //    mod.directive('conciseView', function () {
@@ -508,6 +576,9 @@
             this.isRelevant = function (node) {
             }
 
+            this.shoudlExpand = function (node) {
+            }
+
             /**
              * @ngdoc method
              * @param {<any>} node A node returned from getNodes
@@ -528,7 +599,7 @@
 
             if (angular.isObject(baseConfiguration)) {
                 angular.forEach(baseConfiguration, function (val, key) {
-                    if (['getNodes', 'getTemplate', 'options', 'getRelevance', 'toggleRelevance', 'toggleConcise', 'getConcise', 'isRelevant'].indexOf(key) > -1) {
+                    if (['getNodes', 'getTemplate', 'options', 'getRelevance', 'toggleRelevance', 'toggleConcise', 'getConcise', 'isRelevant', 'shouldExpand'].indexOf(key) > -1) {
                         self[key] = val;
                     } else {
                         $log.warn('PvTreetableParams - Ignoring unexpected property "' + key + '".');
@@ -599,37 +670,35 @@
             });
         };
 
-        $scope.addRelevantChildren = function (parentElement, shouldExpand) {
-            var parentNode = parentElement && parentElement.scope() ? parentElement.scope().node : null;
-            var parentId = parentElement ? parentElement.data('ttId') : null;
-
-            if (parentElement) {
-                parentElement.scope().loading = true;
-            }
-
-            var data = params.getNodes(parentNode);
-            var elementPromises = [];
-            angular.forEach(data, function (node) {
-                if (params.isRelevant(node)) {
-                    elementPromises.push($scope.compileElement(node, parentId, parentNode));
-                }
-            });
-
-            $q.all(elementPromises).then(function (newElements) {
-                var parentTtNode = parentId != null ? table.treetable("node", parentId) : null;
-
-                $element.treetable('loadBranch', parentTtNode, newElements);
-
-                if (shouldExpand) {
-                    angular.forEach(newElements, function (el) {
-                        $scope.addChildren($(el), shouldExpand);
-                    });
-                }
-                if (parentElement && parentElement.scope()) {
-                    parentElement.scope().loading = false;
-                }
-            });
-        };
+//        $scope.addRelevantChildren = function (parentElement, shouldExpand) {
+//            var parentNode = parentElement && parentElement.scope() ? parentElement.scope().node : null;
+//            var parentId = parentElement ? parentElement.data('ttId') : null;
+//
+//            if (parentElement) {
+//                parentElement.scope().loading = true;
+//            }
+//
+//            var data = params.getNodes(parentNode);
+//            var elementPromises = [];
+//            angular.forEach(data, function (node) {
+//                //if (params.isRelevant(node)) {
+//                    elementPromises.push($scope.compileElement(node, parentId, parentNode));
+//                //}
+//            });
+//
+//            $q.all(elementPromises).then(function (newElements) {
+//                var parentTtNode = parentId != null ? table.treetable("node", parentId) : null;
+//                $element.treetable('loadBranch', parentTtNode, newElements);
+//                if (params.shouldExpand(parentNode)) {
+//                    angular.forEach(newElements, function (el) {
+//                        $scope.addChildren($(el), shouldExpand);
+//                    });
+//                }
+//                if (parentElement && parentElement.scope()) {
+//                    parentElement.scope().loading = false;
+//                }
+//            });
+//        };
 
 
         /**
@@ -638,7 +707,7 @@
         $scope.onNodeExpand = function () {
             if (this.row.scope().loading) return; // make sure we're not already loading
             table.treetable('unloadBranch', this); // make sure we don't double-load
-            $scope.addRelevantChildren(this.row, $scope.shouldExpand());
+            $scope.addChildren(this.row, $scope.shouldExpand());
             var id = this.row ? this.row.data('ttId') : null;
             //$scope.toggleNodeView(id);
         };

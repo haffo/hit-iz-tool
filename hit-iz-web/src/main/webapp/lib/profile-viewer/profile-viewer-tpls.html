@@ -95,7 +95,7 @@
                                        ng-show="isRelevant(nodeData)">
                                     <thead>
                                     <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px"
-                                        ng-if="nodeData.type !== 'MESSAGE' && nodeData.type !== 'DATATYPE'">
+                                        ng-if="nodeData.type !== 'DATATYPE'">
                                         <th class="col-xs-2 col-fixed-450">Name</th>
                                         <th class="col-xs-1 col-fixed-80">Usage</th>
                                         <th class="col-xs-1 col-fixed-80">Cardinality</th>
@@ -117,15 +117,15 @@
                                         <th class="col-xs-4" ng-style="csWidth">Conformance Statement</th>
                                     </tr>
 
-                                    <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px"
-                                        ng-if="nodeData.type === 'MESSAGE'">
-                                        <th class="col-xs-2 col-fixed-450">Name</th>
-                                        <th class="col-xs-1 col-fixed-80">Usage</th>
-                                        <th class="col-xs-1 col-fixed-80">Cardinality</th>
-                                        <th class="col-xs-1 col-fixed-80">Ref</th>
-                                        <th class="col-xs-3" ng-style="predWidth">Predicate</th>
-                                        <th class="col-xs-4" ng-style="csWidth">Conformance Statement</th>
-                                    </tr>
+                                    <!--<tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px"-->
+                                        <!--ng-if="nodeData.type === 'MESSAGE'">-->
+                                        <!--<th class="col-xs-2 col-fixed-450">Name</th>-->
+                                        <!--<th class="col-xs-1 col-fixed-80">Usage</th>-->
+                                        <!--<th class="col-xs-1 col-fixed-80">Cardinality</th>-->
+                                        <!--<th class="col-xs-1 col-fixed-80">Ref</th>-->
+                                        <!--<th class="col-xs-3" ng-style="predWidth">Predicate</th>-->
+                                        <!--<th class="col-xs-4" ng-style="csWidth">Conformance Statement</th>-->
+                                    <!--</tr>-->
                                     </thead>
                                 </table>
                             </div>
@@ -168,14 +168,17 @@
 </script>
 
 <script type="text/ng-template" id="MessageNode.html">
-    <tr pv-node data="node"
-        is-branch="isBranch(node)">
+    <tr pv-node data="node"  ng-show="visible(node)"
+        is-branch="hasRelevantChild(node)">
         <td class="col-xs-2 col-fixed-450" class="nowrap">
             <img
                     style="width:15px; height:15px"
                     ng-src="images/{{::node.icon}}">
             <span ng-if="node.type === 'GROUP'">{{::node.name}}</span>
-            <span ng-if="node.type === 'SEGMENT_REF'">{{::node.name}}:{{::node.longName}}</span>
+            <span ng-if="node.type === 'SEGMENT_REF'">
+                <a class="point"
+                   ng-click="showRefSegment(node.reference.id)"
+                   >{{::node.name}}:{{::node.longName}}</a></span>
         </td>
         <td class="col-xs-1 col-fixed-80">
                                  <span
@@ -187,9 +190,11 @@
                                  <span
                                          ng-if="node.minOccurs != undefined && node.maxOccurs != undefined">[{{::node.minOccurs}}, {{::node.maxOccurs}}]</span>
         </td>
-        <td class="col-xs-1 col-fixed-80"><a class="point"
-                                             ng-click="showRefSegment(node.reference.id)"
-                                             ng-bind="node.reference.name"></a>
+        <td class="col-xs-1 col-fixed-100">-
+        </td>
+        <td class="col-xs-1 col-fixed-80">-
+        </td>
+        <td class="col-xs-1 col-fixed-150">-
         </td>
         <td class="col-xs-3 col-predicate" ng-style="predWidth">
             <span class="predicate-concise-view concise-view" ng-if="options.concise"
@@ -219,8 +224,8 @@
 
 <script type="text/ng-template" id="SegmentNode.html">
     <tr pv-node
-        data="node"
-        is-branch="isBranch(node)">
+        data="node"  ng-show="visible(node) "
+        is-branch="hasRelevantChild(node)">
         <td class="col-xs-2 col-fixed-450" class="nowrap">
             <img
                     style="width:15px; height:15px"
@@ -276,8 +281,8 @@
 
 
 <script type="text/ng-template" id="DatatypeNode.html">
-    <tr pv-node data="node"
-        is-branch="isBranch(node)">
+    <tr pv-node data="node"  ng-show="visible(node)"
+        is-branch="hasRelevantChild(node)">
         <td class="col-xs-2 col-fixed-450" class="nowrap">
             <img
                     style="width:15px; height:15px"
@@ -330,8 +335,8 @@
 </script>
 
 <script type="text/ng-template" id="FieldOrComponentNode.html">
-    <tr pv-node data="node"
-        is-branch="isBranch(node)">
+    <tr pv-node data="node" ng-show="visible(node)"
+        is-branch="hasRelevantChild(node)">
         <td class="col-xs-2 col-fixed-450" class="nowrap">
             <img
                     style="width:15px; height:15px"

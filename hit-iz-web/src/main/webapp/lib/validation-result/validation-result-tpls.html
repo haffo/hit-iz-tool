@@ -135,15 +135,19 @@
     </div>
     <div class="modal-body">
         <div class="row">
-            <h4>StackTrace</h4>
+            <div ng-if="selectedElement.stackTrace && selectedElement.stackTrace != null">
+                <h4>StackTrace</h4>
             <pre>
                 {{selectedElement.stackTrace | json}}
             </pre>
-            <br/>
-            <h4>MetaData</h4>
+                <br/>
+            </div>
+            <div ng-if="selectedElement.metaData && selectedElement.metaData != null">
+                <h4>MetaData</h4>
             <pre>
                 {{selectedElement.metaData | json}}
             </pre>
+            </div>
         </div>
     </div>
     </div>
