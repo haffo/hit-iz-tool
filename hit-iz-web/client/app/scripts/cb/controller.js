@@ -3,8 +3,6 @@
 angular.module('cb')
     .controller('CBTestingCtrl', ['$scope', '$window', '$rootScope', 'CB', 'StorageService', '$timeout',function ($scope, $window, $rootScope, CB, StorageService,$timeout) {
 
-
-
         $scope.getTestType = function () {
             return CB.testCase.type;
         };

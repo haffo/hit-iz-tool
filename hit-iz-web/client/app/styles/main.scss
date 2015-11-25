@@ -1559,6 +1559,7 @@ li.validation-result-subtab {
 .tooltip.constraints-tooltip .tooltip-inner {
   color: white;
   background-color: black;
+  text-align:left;
 }
 
 //.pvt{
@@ -1927,7 +1928,7 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
   font-size: 20px;
   line-height: 1.4;
   color: #737373;
-  background: #f0f0f0;
+  background: #f2aaaa;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   margin: 0 auto;
@@ -1965,4 +1966,43 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
   max-height: 700px !important;
   width: 100% !important;
   overflow: auto;
+}
+
+.label-icon{
+  width:15px;
+  height:15px;
+  border-radius: 10px;
+}
+
+.label-segment {
+  background-color: #0f44f2;
+}
+
+.label-field {
+  background-color: #f24a08;
+}
+
+.label-component {
+  background-color: #f2c60d;
+}
+
+.label-sub-component {
+  background-color: rgba(0, 0, 0, 0.91);
+}
+
+
+.label-datatype {
+  background-color: rgba(30, 24, 242, 0.91);
+}
+
+.nodata{
+  background-color: #f5f5f5;
+  color:white;
+  border-color: black;
+ }
+
+.current-test{
+  background-color: #bababa;
+  color:black;
+  font-weight:normal;
 }

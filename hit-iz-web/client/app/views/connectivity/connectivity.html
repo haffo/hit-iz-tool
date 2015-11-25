@@ -1,8 +1,17 @@
+<style id="antiClickjack">body{display:none !important;}</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
 <div id="subNavBar" class="subNavBar" ng-controller="ConnectivityTestingCtrl" ng-init="init()">
 
     <ul class="clearfix mainSubNav">
         <li ng-click="setSubActive('/connectivity_testcase')" class="jslink" ><a ng-class="{'current':isSubActive('/connectivity_testcase')}"> <i class="fa fa-th-list"></i>Test Selection</a></li>
-        <li ng-click="setSubActive('/connectivity_execution')" class="jslink" ><a ng-class="{'current':isSubActive('/connectivity_execution')}"> <i class="fa fa-cogs"></i>Test Execution</a></li>
+        <li ng-click="setSubActive('/connectivity_execution')" class="jslink" ><a ng-class="{'current':isSubActive('/connectivity_execution')}"> <i class="fa fa-cogs"></i>Test Execution <span title="Current Test Case" class="badge current-test" ng-show="testCaseLoaded != null">Current TestCase: {{testCaseLoaded.name}}</span></a></li>
     </ul>
 
     <div ng-show="isSubActive('/connectivity_testcase')">

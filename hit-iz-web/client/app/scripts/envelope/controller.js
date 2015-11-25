@@ -5,6 +5,7 @@ angular.module('envelope')
         $scope.loading = false;
         $scope.error = null;
         $scope.tabs = new Array();
+        $scope.testCaseLoaded = null;
         $scope.setActiveTab = function (value) {
             $scope.tabs[0] = false;
             $scope.tabs[1] = false;
@@ -20,6 +21,7 @@ angular.module('envelope')
         };
 
         $rootScope.$on('env:testCaseLoaded', function (event,testCase, tab) {
+            $scope.testCaseLoaded = Envelope.testCase ;
             if (Envelope.testCase != null && Envelope.testCase.id != null) {
                 $rootScope.setSubActive(tab && tab != null ? tab:'/envelope_execution');
             }

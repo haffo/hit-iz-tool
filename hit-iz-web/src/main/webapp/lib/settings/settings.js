@@ -22,28 +22,22 @@ mod
             $scope.options.validation.show.alerts = true;
             $scope.options.validation.show.warnings = true;
             $scope.options.validation.show.affirmatives = true;
-            $scope.options.validation.show.ignores = true;
-            $scope.options.validation.show.informationals = true;
-        };
+          };
 
         $scope.isAllValidationOptionsChecked = function () {
             return
             $scope.options.validation.show.errors &&
             $scope.options.validation.show.alerts &&
             $scope.options.validation.show.warnings &&
-            $scope.options.validation.show.affirmatives &&
-            $scope.options.validation.show.ignores &&
-            $scope.options.validation.show.informationals;
-        };
+            $scope.options.validation.show.affirmatives
+          };
 
         $scope.unselectAllValidationOptions = function () {
             $scope.options.validation.show.errors = true;
             $scope.options.validation.show.alerts = false;
             $scope.options.validation.show.warnings = false;
             $scope.options.validation.show.affirmatives = false;
-            $scope.options.validation.show.ignores = false;
-            $scope.options.validation.show.informationals = false;
-        };
+          };
 
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
@@ -65,8 +59,7 @@ mod.factory('Settings',
                     errors: true,
                     alerts: true,
                     warnings: true,
-                    affirmatives: true,
-                    informationals: true,
+                    affirmatives: false,
                     ignores: true
                 }
             }

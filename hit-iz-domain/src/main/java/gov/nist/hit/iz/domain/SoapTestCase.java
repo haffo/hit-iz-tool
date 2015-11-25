@@ -12,9 +12,9 @@
 
 package gov.nist.hit.iz.domain;
 
+import gov.nist.hit.core.domain.ObjectType;
 import gov.nist.hit.core.domain.SutType;
 import gov.nist.hit.core.domain.TestStory;
-import gov.nist.hit.core.domain.ObjectType;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -70,15 +70,9 @@ public class SoapTestCase implements java.io.Serializable {
   @Column(length = 100000, nullable = true)
   protected byte[] messageContentImage;
 
-  @Lob
-  @Basic(fetch = FetchType.EAGER)
-  @Column(length = 100000, nullable = true)
-  protected byte[] testDataSpecificationImage;
 
-  @Lob
-  @Basic(fetch = FetchType.EAGER)
-  @Column(length = 100000, nullable = true)
-  protected byte[] testDataSpecificationImage2;
+  @Column(nullable = true, columnDefinition = "TEXT")
+  protected String tds;
 
 
   @OneToOne(cascade = CascadeType.PERSIST)
@@ -172,20 +166,14 @@ public class SoapTestCase implements java.io.Serializable {
     this.messageContentImage = messageContentImage;
   }
 
-  public byte[] getTestDataSpecificationImage() {
-    return testDataSpecificationImage;
+
+
+  public String getTds() {
+    return tds;
   }
 
-  public void setTestDataSpecificationImage(byte[] testDataSpecificationImage) {
-    this.testDataSpecificationImage = testDataSpecificationImage;
-  }
-
-  public byte[] getTestDataSpecificationImage2() {
-    return testDataSpecificationImage2;
-  }
-
-  public void setTestDataSpecificationImage2(byte[] testDataSpecificationImage2) {
-    this.testDataSpecificationImage2 = testDataSpecificationImage2;
+  public void setTds(String tds) {
+    this.tds = tds;
   }
 
   public ObjectType getType() {

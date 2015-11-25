@@ -118,7 +118,7 @@
                     scope.get_icon_type = function (branch) {
                         if (branch.type === 'TestObject' || branch.type === 'TestStep') {
                             var connType = branch['testingType'];
-                            return  connType === 'TA_MANUAL' || connType === 'SUT_MANUAL' ? 'fa fa-wrench' : connType === 'TA_INITIATOR' || connType === 'SUT_INITIATOR' ? 'fa fa-arrow-right' : connType === 'TA_RESPONDER' || connType === 'SUT_RESPONDER' ? 'fa fa-arrow-left' : 'fa fa-check-square-o';
+                            return  connType === 'TA_MANUAL' || connType === 'SUT_MANUAL' ? 'fa fa-wrench' : connType === 'SUT_RESPONDER' || connType === 'SUT_INITIATOR' ? 'fa fa-arrow-right' : connType === 'TA_RESPONDER' || connType === 'TA_INITIATOR' ? 'fa fa-arrow-left' : 'fa fa-check-square-o';
                         } else {
                             return '';
                         }

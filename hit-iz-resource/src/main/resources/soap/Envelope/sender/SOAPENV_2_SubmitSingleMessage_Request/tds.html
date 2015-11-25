@@ -1,0 +1,84 @@
+<table class="table table-striped table-bordered table-condensed">
+	<thead>
+		<tr class="tbl-header">
+			<th>Element Name</th>
+			<th>Data</th>
+			<th>Classification of Data</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><b>submitSingleMessage</b>: username</td>
+			<td>leonidas</td>
+			<td>Changeable</td>
+		</tr>
+		<tr>
+			<td>submitSingleMessage: password</td>
+			<td>Spartans300!</td>
+			<td>Changeable</td>
+		</tr>
+		<tr>
+			<td>submitSingleMessage: facilityID</td>
+			<td>EHR1234</td>
+			<td>Changeable</td>
+		</tr>
+		<tr>
+			<td>submitSingleMessage: HL7 Message</td>
+			<td>MSH|^~\&amp;|Test EHR Application|X68||NIST Test Iz Reg|201207010822||VXU^V04^VXU_V04|NIST-IZ-007.00|P|2.5.1|||AL|ER&#xD;PID|1||MR-99922^^^NIST MPI^MR||Montgomery^Lewis^^^^^L||20010821|M&#xD;ORC|RE||IZ-783276^NDA&#xD;RXA|0|1|20110215||118^HPV^CVX|999|||01^Historical information - source unspecified^NIP001</td>
+			<td>Changeable</td>
+		</tr>
+
+	</tbody>
+</table>
+
+<br />
+	
+<p><b>Explanation of Data Classification</b></p>
+<table class="table table-striped table-bordered table-condensed">
+	<thead>
+		<tr class="tbl-header">
+			<th>Data Classification</th>
+			<th>Description</th>
+			<th>Validation</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><b>Configurable</b></td>
+			<td>Data typically that are configured by the system (customer-definable). Example data are provided.</td>
+			<td>Validate for the presence of data</td>
+		</tr>
+		<tr>
+			<td><b>System Generated</b></td>
+			<td>Data typically generated automatically by system, e.g., message time. Example data are provided.</td>
+			<td>Validate for the presence of data</td>
+		</tr>
+		<tr>
+			<td><b>IG Fixed</b></td>
+			<td>Data that are fixed by the implementation guide; data can't be changed. Specific data are provided.</td>
+			<td>Validate for the presence and data content</td>
+		</tr>
+		<tr>
+			<td><b>Test Case Fixed</b></td>
+			<td>Data that are specific and fixed by the test case; data should not be changed. Specific data are provided.</td>
+			<td>Validate for the presence and selectively validate for data content</td>
+		</tr>
+		<tr>
+			<td><b>Changeable</b></td>
+			<td>Data where the exact content is not relevant for the test case and can be changed for the purposes of testing. Example data are provided.</td>
+			<td>Validate for the presence of data</td>
+		</tr>
+		<tr>
+			<td><b>Test Tool-Assigned</b></td>
+			<td>Data that are assigned by the test tool for the specific System Under Test in real-time. Example data are provided.</td>
+			<td>Validate for the presence and for data content</td>
+		</tr>
+		
+		<tr>
+			<td><b>Test System-Provided</b></td>
+			<td>Data that are provided by the System Under Test in real-time. Example data are provided.</td>
+			<td>Validate for the presence and for data content</td>
+		</tr>
+	</tbody>
+</table>
+	

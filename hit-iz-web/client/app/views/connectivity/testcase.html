@@ -1,3 +1,12 @@
+<style id="antiClickjack">body{display:none !important;}</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
 <div   ng-controller="ConnectivityTestCaseCtrl" ng-init="init()">
     <div class="row" style="margin: 10px">
         <div class="col-md-3">
@@ -64,10 +73,10 @@
                                 </button>
 
 
-                                <button title="Load TestCase" type="button" class="btn btn-xs btn-success"
+                                <button title="Load Selected Test Case" type="button" class="btn btn-xs btn-success"
                                         ng-show="selectedTestCase != null"
                                         ng-click="loadTestCase(selectedTestCase,'/connectivity_execution')">
-                                    <i class="fa fa-play"></i>Start
+                                    <i class="fa fa-play"></i>Load Test Case
                                 </button>
                              </span>
                         </div>
@@ -194,7 +203,7 @@
                                                         </div>
                                                  </tab>
 
-                                                <tab ng-show="selectedTestCase.testDataSpecificationImage != undefined && selectedTestCase.testDataSpecificationImage != null">
+                                                <tab ng-show="selectedTestCase.tds != undefined && selectedTestCase.tds != null">
                                                     <tab-heading>
                                                         Test Data Specification
                                                     </tab-heading>
@@ -203,8 +212,7 @@
                                                         <div class="panel-body">
                                                     <div class="">
                                                         <div class="test-info-container">
-                                                        <img ng-src="data:image/jpeg;base64,{{selectedTestCase.testDataSpecificationImage}}"/>
-
+                                                            <div compile="selectedTestCase.tds"></div>
                                                         </div>
                                                     </div>
                                                             </div>

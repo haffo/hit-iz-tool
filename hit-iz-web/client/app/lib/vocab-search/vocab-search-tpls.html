@@ -1,3 +1,12 @@
+<style id="antiClickjack">body{display:none !important;}</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
 <script type="text/ng-template" id="VocabSearch.html">
 <div ng-show="loading" style="text-align:center">
     <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>

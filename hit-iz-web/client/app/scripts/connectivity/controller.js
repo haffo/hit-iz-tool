@@ -1,6 +1,9 @@
 'use strict';
 angular.module('connectivity')
     .controller('ConnectivityTestingCtrl', ['$scope', 'Connectivity', '$rootScope', 'StorageService', function ($scope, Connectivity, $rootScope,StorageService) {
+
+        $scope.testCaseLoaded = null;
+
         $scope.init = function () {
             var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
             if(tab == null || tab != '/connectivity_execution') tab =  '/connectivity_testcase';
@@ -8,6 +11,7 @@ angular.module('connectivity')
         };
 
         $rootScope.$on('conn:testCaseLoaded', function (event, tab) {
+            $scope.testCaseLoaded = Connectivity.testCase;
             $rootScope.setSubActive(tab && tab != null ? tab:'/connectivity_execution');
          });
 

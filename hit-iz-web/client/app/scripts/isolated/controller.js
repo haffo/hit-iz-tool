@@ -2,7 +2,7 @@
 
 angular.module('isolated')
     .controller('IsolatedSystemTestingCtrl', ['$scope', '$window', '$rootScope', 'IsolatedSystem', 'StorageService', function ($scope, $window, $rootScope, IsolatedSystem, StorageService) {
-
+        $scope.testCase = null;
         $scope.getTestType = function () {
             return IsolatedSystem.testCase.type;
         };
@@ -14,6 +14,9 @@ angular.module('isolated')
             if (tab == null || tab != '/isolated_execution') tab = '/isolated_testcase';
             $rootScope.setSubActive(tab);
 
+            $scope.$on('isolated:testCaseLoaded', function (event, testCase, tab) {
+                $scope.testCase = testCase;
+            });
 
         };
 

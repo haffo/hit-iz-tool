@@ -1,3 +1,12 @@
+<style id="antiClickjack">body{display:none !important;}</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
 <script type="text/ng-template" id="DocumentationViewer.html">
     <div style="margin:10px">
     <accordion close-others="false">
@@ -352,9 +361,9 @@
                         <tr ng-repeat="doc in docs | orderBy:'position'">
                             <td st-ratio="25">{{doc.title}}</td>
                             <td st-ratio="25">
-                                <span ng-if="doc.name == null">-</span>
-                    <span ng-if="doc.name != null">
-                    <a class="point" ng-if="isLink(doc.path)" ng-href="{{doc.path}}">{{doc.name}}</a>
+                                <span ng-if="doc.path == null">-</span>
+                    <span ng-if="doc.path != null">
+                    <a class="point" ng-if="isLink(doc.path)" target="_blank" ng-href="{{doc.path}}">{{doc.path}}</a>
                     <a class="point" ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{doc.name}}</a>
                     </span>
                             </td>

@@ -44,8 +44,7 @@ public class SOAPConnectivityTestPlanParser {
     testCasePath = this.domain + "/Connectivity/sender/SOAPCON_1_BasicMessage_ConnectivityRequest";
     testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
     testCase.setInstructionsText(FileUtil.getContent(testCasePath + "/instructions.txt"));
-    testCase.setTestDataSpecificationImage(FileUtil.getByteArray(testCasePath
-        + "/testDataSpecification.png"));
+    testCase.setTds(FileUtil.getContent(testCasePath + "/tds.html"));
     testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
     TestStory testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
@@ -95,8 +94,7 @@ public class SOAPConnectivityTestPlanParser {
     context.setResponseContentImage(FileUtil.getByteArray(testCasePath + "/content-response.png"));
     testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
     testCase.setInstructionsText(FileUtil.getContent(testCasePath + "/instructions.txt"));
-    testCase.setTestDataSpecificationImage(FileUtil.getByteArray(testCasePath
-        + "/testDataSpecification.png"));
+    testCase.setTds(FileUtil.getContent(testCasePath + "/tds.html"));
     testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
@@ -123,8 +121,7 @@ public class SOAPConnectivityTestPlanParser {
     context.setRequestContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
     testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
     testCase.setInstructionsText(FileUtil.getContent(testCasePath + "/instructions.txt"));
-    testCase.setTestDataSpecificationImage(FileUtil.getByteArray(testCasePath
-        + "/testDataSpecification.png"));
+    testCase.setTds(FileUtil.getContent(testCasePath + "/tds.html"));
     testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
@@ -146,8 +143,7 @@ public class SOAPConnectivityTestPlanParser {
     context.setRequestContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
     testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
     testCase.setInstructionsText(FileUtil.getContent(testCasePath + "/instructions.txt"));
-    testCase.setTestDataSpecificationImage(FileUtil.getByteArray(testCasePath
-        + "/testDataSpecification.png"));
+    testCase.setTds(FileUtil.getContent(testCasePath + "/tds.html"));
     testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
@@ -171,8 +167,7 @@ public class SOAPConnectivityTestPlanParser {
     context.setRequestContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
     testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
     testCase.setInstructionsText(FileUtil.getContent(testCasePath + "/instructions.txt"));
-    testCase.setTestDataSpecificationImage(FileUtil.getByteArray(testCasePath
-        + "/testDataSpecification.png"));
+    testCase.setTds(FileUtil.getContent(testCasePath + "/tds.html"));
     testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
@@ -195,11 +190,7 @@ public class SOAPConnectivityTestPlanParser {
     context.setRequestContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
     testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
     testCase.setInstructionsText(FileUtil.getContent(testCasePath + "/instructions.txt"));
-    testCase.setTestDataSpecificationImage(FileUtil.getByteArray(testCasePath
-        + "/testDataSpecification.png"));
-    // testCase.setTestDataSpecificationImage2(FileUtil.getByteArray(testCasePath
-    // + "/testDataSpecification2.png"));
-
+    testCase.setTds(FileUtil.getContent(testCasePath + "/tds.html"));
     testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
@@ -223,8 +214,7 @@ public class SOAPConnectivityTestPlanParser {
     context.setRequestContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
     testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
     testCase.setInstructionsText(FileUtil.getContent(testCasePath + "/instructions.txt"));
-    testCase.setTestDataSpecificationImage(FileUtil.getByteArray(testCasePath
-        + "/testDataSpecification.png"));
+    testCase.setTds(FileUtil.getContent(testCasePath + "/tds.html"));
     testStory = testCase.getTestStory();
     testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
     testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));

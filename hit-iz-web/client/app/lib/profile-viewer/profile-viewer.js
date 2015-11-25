@@ -23,8 +23,7 @@
         .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'PvTreetableParams', 'ProfileService', '$http', '$filter', '$cookies', '$sce', '$timeout', function ($scope, $rootScope, PvTreetableParams, ProfileService, $http, $filter, $cookies, $sce, $timeout) {
             $scope.testCase = null;
             $scope.elements = [];
-            $scope.confStatements = [];
-            $scope.tmpConfStatements = [].concat($scope.confStatements);
+            $scope.tmpConfStatements = [];
             $scope.confStatementsActive = false;
             $scope.nodeData = [];
             $scope.loading = false;
@@ -36,12 +35,16 @@
             $scope.csWidth = null;
             $scope.predWidth = null;
             $scope.tableWidth = null;
-
+            $scope.parentsMap = {};
             $scope.options = {
                 concise: true,
                 relevance: true,
                 collapse: true
             };
+            $scope.predicates = [];
+            $scope.confStatements = [];
+            $scope.segments = [];
+            $scope.datatypes = [];
             $rootScope.pvNodesMap = {};
 
             $scope.getConstraintsAsString = function (constraints) {
@@ -53,22 +56,14 @@
             };
 
             $scope.isBranch = function (node) {
-                return node && node.children && node.children != null && node.children.length > 0;
-
-//                if (node.children != null && node.children.length > 0) {
-//                    for (var i = 0; i < node.children.length; i++) {
-//                        if ($scope.isRelevant(node.children[i])) {
-//                            return true;
-//                        }
-//                    }
-//                }
-//                return false;
+                var children = $scope.children(node);
+                return children != null && children.length > 0;
             };
 
             $scope.showRefSegment = function (id) {
-                if ($scope.elements.length > 0 && id)
-                    for (var i = 1; i < $scope.elements.length; i++) {
-                        var element = $scope.elements[i];
+                if ($scope.segments.length > 0 && id)
+                    for (var i = 1; i < $scope.segments.length; i++) {
+                        var element = $scope.segments[i];
                         if (element.id == id) {
                             $scope.getNodeContent(element);
                         }
@@ -76,16 +71,7 @@
             };
 
             $scope.isRelevant = function (node) {
-//                return !$scope.options.relevance || ($scope.options.relevance && node.relevent === true);
                 return !$scope.options.relevance ? true : node && node.relevent != undefined ? node.relevent : true;
-//                if($scope.options.relevance){
-//                    return node.relevent;
-//                }else{
-//                    return true;
-//                }
-                //return !$scope.options.relevance || ($scope.options.relevance && node.relevent === true);
-
-
             };
 
             $scope.collapseAll = function (collapse) {
@@ -123,44 +109,114 @@
                 return [];
             };
 
+            $scope.processElement = function (element, parent) {
+                try {
+                    if (element.type === "GROUP" && element.children) {
+                        element.position = parseInt(element.position);
+                        $scope.parentsMap[element.id] = parent;
+                        angular.forEach(element.children, function (segmentRefOrGroup) {
+                            $scope.processElement(segmentRefOrGroup, element);
+                        });
+                        element.children = $filter('orderBy')(element.children, 'position');
+                    } else if (element.type === "SEGMENT_REF") {
+                        element.position = parseInt(element.position);
+                        if (parent) {
+                            $scope.parentsMap[element.id] = parent;
+                        }
+                        var ref = $scope.model.segments[element.ref];
+                        $scope.processElement(ref, element);
+                    } else if (element.type === "SEGMENT") {
+                        if ($scope.segments.indexOf(element) === -1) {
+                            element["path"] = element["name"];
+                            $scope.segments.push(element);
+                            for (var i = 0; i < element.predicates.length; i++) {
+                                if ($scope.predicates.indexOf(element.predicates[i]) === -1)
+                                    $scope.predicates.push(element.predicates[i]);
+                            }
+                            for (var i = 0; i < element.conformanceStatements.length; i++) {
+                                if ($scope.confStatements.indexOf(element.conformanceStatements[i]) === -1)
+                                    $scope.confStatements.push(element.conformanceStatements[i]);
+                            }
+                            angular.forEach(element.children, function (field) {
+                                $scope.processElement(field, element);
+                            });
+                            element.children = $filter('orderBy')(element.children, 'position');
+                        }
+                    } else if (element.type === "FIELD") {
+                        element.position = parseInt(element.position);
+                        $scope.parentsMap[element.id] = parent;
+                        element["path"] = parent.path + "." + element.position;
+                        var dt = element.datatype;
+                        if (dt === 'varies' && parent.dynamicMaps && parent.dynamicMaps != null && parent.dynamicMaps[element.position] != null) {
+                            element.children = [];
+                            var ids = $filter('orderBy')(parent.dynamicMaps[element.position]);
+                            angular.forEach(parent.dynamicMaps[element.position], function (id) {
+                                element.children.push($scope.model.datatypes[id]);
+                                $scope.processElement($scope.model.datatypes[id], element);
+                            });
+                        } else {
+                            $scope.processElement($scope.model.datatypes[element.datatype], element);
+                        }
+                    } else if (element.type === "COMPONENT") {
+                        element.position = parseInt(element.position);
+                        $scope.parentsMap[element.id] = parent;
+                        element["path"] = parent.path + "." + element.position;
+                        $scope.processElement($scope.model.datatypes[element.datatype], element);
+                    } else if (element.type === "DATATYPE") {
+                        for (var i = 0; i < element.predicates.length; i++) {
+                            if ($scope.predicates.indexOf(element.predicates[i]) === -1)
+                                $scope.predicates.push(element.predicates[i]);
+                        }
+
+                        for (var i = 0; i < element.conformanceStatements.length; i++) {
+                            if ($scope.confStatements.indexOf(element.conformanceStatements[i]) === -1)
+                                $scope.confStatements.push(element.conformanceStatements[i]);
+                        }
+
+                        angular.forEach(element.children, function (component) {
+                            $scope.processElement(component, element);
+                        });
+                        element.children = $filter('orderBy')(element.children, 'position');
+                    }
+                } catch (e) {
+                    throw e;
+                }
+            };
+
             $scope.$on($scope.type + ':profileLoaded', function (event, profile) {
                 if (profile && profile.id != null) {
                     $scope.loading = true;
                     $scope.options.collapse = true;
                     $scope.profile = profile;
                     $scope.profileService.getJson($scope.profile.id).then(function (jsonObject) {
-                        $scope.loading = false;
-                        $scope.loading = true;
                         $scope.nodeData = [];
-                        $scope.loading = false;
-                        profile['json'] = angular.fromJson(jsonObject);
-                        $scope.elements = profile.json.elements;
-                        var datatypes = null;
-                        var segments = [];
-                        var message = null;
-                        var confStatementsMap = {};
+                        $scope.predicates = [];
                         $scope.confStatements = [];
-                        angular.forEach($scope.elements, function (element) {
-                            if (element.name === 'Datatypes' && datatypes === null) {
-                                datatypes = element;
-                            }
-                            if (element.type === 'SEGMENT') {
-                                segments.push(element);
-                            }
-                            $scope.collectConfStatements(element, confStatementsMap);
+                        $scope.predicates = [];
+                        $scope.segments = [];
+                        $scope.datatypes = [];
+                        $scope.parentsMap = [];
+                        $rootScope.pvNodesMap = {};
+                        $scope.model = angular.fromJson(jsonObject);
+                        angular.forEach($scope.model.message.children, function (segmentRefOrGroup) {
+                            $scope.processElement(segmentRefOrGroup);
                         });
-                        $scope.confStatements = $filter('orderBy')($scope.confStatements, 'id');
-                        $scope.tmpConfStatements = [].concat($scope.confStatements);
-                        $scope.profileService.setDatatypesTypesAndIcons(datatypes);
-//                        var valueSetIds = $scope.profileService.getValueSetIds(segments, datatypes.children);
-//                        $rootScope.$broadcast($scope.type + ':valueSetIdsCollected', valueSetIds);
-                        $scope.getNodeContent($scope.elements[0]);
+                        angular.forEach($scope.model.datatypes, function (value, key) {
+                            $scope.datatypes.push(value);
+                        });
+                        $scope.datatypes = $filter('orderBy')($scope.datatypes, 'name');
+                        $scope.getNodeContent($scope.model.message);
                         $scope.loading = false;
                     }, function (error) {
                         $scope.error = "Sorry, Cannot load the profile.";
                         $scope.loading = false;
                         $scope.nodeData = [];
-                        $scope.elements = [];
+                        $scope.predicates = [];
+                        $scope.confStatements = [];
+                        $scope.predicates = [];
+                        $scope.segments = [];
+                        $scope.datatypes = [];
+                        $scope.parentsMap = [];
                         $scope.confStatements = [];
                         $scope.tmpConfStatements = [].concat($scope.confStatements);
                         $scope.refresh();
@@ -168,27 +224,75 @@
                 } else {
                     $scope.loading = false;
                     $scope.nodeData = [];
-                    $scope.elements = [];
+                    $scope.predicates = [];
+                    $scope.confStatements = [];
+                    $scope.predicates = [];
+                    $scope.segments = [];
+                    $scope.datatypes = [];
+                    $scope.parentsMap = [];
                     $scope.refresh();
-                    $scope.loading = false;
                     $scope.confStatements = [];
                     $scope.tmpConfStatements = [].concat($scope.confStatements);
 
                 }
             });
 
+            $scope.children = function (node) {
+                if (node.type === 'SEGMENT_REF') {
+                    return $scope.children($scope.model.segments[node.ref]);
+                } else if (node.type === 'FIELD' || node.type === 'COMPONENT') {
+                    return  node.datatype && node.datatype !== 'varies' ? $scope.model.datatypes[node.datatype].children : node.children;
+                } else if (node.type === 'DATATYPE' || node.type == 'SEGMENT' || node.type === 'GROUP') {
+                    return node.children;
+                }
+            };
+
+
+            $scope.getNodes = function (parent) {
+                var children = $scope.children(parent);
+                if (parent.type === 'FIELD') {
+                    children = angular.copy(children);
+                    angular.forEach(children, function (child) {
+                        child.type = parent.datatype === 'varies' ? 'DATATYPE' : 'COMPONENT';
+                    });
+                } else if (parent.type === 'COMPONENT') {
+                    children = angular.copy(children);
+                    angular.forEach(children, function (child) {
+                        child.type = parent.datatype === 'varies' ? 'DATATYPE' : 'SUBCOMPONENT';
+                    });
+                } else if (parent.type === 'DATATYPE') {
+                    children = angular.copy(children);
+                    angular.forEach(children, function (child) {
+                        child.type = 'COMPONENT';
+                    });
+                }
+                return children;
+            };
+
             $scope.params = new PvTreetableParams({
                 getNodes: function (parent) {
-                    if (parent && parent.children) {
-                        angular.forEach(parent.children, function (child) {
-                            child['parent'] = parent;
-                        });
+                    if ($scope.nodeData.type === 'MESSAGE') {
+                        if (!parent || parent == null) {
+                            return $scope.nodeData.children;
+                        } else {
+                            return $scope.getNodes(parent);
+                        }
+                    } else if ($scope.nodeData.type === 'SEGMENT') {
+                        if (!parent || parent == null) {
+                            return $scope.nodeData.children;
+                        } else {
+                            return $scope.getNodes(parent);
+                        }
+                    } else if ($scope.nodeData.type === 'DATATYPE') {
+                        if (parent && parent != null) {
+                            return $scope.getNodes(parent);
+                        } else {
+                            return $scope.datatypes;
+                        }
                     }
-                    return parent ? parent.children : $scope.nodeData.children;
                 },
                 shouldExpand: function (node) {
                     return $scope.nodeData.type === 'MESSAGE' && (node && node !== null && (node.type === 'SEGMENT_REF' || node.type === 'GROUP'));
-//                    return false;
                 },
                 toggleRelevance: function () {
                     return $scope.setAllRelevance($scope.options.relevance);
@@ -208,14 +312,23 @@
                 getTemplate: function (node) {
                     if ($scope.nodeData && $scope.nodeData.type != undefined) {
                         if ($scope.nodeData.type === 'SEGMENT') {
-                            return 'SegmentNode.html';
+                            return node.type === 'SEGMENT' ? 'SegmentReadTree.html' : node.type === 'FIELD' ? 'SegmentFieldReadTree.html' : node.type === 'DATATYPE' ? 'SegmentDatatypeReadTree.html' : 'SegmentComponentReadTree.html';
                         } else if ($scope.nodeData.type === 'MESSAGE') {
-                            return node.type === 'SEGMENT_REF' || node.type === 'GROUP' ? 'MessageNode.html' : 'SegmentNode.html';
+                            if (node.type === 'SEGMENT_REF') {
+                                return 'MessageSegmentRefReadTree.html';
+                            } else if (node.type === 'GROUP') {
+                                return 'MessageGroupReadTree.html';
+                            } else if (node.type === 'FIELD') {
+                                return 'MessageFieldViewTree.html';
+                            } else if (node.type === 'COMPONENT' || node.type === 'SUBCOMPONENT') {
+                                return 'MessageComponentViewTree.html';
+                            } else if (node.type === 'DATATYPE') {
+                                return 'MessageDatatypeViewTree.html';
+                            }
                         } else if ($scope.nodeData.type === 'DATATYPE') {
-                            return node.type === 'DATATYPE' ? 'DatatypeNode.html' : 'FieldOrComponentNode.html';
+                            return node.type === 'DATATYPE' ? 'DatatypeReadTree.html' : node.type === 'COMPONENT' ? 'DatatypeComponentReadTree.html' : 'DatatypeSubComponentReadTree.html';
                         }
                     }
-                    return '';
                 },
                 options: {
                     initialState: 'collapsed'
@@ -227,14 +340,26 @@
                 $scope.params.refreshWithState(!$scope.options.collapse ? 'expanded' : 'collapse');
             };
 
+            $scope.isDatatypeSubDT = function (component) {
+//                if ($scope.datatype != null) {
+//                    for (var i = 0, len = $scope.datatype.children.length; i < len; i++) {
+//                        if ($scope.datatype.children[i].id === component.id)
+//                            return false;
+//                    }
+//                }
+                return false;
+            };
+
             $scope.hasRelevantChild = function (node) {
-                if ($scope.isBranch(node)) {
-                    for (var i = 0; i < node.children.length; i++) {
-                        var child = node.children[i];
-                        if (!$scope.isRelevant(child) && ($scope.isBranch(child) ? $scope.hasRelevantChild(child):true)) {
-                            return true;
-                        }
-                    }
+                var children = $scope.children(node);
+                if (children && children != null && children.length > 0) {
+//                    for (var i = 0; i < children.length; i++) {
+//                        var child = children[i];
+//                        if ($scope.isRelevant(child)) {
+//                            return true;
+//                        }
+//                    }
+                    return true;
                 }
                 return false;
             };
@@ -285,7 +410,26 @@
 
 
             $scope.visible = function (node) {
-                return node ? $scope.isRelevant(node) && $scope.visible(node.parent) : true;
+                var isVisible = node ? $scope.isRelevant(node) && $scope.visible($scope.parentsMap[node.id]) : true;
+//                if(node) {
+//                    var branches = $('table.pvt tr.branch[data-tt-parent-id="' + $rootScope.pvNodesMap[node] + "'" + ']');
+//                    if (!$scope.hasRelevantChild(node)) {
+//                        if (branches) {
+//                            var id = $(branches).attr('data-tt-id');
+//                            var a = $(branches).find("td span.indenter a");
+//                            if (a) {
+//                                $(a[0]).hide();
+//                            }
+//                        }
+//                    } else if (branches) {
+//                        var id = $(branches).attr('data-tt-id');
+//                        var a = $(branches).find("td span.indenter a");
+//                        if (a) {
+//                            $(a[0]).show();
+//                        }
+//                    }
+//                }
+                return isVisible;
             };
 
             $scope.getNodeContent = function (selectedNode) {
@@ -309,26 +453,46 @@
 //                $scope.setAllRelevance($scope.options.relevance);
             };
 
+            $scope.getDatatypesNodesContent = function () {
+                $scope.getNodeContent({children: $scope.datatypes, type: 'DATATYPE', name: 'Datatypes'});
+            };
+
             $scope.setAllRelevance = function (value) {
                 $scope.options.relevance = value;
-//                if (!$scope.options.relevance) {
-//                    $('table.pvt tr span.indenter a').show();
-//                    $('table.pvt tr.notRelevant').show();
+//                if (value) {
+//                    $scope.hideIndenters();
 //                } else {
-//                    $('table.pvt tr.notRelevant').hide();
-//                    var branches = $('table.pvt tr.branch').not('.ng-hide').not('.notRelevant');
-//                    for (var i = 0; i < branches.length; i++) {
-//                        var branch = $(branches[i]);
-//                        var id = branch.attr('data-tt-id');
-//                        var node = $rootScope.pvNodesMap[id];
-//                        if (node && node !== null && !$scope.hasRelevantChild(node)) {
-//                            var a = $(branch[0]).find("td span.indenter a");
-//                            if (a) {
-//                                $(a[0]).hide();
-//                            }
-//                        }
-//                    }
+//                    $scope.showIndenters();
 //                }
+            };
+
+            $scope.hideIndenters = function () {
+                var branches = $('table.pvt tr.branch').not('.ng-hide');
+                for (var i = 0; i < branches.length; i++) {
+                    var branch = $(branches[i]);
+                    var id = branch.attr('data-tt-id');
+                    var node = $rootScope.pvNodesMap[id];
+                    if (node && node !== null && !$scope.hasRelevantChild(node)) {
+                        var a = $(branch[0]).find("td span.indenter a");
+                        if (a) {
+                            $(a[0]).hide();
+                        }
+                    }
+                }
+            };
+
+
+            $scope.showIndenters = function () {
+                var branches = $('table.pvt tr.branch');
+                for (var i = 0; i < branches.length; i++) {
+                    var branch = $(branches[i]);
+                    var id = branch.attr('data-tt-id');
+                    var node = $rootScope.pvNodesMap[id];
+                    var a = $(branch[0]).find("td span.indenter a");
+                    if (a) {
+                        $(a[0]).show();
+                    }
+                }
             };
 
 
@@ -368,36 +532,51 @@
                 $scope.confStatementsActive = true;
             };
 
-            $scope.getPredicatesAsMultipleLinesString = function (node) {
+            $scope.getPredicatesAsMultipleLinesString = function (node, constraints) {
+                var predicates = constraints ? $scope.filterConstraints(node, constraints) : node.predicates;
                 var html = "";
-                angular.forEach(node.predicates, function (predicate) {
-                    html = html + "<p>" + predicate.description + "</p>";
-                });
+                if (predicates && predicates != null) {
+                    angular.forEach(predicates, function (predicate) {
+                        html = html + "<p>" + predicate.description + "</p>";
+                    });
+                }
                 return html;
             };
 
-            $scope.getPredicatesAsOneLineString = function (node) {
+            $scope.getPredicatesAsOneLineString = function (node, constraints) {
+                var predicates = constraints ? $scope.filterConstraints(node, constraints) : node.predicates;
                 var html = "";
-                angular.forEach(node.predicates, function (predicate) {
-                    html = html + predicate.description;
-                });
+                if (predicates && predicates != null) {
+                    angular.forEach(predicates, function (predicate) {
+                        html = html + predicate.description;
+                    });
+                }
                 return $sce.trustAsHtml(html);
             };
 
+            $scope.filterConstraints = function (node, constraints) {
+                return $filter('filter')(constraints, {constraintTarget: node.position + '[1]'}, true);
+            };
 
-            $scope.getConfStatementsAsMultipleLinesString = function (node) {
+            $scope.getConfStatementsAsMultipleLinesString = function (node, constraints) {
+                var confStatements = constraints ? $scope.filterConstraints(node, constraints) : node.conformanceStatements;
                 var html = "";
-                angular.forEach(node.conformanceStatements, function (conStatement) {
-                    html = html + "<p>" + conStatement.id + " : " + conStatement.description + "</p>";
-                });
+                if (confStatements && confStatements != null) {
+                    angular.forEach(confStatements, function (conStatement) {
+                        html = html + "<p>" + conStatement.constraintId + " : " + conStatement.description + "</p>";
+                    });
+                }
                 return html;
             };
 
-            $scope.getConfStatementsAsOneLineString = function (node) {
+            $scope.getConfStatementsAsOneLineString = function (node, constraints) {
+                var confStatements = constraints ? $scope.filterConstraints(node, constraints) : node.conformanceStatements;
                 var html = "";
-                angular.forEach(node.conformanceStatements, function (conStatement) {
-                    html = html + conStatement.id + " : " + conStatement.description;
-                });
+                if (confStatements && confStatements != null) {
+                    angular.forEach(confStatements, function (conStatement) {
+                        html = html + conStatement.constraintId + " : " + conStatement.description;
+                    });
+                }
                 return $sce.trustAsHtml(html);
             };
 
@@ -434,10 +613,41 @@
                     }
                 }
                 return $scope.predWidth;
-            }
+            };
 
 
-        }]);
+            $scope.getSegmentRefNodeName = function (node) {
+                return node.position + "." + $scope.model.segments[node.ref].name + ":" + $scope.model.segments[node.ref].description;
+            };
+
+            $scope.getGroupNodeName = function (node) {
+                return node.position + "." + node.name;
+            };
+
+            $scope.getFieldNodeName = function (node) {
+                return node.position + "." + node.name;
+            };
+
+            $scope.getComponentNodeName = function (node) {
+                return node.position + "." + node.name;
+            };
+
+            $scope.getDatatypeNodeName = function (node) {
+                return node.position + "." + node.name;
+            };
+
+            $scope.getDatatypeNodeName2 = function (node) {
+                return node.id;
+            };
+
+            $scope.isSubDT = function (component) {
+                return component.type === 'COMPONENT' && $scope.parentsMap && $scope.parentsMap[component.id] && $scope.parentsMap[component.id].type === 'COMPONENT';
+            };
+
+
+        }
+        ])
+    ;
 
 
 //    mod.directive('conciseView', function () {
@@ -835,7 +1045,7 @@
             scope: {
                 isBranch: '=',
                 parent: '=',
-                data: '='
+                node: '='
             },
             link: function (scope, element, attrs) {
                 var branch = angular.isDefined(scope.isBranch) ? scope.isBranch : true;
@@ -846,19 +1056,14 @@
                 element.attr('data-tt-id', ttNodeCounter++);
                 element.attr('data-tt-branch', branch);
                 element.attr('data-tt-parent-id', parent);
-
-                var data = angular.isDefined(scope.data) ? scope.data : null;
-                if (data != null) {
-                    if (!data.relevent) {
-                        element.addClass('notRelevant');
-                    }
-                    $rootScope.pvNodesMap[id] = data;
-//                    element.attr('data-tt-node', angular.toJson(data));
-                }
+//                var node = angular.isDefined(scope.node) ? scope.node : null;
+//                if (node != null) {
+//                    $rootScope.pvNodesMap[node] = ttNodeCounter;
+//                }
             }
         }
-
     }]);
 
 
-})(angular);
+})
+(angular);

@@ -1,3 +1,13 @@
+
+<style id="antiClickjack">body{display:none !important;}</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
 <div ng-controller="CBTestCaseCtrl" ng-init="init()">
     <!--<ul class="clearfix mainSubNav">-->
     <!--<li class="current"><a href="#/cb_testcase">Test Selection</a></li>-->
@@ -66,10 +76,10 @@
                                     <i class="fa fa-download"></i>
                                     Download Test Package
                                 </button>
-                                <button title="Start Test" ng-show="selectedTestCase.type === 'TestStep'" type="button"
-                                        class="btn btn-sm btn-success"
+                                <button title="Load Selected Test Step" ng-show="selectedTestCase.type === 'TestStep'" type="button"
+                                        class="btn btn-xs btn-success"
                                         ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
-                                    <i class="fa fa-play"></i>Start
+                                    <i class="fa fa-play"></i>Load Test Step
                                 </button>
                              </span>
                         </div>
