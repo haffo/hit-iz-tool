@@ -206,7 +206,7 @@ Latino", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "PID.24", "dataelement" : "Multiple Birth Indicator", "data" : "Y",
 "categorization" : "Value-Test Case Fixed"},
 				{"location" : "PID.25", "dataelement" : "Birth Order", "data" : "2", "categorization"
-: "Indifferent"},
+: "Value-Test Case Fixed"},
 				{"location" : "PID.29", "dataelement" : "Patient Death Date and Time", "data"
 : "", "categorization" : ""},
 							{"location" : "PID.29.1", "dataelement" : "Time", "data" : "", "categorization"

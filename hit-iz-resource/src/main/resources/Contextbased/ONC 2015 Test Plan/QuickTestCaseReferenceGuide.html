@@ -53,13 +53,13 @@ application error, and application warning.</span><span style="font-family:" ari
 
 
 
-</font><p class="MsoNormal"><font size="2"><span style="font-weight: bold;"><span style="font-family:" arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman";mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:="" dark1;mso-font-kerning:12.0pt"="">Test Cases consists of 2 steps:</span></span></font></p><font size="2">
+</font><p class="MsoNormal"><font size="2"><span style="font-weight: bold;"><span style="font-family:" arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman";mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:="" dark1;mso-font-kerning:12.0pt"=""><br></span></span></font></p><p class="MsoNormal"><font size="2"><span style="font-weight: bold;"><span style="font-family:" arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman";mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:="" dark1;mso-font-kerning:12.0pt"="">Test Cases consists of 2 steps:</span></span></font></p><font size="2">
 
 </font><p class="MsoNormal"><font size="2"><span style="font-family:" arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman";mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:="" dark1;mso-font-kerning:12.0pt"="">(1) creating immunization messages based on
-the Immunization Messaging Standard (Z22 Profile) and specific Test Data, and </span><span style="font-family:" arial",sans-serif;color:#0070c0"=""></span></font></p><font size="2">
+the Immunization Messaging Standard (Z22 Profile-VXU Message) and specific Test Data, and </span><span style="font-family:" arial",sans-serif;color:#0070c0"=""></span></font></p><font size="2">
 
 </font><p class="MsoNormal"><font size="2"><span style="font-family:" arial",sans-serif;mso-fareast-font-family:="" "times="" new="" roman";mso-fareast-theme-font:minor-fareast;color:black;mso-themecolor:="" dark1;mso-font-kerning:12.0pt"="">(2) receiving acknowledgment messages based on
-the Immunization Messaging Standard (Z23 Profile).</span></font><span style="font-family:" arial",sans-serif;color:#0070c0"=""></span></p>
+the Immunization Messaging Standard (Z23 Profile-ACK Message).</span></font><span style="font-family:" arial",sans-serif;color:#0070c0"=""></span></p>
 
 <!--[if gte mso 9]><xml>
  <w:WordDocument>
@@ -708,7 +708,8 @@ the Immunization Messaging Standard (Z23 Profile).</span></font><span style="fon
 </tr>
 <tr>
 <th>IZ-AD-1.1_Send_V04_Z22</th>
-<td><p>Description:</p>A two month old male infant, Russell Clinton Richardson, is brought to a clinic for a well child visit by his mother Maria Elizabeth Richardson (nee Billington) and his father John William Richardson. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child previously received Hepatitis B vaccine 1 day after birth and 1 month after birth. The staff member determines that the patient needs DTaP, Hib, IPV, Rotavirus and Pneumococcal vaccinations. Because of the patient's status of Native American, he qualifies for all Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - American Indian/Alaska Native. The parents are given 5 Vaccine Information Sheets (VIS) to review. After reading them, they agree that the child should receive all the vaccinations recommended. They also agree that the data should be shared once it is incorporated into the local IIS. Appropriate doses of DTaP/Hib/IPV (Pentacel), Rotavirus (RotaTeq) and Pneumococcal (Prevnar 13) are selected from the clinic's stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>No Test Objectives</td>
+<td><p>Description:</p>A two month old male infant, Russell Clinton Richardson, is brought to a clinic for a well child visit by his mother Maria Elizabeth Richardson (nee Billington) and his father John William Richardson. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child previously received Hepatitis B vaccine 1 day after birth and 1 month after birth. The staff member determines that the patient needs DTaP, Hib, IPV, Rotavirus and Pneumococcal vaccinations. Because of the patient's status of Native American, he qualifies for all Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - American Indian/Alaska Native. The parents are given 5 Vaccine Information Sheets (VIS) to review. After reading them, they agree that the child should receive all the vaccinations recommended. They also agree that the data should be shared once it is incorporated into the local IIS. Appropriate doses of DTaP/Hib/IPV (Pentacel), Rotavirus (RotaTeq) and Pneumococcal (Prevnar 13) are selected from the clinic's stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Create an 
+administration message containing historical (using CVX) and new administrations (using NDC)<br>Support for next of kin<br>Support for patient consent<br>Support for VIS<br>Support for funding source<br>Support for VFC data.</td>
 </tr>
 <tr>
 <th>IZ-AD-1.2_Receive_ACK_Z23</th>
@@ -729,7 +730,7 @@ the Immunization Messaging Standard (Z23 Profile).</span></font><span style="fon
 </tr>
 <tr>
 <th>IZ-AD-2.1_Send_V04_Z22</th>
-<td><p>Description:</p>A 32 year old female, Elise Wong, visits a clinic for a well woman visit. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that Elise has received her influenza vaccinations on 10/12/2014 and 11/12/2013, but is in need of a tetanus booster. Because of the patient's age she does not qualify for Vaccine For Children (VFC) supplied vaccine. Elise is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, she agrees to receive the recommended vaccination. She also agrees that the data should be shared once it is incorporated into the local IIS. An appropriate dose of Tdap (TENIVAC) is selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p></td>
+<td><p>Description:</p>A 32 year old female, Elise Wong, visits a clinic for a well woman visit. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that Elise has received her influenza vaccinations on 10/12/2014 and 11/12/2013, but is in need of a tetanus booster. Because of the patient's age she does not qualify for Vaccine For Children (VFC) supplied vaccine. Elise is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, she agrees to receive the recommended vaccination. She also agrees that the data should be shared once it is incorporated into the local IIS. An appropriate dose of Tdap (TENIVAC) is selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support for a "not eligible" VFC.</td>
 </tr>
 <tr>
 <th>IZ-AD-2.2_Receive_ACK_Z23</th>
@@ -750,7 +751,7 @@ the Immunization Messaging Standard (Z23 Profile).</span></font><span style="fon
 </tr>
 <tr>
 <th>IZ-AD-3.1_Send_V04_Z22</th>
-<td><p>Description:</p>An eleven and a half year old female, Katherine Mackenzie Benton, is brought to a clinic for a third and final dose of HPV vaccine. She is accompanied by her mother Kari Michelle Benton (nee Jones). A clinic staff member collects basic patient demographic information including name, date of birth and sex. The mother is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, the mother agrees that the child should receive the HPV vaccine, but she chooses not to share the data once it is incorporated into the local IIS. A clinic provider, Wilma Thomas (physician ID 654) places an order for the vaccination. While the patient is covered by insurance, the plan does not cover this vaccination and she qualifies for Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - Underinsured. An appropriate dose of HPV (CERVARIX) is selected from the clinic's stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the dose to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support for no consent given<br>Support for a full middle name<br></td>
+<td><p>Description:</p>An eleven and a half year old female, Katherine Mackenzie Benton, is brought to a clinic for a third and final dose of HPV vaccine. She is accompanied by her mother Kari Michelle Benton (nee Jones). A clinic staff member collects basic patient demographic information including name, date of birth and sex. The mother is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, the mother agrees that the child should receive the HPV vaccine, but she chooses not to share the data once it is incorporated into the local IIS. A clinic provider, Wilma Thomas (physician ID 654) places an order for the vaccination. While the patient is covered by insurance, the plan does not cover this vaccination and she qualifies for Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - Underinsured. An appropriate dose of HPV (CERVARIX) is selected from the clinic's stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the dose to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support for no consent given<br>Support for a full middle name<br>Support for a long first and middle name<br></td>
 </tr>
 <tr>
 <th>IZ-AD-3.2_Receive_ACK_Z23</th>
@@ -792,7 +793,7 @@ the Immunization Messaging Standard (Z23 Profile).</span></font><span style="fon
 </tr>
 <tr>
 <th>IZ-AD-5.1_Send_V04_Z22</th>
-<td><p>Description:</p>A 1 year old male, Tyler Owen Banks, is brought to a clinic for a well child visit. He is accompanied by his father Karl Leonard Banks. Tyler's twin brother, born 5 minutes before Tyler, was not able to make it to the clinic. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Joe Smith (physician ID 123) reviews the patient's vaccination history and determines that the child requires Hib, Hep A, MMR and Varicella vaccinations. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The father is given the appropriate Vaccine Information Sheets (VIS) to review. After reading them, the father agrees that the child should receive the Hib, Hep A and MMR vaccines but refuses the Varicella vaccine. He also agrees that the data should be shared once it is incorporated into the local IIS. Appropriate doses of Hib (HIBERIX), Hep A (VAQTA) and MMR (M-M-R II) are selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 456) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p><br></td>
+<td><p>Description:</p>A 1 year old male, Tyler Owen Banks, is brought to a clinic for a well child visit. He is accompanied by his father Karl Leonard Banks. Tyler's twin brother, born 5 minutes before Tyler, was not able to make it to the clinic. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Joe Smith (physician ID 123) reviews the patient's vaccination history and determines that the child requires Hib, Hep A, MMR and Varicella vaccinations. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The father is given the appropriate Vaccine Information Sheets (VIS) to review. After reading them, the father agrees that the child should receive the Hib, Hep A and MMR vaccines but refuses the Varicella vaccine. He also agrees that the data should be shared once it is incorporated into the local IIS. Appropriate doses of Hib (HIBERIX), Hep A (VAQTA) and MMR (M-M-R II) are selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 456) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support for an immunization refusal<br>Support for multiple birth indicator and order</td>
 </tr>
 <tr>
 <th>IZ-AD-5.2_Recieve_ACK_Z23</th>
@@ -834,11 +835,11 @@ the Immunization Messaging Standard (Z23 Profile).</span></font><span style="fon
 </tr>
 <tr>
 <th>IZ-AD-7.1_Send_V04_Z22</th>
-<td><p>Description:</p>A 66 year old female, Helen Barrett, comes to a clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that she received a Zoster vaccination at a local pharmacy on her 65th birthday. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support for Sending Responsible Organization (MSH-22) and Receiving Responsible Organization (MSH-23).<br></td>
+<td><p>Description:</p>A 66 year old female, Helen Barrett, comes to a clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that she received a Zoster vaccination at a local pharmacy on her 65th birthday. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support for Sending Responsible Organization (MSH-22) and Receiving Responsible Organization (MSH-23) to include:<br>1. Identifier<br>2. Identifier Type Code<br>3. Assigning Authority for the Identifier<br></td>
 </tr>
 <tr>
 <th>IZ-AD-7.2_Receive_ACK_Z23</th>
-<td><p>Description:</p> The IIS has a mapping error in their CVX table and is unable to recognize the CVX code sent in RXA-5 even though it is valid. The IIS is unable to identify the appropriate vaccine, which is a required element, and rejects the message. The acknowledgement message returned contains errors for the table mapping, missing required field (RXA-5) and missing required segment (RXA).<br/><p>Test Objectives:</p><br></td>
+<td><p>Description:</p> The IIS has a mapping error in their CVX table and is unable to recognize the CVX code sent in RXA-5 even though it is valid. The IIS is unable to identify the appropriate vaccine, which is a required element, and rejects the message. The acknowledgement message returned contains errors for the table mapping, missing required field (RXA-5) and missing required segment (RXA).<br/><p>Test Objectives:</p>Support to accept an acknowledgement message with a fatal error being returned by the IIS and to display some notification to the end user.<br></td>
 </tr>
 </table>
 <br/>
@@ -855,7 +856,7 @@ the Immunization Messaging Standard (Z23 Profile).</span></font><span style="fon
 </tr>
 <tr>
 <th>IZ-AD-8.1_Send_V04_Z22</th>
-<td><p>Description:</p>A 1 month old female, Ashley Jennifer Broadbent, is brought to a clinic for a well child visit by her mother Ellen Broadbent (nee Layton). A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child requires a Hep B vaccination. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The mother is given the Vaccine Information Sheet (VIS) to review. After reading it, she agrees that the child should receive the Hep B vaccine. She also agrees that the data should be shared once it is incorporated into the local IIS. An appropriate dose of Hep B (ENGERIX-B) is selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support of OIDs.<br></td>
+<td><p>Description:</p>A 1 month old female, Ashley Jennifer Broadway, is brought to a clinic for a well child visit by her mother Ellen Broadway (nee Layton). A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child requires a Hep B vaccination. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The mother is given the Vaccine Information Sheet (VIS) to review. After reading it, she agrees that the child should receive the Hep B vaccine. She also agrees that the data should be shared once it is incorporated into the local IIS. An appropriate dose of Hep B (ENGERIX-B) is selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and enters the data into the EHR and transmits it to the IIS.<br/><p>Test Objectives:</p>Support of OIDs.<br></td>
 </tr>
 <tr>
 <th>IZ-AD-8.2_Receive_ACK_Z23</th>
@@ -901,18 +902,23 @@ the Immunization Messaging Standard (Z23 Profile).</span></font><span style="fon
 </tr>
 <tr>
 <th>IZ-AD-10.2_Receive_ACK_Z23</th>
-<td><p>Description:</p>Due to an error in the IIS software, the IIS is unable to recognize the HL7 version ID sent in MSH-12 even though it is valid. The acknowledgement message returned contains an error for an unsupported version ID.<br/><p>Test Objectives:</p><br></td>
+<td><p>Description:</p>Due to an error in the IIS software, the IIS is unable to recognize the HL7 version ID sent in MSH-12 even though it is valid. The acknowledgement message returned contains an error for an unsupported version ID.<br/><p>Test Objectives:</p>Support to accept an 
+acknowledgement message with a fatal system error being returned by the 
+IIS and to display some indication to the end user.<br></td>
 </tr>
 </table>
 <br/>
 <h2>Test Case Group: Evaluated History and Forecast Group</h2>
 <span style="font-size:10.0pt;
 line-height:107%;font-family:"><span style="font-weight: bold;">Test the EHR-S
-capability to:<br></span></span>This set of tests evaluates the EHR-S's ability to create well-formed queries and gracefully accept the response messages. It evaluates that the clinician is shown the results of the query. The possibilities include: <span style="font-size:10.0pt;
+capability to:<br></span></span><br>(1) To create well-formed queries<br>(2) Accept the response messages <br><div style="margin-left: 40px;">The possibilities include: <span style="font-size:10.0pt;
 font-family:"><span style="font-size:10.0pt;
-font-family:"></span>(1) evaluated history and forecast (2) too many patients
-found, or (3) no patients found. A juror document (inspection check list) is
-provided that indicates the content that is expected to be displayed.</span><br><span style="font-size:10.0pt;
+font-family:"></span><br></span><div style="margin-left: 40px;"><span style="font-size:10.0pt;
+font-family:">(1) evaluated history and forecast <br>(2) too many patients
+found, or <br>(3) no patients found. <br></span></div><span style="font-size:10.0pt;
+font-family:">A juror document (inspection check list) is
+provided that indicates the content that is expected to be displayed.</span><br></div>(3) Display of evaluated history and forecast <span style="font-size:10.0pt;
+font-family:"></span><br><span style="font-size:10.0pt;
 font-family:" arial="" narrow",sans-serif;mso-fareast-font-family:"times="" new="" roman";="" mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:arial;color:black;="" mso-themecolor:dark1;mso-font-kerning:12.0pt"=""></span><span style="font-size:10.0pt;font-family:" arial="" narrow",sans-serif;mso-bidi-font-family:="" arial"=""></span><span style="font-size:10.0pt;
 font-family:" arial="" narrow",sans-serif;mso-fareast-font-family:"times="" new="" roman";="" mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:arial;color:black;="" mso-themecolor:dark1;mso-font-kerning:12.0pt"=""></span>
 
@@ -2167,7 +2173,7 @@ Test Data, and <br></span></p><p class="MsoNormal" style="margin-left: 0.3366in;
 	mso-hansi-theme-font:minor-latin;}
 </style>
 <![endif]--><span style="font-size:10.0pt;
-line-height:107%;font-family:"Arial Narrow",sans-serif">(2) receive (Z42
+line-height:107%;font-family:" arial="" narrow",sans-serif"="">(2) receive (Z42
 Profile) messages and display evaluated history and forecast OR receive (Z33
 Profile) and<span style="mso-spacerun:yes">? </span>display too many patients
 found or no patients found.</span>
@@ -2180,18 +2186,18 @@ found or no patients found.</span>
 <th>IZ-QR-1_Query_Child</th>
 </tr>
 <tr>
-<td colspan='2'><p>Description:</p>A male child patient, Bobbie Q. Child, is brought to the clinic for an annual visit. A staff person locates his medical record in the EHR-S. The staff person confirms demographic information, including address. The staff person triggers a request to the IIS for an evaluated history and forecast for the child. The IIS performs a search for Bobbie Q. Child and finds one high-confidence match. The IIS generates an evaluated history and forecast for Bobbie and returns this to the EHR-S. One dose of vaccine was not administrated at the correct age and is marked as not valid. The EHR-S displays the evaluated history and forecast, including the not valid dose.</td>
+<td colspan='2'><p>Description:</p>A male child patient, Cameron A. Fairchild, is brought to the clinic for an annual visit. A staff person locates his medical record in the EHR-S. The staff person confirms demographic information, including address. The staff person triggers a request to the IIS for an evaluated history and forecast for the child. The IIS performs a search for Cameron A. Fairchild and finds one high-confidence match. The IIS generates an evaluated history and forecast for Cameron and returns this to the EHR-S. One dose of vaccine was not administrated at the correct age and is marked as not valid. The EHR-S displays the evaluated history and forecast, including the not valid dose.</td>
 </tr>
 <tr>
 <th colspan='2'>Test Steps</th>
 </tr>
 <tr>
 <th>IZ-QR-1.1_Query_Q11_Z44</th>
-<td><p>Description:</p>A male child patient, Bobbie Q. Child, is brought to the clinic for an annual visit. A staff person locates his medical record in the EHR-S. The staff person confirms demographic information, including address. The Staff person triggers a request to the IIS for an evaluated history and forecast for the child.<br/><p>Test Objectives:</p>Test the ability of the system to successfully create a query message based on the given test data.</td>
+<td><p>Description:</p>A male child patient, Cameron A. Fairchild, is brought to the clinic for an annual visit. A staff person locates his medical record in the EHR-S. The staff person confirms demographic information, including address. The Staff person triggers a request to the IIS for an evaluated history and forecast for the child.<br/><p>Test Objectives:</p>Test the ability of the system to successfully create a query message based on the given test data.</td>
 </tr>
 <tr>
 <th>IZ-QR-1.2_Response_K11_Z42</th>
-<td><p>Description:</p>The IIS performs a search for Bobbie Q. Child and finds one high-confidence match. The IIS generates an evaluated history and forecast for Bobbie and returns this to the EHR-S. One dose of vaccine was not administrated at the correct age and is marked as not valid. The EHR-S displays the evaluated history and forecast, including the not valid dose.<br/><p>Test Objectives:</p>Receive a response message containing the evaluated history and forecast; display evaluated history and forecast.<br></td>
+<td><p>Description:</p>The IIS performs a search for Cameron A. Fairchild and finds one high-confidence match. The IIS generates an evaluated history and forecast for Cameron and returns this to the EHR-S. One dose of vaccine was not administrated at the correct age and is marked as not valid. The EHR-S displays the evaluated history and forecast, including the not valid dose.<br/><p>Test Objectives:</p>Receive a response message containing the evaluated history and forecast; display evaluated history and forecast.<br></td>
 </tr>
 </table>
 <br/>

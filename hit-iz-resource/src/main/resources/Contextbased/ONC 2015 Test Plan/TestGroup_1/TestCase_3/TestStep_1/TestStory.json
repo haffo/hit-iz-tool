@@ -3,7 +3,7 @@
   "comments" : "No Comments",
   "preCondition" : "No PreCondition",
   "postCondition" : "No PostCondition\r\n",
-  "testObjectives" : "Support for no consent given<br>Support for a full middle name<br>",
+  "testObjectives" : "Support for no consent given<br>Support for a full middle name<br>Support for a long first and middle name<br>",
   "evaluationCriteria" : "Message Validation Report<br>",
   "notes" : "No Note"
 }
