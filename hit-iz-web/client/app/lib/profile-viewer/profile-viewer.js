@@ -192,13 +192,19 @@
                         $scope.parentsMap[element.id] = parent;
                         element["path"] = parent.path + "." + element.position;
                         var dt = element.datatype;
-                        if (dt === 'varies' && parent.dynamicMaps && parent.dynamicMaps != null && parent.dynamicMaps[element.position] != null) {
+                        if (dt === 'varies') {
+                            var dynamicMaps = parent.dynamicMaps && parent.dynamicMaps != null && parent.dynamicMaps[element.position] != null ? parent.dynamicMaps[element.position]: null;
                             element.children = [];
-                            var ids = $filter('orderBy')(parent.dynamicMaps[element.position]);
-                            angular.forEach(parent.dynamicMaps[element.position], function (id) {
-                                element.children.push($scope.model.datatypes[id]);
-                                $scope.processElement($scope.model.datatypes[id], element);
-                            });
+                            if(dynamicMaps != null) {
+                                dynamicMaps = $filter('orderBy')(dynamicMaps);
+                                angular.forEach(dynamicMaps, function (id) {
+                                    var datatype = $scope.model.datatypes[id];
+                                    if(datatype != null && datatype != undefined) {
+                                        element.children.push(datatype);
+                                        $scope.processElement(datatype, element);
+                                    }
+                                });
+                            }
                         } else {
                             $scope.processElement($scope.model.datatypes[element.datatype], element);
                         }
