@@ -1,5 +1,5 @@
 {
-  "teststorydesc" : "A male child patient, Bobbie Q. Child, is brought to the clinic for an annual visit. A staff person locates his medical record in the EHR-S. The staff person confirms demographic information, including address. The Staff person triggers a request to the IIS for an evaluated history and forecast for the child.",
+  "teststorydesc" : "A male child patient, Cameron A. Fairchild, is brought to the clinic for an annual visit. A staff person locates his medical record in the EHR-S. The staff person confirms demographic information, including address. The Staff person triggers a request to the IIS for an evaluated history and forecast for the child.",
   "comments" : "Most of the test data is categorized as Test Case Fixed. It is important that the data is entered into the querying system as specified to enable linking the response message to the patient record.",
   "preCondition" : "Person exists in the system with the complete demographics as provided in the Test Data Specification.\r\n<br/>\r\nPerson has Medical Record Number (MR).\r\n<br/>\r\nPerson does not have existing immunization events in their EHR.\r\n<br/>\r\nPerson does have an immunization history in the IIS.",
   "postCondition" : "The IIS return an evaluated history and forecast for the person.",

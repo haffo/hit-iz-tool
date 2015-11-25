@@ -1,8 +1,8 @@
 MSH|^~\&|NISTIISAPP|NISTIISFAC|NISTEHRAPP|NISTEHRFAC|20151031145233-0500||RSP^K11^RSP_K11|NIST-IZ-QR-1.2_Response_K11_Z42|P|2.5.1|||NE|NE|||||Z42^CDCPHINVS|NISTEHRFAC^^^^^NIST-AA-1^XX^^^100-1776|NISTIISFAC^^^^^NIST-AA-1^XX^^^100-6482
 MSA|AA|NIST-IZ-QR-1.1_Query_Q11_Z44
 QAK|IZ-1.1-2015|OK|Z44^request evaluated Immunization history^CDCPHINVS
-QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS|107374859|171122^^^NIST-MPI-1^MR|Child^Bobbie^Q^^^^L|Que^Suzy^^^^^M|20090214|M|105 Laurel Run Rd^^Bozeman^MT^^^L
-PID|1||171122^^^NIST-MPI-1^MR~34500907^^^NIST-IIS-MPI^SR||Child^Bobbie^Q^^^^L||20090214|M|||105 Laurel Run Rd^^Bozeman^MT^^^L
+QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS|107374859|171122^^^NIST-MPI-1^MR|Fairchild^Cameron^A^^^^L|Fairlady^Maya^^^^^M|20090214|M|105 Laurel Run Rd^^Bozeman^MT^^^L
+PID|1||171122^^^NIST-MPI-1^MR~34500907^^^NIST-IIS-MPI^SR||Fairchild^Cameron^A^^^^L||20090214|M|||105 Laurel Run Rd^^Bozeman^MT^^^L
 ORC|RE||197023^NIST-AA-IZ-2||||||||||||||NISTEHRFAC^NISTEHRFacility^HL70362
 RXA|0|1|20090415||31^Hep B Peds NOS^CVX|999|||01^historical record^NIP001|||||||||||CP
 OBX|1|CE|30956-7^vaccine type^LN|1|45^Hep B NOS^CVX ||||||F|||20151031

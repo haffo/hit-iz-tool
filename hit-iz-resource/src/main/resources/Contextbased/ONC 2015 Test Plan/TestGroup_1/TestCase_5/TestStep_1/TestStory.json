@@ -3,7 +3,7 @@
   "comments" : "No Comments",
   "preCondition" : "No PreCondition",
   "postCondition" : "No PostCondition",
-  "testObjectives" : "<br>",
+  "testObjectives" : "Support for an immunization refusal<br>Support for multiple birth indicator and order",
   "evaluationCriteria" : "Message Validation Report<br>",
   "notes" : "No Note"
 }

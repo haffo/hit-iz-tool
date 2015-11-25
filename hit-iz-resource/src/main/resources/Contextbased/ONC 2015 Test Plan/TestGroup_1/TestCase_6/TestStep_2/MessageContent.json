@@ -81,7 +81,7 @@
 "categorization" : "Indifferent"},
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
-							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
 "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
@@ -97,7 +97,7 @@
 : "", "categorization" : "Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
 "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},

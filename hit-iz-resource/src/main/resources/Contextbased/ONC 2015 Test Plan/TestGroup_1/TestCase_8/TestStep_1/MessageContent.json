@@ -16,33 +16,33 @@
 							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NISTEHRAPP",
 "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.1",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "ISO",
-"categorization" : "Indifferent"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NISTEHRFAC",
 "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.2",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "ISO",
-"categorization" : "Indifferent"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NISTIISAPP",
 "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.3",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "ISO",
-"categorization" : "Indifferent"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NISTIISFAC",
 "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.4",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "ISO",
-"categorization" : "Indifferent"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "MSH.7", "dataelement" : "Date/Time Of Message", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.7.1", "dataelement" : "Time", "data" : "20150625103328.757-0500",
@@ -88,13 +88,13 @@
 									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-1",
 "categorization" : "Presence-Configuration"},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.9",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
-"ISO", "categorization" : "Indifferent"},
+"ISO", "categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
-"XX", "categorization" : "Indifferent"},
+"XX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
-: "100-6482", "categorization" : "Indifferent"},
+: "100-6482", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
 							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
@@ -104,13 +104,13 @@
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-1",
 "categorization" : "Presence-Configuration"},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.9",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
-"ISO", "categorization" : "Indifferent"},
+"ISO", "categorization" : "Value-Profile Fixed"},
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
-"XX", "categorization" : "Indifferent"},
+"XX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
-: "100-3322", "categorization" : "Indifferent"},		]
+: "100-3322", "categorization" : "Presence-Content Indifferent"},		]
 		{
 			"title":"PID : Patient Identification",
 			"elements" : 
@@ -126,16 +126,16 @@
 									{"location" : "PID.3.4.1", "dataelement" : "Namespace ID", "data" : "NIST-MPI-1",
 "categorization" : "Presence-Content Indifferent"},
 									{"location" : "PID.3.4.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.5",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 									{"location" : "PID.3.4.3", "dataelement" : "Universal ID Type", "data" :
-"ISO", "categorization" : "Indifferent"},
+"ISO", "categorization" : "Value-Profile Fixed"},
 							{"location" : "PID.3.5", "dataelement" : "Identifier Type Code", "data" : "MR",
 "categorization" : "Value-Test Case Fixed"},
 				{"location" : "PID.5", "dataelement" : "Patient Name", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
-									{"location" : "PID.5.1.1", "dataelement" : "Surname", "data" : "Broadbent",
+									{"location" : "PID.5.1.1", "dataelement" : "Surname", "data" : "Broadway",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.5.2", "dataelement" : "Given Name", "data" : "Ashley", "categorization"
 : "Presence-Content Indifferent"},
@@ -245,7 +245,7 @@ Date", "data" : "20150516", "categorization" : "Presence-Content Indifferent"},
 ""},
 							{"location" : "NK1.2.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
-									{"location" : "NK1.2.1.1", "dataelement" : "Surname", "data" : "Broadbent",
+									{"location" : "NK1.2.1.1", "dataelement" : "Surname", "data" : "Broadway",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "NK1.2.2", "dataelement" : "Given Name", "data" : "Ellen", "categorization"
 : "Presence-Content Indifferent"},
@@ -304,9 +304,9 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 							{"location" : "ORC.2.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "ORC.2.3", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.10",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "ORC.2.4", "dataelement" : "Universal ID Type", "data" : "ISO",
-"categorization" : "Indifferent"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "ORC.3", "dataelement" : "Filler Order Number", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "13926",
@@ -314,9 +314,9 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-3",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.11",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "ISO",
-"categorization" : "Indifferent"},
+"categorization" : "Value-Profile Fixed"},
 				{"location" : "ORC.10", "dataelement" : "Entered By", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.10.1", "dataelement" : "ID Number", "data" : "7824", "categorization"
@@ -334,9 +334,9 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 									{"location" : "ORC.10.9.1", "dataelement" : "Namespace ID", "data" : "NIST-PI-1",
 "categorization" : "Presence-Content Indifferent"},
 									{"location" : "ORC.10.9.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.7",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 									{"location" : "ORC.10.9.3", "dataelement" : "Universal ID Type", "data" :
-"ISO", "categorization" : "Indifferent"},
+"ISO", "categorization" : "Value-Profile Fixed"},
 							{"location" : "ORC.10.10", "dataelement" : "Name Type Code", "data" : "L",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.10.13", "dataelement" : "Identifier Type Code", "data" :
@@ -404,9 +404,9 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "NIST-PI-1",
 "categorization" : "Presence-Content Indifferent"},
 									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.7",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
-"ISO", "categorization" : "Indifferent"},
+"ISO", "categorization" : "Value-Profile Fixed"},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "L",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
@@ -418,9 +418,9 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "NIST-Clinic-1",
 "categorization" : "Presence-Content Indifferent"},
 									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.12",
-"categorization" : "Indifferent"},
+"categorization" : "Presence-Test Case Proper"},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
-"ISO", "categorization" : "Indifferent"},
+"ISO", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.15", "dataelement" : "Substance Lot Number", "data" : "797397",
 "categorization" : "Presence-Content Indifferent"},
 				{"location" : "RXA.16", "dataelement" : "Substance Expiration Date", "data" :

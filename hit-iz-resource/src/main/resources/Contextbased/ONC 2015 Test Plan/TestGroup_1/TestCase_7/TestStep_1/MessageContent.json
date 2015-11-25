@@ -85,32 +85,32 @@
 "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "",
+									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-1",
 "categorization" : "Presence-Configuration"},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Indifferent"},
+"XX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
-: "", "categorization" : "Indifferent"},
+: "100-6482", "categorization" : "Presence-Content Indifferent"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
 							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
 "categorization" : "Presence-Configuration"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
+									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-1",
 "categorization" : "Presence-Configuration"},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Indifferent"},
+"XX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
-: "", "categorization" : "Indifferent"},		]
+: "100-3322", "categorization" : "Presence-Content Indifferent"},		]
 		{
 			"title":"PID : Patient Identification",
 			"elements" : 

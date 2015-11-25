@@ -143,20 +143,20 @@ History and Forecast", "categorization" : "Value-Profile Fixed"},
 : ""},
 							{"location" : "QPD.4.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
-									{"location" : "QPD.4.1.1", "dataelement" : "Surname", "data" : "Child", "categorization"
-: "Value-Test Case Fixed"},
-							{"location" : "QPD.4.2", "dataelement" : "Given Name", "data" : "Bobbie", "categorization"
-: "Value-Test Case Fixed"},
+									{"location" : "QPD.4.1.1", "dataelement" : "Surname", "data" : "Fairchild",
+"categorization" : "Value-Test Case Fixed"},
+							{"location" : "QPD.4.2", "dataelement" : "Given Name", "data" : "Cameron",
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.4.3", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "Q", "categorization" : "Value-Test Case Fixed"},
+Initials Thereof", "data" : "A", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.4.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
 : "Value-Test Case Fixed"},
 				{"location" : "QPD.5", "dataelement" : "PatientMotherMaidenName", "data" : "",
 "categorization" : ""},
 							{"location" : "QPD.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
-									{"location" : "QPD.5.1.1", "dataelement" : "Surname", "data" : "Que", "categorization"
-: "Value-Test Case Fixed"},
+									{"location" : "QPD.5.1.1", "dataelement" : "Surname", "data" : "Fairlady",
+"categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.5.7", "dataelement" : "Name Type Code", "data" : "M", "categorization"
 : "Value-Profile Fixed"},
 				{"location" : "QPD.6", "dataelement" : "PatientDateOfBirth", "data" : "", "categorization"

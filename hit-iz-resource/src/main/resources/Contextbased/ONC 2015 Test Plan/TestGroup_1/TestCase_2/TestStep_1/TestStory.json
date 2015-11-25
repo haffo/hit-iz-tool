@@ -3,7 +3,7 @@
   "comments" : "<p>No Comments</p>\r\n",
   "preCondition" : "No PreCondition\r\n",
   "postCondition" : "No PostCondition\r\n",
-  "testObjectives" : "",
+  "testObjectives" : "Support for a \"not eligible\" VFC.",
   "evaluationCriteria" : "Message Validation Report\r\n",
   "notes" : "No Note\r\n"
 }
