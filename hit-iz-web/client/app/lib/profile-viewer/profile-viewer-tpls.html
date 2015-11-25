@@ -78,7 +78,7 @@
                                 ng-class="{'active':nodeData != null && nodeData.name === 'FULL' && !confStatementsActive}">
                             <a
                                     ng-click="getNodeContent(model.message)">FULL</a></li>
-                        <li ng-show="isRelevant(element)"
+                        <li ng-show="isSegmentVisible(element)"
                             ng-repeat="element in segments"
                             ng-class="{'active':nodeData != null && nodeData.name === element.name && !confStatementsActive}">
                             <a
@@ -99,9 +99,9 @@
                         <div class="panel-body">
                             <div style="margin-top:5px" id="profile-tab-content">
 
-                                <table ng-show="!confStatementsActive" pv-table pv-params="params"
+                                <table  pv-table pv-params="params"
                                        class="table table-bordered table-condensed pvt table-precise-border table-fix-header profile-table"
-                                       ng-show="isRelevant(nodeData)">
+                                       ng-show="!confStatementsActive && (nodeData.type === 'SEGMENT' ? isSegmentVisible(nodeData) : true)">
                                     <thead>
                                     <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px"
                                         ng-if="nodeData.type !== 'DATATYPE'">
@@ -206,7 +206,12 @@
             </div>
         </td>
         <td class="col-xs-1 col-fixed-80">
-            {{::model.datatypes[node.datatype].id}}
+            <span
+                  tooltip-html="model.datatypes[node.datatype].id"
+                  tooltip-append-to-body="true"
+                  tooltip-class="constraints-tooltip"
+                  ng-bind-html="model.datatypes[node.datatype].id" tooltip-trigger
+                  tooltip-animation="false" tooltip-placement="left"/>
         </td>
         <td class="col-xs-1 col-fixed-150">
             <div>
@@ -248,7 +253,7 @@
 </script>
 
 <script type="text/ng-template" id="MessageComponentViewTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
+    <tr pv-node ng-show="visible(node,parentsMap[node.id].predicates)" is-branch="hasRelevantChild(node)" node="node">
         <td class="col-xs-2 col-fixed-450">
         	<span>
                 <span class="label label-sub-component label-icon" ng-show="node.type === 'SUBCOMPONENT'">S</span>
@@ -274,7 +279,12 @@
             </div>
         </td>
         <td class="col-xs-1 col-fixed-80">
-            {{::model.datatypes[node.datatype].id}}
+            <span
+                    tooltip-html="model.datatypes[node.datatype].id"
+                    tooltip-append-to-body="true"
+                    tooltip-class="constraints-tooltip"
+                    ng-bind-html="model.datatypes[node.datatype].id" tooltip-trigger
+                    tooltip-animation="false" tooltip-placement="left"/>
         </td>
         <td class="col-xs-1 col-fixed-150">
             <div>
@@ -387,7 +397,7 @@
 </script>
 
 <script type="text/ng-template" id="MessageSegmentRefReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
+    <tr pv-node ng-show="visible(node,node.predicates)" is-branch="hasRelevantChild(node)" node="node">
         <td class="col-xs-2 col-fixed-450">
             <span class="label label-segment label-icon">S</span>
             <a
@@ -437,7 +447,7 @@
 </script>
 
 <script type="text/ng-template" id="MessageGroupReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
+    <tr pv-node ng-show="visible(node,node.predicates)" is-branch="hasRelevantChild(node)" node="node">
         <td class="col-xs-2 col-fixed-450">
             <span class="label label-success label-icon">G</span>
                                               <span
@@ -515,7 +525,7 @@
 </script>
 
 <script type="text/ng-template" id="DatatypeComponentReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
+    <tr pv-node ng-show="visible(node,parentsMap[node.id].predicates)" is-branch="hasRelevantChild(node)" node="node">
         <td class="col-xs-2 col-fixed-450">
 
             <span class="label label-component label-icon">C</span>
@@ -526,7 +536,7 @@
         <td class="col-xs-1 col-fixed-80">
             <div>
                 <span>{{node.usage}}</span>
-				<span ng-repeat="p in datatype.predicates | filter:{constraintTarget:node.position + '[1]'}:true">
+				<span ng-repeat="p in parentsMap[node.id].predicates | filter:{constraintTarget:node.position + '[1]'}:true">
 					({{p.trueUsage}}/{{p.falseUsage}})
 				</span>
             </div>
@@ -536,7 +546,12 @@
         </td>
 
         <td class="col-xs-1 col-fixed-80">
-            {{::model.datatypes[node.datatype].id}}
+            <span
+                    tooltip-html="model.datatypes[node.datatype].id"
+                    tooltip-append-to-body="true"
+                    tooltip-class="constraints-tooltip"
+                    ng-bind-html="model.datatypes[node.datatype].id" tooltip-trigger
+                    tooltip-animation="false" tooltip-placement="left"/>
         </td>
 
         <td class="col-xs-1 col-fixed-150">
@@ -581,7 +596,7 @@
 </script>
 
 <script type="text/ng-template" id="DatatypeSubComponentReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
+    <tr pv-node ng-show="visible(node,parentsMap[node.id].predicates)" is-branch="hasRelevantChild(node)" node="node">
         <td class="col-xs-2 col-fixed-450">
                                         <span>
              <span class="label label-sub-component label-icon">S</span>
@@ -605,7 +620,12 @@
         </td>
 
         <td class="col-xs-1 col-fixed-80">
-            {{::model.datatypes[node.datatype].id}}
+            <span
+                    tooltip-html="model.datatypes[node.datatype].id"
+                    tooltip-append-to-body="true"
+                    tooltip-class="constraints-tooltip"
+                    ng-bind-html="model.datatypes[node.datatype].id" tooltip-trigger
+                    tooltip-animation="false" tooltip-placement="left"/>
         </td>
 
         <td class="col-xs-1 col-fixed-150">
@@ -676,7 +696,7 @@
     </tr>
 </script>
 <script type="text/ng-template" id="SegmentFieldReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
+    <tr pv-node ng-show="visible(node,parentsMap[node.id].predicates)" is-branch="hasRelevantChild(node)" node="node">
 
         <td class="col-xs-2 col-fixed-450">
             <span class="label label-field label-icon">F</span>
@@ -688,7 +708,7 @@
         <td class="col-xs-1 col-fixed-80">
             <div>
                 <span>{{node.usage}}</span>
-				<span ng-repeat="p in segment.predicates | filter:{constraintTarget:node.position + '[1]'}:true">
+				<span ng-repeat="p in parentsMap[node.id].predicates | filter:{constraintTarget:node.position + '[1]'}:true">
 					({{p.trueUsage}}/{{p.falseUsage}})
 				</span>
             </div>
@@ -700,7 +720,12 @@
             [{{::node.minLength}}, {{::node.maxLength}}]
         </td>
         <td class="col-xs-1 col-fixed-80">
-            {{::model.datatypes[node.datatype].id}}
+             <span
+                     tooltip-html="model.datatypes[node.datatype].id"
+                     tooltip-append-to-body="true"
+                     tooltip-class="constraints-tooltip"
+                     ng-bind-html="model.datatypes[node.datatype].id" tooltip-trigger
+                     tooltip-animation="false" tooltip-placement="left"/>
         </td>
         <td class="col-xs-1 col-fixed-150">
             <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset"
@@ -708,12 +733,12 @@
         </td>
         <td class="col-xs-2 col-predicate" ng-style="predWidth">
             <span class="predicate-concise-view concise-view" ng-if="options.concise"
-                  tooltip-html="getPredicatesAsMultipleLinesString(node, segment.predicates)"
+                  tooltip-html="getPredicatesAsMultipleLinesString(node, parentsMap[node.id].predicates)"
                   tooltip-append-to-body="true"
                   tooltip-class="constraints-tooltip"
-                  ng-bind-html="getPredicatesAsOneLineString(node,segment.predicates)" tooltip-trigger
+                  ng-bind-html="getPredicatesAsOneLineString(node,parentsMap[node.id].predicates)" tooltip-trigger
                   tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="predicate in filterConstraints(node, segment.predicates)" ng-if="!options.concise">
+            <span ng-repeat="predicate in filterConstraints(node, parentsMap[node.id].predicates)" ng-if="!options.concise">
                 <span class="expanded-view">
                     {{::predicate.description}}
                 </span>
@@ -721,12 +746,12 @@
         </td>
         <td class="col-xs-3 col-cs" ng-style="csWidth">
             <span class="cs-concise-view concise-view" ng-if="options.concise"
-                  tooltip-html="getConfStatementsAsMultipleLinesString(node,segment.conformanceStatements)"
+                  tooltip-html="getConfStatementsAsMultipleLinesString(node,parentsMap[node.id].conformanceStatements)"
                   tooltip-append-to-body="true"
                   tooltip-class="constraints-tooltip"
-                  ng-bind-html="getConfStatementsAsOneLineString(node,segment.conformanceStatements)"
+                  ng-bind-html="getConfStatementsAsOneLineString(node,parentsMap[node.id].conformanceStatements)"
                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="confStatement in filterConstraints(node,segment.conformanceStatements)"
+            <span ng-repeat="confStatement in filterConstraints(node,parentsMap[node.id].conformanceStatements)"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                    {{::confStatement.constraintId}} : {{::confStatement.description}}
@@ -737,7 +762,7 @@
 </script>
 
 <script type="text/ng-template" id="SegmentComponentReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
+    <tr pv-node ng-show="visible(node,parentsMap[node.id].predicates)" is-branch="hasRelevantChild(node)" node="node">
         <td class="col-xs-2 col-fixed-450">
             <span class="label label-component label-icon" ng-show="node.type === 'COMPONENT'">C</span>
             <span class="label label-sub-component label-icon" ng-show="node.type === 'SUBCOMPONENT'">S</span>
@@ -763,7 +788,12 @@
             </div>
         </td>
         <td class="col-xs-1 col-fixed-80">
-            {{::model.datatypes[node.datatype].id}}
+             <span
+                     tooltip-html="model.datatypes[node.datatype].id"
+                     tooltip-append-to-body="true"
+                     tooltip-class="constraints-tooltip"
+                     ng-bind-html="model.datatypes[node.datatype].id" tooltip-trigger
+                     tooltip-animation="false" tooltip-placement="left"/>
         </td>
         <td class="col-xs-1 col-fixed-150">
             <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset"

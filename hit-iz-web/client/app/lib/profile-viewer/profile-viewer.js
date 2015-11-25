@@ -70,8 +70,35 @@
                     }
             };
 
-            $scope.isRelevant = function (node) {
-                return !$scope.options.relevance ? true : node && node.relevent != undefined ? node.relevent : true;
+            $scope.isRelevant = function (node, predicate) {
+                if (node == undefined)
+                    return true;
+
+                if ($scope.options.relevance && node.hide === false) {
+//                    if (node.type !== 'SEGMENT') {
+                        if (predicate && predicate != null) {
+                            return predicate.trueUsage === "R" || predicate.trueUsage === "RE" || predicate.falseUsage === "R" || predicate.falseUsage === "RE";
+                        }
+                        return node.usage == null || !node.usage || node.usage === "R" || node.usage === "RE";
+//                    } else {
+//                        return node.relevent;
+//                    }
+                }
+                return true;
+            };
+
+            $scope.getNodePredicate = function (node, predicates) {
+                var predicate = $scope.filterConstraints(node, predicates);
+                if (predicate != null) {
+                    if (predicate.constructor === Array) {
+                        if (predicate.length > 0) {
+                            predicate = predicate[0];
+                        } else {
+                            predicate = null;
+                        }
+                    }
+                }
+                return predicate;
             };
 
             $scope.collapseAll = function (collapse) {
@@ -109,6 +136,19 @@
                 return [];
             };
 
+
+            $scope.isSegmentVisible = function(segment){
+                if(segment.referencers) {
+                    for (var i = 0; i < segment.referencers.length; i++) {
+                        var referencer = segment.referencers[i];
+                        if (!$scope.visible(referencer,referencer.predicates)) {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            };
+
             $scope.processElement = function (element, parent) {
                 try {
                     if (element.type === "GROUP" && element.children) {
@@ -126,6 +166,11 @@
                         var ref = $scope.model.segments[element.ref];
                         $scope.processElement(ref, element);
                     } else if (element.type === "SEGMENT") {
+                        if(!element.referencers)
+                            element.referencers = [];
+                        if (element.referencers.indexOf(parent) === -1) {
+                            element.referencers.push(parent);
+                        }
                         if ($scope.segments.indexOf(element) === -1) {
                             element["path"] = element["name"];
                             $scope.segments.push(element);
@@ -340,97 +385,17 @@
                 $scope.params.refreshWithState(!$scope.options.collapse ? 'expanded' : 'collapse');
             };
 
-            $scope.isDatatypeSubDT = function (component) {
-//                if ($scope.datatype != null) {
-//                    for (var i = 0, len = $scope.datatype.children.length; i < len; i++) {
-//                        if ($scope.datatype.children[i].id === component.id)
-//                            return false;
-//                    }
-//                }
-                return false;
-            };
-
             $scope.hasRelevantChild = function (node) {
                 var children = $scope.children(node);
                 if (children && children != null && children.length > 0) {
-//                    for (var i = 0; i < children.length; i++) {
-//                        var child = children[i];
-//                        if ($scope.isRelevant(child)) {
-//                            return true;
-//                        }
-//                    }
                     return true;
                 }
                 return false;
             };
 
-//            $scope.hasRelevantChild = function (node) {
-//                if (node.relevent !== undefined && node.relevent === false){
-//                        return false;
-//                }else if(node.relevent === undefined || node.relevent === true){
-//                    if ($scope.isBranch(node)) {
-//                        for (var i = 0; i < node.children.length; i++) {
-//                            var child = node.children[i];
-//                            if ($scope.hasRelevantChild(child)) {
-//                                return true;
-//                            }
-//                        }
-//                    }
-//                }
-//                return false;
-//            };
-//
-//
-//            $scope.isVisible = function (node) {
-//                if ($scope.isRelevant(node))
-//                    return true;
-//                if ($scope.isBranch(node)) {
-//                    for (var i = 0; i < node.children.length; i++) {
-//                        var child = node.children[i];
-//                        if (! $scope.isVisible(child)) {
-//                            return false;
-//                        }
-//                    }
-//                }
-//                return true;
-//            };
-//
-//
-//            $scope.isLeaf = function (node) {
-//                if (node.children && node.children != null && node.children.length > 0) {
-//                    for (var i = 0; i < node.children.length; i++) {
-//                        var child = node.children[i];
-//                        if ($scope.visible(child)) {
-//                            return true;
-//                        }
-//                    }
-//                }
-//                return false;
-//            };
-
-
-            $scope.visible = function (node) {
-                var isVisible = node ? $scope.isRelevant(node) && $scope.visible($scope.parentsMap[node.id]) : true;
-//                if(node) {
-//                    var branches = $('table.pvt tr.branch[data-tt-parent-id="' + $rootScope.pvNodesMap[node] + "'" + ']');
-//                    if (!$scope.hasRelevantChild(node)) {
-//                        if (branches) {
-//                            var id = $(branches).attr('data-tt-id');
-//                            var a = $(branches).find("td span.indenter a");
-//                            if (a) {
-//                                $(a[0]).hide();
-//                            }
-//                        }
-//                    } else if (branches) {
-//                        var id = $(branches).attr('data-tt-id');
-//                        var a = $(branches).find("td span.indenter a");
-//                        if (a) {
-//                            $(a[0]).show();
-//                        }
-//                    }
-//                }
-                return isVisible;
-            };
+            $scope.visible = function (node, predicates) {
+                return  node ? $scope.isRelevant(node, $scope.getNodePredicate(node, predicates)) && $scope.visible($scope.parentsMap[node.id]) : true;
+             };
 
             $scope.getNodeContent = function (selectedNode) {
                 if (selectedNode != null) {
@@ -535,7 +500,7 @@
             $scope.getPredicatesAsMultipleLinesString = function (node, constraints) {
                 var predicates = constraints ? $scope.filterConstraints(node, constraints) : node.predicates;
                 var html = "";
-                if (predicates && predicates != null) {
+                if (predicates && predicates != null && predicates.length > 0) {
                     angular.forEach(predicates, function (predicate) {
                         html = html + "<p>" + predicate.description + "</p>";
                     });
@@ -546,7 +511,7 @@
             $scope.getPredicatesAsOneLineString = function (node, constraints) {
                 var predicates = constraints ? $scope.filterConstraints(node, constraints) : node.predicates;
                 var html = "";
-                if (predicates && predicates != null) {
+                if (predicates && predicates != null && predicates.length > 0) {
                     angular.forEach(predicates, function (predicate) {
                         html = html + predicate.description;
                     });
@@ -555,13 +520,16 @@
             };
 
             $scope.filterConstraints = function (node, constraints) {
-                return $filter('filter')(constraints, {constraintTarget: node.position + '[1]'}, true);
+                if (constraints) {
+                    return $filter('filter')(constraints, {constraintTarget: node.position + '[1]'}, true);
+                }
+                return null;
             };
 
             $scope.getConfStatementsAsMultipleLinesString = function (node, constraints) {
                 var confStatements = constraints ? $scope.filterConstraints(node, constraints) : node.conformanceStatements;
                 var html = "";
-                if (confStatements && confStatements != null) {
+                if (confStatements && confStatements != null && confStatements.length > 0) {
                     angular.forEach(confStatements, function (conStatement) {
                         html = html + "<p>" + conStatement.constraintId + " : " + conStatement.description + "</p>";
                     });
@@ -572,7 +540,7 @@
             $scope.getConfStatementsAsOneLineString = function (node, constraints) {
                 var confStatements = constraints ? $scope.filterConstraints(node, constraints) : node.conformanceStatements;
                 var html = "";
-                if (confStatements && confStatements != null) {
+                if (confStatements && confStatements != null && confStatements.length > 0) {
                     angular.forEach(confStatements, function (conStatement) {
                         html = html + conStatement.constraintId + " : " + conStatement.description;
                     });
