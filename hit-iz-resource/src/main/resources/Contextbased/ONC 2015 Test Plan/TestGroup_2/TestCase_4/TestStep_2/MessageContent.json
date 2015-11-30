@@ -81,7 +81,7 @@
 "categorization" : ""},
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
-							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
 "categorization" : ""},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
@@ -94,10 +94,10 @@
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
 "XX", "categorization" : ""},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
-: "100-1776", "categorization" : ""},
+: "100-3322", "categorization" : ""},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
-							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
 "categorization" : ""},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},

@@ -110,7 +110,7 @@
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
 "XX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
-: "100-1776", "categorization" : "Presence-Configuration"},		]
+: "100-3322", "categorization" : "Presence-Configuration"},		]
 		{
 			"title":"QPD : Query Parameter Definition",
 			"elements" : 
@@ -155,7 +155,7 @@ Initials Thereof", "data" : "S", "categorization" : "Value-Test Case Fixed"},
 "categorization" : ""},
 							{"location" : "QPD.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
-									{"location" : "QPD.5.1.1", "dataelement" : "Surname", "data" : "Smith", "categorization"
+									{"location" : "QPD.5.1.1", "dataelement" : "Surname", "data" : "Bell", "categorization"
 : "Value-Test Case Fixed"},
 							{"location" : "QPD.5.7", "dataelement" : "Name Type Code", "data" : "M", "categorization"
 : "Value-Profile Fixed"},
@@ -173,7 +173,7 @@ Initials Thereof", "data" : "S", "categorization" : "Value-Test Case Fixed"},
 : "1642 Bear Run", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.8.2", "dataelement" : "Other Designation", "data" : "",
 "categorization" : "Indifferent"},
-							{"location" : "QPD.8.3", "dataelement" : "City", "data" : "Boseman", "categorization"
+							{"location" : "QPD.8.3", "dataelement" : "City", "data" : "Bozeman", "categorization"
 : "Value-Test Case Fixed"},
 							{"location" : "QPD.8.4", "dataelement" : "State or Province", "data" : "MT",
 "categorization" : "Value-Test Case Fixed"},
