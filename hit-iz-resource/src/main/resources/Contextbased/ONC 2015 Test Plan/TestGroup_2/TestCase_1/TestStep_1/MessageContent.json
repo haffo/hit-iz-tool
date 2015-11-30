@@ -110,7 +110,7 @@
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
 "XX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
-: "100-1776", "categorization" : "Presence-Configuration"},		]
+: "100-3322", "categorization" : "Presence-Configuration"},		]
 		{
 			"title":"QPD : Query Parameter Definition",
 			"elements" : 
