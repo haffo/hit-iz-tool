@@ -32,7 +32,7 @@
 
                     <div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">
                         <label class="btn   btn-cf-outline" ng-click="setAllConcise(true)"
-                               ng-class="{'active': options.concise}">
+                               ng-class="{'active': options.concise}">constraintId
                             <input type="radio" ng-model="options.concise" autocomplete="off" checked>Concise View
                         </label>
                         <label class="btn btn-cf-outline" ng-click="setAllConcise(false)"
@@ -400,8 +400,7 @@
     <tr pv-node ng-show="visible(node,node.predicates)" is-branch="hasRelevantChild(node)" node="node">
         <td class="col-xs-2 col-fixed-450">
             <span class="label label-segment label-icon">S</span>
-            <a
-
+            <a class="point"
                     ng-click="showRefSegment(node.ref)"
                     ng-bind-html="getSegmentRefNodeName(node)"
                     ></a>
