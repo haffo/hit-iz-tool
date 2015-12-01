@@ -440,6 +440,11 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
         //$location.path('/blank');
     };
 
+    $rootScope.pettyPrintType = function (type) {
+        return type === 'TestStep' ? 'Test Step': type === 'TestCase'? 'Test Case':type;
+    };
+
+
     $rootScope.index = function () {
         //$location.path('/home');
         $('#appcontainer').html('');

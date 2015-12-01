@@ -526,12 +526,19 @@
             }
         };
 
+        NewValidationResult.prototype.removeInstanceNumber= function (path) {
+            return path.replace(/\[[^\]]*?\]/g, '');
+        };
+
 
         NewValidationResult.prototype.removeCategoryDuplicates = function (classificationObj) {
+            var ins = this;
             for (var i = 0; i < classificationObj.categories.length; i++) {
                 var category = classificationObj.categories[i];
                 var filtered = _.uniq(category.data, function(item){
-                    return item.classification + "/" + item.category + "/"  + item.path + "/" + item.description;
+                    var path = ins.removeInstanceNumber(item.path);
+                    console.log(path);
+                    return item.classification + "/" + item.category + "/"  + path + "/" + item.description;
                 });
                 category.data = filtered;
             }

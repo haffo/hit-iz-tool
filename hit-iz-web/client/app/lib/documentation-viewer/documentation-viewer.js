@@ -72,7 +72,8 @@
             return {
                 restrict: 'A',
                 scope: {
-                    type: '@'
+                    type: '@',
+                    name: '@'
                 },
                 templateUrl: 'ResourceDoc.html',
                 replace: false,
@@ -242,7 +243,7 @@
             $scope.error = null;
             $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
 
-            if ($scope.type != null && $scope.type != '') {
+            if ($scope.type != null && $scope.type != '' && $scope.name != null && $scope.name != '') {
                 $scope.loading = true;
                 var listLoader = new ResourceDocListLoader($scope.type);
                 listLoader.then(function (result) {

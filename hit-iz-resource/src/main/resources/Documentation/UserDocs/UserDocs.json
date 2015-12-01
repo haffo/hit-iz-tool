@@ -2,52 +2,56 @@
 			{
 			 "title":"ONC 2015 Edition Immunization Test Procedure",
 			 "link":"http://confluence.oncprojectracking.org/pages/viewpage.action?pageId=8389419",
-			 "date":"11/23/2015"
+			 "date":"11/23/2015",
+			 "order":1
 			},
 			{
 			 "title":"Implementation Guide for Immunization Messaging",
 			 "name":"hl7guide-1-5-*",
-			 "date":"10/1/2014"
+			 "date":"10/1/2014",
+			 "order":3
 			},
 			{
 			 "title":"Immunization Clarification Addendum",
 			 "name":"hl7guide-addendum-7-2015.pdf",
-			 "date":"07/2015"
+			 "date":"07/2015",
+			 "order":4
 			},
 			{
 			 "title":"Immunization Tool Quick Reference Guide",
 			 "name":"NIST IZ_QuickReferenceGuide.ppt",
-			 "date":"11/16/2015"
+			 "date":"11/16/2015",
+			 "order":6
  			},
  			{
 			 "title":"Immunization Tool Tutorial",
 			 "name":"NIST IZ_Tool_Tutorial Guide.ppt",
-			 "date":"11/09/2015"
+			 "date":"11/09/2015",
+			 "order":7
  			},
 			{
 			 "title":"NIST Immunization Normative Test Process Document for ONC 2015 Certification",
-			 "name": "NIST_IZ_Normative_Test_Process_Document_V2.0.docx",
-			 "date":"11/19/2015"
+			 "name": "NIST_IZ_Normative_Test_Process_Document.pdf",
+			 "date":"11/19/2015",
+			 "order":2
  			},
 			{
 			  "title":"NIST Clarifications and Validation Guidelines",
 			 "name":"NIST-Clarifications-and-Validation-Guidelines-111815-1.docx",
-			 "date":"11/19/2015"
-			},
-			{
-			 "title":"Test Data Categories",
-			 "name":"TestDataCategoriesD3.docx",
-			 "date":"10/27/2015"
+			 "date":"11/19/2015",
+			 "order":5
 			},
 			{
 			 "title":"Immunization Tool Installation Guide",
 			 "name":"Installation.Guide.-.NIST.HL7v2.Validation.Tools.v1-2.docx",
-			 "date":"11/09/2015"
+			 "date":"11/09/2015",
+			 "order":8
 			},
 			{
 			 "title":"Understanding Immunization Meaningful Use Certification Testing",
 			 "name":"UnderstandingImmunizationMsg_ONCCertificationTesting 2015 Edition V1.0 for PubCom.pptx",
-			 "date":"11/16/2015"
+			 "date":"11/16/2015",
+			 "order":9
 			}
 			
 			

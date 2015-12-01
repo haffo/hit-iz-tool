@@ -68,7 +68,7 @@
 
             </span>
                             <span class="row fileupload-buttonbar pull-right">
-                                <button title="Validate" type="button" class="btn btn-xs btn-primary" ng-click="showDQAOptions()">
+                                <button title="Validate" type="button" class="btn btn-xs btn-primary" ng-show="cf.testCase.testContext.dqa === true" ng-click="showDQAOptions()">
                                     <i class="fa fa-cog"></i>
                                     DQA
                                 </button>
