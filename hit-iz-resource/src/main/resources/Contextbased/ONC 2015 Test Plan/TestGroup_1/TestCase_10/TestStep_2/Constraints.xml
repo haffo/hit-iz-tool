@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConformanceContext UUID="5aa809aa-e687-4923-bb7b-4bb9392756b6">
+<ConformanceContext UUID="111f661b-bfcb-4da9-9993-c2cf6934fb81">
   <Constraints>
     <Group>
       <ByName Name="ACK">
-        <Constraint ID="TCA-1" Target="1[1].23[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
-          <Description>Expected content is missing. The empty value at MSH[1].23[1].1[1](Organization Name) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].23[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-2" Target="1[1].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].3[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
-          <Description>Expected content is missing. The empty value at MSH[1].3[1].1[1](Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].3[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-5" Target="1[1].4[1].1[1]">
+        <Constraint ID="TCA-1" Target="1[1].4[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].4[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
           <Description>Expected content is missing. The empty value at MSH[1].4[1].1[1](Namespace ID) is expected to be present.</Description>
           <Assertion>
             <Presence Path="1[1].4[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-9" Target="1[1].22[1].1[1]">
+        <Constraint ID="TCA-4" Target="1[1].21[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].2[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at MSH[1].21[1].2[1](Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].21[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-6" Target="1[1].3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].3[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
+          <Description>Expected content is missing. The empty value at MSH[1].3[1].1[1](Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].3[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-8" Target="1[1].22[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
           <Description>Expected content is missing. The empty value at MSH[1].22[1].1[1](Organization Name) is expected to be present.</Description>
           <Assertion>
             <Presence Path="1[1].22[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="TCA-12" Target="1[1].5[1].1[1]">
+        <Constraint ID="TCA-10" Target="1[1].23[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
+          <Description>Expected content is missing. The empty value at MSH[1].23[1].1[1](Organization Name) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].23[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="TCA-13" Target="1[1].5[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].5[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
           <Description>Expected content is missing. The empty value at MSH[1].5[1].1[1](Namespace ID) is expected to be present.</Description>
           <Assertion>
             <Presence Path="1[1].5[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="TCA-14" Target="1[1].21[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].2[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at MSH[1].21[1].2[1](Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].21[1].2[1]"/>
           </Assertion>
         </Constraint>
         <Constraint ID="TCA-17" Target="1[1].6[1].1[1]">
