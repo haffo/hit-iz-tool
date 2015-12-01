@@ -393,6 +393,12 @@ angular.module('cf')
             }
         };
 
+        $scope.removeDuplicates = function () {
+            $scope.vLoading = true;
+            $scope.$broadcast('cf:removeDuplicates');
+        };
+
+
         $scope.init = function () {
             $scope.vLoading = false;
             $scope.tLoading = false;
@@ -424,6 +430,11 @@ angular.module('cf')
                     }
                 }
             });
+
+            $rootScope.$on('cf:duplicatesRemoved', function (event, report) {
+                $scope.vLoading = false;
+            });
+
         };
 
     }])

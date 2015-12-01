@@ -43,7 +43,6 @@ public class IZHL7V2MessageValidatorImpl extends HL7V2MessageValidatorImpl {
         f.restrain(restriction);
         // Filter report
         report = f.filter(report);
-        report = Filter.removeDuplicate(report);
 
         JSONObject config = new JSONObject();
         config.put("excluded", "affirmative");

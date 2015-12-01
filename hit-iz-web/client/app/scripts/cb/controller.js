@@ -223,6 +223,8 @@ angular.module('cb')
         $scope.selectedItem = null;
         $scope.activeTab = 0;
 
+        $scope.mvResult = null;
+
         $scope.messageObject = [];
         $scope.tError = null;
         $scope.tLoading = false;
@@ -381,6 +383,7 @@ angular.module('cb')
         };
 
         $scope.loadValidationResult = function (mvResult) {
+            $scope.mvResult =  null;
             $timeout(function () {
                 $scope.$broadcast('cb:validationResultLoaded', mvResult);
             });
@@ -394,6 +397,7 @@ angular.module('cb')
                 $scope.editorService.select($scope.editor, $scope.cb.cursor);
             }
         };
+
 
         $scope.clearMessage = function () {
             $scope.nodelay = true;
@@ -461,6 +465,13 @@ angular.module('cb')
             }
         };
 
+        $scope.removeDuplicates = function () {
+            $scope.vLoading = true;
+            $scope.$broadcast('cb:removeDuplicates');
+        };
+
+
+
         $scope.init = function () {
             $scope.vLoading = false;
             $scope.tLoading = false;
@@ -495,6 +506,12 @@ angular.module('cb')
                     }
                 }
             });
+
+            $rootScope.$on('cb:duplicatesRemoved', function (event, report) {
+                $scope.vLoading = false;
+            });
+
+
         };
 
     }]);

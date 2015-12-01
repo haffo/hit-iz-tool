@@ -42,7 +42,7 @@
             $scope.validationTabs = new Array();
             $scope.currentType = null;
             $scope.settings = Settings;
-
+            $scope.validationResultOriginal = null;
             $scope.activeTab = 0;
             $scope.validationResult = null;
             $scope.loadingCategory = false;
@@ -161,6 +161,12 @@
                 $scope.loadingCategory = false;
             };
 
+
+            $scope.generateItemHashCode = function (item) {
+               return item.path  + item.category + item['classification'] + item.description;
+            };
+
+
             $scope.select = function (element) {
                 if (element != undefined && element.path != null && element.line != -1) {
                     var node = $scope.treeService.selectNodeByPath($scope.tree.root, element.line, element.path);
@@ -176,6 +182,16 @@
                     }
                 }
             };
+
+            $scope.$on($scope.type + ':removeDuplicates', function (event) {
+                if( $scope.validationResult  != null && !$scope.validationResult.duplicatesRemoved){
+                    $scope.validationResultOriginal = angular.copy($scope.validationResult);
+                    $scope.validationResult.removeAllDuplicates();
+                }
+                $timeout(function () {
+                    $scope.$emit($scope.type + ':duplicatesRemoved');
+                });
+            });
 
             $scope.$on($scope.type + ':validationResultLoaded', function (event, mvResult) {
 
@@ -411,6 +427,7 @@
         var NewValidationResult = function (key) {
             ValidationResult.apply(this, arguments);
             this.json = null;
+            this.duplicatesRemoved = false;
         };
 
         var Entry = function () {
@@ -476,6 +493,8 @@
         };
 
 
+
+
         NewValidationResult.prototype.addItem = function (entry) {
             try {
                 entry['id'] = guid();
@@ -507,8 +526,29 @@
             }
         };
 
-        NewValidationResult.prototype.init = function (result) {
+
+        NewValidationResult.prototype.removeCategoryDuplicates = function (classificationObj) {
+            for (var i = 0; i < classificationObj.categories.length; i++) {
+                var category = classificationObj.categories[i];
+                var filtered = _.uniq(category.data, function(item){
+                    return item.classification + "/" + item.category + "/"  + item.path + "/" + item.description;
+                });
+                category.data = filtered;
+            }
+        };
+
+        NewValidationResult.prototype.removeAllDuplicates = function () {
+            this.removeCategoryDuplicates(this.errors);
+            this.removeCategoryDuplicates(this.warnings);
+            this.removeCategoryDuplicates(this.alerts);
+            this.removeCategoryDuplicates(this.affirmatives);
+            this.removeCategoryDuplicates(this.informationals);
+            this.duplicatesRemoved = true;
+        };
+
+        NewValidationResult.prototype.init = function (result, noDuplicates) {
             ValidationResult.prototype.clear.call(this);
+            this.duplicatesRemoved = false;
             if (result) {
                 this.json = angular.fromJson(result);
                 this.loadDetection(this.json.detections['Error']);
