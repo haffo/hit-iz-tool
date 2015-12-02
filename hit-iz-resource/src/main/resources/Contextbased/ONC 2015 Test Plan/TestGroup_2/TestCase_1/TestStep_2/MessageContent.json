@@ -578,6 +578,14 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "categorization" : ""},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -659,6 +667,14 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
@@ -742,6 +758,14 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "categorization" : ""},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -823,6 +847,14 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
@@ -906,6 +938,14 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "categorization" : ""},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -987,6 +1027,14 @@ Initials Thereof", "data" : "", "categorization" : ""},
 									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
 "", "categorization" : ""},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},

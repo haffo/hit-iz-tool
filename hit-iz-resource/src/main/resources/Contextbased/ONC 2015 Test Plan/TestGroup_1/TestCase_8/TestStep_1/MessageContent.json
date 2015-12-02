@@ -341,6 +341,30 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.10.13", "dataelement" : "Identifier Type Code", "data" :
 "PRN", "categorization" : "Value-Test Case Fixed"},
+				{"location" : "ORC.12", "dataelement" : "Ordering Provider", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.12.1", "dataelement" : "ID Number", "data" : "654", "categorization"
+: "Presence-Content Indifferent"},
+							{"location" : "ORC.12.2", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "ORC.12.2.1", "dataelement" : "Surname", "data" : "Thomas",
+"categorization" : "Presence-Content Indifferent"},
+							{"location" : "ORC.12.3", "dataelement" : "Given Name", "data" : "Wilma", "categorization"
+: "Presence-Content Indifferent"},
+							{"location" : "ORC.12.4", "dataelement" : "Second and Further Given Names or
+Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content Indifferent"},
+							{"location" : "ORC.12.9", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "ORC.12.9.1", "dataelement" : "Namespace ID", "data" : "NIST-PI-1",
+"categorization" : "Presence-Content Indifferent"},
+									{"location" : "ORC.12.9.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.8",
+"categorization" : "Presence-Test Case Proper"},
+									{"location" : "ORC.12.9.3", "dataelement" : "Universal ID Type", "data" :
+"ISO", "categorization" : "Value-Profile Fixed"},
+							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "L",
+"categorization" : "Value-Test Case Fixed"},
+							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
+"MD", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
