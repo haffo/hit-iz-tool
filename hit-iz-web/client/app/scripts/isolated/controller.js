@@ -967,6 +967,13 @@ angular.module('isolated')
             }
         };
 
+
+        $scope.removeDuplicates = function () {
+            $scope.vLoading = true;
+            $scope.$broadcast('isolated:removeDuplicates');
+        };
+
+
         $scope.init = function () {
             $scope.vLoading = false;
             $scope.tLoading = false;
@@ -1017,6 +1024,11 @@ angular.module('isolated')
                 $scope.isolated.message.name = '';
                 $scope.execute();
             });
+
+            $rootScope.$on('isolated:duplicatesRemoved', function (event, report) {
+                $scope.vLoading = false;
+            });
+
 
         };
 

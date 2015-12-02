@@ -149,15 +149,44 @@
                 return true;
             };
 
+            $scope.constraintExits = function(contraint, contraints){
+                if(contraints.length > 0) {
+                    for (var i = 0; i < contraints.length; i++) {
+                        var c = contraints[i];
+                        if(c.constraintId === contraint.constraintId){
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            };
+
+
             $scope.processElement = function (element, parent) {
                 try {
-                    if (element.type === "GROUP" && element.children) {
+                    if(element.predicates && element.predicates.length > 0) {
+                        for (var i = 0; i < element.predicates.length; i++) {
+                            if (!$scope.constraintExits(element.predicates[i],$scope.predicates)){
+                                $scope.predicates.push(element.predicates[i]);
+                            }
+                        }
+                    }
+                    if(element.conformanceStatements && element.conformanceStatements.length > 0) {
+                        for (var i = 0; i < element.conformanceStatements.length; i++) {
+                            if (!$scope.constraintExits(element.conformanceStatements[i],$scope.confStatements)) {
+                                $scope.confStatements.push(element.conformanceStatements[i]);
+                            }
+                        }
+                    }
+                    if (element.type === "GROUP") {
                         element.position = parseInt(element.position);
                         $scope.parentsMap[element.id] = parent;
-                        angular.forEach(element.children, function (segmentRefOrGroup) {
-                            $scope.processElement(segmentRefOrGroup, element);
-                        });
-                        element.children = $filter('orderBy')(element.children, 'position');
+                        if( element.children) {
+                            angular.forEach(element.children, function (segmentRefOrGroup) {
+                                $scope.processElement(segmentRefOrGroup, element);
+                            });
+                            element.children = $filter('orderBy')(element.children, 'position');
+                        }
                     } else if (element.type === "SEGMENT_REF") {
                         element.position = parseInt(element.position);
                         if (parent) {
@@ -174,14 +203,6 @@
                         if ($scope.segments.indexOf(element) === -1) {
                             element["path"] = element["name"];
                             $scope.segments.push(element);
-                            for (var i = 0; i < element.predicates.length; i++) {
-                                if ($scope.predicates.indexOf(element.predicates[i]) === -1)
-                                    $scope.predicates.push(element.predicates[i]);
-                            }
-                            for (var i = 0; i < element.conformanceStatements.length; i++) {
-                                if ($scope.confStatements.indexOf(element.conformanceStatements[i]) === -1)
-                                    $scope.confStatements.push(element.conformanceStatements[i]);
-                            }
                             angular.forEach(element.children, function (field) {
                                 $scope.processElement(field, element);
                             });
@@ -214,16 +235,6 @@
                         element["path"] = parent.path + "." + element.position;
                         $scope.processElement($scope.model.datatypes[element.datatype], element);
                     } else if (element.type === "DATATYPE") {
-                        for (var i = 0; i < element.predicates.length; i++) {
-                            if ($scope.predicates.indexOf(element.predicates[i]) === -1)
-                                $scope.predicates.push(element.predicates[i]);
-                        }
-
-                        for (var i = 0; i < element.conformanceStatements.length; i++) {
-                            if ($scope.confStatements.indexOf(element.conformanceStatements[i]) === -1)
-                                $scope.confStatements.push(element.conformanceStatements[i]);
-                        }
-
                         angular.forEach(element.children, function (component) {
                             $scope.processElement(component, element);
                         });

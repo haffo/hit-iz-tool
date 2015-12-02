@@ -292,7 +292,7 @@ angular.module('cf')
                     var id = $scope.cf.testCase.testContext.id;
                     var content = $scope.cf.message.content;
                     var label = $scope.cf.testCase.label;
-                    var validated = $scope.validator.validate(id, content, null, "Free", $scope.dqaCodes, "1223");
+                    var validated = $scope.validator.validate(id, content, null, "Free", $scope.cf.testCase.testContext.dqa === true ? $scope.dqaCodes:[], "1223");
                     validated.then(function (mvResult) {
                         $scope.vLoading = false;
                         $scope.loadValidationResult(mvResult);
@@ -393,6 +393,12 @@ angular.module('cf')
             }
         };
 
+        $scope.removeDuplicates = function () {
+            $scope.vLoading = true;
+            $scope.$broadcast('cf:removeDuplicates');
+        };
+
+
         $scope.init = function () {
             $scope.vLoading = false;
             $scope.tLoading = false;
@@ -424,6 +430,11 @@ angular.module('cf')
                     }
                 }
             });
+
+            $rootScope.$on('cf:duplicatesRemoved', function (event, report) {
+                $scope.vLoading = false;
+            });
+
         };
 
     }])

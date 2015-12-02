@@ -9,21 +9,20 @@ import gov.nist.healthcare.unified.model.EnhancedReport;
 import gov.nist.hit.core.domain.MessageValidationCommand;
 import gov.nist.hit.core.domain.MessageValidationResult;
 import gov.nist.hit.core.domain.TestContext;
-import gov.nist.hit.core.hl7v2.service.HL7V2MessageValidatorImpl;
+import gov.nist.hit.core.hl7v2.service.HL7V2MessageValidator;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 
 import org.json.JSONObject;
 import org.openimmunizationsoftware.dqa.nist.CompactReportModel;
 import org.openimmunizationsoftware.dqa.nist.ProcessMessageHL7;
 
-public class IZHL7V2MessageValidatorImpl extends HL7V2MessageValidatorImpl {
+public class IZHL7V2MessageValidatorImpl extends HL7V2MessageValidator {
 
   @Override
   public MessageValidationResult validate(TestContext testContext, MessageValidationCommand command)
       throws MessageValidationException {
     try {
-      MessageValidationResult result = super.validate(testContext, command);
-      EnhancedReport report = EnhancedReport.from("json", result.getJson());
+      EnhancedReport report = super.generateReport(testContext, command);
       if (report != null) {
         if (command.getDqaCodes() != null && !command.getDqaCodes().isEmpty()) {
           // Perform a DQA validation
@@ -43,7 +42,6 @@ public class IZHL7V2MessageValidatorImpl extends HL7V2MessageValidatorImpl {
         f.restrain(restriction);
         // Filter report
         report = f.filter(report);
-        report = Filter.removeDuplicate(report);
 
         JSONObject config = new JSONObject();
         config.put("excluded", "affirmative");
@@ -57,4 +55,7 @@ public class IZHL7V2MessageValidatorImpl extends HL7V2MessageValidatorImpl {
       throw new MessageValidationException(e.getLocalizedMessage());
     }
   }
+
+
+
 }

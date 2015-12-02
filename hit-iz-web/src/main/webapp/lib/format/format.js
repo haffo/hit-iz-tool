@@ -671,7 +671,7 @@ angular.module('format').factory('TestCaseService', function ($filter) {
                     testStep['nav'] = {};
                     //node["children"].push(testStep);
                     testStep['nav']['testCase'] = node.name;
-                    testStep['nav']['testStep'] = testStep.position + "." + testStep.name;
+                    testStep['nav']['testStep'] = testStep.name;
                     testStep['nav']['testPlan'] = node['nav'].testPlan;
                     testStep['nav']['testGroup'] = node['nav'].testGroup;
                     that.buildTree(testStep);
@@ -681,7 +681,7 @@ angular.module('format').factory('TestCaseService', function ($filter) {
                     node["children"].push(testStep);
                     testStep['nav'] = {};
                     testStep['nav']['testCase'] = node.name;
-                    testStep['nav']['testStep'] = testStep.position + "." + testStep.name;
+                    testStep['nav']['testStep'] = testStep.name;
                     testStep['nav']['testPlan'] = node['nav'].testPlan;
                     testStep['nav']['testGroup'] = node['nav'].testGroup;
                     that.buildTree(testStep);
@@ -696,7 +696,7 @@ angular.module('format').factory('TestCaseService', function ($filter) {
     TestCaseService.prototype.buildCFTestCases = function (obj) {
         obj.label = !obj.children ? obj.position + "." + obj.name: obj.name;
         obj['nav'] = {};
-        obj['nav']['testStep'] = obj.label;
+        obj['nav']['testStep'] = obj.name;
         obj['nav']['testCase'] = null;
         obj['nav']['testPlan'] =null;
         obj['nav']['testGroup'] =null;
@@ -706,8 +706,8 @@ angular.module('format').factory('TestCaseService', function ($filter) {
             obj.children = $filter('orderBy')(obj.children, 'position');
             angular.forEach(obj.children, function (child) {
                 child['nav'] = {};
-                child['nav']['testStep'] = child.label;
-                child['nav']['testCase'] = obj.label;
+                child['nav']['testStep'] = child.name;
+                child['nav']['testCase'] = obj.name;
                 child['nav']['testPlan'] = obj['nav'].testPlan;
                 child['nav']['testGroup'] =null;
                 that.buildCFTestCases(child);
