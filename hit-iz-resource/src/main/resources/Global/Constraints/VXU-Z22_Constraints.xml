@@ -305,10 +305,23 @@
 					</Condition>
 				</Predicate>
 			</ByID>
+			<ByID ID="ORC_IZ 1_5">
+				<Predicate ID="[ORC_IZ 1_5]12[1]-Display" Target="12[1]" TrueUsage="RE" FalseUsage="O">
+					<Description>If the value of RXA-9.1 (Identifier) is '00' AND if RXA-9.1 (Identifier) is valued AND if the value of RXA-20 (Completion Status) is one of List Values: 'CP','PA' AND if RXA-20 (Completion Status) is valued.</Description>
+					<Condition>
+						<OR>
+							<Presence Path="12[1]"/>
+							<NOT>
+								<Presence Path="12[1]"/>
+							</NOT>
+						</OR>
+					</Condition>
+				</Predicate>
+			</ByID>
 		</Segment>
 		<Group>
 			<ByName Name="VXU_V04.ORDER">
-				<Predicate ID="[ORC_IZ 1_5]12[1]" Target="1[1].12[1]" TrueUsage="RE" FalseUsage="O">
+				<Predicate ID="[ORC_IZ 1_5]12[1]-Actual" Target="1[1].12[1]" TrueUsage="RE" FalseUsage="O">
 					<Description>If the value of RXA-9.1 (Identifier) is '00' AND if RXA-9.1 (Identifier) is valued AND if the value of RXA-20 (Completion Status) is one of List Values: 'CP','PA' AND if RXA-20 (Completion Status) is valued.</Description>
 					<Condition>
 						<AND>
@@ -734,6 +747,8 @@
 					</Assertion>
 				</Constraint>
 			</ByID>
+		</Group>
+		<Message>
 			<ByID ID="aa72383a-7b48-46e5-a74a-82e019591fe7">
 				<Constraint ID="NIST-01" Target="9[1].5[1].1[1]">
 					<Description>The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value "1" within a message or for each group.</Description>
@@ -742,7 +757,6 @@
 					</Assertion>
 				</Constraint>
 			</ByID>
-			
-		</Group>
+		</Message>
 	</Constraints>
 </ConformanceContext>

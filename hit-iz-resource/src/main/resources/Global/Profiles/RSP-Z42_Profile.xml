@@ -195,7 +195,7 @@
 			<Field Name="Administered Strength Units" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="01135"/>
 			<Field Name="Substance Lot Number" Usage="O" Min="0" Max="*" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="01129"/>
 			<Field Name="Substance Expiration Date" Usage="O" Min="0" Max="1" Datatype="TS_M" MinLength="1" MaxLength="26" ItemNo="01130"/>
-			<Field Name="Substance Manufacturer Name" Usage="O" Min="0" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="MVX" BindingStrength="R" BindingLocation="1" ItemNo="01131"/>
+			<Field Name="Substance Manufacturer Name" Usage="C" Min="0" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="MVX" BindingStrength="R" BindingLocation="1" ItemNo="01131"/>
 			<Field Name="Substance/Treatment Refusal Reason" Usage="C" Min="0" Max="*" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="NIP002" BindingStrength="R" BindingLocation="1" ItemNo="01136"/>
 			<Field Name="Indication" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="01123"/>
 			<Field Name="Completion Status" Usage="RE" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70322_IZ" BindingStrength="R" ItemNo="01223"/>
