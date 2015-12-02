@@ -13,16 +13,16 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.api.util.UserCommand;
+import gov.nist.hit.core.domain.Transaction;
+import gov.nist.hit.core.domain.TransactionStatus;
+import gov.nist.hit.core.domain.User;
+import gov.nist.hit.core.repo.TransactionRepository;
+import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
-import gov.nist.hit.core.transport.TransactionStatus;
 import gov.nist.hit.core.transport.TransportClient;
 import gov.nist.hit.iz.domain.SecurityFaultCredentials;
-import gov.nist.hit.iz.domain.Transaction;
-import gov.nist.hit.iz.domain.IZTransportUser;
 import gov.nist.hit.iz.repo.SOAPSecurityFaultCredentialsRepository;
-import gov.nist.hit.iz.repo.TransactionRepository;
-import gov.nist.hit.iz.repo.UserRepository;
 import gov.nist.hit.iz.web.utils.Utils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,7 +60,7 @@ public class IZTransportSOAPController {
 
   @Transactional()
   @RequestMapping(value = "/open", method = RequestMethod.POST)
-  public boolean initIncoming(@RequestBody final IZTransportUser user) throws UserTokenIdNotFoundException {
+  public boolean initIncoming(@RequestBody final User user) throws UserTokenIdNotFoundException {
     logger.info("Initializing transaction for username ... " + user.getUsername());
     Transaction transaction = transaction(user);
     if (transaction != null) {
@@ -72,14 +72,14 @@ public class IZTransportSOAPController {
     return false;
   }
 
-  private void setResponseMessageId(IZTransportUser user, Long messageId) {
+  private void setResponseMessageId(User user, Long messageId) {
     user.setResponseMessageId(messageId);
     userRepository.save(user);
   }
 
   @Transactional()
   @RequestMapping(value = "/close", method = RequestMethod.POST)
-  public boolean clearIncoming(@RequestBody final IZTransportUser user) {
+  public boolean clearIncoming(@RequestBody final User user) {
     logger.info("Closing transaction for username... " + user.getUsername());
     Transaction transaction = transaction(user);
     if (transaction != null) {
@@ -91,7 +91,7 @@ public class IZTransportSOAPController {
   }
 
   @RequestMapping(method = RequestMethod.POST)
-  public Transaction transaction(@RequestBody final IZTransportUser user) {
+  public Transaction transaction(@RequestBody final User user) {
     logger.info("Get transaction of username ... " + user.getUsername());
     Transaction transaction =
         transactionRepository.findByUsernameAndPasswordAndFacilityID(user.getUsername(),
@@ -131,13 +131,13 @@ public class IZTransportSOAPController {
 
   @Transactional()
   @RequestMapping(value = "/initUser", method = RequestMethod.POST)
-  public UserCommand initUser(@RequestBody final IZTransportUser userCommand, HttpServletRequest request) {
+  public UserCommand initUser(@RequestBody final User userCommand, HttpServletRequest request) {
     logger.info("Fetching user information ... ");
-    IZTransportUser user = null;
+    User user = null;
     Long id = userCommand.getId();
 
     if (id == null) {
-      user = new IZTransportUser();
+      user = new User();
       userRepository.saveAndFlush(user);
     } else {
       user = userRepository.findOne(id);
