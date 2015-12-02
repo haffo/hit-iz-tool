@@ -13,19 +13,17 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.api.util.UserCommand;
-import gov.nist.hit.core.domain.Transaction;
-import gov.nist.hit.core.domain.TransactionStatus;
-import gov.nist.hit.core.domain.User;
-import gov.nist.hit.core.repo.TransactionRepository;
-import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
+import gov.nist.hit.core.transport.TransactionStatus;
 import gov.nist.hit.core.transport.TransportClient;
 import gov.nist.hit.iz.domain.SecurityFaultCredentials;
+import gov.nist.hit.iz.domain.Transaction;
+import gov.nist.hit.iz.domain.IZTransportUser;
 import gov.nist.hit.iz.repo.SOAPSecurityFaultCredentialsRepository;
+import gov.nist.hit.iz.repo.TransactionRepository;
+import gov.nist.hit.iz.repo.UserRepository;
 import gov.nist.hit.iz.web.utils.Utils;
-
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -49,9 +47,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/transaction")
-public class TransactionController {
+public class IZTransportSOAPController {
 
-  static final Logger logger = LoggerFactory.getLogger(TransactionController.class);
+  static final Logger logger = LoggerFactory.getLogger(IZTransportSOAPController.class);
 
   @Autowired
   private TransportClient transportClient;
@@ -62,7 +60,7 @@ public class TransactionController {
 
   @Transactional()
   @RequestMapping(value = "/open", method = RequestMethod.POST)
-  public boolean initIncoming(@RequestBody final User user) throws UserTokenIdNotFoundException {
+  public boolean initIncoming(@RequestBody final IZTransportUser user) throws UserTokenIdNotFoundException {
     logger.info("Initializing transaction for username ... " + user.getUsername());
     Transaction transaction = transaction(user);
     if (transaction != null) {
@@ -74,14 +72,14 @@ public class TransactionController {
     return false;
   }
 
-  private void setResponseMessageId(User user, Long messageId) {
+  private void setResponseMessageId(IZTransportUser user, Long messageId) {
     user.setResponseMessageId(messageId);
     userRepository.save(user);
   }
 
   @Transactional()
   @RequestMapping(value = "/close", method = RequestMethod.POST)
-  public boolean clearIncoming(@RequestBody final User user) {
+  public boolean clearIncoming(@RequestBody final IZTransportUser user) {
     logger.info("Closing transaction for username... " + user.getUsername());
     Transaction transaction = transaction(user);
     if (transaction != null) {
@@ -93,7 +91,7 @@ public class TransactionController {
   }
 
   @RequestMapping(method = RequestMethod.POST)
-  public Transaction transaction(@RequestBody final User user) {
+  public Transaction transaction(@RequestBody final IZTransportUser user) {
     logger.info("Get transaction of username ... " + user.getUsername());
     Transaction transaction =
         transactionRepository.findByUsernameAndPasswordAndFacilityID(user.getUsername(),
@@ -133,66 +131,37 @@ public class TransactionController {
 
   @Transactional()
   @RequestMapping(value = "/initUser", method = RequestMethod.POST)
-  public UserCommand info(@RequestBody final User userCommand, HttpServletRequest request) {
+  public UserCommand initUser(@RequestBody final IZTransportUser userCommand, HttpServletRequest request) {
     logger.info("Fetching user information ... ");
-    // User user = null;
-    // Long id = userCommand.getId();
-    //
-    // if (id == null) {
-    // user = new User();
-    // userRepository.saveAndFlush(user);
-    // } else {
-    // user = userRepository.findOne(id);
-    // }
-    //
-    // // create a guest user if no token found
-    // if (user.getPassword() == null && user.getUsername() == null) { // Guest
-    // user.setUsername("vendor_" + user.getId());
-    // user.setPassword("vendor_" + user.getId());
-    // user.setFacilityID("vendor_" + user.getId());
-    // userRepository.saveAndFlush(user);
-    // }
-    //
-    // Long userId = user.getId();
-    // SecurityFaultCredentials faultCredentials =
-    // securityFaultCredentialsRepository.findOneByUserId(user.getId());
-    // if (faultCredentials == null) {
-    // faultCredentials = new SecurityFaultCredentials();
-    // faultCredentials.setFaultUsername("faultUser_" + userId);
-    // faultCredentials.setFaultPassword("faultPwd_" + userId);
-    // faultCredentials.setUser(user);
-    // securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
-    // }
-    //
-    // Transaction transaction = transactionRepository.findOneByUserId(userId);
-    // if (transaction == null) {
-    // transaction = new Transaction();
-    // transaction.setUser(user);
-    // }
-    // transaction.setStatus(TransactionStatus.CLOSE);
-    // transactionRepository.saveAndFlush(transaction);
+    IZTransportUser user = null;
+    Long id = userCommand.getId();
 
-    User user = null;
-    List<User> users = userRepository.findAll();
-    if (users == null || users.isEmpty()) {
-      user = new User();
-      user.setUsername("pilot");
-      user.setPassword("pilot");
-      user.setFacilityID("pilot");
+    if (id == null) {
+      user = new IZTransportUser();
       userRepository.saveAndFlush(user);
     } else {
-      user = users.get(0);
+      user = userRepository.findOne(id);
     }
+
+    // create a guest user if no token found
+    if (user.getPassword() == null && user.getUsername() == null) { // Guest
+      user.setUsername("vendor_" + user.getId());
+      user.setPassword("vendor_" + user.getId());
+      user.setFacilityID("vendor_" + user.getId());
+      userRepository.saveAndFlush(user);
+    }
+
     Long userId = user.getId();
     SecurityFaultCredentials faultCredentials =
         securityFaultCredentialsRepository.findOneByUserId(user.getId());
     if (faultCredentials == null) {
       faultCredentials = new SecurityFaultCredentials();
-      faultCredentials.setFaultUsername("pilot");
-      faultCredentials.setFaultPassword("pilot");
+      faultCredentials.setFaultUsername("faultUser_" + userId);
+      faultCredentials.setFaultPassword("faultPwd_" + userId);
       faultCredentials.setUser(user);
       securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
     }
+
     Transaction transaction = transactionRepository.findOneByUserId(userId);
     if (transaction == null) {
       transaction = new Transaction();
@@ -200,6 +169,35 @@ public class TransactionController {
     }
     transaction.setStatus(TransactionStatus.CLOSE);
     transactionRepository.saveAndFlush(transaction);
+
+    // User user = null;
+    // List<User> users = userRepository.findAll();
+    // if (users == null || users.isEmpty()) {
+    // user = new User();
+    // user.setUsername("pilot");
+    // user.setPassword("pilot");
+    // user.setFacilityID("pilot");
+    // userRepository.saveAndFlush(user);
+    // } else {
+    // user = users.get(0);
+    // }
+    // Long userId = user.getId();
+    // SecurityFaultCredentials faultCredentials =
+    // securityFaultCredentialsRepository.findOneByUserId(user.getId());
+    // if (faultCredentials == null) {
+    // faultCredentials = new SecurityFaultCredentials();
+    // faultCredentials.setFaultUsername("pilot");
+    // faultCredentials.setFaultPassword("pilot");
+    // faultCredentials.setUser(user);
+    // securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
+    // }
+    // Transaction transaction = transactionRepository.findOneByUserId(userId);
+    // if (transaction == null) {
+    // transaction = new Transaction();
+    // transaction.setUser(user);
+    // }
+    // transaction.setStatus(TransactionStatus.CLOSE);
+    // transactionRepository.saveAndFlush(transaction);
     return new UserCommand(user.getUsername(), user.getPassword(),
         faultCredentials.getFaultUsername(), faultCredentials.getFaultPassword(),
         user.getFacilityID(), Utils.getUrl(request) + "/ws/iisService");

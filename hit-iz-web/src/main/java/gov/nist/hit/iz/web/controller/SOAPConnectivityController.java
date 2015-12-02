@@ -13,12 +13,11 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.domain.TransactionCommand;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.repo.TransactionRepository;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
+import gov.nist.hit.core.transport.TransactionCommand;
 import gov.nist.hit.core.transport.TransportClient;
 import gov.nist.hit.core.transport.TransportClientException;
 import gov.nist.hit.iz.domain.ConnectivityTestCase;
@@ -28,6 +27,7 @@ import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestCaseRepository;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestContextRepository;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestPlanRepository;
+import gov.nist.hit.iz.repo.TransactionRepository;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.exception.SoapValidationException;
 import gov.nist.hit.iz.service.soap.SOAPMessageParser;

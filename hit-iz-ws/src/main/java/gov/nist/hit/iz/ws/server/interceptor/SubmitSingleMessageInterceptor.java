@@ -1,8 +1,8 @@
 package gov.nist.hit.iz.ws.server.interceptor;
 
-import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.repo.TransactionRepository;
+import gov.nist.hit.iz.domain.Transaction;
+import gov.nist.hit.iz.repo.TransactionRepository;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

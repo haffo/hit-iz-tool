@@ -10,8 +10,6 @@
  */
 package gov.nist.hit.iz.domain;
 
-import gov.nist.hit.core.domain.User;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,7 +43,7 @@ public class SecurityFaultCredentials implements java.io.Serializable {
 	@JsonIgnore
 	@OneToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(unique = true)
-	protected User user;
+	protected IZTransportUser user;
 
 	public String getFaultUsername() {
 		return faultUsername;
@@ -68,11 +66,11 @@ public class SecurityFaultCredentials implements java.io.Serializable {
 				|| StringUtils.isEmpty(faultPassword);
 	}
 
-	public User getUser() {
+	public IZTransportUser getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(IZTransportUser user) {
 		this.user = user;
 	}
 
