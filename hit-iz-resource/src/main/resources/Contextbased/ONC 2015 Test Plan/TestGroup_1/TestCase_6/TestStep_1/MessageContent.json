@@ -86,7 +86,7 @@
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Configuration"},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
@@ -102,7 +102,7 @@
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Configuration"},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
@@ -148,9 +148,9 @@ Initials Thereof", "data" : "Owen", "categorization" : "Presence-Content Indiffe
 							{"location" : "PID.6.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "PID.6.1.1", "dataelement" : "Surname", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "PID.6.7", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 				{"location" : "PID.7", "dataelement" : "Date/Time of Birth", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.7.1", "dataelement" : "Time", "data" : "20140602", "categorization"
@@ -190,7 +190,7 @@ Initials Thereof", "data" : "Owen", "categorization" : "Presence-Content Indiffe
 							{"location" : "PID.13.3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13.4", "dataelement" : "Email Address", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "PID.13.6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.13.7", "dataelement" : "Local Number", "data" : "5555835",
@@ -286,7 +286,7 @@ Initials Thereof", "data" : "Leonard", "categorization" : "Presence-Content Indi
 							{"location" : "NK1.5.3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.5.4", "dataelement" : "Email Address", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "NK1.5.6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "NK1.5.7", "dataelement" : "Local Number", "data" : "5555835",
@@ -537,11 +537,11 @@ Source", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -633,11 +633,11 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -675,11 +675,11 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 
 </accordion>
 		}

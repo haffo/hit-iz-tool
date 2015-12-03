@@ -148,7 +148,7 @@ History and Forecast", "categorization" : "Value-Profile Fixed"},
 							{"location" : "QPD.4.2", "dataelement" : "Given Name", "data" : "James", "categorization"
 : "Value-Test Case Fixed"},
 							{"location" : "QPD.4.3", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "", "categorization" : "Value-Test Case Fixed"},
+Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "QPD.4.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
 : "Value-Test Case Fixed"},
 				{"location" : "QPD.5", "dataelement" : "PatientMotherMaidenName", "data" : "",
@@ -156,9 +156,9 @@ Initials Thereof", "data" : "", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "QPD.5.1.1", "dataelement" : "Surname", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "QPD.5.7", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Value-Profile Fixed"},
+: "Indifferent"},
 				{"location" : "QPD.6", "dataelement" : "PatientDateOfBirth", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.6.1", "dataelement" : "Time", "data" : "20110905", "categorization"
@@ -180,7 +180,7 @@ Initials Thereof", "data" : "", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.8.5", "dataelement" : "Zip or Postal Code", "data" : "59047",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.8.6", "dataelement" : "Country", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "QPD.8.7", "dataelement" : "Address Type", "data" : "L", "categorization"
 : "Value-Test Case Fixed"},
 				{"location" : "QPD.9", "dataelement" : "Phone", "data" : "", "categorization"
@@ -196,9 +196,9 @@ Initials Thereof", "data" : "", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.9.7", "dataelement" : "Local Number", "data" : "5556285",
 "categorization" : "Value-Test Case Fixed"},
 				{"location" : "QPD.10", "dataelement" : "Multiple birth indicator", "data" : "",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Indifferent"},
 				{"location" : "QPD.11", "dataelement" : "Birth order", "data" : "", "categorization"
-: "Value-Test Case Fixed"},		]
+: "Indifferent"},		]
 		{
 			"title":"RCP : Response Control Parameter",
 			"elements" : 

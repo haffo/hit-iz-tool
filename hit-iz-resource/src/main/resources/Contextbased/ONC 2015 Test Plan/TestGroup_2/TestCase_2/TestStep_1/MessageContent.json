@@ -196,9 +196,9 @@ Initials Thereof", "data" : "S", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.9.7", "dataelement" : "Local Number", "data" : "5552020",
 "categorization" : "Value-Test Case Fixed"},
 				{"location" : "QPD.10", "dataelement" : "Multiple birth indicator", "data" : "",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Indifferent"},
 				{"location" : "QPD.11", "dataelement" : "Birth order", "data" : "", "categorization"
-: "Value-Test Case Fixed"},		]
+: "Indifferent"},		]
 		{
 			"title":"RCP : Response Control Parameter",
 			"elements" : 

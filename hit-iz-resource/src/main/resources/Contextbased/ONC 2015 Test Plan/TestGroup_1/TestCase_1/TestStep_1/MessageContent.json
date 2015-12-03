@@ -86,7 +86,7 @@
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Configuration"},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
@@ -102,7 +102,7 @@
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Configuration"},
+"categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
@@ -190,7 +190,7 @@ or Alaska Native", "categorization" : "Presence-Test Case Proper"},
 							{"location" : "PID.13.3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13.4", "dataelement" : "Email Address", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "PID.13.6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.13.7", "dataelement" : "Local Number", "data" : "5557690",
@@ -289,7 +289,7 @@ Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content In
 							{"location" : "NK1.5.3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.5.4", "dataelement" : "Email Address", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "NK1.5.6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "NK1.5.7", "dataelement" : "Local Number", "data" : "5557690",
@@ -345,7 +345,7 @@ Initials Thereof", "data" : "William", "categorization" : "Presence-Content Indi
 							{"location" : "NK1.5.3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "CP", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "NK1.5.4", "dataelement" : "Email Address", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "NK1.5.6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "NK1.5.7", "dataelement" : "Local Number", "data" : "5558299",
@@ -653,27 +653,27 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 				{"location" : "ORC.12", "dataelement" : "Ordering Provider", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.12.1", "dataelement" : "ID Number", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.12.2.1", "dataelement" : "Surname", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.3", "dataelement" : "Given Name", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.4", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent"},
+Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "ORC.12.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.12.9.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 									{"location" : "ORC.12.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "ORC.12.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Value-Test Case Fixed"},
+"", "categorization" : "Indifferent"},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
@@ -735,27 +735,27 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 				{"location" : "ORC.12", "dataelement" : "Ordering Provider", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.12.1", "dataelement" : "ID Number", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "ORC.12.2.1", "dataelement" : "Surname", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.3", "dataelement" : "Given Name", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "ORC.12.4", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent"},
+Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "ORC.12.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.12.9.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 									{"location" : "ORC.12.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "ORC.12.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Value-Test Case Fixed"},
+"", "categorization" : "Indifferent"},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
@@ -1087,11 +1087,11 @@ formulation", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
@@ -1103,51 +1103,51 @@ formulation", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent"},
+Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Value-Test Case Fixed"},
+"", "categorization" : "Indifferent"},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 				{"location" : "RXA.15", "dataelement" : "Substance Lot Number", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 				{"location" : "RXA.16", "dataelement" : "Substance Expiration Date", "data" :
 "", "categorization" : ""},
 							{"location" : "RXA.16.1", "dataelement" : "Time", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
 : "", "categorization" : ""},
 							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1185,11 +1185,11 @@ formulation", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : "Indifferent"},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
@@ -1201,51 +1201,51 @@ formulation", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent"},
+Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Value-Test Case Fixed"},
+"", "categorization" : "Indifferent"},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
 : ""},
 									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
 "categorization" : "Indifferent"},
 									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 				{"location" : "RXA.15", "dataelement" : "Substance Lot Number", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: ""},
 				{"location" : "RXA.16", "dataelement" : "Substance Expiration Date", "data" :
 "", "categorization" : ""},
 							{"location" : "RXA.16.1", "dataelement" : "Time", "data" : "", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
 : "", "categorization" : ""},
 							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: ""},
 							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: ""},
 							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},
+"", "categorization" : ""},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1297,11 +1297,11 @@ Initials Thereof", "data" : "", "categorization" : "Presence-Content Indifferent
 				{"location" : "RXR.2", "dataelement" : "Administration Site", "data" : "", "categorization"
 : ""},
 							{"location" : "RXR.2.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "RXR.2.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "RXR.2.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"RXR : Pharmacy/Treatment Route",
 			"elements" : 
@@ -1369,11 +1369,11 @@ Source", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -1465,11 +1465,11 @@ Indian/Alaska Native", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -1507,11 +1507,11 @@ Indian/Alaska Native", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -1555,11 +1555,11 @@ Indian/Alaska Native", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -1597,11 +1597,11 @@ Indian/Alaska Native", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -1645,11 +1645,11 @@ Indian/Alaska Native", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -1687,11 +1687,11 @@ Indian/Alaska Native", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -1735,11 +1735,11 @@ Source", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -1831,11 +1831,11 @@ Indian/Alaska Native", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -1873,11 +1873,11 @@ Indian/Alaska Native", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -1921,11 +1921,11 @@ Source", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -2017,11 +2017,11 @@ Indian/Alaska Native", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -2059,11 +2059,11 @@ Indian/Alaska Native", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Presence-Test Case Proper"},
+: "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Value-Profile Fixed"},		]
+"", "categorization" : "Indifferent"},		]
 
 </accordion>
 		}

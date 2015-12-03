@@ -178,27 +178,27 @@ Initials Thereof", "data" : "A", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.8.4", "dataelement" : "State or Province", "data" : "MT",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "QPD.8.5", "dataelement" : "Zip or Postal Code", "data" : "",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Indifferent"},
 							{"location" : "QPD.8.6", "dataelement" : "Country", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "QPD.8.7", "dataelement" : "Address Type", "data" : "L", "categorization"
 : "Value-Test Case Fixed"},
 				{"location" : "QPD.9", "dataelement" : "Phone", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.9.2", "dataelement" : "Telecommunication Use Code", "data"
-: "", "categorization" : "Value-Test Case Fixed"},
+: "", "categorization" : "Indifferent"},
 							{"location" : "QPD.9.3", "dataelement" : "Telecommunication Equipment Type",
-"data" : "", "categorization" : "Value-Test Case Fixed"},
+"data" : "", "categorization" : "Indifferent"},
 							{"location" : "QPD.9.4", "dataelement" : "Email Address", "data" : "", "categorization"
 : ""},
 							{"location" : "QPD.9.6", "dataelement" : "Area/City Code", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "QPD.9.7", "dataelement" : "Local Number", "data" : "", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 				{"location" : "QPD.10", "dataelement" : "Multiple birth indicator", "data" : "",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Indifferent"},
 				{"location" : "QPD.11", "dataelement" : "Birth order", "data" : "", "categorization"
-: "Value-Test Case Fixed"},		]
+: "Indifferent"},		]
 		{
 			"title":"RCP : Response Control Parameter",
 			"elements" : 
