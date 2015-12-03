@@ -184,34 +184,34 @@
                     <!--</th>-->
                     <!--</tr>-->
                     <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px">
-                        <th st-sort="path" st-ratio="20">Path</th>
-                        <th st-sort="description" st-ratio="50">Description</th>
-                        <th st-sort="line" st-ratio="10">Line</th>
-                        <th st-sort="column" st-ratio="10">Column</th>
-                        <th st-ratio="10">Details</th>
+                        <th st-sort="path" st-ratio="30">Path</th>
+                        <th st-sort="description" st-ratio="60">Description</th>
+                        <th st-sort="line" st-ratio="10">Line #</th>
+                        <!--<th st-sort="column" st-ratio="10">Column</th>-->
+                        <!--<th st-ratio="10">Details</th>-->
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="row in tmpData">
-                        <td st-ratio="20">
+                        <td st-ratio="30">
                             <a class="point" ng-if="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                             <span ng-if="row.path == null">N/A</span>
                         </td>
-                        <td st-ratio="50">
+                        <td st-ratio="60">
                             <span ng-bind="row.description"></span>
                         </td>
                         <td st-ratio="10">
                             <span ng-if="row.line" ng-bind="row.line"></span>
                             <span ng-if="row.line == null">N/A</span>
                         </td>
-                        <td st-ratio="10">
-                            <span ng-if="row.column" ng-bind="row.column"></span>
-                            <span ng-if="row.column == null">N/A</span>
-                        </td>
-                        <td st-ratio="10">
-                            <a ng-if="(row.stackTrace && row.stackTrace !== null) || (row.metaData && row.metaData !== null)"
-                               class="point" ng-click="showDetails(row)">Details</a>
-                        </td>
+                        <!--<td st-ratio="10">-->
+                            <!--<span ng-if="row.column" ng-bind="row.column"></span>-->
+                            <!--<span ng-if="row.column == null">N/A</span>-->
+                        <!--</td>-->
+                        <!--<td st-ratio="10">-->
+                            <!--<a ng-if="(row.stackTrace && row.stackTrace !== null) || (row.metaData && row.metaData !== null)"-->
+                               <!--class="point" ng-click="showDetails(row)">Details</a>-->
+                        <!--</td>-->
                     </tr>
                     </tbody>
                     <tfoot ng-show="currentCategory.data.length >= 100">

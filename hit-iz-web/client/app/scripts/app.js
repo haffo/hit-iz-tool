@@ -402,7 +402,6 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 
     $rootScope.openVersionChangeDlg = function () {
         $rootScope.blankPage();
-
         var vcModalInstance = $modal.open({
             templateUrl: 'VersionChangeCtrl.html',
             size: 'lg',
@@ -411,10 +410,12 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
             'controller': 'VersionChangeCtrl'
         });
         vcModalInstance.result.then(function () {
-             StorageService.clearAll();
+            StorageService.clearAll();
+            $templateCache.removeAll();
             $rootScope.index();
         }, function () {
-             StorageService.clearAll();
+            StorageService.clearAll();
+            $templateCache.removeAll();
             $rootScope.index();
         });
     };

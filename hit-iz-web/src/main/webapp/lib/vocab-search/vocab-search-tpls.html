@@ -353,12 +353,12 @@
                     Copyright
                 </span>
                 <span class="pull-right">
-                   <a ng-click="close()"><i class="fa fa-times"></i></a>
+                   <button class="btn btn-xs btn-primary" ng-click="close()"><i class="fa fa-times"></i>Close</button>
                 </span>
     </div>
     <div class="modal-body profile-info-body">
         <div class="profile-info">
-            <div ng-show="appInfo.valueSetCopyright != null" ng-bind-html="appInfo.valueSetCopyright"></div>
+            <div ng-show="appInfo.valueSetCopyright != null" ng-bind-html="toHTML(appInfo.valueSetCopyright)"></div>
             <div ng-show="appInfo.valueSetCopyright == null">No Copyright found.</div>
         </div>
     </div>
@@ -371,10 +371,10 @@
       <span ng-show="valueSet === null" class="modal-title">Value Set Not Found</span>
         </span>
         <span class="pull-right">
-        <a title="Close" type="button" class="pull-right point"
+         <button class="btn btn-xs btn-primary" title="Close" type="button" class="pull-right point"
            ng-click="cancel()">
-            <i class="fa fa-times"></i>
-        </a>
+            <i class="fa fa-times"></i>Close
+        </button>
             </span>
     </div>
     <div class="modal-body">

@@ -13,9 +13,16 @@
         <div class="col-md-2">
             <div class="panel panel-info">
                 <!-- Default panel contents -->
-                <div class="panel-heading point" ng-click="openProfileInfo()"><i class="fa fa-list"></i>Profiles <i
-                        class="point fa fa-info-circle"></i>
+                <div class="panel-heading">
+                    <i class="fa fa-list"></i>Profiles
+                    <button title="View Profiles Information" class="btn btn-xs btn-primary"
+                            ng-click="openProfileInfo()">
+                        <i class="point fa fa-info-circle"></i>
+                    </button>
                 </div>
+
+
+
                 <div class="panel-body">
                     <div ng-show="!loading">
                         <div ng-show="error === null">
@@ -107,11 +114,11 @@
                     Profile Information
                 </span>
                 <span class="pull-right">
-                    <a ng-click="close()"><i class="fa fa-times"></i></a>
+                    <button class="btn btn-xs btn-primary" ng-click="close()"><i class="fa fa-times"></i>Close</button>
                 </span>
     </div>
     <div class="modal-body">
-        <div ng-bind-html="appInfo.profileInfo"/>
+        <div ng-bind-html="toHTML(appInfo.profileInfo)"/>
     </div>
     <!--<div class="modal-footer">-->
     <!--<span class="pull-right">-->

@@ -63,7 +63,7 @@ angular.module('hl7v2-edi').factory('HL7V2EDICursorServiceClass',
          */
         HL7V2EDICursorServiceClass.prototype.createCoordinate = function (line, startIndex, endIndex, index, triggerTree) {
             try {
-                return  angular.fromJson({line: line, startIndex: startIndex, endIndex: endIndex, index: index, triggerTree: triggerTree});
+                return  angular.fromJson({line: line, startIndex: startIndex, endIndex: endIndex, index: index, triggerTree: triggerTree, lineNumber:line});
             } catch (e) {
 
             }
@@ -120,21 +120,20 @@ angular.module('hl7v2-edi').factory('HL7V2EDIEditorServiceClass',
             var line = cursorObject.line;
             if (startIndex !== null && endIndex !== null && startIndex >= 0 && endIndex >= 0) {
                 var line = parseInt(line) - 1;
-                editorObject.doc.setSelection({
+                var startObj =  {
                     line: line,
                     ch: startIndex
-                }, {
+                };
+                var endObj =  {
                     line: line,
                     ch: endIndex
-                });
-
-                editorObject.scrollIntoView({
-                    line: line,
-                    ch: startIndex
-                }, {
-                    line: line,
-                    ch: endIndex
-                });
+                };
+                if(startIndex === endIndex){
+                    editorObject.doc.setCursor(startObj, {scroll:true});
+                }else {
+                    editorObject.doc.setSelection(startObj, endObj, {scroll:true});
+                }
+//                editorObject.scrollIntoView(startObj, endObj);
             }
         };
 

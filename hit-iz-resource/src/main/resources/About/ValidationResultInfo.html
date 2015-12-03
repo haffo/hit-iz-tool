@@ -2,7 +2,7 @@
 	<h4>Validation Main Categories</h4>
 	<hr />
 	<table class="table table-striped table-bordered table-condensed">
-		<thead>
+		<thead style="background-color:#436BEC">
 			<tr>
 				<th>Category</th>
 				<th>Description</th>
@@ -10,23 +10,23 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>Errors</td>
+				<td style="background-color:rgb(198, 222, 255)">Errors</td>
 				<td>HL7 message elements that failed validation testing.</td>
 			</tr>
 			<tr>
-				<td>Alerts</td>
+				<td style="background-color:rgb(198, 222, 255)">Alerts</td>
 				<td>HL7 message element information that may be useful for a
 					Tester for profile conformance, but does not indicate a test fail
 					nor non-profile conformant HL7 message element.</td>
 			</tr>
 			<tr>
-				<td>Warnings</td>
+				<td style="background-color:rgb(198, 222, 255)">Warnings</td>
 				<td>HL7 message element information that may be useful for a
 					Tester for profile conformance, but does not indicate a test fail
 					nor non-profile conformant HL7 message element.</td>
 			</tr>
 			<tr>
-				<td>Affirmatives</td>
+				<td style="background-color:rgb(198, 222, 255)">Affirmatives</td>
 				<td>Lists HL7 message validation successes and condition
 					predicate satisfactions.</td>
 			</tr>
@@ -39,7 +39,7 @@
 	<h4>Structure Validation Categories</h4>
 	<hr />
 	<table class="table table-striped table-bordered table-condensed">
-		<thead>
+		<thead style="background-color:#436BEC">
 			<tr>
 				<th>Category</th>
 				<th>Description</th>
@@ -47,57 +47,57 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>R-Usage</td>
+				<td style="background-color:rgb(198, 222, 255)">R-Usage</td>
 				<td>Issued when required element is missing.</td>
 			</tr>
 			<tr>
-				<td>X-Usage</td>
+				<td style="background-color:rgb(198, 222, 255)">X-Usage</td>
 				<td>Issued when a Not Supported element is present.</td>
 			</tr>
 			<tr>
-				<td>W-Usage</td>
+				<td style="background-color:rgb(198, 222, 255)">W-Usage</td>
 				<td>Issued when a HL7 withdrawn element is present.</td>
 			</tr>
 			<tr>
-				<td>RE-Usage
+				<td style="background-color:rgb(198, 222, 255)">RE-Usage
 				</td>
 				<td>Issued when a "Required or Empty" element is missing.</td>
 			</tr>
 			<tr>
-				<td>Cardinality</td>
+				<td style="background-color:rgb(198, 222, 255)">Cardinality</td>
 				<td>Issued when either the minimal or the maximal cardinality
 					is violated.</td>
 			</tr>
 			<tr>
-				<td>Null-cardinality</td>
+				<td style="background-color:rgb(198, 222, 255)">Null-cardinality</td>
 				<td>Issued when a null element has more than one occurrence.</td>
 			</tr>
 			<tr>
-				<td>Length</td>
+				<td style="background-color:rgb(198, 222, 255)">Length</td>
 				<td>Issued when the specified data element length is violated.</td>
 			</tr>
 			<tr>
-				<td>Format</td>
+				<td style="background-color:rgb(198, 222, 255)">Format</td>
 				<td>Issued when the data element format is violated. Format is
 					derived from the data type.</td>
 			</tr>
 			<tr>
-				<td>Extra</td>
+				<td style="background-color:rgb(198, 222, 255)">Extra</td>
 				<td>Issued when a complex element has extra children.</td>
 			</tr>
 
 			<tr>
-				<td>UnescapedSeparator</td>
+				<td style="background-color:rgb(198, 222, 255)">UnescapedSeparator</td>
 				<td>Issued when a primitive element contains unescaped
 					separators.</td>
 			</tr>
 			<tr>
-				<td>Unexpected</td>
+				<td style="background-color:rgb(198, 222, 255)">Unexpected</td>
 				<td>Issued for an unexpected segment at a specific position in
 					the message.</td>
 			</tr>
 			<tr>
-				<td>InvalidContent</td>
+				<td style="background-color:rgb(198, 222, 255)">InvalidContent</td>
 				<td>Issued for every line in the message instance which doesn't
 					represent a valid segment definition.</td>
 			</tr>
@@ -110,7 +110,7 @@
 	<h4>Content Validation Categories</h4>
 	<hr />
 	<table class="table table-striped table-bordered table-condensed">
-		<thead>
+		<thead style="background-color:#436BEC">
 			<tr>
 				<th>Category</th>
 				<th>Description</th>
@@ -118,20 +118,20 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>ConstraintFailure</td>
+				<td style="background-color:rgb(198, 222, 255)">ConstraintFailure</td>
 				<td>Issued for a failed constraint verification.</td>
 			</tr>
 			<tr>
-				<td>PredicateFailure</td>
+				<td style="background-color:rgb(198, 222, 255)">PredicateFailure</td>
 				<td>Issued for a failed predicate constraint verification.</td>
 			</tr>
 			<tr>
-				<td>ConstraintSpecError</td>
+				<td style="background-color:rgb(198, 222, 255)">ConstraintSpecError</td>
 				<td>Issue for an inconclusive constraint verification. This
 					usually occurs when there is an erroneous constraint specification.</td>
 			</tr>
 			<tr>
-				<td>PredicateSpecErr</td>
+				<td style="background-color:rgb(198, 222, 255)">PredicateSpecErr</td>
 				<td>Issued for inconclusive predicate constraint verification.
 					This usually occurs when the predicate constraint specification is
 					erroneous.</td>
@@ -145,7 +145,7 @@
 	<h4>ValueSet Validation Categories</h4>
 	<hr />
 	<table class="table table-striped table-bordered table-condensed">
-		<thead>
+		<thead style="background-color:#436BEC">
 			<tr>
 				<th>Category</th>
 				<th>Description</th>
@@ -153,38 +153,38 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>EVS</td>
+				<td style="background-color:rgb(198, 222, 255)">EVS</td>
 				<td>Raised when the code is in the value set but the usage is
 				"E" (Excluded).</td>
 			</tr>
 			<tr>
-				<td>PVS</td>
+				<td style="background-color:rgb(198, 222, 255)">PVS</td>
 				<td>raised when the code is in the value set but the usage is
 					"P" (Permitted).</td>
 			</tr>
 			<tr>
-				<td>CodeNotFound</td>
+				<td style="background-color:rgb(198, 222, 255)">CodeNotFound</td>
 				<td>Raised when the code cannot be found in the value set.</td>
 			</tr>
 			<tr>
-				<td>VSNotFound</td>
+				<td style="background-color:rgb(198, 222, 255)">VSNotFound</td>
 				<td>Raised when the value set cannot be found in the library.</td>
 			</tr>
 			<tr>
-				<td>EmptyVS</td>
+				<td style="background-color:rgb(198, 222, 255)">EmptyVS</td>
 				<td>Raised when the value set is empty.</td>
 			</tr>
 			<tr>
-				<td>VSError</td>
+				<td style="background-color:rgb(198, 222, 255)">VSError</td>
 				<td>Raised when the are multiple occurrences of the same code
 					within a value set.</td>
 			</tr>
 			<tr>
-				<td>VSNoValidation</td>
+				<td style="background-color:rgb(198, 222, 255)">VSNoValidation</td>
 				<td>Raised when an excluded value set is encountered.</td>
 			</tr>
 			<tr>
-				<td>CodedElement</td>
+				<td style="background-color:rgb(198, 222, 255)">CodedElement</td>
 				<td>Raised when coded element validation fails.</td>
 			</tr>
 
