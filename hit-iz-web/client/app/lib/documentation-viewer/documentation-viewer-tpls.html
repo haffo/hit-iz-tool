@@ -327,12 +327,12 @@
 
         <td  >
             <span ng-if="!node.xmlConfProfilePresent">-</span>
-            <a ng-if="node.xmlConfProfilePresent && (node.format === 'hl7v2' || node.format === 'edi')" class="point"
+            <a ng-if="node.xmlConfProfilePresent" class="point"
                ng-click="downloadProfile(node)">Profile.json</a>
         </td>
         <td>
             <span ng-if="!node.xmlValueSetLibraryPresent">-</span>
-            <a ng-if="node.xmlValueSetLibraryPresent && (node.format === 'hl7v2' || node.format === 'edi')"
+            <a ng-if="node.xmlValueSetLibraryPresent"
                class="point" ng-click="downloadValueSetLib(node)">ValueSetLibrary.json</a>
         </td>
 

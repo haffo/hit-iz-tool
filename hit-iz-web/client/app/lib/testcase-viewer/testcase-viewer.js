@@ -103,7 +103,7 @@
             $scope.openMcInfo = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'MessageContentInfoCtrl.html',
-                    windowClass: 'profile-modal',
+                    windowClass: 'message-content-info-modal',
                     controller: 'MessageContentInfoCtrl',
                     keyboard: true,
                     backdrop: true,
