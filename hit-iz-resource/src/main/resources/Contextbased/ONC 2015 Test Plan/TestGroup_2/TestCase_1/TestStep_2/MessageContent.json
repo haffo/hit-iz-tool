@@ -1866,7 +1866,7 @@ used", "categorization" : ""},
 "LN", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "N", "categorization"
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
 : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
@@ -1980,7 +1980,7 @@ due", "categorization" : ""},
 "LN", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100214",
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20150214",
 "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
@@ -2014,7 +2014,7 @@ give", "categorization" : ""},
 "LN", "categorization" : ""},
 				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
 : ""},
-				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100214",
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100614",
 "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},

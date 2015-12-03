@@ -94,7 +94,7 @@
 							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
 "XX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
-: "100-6482", "categorization" : "Presence-Content Indifferent"},
+: "100-6482", "categorization" : "Presence-Configuration"},
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
 							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
@@ -110,7 +110,7 @@
 							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
 "XX", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
-: "100-3322", "categorization" : "Presence-Content Indifferent"},		]
+: "100-3322", "categorization" : "Presence-Configuration"},		]
 		{
 			"title":"PID : Patient Identification",
 			"elements" : 

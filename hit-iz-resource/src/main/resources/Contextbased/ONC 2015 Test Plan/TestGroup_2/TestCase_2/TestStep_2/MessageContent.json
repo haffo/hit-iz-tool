@@ -444,12 +444,12 @@ Initials Thereof", "data" : "", "categorization" : ""},
 "", "categorization" : ""},
 				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
 : "", "categorization" : ""},
-							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "CSL", "categorization"
 : ""},
-							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "bioCSL", "categorization"
 : ""},
 							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : ""},
+"MVX", "categorization" : ""},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
 "data" : "", "categorization" : ""},
 							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
