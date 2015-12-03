@@ -168,13 +168,18 @@
 
 
             $scope.select = function (element) {
+                var coordinate = null;
                 if (element != undefined && element.path != null && element.line != -1) {
                     var node = $scope.treeService.selectNodeByPath($scope.tree.root, element.line, element.path);
                     if(node != null) {
                         var endIndex = $scope.treeService.getEndIndex(node, $scope.editor.instance.getValue());
                         node.data.endIndex = endIndex;
-                        var coordinate = angular.copy(node.data);
+                        coordinate = angular.copy(node.data);
                         coordinate.lineNumber = element.line;
+                    }else{
+                       coordinate = $scope.cursorService != null ? $scope.cursorService.createCoordinate(element.line,element.column +1,element.column +1,element.column +1,false): null;
+                    }
+                    if(coordinate != null) {
                         $scope.cursor.init(coordinate, false);
                         if ($scope.editorService != null) {
                             $scope.editorService.select($scope.editor.instance, $scope.cursor);
@@ -537,7 +542,6 @@
                 var category = classificationObj.categories[i];
                 var filtered = _.uniq(category.data, function(item){
                     var path = ins.removeInstanceNumber(item.path);
-                    console.log(path);
                     return item.classification + "/" + item.category + "/"  + path + "/" + item.description;
                 });
                 category.data = filtered;

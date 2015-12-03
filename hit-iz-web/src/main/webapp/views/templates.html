@@ -234,12 +234,12 @@
                     Validation Result Information
                 </span>
                 <span class="pull-right">
-                     <a ng-click="close()"> <i class="fa fa-times"></i></a>
+                     <button class="btn btn-xs btn-primary" ng-click="close()"> <i class="fa fa-times"></i>Close</button>
                 </span>
     </div>
     <div class="modal-body">
         <div class="validation-result-info-content">
-            <div ng-if="appInfo.validationResultInfo != null" ng-bind-html="appInfo.validationResultInfo">
+            <div ng-if="appInfo.validationResultInfo != null" ng-bind-html="toHTML(appInfo.validationResultInfo)">
             </div>
             <div ng-if="appInfo.validationResultInfo == null">
                 No information available.
@@ -276,11 +276,11 @@
         <br />
 
         <div style="text-align:center">
-            <a ng-click="close()" type="button"
+            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
-            </a>
+            </button>
         </div>
 
     </div>
@@ -294,11 +294,11 @@
         <br />
 
         <div style="text-align:center">
-            <a ng-click="close()" type="button"
+            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
-            </a>
+            </button>
         </div>
     </div>
 </script>
@@ -311,11 +311,11 @@
         <br />
 
         <div style="text-align:center">
-            <a ng-click="close()" type="button"
+            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                     title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
-            </a>
+            </button>
         </div>
 
     </div>

@@ -2006,3 +2006,9 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
   color:black;
   font-weight:normal;
 }
+
+.message-content-info-content {
+  max-height: 700px !important;
+  width: 100% !important;
+  overflow: auto;
+}
