@@ -190,7 +190,7 @@ Initials Thereof", "data" : "Mackenzie", "categorization" : "Presence-Content In
 							{"location" : "PID.13.3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13.4", "dataelement" : "Email Address", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "PID.13.6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.13.7", "dataelement" : "Local Number", "data" : "5554019",

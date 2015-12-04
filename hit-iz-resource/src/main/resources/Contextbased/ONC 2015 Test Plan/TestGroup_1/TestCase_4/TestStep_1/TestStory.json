@@ -3,7 +3,7 @@
   "comments" : "No Comments\r\n",
   "preCondition" : "The IZ-AD-3.1_Send_V04_Z22 test step has been successfully completed.\r\n",
   "postCondition" : "No PostCondition\r\n",
-  "testObjectives" : "Support for sending delete requests.<br>",
+  "testObjectives" : "Support for sending delete notification.<br>",
   "evaluationCriteria" : "Message Validation Report\r\n",
   "notes" : "No Note\r\n"
 }

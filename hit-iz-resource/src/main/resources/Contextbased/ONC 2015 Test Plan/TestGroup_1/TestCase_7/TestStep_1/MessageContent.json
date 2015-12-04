@@ -190,7 +190,7 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "PID.13[1].3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13[1].4", "dataelement" : "Email Address", "data" : "",
-"categorization" : "Indifferent"},
+"categorization" : "NonPresence"},
 							{"location" : "PID.13[1].6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.13[1].7", "dataelement" : "Local Number", "data" : "5554064",
@@ -200,13 +200,13 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "PID.13[2].2", "dataelement" : "Telecommunication Use Code",
 "data" : "NET", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13[2].3", "dataelement" : "Telecommunication Equipment Type",
-"data" : "", "categorization" : "Indifferent"},
+"data" : "", "categorization" : "NonPresence"},
 							{"location" : "PID.13[2].4", "dataelement" : "Email Address", "data" : "Helen.Barrett@isp.com",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.13[2].6", "dataelement" : "Area/City Code", "data" : "",
-"categorization" : "Indifferent"},
+"categorization" : "NonPresence"},
 							{"location" : "PID.13[2].7", "dataelement" : "Local Number", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 				{"location" : "PID.22", "dataelement" : "Ethnic Group", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.22.1", "dataelement" : "Identifier", "data" : "2186-5",
@@ -350,15 +350,15 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
 "CVX", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
-"categorization" : "Presence-Test Case Proper"},
+"categorization" : "Value-Test Case Fixed"},
 				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
-"", "categorization" : "Indifferent"},
+"", "categorization" : "NonPresence"},
 				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
 : ""},
 							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"

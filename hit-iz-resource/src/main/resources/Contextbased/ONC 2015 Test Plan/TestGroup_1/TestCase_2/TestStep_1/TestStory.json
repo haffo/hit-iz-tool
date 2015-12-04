@@ -3,7 +3,7 @@
   "comments" : "<p>No Comments</p>\r\n",
   "preCondition" : "No PreCondition\r\n",
   "postCondition" : "No PostCondition\r\n",
-  "testObjectives" : "Support for a \"not eligible\" VFC.",
+  "testObjectives" : "Support for a \"not eligible\" VFC.<br>Support for both phone number and e-mail.<br>",
   "evaluationCriteria" : "Message Validation Report\r\n",
   "notes" : "No Note\r\n"
 }

@@ -131,8 +131,8 @@
 : ""},
 							{"location" : "QAK.3.1", "dataelement" : "Identifier", "data" : "Z44", "categorization"
 : ""},
-							{"location" : "QAK.3.2", "dataelement" : "Text", "data" : "request evaluated
-Immunization history", "categorization" : ""},
+							{"location" : "QAK.3.2", "dataelement" : "Text", "data" : "Request Evaluated
+History and Forecast", "categorization" : ""},
 							{"location" : "QAK.3.3", "dataelement" : "Name of Coding System", "data" :
 "CDCPHINVS", "categorization" : ""},		]
 		{
@@ -147,7 +147,7 @@ Immunization history", "categorization" : ""},
 History and Forecast", "categorization" : ""},
 							{"location" : "QPD.1.3", "dataelement" : "Name of Coding System", "data" :
 "CDCPHINVS", "categorization" : ""},
-				{"location" : "QPD.2", "dataelement" : "Query Tag", "data" : "107374859", "categorization"
+				{"location" : "QPD.2", "dataelement" : "Query Tag", "data" : "IZ-1.1-2015", "categorization"
 : ""},
 				{"location" : "QPD.3", "dataelement" : "PatientList", "data" : "", "categorization"
 : ""},
