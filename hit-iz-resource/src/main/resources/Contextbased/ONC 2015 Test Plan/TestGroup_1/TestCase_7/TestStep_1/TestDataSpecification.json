@@ -1,5 +1,5 @@
 {
-"version" : "2.9.7",
+"version" : "2.9.8",
 "profile" : "VXU_V04",
 "tables":
 [
@@ -17,7 +17,7 @@
 				{"element" : "Email", "data" : "Helen.Barrett@isp.com"},
 				{"element" : "Race", "data" : "White"},
 				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
-				{"element" : "Multiple Birth Indicator", "data" : "N"},
+				{"element" : "Multiple Birth Indicator", "data" : "No"},
 				{"element" : "Birth Order", "data" : "1"}
 			]
 		},
@@ -25,7 +25,7 @@
 			"title":"Immunization Registry Information",
 			"elements" : 
 			[
-				{"element" : "Immunization Registry Status", "data" : "A"},
+				{"element" : "Immunization Registry Status", "data" : "Active"},
 				{"element" : "Immunization Registry Status Effective Date", "data" : "03/17/1950"},
 				{"element" : "Publicity Code", "data" : "Recall only - any method"},
 				{"element" : "Publicity Code Effective Date", "data" : "06/25/2015"},
@@ -37,7 +37,7 @@
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Code", "data" : "zoster"},
+				{"element" : "Administered Vaccine", "data" : "zoster"},
 				{"element" : "Date/Time Start of Administration", "data" : "03/17/2015"},
 				{"element" : "Administered Amount", "data" : "999"},
 				{"element" : "Administered Units", "data" : ""},
@@ -47,7 +47,7 @@
 				{"element" : "Substance Expiration Date", "data" : ""},
 				{"element" : "Substance Manufacturer Name", "data" : ""},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
-				{"element" : "Completion Status", "data" : "CP"},
+				{"element" : "Completion Status", "data" : "Complete"},
 				{"element" : "Action Code", "data" : "Add"},
 				{"element" : "Route", "data" : ""},
 				{"element" : "Administration Site", "data" : ""},

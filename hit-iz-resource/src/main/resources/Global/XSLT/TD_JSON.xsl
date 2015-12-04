@@ -4,7 +4,7 @@
 	<!--xsl:param name="output" select="'jquery-tab-html'" -->
 	<!--xsl:param name="output" select="'plain-html'"/ -->
 	<xsl:param name="output" select="'json'"/>
-	<xsl:variable name="version" select="'2.9.7'"/>
+	<xsl:variable name="version" select="'2.9.8'"/>
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
 	<!-- Release notes author:sriniadhi.work@gmail.com
@@ -14,6 +14,7 @@
 	2.8:  Bugfixes for SS
 	2.9:  Adding LRI support (.1 = fixed OBR.28[1], .2 bugfixes for SS, .3 LRI repeating elements .4: bug fix regarding repeating race/ethnicgroup/address) .5 added qpd.3.1 patient identifier, also fixing QPD.address info .6 more birth order stuff z22 as well
 .7 fixed a bug in plain-html
+.8 - Multiple birth indicator, Immunization Registry status
 
 
 	-->
@@ -89,7 +90,7 @@
 				<xsl:when test="starts-with(name(.), 'ADT_A0')">
 					<xsl:value-of select="$SS"/>
 				</xsl:when>
-				<xsl:when test="starts-with(name(.), 'ACK')  and .//MSA.1 = 'AA'">
+				<xsl:when test="starts-with(name(.), 'ACK')">
 					<xsl:value-of select="$ACK"/>
 				</xsl:when>
 				<xsl:when test="starts-with(name(.), 'QBP')">
@@ -293,7 +294,7 @@
 		<xsl:for-each select="PID.22">
 			<xsl:value-of select="util:element(concat('Ethnic Group', util:blank-if-1(position(), count(..//PID.22))), .//PID.22.2, $ind1)"/>
 		</xsl:for-each>
-		<xsl:value-of select="util:element('Multiple Birth Indicator',.//PID.24, $ind1)"/>
+		<xsl:value-of select="util:element('Multiple Birth Indicator',util:yes-no(.//PID.24), $ind1)"/>
 		<xsl:value-of select="util:last-element('Birth Order',.//PID.25, $ind1, $vertical-orientation, false())"/>
 	</xsl:template>
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
@@ -313,7 +314,7 @@
 		<xsl:value-of select="util:element('Sex', util:admin-sex(.//QPD.7), $ind1)"/>
 		<xsl:value-of select="util:element('Patient Address', util:format-address(.//QPD.8.1.1, .//QPD.8.3, .//QPD.8.4, .//QPD.8.5, .//QPD.8.6), $ind1)"/>
 		<xsl:value-of select="util:element('Patient Phone', util:format-tel (.//QPD.9.6, .//QPD.9.7), $ind1)"/>
-		<xsl:value-of select="util:element('Birth Indicator',.//QPD.10, $ind1)"/>
+		<xsl:value-of select="util:element('Birth Indicator',util:yes-no(.//QPD.10), $ind1)"/>
 		<xsl:value-of select="util:last-element('Birth Order',.//QPD.11, $ind1, $vertical-orientation, false())"/>
 	</xsl:template>
 	<!-- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - -->
@@ -326,7 +327,7 @@
 		<xsl:param name="counter"/>
 		<xsl:value-of select="util:title('title', concat('Immunization Registry Information', $counter), 'Immunization Registry Information', $ind1, true(), $vertical-orientation, false())"/>
 		<xsl:value-of select="util:elements($ind1)"/>
-		<xsl:value-of select="util:element('Immunization Registry Status', .//PD1.16, $ind1)"/>
+		<xsl:value-of select="util:element('Immunization Registry Status', util:imm-reg-status(.//PD1.16), $ind1)"/>
 		<xsl:value-of select="util:element('Immunization Registry Status Effective Date', util:format-date(.//PD1.17), $ind1)"/>
 		<xsl:value-of select="util:element('Publicity Code', .//PD1.11.2, $ind1)"/>
 		<xsl:value-of select="util:element('Publicity Code Effective Date', util:format-date(.//PD1.18), $ind1)"/>
@@ -491,7 +492,7 @@
 		<xsl:param name="counter"/>
 		<xsl:value-of select="util:title('title', concat('Vaccine Administration Information', $counter), 'Vaccine Administration Information', $ind1, true(), $vertical-orientation, false())"/>
 		<xsl:value-of select="util:elements($ind1)"/>
-		<xsl:value-of select="util:element('Administered Code', .//RXA.5.2, $ind1)"/>
+		<xsl:value-of select="util:element('Administered Vaccine', .//RXA.5.2, $ind1)"/>
 		<xsl:value-of select="util:element('Date/Time Start of Administration', util:format-date(.//RXA.3.1), $ind1)"/>
 		<xsl:value-of select="util:element('Administered Amount', .//RXA.6, $ind1)"/>
 		<xsl:value-of select="util:element('Administered Units', .//RXA.7.2, $ind1)"/>
@@ -500,8 +501,8 @@
 		<xsl:value-of select="util:element('Substance Lot Number', .//RXA.15, $ind1)"/>
 		<xsl:value-of select="util:element('Substance Expiration Date', util:format-date(.//RXA.16.1), $ind1)"/>
 		<xsl:value-of select="util:element('Substance Manufacturer Name', .//RXA.17.2, $ind1)"/>
-		<xsl:value-of select="util:element('Substance/Treatment Refusal Reason', .//RXA.18.2, $ind1)"/>
-		<xsl:value-of select="util:element('Completion Status', .//RXA.20, $ind1)"/>
+		<xsl:value-of select="util:element('Substance/Treatment Refusal Reason', util:sub-refusal-reason(.//RXA.18.2), $ind1)"/>
+		<xsl:value-of select="util:element('Completion Status', util:completion-status(.//RXA.20), $ind1)"/>
 		<xsl:value-of select="util:element('Action Code', util:action-code(.//RXA.21), $ind1)"/>
 		<xsl:value-of select="util:element('Route', ..//RXR.1.2, $ind1)"/>
 		<xsl:value-of select="util:element('Administration Site', ..//RXR.2.2, $ind1)"/>
@@ -1369,10 +1370,73 @@
 				<xsl:value-of select="'Other'"/>
 			</xsl:otherwise>
 		</xsl:choose>
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:completion-status">
+		<xsl:param name="status"/>
+		<xsl:choose>
+			<xsl:when test="$status = 'CP'">
+				<xsl:value-of select="'Complete'"/>
+			</xsl:when>
+			<xsl:when test="$status = 'NA'">
+				<xsl:value-of select="'Not Administered'"/>
+			</xsl:when>
+			<xsl:when test="$status = 'PA'">
+				<xsl:value-of select="'Partially Administered'"/>
+			</xsl:when>
+			<xsl:when test="$status = 'RE'">
+				<xsl:value-of select="'Refused'"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$status"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:imm-reg-status">
+		<xsl:param name="status"/>
+		<xsl:choose>
+			<xsl:when test="$status = 'A'">
+				<xsl:value-of select="'Active'"/>
+			</xsl:when>
+			<xsl:when test="$status = 'I'">
+				<xsl:value-of select="'Inactive'"/>
+			</xsl:when>
+			<xsl:when test="$status = 'L'">
+				<xsl:value-of select="'Inactive-Lost to follow-up (cannot contact)'"/>
+			</xsl:when>
+			<xsl:when test="$status = 'M'">
+				<xsl:value-of select="'Inactive-Lost to follow-up (cannot contact)'"/>
+			</xsl:when>
+			<xsl:when test="$status = 'P'">
+				<xsl:value-of select="'Inactive-Permanently inactive (do not re-activate or add new entries to this record)'"/>
+			</xsl:when>
+			<xsl:when test="$status = 'U'">
+				<xsl:value-of select="'Unknown'"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$status"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:sub-refusal-reason">
+		<xsl:param name="status"/>
+		<xsl:choose>
+			<xsl:when test="$status = '00'">
+				<xsl:value-of select="'Parental decision'"/>
+			</xsl:when>
+			<xsl:when test="$status = '01'">
+				<xsl:value-of select="'Religious exemption'"/>
+			</xsl:when>
+			<xsl:when test="$status = '02'">
+				<xsl:value-of select="'Other'"/>
+			</xsl:when>
+			<xsl:when test="$status = '03'">
+				<xsl:value-of select="'Patient decision'"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$status"/>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:function><xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:yes-no">
 		<xsl:param name="val"/>
 		<xsl:choose>
-			<xsl:when test="$val = 1 or $val = 'y' or $val = 'Y'"> <xsl:value-of select="'Yes'"/> </xsl:when>
+			<xsl:when test="$val = '1' or $val = 'y' or $val = 'Y'"> <xsl:value-of select="'Yes'"/> </xsl:when>
 			<xsl:otherwise> <xsl:value-of select="'No'"/> </xsl:otherwise>
 		</xsl:choose>
 	</xsl:function>
