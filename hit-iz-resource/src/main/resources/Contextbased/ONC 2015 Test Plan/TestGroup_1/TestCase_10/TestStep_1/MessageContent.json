@@ -190,7 +190,7 @@ Initials Thereof", "data" : "Diego", "categorization" : "Presence-Content Indiff
 							{"location" : "PID.13[1].3", "dataelement" : "Telecommunication Equipment Type",
 "data" : "PH", "categorization" : "Value-Test Case Fixed"},
 							{"location" : "PID.13[1].4", "dataelement" : "Email Address", "data" : "",
-"categorization" : "Indifferent"},
+"categorization" : "NonPresence"},
 							{"location" : "PID.13[1].6", "dataelement" : "Area/City Code", "data" : "406",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.13[1].7", "dataelement" : "Local Number", "data" : "5555815",
@@ -204,9 +204,9 @@ Initials Thereof", "data" : "Diego", "categorization" : "Presence-Content Indiff
 							{"location" : "PID.13[2].4", "dataelement" : "Email Address", "data" : "Manuel.Vasquez@isp.com",
 "categorization" : "Presence-Content Indifferent"},
 							{"location" : "PID.13[2].6", "dataelement" : "Area/City Code", "data" : "",
-"categorization" : "Indifferent"},
+"categorization" : "NonPresence"},
 							{"location" : "PID.13[2].7", "dataelement" : "Local Number", "data" : "", "categorization"
-: "Indifferent"},
+: "NonPresence"},
 				{"location" : "PID.22", "dataelement" : "Ethnic Group", "data" : "", "categorization"
 : ""},
 							{"location" : "PID.22.1", "dataelement" : "Identifier", "data" : "2135-2",
