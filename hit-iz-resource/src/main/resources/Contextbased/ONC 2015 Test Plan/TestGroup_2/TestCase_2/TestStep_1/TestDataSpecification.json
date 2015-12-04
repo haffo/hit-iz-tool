@@ -1,5 +1,5 @@
 {
-"version" : "2.9.7",
+"version" : "2.9.8",
 "profile" : "QBP_Q11",
 "tables":
 [
@@ -14,7 +14,7 @@
 				{"element" : "Sex", "data" : "Male"},
 				{"element" : "Patient Address", "data" : "1642 Bear Run Bozeman MT 59715 USA "},
 				{"element" : "Patient Phone", "data" : "(406)555-2020"},
-				{"element" : "Birth Indicator", "data" : ""},
+				{"element" : "Birth Indicator", "data" : "No"},
 				{"element" : "Birth Order", "data" : ""}
 			]
 

@@ -1,5 +1,5 @@
 {
-"version" : "2.9.7",
+"version" : "2.9.8",
 "profile" : "QBP_Q11",
 "tables":
 [
@@ -14,7 +14,7 @@
 				{"element" : "Sex", "data" : "Male"},
 				{"element" : "Patient Address", "data" : "105 Laurel Run Rd Bozeman MT "},
 				{"element" : "Patient Phone", "data" : ""},
-				{"element" : "Birth Indicator", "data" : ""},
+				{"element" : "Birth Indicator", "data" : "No"},
 				{"element" : "Birth Order", "data" : ""}
 			]
 

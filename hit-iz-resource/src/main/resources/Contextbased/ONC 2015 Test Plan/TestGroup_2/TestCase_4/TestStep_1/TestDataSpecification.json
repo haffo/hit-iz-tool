@@ -1,5 +1,5 @@
 {
-"version" : "2.9.7",
+"version" : "2.9.8",
 "profile" : "QBP_Q11",
 "tables":
 [
@@ -15,7 +15,7 @@
 				{"element" : "Patient Address", "data" : "22 East Branch Way Livingston MT 59047
 "},
 				{"element" : "Patient Phone", "data" : "(406)555-6285"},
-				{"element" : "Birth Indicator", "data" : ""},
+				{"element" : "Birth Indicator", "data" : "No"},
 				{"element" : "Birth Order", "data" : ""}
 			]
 

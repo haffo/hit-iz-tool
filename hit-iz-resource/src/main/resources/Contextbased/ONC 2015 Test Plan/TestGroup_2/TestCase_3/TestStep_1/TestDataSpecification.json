@@ -1,5 +1,5 @@
 {
-"version" : "2.9.7",
+"version" : "2.9.8",
 "profile" : "QBP_Q11",
 "tables":
 [
@@ -15,7 +15,7 @@
 				{"element" : "Patient Address", "data" : "737 Everygreen Road Livingston MT 59047
 USA "},
 				{"element" : "Patient Phone", "data" : "(406)555-3758"},
-				{"element" : "Birth Indicator", "data" : "Y"},
+				{"element" : "Birth Indicator", "data" : "Yes"},
 				{"element" : "Birth Order", "data" : "3"}
 			]
 
