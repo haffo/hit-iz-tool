@@ -92,7 +92,7 @@ angular.module('cb')
                     $scope.testCases = testCases;
                     if(typeof $scope.tree.build_all == 'function') {
                         $scope.tree.build_all($scope.testCases);
-                        var testCase = null;
+                         var testCase = null;
                         var id = StorageService.get(StorageService.CB_SELECTED_TESTCASE_ID_KEY);
                         var type = StorageService.get(StorageService.CB_SELECTED_TESTCASE_TYPE_KEY);
                         if (id != null && type != null) {

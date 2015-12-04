@@ -17,8 +17,6 @@
             <div user-docs ></div>
         </accordion-group>
 
-        <br />
-        <br />
 
         <accordion-group  panel-class="panel-info" is-open="status.tcDoc">
             <accordion-heading>
@@ -29,8 +27,6 @@
             <div testcase-doc stage="ISOLATED"></div>
         </accordion-group>
 
-        <br />
-        <br />
 
         <accordion-group  panel-class="panel-info" is-open="status.resourceDocs">
             <accordion-heading>
@@ -43,20 +39,19 @@
 
         </accordion-group>
 
-        <br />
-        <br />
 
 
-
-        <accordion-group heading="Tool Releases" panel-class="panel-info" is-open="status.releases">
+        <accordion-group panel-class="panel-info" is-open="status.downloads">
             <accordion-heading>
-                <i class="fa" ng-class="{'fa-caret-down': status.releases, 'fa-caret-right': !status.releases}"></i> Tool Downloads
+                <i class="fa" ng-class="{'fa-caret-down': status.downloads, 'fa-caret-right': !status.downloads}"></i> Validation Tool Downloads
             </accordion-heading>
-                No Download Available
+
+            <div installation-guide> </div>
+
+            <div tool-downloads></div>
         </accordion-group>
 
-        <br />
-        <br />
+
 
         <accordion-group heading="Release Notes" panel-class="panel-info" is-open="status.releaseNotes">
             <accordion-heading>
@@ -65,8 +60,6 @@
             <div release-notes ></div>
         </accordion-group>
 
-        <br />
-        <br />
 
 
         <accordion-group heading="Known Issues" panel-class="panel-info" is-open="status.knownIssues">
@@ -75,6 +68,8 @@
             </accordion-heading>
             <div known-issues ></div>
         </accordion-group>
+
+
 
     </accordion>
 </div>
@@ -92,8 +87,8 @@
                     <table class="table table-striped table-bordered table-condensed table-fix-header doc-table">
                         <thead>
                         <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px">
-                            <th st-ratio="25">Title</th>
-                            <th st-ratio="25">File</th>
+                            <th st-ratio="25">Document Title</th>
+                            <th st-ratio="25">File Name/Link</th>
                             <th st-ratio="25">Date</th>
                             <th st-ratio="25">Version</th>
                         </tr>
@@ -142,8 +137,8 @@
                     <table class="table table-striped table-bordered table-condensed table-fix-header doc-table">
                         <thead>
                         <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px">
-                            <th st-ratio="20">Title</th>
-                            <th st-ratio="20">File</th>
+                            <th st-ratio="20">Document Title</th>
+                            <th st-ratio="20">File Name/Link</th>
                             <th st-ratio="20">Date</th>
                             <th st-ratio="20">Version</th>
                             <th st-ratio="20">Comments</th>
@@ -207,7 +202,7 @@
                         <table class="table table-striped table-bordered table-condensed table-fix-header doc-table">
                             <thead>
                             <tr  class="tbl-header" style="margin-right:{{scrollbarWidth}}px">
-                                <th st-ratio="50">Title</th>
+                                <th st-ratio="50">Document Title</th>
                                 <th st-ratio="50">File (XML Format)</th>
                             </tr>
                             </thead>
@@ -386,4 +381,79 @@
         </div>
     </div>
 
+</script>
+
+<script type="text/ng-template" id="InstallationGuide.html">
+    <div ng-show="loading" style="text-align:center">
+        <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+    </div>
+    <div ng-show="!loading">
+        <div ng-show="error === null">
+            <div ng-show="doc !== null" class="" style="margin:10px">
+                <div class="container-doc-testcase-tree ">
+                    <table class="table table-striped table-bordered table-condensed doc-table">
+                        <thead>
+                        <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px">
+                            <th st-ratio="70">Document</th>
+                            <th st-ratio="30">Date Posted</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td st-ratio="70">
+                                <a class="point" ng-click="downloadDocument(doc.path)">{{doc.title}}</a>
+                             </td>
+                            <td st-ratio="30">
+                                 <span>{{doc.date}}</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div ng-show="error !== null">
+            <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+        </div>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="ToolDownloadList.html">
+    <div ng-show="loading" style="text-align:center">
+        <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+    </div>
+    <div ng-show="!loading">
+        <div ng-show="error === null">
+            <div ng-show="data.length > 0" class="" style="margin:10px">
+                <div class="container-doc-testcase-tree ">
+                    <table class="table table-striped table-bordered table-condensed table-fix-header doc-table">
+                        <thead>
+                        <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px">
+                            <th st-ratio="70">Document</th>
+                            <th st-ratio="30">Date Posted</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="doc in data | orderBy:'date'">
+                             <td st-ratio="70">
+                                   <a class="point" target="_blank" ng-href="{{doc.path}}">{{doc.title}}</a>
+                            </td>
+                            <td st-ratio="30">
+                                 {{doc.date}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div ng-show="data.length <= 0" class="" style="margin:10px">
+                No Download Available
+            </div>
+        </div>
+
+        <div ng-show="error !== null">
+            <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+        </div>
+    </div>
 </script>

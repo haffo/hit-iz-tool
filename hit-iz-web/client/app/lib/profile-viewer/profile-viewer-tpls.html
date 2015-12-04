@@ -184,8 +184,7 @@
         <td class="col-xs-2 col-fixed-450">
             <span class="label label-field label-icon">F</span>
             <span
-                    ng-bind-html="getFieldNodeName(node)"
-                    ></span>
+                     >{{node.position}}.{{node.name}}</span>
         </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
@@ -259,8 +258,8 @@
                 <span class="label label-sub-component label-icon" ng-show="node.type === 'SUBCOMPONENT'">S</span>
                 <span class="label label-component label-icon" ng-show="node.type === 'COMPONENT'">C</span>
 
-                <span ng-bind-html="getComponentNodeName(node)"
-                        ></span>
+                <span
+                        >{{node.position}}.{{node.name}}</span>
             </span>
         </td>
         <td class="col-xs-1 col-fixed-80">
@@ -331,8 +330,7 @@
         	<span>
                  <span class="label label-datatype label-icon">D</span>
                  <span
-                         ng-bind-html="getDatatypeNodeName2(node)"
-                         ></span>
+                          >{{node.id}}</span>
             </span>
         </td>
         <td class="col-xs-1 col-fixed-80 nodata">
@@ -402,8 +400,9 @@
             <span class="label label-segment label-icon">S</span>
             <a class="point"
                     ng-click="showRefSegment(node.ref)"
-                    ng-bind-html="getSegmentRefNodeName(node)"
-                    ></a>
+                     >
+                {{node.position}}.{{model.segments[node.ref].name}}:{{model.segments[node.ref].description}}
+                    </a>
         </td>
         <td class="col-xs-1 col-fixed-80">
             <span ng-bind="node.usage"></span>
@@ -450,9 +449,7 @@
         <td class="col-xs-2 col-fixed-450">
             <span class="label label-success label-icon">G</span>
                                               <span
-
-                                                      ng-bind-html="getGroupNodeName(node)"
-                                                      ></span>
+                                                       >{{node.position}}.{{node.name}}</span>
         </td>
         <td class="col-xs-1 col-fixed-80">
                  <span ng-bind="node.usage"></span>
@@ -526,11 +523,9 @@
 <script type="text/ng-template" id="DatatypeComponentReadTree.html">
     <tr pv-node ng-show="visible(node,parentsMap[node.id].predicates)" is-branch="hasRelevantChild(node)" node="node">
         <td class="col-xs-2 col-fixed-450">
-
             <span class="label label-component label-icon">C</span>
-
-             <span ng-bind-html="getComponentNodeName(node)"
-                     ></span>
+             <span
+                     >{{node.position}}.{{node.name}}</span>
         </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
@@ -600,9 +595,7 @@
                                         <span>
              <span class="label label-sub-component label-icon">S</span>
                                               <span
-
-                                                      ng-bind-html="getComponentNodeName(node)"
-                                                      ></span>
+                                                      >{{node.position}}.{{node.name}}</span>
 
                                         </span>
         </td>
@@ -767,9 +760,7 @@
             <span class="label label-sub-component label-icon" ng-show="node.type === 'SUBCOMPONENT'">S</span>
 
                                    <span
-                                           ng-bind-html="getComponentNodeName(node)"
-
-                                           ></span>
+                                           >{{node.position}}.{{node.name}}</span>
         </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
@@ -838,9 +829,7 @@
                              <span>
                                           <span class="label label-datatype label-icon">D</span>
                                    <span
-                                           ng-bind-html="getDatatypeNodeName2(node)"
-
-                                           ></span>
+                                           >{{node.id}}</span>
                                  </span>
         </td>
         <td class="col-xs-1 col-fixed-80 nodata">

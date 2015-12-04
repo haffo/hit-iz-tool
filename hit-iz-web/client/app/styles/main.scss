@@ -1923,8 +1923,7 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
 }
 
 
-#error {
-//  padding: 30px 10px;
+#exception {
   font-size: 20px;
   line-height: 1.4;
   color: #737373;
@@ -1933,24 +1932,25 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
   -ms-text-size-adjust: 100%;
   margin: 0 auto;
 }
-#error > h1 {
+
+#exception > h1 {
   margin: 0 10px;
   font-size: 24px;
   text-align: center;
 }
 
-#error > h1 span {
+#exception > h1 span {
   color: #bbb;
 }
 
 
-#error > p {
+#exception > p {
   margin: 1em 0;
   text-align: center;
 
 }
 
-#error  > ul {
+#exception  > ul {
   padding: 0 0 0 40px;
   margin: 1em 0;
 }

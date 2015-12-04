@@ -1,0 +1,14 @@
+{
+	"installationGuide":{
+		"title":"Installation.Guide.-.NIST.HL7v2.Validation.Tools.v1-2.docx",
+		"name":"Installation.Guide.-.NIST.HL7v2.Validation.Tools.v1-2.docx",
+		"date":"12/03/2015"
+	 },
+	 "downloads" : [
+			{
+			 "title":"iztool-1.0-beta",
+			 "link":"http://hit-testing.nist.gov/wars/iztool-1.0-beta.zip",
+			 "date":"12/04/2015"
+  			} 		
+	]
+}

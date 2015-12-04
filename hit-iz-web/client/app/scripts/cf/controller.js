@@ -62,6 +62,7 @@ angular.module('cf')
                 $scope.testCases = $filter('orderBy')(testCases, 'position');
                 if (typeof $scope.tree.build_all == 'function') {
                     $scope.tree.build_all($scope.testCases);
+
                     var testCase = null;
                     var id = StorageService.get(StorageService.CF_LOADED_TESTCASE_ID_KEY);
                     if (id != null) {
