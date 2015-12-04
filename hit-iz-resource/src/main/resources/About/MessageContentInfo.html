@@ -1,632 +1,690 @@
-<div style="margin:0px 10px 0px 10px">
-<h3 class="western">How to Interpret the Message Content Tab and Its
-Implications on Testing</h3>
-<p align="JUSTIFY" style="margin-bottom: 0.14in; line-height: 0.21in">The
-Message Content Data Sheet indicates the data that are to be included
-in the test message based on the test data entered into the Health IT
-Module for a particular Test Step. The information in the <i><b>Location
-</b></i>column indicates the canonical element location in the HL7 V2
-message.  For example, PID-3.5 represents the 5th component in the
-3rd field of the PID segment. The <i><b>Data Element</b></i> column
-indicates the name of the data element as specified by the Messaging
-Guide. The <i><b>Test Data</b></i> column lists the data to be
-included for each Data Element in the message created by the Health
-IT Module.  
-</p>
-<p align="JUSTIFY" style="margin-bottom: 0.14in; line-height: 0.21in">The
-<i><b>Categorization</b></i> column indicates the type and expected
-source of the data as well as how the Context-based feature in the
-Tool will validate the data for the given Data Element in the
-message. In some cases the test tool validator simply examines the
-message element for the presence of data, whereas in other cases the
-validator examines the message element for the presence of data and
-for exact content. 
-</p>
-<p align="JUSTIFY" style="margin-bottom: 0.14in; line-height: 0.21in"><a name="_GoBack"></a>
-<b>Table 1</b> shows descriptions of the test data Categories and
-their associated Qualifiers. The test data categories enable
-classification of the test data in order to extend and strengthen the
-rigor of the testing. Each classification category defines the
-criteria that are used by the test tool to assess the test data that
-populate each field in a message. These criteria in turn tell the
-tester whether or not the test data in a specific field can be
-changed, the source of the test data, and to what level of precision
-the validation tool will assess the data. A common example for
-extending the testing capability involves message elements specified
-with a Usage of RE (Required, but maybe Empty). Context-based testing
-must be used when the Tester wishes to assess the system's
-ability to support these elements, because without context (test data
-provided) an automated validation tool has "limited ways of
-knowing" whether the data for the RE data element are available
-for use in the message or not. Using a test case and associated
-categorized test data, the Tester can inform the validation tool (and
-the user) of the conformance expectations for this message element.
-In the case of assessing a system's capability for support of
-an element with RE usage, the category assigned would be "Presence",
-which notifies the Tester and validation tool that data shall be
-present for this message element.</p>
-<p align="CENTER" style="line-height: 100%; page-break-inside: avoid; page-break-after: avoid">
-<b>Table 1:   Test Data Categorization Description and Implications</b></p>
-<table width="100%" border="1" bordercolor="#00000a" cellpadding="7" cellspacing="0">
-	<colgroup><col width="82">
-	<col width="208">
-	<col width="178">
-	<col width="351">
-	</colgroup><tbody><tr valign="TOP">
-		<td width="82" bgcolor="#8db3e2">
-			<p><b>Test Data
-			Categorization</b></p>
-		</td>
-		<td width="208" bgcolor="#8db3e2">
-			<p><b>Description</b></p>
-		</td>
-		<td width="178" bgcolor="#8db3e2">
-			<p><b>Testing
-			Implications</b></p>
-		</td>
-		<td width="351" bgcolor="#8db3e2">
-			<p><b>Comments</b></p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="82" bgcolor="#c6d9f1">
-			<p><b>Indifferent</b></p>
-		</td>
-		<td width="208" bgcolor="#d9d9d9">
-			<p>No
-			test data is provided as part of the test case. 
-			</p>
-		</td>
-		<td width="178" bgcolor="#d9d9d9">
-			<p>No
-			additional validation.</p>
-		</td>
-		<td width="351" bgcolor="#d9d9d9">
-			<p>The
-			validation is indifferent to the presence of data or specific
-			content in the message element.</p>
-			<p><b>Meaning:
-			Value or don't value this data element.</b></p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="82" bgcolor="#c6d9f1">
-			<p><b>Presence</b></p>
-		</td>
-		<td width="208" bgcolor="#f2f2f2">
-			<p>Test
-			data is provided as part of the test case; content indifferent.</p>
-		</td>
-		<td width="178" bgcolor="#f2f2f2">
-			<p>Validated
-			for the presence of data.</p>
-			<p><br>
-			</p>
-		</td>
-		<td width="351" bgcolor="#f2f2f2">
-			<p>The
-			specific content is not pertinent to the test cases for the
-			purpose of testing. The test data can be modified.</p>
-			<p><b>Meaning:
-			Value this data element.</b></p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="82" bgcolor="#c6d9f1">
-			<p><b>Presence-Length</b></p>
-		</td>
-		<td width="208" bgcolor="#d9d9d9">
-			<p>Test
-			data is provided as part of the test case; minimum length of the
-			content is expected.</p>
-		</td>
-		<td width="178" bgcolor="#d9d9d9">
-			<p>Validate
-			for the presence of data to a minimum length.</p>
-		</td>
-		<td width="351" bgcolor="#d9d9d9">
-			<p>The
-			specific content is not pertinent to the test cases for the
-			purpose of testing, but the length of the content is. The test
-			data can be modified as long as the minimum length of the test
-			data is maintained.</p>
-			<p><b>Meaning:
-			Value this data element to a minimum length.</b></p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="82" bgcolor="#c6d9f1">
-			<p><b>Value</b></p>
-		</td>
-		<td width="208" bgcolor="#f2f2f2">
-			<p>Test
-			data is provided as part of the test case; specific content is
-			provided and expected.</p>
-		</td>
-		<td width="178" bgcolor="#f2f2f2">
-			<p>Validate
-			for the presence of data and for specific content.</p>
-		</td>
-		<td width="351" bgcolor="#f2f2f2">
-			<p>The
-			specific content (or choice of content) is provided and is
-			expected to be present in the message. The test data can only be
-			modified with data in the allowable data set. In some cases the
-			set is a single constant.</p>
-			<p><b>Meaning:
-			Value this data element with the test data options provided.</b></p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="82" bgcolor="#c6d9f1">
-			<p><b>Non-presence</b></p>
-		</td>
-		<td width="208" bgcolor="#d9d9d9">
-			<p>No
-			test data is provided as part of the test case and no content for
-			this message element is expected.</p>
-		</td>
-		<td width="178" bgcolor="#d9d9d9">
-			<p>Validate
-			for the non-presence of data.</p>
-		</td>
-		<td width="351" bgcolor="#d9d9d9">
-			<p>Content
-			is not specified in the test case and is not expected to be
-			present in the message.</p>
-			<p><b>Meaning:
-			Don't value this data element.</b></p>
-		</td>
-	</tr>
-</tbody></table>
-<p style="margin-bottom: 0.14in"><br><br>
-</p>
-<p style="margin-bottom: 0.14in"><font color="#c00000">Note:</font> Errors
-related to Test Data appear under the "Content" sub-tab
-in the validation results.</p>
-<p align="JUSTIFY" style="margin-bottom: 0.14in">The <b>Test Data
-Categories</b> provide a classification scheme for defining how the
-test data given in a test case impact the validation of message
-instances. The use of test data expands the scope of message
-validation. For each test case, test data are given that coincide
-with the test story. The test case developer uses the test case
-categories to assess vendor capabilities required by the
-implementation guide in the context-based testing operation mode
-(such requirements can't easily be tested in a context-free
-environment). The <b>Qualifier</b> (<b>Table 2</b>) provides a
-refinement of the test data category and provides additional
-information of the source and expectations of the data element. The
-qualifier does not impact the validation of the data element.</p>
-<p align="JUSTIFY" style="margin-bottom: 0.14in">The test data
-categories apply only to data elements with R (Require) and RE
-(Required, but may be Empty) usages. Data elements with usages of O
-(Optional) and X (Not-supported) are not considered for this testing.
-In the future they may be considered, for example, to assess the
-receiver's capability to react to messages with errors, and X
-elements will be valued (and a test data category of Error will be
-created). Elements with C (Conditional) usages resolve to either R,
-RE, O, or X usages based on the outcome of the condition predicate.
-The test case developer will provide (or not provide) data to trigger
-the various outcomes. Hence, data elements with C usage for a
-specific test case resolve to another usage and are handled as
-described above for that specific usage.</p>
-<p align="CENTER" style="line-height: 100%; page-break-inside: avoid; page-break-after: avoid">
-<b>Table 2:   Test Data Categorization Qualifier and More Details</b></p>
-<table width="100%" border="1" bordercolor="#00000a" cellpadding="7" cellspacing="0">
-	<colgroup><col width="131">
-	<col width="87">
-	<col width="69">
-	<col width="242">
-	<col width="72">
-	<col width="192">
-	</colgroup><tbody><tr valign="TOP">
-		<td width="131" bgcolor="#8db3e2">
-			<p><b>Test Data
-			Categorization</b></p>
-		</td>
-		<td width="87" bgcolor="#8db3e2">
-			<p><b>Description</b></p>
-		</td>
-		<td width="69" bgcolor="#8db3e2">
-			<p><b>Qualifier</b></p>
-		</td>
-		<td width="242" bgcolor="#8db3e2">
-			<p><b>Description</b></p>
-		</td>
-		<td width="72" bgcolor="#8db3e2">
-			<p><b>Testing
-			Implications</b></p>
-		</td>
-		<td width="192" bgcolor="#8db3e2">
-			<p><b>Use/Examples</b></p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="131" bgcolor="#c6d9f1">
-			<p><b>Indifferent</b></p>
-		</td>
-		<td width="87" bgcolor="#d9d9d9">
-			<p>No
-			content is specified.</p>
-		</td>
-		<td width="69" bgcolor="#d9d9d9">
-			<p><i><b>None</b></i></p>
-		</td>
-		<td width="242" bgcolor="#d9d9d9">
-			<p>None</p>
-		</td>
-		<td width="72" bgcolor="#d9d9d9">
-			<p>None</p>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p><u>Additional
-			Assertions Made:</u></p>
-			<p>R
-			-> None</p>
-			<p>RE
-			-> None</p>
-			<p><br>
-			</p>
-		</td>
-		<td width="192" bgcolor="#d9d9d9">
-			<p>Data
-			is not provided as part of the test case. No assessment of the
-			data element is made beyond that specified in the standard.
-			Usually applies to elements with RE usage in which valuing the
-			element, or not, is not of interest for the test case.</p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td rowspan="4" width="131" bgcolor="#c6d9f1">
-			<p><b>Presence</b></p>
-		</td>
-		<td rowspan="4" width="87" bgcolor="#f2f2f2">
-			<p>Example
-			content is specified.</p>
-		</td>
-		<td width="69" bgcolor="#f2f2f2">
-			<p><i><b>Content
-			Indifferent</b></i></p>
-		</td>
-		<td width="242" bgcolor="#f2f2f2">
-			<p>Content
-			is expected to be present in the message, but not a specific
-			value.</p>
-		</td>
-		<td rowspan="4" width="72" bgcolor="#f2f2f2">
-			<ol>
-				<li><p>The
-				presence of content is being assessed by the validation tool.</p>
-				</li><li><p>Specific
-				content is not being assessed by the validation tool.</p>
-			</li></ol>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p><u>Additional
-			Assertions Made:</u></p>
-			<p>R 
-			-> None</p>
-			<p>RE
-			-> Validates for the presence of data.</p>
-			<p><br>
-			</p>
-		</td>
-		<td rowspan="4" width="192" bgcolor="#f2f2f2">
-			<p>R
-			- Required Elements: Indicates the characteristic of the
-			test data given and expected in the vendor message.</p>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p>RE
-			- Required, but may be Empty Elements: Provides data to be
-			used in the test case to test that the vendor product supports the
-			element. Indicates the characteristic of the test data given and
-			expected in the vendor message.</p>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p>The
-			characteristic type of the data is further described by the
-			qualifier.</p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="69" bgcolor="#f2f2f2">
-			<p><i><b>Configuration</b></i></p>
-		</td>
-		<td width="242" bgcolor="#f2f2f2">
-			<p>Content
-			is expected to be present in the message, but not a specific
-			value. The value is usually determined at installations.</p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="69" bgcolor="#f2f2f2">
-			<p><i><b>System
-			Generated</b></i></p>
-		</td>
-		<td width="242" bgcolor="#f2f2f2">
-			<p>Content
-			is expected to be present in the message, but not a specific
-			value. The value is system generated.</p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="69" bgcolor="#f2f2f2">
-			<p><i><b>Test
-			Case Proper</b></i></p>
-		</td>
-		<td width="242" bgcolor="#f2f2f2">
-			<p>Content
-			is expected to be present in the message, but not a specific
-			value. However, content
-			is expected to be consistent with the clinical test story.</p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="131" bgcolor="#c6d9f1">
-			<p><b>Presence-Length</b></p>
-		</td>
-		<td width="87" bgcolor="#d9d9d9">
-			<p>Example
-			content is specified to a minimum length.</p>
-		</td>
-		<td width="69" bgcolor="#d9d9d9">
-			<p><i><b>Same
-			qualifiers as for Presence</b></i></p>
-		</td>
-		<td width="242" bgcolor="#d9d9d9">
-			<p>Content
-			of a minimum length is expected to be present in the message, but
-			not a specific value.</p>
-		</td>
-		<td width="72" bgcolor="#d9d9d9">
-			<ol>
-				<li><p>The
-				presence of content is being assessed by the validation tool.</p>
-				</li><li><p>The
-				length of the content is being assessed by the validation tool.</p>
-				</li><li><p>Specific
-				content is not being assessed by the validation tool.</p>
-			</li></ol>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p><u>Additional
-			Assertions Made:</u></p>
-			<p>R
-			-> Validates the length of the data for a minimum value</p>
-			<p>RE
-			-> Validates for the presence of data and the length of the
-			data for a minimum value</p>
-		</td>
-		<td width="192" bgcolor="#d9d9d9">
-			<p>Example
-			data is provided for the test case, specific content is not of
-			interest, but the minimum length of the content is.</p>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p>Example
-			use: Test that the vendor supports PID-5.3 (Second and Further
-			Given Names or Initials Thereof) element to a certain length. Some
-			vendors support only the middle initial.</p>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p>The
-			qualifiers indicate for the Presence test data category applies to
-			the Presence-Length test data category.</p>
-			<p><br>
-			</p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td rowspan="4" width="131" bgcolor="#c6d9f1">
-			<p><b>Value</b></p>
-		</td>
-		<td rowspan="4" width="87" bgcolor="#f2f2f2">
-			<p>Specific
-			content is specified.</p>
-		</td>
-		<td width="69" bgcolor="#f2f2f2">
-			<p><i><b>Profile
-			Fixed</b></i></p>
-		</td>
-		<td width="242" bgcolor="#f2f2f2">
-			<p>Content
-			is defined as a constant in the conformance profile. The constant
-			is specified in the test data.</p>
-		</td>
-		<td width="72" bgcolor="#f2f2f2">
-			<ol>
-				<li><p>The
-				presence of content is being assessed by the validation tool.</p>
-				</li><li><p>Specific
-				content is being assessed by the validation tool as specified in
-				the conformance profile.</p>
-			</li></ol>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p><u>Additional
-			Assertions Made:</u></p>
-			<p>R
-			-> None</p>
-			<p>RE
-			-> Validates for the presence of data.</p>
-			<p><br>
-			</p>
-		</td>
-		<td width="192" bgcolor="#f2f2f2">
-			<p>The
-			value is defined as a constant in the conformance profile. That
-			constant is provided as the test data. The validation of the
-			content is accounted for in the profile constraints; no additional
-			assertion is needed for Required elements. For RE elements, a
-			presence check is required. A typical use is when the constant is
-			required when an RE element is predicated on being present.</p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="69" bgcolor="#f2f2f2">
-			<p><i><b>Profile
-			Fixed - List</b></i></p>
-		</td>
-		<td width="242" bgcolor="#f2f2f2">
-			<p>Content
-			is defined as a set of allowable values in the conformance
-			profile. One value from the allowable set is specified in the test
-			data.</p>
-		</td>
-		<td width="72" bgcolor="#f2f2f2">
-			<ol>
-				<li><p>The
-				presence of content is being assessed by the validation tool.</p>
-				</li><li><p>Specific
-				content is being assessed by the validation tool as specified in
-				the conformance profile.</p>
-			</li></ol>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p><u>Additional
-			Assertions Made:</u></p>
-			<p>R
-			-> None</p>
-			<p>RE
-			-> Validates for the presence of data.</p>
-			<p><br>
-			</p>
-		</td>
-		<td width="192" bgcolor="#f2f2f2">
-			<p>The
-			value is defined as a set of allowable values in the conformance
-			profile. One value in this set is provided as the test data. The
-			validation of the content is accounted for in the profile
-			constraints; no additional assertion is needed for Required
-			elements. For RE elements, a presence check is required. A typical
-			use is when the constant is required when an RE element is
-			predicated on being present.</p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="69" bgcolor="#f2f2f2">
-			<p><i><b>Test
-			Case Fixed</b></i></p>
-		</td>
-		<td width="242" bgcolor="#f2f2f2">
-			<p>Content
-			that is defined as a constant in the test case.</p>
-		</td>
-		<td width="72" bgcolor="#f2f2f2">
-			<ol>
-				<li><p>The
-				presence of content is being assessed by the validation tool.</p>
-				</li><li><p>Specific
-				content is being assessed by the validation tool as specified in
-				the test case.</p>
-			</li></ol>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p><u>Additional
-			Assertions Made:</u></p>
-			<p>R
-			-> Validates for specific content</p>
-			<p>RE
-			-> Validates for the presence of data specific content</p>
-			<p><br>
-			</p>
-		</td>
-		<td width="192" bgcolor="#f2f2f2">
-			<p>A
-			specific value for this data element is specified in the test case
-			and that specific value is expected in the message. The test case
-			developer is requesting a specific value to assess support for a
-			certain value that is in scope of the defined requirements (e.g.,
-			a specific coded value), to trigger a certain workflow or
-			function, or to ensure the coordination of subsequent test steps
-			in a test case.</p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="69" bgcolor="#f2f2f2">
-			<p><i><b>Test
-			Case Fixed - List</b></i></p>
-		</td>
-		<td width="242" bgcolor="#f2f2f2">
-			<p>Content
-			is defined as a set of allowable values in the test case. One
-			value from the allowable set is specified in the test data.</p>
-		</td>
-		<td width="72" bgcolor="#f2f2f2">
-			<ol>
-				<li><p>The
-				presence of content is being assessed by the validation tool.</p>
-				</li><li><p>Specific
-				content is being assessed by the validation tool as specified in
-				the test case.</p>
-			</li></ol>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p><u>Additional
-			Assertions Made:</u></p>
-			<p>R
-			-> Validates for specific content</p>
-			<p>RE
-			-> Validates for the presence and data specific content</p>
-			<p><br>
-			</p>
-		</td>
-		<td width="192" bgcolor="#f2f2f2">
-			<p>A
-			specific value from a set of values for this data element is
-			specified in the test case and one of the values from that set is
-			expected in the message (not necessarily the specific value given
-			in the test data). The test case developer is requesting one value
-			from a set of values to assess support for a certain set of values
-			that is in scope of the defined requirements (e.g., a coded value
-			defining a concept), to trigger a certain workflow or function, or
-			to ensure the coordination of subsequent test steps in a test
-			case.</p>
-		</td>
-	</tr>
-	<tr valign="TOP">
-		<td width="131" bgcolor="#c6d9f1">
-			<p><b>Non-presence</b></p>
-		</td>
-		<td width="87" bgcolor="#d9d9d9">
-			<p>No
-			content is explicitly specified.</p>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p><br>
-			</p>
-		</td>
-		<td width="69" bgcolor="#d9d9d9">
-			<p><i><b>None</b></i></p>
-		</td>
-		<td width="242" bgcolor="#d9d9d9">
-			<p>None</p>
-		</td>
-		<td width="72" bgcolor="#d9d9d9">
-			<ol>
-				<li><p>The
-				non-presence of content is being assessed by the validation tool.</p>
-			</li></ol>
-			<p style="margin-bottom: 0in"><br>
-			</p>
-			<p><u>Additional
-			Assertions Made:</u></p>
-			<p>R
-			-> N/A</p>
-			<p>RE
-			-> Validates for the non-presence of data</p>
-			<p><br>
-			</p>
-		</td>
-		<td width="192" bgcolor="#d9d9d9">
-			<p>Content
-			is not specified in the test case and is not expected to be
-			present in the message. Typically will applies to data elements
-			with RE usage in which the test case developer wishes to ensure
-			that the implementation doesn't provide a default value when
-			no data is available.</p>
-		</td>
-	</tr>
-</tbody></table>
+<style>
+.mciHeader {
+	background-color:#8db3e2;
+}
+.mciLeftCol {
+	background-color:#c6d9f1;
+}
+.mciGreyCell {
+	background-color:#d9d9d9;
+}
+.mciLightGreyCell {
+	background-color:#f2f2f2;
+}
+</style>
+<div style="margin: 0px 10px 0px 10px">
+	<h3>How to Interpret the Message Content Tab and
+		Its Implications on Testing</h3>
+	<p align="JUSTIFY" style="margin-bottom: 0.14in; line-height: 0.21in">
+		The Message Content Data Sheet indicates the data that are to be
+		included in the test message based on the test data entered into the
+		Health IT Module for a particular Test Step. The information in the <i><b>Location
+		</b></i>column indicates the canonical element location in the HL7 V2 message.
+		For example, PID-3.5 represents the 5th component in the 3rd field of
+		the PID segment. The <i><b>Data Element</b></i> column indicates the
+		name of the data element as specified by the Messaging Guide. The <i><b>Test
+				Data</b></i> column lists the data to be included for each Data Element in
+		the message created by the Health IT Module.
+	</p>
+	<p align="JUSTIFY" style="margin-bottom: 0.14in; line-height: 0.21in">
+		The <i><b>Categorization</b></i> column indicates the type and
+		expected source of the data as well as how the Context-based feature
+		in the Tool will validate the data for the given Data Element in the
+		message. In some cases the test tool validator simply examines the
+		message element for the presence of data, whereas in other cases the
+		validator examines the message element for the presence of data and
+		for exact content.
+	</p>
+	<p align="JUSTIFY" style="margin-bottom: 0.14in; line-height: 0.21in">
+		<a name="_GoBack"></a> <b>Table 1</b> shows descriptions of the test
+		data Categories and their associated Qualifiers. The test data
+		categories enable classification of the test data in order to extend
+		and strengthen the rigor of the testing. Each classification category
+		defines the criteria that are used by the test tool to assess the test
+		data that populate each field in a message. These criteria in turn
+		tell the tester whether or not the test data in a specific field can
+		be changed, the source of the test data, and to what level of
+		precision the validation tool will assess the data. A common example
+		for extending the testing capability involves message elements
+		specified with a Usage of RE (Required, but maybe Empty).
+		Context-based testing must be used when the Tester wishes to assess
+		the system's ability to support these elements, because without
+		context (test data provided) an automated validation tool has "limited
+		ways of knowing" whether the data for the RE data element are
+		available for use in the message or not. Using a test case and
+		associated categorized test data, the Tester can inform the validation
+		tool (and the user) of the conformance expectations for this message
+		element. In the case of assessing a system's capability for support of
+		an element with RE usage, the category assigned would be "Presence",
+		which notifies the Tester and validation tool that data shall be
+		present for this message element.
+	</p>
+	<p align="CENTER"	style="line-height: 100%; page-break-inside: avoid; page-break-after: avoid">
+		<b>Table 1: Test Data Categorization Description and Implications</b>
+	</p>
+	<table width="100%" border="1"  cellpadding="7"	cellspacing="0">
+		<colgroup>
+			<col width="82">
+			<col width="208">
+			<col width="178">
+			<col width="351">
+		</colgroup>
+		<tbody>
+			<tr valign="TOP">
+				<td class="mciHeader" width="82" >
+					<p>
+						<b>Test Data Categorization</b>
+					</p>
+				</td>
+				<td class="mciHeader" width="208" >
+					<p>
+						<b>Description</b>
+					</p>
+				</td>
+				<td class="mciHeader" width="178">
+					<p>
+						<b>Testing Implications</b>
+					</p>
+				</td>
+				<td class="mciHeader" width="351">
+					<p>
+						<b>Comments</b>
+					</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td class="mciLeftCol" width="82">
+					<p>
+						<b>Indifferent</b>
+					</p>
+				</td>
+				<td width="208" class="mciGreyCell">
+					<p>No test data is provided as part of the test case.</p>
+				</td>
+				<td width="178" class="mciGreyCell">
+					<p>No additional validation.</p>
+				</td>
+				<td width="351" class="mciGreyCell">
+					<p>The validation is indifferent to the presence of data or
+						specific content in the message element.</p>
+					<p>
+						<b>Meaning: Value or don't value this data element.</b>
+					</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td class="mciLeftCol" width="82" >
+					<p>
+						<b>Presence</b>
+					</p>
+				</td>
+				<td width="208" class="mciLightGreyCell">
+					<p>Test data is provided as part of the test case; content
+						indifferent.</p>
+				</td>
+				<td width="178" class="mciLightGreyCell">
+					<p>Validated for the presence of data.</p>
+					<p>
+						<br>
+					</p>
+				</td>
+				<td width="351" class="mciLightGreyCell">
+					<p>The specific content is not pertinent to the test cases for
+						the purpose of testing. The test data can be modified.</p>
+					<p>
+						<b>Meaning: Value this data element.</b>
+					</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td class="mciLeftCol" width="82">
+					<p>
+						<b>Presence-Length</b>
+					</p>
+				</td>
+				<td width="208" class="mciGreyCell">
+					<p>Test data is provided as part of the test case; minimum
+						length of the content is expected.</p>
+				</td>
+				<td width="178" class="mciGreyCell">
+					<p>Validate for the presence of data to a minimum length.</p>
+				</td>
+				<td width="351" class="mciGreyCell">
+					<p>The specific content is not pertinent to the test cases for
+						the purpose of testing, but the length of the content is. The test
+						data can be modified as long as the minimum length of the test
+						data is maintained.</p>
+					<p>
+						<b>Meaning: Value this data element to a minimum length.</b>
+					</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td class="mciLeftCol" width="82">
+					<p>
+						<b>Value</b>
+					</p>
+				</td>
+				<td width="208" class="mciLightGreyCell">
+					<p>Test data is provided as part of the test case; specific
+						content is provided and expected.</p>
+				</td>
+				<td width="178" class="mciLightGreyCell">
+					<p>Validate for the presence of data and for specific content.</p>
+				</td>
+				<td width="351" class="mciLightGreyCell">
+					<p>The specific content (or choice of content) is provided and
+						is expected to be present in the message. The test data can only
+						be modified with data in the allowable data set. In some cases the
+						set is a single constant.</p>
+					<p>
+						<b>Meaning: Value this data element with the test data options
+							provided.</b>
+					</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td class="mciLeftCol" width="82">
+					<p>
+						<b>Non-presence</b>
+					</p>
+				</td>
+				<td width="208" class="mciGreyCell">
+					<p>No test data is provided as part of the test case and no
+						content for this message element is expected.</p>
+				</td>
+				<td width="178" class="mciGreyCell">
+					<p>Validate for the non-presence of data.</p>
+				</td>
+				<td width="351" class="mciGreyCell">
+					<p>Content is not specified in the test case and is not
+						expected to be present in the message.</p>
+					<p>
+						<b>Meaning: Don't value this data element.</b>
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p style="margin-bottom: 0.14in">
+		<br>
+		<br>
+	</p>
+	<p style="margin-bottom: 0.14in">
+		<span style="color:#c00000">Note:</span> Errors related to Test Data appear
+		under the "Content" sub-tab in the validation results.
+	</p>
+	<p align="JUSTIFY" style="margin-bottom: 0.14in">
+		The <b>Test Data Categories</b> provide a classification scheme for
+		defining how the test data given in a test case impact the validation
+		of message instances. The use of test data expands the scope of
+		message validation. For each test case, test data are given that
+		coincide with the test story. The test case developer uses the test
+		case categories to assess vendor capabilities required by the
+		implementation guide in the context-based testing operation mode (such
+		requirements can't easily be tested in a context-free environment).
+		The <b>Qualifier</b> (<b>Table 2</b>) provides a refinement of the
+		test data category and provides additional information of the source
+		and expectations of the data element. The qualifier does not impact
+		the validation of the data element.
+	</p>
+	<p align="JUSTIFY" style="margin-bottom: 0.14in">The test data
+		categories apply only to data elements with R (Require) and RE
+		(Required, but may be Empty) usages. Data elements with usages of O
+		(Optional) and X (Not-supported) are not considered for this testing.
+		In the future they may be considered, for example, to assess the
+		receiver's capability to react to messages with errors, and X elements
+		will be valued (and a test data category of Error will be created).
+		Elements with C (Conditional) usages resolve to either R, RE, O, or X
+		usages based on the outcome of the condition predicate. The test case
+		developer will provide (or not provide) data to trigger the various
+		outcomes. Hence, data elements with C usage for a specific test case
+		resolve to another usage and are handled as described above for that
+		specific usage.</p>
+	<p align="CENTER"
+		style="line-height: 100%; page-break-inside: avoid; page-break-after: avoid">
+		<b>Table 2: Test Data Categorization Qualifier and More Details</b>
+	</p>
+	<table width="100%" border="1" bordercolor="#00000a" cellpadding="7"
+		cellspacing="0">
+		<colgroup>
+			<col width="131">
+			<col width="87">
+			<col width="69">
+			<col width="242">
+			<col width="72">
+			<col width="192">
+		</colgroup>
+		<tbody>
+			<tr valign="TOP">
+				<td class="mciHeader" width="131" >
+					<p>
+						<b>Test Data Categorization</b>
+					</p>
+				</td>
+				<td class="mciHeader" width="87" >
+					<p>
+						<b>Description</b>
+					</p>
+				</td>
+				<td class="mciHeader" width="69">
+					<p>
+						<b>Qualifier</b>
+					</p>
+				</td>
+				<td class="mciHeader" width="242" >
+					<p>
+						<b>Description</b>
+					</p>
+				</td>
+				<td class="mciHeader" width="72" style="min-width: 200px;">
+					<p>
+						<b>Testing Implications</b>
+					</p>
+				</td>
+				<td class="mciHeader" width="192">
+					<p>
+						<b>Use/Examples</b>
+					</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td class="mciLeftCol" width="131">
+					<p>
+						<b>Indifferent</b>
+					</p>
+				</td>
+				<td width="87" class="mciGreyCell">
+					<p>No content is specified.</p>
+				</td>
+				<td width="69" class="mciGreyCell">
+					<p>
+						<i><b>None</b></i>
+					</p>
+				</td>
+				<td width="242" class="mciGreyCell">
+					<p>None</p>
+				</td>
+				<td width="72" class="mciGreyCell">
+					<p>None</p>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>
+						<u>Additional Assertions Made:</u>
+					</p>
+					<p>R -> None</p>
+					<p>RE -> None</p>
+					<p>
+						<br>
+					</p>
+				</td>
+				<td width="192" class="mciGreyCell">
+					<p>Data is not provided as part of the test case. No assessment
+						of the data element is made beyond that specified in the standard.
+						Usually applies to elements with RE usage in which valuing the
+						element, or not, is not of interest for the test case.</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td class="mciLeftCol" rowspan="4" width="131">
+					<p>
+						<b>Presence</b>
+					</p>
+				</td>
+				<td rowspan="4" width="87" class="mciLightGreyCell">
+					<p>Example content is specified.</p>
+				</td>
+				<td width="69" class="mciLightGreyCell">
+					<p>
+						<i><b>Content Indifferent</b></i>
+					</p>
+				</td>
+				<td width="242" class="mciLightGreyCell">
+					<p>Content is expected to be present in the message, but not a
+						specific value.</p>
+				</td>
+				<td rowspan="4" width="72" class="mciLightGreyCell">
+					<ol style="list-style-position: inside; padding-left: 0;">
+						<li><span>The presence of content is being assessed by
+								the validation tool.</span></li>
+						<li><span>Specific content is not being assessed by
+								the validation tool.</span></li>
+					</ol>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>
+						<u>Additional Assertions Made:</u>
+					</p>
+					<p>R -> None</p>
+					<p>RE -> Validates for the presence of data.</p>
+					<p>
+						<br>
+					</p>
+				</td>
+				<td rowspan="4" width="192" class="mciLightGreyCell">
+					<p>R - Required Elements: Indicates the characteristic of the
+						test data given and expected in the vendor message.</p>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>RE - Required, but may be Empty Elements: Provides data to
+						be used in the test case to test that the vendor product supports
+						the element. Indicates the characteristic of the test data given
+						and expected in the vendor message.</p>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>The characteristic type of the data is further described by
+						the qualifier.</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td width="69" class="mciLightGreyCell">
+					<p>
+						<i><b>Configuration</b></i>
+					</p>
+				</td>
+				<td width="242" class="mciLightGreyCell">
+					<p>Content is expected to be present in the message, but not a
+						specific value. The value is usually determined at installations.</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td width="69" class="mciLightGreyCell">
+					<p>
+						<i><b>System Generated</b></i>
+					</p>
+				</td>
+				<td width="242" class="mciLightGreyCell">
+					<p>Content is expected to be present in the message, but not a
+						specific value. The value is system generated.</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td width="69" class="mciLightGreyCell">
+					<p>
+						<i><b>Test Case Proper</b></i>
+					</p>
+				</td>
+				<td width="242" class="mciLightGreyCell">
+					<p>Content is expected to be present in the message, but not a
+						specific value. However, content is expected to be consistent with
+						the clinical test story.</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td class="mciLeftCol"  width="131" >
+					<p>
+						<b>Presence-Length</b>
+					</p>
+				</td>
+				<td width="87" class="mciGreyCell">
+					<p>Example content is specified to a minimum length.</p>
+				</td>
+				<td width="69" class="mciGreyCell">
+					<p>
+						<i><b>Same qualifiers as for Presence</b></i>
+					</p>
+				</td>
+				<td width="242" class="mciGreyCell">
+					<p>Content of a minimum length is expected to be present in the
+						message, but not a specific value.</p>
+				</td>
+				<td width="72" class="mciGreyCell">
+					<ol style="list-style-position: inside; padding-left: 0;">
+						<li><span>The presence of content is being assessed by
+								the validation tool.</span></li>
+						<li><span>The length of the content is being assessed
+								by the validation tool.</span></li>
+						<li><span>Specific content is not being assessed by
+								the validation tool.</span></li>
+					</ol>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>
+						<u>Additional Assertions Made:</u>
+					</p>
+					<p>R -> Validates the length of the data for a minimum value</p>
+					<p>RE -> Validates for the presence of data and the length of
+						the data for a minimum value</p>
+				</td>
+				<td width="192" class="mciGreyCell">
+					<p>Example data is provided for the test case, specific content
+						is not of interest, but the minimum length of the content is.</p>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>Example use: Test that the vendor supports PID-5.3 (Second
+						and Further Given Names or Initials Thereof) element to a certain
+						length. Some vendors support only the middle initial.</p>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>The qualifiers indicate for the Presence test data category
+						applies to the Presence-Length test data category.</p>
+					<p>
+						<br>
+					</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td class="mciLeftCol"  rowspan="4" width="131" >
+					<p>
+						<b>Value</b>
+					</p>
+				</td>
+				<td rowspan="4" width="87" class="mciLightGreyCell">
+					<p>Specific content is specified.</p>
+				</td>
+				<td width="69" class="mciLightGreyCell">
+					<p>
+						<i><b>Profile Fixed</b></i>
+					</p>
+				</td>
+				<td width="242" class="mciLightGreyCell">
+					<p>Content is defined as a constant in the conformance profile.
+						The constant is specified in the test data.</p>
+				</td>
+				<td width="72" class="mciLightGreyCell">
+					<ol style="list-style-position: inside; padding-left: 0;">
+						<li><span>The presence of content is being assessed by
+								the validation tool.</span></li>
+						<li><span>Specific content is being assessed by the
+								validation tool as specified in the conformance profile.</span></li>
+					</ol>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>
+						<u>Additional Assertions Made:</u>
+					</p>
+					<p>R -> None</p>
+					<p>RE -> Validates for the presence of data.</p>
+					<p>
+						<br>
+					</p>
+				</td>
+				<td width="192" class="mciLightGreyCell">
+					<p>The value is defined as a constant in the conformance
+						profile. That constant is provided as the test data. The
+						validation of the content is accounted for in the profile
+						constraints; no additional assertion is needed for Required
+						elements. For RE elements, a presence check is required. A typical
+						use is when the constant is required when an RE element is
+						predicated on being present.</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td width="69" class="mciLightGreyCell">
+					<p>
+						<i><b>Profile Fixed - List</b></i>
+					</p>
+				</td>
+				<td width="242" class="mciLightGreyCell">
+					<p>Content is defined as a set of allowable values in the
+						conformance profile. One value from the allowable set is specified
+						in the test data.</p>
+				</td>
+				<td width="72" class="mciLightGreyCell">
+					<ol style="list-style-position: inside; padding-left: 0;">
+						<li><span>The presence of content is being assessed by
+								the validation tool.</span></li>
+						<li><span>Specific content is being assessed by the
+								validation tool as specified in the conformance profile.</span></li>
+					</ol>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>
+						<u>Additional Assertions Made:</u>
+					</p>
+					<p>R -> None</p>
+					<p>RE -> Validates for the presence of data.</p>
+					<p>
+						<br>
+					</p>
+				</td>
+				<td width="192" class="mciLightGreyCell">
+					<p>The value is defined as a set of allowable values in the
+						conformance profile. One value in this set is provided as the test
+						data. The validation of the content is accounted for in the
+						profile constraints; no additional assertion is needed for
+						Required elements. For RE elements, a presence check is required.
+						A typical use is when the constant is required when an RE element
+						is predicated on being present.</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td width="69" class="mciLightGreyCell">
+					<p>
+						<i><b>Test Case Fixed</b></i>
+					</p>
+				</td>
+				<td width="242" class="mciLightGreyCell">
+					<p>Content that is defined as a constant in the test case.</p>
+				</td>
+				<td width="72" class="mciLightGreyCell">
+					<ol style="list-style-position: inside; padding-left: 0;">
+						<li><span>The presence of content is being assessed by
+								the validation tool.</span></li>
+						<li><span>Specific content is being assessed by the
+								validation tool as specified in the test case.</span></li>
+					</ol>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>
+						<u>Additional Assertions Made:</u>
+					</p>
+					<p>R -> Validates for specific content</p>
+					<p>RE -> Validates for the presence of data specific content</p>
+					<p>
+						<br>
+					</p>
+				</td>
+				<td width="192" class="mciLightGreyCell">
+					<p>A specific value for this data element is specified in the
+						test case and that specific value is expected in the message. The
+						test case developer is requesting a specific value to assess
+						support for a certain value that is in scope of the defined
+						requirements (e.g., a specific coded value), to trigger a certain
+						workflow or function, or to ensure the coordination of subsequent
+						test steps in a test case.</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td width="69" class="mciLightGreyCell">
+					<p>
+						<i><b>Test Case Fixed - List</b></i>
+					</p>
+				</td>
+				<td width="242" class="mciLightGreyCell">
+					<p>Content is defined as a set of allowable values in the test
+						case. One value from the allowable set is specified in the test
+						data.</p>
+				</td>
+				<td width="72" class="mciLightGreyCell">
+					<ol style="list-style-position: inside; padding-left: 0;">
+						<li><span>The presence of content is being assessed by
+								the validation tool.</span></li>
+						<li><span>Specific content is being assessed by the
+								validation tool as specified in the test case.</span></li>
+					</ol>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>
+						<u>Additional Assertions Made:</u>
+					</p>
+					<p>R -> Validates for specific content</p>
+					<p>RE -> Validates for the presence and data specific content</p>
+					<p>
+						<br>
+					</p>
+				</td>
+				<td width="192" class="mciLightGreyCell">
+					<p>A specific value from a set of values for this data element
+						is specified in the test case and one of the values from that set
+						is expected in the message (not necessarily the specific value
+						given in the test data). The test case developer is requesting one
+						value from a set of values to assess support for a certain set of
+						values that is in scope of the defined requirements (e.g., a coded
+						value defining a concept), to trigger a certain workflow or
+						function, or to ensure the coordination of subsequent test steps
+						in a test case.</p>
+				</td>
+			</tr>
+			<tr valign="TOP">
+				<td class="mciLeftCol" width="131" >
+					<p>
+						<b>Non-presence</b>
+					</p>
+				</td>
+				<td width="87" class="mciGreyCell">
+					<p>No content is explicitly specified.</p>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>
+						<br>
+					</p>
+				</td>
+				<td width="69" class="mciGreyCell">
+					<p>
+						<i><b>None</b></i>
+					</p>
+				</td>
+				<td width="242" class="mciGreyCell">
+					<p>None</p>
+				</td>
+				<td width="72" class="mciGreyCell">
+					<ol style="list-style-position: inside; padding-left: 0;">
+						<li><span>The non-presence of content is being
+								assessed by the validation tool.</span></li>
+					</ol>
+					<p style="margin-bottom: 0in">
+						<br>
+					</p>
+					<p>
+						<u>Additional Assertions Made:</u>
+					</p>
+					<p>R -> N/A</p>
+					<p>RE -> Validates for the non-presence of data</p>
+					<p>
+						<br>
+					</p>
+				</td>
+				<td width="192" class="mciGreyCell">
+					<p>Content is not specified in the test case and is not
+						expected to be present in the message. Typically will applies to
+						data elements with RE usage in which the test case developer
+						wishes to ensure that the implementation doesn't provide a default
+						value when no data is available.</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>

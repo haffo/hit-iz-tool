@@ -46,6 +46,7 @@
             $scope.segments = [];
             $scope.datatypes = [];
             $rootScope.pvNodesMap = {};
+            $scope.model = null;
 
             $scope.getConstraintsAsString = function (constraints) {
                 var str = '';
@@ -246,10 +247,12 @@
             };
 
             $scope.$on($scope.type + ':profileLoaded', function (event, profile) {
+                $scope.model = null;
+                $scope.loading = true;
+                $scope.options.collapse = true;
                 if (profile && profile.id != null) {
-                    $scope.loading = true;
-                    $scope.options.collapse = true;
                     $scope.profile = profile;
+                    $scope.model = null;
                     $scope.profileService.getJson($scope.profile.id).then(function (jsonObject) {
                         $scope.nodeData = [];
                         $scope.predicates = [];
@@ -300,13 +303,16 @@
             });
 
             $scope.children = function (node) {
-                if (node.type === 'SEGMENT_REF') {
-                    return $scope.children($scope.model.segments[node.ref]);
-                } else if (node.type === 'FIELD' || node.type === 'COMPONENT') {
-                    return  node.datatype && node.datatype !== 'varies' ? $scope.model.datatypes[node.datatype].children : node.children;
-                } else if (node.type === 'DATATYPE' || node.type == 'SEGMENT' || node.type === 'GROUP') {
-                    return node.children;
+                if(node) {
+                    if (node.type === 'SEGMENT_REF') {
+                        return $scope.children($scope.model.segments[node.ref]);
+                    } else if (node.type === 'FIELD' || node.type === 'COMPONENT') {
+                        return  node.datatype && node.datatype !== 'varies' ? $scope.model.datatypes[node.datatype].children : node.children;
+                    } else if (node.type === 'DATATYPE' || node.type == 'SEGMENT' || node.type === 'GROUP') {
+                        return node.children;
+                    }
                 }
+                return [];
             };
 
 
@@ -403,9 +409,11 @@
             };
 
             $scope.hasRelevantChild = function (node) {
-                var children = $scope.children(node);
-                if (children && children != null && children.length > 0) {
-                    return true;
+                if(node != undefined) {
+                    var children = $scope.children(node);
+                    if (children && children != null && children.length > 0) {
+                        return true;
+                    }
                 }
                 return false;
             };
@@ -602,7 +610,7 @@
 
 
             $scope.getSegmentRefNodeName = function (node) {
-                return node.position + "." + $scope.model.segments[node.ref].name + ":" + $scope.model.segments[node.ref].description;
+                return node && $scope.model.segments[node.ref] ? node.position + "." + $scope.model.segments[node.ref].name + ":" + $scope.model.segments[node.ref].description:'';
             };
 
             $scope.getGroupNodeName = function (node) {

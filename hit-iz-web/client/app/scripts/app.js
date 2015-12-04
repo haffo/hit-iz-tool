@@ -410,14 +410,17 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
             'controller': 'VersionChangeCtrl'
         });
         vcModalInstance.result.then(function () {
-            StorageService.clearAll();
-            $templateCache.removeAll();
+            $rootScope.clearSession();
             $rootScope.index();
         }, function () {
-            StorageService.clearAll();
-            $templateCache.removeAll();
+            $rootScope.clearSession();
             $rootScope.index();
         });
+    };
+
+    $rootScope.clearSession = function () {
+        StorageService.clearAll();
+        $templateCache.removeAll();
     };
 
     $rootScope.openErrorDlg = function () {

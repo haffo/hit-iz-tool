@@ -470,7 +470,11 @@
 
                 $http.get('api/documentation/testcases', {params: {"stage": stage}, timeout: 60000}).then(
                     function (object) {
-                        delay.resolve(angular.fromJson(object.data));
+                        if(object.data != null && object.data != "") {
+                            delay.resolve(angular.fromJson(object.data));
+                        }else{
+                            delay.resolve(null);
+                        }
                     },
                     function (response) {
                         delay.reject(response.data);
