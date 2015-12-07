@@ -87,16 +87,16 @@
                     <table class="table table-striped table-bordered table-condensed table-fix-header doc-table">
                         <thead>
                         <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px">
-                            <th st-ratio="25">Document Title</th>
-                            <th st-ratio="25">File Name/Link</th>
+                            <th st-ratio="40">Document Title</th>
+                            <th st-ratio="35">File Name/Link</th>
                             <th st-ratio="25">Date</th>
-                            <th st-ratio="25">Version</th>
+                            <!--<th st-ratio="25">Version</th>-->
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="doc in docs">
-                            <td st-ratio="25"> {{doc.title}}</td>
-                            <td st-ratio="25">
+                            <td st-ratio="40"> {{doc.title}}</td>
+                            <td st-ratio="35">
                                 <span ng-if="doc.name == null">-</span>
                                 <a ng-if="doc.name != null && doc.path != null" class="point"
                                    ng-click="downloadDocument(doc.path)">{{doc.name}}</a>
@@ -105,8 +105,8 @@
                                 <span ng-if="doc.date == null">-</span>
                                 <span ng-if="doc.date != null">{{doc.date}}</span>
                             </td>
-                            <td st-ratio="25"><span ng-if="doc.version == null">-</span>
-                                <span ng-if="doc.version != null">{{doc.version}}</span></td>
+                            <!--<td st-ratio="25"><span ng-if="doc.version == null">-</span>-->
+                                <!--<span ng-if="doc.version != null">{{doc.version}}</span></td>-->
                         </tr>
                         </tbody>
                     </table>
@@ -137,29 +137,29 @@
                     <table class="table table-striped table-bordered table-condensed table-fix-header doc-table">
                         <thead>
                         <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px">
-                            <th st-ratio="20">Document Title</th>
-                            <th st-ratio="20">File Name/Link</th>
-                            <th st-ratio="20">Date</th>
-                            <th st-ratio="20">Version</th>
-                            <th st-ratio="20">Comments</th>
+                            <th st-ratio="40">Document Title</th>
+                            <th st-ratio="35">File Name/Link</th>
+                            <th st-ratio="25">Date</th>
+                            <!--<th st-ratio="20">Version</th>-->
+                            <!--<th st-ratio="20">Comments</th>-->
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="doc in docs">
-                            <td st-ratio="20">{{doc.title}}</td>
-                            <td st-ratio="20">
+                            <td st-ratio="40">{{doc.title}}</td>
+                            <td st-ratio="35">
                                 <span ng-if="doc.name == null">-</span>
                                 <a ng-if="doc.name != null && doc.path != null" class="point"
                                    ng-click="downloadDocument(doc.path)">{{doc.name}}</a>
                             </td>
-                            <td st-ratio="20">
+                            <td st-ratio="25">
                                 <span ng-if="doc.date == null">-</span>
                                 <span ng-if="doc.date != null">{{doc.date}}</span>
                             </td>
-                            <td st-ratio="20"><span ng-if="doc.version == null">-</span>
-                                <span ng-if="doc.version != null">{{doc.version}}</span></td>
-                            <td st-ratio="20"><span ng-if="doc.comments == null">-</span>
-                                <span ng-if="doc.comments != null">{{doc.comments}}</span></td>
+                            <!--<td st-ratio="20"><span ng-if="doc.version == null">-</span>-->
+                                <!--<span ng-if="doc.version != null">{{doc.version}}</span></td>-->
+                            <!--<td st-ratio="20"><span ng-if="doc.comments == null">-</span>-->
+                                <!--<span ng-if="doc.comments != null">{{doc.comments}}</span></td>-->
                         </tr>
                         </tbody>
                     </table>
@@ -347,21 +347,21 @@
                         <thead>
                         <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px">
                             <th st-ratio="40">Document Title</th>
-                            <th st-ratio="30">File Name/Link</th>
-                            <th st-ratio="30">Date Posted</th>
+                            <th st-ratio="35">File Name/Link</th>
+                            <th st-ratio="25">Date Posted</th>
                          </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="doc in docs | orderBy:'position'">
                             <td st-ratio="40">{{doc.title}}</td>
-                            <td st-ratio="30">
+                            <td st-ratio="35">
                                 <span ng-if="doc.path == null">-</span>
                     <span ng-if="doc.path != null">
                     <a class="point" ng-if="isLink(doc.path)" target="_blank" ng-href="{{doc.path}}">{{doc.path}}</a>
                     <a class="point" ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{doc.name}}</a>
                     </span>
                             </td>
-                            <td st-ratio="30">
+                            <td st-ratio="25">
                                 <span ng-if="doc.date == null">-</span>
                                 <span ng-if="doc.date != null">{{doc.date}}</span>
                             </td>
