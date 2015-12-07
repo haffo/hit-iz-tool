@@ -1,6 +1,0 @@
-{
-  "name" : "Display the Evaluated Immunization History for Juan Marcel Gonzales",
-  "description" : "The Provider uses the EMR to view the immunization history in Juan Marcel Gonzales ' record in the local system.",
-  "type" : "SUT_MANUAL",
-  "position" : 1
-}

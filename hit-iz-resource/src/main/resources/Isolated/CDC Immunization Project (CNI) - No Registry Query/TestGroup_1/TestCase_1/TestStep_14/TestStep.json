@@ -1,6 +1,0 @@
-{
-  "name" : "Enter HepA Dose1 and 2 of 2",
-  "description" : "Patient History  for HepA is entered into the EMR.",
-  "type" : "SUT_MANUAL",
-  "position" : 14
-}
