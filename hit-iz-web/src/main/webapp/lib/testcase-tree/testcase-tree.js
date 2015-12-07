@@ -105,7 +105,7 @@
                     };
                     scope.user_clicks_branch = function (branch) {
                         //if (branch !== selected_branch) {
-                            return select_branch(branch);
+                        return select_branch(branch);
                         //}
                     };
 
