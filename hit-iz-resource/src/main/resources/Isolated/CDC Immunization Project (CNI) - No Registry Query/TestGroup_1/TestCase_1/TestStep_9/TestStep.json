@@ -1,6 +1,0 @@
-{
-  "name" : "Enter Hib Doses 1-4 of 4",
-  "description" : "Patient History  for Hib is entered into the EMR.",
-  "type" : "SUT_MANUAL",
-  "position" : 9
-}

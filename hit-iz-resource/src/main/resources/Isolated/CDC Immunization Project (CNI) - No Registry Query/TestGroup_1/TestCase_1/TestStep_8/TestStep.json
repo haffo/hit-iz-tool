@@ -1,6 +1,0 @@
-{
-  "name" : "Enter DTaP Doses 1, 2, 3 and 4 of 5",
-  "description" : "Patient History  for DTaP is entered into the EMR.",
-  "type" : "SUT_MANUAL",
-  "position" : 8
-}
