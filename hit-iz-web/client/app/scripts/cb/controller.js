@@ -361,6 +361,9 @@ angular.module('cb')
                 $scope.vLoading = true;
                 $scope.vError = null;
                 if ($scope.cb.testCase != null && $scope.cb.message.content !== "") {
+                    if($scope.validator == null){
+                        $scope.validator = ServiceDelegator.getMessageValidator($scope.testCase.testContext.format);
+                    }
                     var validator = $scope.validator.validate($scope.cb.testCase.testContext.id, $scope.cb.message.content, $scope.cb.testCase.nav, "Based", [], "1223");
                     validator.then(function (mvResult) {
                         $scope.vLoading = false;
@@ -417,6 +420,11 @@ angular.module('cb')
             try {
                 if ($scope.cb.testCase != null && $scope.cb.testCase.testContext != null && $scope.cb.message.content != '') {
                     $scope.tLoading = true;
+
+                    if( $scope.parser == null){
+                        $scope.parser = ServiceDelegator.getMessageParser($scope.testCase.testContext.format);
+                    }
+
                     var parsed = $scope.parser.parse($scope.cb.testCase.testContext.id, $scope.cb.message.content);
                     parsed.then(function (value) {
                         $scope.tLoading = false;

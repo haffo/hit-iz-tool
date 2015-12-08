@@ -841,6 +841,9 @@ angular.module('isolated')
                     if ($scope.isolated.message.content !== '' && $scope.testStep.testContext != null) {
                         $scope.vLoading = true;
                         $scope.vError = null;
+                        if( $scope.validator == null){
+                            $scope.validator = ServiceDelegator.getMessageValidator($scope.testStep.testContext.format);
+                        }
                         var validator = $scope.validator.validate($scope.testStep.testContext.id, $scope.isolated.message.content, $scope.testStep.nav, "Based", [], "1223");
                         validator.then(function (mvResult) {
                             $scope.vLoading = false;
@@ -916,6 +919,9 @@ angular.module('isolated')
                 if ($scope.testStep != null) {
                     if ($scope.isolated.message.content != '' && $scope.testStep.testContext != null) {
                         $scope.tLoading = true;
+                        if($scope.parser == null){
+                            $scope.parser = ServiceDelegator.getMessageParser($scope.testStep.testContext.format);
+                        }
                         var parsed = $scope.parser.parse($scope.testStep.testContext.id, $scope.isolated.message.content);
                         parsed.then(function (value) {
                             $scope.tLoading = false;
