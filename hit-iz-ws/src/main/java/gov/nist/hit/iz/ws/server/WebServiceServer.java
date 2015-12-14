@@ -7,7 +7,7 @@ import gov.nist.hit.core.domain.TransactionStatus;
 import gov.nist.hit.core.repo.MessageRepository;
 import gov.nist.hit.core.repo.TransactionRepository;
 import gov.nist.hit.core.repo.UserRepository;
-import gov.nist.hit.core.transport.TransportServerException;
+import gov.nist.hit.core.transport.exception.TransportServerException;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestRequestType;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestResponseType;
 import gov.nist.hit.iz.ws.jaxb.SubmitSingleMessageRequestType;

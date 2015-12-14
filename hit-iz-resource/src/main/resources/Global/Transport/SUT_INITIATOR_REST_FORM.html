@@ -1,0 +1,30 @@
+<div class="form-group">
+	<label>Username</label> <input type="text" disabled name="username"
+		class="form-control" ng-model="transport.config.sutInitiator.username">
+	<p class="help-block">This is the username assigned to you to use
+		in your message</p>
+</div>
+
+<div class="form-group">
+	<label>Password</label> <input type="text" class="form-control"
+		name="password" ng-model="transport.config.sutInitiator.password" disabled>
+	<p class="help-block">This is the password assigned to you to use
+		in your message</p>
+</div>
+
+<div class="form-group">
+	<label>FacilityID</label> <input type="text" class="form-control"
+		name="facilityId" ng-model="transport.config.sutInitiator.facilityID" disabled>
+	<p class="help-block">This is the facilityID assigned to you to use
+		in your message</p>
+</div>
+
+<div class="form-group">
+	<label>Endpoint</label>
+	<span name="endpoint" class="form-control">{{transport.config.sutInitiator.endpoint}}</span>
+</div>
+
+<div class="form-group">
+	<label>WSDL</label> <a ng-href="{{transport.config.sutInitiator.endpoint}}.wsdl"
+		class="form-control" target="_blank">{{transport.config.sutInitiator.endpoint}}.wsdl</a>
+</div>

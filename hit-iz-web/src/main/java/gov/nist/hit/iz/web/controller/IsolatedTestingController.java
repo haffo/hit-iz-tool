@@ -12,31 +12,22 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.core.domain.Command;
 import gov.nist.hit.core.domain.TestCase;
 import gov.nist.hit.core.domain.TestPlan;
 import gov.nist.hit.core.domain.TestStep;
 import gov.nist.hit.core.domain.TestingStage;
-import gov.nist.hit.core.domain.TransactionCommand;
-import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.service.TestCaseService;
 import gov.nist.hit.core.service.TestPlanService;
 import gov.nist.hit.core.service.TestStepService;
-import gov.nist.hit.core.service.exception.TestCaseException;
-import gov.nist.hit.core.transport.TransportClient;
-import gov.nist.hit.core.transport.TransportClientException;
-import gov.nist.hit.iz.service.util.ConnectivityUtil;
+import gov.nist.hit.core.transport.service.TransportClient;
 
-import java.io.IOException;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,9 +42,6 @@ public class IsolatedTestingController {
 
   static final Logger logger = LoggerFactory.getLogger(IsolatedTestingController.class);
 
-
-  String SUMBIT_SINGLE_MESSAGE_TEMPLATE = null;
-
   @Autowired
   private TestPlanService testPlanService;
 
@@ -67,11 +55,7 @@ public class IsolatedTestingController {
   @Autowired
   private TransportClient transportClient;
 
-  public IsolatedTestingController() throws IOException {
-    SUMBIT_SINGLE_MESSAGE_TEMPLATE =
-        IOUtils.toString(IsolatedTestingController.class
-            .getResourceAsStream("/templates/SubmitSingleMessage.xml"));
-  }
+  public IsolatedTestingController() {}
 
   @Cacheable(value = "testCaseCache", key = "'isolated-testcases'")
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
@@ -96,31 +80,5 @@ public class IsolatedTestingController {
   }
 
 
-  @RequestMapping(value = "/soap/send", method = RequestMethod.POST)
-  public Command sendRequest(@RequestBody TransactionCommand command)
-      throws TransportClientException {
-    logger.info("Sending ... " + command);
-    try {
-      Long testCaseId = command.getTestCaseId();
-      TestStep testStep = testStepService.findOne(testCaseId);
-      if (testStep == null)
-        throw new TestCaseException("Unknown test step with id=" + testCaseId);
-      String request = command.getContent();
-      request =
-          ConnectivityUtil.updateSubmitSingleMessageRequest(SUMBIT_SINGLE_MESSAGE_TEMPLATE,
-              request, command.getU(), command.getP(), command.getFacilityId());
-      String response = transportClient.send(request, command.getEndpoint());
-      String tmp = response;
-      try {
-        response = XmlUtil.prettyPrint(response);
-      } catch (Exception e) {
-        response = tmp;
-      }
-      return new TransactionCommand(request, response);
-    } catch (Exception e1) {
-      throw new TransportClientException("Failed to send the message." + e1.getMessage());
-    }
-
-  }
 
 }

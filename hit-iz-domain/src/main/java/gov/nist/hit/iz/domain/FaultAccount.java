@@ -28,7 +28,7 @@ import org.apache.commons.lang3.StringUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class SecurityFaultCredentials implements java.io.Serializable {
+public class FaultAccount implements java.io.Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -37,35 +37,20 @@ public class SecurityFaultCredentials implements java.io.Serializable {
   protected Long id;
 
   @Column(nullable = false, unique = true)
-  protected String faultUsername;
+  protected String username;
 
   @JsonIgnore
   @Column(nullable = false)
-  protected String faultPassword;
+  protected String password;
 
   @JsonIgnore
   @OneToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
   @JoinColumn(unique = true)
   protected User user;
 
-  public String getFaultUsername() {
-    return faultUsername;
-  }
-
-  public void setFaultUsername(String faultUsername) {
-    this.faultUsername = faultUsername;
-  }
-
-  public String getFaultPassword() {
-    return faultPassword;
-  }
-
-  public void setFaultPassword(String faultPassword) {
-    this.faultPassword = faultPassword;
-  }
 
   public boolean isEmpty() {
-    return StringUtils.isEmpty(faultUsername) || StringUtils.isEmpty(faultPassword);
+    return StringUtils.isEmpty(username) || StringUtils.isEmpty(password);
   }
 
   public User getUser() {
@@ -83,5 +68,23 @@ public class SecurityFaultCredentials implements java.io.Serializable {
   public void setId(Long id) {
     this.id = id;
   }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
 
 }
