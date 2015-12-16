@@ -29,10 +29,10 @@ import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.core.service.exception.UserNotFoundException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.core.transport.exception.TransportClientException;
-import gov.nist.hit.core.transport.service.TransportClient;
 import gov.nist.hit.iz.repo.SOAPSecurityFaultCredentialsRepository;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 import gov.nist.hit.iz.web.utils.Utils;
+import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -79,7 +79,7 @@ public class IZSOAPTransportController {
   protected TransportConfigService transportConfigService;
 
   @Autowired
-  private TransportClient transportClient;
+  private IZSOAPWebServiceClient webServiceClient;
 
 
   private final static String DOMAIN = "iz";
@@ -145,7 +145,7 @@ public class IZSOAPTransportController {
   public boolean open(@RequestBody SendRequest request) {
     logger.info("Open transaction for user with id=" + request.getUserId()
         + " and of test step with id=" + request.getTestStepId());
-    Transaction transaction = transaction(request);
+    Transaction transaction = fetchTaInitiorTransaction(request);
     if (transaction != null) {
       transaction.init();;
       transactionRepository.saveAndFlush(transaction);
@@ -164,7 +164,7 @@ public class IZSOAPTransportController {
   public boolean close(@RequestBody SendRequest request) {
     logger.info("Closing transaction for user with id=" + request.getUserId()
         + " and of test step with id=" + request.getTestStepId());
-    Transaction transaction = transaction(request);
+    Transaction transaction = fetchTaInitiorTransaction(request);
     if (transaction != null) {
       // setResponseMessageId(transaction.getTransportAccount(), null);
       transaction.close();
@@ -173,17 +173,26 @@ public class IZSOAPTransportController {
     return true;
   }
 
-  @RequestMapping(value = "/transaction", method = RequestMethod.POST)
-  public Transaction transaction(@RequestBody SendRequest request) {
+  @RequestMapping(value = "/fetchTaInitiorTransaction", method = RequestMethod.POST)
+  public Transaction fetchTaInitiorTransaction(@RequestBody SendRequest request) {
     logger.info("Get transaction of user with id=" + request.getUserId()
         + " and of testStep with id=" + request.getTestStepId());
     Transaction transaction =
         transactionRepository
             .findOneByUserAndTestStep(request.getUserId(), request.getTestStepId());
-    if (transaction == null) {
-      transaction = new Transaction();
+    if (transaction == null) { // can't find by user and teststep Id
+      List<KeyValuePair> criteria = new ArrayList<KeyValuePair>();
+      criteria.add(new KeyValuePair("username", request.getConfig().get("username")));
+      criteria.add(new KeyValuePair("password", request.getConfig().get("password")));
+      criteria.add(new KeyValuePair("facilityID", request.getConfig().get("facilityID")));
+      transaction = transactionRepository.findOneByCriteria(criteria);
+      if (transaction == null) {
+        transaction = new Transaction();
+      }
       transaction.setTestStep(testStepService.findOne(request.getTestStepId()));
       transaction.setUser(userRepository.findOne(request.getUserId()));
+      transaction.setConfig(request.getConfig());
+      transaction.setResponseMessageId(request.getResponseMessageId());
       transactionRepository.save(transaction);
     }
     return transaction;
@@ -210,18 +219,20 @@ public class IZSOAPTransportController {
               request.getMessage(), request.getConfig().get("username"),
               request.getConfig().get("password"), request.getConfig().get("facilityID"));
       String incomingMessage =
-          transportClient.send(outgoingMessage, request.getConfig().get("endpoint"));
+          webServiceClient.send(outgoingMessage, request.getConfig().get("endpoint"));
       String tmp = incomingMessage;
       try {
         incomingMessage = XmlUtil.prettyPrint(incomingMessage);
       } catch (Exception e) {
         incomingMessage = tmp;
       }
+
       Transaction transaction = transactionRepository.findOneByUserAndTestStep(userId, testStepId);
       if (transaction == null) {
         transaction = new Transaction();
         transaction.setTestStep(testStepService.findOne(testStepId));
         transaction.setUser(userRepository.findOne(userId));
+        transaction.setConfig(request.getConfig());
         transaction.setOutgoing(outgoingMessage);
         transaction.setIncoming(incomingMessage);
         transactionRepository.save(transaction);

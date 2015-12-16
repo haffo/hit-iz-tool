@@ -1,12 +1,16 @@
 package gov.nist.hit.iz.ws.server.interceptor;
 
+import gov.nist.hit.core.domain.KeyValuePair;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.repo.TransactionRepository;
+import gov.nist.hit.core.repo.TransportConfigRepository;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -34,6 +38,9 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
 
   @Autowired
   private TransactionRepository transactionRepository;
+
+  @Autowired
+  private TransportConfigRepository transportConfigRepository;
 
   public TransactionRepository getTransactionRepository() {
     return transactionRepository;
@@ -66,9 +73,11 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
     String password = getPassword(request);
     String facilityID = getFacilityID(request);
     try {
-      Transaction transaction =
-          transactionRepository.findByUsernameAndPasswordAndFacilityID(username, password,
-              facilityID);
+      List<KeyValuePair> criteria = new ArrayList<KeyValuePair>();
+      criteria.add(new KeyValuePair("username", username));
+      criteria.add(new KeyValuePair("password", password));
+      criteria.add(new KeyValuePair("facilityID", facilityID));
+      Transaction transaction = transactionRepository.findOneByCriteria(criteria);
       if (transaction != null) {
         transaction.setIncoming(XmlUtil.prettyPrint(request));
         transaction.setOutgoing(XmlUtil.prettyPrint(response));

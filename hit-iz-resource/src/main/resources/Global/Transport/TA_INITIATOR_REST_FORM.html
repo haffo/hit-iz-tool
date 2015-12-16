@@ -10,7 +10,7 @@
 	<label>FacilityID</label> <input type='text' class='form-control'
 		placeholder='Facility Id' ng-model='config.facilityID'>
 </div>
-<div class='form-group' ng-class='{ ' has-error' :taInitiatorForm.endpoint.$invalid && !taInitiatorForm.endpoint.$pristine }'>
+<div class='form-group' ng-class="{'has-error' :taInitiatorForm.endpoint.$invalid && !taInitiatorForm.endpoint.$pristine}">
 	<label>Endpoint</label> <input type='url' name='endpoint'
 		class='form-control' ng-model='config.endpoint'
 		placeholder='SUT Endpoint' required>

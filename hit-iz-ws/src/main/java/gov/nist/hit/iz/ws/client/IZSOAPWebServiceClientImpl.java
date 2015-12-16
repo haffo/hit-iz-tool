@@ -1,7 +1,6 @@
 package gov.nist.hit.iz.ws.client;
 
 import gov.nist.hit.core.transport.exception.TransportClientException;
-import gov.nist.hit.core.transport.service.TransportClient;
 
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -19,13 +18,13 @@ import org.springframework.ws.client.WebServiceTransportException;
 import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.ws.soap.client.SoapFaultClientException;
 
-public class WebServiceClient implements TransportClient {
+public class IZSOAPWebServiceClientImpl extends IZSOAPWebServiceClient {
 
-  static final Logger logger = LoggerFactory.getLogger(WebServiceClient.class);
+  static final Logger logger = LoggerFactory.getLogger(IZSOAPWebServiceClientImpl.class);
 
   private final WebServiceTemplate webServiceTemplate;
 
-  public WebServiceClient(WebServiceTemplate webServiceTemplate) {
+  public IZSOAPWebServiceClientImpl(WebServiceTemplate webServiceTemplate) {
     this.webServiceTemplate = webServiceTemplate;
   }
 

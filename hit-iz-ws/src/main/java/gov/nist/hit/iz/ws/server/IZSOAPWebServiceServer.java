@@ -3,6 +3,8 @@ package gov.nist.hit.iz.ws.server;
 import gov.nist.healthcare.core.MalformedMessageException;
 import gov.nist.healthcare.core.message.MessageLocation;
 import gov.nist.healthcare.core.message.v2.er7.Er7Message;
+import gov.nist.hit.core.domain.KeyValuePair;
+import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.TransactionStatus;
 import gov.nist.hit.core.repo.MessageRepository;
 import gov.nist.hit.core.repo.TransactionRepository;
@@ -15,6 +17,8 @@ import gov.nist.hit.iz.ws.jaxb.SubmitSingleMessageResponseType;
 import gov.nist.hit.iz.ws.utils.WsdlUtil;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.xml.bind.JAXBException;
@@ -30,7 +34,7 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
-public class WebServiceServer implements TransportServer {
+public class IZSOAPWebServiceServer implements TransportServer {
 
   private static final String NAMESPACE_URI = "urn:cdc:iisb:2011";
 
@@ -74,32 +78,56 @@ public class WebServiceServer implements TransportServer {
     if (hl7Message == null || hl7Message.equals("")) {
       throw new TransportServerException("No Hl7 Message Provided");
     }
-
-    String responseMessage = getResponseMessage(request.getUsername(), request.getPassword());
+    String responseMessage =
+        getResponseMessage(request.getUsername(), request.getPassword(), request.getFacilityID());
     return getSubmitSingleMessageResponse(hl7Message, responseMessage);
   }
 
 
-  public String getResponseMessage(String username, String password) {
-    Long messageId = userRepository.getResponseMessageIdByUsernameAndPassword(username, password);
-    if (messageId != null) {
-      return messageRepository.getContentById(messageId);
+  public String getResponseMessage(String username, String password, String facilityID) {
+    Transaction transaction = getTransaction(username, password, facilityID);
+    if (transaction != null) {
+      Long messageId = transaction.getResponseMessageId();
+      if (messageId != null) {
+        return messageRepository.getContentById(messageId);
+      }
     }
     return null;
   }
 
+  public List<KeyValuePair> getCriteria(String username, String password, String facilityID) {
+    List<KeyValuePair> criteria = new ArrayList<KeyValuePair>();
+    criteria.add(new KeyValuePair("username", username));
+    criteria.add(new KeyValuePair("password", password));
+    criteria.add(new KeyValuePair("facilityID", facilityID));
+    return criteria;
+  }
+
+
+  public Transaction getTransaction(String username, String password, String facilityID) {
+    List<KeyValuePair> criteria = getCriteria(username, password, facilityID);
+    Transaction transaction = transactionRepository.findOneByCriteria(criteria);
+    return transaction;
+  }
+
+  public TransactionStatus getStatus(String username, String password, String facilityID) {
+    List<KeyValuePair> criteria = getCriteria(username, password, facilityID);
+    TransactionStatus status = transactionRepository.getStatusByCriteria(criteria);
+    return status;
+  }
 
 
   private void check(SubmitSingleMessageRequestType request) throws SecurityException,
       TransportServerException {
     String username = request.getUsername();
     String password = request.getPassword();
+    String facilityID = request.getFacilityID();
+
     if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
       throw new SecurityException("Missing Authentication Information");
-    } else if (userRepository.findOneByUsernameAndPassword(username, password) == null) {
+    } else if (getTransaction(username, password, facilityID) == null) {
       throw new SecurityException("Invalid Authentication Information");
-    } else if (!TransactionStatus.OPEN.equals(transactionRepository.getStatusByUsernameAndPassword(
-        username, password))) {
+    } else if (!TransactionStatus.OPEN.equals(getStatus(username, password, facilityID))) {
       throw new TransportServerException("Transaction not initialized correctly");
     }
   }
@@ -183,7 +211,7 @@ public class WebServiceServer implements TransportServer {
         response.setReturn(outboundMessage);
       } else {
         String outboundSoap =
-            IOUtils.toString(WebServiceServer.class
+            IOUtils.toString(IZSOAPWebServiceServer.class
                 .getResourceAsStream("/ws/messages/SubmitSingleMessageResponse_Precanned.xml"));
         response = WsdlUtil.toSubmitSingleMessageResponse(outboundSoap);
         outboundMessage = response.getReturn();
