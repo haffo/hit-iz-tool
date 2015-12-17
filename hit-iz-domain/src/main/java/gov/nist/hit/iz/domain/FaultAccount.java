@@ -11,8 +11,6 @@
  */
 package gov.nist.hit.iz.domain;
 
-import gov.nist.hit.core.domain.User;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,18 +44,18 @@ public class FaultAccount implements java.io.Serializable {
   @JsonIgnore
   @OneToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
   @JoinColumn(unique = true)
-  protected User user;
+  protected ConnectivityUser user;
 
 
   public boolean isEmpty() {
     return StringUtils.isEmpty(username) || StringUtils.isEmpty(password);
   }
 
-  public User getUser() {
+  public ConnectivityUser getUser() {
     return user;
   }
 
-  public void setUser(User user) {
+  public void setUser(ConnectivityUser user) {
     this.user = user;
   }
 

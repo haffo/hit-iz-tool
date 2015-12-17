@@ -13,9 +13,9 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
+import gov.nist.hit.core.domain.TransactionStatus;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
@@ -26,10 +26,15 @@ import gov.nist.hit.iz.domain.ConnectivityTestCase;
 import gov.nist.hit.iz.domain.ConnectivityTestContext;
 import gov.nist.hit.iz.domain.ConnectivityTestPlan;
 import gov.nist.hit.iz.domain.ConnectivityTransaction;
+import gov.nist.hit.iz.domain.ConnectivityTransactionCommand;
+import gov.nist.hit.iz.domain.ConnectivityUser;
+import gov.nist.hit.iz.domain.FaultAccount;
 import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestCaseRepository;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestContextRepository;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestPlanRepository;
+import gov.nist.hit.iz.repo.SOAPConnectivityTransactionRepository;
+import gov.nist.hit.iz.repo.SOAPConnectivityUserRepository;
 import gov.nist.hit.iz.repo.SOAPSecurityFaultCredentialsRepository;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.exception.SoapValidationException;
@@ -46,6 +51,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -88,21 +95,14 @@ public class SOAPConnectivityController {
   private SOAPValidationReportGenerator reportService;
 
   @Autowired
-  protected ConnectivityTransactionRepository transactionRepository;
+  protected SOAPConnectivityTransactionRepository transactionRepository;
+
+  @Autowired
+  protected SOAPConnectivityUserRepository userRepository;
 
 
   @Autowired
-  protected UserRepository userRepository;
-
-
-  public ConnectivityTransactionRepository getConnectivityTransactionRepository() {
-    return transactionRepository;
-  }
-
-  public void setConnectivityTransactionRepository(
-      ConnectivityTransactionRepository transactionRepository) {
-    this.transactionRepository = transactionRepository;
-  }
+  protected SOAPSecurityFaultCredentialsRepository securityFaultCredentialsRepository;
 
   public SOAPMessageParser getSoapParser() {
     return soapMessageParser;
@@ -192,9 +192,10 @@ public class SOAPConnectivityController {
     }
   }
 
-  @ConnectivityTransactional()
+  @Transactional()
   @RequestMapping(value = "/open", method = RequestMethod.POST)
-  public boolean initIncoming(@RequestBody final User user) throws UserTokenIdNotFoundException {
+  public boolean initIncoming(@RequestBody final ConnectivityUser user)
+      throws UserTokenIdNotFoundException {
     logger.info("Initializing transaction for username ... " + user.getUsername());
     ConnectivityTransaction transaction = transaction(user);
     if (transaction != null) {
@@ -206,14 +207,14 @@ public class SOAPConnectivityController {
     return false;
   }
 
-  private void setResponseMessageId(User user, Long messageId) {
+  private void setResponseMessageId(ConnectivityUser user, Long messageId) {
     user.setResponseMessageId(messageId);
     userRepository.save(user);
   }
 
-  @ConnectivityTransactional()
+  @Transactional()
   @RequestMapping(value = "/close", method = RequestMethod.POST)
-  public boolean clearIncoming(@RequestBody final User user) {
+  public boolean clearIncoming(@RequestBody final ConnectivityUser user) {
     logger.info("Closing transaction for username... " + user.getUsername());
     ConnectivityTransaction transaction = transaction(user);
     if (transaction != null) {
@@ -225,7 +226,7 @@ public class SOAPConnectivityController {
   }
 
   @RequestMapping(method = RequestMethod.POST)
-  public ConnectivityTransaction transaction(@RequestBody final User user) {
+  public ConnectivityTransaction transaction(@RequestBody final ConnectivityUser user) {
     logger.info("Get transaction of username ... " + user.getUsername());
     ConnectivityTransaction transaction =
         transactionRepository.findByUsernameAndPasswordAndFacilityID(user.getUsername(),
@@ -233,20 +234,7 @@ public class SOAPConnectivityController {
     return transaction != null ? transaction : new ConnectivityTransaction();
   }
 
-  @Autowired
-  protected ConnectivityTransactionRepository transactionRepository;
 
-  @Autowired
-  protected SOAPSecurityFaultCredentialsRepository securityFaultCredentialsRepository;
-
-  public ConnectivityTransactionRepository getConnectivityTransactionRepository() {
-    return transactionRepository;
-  }
-
-  public void setConnectivityTransactionRepository(
-      ConnectivityTransactionRepository transactionRepository) {
-    this.transactionRepository = transactionRepository;
-  }
 
   @ResponseBody
   @ExceptionHandler(UserTokenIdNotFoundException.class)
@@ -264,15 +252,16 @@ public class SOAPConnectivityController {
     return ex.getMessage();
   }
 
-  @ConnectivityTransactional()
+  @Transactional()
   @RequestMapping(value = "/initUser", method = RequestMethod.POST)
-  public UserCommand initUser(@RequestBody final User userCommand, HttpServletRequest request) {
+  public UserCommand initUser(@RequestBody final ConnectivityUser userCommand,
+      HttpServletRequest request) {
     logger.info("Fetching user information ... ");
-    User user = null;
+    ConnectivityUser user = null;
     Long id = userCommand.getId();
 
     if (id == null) {
-      user = new User();
+      user = new ConnectivityUser();
       userRepository.saveAndFlush(user);
     } else {
       user = userRepository.findOne(id);
@@ -287,12 +276,12 @@ public class SOAPConnectivityController {
     }
 
     Long userId = user.getId();
-    SecurityFaultCredentials faultCredentials =
+    FaultAccount faultCredentials =
         securityFaultCredentialsRepository.findOneByUserId(user.getId());
     if (faultCredentials == null) {
-      faultCredentials = new SecurityFaultCredentials();
-      faultCredentials.setFaultUsername("faultUser_" + userId);
-      faultCredentials.setFaultPassword("faultPwd_" + userId);
+      faultCredentials = new FaultAccount();
+      faultCredentials.setUsername("faultUser_" + userId);
+      faultCredentials.setPassword("faultPwd_" + userId);
       faultCredentials.setUser(user);
       securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
     }
@@ -302,7 +291,7 @@ public class SOAPConnectivityController {
       transaction = new ConnectivityTransaction();
       transaction.setUser(user);
     }
-    transaction.setStatus(ConnectivityTransactionStatus.CLOSE);
+    transaction.setStatus(TransactionStatus.CLOSE);
     transactionRepository.saveAndFlush(transaction);
 
     // User user = null;
