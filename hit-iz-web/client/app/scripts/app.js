@@ -180,7 +180,7 @@ app.factory('ErrorInterceptor', function ($q, $rootScope, $location, StorageServ
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http,UserService,User) {
 
 
     $rootScope.appInfo = {};
@@ -189,7 +189,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 
     $rootScope.scrollbarWidth = null;
 
-    new AppInfo().then(function (appInfo) {
+    AppInfo.get().then(function (appInfo) {
         $rootScope.appInfo = appInfo;
         httpHeaders.common['csrfToken'] = appInfo.csrfToken;
         httpHeaders.common['dTime'] = appInfo.date;
@@ -197,6 +197,18 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
         $rootScope.appInfo = {};
         $rootScope.openErrorDlg();
     });
+    if(StorageService.get(StorageService.USER_KEY) == null) {
+        UserService.create().then(function (info) {
+            User.info = info;
+            StorageService.set(StorageService.USER_KEY,info);
+        }, function (error) {
+            User.info = null;
+            StorageService.remove(StorageService.USER_KEY);
+        });
+    }else{
+        User.info = angular.fromJson(StorageService.get(StorageService.USER_KEY));
+    };
+
 
     $rootScope.$watch(function () {
         return $location.path();
@@ -301,19 +313,19 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
         TestingSettings.setActiveTab($rootScope.activeTab);
     };
 
-    $rootScope.initAppInfo = function () {
-        var delay = $q.defer();
-        if ($rootScope.appInfo === null) {
-            return new AppInfo().then(function (appInfo) {
-                $rootScope.appInfo = appInfo;
-                delay.resolve($rootScope.appInfo);
-                return delay.promise;
-            })
-        } else {
-            delay.resolve($rootScope.appInfo);
-            return delay.promise;
-        }
-    };
+//    $rootScope.initAppInfo = function () {
+//        var delay = $q.defer();
+//        if ($rootScope.appInfo === null) {
+//            return new AppInfo().then(function (appInfo) {
+//                $rootScope.appInfo = appInfo;
+//                delay.resolve($rootScope.appInfo);
+//                return delay.promise;
+//            })
+//        } else {
+//            delay.resolve($rootScope.appInfo);
+//            return delay.promise;
+//        }
+//    };
 
 
     $rootScope.downloadArtifact = function (path) {
@@ -603,20 +615,11 @@ angular.module('commonServices').factory('Clock', function ($interval) {
     return Clock;
 });
 
-
-angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function ($http, $q) {
-    return function () {
-        var delay = $q.defer();
-        $http.get('api/appInfo').then(
-            function (object) {
-                delay.resolve(angular.fromJson(object.data));
-            },
-            function (response) {
-                delay.reject(response.data);
-            }
-        );
 //
-//        $http.get('../../resources/appInfo.json').then(
+//angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function ($http, $q) {
+//    return function () {
+//        var delay = $q.defer();
+//        $http.get('api/appInfo').then(
 //            function (object) {
 //                delay.resolve(angular.fromJson(object.data));
 //            },
@@ -624,10 +627,19 @@ angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function 
 //                delay.reject(response.data);
 //            }
 //        );
-
-        return delay.promise;
-    };
-}]);
+////
+////        $http.get('../../resources/appInfo.json').then(
+////            function (object) {
+////                delay.resolve(angular.fromJson(object.data));
+////            },
+////            function (response) {
+////                delay.reject(response.data);
+////            }
+////        );
+//
+//        return delay.promise;
+//    };
+//}]);
 
 
 app.controller('TableFoundCtrl', function ($scope, $modalInstance, table) {

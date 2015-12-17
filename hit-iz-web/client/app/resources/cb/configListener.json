@@ -1,0 +1,16 @@
+{
+    "protocol":"rest",
+    "domain":"domain",
+    "sutInitiator":{
+        "username":"vendor_1",
+        "password":"vendor_1",
+        "facilityID":"vendor_1",
+        "endpoint":"http://endpoint.com"
+    },
+    "taInitiator":{
+        "username":"af",
+        "password":"1234",
+        "facilityID":"1234",
+        "endpoint":"http://endpoint.1234.com"
+    }
+}
