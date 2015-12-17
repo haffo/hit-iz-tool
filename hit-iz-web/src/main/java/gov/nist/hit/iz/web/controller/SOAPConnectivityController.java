@@ -13,21 +13,24 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.domain.TransactionCommand;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.repo.TransactionRepository;
+import gov.nist.hit.core.repo.UserRepository;
+import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
+import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.core.transport.exception.TransportClientException;
 import gov.nist.hit.core.transport.service.TransportClient;
 import gov.nist.hit.iz.domain.ConnectivityTestCase;
 import gov.nist.hit.iz.domain.ConnectivityTestContext;
 import gov.nist.hit.iz.domain.ConnectivityTestPlan;
+import gov.nist.hit.iz.domain.ConnectivityTransaction;
 import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestCaseRepository;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestContextRepository;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestPlanRepository;
+import gov.nist.hit.iz.repo.SOAPSecurityFaultCredentialsRepository;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.exception.SoapValidationException;
 import gov.nist.hit.iz.service.soap.SOAPMessageParser;
@@ -37,14 +40,19 @@ import gov.nist.hit.iz.web.utils.Utils;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -80,13 +88,19 @@ public class SOAPConnectivityController {
   private SOAPValidationReportGenerator reportService;
 
   @Autowired
-  protected TransactionRepository transactionRepository;
+  protected ConnectivityTransactionRepository transactionRepository;
 
-  public TransactionRepository getTransactionRepository() {
+
+  @Autowired
+  protected UserRepository userRepository;
+
+
+  public ConnectivityTransactionRepository getConnectivityTransactionRepository() {
     return transactionRepository;
   }
 
-  public void setTransactionRepository(TransactionRepository transactionRepository) {
+  public void setConnectivityTransactionRepository(
+      ConnectivityTransactionRepository transactionRepository) {
     this.transactionRepository = transactionRepository;
   }
 
@@ -148,7 +162,7 @@ public class SOAPConnectivityController {
   }
 
   @RequestMapping(value = "/send", method = RequestMethod.POST)
-  public Command sendRequest(@RequestBody TransactionCommand command)
+  public Command sendRequest(@RequestBody ConnectivityTransactionCommand command)
       throws TransportClientException {
     logger.info("Sending ... " + command);
     try {
@@ -172,11 +186,156 @@ public class SOAPConnectivityController {
       } catch (Exception e) {
         response = tmp;
       }
-      return new TransactionCommand(request, response);
+      return new ConnectivityTransactionCommand(request, response);
     } catch (Exception e1) {
       throw new TransportClientException("Failed to send the message." + e1.getMessage());
     }
+  }
 
+  @ConnectivityTransactional()
+  @RequestMapping(value = "/open", method = RequestMethod.POST)
+  public boolean initIncoming(@RequestBody final User user) throws UserTokenIdNotFoundException {
+    logger.info("Initializing transaction for username ... " + user.getUsername());
+    ConnectivityTransaction transaction = transaction(user);
+    if (transaction != null) {
+      setResponseMessageId(transaction.getUser(), user.getResponseMessageId());
+      transaction.init();;
+      transactionRepository.saveAndFlush(transaction);
+      return true;
+    }
+    return false;
+  }
+
+  private void setResponseMessageId(User user, Long messageId) {
+    user.setResponseMessageId(messageId);
+    userRepository.save(user);
+  }
+
+  @ConnectivityTransactional()
+  @RequestMapping(value = "/close", method = RequestMethod.POST)
+  public boolean clearIncoming(@RequestBody final User user) {
+    logger.info("Closing transaction for username... " + user.getUsername());
+    ConnectivityTransaction transaction = transaction(user);
+    if (transaction != null) {
+      setResponseMessageId(transaction.getUser(), null);
+      transaction.close();
+      transactionRepository.saveAndFlush(transaction);
+    }
+    return true;
+  }
+
+  @RequestMapping(method = RequestMethod.POST)
+  public ConnectivityTransaction transaction(@RequestBody final User user) {
+    logger.info("Get transaction of username ... " + user.getUsername());
+    ConnectivityTransaction transaction =
+        transactionRepository.findByUsernameAndPasswordAndFacilityID(user.getUsername(),
+            user.getPassword(), user.getFacilityID());
+    return transaction != null ? transaction : new ConnectivityTransaction();
+  }
+
+  @Autowired
+  protected ConnectivityTransactionRepository transactionRepository;
+
+  @Autowired
+  protected SOAPSecurityFaultCredentialsRepository securityFaultCredentialsRepository;
+
+  public ConnectivityTransactionRepository getConnectivityTransactionRepository() {
+    return transactionRepository;
+  }
+
+  public void setConnectivityTransactionRepository(
+      ConnectivityTransactionRepository transactionRepository) {
+    this.transactionRepository = transactionRepository;
+  }
+
+  @ResponseBody
+  @ExceptionHandler(UserTokenIdNotFoundException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  public String facilityIdNotFound(UserTokenIdNotFoundException ex) {
+    logger.debug(ex.getMessage());
+    return ex.getMessage();
+  }
+
+  @ResponseBody
+  @ExceptionHandler(DuplicateTokenIdException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  public String DuplicateFacilityIdException(DuplicateTokenIdException ex) {
+    logger.debug(ex.getMessage());
+    return ex.getMessage();
+  }
+
+  @ConnectivityTransactional()
+  @RequestMapping(value = "/initUser", method = RequestMethod.POST)
+  public UserCommand initUser(@RequestBody final User userCommand, HttpServletRequest request) {
+    logger.info("Fetching user information ... ");
+    User user = null;
+    Long id = userCommand.getId();
+
+    if (id == null) {
+      user = new User();
+      userRepository.saveAndFlush(user);
+    } else {
+      user = userRepository.findOne(id);
+    }
+
+    // create a guest user if no token found
+    if (user.getPassword() == null && user.getUsername() == null) { // Guest
+      user.setUsername("vendor_" + user.getId());
+      user.setPassword("vendor_" + user.getId());
+      user.setFacilityID("vendor_" + user.getId());
+      userRepository.saveAndFlush(user);
+    }
+
+    Long userId = user.getId();
+    SecurityFaultCredentials faultCredentials =
+        securityFaultCredentialsRepository.findOneByUserId(user.getId());
+    if (faultCredentials == null) {
+      faultCredentials = new SecurityFaultCredentials();
+      faultCredentials.setFaultUsername("faultUser_" + userId);
+      faultCredentials.setFaultPassword("faultPwd_" + userId);
+      faultCredentials.setUser(user);
+      securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
+    }
+
+    ConnectivityTransaction transaction = transactionRepository.findOneByUserId(userId);
+    if (transaction == null) {
+      transaction = new ConnectivityTransaction();
+      transaction.setUser(user);
+    }
+    transaction.setStatus(ConnectivityTransactionStatus.CLOSE);
+    transactionRepository.saveAndFlush(transaction);
+
+    // User user = null;
+    // List<User> users = userRepository.findAll();
+    // if (users == null || users.isEmpty()) {
+    // user = new User();
+    // user.setUsername("pilot");
+    // user.setPassword("pilot");
+    // user.setFacilityID("pilot");
+    // userRepository.saveAndFlush(user);
+    // } else {
+    // user = users.get(0);
+    // }
+    // Long userId = user.getId();
+    // SecurityFaultCredentials faultCredentials =
+    // securityFaultCredentialsRepository.findOneByUserId(user.getId());
+    // if (faultCredentials == null) {
+    // faultCredentials = new SecurityFaultCredentials();
+    // faultCredentials.setFaultUsername("pilot");
+    // faultCredentials.setFaultPassword("pilot");
+    // faultCredentials.setUser(user);
+    // securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
+    // }
+    // ConnectivityTransaction transaction = transactionRepository.findOneByUserId(userId);
+    // if (transaction == null) {
+    // transaction = new ConnectivityTransaction();
+    // transaction.setUser(user);
+    // }
+    // transaction.setStatus(ConnectivityTransactionStatus.CLOSE);
+    // transactionRepository.saveAndFlush(transaction);
+    return new UserCommand(user.getUsername(), user.getPassword(),
+        faultCredentials.getFaultUsername(), faultCredentials.getFaultPassword(),
+        user.getFacilityID(), Utils.getUrl(request) + "/ws/iisService");
   }
 
 }
