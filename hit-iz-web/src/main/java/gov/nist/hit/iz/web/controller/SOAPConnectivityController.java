@@ -21,13 +21,13 @@ import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.core.transport.exception.TransportClientException;
-import gov.nist.hit.core.transport.service.TransportClient;
 import gov.nist.hit.iz.domain.ConnectivityTestCase;
 import gov.nist.hit.iz.domain.ConnectivityTestContext;
 import gov.nist.hit.iz.domain.ConnectivityTestPlan;
 import gov.nist.hit.iz.domain.ConnectivityTransaction;
 import gov.nist.hit.iz.domain.ConnectivityTransactionCommand;
 import gov.nist.hit.iz.domain.ConnectivityUser;
+import gov.nist.hit.iz.domain.ConnectivityUserCommand;
 import gov.nist.hit.iz.domain.FaultAccount;
 import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestCaseRepository;
@@ -42,6 +42,7 @@ import gov.nist.hit.iz.service.soap.SOAPMessageParser;
 import gov.nist.hit.iz.service.soap.SOAPMessageValidator;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 import gov.nist.hit.iz.web.utils.Utils;
+import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
 
 import java.util.List;
 
@@ -77,7 +78,7 @@ public class SOAPConnectivityController {
   private SOAPMessageValidator soapValidator;
 
   @Autowired
-  private TransportClient transportClient;
+  private IZSOAPWebServiceClient webServiceClient;
 
   @Autowired
   private SOAPConnectivityTestContextRepository testContextRepository;
@@ -161,7 +162,7 @@ public class SOAPConnectivityController {
 
   }
 
-  @RequestMapping(value = "/send", method = RequestMethod.POST)
+  @RequestMapping(value = "/transport/send", method = RequestMethod.POST)
   public Command sendRequest(@RequestBody ConnectivityTransactionCommand command)
       throws TransportClientException {
     logger.info("Sending ... " + command);
@@ -179,7 +180,7 @@ public class SOAPConnectivityController {
       } else if (IZTestType.RECEIVER_CONNECTIVITY.toString().equals(testCase.getTestType())) {
         request = ConnectivityUtil.updateConnectivityRequest(req);
       }
-      String response = transportClient.send(request, command.getEndpoint());
+      String response = webServiceClient.send(request, command.getEndpoint());
       String tmp = response;
       try {
         response = XmlUtil.prettyPrint(response);
@@ -193,7 +194,7 @@ public class SOAPConnectivityController {
   }
 
   @Transactional()
-  @RequestMapping(value = "/open", method = RequestMethod.POST)
+  @RequestMapping(value = "/transport/open", method = RequestMethod.POST)
   public boolean initIncoming(@RequestBody final ConnectivityUser user)
       throws UserTokenIdNotFoundException {
     logger.info("Initializing transaction for username ... " + user.getUsername());
@@ -213,7 +214,7 @@ public class SOAPConnectivityController {
   }
 
   @Transactional()
-  @RequestMapping(value = "/close", method = RequestMethod.POST)
+  @RequestMapping(value = "/transport/close", method = RequestMethod.POST)
   public boolean clearIncoming(@RequestBody final ConnectivityUser user) {
     logger.info("Closing transaction for username... " + user.getUsername());
     ConnectivityTransaction transaction = transaction(user);
@@ -253,8 +254,8 @@ public class SOAPConnectivityController {
   }
 
   @Transactional()
-  @RequestMapping(value = "/initUser", method = RequestMethod.POST)
-  public UserCommand initUser(@RequestBody final ConnectivityUser userCommand,
+  @RequestMapping(value = "/transport/initUser", method = RequestMethod.POST)
+  public ConnectivityUserCommand initUser(@RequestBody final ConnectivityUser userCommand,
       HttpServletRequest request) {
     logger.info("Fetching user information ... ");
     ConnectivityUser user = null;
@@ -322,9 +323,9 @@ public class SOAPConnectivityController {
     // }
     // transaction.setStatus(ConnectivityTransactionStatus.CLOSE);
     // transactionRepository.saveAndFlush(transaction);
-    return new UserCommand(user.getUsername(), user.getPassword(),
-        faultCredentials.getFaultUsername(), faultCredentials.getFaultPassword(),
-        user.getFacilityID(), Utils.getUrl(request) + "/ws/iisService");
+    return new ConnectivityUserCommand(user.getUsername(), user.getPassword(),
+        faultCredentials.getUsername(), faultCredentials.getPassword(), user.getFacilityID(),
+        Utils.getUrl(request) + "/ws/iisService");
   }
 
 }

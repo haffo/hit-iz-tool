@@ -2,8 +2,8 @@
 			 {
 			 	"protocol":"SOAP",
 			 	 "forms":{
-			 	 		"TA_INITIATOR":"TA_INITIATOR_REST_FORM.html",
-			 	 		"SUT_INITIATOR":"SUT_INITIATOR_REST_FORM.html"
+			 	 		"TA_INITIATOR":"TA_INITIATOR_SOAP_FORM.html",
+			 	 		"SUT_INITIATOR":"SUT_INITIATOR_SOAP_FORM.html"
 			 	 }
 			 }
 ]
