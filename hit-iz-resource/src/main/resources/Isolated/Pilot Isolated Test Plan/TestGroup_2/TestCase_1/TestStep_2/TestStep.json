@@ -7,5 +7,6 @@
     "valueSetLibraryId" : "c01bbec1-cf6a-4748-8a6c-2dae2e4b8d0e"
   },
   "type" : "SUT_INITIATOR",
-  "description" : "The EMR generates a Z44 query for immunization history and forecast correctly and without omission according to supplied test data."
+  "description" : "The EMR generates a Z44 query for immunization history and forecast correctly and without omission according to supplied test data.",
+  "protocol":"soap"
 }

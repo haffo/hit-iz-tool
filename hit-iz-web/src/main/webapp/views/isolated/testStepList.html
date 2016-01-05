@@ -16,8 +16,7 @@
      </div>
     <div class="panel-body">
         <div>
-            <table
-                    class="table table-striped table-bordered  table-condensed">
+            <table class="table table-striped table-bordered table-condensed">
                 <thead>
                 <tr class="">
                     <th style="width:5%">Type</th>
@@ -29,8 +28,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-class="{'warning': testStep != null && row.id === testStep.id}"
-                    ng-repeat="row in testCase.children | orderBy:'position'">
+                <tr ng-class="{'warning': testStep != null && row.id === testStep.id}" ng-repeat="row in testCase.children | orderBy:'position'">
                     <td style="width:5%">
                         <label>
                                     <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
@@ -44,10 +42,7 @@
                     <span ng-show="row.testingType === 'TA_RESPONDER' || row.testingType === 'SUT_RESPONDER'">
                         <i class="fa fa-arrow-left"></i>
                     </span>
-                            <input ng-show="isTestCaseCompleted()" type="radio"
-                                   ng-click="selectTestStep(row)"
-                                   ng-checked="testStep != null && testStep.id === row.id"
-                                    >
+                            <input ng-show="isTestCaseCompleted()" type="radio" ng-click="selectTestStep(row)" ng-checked="testStep != null && testStep.id === row.id">
                         </label>
                     </td>
                     <td style="width:20%">
@@ -61,12 +56,10 @@
                     <span>
                     <span ng-show="getExecutionStatus(row) === undefined">Not started</span>
                           <span ng-show="getExecutionStatus(row) === 'IN_PROGRESS'">
-                                       <i title="In Progress"
-                                          class="glyphicon glyphicon-ok"></i> In Progress
+                                       <i title="In Progress" class="glyphicon glyphicon-ok"></i> In Progress
                              </span>
                             <span ng-show="getExecutionStatus(row) === 'COMPLETE'">
-                                     <i title="Complete"
-                                        class="glyphicon glyphicon-ok green"></i> Completed
+                                     <i title="Complete" class="glyphicon glyphicon-ok green"></i> Completed
                              </span>
                         </span>
                     </td>
@@ -77,12 +70,10 @@
                               In Progress
                         </span>
                     <span ng-show="getValidationStatus(row) > 0">
-                              <i title="Message is Invalid"
-                                 class="glyphicon glyphicon-remove red"></i> Failed
+                              <i title="Message is Invalid" class="glyphicon glyphicon-remove red"></i> Failed
                           </span>
                             <span ng-show="getValidationStatus(row) == 0">
-                                      <i title="Message Is Valid"
-                                         class="glyphicon glyphicon-ok green"></i> Passed
+                                      <i title="Message Is Valid" class="glyphicon glyphicon-ok green"></i> Passed
                              </span>
                         </span>
                      <span ng-show="row.testingType == 'TA_MANUAL' || row.testingType == 'SUT_MANUAL'">
@@ -97,20 +88,12 @@
 
                         <div ng-show="testStep != null && row.id === testStep.id && testStep.testingType === 'SUT_INITIATOR'">
                             <div class="" style="margin-bottom: 20px" ng-show="transport.config.sutInitiator != null">
-                                <button title="Config Info" type="button"
-                                        ng-click="openConfig()"
-                                        class="btn btn-xs btn-primary"><i
-                                        class="fa fa-cog"></i>
+                                <button title="Config Info" type="button" ng-click="openConfig()" class="btn btn-xs btn-primary"><i class="fa fa-cog"></i>
                                 </button>
-                                <button type="button" title="Start Listening"
-                                        ng-click="startListener()" ng-disabled="sutInitiatorForm.$invalid || connecting"
-                                        title="Start listening"
-                                        class="btn btn-xs btn-success">
+                                <button type="button" title="Start Listening" ng-click="startListener()" ng-disabled="sutInitiatorForm.$invalid || connecting" title="Start listening" class="btn btn-xs btn-success">
                                     <i class="fa fa-play"></i>
                                 </button>
-                                <button type="button" title="Stop Listening"
-                                        ng-disabled="!connecting" ng-click="stopListener()"
-                                        class="btn btn-xs btn-warning"><i class="fa fa-stop"></i>
+                                <button type="button" title="Stop Listening" ng-disabled="!connecting" ng-click="stopListener()" class="btn btn-xs btn-warning"><i class="fa fa-stop"></i>
                                 </button>
                                 <!--<span ng-show="connecting">-->
                                 <!--<i class="fa fa-spinner"></i> Remaining time (s): {{counter}} / {{counterMax}}-->
@@ -135,14 +118,9 @@
 
                         <div ng-show="testStep != null && row.id === testStep.id && testStep.testingType === 'TA_INITIATOR'">
                             <div class="" style="margin-bottom: 20px" ng-show="transport.config.taInitiator != null">
-                                <button title="Config Info" type="button"
-                                        ng-click="openConfig()"
-                                        class="btn btn-xs btn-primary"><i
-                                        class="fa fa-cog"></i>
+                                <button title="Config Info" type="button" ng-click="openConfig()" class="btn btn-xs btn-primary"><i class="fa fa-cog"></i>
                                 </button>
-                                <button type="button"
-                                        ng-click="send()" ng-disabled="!hasUserContent() || connecting"
-                                        title="Send" class="btn btn-xs btn-success">
+                                <button type="button" ng-click="send()" ng-disabled="!hasUserContent() || connecting" title="Send" class="btn btn-xs btn-success">
                                     <i class="fa fa-play"></i>
                                 </button>
                                 <!--<span ng-show="connecting">-->

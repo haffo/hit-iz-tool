@@ -180,7 +180,7 @@ app.factory('ErrorInterceptor', function ($q, $rootScope, $location, StorageServ
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http,UserService,User) {
+app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http,User) {
 
 
     $rootScope.appInfo = {};
@@ -197,17 +197,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
         $rootScope.appInfo = {};
         $rootScope.openErrorDlg();
     });
-    if(StorageService.get(StorageService.USER_KEY) == null) {
-        UserService.create().then(function (info) {
-            User.info = info;
-            StorageService.set(StorageService.USER_KEY,info);
-        }, function (error) {
-            User.info = null;
-            StorageService.remove(StorageService.USER_KEY);
-        });
-    }else{
-        User.info = angular.fromJson(StorageService.get(StorageService.USER_KEY));
-    };
+
 
 
     $rootScope.$watch(function () {

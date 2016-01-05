@@ -41,23 +41,23 @@ angular.module('isolated').factory('IsolatedSystemTestCaseListLoader', ['$q','$h
     function ($q,$http) {
         return function() {
             var delay = $q.defer();
-//            $http.get("api/isolated/testcases").then(
-//                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
+            $http.get("api/isolated/testcases").then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
 
-                $http.get('../../resources/cb/isolatedTestPlans.json').then(
-                    function (object) {
-                        delay.resolve(angular.fromJson(object.data));
-                    },
-                    function (response) {
-                        delay.reject(response.data);
-                    }
-                );
+//                $http.get('../../resources/cb/isolatedTestPlans.json').then(
+//                    function (object) {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    },
+//                    function (response) {
+//                        delay.reject(response.data);
+//                    }
+//                );
 
             return delay.promise;
         };
