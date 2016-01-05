@@ -1,5 +1,5 @@
 {
   "name" : "IZ-QR-1_Query_Child",
-  "position" : 1,
-  "description" : "Query for a child with immunization history. A response message with evaluated history and forecast is returned. <br>"
+  "description" : "Query for a child with immunization history. A response message with evaluated history and forecast is returned. <br>",
+  "position" : 1
 }

@@ -1,5 +1,5 @@
 {
   "name" : "IZ-QR-3_Query_No_Patients",
-  "position" : 3,
-  "description" : "Tests ability to send a query and receive a response where no patients are found."
+  "description" : "Tests ability to send a query and receive a response where no patients are found.",
+  "position" : 3
 }

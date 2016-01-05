@@ -27,7 +27,7 @@ USA "},
 			[
 				{"element" : "Immunization Registry Status", "data" : "Active"},
 				{"element" : "Immunization Registry Status Effective Date", "data" : "06/02/2004"},
-				{"element" : "Publicity Code", "data" : "Reminder/recall - any method"},
+				{"element" : "Publicity Code", "data" : "Reminder/recall - to provider"},
 				{"element" : "Publicity Code Effective Date", "data" : "06/24/2015"},
 				{"element" : "Protection Indicator", "data" : "No"},
 				{"element" : "Protection Indicator Effective Date", "data" : "06/24/2015"}

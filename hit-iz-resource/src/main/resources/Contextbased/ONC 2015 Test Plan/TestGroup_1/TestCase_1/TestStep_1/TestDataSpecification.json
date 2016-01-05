@@ -27,7 +27,7 @@
 			[
 				{"element" : "Immunization Registry Status", "data" : "Active"},
 				{"element" : "Immunization Registry Status Effective Date", "data" : "04/15/2015"},
-				{"element" : "Publicity Code", "data" : "Recall only - no calls"},
+				{"element" : "Publicity Code", "data" : "Reminder/recall - any method"},
 				{"element" : "Publicity Code Effective Date", "data" : "06/24/2015"},
 				{"element" : "Protection Indicator", "data" : "No"},
 				{"element" : "Protection Indicator Effective Date", "data" : "06/24/2015"}

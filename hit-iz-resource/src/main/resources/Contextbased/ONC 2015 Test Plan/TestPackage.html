@@ -282,7 +282,7 @@
 This test plan is to be used for the ONC 2015 Edition Certification Testing of HealthIT modules. All test cases are required to be executed. The test plan includes a set of Administered Immunization test cases (Administration Group) and a set of Query and Response test cases (Evaluated History and Forecast Group).<br>
 <p>Domain : Immunization</p>
 <p>Version : 1.0</p>
-<p>Date : 2015-12-04 16:14:54</p>
+<p>Date : 2016-01-05 11:56:29</p>
 <p style="page-break-after:always;"></p><A NAME="1"><h2>1. Administration Group</h2>
 <span><span style="font-weight: bold; font-size: small;">The administration group is design to test:</span><blockquote style="font-weight: normal; margin: 0px 0px 0px 40px; border: none; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; padding: 0px;"><div><span style="font-size: small;">(1) the creation of a broad scope of immunization messages including support for new and historical administrations, refusals, combination vaccines, patient consent and various observations including VIS and VFC.</span></div><div><span style="font-size: small;">(2) the receipt and handling of various acknowledgement messages including application accept, application error, and application warning.</span></div></blockquote><div style="font-size: 10pt; font-weight: normal;"><br></div><div><span style="font-weight: bold; font-size: small;">Test Cases consists of 2 steps:</span></div><blockquote style="font-weight: normal; margin: 0px 0px 0px 40px; border: none; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; padding: 0px;"><div><span style="font-size: small;">(1) creating immunization messages based on the Immunization Messaging Standard (Z22 Profile-VXU Message) and specific Test Data, and</span></div><div><span style="font-size: small;">(2) receiving acknowledgment messages based on the Immunization Messaging Standard (Z23 Profile-ACK Message).</span></div></blockquote></span>
 <p style="page-break-after:always;"></p><A NAME="1.1"><h2>1.1. IZ-AD-1_Admin_Chlid</h2>
@@ -368,7 +368,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td>A two month old male infant, Russell Clinton Richardson, is brought to a clinic for a well child visit by his mother Maria Elizabeth Richardson (nee Billington) and his father John William Richardson. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child previously received Hepatitis B vaccine 1 day after birth and 1 month after birth. The staff member determines that the patient needs DTaP, Hib, IPV, Rotavirus and Pneumococcal vaccinations. Because of the patient's status of Native American, he qualifies for all Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - American Indian/Alaska Native. The parents are given 5 Vaccine Information Sheets (VIS) to review. After reading them, they agree that the child should receive all the vaccinations recommended. They also agree that the data should be shared once it is incorporated into the local IIS. Appropriate doses of DTaP/Hib/IPV (Pentacel), Rotavirus (RotaTeq) and Pneumococcal (Prevnar 13) are selected from the clinic's stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.
+		<td>A two month old male infant, Russell Clinton Richardson, is brought to a clinic for a well child visit by his mother Maria Elizabeth Richardson (nee Billington) and his father John William Richardson. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child previously received Hepatitis B vaccine 1 day after birth and 1 month after birth. The staff member determines that the patient needs DTaP, Hib, IPV, Rotavirus and Pneumococcal vaccinations. Because of the patient's status of Native American, he qualifies for all Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - American Indian/Alaska Native. The parents are given 5 Vaccine Information Sheets (VIS) to review. After reading them, they agree that the child should receive all the vaccinations recommended. They also agree that the data should be shared once it is incorporated into the local IIS. They indicate that reminders and recalls may be sent by any method. Appropriate doses of DTaP/Hib/IPV (Pentacel), Rotavirus (RotaTeq) and Pneumococcal (Prevnar 13) are selected from the clinic's stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.
 		</td></tr>
 		</table>
 		<br/>
@@ -1388,7 +1388,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Identifier
 					</td>
-					<td class="Data">07
+					<td class="Data">02
 					</td>
 					<td class="Data">Value-Test Case Fixed
 					</td></tr>
@@ -1397,7 +1397,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Text
 					</td>
-					<td class="Data">Recall only - no calls
+					<td class="Data">Reminder/recall - any method
 					</td>
 					<td class="Data">Presence-Test Case Proper
 					</td></tr>
@@ -2172,7 +2172,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -2280,7 +2280,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -2535,7 +2535,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -2643,7 +2643,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -2898,7 +2898,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -3006,7 +3006,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -3079,18 +3079,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">9077
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -3261,7 +3261,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -3369,7 +3369,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -3442,18 +3442,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">299
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -3624,7 +3624,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -3732,7 +3732,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -4046,7 +4046,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -4481,7 +4481,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -4916,7 +4916,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -5351,7 +5351,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -5786,7 +5786,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -10478,7 +10478,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Identifier
 					</td>
-					<td class="Data">07
+					<td class="Data">02
 					</td>
 					<td class="Data">Value-Test Case Fixed
 					</td></tr>
@@ -10487,7 +10487,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Text
 					</td>
-					<td class="Data">Recall only - no calls
+					<td class="Data">Reminder/recall - any method
 					</td>
 					<td class="Data">Presence-Test Case Proper
 					</td></tr>
@@ -11262,7 +11262,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -11370,7 +11370,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -11625,7 +11625,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -11733,7 +11733,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -11988,7 +11988,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -12096,7 +12096,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -12169,18 +12169,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">9077
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -12351,7 +12351,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -12459,7 +12459,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -12532,18 +12532,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">299
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -12714,7 +12714,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -12822,7 +12822,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -13136,7 +13136,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -13571,7 +13571,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -14006,7 +14006,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -14441,7 +14441,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -14876,7 +14876,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -18594,7 +18594,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<td>04/15/2015</td></tr>
 		<tr>
 		<td>Publicity Code</td>
-		<td>Recall only - no calls</td></tr>
+		<td>Reminder/recall - any method</td></tr>
 		<tr>
 		<td>Publicity Code Effective Date</td>
 		<td>06/24/2015</td></tr>
@@ -19222,7 +19222,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<td>04/15/2015</td></tr>
 		<tr>
 		<td>Publicity Code</td>
-		<td>Recall only - no calls</td></tr>
+		<td>Reminder/recall - any method</td></tr>
 		<tr>
 		<td>Publicity Code Effective Date</td>
 		<td>06/24/2015</td></tr>
@@ -21195,7 +21195,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td>A 32 year old female, Elise Wong, visits a clinic for a well woman visit. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that Elise has received her influenza vaccinations on 10/12/2014 and 11/12/2013, but is in need of a tetanus booster. Because of the patient's age she does not qualify for Vaccine For Children (VFC) supplied vaccine. Elise is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, she agrees to receive the recommended vaccination. She also agrees that the data should be shared once it is incorporated into the local IIS. An appropriate dose of Tdap (TENIVAC) is selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.
+		<td>A 32 year old female, Elise Wong, visits a clinic for a well woman visit. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that Elise has received her influenza vaccinations on 10/12/2014 and 11/12/2013, but is in need of a tetanus booster. Because of the patient's age she does not qualify for Vaccine For Children (VFC) supplied vaccine. Elise is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, she agrees to receive the recommended vaccination. She also agrees that the data should be shared once it is incorporated into the local IIS. She indicates that reminders and recalls may be sent by any method. An appropriate dose of Tdap (TENIVAC) is selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.
 		</td></tr>
 		</table>
 		<br/>
@@ -22556,7 +22556,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -22664,7 +22664,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -22737,18 +22737,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">6139
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -22919,7 +22919,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -23027,7 +23027,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -23100,18 +23100,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">7600
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -23282,7 +23282,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -23390,7 +23390,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -23704,7 +23704,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -24139,7 +24139,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -24574,7 +24574,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -27022,7 +27022,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -27130,7 +27130,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -27203,18 +27203,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">6139
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -27385,7 +27385,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -27493,7 +27493,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -27566,18 +27566,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">7600
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -27748,7 +27748,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -27856,7 +27856,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -28170,7 +28170,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -28605,7 +28605,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -29040,7 +29040,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -32282,7 +32282,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td>An eleven and a half year old female, Katherine Mackenzie Benton, is brought to a clinic for a third and final dose of HPV vaccine. She is accompanied by her mother Kari Michelle Benton (nee Jones). A clinic staff member collects basic patient demographic information including name, date of birth and sex. The mother is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, the mother agrees that the child should receive the HPV vaccine, but she chooses not to share the data once it is incorporated into the local IIS. A clinic provider, Wilma Thomas (physician ID 654) places an order for the vaccination. While the patient is covered by insurance, the plan does not cover this vaccination and she qualifies for Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - Underinsured. An appropriate dose of HPV (CERVARIX) is selected from the clinic's stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the dose to the patient and then enters the data into the EHR and transmits it to the IIS.
+		<td>An eleven and a half year old female, Katherine Mackenzie Benton, is brought to a clinic for a third and final dose of HPV vaccine. She is accompanied by her mother Kari Michelle Benton (nee Jones). A clinic staff member collects basic patient demographic information including name, date of birth and sex. The mother is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, the mother agrees that the child should receive the HPV vaccine, but she chooses not to share the data once it is incorporated into the local IIS. She also declines any reminder or recall notifications. A clinic provider, Wilma Thomas (physician ID 654) places an order for the vaccination. While the patient is covered by insurance, the plan does not cover this vaccination and she qualifies for Vaccine For Children (VFC) supplied vaccines under the status of VFC eligible - Underinsured. An appropriate dose of HPV (CERVARIX) is selected from the clinic's stock of publically funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the dose to the patient and then enters the data into the EHR and transmits it to the IIS.
 		</td></tr>
 		</table>
 		<br/>
@@ -33832,7 +33832,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -33940,7 +33940,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -34249,7 +34249,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -36884,7 +36884,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -36992,7 +36992,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -37301,7 +37301,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -41837,7 +41837,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -41945,7 +41945,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -42254,7 +42254,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -44889,7 +44889,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -44997,7 +44997,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -45306,7 +45306,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -49312,7 +49312,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Identifier
 					</td>
-					<td class="Data">02
+					<td class="Data">08
 					</td>
 					<td class="Data">Value-Test Case Fixed
 					</td></tr>
@@ -49321,7 +49321,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Text
 					</td>
-					<td class="Data">Reminder/recall - any method
+					<td class="Data">Reminder/recall - to provider
 					</td>
 					<td class="Data">Presence-Test Case Proper
 					</td></tr>
@@ -49845,7 +49845,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -49953,7 +49953,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -50208,7 +50208,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -50316,7 +50316,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -50571,7 +50571,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -50679,7 +50679,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -50934,7 +50934,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -51042,7 +51042,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -51356,7 +51356,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -51791,7 +51791,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -52226,7 +52226,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -52661,7 +52661,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -56567,7 +56567,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Identifier
 					</td>
-					<td class="Data">02
+					<td class="Data">08
 					</td>
 					<td class="Data">Value-Test Case Fixed
 					</td></tr>
@@ -56576,7 +56576,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Text
 					</td>
-					<td class="Data">Reminder/recall - any method
+					<td class="Data">Reminder/recall - to provider
 					</td>
 					<td class="Data">Presence-Test Case Proper
 					</td></tr>
@@ -57100,7 +57100,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -57208,7 +57208,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -57463,7 +57463,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -57571,7 +57571,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -57826,7 +57826,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -57934,7 +57934,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -58189,7 +58189,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -58297,7 +58297,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -58611,7 +58611,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -59046,7 +59046,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -59481,7 +59481,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -59916,7 +59916,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -62849,7 +62849,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<td>06/02/2004</td></tr>
 		<tr>
 		<td>Publicity Code</td>
-		<td>Reminder/recall - any method</td></tr>
+		<td>Reminder/recall - to provider</td></tr>
 		<tr>
 		<td>Publicity Code Effective Date</td>
 		<td>06/24/2015</td></tr>
@@ -63360,7 +63360,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<td>06/02/2004</td></tr>
 		<tr>
 		<td>Publicity Code</td>
-		<td>Reminder/recall - any method</td></tr>
+		<td>Reminder/recall - to provider</td></tr>
 		<tr>
 		<td>Publicity Code Effective Date</td>
 		<td>06/24/2015</td></tr>
@@ -66235,7 +66235,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Identifier
 					</td>
-					<td class="Data">02
+					<td class="Data">08
 					</td>
 					<td class="Data">Value-Test Case Fixed
 					</td></tr>
@@ -66244,7 +66244,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Text
 					</td>
-					<td class="Data">Reminder/recall - any method
+					<td class="Data">Reminder/recall - to provider
 					</td>
 					<td class="Data">Presence-Test Case Proper
 					</td></tr>
@@ -66765,7 +66765,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -66873,7 +66873,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -67182,7 +67182,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -69287,7 +69287,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Identifier
 					</td>
-					<td class="Data">02
+					<td class="Data">08
 					</td>
 					<td class="Data">Value-Test Case Fixed
 					</td></tr>
@@ -69296,7 +69296,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Text
 					</td>
-					<td class="Data">Reminder/recall - any method
+					<td class="Data">Reminder/recall - to provider
 					</td>
 					<td class="Data">Presence-Test Case Proper
 					</td></tr>
@@ -69817,7 +69817,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -69925,7 +69925,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -70234,7 +70234,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -71366,7 +71366,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<td>06/02/2004</td></tr>
 		<tr>
 		<td>Publicity Code</td>
-		<td>Reminder/recall - any method</td></tr>
+		<td>Reminder/recall - to provider</td></tr>
 		<tr>
 		<td>Publicity Code Effective Date</td>
 		<td>06/24/2015</td></tr>
@@ -71622,7 +71622,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<td>06/02/2004</td></tr>
 		<tr>
 		<td>Publicity Code</td>
-		<td>Reminder/recall - any method</td></tr>
+		<td>Reminder/recall - to provider</td></tr>
 		<tr>
 		<td>Publicity Code Effective Date</td>
 		<td>06/24/2015</td></tr>
@@ -73222,7 +73222,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td>A 66 year old female, Helen Barrett, comes to a clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that she received a Zoster vaccination at a local pharmacy on her 65th birthday. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.
+		<td>A 66 year old female, Helen Barrett, comes to a clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. She indicates that reminders and recalls may be sent by any method. The patient reports that she received a Zoster vaccination at a local pharmacy on her 65th birthday. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.
 		</td></tr>
 		</table>
 		<br/>
@@ -74296,7 +74296,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Identifier
 					</td>
-					<td class="Data">06
+					<td class="Data">02
 					</td>
 					<td class="Data">Value-Test Case Fixed
 					</td></tr>
@@ -74305,7 +74305,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Text
 					</td>
-					<td class="Data">Recall only - any method
+					<td class="Data">Reminder/recall - any method
 					</td>
 					<td class="Data">Presence-Test Case Proper
 					</td></tr>
@@ -74398,18 +74398,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">7646
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -74580,7 +74580,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -74688,7 +74688,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -74997,7 +74997,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -76254,7 +76254,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Identifier
 					</td>
-					<td class="Data">06
+					<td class="Data">02
 					</td>
 					<td class="Data">Value-Test Case Fixed
 					</td></tr>
@@ -76263,7 +76263,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Text
 					</td>
-					<td class="Data">Recall only - any method
+					<td class="Data">Reminder/recall - any method
 					</td>
 					<td class="Data">Presence-Test Case Proper
 					</td></tr>
@@ -76356,18 +76356,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">7646
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -76538,7 +76538,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -76646,7 +76646,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -76955,7 +76955,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -77188,7 +77188,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<td>03/17/1950</td></tr>
 		<tr>
 		<td>Publicity Code</td>
-		<td>Recall only - any method</td></tr>
+		<td>Reminder/recall - any method</td></tr>
 		<tr>
 		<td>Publicity Code Effective Date</td>
 		<td>06/25/2015</td></tr>
@@ -77405,7 +77405,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<td>03/17/1950</td></tr>
 		<tr>
 		<td>Publicity Code</td>
-		<td>Recall only - any method</td></tr>
+		<td>Reminder/recall - any method</td></tr>
 		<tr>
 		<td>Publicity Code Effective Date</td>
 		<td>06/25/2015</td></tr>
@@ -79293,7 +79293,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td>A 1 month old female, Ashley Jennifer Broadway, is brought to a clinic for a well child visit by her mother Ellen Broadway (nee Layton). A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child requires a Hep B vaccination. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The mother is given the Vaccine Information Sheet (VIS) to review. After reading it, she agrees that the child should receive the Hep B vaccine. She also agrees that the data should be shared once it is incorporated into the local IIS. An appropriate dose of Hep B (ENGERIX-B) is selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and enters the data into the EHR and transmits it to the IIS.
+		<td>A 1 month old female, Ashley Jennifer Broadway, is brought to a clinic for a well child visit by her mother Ellen Broadway (nee Layton). A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child requires a Hep B vaccination. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The mother is given the Vaccine Information Sheet (VIS) to review. After reading it, she agrees that the child should receive the Hep B vaccine. She also agrees that the data should be shared once it is incorporated into the local IIS. She indicates that reminders and recalls should not be made via a phone call. An appropriate dose of Hep B (ENGERIX-B) is selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and enters the data into the EHR and transmits it to the IIS.
 		</td></tr>
 		</table>
 		<br/>
@@ -80843,7 +80843,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -80951,7 +80951,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -81260,7 +81260,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -83895,7 +83895,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -84003,7 +84003,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -84312,7 +84312,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -87628,7 +87628,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td>A 4 year old female, Lacy Wells, is brought to a clinic for a well child visit by her guardian Janelle Trudeau. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child requires DTaP, polio, MMR and varicella vaccinations. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The guardian is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, she agrees that the child should receive all the vaccines. She also agrees that the data should be shared once it is incorporated into the local IIS. Appropriate doses of DTap-IPV (KINRIX) and MMRV (ProQuad) are selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and enters the data into the EHR and transmits it to the IIS.
+		<td>A 4 year old female, Lacy Wells, is brought to a clinic for a well child visit by her guardian Janelle Trudeau. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that the child requires DTaP, polio, MMR and varicella vaccinations. The child is covered by insurance and does not qualify for all Vaccine For Children (VFC) supplied vaccines. The guardian is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, she agrees that the child should receive all the vaccines. She also agrees that the data should be shared once it is incorporated into the local IIS. She indicates that all reminder and recall notifications should be routed to the provider. Appropriate doses of DTap-IPV (KINRIX) and MMRV (ProQuad) are selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and enters the data into the EHR and transmits it to the IIS.
 		</td></tr>
 		</table>
 		<br/>
@@ -88648,7 +88648,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Identifier
 					</td>
-					<td class="Data">01
+					<td class="Data">08
 					</td>
 					<td class="Data">Value-Test Case Fixed
 					</td></tr>
@@ -88657,7 +88657,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Text
 					</td>
-					<td class="Data">No reminder/recall
+					<td class="Data">Reminder/recall - to provider
 					</td>
 					<td class="Data">Presence-Test Case Proper
 					</td></tr>
@@ -89181,7 +89181,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -89289,7 +89289,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -89544,7 +89544,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -89652,7 +89652,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -89966,7 +89966,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -90401,7 +90401,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -93803,7 +93803,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Identifier
 					</td>
-					<td class="Data">01
+					<td class="Data">08
 					</td>
 					<td class="Data">Value-Test Case Fixed
 					</td></tr>
@@ -93812,7 +93812,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Text
 					</td>
-					<td class="Data">No reminder/recall
+					<td class="Data">Reminder/recall - to provider
 					</td>
 					<td class="Data">Presence-Test Case Proper
 					</td></tr>
@@ -94336,7 +94336,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -94444,7 +94444,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -94699,7 +94699,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -94807,7 +94807,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">MD
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -95121,7 +95121,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -95556,7 +95556,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -97985,7 +97985,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<td>04/30/2011</td></tr>
 		<tr>
 		<td>Publicity Code</td>
-		<td>No reminder/recall</td></tr>
+		<td>Reminder/recall - to provider</td></tr>
 		<tr>
 		<td>Publicity Code Effective Date</td>
 		<td>06/25/2015</td></tr>
@@ -98346,7 +98346,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<td>04/30/2011</td></tr>
 		<tr>
 		<td>Publicity Code</td>
-		<td>No reminder/recall</td></tr>
+		<td>Reminder/recall - to provider</td></tr>
 		<tr>
 		<td>Publicity Code Effective Date</td>
 		<td>06/25/2015</td></tr>
@@ -100721,7 +100721,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 		<th>Description</th>
 		</tr>
 		<tr>
-		<td>A 68 year old male, Manuel Diego Vasquez, comes to a clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. The patient reports that he received a pneumococcal vaccination at a local pharmacy on October 21, 2014. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.
+		<td>A 68 year old male, Manuel Diego Vasquez, comes to a clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. He declines further recall and reminder notifications. The patient reports that he received a pneumococcal vaccination at a local pharmacy on October 21, 2014. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.
 		</td></tr>
 		</table>
 		<br/>
@@ -101897,18 +101897,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">4486
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -102079,7 +102079,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -102187,7 +102187,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -102496,7 +102496,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11
@@ -103855,18 +103855,18 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Component">Entity Identifier
 					</td>
-					<td class="Data">4486
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.2
 					</td>
 					<td class="Component">Namespace ID
 					</td>
-					<td class="Data">NIST-AA-IZ-2
+					<td class="noData">
 					</td>
-					<td class="Data">Presence-Content Indifferent
+					<td class="Data">Indifferent
 					</td></tr>
 					<tr>
 					<td class="Component">ORC-2.3
@@ -104037,7 +104037,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="Data">PRN
 					</td>
-					<td class="Data">Value-Test Case Fixed
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-12
@@ -104145,7 +104145,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">ORC-17
@@ -104454,7 +104454,7 @@ This test plan is to be used for the ONC 2015 Edition Certification Testing of H
 					</td>
 					<td class="noData">
 					</td>
-					<td class="Data">Indifferent
+					<td class="Data">Value-Test Case Fixed List
 					</td></tr>
 		<tr>
 		<td class="Field">RXA-11

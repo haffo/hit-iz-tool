@@ -392,7 +392,7 @@
 			<Component Name="Organization Identifier" Usage="C" Datatype="ST" MinLength="1" MaxLength="20"/>
 		</Datatype>
 		<Datatype ID="XCN_IZ_ST" Label="XCN_IZ_ST" Name="XCN" Description="Extended Composite ID Number and Name for Persons">
-			<Component Name="ID Number" Usage="O" Datatype="ST" MinLength="1" MaxLength="15"/>
+			<Component Name="ID Number" Usage="C" Datatype="ST" MinLength="1" MaxLength="15"/>
 			<Component Name="Family Name" Usage="O" Datatype="FN" MinLength="1" MaxLength="194"/>
 			<Component Name="Given Name" Usage="O" Datatype="ST" MinLength="1" MaxLength="30"/>
 			<Component Name="Second and Further Given Names or Initials Thereof" Usage="O" Datatype="ST" MinLength="1" MaxLength="30"/>

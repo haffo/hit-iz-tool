@@ -340,7 +340,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "ORC.10.10", "dataelement" : "Name Type Code", "data" : "L",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.10.13", "dataelement" : "Identifier Type Code", "data" :
-"PRN", "categorization" : "Value-Test Case Fixed"},
+"PRN", "categorization" : "Value-Test Case Fixed List"},
 				{"location" : "ORC.12", "dataelement" : "Ordering Provider", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.12.1", "dataelement" : "ID Number", "data" : "654", "categorization"
@@ -364,7 +364,7 @@ Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content In
 							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "L",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
-"MD", "categorization" : "Value-Test Case Fixed"},
+"MD", "categorization" : "Value-Test Case Fixed List"},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
@@ -434,7 +434,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "L",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
-"PRN", "categorization" : "Value-Test Case Fixed"},
+"PRN", "categorization" : "Value-Test Case Fixed List"},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"

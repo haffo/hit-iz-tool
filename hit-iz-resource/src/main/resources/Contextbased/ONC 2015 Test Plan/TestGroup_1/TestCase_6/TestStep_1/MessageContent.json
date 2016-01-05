@@ -219,10 +219,10 @@ Latino", "categorization" : "Presence-Test Case Proper"},
 			[
 				{"location" : "PD1.11", "dataelement" : "Publicity Code", "data" : "", "categorization"
 : ""},
-							{"location" : "PD1.11.1", "dataelement" : "Identifier", "data" : "02", "categorization"
+							{"location" : "PD1.11.1", "dataelement" : "Identifier", "data" : "08", "categorization"
 : "Value-Test Case Fixed"},
 							{"location" : "PD1.11.2", "dataelement" : "Text", "data" : "Reminder/recall
-- any method", "categorization" : "Presence-Test Case Proper"},
+- to provider", "categorization" : "Presence-Test Case Proper"},
 							{"location" : "PD1.11.3", "dataelement" : "Name of Coding System", "data" :
 "HL70215", "categorization" : "Value-Profile Fixed"},
 				{"location" : "PD1.12", "dataelement" : "Protection Indicator", "data" : "Y",
@@ -340,7 +340,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "ORC.10.10", "dataelement" : "Name Type Code", "data" : "L",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.10.13", "dataelement" : "Identifier Type Code", "data" :
-"PRN", "categorization" : "Value-Test Case Fixed"},
+"PRN", "categorization" : "Value-Test Case Fixed List"},
 				{"location" : "ORC.12", "dataelement" : "Ordering Provider", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.12.1", "dataelement" : "ID Number", "data" : "654", "categorization"
@@ -364,7 +364,7 @@ Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content In
 							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "L",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
-"MD", "categorization" : "Value-Test Case Fixed"},
+"MD", "categorization" : "Value-Test Case Fixed List"},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
@@ -434,7 +434,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "L",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
-"PRN", "categorization" : "Value-Test Case Fixed"},
+"PRN", "categorization" : "Value-Test Case Fixed List"},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"

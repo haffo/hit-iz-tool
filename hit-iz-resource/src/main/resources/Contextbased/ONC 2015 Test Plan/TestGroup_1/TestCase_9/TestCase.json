@@ -1,5 +1,5 @@
 {
   "name" : "IZ-AD-9_Admin_IIS-2Warnings",
-  "position" : 9,
-  "description" : "New administration resulting in multiple soft errors"
+  "description" : "New administration resulting in multiple soft errors",
+  "position" : 9
 }
