@@ -24,10 +24,12 @@
         .controller('ReportViewerCtrl', ['$scope', '$rootScope', '$compile', 'ServiceDelegator', function ($scope, $rootScope, $compile, ServiceDelegator) {
             var reportService = null;
             $scope.report = null;
+            $scope.title = null;
 
-            $rootScope.$on($scope.type + ':reportLoaded', function (event, report) {
+            $rootScope.$on($scope.type + ':reportLoaded', function (event, report, title) {
                 reportService = ServiceDelegator.getReportService($scope.format);
                 $scope.report = report;
+                $scope.title = title;
                 $scope.compile();
             });
 
@@ -42,7 +44,7 @@
             };
 
             $scope.downloadAs = function (format) {
-                return reportService.downloadAs($scope.report.json, format);
+                return reportService.downloadAs($scope.report.json, format, $scope.title);
             };
         }]);
 

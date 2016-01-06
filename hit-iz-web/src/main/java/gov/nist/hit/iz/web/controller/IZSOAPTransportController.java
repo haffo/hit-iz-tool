@@ -12,7 +12,7 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.core.domain.KeyValuePair;
+import static org.springframework.data.jpa.domain.Specifications.where;
 import gov.nist.hit.core.domain.SendRequest;
 import gov.nist.hit.core.domain.TestStep;
 import gov.nist.hit.core.domain.Transaction;
@@ -20,6 +20,7 @@ import gov.nist.hit.core.domain.TransportConfig;
 import gov.nist.hit.core.domain.User;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.repo.TransactionRepository;
+import gov.nist.hit.core.repo.TransactionSpecs;
 import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.TestStepService;
 import gov.nist.hit.core.service.TransportConfigService;
@@ -34,9 +35,7 @@ import gov.nist.hit.iz.web.utils.Utils;
 import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -167,18 +166,26 @@ public class IZSOAPTransportController {
   public boolean open(@RequestBody SendRequest request) {
     logger.info("Open transaction for user with id=" + request.getUserId()
         + " and of test step with id=" + request.getTestStepId());
-    Transaction transaction = searchTransaction(request);
-    if (transaction == null) {
-      transaction = new Transaction();
-      transaction.setTestStep(testStepService.findOne(request.getTestStepId())); // not needed for
-                                                                                 // iz
-      transaction.setUser(userRepository.findOne(request.getUserId())); // not needed for iz
-      transaction.setConfig(request.getConfig());
-      transaction.setResponseMessageId(request.getResponseMessageId());
-      transactionRepository.save(transaction);
-    }
-    transaction.init();;
-    transactionRepository.saveAndFlush(transaction);
+    // Transaction transaction = searchTransaction(request);
+    // if (transaction != null) {
+    // transaction.init();
+    // transaction.setTestStep(testStepService.findOne(request.getTestStepId())); // not needed for
+    // // iz
+    // transaction.setUser(userRepository.findOne(request.getUserId())); // not needed for iz
+    // transaction.setProperties(request.getConfig());
+    // transaction.setResponseMessageId(request.getResponseMessageId());
+    // transactionRepository.saveAndFlush(transaction);
+    // }
+    // if (transaction == null) {
+    // transaction = new Transaction();
+    // transaction.setTestStep(testStepService.findOne(request.getTestStepId())); // not needed for
+    // // iz
+    // transaction.setUser(userRepository.findOne(request.getUserId())); // not needed for iz
+    // transaction.setProperties(request.getConfig());
+    // transaction.setResponseMessageId(request.getResponseMessageId());
+    // }
+    // transaction.init();
+    // transactionRepository.saveAndFlush(transaction);
     return true;
   }
 
@@ -187,11 +194,11 @@ public class IZSOAPTransportController {
   public boolean close(@RequestBody SendRequest request) {
     logger.info("Closing transaction for user with id=" + request.getUserId()
         + " and of test step with id=" + request.getTestStepId());
-    Transaction transaction = searchTransaction(request);
-    if (transaction != null) {
-      transaction.close();
-      transactionRepository.saveAndFlush(transaction);
-    }
+    // Transaction transaction = searchTransaction(request);
+    // if (transaction != null) {
+    // transaction.close();
+    // transactionRepository.saveAndFlush(transaction);
+    // }
     return true;
   }
 
@@ -199,11 +206,13 @@ public class IZSOAPTransportController {
   public Transaction searchTransaction(@RequestBody SendRequest request) {
     logger.info("Get transaction of user with id=" + request.getUserId()
         + " and of testStep with id=" + request.getTestStepId());
-    List<KeyValuePair> criteria = new ArrayList<KeyValuePair>();
-    criteria.add(new KeyValuePair("username", request.getConfig().get("username")));
-    criteria.add(new KeyValuePair("password", request.getConfig().get("password")));
-    criteria.add(new KeyValuePair("facilityID", request.getConfig().get("facilityID")));
-    Transaction transaction = transactionRepository.findOneByCriteria(criteria);
+    Map<String, String> criteria = new HashMap<String, String>();
+    criteria.put("username", request.getConfig().get("username"));
+    criteria.put("password", request.getConfig().get("password"));
+    criteria.put("facilityID", request.getConfig().get("facilityID"));
+    // Transaction transaction = transactionRepository.findOneByCriteria(criteria);
+    Transaction transaction =
+        transactionRepository.findOne((where(TransactionSpecs.matches(criteria))));
     return transaction;
   }
 

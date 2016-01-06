@@ -1,13 +1,13 @@
 package gov.nist.hit.iz.ws.server;
 
+import static org.springframework.data.jpa.domain.Specifications.where;
 import gov.nist.healthcare.core.MalformedMessageException;
 import gov.nist.healthcare.core.message.MessageLocation;
 import gov.nist.healthcare.core.message.v2.er7.Er7Message;
-import gov.nist.hit.core.domain.KeyValuePair;
 import gov.nist.hit.core.domain.Transaction;
-import gov.nist.hit.core.domain.TransactionStatus;
 import gov.nist.hit.core.repo.MessageRepository;
 import gov.nist.hit.core.repo.TransactionRepository;
+import gov.nist.hit.core.repo.TransactionSpecs;
 import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.transport.exception.TransportServerException;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestRequestType;
@@ -17,8 +17,8 @@ import gov.nist.hit.iz.ws.jaxb.SubmitSingleMessageResponseType;
 import gov.nist.hit.iz.ws.utils.WsdlUtil;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import javax.xml.bind.JAXBException;
@@ -71,9 +71,6 @@ public class IZSOAPWebServiceServer implements TransportServer {
   public SubmitSingleMessageResponseType handle(
       @RequestPayload SubmitSingleMessageRequestType request) {
     check(request);
-    // SubmitSingleMessageResponseType response = new
-    // SubmitSingleMessageResponseType();
-    // response.setReturn(getPrecannedAck());
     String hl7Message = request.getHl7Message();
     if (hl7Message == null || hl7Message.equals("")) {
       throw new TransportServerException("No Hl7 Message Provided");
@@ -95,41 +92,45 @@ public class IZSOAPWebServiceServer implements TransportServer {
     return null;
   }
 
-  public List<KeyValuePair> getCriteria(String username, String password, String facilityID) {
-    List<KeyValuePair> criteria = new ArrayList<KeyValuePair>();
-    criteria.add(new KeyValuePair("username", username));
-    criteria.add(new KeyValuePair("password", password));
-    criteria.add(new KeyValuePair("facilityID", facilityID));
-    return criteria;
+  public Map<String, String> getProperties(String username, String password, String facilityID) {
+    Map<String, String> properties = new HashMap<String, String>();
+    properties.put("username", username);
+    properties.put("password", password);
+    properties.put("facilityID", facilityID);
+    return properties;
   }
 
 
   public Transaction getTransaction(String username, String password, String facilityID) {
-    List<KeyValuePair> criteria = getCriteria(username, password, facilityID);
-    Transaction transaction = transactionRepository.findOneByCriteria(criteria);
+    Transaction transaction =
+        transactionRepository.findOne((where(TransactionSpecs.matches(getProperties(username,
+            password, facilityID)))));
+    // Transaction transaction = transactionRepository.findOneByCriteria(criteria);
     return transaction;
   }
 
-  public TransactionStatus getStatus(String username, String password, String facilityID) {
-    List<KeyValuePair> criteria = getCriteria(username, password, facilityID);
-    TransactionStatus status = transactionRepository.getStatusByCriteria(criteria);
-    return status;
-  }
+  // public TransactionStatus getStatus(String username, String password, String facilityID) {
+  // TransactionStatus status =
+  // transactionRepository.getStatusByProperties(getProperties(username, password, facilityID));
+  // return status;
+  // }
 
 
   private void check(SubmitSingleMessageRequestType request) throws SecurityException,
       TransportServerException {
     String username = request.getUsername();
     String password = request.getPassword();
-    String facilityID = request.getFacilityID();
+    // String facilityID = request.getFacilityID();
 
     if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
       throw new SecurityException("Missing Authentication Information");
-    } else if (getTransaction(username, password, facilityID) == null) {
-      throw new SecurityException("Invalid Authentication Information");
-    } else if (!TransactionStatus.OPEN.equals(getStatus(username, password, facilityID))) {
-      throw new TransportServerException("Transaction not initialized correctly");
     }
+    // else if (getTransaction(username, password, facilityID) == null) {
+    // throw new SecurityException("Invalid Authentication Information");
+    // }
+    // else if (!TransactionStatus.OPEN.equals(getStatus(username, password, facilityID))) {
+    // throw new TransportServerException("Transaction not initialized correctly");
+    // }
   }
 
   // private SubmitSingleMessageResponseType getPreCannedSubmitSingleMessageResponse() {

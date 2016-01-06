@@ -51,6 +51,7 @@ angular.module('commonServices').factory('StorageService',
             USER_KEY: 'USER_KEY',
             USER_CONFIG_KEY: 'USER_CONFIG_KEY',
             TRANSPORT_CONFIG_KEY: 'TRANSPORT_CONFIG_KEY',
+            APP_STATE_TOKEN: 'APP_STATE_TOKEN',
 
 
             remove: function (key) {

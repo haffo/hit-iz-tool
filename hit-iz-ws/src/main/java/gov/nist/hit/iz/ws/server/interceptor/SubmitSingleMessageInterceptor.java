@@ -1,16 +1,17 @@
 package gov.nist.hit.iz.ws.server.interceptor;
 
-import gov.nist.hit.core.domain.KeyValuePair;
+import static org.springframework.data.jpa.domain.Specifications.where;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.repo.TransactionRepository;
+import gov.nist.hit.core.repo.TransactionSpecs;
 import gov.nist.hit.core.repo.TransportConfigRepository;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -73,20 +74,22 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
     String password = getPassword(request);
     String facilityID = getFacilityID(request);
     try {
-      List<KeyValuePair> criteria = new ArrayList<KeyValuePair>();
-      criteria.add(new KeyValuePair("username", username));
-      criteria.add(new KeyValuePair("password", password));
-      criteria.add(new KeyValuePair("facilityID", facilityID));
-      Transaction transaction = transactionRepository.findOneByCriteria(criteria);
-      if (transaction != null) {
-        transaction.setIncoming(XmlUtil.prettyPrint(request));
-        transaction.setOutgoing(XmlUtil.prettyPrint(response));
-        transactionRepository.saveAndFlush(transaction);
+      Map<String, String> properties = getProperties(username, password, facilityID);
+      Transaction transaction =
+          transactionRepository.findOne((where(TransactionSpecs.matches(properties))));
+      if (transaction == null) {
+        transaction = new Transaction();
+        transaction.setProperties(properties);
       }
+      transaction.setIncoming(XmlUtil.prettyPrint(request));
+      transaction.setOutgoing(XmlUtil.prettyPrint(response));
+      transactionRepository.saveAndFlush(transaction);
     } catch (Exception e) {
       logger.error("Failed to persist messages for username= " + username);
     }
   }
+
+
 
   private void addMessages(MessageContext messageContext) {
     addMessages(toString(messageContext.getRequest()), toString(messageContext.getResponse()));
@@ -152,6 +155,14 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
       e.printStackTrace();
     }
     return null;
+  }
+
+  private Map<String, String> getProperties(String username, String password, String facilityID) {
+    Map<String, String> properties = new HashMap<String, String>();
+    properties.put("username", username);
+    properties.put("password", password);
+    properties.put("facilityID", facilityID);
+    return properties;
   }
 
 }

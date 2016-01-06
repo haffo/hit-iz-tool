@@ -413,7 +413,7 @@ angular.module('format').factory('ReportServiceClass', function ($http, $q, $fil
         this.format = format;
     };
 
-    ReportServiceClass.prototype.download = function (url, json) {
+    ReportServiceClass.prototype.download = function (url, json,title) {
         var form = document.createElement("form");
         form.action = url;
         form.method = "POST";
@@ -422,6 +422,11 @@ angular.module('format').factory('ReportServiceClass', function ($http, $q, $fil
         input.name = "json";
         input.value = json;
         form.appendChild(input);
+        input = document.createElement("input");
+        input.name = "title";
+        input.value = title;
+        form.appendChild(input);
+
         form.style.display = 'none';
          document.body.appendChild(form);
         form.submit();
@@ -457,9 +462,9 @@ angular.module('format').factory('ReportServiceClass', function ($http, $q, $fil
         }
     };
 
-    ReportServiceClass.prototype.downloadAs = function (json, format) {
+    ReportServiceClass.prototype.downloadAs = function (json, format,title) {
         if (this.format && this.format != null) {
-            return this.download("api/" + this.format + "/report/downloadAs/" + format, json);
+            return this.download("api/" + this.format + "/report/downloadAs/" + format, json,title);
         }
         return;
     };
@@ -1110,6 +1115,13 @@ angular.module('format').factory('User', function ($q, $http,StorageService) {
         StorageService.set(StorageService.USER_KEY,angular.toJson(data));
     };
 
+    UserClass.prototype.delete = function () {
+        if(this.info && this.info != null && this.info.id != null){
+            $http.post("api/user/" + this.info.id + "/delete");
+        }
+        StorageService.remove(StorageService.USER_KEY);
+    };
+
     return new UserClass();
 });
 
@@ -1302,11 +1314,16 @@ angular.module('format').factory('Transport', function ($q, $http,StorageService
         var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id,"config": config,"responseMessageId":responseMessageId});
         $http.post('api/transport/' + self.domain  + "/" +  self.protocol +  '/searchTransaction' , data).then(
             function (response) {
-                self.transactions[testStepId] = angular.fromJson(response.data);
+                if(response.data != null &&  response.data != "") {
+                    self.transactions[testStepId] = angular.fromJson(response.data);
+                }else{
+                    self.transactions[testStepId] = null;
+                }
                 delay.resolve(self.transactions[testStepId]);
             },
             function (response) {
-                delay.reject(null);
+                self.transactions[testStepId] = null;
+                delay.reject(self.transactions[testStepId]);
             }
         );
 //        $http.get('../../resources/cb/transaction.json').then(
@@ -1322,31 +1339,49 @@ angular.module('format').factory('Transport', function ($q, $http,StorageService
         return delay.promise;
     };
 
-    Transport.prototype.clearTransaction = function (testStepId) {
-        if(self.transactions && self.transactions != null && self.transactions[testStepId]) delete self.transactions[testStepId];
-        return;
+    Transport.prototype.deleteTransaction = function (testStepId) {
+        var delay = $q.defer();
+        if(self.transactions && self.transactions != null && self.transactions[testStepId]) {
+            var transaction = self.transactions[testStepId];
+            $http.post('api/transport/transaction/'+ transaction.id + '/delete').then(
+                function (response) {
+                    delete self.transactions[testStepId];
+                    delay.resolve(true);
+                },
+                function (response) {
+                    delete self.transactions[testStepId];
+                    delay.resolve(true);
+                }
+            );
+        }else{
+            delay.resolve(true);
+        }
+        return delay.promise;
     };
 
     Transport.prototype.stopListener = function (testStepId) {
         var self = this;
         var delay = $q.defer();
-        var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id, "config":self.config.sutInitiator});
-        $http.post('api/transport/'  + self.domain  + "/" +  self.protocol + '/stopListener',data).then(
-            function (response) {
-                self.running = true;
-                self.clearTransaction(testStepId);
-                delay.resolve(true);
-            },
-            function (response) {
-                self.running = false;
-                delay.reject(null);
-            }
-        );
+        this.deleteTransaction(testStepId).then(function(result){
+            var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id});
+            $http.post('api/transport/'  + self.domain  + "/" +  self.protocol + '/stopListener',data).then(
+                function (response) {
+                    self.running = true;
+                    delay.resolve(true);
+                },
+                function (response) {
+                    self.running = false;
+                    delay.reject(null);
+                }
+            );
+        });
+
+
 //
 //        $http.get('../../resources/cb/stopListener.json').then(
 //            function (response) {
 //                self.running = true;
-//                self.clearTransaction(testStepId);
+//                self.deleteTransaction(testStepId);
 //                delay.resolve(true);
 //            },
 //            function (response) {
@@ -1360,22 +1395,23 @@ angular.module('format').factory('Transport', function ($q, $http,StorageService
     Transport.prototype.startListener = function (testStepId) {
         var self = this;
         var delay = $q.defer();
-        //self.responseMessageId = responseMessageId; TODO:???
+        this.deleteTransaction(testStepId).then(function(result){
+            //self.responseMessageId = responseMessageId; TODO:???
 //        var data = angular.fromJson(self);
-        var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id, "config":self.config.sutInitiator});
-        $http.post('api/transport/'  + self.domain  + "/" +  self.protocol + '/startListener', data).then(
-            function (response) {
-                self.running = true;
-                self.clearTransaction();
-                delay.resolve(true);
-            },
-            function (response) {
-                self.running = false;
-                delay.reject(null);
-            }
-        );
+            var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id});
+            $http.post('api/transport/'  + self.domain  + "/" +  self.protocol + '/startListener', data).then(
+                function (response) {
+                    self.running = true;
+                    delay.resolve(true);
+                },
+                function (response) {
+                    self.running = false;
+                    delay.reject(null);
+                }
+            );
+        });
 
-//        $http.get('../../resources/cb/startListener.json').then(
+//      $http.get('../../resources/cb/startListener.json').then(
 //            function (response) {
 //                self.running = true;
 //                delay.resolve(true);
@@ -1391,16 +1427,18 @@ angular.module('format').factory('Transport', function ($q, $http,StorageService
     Transport.prototype.send = function (testStepId, message) {
         var delay = $q.defer();
         var self = this;
-        var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id,"message": message, "config":self.config.taInitiator});
-        $http.post('api/transport/' + self.domain  + "/" +  self.protocol + '/send', data).then(
-            function (response) {
-                self.transactions[testStepId] = angular.fromJson(response.data);
-                delay.resolve(self.transactions[testStepId]);
-            },
-            function (response) {
-                delay.reject(response);
-            }
-        );
+        this.deleteTransaction(testStepId).then(function(result){
+            var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id,"message": message, "config":self.config.taInitiator});
+            $http.post('api/transport/' + self.domain  + "/" +  self.protocol + '/send', data).then(
+                function (response) {
+                    self.transactions[testStepId] = angular.fromJson(response.data);
+                    delay.resolve(self.transactions[testStepId]);
+                },
+                function (response) {
+                    self.transactions[testStepId] =null;
+                    delay.reject(response);
+                }
+            );
 //        $http.get('../../resources/cb/send.json').then(
 //            function (response) {
 //                self.transactions[testStepId] = angular.fromJson(response.data);
@@ -1410,9 +1448,10 @@ angular.module('format').factory('Transport', function ($q, $http,StorageService
 //                delay.reject(response);
 //            }
 //        );
+        });
+
         return delay.promise;
     };
-
 
     return Transport;
 });

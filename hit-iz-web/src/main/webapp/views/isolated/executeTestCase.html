@@ -68,7 +68,15 @@
                                  </span>
 
                         </div>
+
+                        <div ng-show="warning != null">
+                            <div style="padding-top: 10px;padding-bottom:10px">
+                                <div class="alert alert-info" role="alert" ng-bind-html="toHTML(warning)"></div>
+                            </div>
+                        </div>
+
                     </div>
+
                     <div class="col-md-3">
                         <div ng-include="'views/isolated/resultSummary.html'"></div>
                         <div ng-include="'views/isolated/console.html'" ng-show="user.info != null && (testStep.testingType === 'TA_INITIATOR' || testStep.testingType === 'SUT_INITIATOR')"></div>
