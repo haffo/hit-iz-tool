@@ -1,11 +1,9 @@
 package gov.nist.hit.iz.ws.server.interceptor;
 
-import static org.springframework.data.jpa.domain.Specifications.where;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.repo.TransactionRepository;
-import gov.nist.hit.core.repo.TransactionSpecs;
 import gov.nist.hit.core.repo.TransportConfigRepository;
+import gov.nist.hit.core.service.TransactionService;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -38,18 +36,10 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
   static final Logger logger = LoggerFactory.getLogger(SubmitSingleMessageInterceptor.class);
 
   @Autowired
-  private TransactionRepository transactionRepository;
+  private TransactionService transactionService;
 
   @Autowired
   private TransportConfigRepository transportConfigRepository;
-
-  public TransactionRepository getTransactionRepository() {
-    return transactionRepository;
-  }
-
-  public void setTransactionRepository(TransactionRepository transactionRepository) {
-    this.transactionRepository = transactionRepository;
-  }
 
   @Override
   public boolean handleRequest(MessageContext messageContext, Object endpoint) throws Exception {
@@ -75,15 +65,14 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
     String facilityID = getFacilityID(request);
     try {
       Map<String, String> properties = getProperties(username, password, facilityID);
-      Transaction transaction =
-          transactionRepository.findOne((where(TransactionSpecs.matches(properties))));
+      Transaction transaction = transactionService.findOneByProperties(properties);
       if (transaction == null) {
         transaction = new Transaction();
         transaction.setProperties(properties);
       }
       transaction.setIncoming(XmlUtil.prettyPrint(request));
       transaction.setOutgoing(XmlUtil.prettyPrint(response));
-      transactionRepository.saveAndFlush(transaction);
+      transactionService.save(transaction);
     } catch (Exception e) {
       logger.error("Failed to persist messages for username= " + username);
     }

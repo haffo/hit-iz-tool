@@ -1,14 +1,12 @@
 package gov.nist.hit.iz.ws.server;
 
-import static org.springframework.data.jpa.domain.Specifications.where;
 import gov.nist.healthcare.core.MalformedMessageException;
 import gov.nist.healthcare.core.message.MessageLocation;
 import gov.nist.healthcare.core.message.v2.er7.Er7Message;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.repo.MessageRepository;
-import gov.nist.hit.core.repo.TransactionRepository;
-import gov.nist.hit.core.repo.TransactionSpecs;
 import gov.nist.hit.core.repo.UserRepository;
+import gov.nist.hit.core.service.TransactionService;
 import gov.nist.hit.core.transport.exception.TransportServerException;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestRequestType;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestResponseType;
@@ -42,7 +40,7 @@ public class IZSOAPWebServiceServer implements TransportServer {
   private UserRepository userRepository;
 
   @Autowired
-  private TransactionRepository transactionRepository;
+  private TransactionService transactionService;
 
   @Autowired
   private MessageRepository messageRepository;
@@ -103,8 +101,7 @@ public class IZSOAPWebServiceServer implements TransportServer {
 
   public Transaction getTransaction(String username, String password, String facilityID) {
     Transaction transaction =
-        transactionRepository.findOne((where(TransactionSpecs.matches(getProperties(username,
-            password, facilityID)))));
+        transactionService.findOneByProperties(getProperties(username, password, facilityID));
     // Transaction transaction = transactionRepository.findOneByCriteria(criteria);
     return transaction;
   }
