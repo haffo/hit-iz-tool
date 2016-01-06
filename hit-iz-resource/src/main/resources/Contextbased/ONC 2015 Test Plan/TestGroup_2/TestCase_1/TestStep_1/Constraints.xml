@@ -1,217 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConformanceContext UUID="b90172d3-9af6-41de-b866-ff3ff90a6e1a">
+<ConformanceContext UUID="30faf0cf-9e19-424f-93fe-6b9c6a06b767">
   <Constraints>
     <Group>
       <ByName Name="QBP_Q11">
-        <Constraint ID="Content" Target="1[1].6[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].6[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
-          <Description>Expected content is missing. The empty value at MSH-6.1(Namespace ID) is expected to be present.</Description>
+        <Constraint ID="Content" Target="1[1].23[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at MSH-23.7(Identifier Type Code) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="1[1].6[1].1[1]"/>
+            <Presence Path="1[1].23[1].7[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="4[1].2[1].2[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="RCP[1].2[1].2[1].2[1]" Source="TestCase" TestDataCategorization="Presence-Test Case Proper"/>
-          <Description>Expected content is missing. The empty value at RCP-2.2.2(Text) is expected to be present.</Description>
+        <Constraint ID="Content" Target="1[1].23[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at MSH-23.7(Identifier Type Code) does not match the expected value: 'XX'.</Description>
           <Assertion>
-            <Presence Path="4[1].2[1].2[1].2[1]"/>
+            <PlainText IgnoreCase="true" Path="1[1].23[1].7[1]" Text="XX"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="3[1].8[1].1[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-8.1.1(Street or Mailing Address) is expected to be present.</Description>
+        <Constraint ID="Content" Target="1[1].22[1].10[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].10[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
+          <Description>Expected content is missing. The empty value at MSH-22.10(Organization Identifier) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="3[1].8[1].1[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].8[1].1[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at QPD-8.1.1(Street or Mailing Address) does not match the expected value: '105 Laurel Run Rd'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].8[1].1[1].1[1]" Text="105 Laurel Run Rd"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].4[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-4.7(Name Type Code) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].4[1].7[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].4[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at QPD-4.7(Name Type Code) does not match the expected value: 'L'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].4[1].7[1]" Text="L"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].8[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-8.3(City) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].8[1].3[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].8[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at QPD-8.3(City) does not match the expected value: 'Bozeman'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].8[1].3[1]" Text="Bozeman"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].5[1].1[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].5[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-5.1.1(Surname) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].5[1].1[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].5[1].1[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].5[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at QPD-5.1.1(Surname) does not match the expected value: 'Fairlady'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].5[1].1[1].1[1]" Text="Fairlady"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-7(Patient Sex) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].7[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at QPD-7(Patient Sex) does not match the expected value: 'M'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].7[1]" Text="M"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].6[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].6[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-6.1(Time) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].6[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].6[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].6[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at QPD-6.1(Time) does not match the expected value: '20090214'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].6[1].1[1]" Text="20090214"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="1[1].22[1].6[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].6[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
-          <Description>Expected content is missing. The empty value at MSH-22.6.1(Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].22[1].6[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="1[1].23[1].10[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].10[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
-          <Description>Expected content is missing. The empty value at MSH-23.10(Organization Identifier) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].23[1].10[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].3[1].4[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].3[1].4[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-3.4.1(Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].3[1].4[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].3[1].4[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].3[1].4[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at QPD-3.4.1(Namespace ID) does not match the expected value: 'NIST-MPI-1'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].3[1].4[1].1[1]" Text="NIST-MPI-1"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].5[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].5[1].7[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-5.7(Name Type Code) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].5[1].7[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="1[1].22[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
-          <Description>Expected content is missing. The empty value at MSH-22.1(Organization Name) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].22[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].4[1].1[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-4.1.1(Surname) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].4[1].1[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].4[1].1[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at QPD-4.1.1(Surname) does not match the expected value: 'Fairchild'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].4[1].1[1].1[1]" Text="Fairchild"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].8[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-8.7(Address Type) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].8[1].7[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].8[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at QPD-8.7(Address Type) does not match the expected value: 'L'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].8[1].7[1]" Text="L"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="4[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="RCP[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at RCP-1(Query Priority) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="4[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="4[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="RCP[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at RCP-1(Query Priority) does not match the expected value: 'I'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="4[1].1[1]" Text="I"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="1[1].21[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].2[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at MSH-21.2(Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].21[1].2[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="1[1].22[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at MSH-22.7(Identifier Type Code) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].22[1].7[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="1[1].22[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at MSH-22.7(Identifier Type Code) does not match the expected value: 'XX'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="1[1].22[1].7[1]" Text="XX"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="1[1].23[1].6[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].6[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
-          <Description>Expected content is missing. The empty value at MSH-23.6.1(Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].23[1].6[1].1[1]"/>
+            <Presence Path="1[1].22[1].10[1]"/>
           </Assertion>
         </Constraint>
         <Constraint ID="Content" Target="3[1].4[1].2[1]">
@@ -228,39 +39,67 @@
             <PlainText IgnoreCase="true" Path="3[1].4[1].2[1]" Text="Cameron"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="1[1].23[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
-          <Description>Expected content is missing. The empty value at MSH-23.1(Organization Name) is expected to be present.</Description>
+        <Constraint ID="Content" Target="3[1].5[1].1[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].5[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-5.1.1(Surname) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="1[1].23[1].1[1]"/>
+            <Presence Path="3[1].5[1].1[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="3[1].4[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-4.3(Second and Further Given Names or Initials Thereof) is expected to be present.</Description>
+        <Constraint ID="Content" Target="3[1].5[1].1[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].5[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at QPD-5.1.1(Surname) does not match the expected value: 'Fairlady'.</Description>
           <Assertion>
-            <Presence Path="3[1].4[1].3[1]"/>
+            <PlainText IgnoreCase="true" Path="3[1].5[1].1[1].1[1]" Text="Fairlady"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="3[1].4[1].3[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at QPD-4.3(Second and Further Given Names or Initials Thereof) does not match the expected value: 'A'.</Description>
+        <Constraint ID="Content" Target="3[1].4[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-4.7(Name Type Code) is expected to be present.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].4[1].3[1]" Text="A"/>
+            <Presence Path="3[1].4[1].7[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="3[1].1[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].1[1].2[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-1.2(Text) is expected to be present.</Description>
+        <Constraint ID="Content" Target="3[1].4[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at QPD-4.7(Name Type Code) does not match the expected value: 'L'.</Description>
           <Assertion>
-            <Presence Path="3[1].1[1].2[1]"/>
+            <PlainText IgnoreCase="true" Path="3[1].4[1].7[1]" Text="L"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="1[1].22[1].10[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].10[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
-          <Description>Expected content is missing. The empty value at MSH-22.10(Organization Identifier) is expected to be present.</Description>
+        <Constraint ID="Content" Target="1[1].22[1].6[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].6[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
+          <Description>Expected content is missing. The empty value at MSH-22.6.1(Namespace ID) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="1[1].22[1].10[1]"/>
+            <Presence Path="1[1].22[1].6[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].8[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-8.3(City) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].8[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].8[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at QPD-8.3(City) does not match the expected value: 'Bozeman'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="3[1].8[1].3[1]" Text="Bozeman"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].6[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].6[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-6.1(Time) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].6[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].6[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].6[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at QPD-6.1(Time) does not match the expected value: '20090214'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="3[1].6[1].1[1]" Text="20090214"/>
           </Assertion>
         </Constraint>
         <Constraint ID="Content" Target="3[1].8[1].4[1]">
@@ -277,32 +116,67 @@
             <PlainText IgnoreCase="true" Path="3[1].8[1].4[1]" Text="MT"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="1[1].23[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at MSH-23.7(Identifier Type Code) is expected to be present.</Description>
+        <Constraint ID="Content" Target="1[1].22[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
+          <Description>Expected content is missing. The empty value at MSH-22.1(Organization Name) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="1[1].23[1].7[1]"/>
+            <Presence Path="1[1].22[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="1[1].23[1].7[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at MSH-23.7(Identifier Type Code) does not match the expected value: 'XX'.</Description>
+        <Constraint ID="Content" Target="3[1].1[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].1[1].2[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-1.2(Text) is expected to be present.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="1[1].23[1].7[1]" Text="XX"/>
+            <Presence Path="3[1].1[1].2[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="3[1].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].3[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at QPD-3.1(ID Number) is expected to be present.</Description>
+        <Constraint ID="Content" Target="1[1].23[1].6[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].6[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
+          <Description>Expected content is missing. The empty value at MSH-23.6.1(Namespace ID) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="3[1].3[1].1[1]"/>
+            <Presence Path="1[1].23[1].6[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="3[1].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].3[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at QPD-3.1(ID Number) does not match the expected value: '171122'.</Description>
+        <Constraint ID="Content" Target="1[1].5[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].5[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
+          <Description>Expected content is missing. The empty value at MSH-5.1(Namespace ID) is expected to be present.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].3[1].1[1]" Text="171122"/>
+            <Presence Path="1[1].5[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="1[1].23[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
+          <Description>Expected content is missing. The empty value at MSH-23.1(Organization Name) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].23[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].8[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-8.7(Address Type) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].8[1].7[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].8[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at QPD-8.7(Address Type) does not match the expected value: 'L'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="3[1].8[1].7[1]" Text="L"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="1[1].23[1].10[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].23[1].10[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
+          <Description>Expected content is missing. The empty value at MSH-23.10(Organization Identifier) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].23[1].10[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="1[1].3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].3[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
+          <Description>Expected content is missing. The empty value at MSH-3.1(Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].3[1].1[1]"/>
           </Assertion>
         </Constraint>
         <Constraint ID="Content" Target="3[1].3[1].5[1]">
@@ -319,6 +193,34 @@
             <PlainText IgnoreCase="true" Path="3[1].3[1].5[1]" Text="MR"/>
           </Assertion>
         </Constraint>
+        <Constraint ID="Content" Target="1[1].6[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].6[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
+          <Description>Expected content is missing. The empty value at MSH-6.1(Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].6[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="1[1].21[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].21[1].2[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at MSH-21.2(Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].21[1].2[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].5[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].5[1].7[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-5.7(Name Type Code) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].5[1].7[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="4[1].2[1].2[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="RCP[1].2[1].2[1].2[1]" Source="TestCase" TestDataCategorization="Presence-Test Case Proper"/>
+          <Description>Expected content is missing. The empty value at RCP-2.2.2(Text) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1].2[1].2[1].2[1]"/>
+          </Assertion>
+        </Constraint>
         <Constraint ID="Content" Target="1[1].4[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].4[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
           <Description>Expected content is missing. The empty value at MSH-4.1(Namespace ID) is expected to be present.</Description>
@@ -326,18 +228,116 @@
             <Presence Path="1[1].4[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="1[1].5[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].5[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
-          <Description>Expected content is missing. The empty value at MSH-5.1(Namespace ID) is expected to be present.</Description>
+        <Constraint ID="Content" Target="3[1].4[1].1[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-4.1.1(Surname) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="1[1].5[1].1[1]"/>
+            <Presence Path="3[1].4[1].1[1].1[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="1[1].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].3[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Configuration"/>
-          <Description>Expected content is missing. The empty value at MSH-3.1(Namespace ID) is expected to be present.</Description>
+        <Constraint ID="Content" Target="3[1].4[1].1[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at QPD-4.1.1(Surname) does not match the expected value: 'Fairchild'.</Description>
           <Assertion>
-            <Presence Path="1[1].3[1].1[1]"/>
+            <PlainText IgnoreCase="true" Path="3[1].4[1].1[1].1[1]" Text="Fairchild"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].8[1].1[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-8.1.1(Street or Mailing Address) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].8[1].1[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].8[1].1[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].8[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at QPD-8.1.1(Street or Mailing Address) does not match the expected value: '105 Laurel Run Rd'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="3[1].8[1].1[1].1[1]" Text="105 Laurel Run Rd"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="1[1].22[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at MSH-22.7(Identifier Type Code) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].22[1].7[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="1[1].22[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].22[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at MSH-22.7(Identifier Type Code) does not match the expected value: 'XX'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="1[1].22[1].7[1]" Text="XX"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="4[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="RCP[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at RCP-1(Query Priority) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="4[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="4[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="RCP[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at RCP-1(Query Priority) does not match the expected value: 'I'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="4[1].1[1]" Text="I"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-7(Patient Sex) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].7[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].7[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at QPD-7(Patient Sex) does not match the expected value: 'M'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="3[1].7[1]" Text="M"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].3[1].4[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].3[1].4[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-3.4.1(Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].3[1].4[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].3[1].4[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].3[1].4[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at QPD-3.4.1(Namespace ID) does not match the expected value: 'NIST-MPI-1'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="3[1].3[1].4[1].1[1]" Text="NIST-MPI-1"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].4[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-4.3(Second and Further Given Names or Initials Thereof) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].4[1].3[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].4[1].3[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].4[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at QPD-4.3(Second and Further Given Names or Initials Thereof) does not match the expected value: 'A'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="3[1].4[1].3[1]" Text="A"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].3[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at QPD-3.1(ID Number) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="3[1].3[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].3[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="QPD[1].3[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at QPD-3.1(ID Number) does not match the expected value: '171122'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="3[1].3[1].1[1]" Text="171122"/>
           </Assertion>
         </Constraint>
       </ByName>

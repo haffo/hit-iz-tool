@@ -673,7 +673,7 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Value-Test Case Fixed List"},
+"", "categorization" : "Indifferent"},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
@@ -755,7 +755,7 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "ORC.12.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "ORC.12.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Value-Test Case Fixed List"},
+"", "categorization" : "Indifferent"},
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
@@ -1123,7 +1123,7 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Value-Test Case Fixed List"},
+"", "categorization" : "Indifferent"},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
@@ -1221,7 +1221,7 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
-"", "categorization" : "Value-Test Case Fixed List"},
+"", "categorization" : "Indifferent"},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
 "categorization" : ""},
 							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
