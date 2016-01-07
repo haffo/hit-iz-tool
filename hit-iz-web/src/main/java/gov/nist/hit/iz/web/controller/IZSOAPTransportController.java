@@ -12,24 +12,21 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import static org.springframework.data.jpa.domain.Specifications.where;
 import gov.nist.hit.core.domain.SendRequest;
 import gov.nist.hit.core.domain.TestStep;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.TransportConfig;
 import gov.nist.hit.core.domain.User;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.repo.TransactionRepository;
-import gov.nist.hit.core.repo.TransactionSpecs;
 import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.TestStepService;
+import gov.nist.hit.core.service.TransactionService;
 import gov.nist.hit.core.service.TransportConfigService;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.core.service.exception.UserNotFoundException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.core.transport.exception.TransportClientException;
-import gov.nist.hit.iz.repo.SOAPSecurityFaultCredentialsRepository;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 import gov.nist.hit.iz.web.utils.Utils;
 import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
@@ -73,7 +70,7 @@ public class IZSOAPTransportController {
   protected UserRepository userRepository;
 
   @Autowired
-  protected TransactionRepository transactionRepository;
+  protected TransactionService transactionService;
 
   @Autowired
   protected TransportConfigService transportConfigService;
@@ -83,11 +80,6 @@ public class IZSOAPTransportController {
 
 
   private final static String PROTOCOL = "soap";
-
-
-
-  @Autowired
-  protected SOAPSecurityFaultCredentialsRepository securityFaultCredentialsRepository;
 
   String SUMBIT_SINGLE_MESSAGE_TEMPLATE = null;
 
@@ -210,9 +202,7 @@ public class IZSOAPTransportController {
     criteria.put("username", request.getConfig().get("username"));
     criteria.put("password", request.getConfig().get("password"));
     criteria.put("facilityID", request.getConfig().get("facilityID"));
-    // Transaction transaction = transactionRepository.findOneByCriteria(criteria);
-    Transaction transaction =
-        transactionRepository.findOne((where(TransactionSpecs.matches(criteria))));
+    Transaction transaction = transactionService.findOneByProperties(criteria);
     return transaction;
   }
 
@@ -256,12 +246,54 @@ public class IZSOAPTransportController {
     }
   }
 
-  public TransactionRepository getTransactionRepository() {
-    return transactionRepository;
+
+  public TestStepService getTestStepService() {
+    return testStepService;
   }
 
-  public void setTransactionRepository(TransactionRepository transactionRepository) {
-    this.transactionRepository = transactionRepository;
+
+  public void setTestStepService(TestStepService testStepService) {
+    this.testStepService = testStepService;
+  }
+
+
+  public UserRepository getUserRepository() {
+    return userRepository;
+  }
+
+
+  public void setUserRepository(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
+
+
+  public TransactionService getTransactionService() {
+    return transactionService;
+  }
+
+
+  public void setTransactionService(TransactionService transactionService) {
+    this.transactionService = transactionService;
+  }
+
+
+  public TransportConfigService getTransportConfigService() {
+    return transportConfigService;
+  }
+
+
+  public void setTransportConfigService(TransportConfigService transportConfigService) {
+    this.transportConfigService = transportConfigService;
+  }
+
+
+  public IZSOAPWebServiceClient getWebServiceClient() {
+    return webServiceClient;
+  }
+
+
+  public void setWebServiceClient(IZSOAPWebServiceClient webServiceClient) {
+    this.webServiceClient = webServiceClient;
   }
 
   @ResponseBody

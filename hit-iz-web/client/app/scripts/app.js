@@ -196,7 +196,7 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 
     $rootScope.scrollbarWidth = null;
 
-    $http.get("api/user/test");
+//    $http.get("api/user/test");
 
 
     AppInfo.get().then(function (appInfo) {
