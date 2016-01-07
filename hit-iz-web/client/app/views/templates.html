@@ -1,4 +1,6 @@
-<style id="antiClickjack">body{display:none !important;}</style>
+<style id="antiClickjack">body {
+    display: none !important;
+}</style>
 <script type="text/javascript">
     if (self === top) {
         var antiClickjack = document.getElementById("antiClickjack");
@@ -234,7 +236,7 @@
                     Validation Result Information
                 </span>
                 <span class="pull-right">
-                     <button class="btn btn-xs btn-primary" ng-click="close()"> <i class="fa fa-times"></i>Close</button>
+                     <button class="btn btn-xs btn-primary" ng-click="close()"><i class="fa fa-times"></i>Close</button>
                 </span>
     </div>
     <div class="modal-body">
@@ -252,8 +254,8 @@
 <script type="text/ng-template" id="VersionChangeCtrl.html">
     <div class="modal-body">
         <div ng-include="'sc.html'"></div>
-        <br />
-        <br />
+        <br/>
+        <br/>
 
 
         <div style="text-align:center">
@@ -272,12 +274,12 @@
     <div class="modal-body">
         <div ng-include="'ir.html'"></div>
 
-        <br />
-        <br />
+        <br/>
+        <br/>
 
         <div style="text-align:center">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
-               title="Cancel" class="point">
+                    title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
             </button>
@@ -290,12 +292,12 @@
     <div class="modal-body">
         <div ng-include="'down.html'"></div>
 
-        <br />
-        <br />
+        <br/>
+        <br/>
 
         <div style="text-align:center">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
-               title="Cancel" class="point">
+                    title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
             </button>
@@ -307,8 +309,8 @@
     <div class="modal-body">
         <div ng-include="'nf.html'"></div>
 
-        <br />
-        <br />
+        <br/>
+        <br/>
 
         <div style="text-align:center">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
@@ -342,9 +344,11 @@
             Your session has expired due to inactivity.
         </p>
     </div>
-         <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
+    <div class="pull-right">
+        <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                 title="Cancel" class="point">
             <i class="fa fa-times"></i>
             Close
         </button>
- </script>
+    </div>
+</script>

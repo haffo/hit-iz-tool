@@ -102,7 +102,6 @@ public class IZSOAPWebServiceServer implements TransportServer {
   public Transaction getTransaction(String username, String password, String facilityID) {
     Transaction transaction =
         transactionService.findOneByProperties(getProperties(username, password, facilityID));
-    // Transaction transaction = transactionRepository.findOneByCriteria(criteria);
     return transaction;
   }
 
