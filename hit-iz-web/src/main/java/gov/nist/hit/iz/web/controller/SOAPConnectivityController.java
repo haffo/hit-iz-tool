@@ -13,9 +13,12 @@
 package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.domain.TransactionStatus;
+import gov.nist.hit.core.domain.TransportRequest;
+import gov.nist.hit.core.domain.Transaction;
+import gov.nist.hit.core.domain.TransportConfig;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.domain.util.XmlUtil;
+import gov.nist.hit.core.service.TransportConfigService;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
@@ -24,18 +27,10 @@ import gov.nist.hit.core.transport.exception.TransportClientException;
 import gov.nist.hit.iz.domain.ConnectivityTestCase;
 import gov.nist.hit.iz.domain.ConnectivityTestContext;
 import gov.nist.hit.iz.domain.ConnectivityTestPlan;
-import gov.nist.hit.iz.domain.ConnectivityTransaction;
-import gov.nist.hit.iz.domain.ConnectivityTransactionCommand;
-import gov.nist.hit.iz.domain.ConnectivityUser;
-import gov.nist.hit.iz.domain.ConnectivityUserCommand;
-import gov.nist.hit.iz.domain.FaultAccount;
 import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestCaseRepository;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestContextRepository;
 import gov.nist.hit.iz.repo.SOAPConnectivityTestPlanRepository;
-import gov.nist.hit.iz.repo.SOAPConnectivityTransactionRepository;
-import gov.nist.hit.iz.repo.SOAPConnectivityUserRepository;
-import gov.nist.hit.iz.repo.SOAPSecurityFaultCredentialsRepository;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.exception.SoapValidationException;
 import gov.nist.hit.iz.service.soap.SOAPMessageParser;
@@ -46,14 +41,11 @@ import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -96,14 +88,7 @@ public class SOAPConnectivityController {
   private SOAPValidationReportGenerator reportService;
 
   @Autowired
-  protected SOAPConnectivityTransactionRepository transactionRepository;
-
-  @Autowired
-  protected SOAPConnectivityUserRepository userRepository;
-
-
-  @Autowired
-  protected SOAPSecurityFaultCredentialsRepository securityFaultCredentialsRepository;
+  protected TransportConfigService transportConfigService;
 
   public SOAPMessageParser getSoapParser() {
     return soapMessageParser;
@@ -163,77 +148,132 @@ public class SOAPConnectivityController {
   }
 
   @RequestMapping(value = "/transport/send", method = RequestMethod.POST)
-  public Command sendRequest(@RequestBody ConnectivityTransactionCommand command)
-      throws TransportClientException {
-    logger.info("Sending ... " + command);
+  public Transaction send(@RequestBody TransportRequest requ) throws TransportClientException {
+    logger.info("Sending message  with user id=" + requ.getUserId() + " and test step with id="
+        + requ.getTestStepId());
     try {
-      Long testCaseId = command.getTestCaseId();
+      Long testCaseId = requ.getTestStepId();
+      Long userId = requ.getUserId();
+      TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, "soap");
+      config.setTaInitiator(requ.getConfig());
+      transportConfigService.save(config);
       ConnectivityTestCase testCase = testCaseRepository.findOne(testCaseId);
       if (testCase == null)
         throw new TestCaseException("Unknown testcase with id=" + testCaseId);
-      String request = command.getContent();
-      String req = testCase.getTestContext().getMessage();
+      // String outgoingMessage = requ.getMessage();
+      String outgoingMessage = testCase.getTestContext().getMessage();
       if (!IZTestType.RECEIVER_CONNECTIVITY.toString().equals(testCase.getTestType())) {
-        request =
-            ConnectivityUtil.updateSubmitSingleMessageRequest(req, null, command.getU(),
-                command.getP(), command.getFacilityId());
+        outgoingMessage =
+            ConnectivityUtil.updateSubmitSingleMessageRequest(outgoingMessage, null, requ
+                .getConfig().get("username"), requ.getConfig().get("password"), requ.getConfig()
+                .get("facilityID"));
+
       } else if (IZTestType.RECEIVER_CONNECTIVITY.toString().equals(testCase.getTestType())) {
-        request = ConnectivityUtil.updateConnectivityRequest(req);
+        outgoingMessage = ConnectivityUtil.updateConnectivityRequest(outgoingMessage);
       }
-      String response = webServiceClient.send(request, command.getEndpoint());
-      String tmp = response;
+      String incomingMessage =
+          webServiceClient.send(outgoingMessage, requ.getConfig().get("endpoint"));
+      String tmp = incomingMessage;
       try {
-        response = XmlUtil.prettyPrint(response);
+        incomingMessage = XmlUtil.prettyPrint(incomingMessage);
       } catch (Exception e) {
-        response = tmp;
+        incomingMessage = tmp;
       }
-      return new ConnectivityTransactionCommand(request, response);
+
+      Transaction transaction = new Transaction();
+      transaction.setOutgoing(outgoingMessage);
+      transaction.setIncoming(incomingMessage);
+
+      return transaction;
     } catch (Exception e1) {
       throw new TransportClientException("Failed to send the message." + e1.getMessage());
     }
   }
 
-  @Transactional()
-  @RequestMapping(value = "/transport/open", method = RequestMethod.POST)
-  public boolean initIncoming(@RequestBody final ConnectivityUser user)
-      throws UserTokenIdNotFoundException {
-    logger.info("Initializing transaction for username ... " + user.getUsername());
-    ConnectivityTransaction transaction = transaction(user);
-    if (transaction != null) {
-      setResponseMessageId(transaction.getUser(), user.getResponseMessageId());
-      transaction.init();;
-      transactionRepository.saveAndFlush(transaction);
-      return true;
-    }
-    return false;
-  }
 
-  private void setResponseMessageId(ConnectivityUser user, Long messageId) {
-    user.setResponseMessageId(messageId);
-    userRepository.save(user);
-  }
+  // @Transactional()
+  // @RequestMapping(value = "/send", method = RequestMethod.POST)
+  // public Transaction send(@RequestBody SendRequest request) throws TransportClientException {
+  // logger.info("Sending message  with user id=" + request.getUserId() + " and test step with id="
+  // + request.getTestStepId());
+  // try {
+  // Long testStepId = request.getTestStepId();
+  // Long userId = request.getUserId();
+  // TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, PROTOCOL);
+  // config.setTaInitiator(request.getConfig());
+  // transportConfigService.save(config);
+  // TestStep testStep = testStepService.findOne(testStepId);
+  // if (testStep == null)
+  // throw new TestCaseException("Unknown test step with id=" + testStepId);
+  // String outgoingMessage = request.getMessage();
+  // outgoingMessage =
+  // ConnectivityUtil.updateSubmitSingleMessageRequest(SUMBIT_SINGLE_MESSAGE_TEMPLATE,
+  // request.getMessage(), request.getConfig().get("username"),
+  // request.getConfig().get("password"), request.getConfig().get("facilityID"));
+  // String incomingMessage =
+  // webServiceClient.send(outgoingMessage, request.getConfig().get("endpoint"));
+  // String tmp = incomingMessage;
+  // try {
+  // incomingMessage = XmlUtil.prettyPrint(incomingMessage);
+  // } catch (Exception e) {
+  // incomingMessage = tmp;
+  // }
+  //
+  // Transaction transaction = new Transaction();
+  // transaction.setTestStep(testStepService.findOne(testStepId));
+  // transaction.setUser(userRepository.findOne(userId));
+  // transaction.setOutgoing(outgoingMessage);
+  // transaction.setIncoming(incomingMessage);
+  //
+  // return transaction;
+  // } catch (Exception e1) {
+  // throw new TransportClientException("Failed to send the message." + e1.getMessage());
+  // }
+  // }
 
-  @Transactional()
-  @RequestMapping(value = "/transport/close", method = RequestMethod.POST)
-  public boolean clearIncoming(@RequestBody final ConnectivityUser user) {
-    logger.info("Closing transaction for username... " + user.getUsername());
-    ConnectivityTransaction transaction = transaction(user);
-    if (transaction != null) {
-      setResponseMessageId(transaction.getUser(), null);
-      transaction.close();
-      transactionRepository.saveAndFlush(transaction);
-    }
-    return true;
-  }
 
-  @RequestMapping(method = RequestMethod.POST)
-  public ConnectivityTransaction transaction(@RequestBody final ConnectivityUser user) {
-    logger.info("Get transaction of username ... " + user.getUsername());
-    ConnectivityTransaction transaction =
-        transactionRepository.findByUsernameAndPasswordAndFacilityID(user.getUsername(),
-            user.getPassword(), user.getFacilityID());
-    return transaction != null ? transaction : new ConnectivityTransaction();
-  }
+  // @Transactional()
+  // @RequestMapping(value = "/transport/open", method = RequestMethod.POST)
+  // public boolean initIncoming(@RequestBody final ConnectivityUser user)
+  // throws UserTokenIdNotFoundException {
+  // logger.info("Initializing transaction for username ... " + user.getUsername());
+  // ConnectivityTransaction transaction = transaction(user);
+  // if (transaction != null) {
+  // setResponseMessageId(transaction.getUser(), user.getResponseMessageId());
+  // transaction.init();;
+  // transactionRepository.saveAndFlush(transaction);
+  // return true;
+  // }
+  // return false;
+  // }
+
+  // private void setResponseMessageId(ConnectivityUser user, Long messageId) {
+  // user.setResponseMessageId(messageId);
+  // userRepository.save(user);
+  // }
+
+  //
+  // @Transactional()
+  // @RequestMapping(value = "/transport/close", method = RequestMethod.POST)
+  // public boolean clearIncoming(@RequestBody final ConnectivityUser user) {
+  // logger.info("Closing transaction for username... " + user.getUsername());
+  // ConnectivityTransaction transaction = transaction(user);
+  // if (transaction != null) {
+  // setResponseMessageId(transaction.getUser(), null);
+  // transaction.close();
+  // transactionRepository.saveAndFlush(transaction);
+  // }
+  // return true;
+  // }
+
+  // @RequestMapping(method = RequestMethod.POST)
+  // public ConnectivityTransaction transaction(@RequestBody final ConnectivityUser user) {
+  // logger.info("Get transaction of username ... " + user.getUsername());
+  // ConnectivityTransaction transaction =
+  // transactionRepository.findByUsernameAndPasswordAndFacilityID(user.getUsername(),
+  // user.getPassword(), user.getFacilityID());
+  // return transaction != null ? transaction : new ConnectivityTransaction();
+  // }
 
 
 
@@ -253,79 +293,79 @@ public class SOAPConnectivityController {
     return ex.getMessage();
   }
 
-  @Transactional()
-  @RequestMapping(value = "/transport/initUser", method = RequestMethod.POST)
-  public ConnectivityUserCommand initUser(@RequestBody final ConnectivityUser userCommand,
-      HttpServletRequest request) {
-    logger.info("Fetching user information ... ");
-    ConnectivityUser user = null;
-    Long id = userCommand.getId();
-
-    if (id == null) {
-      user = new ConnectivityUser();
-      userRepository.saveAndFlush(user);
-    } else {
-      user = userRepository.findOne(id);
-    }
-
-    // create a guest user if no token found
-    if (user.getPassword() == null && user.getUsername() == null) { // Guest
-      user.setUsername("vendor_" + user.getId());
-      user.setPassword("vendor_" + user.getId());
-      user.setFacilityID("vendor_" + user.getId());
-      userRepository.saveAndFlush(user);
-    }
-
-    Long userId = user.getId();
-    FaultAccount faultCredentials =
-        securityFaultCredentialsRepository.findOneByUserId(user.getId());
-    if (faultCredentials == null) {
-      faultCredentials = new FaultAccount();
-      faultCredentials.setUsername("faultUser_" + userId);
-      faultCredentials.setPassword("faultPwd_" + userId);
-      faultCredentials.setUser(user);
-      securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
-    }
-
-    ConnectivityTransaction transaction = transactionRepository.findOneByUserId(userId);
-    if (transaction == null) {
-      transaction = new ConnectivityTransaction();
-      transaction.setUser(user);
-    }
-    transaction.setStatus(TransactionStatus.CLOSE);
-    transactionRepository.saveAndFlush(transaction);
-
-    // User user = null;
-    // List<User> users = userRepository.findAll();
-    // if (users == null || users.isEmpty()) {
-    // user = new User();
-    // user.setUsername("pilot");
-    // user.setPassword("pilot");
-    // user.setFacilityID("pilot");
-    // userRepository.saveAndFlush(user);
-    // } else {
-    // user = users.get(0);
-    // }
-    // Long userId = user.getId();
-    // SecurityFaultCredentials faultCredentials =
-    // securityFaultCredentialsRepository.findOneByUserId(user.getId());
-    // if (faultCredentials == null) {
-    // faultCredentials = new SecurityFaultCredentials();
-    // faultCredentials.setFaultUsername("pilot");
-    // faultCredentials.setFaultPassword("pilot");
-    // faultCredentials.setUser(user);
-    // securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
-    // }
-    // ConnectivityTransaction transaction = transactionRepository.findOneByUserId(userId);
-    // if (transaction == null) {
-    // transaction = new ConnectivityTransaction();
-    // transaction.setUser(user);
-    // }
-    // transaction.setStatus(ConnectivityTransactionStatus.CLOSE);
-    // transactionRepository.saveAndFlush(transaction);
-    return new ConnectivityUserCommand(user.getUsername(), user.getPassword(),
-        faultCredentials.getUsername(), faultCredentials.getPassword(), user.getFacilityID(),
-        Utils.getUrl(request) + "/ws/iisService");
-  }
+  // @Transactional()
+  // @RequestMapping(value = "/transport/initUser", method = RequestMethod.POST)
+  // public ConnectivityUserCommand initUser(@RequestBody final ConnectivityUser userCommand,
+  // HttpServletRequest request) {
+  // logger.info("Fetching user information ... ");
+  // ConnectivityUser user = null;
+  // Long id = userCommand.getId();
+  //
+  // if (id == null) {
+  // user = new ConnectivityUser();
+  // userRepository.saveAndFlush(user);
+  // } else {
+  // user = userRepository.findOne(id);
+  // }
+  //
+  // // create a guest user if no token found
+  // if (user.getPassword() == null && user.getUsername() == null) { // Guest
+  // user.setUsername("vendor_" + user.getId());
+  // user.setPassword("vendor_" + user.getId());
+  // user.setFacilityID("vendor_" + user.getId());
+  // userRepository.saveAndFlush(user);
+  // }
+  //
+  // Long userId = user.getId();
+  // FaultAccount faultCredentials =
+  // securityFaultCredentialsRepository.findOneByUserId(user.getId());
+  // if (faultCredentials == null) {
+  // faultCredentials = new FaultAccount();
+  // faultCredentials.setUsername("faultUser_" + userId);
+  // faultCredentials.setPassword("faultPwd_" + userId);
+  // faultCredentials.setUser(user);
+  // securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
+  // }
+  //
+  // ConnectivityTransaction transaction = transactionRepository.findOneByUserId(userId);
+  // if (transaction == null) {
+  // transaction = new ConnectivityTransaction();
+  // transaction.setUser(user);
+  // }
+  // transaction.setStatus(TransactionStatus.CLOSE);
+  // transactionRepository.saveAndFlush(transaction);
+  //
+  // // User user = null;
+  // // List<User> users = userRepository.findAll();
+  // // if (users == null || users.isEmpty()) {
+  // // user = new User();
+  // // user.setUsername("pilot");
+  // // user.setPassword("pilot");
+  // // user.setFacilityID("pilot");
+  // // userRepository.saveAndFlush(user);
+  // // } else {
+  // // user = users.get(0);
+  // // }
+  // // Long userId = user.getId();
+  // // SecurityFaultCredentials faultCredentials =
+  // // securityFaultCredentialsRepository.findOneByUserId(user.getId());
+  // // if (faultCredentials == null) {
+  // // faultCredentials = new SecurityFaultCredentials();
+  // // faultCredentials.setFaultUsername("pilot");
+  // // faultCredentials.setFaultPassword("pilot");
+  // // faultCredentials.setUser(user);
+  // // securityFaultCredentialsRepository.saveAndFlush(faultCredentials);
+  // // }
+  // // ConnectivityTransaction transaction = transactionRepository.findOneByUserId(userId);
+  // // if (transaction == null) {
+  // // transaction = new ConnectivityTransaction();
+  // // transaction.setUser(user);
+  // // }
+  // // transaction.setStatus(ConnectivityTransactionStatus.CLOSE);
+  // // transactionRepository.saveAndFlush(transaction);
+  // return new ConnectivityUserCommand(user.getUsername(), user.getPassword(),
+  // faultCredentials.getUsername(), faultCredentials.getPassword(), user.getFacilityID(),
+  // Utils.getUrl(request) + "/ws/iisService");
+  // }
 
 }

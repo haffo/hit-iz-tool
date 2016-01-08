@@ -11,9 +11,9 @@
 </script>
 <div class="panel panel-info">
     <div class="panel-heading">
-             <span ng-show="testCase.executionStatus !== 'COMPLETE'">Test Steps Execution</span>
-            <span ng-show="testCase.executionStatus === 'COMPLETE'">Test Steps Result</span>
-     </div>
+        <span ng-show="testCase.executionStatus !== 'COMPLETE'">Test Steps Execution</span>
+        <span ng-show="testCase.executionStatus === 'COMPLETE'">Test Steps Result</span>
+    </div>
     <div class="panel-body">
         <div>
             <table class="table table-striped table-bordered table-condensed">
@@ -59,8 +59,8 @@
                                        <i title="In Progress" class="glyphicon glyphicon-ok"></i> In Progress
                              </span>
                             <span ng-show="getExecutionStatus(row) === 'COMPLETE'">
-                                     <i title="Complete" class="glyphicon glyphicon-ok green"></i> Completed
-                             </span>
+                                     <i title="Complete" class="glyphicon glyphicon-ok green"></i>Done
+                            </span>
                         </span>
                     </td>
                     <td style="width:15%">
@@ -148,7 +148,6 @@
                 </tr>
                 </tbody>
             </table>
-
 
 
         </div>

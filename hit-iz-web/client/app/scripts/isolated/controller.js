@@ -445,8 +445,14 @@ angular.module('isolated')
                             return $scope.taInititiatorForm;
                         },
                         config: function () {
-                            return IsolatedSystem.transport.config.taInitiator;
-                        },
+                            var config = StorageService.get(StorageService.USER_CONFIG_KEY);
+                            if(config != null && config != ""){
+                                config = angular.fromJson(config);
+                            }else{
+                                config = IsolatedSystem.transport.config;
+                            }
+                            return  config.taInitiator;
+                         },
                         domain: function () {
                             return IsolatedSystem.transport.domain;
                         },
@@ -455,11 +461,9 @@ angular.module('isolated')
                         }
                     }
                 });
-                modalInstance.result.then(function (config) {
-                    IsolatedSystem.transport.config.taInitiator = config;
-                    var savedConfig = angular.fromJson(StorageService.get(StorageService.USER_CONFIG_KEY));
-                    savedConfig.taInitiator = config;
-                    StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(savedConfig));
+                modalInstance.result.then(function (taInitiator) {
+                    IsolatedSystem.transport.config.taInitiator = taInitiator;
+                    StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(IsolatedSystem.transport.config));
                 }, function () {
                 });
             }
@@ -556,41 +560,28 @@ angular.module('isolated')
             $scope.loading = false;
             $scope.setActiveTab(0);
             $scope.$on('isolated:testCaseLoaded', function (event, testCase, tab) {
-                $scope.executeTestCase(testCase);
+                $scope.executeTestCase(testCase,tab);
             });
         };
 
-        $scope.executeTestCase = function (testCase) {
-
-            if (testCase != null) {
-                $rootScope.setSubActive('/isolated_execution');
-                $scope.clearExecution();
-                IsolatedSystem.testCase = testCase;
-                $scope.testCase = testCase;
-                $scope.testStep = null;
-                $scope.logger.clear();
-                $scope.loading = true;
-                $scope.error = null;
-                $scope.connecting = false;
-
-                TestExecutionClock.stop();
-
-                $scope.user.transaction.closeConnection().then(function (response) {
-                }, function (error) {
-                });
-
-                $scope.user.init().then(function (response) {
-                    $scope.endpoint = $scope.user.endpoint;
-                }, function (error) {
-                    $scope.error = error.data;
-                });
-
-
-                var testStep = $scope.testCase.children[0];
-                $scope.executeTestStep(testStep);
-
-            }
-        };
+//        $scope.executeTestCase = function (testCase) {
+//
+//            if (testCase != null) {
+//                $rootScope.setSubActive('/isolated_execution');
+//                $scope.clearExecution();
+//                IsolatedSystem.testCase = testCase;
+//                $scope.testCase = testCase;
+//                $scope.testStep = null;
+//                $scope.logger.clear();
+//                $scope.loading = true;
+//                $scope.error = null;
+//                $scope.connecting = false;
+//                TestExecutionClock.stop();
+//                var testStep = $scope.testCase.children[0];
+//                $scope.executeTestStep(testStep);
+//
+//            }
+//        };
 
         $scope.executeTestCase = function (testCase, tab) {
             if (testCase != null) {
@@ -798,7 +789,8 @@ angular.module('isolated')
             $scope.counter = $scope.counterMax;
             TestExecutionClock.stop();
             $scope.logger.logInbound(14);
-            $scope.transport.stopListener($scope.testStep.id).then(function (response) {
+            var sutInitiator = IsolatedSystem.transport.config.sutInitiator;
+            $scope.transport.stopListener($scope.testStep.id,sutInitiator).then(function (response) {
                 $scope.logger.logInbound(13);
                 $scope.transport.logs[$scope.testStep.id] = $scope.logger.content;
             }, function (error) {
@@ -895,13 +887,14 @@ angular.module('isolated')
                 $scope.error = null;
                 $scope.warning = null;
                 $scope.logger.logInbound(0);
-                $scope.transport.startListener($scope.testStep.id).then(function (started) {
+                var sutInitiator = IsolatedSystem.transport.config.sutInitiator;
+                $scope.transport.startListener($scope.testStep.id, rspMessageId,sutInitiator).then(function (started) {
                         if (started) {
                             $scope.logger.logInbound(1);
                             var execute = function () {
                                 ++$scope.counter;
                                 $scope.logger.log($scope.logger.getInbound(2) + $scope.counter + "s");
-                                $scope.transport.searchTransaction($scope.testStep.id, IsolatedSystem.transport.config.sutInitiator, rspMessageId).then(function (transaction) {
+                                $scope.transport.searchTransaction($scope.testStep.id, sutInitiator, rspMessageId).then(function (transaction) {
                                     if (transaction != null) {
                                         var incoming = transaction.incoming;
                                         var outbound = transaction.outgoing;

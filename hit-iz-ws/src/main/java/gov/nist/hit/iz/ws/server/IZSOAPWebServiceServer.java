@@ -7,6 +7,7 @@ import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.repo.MessageRepository;
 import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.TransactionService;
+import gov.nist.hit.core.service.TransportMessageService;
 import gov.nist.hit.core.transport.exception.TransportServerException;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestRequestType;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestResponseType;
@@ -45,6 +46,9 @@ public class IZSOAPWebServiceServer implements TransportServer {
   @Autowired
   private MessageRepository messageRepository;
 
+  @Autowired
+  protected TransportMessageService transportMessageService;
+
 
   public UserRepository getUserRepository() {
     return userRepository;
@@ -78,14 +82,11 @@ public class IZSOAPWebServiceServer implements TransportServer {
     return getSubmitSingleMessageResponse(hl7Message, responseMessage);
   }
 
-
   public String getResponseMessage(String username, String password, String facilityID) {
-    Transaction transaction = getTransaction(username, password, facilityID);
-    if (transaction != null) {
-      Long messageId = transaction.getResponseMessageId();
-      if (messageId != null) {
-        return messageRepository.getContentById(messageId);
-      }
+    Map<String, String> properties = getProperties(username, password, facilityID);
+    Long messageId = transportMessageService.findMessageIdByProperties(properties);
+    if (messageId != null) {
+      return messageRepository.getContentById(messageId);
     }
     return null;
   }

@@ -12,16 +12,18 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.core.domain.SendRequest;
 import gov.nist.hit.core.domain.TestStep;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.TransportConfig;
+import gov.nist.hit.core.domain.TransportMessage;
+import gov.nist.hit.core.domain.TransportRequest;
 import gov.nist.hit.core.domain.User;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.TestStepService;
 import gov.nist.hit.core.service.TransactionService;
 import gov.nist.hit.core.service.TransportConfigService;
+import gov.nist.hit.core.service.TransportMessageService;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.core.service.exception.UserNotFoundException;
@@ -71,6 +73,9 @@ public class IZSOAPTransportController {
 
   @Autowired
   protected TransactionService transactionService;
+
+  @Autowired
+  protected TransportMessageService transportMessageService;
 
   @Autowired
   protected TransportConfigService transportConfigService;
@@ -140,8 +145,8 @@ public class IZSOAPTransportController {
     }
 
     if (config.get("faultPassword") == null && config.get("faultUsername") == null) {
-      config.put("faultUsername", "faultUser_" + user.getId());
-      config.put("faultPassword", "faultUser_" + user.getId());
+      config.put("faultUsername", "fault_username_" + user.getId());
+      config.put("faultPassword", "fault_password_" + user.getId());
     }
 
     if (config.get("endpoint") == null) {
@@ -151,51 +156,43 @@ public class IZSOAPTransportController {
     return config;
   }
 
-
-
   @Transactional()
   @RequestMapping(value = "/startListener", method = RequestMethod.POST)
-  public boolean open(@RequestBody SendRequest request) {
-    logger.info("Open transaction for user with id=" + request.getUserId()
-        + " and of test step with id=" + request.getTestStepId());
-    // Transaction transaction = searchTransaction(request);
-    // if (transaction != null) {
-    // transaction.init();
-    // transaction.setTestStep(testStepService.findOne(request.getTestStepId())); // not needed for
-    // // iz
-    // transaction.setUser(userRepository.findOne(request.getUserId())); // not needed for iz
-    // transaction.setProperties(request.getConfig());
-    // transaction.setResponseMessageId(request.getResponseMessageId());
-    // transactionRepository.saveAndFlush(transaction);
-    // }
-    // if (transaction == null) {
-    // transaction = new Transaction();
-    // transaction.setTestStep(testStepService.findOne(request.getTestStepId())); // not needed for
-    // // iz
-    // transaction.setUser(userRepository.findOne(request.getUserId())); // not needed for iz
-    // transaction.setProperties(request.getConfig());
-    // transaction.setResponseMessageId(request.getResponseMessageId());
-    // }
-    // transaction.init();
-    // transactionRepository.saveAndFlush(transaction);
+  public boolean open(@RequestBody TransportRequest request) {
+    logger.info("Starting listener for user with config=" + request.getConfig());
+    if (request.getConfig() == null || request.getConfig().isEmpty())
+      throw new gov.nist.hit.core.service.exception.TransportException("config is empty");
+
+    if (request.getResponseMessageId() == null)
+      throw new gov.nist.hit.core.service.exception.TransportException("response message not found");
+
+    TransportMessage transportMessage =
+        transportMessageService.findOneByProperties(request.getConfig());
+    if (transportMessage == null) {
+      transportMessage = new TransportMessage();
+    }
+    transportMessage.setMessageId(request.getResponseMessageId());
+    transportMessage.setProperties(request.getConfig());
+    transportMessageService.save(transportMessage);
     return true;
   }
 
   @Transactional()
   @RequestMapping(value = "/stopListener", method = RequestMethod.POST)
-  public boolean close(@RequestBody SendRequest request) {
-    logger.info("Closing transaction for user with id=" + request.getUserId()
-        + " and of test step with id=" + request.getTestStepId());
-    // Transaction transaction = searchTransaction(request);
-    // if (transaction != null) {
-    // transaction.close();
-    // transactionRepository.saveAndFlush(transaction);
-    // }
+  public boolean close(@RequestBody TransportRequest request) {
+    logger.info("Stopping listener for user with config=" + request.getConfig());
+    if (request.getConfig() == null || request.getConfig().isEmpty())
+      throw new gov.nist.hit.core.service.exception.TransportException("config is empty");
+    TransportMessage transportMessage =
+        transportMessageService.findOneByProperties(request.getConfig());
+    if (transportMessage != null) {
+      transportMessageService.delete(transportMessage);
+    }
     return true;
   }
 
   @RequestMapping(value = "/searchTransaction", method = RequestMethod.POST)
-  public Transaction searchTransaction(@RequestBody SendRequest request) {
+  public Transaction searchTransaction(@RequestBody TransportRequest request) {
     logger.info("Get transaction of user with id=" + request.getUserId()
         + " and of testStep with id=" + request.getTestStepId());
     Map<String, String> criteria = new HashMap<String, String>();
@@ -208,7 +205,7 @@ public class IZSOAPTransportController {
 
   @Transactional()
   @RequestMapping(value = "/send", method = RequestMethod.POST)
-  public Transaction send(@RequestBody SendRequest request) throws TransportClientException {
+  public Transaction send(@RequestBody TransportRequest request) throws TransportClientException {
     logger.info("Sending message  with user id=" + request.getUserId() + " and test step with id="
         + request.getTestStepId());
     try {

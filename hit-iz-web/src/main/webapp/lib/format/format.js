@@ -1360,11 +1360,11 @@ angular.module('format').factory('Transport', function ($q, $http,StorageService
         return delay.promise;
     };
 
-    Transport.prototype.stopListener = function (testStepId) {
+    Transport.prototype.stopListener = function (testStepId,config) {
         var self = this;
         var delay = $q.defer();
         this.deleteTransaction(testStepId).then(function(result){
-            var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id});
+            var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id, "config": config});
             $http.post('api/transport/'  + self.domain  + "/" +  self.protocol + '/stopListener',data).then(
                 function (response) {
                     self.running = true;
@@ -1376,7 +1376,6 @@ angular.module('format').factory('Transport', function ($q, $http,StorageService
                 }
             );
         });
-
 
 //
 //        $http.get('../../resources/cb/stopListener.json').then(
@@ -1393,13 +1392,11 @@ angular.module('format').factory('Transport', function ($q, $http,StorageService
         return delay.promise;
     };
 
-    Transport.prototype.startListener = function (testStepId) {
+    Transport.prototype.startListener = function (testStepId, responseMessageId,sutInitiatorConfig) {
         var self = this;
         var delay = $q.defer();
         this.deleteTransaction(testStepId).then(function(result){
-            //self.responseMessageId = responseMessageId; TODO:???
-//        var data = angular.fromJson(self);
-            var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id});
+             var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id, "responseMessageId":responseMessageId, "config": sutInitiatorConfig});
             $http.post('api/transport/'  + self.domain  + "/" +  self.protocol + '/startListener', data).then(
                 function (response) {
                     self.running = true;

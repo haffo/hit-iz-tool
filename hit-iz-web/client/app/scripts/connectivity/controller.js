@@ -1,25 +1,25 @@
 'use strict';
 angular.module('connectivity')
-    .controller('ConnectivityTestingCtrl', ['$scope', 'Connectivity', '$rootScope', 'StorageService', function ($scope, Connectivity, $rootScope,StorageService) {
+    .controller('ConnectivityTestingCtrl', ['$scope', 'Connectivity', '$rootScope', 'StorageService', function ($scope, Connectivity, $rootScope, StorageService) {
 
         $scope.testCaseLoaded = null;
 
         $scope.init = function () {
             var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
-            if(tab == null || tab != '/connectivity_execution') tab =  '/connectivity_testcase';
+            if (tab == null || tab != '/connectivity_execution') tab = '/connectivity_testcase';
             $rootScope.setSubActive(tab);
         };
 
         $rootScope.$on('conn:testCaseLoaded', function (event, tab) {
             $scope.testCaseLoaded = Connectivity.testCase;
-            $rootScope.setSubActive(tab && tab != null ? tab:'/connectivity_execution');
-         });
+            $rootScope.setSubActive(tab && tab != null ? tab : '/connectivity_execution');
+        });
 
     }]);
 
 
 angular.module('connectivity')
-    .controller('ConnectivityTestCaseCtrl', ['$scope', 'Connectivity', '$rootScope', 'ConnectivityTestCaseListLoader', '$cookies', '$timeout','StorageService','TestCaseService', function ($scope, Connectivity, $rootScope, ConnectivityTestCaseListLoader,$cookies,$timeout,StorageService,TestCaseService) {
+    .controller('ConnectivityTestCaseCtrl', ['$scope', 'Connectivity', '$rootScope', 'ConnectivityTestCaseListLoader', '$cookies', '$timeout', 'StorageService', 'TestCaseService', function ($scope, Connectivity, $rootScope, ConnectivityTestCaseListLoader, $cookies, $timeout, StorageService, TestCaseService) {
 
         $scope.connectivity = Connectivity;
         $scope.loading = true;
@@ -63,7 +63,7 @@ angular.module('connectivity')
                     }
                     if (testCase != null) {
                         $scope.selectTestCase(testCase);
-                        $scope.selectNode(id,type);
+                        $scope.selectNode(id, type);
                     }
                 }
                 testCase = null;
@@ -79,11 +79,11 @@ angular.module('connectivity')
                     }
                     if (testCase != null) {
                         var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
-                        $scope.loadTestCase(testCase,tab);
+                        $scope.loadTestCase(testCase, tab);
                     }
                 }
 
-                 $scope.loading = false;
+                $scope.loading = false;
                 $scope.error = null;
             }, function (error) {
                 $scope.error = "Sorry, Failed to fetch the test cases. Please refresh page and try again.";
@@ -91,20 +91,20 @@ angular.module('connectivity')
             });
         };
 
-        $scope.loadTestCase = function (testCase,tab) {
-                 Connectivity.testCase = testCase;
-                $scope.testCase = Connectivity.testCase;
-                var id = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY);
-                var type = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY);
-                if (id != $scope.testCase.id || type != $scope.testCase.type) {
-                    StorageService.set(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY, $scope.testCase.id);
-                    StorageService.set(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY, $scope.testCase.type);
-                    StorageService.remove(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY);
-                    StorageService.remove(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY);
-                }
-                $timeout(function () {
-                    $rootScope.$broadcast('conn:testCaseLoaded', tab);
-                });
+        $scope.loadTestCase = function (testCase, tab) {
+            Connectivity.testCase = testCase;
+            $scope.testCase = Connectivity.testCase;
+            var id = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY);
+            var type = StorageService.get(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY);
+            if (id != $scope.testCase.id || type != $scope.testCase.type) {
+                StorageService.set(StorageService.SOAP_CONN_LOADED_TESTCASE_ID_KEY, $scope.testCase.id);
+                StorageService.set(StorageService.SOAP_CONN_LOADED_TESTCASE_TYPE_KEY, $scope.testCase.type);
+                StorageService.remove(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY);
+                StorageService.remove(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY);
+            }
+            $timeout(function () {
+                $rootScope.$broadcast('conn:testCaseLoaded', tab);
+            });
         };
 
         $scope.isSelectable = function (node) {
@@ -112,20 +112,18 @@ angular.module('connectivity')
         };
 
 
-        $scope.selectNode = function (id,type) {
+        $scope.selectNode = function (id, type) {
             $timeout(function () {
                 testCaseService.selectNodeByIdAndType($scope.tree, id, type);
-            },0);
+            }, 0);
         };
-
-
 
 
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal', 'Endpoint','$cookies','StorageService',
-        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal, Endpoint,$cookies,StorageService) {
+    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal', 'Endpoint', '$cookies', 'StorageService', 'TestExecutionClock',
+        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal, Endpoint, $cookies, StorageService, TestExecutionClock) {
 
             $scope.logger = Connectivity.logger;
             $scope.loading = false;
@@ -135,9 +133,8 @@ angular.module('connectivity')
             $scope.connecting = false;
             $scope.error = null;
             $scope.endpoint = null;
-            $scope.user = Connectivity.user;
+            $scope.transport = Connectivity.transport;
             $scope.hidePwd = true;
-
             $scope.init = function () {
                 $rootScope.$on('conn:testCaseLoaded', function (event) {
                     $scope.testCase = Connectivity.testCase;
@@ -145,11 +142,13 @@ angular.module('connectivity')
                     $scope.loading = true;
                     $scope.error = null;
                     $scope.connecting = false;
-                });
-                Connectivity.user.init().then(function (response) {
-                    $scope.endpoint = $scope.user.endpoint;
-                }, function (error) {
-                    $scope.error = error;
+                    TestExecutionClock.stop();
+                    var testingType = $scope.testCase.sutType === 'RECEIVER' ? 'TA_INITIATOR' : 'SUT_INITIATOR';
+                    if (testingType === 'TA_INITIATOR') {
+                        $scope.transport.loadTaInitiatorConfig("soap");
+                    } else {
+                        $scope.transport.loadSutInitiatorConfig("soap");
+                    }
                 });
             };
 
@@ -158,9 +157,9 @@ angular.module('connectivity')
             };
 
             $scope.isValidConfig = function () {
-                return $scope.user.receiverEndpoint != null && $scope.user.receiverEndpoint != '';
+                var taInitiator = $scope.transport.config.taInitiator;
+                return taInitiator &&  taInitiator != null &&  taInitiator.endpoint != null && taInitiator.endpoint != '';
             };
-
 
             $scope.openReceiverConfig = function () {
                 $scope.logger.init();
@@ -177,18 +176,15 @@ angular.module('connectivity')
                         },
                         message: function () {
                             return Connectivity.request.getContent();
-                        },
-                        user: function () {
-                            return Connectivity.user;
                         }
                     }
                 });
                 modalInstance.result.then(function (result) {
                     if (result.received != null) {
                         $scope.triggerReqEvent(result.received);
-                     }
+                    }
                     if (result.sent != null) {
-                         $scope.triggerRespEvent(result.sent);
+                        $scope.triggerRespEvent(result.sent);
                     }
                 }, function () {
                     $scope.triggerReqEvent('');
@@ -198,104 +194,82 @@ angular.module('connectivity')
 
 
             $scope.send = function () {
-                     $scope.logger.init();
-                    var modalInstance = $modal.open({
-                        templateUrl: 'TransactionSender.html',
-                        controller: 'ConnectivitySenderCtrl',
-                        size: 'lg',
-                        backdrop: 'static',
-                        resolve: {
-                            testCase: function () {
-                                return Connectivity.testCase;
-                            },
-                            logger: function () {
-                                return  Connectivity.logger;
-                            },
-                            message: function () {
-                                return Connectivity.request.editor.getContent();
-                            },
-                            user: function () {
-                                return Connectivity.user;
-                            }
-                        }
-                    });
-                    modalInstance.result.then(function (result) {
-                        if (result.sent != null) {
-                            $scope.triggerReqEvent(result.sent);
-                        }
-                        if (result.received != null) {
-                            $scope.triggerRespEvent(result.received);
-                        }
+                $scope.logger.init();
+                var modalInstance = $modal.open({
+                    templateUrl: 'TransactionSender.html',
+                    controller: 'ConnectivitySenderCtrl',
+                    size: 'lg',
+                    backdrop: 'static'
+                });
+                modalInstance.result.then(function (result) {
+                    if (result.sent != null) {
+                        $scope.triggerReqEvent(result.sent);
+                    }
+                    if (result.received != null) {
+                        $scope.triggerRespEvent(result.received);
+                    }
 
-                    }, function () {
-                        $scope.triggerRespEvent('');
-                    });
-             };
+                }, function () {
+                    $scope.triggerRespEvent('');
+                });
+            };
 
             $scope.configureReceiver = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'TransactionConfigureReceiver.html',
-                    controller: 'ConnectivityConfigureReceiverCtrl'
-                });
-                modalInstance.result.then(function (user) {
-                    if(user.save === true) {
-                        Connectivity.user.senderUsername = user.senderUsername;
-                        Connectivity.user.senderPassword = user.senderPassword;
-                        Connectivity.user.senderFacilityID = user.senderFacilityID;
-                        Connectivity.user.receiverUsername = user.receiverUsername;
-                        Connectivity.user.receiverPassword = user.receiverPassword;
-                        Connectivity.user.receiverFacilityId = user.receiverFacilityId;
-                        Connectivity.user.receiverEndpoint = user.receiverEndpoint;
-//                        StorageService.set(StorageService.SOAP_COMM_SENDER_USERNAME_KEY,Connectivity.user.senderUsername);
-//                        StorageService.set(StorageService.SOAP_COMM_SENDER_PWD_KEY,Connectivity.user.senderPassword);
-//                        StorageService.set(StorageService.SOAP_COMM_SENDER_FACILITYID_KEY,Connectivity.user.senderFacilityID);
-
-                        StorageService.set(StorageService.SOAP_COMM_RECEIVER_USERNAME_KEY,Connectivity.user.receiverUsername);
-                        StorageService.set(StorageService.SOAP_COMM_RECEIVER_PWD_KEY,Connectivity.user.receiverPassword);
-                        StorageService.set(StorageService.SOAP_COMM_RECEIVER_FACILITYID_KEY,Connectivity.user.receiverFacilityId);
-                        StorageService.set(StorageService.SOAP_COMM_RECEIVER_ENDPOINT_KEY,Connectivity.user.receiverEndpoint);
-
-//                        $cookies.put('ConnectivityUser', angular.toJson(Connectivity.user));
-                        $scope.triggerRespEvent('');
-                        $scope.send();
-                    }
-                  }, function () {
-                     //$scope.triggerRespEvent('');
-                });
-            };
-
-            $scope.viewReceiver = function () {
-                var modalInstance = $modal.open({
-                    templateUrl: 'TransactionViewReceiverConfiguration.html',
-                    controller: 'ConnectivityViewReceiverConfigurationCtrl',
-                    windowClass: 'app-modal-window',
+                    controller: 'ConnectivityConfigureReceiverCtrl',
                     resolve: {
-                        testCase: function () {
-                            return Connectivity.testCase;
-                        },
-                        user: function () {
-                            return Connectivity.user;
+                        config: function () {
+                            var config = StorageService.get(StorageService.USER_CONFIG_KEY);
+                            if (config != null && config != "") {
+                                config = angular.fromJson(config);
+                            } else {
+                                config = Connectivity.transport.config;
+                            }
+                            return  config.taInitiator;
                         }
                     }
                 });
-                modalInstance.result.then(function (result) {
-                     $scope.triggerRespEvent('');
+                modalInstance.result.then(function (taInitiator) {
+                    Connectivity.transport.config.taInitiator = taInitiator;
+                    StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(Connectivity.transport.config));
                 }, function () {
-                     $scope.triggerRespEvent('');
+                    //$scope.triggerRespEvent('');
                 });
             };
+
+//            $scope.viewReceiver = function () {
+//                var modalInstance = $modal.open({
+//                    templateUrl: 'TransactionViewReceiverConfiguration.html',
+//                    controller: 'ConnectivityViewReceiverConfigurationCtrl',
+//                    windowClass: 'app-modal-window',
+//                    resolve: {
+//                        testCase: function () {
+//                            return Connectivity.testCase;
+//                        },
+//                        user: function () {
+//                            return Connectivity.user;
+//                        }
+//                    }
+//                });
+//                modalInstance.result.then(function (result) {
+//                     $scope.triggerRespEvent('');
+//                }, function () {
+//                     $scope.triggerRespEvent('');
+//                });
+//            };
 
             $scope.hasRequestContent = function () {
                 return Connectivity.request.getContent() != null && Connectivity.request.getContent() != '';
             };
 
             $scope.triggerReqEvent = function (message) {
-                $timeout(function() {
+                $timeout(function () {
                     $rootScope.$broadcast('conn:reqMessage', message);
                 });
             };
             $scope.triggerRespEvent = function (message) {
-                $timeout(function() {
+                $timeout(function () {
                     $rootScope.$broadcast('conn:respMessage', message);
                 });
             };
@@ -307,7 +281,7 @@ angular.module('connectivity')
 'use strict';
 
 angular.module('connectivity')
-    .controller('ConnectivityReqCtrl', ['$scope', '$http', 'Connectivity', 'SOAPFormatter', '$window', 'SOAPEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', 'StorageService', function ($scope, $http, Connectivity, SOAPFormatter, $window, SOAPEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal,StorageService) {
+    .controller('ConnectivityReqCtrl', ['$scope', '$http', 'Connectivity', 'SOAPFormatter', '$window', 'SOAPEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', 'StorageService', function ($scope, $http, Connectivity, SOAPFormatter, $window, SOAPEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal, StorageService) {
 
         $scope.eLoading = false;
         $scope.vError = null;
@@ -317,7 +291,6 @@ angular.module('connectivity')
         $scope.validating = false;
         $scope.editorInit = false;
         $scope.serverEndpoint = Connectivity.serverEndpoint;
-        $scope.user = Connectivity.user;
         $scope.request = Connectivity.request;
         $scope.rLoading = false;
         $scope.rError = null;
@@ -389,8 +362,8 @@ angular.module('connectivity')
                 var validator = new SOAPFormatter(backup);
                 validator.then(function (formatted) {
                     $scope.validating = false;
-                     $scope.reqMessage(formatted);
-                 }, function (error) {
+                    $scope.reqMessage(formatted);
+                }, function (error) {
                     $scope.validating = false;
                     $scope.vError = error;
                 });
@@ -424,7 +397,7 @@ angular.module('connectivity')
             $scope.rLoading = true;
             $scope.rError = null;
             if ($scope.testCase != null && $scope.request.getContent() != '') {
-                var validator = new ConnectivityValidator().validate($scope.request.message.content, $scope.testCase.id, Connectivity.user.id, 'req', null);
+                var validator = new ConnectivityValidator().validate($scope.request.message.content, $scope.testCase.id, 'req', null);
                 validator.then(function (result) {
                     $scope.rLoading = false;
                     $scope.setValidationResult(result);
@@ -480,11 +453,11 @@ angular.module('connectivity')
 
             $rootScope.$on('conn:testCaseLoaded', function (event) {
                 $scope.testCase = Connectivity.testCase;
-                var req = Connectivity.testCase.sutType == 'RECEIVER' ? Connectivity.testCase.testContext.message : StorageService.get(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY) != null ? StorageService.get(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY): '';
+                var req = Connectivity.testCase.sutType == 'RECEIVER' ? Connectivity.testCase.testContext.message : StorageService.get(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY) != null ? StorageService.get(StorageService.SOAP_CONN_REQ_EDITOR_CONTENT_KEY) : '';
                 $scope.reqMessage(req);
 //                var rsp = StorageService.get(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY);
 //                $scope.triggerRespEvent(rsp != null ? rsp:'');
-             });
+            });
 
             $rootScope.$on('conn:reqMessage', function (event, message) {
                 $scope.reqMessage(message)
@@ -509,7 +482,7 @@ angular.module('connectivity')
         };
 
         $scope.triggerRespEvent = function (message) {
-            $rootScope.$broadcast('conn:respMessage',message);
+            $rootScope.$broadcast('conn:respMessage', message);
         };
 
 
@@ -560,14 +533,21 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityConfigureReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance) {
+    .controller('ConnectivityConfigureReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, User, config) {
         $scope.testCase = Connectivity.testCase;
-        $scope.user = angular.copy(Connectivity.user);
-        $scope.user.save = false;
-        $scope.send = function () {
-            $scope.user.save = true;
-            $modalInstance.close($scope.user);
+        $scope.config = angular.copy(config);
+        $scope.save = function () {
+            var data = angular.fromJson({"config": $scope.config, "userId": User.info.id, "type": "TA_INITIATOR", "protocol": "soap"});
+            $http.post('api/transport/config/save', data);
+            $modalInstance.close($scope.config);
         };
+
+//        $scope.save = function () {
+////        $http.get('../../resources/cb/saveConfig.json');
+//            var data = angular.fromJson({"config": $scope.config, "userId": User.info.id, "type": "TA_INITIATOR","protocol": $scope.protocol});
+//            $http.post('api/transport/config/save', data);
+//            $modalInstance.close($scope.config);
+//        };
 
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
@@ -575,38 +555,38 @@ angular.module('connectivity')
     });
 
 
+//angular.module('connectivity')
+//    .controller('ConnectivityViewReceiverConfigurationCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, user) {
+//        $scope.testCase = Connectivity.testCase;
+//        $scope.user =  Connectivity.user;
+//        $scope.close = function () {
+//            $modalInstance.close();
+//        };
+//
+//        $scope.cancel = function () {
+//            $modalInstance.dismiss('cancel');
+//        };
+//
+//        $scope.hasRequestContent = function () {
+//            return $scope.message != null && $scope.message != '';
+//        };
+//
+//    });
+
+
 angular.module('connectivity')
-    .controller('ConnectivityViewReceiverConfigurationCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, user) {
+    .controller('ConnectivitySenderCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance) {
         $scope.testCase = Connectivity.testCase;
-        $scope.user =  Connectivity.user;
-        $scope.close = function () {
-            $modalInstance.close();
-        };
-
-        $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
-        };
-
-        $scope.hasRequestContent = function () {
-            return $scope.message != null && $scope.message != '';
-        };
-
-    });
-
-
-angular.module('connectivity')
-    .controller('ConnectivitySenderCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, ConnectivityInitiator, message, user, logger) {
-        $scope.testCase = testCase;
-        $scope.message = message;
-        $scope.user = user;
-        $scope.logger = logger;
+        $scope.logger = Connectivity.logger;
         $scope.sent = null;
         $scope.received = null;
         $scope.connecting = false;
         $scope.error = null;
+        $scope.transport = Connectivity.transport;
 
         $scope.isValidConfig = function () {
-            return $scope.user.receiverEndpoint != null && $scope.user.receiverEndpoint != '';
+            var taInitiator = $scope.transport.config.taInitiator;
+            return taInitiator &&  taInitiator != null &&  taInitiator.endpoint != null && taInitiator.endpoint != '';
         };
 
         $scope.close = function () {
@@ -623,12 +603,12 @@ angular.module('connectivity')
 
         $scope.send = function () {
             $scope.error = null;
-            if ($scope.user.receiverEndpoint != '' && $scope.hasRequestContent()) {
+            if ($scope.isValidConfig() && $scope.hasRequestContent()) {
                 $scope.connecting = true;
                 $scope.logger.init();
                 $scope.received = '';
                 $scope.logger.log("Sending request ========================>");
-                var sender = new ConnectivityInitiator().send($scope.user, $scope.testCase.id, $scope.message);
+                var sender = $scope.transport.send($scope.testCase.id);
                 sender.then(function (response) {
                     var received = response.incoming;
                     var sent = response.outgoing;
@@ -647,7 +627,7 @@ angular.module('connectivity')
                     $scope.error = error.data;
                     $scope.logger.log("Error: " + error.data);
                     $scope.logger.log("Transaction aborted");
-                    $rootScope.$broadcast('conn:respMessage','');
+                    $rootScope.$broadcast('conn:respMessage', '');
                     $scope.received = '';
                 });
             } else {
@@ -660,7 +640,7 @@ angular.module('connectivity')
     });
 
 angular.module('connectivity')
-    .controller('ConnectivityRespCtrl', ['$scope', '$http', 'Connectivity', '$window', 'SOAPFormatter', 'SOAPEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', 'StorageService',function ($scope, $http, Connectivity, $window, SOAPFormatter, SOAPEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal,StorageService) {
+    .controller('ConnectivityRespCtrl', ['$scope', '$http', 'Connectivity', '$window', 'SOAPFormatter', 'SOAPEditorUtils', '$timeout', '$rootScope', 'ConnectivityValidator', '$modal', 'StorageService', function ($scope, $http, Connectivity, $window, SOAPFormatter, SOAPEditorUtils, $timeout, $rootScope, ConnectivityValidator, $modal, StorageService) {
         $scope.testCase = Connectivity.testCase;
         $scope.response = Connectivity.response;
         $scope.selectedTestCase = Connectivity.selectedTestCase;
@@ -744,7 +724,7 @@ angular.module('connectivity')
                 $scope.testCase = Connectivity.testCase;
                 $scope.refreshEditor();
                 var rsp = StorageService.get(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY);
-                $scope.respMessage(rsp != null ? rsp:'');
+                $scope.respMessage(rsp != null ? rsp : '');
             });
 
             $rootScope.$on('conn:respMessage', function (event, message) {
@@ -759,17 +739,17 @@ angular.module('connectivity')
         $scope.respMessage = function (message) {
             $scope.response.message.content = message;
             $scope.editor.doc.setValue(message);
-            StorageService.set(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY,message);
+            StorageService.set(StorageService.SOAP_CONN_RESP_EDITOR_CONTENT_KEY, message);
             $scope.refreshEditor();
             $scope.validateMessage();
         };
 
         $scope.triggerReqEvent = function (message) {
-            $rootScope.$broadcast('conn:reqMessage',message);
+            $rootScope.$broadcast('conn:reqMessage', message);
         };
 
         $scope.triggerRespEvent = function (message) {
-            $rootScope.$broadcast('conn:respMessage',message);
+            $rootScope.$broadcast('conn:respMessage', message);
         };
 
         /**
@@ -827,7 +807,7 @@ angular.module('connectivity')
             $scope.rLoading = true;
             $scope.rError = null;
             if (Connectivity.testCase != null && Connectivity.response.getContent() != '') {
-                var validator = new ConnectivityValidator().validate($scope.response.message.content, Connectivity.testCase.id, Connectivity.user.id, 'resp', Connectivity.request.getContent());
+                var validator = new ConnectivityValidator().validate($scope.response.message.content, Connectivity.testCase.id, 'resp', Connectivity.request.getContent());
                 validator.then(function (result) {
                     $scope.rLoading = false;
                     $scope.setValidationResult(result);
@@ -903,11 +883,11 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, logger, ConnectivityClock, message) {
+    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, logger, TestExecutionClock, message) {
         $scope.testCase = testCase;
-        $scope.user = Connectivity.user;
+        $scope.transport = Connectivity.transport;
+        $scope.config = $scope.transport.config.sutInitiator;
         $scope.logger = logger;
-        $scope.endpoint = $scope.user.endpoint;
         $scope.message = message;
         $scope.sent = null;
         $scope.received = null;
@@ -933,19 +913,18 @@ angular.module('connectivity')
             return  $scope.message != null && $scope.message != '';
         };
 
-        $scope.stop = function () {
+        $scope.stopListener = function () {
             $scope.connecting = false;
             $scope.counter = $scope.counterMax;
-            ConnectivityClock.stop();
+            TestExecutionClock.stop();
             $scope.log("Stopping transaction. Please wait....");
-            $scope.user.transaction.closeConnection().then(function (response) {
+            $scope.transport.stopListener($scope.testCase.id,$scope.config).then(function (response) {
                 $scope.log("Transaction stopped.");
-            }, function (error) {
+             }, function (error) {
             });
         };
 
-
-        $scope.start = function () {
+        $scope.startListener = function () {
             $scope.logger.clear();
             $scope.counter = 0;
             $scope.connecting = true;
@@ -953,59 +932,106 @@ angular.module('connectivity')
             $scope.sent = '';
             $scope.error = null;
             $scope.warning = null;
-
             $scope.log("Configuring connection. Please wait...");
-            Connectivity.user.transaction.openConnection().then(function (response) {
+            var rspMessageId = 0;
+            $scope.transport.startListener($scope.testCase.id, rspMessageId,$scope.config).then(function (started) {
+                if (started) {
                     $scope.log("Connection configured.");
                     var execute = function () {
                         ++$scope.counter;
                         $scope.log("Waiting for incoming message....Elapsed time(second):" + $scope.counter + "s");
-                        $scope.user.transaction.messages().then(function (response) {
-                            var incoming = $scope.user.transaction.incoming;
-                            var outgoing = $scope.user.transaction.outgoing;
-                            if ($scope.counter < $scope.counterMax) {
-                                if (incoming != null && incoming != '' && $scope.received == '') {
-                                    $scope.log("Incoming Message Received <--------------------------------------");
-                                    $scope.log(incoming);
-                                    $scope.received = incoming;
-                                }
-                                if (outgoing != null && outgoing != '' && $scope.sent == '') {
-                                    $scope.log("Outgoing Message Sent:    -------------------------------------->");
-                                    $scope.log(outgoing);
-                                    $scope.sent = outgoing;
-                                }
-                                if ($scope.received != '' && $scope.sent != '') {
-                                    $scope.stop();
-                                }
-                            } else {
-                                if (incoming == null || incoming == '') {
-                                    $scope.warning = "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound SOAP Envelope against those created for your system.</p>  <p>Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.</p>" +
-                                        "<p>Possible cause (3):The HTTP header field Content-Type  may not be set correctly for use with SOAP 1.2.   SOAP 1.2 requires application/soap+xml, and SOAP 1.2 requires text/xml.  The NIST Tool follows SOAP 1.2, which is required by section 2 of the 'CDC Transport Layer Protocol Recommendation V1.1' (http://www.cdc.gov/vaccines/programs/iis/technical-guidance/SOAP/downloads/transport-specification.pdf)</p>";
+                        $scope.transport.searchTransaction($scope.testCase.id, $scope.config).then(function (transaction) {
+                            if (transaction != null) {
+                                var incoming = transaction.incoming;
+                                var outbound = transaction.outgoing;
+                                $scope.log("Incoming Message <--------------------------------------");
+                                $scope.log(incoming);
+                                $scope.received = incoming;
 
-                                    $scope.log("We did not receive any incoming message after 30s");
+                                $scope.log("Outgoing Message:    -------------------------------------->");
+                                $scope.log(outbound);
+                                $scope.sent = outbound;
 
-                                } else if (outgoing == null || outgoing == '') {
-                                    $scope.log("We were unable to send the response after 30s");
-                                }
-                                $scope.stop();
+                                $scope.stopListener();
+                            } else if ($scope.counter >= $scope.counterMax) {
+                                $scope.warning = "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound SOAP Envelope against those created for your system.</p>  <p>Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.</p>" +
+                                    "<p>Possible cause (3):The HTTP header field Content-Type  may not be set correctly for use with SOAP 1.2.   SOAP 1.2 requires application/soap+xml, and SOAP 1.2 requires text/xml.  The NIST Tool follows SOAP 1.2, which is required by section 2 of the 'CDC Transport Layer Protocol Recommendation V1.1' (http://www.cdc.gov/vaccines/programs/iis/technical-guidance/SOAP/downloads/transport-specification.pdf)</p>";
+
+                                $scope.log("We did not receive any incoming message after 30s");
+
+                                $scope.stopListener();
                             }
                         }, function (error) {
                             $scope.error = error;
                             $scope.log("Error: " + error);
                             $scope.received = '';
                             $scope.sent = '';
-                            $scope.stop();
+                            $scope.stopListener();
                         });
                     };
-                    ConnectivityClock.start(execute);
-                }, function (error) {
+                    TestExecutionClock.start(execute);
+                } else {
                     $scope.log("Failed to configure incoming connection: Error: " + error);
                     $scope.log("Transaction aborted");
                     $scope.connecting = false;
                     $scope.error = error;
                 }
-            );
+            });
+
         };
+
+
+//            Connectivity.user.transaction.openConnection().then(function (response) {
+//                    $scope.log("Connection configured.");
+//                    var execute = function () {
+//                        ++$scope.counter;
+//                        $scope.log("Waiting for incoming message....Elapsed time(second):" + $scope.counter + "s");
+//                        $scope.user.transaction.messages().then(function (response) {
+//                            var incoming = $scope.user.transaction.incoming;
+//                            var outgoing = $scope.user.transaction.outgoing;
+//                            if ($scope.counter < $scope.counterMax) {
+//                                if (incoming != null && incoming != '' && $scope.received == '') {
+//                                    $scope.log("Incoming Message Received <--------------------------------------");
+//                                    $scope.log(incoming);
+//                                    $scope.received = incoming;
+//                                }
+//                                if (outgoing != null && outgoing != '' && $scope.sent == '') {
+//                                    $scope.log("Outgoing Message Sent:    -------------------------------------->");
+//                                    $scope.log(outgoing);
+//                                    $scope.sent = outgoing;
+//                                }
+//                                if ($scope.received != '' && $scope.sent != '') {
+//                                    $scope.stop();
+//                                }
+//                            } else {
+//                                if (incoming == null || incoming == '') {
+//                                    $scope.warning = "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound SOAP Envelope against those created for your system.</p>  <p>Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.</p>" +
+//                                        "<p>Possible cause (3):The HTTP header field Content-Type  may not be set correctly for use with SOAP 1.2.   SOAP 1.2 requires application/soap+xml, and SOAP 1.2 requires text/xml.  The NIST Tool follows SOAP 1.2, which is required by section 2 of the 'CDC Transport Layer Protocol Recommendation V1.1' (http://www.cdc.gov/vaccines/programs/iis/technical-guidance/SOAP/downloads/transport-specification.pdf)</p>";
+//
+//                                    $scope.log("We did not receive any incoming message after 30s");
+//
+//                                } else if (outgoing == null || outgoing == '') {
+//                                    $scope.log("We were unable to send the response after 30s");
+//                                }
+//                                $scope.stop();
+//                            }
+//                        }, function (error) {
+//                            $scope.error = error;
+//                            $scope.log("Error: " + error);
+//                            $scope.received = '';
+//                            $scope.sent = '';
+//                            $scope.stop();
+//                        });
+//                    };
+//                    TestExecutionClock.start(execute);
+//                }, function (error) {
+//                    $scope.log("Failed to configure incoming connection: Error: " + error);
+//                    $scope.log("Transaction aborted");
+//                    $scope.connecting = false;
+//                    $scope.error = error;
+//                }
+//            );
+//        };
 
     });
 
