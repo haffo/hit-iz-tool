@@ -2,5 +2,6 @@
   "name" : "Pilot Isolated Test Plan",
   "type" : "Isolated",
   "description" : "Targeted test plan to assess Isolated System Testing Automation",
-    "skip":true
+  "skip":true,
+  "transport":true
 }
