@@ -19,13 +19,14 @@ import gov.nist.hit.core.domain.TransportMessage;
 import gov.nist.hit.core.domain.TransportRequest;
 import gov.nist.hit.core.domain.User;
 import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.TestStepService;
 import gov.nist.hit.core.service.TransactionService;
 import gov.nist.hit.core.service.TransportConfigService;
 import gov.nist.hit.core.service.TransportMessageService;
+import gov.nist.hit.core.service.UserService;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.TestCaseException;
+import gov.nist.hit.core.service.exception.TransportException;
 import gov.nist.hit.core.service.exception.UserNotFoundException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.core.transport.exception.TransportClientException;
@@ -69,7 +70,7 @@ public class IZSOAPTransportController {
   protected TestStepService testStepService;
 
   @Autowired
-  protected UserRepository userRepository;
+  protected UserService userService;
 
   @Autowired
   protected TransactionService transactionService;
@@ -102,14 +103,14 @@ public class IZSOAPTransportController {
     logger.info("Fetching user ta initiator information ... ");
     User user = null;
     TransportConfig transportConfig = null;
-    if (userId == null || (user = userRepository.findOne(userId)) == null) {
+    if (userId == null || (user = userService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
     transportConfig = transportConfigService.findOneByUserAndProtocol(user.getId(), PROTOCOL);
     if (transportConfig == null) {
       transportConfig = transportConfigService.create(PROTOCOL);
       user.addConfig(transportConfig);
-      userRepository.save(user);
+      userService.save(user);
       transportConfigService.save(transportConfig);
     }
     Map<String, String> config = transportConfig.getTaInitiator();
@@ -123,14 +124,14 @@ public class IZSOAPTransportController {
     logger.info("Fetching user information ... ");
     User user = null;
     TransportConfig transportConfig = null;
-    if (userId == null || (user = userRepository.findOne(userId)) == null) {
+    if (userId == null || (user = userService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
     transportConfig = transportConfigService.findOneByUserAndProtocol(user.getId(), PROTOCOL);
     if (transportConfig == null) {
       transportConfig = transportConfigService.create(PROTOCOL);
       user.addConfig(transportConfig);
-      userRepository.save(user);
+      userService.save(user);
     }
     Map<String, String> config = transportConfig.getSutInitiator();
     if (config == null) {
@@ -156,40 +157,58 @@ public class IZSOAPTransportController {
     return config;
   }
 
-  @Transactional()
+  @Transactional
   @RequestMapping(value = "/startListener", method = RequestMethod.POST)
-  public boolean open(@RequestBody TransportRequest request) {
-    logger.info("Starting listener for user with config=" + request.getConfig());
-    if (request.getConfig() == null || request.getConfig().isEmpty())
-      throw new gov.nist.hit.core.service.exception.TransportException("config is empty");
-
+  public boolean startListener(@RequestBody TransportRequest request) {
+    stopListener(request);
+    logger.info("Starting listener for user with id=" + request.getUserId());
     if (request.getResponseMessageId() == null)
-      throw new gov.nist.hit.core.service.exception.TransportException("response message not found");
-
-    TransportMessage transportMessage =
-        transportMessageService.findOneByProperties(request.getConfig());
-    if (transportMessage == null) {
-      transportMessage = new TransportMessage();
-    }
+      throw new gov.nist.hit.core.service.exception.TransportException("Response message not found");
+    TransportMessage transportMessage = new TransportMessage();
     transportMessage.setMessageId(request.getResponseMessageId());
     transportMessage.setProperties(request.getConfig());
     transportMessageService.save(transportMessage);
     return true;
   }
 
-  @Transactional()
+  @Transactional
   @RequestMapping(value = "/stopListener", method = RequestMethod.POST)
-  public boolean close(@RequestBody TransportRequest request) {
-    logger.info("Stopping listener for user with config=" + request.getConfig());
-    if (request.getConfig() == null || request.getConfig().isEmpty())
-      throw new gov.nist.hit.core.service.exception.TransportException("config is empty");
-    TransportMessage transportMessage =
-        transportMessageService.findOneByProperties(request.getConfig());
+  public boolean stopListener(@RequestBody TransportRequest request) {
+    logger.info("Stopping listener for user with id=" + request.getUserId());
+
+    if (request.getUserId() == null)
+      throw new gov.nist.hit.core.service.exception.TransportException("User info not found");
+
+    if (!userExist(request.getUserId()))
+      throw new gov.nist.hit.core.service.exception.TransportException(
+          "We couldn't recognize the user");
+
+    Map<String, String> config = getSutInitiatorConfig(request.getUserId());
+    TransportMessage transportMessage = transportMessageService.findOneByProperties(config);
     if (transportMessage != null) {
       transportMessageService.delete(transportMessage);
     }
+    Transaction transaction = transactionService.findOneByProperties(config);
+    if (transaction != null) {
+      transactionService.delete(transaction);
+    }
     return true;
   }
+
+  private Map<String, String> getSutInitiatorConfig(Long userId) {
+    TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, "soap");
+    Map<String, String> sutInitiator = config != null ? config.getSutInitiator() : null;
+    if (sutInitiator == null || sutInitiator.isEmpty())
+      throw new gov.nist.hit.core.service.exception.TransportException(
+          "No System Under Test configuration info found");
+    return sutInitiator;
+  }
+
+  private boolean userExist(Long userId) {
+    User user = userService.findOne(userId);
+    return user != null;
+  }
+
 
   @RequestMapping(value = "/searchTransaction", method = RequestMethod.POST)
   public Transaction searchTransaction(@RequestBody TransportRequest request) {
@@ -232,14 +251,12 @@ public class IZSOAPTransportController {
       }
 
       Transaction transaction = new Transaction();
-      transaction.setTestStep(testStepService.findOne(testStepId));
-      transaction.setUser(userRepository.findOne(userId));
       transaction.setOutgoing(outgoingMessage);
       transaction.setIncoming(incomingMessage);
 
       return transaction;
     } catch (Exception e1) {
-      throw new TransportClientException("Failed to send the message." + e1.getMessage());
+      throw new TransportException("Failed to send the message." + e1.getMessage());
     }
   }
 
@@ -254,13 +271,24 @@ public class IZSOAPTransportController {
   }
 
 
-  public UserRepository getUserRepository() {
-    return userRepository;
+
+  public UserService getUserService() {
+    return userService;
   }
 
 
-  public void setUserRepository(UserRepository userRepository) {
-    this.userRepository = userRepository;
+  public void setUserService(UserService userService) {
+    this.userService = userService;
+  }
+
+
+  public TransportMessageService getTransportMessageService() {
+    return transportMessageService;
+  }
+
+
+  public void setTransportMessageService(TransportMessageService transportMessageService) {
+    this.transportMessageService = transportMessageService;
   }
 
 

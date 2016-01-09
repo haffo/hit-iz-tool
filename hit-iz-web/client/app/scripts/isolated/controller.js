@@ -736,19 +736,29 @@ angular.module('isolated')
                     var received = response.incoming;
                     var sent = response.outgoing;
                     $scope.logger.logOutbound(1);
-                    $scope.logger.log(sent);
-                    $scope.logger.logOutbound(2);
-                    $scope.logger.log(received);
-                    try {
-                        $scope.completeStep($scope.testStep);
-                        var rspMessage = parseResponse(received);
-                        $scope.logger.logOutbound(3);
-                        $scope.setNextStepMessage(rspMessage);
-                    } catch (error) {
-                        $scope.error = errors[0];
-                        $scope.logger.logOutbound(4);
-                        $scope.logger.logOutbound(3);
+                    if(sent != null && sent != '') {
+                        $scope.logger.log(sent);
+                        $scope.logger.logOutbound(2);
+                    }else{
+                        $scope.logger.logOutbound(7);
                     }
+
+                    $scope.logger.logOutbound(3);
+                    if(received != null && received != "") {
+                        try {
+                            $scope.completeStep($scope.testStep);
+                            var rspMessage = parseResponse(received);
+                            $scope.logger.log(received);
+                            $scope.setNextStepMessage(rspMessage);
+                        } catch (error) {
+                            $scope.error = errors[0];
+                            $scope.logger.logOutbound(4);
+                            $scope.logger.logOutbound(3);
+                        }
+                    }else{
+                        $scope.logger.logInbound(15);
+                    }
+
                     $scope.connecting = false;
                     $scope.transport.logs[$scope.testStep.id] = $scope.logger.content;
                 }, function (error) {
@@ -938,17 +948,19 @@ angular.module('isolated')
                             };
                             TestExecutionClock.start(execute);
                         } else {
-                            var error = "Failed to start the communication";
-                            $scope.logger.log($scope.logger.getInbound(10) + "Error: " + error);
+                            $scope.logger.log($scope.logger.getInbound(10));
                             $scope.logger.logInbound(11);
                             $scope.connecting = false;
-                            $scope.error = error;
+                            $scope.error = "Failed to start the listener. Please contact the administrator for any question";
+                            TestExecutionClock.stop();
                         }
                     }, function (error) {
                         $scope.logger.log($scope.logger.getInbound(10) + "Error: " + error);
                         $scope.logger.logInbound(11);
                         $scope.connecting = false;
-                        $scope.error = error;
+                        $scope.counter = $scope.counterMax;
+                        $scope.error = "Failed to start the listener. Error is " + error;
+                        TestExecutionClock.stop();
                     }
                 );
             }

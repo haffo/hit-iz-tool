@@ -843,17 +843,19 @@ angular.module('format').factory('Logger', function () {
             "Transaction aborted",
             "Outbound Message  -------------------------------------->",
             "Listener stopped",
-            "Stopping listener. Please wait...."
+            "Stopping listener. Please wait....",
+            "No Inbound message received"
         ];
 
         this.ous = [
-            "Outbound Message ========================>",
-            "Outbound message sent successfully.",
+            "Sending outbound Message. Please wait...",
+            "Outbound Message  -------------------------------------->",
             "Inbound message received <========================",
             "Transaction completed",
             "Incorrect message received",
             "Transaction aborted",
-            "Transaction stopped"
+            "Transaction stopped",
+            "No outbound message sent"
         ];
     };
 

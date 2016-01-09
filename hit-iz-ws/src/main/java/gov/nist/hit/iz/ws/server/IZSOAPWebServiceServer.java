@@ -5,9 +5,9 @@ import gov.nist.healthcare.core.message.MessageLocation;
 import gov.nist.healthcare.core.message.v2.er7.Er7Message;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.repo.MessageRepository;
-import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.TransactionService;
 import gov.nist.hit.core.service.TransportMessageService;
+import gov.nist.hit.core.service.UserService;
 import gov.nist.hit.core.transport.exception.TransportServerException;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestRequestType;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestResponseType;
@@ -38,7 +38,7 @@ public class IZSOAPWebServiceServer implements TransportServer {
   private static final String NAMESPACE_URI = "urn:cdc:iisb:2011";
 
   @Autowired
-  private UserRepository userRepository;
+  private UserService userService;
 
   @Autowired
   private TransactionService transactionService;
@@ -50,13 +50,6 @@ public class IZSOAPWebServiceServer implements TransportServer {
   protected TransportMessageService transportMessageService;
 
 
-  public UserRepository getUserRepository() {
-    return userRepository;
-  }
-
-  public void setUserRepository(UserRepository userRepository) {
-    this.userRepository = userRepository;
-  }
 
   @Override
   @PayloadRoot(namespace = NAMESPACE_URI, localPart = "connectivityTest")
@@ -72,7 +65,7 @@ public class IZSOAPWebServiceServer implements TransportServer {
   @ResponsePayload
   public SubmitSingleMessageResponseType handle(
       @RequestPayload SubmitSingleMessageRequestType request) {
-    check(request);
+    validateRequest(request);
     String hl7Message = request.getHl7Message();
     if (hl7Message == null || hl7Message.equals("")) {
       throw new TransportServerException("No Hl7 Message Provided");
@@ -106,25 +99,18 @@ public class IZSOAPWebServiceServer implements TransportServer {
     return transaction;
   }
 
-  // public TransactionStatus getStatus(String username, String password, String facilityID) {
-  // TransactionStatus status =
-  // transactionRepository.getStatusByProperties(getProperties(username, password, facilityID));
-  // return status;
-  // }
 
-
-  private void check(SubmitSingleMessageRequestType request) throws SecurityException,
+  private void validateRequest(SubmitSingleMessageRequestType request) throws SecurityException,
       TransportServerException {
     String username = request.getUsername();
     String password = request.getPassword();
-    // String facilityID = request.getFacilityID();
-
+    String facilityID = request.getFacilityID();
+    Map<String, String> properties = getProperties(username, password, facilityID);
     if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
       throw new SecurityException("Missing Authentication Information");
+    } else if (!userService.exitBySutInitiatorPropertiesAndProtocol(properties, "soap")) {
+      throw new SecurityException("Invalid Authentication Information");
     }
-    // else if (getTransaction(username, password, facilityID) == null) {
-    // throw new SecurityException("Invalid Authentication Information");
-    // }
     // else if (!TransactionStatus.OPEN.equals(getStatus(username, password, facilityID))) {
     // throw new TransportServerException("Transaction not initialized correctly");
     // }

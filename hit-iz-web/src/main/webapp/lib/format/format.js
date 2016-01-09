@@ -829,8 +829,8 @@ angular.module('format').factory('Logger', function () {
     var Logger = function () {
         this.content = '';
         this.ins = [
-            "Configuring connection. Please wait...",
-            "Connection configured.",
+            "Starting listener. Please wait...",
+            "Listener started.",
             "Waiting for incoming message....Elapsed time(second):",
             "<-------------------------------------- Inbound Message ",
             "Inbound message is Invalid",
@@ -839,21 +839,23 @@ angular.module('format').factory('Logger', function () {
             "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound message against those created for your system.</p>  <p>Possible cause (2):The endpoint address may be incorrect.   Verify that you are using the correct endpoint address that is displayed by the tool.</p>",
             "We did not receive any incoming message after 30s",
             "We were unable to send the response after 30s",
-            "Failed to configure incoming connection. ",
+            "Failed to start listener. ",
             "Transaction aborted",
             "Outbound Message  -------------------------------------->",
-            "Transaction stopped",
-            "Stopping transaction. Please wait...."
+            "Listener stopped",
+            "Stopping listener. Please wait....",
+            "No incoming message received"
         ];
 
         this.ous = [
-            "Outbound Message ========================>",
-            "Outbound message sent successfully.",
+            "Sending outbound Message. Please wait...",
+            "Outbound Message  -------------------------------------->",
             "Inbound message received <========================",
             "Transaction completed",
             "Incorrect message received",
             "Transaction aborted",
-            "Transaction stopped"
+            "Transaction stopped",
+            "No outbound message sent"
         ];
     };
 

@@ -192,26 +192,60 @@ angular.module('connectivity')
                 });
             };
 
+            $scope.hasRequestContent = function () {
+                return  $scope.message != null && $scope.message != '';
+            };
 
             $scope.send = function () {
-                $scope.logger.init();
-                var modalInstance = $modal.open({
-                    templateUrl: 'TransactionSender.html',
-                    controller: 'ConnectivitySenderCtrl',
-                    size: 'lg',
-                    backdrop: 'static'
-                });
-                modalInstance.result.then(function (result) {
-                    if (result.sent != null) {
-                        $scope.triggerReqEvent(result.sent);
-                    }
-                    if (result.received != null) {
-                        $scope.triggerRespEvent(result.received);
-                    }
-
-                }, function () {
-                    $scope.triggerRespEvent('');
-                });
+                $scope.error = null;
+                if ($scope.isValidConfig() && $scope.hasRequestContent()) {
+                    $scope.connecting = true;
+                    $scope.logger.init();
+                    var modalInstance = $modal.open({
+                        templateUrl: 'SOAPConnectivityConsole.html',
+                        controller: 'SOAPConnectivityConsoleCtrl',
+                        size: 'lg',
+                        backdrop: 'static',
+                        resolve: {
+                            logger: function () {
+                                return  $scope.logger;
+                            }
+                        }
+                    });
+                    $scope.received = '';
+                    $scope.logger.log("Sending request ========================>");
+                    var sender = $scope.transport.send($scope.testCase.id);
+                    sender.then(function (response) {
+                        var received = response.incoming;
+                        var sent = response.outgoing;
+                        $scope.logger.log("Outgoing message sent successfully.");
+                        $scope.logger.log("Outgoing message is:");
+                        $scope.logger.log(sent);
+                        if(received = null && received != '') {
+                            $scope.logger.log("Incoming message received <========================");
+                            $scope.logger.log("Incoming message is:");
+                            $scope.logger.log(received);
+                        }else{
+                            $scope.logger.log("No Incoming message received");
+                        }
+                        $scope.logger.log("Transaction completed");
+                        $scope.connecting = false;
+                        if (sent != null) {
+                            $scope.triggerReqEvent(sent);
+                        }
+                        if (received != null) {
+                            $scope.triggerRespEvent(received);
+                        }
+                    }, function (error) {
+                        $scope.connecting = false;
+                        $scope.error = error.data;
+                        $scope.logger.log("Error: " + error.data);
+                        $scope.logger.log("Transaction aborted");
+                        $scope.triggerRespEvent('');
+                    });
+                } else {
+                    $scope.error = "No outgoing message found";
+                }
             };
 
             $scope.configureReceiver = function () {
@@ -575,67 +609,16 @@ angular.module('connectivity')
 
 
 angular.module('connectivity')
-    .controller('ConnectivitySenderCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance) {
-        $scope.testCase = Connectivity.testCase;
-        $scope.logger = Connectivity.logger;
-        $scope.sent = null;
-        $scope.received = null;
+    .controller('SOAPConnectivityConsoleCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, logger) {
+        $scope.logger =logger;
         $scope.connecting = false;
-        $scope.error = null;
-        $scope.transport = Connectivity.transport;
-
-        $scope.isValidConfig = function () {
-            var taInitiator = $scope.transport.config.taInitiator;
-            return taInitiator &&  taInitiator != null &&  taInitiator.endpoint != null && taInitiator.endpoint != '';
-        };
-
         $scope.close = function () {
-            $modalInstance.close({"sent": $scope.sent, "received": $scope.received});
+            $modalInstance.close();
         };
 
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
-
-        $scope.hasRequestContent = function () {
-            return  $scope.message != null && $scope.message != '';
-        };
-
-        $scope.send = function () {
-            $scope.error = null;
-            if ($scope.isValidConfig() && $scope.hasRequestContent()) {
-                $scope.connecting = true;
-                $scope.logger.init();
-                $scope.received = '';
-                $scope.logger.log("Sending request ========================>");
-                var sender = $scope.transport.send($scope.testCase.id);
-                sender.then(function (response) {
-                    var received = response.incoming;
-                    var sent = response.outgoing;
-                    $scope.logger.log("Outgoing message sent successfully.");
-                    $scope.logger.log("Outgoing message is:");
-                    $scope.logger.log(sent);
-                    $scope.logger.log("Incoming message received <========================");
-                    $scope.logger.log("Incoming message is:");
-                    $scope.logger.log(received);
-                    $scope.logger.log("Transaction completed");
-                    $scope.connecting = false;
-                    $scope.sent = sent;
-                    $scope.received = received;
-                }, function (error) {
-                    $scope.connecting = false;
-                    $scope.error = error.data;
-                    $scope.logger.log("Error: " + error.data);
-                    $scope.logger.log("Transaction aborted");
-                    $rootScope.$broadcast('conn:respMessage', '');
-                    $scope.received = '';
-                });
-            } else {
-                $scope.error = "No outgoing message found";
-            }
-        };
-
-        $scope.send();
 
     });
 
@@ -917,10 +900,12 @@ angular.module('connectivity')
             $scope.connecting = false;
             $scope.counter = $scope.counterMax;
             TestExecutionClock.stop();
-            $scope.log("Stopping transaction. Please wait....");
+            $scope.log("Stopping listener. Please wait....");
             $scope.transport.stopListener($scope.testCase.id,$scope.config).then(function (response) {
-                $scope.log("Transaction stopped.");
+                $scope.log("Listener stopped.");
              }, function (error) {
+                $scope.log("Failed to stop the listener. Error is " + error);
+                $scope.error = "Failed to stop the listener. Error is " + error;
             });
         };
 
@@ -932,11 +917,11 @@ angular.module('connectivity')
             $scope.sent = '';
             $scope.error = null;
             $scope.warning = null;
-            $scope.log("Configuring connection. Please wait...");
+            $scope.log("Starting listener. Please wait...");
             var rspMessageId = 0;
             $scope.transport.startListener($scope.testCase.id, rspMessageId,$scope.config).then(function (started) {
                 if (started) {
-                    $scope.log("Connection configured.");
+                    $scope.log("Listener started.");
                     var execute = function () {
                         ++$scope.counter;
                         $scope.log("Waiting for incoming message....Elapsed time(second):" + $scope.counter + "s");
@@ -956,9 +941,7 @@ angular.module('connectivity')
                             } else if ($scope.counter >= $scope.counterMax) {
                                 $scope.warning = "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound SOAP Envelope against those created for your system.</p>  <p>Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.</p>" +
                                     "<p>Possible cause (3):The HTTP header field Content-Type  may not be set correctly for use with SOAP 1.2.   SOAP 1.2 requires application/soap+xml, and SOAP 1.2 requires text/xml.  The NIST Tool follows SOAP 1.2, which is required by section 2 of the 'CDC Transport Layer Protocol Recommendation V1.1' (http://www.cdc.gov/vaccines/programs/iis/technical-guidance/SOAP/downloads/transport-specification.pdf)</p>";
-
                                 $scope.log("We did not receive any incoming message after 30s");
-
                                 $scope.stopListener();
                             }
                         }, function (error) {
@@ -971,11 +954,21 @@ angular.module('connectivity')
                     };
                     TestExecutionClock.start(execute);
                 } else {
-                    $scope.log("Failed to configure incoming connection: Error: " + error);
+                    $scope.error = "Failed to start the listener. Please contact the administrator for any question";
+                    $scope.log($scope.error);
                     $scope.log("Transaction aborted");
                     $scope.connecting = false;
-                    $scope.error = error;
+                    $scope.counter = $scope.counterMax;
+                    TestExecutionClock.stop();
                 }
+            }, function (error) {
+                $scope.error = "Failed to start the listener. Error is " + error;
+                $scope.log($scope.error);
+                $scope.received = '';
+                $scope.sent = '';
+                $scope.connecting = false;
+                $scope.counter = $scope.counterMax;
+                TestExecutionClock.stop();
             });
 
         };

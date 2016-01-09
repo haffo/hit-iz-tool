@@ -9,17 +9,17 @@
         top.location = self.location;
     }
 </script>
-<script type="text/ng-template" id="TransactionSender.html">
+<script type="text/ng-template" id="SOAPConnectivityConsole.html">
     <div class="modal-header">
             <span style="font-weight: bold; font-size: 20px">
-           Transaction log panel
+           Console
         </span>
         <span class="pull-right">
-            <button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"
-                    title="Send" class="btn btn-xs btn-success">
-                <i class="fa fa-arrow-right"></i>
-                Send
-            </button>
+            <!--<button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"-->
+                    <!--title="Send" class="btn btn-xs btn-success">-->
+                <!--<i class="fa fa-arrow-right"></i>-->
+                <!--Send-->
+            <!--</button>-->
 
         <button title="Close" type="button" class="btn btn-xs btn-primary"
                 ng-click="close()">
@@ -54,17 +54,7 @@
         <span style="font-weight: bold; font-size: 20px">
             Receiver Configuration Panel
         </span>
-        <span class="pull-right">
-       <button ng-click="save()" type="button" ng-disabled="receiverForm1.$invalid"
-               title="Send" class="btn btn-xs btn-primary">
-           <i class="fa fa-play"></i> Save
-       </button>
-        <button ng-click="cancel()" type="button"
-                title="Cancel" class="btn btn-xs btn-warning">
-            <i class="fa fa-times"></i>
-            Cancel
-        </button>
-          </span>
+
     </div>
     <div class="modal-body">
         <div class="row">
@@ -99,17 +89,19 @@
             </div>
         </div>
     </div>
-    <!--<div class="modal-footer">-->
-    <!--<button ng-click="send()" type="button" ng-disabled="receiverForm1.$invalid"-->
-    <!--title="Send" class="btn btn-xs btn-primary">-->
-    <!--<i class="fa fa-play"></i> Send-->
-    <!--</button>-->
-    <!--<button ng-click="cancel()" type="button"-->
-    <!--title="Cancel" class="btn btn-xs btn-warning">-->
-    <!--<i class="fa fa-times"></i>-->
-    <!--Cancel-->
-    <!--</button>-->
-    <!--</div>-->
+    <div class="modal-footer">
+    <span class="pull-right">
+       <button ng-click="save()" type="button" ng-disabled="receiverForm1.$invalid"
+               title="Send" class="btn btn-xs btn-primary">
+           <i class="fa fa-check"></i> Save
+       </button>
+        <button ng-click="cancel()" type="button"
+                title="Cancel" class="btn btn-xs btn-warning">
+            <i class="fa fa-times"></i>
+            Cancel
+        </button>
+          </span>
+    </div>
 </script>
 
 
