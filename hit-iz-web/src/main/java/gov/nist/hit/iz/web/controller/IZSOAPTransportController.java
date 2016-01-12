@@ -37,6 +37,7 @@ import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -176,9 +177,11 @@ public class IZSOAPTransportController {
     if (request.getResponseMessageId() == null)
       throw new gov.nist.hit.core.service.exception.TransportException("Response message not found");
     removeUserTransaction(userId);
+
     TransportMessage transportMessage = new TransportMessage();
     transportMessage.setMessageId(request.getResponseMessageId());
-    Map<String, String> config = getSutInitiatorConfig(userId);
+    Map<String, String> config = new HashMap<String, String>();
+    config.putAll(getSutInitiatorConfig(userId));
     transportMessage.setProperties(config);
     transportMessageService.save(transportMessage);
     return true;
@@ -197,22 +200,22 @@ public class IZSOAPTransportController {
     return true;
   }
 
-
+  @Transactional
   private boolean removeUserTransaction(Long userId) {
     Map<String, String> config = getSutInitiatorConfig(userId);
-    TransportMessage transportMessage = transportMessageService.findOneByProperties(config);
-    if (transportMessage != null) {
-      transportMessageService.delete(transportMessage);
+    List<TransportMessage> transportMessages = transportMessageService.findAllByProperties(config);
+    if (transportMessages != null) {
+      transportMessageService.delete(transportMessages);
     }
-    Transaction transaction = transactionService.findOneByProperties(config);
-    if (transaction != null) {
-      transactionService.delete(transaction);
+    List<Transaction> transactions = transactionService.findAllByProperties(config);
+    if (transactions != null) {
+      transactionService.delete(transactions);
     }
     return true;
   }
 
   private Map<String, String> getSutInitiatorConfig(Long userId) {
-    TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, "soap");
+    TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, PROTOCOL);
     Map<String, String> sutInitiator = config != null ? config.getSutInitiator() : null;
     if (sutInitiator == null || sutInitiator.isEmpty())
       throw new gov.nist.hit.core.service.exception.TransportException(
@@ -237,12 +240,12 @@ public class IZSOAPTransportController {
       throws TransportClientException {
     logger.info("Sending message");
     try {
-      //
-      // if(request.getConfig().get("endpoint") == null ||
-      // "".equals(request.getConfig().get("endpoint")){
-      // throw new TransportException("Failed to send the message. " + e1.getMessage());
-      // }
-      //
+
+      if (request.getConfig().get("endpoint") == null
+          || "".equals(request.getConfig().get("endpoint"))) {
+        throw new TransportException("No endpoint specified");
+      }
+
       Long userId = SessionContext.getCurrentUserId(session);
       Long testStepId = request.getTestStepId();
       TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, PROTOCOL);
@@ -274,7 +277,6 @@ public class IZSOAPTransportController {
       throw new TransportException("Failed to send the message." + e1.getMessage());
     }
   }
-
 
   public TestStepService getTestStepService() {
     return testStepService;

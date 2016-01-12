@@ -24,6 +24,7 @@ import gov.nist.hit.core.service.UserService;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
+import gov.nist.hit.core.service.exception.TransportException;
 import gov.nist.hit.core.service.exception.UserNotFoundException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.core.transport.exception.TransportClientException;
@@ -155,12 +156,15 @@ public class SOAPConnectivityController {
     }
   }
 
-  @RequestMapping(value = "/transport/send", method = RequestMethod.POST)
+  @RequestMapping(value = "/send", method = RequestMethod.POST)
   public Transaction send(@RequestBody TransportRequest requ, HttpSession session)
       throws TransportClientException {
-    logger.info("Sending message  with user id=" + requ.getUserId() + " and test step with id="
-        + requ.getTestStepId());
+    logger.info("Sending message ");
     try {
+      if (requ.getConfig().get("endpoint") == null || "".equals(requ.getConfig().get("endpoint"))) {
+        throw new TransportException("Failed to send the message. No endpoint specified");
+      }
+
       Long userId = SessionContext.getCurrentUserId(session);
       if (userId == null || (userService.findOne(userId)) == null) {
         throw new UserNotFoundException();

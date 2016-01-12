@@ -283,9 +283,12 @@ angular.module('commonServices').factory('SOAPConnectivityTransport', function (
     SOAPConnectivityTransport.prototype.send = function (testCaseId) {
         var delay = $q.defer();
         var self = this;
+        if(self.transactions == undefined || self.transactions == null)
+            self.transactions = {};
+
         this.deleteTransaction(testCaseId).then(function (result) {
             var data = angular.fromJson({"testStepId": testCaseId, "userId": User.info.id, "config": self.config.taInitiator});
-            $http.post('api/connectivity/transport/send', data, {timeout: 60000}).then(
+            $http.post('api/connectivity/send', data, {timeout: 60000}).then(
                 function (response) {
                     if (response.data != null && response.data != "") {
                         self.transactions[testCaseId] = angular.fromJson(response.data);
