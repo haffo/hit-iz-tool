@@ -1237,7 +1237,7 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
         self.protocol = protocol;
         self.config['taInitiator'] = null;
         if (User.info && User.info != null && User.info.id != null) {
-            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/user/' + User.info.id + '/taInitiator').then(
+            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/taInitiator').then(
                 function (response) {
                     self.config['taInitiator'] = angular.fromJson(response.data);
                     StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(self.config));
@@ -1272,7 +1272,7 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
         self.protocol = protocol;
         self.config['sutInitiator'] = null;
         if (User.info && User.info != null && User.info.id != null) {
-            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/user/' + User.info.id + '/sutInitiator').then(
+            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/sutInitiator').then(
                 function (response) {
                     self.config['sutInitiator'] = angular.fromJson(response.data);
                     StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(self.config));
@@ -1410,7 +1410,7 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
         var self = this;
         var delay = $q.defer();
         this.deleteTransaction(testStepId).then(function (result) {
-            var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id, "config": config});
+            var data = angular.fromJson({"testStepId": testStepId});
             $http.post('api/transport/' + self.domain + "/" + self.protocol + '/stopListener', data).then(
                 function (response) {
                     self.running = true;
@@ -1442,7 +1442,7 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
         var self = this;
         var delay = $q.defer();
         this.deleteTransaction(testStepId).then(function (result) {
-            var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id, "responseMessageId": responseMessageId, "config": sutInitiatorConfig});
+            var data = angular.fromJson({"testStepId": testStepId, "responseMessageId": responseMessageId});
             $http.post('api/transport/' + self.domain + "/" + self.protocol + '/startListener', data).then(
                 function (response) {
                     self.running = true;
@@ -1472,7 +1472,7 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
         var delay = $q.defer();
         var self = this;
         this.deleteTransaction(testStepId).then(function (result) {
-            var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id, "message": message, "config": self.config.taInitiator});
+            var data = angular.fromJson({"testStepId": testStepId, "message": message, "config": self.config.taInitiator});
             $http.post('api/transport/' + self.domain + "/" + self.protocol + '/send', data).then(
                 function (response) {
                     self.transactions[testStepId] = angular.fromJson(response.data);

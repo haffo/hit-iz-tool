@@ -38,6 +38,7 @@ import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -98,7 +99,7 @@ public class IZSOAPTransportController {
 
 
   @Transactional()
-  @RequestMapping(value = "/user/taInitiator", method = RequestMethod.POST)
+  @RequestMapping(value = "/taInitiator", method = RequestMethod.POST)
   public Map<String, String> taInitiatorConfig(HttpSession session) throws UserNotFoundException {
     logger.info("Fetching user ta initiator information ... ");
     Long userId = SessionContext.getCurrentUserId(session);
@@ -119,7 +120,7 @@ public class IZSOAPTransportController {
   }
 
   @Transactional()
-  @RequestMapping(value = "/user/sutInitiator", method = RequestMethod.POST)
+  @RequestMapping(value = "/sutInitiator", method = RequestMethod.POST)
   public Map<String, String> sutInitiatorConfig(HttpSession session, HttpServletRequest request)
       throws UserNotFoundException {
     logger.info("Fetching user information ... ");
@@ -142,15 +143,18 @@ public class IZSOAPTransportController {
       transportConfig.setSutInitiator(config);
     }
 
+    int token = new Random().nextInt(999);
+
+
     if (config.get("password") == null && config.get("username") == null) {
-      config.put("username", "vendor_" + user.getId());
-      config.put("password", "vendor_" + user.getId());
-      config.put("facilityID", "vendor_" + user.getId());
+      config.put("username", "vendor_" + user.getId() + "_" + token);
+      config.put("password", "vendor_" + user.getId() + "_" + token);
+      config.put("facilityID", "vendor_" + user.getId() + "_" + token);
     }
 
     if (config.get("faultPassword") == null && config.get("faultUsername") == null) {
-      config.put("faultUsername", "fault_username_" + user.getId());
-      config.put("faultPassword", "fault_password_" + user.getId());
+      config.put("faultUsername", "fault_vendor_" + user.getId() + "_" + token);
+      config.put("faultPassword", "fault_vendor_" + user.getId() + "_" + token);
     }
 
     if (config.get("endpoint") == null) {
@@ -233,6 +237,12 @@ public class IZSOAPTransportController {
       throws TransportClientException {
     logger.info("Sending message");
     try {
+      //
+      // if(request.getConfig().get("endpoint") == null ||
+      // "".equals(request.getConfig().get("endpoint")){
+      // throw new TransportException("Failed to send the message. " + e1.getMessage());
+      // }
+      //
       Long userId = SessionContext.getCurrentUserId(session);
       Long testStepId = request.getTestStepId();
       TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, PROTOCOL);

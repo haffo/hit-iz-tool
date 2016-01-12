@@ -12,16 +12,19 @@
 
 package gov.nist.hit.iz.web.controller;
 
+import gov.nist.hit.core.api.SessionContext;
 import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.domain.TransportRequest;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.TransportConfig;
+import gov.nist.hit.core.domain.TransportRequest;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.service.TransportConfigService;
+import gov.nist.hit.core.service.UserService;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
+import gov.nist.hit.core.service.exception.UserNotFoundException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.core.transport.exception.TransportClientException;
 import gov.nist.hit.iz.domain.ConnectivityTestCase;
@@ -40,6 +43,8 @@ import gov.nist.hit.iz.web.utils.Utils;
 import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -89,6 +94,10 @@ public class SOAPConnectivityController {
 
   @Autowired
   protected TransportConfigService transportConfigService;
+
+  @Autowired
+  protected UserService userService;
+
 
   public SOAPMessageParser getSoapParser() {
     return soapMessageParser;
@@ -144,16 +153,19 @@ public class SOAPConnectivityController {
     } catch (MessageValidationException e) {
       throw new SoapValidationException(e);
     }
-
   }
 
   @RequestMapping(value = "/transport/send", method = RequestMethod.POST)
-  public Transaction send(@RequestBody TransportRequest requ) throws TransportClientException {
+  public Transaction send(@RequestBody TransportRequest requ, HttpSession session)
+      throws TransportClientException {
     logger.info("Sending message  with user id=" + requ.getUserId() + " and test step with id="
         + requ.getTestStepId());
     try {
+      Long userId = SessionContext.getCurrentUserId(session);
+      if (userId == null || (userService.findOne(userId)) == null) {
+        throw new UserNotFoundException();
+      }
       Long testCaseId = requ.getTestStepId();
-      Long userId = requ.getUserId();
       TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, "soap");
       config.setTaInitiator(requ.getConfig());
       transportConfigService.save(config);
