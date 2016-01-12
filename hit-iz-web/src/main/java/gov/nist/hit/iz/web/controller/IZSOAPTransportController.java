@@ -12,6 +12,7 @@
 
 package gov.nist.hit.iz.web.controller;
 
+import gov.nist.hit.core.api.SessionContext;
 import gov.nist.hit.core.domain.TestStep;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.TransportConfig;
@@ -39,6 +40,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -47,7 +49,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -97,10 +98,10 @@ public class IZSOAPTransportController {
 
 
   @Transactional()
-  @RequestMapping(value = "/user/{userId}/taInitiator", method = RequestMethod.POST)
-  public Map<String, String> taInitiatorConfig(@PathVariable("userId") final Long userId)
-      throws UserNotFoundException {
+  @RequestMapping(value = "/user/taInitiator", method = RequestMethod.POST)
+  public Map<String, String> taInitiatorConfig(HttpSession session) throws UserNotFoundException {
     logger.info("Fetching user ta initiator information ... ");
+    Long userId = SessionContext.getCurrentUserId(session);
     User user = null;
     TransportConfig transportConfig = null;
     if (userId == null || (user = userService.findOne(userId)) == null) {
@@ -118,15 +119,17 @@ public class IZSOAPTransportController {
   }
 
   @Transactional()
-  @RequestMapping(value = "/user/{userId}/sutInitiator", method = RequestMethod.POST)
-  public Map<String, String> sutInitiatorConfig(@PathVariable("userId") final Long userId,
-      HttpServletRequest request) throws UserNotFoundException {
+  @RequestMapping(value = "/user/sutInitiator", method = RequestMethod.POST)
+  public Map<String, String> sutInitiatorConfig(HttpSession session, HttpServletRequest request)
+      throws UserNotFoundException {
     logger.info("Fetching user information ... ");
+    Long userId = SessionContext.getCurrentUserId(session);
     User user = null;
-    TransportConfig transportConfig = null;
     if (userId == null || (user = userService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
+
+    TransportConfig transportConfig = null;
     transportConfig = transportConfigService.findOneByUserAndProtocol(user.getId(), PROTOCOL);
     if (transportConfig == null) {
       transportConfig = transportConfigService.create(PROTOCOL);
@@ -159,31 +162,40 @@ public class IZSOAPTransportController {
 
   @Transactional
   @RequestMapping(value = "/startListener", method = RequestMethod.POST)
-  public boolean startListener(@RequestBody TransportRequest request) {
-    stopListener(request);
-    logger.info("Starting listener for user with id=" + request.getUserId());
+  public boolean startListener(@RequestBody TransportRequest request, HttpSession session)
+      throws UserNotFoundException {
+    logger.info("Starting listener");
+    Long userId = SessionContext.getCurrentUserId(session);
+    if (userId == null || (userService.findOne(userId)) == null) {
+      throw new UserNotFoundException();
+    }
     if (request.getResponseMessageId() == null)
       throw new gov.nist.hit.core.service.exception.TransportException("Response message not found");
+    removeUserTransaction(userId);
     TransportMessage transportMessage = new TransportMessage();
     transportMessage.setMessageId(request.getResponseMessageId());
-    transportMessage.setProperties(request.getConfig());
+    Map<String, String> config = getSutInitiatorConfig(userId);
+    transportMessage.setProperties(config);
     transportMessageService.save(transportMessage);
     return true;
   }
 
   @Transactional
   @RequestMapping(value = "/stopListener", method = RequestMethod.POST)
-  public boolean stopListener(@RequestBody TransportRequest request) {
-    logger.info("Stopping listener for user with id=" + request.getUserId());
+  public boolean stopListener(@RequestBody TransportRequest request, HttpSession session)
+      throws UserNotFoundException {
+    logger.info("Stopping listener ");
+    Long userId = SessionContext.getCurrentUserId(session);
+    if (userId == null || (userService.findOne(userId)) == null) {
+      throw new UserNotFoundException();
+    }
+    removeUserTransaction(userId);
+    return true;
+  }
 
-    if (request.getUserId() == null)
-      throw new gov.nist.hit.core.service.exception.TransportException("User info not found");
 
-    if (!userExist(request.getUserId()))
-      throw new gov.nist.hit.core.service.exception.TransportException(
-          "We couldn't recognize the user");
-
-    Map<String, String> config = getSutInitiatorConfig(request.getUserId());
+  private boolean removeUserTransaction(Long userId) {
+    Map<String, String> config = getSutInitiatorConfig(userId);
     TransportMessage transportMessage = transportMessageService.findOneByProperties(config);
     if (transportMessage != null) {
       transportMessageService.delete(transportMessage);
@@ -204,16 +216,9 @@ public class IZSOAPTransportController {
     return sutInitiator;
   }
 
-  private boolean userExist(Long userId) {
-    User user = userService.findOne(userId);
-    return user != null;
-  }
-
-
   @RequestMapping(value = "/searchTransaction", method = RequestMethod.POST)
   public Transaction searchTransaction(@RequestBody TransportRequest request) {
-    logger.info("Get transaction of user with id=" + request.getUserId()
-        + " and of testStep with id=" + request.getTestStepId());
+    logger.info("Searching transaction...");
     Map<String, String> criteria = new HashMap<String, String>();
     criteria.put("username", request.getConfig().get("username"));
     criteria.put("password", request.getConfig().get("password"));
@@ -224,12 +229,12 @@ public class IZSOAPTransportController {
 
   @Transactional()
   @RequestMapping(value = "/send", method = RequestMethod.POST)
-  public Transaction send(@RequestBody TransportRequest request) throws TransportClientException {
-    logger.info("Sending message  with user id=" + request.getUserId() + " and test step with id="
-        + request.getTestStepId());
+  public Transaction send(@RequestBody TransportRequest request, HttpSession session)
+      throws TransportClientException {
+    logger.info("Sending message");
     try {
+      Long userId = SessionContext.getCurrentUserId(session);
       Long testStepId = request.getTestStepId();
-      Long userId = request.getUserId();
       TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, PROTOCOL);
       config.setTaInitiator(request.getConfig());
       transportConfigService.save(config);

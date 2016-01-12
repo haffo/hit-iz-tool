@@ -247,14 +247,13 @@
         <div ng-include="'sc.html'"></div>
         <br/>
         <br/>
-
-
         <div style="text-align:center">
+            <p>Please click
             <a ng-click="close()" type="button"
                title="Cancel" class="point">
                 <i class="fa fa-refresh"></i>
-                Refresh
-            </a>
+             </a>
+            to reset.</p>
         </div>
 
     </div>
@@ -268,14 +267,15 @@
         <br/>
         <br/>
 
-        <div style="text-align:center">
+        <div class="modal-footer">
+            <div class="pull-right">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                     title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
             </button>
         </div>
-
+</div>
     </div>
 </script>
 
@@ -286,13 +286,15 @@
         <br/>
         <br/>
 
-        <div style="text-align:center">
+        <div class="modal-footer">
+            <div class="pull-right">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                     title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
             </button>
         </div>
+            </div>
     </div>
 </script>
 
@@ -303,14 +305,15 @@
         <br/>
         <br/>
 
-        <div style="text-align:center">
+        <div class="modal-footer">
+            <div class="pull-right">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                     title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
             </button>
         </div>
-
+</div>
     </div>
 </script>
 
@@ -328,11 +331,11 @@
 
 <script type="text/ng-template" id="timedout-dialog.html">
     <div class="modal-header">
-        <h3>Session Expired</h3>
+        <h3>Session timeout</h3>
     </div>
     <div class="modal-body">
         <p>
-            Your session has expired due to inactivity.
+            Your session has expired.
         </p>
     </div>
     <div class="modal-footer">
@@ -344,4 +347,23 @@
         </button>
     </div>
         </div>
+</script>
+
+<script type="text/ng-template" id="CriticalError.html">
+    <div class="modal-header">
+        <h3>Error</h3>
+    </div>
+    <div class="modal-body exception">
+        <p ng-bind="error">
+         </p>
+    </div>
+    <div class="modal-footer">
+        <div class="pull-right">
+            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
+                    title="Cancel" class="point">
+                <i class="fa fa-times"></i>
+                Close
+            </button>
+        </div>
+    </div>
 </script>

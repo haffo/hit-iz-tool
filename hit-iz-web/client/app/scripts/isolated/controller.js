@@ -725,40 +725,38 @@ angular.module('isolated')
 
 
         $scope.send = function () {
+            $scope.logger.clear();
             $scope.connecting = true;
             $scope.progressStep($scope.testStep);
             $scope.error = null;
             if ($scope.hasUserContent()) {
                 $scope.logger.clear();
                 $scope.received = '';
-                $scope.logger.logOutbound(0);
+                $scope.logger.log("Sending outbound Message. Please wait...");
                 $scope.transport.send($scope.testStep.id, IsolatedSystem.editor.instance.doc.getValue()).then(function (response) {
                     var received = response.incoming;
                     var sent = response.outgoing;
-                    $scope.logger.logOutbound(1);
+                    $scope.logger.log("Outbound Message  -------------------------------------->");
                     if(sent != null && sent != '') {
                         $scope.logger.log(sent);
-                        $scope.logger.logOutbound(2);
-                    }else{
-                        $scope.logger.logOutbound(7);
-                    }
-
-                    $scope.logger.logOutbound(3);
-                    if(received != null && received != "") {
-                        try {
-                            $scope.completeStep($scope.testStep);
-                            var rspMessage = parseResponse(received);
-                            $scope.logger.log(received);
-                            $scope.setNextStepMessage(rspMessage);
-                        } catch (error) {
-                            $scope.error = errors[0];
-                            $scope.logger.logOutbound(4);
-                            $scope.logger.logOutbound(3);
+                        $scope.logger.log("Inbound Message  <--------------------------------------");
+                        if(received != null && received != "") {
+                            try {
+                                $scope.completeStep($scope.testStep);
+                                var rspMessage = parseResponse(received);
+                                $scope.logger.log(received);
+                                $scope.setNextStepMessage(rspMessage);
+                            } catch (error) {
+                                $scope.error = errors[0];
+                                $scope.logger.log("An error occured: " + $scope.error);
+                             }
+                        }else{
+                            $scope.logger.log("No Inbound message received");
                         }
                     }else{
-                        $scope.logger.logInbound(15);
+                        $scope.logger.log("No outbound message sent");
                     }
-
+                    $scope.logger.log("Transaction completed");
                     $scope.connecting = false;
                     $scope.transport.logs[$scope.testStep.id] = $scope.logger.content;
                 }, function (error) {
@@ -767,13 +765,15 @@ angular.module('isolated')
                     $scope.logger.log("Error: " + error.data);
                     $scope.received = '';
                     $scope.completeStep($scope.testStep);
-                    $scope.logger.logOutbound(5);
                     $scope.transport.logs[$scope.testStep.id] = $scope.logger.content;
+                    $scope.logger.log("Transaction stopped");
                 });
             } else {
-                $scope.error = errors[1];
+                $scope.error = "No message to send";
                 $scope.connecting = false;
                 $scope.transport.logs[$scope.testStep.id] = $scope.logger.content;
+                $scope.logger.log("Transaction completed");
+
             }
         };
 
@@ -782,109 +782,18 @@ angular.module('isolated')
             $scope.logger.content = $scope.transport.logs[testStepId];
         };
 
-//        $scope.stopListening = function () {
-//            //$scope.configCollapsed = $scope.counter != $scope.counterMax;
-//            $scope.connecting = false;
-//            $scope.counter = $scope.counterMax;
-//            TestExecutionClock.stop();
-//            $scope.log(inboundLogs[14]);
-//            $scope.user.transaction.closeConnection().then(function (response) {
-//                $scope.log(inboundLogs[13]);
-//            }, function (error) {
-//            });
-//        };
-
         $scope.stopListener = function () {
             $scope.connecting = false;
             $scope.counter = $scope.counterMax;
             TestExecutionClock.stop();
-            $scope.logger.logInbound(14);
+            $scope.logger.log("Stopping listener. Please wait....");
             var sutInitiator = IsolatedSystem.transport.config.sutInitiator;
             $scope.transport.stopListener($scope.testStep.id,sutInitiator).then(function (response) {
-                $scope.logger.logInbound(13);
+                $scope.logger.log("Listener stopped.");
                 $scope.transport.logs[$scope.testStep.id] = $scope.logger.content;
             }, function (error) {
             });
         };
-
-//        $scope.startListening = function () {
-//            var nextStep = $scope.findNextStep($scope.testStep.position);
-//            if (nextStep != null) {
-//                var rspMessageId = nextStep.testContext.message.id;
-//                $scope.configCollapsed = false;
-//                $scope.logger.clear();
-//                $scope.counter = 0;
-//                $scope.connecting = true;
-//                $scope.error = null;
-//                $scope.warning = null;
-//                var received = '';
-//                var sent = '';
-//                $scope.log(inboundLogs[0]);
-//                $scope.user.transaction.openConnection(rspMessageId).then(function (response) {
-//                        $scope.log(inboundLogs[1]);
-//                        var execute = function () {
-//                            ++$scope.counter;
-//                            $scope.log(inboundLogs[2] + $scope.counter + "s");
-//                            $scope.user.transaction.messages().then(function (response) {
-//                                var incoming = $scope.user.transaction.incoming;
-//                                var outbound = $scope.user.transaction.outgoing;
-//                                if ($scope.counter < $scope.counterMax) {
-//                                    if (incoming != null && incoming != '' && received == '') {
-//                                        $scope.log(inboundLogs[3]);
-//                                        $scope.log(incoming);
-//                                        received = incoming;
-//                                        try {
-//                                            var receivedMessage = parseRequest(incoming);
-//                                            TestExecutionService.setExecutionMessage($scope.testStep, receivedMessage);
-//                                            $scope.$broadcast('isolated:setEditorContent', receivedMessage);
-//                                        } catch (error) {
-//                                            $scope.error = errors[2];
-//                                            $scope.logger.log(inboundLogs[4]);
-//                                        }
-//                                    }
-//                                    if (outbound != null && outbound != '' && sent == '') {
-//                                        $scope.log(inboundLogs[12]);
-//                                        $scope.log(outbound);
-//                                        sent = outbound;
-//                                        try {
-//                                            var sentMessage = parseResponse(outbound);
-//                                            $scope.setNextStepMessage(sentMessage);
-//                                        } catch (error) {
-//                                            $scope.error = errors[3];
-//                                            $scope.logger.log(inboundLogs[5]);
-//                                            $scope.logger.log(inboundLogs[6]);
-//                                        }
-//                                    }
-//                                    if (incoming != '' && outbound != '' && incoming != null && outbound != null) {
-//                                        $scope.stopListener();
-//                                    }
-//                                } else {
-//                                    if (incoming == null || incoming == '') {
-//                                        $scope.warning = inboundLogs[7];
-//                                        $scope.log(inboundLogs[8]);
-//                                    } else if (outbound == null || outbound == '') {
-//                                        $scope.log(inboundLogs[9]);
-//                                    }
-//                                    $scope.stopListener();
-//                                }
-//                            }, function (error) {
-//                                $scope.error = error;
-//                                $scope.log("Error: " + error);
-//                                $scope.received = '';
-//                                $scope.sent = '';
-//                                $scope.stopListener();
-//                            });
-//                        };
-//                        TestExecutionClock.start(execute);
-//                    }, function (error) {
-//                        $scope.log(inboundLogs[10] + "Error: " + error);
-//                        $scope.log(inboundLogs[11]);
-//                        $scope.connecting = false;
-//                        $scope.error = error;
-//                    }
-//                );
-//            }
-//        };
 
         $scope.startListener = function () {
             var nextStep = $scope.findNextStep($scope.testStep.position);
@@ -896,46 +805,48 @@ angular.module('isolated')
                 $scope.connecting = true;
                 $scope.error = null;
                 $scope.warning = null;
-                $scope.logger.logInbound(0);
+                $scope.logger.log("Starting listener. Please wait...");
                 var sutInitiator = IsolatedSystem.transport.config.sutInitiator;
                 $scope.transport.startListener($scope.testStep.id, rspMessageId,sutInitiator).then(function (started) {
                         if (started) {
-                            $scope.logger.logInbound(1);
+                            $scope.logger.log("Listener started.");
                             var execute = function () {
                                 ++$scope.counter;
-                                $scope.logger.log($scope.logger.getInbound(2) + $scope.counter + "s");
+                                $scope.logger.log("Waiting for Inbound Message....Elapsed time(second):" + $scope.counter + "s");
                                 $scope.transport.searchTransaction($scope.testStep.id, sutInitiator, rspMessageId).then(function (transaction) {
                                     if (transaction != null) {
                                         var incoming = transaction.incoming;
                                         var outbound = transaction.outgoing;
-                                        $scope.logger.logInbound(3);
-                                        $scope.log(incoming);
-
+                                        $scope.logger.log("Inbound message received <-------------------------------------- ");
                                         if (incoming != null && incoming != '') {
                                             try {
                                                 var receivedMessage = parseRequest(incoming);
+                                                $scope.log(receivedMessage);
                                                 TestExecutionService.setExecutionMessage($scope.testStep, receivedMessage);
                                                 $scope.$broadcast('isolated:loadEditorContent', receivedMessage);
                                             } catch (error) {
                                                 $scope.error = errors[2];
-                                                $scope.logger.logInbound(4);
+                                                $scope.logger.log("Incorrect Inbound message type");
                                             }
+                                        }else{
+                                            $scope.logger.log("Incoming message received is empty");
                                         }
-                                        $scope.logger.logInbound(12);
-                                        $scope.log(outbound);
+                                        $scope.logger.log("Outbound message sent --------------------------------------> ");
                                         if (outbound != null && outbound != '') {
                                             try {
                                                 var sentMessage = parseResponse(outbound);
+                                                $scope.log(sentMessage);
                                                 $scope.setNextStepMessage(sentMessage);
                                             } catch (error) {
                                                 $scope.error = errors[3];
-                                                $scope.logger.logInbound(5);
-                                                $scope.logger.logInbound(6)
-                                            }
+                                                $scope.logger.log("Incorrect outgoing message type");
+                                              }
+                                        }else{
+                                            $scope.logger.log("Outbound message sent is empty");
                                         }
                                         $scope.stopListener();
                                     } else if ($scope.counter >= $scope.counterMax) {
-                                        $scope.warning = $scope.logger.getInbound[7];
+                                        $scope.warning = "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound message against those created for your system.</p>  <p>Possible cause (2):The endpoint address may be incorrect.   Verify that you are using the correct endpoint address that is displayed by the tool.</p>";
                                         $scope.stopListener();
                                     }
                                 }, function (error) {
@@ -948,18 +859,19 @@ angular.module('isolated')
                             };
                             TestExecutionClock.start(execute);
                         } else {
-                            $scope.logger.log($scope.logger.getInbound(10));
-                            $scope.logger.logInbound(11);
+                            $scope.logger.log("Failed to start listener");
+                            $scope.logger.log("Transaction stopped");
                             $scope.connecting = false;
                             $scope.error = "Failed to start the listener. Please contact the administrator for any question";
                             TestExecutionClock.stop();
                         }
                     }, function (error) {
-                        $scope.logger.log($scope.logger.getInbound(10) + "Error: " + error);
-                        $scope.logger.logInbound(11);
+
                         $scope.connecting = false;
                         $scope.counter = $scope.counterMax;
-                        $scope.error = "Failed to start the listener. Error is " + error;
+                        $scope.error = "Failed to start the listener. Error: " + error;
+                        $scope.logger.log($scope.error);
+                        $scope.logger.log("Transaction stopped");
                         TestExecutionClock.stop();
                     }
                 );

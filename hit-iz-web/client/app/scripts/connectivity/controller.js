@@ -213,38 +213,39 @@ angular.module('connectivity')
                         }
                     });
                     $scope.received = '';
-                    $scope.logger.log("Sending request ========================>");
+                    $scope.logger.log("Sending outbound message. Please wait...");
                     var sender = $scope.transport.send($scope.testCase.id);
                     sender.then(function (response) {
                         var received = response.incoming;
                         var sent = response.outgoing;
-                        $scope.logger.log("Outgoing message sent successfully.");
-                        $scope.logger.log("Outgoing message is:");
-                        $scope.logger.log(sent);
-                        if(received = null && received != '') {
-                            $scope.logger.log("Incoming message received <========================");
-                            $scope.logger.log("Incoming message is:");
-                            $scope.logger.log(received);
-                        }else{
-                            $scope.logger.log("No Incoming message received");
-                        }
-                        $scope.logger.log("Transaction completed");
-                        $scope.connecting = false;
-                        if (sent != null) {
+                        $scope.logger.log("Outbound Message  -------------------------------------->");
+                        if(sent != null && sent != '') {
+                            $scope.logger.log(sent);
+                            $scope.logger.log("Inbound Message  <--------------------------------------");
+                            if(received = null && received != '') {
+                                $scope.logger.log(received);
+                                $scope.triggerRespEvent(received);
+                            }else{
+                                $scope.logger.log("No Inbound message received");
+                            }
                             $scope.triggerReqEvent(sent);
+
+                        }else{
+                            $scope.logger.log("No outbound message sent");
                         }
-                        if (received != null) {
-                            $scope.triggerRespEvent(received);
-                        }
+                        $scope.connecting = false;
+                        $scope.logger.log("Transaction completed");
                     }, function (error) {
                         $scope.connecting = false;
                         $scope.error = error.data;
                         $scope.logger.log("Error: " + error.data);
-                        $scope.logger.log("Transaction aborted");
+                        $scope.logger.log("Transaction completed");
                         $scope.triggerRespEvent('');
                     });
                 } else {
-                    $scope.error = "No outgoing message found";
+                    $scope.error = "No Outbound message found";
+                    $scope.connecting = false;
+                    $scope.triggerRespEvent('');
                 }
             };
 
