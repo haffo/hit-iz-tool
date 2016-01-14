@@ -14,7 +14,7 @@ package gov.nist.healthcare.hl7.v2.iz.tool.web.unit;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
-import gov.nist.hit.iz.web.controller.SOAPEnvelopeController;
+import gov.nist.hit.iz.web.controller.IZEnvelopeController;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -34,7 +34,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 public class SoapControllerTest {
 
   @InjectMocks
-  SOAPEnvelopeController controller;
+  IZEnvelopeController controller;
 
   MockMvc mockMvc;
 

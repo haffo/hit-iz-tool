@@ -57,7 +57,7 @@ var app = angular.module('tool', [
 
 var httpHeaders;
 
-app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,KeepaliveProvider, IdleProvider) {
+app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider, KeepaliveProvider, IdleProvider) {
 
     localStorageServiceProvider
         .setPrefix('hit-tool')
@@ -116,38 +116,17 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
 
     httpHeaders = $httpProvider.defaults.headers;
 
-
-//    $httpProvider.interceptors.push(function ($q, $cookies) {
-//        return {
-//            'request': function (config) {
-//////                if(config.method === 'POST') {
-//////                    config.headers['csrfToken'] = $rootScope.appInfo.csrfToken;
-//////                }
-//////                config.headers['dTime'] = $rootScope.appInfo.date;
-////
-////                console.log(config.headers['csrfToken']);
-////                console.log(config.headers['dTime']);
-//                return config;
-//            }
-//        };
-//    });
-
-
 });
 
 
 app.factory('ErrorInterceptor', function ($q, $rootScope, $location, StorageService, $window) {
     var handle = function (response) {
-        if (response.status === 403) {
+        if (response.status === 440) {
+            response.data = "Session timeout";
             $rootScope.openSessionExpiredDlg();
-
-//            if(response.data == 'SESSION_EXPIRED'){
-//                response.data = "Session timeout";
-//                $rootScope.openSessionExpiredDlg();
-//            }else if(response.data == 'DATA_CHANGED'){
-//                //response.data = "Invalid Application State";
-//                //$rootScope.openVersionChangeDlg();
-//            }
+        } else if (response.status === 498) {
+            response.data = "Invalid Application State";
+            $rootScope.openVersionChangeDlg();
         } else if (response.status === 401) {
             $rootScope.openInvalidReqDlg();
         }
@@ -184,7 +163,7 @@ app.factory('ErrorInterceptor', function ($q, $rootScope, $location, StorageServ
 //    };
 //});
 
-app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http,User,Idle) {
+app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle) {
 
 
     $rootScope.appInfo = {};
@@ -193,46 +172,38 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
 
     $rootScope.scrollbarWidth = null;
 
-    Session.create().then(function(response){
+    Session.create().then(function (response) {
         // load current user
-        User.load().then(function(response){
-        }, function(error){
+        User.load().then(function (response) {
+        }, function (error) {
             $rootScope.openCriticalErrorDlg("Sorry we could not create a new user for your session. Please refresh the page and try again.");
         });
-
         // load app info
         AppInfo.get().then(function (appInfo) {
             $rootScope.appInfo = appInfo;
-            httpHeaders.common['csrfToken'] = appInfo.csrfToken;
-            httpHeaders.common['dTime'] = appInfo.date;
-//        var previousToken = StorageService.get(StorageService.APP_STATE_TOKEN);
-//        if(previousToken !== null && previousToken !== appInfo.date){
-//            $rootScope.openVersionChangeDlg();
-//        }
-//        StorageService.set(StorageService.APP_STATE_TOKEN, appInfo.date);
+            httpHeaders.common['rsbVersion'] = appInfo.rsbVersion;
+            var previousToken = StorageService.get(StorageService.APP_STATE_TOKEN);
+            if (previousToken != null && previousToken !== appInfo.rsbVersion) {
+                $rootScope.openVersionChangeDlg();
+            }
+            StorageService.set(StorageService.APP_STATE_TOKEN, appInfo.rsbVersion);
         }, function (error) {
             $rootScope.appInfo = {};
             $rootScope.openCriticalErrorDlg("Sorry we could not communicate with the server. Please try again");
         });
-
-    }, function(error){
+    }, function (error) {
         $rootScope.openCriticalErrorDlg("Sorry we could not start your session. Please refresh the page and try again.");
     });
-
 
 
     $rootScope.$watch(function () {
         return $location.path();
     }, function (newLocation, oldLocation) {
-
         //true only for onPopState
         if ($rootScope.activePath === newLocation) {
-
             var back,
                 historyState = $window.history.state;
-
             back = !!(historyState && historyState.position <= $rootScope.stackPosition);
-
             if (back) {
                 //back button
                 $rootScope.stackPosition--;
@@ -240,27 +211,15 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
                 //forward button
                 $rootScope.stackPosition++;
             }
-
         } else {
             //normal-way change of page (via link click)
-
             if ($route.current) {
-
                 $window.history.replaceState({
                     position: $rootScope.stackPosition
                 }, '');
-
                 $rootScope.stackPosition++;
-
             }
-//
-//            if (newLocation != null) {
-//                $rootScope.setActive(newLocation);
-//            }
-
         }
-
-
     });
 
     $rootScope.isActive = function (path) {
@@ -323,22 +282,6 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
         $rootScope.tabs[$rootScope.activeTab] = true;
         TestingSettings.setActiveTab($rootScope.activeTab);
     };
-
-//    $rootScope.initAppInfo = function () {
-//        var delay = $q.defer();
-//        if ($rootScope.appInfo === null) {
-//            return new AppInfo().then(function (appInfo) {
-//                $rootScope.appInfo = appInfo;
-//                delay.resolve($rootScope.appInfo);
-//                return delay.promise;
-//            })
-//        } else {
-//            delay.resolve($rootScope.appInfo);
-//            return delay.promise;
-//        }
-//    };
-
-
     $rootScope.downloadArtifact = function (path) {
         var form = document.createElement("form");
         form.action = "api/testartifact/download";
@@ -357,29 +300,11 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
     $rootScope.tabs = new Array();
 
     $rootScope.compile = function (content) {
-//        scope.$watch(
-//            function(scope) {
-//                // watch the 'compile' expression for changes
-//                return scope.$eval(attrs.compile);
-//            },
-//            function(value) {
-//                // when the 'compile' expression changes
-//                // assign it into the current DOM
-//                element.html(value);
-//
-//                // compile the new DOM and link it to the current
-//                // scope.
-//                // NOTE: we only compile .childNodes so that
-//                // we don't get into infinite loop compiling ourselves
-//                return $compile(content);
-//            }
-//        );
         return $compile(content);
     };
 
 
     $rootScope.$on('$locationChangeSuccess', function () {
-        //$rootScope.activePath = $location.path();
         $rootScope.setActive($location.path());
     });
 
@@ -424,12 +349,11 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
     };
 
     $rootScope.openVersionChangeDlg = function () {
-        $rootScope.blankPage();
         StorageService.clearAll();
         var vcModalInstance = $modal.open({
-            templateUrl: 'VersionChangeCtrl.html',
+            templateUrl: 'VersionChanged.html',
             size: 'lg',
-            backdrop:true,
+            backdrop: 'static',
             keyboard: 'false',
             'controller': 'FailureCtrl',
             resolve: {
@@ -440,21 +364,20 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
         });
         vcModalInstance.result.then(function () {
             $rootScope.clearTemplate();
-            $rootScope.index();
+            $rootScope.reloadPage();
         }, function () {
             $rootScope.clearTemplate();
-            $rootScope.index();
+            $rootScope.reloadPage();
         });
     };
 
     $rootScope.openCriticalErrorDlg = function (errorMessage) {
-        $rootScope.blankPage();
         StorageService.clearAll();
         var vcModalInstance = $modal.open({
             templateUrl: 'CriticalError.html',
             size: 'lg',
-            backdrop:true,
-            keyboard: 'false',
+            backdrop: true,
+            keyboard: 'true',
             'controller': 'FailureCtrl',
             resolve: {
                 error: function () {
@@ -464,21 +387,20 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
         });
         vcModalInstance.result.then(function () {
             $rootScope.clearTemplate();
-            $rootScope.index();
+            $rootScope.reloadPage();
         }, function () {
             $rootScope.clearTemplate();
-            $rootScope.index();
+            $rootScope.reloadPage();
         });
     };
 
     $rootScope.openSessionExpiredDlg = function () {
-        $rootScope.blankPage();
         StorageService.clearAll();
         var vcModalInstance = $modal.open({
             templateUrl: 'timedout-dialog.html',
             size: 'lg',
-            backdrop:true,
-            keyboard: 'false',
+            backdrop: true,
+            keyboard: 'true',
             'controller': 'FailureCtrl',
             resolve: {
                 error: function () {
@@ -488,10 +410,10 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
         });
         vcModalInstance.result.then(function () {
             $rootScope.clearTemplate();
-            $rootScope.index();
+            $rootScope.reloadPage();
         }, function () {
             $rootScope.clearTemplate();
-            $rootScope.index();
+            $rootScope.reloadPage();
         });
     };
 
@@ -504,27 +426,20 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
         $location.path('/error');
     };
 
-    $rootScope.blankPage = function () {
-        //$location.path('/blank');
-    };
-
     $rootScope.pettyPrintType = function (type) {
-        return type === 'TestStep' ? 'Test Step': type === 'TestCase'? 'Test Case':type;
+        return type === 'TestStep' ? 'Test Step' : type === 'TestCase' ? 'Test Case' : type;
     };
 
 
-    $rootScope.index = function () {
-        //$location.path('/home');
-        $('#appcontainer').html('');
+    $rootScope.reloadPage = function () {
         $window.location.reload();
     };
 
     $rootScope.openInvalidReqDlg = function () {
-        $rootScope.blankPage();
         var irModalInstance = $modal.open({
             templateUrl: 'InvalidReqCtrl.html',
             size: 'lg',
-            backdrop:true,
+            backdrop: true,
             keyboard: 'false',
             'controller': 'FailureCtrl',
             resolve: {
@@ -534,18 +449,18 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
             }
         });
         irModalInstance.result.then(function () {
-             $rootScope.index();
+            $rootScope.reloadPage();
         }, function () {
-             $rootScope.index();
+            $rootScope.reloadPage();
         });
     };
 
     $rootScope.openNotFoundDlg = function () {
-        $rootScope.blankPage();
+
         var nfModalInstance = $modal.open({
             templateUrl: 'NotFoundCtrl.html',
             size: 'lg',
-            backdrop:true,
+            backdrop: true,
             keyboard: 'false',
             'controller': 'FailureCtrl',
             resolve: {
@@ -556,9 +471,9 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
         });
 
         nfModalInstance.result.then(function () {
-             $rootScope.index();
+            $rootScope.reloadPage();
         }, function () {
-             $rootScope.index();
+            $rootScope.reloadPage();
         });
     };
 
@@ -587,7 +502,7 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
 
     Idle.watch();
 
-    $rootScope.$on('IdleStart', function() {
+    $rootScope.$on('IdleStart', function () {
         closeModals();
         $rootScope.warning = $modal.open({
             templateUrl: 'warning-dialog.html',
@@ -595,19 +510,19 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
         });
     });
 
-    $rootScope.$on('IdleEnd', function() {
+    $rootScope.$on('IdleEnd', function () {
         closeModals();
     });
 
-    $rootScope.$on('IdleTimeout', function() {
+    $rootScope.$on('IdleTimeout', function () {
         closeModals();
         StorageService.clearAll();
-        Session.destroy().then(
+        Session.delete().then(
             function (response) {
                 $rootScope.timedout = $modal.open({
                     templateUrl: 'timedout-dialog.html',
                     windowClass: 'modal-danger',
-                    backdrop:true,
+                    backdrop: true,
                     keyboard: 'false',
                     controller: 'FailureCtrl',
                     resolve: {
@@ -618,10 +533,10 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
                 });
                 $rootScope.timedout.result.then(function () {
                     $rootScope.clearTemplate();
-                    $rootScope.index();
+                    $rootScope.reloadPage();
                 }, function () {
                     $rootScope.clearTemplate();
-                    $rootScope.index();
+                    $rootScope.reloadPage();
                 });
             }
         );
@@ -638,13 +553,13 @@ app.run(function (Session,$rootScope, $location, $modal, TestingSettings, AppInf
         }
     };
 
-    $rootScope.start = function() {
+    $rootScope.start = function () {
         closeModals();
         Idle.watch();
         $rootScope.started = true;
     };
 
-    $rootScope.stop = function() {
+    $rootScope.stop = function () {
         closeModals();
         Idle.unwatch();
         $rootScope.started = false;
@@ -813,7 +728,7 @@ app.controller('ErrorCtrl', [ '$scope', '$modalInstance', 'StorageService', '$wi
     }
 ]);
 
-app.controller('FailureCtrl', [ '$scope', '$modalInstance', 'StorageService', '$window','error',
+app.controller('FailureCtrl', [ '$scope', '$modalInstance', 'StorageService', '$window', 'error',
     function ($scope, $modalInstance, StorageService, $window, error) {
         $scope.error = error;
         $scope.close = function () {

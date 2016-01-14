@@ -44,7 +44,7 @@
             };
 
             $scope.downloadAs = function (format) {
-                return reportService.downloadAs($scope.report.json, format, $scope.title);
+                return reportService.download($scope.report.id, format);
             };
         }]);
 

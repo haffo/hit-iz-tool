@@ -48,7 +48,7 @@ angular.module('cf')
             });
         };
 
-        $scope.init = function () {
+        $scope.initTesting = function () {
             StorageService.remove(StorageService.ACTIVE_SUB_TAB_KEY);
             $scope.error = null;
             $scope.testCases = [];
@@ -394,7 +394,7 @@ angular.module('cf')
         };
 
 
-        $scope.init = function () {
+        $scope.initValidation = function () {
             $scope.vLoading = false;
             $scope.tLoading = false;
             $scope.mLoading = false;

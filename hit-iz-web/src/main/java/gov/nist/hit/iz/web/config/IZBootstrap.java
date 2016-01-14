@@ -15,13 +15,12 @@ package gov.nist.hit.iz.web.config;
 import gov.nist.hit.core.repo.UserRepository;
 import gov.nist.hit.core.service.ResourcebundleLoader;
 import gov.nist.hit.core.service.exception.ProfileParserException;
-import gov.nist.hit.iz.domain.ConnectivityTestPlan;
-import gov.nist.hit.iz.domain.EnvelopeTestPlan;
-import gov.nist.hit.iz.repo.SOAPConnectivityTestPlanRepository;
-import gov.nist.hit.iz.repo.SOAPEnvelopeTestPlanRepository;
+import gov.nist.hit.iz.domain.IZConnectivityTestPlan;
+import gov.nist.hit.iz.domain.IZEnvelopeTestPlan;
+import gov.nist.hit.iz.repo.IZConnectivityTestPlanRepository;
+import gov.nist.hit.iz.repo.IZEnvelopeTestPlanRepository;
 import gov.nist.hit.iz.service.SOAPConnectivityTestPlanParser;
 import gov.nist.hit.iz.service.SOAPEnvelopeTestPlanParser;
-import gov.nist.hit.iz.web.controller.SOAPController;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -38,13 +37,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class IZBootstrap {
 
-  static final Logger logger = LoggerFactory.getLogger(SOAPController.class);
+  static final Logger logger = LoggerFactory.getLogger(IZBootstrap.class);
 
   @Autowired
-  SOAPEnvelopeTestPlanRepository soapEnvTestPlanRepository;
+  IZEnvelopeTestPlanRepository envelopeTestPlanRepository;
 
   @Autowired
-  SOAPConnectivityTestPlanRepository soapConnTestPlanRepository;
+  IZConnectivityTestPlanRepository connectivityTestPlanRepository;
 
   @Autowired
   UserRepository userRepository;
@@ -60,8 +59,16 @@ public class IZBootstrap {
     System.setProperty("javax.xml.parsers.SAXParserFactory",
         "com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl");
     logger.info("Bootstrapping data...");
-    soapEnv();
-    soapConn();
+    if (resourcebundleLoader.isNewResourcebundle()) {
+      logger.info("clearing iz envelope testcases...");
+      deleteEnvelopeTestCases();
+      logger.info("clearing iz connectivity testcases...");
+      deleteConnectivityTestCases();
+      logger.info("loading iz envelope testcases...");
+      loadEnvelopeTestCases();
+      logger.info("loading iz connectivity testcases...");
+      loadConnectivityTestCases();
+    }
     resourcebundleLoader.load();
     logger.info("...Bootstrapping completed");
   }
@@ -73,24 +80,36 @@ public class IZBootstrap {
    * @throws ProfileParserException
    * @throws URISyntaxException
    */
-  private void soapEnv() throws IOException, ProfileParserException, URISyntaxException {
+  private void loadEnvelopeTestCases() throws IOException, ProfileParserException,
+      URISyntaxException {
     SOAPEnvelopeTestPlanParser parser = new SOAPEnvelopeTestPlanParser("/soap");
-    List<EnvelopeTestPlan> testPlans = parser.create();
+    List<IZEnvelopeTestPlan> testPlans = parser.create();
     for (int i = 0; i < testPlans.size(); i++) {
-      soapEnvTestPlanRepository.save(testPlans.get(i));
+      envelopeTestPlanRepository.save(testPlans.get(i));
     }
   }
+
+  private void deleteEnvelopeTestCases() throws IOException, ProfileParserException,
+      URISyntaxException {
+    envelopeTestPlanRepository.deleteAll();
+  }
+
+  private void deleteConnectivityTestCases() throws IOException, ProfileParserException,
+      URISyntaxException {
+    connectivityTestPlanRepository.deleteAll();
+  }
+
 
   /**
    * 
    * @throws IOException
    * @throws URISyntaxException
    */
-  private void soapConn() throws IOException, URISyntaxException {
+  private void loadConnectivityTestCases() throws IOException, URISyntaxException {
     SOAPConnectivityTestPlanParser parser = new SOAPConnectivityTestPlanParser("/soap");
-    List<ConnectivityTestPlan> testPlans = parser.create();
+    List<IZConnectivityTestPlan> testPlans = parser.create();
     for (int i = 0; i < testPlans.size(); i++) {
-      soapConnTestPlanRepository.save(testPlans.get(i));
+      connectivityTestPlanRepository.save(testPlans.get(i));
     }
   }
 

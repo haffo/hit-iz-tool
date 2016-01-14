@@ -7,7 +7,7 @@ angular.module('isolated')
             return IsolatedSystem.testCase.type;
         };
 
-        $scope.init = function () {
+        $scope.initTesting = function () {
             $scope.error = null;
             $scope.loading = false;
             var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
@@ -38,7 +38,7 @@ angular.module('isolated')
         var testCaseService = new TestCaseService();
 
 
-        $scope.init = function () {
+        $scope.initTestCase = function () {
             $scope.error = null;
             $scope.loading = true;
 
@@ -125,7 +125,9 @@ angular.module('isolated')
                     StorageService.remove(StorageService.ISOLATED_LOADED_TESTSTEP_TYPE_KEY);
                     StorageService.remove(StorageService.ISOLATED_LOADED_TESTSTEP_ID_KEY);
                 }
-                $rootScope.$broadcast('isolated:testCaseLoaded', $scope.testCase, tab);
+                $timeout(function() {
+                    $rootScope.$broadcast('isolated:testCaseLoaded', $scope.testCase, tab);
+                });
             }
         };
 
@@ -555,7 +557,7 @@ angular.module('isolated')
             }
         };
 
-        $scope.init = function () {
+        $scope.initExecution = function () {
             $scope.error = null;
             $scope.loading = false;
             $scope.setActiveTab(0);
@@ -601,6 +603,7 @@ angular.module('isolated')
                 IsolatedSystem.testCase = testCase;
                 IsolatedSystem.transport.setDomain(testCase.domain);
                 IsolatedSystem.transport.logs = {};
+                IsolatedSystem.transport.transactions = [];
                 $scope.testCase = testCase;
                 TestExecutionClock.stop();
                 $scope.testCase = testCase;
@@ -631,16 +634,6 @@ angular.module('isolated')
                 });
             }
         };
-
-
-//        $scope.setNextStepMessage = function (message) {
-//            var nextStep = $scope.findNextStep($scope.testStep.position);
-//            if (nextStep != null && !$scope.isManualStep(nextStep)) {
-//                $scope.completeStep(nextStep);
-//                TestExecutionService.setExecutionMessage(nextStep, message);
-//            }
-//        };
-
 
         $scope.setNextStepMessage = function (message) {
             var nextStep = $scope.findNextStep($scope.testStep.position);
@@ -1277,7 +1270,7 @@ angular.module('isolated')
         };
 
 
-        $scope.init = function () {
+        $scope.initValidation = function () {
             $scope.vLoading = false;
             $scope.tLoading = false;
             $scope.mLoading = false;

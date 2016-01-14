@@ -14,68 +14,58 @@
 
 package gov.nist.hit.iz.domain;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import gov.nist.hit.core.domain.ObjectType;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @(#) TestPlan.java
  */
-@Entity
-public class EnvelopeTestPlan extends SoapTestPlan implements
-		java.io.Serializable {
+@MappedSuperclass
+public class IZTestPlan implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected Long id;
+	@NotNull
+	@Column(nullable = false)
+	@JsonProperty("label")
+	protected String name;
 
-	@JsonProperty("children")
-	@OrderBy("name ASC")
-	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST,
-			CascadeType.REMOVE })
-	@JoinTable(name = "soapenv_tp_tc", joinColumns = { @JoinColumn(name = "testplan_id") }, inverseJoinColumns = { @JoinColumn(name = "testcase_id") })
-	protected Set<EnvelopeTestCase> testCases = new HashSet<EnvelopeTestCase>();
+	@Column(nullable = true)
+	protected String description;
 
-	public EnvelopeTestPlan() {
+	protected String testProcedurePath;
+
+	transient protected final ObjectType type = ObjectType.TestPlan;
+
+	public IZTestPlan() {
 		super();
 	}
 
-	public EnvelopeTestPlan(String name) {
+	public IZTestPlan(String name) {
 		setName(name);
 	}
 
-	public EnvelopeTestPlan(EnvelopeTestPlan testPlan) {
+	public IZTestPlan(IZTestPlan testPlan) {
 		setName(testPlan.getName());
 		setDescription(testPlan.getDescription());
 	}
 
-	public Long getId() {
-		return this.id;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Id: ").append(getId()).append(", ");
 		sb.append("Name: ").append(getName()).append(", ");
 		// sb.append("Description: ").append(getDescription()).append(", ");
 		sb.append("Description: ").append(getDescription()).append(", ");
@@ -85,13 +75,24 @@ public class EnvelopeTestPlan extends SoapTestPlan implements
 		return sb.toString();
 	}
 
-	public void addTestCase(EnvelopeTestCase testCase) {
-		testCases.add(testCase);
-		testCase.setParentName(this.name);
+	public String getDescription() {
+		return description;
 	}
 
-	public Set<EnvelopeTestCase> getTestCases() {
-		return Collections.unmodifiableSet(testCases);
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getTestProcedurePath() {
+		return testProcedurePath;
+	}
+
+	public void setTestProcedurePath(String testProcedurePath) {
+		this.testProcedurePath = testProcedurePath;
+	}
+
+	public ObjectType getType() {
+		return type;
 	}
 
 }

@@ -242,18 +242,18 @@
 </script>
 
 
-<script type="text/ng-template" id="VersionChangeCtrl.html">
-    <div class="modal-body">
-        <div ng-include="'sc.html'"></div>
-        <br/>
+<script type="text/ng-template" id="VersionChanged.html">
+    <div class="modal-body error-dlg">
+        <div ng-include="'InvalidAppState.html'"></div>
         <br/>
         <div style="text-align:center">
             <p>Please click
-            <a ng-click="close()" type="button"
-               title="Cancel" class="point">
-                <i class="fa fa-refresh"></i>
-             </a>
-            to reset.</p>
+                <button class="btn btn-sm btn-primary" ng-click="close()" type="button"
+                        title="Cancel" class="point">
+                    <i class="fa fa-refresh"></i>
+                    reset
+                </button>
+                to reinitialize your browser.</p>
         </div>
 
     </div>
@@ -261,59 +261,47 @@
 
 
 <script type="text/ng-template" id="InvalidReqCtrl.html">
-    <div class="modal-body">
-        <div ng-include="'ir.html'"></div>
-
-        <br/>
-        <br/>
-
-        <div class="modal-footer">
-            <div class="pull-right">
+    <div class="modal-body error-dlg">
+        <div ng-include="'InvalidRequest.html'"></div>
+    </div>
+    <div class="modal-footer error-dlg">
+        <div class="pull-right">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                     title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
             </button>
         </div>
-</div>
     </div>
 </script>
 
 <script type="text/ng-template" id="ErrorCtrl.html">
-    <div class="modal-body">
-        <div ng-include="'down.html'"></div>
-
-        <br/>
-        <br/>
-
-        <div class="modal-footer">
-            <div class="pull-right">
+    <div class="modal-body error-dlg">
+        <div ng-include="'Error.html'"></div>
+    </div>
+    <div class="modal-footer error-dlg">
+        <div class="pull-right">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                     title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
             </button>
         </div>
-            </div>
     </div>
 </script>
 
 <script type="text/ng-template" id="NotFoundCtrl.html">
-    <div class="modal-body">
-        <div ng-include="'nf.html'"></div>
-
-        <br/>
-        <br/>
-
-        <div class="modal-footer">
-            <div class="pull-right">
+    <div class="modal-body info-dlg">
+        <div ng-include="'NotFound.html'"></div>
+    </div>
+    <div class="modal-footer info-dlg">
+        <div class="pull-right">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                     title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
             </button>
         </div>
-</div>
     </div>
 </script>
 
@@ -321,7 +309,7 @@
     <div class="modal-header">
         <h3>Your session will expire soon!</h3>
     </div>
-    <div idle-countdown="countdown" ng-init="countdown=30" class="modal-body">
+    <div idle-countdown="countdown" ng-init="countdown=30" class="modal-body info-dlg">
         <progressbar type="warning" max="30" value="30" animate="false" class="progress-striped active">Your
             session
             will expire in {{countdown}} second(s).
@@ -330,34 +318,28 @@
 </script>
 
 <script type="text/ng-template" id="timedout-dialog.html">
-    <div class="modal-header">
-        <h3>Session timeout</h3>
-    </div>
-    <div class="modal-body">
+    <div class="modal-body info-dlg">
         <p>
             Your session has expired.
         </p>
     </div>
-    <div class="modal-footer">
-    <div class="pull-right">
-        <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
-                title="Cancel" class="point">
-            <i class="fa fa-times"></i>
-            Close
-        </button>
-    </div>
+    <div class="modal-footer info-dlg">
+        <div class="pull-right">
+            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
+                    title="Cancel" class="point">
+                <i class="fa fa-times"></i>
+                Close
+            </button>
         </div>
+    </div>
 </script>
 
 <script type="text/ng-template" id="CriticalError.html">
-    <div class="modal-header">
-        <h3>Error</h3>
-    </div>
-    <div class="modal-body exception">
+    <div class="modal-body error-dlg">
         <p ng-bind="error">
-         </p>
+        </p>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer error-dlg">
         <div class="pull-right">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                     title="Cancel" class="point">

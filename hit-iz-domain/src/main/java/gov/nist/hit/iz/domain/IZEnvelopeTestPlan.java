@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @(#) TestPlan.java
  */
 @Entity
-public class ConnectivityTestPlan extends SoapTestPlan implements
+public class IZEnvelopeTestPlan extends IZTestPlan implements
 		java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -48,18 +48,18 @@ public class ConnectivityTestPlan extends SoapTestPlan implements
 	@OrderBy("name ASC")
 	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST,
 			CascadeType.REMOVE })
-	@JoinTable(name = "soapconn_tp_tc", joinColumns = { @JoinColumn(name = "testplan_id") }, inverseJoinColumns = { @JoinColumn(name = "testcase_id") })
-	protected Set<ConnectivityTestCase> testCases = new HashSet<ConnectivityTestCase>();
+	@JoinTable(name = "soapenv_tp_tc", joinColumns = { @JoinColumn(name = "testplan_id") }, inverseJoinColumns = { @JoinColumn(name = "testcase_id") })
+	protected Set<IZEnvelopeTestCase> testCases = new HashSet<IZEnvelopeTestCase>();
 
-	public ConnectivityTestPlan() {
+	public IZEnvelopeTestPlan() {
 		super();
 	}
 
-	public ConnectivityTestPlan(String name) {
+	public IZEnvelopeTestPlan(String name) {
 		setName(name);
 	}
 
-	public ConnectivityTestPlan(ConnectivityTestPlan testPlan) {
+	public IZEnvelopeTestPlan(IZEnvelopeTestPlan testPlan) {
 		setName(testPlan.getName());
 		setDescription(testPlan.getDescription());
 	}
@@ -85,12 +85,12 @@ public class ConnectivityTestPlan extends SoapTestPlan implements
 		return sb.toString();
 	}
 
-	public void addTestCase(ConnectivityTestCase testCase) {
+	public void addTestCase(IZEnvelopeTestCase testCase) {
 		testCases.add(testCase);
 		testCase.setParentName(this.name);
 	}
 
-	public Set<ConnectivityTestCase> getTestCases() {
+	public Set<IZEnvelopeTestCase> getTestCases() {
 		return Collections.unmodifiableSet(testCases);
 	}
 

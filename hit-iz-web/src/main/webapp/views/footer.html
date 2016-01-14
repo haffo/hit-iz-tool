@@ -19,9 +19,10 @@
 
             <td class="box">
                 <div>
-                    <h5>Deployment Information</h5>
+                    <h5>Application Information</h5>
                     <span>Date: {{appInfo.date |  date: 'MM/dd/yyyy HH:mm:ss'}}, </span>
-                    <span>Version: {{appInfo.version}}</span>
+                    <span>Application Version: {{appInfo.version}}</span>
+                    <span>Resource Bundle Version:{{appInfo.rsbVersion}}</span>
                 </div>
             </td>
 
@@ -38,7 +39,7 @@ Safari, <i class="fa fa-internet-explorer"></i> IE 9 and 10</span>
                     <h5>External Links</h5>
                     <a class="footer-link" href="http://www.nist.gov/public_affairs/disclaimer.cfm" target="_blank" title="View Disclaimer">Disclaimer</a> |
                         <a class="footer-link" href="http://www.nist.gov/public_affairs/privacy.cfm#privpolicy" target="_blank" title="View Privacy Policy">Privacy/Policy</a>|
-                         <a class="footer-link" href="mailto:robert.snelick@nist.gov" title="Email Website Administrator @: robert.snelick@nist.gov">Website Administrator</a>
+                         <a class="footer-link" ng-href="mailto:{{appInfo.adminEmail}}" title="Email Website Administrator @: {{appInfo.adminEmail}}">Website Administrator</a>
                  </div>
             </td>
 

@@ -36,7 +36,7 @@ angular.module('cb')
             }
         };
 
-        $scope.init = function () {
+        $scope.initTesting = function () {
             var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
             if (tab == null || tab != '/cb_execution') tab = '/cb_testcase';
             $rootScope.setSubActive(tab);
@@ -78,7 +78,7 @@ angular.module('cb')
         $scope.loadingTC = false;
         $scope.error = null;
         var testCaseService = new TestCaseService();
-        $scope.init = function () {
+        $scope.initTestCase = function () {
             $scope.error = null;
 
 
@@ -467,7 +467,7 @@ angular.module('cb')
 
 
 
-        $scope.init = function () {
+        $scope.initValidation = function () {
             $scope.vLoading = false;
             $scope.tLoading = false;
             $scope.mLoading = false;

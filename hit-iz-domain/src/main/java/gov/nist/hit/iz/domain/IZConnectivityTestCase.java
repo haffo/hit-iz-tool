@@ -12,8 +12,6 @@
 
 package gov.nist.hit.iz.domain;
 
-import gov.nist.hit.core.domain.TestStory;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,10 +21,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 /**
- * @(#) TestPlan.java
+ * 
+ * @author Harold Affo
+ * 
  */
 @Entity
-public class EnvelopeTestCase extends SoapTestCase implements java.io.Serializable {
+public class IZConnectivityTestCase extends IZTestCase implements java.io.Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -35,14 +35,14 @@ public class EnvelopeTestCase extends SoapTestCase implements java.io.Serializab
   protected Long id;
 
   @OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
-  protected EnvelopeTestContext testContext;
+  protected IZConnectivityTestContext testContext;
 
-  public EnvelopeTestCase() {
+  public IZConnectivityTestCase() {
     super();
-    testStory = new TestStory();
+    testStory = new IZTestStory();
   }
 
-  public EnvelopeTestCase(String name) {
+  public IZConnectivityTestCase(String name) {
     setName(name);
   }
 
@@ -54,11 +54,11 @@ public class EnvelopeTestCase extends SoapTestCase implements java.io.Serializab
     this.id = id;
   }
 
-  public EnvelopeTestContext getTestContext() {
+  public IZConnectivityTestContext getTestContext() {
     return testContext;
   }
 
-  public void setTestContext(EnvelopeTestContext testContext) {
+  public void setTestContext(IZConnectivityTestContext testContext) {
     this.testContext = testContext;
   }
 

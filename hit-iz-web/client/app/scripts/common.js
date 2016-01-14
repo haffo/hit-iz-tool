@@ -79,4 +79,55 @@ angular.module('commonServices').factory('Er7Message', function ($http, $q, Mess
     return Er7Message;
 });
 
+angular.module('format').factory('IZReportClass', function ($http, $q) {
+    var IZReportClass = function () {
+        this.html = null;
+    };
+    IZReportClass.prototype.generate = function (content) {
+        var delay = $q.defer();
+        var that = this;
+        $http({
+            url: "api/iz/report/generate",
+            data: $.param({'content': content}),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+            method: 'POST',
+            timeout: 60000
+        }).success(function (data) {
+            var res = angular.fromJson(data);
+            that.html = res['htmlReport'];
+            delay.resolve(that.html);
+        }).error(function (err) {
+            that.html = null;
+            delay.reject(err);
+        });
+        return delay.promise;
+    };
 
+    IZReportClass.prototype.download = function (format,title, content) {
+        var form = document.createElement("form");
+        form.action = "api/iz/report/download";
+        form.method = "POST";
+        form.target = "_target";
+        var input = document.createElement("textarea");
+        input.name = "content";
+        input.value = content;
+        form.appendChild(input);
+
+        input = document.createElement("input");
+        input.name = "format";
+        input.value = format;
+        form.appendChild(input);
+
+        input = document.createElement("input");
+        input.name = "title";
+        input.value = title;
+        form.appendChild(input);
+
+        form.style.display = 'none';
+        document.body.appendChild(form);
+        form.submit();
+    };
+
+
+    return IZReportClass;
+});

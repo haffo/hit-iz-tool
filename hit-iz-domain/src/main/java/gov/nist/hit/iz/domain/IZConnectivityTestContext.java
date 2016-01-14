@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 
 @Entity
-public class ConnectivityTestContext implements java.io.Serializable {
+public class IZConnectivityTestContext implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 

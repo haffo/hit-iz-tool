@@ -12,15 +12,20 @@
 	</context-param>
 	<error-page>
 		<error-code>404</error-code>
-		<location>/nf.html</location>
+		<location>/Notfound.html</location>
 	</error-page>
 	<error-page>
 		<error-code>401</error-code>
-		<location>/ir.html</location>
+		<location>/InvalidRequest.html</location>
 	</error-page>
 	<error-page>
-		<error-code>403</error-code>
+		<error-code>440</error-code>
 		<location>/SessionTimeout.html</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>498</error-code>
+		<location>/InvalidAppState.html</location>
 	</error-page>
 
 </web-app>

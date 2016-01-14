@@ -7,7 +7,7 @@
         top.location = self.location;
     }
 </script>
-<div ng-controller="ConnectivityExecutionCtrl" ng-init="init()">
+<div ng-controller="ConnectivityExecutionCtrl" ng-init="initExecution()">
 
 <div class="" style="margin:10px">
 <div class="">
@@ -63,7 +63,7 @@
 </div>
 
 <div class="row" ng-show="testCase.testType != 'SENDER_CONNECTIVITY'">
-<div class="col-md-6" ng-controller="ConnectivityReqCtrl" ng-init="init()">
+<div class="col-md-6" ng-controller="ConnectivityReqCtrl" ng-init="initRequest()">
     <div class="">
         <!--<div class="panel-heading">-->
 
@@ -397,7 +397,7 @@
         </div>
     </div>
 </div>
-<div class="col-md-6" ng-controller="ConnectivityRespCtrl" ng-init="init()">
+<div class="col-md-6" ng-controller="ConnectivityRespCtrl" ng-init="initResponse()">
     <div class="">
         <!--<div class="panel-heading">-->
             <!--<span ng-show="testCase.sutType == 'SENDER'"><i-->

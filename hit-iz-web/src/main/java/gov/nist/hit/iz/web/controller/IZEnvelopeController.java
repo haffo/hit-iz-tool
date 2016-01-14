@@ -16,11 +16,11 @@ import gov.nist.hit.core.domain.Command;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
-import gov.nist.hit.iz.domain.EnvelopeTestCase;
-import gov.nist.hit.iz.domain.EnvelopeTestContext;
-import gov.nist.hit.iz.domain.EnvelopeTestPlan;
-import gov.nist.hit.iz.repo.SOAPEnvelopeTestCaseRepository;
-import gov.nist.hit.iz.repo.SOAPEnvelopeTestPlanRepository;
+import gov.nist.hit.iz.domain.IZEnvelopeTestCase;
+import gov.nist.hit.iz.domain.IZEnvelopeTestContext;
+import gov.nist.hit.iz.domain.IZEnvelopeTestPlan;
+import gov.nist.hit.iz.repo.IZEnvelopeTestCaseRepository;
+import gov.nist.hit.iz.repo.IZEnvelopeTestPlanRepository;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.exception.SoapValidationException;
 import gov.nist.hit.iz.service.soap.SOAPMessageValidator;
@@ -45,18 +45,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/envelope")
-public class SOAPEnvelopeController {
+public class IZEnvelopeController {
 
-  static final Logger logger = LoggerFactory.getLogger(SOAPEnvelopeController.class);
+  static final Logger logger = LoggerFactory.getLogger(IZEnvelopeController.class);
 
   @Autowired
   private SOAPMessageValidator soapValidator;
 
   @Autowired
-  private SOAPEnvelopeTestPlanRepository testPlanRepository;
+  private IZEnvelopeTestPlanRepository testPlanRepository;
 
   @Autowired
-  private SOAPEnvelopeTestCaseRepository testCaseRepository;
+  private IZEnvelopeTestCaseRepository testCaseRepository;
 
 
   @Autowired
@@ -64,7 +64,7 @@ public class SOAPEnvelopeController {
 
   @Cacheable(value = "testCaseCache", key = "'env-testcases'")
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
-  public List<EnvelopeTestPlan> testCases() {
+  public List<IZEnvelopeTestPlan> testCases() {
     logger.info("Fetching all testplans...");
     return testPlanRepository.findAll();
   }
@@ -75,10 +75,10 @@ public class SOAPEnvelopeController {
       @RequestBody final Command command) throws SoapValidationException {
     try {
       logger.info("Validating envelope message " + command);
-      EnvelopeTestCase testCase = testCaseRepository.findOne(testCaseId);
+      IZEnvelopeTestCase testCase = testCaseRepository.findOne(testCaseId);
       if (testCase == null)
         throw new TestCaseException("No testcase selected");
-      EnvelopeTestContext context = testCase.getTestContext();
+      IZEnvelopeTestContext context = testCase.getTestContext();
       ValidationResult result;
       result =
           soapValidator.validate(Utils.getContent(command), testCase.getName(),

@@ -1,5 +1,5 @@
 angular.module('envelope').factory('Envelope',
-    ['SOAPEditor', 'SOAPCursor', 'ValidationResult', 'EnvelopeReport', 'Message', 'ValidationSettings', function ( SOAPEditor, SOAPCursor, ValidationResult, EnvelopeReport, Message, ValidationSettings) {
+    ['SOAPEditor', 'SOAPCursor', 'ValidationResult', 'IZReportClass', 'Message', 'ValidationSettings', function ( SOAPEditor, SOAPCursor, ValidationResult, IZReportClass, Message, ValidationSettings) {
         var Envelope = {
             testCase: null,
             selectedTestCase: null,
@@ -7,7 +7,7 @@ angular.module('envelope').factory('Envelope',
             cursor: new SOAPCursor(),
             validationResult: new ValidationResult(),
             message: new Message(),
-            report: new EnvelopeReport(),
+            report: new IZReportClass(),
             validationSettings: new ValidationSettings(),
             getContent: function () {
                 return  Envelope.message.content;
@@ -16,25 +16,6 @@ angular.module('envelope').factory('Envelope',
 
         return Envelope;
     }]);
-
-
-angular.module('envelope').factory('EnvelopeReport', function ($http, Report) {
-    var EnvelopeReport = function () {
-        Report.call(this, arguments);
-    };
-
-    EnvelopeReport.prototype = Object.create(Report.prototype);
-    EnvelopeReport.prototype.constructor = EnvelopeReport;
-
-    EnvelopeReport.prototype.generateByFormat = function (xmlReport, format) {
-        return this.generate("api/envelope/report/generate/" + format, xmlReport);
-    };
-
-    EnvelopeReport.prototype.downloadByFormat = function (xmlReport, format) {
-        return this.generate("api/envelope/report/download/" + format, xmlReport);
-    };
-    return EnvelopeReport;
-});
 
 
 angular.module('envelope').factory('EnvelopeTestCaseListLoader', ['$q','$http',

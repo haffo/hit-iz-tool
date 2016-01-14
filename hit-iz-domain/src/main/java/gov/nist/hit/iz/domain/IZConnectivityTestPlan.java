@@ -14,58 +14,68 @@
 
 package gov.nist.hit.iz.domain;
 
-import gov.nist.hit.core.domain.ObjectType;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.NotNull;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @(#) TestPlan.java
  */
-@MappedSuperclass
-public class SoapTestPlan implements java.io.Serializable {
+@Entity
+public class IZConnectivityTestPlan extends IZTestPlan implements
+		java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@NotNull
-	@Column(nullable = false)
-	@JsonProperty("label")
-	protected String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	protected Long id;
 
-	@Column(nullable = true)
-	protected String description;
+	@JsonProperty("children")
+	@OrderBy("name ASC")
+	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST,
+			CascadeType.REMOVE })
+	@JoinTable(name = "soapconn_tp_tc", joinColumns = { @JoinColumn(name = "testplan_id") }, inverseJoinColumns = { @JoinColumn(name = "testcase_id") })
+	protected Set<IZConnectivityTestCase> testCases = new HashSet<IZConnectivityTestCase>();
 
-	protected String testProcedurePath;
-
-	transient protected final ObjectType type = ObjectType.TestPlan;
-
-	public SoapTestPlan() {
+	public IZConnectivityTestPlan() {
 		super();
 	}
 
-	public SoapTestPlan(String name) {
+	public IZConnectivityTestPlan(String name) {
 		setName(name);
 	}
 
-	public SoapTestPlan(SoapTestPlan testPlan) {
+	public IZConnectivityTestPlan(IZConnectivityTestPlan testPlan) {
 		setName(testPlan.getName());
 		setDescription(testPlan.getDescription());
 	}
 
-	public String getName() {
-		return this.name;
+	public Long getId() {
+		return this.id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append("Id: ").append(getId()).append(", ");
 		sb.append("Name: ").append(getName()).append(", ");
 		// sb.append("Description: ").append(getDescription()).append(", ");
 		sb.append("Description: ").append(getDescription()).append(", ");
@@ -75,24 +85,13 @@ public class SoapTestPlan implements java.io.Serializable {
 		return sb.toString();
 	}
 
-	public String getDescription() {
-		return description;
+	public void addTestCase(IZConnectivityTestCase testCase) {
+		testCases.add(testCase);
+		testCase.setParentName(this.name);
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getTestProcedurePath() {
-		return testProcedurePath;
-	}
-
-	public void setTestProcedurePath(String testProcedurePath) {
-		this.testProcedurePath = testProcedurePath;
-	}
-
-	public ObjectType getType() {
-		return type;
+	public Set<IZConnectivityTestCase> getTestCases() {
+		return Collections.unmodifiableSet(testCases);
 	}
 
 }

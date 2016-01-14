@@ -4,7 +4,7 @@ angular.module('connectivity')
 
         $scope.testCaseLoaded = null;
 
-        $scope.init = function () {
+        $scope.initTesting = function () {
             var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
             if (tab == null || tab != '/connectivity_execution') tab = '/connectivity_testcase';
             $rootScope.setSubActive(tab);
@@ -41,7 +41,7 @@ angular.module('connectivity')
             });
         };
 
-        $scope.init = function () {
+        $scope.initTestCase = function () {
             $scope.error = null;
             $scope.loading = true;
             $scope.testCases = [];
@@ -135,7 +135,8 @@ angular.module('connectivity')
             $scope.endpoint = null;
             $scope.transport = Connectivity.transport;
             $scope.hidePwd = true;
-            $scope.init = function () {
+
+            $scope.initExecution = function () {
                 $rootScope.$on('conn:testCaseLoaded', function (event) {
                     $scope.testCase = Connectivity.testCase;
                     $scope.logger.init();
@@ -273,26 +274,6 @@ angular.module('connectivity')
                 });
             };
 
-//            $scope.viewReceiver = function () {
-//                var modalInstance = $modal.open({
-//                    templateUrl: 'TransactionViewReceiverConfiguration.html',
-//                    controller: 'ConnectivityViewReceiverConfigurationCtrl',
-//                    windowClass: 'app-modal-window',
-//                    resolve: {
-//                        testCase: function () {
-//                            return Connectivity.testCase;
-//                        },
-//                        user: function () {
-//                            return Connectivity.user;
-//                        }
-//                    }
-//                });
-//                modalInstance.result.then(function (result) {
-//                     $scope.triggerRespEvent('');
-//                }, function () {
-//                     $scope.triggerRespEvent('');
-//                });
-//            };
 
             $scope.hasRequestContent = function () {
                 return Connectivity.request.getContent() != null && Connectivity.request.getContent() != '';
@@ -367,13 +348,11 @@ angular.module('connectivity')
                 $(this).fileupload('option', 'autoUpload'))) {
                 data.process().done(function () {
                     var fileName = data.files[0].name;
-                    data.url = 'api/soap/upload';
+                    data.url = 'api/message/upload';
                     var jqXHR = data.submit()
                         .success(function (result, textStatus, jqXHR) {
                             var tmp = angular.fromJson(result);
                             $scope.request.editor.instance.doc.setValue(tmp.content);
-//                            $scope.$broadcast("connectivityReq:editor:update", true);
-//                            $scope.refreshEditor();
                             $scope.uploadError = null;
                             $scope.fileName = fileName;
                         })
@@ -464,7 +443,7 @@ angular.module('connectivity')
             }
         };
 
-        $scope.init = function () {
+        $scope.initRequest = function () {
             $scope.error = null;
             $scope.loading = true;
             $scope.editor = CodeMirror.fromTextArea(document.getElementById("connectivityReqTextArea"), {
@@ -672,7 +651,7 @@ angular.module('connectivity')
 
         $scope.error = null;
 
-        $scope.init = function () {
+        $scope.initResponse = function () {
             $scope.error = null;
             $scope.testCases = [];
             $scope.loading = true;
@@ -973,59 +952,5 @@ angular.module('connectivity')
             });
 
         };
-
-
-//            Connectivity.user.transaction.openConnection().then(function (response) {
-//                    $scope.log("Connection configured.");
-//                    var execute = function () {
-//                        ++$scope.counter;
-//                        $scope.log("Waiting for incoming message....Elapsed time(second):" + $scope.counter + "s");
-//                        $scope.user.transaction.messages().then(function (response) {
-//                            var incoming = $scope.user.transaction.incoming;
-//                            var outgoing = $scope.user.transaction.outgoing;
-//                            if ($scope.counter < $scope.counterMax) {
-//                                if (incoming != null && incoming != '' && $scope.received == '') {
-//                                    $scope.log("Incoming Message Received <--------------------------------------");
-//                                    $scope.log(incoming);
-//                                    $scope.received = incoming;
-//                                }
-//                                if (outgoing != null && outgoing != '' && $scope.sent == '') {
-//                                    $scope.log("Outgoing Message Sent:    -------------------------------------->");
-//                                    $scope.log(outgoing);
-//                                    $scope.sent = outgoing;
-//                                }
-//                                if ($scope.received != '' && $scope.sent != '') {
-//                                    $scope.stop();
-//                                }
-//                            } else {
-//                                if (incoming == null || incoming == '') {
-//                                    $scope.warning = "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound SOAP Envelope against those created for your system.</p>  <p>Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.</p>" +
-//                                        "<p>Possible cause (3):The HTTP header field Content-Type  may not be set correctly for use with SOAP 1.2.   SOAP 1.2 requires application/soap+xml, and SOAP 1.2 requires text/xml.  The NIST Tool follows SOAP 1.2, which is required by section 2 of the 'CDC Transport Layer Protocol Recommendation V1.1' (http://www.cdc.gov/vaccines/programs/iis/technical-guidance/SOAP/downloads/transport-specification.pdf)</p>";
-//
-//                                    $scope.log("We did not receive any incoming message after 30s");
-//
-//                                } else if (outgoing == null || outgoing == '') {
-//                                    $scope.log("We were unable to send the response after 30s");
-//                                }
-//                                $scope.stop();
-//                            }
-//                        }, function (error) {
-//                            $scope.error = error;
-//                            $scope.log("Error: " + error);
-//                            $scope.received = '';
-//                            $scope.sent = '';
-//                            $scope.stop();
-//                        });
-//                    };
-//                    TestExecutionClock.start(execute);
-//                }, function (error) {
-//                    $scope.log("Failed to configure incoming connection: Error: " + error);
-//                    $scope.log("Transaction aborted");
-//                    $scope.connecting = false;
-//                    $scope.error = error;
-//                }
-//            );
-//        };
-
     });
 

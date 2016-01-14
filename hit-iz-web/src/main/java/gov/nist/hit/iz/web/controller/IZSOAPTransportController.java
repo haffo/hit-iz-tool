@@ -131,8 +131,8 @@ public class IZSOAPTransportController {
       throw new UserNotFoundException();
     }
 
-    TransportConfig transportConfig = null;
-    transportConfig = transportConfigService.findOneByUserAndProtocol(user.getId(), PROTOCOL);
+    TransportConfig transportConfig =
+        transportConfigService.findOneByUserAndProtocol(userId, PROTOCOL);
     if (transportConfig == null) {
       transportConfig = transportConfigService.create(PROTOCOL);
       user.addConfig(transportConfig);
@@ -145,19 +145,15 @@ public class IZSOAPTransportController {
     }
 
     int token = new Random().nextInt(999);
-
-
     if (config.get("password") == null && config.get("username") == null) {
       config.put("username", "vendor_" + user.getId() + "_" + token);
       config.put("password", "vendor_" + user.getId() + "_" + token);
       config.put("facilityID", "vendor_" + user.getId() + "_" + token);
     }
-
     if (config.get("faultPassword") == null && config.get("faultUsername") == null) {
       config.put("faultUsername", "fault_vendor_" + user.getId() + "_" + token);
       config.put("faultPassword", "fault_vendor_" + user.getId() + "_" + token);
     }
-
     if (config.get("endpoint") == null) {
       config.put("endpoint", Utils.getUrl(request) + "/ws/iisService");
     }

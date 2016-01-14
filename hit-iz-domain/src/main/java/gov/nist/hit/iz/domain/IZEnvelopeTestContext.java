@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class EnvelopeTestContext implements java.io.Serializable {
+public class IZEnvelopeTestContext implements java.io.Serializable {
 
   private static final long serialVersionUID = 1L;
 

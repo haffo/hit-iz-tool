@@ -14,7 +14,6 @@ package gov.nist.hit.iz.domain;
 
 import gov.nist.hit.core.domain.ObjectType;
 import gov.nist.hit.core.domain.SutType;
-import gov.nist.hit.core.domain.TestStory;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -33,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @(#) TestPlan.java
  */
 @MappedSuperclass
-public class SoapTestCase implements java.io.Serializable {
+public class IZTestCase implements java.io.Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -75,19 +74,19 @@ public class SoapTestCase implements java.io.Serializable {
   protected String tds;
 
 
-  @OneToOne(cascade = CascadeType.PERSIST)
-  protected TestStory testStory;
+  @OneToOne(cascade = CascadeType.ALL)
+  protected IZTestStory testStory;
 
-  public SoapTestCase() {
+  public IZTestCase() {
     super();
-    testStory = new TestStory();
+    testStory = new IZTestStory();
   }
 
   public void setName(String name) {
     this.name = name;
   }
 
-  public SoapTestCase(String name) {
+  public IZTestCase(String name) {
     setName(name);
   }
 
@@ -102,11 +101,11 @@ public class SoapTestCase implements java.io.Serializable {
     return sb.toString();
   }
 
-  public TestStory getTestStory() {
+  public IZTestStory getTestStory() {
     return testStory;
   }
 
-  public void setTestStory(TestStory testStory) {
+  public void setTestStory(IZTestStory testStory) {
     this.testStory = testStory;
   }
 

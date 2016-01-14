@@ -12,16 +12,11 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.service.exception.MessageException;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.exception.SoapValidationReportException;
-import gov.nist.hit.iz.service.soap.SOAPMessageParser;
-import gov.nist.hit.iz.web.exception.SOAPEnvelopeException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,78 +28,63 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author Harold Affo (NIST)
  * 
  */
-@RequestMapping("/soap")
 @RestController
-public class SOAPController {
+@RequestMapping("/iz/report")
+public class IZReportController {
 
-  static final Logger logger = LoggerFactory.getLogger(SOAPController.class);
+  static final Logger logger = LoggerFactory.getLogger(IZReportController.class);
 
-  @Autowired
-  private SOAPMessageParser soapParser;
 
   @Autowired
   private SOAPValidationReportGenerator reportService;
 
-  public SOAPValidationReportGenerator getReportService() {
-    return reportService;
-  }
-
-  public void setReportService(SOAPValidationReportGenerator reportService) {
-    this.reportService = reportService;
-  }
 
   private String createHtml(String xmlReport) {
     String htmlReport = reportService.toHTML(xmlReport);
     return htmlReport;
   }
 
-  @RequestMapping(value = "/report/download/{format}", method = RequestMethod.POST,
+  @RequestMapping(value = "/download", method = RequestMethod.POST,
       consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-  public String download(@PathVariable String format, @RequestParam("xmlReport") String xmlReport,
+  public String download(@RequestParam("format") String format,
+      @RequestParam("title") String title, @RequestParam("content") String xmlReport,
       HttpServletRequest request, HttpServletResponse response) {
     try {
       logger.info("Downloading validation report in " + format);
+      if (format == null)
+        throw new SoapValidationReportException("No format specified");
       if (xmlReport == null) {
         throw new SoapValidationReportException("No xml report found in the request");
       }
       InputStream content = null;
-
+      String ext = format.toLowerCase();
       if ("HTML".equalsIgnoreCase(format)) {
         content = IOUtils.toInputStream(createHtml(xmlReport), "UTF-8");
         response.setContentType("text/html");
-        response.setHeader("Content-disposition",
-            "attachment;filename=MessageValidationReport.html");
       } else if ("DOC".equalsIgnoreCase(format)) {
         content = IOUtils.toInputStream(createHtml(xmlReport), "UTF-8");
         response.setContentType("application/msword");
-        response
-            .setHeader("Content-disposition", "attachment;filename=MessageValidationReport.doc");
       } else if ("XML".equalsIgnoreCase(format)) {
         content = IOUtils.toInputStream(xmlReport, "UTF-8");
         response.setContentType("application/xml");
-        response
-            .setHeader("Content-disposition", "attachment;filename=MessageValidationReport.xml");
       } else if ("PDF".equalsIgnoreCase(format)) {
         content = reportService.toPDF(xmlReport);
         response.setContentType("application/pdf");
-        response
-            .setHeader("Content-disposition", "attachment;filename=MessageValidationReport.pdf");
       } else {
         throw new SoapValidationReportException("Unsupported Message Validation Report format "
             + format);
       }
+      response.setHeader("Content-disposition", "attachment;filename=" + title
+          + "-ValidationReport." + ext);
       FileCopyUtils.copy(content, response.getOutputStream());
     } catch (SoapValidationReportException | IOException e) {
       logger.debug("Failed to download the validation report ");
@@ -113,52 +93,18 @@ public class SOAPController {
     return null;
   }
 
-  @RequestMapping(value = "/report/generate/{format}", method = RequestMethod.POST,
+  @RequestMapping(value = "/generate", method = RequestMethod.POST,
       consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-  public Map<String, String> generate(@PathVariable final String format,
-      @RequestParam("xmlReport") final String xmlReport) {
-    logger.info("Generating validation report in " + format);
+  public Map<String, String> generateHTML(@RequestParam("content") final String xmlReport) {
+    logger.info("Generating HTML Validation report");
     if (xmlReport == null) {
       throw new SoapValidationReportException("No xml report found in the request");
     }
-    if ("HTML".equalsIgnoreCase(format)) {
-      HashMap<String, String> map = new HashMap<String, String>();
-      map.put("htmlReport", createHtml(xmlReport));
-      logger.info("Validation report in " + format + " Generated");
-      return map;
-    } else {
-      throw new SoapValidationReportException("Unsupported Soap Validation Report format " + format);
-    }
-
+    HashMap<String, String> map = new HashMap<String, String>();
+    map.put("htmlReport", createHtml(xmlReport));
+    return map;
   }
 
-  @RequestMapping(value = "/upload", method = RequestMethod.POST,
-      consumes = {"multipart/form-data"})
-  public Command upload(@RequestPart("file") MultipartFile xmlPart) {
-    try {
-      // Validate that it is an xml file
-      return new Command(IOUtils.toString(xmlPart.getInputStream()));
-    } catch (IOException e) {
-      throw new SOAPEnvelopeException("Cannot upload the file provided");
-    }
-  }
 
-  @RequestMapping(value = "/download", method = RequestMethod.POST,
-      consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-  public String download(@RequestParam("envelope") String envelope, HttpServletRequest request,
-      HttpServletResponse response) throws MessageException {
-    try {
-      logger.info("Downloading the envelope");
-      InputStream content = IOUtils.toInputStream(envelope, "UTF-8");
-      response.setContentType("text/plain");
-      response.setHeader("Content-disposition",
-          "attachment;filename=UserMessage" + new Date().getTime() + ".txt");
-      FileCopyUtils.copy(content, response.getOutputStream());
-    } catch (IOException e) {
-      logger.debug("Failed to download the soapEnvelope ");
-      throw new MessageException("Cannot download the content " + e.getMessage());
-    }
-    return null;
-  }
 
 }
