@@ -32,7 +32,7 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBExecutionCtrl', ['$scope', '$window', '$rootScope', 'CB', '$modal', 'TestExecutionClock', 'Endpoint', 'TestExecutionService', '$timeout', 'StorageService', 'User','ReportService', function ($scope, $window, $rootScope, CB, $modal, TestExecutionClock, Endpoint, TestExecutionService, $timeout, StorageService, User,ReportService) {
+    .controller('CBExecutionCtrl', ['$scope', '$window', '$rootScope', 'CB', '$modal', 'TestExecutionClock', 'Endpoint', 'TestExecutionService', '$timeout', 'StorageService', 'User','ReportService','SOAPEscaper', function ($scope, $window, $rootScope, CB, $modal, TestExecutionClock, Endpoint, TestExecutionService, $timeout, StorageService, User,ReportService,SOAPEscaper) {
 
         $scope.loading = false;
         $scope.error = null;
@@ -70,18 +70,19 @@ angular.module('cb')
         ];
 
         var parseRequest = function (incoming) {
-//            var x2js = new X2JS();
-//            var receivedJson = x2js.xml_str2json(incoming);
-//            var receivedMessage = XMLUtil.decodeXml(receivedJson.Envelope.Body.submitSingleMessage.hl7Message.toString());
-            return incoming;
+            var x2js = new X2JS();
+            var receivedJson = x2js.xml_str2json(incoming);
+            var receivedMessage = SOAPEscaper.decodeXml(receivedJson.Envelope.Body.submitSingleMessage.hl7Message.toString());
+            return receivedMessage;
         };
 
         var parseResponse = function (outbound) {
-//            var x2js = new X2JS();
-//            var sentMessageJson = x2js.xml_str2json(outbound);
-//            var sentMessage = XMLUtil.decodeXml(sentMessageJson.Envelope.Body.submitSingleMessageResponse.return.toString());
-            return outbound;
+            var x2js = new X2JS();
+            var sentMessageJson = x2js.xml_str2json(outbound);
+            var sentMessage = SOAPEscaper.decodeXml(sentMessageJson.Envelope.Body.submitSingleMessageResponse.return.toString());
+            return sentMessage;
         };
+
 
         $scope.setActiveTab = function (value) {
             $scope.tabs[0] = false;

@@ -7,5 +7,5 @@
     "valueSetLibraryId" : "5674a4b2-0e26-4f6a-9dc8-ba78a4727c83"
   },
   "type" : "SUT_INITIATOR",
-  "description" : "The EMR generates a Z22 Send Unsolicited Immunization Update Using a VXU correctly and without omission according to supplied test data."
+  "description" : "The EMR generates a Z22 Send Unsolicited Immunization Update Using a VXU correctly and without omission according to supplied test data.","protocol":"soap"
 }

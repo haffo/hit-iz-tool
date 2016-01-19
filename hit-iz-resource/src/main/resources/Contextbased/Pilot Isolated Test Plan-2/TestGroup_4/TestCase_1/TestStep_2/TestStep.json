@@ -7,5 +7,5 @@
     "valueSetLibraryId" : "752481af-53be-4bcb-909d-d71d6fa49d1a"
   },
   "type" : "TA_RESPONDER",
-  "description" : "No Description"
+  "description" : "No Description","protocol":"soap"
 }

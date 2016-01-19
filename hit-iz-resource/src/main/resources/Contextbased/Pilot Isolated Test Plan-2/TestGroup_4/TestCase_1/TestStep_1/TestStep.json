@@ -8,4 +8,5 @@
   },
   "type" : "TA_INITIATOR",
   "description" : "The EMR send the Immunization Report to the Immunization Registry (VXU/Z22) for updated vaccination information from the visit. This includes all newly administered vaccines and may include historical information updated in the EMR during the visit."
+,"protocol":"soap"
 }
