@@ -1,4 +1,6 @@
-<style id="antiClickjack">body{display:none !important;}</style>
+<style id="antiClickjack">body {
+    display: none !important;
+}</style>
 <script type="text/javascript">
     if (self === top) {
         var antiClickjack = document.getElementById("antiClickjack");
@@ -10,9 +12,16 @@
 <div class="panel panel-info">
     <div class="panel-heading">
         <div>Test Result  <span class="pull-right">
-                            <button type="button" ng-click="resetTestCase()" title="Restart" class="btn btn-xs btn-danger">
-                                <i class="fa fa-refresh"></i> Restart
-                            </button>
+
+            <button type="button" ng-click="downloadTestCaseReports()" ng-disabled="format === null || testCase.executionStatus !== 'COMPLETE'" title="Download All Results" class="btn btn-xs btn-primary">
+                <i class="fa fa-download"></i> Download Validation Reports (.zip)
+            </button>
+
+             <button type="button" ng-click="resetTestCase()" title="Reset the TestCase" class="btn btn-xs btn-danger">
+                 <i class="fa fa-times"></i> Reset
+             </button>
+
+
                         </span>
         </div>
     </div>

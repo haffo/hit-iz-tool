@@ -25,7 +25,7 @@
                     <th style="width:35%">Description</th>
                     <th style="width:15%">Execution Status</th>
                     <th style="width:15%">Validation Result</th>
-                    <th style="width:10%" ng-show="user.info != null">Action</th>
+                    <th style="width:10%" ng-show="testCase.transport === true && user.info != null">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -89,7 +89,7 @@
                         N/A
                     </span>
                     </td>
-                    <td style="width:10%" ng-show="user.info != null">
+                    <td style="width:10%" ng-show="testCase.transport === true && user.info != null">
 
                         <!--<a ng-show="row.testingType !== 'SUT_INITIATOR' && row.testingType !== 'TA_INITIATOR' && row.testingType !== 'SUT_RESPONDER' && row.testingType !== 'TA_RESPONDER' && transport.logs[row.id] && transport.logs[row.id] != null"-->
                         <!--ng-click="viewConsole(row.id)">-->

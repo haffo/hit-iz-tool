@@ -66,7 +66,7 @@
                                             <button type="button" ng-click="goNext(testStep)"
                                                     ng-show="!isTestCaseCompleted() && isTestStepCompleted(testStep)"
                                                     title="Execute Next Step" class="btn btn-sm btn-primary">
-                                                <span ng-show="isLastStep(testStep)"><i class="fa fa-check"></i> Finish</span>
+                                                <span ng-show="isLastStep(testStep)"><i class="fa fa-check-circle"></i> Complete</span>
                                                 <span ng-show="!isLastStep(testStep)"><i class="fa fa-arrow-right"></i> Next</span>
                                             </button>
                                  </span>
@@ -85,7 +85,7 @@
                     <div class="col-md-3">
                         <div ng-include="'views/isolated/resultSummary.html'"></div>
                         <div ng-include="'views/isolated/console.html'"
-                             ng-show="user.info != null && (testStep.testingType === 'TA_INITIATOR' || testStep.testingType === 'SUT_INITIATOR')"></div>
+                             ng-show="testCase.transport === true && user.info != null && (testStep.testingType === 'TA_INITIATOR' || testStep.testingType === 'SUT_INITIATOR')"></div>
                     </div>
                 </div>
 

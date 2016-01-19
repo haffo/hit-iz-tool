@@ -307,7 +307,7 @@
                     if (node.type === 'SEGMENT_REF') {
                         return $scope.children($scope.model.segments[node.ref]);
                     } else if (node.type === 'FIELD' || node.type === 'COMPONENT') {
-                        return  node.datatype && node.datatype !== 'varies' ? $scope.model.datatypes[node.datatype].children : node.children;
+                        return  node.datatype && node.datatype !== 'varies' && $scope.model.datatypes ? $scope.model.datatypes[node.datatype].children : node.children;
                     } else if (node.type === 'DATATYPE' || node.type == 'SEGMENT' || node.type === 'GROUP') {
                         return node.children;
                     }

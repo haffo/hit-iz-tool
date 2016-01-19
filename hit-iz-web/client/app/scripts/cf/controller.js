@@ -2,7 +2,7 @@
 
 
 angular.module('cf')
-    .controller('CFTestingCtrl', ['$scope', '$http', 'CF', '$window', '$modal', '$filter', '$rootScope', 'CFTestCaseListLoader', '$timeout', 'StorageService', 'TestCaseService', function ($scope, $http, CF, $window, $modal, $filter, $rootScope, CFTestCaseListLoader, $timeout, StorageService, TestCaseService) {
+    .controller('CFTestingCtrl', ['$scope', '$http', 'CF', '$window', '$modal', '$filter', '$rootScope', 'CFTestCaseListLoader', '$timeout', 'StorageService', 'TestCaseService','TestStepService', function ($scope, $http, CF, $window, $modal, $filter, $rootScope, CFTestCaseListLoader, $timeout, StorageService, TestCaseService,TestStepService) {
 
         $scope.cf = CF;
         $scope.loading = false;
@@ -32,6 +32,8 @@ angular.module('cf')
         $scope.selectTestCase = function (testCase) {
             $scope.loadingTC = true;
             $timeout(function () {
+                var previousId = StorageService.get(StorageService.CF_LOADED_TESTCASE_ID_KEY);
+                if (previousId != null)TestStepService.clearRecords(previousId);
                 if (testCase.testContext && testCase.testContext != null) {
                     CF.testCase = testCase;
                     $scope.testCase = CF.testCase;
@@ -89,6 +91,11 @@ angular.module('cf')
                 $scope.error = "Sorry, Cannot load the profiles. Try again";
                 $scope.loading = false;
             });
+
+            $scope.$on("$destroy", function () {
+                var testStepId = StorageService.get(StorageService.CF_LOADED_TESTCASE_ID_KEY);
+                if(testStepId != null) TestStepService.clearRecords(testStepId);
+            });
         };
 
 
@@ -121,7 +128,7 @@ angular.module('cf').controller('CFProfileInfoCtrl', function ($scope, $modalIns
 });
 
 angular.module('cf')
-    .controller('CFValidatorCtrl', ['$scope', '$http', 'CF', '$window', '$timeout', '$modal', 'NewValidationResult', '$rootScope', 'ServiceDelegator', 'StorageService', function ($scope, $http, CF, $window, $timeout, $modal, NewValidationResult, $rootScope, ServiceDelegator, StorageService) {
+    .controller('CFValidatorCtrl', ['$scope', '$http', 'CF', '$window', '$timeout', '$modal', 'NewValidationResult', '$rootScope', 'ServiceDelegator', 'StorageService','TestStepService', function ($scope, $http, CF, $window, $timeout, $modal, NewValidationResult, $rootScope, ServiceDelegator, StorageService,TestStepService) {
         $scope.cf = CF;
         $scope.testCase = CF.testCase;
         $scope.message = CF.message;
@@ -310,7 +317,7 @@ angular.module('cf')
 
         $scope.loadValidationResult = function (mvResult) {
             $timeout(function () {
-                $scope.$broadcast('cf:validationResultLoaded', mvResult, $scope.cf.testCase.name);
+                $scope.$broadcast('cf:validationResultLoaded', mvResult, $scope.cf.testCase.id);
             });
         };
 
@@ -414,6 +421,7 @@ angular.module('cf')
                     $scope.cf.editor = ServiceDelegator.getEditor($scope.testCase.testContext.format);
                     $scope.cf.editor.instance = $scope.editor;
                     $scope.cf.cursor = ServiceDelegator.getCursor($scope.testCase.testContext.format);
+                    TestStepService.clearRecords($scope.testCase.id);
                     if ($scope.editor) {
                         $scope.editor.doc.setValue(content);
                         $scope.execute();
@@ -425,10 +433,10 @@ angular.module('cf')
                 $scope.vLoading = false;
             });
 
-        };
 
-    }])
-;
+
+        };
+    }]);
 
 
 angular.module('cf')

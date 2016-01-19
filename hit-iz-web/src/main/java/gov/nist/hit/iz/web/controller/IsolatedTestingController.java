@@ -19,7 +19,6 @@ import gov.nist.hit.core.domain.TestingStage;
 import gov.nist.hit.core.service.TestCaseService;
 import gov.nist.hit.core.service.TestPlanService;
 import gov.nist.hit.core.service.TestStepService;
-import gov.nist.hit.core.transport.service.TransportClient;
 
 import java.util.List;
 
@@ -32,9 +31,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+
 /**
+ * TODO: remove
+ * 
  * @author Harold Affo (NIST)
+ * 
  */
+@Deprecated
 @RequestMapping("/isolated")
 @RestController
 public class IsolatedTestingController {
@@ -48,12 +52,9 @@ public class IsolatedTestingController {
   @Autowired
   private TestCaseService testCaseService;
 
-
   @Autowired
   private TestStepService testStepService;
 
-  @Autowired
-  private TransportClient transportClient;
 
   public IsolatedTestingController() {}
 

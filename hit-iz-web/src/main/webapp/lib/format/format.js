@@ -398,60 +398,6 @@ angular.module('format').factory('EditorClass', function ($http, $q) {
 });
 
 
-angular.module('format').factory('ReportServiceClass', function ($http, $q, $filter) {
-    this.format = null;
-    var ReportServiceClass = function (format) {
-        this.content = {
-            metaData: {},
-            result: {}
-        };
-        this.format = format;
-    };
-
-    ReportServiceClass.prototype.download = function (resultId, format) {
-        if (this.format && this.format != null) {
-            var form = document.createElement("form");
-            form.action = "api/" + this.format + "/report/" + resultId + "/download";
-            form.method = "POST";
-            form.target = "_target";
-            var input = document.createElement("input");
-            input.name = "format";
-            input.value = format;
-            form.appendChild(input);
-            form.style.display = 'none';
-            document.body.appendChild(form);
-            form.submit();
-        }
-        return;
-    };
-
-    /**
-     * TODO: remove
-     * @param url
-     * @param json
-     * @returns {*}
-     */
-    ReportServiceClass.prototype.generate = function (format, content) {
-        var delay = $q.defer();
-        $http({
-            url: "api/" + this.format + "/report/generate",
-            data: $.param({'content': json}),
-            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-            method: 'POST',
-            timeout: 60000
-        }).success(function (data) {
-            delay.resolve(angular.fromJson(data));
-        }).error(function (err) {
-            delay.reject(err);
-        });
-
-        return delay.promise;
-    };
-
-    return ReportServiceClass;
-});
-
-
 angular.module('format').factory('Tree', function () {
     var Tree = function () {
         this.id = null;
@@ -504,12 +450,45 @@ angular.module('format').factory('Message', function ($http, $q) {
     return Message;
 });
 
+angular.module('format').factory('TestStepService', function ($filter,$q,$http) {
+    var TestStepService = function () {
 
+    };
 
-angular.module('format').factory('TestCaseService', function ($filter) {
+    TestStepService.clearRecords = function (id) {
+        var delay = $q.defer();
+        $http.post('api/teststeps/' + id + '/clearRecords').then(
+            function (object) {
+                delay.resolve(angular.fromJson(object.data));
+            },
+            function (response) {
+                delay.reject(response.data);
+            }
+        );
+        return delay.promise;
+    };
+    return TestStepService;
+
+});
+
+angular.module('format').factory('TestCaseService', function ($filter,$q,$http) {
     var TestCaseService = function () {
 
     };
+
+    TestCaseService.clearRecords = function (id) {
+        var delay = $q.defer();
+        $http.post('api/testcases/' + id + '/clearRecords').then(
+            function (object) {
+                delay.resolve(angular.fromJson(object.data));
+            },
+            function (response) {
+                delay.reject(response.data);
+            }
+        );
+        return delay.promise;
+    };
+
 
     TestCaseService.prototype.findOneById = function (id, testCase) {
         if (testCase) {
@@ -560,6 +539,7 @@ angular.module('format').factory('TestCaseService', function ($filter) {
             if (!node["children"]) {
                 node["children"] = node.testCases;
                 angular.forEach(node.children, function (testCase) {
+                    testCase['transport'] = node['transport'];
                     testCase['nav'] = {};
                     testCase['nav']['testStep'] = null;
                     testCase['nav'] = {};
@@ -570,6 +550,7 @@ angular.module('format').factory('TestCaseService', function ($filter) {
                 });
             } else {
                 angular.forEach(node.testCases, function (testCase) {
+                    testCase['transport'] = node['transport'];
                     node["children"].push(testCase);
                     testCase['nav'] = {};
                     testCase['nav']['testStep'] = null;
@@ -587,6 +568,7 @@ angular.module('format').factory('TestCaseService', function ($filter) {
             if (!node["children"]) {
                 node["children"] = node.testCaseGroups;
                 angular.forEach(node.children, function (testCaseGroup) {
+                    testCaseGroup['transport'] = node['transport'];
                     testCaseGroup['nav'] = {};
                     //node["children"].push(testCaseGroup);
                     testCaseGroup['nav']['testCase'] = null;
@@ -597,6 +579,7 @@ angular.module('format').factory('TestCaseService', function ($filter) {
                 });
             } else {
                 angular.forEach(node.testCaseGroups, function (testCaseGroup) {
+                    testCaseGroup['transport'] = node['transport'];
                     node["children"].push(testCaseGroup);
                     testCaseGroup['nav'] = {};
                     testCaseGroup['nav']['testCase'] = null;
@@ -1036,7 +1019,7 @@ angular.module('format').factory('User', function ($q, $http, StorageService) {
         var user = this;
         $http.post('api/user/current').then(
             function (response) {
-                var data =  angular.fromJson(response.data);
+                var data = angular.fromJson(response.data);
                 user.setInfo(data);
                 delay.resolve(data);
             },
@@ -1080,7 +1063,7 @@ angular.module('format').factory('User', function ($q, $http, StorageService) {
         var user = this;
         $http.post('api/user/delete').then(
             function (response) {
-                var data =  angular.fromJson(response.data);
+                var data = angular.fromJson(response.data);
                 user.setInfo(null);
                 delay.resolve(true);
             },
@@ -1487,7 +1470,7 @@ angular.module('format').controller('InitiatorConfigCtrl', function ($scope, $mo
 
 
 angular.module('format').factory('TestExecutionService',
-    ['$q', '$http', function ($q, $http) {
+    ['$q', '$http', 'ServiceDelegator', function ($q, $http, ServiceDelegator) {
 
         var TestExecutionService = function () {
         };
@@ -1599,7 +1582,7 @@ angular.module('format').factory('TestExecutionClock', function ($interval, Cloc
 });
 
 
-angular.module('format').factory('ServiceDelegator', function (HL7V2MessageValidator, EDIMessageValidator, XMLMessageValidator, HL7V2MessageParser, EDIMessageParser, XMLMessageParser, HL7V2CursorService, HL7V2EditorService, HL7V2TreeService, EDICursorService, EDIEditorService, EDITreeService, XMLCursorService, XMLEditorService, XMLTreeService, DefaultMessageValidator, DefaultMessageParser, DefaultCursorService, DefaultEditorService, DefaultTreeService, HL7V2ReportService, EDIReportService, XMLReportService, DefaultReportService, XMLCursor, EDICursor, HL7V2Cursor, DefaultCursor, XMLEditor, EDIEditor, HL7V2Editor, DefaultEditor) {
+angular.module('format').factory('ServiceDelegator', function (HL7V2MessageValidator, EDIMessageValidator, XMLMessageValidator, HL7V2MessageParser, EDIMessageParser, XMLMessageParser, HL7V2CursorService, HL7V2EditorService, HL7V2TreeService, EDICursorService, EDIEditorService, EDITreeService, XMLCursorService, XMLEditorService, XMLTreeService, DefaultMessageValidator, DefaultMessageParser, DefaultCursorService, DefaultEditorService, DefaultTreeService, XMLCursor, EDICursor, HL7V2Cursor, DefaultCursor, XMLEditor, EDIEditor, HL7V2Editor, DefaultEditor) {
     return {
         getMessageValidator: function (format) {
             if (format === 'hl7v2') {
@@ -1670,16 +1653,6 @@ angular.module('format').factory('ServiceDelegator', function (HL7V2MessageValid
                 return  EDITreeService;
             }
             return DefaultTreeService;
-        },
-        getReportService: function (format) {
-            if (format === 'hl7v2') {
-                return  HL7V2ReportService;
-            } else if (format === 'xml') {
-                return  XMLReportService;
-            } else if (format === 'edi') {
-                return  EDIReportService;
-            }
-            return DefaultReportService;
         },
         getCursor: function (format) {
             if (format === 'hl7v2') {

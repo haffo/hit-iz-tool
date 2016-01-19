@@ -4,30 +4,28 @@
 
 (function (angular) {
     'use strict';
-    var mod = angular.module('hit-testcase-viewer', []);
+    var mod = angular.module('hit-testcase-details', []);
 
-    mod.directive('testcaseViewer', [
+    mod.directive('testcaseDetails', [
         function () {
             return {
                 restrict: 'A',
                 scope: {
                     type: '@'
                 },
-                templateUrl: 'TestCaseViewer.html',
-                controller: 'TestCaseViewerCtrl'
+                templateUrl: 'TestCaseDetails.html',
+                controller: 'TestCaseDetailsCtrl'
             };
         }
     ]);
 
 
     mod
-        .controller('TestCaseViewerCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseViewerService', '$compile', '$timeout', '$modal', function ($scope, $rootScope, $sce, TestCaseViewerService, $compile, $timeout, $modal) {
+        .controller('TestCaseDetailsCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseDetailsService', '$compile', '$timeout', '$modal', function ($scope, $rootScope, $sce, TestCaseDetailsService, $compile, $timeout, $modal) {
             $scope.tabs = [];
             $scope.loading = false;
             $scope.editor = null;
             $scope.error = null;
-
-            var testCaseViewerService = new TestCaseViewerService();
             $scope.$on($scope.type + ':testCaseSelected', function (event, testCase) {
                 $scope.tabs[0] = true;
                 $scope.tabs[1] = false;
@@ -37,23 +35,19 @@
                 $scope.testCase = testCase;
                 $scope.loading = true;
                 $scope.error = null;
-                testCaseViewerService.artifacts(testCase.type, testCase.id).then(function (result) {
+                TestCaseDetailsService.details(testCase.type, testCase.id).then(function (result) {
                     $scope.testCase['testStory'] = result['testStory'];
                     $scope.testCase['jurorDocument'] = result['jurorDocument'];
                     $scope.testCase['testDataSpecification'] = result['testDataSpecification'];
                     $scope.testCase['messageContent'] = result['messageContent'];
 
-                    $scope.uncompileArtifact('testStory');
-                    $scope.uncompileArtifact('jurorDocument');
-                    $scope.uncompileArtifact('testDataSpecification');
-                    $scope.uncompileArtifact('messageContent');
-                    $scope.uncompileArtifact('testDescription');
+                    $scope.removeHtml('testStory');
+                    $scope.removeHtml('jurorDocument');
+                    $scope.removeHtml('testDataSpecification');
+                    $scope.removeHtml('messageContent');
+                    $scope.removeHtml('testDescription');
+                    $scope.loadHtml('testStory');
 
-                    if (testCase.type === 'TestPlan' || testCase.type === 'TestCaseGroup') {
-                        $scope.compileArtifact('testDescription');
-                    } else {
-                        $scope.compileArtifact('testStory');
-                    }
                     $scope.loading = false;
                     $scope.error = null;
                 }, function (error) {
@@ -63,22 +57,28 @@
                     $scope.testCase['testDataSpecification'] = null;
                     $scope.testCase['messageContent'] = null;
                     $scope.loading = false;
-                    $scope.error = "Failed To Load TestCase Details";
+                    $scope.error = "Sorry, could not load the details. Please try again";
                 });
             });
 
-            $scope.compileArtifact = function (artifactType) {
+            $scope.loadHtml = function (artifactType) {
                 if ($scope.testCase && $scope.testCase !== null) {
                     var cont = null;
                     var element = null;
-                    if (artifactType === 'testDescription') {
-                        element = $('#testDescription');
-                        cont = $scope.testCase['description'] != null && $scope.testCase['description'] != '' ? $scope.testCase['description'] : 'No description available';
-                    } else if ($scope.testCase[artifactType] && $scope.testCase[artifactType] !== null) {
+
+                    if(artifactType === 'testStory'){
+                        element = $('#' + artifactType);
+                        if($scope.testCase[artifactType] != null){
+                            cont = $scope.testCase[artifactType].html;
+                        }else if($scope.testCase['description'] != null && $scope.testCase['description'] != ''){
+                            cont =  $scope.testCase['description'];
+                        }else{
+                            cont = 'No Content Available';
+                        }
+                    }else if ($scope.testCase[artifactType] && $scope.testCase[artifactType] !== null) {
                         element = $('#' + artifactType);
                         cont = $scope.testCase[artifactType].html;
                     }
-
                     if (cont && element && cont != null && element != null) {
                         element.html(cont);
                         $compile(element.contents())($scope);
@@ -86,7 +86,7 @@
                 }
             };
 
-            $scope.uncompileArtifact = function (artifactType) {
+            $scope.removeHtml = function (artifactType) {
                 var element = $('#' + artifactType);
                 if (element && element != null) {
                     element.html('');
@@ -230,41 +230,13 @@
             };
         }]);
 
-    mod.factory('TestCaseViewerService', function ($http, $q, $filter) {
-        var TestCaseViewerService = function () {
+    mod.factory('TestCaseDetailsService', function ($http, $q, $filter) {
+        var TestCaseDetailsService = function () {
         };
 
-//        TestCaseViewerService.prototype.artifact = function (testType, id, artifactType) {
-//            var delay = $q.defer();
-//            $http.get('api/testartifact/'+ id + '/'+ artifactType, {params:{type:testType}}).then(
-//                function (object) {
-//                    try {
-//                        delay.resolve(angular.fromJson(object.data));
-//                    } catch (e) {
-//                        delay.reject("Invalid character");
-//                    }
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-////
-////            $http.get('../../resources/cf/profile.json').then(
-////                function (object) {
-////                    delay.resolve(angular.fromJson(object.data));
-////                },
-////                function (response) {
-////                    delay.reject(response.data);
-////                }
-////            );
-//
-//            return delay.promise;
-//        };
-
-
-        TestCaseViewerService.prototype.artifacts = function (testType, id) {
+        TestCaseDetailsService.details = function (type, id) {
             var delay = $q.defer();
-            $http.get('api/testartifact/' + id, {params: {type: testType}}).then(
+            $http.get('api/'+ type.toLowerCase() + 's/'+ id + '/details').then(
                 function (object) {
                     try {
                         delay.resolve(angular.fromJson(object.data));
@@ -276,6 +248,7 @@
                     delay.reject(response.data);
                 }
             );
+
 //
 //            $http.get('../../resources/cf/profile.json').then(
 //                function (object) {
@@ -290,7 +263,7 @@
         };
 
 
-        return TestCaseViewerService;
+        return TestCaseDetailsService;
 
     });
 
