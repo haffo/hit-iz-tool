@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<span style=\"font-size: 13.3333px;\">The vendor will receive information back from the registry and show the ability to view and reconcile, and import the information returned by the registry (NOTE: the Z42 message will be provided either manually, or as part of the tool). This test will also look at the system's ability to view the forecast returned by the registry, and create a new forecast after reconciling the information.</span>",
+  "comments" : "No Comments",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "No Test Objectives",
+  "evaluationCriteria" : "No evaluation criteria",
+  "notes" : "No Note"
+}

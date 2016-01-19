@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<span style=\"font-size: 13.3333px;\">This test will consist of ordering vaccines for the test patients, reviewing any alerts caused by specific scenarios, and documenting vaccinations administered to the patients. </span>",
+  "comments" : "No Comments",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "No Test Objectives",
+  "evaluationCriteria" : "No evaluation criteria",
+  "notes" : "No Note"
+}

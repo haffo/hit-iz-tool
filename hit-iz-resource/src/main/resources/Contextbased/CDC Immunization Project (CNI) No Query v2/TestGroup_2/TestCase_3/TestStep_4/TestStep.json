@@ -1,0 +1,7 @@
+{
+  "name" : "Attempt to order Varicella Dose",
+  "description" : "<p>The provider attempts to order a Varicella dose and is alerted that it is too soon to give a live virus following the MMR dose 14 days prior.</p>",
+  "type" : "",
+  "position" : 4,
+  "hl7v2" : null
+}

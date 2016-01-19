@@ -1,0 +1,11 @@
+{
+  "name" : "View the vaccination forecast for Mariela Gonzales Morales returned by the Immunization Registry",
+  "description" : "The EMR displays the current Immunization Forecast to the user for Mariela Gonzales Morales as returned by the Immunization Registry Z42 response.",
+  "type" : "TA_RESPONDER",
+  "position" : 2,
+  "hl7v2" : {
+    "messageId" : "aa72383a-7b48-46e5-a74a-82e019591fe7",
+    "constraintId" : "2decb2ea-0b10-4c4c-9906-14e41392da67",
+    "valueSetLibraryId" : "5674a4b2-0e26-4f6a-9dc8-ba78a4727c83"
+  }
+}

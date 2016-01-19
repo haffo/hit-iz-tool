@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<span style=\"font-size: 13.3333px;\">Querying the registry will consist of the vendor creating Z44 messages for Juana Mariana Gonzales to be sent to the registry. The response will be processed as part of the 'Display, Reconcile, Import and Update Immunization Information' activity.</span>",
+  "comments" : "No Comments",
+  "preCondition" : "Juana Mariana Gonzales is entered as a patient in the EMR with complete Demographic data, Immunization History Data, and Clinical Data according to the steps in the 'Juana Mariana Gonzales Initial Data Load'",
+  "postCondition" : "A Z44 Query is generated and submitted to the Immunization Registry/Test tool.",
+  "testObjectives" : "<span style=\"font-weight: bold; font-style: italic;\">Real Time Request/Receive Patient Immunization History: </span><span style=\"font-style: normal; font-weight: normal;\">The system sends a request to the public health immunization registry \"on demand\" (e.g., those without scheduled appointments). The request includes the identifying information the immunization registry needs to match each patient with those in the registry including, if present, the mother's maiden name, a multiple birth indicator, and the birth order. The request also is sent in a pre-determined format the registry can read and interpret (Query Response Grammar (RSP) - HL7 version 2.5.1 Implementation Guide for Immunization Messaging Release 1.5).</span>",
+  "evaluationCriteria" : "<div><font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333330154419px;\">The vendor can produce a valid Z44 query in accordance with the test data correctly and without ommission.</span></font></div><div><font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333330154419px;\">The data in the message corresponds to the data in the EMR and contains all test data attributes supplied.</span></font></div>",
+  "notes" : "No Note"
+}
