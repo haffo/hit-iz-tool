@@ -16,8 +16,8 @@ import gov.nist.hit.core.hl7v2.service.HL7V2MessageParser;
 import gov.nist.hit.core.hl7v2.service.HL7V2MessageParserImpl;
 import gov.nist.hit.core.hl7v2.service.HL7V2MessageValidator;
 import gov.nist.hit.core.hl7v2.service.HL7V2ResourcebundleLoaderImpl;
-import gov.nist.hit.core.hl7v2.service.HL7V2ValidationReportGenerator;
-import gov.nist.hit.core.hl7v2.service.HL7V2ValidationReportGeneratorImpl;
+import gov.nist.hit.core.hl7v2.service.HL7V2ValidationReportConverter;
+import gov.nist.hit.core.hl7v2.service.HL7V2ValidationReportConverterImpl;
 import gov.nist.hit.core.service.ResourcebundleLoader;
 import gov.nist.hit.iz.service.IZHL7V2MessageValidatorImpl;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
@@ -51,15 +51,14 @@ public class IZWebBeanConfig {
   }
 
 
-
   @Bean
   public SOAPValidationReportGenerator soapValidationReportGenerator() {
     return new SOAPValidationReportGeneratorImpl();
   }
 
   @Bean
-  public HL7V2ValidationReportGenerator validationReportGenerator() {
-    return new HL7V2ValidationReportGeneratorImpl();
+  public HL7V2ValidationReportConverter validationReportConverter() {
+    return new HL7V2ValidationReportConverterImpl();
   }
 
 

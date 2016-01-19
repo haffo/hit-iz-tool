@@ -11,7 +11,7 @@
     <div class="panel panel-info">
         <div class="panel-body">
     <div ng-show="isolated.testStep != null">
-        <div report-viewer="" type="isolated" format="isolated.testStep.testContext.format"></div>
+        <div report-viewer="" type="isolated" teststepid="isolated.testStep.id"></div>
     </div>
     <div ng-show="isolated.testStep === null">
         No Test Step Loaded.

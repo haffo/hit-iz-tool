@@ -1,6 +1,6 @@
 package gov.nist.hit.iz.ws.server;
 
-import gov.nist.hit.core.transport.TransportServerException;
+import gov.nist.hit.core.transport.exception.TransportServerException;
 import gov.nist.hit.iz.ws.jaxb.MessageTooLargeFaultType;
 import gov.nist.hit.iz.ws.jaxb.SecurityFaultType;
 import gov.nist.hit.iz.ws.jaxb.SoapFaultType;

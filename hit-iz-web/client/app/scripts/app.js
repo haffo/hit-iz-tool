@@ -18,6 +18,7 @@ var app = angular.module('tool', [
     'LocalStorageModule',
     'ngResource',
     'ngSanitize',
+    'ngIdle',
     'ngAnimate',
     'ui.bootstrap',
     'angularBootstrapNavTree',
@@ -46,7 +47,7 @@ var app = angular.module('tool', [
     'hit-profile-viewer',
     'hit-validation-result',
     'hit-report-viewer',
-    'hit-testcase-viewer',
+    'hit-testcase-details',
     'hit-testcase-tree',
     'hit-doc',
     'hit-dqa',
@@ -56,7 +57,7 @@ var app = angular.module('tool', [
 
 var httpHeaders;
 
-app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider) {
+app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider, KeepaliveProvider, IdleProvider) {
 
     localStorageServiceProvider
         .setPrefix('hit-tool')
@@ -90,9 +91,9 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider)
         .when('/cf', {
             templateUrl: 'views/cf/cf.html'
         })
-        .when('/is', {
-            templateUrl: 'views/isolated/isolated.html'
-        })
+//        .when('/is', {
+//            templateUrl: 'views/isolated/isolated.html'
+//        })
         .when('/cb', {
             templateUrl: 'views/cb/cb.html'
         })
@@ -108,43 +109,26 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider)
 
     $httpProvider.interceptors.push('ErrorInterceptor');
 
+
+    IdleProvider.idle(3600);
+    IdleProvider.timeout(30);
+    KeepaliveProvider.interval(10);
+
     httpHeaders = $httpProvider.defaults.headers;
-
-
-//    $httpProvider.interceptors.push(function ($q, $cookies) {
-//        return {
-//            'request': function (config) {
-//////                if(config.method === 'POST') {
-//////                    config.headers['csrfToken'] = $rootScope.appInfo.csrfToken;
-//////                }
-//////                config.headers['dTime'] = $rootScope.appInfo.date;
-////
-////                console.log(config.headers['csrfToken']);
-////                console.log(config.headers['dTime']);
-//                return config;
-//            }
-//        };
-//    });
-
 
 });
 
 
 app.factory('ErrorInterceptor', function ($q, $rootScope, $location, StorageService, $window) {
     var handle = function (response) {
-        if (response.status === 403) {
-            //$location.path("/a");
-//            $location.url("/ir.html");
-//            $window.location="/ir.html";
-             response.data = "Invalid Application State";
-             $rootScope.openVersionChangeDlg();
+        if (response.status === 440) {
+            response.data = "Session timeout";
+            $rootScope.openSessionExpiredDlg();
+        } else if (response.status === 498) {
+            response.data = "Invalid Application State";
+            $rootScope.openVersionChangeDlg();
         } else if (response.status === 401) {
-//            $location.path("/b");
-//            $location.url("/sc.html");
-//            $window.location="/sc.html";
             $rootScope.openInvalidReqDlg();
-        } else if (response.status === 404) {
-            //$rootScope.openNotFoundDlg();
         }
     };
     return {
@@ -153,7 +137,6 @@ app.factory('ErrorInterceptor', function ($q, $rootScope, $location, StorageServ
             return $q.reject(response);
         }
     };
-
 });
 
 //
@@ -180,7 +163,7 @@ app.factory('ErrorInterceptor', function ($q, $rootScope, $location, StorageServ
 //    };
 //});
 
-app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http) {
+app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle) {
 
 
     $rootScope.appInfo = {};
@@ -188,28 +171,41 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     $rootScope.stackPosition = 0;
 
     $rootScope.scrollbarWidth = null;
-
-    new AppInfo().then(function (appInfo) {
-        $rootScope.appInfo = appInfo;
-        httpHeaders.common['csrfToken'] = appInfo.csrfToken;
-        httpHeaders.common['dTime'] = appInfo.date;
+    $rootScope.vcModalInstance = null;
+    $rootScope.sessionExpiredModalInstance = null;
+    $rootScope.errorModalInstanceInstance = null;
+    Session.create().then(function (response) {
+        // load current user
+        User.load().then(function (response) {
+        }, function (error) {
+            $rootScope.openCriticalErrorDlg("Sorry we could not create a new user for your session. Please refresh the page and try again.");
+        });
+        // load app info
+        AppInfo.get().then(function (appInfo) {
+            $rootScope.appInfo = appInfo;
+            httpHeaders.common['rsbVersion'] = appInfo.rsbVersion;
+            var previousToken = StorageService.get(StorageService.APP_STATE_TOKEN);
+            if (previousToken != null && previousToken !== appInfo.rsbVersion) {
+                $rootScope.openVersionChangeDlg();
+            }
+            StorageService.set(StorageService.APP_STATE_TOKEN, appInfo.rsbVersion);
+        }, function (error) {
+            $rootScope.appInfo = {};
+            $rootScope.openCriticalErrorDlg("Sorry we could not communicate with the server. Please try again");
+        });
     }, function (error) {
-        $rootScope.appInfo = {};
-        $rootScope.openErrorDlg();
+        $rootScope.openCriticalErrorDlg("Sorry we could not start your session. Please refresh the page and try again.");
     });
+
 
     $rootScope.$watch(function () {
         return $location.path();
     }, function (newLocation, oldLocation) {
-
         //true only for onPopState
         if ($rootScope.activePath === newLocation) {
-
             var back,
                 historyState = $window.history.state;
-
             back = !!(historyState && historyState.position <= $rootScope.stackPosition);
-
             if (back) {
                 //back button
                 $rootScope.stackPosition--;
@@ -217,27 +213,15 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
                 //forward button
                 $rootScope.stackPosition++;
             }
-
         } else {
             //normal-way change of page (via link click)
-
             if ($route.current) {
-
                 $window.history.replaceState({
                     position: $rootScope.stackPosition
                 }, '');
-
                 $rootScope.stackPosition++;
-
             }
-//
-//            if (newLocation != null) {
-//                $rootScope.setActive(newLocation);
-//            }
-
         }
-
-
     });
 
     $rootScope.isActive = function (path) {
@@ -300,22 +284,6 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
         $rootScope.tabs[$rootScope.activeTab] = true;
         TestingSettings.setActiveTab($rootScope.activeTab);
     };
-
-    $rootScope.initAppInfo = function () {
-        var delay = $q.defer();
-        if ($rootScope.appInfo === null) {
-            return new AppInfo().then(function (appInfo) {
-                $rootScope.appInfo = appInfo;
-                delay.resolve($rootScope.appInfo);
-                return delay.promise;
-            })
-        } else {
-            delay.resolve($rootScope.appInfo);
-            return delay.promise;
-        }
-    };
-
-
     $rootScope.downloadArtifact = function (path) {
         var form = document.createElement("form");
         form.action = "api/testartifact/download";
@@ -334,29 +302,11 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     $rootScope.tabs = new Array();
 
     $rootScope.compile = function (content) {
-//        scope.$watch(
-//            function(scope) {
-//                // watch the 'compile' expression for changes
-//                return scope.$eval(attrs.compile);
-//            },
-//            function(value) {
-//                // when the 'compile' expression changes
-//                // assign it into the current DOM
-//                element.html(value);
-//
-//                // compile the new DOM and link it to the current
-//                // scope.
-//                // NOTE: we only compile .childNodes so that
-//                // we don't get into infinite loop compiling ourselves
-//                return $compile(content);
-//            }
-//        );
         return $compile(content);
     };
 
 
     $rootScope.$on('$locationChangeSuccess', function () {
-        //$rootScope.activePath = $location.path();
         $rootScope.setActive($location.path());
     });
 
@@ -401,94 +351,141 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
     };
 
     $rootScope.openVersionChangeDlg = function () {
-        $rootScope.blankPage();
-        var vcModalInstance = $modal.open({
-            templateUrl: 'VersionChangeCtrl.html',
-            size: 'lg',
-            backdrop:true,
-            keyboard: 'false',
-            'controller': 'VersionChangeCtrl'
-        });
-        vcModalInstance.result.then(function () {
-            $rootScope.clearSession();
-            $rootScope.index();
-        }, function () {
-            $rootScope.clearSession();
-            $rootScope.index();
-        });
+        StorageService.clearAll();
+        if(!$rootScope.vcModalInstance || $rootScope.vcModalInstance === null || !$rootScope.vcModalInstance.opened) {
+            $rootScope.vcModalInstance = $modal.open({
+                templateUrl: 'VersionChanged.html',
+                size: 'lg',
+                backdrop: 'static',
+                keyboard: 'false',
+                'controller': 'FailureCtrl',
+                resolve: {
+                    error: function () {
+                        return "";
+                    }
+                }
+            });
+            $rootScope.vcModalInstance.result.then(function () {
+                $rootScope.clearTemplate();
+                $rootScope.reloadPage();
+            }, function () {
+                $rootScope.clearTemplate();
+                $rootScope.reloadPage();
+            });
+        }
     };
 
-    $rootScope.clearSession = function () {
+    $rootScope.openCriticalErrorDlg = function (errorMessage) {
         StorageService.clearAll();
+        if(!$rootScope.errorModalInstance || $rootScope.errorModalInstance === null || !$rootScope.errorModalInstance.opened) {
+            $rootScope.errorModalInstance = $modal.open({
+                templateUrl: 'CriticalError.html',
+                size: 'lg',
+                backdrop: true,
+                keyboard: 'true',
+                'controller': 'FailureCtrl',
+                resolve: {
+                    error: function () {
+                        return errorMessage;
+                    }
+                }
+            });
+            $rootScope.errorModalInstance.result.then(function () {
+                $rootScope.clearTemplate();
+                $rootScope.reloadPage();
+            }, function () {
+                $rootScope.clearTemplate();
+                $rootScope.reloadPage();
+            });
+        }
+    };
+
+    $rootScope.openSessionExpiredDlg = function () {
+        StorageService.clearAll();
+        if(!$rootScope.sessionExpiredModalInstance || $rootScope.sessionExpiredModalInstance === null || !$rootScope.sessionExpiredModalInstance.opened) {
+            $rootScope.sessionExpiredModalInstance = $modal.open({
+                templateUrl: 'timedout-dialog.html',
+                size: 'lg',
+                backdrop: true,
+                keyboard: 'true',
+                'controller': 'FailureCtrl',
+                resolve: {
+                    error: function () {
+                        return "";
+                    }
+                }
+            });
+            $rootScope.sessionExpiredModalInstance.result.then(function () {
+                $rootScope.clearTemplate();
+                $rootScope.reloadPage();
+            }, function () {
+                $rootScope.clearTemplate();
+                $rootScope.reloadPage();
+            });
+        }
+    };
+
+
+    $rootScope.clearTemplate = function () {
         $templateCache.removeAll();
     };
 
     $rootScope.openErrorDlg = function () {
         $location.path('/error');
-//        $rootScope.blankPage();
-//        $rootScope.errorModalInstance = $modal.open({
-//            templateUrl: 'ErrorCtrl.html',
-//            size: 'lg',
-//            backdrop:true,
-//            keyboard: 'false',
-//            'controller': 'ErrorCtrl'
-//        });
-//        $rootScope.errorModalInstance.result.then(function () {
-//             $rootScope.index();
-//        }, function () {
-//             $rootScope.index();
-//        });
-    };
-
-    $rootScope.blankPage = function () {
-        //$location.path('/blank');
     };
 
     $rootScope.pettyPrintType = function (type) {
-        return type === 'TestStep' ? 'Test Step': type === 'TestCase'? 'Test Case':type;
+        return type === 'TestStep' ? 'Test Step' : type === 'TestCase' ? 'Test Case' : type;
     };
 
 
-    $rootScope.index = function () {
-        //$location.path('/home');
-        $('#appcontainer').html('');
+    $rootScope.reloadPage = function () {
         $window.location.reload();
     };
 
     $rootScope.openInvalidReqDlg = function () {
-        $rootScope.blankPage();
-
-        var irModalInstance = $modal.open({
-            templateUrl: 'InvalidReqCtrl.html',
-            size: 'lg',
-            backdrop:true,
-            keyboard: 'false',
-            'controller': 'InvalidReqCtrl'
-        });
-
-        irModalInstance.result.then(function () {
-             $rootScope.index();
-
-        }, function () {
-             $rootScope.index();
-        });
+        if(!$rootScope.errorModalInstance || $rootScope.errorModalInstance === null || !$rootScope.errorModalInstance.opened) {
+            $rootScope.errorModalInstance = $modal.open({
+                templateUrl: 'InvalidReqCtrl.html',
+                size: 'lg',
+                backdrop: true,
+                keyboard: 'false',
+                'controller': 'FailureCtrl',
+                resolve: {
+                    error: function () {
+                        return "";
+                    }
+                }
+            });
+            $rootScope.errorModalInstance.result.then(function () {
+                $rootScope.reloadPage();
+            }, function () {
+                $rootScope.reloadPage();
+            });
+        }
     };
 
     $rootScope.openNotFoundDlg = function () {
-        $rootScope.blankPage();
-        var nfModalInstance = $modal.open({
-            templateUrl: 'NotFoundCtrl.html',
-            size: 'lg',
-            backdrop:true,
-            keyboard: 'false',
-            'controller': 'NotFoundCtrl'
-        });
+        if(!$rootScope.errorModalInstance || $rootScope.errorModalInstance === null || !$rootScope.errorModalInstance.opened) {
+            $rootScope.errorModalInstance = $modal.open({
+                    templateUrl: 'NotFoundCtrl.html',
+                    size: 'lg',
+                    backdrop: true,
+                    keyboard: 'false',
+                    'controller': 'FailureCtrl',
+                    resolve: {
+                        error: function () {
+                            return "";
+                        }
+                    }
+                });
 
-        nfModalInstance.result.then(function () {
-             $rootScope.index();
-        }, function () {
-             $rootScope.index();
-        });
+            $rootScope.errorModalInstance.result.then(function () {
+                $rootScope.reloadPage();
+            }, function () {
+                $rootScope.reloadPage();
+            });
+        }
     };
 
 
@@ -510,6 +507,75 @@ app.run(function ($rootScope, $location, $modal, TestingSettings, AppInfo, $q, $
 //            $templateCache.remove(current.templateUrl);
 //        }
 //    });
+
+
+    $rootScope.started = false;
+
+    Idle.watch();
+
+    $rootScope.$on('IdleStart', function () {
+        closeModals();
+        $rootScope.warning = $modal.open({
+            templateUrl: 'warning-dialog.html',
+            windowClass: 'modal-danger'
+        });
+    });
+
+    $rootScope.$on('IdleEnd', function () {
+        closeModals();
+    });
+
+    $rootScope.$on('IdleTimeout', function () {
+        closeModals();
+        StorageService.clearAll();
+        Session.delete().then(
+            function (response) {
+                $rootScope.timedout = $modal.open({
+                    templateUrl: 'timedout-dialog.html',
+                    windowClass: 'modal-danger',
+                    backdrop: true,
+                    keyboard: 'false',
+                    controller: 'FailureCtrl',
+                    resolve: {
+                        error: function () {
+                            return "";
+                        }
+                    }
+                });
+                $rootScope.timedout.result.then(function () {
+                    $rootScope.clearTemplate();
+                    $rootScope.reloadPage();
+                }, function () {
+                    $rootScope.clearTemplate();
+                    $rootScope.reloadPage();
+                });
+            }
+        );
+    });
+
+    function closeModals() {
+        if ($rootScope.warning) {
+            $rootScope.warning.close();
+            $rootScope.warning = null;
+        }
+        if ($rootScope.timedout) {
+            $rootScope.timedout.close();
+            $rootScope.timedout = null;
+        }
+    };
+
+    $rootScope.start = function () {
+        closeModals();
+        Idle.watch();
+        $rootScope.started = true;
+    };
+
+    $rootScope.stop = function () {
+        closeModals();
+        Idle.unwatch();
+        $rootScope.started = false;
+    };
+
 });
 
 
@@ -603,20 +669,11 @@ angular.module('commonServices').factory('Clock', function ($interval) {
     return Clock;
 });
 
-
-angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function ($http, $q) {
-    return function () {
-        var delay = $q.defer();
-        $http.get('api/appInfo').then(
-            function (object) {
-                delay.resolve(angular.fromJson(object.data));
-            },
-            function (response) {
-                delay.reject(response.data);
-            }
-        );
 //
-//        $http.get('../../resources/appInfo.json').then(
+//angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function ($http, $q) {
+//    return function () {
+//        var delay = $q.defer();
+//        $http.get('api/appInfo').then(
 //            function (object) {
 //                delay.resolve(angular.fromJson(object.data));
 //            },
@@ -624,10 +681,19 @@ angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function 
 //                delay.reject(response.data);
 //            }
 //        );
-
-        return delay.promise;
-    };
-}]);
+////
+////        $http.get('../../resources/appInfo.json').then(
+////            function (object) {
+////                delay.resolve(angular.fromJson(object.data));
+////            },
+////            function (response) {
+////                delay.reject(response.data);
+////            }
+////        );
+//
+//        return delay.promise;
+//    };
+//}]);
 
 
 app.controller('TableFoundCtrl', function ($scope, $modalInstance, table) {
@@ -665,15 +731,6 @@ app.directive('stRatio', function () {
 });
 
 
-app.controller('InvalidReqCtrl', [ '$scope', '$modalInstance', 'StorageService', '$window',
-    function ($scope, $modalInstance, StorageService, $window) {
-        $scope.close = function () {
-            $modalInstance.close();
-        };
-    }
-]);
-
-
 app.controller('ErrorCtrl', [ '$scope', '$modalInstance', 'StorageService', '$window',
     function ($scope, $modalInstance, StorageService, $window) {
         $scope.refresh = function () {
@@ -682,21 +739,16 @@ app.controller('ErrorCtrl', [ '$scope', '$modalInstance', 'StorageService', '$wi
     }
 ]);
 
-app.controller('VersionChangeCtrl', [ '$scope', '$modalInstance', 'StorageService', '$window',
-    function ($scope, $modalInstance, StorageService, $window) {
+app.controller('FailureCtrl', [ '$scope', '$modalInstance', 'StorageService', '$window', 'error',
+    function ($scope, $modalInstance, StorageService, $window, error) {
+        $scope.error = error;
         $scope.close = function () {
             $modalInstance.close();
         };
     }
 ]);
 
-app.controller('NotFoundCtrl', [ '$scope', '$modalInstance', 'StorageService', '$window',
-    function ($scope, $modalInstance, StorageService, $window) {
-        $scope.close = function () {
-            $modalInstance.close();
-        };
-    }
-]);
+
 
 
 

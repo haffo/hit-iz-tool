@@ -1,4 +1,6 @@
-<style id="antiClickjack">body{display:none !important;}</style>
+<style id="antiClickjack">body {
+    display: none !important;
+}</style>
 <script type="text/javascript">
     if (self === top) {
         var antiClickjack = document.getElementById("antiClickjack");
@@ -7,17 +9,17 @@
         top.location = self.location;
     }
 </script>
-<script type="text/ng-template" id="TransactionSender.html">
+<script type="text/ng-template" id="SOAPConnectivityConsole.html">
     <div class="modal-header">
             <span style="font-weight: bold; font-size: 20px">
-           Transaction log panel
+           Console
         </span>
         <span class="pull-right">
-            <button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"
-                    title="Send" class="btn btn-xs btn-success">
-                <i class="fa fa-arrow-right"></i>
-                Send
-            </button>
+            <!--<button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"-->
+                    <!--title="Send" class="btn btn-xs btn-success">-->
+                <!--<i class="fa fa-arrow-right"></i>-->
+                <!--Send-->
+            <!--</button>-->
 
         <button title="Close" type="button" class="btn btn-xs btn-primary"
                 ng-click="close()">
@@ -52,17 +54,7 @@
         <span style="font-weight: bold; font-size: 20px">
             Receiver Configuration Panel
         </span>
-        <span class="pull-right">
-       <button ng-click="send()" type="button" ng-disabled="receiverForm1.$invalid"
-               title="Send" class="btn btn-xs btn-primary">
-           <i class="fa fa-play"></i> Send
-       </button>
-        <button ng-click="cancel()" type="button"
-                title="Cancel" class="btn btn-xs btn-warning">
-            <i class="fa fa-times"></i>
-            Cancel
-        </button>
-          </span>
+
     </div>
     <div class="modal-body">
         <div class="row">
@@ -70,26 +62,25 @@
                 <form name="receiverForm1" novalidate>
                     <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
                         <label>Username</label>
-                        <input type="text" class="form-control" ng-model="user.receiverUsername"
+                        <input type="text" class="form-control" ng-model="config.username"
                                placeholder="Username">
                     </div>
                     <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
                         <label>Password</label>
                         <input type="text" class="form-control"
                                placeholder="Password"
-                               ng-model="user.receiverPassword">
+                               ng-model="config.password">
                     </div>
                     <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
                         <label>FacilityID</label>
                         <input type="text" class="form-control" placeholder="Facility Id"
-                               ng-model="user.receiverFacilityId">
+                               ng-model="config.facilityID">
                     </div>
                     <div class="form-group"
                          ng-class="{ 'has-error' : receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine }">
                         <label>Endpoint</label>
-                        <input type="url" name="endpoint" class="form-control" ng-model="user.receiverEndpoint"
+                        <input type="url" name="endpoint" class="form-control" ng-model="config.endpoint"
                                placeholder="SUT Endpoint" required>
-
                         <p ng-show="receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine"
                            class="help-block">
                             Invalid url. Expected format is {{appInfo.url}}</p>
@@ -98,17 +89,19 @@
             </div>
         </div>
     </div>
-    <!--<div class="modal-footer">-->
-    <!--<button ng-click="send()" type="button" ng-disabled="receiverForm1.$invalid"-->
-    <!--title="Send" class="btn btn-xs btn-primary">-->
-    <!--<i class="fa fa-play"></i> Send-->
-    <!--</button>-->
-    <!--<button ng-click="cancel()" type="button"-->
-    <!--title="Cancel" class="btn btn-xs btn-warning">-->
-    <!--<i class="fa fa-times"></i>-->
-    <!--Cancel-->
-    <!--</button>-->
-    <!--</div>-->
+    <div class="modal-footer">
+    <span class="pull-right">
+       <button ng-click="save()" type="button" ng-disabled="receiverForm1.$invalid"
+               title="Send" class="btn btn-xs btn-primary">
+           <i class="fa fa-check"></i> Save
+       </button>
+        <button ng-click="cancel()" type="button"
+                title="Cancel" class="btn btn-xs btn-warning">
+            <i class="fa fa-times"></i>
+            Cancel
+        </button>
+          </span>
+    </div>
 </script>
 
 
@@ -128,14 +121,14 @@
     <div class="modal-body">
         <div class="row">
             <div class="col-md-12">
-                <button type="button" ng-click="start()" ng-disabled="senderForm.$invalid || connecting"
+                <button type="button" ng-click="startListener()" ng-disabled="senderForm.$invalid || connecting"
                         title="Start listening"
                         class="btn btn-xs btn-success">
                     <i class="fa fa-play"></i>
                     Start
                 </button>
 
-                <button type="button" ng-disabled="!connecting" ng-click="stop()"
+                <button type="button" ng-disabled="!connecting" ng-click="stopListener()"
                         class="btn btn-xs btn-warning"><i class="fa fa-stop"></i>
                     Stop
                 </button>
@@ -157,7 +150,7 @@
                 <form name="senderForm" novalidate>
                     <div class="form-group">
                         <label>Username</label>
-                        <input type="text" disabled name="u" class="form-control" ng-model="user.senderUsername">
+                        <input type="text" disabled name="u" class="form-control" ng-model="config.username">
 
                         <p class="help-block">This is the username assigned to you to use in your message</p>
                     </div>
@@ -165,7 +158,7 @@
                     <div class="form-group">
                         <label>Password</label>
                         <input type="text" class="form-control" name="p"
-                               ng-model="user.senderPassword" disabled>
+                               ng-model="config.password" disabled>
 
                         <p class="help-block">This is the password assigned to you to use in your message</p>
                     </div>
@@ -173,7 +166,7 @@
                     <div class="form-group">
                         <label>FacilityID</label>
                         <input type="text" class="form-control" name="facilityId"
-                               ng-model="user.senderFacilityID" disabled>
+                               ng-model="config.facilityID" disabled>
 
                         <p class="help-block">This is the facilityID assigned to you to use in your message</p>
                     </div>
@@ -183,7 +176,7 @@
                         <label>Endpoint</label>
                         <!--<input type="url" name="endpoint" class="form-control" ng-model="endpoint.value"-->
                         <!--placeholder="SUT Endpoint" required disabled>-->
-                        <span name="endpoint" class="form-control">{{endpoint.value}}</span>
+                        <span name="endpoint" class="form-control">{{config.endpoint}}</span>
                         <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">-->
                         <!--Sorry, an-->
                         <!--error occured. Please refresh your page</p>-->
@@ -192,7 +185,7 @@
                     <div class="form-group"
                             >
                         <label>WSDL</label>
-                        <a ng-href="{{endpoint.value}}.wsdl" class="form-control" target="_blank">{{endpoint.value}}.wsdl</a>
+                        <a ng-href="{{endpoint.value}}.wsdl" class="form-control" target="_blank">{{config.endpoint}}.wsdl</a>
                         <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">-->
                         <!--Sorry, an-->
                         <!--error occured. Please refresh your page</p>-->
@@ -234,7 +227,7 @@
                     Validation Result Information
                 </span>
                 <span class="pull-right">
-                     <button class="btn btn-xs btn-primary" ng-click="close()"> <i class="fa fa-times"></i>Close</button>
+                     <button class="btn btn-xs btn-primary" ng-click="close()"><i class="fa fa-times"></i>Close</button>
                 </span>
     </div>
     <div class="modal-body">
@@ -249,19 +242,18 @@
 </script>
 
 
-<script type="text/ng-template" id="VersionChangeCtrl.html">
-    <div class="modal-body">
-        <div ng-include="'sc.html'"></div>
-        <br />
-        <br />
-
-
+<script type="text/ng-template" id="VersionChanged.html">
+    <div class="modal-body error-dlg">
+        <div ng-include="'InvalidAppState.html'"></div>
+        <br/>
         <div style="text-align:center">
-            <a ng-click="close()" type="button"
-               title="Cancel" class="point">
-                <i class="fa fa-refresh"></i>
-                Refresh
-            </a>
+            <p>Please click
+                <button class="btn btn-sm btn-primary" ng-click="close()" type="button"
+                        title="Cancel" class="point">
+                    <i class="fa fa-refresh"></i>
+                    reset
+                </button>
+                to reinitialize your browser.</p>
         </div>
 
     </div>
@@ -269,33 +261,28 @@
 
 
 <script type="text/ng-template" id="InvalidReqCtrl.html">
-    <div class="modal-body">
-        <div ng-include="'ir.html'"></div>
-
-        <br />
-        <br />
-
-        <div style="text-align:center">
+    <div class="modal-body error-dlg">
+        <div ng-include="'InvalidRequest.html'"></div>
+    </div>
+    <div class="modal-footer error-dlg">
+        <div class="pull-right">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
-               title="Cancel" class="point">
+                    title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
             </button>
         </div>
-
     </div>
 </script>
 
 <script type="text/ng-template" id="ErrorCtrl.html">
-    <div class="modal-body">
-        <div ng-include="'down.html'"></div>
-
-        <br />
-        <br />
-
-        <div style="text-align:center">
+    <div class="modal-body error-dlg">
+        <div ng-include="'Error.html'"></div>
+    </div>
+    <div class="modal-footer error-dlg">
+        <div class="pull-right">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
-               title="Cancel" class="point">
+                    title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
             </button>
@@ -304,19 +291,61 @@
 </script>
 
 <script type="text/ng-template" id="NotFoundCtrl.html">
-    <div class="modal-body">
-        <div ng-include="'nf.html'"></div>
-
-        <br />
-        <br />
-
-        <div style="text-align:center">
+    <div class="modal-body info-dlg">
+        <div ng-include="'NotFound.html'"></div>
+    </div>
+    <div class="modal-footer info-dlg">
+        <div class="pull-right">
             <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                     title="Cancel" class="point">
                 <i class="fa fa-times"></i>
                 Close
             </button>
         </div>
+    </div>
+</script>
 
+<script type="text/ng-template" id="warning-dialog.html">
+    <div class="modal-header">
+        <h3>Your session will expire soon!</h3>
+    </div>
+    <div idle-countdown="countdown" ng-init="countdown=30" class="modal-body info-dlg">
+        <progressbar type="warning" max="30" value="30" animate="false" class="progress-striped active">Your
+            session
+            will expire in {{countdown}} second(s).
+        </progressbar>
+    </div>
+</script>
+
+<script type="text/ng-template" id="timedout-dialog.html">
+    <div class="modal-body info-dlg">
+        <p>
+            Your session has expired.
+        </p>
+    </div>
+    <div class="modal-footer info-dlg">
+        <div class="pull-right">
+            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
+                    title="Cancel" class="point">
+                <i class="fa fa-times"></i>
+                Close
+            </button>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="CriticalError.html">
+    <div class="modal-body error-dlg">
+        <p ng-bind="error">
+        </p>
+    </div>
+    <div class="modal-footer error-dlg">
+        <div class="pull-right">
+            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
+                    title="Cancel" class="point">
+                <i class="fa fa-times"></i>
+                Close
+            </button>
+        </div>
     </div>
 </script>

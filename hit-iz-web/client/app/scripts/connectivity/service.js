@@ -1,16 +1,14 @@
 'use strict';
 angular.module('connectivity').factory('Connectivity',
-    ['$rootScope', '$http', '$q', 'ConnectivityPart', 'Logger', 'Endpoint', 'TransactionUser', 'StorageService', function ($rootScope, $http, $q, ConnectivityPart, Logger, Endpoint, TransactionUser, StorageService) {
+    ['$rootScope', '$http', '$q', 'ConnectivityPart', 'Logger', 'Endpoint', 'SOAPConnectivityTransport', 'StorageService', function ($rootScope, $http, $q, ConnectivityPart, Logger, Endpoint, SOAPConnectivityTransport, StorageService) {
 
-        var initUser = function () {
-            var user = new TransactionUser();
-            user.receiverUsername = StorageService.get(StorageService.SOAP_COMM_RECEIVER_USERNAME_KEY);
-            user.receiverPassword = StorageService.get(StorageService.SOAP_COMM_RECEIVER_PWD_KEY);
-            user.receiverFacilityId = StorageService.get(StorageService.SOAP_COMM_RECEIVER_FACILITYID_KEY);
-            user.receiverEndpoint = StorageService.get(StorageService.SOAP_COMM_RECEIVER_ENDPOINT_KEY);
-            return user;
+        var initTransport = function () {
+            var transport = new SOAPConnectivityTransport();
+            if (StorageService.get(StorageService.USER_CONFIG_KEY) != null) {
+                transport.config = angular.fromJson(StorageService.get(StorageService.USER_CONFIG_KEY));
+            }
+            return transport;
         };
-
 
         var Connectivity = {
             testCase: null,
@@ -18,7 +16,7 @@ angular.module('connectivity').factory('Connectivity',
             logger: new Logger(),
             request: new ConnectivityPart(),
             response: new ConnectivityPart(),
-            user: initUser()
+            transport: initTransport()
         };
         return Connectivity;
     }]);
@@ -55,38 +53,6 @@ angular.module('connectivity').factory('ConnectivityTestCaseListLoader', ['$q', 
     }
 ]);
 
-angular.module('connectivity').factory('ConnectivityInitiator',
-    ['$q', '$http', function ($q, $http) {
-
-        var ConnectivityInitiator = function () {
-        };
-
-        ConnectivityInitiator.prototype.send = function (user, testCaseId, content) {
-            var delay = $q.defer();
-            var data = angular.fromJson({"testCaseId": testCaseId, "content": content, "endpoint": user.receiverEndpoint, "u": user.receiverUsername, "p": user.receiverPassword, "facilityId": user.receiverFacilityId});
-            $http.post('api/connectivity/send', data, {timeout: 60000}).then(
-                function (response) {
-                    delay.resolve(angular.fromJson(response.data));
-                },
-                function (response) {
-                    delay.reject(response);
-                }
-            );
-
-//            $http.get('../../resources/connectivity/send.json').then(
-//                function (response) {
-//                    delay.resolve(angular.fromJson(response.data));
-//                },
-//                function (response) {
-//                    delay.reject('Sorry,we did not get a response');
-//                }
-//            );
-            return delay.promise;
-        };
-
-
-        return ConnectivityInitiator;
-    }]);
 
 
 angular.module('connectivity').factory('ConnectivityValidator',
@@ -95,7 +61,7 @@ angular.module('connectivity').factory('ConnectivityValidator',
         var ConnectivityValidator = function () {
         };
 
-        ConnectivityValidator.prototype.validate = function (content, testCaseId, userId, type, reqMessage) {
+        ConnectivityValidator.prototype.validate = function (content, testCaseId, type, reqMessage) {
             var delay = $q.defer();
             if (!SOAPEditorUtils.isXML(content)) {
                 delay.reject("Message provided is not an xml message");
@@ -103,7 +69,7 @@ angular.module('connectivity').factory('ConnectivityValidator',
 
 //            var data = angular.fromJson({"content": this.message.content, "testCaseId": testCaseId,"userId": userId});
 
-                var data = angular.fromJson({"content": content, "testCaseId": testCaseId, "userId": userId, "type": type, "requestMessage": reqMessage});
+                var data = angular.fromJson({"content": content, "testCaseId": testCaseId, "type": type, "requestMessage": reqMessage});
 
 //
 //                $http.get('../../resources/soap/result.json').then(
@@ -139,14 +105,14 @@ angular.module('connectivity').factory('ConnectivityValidator',
     }]);
 
 angular.module('connectivity').factory('ConnectivityPart',
-    ['$rootScope', '$http', '$q', 'SOAPEditor', 'SOAPCursor', 'ValidationResult', 'ConnectivityReport', 'Message', 'ValidationSettings', function ($rootScope, $http, $q, SOAPEditor, SOAPCursor, ValidationResult, ConnectivityReport, Message, ValidationSettings) {
+    ['$rootScope', '$http', '$q', 'SOAPEditor', 'SOAPCursor', 'ValidationResult', 'IZReportClass', 'Message', 'ValidationSettings', function ($rootScope, $http, $q, SOAPEditor, SOAPCursor, ValidationResult, IZReportClass, Message, ValidationSettings) {
 
         var ConnectivityPart = function () {
             this.editor = new SOAPEditor();
             this.cursor = new SOAPCursor();
             this.validationResult = new ValidationResult();
             this.message = new Message();
-            this.report = new ConnectivityReport();
+            this.report = new IZReportClass();
             this.validationSettings = new ValidationSettings();
         };
 
@@ -167,26 +133,82 @@ angular.module('connectivity').factory('ConnectivityPart',
         return ConnectivityPart;
     }]);
 
-angular.module('connectivity').factory('ConnectivityReport', function ($http, Report) {
-    var ConnectivityReport = function () {
-        Report.call(this, arguments);
+
+
+angular.module('commonServices').factory('SOAPConnectivityTransport', function ($q, $http, Transport, User) {
+    var SOAPConnectivityTransport = function () {
+        Transport.apply(this, arguments);
+        this.domain = "iz";
+        this.protocol = "soap";
     };
 
-    ConnectivityReport.prototype = Object.create(Report.prototype);
-    ConnectivityReport.prototype.constructor = ConnectivityReport;
+    SOAPConnectivityTransport.prototype = Object.create(Transport.prototype);
+    SOAPConnectivityTransport.prototype.constructor = SOAPConnectivityTransport;
 
-    ConnectivityReport.prototype.generateByFormat = function (xmlReport, format) {
-        return this.generate("api/connectivity/report/generate/" + format, xmlReport);
+
+//    SOAPConnectivityTransport.prototype.send = function (testCaseId, content) {
+//        var delay = $q.defer();
+//        var data = angular.fromJson({"testCaseId": testCaseId, "content": content, "endpoint": user.receiverEndpoint, "u": user.receiverUsername, "p": user.receiverPassword, "facilityId": user.receiverFacilityId});
+//            $http.post('api/connectivity/send', data, {timeout: 60000}).then(
+//                function (response) {
+//                    delay.resolve(angular.fromJson(response.data));
+//                },
+//                function (response) {
+//                    delay.reject(response);
+//                }
+//            );
+//
+////        $http.get('../../resources/connectivity/send.json').then(
+////            function (response) {
+////                delay.resolve(angular.fromJson(response.data));
+////            },
+////            function (response) {
+////                delay.reject('Sorry,we did not get a response');
+////            }
+////        );
+//        return delay.promise;
+//    };
+
+//
+    SOAPConnectivityTransport.prototype.send = function (testCaseId) {
+        var delay = $q.defer();
+        var self = this;
+        if (self.transactions == undefined || self.transactions == null)
+            self.transactions = {};
+
+        this.deleteTransaction(testCaseId).then(function (result) {
+            var data = angular.fromJson({"testStepId": testCaseId, "userId": User.info.id, "config": self.config.taInitiator});
+            $http.post('api/connectivity/send', data, {timeout: 60000}).then(
+                function (response) {
+                    if (response.data != null && response.data != "") {
+                        self.transactions[testCaseId] = angular.fromJson(response.data);
+                    } else {
+                        self.transactions[testCaseId] = null;
+                    }
+                    delay.resolve(self.transactions[testCaseId]);
+                },
+                function (response) {
+                    self.transactions[testCaseId] = null;
+                    delay.reject(self.transactions[testCaseId]);
+                }
+            );
+//        $http.get('../../resources/cb/send.json').then(
+//            function (response) {
+//                self.transactions[testStepId] = angular.fromJson(response.data);
+//                delay.resolve(self.transactions[testStepId]);
+//            },
+//            function (response) {
+//                delay.reject(response);
+//            }
+//        );
+        });
+
+        return delay.promise;
     };
 
-    ConnectivityReport.prototype.downloadByFormat = function (xmlReport, format) {
-        return this.generate("api/connectivity/report/download/" + format, xmlReport);
-    };
-    return ConnectivityReport;
+    return SOAPConnectivityTransport;
 });
 
 
-angular.module('connectivity').factory('ConnectivityClock', function ($interval, Clock) {
-    return new Clock(1000);
-});
+
 

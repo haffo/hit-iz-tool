@@ -1,0 +1,15 @@
+<style id="antiClickjack">body{display:none !important;}</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script><!--<!DOCTYPE html>-->
+<div id="exception">
+      <h1>Sorry, Invalid request <span></span></h1>
+      <p>Please refresh your page and try again.</p>
+</div>
+  <!--</body>-->
+<!--</html>-->

@@ -82,7 +82,7 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
 		class="org.springframework.ws.transport.http.CommonsHttpMessageSender">
 	</bean>
 
-	<bean id="webServiceClient" class="gov.nist.hit.iz.ws.client.WebServiceClient">
+	<bean id="izSOAPWebServiceClient" class="gov.nist.hit.iz.ws.client.IZSOAPWebServiceClientImpl">
   		<constructor-arg name="webServiceTemplate" ref="webServiceTemplate" />
   	</bean>
   	

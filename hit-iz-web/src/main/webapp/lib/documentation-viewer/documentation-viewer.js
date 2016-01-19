@@ -476,6 +476,13 @@
                 $scope.downloadContextFile(row.id, row.type, $scope.formatUrl(row.format) + "valuesetlib", row.title);
             };
 
+
+            $scope.downloadConstraints = function (row) {
+                $scope.downloadContextFile(row.id, row.type, $scope.formatUrl(row.format) + "constraints", row.title);
+            };
+
+
+
             $scope.downloadContextFile = function (targetId, targetType, targetUrl, targetTitle) {
                 if (targetId != null && targetType != null && targetUrl != null) {
                     var form = document.createElement("form");

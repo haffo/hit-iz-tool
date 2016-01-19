@@ -7,7 +7,7 @@
         top.location = self.location;
     }
 </script>
-<div ng-controller="CBTestCaseCtrl" ng-init="init()">
+<div ng-controller="CBTestCaseCtrl" ng-init="initTestCase()">
     <!--<ul class="clearfix mainSubNav">-->
     <!--<li class="current"><a href="#/cb_testcase">Test Selection</a></li>-->
     <!--<li><a href="#/cb_execution">Test Execution</a></li>-->
@@ -17,8 +17,7 @@
             <div class="panel panel-info">
                 <!-- Default panel contents -->
                 <div class="panel-heading">
-                    <i class="glyphicon glyphicon-list"></i>Test Cases
-                </div>
+                    <i class="glyphicon glyphicon-list"></i>Test Cases</div>
                 <div class="panel-body">
                     <div ng-show="!loading">
                         <div ng-show="error === null">
@@ -33,13 +32,11 @@
                                 <!--<tbody></tbody>-->
                                 <!--</table>-->
                                 <div ng-show="testCases != null && testCases.length > 0">
-
-                                <testcase-tree tree-control="tree" icon-leaf="" is-selectable="isSelectable(branch)" on-select="selectTestCase(branch)"></testcase-tree>
-</div>
-                                <div ng-show="testCases == null || testCases.length == 0">
-                                    No Test Case Available
+                                    <testcase-tree tree-control="tree" icon-leaf="" is-selectable="isSelectable(branch)" on-select="selectTestCase(branch)"></testcase-tree>
                                 </div>
-
+                                <div ng-show="testCases == null || testCases.length == 0">
+                                    No TestCase Available
+                                </div>
 
                             </div>
                         </div>
@@ -59,47 +56,43 @@
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <span>
-                               {{selectedTestCase.type}}: {{selectedTestCase.label}}
+                               {{selectedTestCase.type}}: {{selectedTestCase.name}}
                             </span>
-                            <!--<span class="pull-right" ng-show=" selectedTestCase.type==='TestCase' && selectedTestCase.testingType === 'Isolated' ">-->
-                            <!--<button title="Start Test" type="button" class="btn btn-sm btn-success"-->
-                            <!--ng-click="loadTestCase()">-->
-                            <!--<i class="fa fa-play"></i>Start-->
-                            <!--</button>-->
-                            <!--</span>-->
                             <span class="pull-right">
                                 <button title="Download Test Package" type="button" class="btn btn-xs btn-primary" ng-show="selectedTestCase.testPackage && selectedTestCase.testPackage != null && selectedTestCase.testPackage.pdfPath != null" ng-click="downloadArtifact(selectedTestCase.testPackage.pdfPath)">
                                     <i class="fa fa-download"></i>
                                     Download Test Package
                                 </button>
-                                <button title="Load Selected Test Step" ng-show="selectedTestCase.type === 'TestStep'" type="button" class="btn btn-xs btn-success" ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
+                                <button title="Load Selected Test Step" ng-show="(selectedTestCase.type == 'TestStep' && selectedTestCase.testContext != null && selectedTestCase.testContext.format != null)" type="button" class="btn btn-xs btn-success" ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
                                     <i class="fa fa-play"></i>Load Test Step
                                 </button>
+
+                                <button title="Load Selected Test Case" ng-show="selectedTestCase.type === 'TestCase'" type="button" class="btn btn-xs btn-success" ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
+                                    <i class="fa fa-play"></i>Load Test Case
+                                </button>
+
                              </span>
                         </div>
                         <div class="panel-body">
-                            <div ng-show="error != null">
-                                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
-                            </div>
+                                 <div ng-show="error != null">
+                                    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+                                </div>
 
-                            <div ng-show="error===null">
+                                <div ng-show="error===null">
 
-                                <div class="">
                                     <div class="">
-                                        <div testcase-viewer="" type="cb">
+                                        <div class="">
+                                            <div testcase-details="" type="cb">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
                     </div>
-
                 </div>
             </div>
             <div ng-show="loadingTC" style="text-align:center">
                 <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
             </div>
         </div>
-
     </div>
 </div>

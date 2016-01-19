@@ -7,5 +7,6 @@
     "valueSetLibraryId" : "1fa6401d-2060-486a-872b-1c064b606587"
   },
   "type" : "TA_RESPONDER",
-  "description" : "The EMR displays the Immunization History results (Z42) returned in response to the Z44 Query and compare to those in the EMR."
+  "description" : "The EMR displays the Immunization History results (Z42) returned in response to the Z44 Query and compare to those in the EMR.",
+  "protocol":"soap"
 }

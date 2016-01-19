@@ -12,7 +12,7 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.core.transport.TransportClientException;
+import gov.nist.hit.core.transport.exception.TransportClientException;
 import gov.nist.hit.iz.service.exception.SoapValidationException;
 import gov.nist.hit.iz.service.exception.SoapValidationReportException;
 import gov.nist.hit.iz.web.exception.SOAPEnvelopeException;

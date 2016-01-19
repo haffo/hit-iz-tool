@@ -7,7 +7,7 @@
         top.location = self.location;
     }
 </script>
-<div id="subNavBar" class="subNavBar" ng-controller="IsolatedSystemTestingCtrl" ng-init="init()">
+<div id="subNavBar" class="subNavBar" ng-controller="IsolatedSystemTestingCtrl" ng-init="initTesting()">
     <ul class="clearfix mainSubNav">
         <li ng-click="setSubActive('/isolated_testcase')" class="jslink" ><a ng-class="{'current':isSubActive('/isolated_testcase')}"> <i class="fa fa-th-list"></i> Test Selection</a></li>
         <li ng-click="setSubActive('/isolated_execution')" class="jslink" ><a ng-class="{'current':isSubActive('/isolated_execution')}"> <i class="fa fa-cogs"></i> Test Execution <span title="Current Test" class="badge current-test" ng-show="testCase != null">Current {{pettyPrintType(testCase.type)}}: {{testCase.name}}</span></a></li>
@@ -18,8 +18,11 @@
     </div>
 
     <div ng-show="isSubActive('/isolated_execution')">
-        <div ng-include="'views/isolated/execution.html'" ></div>
+        <div ng-include="'views/isolated/executeTestCase.html'" ></div>
     </div>
+
+    <div ng-include="'views/isolated/transport-tpls.html'"></div>
+
 </div>
 
 </div>

@@ -1,0 +1,91 @@
+<style id="antiClickjack">body {
+    display: none !important;
+}</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
+<!--<div class="" style="margin-bottom: 20px">-->
+<!--<button title="Transaction Details" type="button"-->
+<!--class="btn btn-sm btn-primary" ng-click="configCollapsed = !configCollapsed"><i-->
+<!--class="fa fa-cog"></i>Transaction Details-->
+<!--</button>-->
+
+<!--<button type="button"-->
+<!--ng-click="startListener()" ng-disabled="sutInitiatorForm.$invalid || connecting"-->
+<!--title="Start listening"-->
+<!--class="btn btn-sm btn-success">-->
+<!--<i class="fa fa-play"></i>-->
+<!--Start-->
+<!--</button>-->
+<!--<button type="button"-->
+<!--ng-disabled="!connecting" ng-click="stopListener()"-->
+<!--class="btn btn-sm btn-warning"><i class="fa fa-stop"></i>-->
+<!--Stop-->
+<!--</button>-->
+<!--<span ng-show="connecting">-->
+<!--<i class="fa fa-spinner"></i> Remaining time (s): {{counter}} / {{counterMax}}-->
+<!--</span>-->
+<!--</div>-->
+<script type="text/ng-template" id="SutInitiatorConfigForm.html">
+    <div class="modal-header">
+                <span style="font-weight: bold; font-size: 20px">
+                    System Under Test Generated Configuration
+                </span>
+                <span class="pull-right">
+                   <button class="btn btn-xs btn-primary" ng-click="cancel()"><i class="fa fa-times"></i>Close</button>
+                </span>
+    </div>
+    <div class="modal-body profile-info-body">
+    <form name="sutInitiatorForm" id="sutInitiatorForm" novalidate class="form-horizontal">
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-if="htmlForm != null">
+                <div compile="htmlForm"/>
+                </div>
+                <div ng-if="htmlForm == null">
+                    No Configuration Information Available
+                </div>
+            </div>
+        </div>
+    </form>
+        </div>
+</script>
+
+<script type="text/ng-template" id="TaInitiatorConfigForm.html">
+    <div class="modal-header">
+                <span style="font-weight: bold; font-size: 20px">
+                    System Under Test Configuration
+                </span>
+                <span class="pull-right">
+                   <button class="btn btn-xs btn-primary" ng-click="cancel()"><i class="fa fa-times"></i>Close</button>
+                </span>
+    </div>
+    <div class="modal-body profile-info-body">
+    <form name="taInitiatorForm"  id="taInitiatorForm" novalidate class="form-horizontal">
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-if="htmlForm != null">
+                    <div compile="htmlForm"/>
+                </div>
+                <div ng-if="htmlForm == null">
+                    No Configuration Information Available
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <button class="btn btn-sm btn-warning" ng-click='cancel()'>Cancel</button>
+                <button class="btn btn-sm btn-primary" ng-click='save()' ng-disabled='htmlForm == null || !taInitiatorForm.$valid'>Submit</button>
+            </div>
+        </div>
+
+    </form>
+
+    </div>
+</script>

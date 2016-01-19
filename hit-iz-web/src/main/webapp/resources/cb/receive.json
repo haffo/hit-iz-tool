@@ -1,0 +1,3 @@
+{
+    "content": "<env:Envelope xmlns:env=\"http://www.w3.org/2003/05/soap-envelope\"><env:Header/><env:Body><ns2:connectivityTestResponse xmlns:ns2=\"urn:cdc:iisb:2011\"><ns2:return>Hello world</ns2:return></ns2:connectivityTestResponse></env:Body></env:Envelope>"
+}

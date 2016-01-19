@@ -24,7 +24,7 @@
             </accordion-heading>
             <!--<div testcase-doc stage="CF"></div>-->
             <div testcase-doc stage="CB"></div>
-            <div testcase-doc stage="ISOLATED"></div>
+            <!--<div testcase-doc stage="ISOLATED"></div>-->
         </accordion-group>
 
 
@@ -233,24 +233,24 @@
 <script type="text/ng-template" id="TestCaseDoc.html">
     <div ng-show="error === null">
         <div ng-show="data != null" class="" style="margin:10px">
-            <accordion close-others="true">
-                <accordion-group panel-class="panel-info" is-open="status[data.stage]">
-                    <accordion-heading>
-                        <i class="fa"
-                           ng-class="{'fa-caret-down': status[data.stage], 'fa-caret-right': !status[data.stage]}"></i>
-                        {{data.title}}
-                    </accordion-heading>
+            <!--<accordion close-others="true">-->
+                <!--<accordion-group panel-class="panel-info" is-open="status[data.stage]">-->
+                    <!--<accordion-heading>-->
+                        <!--<i class="fa"-->
+                           <!--ng-class="{'fa-caret-down': status[data.stage], 'fa-caret-right': !status[data.stage]}"></i>-->
+                        <!--{{data.title}}-->
+                    <!--</accordion-heading>-->
 
 
                     <button ng-show="data.stage != 'CF'" title="Download Complete TestCase" type="button"
                             class="btn btn-sm btn-primary"
-                            ng-click="downloadCompleteTestPackage(data.stage)">
+                            ng-click="downloadCompleteTestPackage('CB')">
                         <i class="fa fa-download"></i>
                         Download Complete TestPackage (.zip)
                     </button>
 
                     <button title="Download Example Messages" type="button" class="btn btn-sm btn-primary"
-                            ng-click="downloadExampleMessages(data.stage)">
+                            ng-click="downloadExampleMessages('CB')">
                         <i class="fa fa-download"></i>
                         Download Example Messages (.zip)
                     </button>
@@ -270,14 +270,15 @@
                                 <th>Test Package</th>
                                 <th>Example Message</th>
                                 <th>Conformance Profile</th>
+                                <th>Constraints</th>
                                 <th>ValueSet Library</th>
                             </tr>
                             </thead>
                             <tbody class=""></tbody>
                         </table>
                     </div>
-                </accordion-group>
-            </accordion>
+                <!--</accordion-group>-->
+            <!--</accordion>-->
         </div>
     </div>
     <div ng-show="error !== null">
@@ -325,11 +326,20 @@
             <a ng-if="node.xmlConfProfilePresent" class="point"
                ng-click="downloadProfile(node)">Profile.json</a>
         </td>
+
+        <td>
+            <span ng-if="!node.xmlConstraintPresent">-</span>
+            <a ng-if="node.xmlConstraintPresent"
+               class="point" ng-click="downloadConstraints(node)">Constraints.xml</a>
+        </td>
+
         <td>
             <span ng-if="!node.xmlValueSetLibraryPresent">-</span>
             <a ng-if="node.xmlValueSetLibraryPresent"
                class="point" ng-click="downloadValueSetLib(node)">ValueSetLibrary.json</a>
         </td>
+
+
 
     </tr>
 </script>

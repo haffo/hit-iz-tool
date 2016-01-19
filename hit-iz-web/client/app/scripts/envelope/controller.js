@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('envelope')
-    .controller('EnvelopeTestingCtrl', ['$scope', '$window', '$rootScope', 'Envelope','StorageService', function ($scope, $window, $rootScope, Envelope,StorageService) {
+    .controller('EnvelopeTestingCtrl', ['$scope', '$window', '$rootScope', 'Envelope', 'StorageService', function ($scope, $window, $rootScope, Envelope, StorageService) {
         $scope.loading = false;
         $scope.error = null;
         $scope.tabs = new Array();
@@ -14,16 +14,16 @@ angular.module('envelope')
             $scope.tabs[$scope.activeTab] = true;
         };
 
-        $scope.init = function () {
+        $scope.initTesting = function () {
             var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
-            if(tab == null || tab != '/envelope_execution') tab =  '/envelope_testcase';
+            if (tab == null || tab != '/envelope_execution') tab = '/envelope_testcase';
             $rootScope.setSubActive(tab);
         };
 
-        $rootScope.$on('env:testCaseLoaded', function (event,testCase, tab) {
-            $scope.testCaseLoaded = Envelope.testCase ;
+        $rootScope.$on('env:testCaseLoaded', function (event, testCase, tab) {
+            $scope.testCaseLoaded = Envelope.testCase;
             if (Envelope.testCase != null && Envelope.testCase.id != null) {
-                $rootScope.setSubActive(tab && tab != null ? tab:'/envelope_execution');
+                $rootScope.setSubActive(tab && tab != null ? tab : '/envelope_execution');
             }
         });
 
@@ -53,7 +53,7 @@ angular.module('envelope')
         $scope.getTestType = function () {
             return $scope.testCase != null ? $scope.testCase.type : '';
         };
-        $scope.init = function () {
+        $scope.initExecution = function () {
             $scope.error = null;
             $scope.loading = false;
             $rootScope.$on('env:testCaseLoaded', function (event, testCase) {
@@ -78,7 +78,7 @@ angular.module('envelope')
         /**
          *
          */
-        $scope.init = function () {
+        $scope.initTestCase = function () {
             $scope.error = null;
             $scope.testCases = [];
             $scope.loading = true;
@@ -100,7 +100,7 @@ angular.module('envelope')
                     }
                     if (testCase != null) {
                         $scope.selectTestCase(testCase);
-                        $scope.selectNode(id,type);
+                        $scope.selectNode(id, type);
                     }
                 }
                 testCase = null;
@@ -116,10 +116,10 @@ angular.module('envelope')
                     }
                     if (testCase != null) {
                         var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
-                        $scope.loadTestCase(testCase,tab);
+                        $scope.loadTestCase(testCase, tab);
                     }
                 }
-                 $scope.loading = false;
+                $scope.loading = false;
             }, function (error) {
                 $scope.loading = false;
                 $scope.error = "Sorry,Cannot fetch the test cases. Please refresh the page.";
@@ -143,15 +143,15 @@ angular.module('envelope')
             });
         };
 
-        $scope.selectNode = function (id,type) {
+        $scope.selectNode = function (id, type) {
             $timeout(function () {
                 testCaseService.selectNodeByIdAndType($scope.tree, id, type);
             });
         };
 
 
-        $scope.loadTestCase = function (testCase,tab) {
-             if (testCase.type === 'TestCase') {
+        $scope.loadTestCase = function (testCase, tab) {
+            if (testCase.type === 'TestCase') {
                 Envelope.testCase = testCase;
                 $scope.testCase = Envelope.testCase;
                 var id = StorageService.get(StorageService.SOAP_ENV_LOADED_TESTCASE_ID_KEY);
@@ -162,7 +162,7 @@ angular.module('envelope')
                     StorageService.remove(StorageService.SOAP_ENV_EDITOR_CONTENT_KEY);
                 }
                 $timeout(function () {
-                    $rootScope.$broadcast('env:testCaseLoaded', $scope.testCase,tab);
+                    $rootScope.$broadcast('env:testCaseLoaded', $scope.testCase, tab);
                 });
             }
         };
@@ -202,7 +202,6 @@ angular.module('envelope')
         $scope.ignoresCollection = [].concat($scope.ignores.data);
         $scope.warnings = $scope.validationResult.warnings;
         $scope.warningsCollection = [].concat($scope.warnings.data);
-
 
 
 //        $scope.envelopeObject = [];
@@ -254,7 +253,7 @@ angular.module('envelope')
                     $scope.vLoading = false;
                     $scope.vError = error;
                     $scope.setValidationResult({});
-                    if(typeof $scope.envelopeTree.build_all == 'function') {
+                    if (typeof $scope.envelopeTree.build_all == 'function') {
                         $scope.envelopeTree.build_all([]);
                     }
                 });
@@ -263,7 +262,7 @@ angular.module('envelope')
             }
         };
 
-        $scope.init = function () {
+        $scope.initValidation = function () {
 
             $scope.editor = CodeMirror.fromTextArea(document.getElementById("envelopeTextArea"), {
                 lineNumbers: true,
@@ -328,11 +327,10 @@ angular.module('envelope')
                 $(this).fileupload('option', 'autoUpload'))) {
                 data.process().done(function () {
                     var fileName = data.files[0].name;
-                    data.url = 'api/soap/upload';
+                    data.url = 'api/message/upload';
                     var jqXHR = data.submit()
                         .success(function (result, textStatus, jqXHR) {
                             var tmp = angular.fromJson(result);
-//                          EnvelopeCurrentMessage.setName(fileName);
                             $scope.message(result.content);
                             $scope.uploadError = null;
                             $scope.fileName = fileName;
@@ -394,6 +392,9 @@ angular.module('envelope')
             $scope.alerts = $scope.validationResult.alerts;
             $scope.ignores = $scope.validationResult.ignores;
             $scope.warnings = $scope.validationResult.warnings;
+            $timeout(function () {
+                $rootScope.$emit('env:validationResultLoaded');
+            });
         };
 
         $scope.select = function (element) {
@@ -411,7 +412,7 @@ angular.module('envelope')
                     $scope.tLoading = false;
                     $scope.envelopeTree.build_all(value);
                     SOAPTreeUtils.expandTree($scope.envelopeTree);
-                 }, function (tError) {
+                }, function (tError) {
                     $scope.tLoading = false;
                     $scope.tError = tError;
                     $scope.envelopeTree.build_all([]);
@@ -434,44 +435,35 @@ angular.module('envelope')
 
 
 angular.module('envelope')
-    .controller('EnvelopeReportCtrl', ['$scope', '$sce', '$http', 'Envelope', 'SoapValidationReportGenerator', 'SoapValidationReportDownloader', '$rootScope', function ($scope, $sce, $http, Envelope, SoapValidationReportGenerator, SoapValidationReportDownloader, $rootScope) {
-        $scope.envelopeHtmlReport = null;
+    .controller('EnvelopeReportCtrl', ['$scope', '$sce', '$http', 'Envelope', '$rootScope', function ($scope, $sce, $http, Envelope, $rootScope) {
         $scope.error = null;
         $scope.loading = false;
         $scope.testCase = Envelope.testCase;
-
-        $scope.init = function () {
-            $scope.$watch(function () {
-                return  Envelope.validationResult.xml;
-            }, function (xmlReport) {
-                if (xmlReport != null && xmlReport != '') {
-                    $scope.loading = true;
-                    var promise = new SoapValidationReportGenerator(xmlReport, 'html');
-                    promise.then(function (json) {
-                        $scope.envelopeHtmlReport = json.htmlReport;
-                        $scope.loading = false;
-                        $scope.error = null;
-                    }, function (error) {
-                        $scope.error = error;
-                        $scope.loading = false;
-                        $scope.envelopeHtmlReport = null;
-                    });
-                } else {
+        $scope.report = Envelope.report;
+        $rootScope.$on('env:validationResultLoaded', function () {
+            var xmlReport = Envelope.validationResult.xml;
+            if (xmlReport != null && xmlReport != '') {
+                $scope.loading = true;
+                var promise = Envelope.report.generate(xmlReport);
+                promise.then(function (json) {
                     $scope.loading = false;
-                    $scope.envelopeHtmlReport = null;
                     $scope.error = null;
-                }
-            }, true);
+                }, function (error) {
+                    $scope.error = "Failed to generate the report";
+                    $scope.loading = false;
+                });
+            } else {
+                $scope.loading = false;
+                $scope.error = null;
+            }
+        });
 
-            $rootScope.$on('env:testCaseLoaded', function (event) {
-                $scope.testCase = Envelope.testCase;
-
-            });
-        };
+        $rootScope.$on('env:testCaseLoaded', function (event) {
+            $scope.testCase = Envelope.testCase;
+        });
 
         $scope.downloadAs = function (format) {
-            //var data = angular.fromJson({"xmlReport": EnvelopeMessageValidationResult.xml});
-            SoapValidationReportDownloader.downloadAs(Envelope.validationResult.xml, format);
+            $scope.report.download(format, Envelope.testCase.label, Envelope.validationResult.xml);
         };
 
     }]);

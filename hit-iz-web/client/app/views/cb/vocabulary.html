@@ -10,19 +10,16 @@
 <div ng-controller="CBVocabularyCtrl">
     <div class="panel panel-info">
         <div class="panel-body">
-            <div ng-show="cb.testCase != null && cb.testCase.testContext != null && cb.testCase.testContext.vocabularyLibrary && cb.testCase.testContext.vocabularyLibrary!= null">
-                <!--<div class="page-header">-->
-                <!--<h3>{{cb.testCase.type}}: {{cb.testCase.name}}</h3>-->
-                <!--</div>-->
+            <div ng-show="cb.testStep != null && cb.testStep.testContext != null && cb.testStep.testContext.vocabularyLibrary && cb.testStep.testContext.vocabularyLibrary!= null">
                 <div vocab-search type="cb"></div>
             </div>
 
-            <div ng-show="cb.testCase != null && cb.testCase.testContext != null &&  (!cb.testCase.testContext.vocabularyLibrary || cb.testCase.testContext.vocabularyLibrary === null)">
-                No Vocabulary Associated to This TestCase.
+            <div ng-show="cb.testStep != null && cb.testStep.testContext != null &&  (!cb.testStep.testContext.vocabularyLibrary || cb.testStep.testContext.vocabularyLibrary === null)">
+                No Vocabulary associated to this test step.
             </div>
 
-            <div ng-show="cb.testCase === null">
-                <div class="col-md-10"> No TestCase Loaded.</div>
+            <div ng-show="cb.testStep === null">
+                <div class="col-md-10"> No Test Step Loaded.</div>
             </div>
 
         </div>

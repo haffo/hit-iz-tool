@@ -102,30 +102,6 @@
              $scope.currentCategory = null;
             $scope.currentType =null;
             $scope.tmpData = [];
-//            $scope.gridOptions = {};
-//            $scope.gridOptions.columnDefs = [
-//                { name:'path',width:40},
-//                { name:'description'},
-//                { name:'column',width:20},
-//                { name:'stackTrace',width:40,cellTemplate: '<div class="ui-grid-cell-contents"><a ng-show="COL_FIELD != null" class="point" ng-click="grid.appScope.showDetails(COL_FIELD)">StackTrace</a></div>'},
-//                { name:'metaData',width:40, cellTemplate: '<div class="ui-grid-cell-contents"><a ng-show="COL_FIELD != null" class="point" ng-click="grid.appScope.showDetails(COL_FIELD)">MetaData</a></div>'}
-//            ];
-//            $scope.gridOptions.data = 'data';
-//            $scope.gridOptions.enableColumnResizing = true;
-//            $scope.gridOptions.enableGridMenu = true;
-//            $scope.gridOptions.showColumnFooter = true;
-//            $scope.gridOptions.fastWatch = true;
-//
-//            $scope.gridOptions.rowIdentity = function(row) {
-//                return row.id;
-//            };
-//            $scope.gridOptions.getRowIdentity = function(row) {
-//                return row.id;
-//            };
-//
-//            $scope.gridOptions.onRegisterApi = function(gridApi){
-//                $scope.gridApi = gridApi;
-//            };
 
             $scope.showDetails = function (element) {
                 var modalInstance = $modal.open({
@@ -143,12 +119,7 @@
                 });
             };
 
-//            $scope.initValidationData = function (data) {
-//                $scope.loadingCategory = true;
-//                $scope.data = data;
-//                $scope.tmpData = [].concat($scope.data);
-//                $scope.loadingCategory = false;
-//            };
+
 
             $scope.showValidationTable = function (currentCategory, currentType) {
                 $scope.loadingCategory = true;
@@ -198,7 +169,7 @@
                 });
             });
 
-            $scope.$on($scope.type + ':validationResultLoaded', function (event, mvResult) {
+            $scope.$on($scope.type + ':validationResultLoaded', function (event, mvResult,testStepId) {
 
                 if($scope.format != null) {
                     $scope.editorService = ServiceDelegator.getEditorService($scope.format);
@@ -207,6 +178,7 @@
                 }
                 var report = null;
                 var validationResult = null;
+                var validationResultId = null;
                 if (mvResult !== null) {
                     if (!mvResult.result) {
                         validationResult = new NewValidationResult();
@@ -217,7 +189,7 @@
                     }
                 }
                 $timeout(function () {
-                    $scope.$emit($scope.type + ':reportLoaded', mvResult);
+                    $scope.$emit($scope.type + ':reportLoaded', mvResult,testStepId);
                 });
 
                 $scope.validationResult = validationResult;

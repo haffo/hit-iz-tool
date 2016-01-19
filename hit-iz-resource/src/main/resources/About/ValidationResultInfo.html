@@ -11,24 +11,43 @@
 		<tbody>
 			<tr>
 				<td style="background-color:rgb(198, 222, 255)">Errors</td>
-				<td>HL7 message elements that failed validation testing.</td>
+				<td>
+					<ul>
+						<li style="text-align:left">Indicates non-conformance to a requirement.</li>
+						<li style="text-align:left">Errors do constitute a failed validation</li>
+					</ul>
+				
+				HL7 message elements that failed validation testing.</td>
 			</tr>
-			<tr>
-				<td style="background-color:rgb(198, 222, 255)">Alerts</td>
-				<td>HL7 message element information that may be useful for a
-					Tester for profile conformance, but does not indicate a test fail
-					nor non-profile conformant HL7 message element.</td>
-			</tr>
+			
 			<tr>
 				<td style="background-color:rgb(198, 222, 255)">Warnings</td>
-				<td>HL7 message element information that may be useful for a
+				<td>
+				<ul>
+						<li style="text-align:left">Provides information about potential missing support for a requirement or recommendation.</li>
+						<li style="text-align:left">Warnings do not constitute a failed validation</li>
+					</ul>
+				HL7 message element information that may be useful for a
 					Tester for profile conformance, but does not indicate a test fail
 					nor non-profile conformant HL7 message element.</td>
 			</tr>
+			
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Alerts</td>
+				<td>
+				<ul>
+						<li style="text-align:left">Provides information about how the validation verifies or does not verify requirements. For example, the specification may provide a value set binding to an element but the value set is empty. Therefore, the user is alerted to the fact that no meaningful validation can be performed.
+Ø  Alerts do not constitute a failed validation</li>
+ 					</ul> </td>
+			</tr>
+			
 			<tr>
 				<td style="background-color:rgb(198, 222, 255)">Affirmatives</td>
-				<td>Lists HL7 message validation successes and condition
-					predicate satisfactions.</td>
+				<td>
+				<ul>
+						<li style="text-align:left">Provides an indication of a positive outcome to a validation assertion</li>
+						<li style="text-align:left">Affirmatives display only as user preference, not by default</li>
+					</ul></td>
 			</tr>
 		</tbody>
 	</table>

@@ -34,7 +34,7 @@ public class Utils {
 
   public static String getContent(Command request) {
     if (request == null || "".equals(request.getContent())) {
-      throw new MessageContentNotFoundException("No soap content found in the request");
+      throw new MessageContentNotFoundException("No content found in the request");
     }
     return request.getContent();
   }
