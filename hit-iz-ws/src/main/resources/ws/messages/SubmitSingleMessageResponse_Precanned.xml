@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <submitSingleMessageResponse xmlns="urn:cdc:iisb:2011">
 	<return>
-<![CDATA[MSH|^~\&|NIST_SENDER_APP|NIST_SENDER_FAC|GENERIC|GENERIC|20120701082240-0500||VXU^V04^VXU_V04|NIST-IZ-GENERIC|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS
-MSA|AA|GENERIC]]>
+<![CDATA[MSH|^~\&|NIST_SENDER_APP|NIST_SENDER_FAC|GENERIC|GENERIC|20120701082240-0500||ACK^V04^ACK|<msgControlID>|P|2.5.1|||NE
+MSA|AA|NIST-101004144709009|]]>
 	</return>
 </submitSingleMessageResponse>

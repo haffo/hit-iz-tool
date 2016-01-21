@@ -223,7 +223,7 @@ angular.module('connectivity')
                         if(sent != null && sent != '') {
                             $scope.logger.log(sent);
                             $scope.logger.log("Inbound Message  <--------------------------------------");
-                            if(received = null && received != '') {
+                            if(received != null && received != '') {
                                 $scope.logger.log(received);
                                 $scope.triggerRespEvent(received);
                             }else{
@@ -910,13 +910,19 @@ angular.module('connectivity')
                                 var incoming = transaction.incoming;
                                 var outbound = transaction.outgoing;
                                 $scope.log("Incoming Message <--------------------------------------");
-                                $scope.log(incoming);
-                                $scope.received = incoming;
-
+                                if(incoming != null && incoming != '') {
+                                    $scope.log(incoming);
+                                    $scope.received = incoming;
+                                }else{
+                                    $scope.log("Incoming message received is empty");
+                                }
                                 $scope.log("Outgoing Message:    -------------------------------------->");
-                                $scope.log(outbound);
-                                $scope.sent = outbound;
-
+                                if(outbound != null && outbound != '') {
+                                    $scope.log(outbound);
+                                    $scope.sent = outbound;
+                                }else{
+                                    $scope.log("Outbound message sent is empty");
+                                }
                                 $scope.stopListener();
                             } else if ($scope.counter >= $scope.counterMax) {
                                 $scope.warning = "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound SOAP Envelope against those created for your system.</p>  <p>Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.</p>" +

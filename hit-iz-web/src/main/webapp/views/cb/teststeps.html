@@ -19,7 +19,7 @@
             <table class="table table-striped table-bordered table-condensed">
                 <thead>
                 <tr class="">
-                    <th style="width:5%">Type</th>
+                    <th style="width:5%">#</th>
                     <th style="width:20%">Name</th>
                     <th style="width:35%">Description</th>
                     <th style="width:15%">Execution Status</th>
@@ -35,19 +35,20 @@
                        <i class="fa fa-wrench"></i>
                     </span>
 
-                    <span ng-show="row.testingType === 'TA_INITIATOR' || row.testingType === 'SUT_INITIATOR'">
+                    <span ng-show="row.testingType === 'TA_INITIATOR' || row.testingType === 'TA_RESPONDER'">
                         <i class="fa fa-arrow-right"></i>
                     </span>
 
-                    <span ng-show="row.testingType === 'TA_RESPONDER' || row.testingType === 'SUT_RESPONDER'">
+                    <span ng-show="row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER'">
                         <i class="fa fa-arrow-left"></i>
                     </span>
                             <input ng-show="isTestCaseCompleted()" type="radio" ng-click="selectTestStep(row)" ng-checked="testStep != null && testStep.id === row.id">
+                            {{row.position}}.
                         </label>
                     </td>
                     <td style="width:20%">
 
-                        {{row.position}}. {{row.name}}
+                        {{row.name}}
                     </td>
                     <td style="width:35%" ng-bind-html="row.description"></td>
 
