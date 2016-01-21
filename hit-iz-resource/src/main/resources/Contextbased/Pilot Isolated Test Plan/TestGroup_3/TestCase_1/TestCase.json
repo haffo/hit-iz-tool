@@ -1,6 +1,6 @@
 {
   "name" : "Juana Mariana Gonzales, Enter Orders and Immunizations",
-  "position" : 1,
   "description" : "Orders and Immunization events, non-administrations, and alerts presented for current visit.",
-  "domain":"iz"
+  "domain" : "iz",
+  "position" : 1
 }

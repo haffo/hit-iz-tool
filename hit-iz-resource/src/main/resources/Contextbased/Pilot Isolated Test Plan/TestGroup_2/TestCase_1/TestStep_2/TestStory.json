@@ -1,8 +1,8 @@
 {
   "teststorydesc" : "<p>The provider uses the EMR to query the Immunization Registry for an Evaluated History and Forecast based on information known to the Immunization Registry.</p>\r\n",
   "comments" : "<p>No Comments</p>\r\n",
-  "preCondition" : "<p>Juana Mariana Gonzales&nbsp;Initial Data Load is completed.</p>\r\n",
-  "postCondition" : "<p>The Immunization Registry responds with Evaluated Vaccine History and Forecast&nbsp;for Juana Mariana Gonzales</p>\r\n",
+  "preCondition" : "<p>Juana Mariana Gonzales Initial Data Load is completed.</p>\r\n",
+  "postCondition" : "<p>The Immunization Registry responds with Evaluated Vaccine History and Forecast for Juana Mariana Gonzales</p>\r\n",
   "testObjectives" : "<p><em>Real Time Request/Receive Patient Immunization History: </em>The system sends a request to the public health immunization registry &ldquo;on demand&rdquo; (e.g., those without scheduled appointments). The request includes the identifying information the immunization registry needs to match each patient with those in the registry including, if present, the mother&rsquo;s maiden name, a multiple birth indicator, and the birth order. The request also is sent in a pre-determined format the registry can read and interpret (Query Response Grammar (RSP) &ndash; HL7 version 2.5.1 Implementation Guide for Immunization Messaging Release 1.5).</p>\r\n",
   "evaluationCriteria" : "<div>Tester shall verify that the vendor can produce a valid Z44 query in accordance with the test data correctly and without omission.</div>\r\n\r\n<div>Tester shall verify that the data in the message corresponds to the data in the EMR and contains all test data attributes supplied.</div>\r\n",
   "notes" : "<p>No Note</p>\r\n"

@@ -2,5 +2,5 @@
   "name" : "Enter allergy to egg albumin",
   "description" : "The EHR captures structured data regarding allergies as part of the clinical history.",
   "type" : "SUT_MANUAL",
-  "position" : 6,"protocol":"soap"
+  "position" : 6
 }

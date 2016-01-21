@@ -1,5 +1,6 @@
 {
   "name" : "IZ-AD-1_Admin_Chlid",
   "description" : "Maximally populated child administration",
+  "domain" : "iz",
   "position" : 1
 }

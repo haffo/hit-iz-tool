@@ -1,6 +1,6 @@
 {
   "name" : "Juana Mariana Gonzales Initial Data Load",
-  "position" : 1,
-  "description" : "Demonstrates the ability to record pediatric demographic data, historical vaccinations, and clinical conditions for 6-year old Juana Mariana Gonzales. There are no transactions associated with this test case."
-,"domain":"iz"
+  "description" : "Demonstrates the ability to record pediatric demographic data, historical vaccinations, and clinical conditions for 6-year old Juana Mariana Gonzales. There are no transactions associated with this test case.",
+  "domain" : "iz",
+  "position" : 1
 }
