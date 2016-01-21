@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConformanceContext UUID="a008c6aa-3138-48e9-9879-b03a1c4264c2">
+<ConformanceContext UUID="9c4ba8fe-2757-4322-a167-239cfacaf27c">
   <Constraints>
     <Message>
       <ByID ID="8da46a56-9f9a-4897-b7f1-08862c73d66a">
@@ -18,25 +18,18 @@
             <PlainText IgnoreCase="true" Path="1[1].6[1].1[1]" Text="X68"/>
           </Assertion>
         </Constraint>
+        <Constraint ID="Content" Target="1[1].10[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].10[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at MSH-10(Message Control ID) does not match the expected value: 'NIST-IZ-ACK-001.02'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="1[1].10[1]" Text="NIST-IZ-ACK-001.02"/>
+          </Assertion>
+        </Constraint>
         <Constraint ID="Content" Target="3[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSA[1].1[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Invalid content (based on test case fixed data). The value at MSA-1(Acknowledgment Code) does not match the expected value: 'AA'.</Description>
           <Assertion>
             <PlainText IgnoreCase="true" Path="3[1].1[1]" Text="AA"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="1[1].5[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].5[1].1[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at MSH-5.1(Namespace ID) is expected to be present.</Description>
-          <Assertion>
-            <Presence Path="1[1].5[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="1[1].5[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].5[1].1[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at MSH-5.1(Namespace ID) does not match the expected value: 'Test EHR Application'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="1[1].5[1].1[1]" Text="Test EHR Application"/>
           </Assertion>
         </Constraint>
         <Constraint ID="Content" Target="1[1].3[1].1[1]">
@@ -53,6 +46,34 @@
             <PlainText IgnoreCase="true" Path="1[1].3[1].1[1]" Text="NIST APP"/>
           </Assertion>
         </Constraint>
+        <Constraint ID="Content" Target="1[1].5[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].5[1].1[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Expected content is missing. The empty value at MSH-5.1(Namespace ID) is expected to be present.</Description>
+          <Assertion>
+            <Presence Path="1[1].5[1].1[1]"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="1[1].5[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].5[1].1[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at MSH-5.1(Namespace ID) does not match the expected value: 'Test EHR Application'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="1[1].5[1].1[1]" Text="Test EHR Application"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="1[1].11[1].1[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].11[1].1[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at MSH-11.1(Processing ID) does not match the expected value: 'T'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="1[1].11[1].1[1]" Text="T"/>
+          </Assertion>
+        </Constraint>
+        <Constraint ID="Content" Target="3[1].2[1]">
+          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSA[1].2[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
+          <Description>Invalid content (based on test case fixed data). The value at MSA-2(Message Control ID) does not match the expected value: 'NIST-IZ-001.02'.</Description>
+          <Assertion>
+            <PlainText IgnoreCase="true" Path="3[1].2[1]" Text="NIST-IZ-001.02"/>
+          </Assertion>
+        </Constraint>
         <Constraint ID="Content" Target="1[1].4[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].4[1].1[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected content is missing. The empty value at MSH-4.1(Namespace ID) is expected to be present.</Description>
@@ -65,27 +86,6 @@
           <Description>Invalid content (based on test case fixed data). The value at MSH-4.1(Namespace ID) does not match the expected value: 'NIST Test Iz Reg'.</Description>
           <Assertion>
             <PlainText IgnoreCase="true" Path="1[1].4[1].1[1]" Text="NIST Test Iz Reg"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].2[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSA[1].2[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at MSA-2(Message Control ID) does not match the expected value: 'NIST-IZ-001.02'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].2[1]" Text="NIST-IZ-001.02"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="1[1].11[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].11[1].1[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at MSH-11.1(Processing ID) does not match the expected value: 'T'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="1[1].11[1].1[1]" Text="T"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="1[1].10[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="MSH[1].10[1]" Source="Message" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at MSH-10(Message Control ID) does not match the expected value: 'NIST-IZ-ACK-001.02'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="1[1].10[1]" Text="NIST-IZ-ACK-001.02"/>
           </Assertion>
         </Constraint>
         <Constraint ID="Content" Target="1[1].21[1].2[1]">
