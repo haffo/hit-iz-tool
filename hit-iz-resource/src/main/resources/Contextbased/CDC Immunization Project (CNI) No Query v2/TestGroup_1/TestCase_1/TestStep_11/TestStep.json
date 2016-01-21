@@ -1,7 +1,6 @@
 {
   "name" : "Enter Pneumococcal,Doses 1-4 of 4",
   "description" : "<p class=\"MsoNormal\"><span style=\"font-size:10.0pt;line-height:107%;font-family:\r\n\"Arial\",sans-serif;color:#4F4F4F;background:white\">Patient History for\r\nPneumococcal is entered into the EMR.<o:p></o:p></span></p>",
-  "type" : "",
-  "position" : 11,
-  "hl7v2" : null
+  "type" : "SUT_MANUAL",
+  "position" : 11
 }

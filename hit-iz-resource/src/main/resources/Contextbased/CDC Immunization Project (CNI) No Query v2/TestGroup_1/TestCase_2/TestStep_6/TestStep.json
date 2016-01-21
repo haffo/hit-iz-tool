@@ -1,7 +1,6 @@
 {
   "name" : "Enter Polio Dose1-3 of 4 Juan Marcel",
   "description" : "<p class=\"MsoNormal\"><span style=\"font-size: 10pt; line-height: 107%; font-family: Arial, sans-serif;\">Patient History for Polio is entered into the\r\nEMR for Juan Marcel Gonzales<o:p></o:p></span></p>",
-  "type" : "",
-  "position" : 6,
-  "hl7v2" : null
+  "type" : "SUT_MANUAL",
+  "position" : 6
 }

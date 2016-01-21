@@ -3,5 +3,4 @@
   "description" : "Juana Mariana Gonzales is entered as a patient in the EMR, including all pediatric demographic information.",
   "type" : "SUT_MANUAL",
   "position" : 1
-  ,"protocol":"soap"
 }

@@ -19,11 +19,12 @@
    font-size:95%
    }
    .test-story-main table tbody tr td{
-   font-size:100%;
+   font-size: 110%;
    }
    .test-story-main table tbody tr th{
-   text-align:center;
-   background:#C6DEFF
+   text-align:left;
+   background:#C6DEFF;
+   font-size:100%;
    }
    .test-story-main fieldset{
    text-align:center;
@@ -37,12 +38,15 @@
    }
    .test-story-main table tr{
    border:2px groove;
+   
    }
    .test-story-main table th{
    border:2px groove;
+   
    }
    .test-story-main table td{
    border:1px groove;
+   
    }
    .test-story-main table thead{
    border:1px groove;
@@ -119,11 +123,13 @@
    }
    .test-story-main table tbody tr th{
    text-align:left;
-   background:#C6DEFF
+   background:#C6DEFF;
+   
    }
    .test-story-main table thead tr th{
    text-align:center;
-   background:#4682B4
+   background:#4682B4;
+   
    }
    .test-story-main fieldset{
    text-align:center;
@@ -224,207 +230,189 @@
 <div class="test-story-main">
 <tabset>
 <tab heading="FULL"  vertical="false">
-<div class="panel panel-info">
 <div class="panel-body">
-<fieldset>
-<fieldset> <legend> Description </legend>
-<div class="panel panel-info">
+
 <div class="panel-body">
-<fieldset>
 		<table>
+		<tr>
+		<th>Description</th>
+		</tr>
 		<tr>
 		<td><p>The EHR vendor loads immunization history data from the local practice for Juana Mariana Gonzales.</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
 </div>
-</div>
-</fieldset>
-<fieldset> <legend> Comments </legend>
-<div class="panel panel-info">
+
+
 <div class="panel-body">
-<fieldset>
 		<table>
+		<tr>
+		<th>Comments</th>
+		</tr>
 		<tr>
 		<td><p>No Comments</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
 </div>
-</div>
-</fieldset>
-<fieldset> <legend> Pre Condition </legend>
-<div class="panel panel-info">
+
+
 <div class="panel-body">
-<fieldset>
 		<table>
+		<tr>
+		<th>Pre Condition</th>
+		</tr>
 		<tr>
 		<td><p>The EMR has recorded all of the pediatric demographic in the record created for Juana Mariana Gonzales.</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
 </div>
-</div>
-</fieldset>
-<fieldset> <legend> Post Condition </legend>
-<div class="panel panel-info">
+
+
 <div class="panel-body">
-<fieldset>
 		<table>
 		<tr>
-		<td><p>The immunization history &amp;nbsp;the known to the local practice is loaded into the&amp;nbsp;record created for Juana Mariana Gonzales.</p>
+		<th>Post Condition</th>
+		</tr>
+		<tr>
+		<td><p>The immunization history the known to the local practice is loaded into the record created for Juana Mariana Gonzales.</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
 </div>
-</div>
-</fieldset>
-<fieldset> <legend> Test Objectives </legend>
-<div class="panel panel-info">
+
+
 <div class="panel-body">
-<fieldset>
 		<table>
+		<tr>
+		<th>Test Objectives</th>
+		</tr>
 		<tr>
 		<td><p><em>Record Past Immunizations: </em>The EHR or other clinical software system allows providers to enter information about immunizations given elsewhere (e.g., by another doctor, at a public health clinic, pharmacy, etc.) with incomplete details.</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
 </div>
-</div>
-</fieldset>
-<fieldset> <legend> Evaluation Criteria </legend>
-<div class="panel panel-info">
+
+
 <div class="panel-body">
-<fieldset>
 		<table>
 		<tr>
-		<td><p>Evaluation Criteria:&amp;nbsp;Vendor successfully records all immunization data known to the local practice as provided, with all required attributes indicated by [Y]:</p> <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse; width:659pt"> <tbody> <tr> <td style="height:15.0pt; width:275pt">Vaccine from Practice HepB</td> <td style="width:275pt">&amp;nbsp;</td> <td style="width:109pt">&amp;nbsp;</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Entered BY</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Ordering Provider</td> <td style="width:275pt">Frank Smith</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Entering Organization</td> <td style="width:275pt">Shoreline Pediatrics</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Administration Notes (Vaccine Event information source)</td> <td style="width:275pt">New immunization record (NIP001 00)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Date/Time of Start of Administration</td> <td style="width:275pt">1/15/2010</td> <td>Y</td> </tr> <tr> <td style="height:30.0pt">Vaccine Administered</td> <td style="width:275pt">hepatitis B vaccine, pediatric or pediatric/adolescent dosage&amp;nbsp; (CVX 08)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Amount (of Vaccine)</td> <td>0.5</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Units (of Measure)</td> <td>mL</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administering Provider</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered-at Location</td> <td style="width:275pt">400 Shoreline Drive, Stamford Connecticut 06901</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Lot Number</td> <td style="width:275pt">6352FK1</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Substance Expiration Date</td> <td style="width:275pt">10/1/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Substance Manufacturer Name</td> <td style="width:275pt">GlaxoSmithKline Biologicals SA (MVX SKB)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Completion Status</td> <td>CP</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Route of Administration</td> <td>IM</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administration Site</td> <td style="width:275pt">Right Thigh</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">&amp;nbsp;</td> <td>&amp;nbsp;</td> <td>&amp;nbsp;</td> </tr> <tr> <td style="height:15.0pt">Vaccine from Practice MMRV</td> <td>&amp;nbsp;</td> <td>&amp;nbsp;</td> </tr> <tr> <td style="height:15.0pt; width:275pt">a. Entered BY</td> <td style="width:275pt">J. Martinez</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">b. Ordering Provider</td> <td style="width:275pt">Frank Smith</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">c. Entering Organization</td> <td style="width:275pt">Shoreline Pediatrics</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Vaccine Event information source</td> <td style="width:275pt">New immunization record (NIP001 00)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Value/Text for Vaccine Type&amp;nbsp;</td> <td>MMRV</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Date/Time of Start of Administration</td> <td style="width:275pt">10/23/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Vaccine Administered</td> <td style="width:275pt">measles, mumps, rubella, and varicella virus vaccine</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Amount (of Vaccine)</td> <td>0.5</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Units (of Measure)</td> <td>mL</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administration Notes</td> <td>&amp;nbsp;</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administering Provider</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered-at Location</td> <td style="width:275pt">400 Shoreline Drive, Stamford Connecticut 06901</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Lot Number</td> <td style="width:275pt">7W27V7491</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Substance Expiration Date</td> <td style="width:275pt">12/15/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Substance Manufacturer Name</td> <td style="width:275pt">Merck Sharp &amp;amp; Dohme Corp (MVX MSD)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Completion Status</td> <td>CP</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Route of Administration</td> <td>Intramuscular (NCIT IM)</td> <td>&amp;nbsp;</td> </tr> <tr> <td style="height:15.0pt">Administration Site</td> <td style="width:275pt">Right Thigh (HL70163 RT)</td> <td>&amp;nbsp;</td> </tr> <tr> <td style="height:15.0pt">&amp;nbsp;</td> <td>&amp;nbsp;</td> <td>&amp;nbsp;</td> </tr> </tbody> </table>
+		<th>Evaluation Criteria</th>
+		</tr>
+		<tr>
+		<td><p>Evaluation Criteria: Vendor successfully records all immunization data known to the local practice as provided, with all required attributes indicated by [Y]:</p> <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse; width:659pt"> <tbody> <tr> <td style="height:15.0pt; width:275pt">Vaccine from Practice HepB</td> <td style="width:275pt"> </td> <td style="width:109pt"> </td> </tr> <tr> <td style="height:15.0pt; width:275pt">Entered BY</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Ordering Provider</td> <td style="width:275pt">Frank Smith</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Entering Organization</td> <td style="width:275pt">Shoreline Pediatrics</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Administration Notes (Vaccine Event information source)</td> <td style="width:275pt">New immunization record (NIP001 00)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Date/Time of Start of Administration</td> <td style="width:275pt">1/15/2010</td> <td>Y</td> </tr> <tr> <td style="height:30.0pt">Vaccine Administered</td> <td style="width:275pt">hepatitis B vaccine, pediatric or pediatric/adolescent dosage (CVX 08)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Amount (of Vaccine)</td> <td>0.5</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Units (of Measure)</td> <td>mL</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administering Provider</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered-at Location</td> <td style="width:275pt">400 Shoreline Drive, Stamford Connecticut 06901</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Lot Number</td> <td style="width:275pt">6352FK1</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Substance Expiration Date</td> <td style="width:275pt">10/1/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Substance Manufacturer Name</td> <td style="width:275pt">GlaxoSmithKline Biologicals SA (MVX SKB)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Completion Status</td> <td>CP</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Route of Administration</td> <td>IM</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administration Site</td> <td style="width:275pt">Right Thigh</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt"> </td> <td> </td> <td> </td> </tr> <tr> <td style="height:15.0pt">Vaccine from Practice MMRV</td> <td> </td> <td> </td> </tr> <tr> <td style="height:15.0pt; width:275pt">a. Entered BY</td> <td style="width:275pt">J. Martinez</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">b. Ordering Provider</td> <td style="width:275pt">Frank Smith</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">c. Entering Organization</td> <td style="width:275pt">Shoreline Pediatrics</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Vaccine Event information source</td> <td style="width:275pt">New immunization record (NIP001 00)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Value/Text for Vaccine Type </td> <td>MMRV</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Date/Time of Start of Administration</td> <td style="width:275pt">10/23/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Vaccine Administered</td> <td style="width:275pt">measles, mumps, rubella, and varicella virus vaccine</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Amount (of Vaccine)</td> <td>0.5</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Units (of Measure)</td> <td>mL</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administration Notes</td> <td> </td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administering Provider</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered-at Location</td> <td style="width:275pt">400 Shoreline Drive, Stamford Connecticut 06901</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Lot Number</td> <td style="width:275pt">7W27V7491</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Substance Expiration Date</td> <td style="width:275pt">12/15/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Substance Manufacturer Name</td> <td style="width:275pt">Merck Sharp &amp; Dohme Corp (MVX MSD)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Completion Status</td> <td>CP</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Route of Administration</td> <td>Intramuscular (NCIT IM)</td> <td> </td> </tr> <tr> <td style="height:15.0pt">Administration Site</td> <td style="width:275pt">Right Thigh (HL70163 RT)</td> <td> </td> </tr> <tr> <td style="height:15.0pt"> </td> <td> </td> <td> </td> </tr> </tbody> </table>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
 </div>
-</div>
-</fieldset>
-<fieldset> <legend> Notes for Testers </legend>
-<div class="panel panel-info">
+
+
 <div class="panel-body">
-<fieldset>
 		<table>
+		<tr>
+		<th>Notes for Testers</th>
+		</tr>
 		<tr>
 		<td><p>No Note</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
 </div>
-</div>
-</fieldset>
-</fieldset>
-</div>
+
 </div>
 </tab>
 <tab heading="Description"  vertical="false">
-<div class="panel panel-info">
 <div class="panel-body">
-<fieldset>
 		<table>
+		<tr>
+		<th>Description</th>
+		</tr>
 		<tr>
 		<td><p>The EHR vendor loads immunization history data from the local practice for Juana Mariana Gonzales.</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
-</div>
 </div>
 </tab>
 <tab heading="Comments"  vertical="false">
-<div class="panel panel-info">
 <div class="panel-body">
-<fieldset>
 		<table>
+		<tr>
+		<th>Comments</th>
+		</tr>
 		<tr>
 		<td><p>No Comments</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
-</div>
 </div>
 </tab>
 <tab heading="Pre Condition"  vertical="false">
-<div class="panel panel-info">
 <div class="panel-body">
-<fieldset>
 		<table>
+		<tr>
+		<th>Pre Condition</th>
+		</tr>
 		<tr>
 		<td><p>The EMR has recorded all of the pediatric demographic in the record created for Juana Mariana Gonzales.</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
-</div>
 </div>
 </tab>
 <tab heading="Post Condition"  vertical="false">
-<div class="panel panel-info">
 <div class="panel-body">
-<fieldset>
 		<table>
 		<tr>
-		<td><p>The immunization history &amp;nbsp;the known to the local practice is loaded into the&amp;nbsp;record created for Juana Mariana Gonzales.</p>
+		<th>Post Condition</th>
+		</tr>
+		<tr>
+		<td><p>The immunization history the known to the local practice is loaded into the record created for Juana Mariana Gonzales.</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
-</div>
 </div>
 </tab>
 <tab heading="Test Objectives"  vertical="false">
-<div class="panel panel-info">
 <div class="panel-body">
-<fieldset>
 		<table>
+		<tr>
+		<th>Test Objectives</th>
+		</tr>
 		<tr>
 		<td><p><em>Record Past Immunizations: </em>The EHR or other clinical software system allows providers to enter information about immunizations given elsewhere (e.g., by another doctor, at a public health clinic, pharmacy, etc.) with incomplete details.</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
-</div>
 </div>
 </tab>
 <tab heading="Evaluation Criteria"  vertical="false">
-<div class="panel panel-info">
 <div class="panel-body">
-<fieldset>
 		<table>
 		<tr>
-		<td><p>Evaluation Criteria:&amp;nbsp;Vendor successfully records all immunization data known to the local practice as provided, with all required attributes indicated by [Y]:</p> <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse; width:659pt"> <tbody> <tr> <td style="height:15.0pt; width:275pt">Vaccine from Practice HepB</td> <td style="width:275pt">&amp;nbsp;</td> <td style="width:109pt">&amp;nbsp;</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Entered BY</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Ordering Provider</td> <td style="width:275pt">Frank Smith</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Entering Organization</td> <td style="width:275pt">Shoreline Pediatrics</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Administration Notes (Vaccine Event information source)</td> <td style="width:275pt">New immunization record (NIP001 00)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Date/Time of Start of Administration</td> <td style="width:275pt">1/15/2010</td> <td>Y</td> </tr> <tr> <td style="height:30.0pt">Vaccine Administered</td> <td style="width:275pt">hepatitis B vaccine, pediatric or pediatric/adolescent dosage&amp;nbsp; (CVX 08)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Amount (of Vaccine)</td> <td>0.5</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Units (of Measure)</td> <td>mL</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administering Provider</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered-at Location</td> <td style="width:275pt">400 Shoreline Drive, Stamford Connecticut 06901</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Lot Number</td> <td style="width:275pt">6352FK1</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Substance Expiration Date</td> <td style="width:275pt">10/1/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Substance Manufacturer Name</td> <td style="width:275pt">GlaxoSmithKline Biologicals SA (MVX SKB)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Completion Status</td> <td>CP</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Route of Administration</td> <td>IM</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administration Site</td> <td style="width:275pt">Right Thigh</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">&amp;nbsp;</td> <td>&amp;nbsp;</td> <td>&amp;nbsp;</td> </tr> <tr> <td style="height:15.0pt">Vaccine from Practice MMRV</td> <td>&amp;nbsp;</td> <td>&amp;nbsp;</td> </tr> <tr> <td style="height:15.0pt; width:275pt">a. Entered BY</td> <td style="width:275pt">J. Martinez</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">b. Ordering Provider</td> <td style="width:275pt">Frank Smith</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">c. Entering Organization</td> <td style="width:275pt">Shoreline Pediatrics</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Vaccine Event information source</td> <td style="width:275pt">New immunization record (NIP001 00)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Value/Text for Vaccine Type&amp;nbsp;</td> <td>MMRV</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Date/Time of Start of Administration</td> <td style="width:275pt">10/23/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Vaccine Administered</td> <td style="width:275pt">measles, mumps, rubella, and varicella virus vaccine</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Amount (of Vaccine)</td> <td>0.5</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Units (of Measure)</td> <td>mL</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administration Notes</td> <td>&amp;nbsp;</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administering Provider</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered-at Location</td> <td style="width:275pt">400 Shoreline Drive, Stamford Connecticut 06901</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Lot Number</td> <td style="width:275pt">7W27V7491</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Substance Expiration Date</td> <td style="width:275pt">12/15/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Substance Manufacturer Name</td> <td style="width:275pt">Merck Sharp &amp;amp; Dohme Corp (MVX MSD)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Completion Status</td> <td>CP</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Route of Administration</td> <td>Intramuscular (NCIT IM)</td> <td>&amp;nbsp;</td> </tr> <tr> <td style="height:15.0pt">Administration Site</td> <td style="width:275pt">Right Thigh (HL70163 RT)</td> <td>&amp;nbsp;</td> </tr> <tr> <td style="height:15.0pt">&amp;nbsp;</td> <td>&amp;nbsp;</td> <td>&amp;nbsp;</td> </tr> </tbody> </table>
+		<th>Evaluation Criteria</th>
+		</tr>
+		<tr>
+		<td><p>Evaluation Criteria: Vendor successfully records all immunization data known to the local practice as provided, with all required attributes indicated by [Y]:</p> <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse; width:659pt"> <tbody> <tr> <td style="height:15.0pt; width:275pt">Vaccine from Practice HepB</td> <td style="width:275pt"> </td> <td style="width:109pt"> </td> </tr> <tr> <td style="height:15.0pt; width:275pt">Entered BY</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Ordering Provider</td> <td style="width:275pt">Frank Smith</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Entering Organization</td> <td style="width:275pt">Shoreline Pediatrics</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Administration Notes (Vaccine Event information source)</td> <td style="width:275pt">New immunization record (NIP001 00)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Date/Time of Start of Administration</td> <td style="width:275pt">1/15/2010</td> <td>Y</td> </tr> <tr> <td style="height:30.0pt">Vaccine Administered</td> <td style="width:275pt">hepatitis B vaccine, pediatric or pediatric/adolescent dosage (CVX 08)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Amount (of Vaccine)</td> <td>0.5</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Units (of Measure)</td> <td>mL</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administering Provider</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered-at Location</td> <td style="width:275pt">400 Shoreline Drive, Stamford Connecticut 06901</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Lot Number</td> <td style="width:275pt">6352FK1</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Substance Expiration Date</td> <td style="width:275pt">10/1/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Substance Manufacturer Name</td> <td style="width:275pt">GlaxoSmithKline Biologicals SA (MVX SKB)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Completion Status</td> <td>CP</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Route of Administration</td> <td>IM</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administration Site</td> <td style="width:275pt">Right Thigh</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt"> </td> <td> </td> <td> </td> </tr> <tr> <td style="height:15.0pt">Vaccine from Practice MMRV</td> <td> </td> <td> </td> </tr> <tr> <td style="height:15.0pt; width:275pt">a. Entered BY</td> <td style="width:275pt">J. Martinez</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">b. Ordering Provider</td> <td style="width:275pt">Frank Smith</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">c. Entering Organization</td> <td style="width:275pt">Shoreline Pediatrics</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Vaccine Event information source</td> <td style="width:275pt">New immunization record (NIP001 00)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Value/Text for Vaccine Type </td> <td>MMRV</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Date/Time of Start of Administration</td> <td style="width:275pt">10/23/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Vaccine Administered</td> <td style="width:275pt">measles, mumps, rubella, and varicella virus vaccine</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Amount (of Vaccine)</td> <td>0.5</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered Units (of Measure)</td> <td>mL</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administration Notes</td> <td> </td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administering Provider</td> <td style="width:275pt">Sandra Molina</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Administered-at Location</td> <td style="width:275pt">400 Shoreline Drive, Stamford Connecticut 06901</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Lot Number</td> <td style="width:275pt">7W27V7491</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt; width:275pt">Substance Expiration Date</td> <td style="width:275pt">12/15/2010</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Substance Manufacturer Name</td> <td style="width:275pt">Merck Sharp &amp; Dohme Corp (MVX MSD)</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Completion Status</td> <td>CP</td> <td>Y</td> </tr> <tr> <td style="height:15.0pt">Route of Administration</td> <td>Intramuscular (NCIT IM)</td> <td> </td> </tr> <tr> <td style="height:15.0pt">Administration Site</td> <td style="width:275pt">Right Thigh (HL70163 RT)</td> <td> </td> </tr> <tr> <td style="height:15.0pt"> </td> <td> </td> <td> </td> </tr> </tbody> </table>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
-</div>
 </div>
 </tab>
 <tab heading="Notes for Testers"  vertical="false">
-<div class="panel panel-info">
 <div class="panel-body">
-<fieldset>
 		<table>
+		<tr>
+		<th>Notes for Testers</th>
+		</tr>
 		<tr>
 		<td><p>No Note</p>
 		</td></tr>
 		</table>
 		<br/>
-</fieldset>
-</div>
 </div>
 </tab>
 </tabset>

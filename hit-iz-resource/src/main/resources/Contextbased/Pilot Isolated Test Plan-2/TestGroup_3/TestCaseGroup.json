@@ -1,5 +1,5 @@
 {
   "name" : "Order and Immunize patient",
-  "position" : 3,
-  "description" : "This test will consist of ordering vaccines for the test patients, reviewing any alerts caused by specific scenarios, and documenting vaccinations administered to the patients. NOTE: There are no orders or immunizations in this test plan for Juana Maria Gonzales."
+  "description" : "This test will consist of ordering vaccines for the test patients, reviewing any alerts caused by specific scenarios, and documenting vaccinations administered to the patients. NOTE: There are no orders or immunizations in this test plan for Juana Maria Gonzales.",
+  "position" : 3
 }

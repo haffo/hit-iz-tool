@@ -1,7 +1,6 @@
 {
   "name" : "Enter DTaP Doses 1-4 of 5 Juan Marcel",
   "description" : "No Description",
-  "type" : "",
-  "position" : 3,
-  "hl7v2" : null
+  "type" : "SUT_MANUAL",
+  "position" : 3
 }

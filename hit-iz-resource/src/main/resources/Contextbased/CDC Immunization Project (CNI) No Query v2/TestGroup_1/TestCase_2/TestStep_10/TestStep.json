@@ -1,7 +1,6 @@
 {
   "name" : "Enter HepA Dose1 and 2 of 2 Juan Marcel",
   "description" : "<p class=\"MsoNormal\"><span style=\"font-size:10.0pt;line-height:107%;font-family:\r\n\"Arial\",sans-serif;color:#4F4F4F;background:white\">Patient History for HepA is\r\nentered into the EMR for Juan Marcel Gonzales<o:p></o:p></span></p>",
-  "type" : "",
-  "position" : 10,
-  "hl7v2" : null
+  "type" : "SUT_MANUAL",
+  "position" : 10
 }

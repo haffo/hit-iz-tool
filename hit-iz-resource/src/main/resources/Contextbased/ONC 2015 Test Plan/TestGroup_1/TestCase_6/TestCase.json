@@ -1,5 +1,6 @@
 {
   "name" : "IZ-AD-6_Update_Record",
   "description" : "Child updated administration",
+  "domain" : "iz",
   "position" : 6
 }
