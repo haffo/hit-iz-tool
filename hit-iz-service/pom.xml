@@ -149,7 +149,7 @@
 		<dependency>
 			<groupId>gov.nist.healthcare.hl7.v2.iz-plugins</groupId>
 			<artifactId>iz-plugins</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>1.0.0</version>
 		</dependency>
 
 		<dependency>
@@ -158,8 +158,6 @@
 			<version>1.8.10-SNAPSHOT</version>
 		</dependency>
 		
-
-
 
 	</dependencies>
 

@@ -295,7 +295,7 @@
         </td>
         <td >
             <span ng-if="!node.tsPath ||node.tsPath === null">-</span>
-            <a ng-if="node.tsPath != null" ng-click="downloadArtifact(node.tsPath,node.title)">Test_Story.pdf</a>
+            <a class="point" ng-if="node.tsPath != null" ng-click="downloadArtifact(node.tsPath,node.title)">Test_Story.pdf</a>
         </td>
 
         <td >
@@ -367,7 +367,7 @@
                             <td st-ratio="35">
                                 <span ng-if="doc.path == null">-</span>
                     <span ng-if="doc.path != null">
-                    <a class="point" ng-if="isLink(doc.path)" target="_blank" ng-href="{{doc.path}}">{{doc.path}}</a>
+                    <a class="point" ng-if="isLink(doc.path)" target="_blank" ng-href="{{doc.path}}">{{doc.title}}</a>
                     <a class="point" ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{doc.name}}</a>
                     </span>
                             </td>
