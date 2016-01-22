@@ -10,49 +10,13 @@
 		<artifactId>hit-iz-tool</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-
-	<properties>
-		<core.version>1.0.48</core.version>
-	</properties>
-
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>2.5.1</version>
-					<configuration>
-						<source>1.7</source>
-						<target>1.7</target>
-					</configuration>
-				</plugin>
-
-				<plugin>
-					<artifactId>maven-eclipse-plugin</artifactId>
-					<version>2.9</version>
-					<configuration>
-						<additionalProjectnatures>
-							<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-						</additionalProjectnatures>
-						<additionalBuildcommands>
-							<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
-						</additionalBuildcommands>
-						<downloadSources>true</downloadSources>
-						<downloadJavadocs>true</downloadJavadocs>
-					</configuration>
-				</plugin>
-			</plugins>
-
-		</pluginManagement>
-	</build>
-
+ 
 	<dependencies>
 		
 		<dependency>
 			<groupId>gov.nist.hit.iz</groupId>
 			<artifactId>hit-iz-repo</artifactId>
-			<version>${parent.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		
 		<dependency>
@@ -155,19 +119,10 @@
 		<dependency>
 			<groupId>org.openimmunizationsoftware.dqa.nist</groupId>
 			<artifactId>ois-dqa-core</artifactId>
-			<version>1.8.10-SNAPSHOT</version>
+			<version>1.0.0</version>
 		</dependency>
 		
 
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>spring-milestones</id>
-			<url>http://repo.springsource.org/libs-milestone/</url>
-		</repository>
-
-
-
-	</repositories>
+ 
 </project>

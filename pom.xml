@@ -18,8 +18,10 @@
 
 	<properties>
 		<spring.version>4.1.1.RELEASE</spring.version>
+		<hitcore.version>1.0.3-SNAPSHOT</hitcore.version>
 		<hithl7v2.version>1.0.0-SNAPSHOT</hithl7v2.version>
 		<hitxml.version>1.0.0-SNAPSHOT</hitxml.version>
+		<core.version>1.0.48</core.version>
 	</properties>
 
 	<dependencies>
