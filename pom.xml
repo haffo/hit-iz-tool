@@ -18,9 +18,8 @@
 
 	<properties>
 		<spring.version>4.1.1.RELEASE</spring.version>
-		<hitcore.version>1.0.3-SNAPSHOT</hitcore.version>
-		<hithl7v2.version>1.0.0-SNAPSHOT</hithl7v2.version>
-		<hitxml.version>1.0.0-SNAPSHOT</hitxml.version>
+		<hitcore.version>1.0.0</hitcore.version>
+		<hithl7v2.version>1.0.1</hithl7v2.version>
 		<core.version>1.0.48</core.version>
 	</properties>
 
@@ -66,9 +65,47 @@
 						<downloadJavadocs>true</downloadJavadocs>
 					</configuration>
 				</plugin>
+				<plugin>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<releaseProfiles>release</releaseProfiles>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven.scm</groupId>
+							<artifactId>maven-scm-api</artifactId>
+							<version>1.9.2</version>
+						</dependency>
+						<dependency>
+							<groupId>org.apache.maven.scm</groupId>
+							<artifactId>maven-scm-provider-gitexe</artifactId>
+							<version>1.9.2</version>
+						</dependency>
+					</dependencies>
+				</plugin>
 
 			</plugins>
 		</pluginManagement>
 	</build>
 
+<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>http://vm-070.nist.gov:8081/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Internal Snapshots</name>
+			<url>http://vm-070.nist.gov:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<scm>
+		<connection>scm:git:https://github.com/haffo/hit-iz-tool.git</connection>
+		<url>scm:git:https://github.com/haffo/hit-iz-tool.git</url>
+		<developerConnection>scm:git:https://github.com/haffo/hit-iz-tool.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+  
 </project>

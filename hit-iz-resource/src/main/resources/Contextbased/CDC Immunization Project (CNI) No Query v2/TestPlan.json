@@ -3,5 +3,6 @@
   "description" : "No Description",
   "type" : "Isolated",
   "transport" : true,
-  "position" : 2
+  "position" : 2,
+  "skip":true
 }

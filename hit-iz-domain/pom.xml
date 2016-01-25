@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>hit-iz-domain</artifactId>
 	<name>hit-iz-domain</name>
-	<description>Immunization tool</description>
+	<description>Immunization tool domain module</description>
 	<packaging>jar</packaging>
 	<parent>
 		<groupId>gov.nist.hit.iz</groupId>

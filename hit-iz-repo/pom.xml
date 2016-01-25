@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>hit-iz-repo</artifactId>
 	<name>hit-iz-repo</name>
-	<description>Immunization tool service package</description>
+	<description>Immunization tool jpa repo module</description>
 	<packaging>jar</packaging>
 	<parent>
 		<groupId>gov.nist.hit.iz</groupId>
