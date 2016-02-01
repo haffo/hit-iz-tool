@@ -1044,14 +1044,14 @@ angular.module('format').factory('User', function ($q, $http, StorageService) {
 //                    StorageService.remove(StorageService.USER_KEY);
 //                }
 //            );
-////                $http.get('../../resources/cb/user.json').then(
-////                    function (response) {
-////                        delay.resolve(angular.fromJson(response.data));
-////                    },
-////                    function (response) {
-////                        delay.reject('Sorry,we did not get a response');
-////                    }
-////                );
+//                $http.get('../../resources/cb/user.json').then(
+//                    function (response) {
+//                        delay.resolve(angular.fromJson(response.data));
+//                    },
+//                    function (response) {
+//                        delay.reject('Sorry,we did not get a response');
+//                    }
+//                );
 //
 //        }
 
@@ -1138,42 +1138,6 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
     Transport.prototype.setDomain = function (domain) {
         this.domain = domain;
     };
-
-//    /**
-//     *
-//     * @param domain: hl7v2, edi etc...
-//     * @param standard: http
-//     * @param protocol: rest,mllp, soap
-//     * @returns {*}
-//     */
-//    Transport.prototype.configListener = function (protocol) {
-//        this.transactions = [];
-//        var delay = $q.defer();
-//        var self = this;
-//        self.protocol = protocol;
-//        $http.post('api/transport/' + self.domain  + "/" +  self.protocol + '/configListener/' + User.info.id).then(
-//            function (response) {
-//                self.config = angular.fromJson(response.data);
-//        StorageService.set(StorageService.USER_CONFIG_KEY,angular.toJson(self.config ));
-//                delay.resolve(true);
-//            },
-//            function (response) {
-//                delay.reject(response);
-//            }
-//        );
-////        $http.get('../../resources/cb/configListener.json').then(
-////            function (response) {
-////                self.config = angular.fromJson(response.data);
-////                StorageService.set(StorageService.USER_CONFIG_KEY,angular.toJson(self.config));
-////                delay.resolve(true);
-////            },
-////            function (response) {
-////                delay.reject(response);
-////            }
-////        );
-//
-//        return delay.promise;
-//    };
 
 
     Transport.prototype.loadTaInitiatorConfig = function (protocol) {
@@ -1547,35 +1511,6 @@ angular.module('format').factory('TestExecutionService',
 
         return TestExecutionService;
     }]);
-
-
-//
-//angular.module('format').factory('UserService',
-//    ['$q', '$http','User', function ($q, $http,User) {
-//        return {
-//            create : function () {
-//                var delay = $q.defer();
-//                $http.post('api/user/create',{params:{'id': User.info != null ? User.info.id: 0}}).then(
-//                    function (response) {
-//                        delay.resolve(angular.fromJson(response.data));
-//                    },
-//                    function (response) {
-//                        delay.reject(response);
-//                    }
-//                );
-////                $http.get('../../resources/cb/user.json').then(
-////                    function (response) {
-////                        delay.resolve(angular.fromJson(response.data));
-////                    },
-////                    function (response) {
-////                        delay.reject('Sorry,we did not get a response');
-////                    }
-////                );
-//                return delay.promise;
-//            }
-//        };
-//    }]);
-
 
 angular.module('format').factory('TestExecutionClock', function ($interval, Clock) {
     return new Clock(1000);

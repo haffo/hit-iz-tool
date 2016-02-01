@@ -78,7 +78,7 @@
                             Instruction
                         </div>
                         <div class="panel-body">
-                            <div ng-bind="testStep.description"></div>
+                            <div ng-bind-html="toHTML(testStep.description)"></div>
                             <br>
                         </div>
                     </div>

@@ -50,6 +50,8 @@ angular.module('cf')
             });
         };
 
+
+
         $scope.initTesting = function () {
             StorageService.remove(StorageService.ACTIVE_SUB_TAB_KEY);
             $scope.error = null;
@@ -64,7 +66,6 @@ angular.module('cf')
                 $scope.testCases = $filter('orderBy')(testCases, 'position');
                 if (typeof $scope.tree.build_all == 'function') {
                     $scope.tree.build_all($scope.testCases);
-
                     var testCase = null;
                     var id = StorageService.get(StorageService.CF_LOADED_TESTCASE_ID_KEY);
                     if (id != null) {
@@ -82,6 +83,7 @@ angular.module('cf')
                     if (testCase != null) {
                         $scope.selectNode(testCase.id, testCase.type);
                     }
+                    $scope.expandAll();
                     $scope.error = null;
                 } else {
                     $scope.error = "Ooops, Something went wrong. Please refresh your page. We are sorry for the inconvenience.";
@@ -117,6 +119,18 @@ angular.module('cf')
         $scope.isSelectable = function (node) {
             return node.testContext && node.testContext != null;
         };
+
+
+        $scope.expandAll = function () {
+            if($scope.tree != null)
+            $scope.tree.expand_all();
+        };
+
+        $scope.collapseAll = function () {
+            if($scope.tree != null)
+            $scope.tree.collapse_all();
+        };
+
 
 
     }]);
@@ -432,10 +446,18 @@ angular.module('cf')
             $rootScope.$on('cf:duplicatesRemoved', function (event, report) {
                 $scope.vLoading = false;
             });
-
-
-
         };
+
+        $scope.expandAll = function () {
+            if($scope.cf.tree.root != null)
+                $scope.cf.tree.root.expand_all();
+        };
+
+        $scope.collapseAll = function () {
+            if($scope.cf.tree.root!= null)
+                $scope.cf.tree.root.collapse_all();
+        };
+
     }]);
 
 

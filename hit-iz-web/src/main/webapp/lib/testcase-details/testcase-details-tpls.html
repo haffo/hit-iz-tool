@@ -22,7 +22,7 @@
                             <div class="panel-body">
                                 <div>
                                     <div class="pull-right" ng-show="testCase.testStory && testCase.testStory.pdfPath && testCase.testStory.pdfPath !== null">
-                                        <button title="Download Test Story" type="button" class="btn btn-sm btn-primary"
+                                        <button title="Download Test Story" type="button" class="btn btn-sm btn-info"
                                                 ng-click="downloadTestArtifact(testCase.testStory.pdfPath)">
                                             <i class="fa fa-download"></i>&nbsp;Download PDF
                                         </button>
@@ -50,7 +50,7 @@
                             <div class="panel-body">
                                 <div class="pull-right">
                                     <button title="Download Test Data Specification" type="button"
-                                            class="btn btn-sm btn-primary"
+                                            class="btn btn-sm btn-info"
                                             ng-show="testCase.testDataSpecification.pdfPath && testCase.testDataSpecification.pdfPath !== null"
                                             ng-click="downloadTestArtifact(testCase.testDataSpecification.pdfPath)">
                                         <i class="fa fa-download"></i>&nbsp;Download PDF
@@ -77,13 +77,13 @@
                             <div class="panel-body">
                             <span class="pull-left">
                                 <button ng-show="isMcHelpPresent()" title="Message Content Help Info" type="button"
-                                        class="btn btn-xs btn-primary"
+                                        class="btn btn-xs btn-info"
                                         ng-click="openMcInfo()">
                                     <i class="fa fa-info-circle"></i>&nbsp;Help
                                 </button>
                             </span>
                             <span class="pull-right">
-                                <button title="Download Message Content" type="button" class="btn btn-sm btn-primary"
+                                <button title="Download Message Content" type="button" class="btn btn-sm btn-info"
                                         ng-show="testCase.messageContent.pdfPath && testCase.messageContent.pdfPath !== null"
                                         ng-click="downloadTestArtifact(testCase.messageContent.pdfPath)">
                                     <i class="fa fa-download"></i>&nbsp;Download PDF
@@ -109,11 +109,11 @@
                         <div class="panel panel-info">
                             <div class="panel-body">
                                 <div class="pull-right">
-                                    <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"-->
+                                    <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-info"-->
                                     <!--ng-click="downloadJurorDoc('jurordoc',testCase.name)">-->
                                     <!--<i class="fa fa-download"></i> PDF-->
                                     <!--</button>-->
-                                    <button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"
+                                    <button title="Download Juror Document" type="button" class="btn btn-sm btn-info"
                                             ng-show="testCase.jurorDocument.pdfPath && testCase.jurorDocument.pdfPath !== null"
                                             ng-click="downloadTestArtifact(testCase.jurorDocument.pdfPath)">
                                         <i class="fa fa-download"></i>&nbsp;Download PDF
@@ -139,7 +139,7 @@
                         <div class="panel panel-info">
                             <div class="panel-body">
                                 <div class="pull-right">
-                                    <button title="Download Message" type="button" class="btn btn-sm btn-primary"
+                                    <button title="Download Message" type="button" class="btn btn-sm btn-info"
                                             ng-click="downloadMessage()">
                                         <i class="fa fa-download"></i>&nbsp;Download
                                     </button>

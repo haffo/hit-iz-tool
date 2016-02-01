@@ -47,13 +47,13 @@
                         <div ng-include="'views/cb/teststeps.html'"></div>
                         <div ng-show="testStep != null" style="margin:10px">
                             <span class="pull-left">
-                                            <button type="button" ng-click="goBack(testStep)" ng-show="!isTestCaseCompleted() && !isFirstStep(testStep)" title="Execute Previous Step" class="btn btn-sm btn-primary">
+                                            <button type="button" ng-click="goBack(testStep)" ng-show="!isTestCaseCompleted() && !isFirstStep(testStep)" title="Execute Previous Step" class="btn btn-sm btn-info">
                                                 <span><i class="fa fa-arrow-left"></i> Back</span>
                                             </button>
                                  </span>
 
                             <span class="pull-right">
-                                            <button type="button" ng-click="goNext(testStep)" ng-show="!isTestCaseCompleted() && isTestStepCompleted(testStep)" title="Execute Next Step" class="btn btn-sm btn-primary">
+                                            <button type="button" ng-click="goNext(testStep)" ng-show="!isTestCaseCompleted() && isTestStepCompleted(testStep)" title="Execute Next Step" class="btn btn-sm btn-info">
                                                 <span ng-show="isLastStep(testStep)"><i class="fa fa-check-circle"></i> Complete</span>
                                                 <span ng-show="!isLastStep(testStep)"><i class="fa fa-arrow-right"></i> Next</span>
                                             </button>

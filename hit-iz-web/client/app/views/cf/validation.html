@@ -18,6 +18,16 @@
                     <div class="panel panel-info">
                         <!-- Default panel contents -->
                         <div class="panel-heading"><i class="glyphicon glyphicon-list"></i> Message Tree
+
+                            <button  ng-show="cf.tree.root != null" title="Collapse All" class="btn btn-xs btn-info pull-right"
+                                     ng-click="collapseAll()">
+                                <i class="point fa fa-compress"></i>
+                            </button>
+                            <button   ng-show="cf.tree.root != null" title="Expand All" class="btn btn-xs btn-info pull-right" style="margin-right:5px"
+                                      ng-click="expandAll()">
+                                <i class="point fa fa-expand"></i>
+                            </button>
+
                         </div>
                         <div class="panel-body container-message-tree">
                             <div ng-show="!tLoading">
@@ -52,7 +62,7 @@
 
                        <div class="btn-group">
                            <button title="Refresh at the interval of {{loadRate/1000}} second(s)" type="button"
-                                   class="btn btn-xs btn-primary"
+                                   class="btn btn-xs btn-info"
                                    data-toggle="dropdown">
                                <i class="fa fa-refresh"></i>
                                <span ng-show="loadRate != 10000000000000000">{{loadRate/1000}}s</span>
@@ -75,7 +85,7 @@
 
             </span>
                             <span class="row fileupload-buttonbar  pull-right">
-                                <button title="Validate" type="button" class="btn btn-xs btn-primary" ng-show="cf.testCase.testContext.dqa === true"
+                                <button title="Validate" type="button" class="btn btn-xs btn-info" ng-show="cf.testCase.testContext.dqa === true"
                                         ng-click="showDQAOptions()">
                                     <i class="fa fa-cog"></i>
                                     DQA
@@ -87,7 +97,7 @@
                                     Validate
                                 </button>
 
-                                <button title="Load Example" type="button" class="btn btn-xs btn-primary"
+                                <button title="Load Example" type="button" class="btn btn-xs btn-info"
                                         ng-click="loadMessage()"
                                         ng-disabled="!testCase.testContext.message || testCase.testContext.message === null || testCase.testContext.message.content === ''"
                                         >
@@ -95,13 +105,13 @@
                                 </button>
 
 
-                                <span title="Browse" class="btn btn-xs btn-primary fileinput-button"
+                                <span title="Browse" class="btn btn-xs btn-info fileinput-button"
                                       ng-class="{disabled: disabled}">
                         <i class="fa fa-folder-open"></i>Browse
                         <span></span>
                         <input type="file" name="file" id="file" multiple="false" ng-disabled="disabled">
                          </span>
-                                <button title="Download" type="button" class="btn btn-xs btn-primary"
+                                <button title="Download" type="button" class="btn btn-xs btn-info"
                                         ng-disabled="!hasContent()"
                                         ng-click="saveMessage()">
                                     <i class="fa fa-download"></i>Download
@@ -135,7 +145,7 @@
                                     <i class="fa fa-check-square-o"></i>
                                     Message Validation Result
 
-                                    <button title="View Result Categories" class="btn btn-xs btn-primary"
+                                    <button title="View Result Categories" class="btn btn-xs btn-info"
                                             ng-click="openValidationResultInfo()">
                                         <i class="fa fa-info-circle"></i>&nbsp;Help
                                     </button>
@@ -148,7 +158,7 @@
               <i class="fa fa-times"></i>
               Remove Duplicates
           </button>
-                                <button title="View Report" type="button" class="btn btn-xs btn-primary"
+                                <button title="View Report" type="button" class="btn btn-xs btn-info"
                                         ng-click="setActiveTab(1)">
                                     <i class="fa fa-eye"></i>
                                     Report

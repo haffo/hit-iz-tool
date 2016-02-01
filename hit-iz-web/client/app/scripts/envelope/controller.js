@@ -171,6 +171,17 @@ angular.module('envelope')
             return true;
         };
 
+        $scope.expandAll = function () {
+            if($scope.tree != null)
+                $scope.tree.expand_all();
+        };
+
+        $scope.collapseAll = function () {
+            if($scope.tree != null)
+                $scope.tree.collapse_all();
+        };
+
+
 
     }]);
 
@@ -427,6 +438,17 @@ angular.module('envelope')
         $scope.onEnvelopeNodeSelect = function (node) {
             SOAPTreeUtils.setCoordinate(node, Envelope.cursor);
         };
+
+        $scope.expandAll = function () {
+            if($scope.envelopeTree != null)
+                $scope.envelopeTree.expand_all();
+        };
+
+        $scope.collapseAll = function () {
+            if($scope.envelopeTree != null)
+                $scope.envelopeTree.collapse_all();
+        };
+
 
 
     }]);

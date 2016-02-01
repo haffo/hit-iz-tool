@@ -118,6 +118,17 @@ angular.module('connectivity')
             }, 0);
         };
 
+        $scope.expandAll = function () {
+            if($scope.tree != null)
+                $scope.tree.expand_all();
+        };
+
+        $scope.collapseAll = function () {
+            if($scope.tree != null)
+                $scope.tree.collapse_all();
+        };
+
+
 
     }]);
 

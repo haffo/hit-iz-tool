@@ -259,9 +259,10 @@
                         if (angular.isObject(scope.treeControl)) {
                             tree = scope.treeControl;
                             tree.expand_all = function () {
-                                return for_each_branch(function (b, level) {
+                                for_each_branch(function (b, level) {
                                     return b.expanded = true;
                                 });
+                                on_treeData_change();
                             };
 
                             tree.build_all = function (treeData) {
@@ -274,9 +275,10 @@
                             };
 
                             tree.collapse_all = function () {
-                                return for_each_branch(function (b, level) {
+                                for_each_branch(function (b, level) {
                                     return b.expanded = false;
                                 });
+                                on_treeData_change();
                             };
                             tree.get_first_branch = function () {
                                 n = scope.treeData.length;

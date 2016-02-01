@@ -762,6 +762,17 @@ angular.module('cb')
         };
 
 
+        $scope.expandAll = function () {
+            if($scope.tree != null)
+            $scope.tree.expand_all();
+        };
+
+        $scope.collapseAll = function () {
+            if($scope.tree != null)
+            $scope.tree.collapse_all();
+        };
+
+
     }]);
 
 
@@ -1113,6 +1124,16 @@ angular.module('cb')
                 $scope.vLoading = false;
             });
 
+        };
+
+        $scope.expandAll = function () {
+            if($scope.cb.tree.root != null)
+                $scope.cb.tree.root.expand_all();
+        };
+
+        $scope.collapseAll = function () {
+            if($scope.cb.tree.root!= null)
+                $scope.cb.tree.root.collapse_all();
         };
 
     }]);

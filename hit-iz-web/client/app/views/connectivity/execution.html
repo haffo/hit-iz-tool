@@ -89,24 +89,24 @@
                         >
                     <i class="fa fa-check-circle"></i>Validate
                 </button>
-                <button title="Download" type="button" class="btn btn-xs btn-primary"
+                <button title="Download" type="button" class="btn btn-xs btn-info"
                         ng-disabled="!hasContent()"
                         ng-click="saveMessage()">
                     <i class="fa fa-download"></i>Download
                 </button>
-                     <button title="Configure Receiver" type="button" class="btn btn-xs btn-primary"
+                     <button title="Configure Receiver" type="button" class="btn btn-xs btn-info"
                              ng-disabled="!hasContent()" ng-show="testCase.sutType == 'RECEIVER'"
                              ng-click="configureReceiver()">
                          <i class="fa fa fa-cog"></i> Configure
                      </button>
 
-                      <button title="Send" type="button" class="btn btn-xs btn-primary"
+                      <button title="Send" type="button" class="btn btn-xs btn-info"
                               ng-disabled="!isValidConfig()" ng-show="testCase.sutType == 'RECEIVER'"
                               ng-click="send()">
                           <i class="fa fa fa-arrow-right"></i> Send
                       </button>
 
-                      <button title="Receive" type="button" class="btn btn-xs btn-primary"
+                      <button title="Receive" type="button" class="btn btn-xs btn-info"
                               ng-show="testCase.sutType === 'SENDER'"
                               ng-click="openReceiverConfig()">
                           <i class="fa fa fa-arrow-left"></i> Receive
@@ -447,7 +447,7 @@
                                         >
                                     <i class="fa fa-check-circle"></i>Validate
                                 </button>
-                                <button title="Download" type="button" class="btn btn-xs btn-primary"
+                                <button title="Download" type="button" class="btn btn-xs btn-info"
                                         ng-disabled="!hasContent()"
                                         ng-click="saveMessage()">
                                     <i class="fa fa-download"></i>Download

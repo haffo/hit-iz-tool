@@ -12,7 +12,19 @@
         <div class="col-md-3">
             <div class="panel panel-info">
                 <!-- Default panel contents -->
-                <div class="panel-heading"><i class="glyphicon glyphicon-list"></i>Test Cases</div>
+                <div class="panel-heading"><i class="glyphicon glyphicon-list"></i>Test Cases
+
+                    <button  ng-show="testCases != null && testCases.length > 0" title="Collapse All" class="btn btn-xs btn-info pull-right"
+                             ng-click="collapseAll()">
+                        <i class="point fa fa-compress"></i>
+                    </button>
+                    <button   ng-show="testCases != null && testCases.length > 0" title="Expand All" class="btn btn-xs btn-info pull-right" style="margin-right:5px"
+                              ng-click="expandAll()">
+                        <i class="point fa fa-expand"></i>
+                    </button>
+
+
+                </div>
                 <div class="panel-body">
                     <div ng-show="!loading">
                         <div ng-show="error == null">
@@ -54,7 +66,7 @@
 
                             <span class="pull-right"
                                   ng-show=" selectedTestCase.sutType == undefined">
-                                <button title="Download Test Procedure" type="button" class="btn btn-xs btn-primary"
+                                <button title="Download Test Procedure" type="button" class="btn btn-xs btn-info"
                                         ng-show="selectedTestCase.testProcedurePath != undefined && selectedTestCase.testProcedurePath != null"
                                         ng-click="downloadArtifact(selectedTestCase.testProcedurePath)">
                                     <i class="fa fa-download"></i>
@@ -65,7 +77,7 @@
                             <span class="pull-right"
                                   ng-show="selectedTestCase.sutType != undefined">
 
-                                <button title="Download Test Package" type="button" class="btn btn-xs btn-primary"
+                                <button title="Download Test Package" type="button" class="btn btn-xs btn-info"
                                         ng-show="selectedTestCase.testPackagePath != undefined && selectedTestCase.testPackagePath != null"
                                         ng-click="downloadArtifact(selectedTestCase.testPackagePath)">
                                     <i class="fa fa-download"></i>

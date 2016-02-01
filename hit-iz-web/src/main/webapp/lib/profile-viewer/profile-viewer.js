@@ -263,7 +263,7 @@
                 $scope.processConstraints(field, parent);
                 field.position = parseInt(field.position);
                 $scope.parentsMap[field.id] = parent;
-                field["path"] = parent.path + "." + field.position;
+                field["path"] = parent.path + "-" + field.position;
                 var dt = field.datatype;
                 if (dt === 'varies') {
                     var dynamicMaps = parent.dynamicMaps && parent.dynamicMaps != null && parent.dynamicMaps[field.position] != null ? parent.dynamicMaps[field.position] : null;
@@ -380,17 +380,20 @@
                             child.type = parent.datatype === 'varies' ? 'DATATYPE' : 'COMPONENT';
                             child.path = parent.path + "." + child.position;
                             child.nodeParent = parent;
+                            child.conformanceStatements = [];
+                            child.predicates = [];
+                            child.conformanceStatements = child.conformanceStatements.concat($scope.getSegmentLevelConfStatements(child));
+                            child.predicates = child.predicates.concat($scope.getSegmentLevelPredicates(child));
+                            child.conformanceStatements = child.conformanceStatements.concat($scope.getDatatypeLevelConfStatements(child));
+                            child.predicates = child.predicates.concat($scope.getDatatypeLevelPredicates(child));
+
                             if ($scope.nodeData.type === 'MESSAGE') {
-                                child.conformanceStatements = $scope.getSegmentLevelConfStatements(child);
-                                child.predicates = $scope.getSegmentLevelPredicates(child);
                                 child.conformanceStatements = child.conformanceStatements.concat($scope.getMessageLevelConfStatements(child));
                                 child.predicates = child.predicates.concat($scope.getMessageLevelPredicates(child));
                                 child.conformanceStatements = child.conformanceStatements.concat($scope.getGroupLevelConfStatements(child));
                                 child.predicates = child.predicates.concat($scope.getGroupLevelPredicates(child));
-                            } else {
-                                child.conformanceStatements = $scope.getSegmentLevelConfStatements(child);
-                                child.predicates = $scope.getSegmentLevelPredicates(child);
                             }
+
                         });
                     } else if (parent.type === 'COMPONENT') {
                         children = angular.copy(children);
@@ -398,17 +401,14 @@
                             child.type = parent.datatype === 'varies' ? 'DATATYPE' : 'SUBCOMPONENT';
                             child.path = parent.path + "." + child.position;
                             child.nodeParent = parent;
-                            if ($scope.nodeData.type === 'DATATYPE') {
-                                child.conformanceStatements = $scope.getDatatypeLevelConfStatements(child);
-                                child.predicates = $scope.getDatatypeLevelPredicates(child);
-                            } else if ($scope.nodeData.type === 'SEGMENT') {
-                                child.conformanceStatements = $scope.getDatatypeLevelConfStatements(child);
-                                child.predicates = $scope.getDatatypeLevelPredicates(child);
+                            child.conformanceStatements = [];
+                            child.predicates = [];
+                            child.conformanceStatements = child.conformanceStatements.concat($scope.getDatatypeLevelConfStatements(child));
+                            child.predicates =  child.predicates.concat($scope.getDatatypeLevelPredicates(child));
+                            if ($scope.nodeData.type === 'SEGMENT') {
                                 child.conformanceStatements = child.conformanceStatements.concat($scope.getSegmentLevelConfStatements(child));
                                 child.predicates = child.predicates.concat($scope.getSegmentLevelPredicates(child));
                             } else if ($scope.nodeData.type === 'MESSAGE') {
-                                child.conformanceStatements = $scope.getDatatypeLevelConfStatements(child);
-                                child.predicates = $scope.getDatatypeLevelPredicates(child);
                                 child.conformanceStatements = child.conformanceStatements.concat($scope.getSegmentLevelConfStatements(child));
                                 child.predicates = child.predicates.concat($scope.getSegmentLevelPredicates(child));
                                 child.conformanceStatements = child.conformanceStatements.concat($scope.getMessageLevelConfStatements(child));
