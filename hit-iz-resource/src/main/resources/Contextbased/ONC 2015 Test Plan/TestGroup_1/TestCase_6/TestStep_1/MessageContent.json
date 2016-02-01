@@ -225,7 +225,7 @@ Latino", "categorization" : "Presence-Test Case Proper"},
 - to provider", "categorization" : "Presence-Test Case Proper"},
 							{"location" : "PD1.11.3", "dataelement" : "Name of Coding System", "data" :
 "HL70215", "categorization" : "Value-Profile Fixed"},
-				{"location" : "PD1.12", "dataelement" : "Protection Indicator", "data" : "Y",
+				{"location" : "PD1.12", "dataelement" : "Protection Indicator", "data" : "N",
 "categorization" : "Value-Test Case Fixed"},
 				{"location" : "PD1.13", "dataelement" : "Protection Indicator Effective Date",
 "data" : "20150624", "categorization" : "Presence-Content Indifferent"},
