@@ -278,6 +278,7 @@
                                 <th>Test Data Specification</th>
                                 <th>Juror Document</th>
                                 <th>Test Package</th>
+                                <th>Test Plan Summary</th>
                                 <th>Example Message</th>
                                 <th>Conformance Profile</th>
                                 <th>Constraints</th>
@@ -305,25 +306,30 @@
         </td>
         <td >
             <span ng-if="!node.tsPath ||node.tsPath === null">-</span>
-            <a class="point" ng-if="node.tsPath != null" ng-click="downloadArtifact(node.tsPath,node.title)">Test_Story.pdf</a>
+            <a class="point" ng-if="node.tsPath != null" ng-click="downloadArtifact(node.tsPath,node.title)">Test Story.pdf</a>
         </td>
 
         <td >
             <span ng-if="!node.mcPath || node.mcPath === null">-</span>
-            <a ng-if="node.mcPath != null" class="point" ng-click="downloadArtifact(node.mcPath,node.title)">Message_Content.pdf</a>
+            <a ng-if="node.mcPath != null" class="point" ng-click="downloadArtifact(node.mcPath,node.title)">Message Content.pdf</a>
         </td>
         <td>
             <span ng-if="!node.tdsPath ||node.tdsPath === null">-</span>
-            <a ng-if="node.tdsPath != null" class="point" ng-click="downloadArtifact(node.tdsPath,node.title)">Test_Data_Specification.pdf</a>
+            <a ng-if="node.tdsPath != null" class="point" ng-click="downloadArtifact(node.tdsPath,node.title)">Test Data Specification.pdf</a>
         </td>
         <td  >
             <span ng-if="!node.jdPath ||node.jdPath === null">-</span>
-            <a ng-if="node.jdPath != null" class="point" ng-click="downloadArtifact(node.jdPath,node.title)">Juror_Document.pdf</a>
+            <a ng-if="node.jdPath != null" class="point" ng-click="downloadArtifact(node.jdPath,node.title)">Juror Document.pdf</a>
         </td>
 
         <td  >
             <span ng-if="!node.tpPath || node.tpPath === null">-</span>
-            <a ng-if="node.tpPath != null" class="point" ng-click="downloadArtifact(node.tpPath,node.title)">Test_Package.pdf</a>
+            <a ng-if="node.tpPath != null" class="point" ng-click="downloadArtifact(node.tpPath,node.title)">Test Package.pdf</a>
+        </td>
+
+        <td>
+            <span ng-if="!node.tpsPath || node.tpsPath === null">-</span>
+            <a ng-if="node.tpsPath != null" class="point" ng-click="downloadArtifact(node.tpsPath,node.title)">Test Plan Summary.pdf</a>
         </td>
 
         <td  >

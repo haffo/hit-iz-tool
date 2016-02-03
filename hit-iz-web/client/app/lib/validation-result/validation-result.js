@@ -189,7 +189,7 @@
                     }
                 }
                 $timeout(function () {
-                    $scope.$emit($scope.type + ':reportLoaded', mvResult,testStepId);
+                    $rootScope.$emit($scope.type + ':reportLoaded', mvResult,testStepId);
                 });
 
                 $scope.validationResult = validationResult;

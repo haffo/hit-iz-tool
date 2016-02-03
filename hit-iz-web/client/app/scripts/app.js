@@ -286,7 +286,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     };
     $rootScope.downloadArtifact = function (path) {
         var form = document.createElement("form");
-        form.action = "api/testartifact/download";
+        form.action = "api/artifact/download";
         form.method = "POST";
         form.target = "_target";
         var input = document.createElement("input");

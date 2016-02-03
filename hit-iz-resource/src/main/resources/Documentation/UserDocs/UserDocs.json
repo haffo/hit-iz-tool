@@ -43,8 +43,20 @@
 			},
 			{
 			 "title":"Understanding Immunization Meaningful Use Certification Testing",
-			 "name":"UnderstandingImmunizationMsg_ONCCertificationTesting 2015 Edition V1.0 for PubCom.pptx",
-			 "date":"11/16/2015",
+			 "name":"UnderstandingImmunizationMsg_ONCCertificationTesting-2015-Edition-V3.0.pptx",
+			 "date":"02/03/2016",
 			 "order":8
+			},
+			{
+			 "title":"NIST Immunization ATL Training",
+			 "name":"NIST-IZ-Tool-ATL-Training.pptx",
+			 "date":"02/03/2016",
+			 "order":9
+			},
+			{
+			 "title":"NIST HL7V2 Understanding Validation",
+			 "name":"NIST-HL7v2-Understanding-Validation.pptx",
+			 "date":"02/03/2016",
+			 "order":10
 			}
 ]

@@ -564,7 +564,7 @@ angular.module('cb')
             var content = $("#" + jurorDocId).html();
             if (content && content != '') {
                 var form = document.createElement("form");
-                form.action = 'api/testartifact/generateJurorDoc/pdf';
+                form.action = 'api/artifact/generateJurorDoc/pdf';
                 form.method = "POST";
                 form.target = "_target";
                 var input = document.createElement("textarea");
@@ -595,7 +595,7 @@ angular.module('cb')
         $scope.downloadTestArtifact = function (path) {
             if ($scope.testCase != null) {
                 var form = document.createElement("form");
-                form.action = "api/testartifact/download";
+                form.action = "api/artifact/download";
                 form.method = "POST";
                 form.target = "_target";
                 var input = document.createElement("input");

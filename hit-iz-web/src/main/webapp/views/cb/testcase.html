@@ -75,6 +75,12 @@
                                     <i class="fa fa-download"></i>
                                     Download Test Package
                                 </button>
+
+                                <button title="Download Test Plan Summary" type="button" class="btn btn-xs btn-info" ng-show="selectedTestCase.testPlanSummary && selectedTestCase.testPlanSummary != null && selectedTestCase.testPlanSummary.pdfPath != null" ng-click="downloadArtifact(selectedTestCase.testPlanSummary.pdfPath)">
+                                    <i class="fa fa-download"></i>
+                                    Download Test Plan Summary
+                                </button>
+
                                 <button title="Load Selected Test Step" ng-show="(selectedTestCase.type == 'TestStep' && selectedTestCase.testContext != null && selectedTestCase.testContext.format != null)" type="button" class="btn btn-xs btn-success" ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
                                     <i class="fa fa-play"></i>Load Test Step
                                 </button>
