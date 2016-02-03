@@ -110,7 +110,7 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
     $httpProvider.interceptors.push('ErrorInterceptor');
 
 
-    IdleProvider.idle(3600);
+    IdleProvider.idle(7200);
     IdleProvider.timeout(30);
     KeepaliveProvider.interval(10);
 
