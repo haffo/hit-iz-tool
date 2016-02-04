@@ -88,6 +88,123 @@ angular.module('cb').factory('CBTestCaseListLoader', ['$q','$http',
 
 
 
+//angular.module('cb').factory('Transaction', function ($q, $http) {
+//    var Transaction = function () {
+//        this.transportAccount = null;
+//        this.running = false;
+//        this.incoming = null;
+//        this.outgoing = null;
+//    };
+//
+//    Transaction.prototype.messages = function () {
+//        var delay = $q.defer();
+//        var self = this;
+//        var data = angular.fromJson(this.transportAccount);
+//        $http.post('api/transaction/find', data).then(
+//            function (response) {
+//                var transaction = angular.fromJson(response.data);
+//                self.incoming = transaction.incoming;
+//                self.outgoing = transaction.outgoing;
+//                delay.resolve(transaction);
+//            },
+//            function (response) {
+//                delay.reject(null);
+//            }
+//        );
+//
+////        $http.get('../../resources/cb/transaction.json').then(
+////            function (response) {
+////                var transaction = angular.fromJson(response.data);
+////                self.incoming = transaction.incoming;
+////                self.outgoing = transaction.outgoing;
+////                delay.resolve(transaction);
+////            },
+////            function (response) {
+////                delay.reject(null);
+////            }
+////        );
+//
+//        return delay.promise;
+//    };
+//
+//    Transaction.prototype.init = function (transportAccount) {
+//        this.clearMessages();
+//        this.transportAccount = transportAccount;
+//     };
+//
+//
+//    Transaction.prototype.clearMessages = function () {
+//        this.incoming = null;
+//        this.outgoing = null;
+//    };
+//
+//    Transaction.prototype.closeConnection = function () {
+//        var self = this;
+//        var delay = $q.defer();
+//        var data = angular.fromJson(this.userInfo);
+//        $http.post('api/transaction/close', data).then(
+//            function (response) {
+//                self.running = true;
+//                self.clearMessages();
+//                delay.resolve(true);
+//            },
+//            function (response) {
+//                self.running = false;
+//                delay.reject(null);
+//            }
+//        );
+////
+////        $http.get('../../resources/cb/clearFacilityId.json').then(
+////            function (response) {
+////
+////                self.clearMessages();
+////                delay.resolve(true);
+////            },
+////            function (response) {
+////                delay.reject(null);
+////            }
+////        );
+//        return delay.promise;
+//    };
+//
+//    Transaction.prototype.openConnection = function (responseMessageId) {
+//        var self = this;
+//        var delay = $q.defer();
+//        var data = angular.fromJson({"username": self.username, "password": self.password, "facilityID": self.facilityID, "responseMessageId": responseMessageId});
+//        $http.post('api/transaction/open', data).then(
+//            function (response) {
+//                self.running = true;
+//                self.clearMessages();
+//                delay.resolve(true);
+//            },
+//            function (response) {
+//                self.running = false;
+//                delay.reject(null);
+//            }
+//        );
+//
+////        $http.get('../../resources/cb/initFacilityId.json').then(
+////            function (response) {
+////                self.running = true;
+////                delay.resolve(true);
+////            },
+////            function (response) {
+////                self.running = false;
+////                delay.reject(null);
+////            }
+////        );
+//
+//
+//        return delay.promise;
+//    };
+//    return Transaction;
+//});
+
+
+
+
+
+
 
 
 

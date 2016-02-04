@@ -19,7 +19,7 @@
 	<properties>
 		<spring.version>4.1.1.RELEASE</spring.version>
 		<hitcore.version>1.0.0</hitcore.version>
-		<hithl7v2.version>1.0.2-SNAPSHOT</hithl7v2.version>
+		<hithl7v2.version>1.0.3</hithl7v2.version>
 		<core.version>1.0.48</core.version>
 	</properties>
 
@@ -102,9 +102,9 @@
 		</snapshotRepository>
 	</distributionManagement>
 	<scm>
-		<connection>scm:git:https://github.com/haffo/hit-iz-tool.git</connection>
-		<url>scm:git:https://github.com/haffo/hit-iz-tool.git</url>
-		<developerConnection>scm:git:https://github.com/haffo/hit-iz-tool.git</developerConnection>
+		<connection>scm:git:https://haffo@github.com/haffo/hit-iz-tool.git</connection>
+		<url>scm:git:https://haffo@github.com/haffo/hit-iz-tool.git</url>
+		<developerConnection>scm:git:https://haffo@github.com/haffo/hit-iz-tool.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
   
