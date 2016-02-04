@@ -16,34 +16,19 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-eclipse-plugin</artifactId>
-					<configuration>
-						<wtpmanifest>true</wtpmanifest>
-						<wtpapplicationxml>true</wtpapplicationxml>
-						<wtpversion>2.0</wtpversion>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<configuration>
-						<source>1.7</source>
-						<target>1.7</target>
-					</configuration>
-				</plugin>
-				<plugin>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>2.1.1</version>
 					<configuration>
 						<packagingExcludes>WEB-INF/web.xml</packagingExcludes>
 					</configuration>
-				</plugin>  
-				
+				</plugin>
 				<plugin>
 					<artifactId>maven-eclipse-plugin</artifactId>
 					<version>2.9</version>
 					<configuration>
+						<wtpmanifest>true</wtpmanifest>
+						<wtpapplicationxml>true</wtpapplicationxml>
+						<wtpversion>2.0</wtpversion>
 						<additionalProjectnatures>
 							<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
 						</additionalProjectnatures>
@@ -54,16 +39,9 @@
 						<downloadJavadocs>true</downloadJavadocs>
 					</configuration>
 				</plugin>
-				
-				
 			</plugins>
 		</pluginManagement>
-
 	</build> 
-	
-	
- 
-	
 
 	<dependencies>
 		<dependency>
