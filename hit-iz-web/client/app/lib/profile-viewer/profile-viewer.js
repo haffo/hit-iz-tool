@@ -75,12 +75,12 @@
             $scope.isRelevant = function (node) {
                 if (node === undefined || !$scope.options.relevance)
                     return true;
-
                 if (node.hide === false) {
-                    if (node.predicate && node.predicate != null) {
-                        return node.predicate.trueUsage === "R" || node.predicate.trueUsage === "RE" || node.predicate.falseUsage === "R" || node.predicate.falseUsage === "RE";
+                    if (node.predicates && node.predicates != null && node.predicates.length > 0 ) {
+                        return  node.predicates[0].trueUsage === "R" || node.predicates[0].trueUsage === "RE" || node.predicates[0].falseUsage === "R" || node.predicates[0].falseUsage === "RE";
+                    }else {
+                        return node.usage == null || !node.usage || node.usage === "R" || node.usage === "RE";
                     }
-                    return node.usage == null || !node.usage || node.usage === "R" || node.usage === "RE";
                 } else {
                     return false;
                 }
@@ -303,9 +303,7 @@
                 $scope.componentsParentMap = [];
                 $rootScope.pvNodesMap = {};
                 $scope.tmpConfStatements = [].concat($scope.confStatements);
-
             };
-
 
             $scope.$on($scope.type + ':profileLoaded', function (event, profile) {
                 $scope.model = null;
@@ -351,7 +349,6 @@
                 }
                 return [];
             };
-
 
             $scope.getNodes = function (parent) {
                 var children = [];
