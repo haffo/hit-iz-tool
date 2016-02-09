@@ -150,7 +150,10 @@
             $scope.openCopyrightDlg = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'ValueSetCopyrightCtrl.html',
-                    windowClass: 'base-modal',
+                    windowClass: 'valueset-modal',
+                    animation:false,
+                    keyboard:true,
+                    backdrop:true,
                     controller: 'ValueSetCopyrightCtrl'
                 });
             };
