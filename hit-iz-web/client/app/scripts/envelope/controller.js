@@ -119,6 +119,7 @@ angular.module('envelope')
                         $scope.loadTestCase(testCase, tab);
                     }
                 }
+                $scope.expandAll();
                 $scope.loading = false;
             }, function (error) {
                 $scope.loading = false;

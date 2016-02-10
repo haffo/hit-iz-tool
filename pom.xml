@@ -1,9 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.nist.hit.iz</groupId>
 	<artifactId>hit-iz-tool</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>hit-iz-tool</name>
 	<description>Immunization tool</description>
 	<packaging>pom</packaging>
@@ -18,8 +17,8 @@
 
 	<properties>
 		<spring.version>4.1.1.RELEASE</spring.version>
-		<hitcore.version>1.0.0</hitcore.version>
-		<hithl7v2.version>1.0.2-SNAPSHOT</hithl7v2.version>
+		<hithl7v2.version>1.0.4-SNAPSHOT</hithl7v2.version>
+		<hitcore.version>1.0.3-SNAPSHOT</hitcore.version>
 		<core.version>1.0.48</core.version>
 	</properties>
 
@@ -67,7 +66,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>2.3.2</version>
+					<version>2.5.3</version>
 					<configuration>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 						<releaseProfiles>release</releaseProfiles>
@@ -102,9 +101,9 @@
 		</snapshotRepository>
 	</distributionManagement>
 	<scm>
-		<connection>scm:git:https://github.com/haffo/hit-iz-tool.git</connection>
-		<url>scm:git:https://github.com/haffo/hit-iz-tool.git</url>
-		<developerConnection>scm:git:https://github.com/haffo/hit-iz-tool.git</developerConnection>
+		<connection>scm:git:https://haffo@github.com/haffo/hit-iz-tool.git</connection>
+		<url>scm:git:https://haffo@github.com/haffo/hit-iz-tool.git</url>
+		<developerConnection>scm:git:https://haffo@github.com/haffo/hit-iz-tool.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
   

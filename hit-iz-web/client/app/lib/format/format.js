@@ -1100,6 +1100,14 @@ angular.module('format').factory('Session', function ($q, $http) {
                 delay.reject(response.data);
             }
         );
+//        $http.get('../../resources/cb/session.json').then(
+//            function (response) {
+//                delay.resolve(angular.fromJson(response.data));
+//            },
+//            function (response) {
+//                delay.reject('Sorry,we did not get a response');
+//            }
+//        );
         return delay.promise;
     };
 
@@ -1511,6 +1519,7 @@ angular.module('format').factory('TestExecutionService',
 
         return TestExecutionService;
     }]);
+
 
 angular.module('format').factory('TestExecutionClock', function ($interval, Clock) {
     return new Clock(1000);

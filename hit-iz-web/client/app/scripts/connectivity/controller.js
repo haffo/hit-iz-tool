@@ -82,7 +82,7 @@ angular.module('connectivity')
                         $scope.loadTestCase(testCase, tab);
                     }
                 }
-
+                $scope.expandAll();
                 $scope.loading = false;
                 $scope.error = null;
             }, function (error) {

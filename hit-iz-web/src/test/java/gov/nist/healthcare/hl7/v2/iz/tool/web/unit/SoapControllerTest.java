@@ -11,21 +11,6 @@
  */
 package gov.nist.healthcare.hl7.v2.iz.tool.web.unit;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
-import gov.nist.hit.iz.web.controller.IZEnvelopeController;
-
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
-import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockMultipartFile;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 /**
  * @author Harold Affo
@@ -33,31 +18,31 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
  */
 public class SoapControllerTest {
 
-  @InjectMocks
-  IZEnvelopeController controller;
-
-  MockMvc mockMvc;
-
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-
-  @Before
-  public void setup() {
-    MockitoAnnotations.initMocks(this);
-    mockMvc = standaloneSetup(controller).build();
-  }
-
-  @Test
-  public void testUpload() throws Exception {
-    String soap = "Soap Envelop";
-    MockMultipartFile firstFile =
-        new MockMultipartFile("file", "filename.txt", "multipart/form-data", soap.getBytes());
-    mockMvc.perform(MockMvcRequestBuilders.fileUpload("/soap/upload").file(firstFile))
-        .andExpect(status().is(200)).andExpect(content().contentType(MediaType.APPLICATION_JSON));
-  }
-
-  @Test
-  public void testValidateEnvelop() throws Exception {
-    // TODO:
-  }
+  // @InjectMocks
+  // IZEnvelopeController controller;
+  //
+  // MockMvc mockMvc;
+  //
+  // @Rule
+  // public ExpectedException thrown = ExpectedException.none();
+  //
+  // @Before
+  // public void setup() {
+  // MockitoAnnotations.initMocks(this);
+  // mockMvc = standaloneSetup(controller).build();
+  // }
+  //
+  // @Test
+  // public void testUpload() throws Exception {
+  // String soap = "Soap Envelop";
+  // MockMultipartFile firstFile =
+  // new MockMultipartFile("file", "filename.txt", "multipart/form-data", soap.getBytes());
+  // mockMvc.perform(MockMvcRequestBuilders.fileUpload("/soap/upload").file(firstFile))
+  // .andExpect(status().is(200)).andExpect(content().contentType(MediaType.APPLICATION_JSON));
+  // }
+  //
+  // @Test
+  // public void testValidateEnvelop() throws Exception {
+  // // TODO:
+  // }
 }
