@@ -2,67 +2,67 @@
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
 <ValueSetLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/ValueSets.xsd" ValueSetLibraryIdentifier="5674a4b2-0e26-4f6a-9dc8-ba78a4727c83" Description="Automatically generated vacab for VXU_V04" Name="Vocab for VXU_V04" OrganizationName="HL7 NIST" Status="Active" ValueSetLibraryVersion="20150918-1">
 	<NoValidation>
-		<BindingIdentifier>0110</BindingIdentifier>
-		<BindingIdentifier>0018</BindingIdentifier>
-		<BindingIdentifier>0021</BindingIdentifier>
-		<BindingIdentifier>0022</BindingIdentifier>
-		<BindingIdentifier>0032</BindingIdentifier>
-		<BindingIdentifier>0042</BindingIdentifier>
-		<BindingIdentifier>0044</BindingIdentifier>
-		<BindingIdentifier>0045</BindingIdentifier>
-		<BindingIdentifier>0046</BindingIdentifier>
-		<BindingIdentifier>0064</BindingIdentifier>
-		<BindingIdentifier>0068</BindingIdentifier>
-		<BindingIdentifier>0072</BindingIdentifier>
-		<BindingIdentifier>0073</BindingIdentifier>
-		<BindingIdentifier>0086</BindingIdentifier>
-		<BindingIdentifier>0087</BindingIdentifier>
-		<BindingIdentifier>0099</BindingIdentifier>
-		<BindingIdentifier>0110</BindingIdentifier>
-		<BindingIdentifier>0111</BindingIdentifier>
-		<BindingIdentifier>0113</BindingIdentifier>
-		<BindingIdentifier>0114</BindingIdentifier>
-		<BindingIdentifier>0115</BindingIdentifier>
-		<BindingIdentifier>0117</BindingIdentifier>
-		<BindingIdentifier>0129</BindingIdentifier>
-		<BindingIdentifier>0139</BindingIdentifier>
-		<BindingIdentifier>0143</BindingIdentifier>
-		<BindingIdentifier>0152</BindingIdentifier>
-		<BindingIdentifier>0171</BindingIdentifier>
-		<BindingIdentifier>0172</BindingIdentifier>
-		<BindingIdentifier>0212</BindingIdentifier>
-		<BindingIdentifier>0218</BindingIdentifier>
-		<BindingIdentifier>0219</BindingIdentifier>
-		<BindingIdentifier>0222</BindingIdentifier>
-		<BindingIdentifier>0233</BindingIdentifier>
-		<BindingIdentifier>0288</BindingIdentifier>
-		<BindingIdentifier>0289</BindingIdentifier>
-		<BindingIdentifier>0295</BindingIdentifier>
-		<BindingIdentifier>0296</BindingIdentifier>
-		<BindingIdentifier>0297</BindingIdentifier>
-		<BindingIdentifier>0300</BindingIdentifier>
-		<BindingIdentifier>0302</BindingIdentifier>
-		<BindingIdentifier>0303</BindingIdentifier>
-		<BindingIdentifier>0304</BindingIdentifier>
-		<BindingIdentifier>0306</BindingIdentifier>
-		<BindingIdentifier>0307</BindingIdentifier>
-		<BindingIdentifier>0308</BindingIdentifier>
-		<BindingIdentifier>0312</BindingIdentifier>
-		<BindingIdentifier>0313</BindingIdentifier>
-		<BindingIdentifier>0327</BindingIdentifier>
-		<BindingIdentifier>0328</BindingIdentifier>
-		<BindingIdentifier>0333</BindingIdentifier>
-		<BindingIdentifier>0341</BindingIdentifier>
-		<BindingIdentifier>0342</BindingIdentifier>
-		<BindingIdentifier>0343</BindingIdentifier>
-		<BindingIdentifier>0345</BindingIdentifier>
-		<BindingIdentifier>0346</BindingIdentifier>
-		<BindingIdentifier>0363</BindingIdentifier>
-		<BindingIdentifier>0399</BindingIdentifier>
-		<BindingIdentifier>0446</BindingIdentifier>
-		<BindingIdentifier>0447</BindingIdentifier>
-		<BindingIdentifier>0448</BindingIdentifier>
-		<BindingIdentifier>0552</BindingIdentifier>
+		<BindingIdentifier>HL70110</BindingIdentifier>
+		<BindingIdentifier>HL70018</BindingIdentifier>
+		<BindingIdentifier>HL70021</BindingIdentifier>
+		<BindingIdentifier>HL70022</BindingIdentifier>
+		<BindingIdentifier>HL70032</BindingIdentifier>
+		<BindingIdentifier>HL70042</BindingIdentifier>
+		<BindingIdentifier>HL70044</BindingIdentifier>
+		<BindingIdentifier>HL70045</BindingIdentifier>
+		<BindingIdentifier>HL70046</BindingIdentifier>
+		<BindingIdentifier>HL70064</BindingIdentifier>
+		<BindingIdentifier>HL70068</BindingIdentifier>
+		<BindingIdentifier>HL70072</BindingIdentifier>
+		<BindingIdentifier>HL70073</BindingIdentifier>
+		<BindingIdentifier>HL70086</BindingIdentifier>
+		<BindingIdentifier>HL70087</BindingIdentifier>
+		<BindingIdentifier>HL70099</BindingIdentifier>
+		<BindingIdentifier>HL70110</BindingIdentifier>
+		<BindingIdentifier>HL70111</BindingIdentifier>
+		<BindingIdentifier>HL70113</BindingIdentifier>
+		<BindingIdentifier>HL70114</BindingIdentifier>
+		<BindingIdentifier>HL70115</BindingIdentifier>
+		<BindingIdentifier>HL70117</BindingIdentifier>
+		<BindingIdentifier>HL70129</BindingIdentifier>
+		<BindingIdentifier>HL70139</BindingIdentifier>
+		<BindingIdentifier>HL70143</BindingIdentifier>
+		<BindingIdentifier>HL70152</BindingIdentifier>
+		<BindingIdentifier>HL70171</BindingIdentifier>
+		<BindingIdentifier>HL70172</BindingIdentifier>
+		<BindingIdentifier>HL70212</BindingIdentifier>
+		<BindingIdentifier>HL70218</BindingIdentifier>
+		<BindingIdentifier>HL70219</BindingIdentifier>
+		<BindingIdentifier>HL70222</BindingIdentifier>
+		<BindingIdentifier>HL70233</BindingIdentifier>
+		<BindingIdentifier>HL70288</BindingIdentifier>
+		<BindingIdentifier>HL70289</BindingIdentifier>
+		<BindingIdentifier>HL70295</BindingIdentifier>
+		<BindingIdentifier>HL70296</BindingIdentifier>
+		<BindingIdentifier>HL70297</BindingIdentifier>
+		<BindingIdentifier>HL70300</BindingIdentifier>
+		<BindingIdentifier>HL70302</BindingIdentifier>
+		<BindingIdentifier>HL70303</BindingIdentifier>
+		<BindingIdentifier>HL70304</BindingIdentifier>
+		<BindingIdentifier>HL70306</BindingIdentifier>
+		<BindingIdentifier>HL70307</BindingIdentifier>
+		<BindingIdentifier>HL70308</BindingIdentifier>
+		<BindingIdentifier>HL70312</BindingIdentifier>
+		<BindingIdentifier>HL70313</BindingIdentifier>
+		<BindingIdentifier>HL70327</BindingIdentifier>
+		<BindingIdentifier>HL70328</BindingIdentifier>
+		<BindingIdentifier>HL70333</BindingIdentifier>
+		<BindingIdentifier>HL70341</BindingIdentifier>
+		<BindingIdentifier>HL70342</BindingIdentifier>
+		<BindingIdentifier>HL70343</BindingIdentifier>
+		<BindingIdentifier>HL70345</BindingIdentifier>
+		<BindingIdentifier>HL70346</BindingIdentifier>
+		<BindingIdentifier>HL70363</BindingIdentifier>
+		<BindingIdentifier>HL70399</BindingIdentifier>
+		<BindingIdentifier>HL70446</BindingIdentifier>
+		<BindingIdentifier>HL70447</BindingIdentifier>
+		<BindingIdentifier>HL70448</BindingIdentifier>
+		<BindingIdentifier>HL70552</BindingIdentifier>
 		<BindingIdentifier>HL70361_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70362_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70363_IZ</BindingIdentifier>
@@ -1613,28 +1613,28 @@
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
 	<ValueSetDefinitions Group="HL7" Order="3">
-		<ValueSetDefinition BindingIdentifier="0151" Name="Second Opinion Status">
+		<ValueSetDefinition BindingIdentifier="HL70151" Name="Second Opinion Status">
 			<ValueElement Value="..." CodeSystem="HL70151" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0150" Name="Certification patient type">
+		<ValueSetDefinition BindingIdentifier="HL70150" Name="Certification patient type">
 			<ValueElement Value="ER" CodeSystem="HL70150" DisplayName="Emergency"/>
 			<ValueElement Value="IPE" CodeSystem="HL70150" DisplayName="Inpatient elective"/>
 			<ValueElement Value="OPE" CodeSystem="HL70150" DisplayName="Outpatient elective"/>
 			<ValueElement Value="UR" CodeSystem="HL70150" DisplayName="Urgent"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0152" Name="Second Opinion Documentation Received">
+		<ValueSetDefinition BindingIdentifier="HL70152" Name="Second Opinion Documentation Received">
 			<ValueElement Value="..." CodeSystem="HL70152" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0480" Name="Pharmacy Order Types">
+		<ValueSetDefinition BindingIdentifier="HL70480" Name="Pharmacy Order Types">
 			<ValueElement Value="M" CodeSystem="HL70480" DisplayName="Medication"/>
 			<ValueElement Value="O" CodeSystem="HL70480" DisplayName="Other solution as medication orders"/>
 			<ValueElement Value="S" CodeSystem="HL70480" DisplayName="IV Large Volume Solutions"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0482" Name="Order Type">
+		<ValueSetDefinition BindingIdentifier="HL70482" Name="Order Type">
 			<ValueElement Value="I" CodeSystem="HL70482" DisplayName="Inpatient Order"/>
 			<ValueElement Value="O" CodeSystem="HL70482" DisplayName="Outpatient Order"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0483" Name="Authorization Mode">
+		<ValueSetDefinition BindingIdentifier="HL70483" Name="Authorization Mode">
 			<ValueElement Value="EL" CodeSystem="HL70483" DisplayName="Electronic"/>
 			<ValueElement Value="EM" CodeSystem="HL70483" DisplayName="E-mail"/>
 			<ValueElement Value="FX" CodeSystem="HL70483" DisplayName="Fax"/>
@@ -1646,10 +1646,10 @@
 			<ValueElement Value="VC" CodeSystem="HL70483" DisplayName="Video-conference"/>
 			<ValueElement Value="VO" CodeSystem="HL70483" DisplayName="Voice"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0064" Name="Financial class">
+		<ValueSetDefinition BindingIdentifier="HL70064" Name="Financial class">
 			<ValueElement Value="..." CodeSystem="HL70064" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0063" Name="Relationship">
+		<ValueSetDefinition BindingIdentifier="HL70063" Name="Relationship">
 			<ValueElement Value="ASC" CodeSystem="HL70063" DisplayName="Associate"/>
 			<ValueElement Value="BRO" CodeSystem="HL70063" DisplayName="Brother"/>
 			<ValueElement Value="CGV" CodeSystem="HL70063" DisplayName="Care giver"/>
@@ -1683,16 +1683,16 @@
 			<ValueElement Value="UNK" CodeSystem="HL70063" DisplayName="Unknown"/>
 			<ValueElement Value="WRD" CodeSystem="HL70063" DisplayName="Ward of court"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0061" Name="Check digit scheme">
+		<ValueSetDefinition BindingIdentifier="HL70061" Name="Check digit scheme">
 			<ValueElement Value="ISO" CodeSystem="HL70061" DisplayName="ISO 7064: 1983"/>
 			<ValueElement Value="M10" CodeSystem="HL70061" DisplayName="Mod 10 algorithm"/>
 			<ValueElement Value="M11" CodeSystem="HL70061" DisplayName="Mod 11 algorithm"/>
 			<ValueElement Value="NPI" CodeSystem="HL70061" DisplayName="Check digit algorithm in the US National Provider Identifier"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0143" Name="Non-covered Insurance Code">
+		<ValueSetDefinition BindingIdentifier="HL70143" Name="Non-covered Insurance Code">
 			<ValueElement Value="..." CodeSystem="HL70143" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0144" Name="Eligibility Source">
+		<ValueSetDefinition BindingIdentifier="HL70144" Name="Eligibility Source">
 			<ValueElement Value="1" CodeSystem="HL70144" DisplayName="Insurance company"/>
 			<ValueElement Value="2" CodeSystem="HL70144" DisplayName="Employer"/>
 			<ValueElement Value="3" CodeSystem="HL70144" DisplayName="Insured presented policy"/>
@@ -1701,7 +1701,7 @@
 			<ValueElement Value="6" CodeSystem="HL70144" DisplayName="Verbal information"/>
 			<ValueElement Value="7" CodeSystem="HL70144" DisplayName="None"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0145" Name="Room type">
+		<ValueSetDefinition BindingIdentifier="HL70145" Name="Room type">
 			<ValueElement Value="2ICU" CodeSystem="HL70145" DisplayName="Second intensive care unit"/>
 			<ValueElement Value="2PRI" CodeSystem="HL70145" DisplayName="Second private room"/>
 			<ValueElement Value="2SPR" CodeSystem="HL70145" DisplayName="Second semi-private room"/>
@@ -1709,30 +1709,30 @@
 			<ValueElement Value="PRI" CodeSystem="HL70145" DisplayName="Private room"/>
 			<ValueElement Value="SPR" CodeSystem="HL70145" DisplayName="Semi-private room"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0146" Name="Amount type">
+		<ValueSetDefinition BindingIdentifier="HL70146" Name="Amount type">
 			<ValueElement Value="DF" CodeSystem="HL70146" DisplayName="Differential"/>
 			<ValueElement Value="LM" CodeSystem="HL70146" DisplayName="Limit"/>
 			<ValueElement Value="PC" CodeSystem="HL70146" DisplayName="Percentage"/>
 			<ValueElement Value="RT" CodeSystem="HL70146" DisplayName="Rate"/>
 			<ValueElement Value="UL" CodeSystem="HL70146" DisplayName="Unlimited"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0147" Name="Policy type">
+		<ValueSetDefinition BindingIdentifier="HL70147" Name="Policy type">
 			<ValueElement Value="2ANC" CodeSystem="HL70147" DisplayName="Second ancillary"/>
 			<ValueElement Value="2MMD" CodeSystem="HL70147" DisplayName="Second major medical"/>
 			<ValueElement Value="3MMD" CodeSystem="HL70147" DisplayName="Third major medical"/>
 			<ValueElement Value="ANC" CodeSystem="HL70147" DisplayName="Ancillary"/>
 			<ValueElement Value="MMD" CodeSystem="HL70147" DisplayName="Major medical"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0148" Name="Money or percentage indicator">
+		<ValueSetDefinition BindingIdentifier="HL70148" Name="Money or percentage indicator">
 			<ValueElement Value="AT" CodeSystem="HL70148" DisplayName="Currency amount"/>
 			<ValueElement Value="PC" CodeSystem="HL70148" DisplayName="Percentage"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0149" Name="Day type">
+		<ValueSetDefinition BindingIdentifier="HL70149" Name="Day type">
 			<ValueElement Value="AP" CodeSystem="HL70149" DisplayName="Approved"/>
 			<ValueElement Value="DE" CodeSystem="HL70149" DisplayName="Denied"/>
 			<ValueElement Value="PE" CodeSystem="HL70149" DisplayName="Pending"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0164" Name="Administration Device">
+		<ValueSetDefinition BindingIdentifier="HL70164" Name="Administration Device">
 			<ValueElement Value="AP" CodeSystem="HL70164" DisplayName="Applicator"/>
 			<ValueElement Value="BT" CodeSystem="HL70164" DisplayName="Buretrol"/>
 			<ValueElement Value="HL" CodeSystem="HL70164" DisplayName="Heparin Lock"/>
@@ -1743,32 +1743,32 @@
 			<ValueElement Value="NEB" CodeSystem="HL70164" DisplayName="Nebulizer"/>
 			<ValueElement Value="PCA" CodeSystem="HL70164" DisplayName="PCA Pump"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0472" Name="TQ conjunction ID">
+		<ValueSetDefinition BindingIdentifier="HL70472" Name="TQ conjunction ID">
 			<ValueElement Value="A" CodeSystem="HL70472" DisplayName="Asynchronous"/>
 			<ValueElement Value="C" CodeSystem="HL70472" DisplayName="Actuation Time"/>
 			<ValueElement Value="S" CodeSystem="HL70472" DisplayName="Synchronous"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0044" Name="Contract Code">
+		<ValueSetDefinition BindingIdentifier="HL70044" Name="Contract Code">
 			<ValueElement Value="..." CodeSystem="HL70044" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0045" Name="Courtesy Code">
+		<ValueSetDefinition BindingIdentifier="HL70045" Name="Courtesy Code">
 			<ValueElement Value="..." CodeSystem="HL70045" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0046" Name="Credit Rating">
+		<ValueSetDefinition BindingIdentifier="HL70046" Name="Credit Rating">
 			<ValueElement Value="..." CodeSystem="HL70046" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0465" Name="Name/address representation">
+		<ValueSetDefinition BindingIdentifier="HL70465" Name="Name/address representation">
 			<ValueElement Value="A" CodeSystem="HL70465" DisplayName="Alphabetic (i.e., Default or some single-byte)"/>
 			<ValueElement Value="I" CodeSystem="HL70465" DisplayName="Ideographic (i.e., Kanji)"/>
 			<ValueElement Value="P" CodeSystem="HL70465" DisplayName="Phonetic (i.e., ASCII, Katakana, Hiragana, etc.)"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0312" Name="Policy Scope">
+		<ValueSetDefinition BindingIdentifier="HL70312" Name="Policy Scope">
 			<ValueElement Value="..." CodeSystem="HL70312" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0313" Name="Policy Source">
+		<ValueSetDefinition BindingIdentifier="HL70313" Name="Policy Source">
 			<ValueElement Value="..." CodeSystem="HL70313" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0131" Name="Contact Role">
+		<ValueSetDefinition BindingIdentifier="HL70131" Name="Contact Role">
 			<ValueElement Value="C" CodeSystem="HL70131" DisplayName="Emergency Contact"/>
 			<ValueElement Value="E" CodeSystem="HL70131" DisplayName="Employer"/>
 			<ValueElement Value="F" CodeSystem="HL70131" DisplayName="Federal Agency"/>
@@ -1778,26 +1778,26 @@
 			<ValueElement Value="S" CodeSystem="HL70131" DisplayName="State Agency"/>
 			<ValueElement Value="U" CodeSystem="HL70131" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0315" Name="Living Will Code">
+		<ValueSetDefinition BindingIdentifier="HL70315" Name="Living Will Code">
 			<ValueElement Value="F" CodeSystem="HL70315" DisplayName="Yes, patient has a living will but it is not on file"/>
 			<ValueElement Value="I" CodeSystem="HL70315" DisplayName="No, patient does not have a living will but information was provided"/>
 			<ValueElement Value="N" CodeSystem="HL70315" DisplayName="No, patient does not have a living will and no information was provided"/>
 			<ValueElement Value="U" CodeSystem="HL70315" DisplayName="Unknown"/>
 			<ValueElement Value="Y" CodeSystem="HL70315" DisplayName="Yes, patient has a living will"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0130" Name="Visit User Code">
+		<ValueSetDefinition BindingIdentifier="HL70130" Name="Visit User Code">
 			<ValueElement Value="HO" CodeSystem="HL70130" DisplayName="Home"/>
 			<ValueElement Value="MO" CodeSystem="HL70130" DisplayName="Mobile Unit"/>
 			<ValueElement Value="PH" CodeSystem="HL70130" DisplayName="Phone"/>
 			<ValueElement Value="TE" CodeSystem="HL70130" DisplayName="Teaching"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0311" Name="Job Status">
+		<ValueSetDefinition BindingIdentifier="HL70311" Name="Job Status">
 			<ValueElement Value="O" CodeSystem="HL70311" DisplayName="Other"/>
 			<ValueElement Value="P" CodeSystem="HL70311" DisplayName="Permanent"/>
 			<ValueElement Value="T" CodeSystem="HL70311" DisplayName="Temporary"/>
 			<ValueElement Value="U" CodeSystem="HL70311" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0078" Name="Abnormal flags">
+		<ValueSetDefinition BindingIdentifier="HL70078" Name="Abnormal flags">
 			<ValueElement Value="&lt;" CodeSystem="HL70078" DisplayName="Below absolute low-off instrument scale"/>
 			<ValueElement Value="&gt;" CodeSystem="HL70078" DisplayName="Above absolute high-off instrument scale"/>
 			<ValueElement Value="A" CodeSystem="HL70078" DisplayName="Abnormal (applies to non-numeric results)"/>
@@ -1818,7 +1818,7 @@
 			<ValueElement Value="VS" CodeSystem="HL70078" DisplayName="Very susceptible. Indicates for microbiology susceptibilities only."/>
 			<ValueElement Value="W" CodeSystem="HL70078" DisplayName="Worse--use when direction not relevant"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0316" Name="Organ Donor Code">
+		<ValueSetDefinition BindingIdentifier="HL70316" Name="Organ Donor Code">
 			<ValueElement Value="F" CodeSystem="HL70316" DisplayName="Yes, patient is a documented donor, but documentation is not on file"/>
 			<ValueElement Value="I" CodeSystem="HL70316" DisplayName="No, patient is not a documented donor, but information was provided"/>
 			<ValueElement Value="N" CodeSystem="HL70316" DisplayName="No, patient has not agreed to be a donor"/>
@@ -1827,7 +1827,7 @@
 			<ValueElement Value="U" CodeSystem="HL70316" DisplayName="Unknown"/>
 			<ValueElement Value="Y" CodeSystem="HL70316" DisplayName="Yes, patient is a documented donor and documentation is on file"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0080" Name="Nature of Abnormal Testing">
+		<ValueSetDefinition BindingIdentifier="HL70080" Name="Nature of Abnormal Testing">
 			<ValueElement Value="A" CodeSystem="HL70080" DisplayName="An age-based population"/>
 			<ValueElement Value="B" CodeSystem="HL70080" DisplayName="Breed"/>
 			<ValueElement Value="N" CodeSystem="HL70080" DisplayName="None - generic normal range"/>
@@ -1836,44 +1836,44 @@
 			<ValueElement Value="SP" CodeSystem="HL70080" DisplayName="Species"/>
 			<ValueElement Value="ST" CodeSystem="HL70080" DisplayName="Strain"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0087" Name="Pre-Admit Test Indicator">
+		<ValueSetDefinition BindingIdentifier="HL70087" Name="Pre-Admit Test Indicator">
 			<ValueElement Value="..." CodeSystem="HL70087" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0129" Name="Accommodation code">
+		<ValueSetDefinition BindingIdentifier="HL70129" Name="Accommodation code">
 			<ValueElement Value="..." CodeSystem="HL70129" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0086" Name="Plan ID">
+		<ValueSetDefinition BindingIdentifier="HL70086" Name="Plan ID">
 			<ValueElement Value="..." CodeSystem="HL70086" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0105" Name="Source of comment">
+		<ValueSetDefinition BindingIdentifier="HL70105" Name="Source of comment">
 			<ValueElement Value="L" CodeSystem="HL70105" DisplayName="Ancillary (filler) department is source of comment"/>
 			<ValueElement Value="O" CodeSystem="HL70105" DisplayName="Other system is source of comment"/>
 			<ValueElement Value="P" CodeSystem="HL70105" DisplayName="Orderer (placer) is source of comment"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0121" Name="Response flag">
+		<ValueSetDefinition BindingIdentifier="HL70121" Name="Response flag">
 			<ValueElement Value="D" CodeSystem="HL70121" DisplayName="Same as R, also other associated segments"/>
 			<ValueElement Value="E" CodeSystem="HL70121" DisplayName="Report exceptions only"/>
 			<ValueElement Value="F" CodeSystem="HL70121" DisplayName="Same as D, plus confirmations explicitly"/>
 			<ValueElement Value="N" CodeSystem="HL70121" DisplayName="Only the MSA segment is returned"/>
 			<ValueElement Value="R" CodeSystem="HL70121" DisplayName="Same as E, also Replacement and Parent-Child"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0142" Name="Military Status">
+		<ValueSetDefinition BindingIdentifier="HL70142" Name="Military Status">
 			<ValueElement Value="ACT" CodeSystem="HL70142" DisplayName="Active duty"/>
 			<ValueElement Value="DEC" CodeSystem="HL70142" DisplayName="Deceased"/>
 			<ValueElement Value="RET" CodeSystem="HL70142" DisplayName="Retired"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0303" Name="Room">
+		<ValueSetDefinition BindingIdentifier="HL70303" Name="Room">
 			<ValueElement Value="..." CodeSystem="HL70303" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0141" Name="Military Rank/Grade">
+		<ValueSetDefinition BindingIdentifier="HL70141" Name="Military Rank/Grade">
 			<ValueElement Value="E1... E9" CodeSystem="HL70141" DisplayName="Enlisted"/>
 			<ValueElement Value="O1 ... O9" CodeSystem="HL70141" DisplayName="Officers"/>
 			<ValueElement Value="W1 ... W4" CodeSystem="HL70141" DisplayName="Warrant Officers"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0304" Name="Bed">
+		<ValueSetDefinition BindingIdentifier="HL70304" Name="Bed">
 			<ValueElement Value="..." CodeSystem="HL70304" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0140" Name="Military Service">
+		<ValueSetDefinition BindingIdentifier="HL70140" Name="Military Service">
 			<ValueElement Value="AUSA" CodeSystem="HL70140" DisplayName="Australian Army"/>
 			<ValueElement Value="AUSAF" CodeSystem="HL70140" DisplayName="Australian Air Force"/>
 			<ValueElement Value="AUSN" CodeSystem="HL70140" DisplayName="Australian Navy"/>
@@ -1886,7 +1886,7 @@
 			<ValueElement Value="USN" CodeSystem="HL70140" DisplayName="US Navy"/>
 			<ValueElement Value="USPHS" CodeSystem="HL70140" DisplayName="US Public Health Service"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0301" Name="Universal ID type">
+		<ValueSetDefinition BindingIdentifier="HL70301" Name="Universal ID type">
 			<ValueElement Value="DNS" CodeSystem="HL70301" DisplayName="An Internet dotted name. Either in ASCII or as integers"/>
 			<ValueElement Value="GUID" CodeSystem="HL70301" DisplayName="Same as UUID."/>
 			<ValueElement Value="HCD" CodeSystem="HL70301" DisplayName="The CEN Healthcare Coding Scheme Designator. (Identifiers used in DICOM follow this assignment scheme.)"/>
@@ -1899,35 +1899,35 @@
 			<ValueElement Value="x400" CodeSystem="HL70301" DisplayName="An X.400 MHS format identifier"/>
 			<ValueElement Value="x500" CodeSystem="HL70301" DisplayName="An X.500 directory name"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0302" Name="Point of care">
+		<ValueSetDefinition BindingIdentifier="HL70302" Name="Point of care">
 			<ValueElement Value="..." CodeSystem="HL70302" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0504" Name="Sequence Condition Code">
+		<ValueSetDefinition BindingIdentifier="HL70504" Name="Sequence Condition Code">
 			<ValueElement Value="EE" CodeSystem="HL70504" DisplayName="End related service request(s), end current service request."/>
 			<ValueElement Value="ES" CodeSystem="HL70504" DisplayName="End related service request(s), start current service request."/>
 			<ValueElement Value="SE" CodeSystem="HL70504" DisplayName="Start related service request(s), end current service request."/>
 			<ValueElement Value="SS" CodeSystem="HL70504" DisplayName="Start related service request(s), start current service request."/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0503" Name="Sequence/Results Flag">
+		<ValueSetDefinition BindingIdentifier="HL70503" Name="Sequence/Results Flag">
 			<ValueElement Value="C" CodeSystem="HL70503" DisplayName="Cyclical"/>
 			<ValueElement Value="R" CodeSystem="HL70503" DisplayName="Reserved for future use"/>
 			<ValueElement Value="S" CodeSystem="HL70503" DisplayName="Sequential"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0300" Name="Namespace ID">
+		<ValueSetDefinition BindingIdentifier="HL70300" Name="Namespace ID">
 			<ValueElement Value="..." CodeSystem="HL70300" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0506" Name="Service Request Relationship">
+		<ValueSetDefinition BindingIdentifier="HL70506" Name="Service Request Relationship">
 			<ValueElement Value="C" CodeSystem="HL70506" DisplayName="Compound"/>
 			<ValueElement Value="E" CodeSystem="HL70506" DisplayName="Exclusive"/>
 			<ValueElement Value="N" CodeSystem="HL70506" DisplayName="Nurse prerogative"/>
 			<ValueElement Value="S" CodeSystem="HL70506" DisplayName="Simultaneous"/>
 			<ValueElement Value="T" CodeSystem="HL70506" DisplayName="Tapering"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0505" Name="Cyclic Entry/Exit Indicator">
+		<ValueSetDefinition BindingIdentifier="HL70505" Name="Cyclic Entry/Exit Indicator">
 			<ValueElement Value="#" CodeSystem="HL70505" DisplayName="The last service request in a cyclic group."/>
 			<ValueElement Value="*" CodeSystem="HL70505" DisplayName="The first service request in a cyclic group"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0066" Name="Employment Status">
+		<ValueSetDefinition BindingIdentifier="HL70066" Name="Employment Status">
 			<ValueElement Value="1" CodeSystem="HL70066" DisplayName="Full time employed"/>
 			<ValueElement Value="2" CodeSystem="HL70066" DisplayName="Part time employed"/>
 			<ValueElement Value="3" CodeSystem="HL70066" DisplayName="Unemployed"/>
@@ -1940,28 +1940,28 @@
 			<ValueElement Value="O" CodeSystem="HL70066" DisplayName="Other"/>
 			<ValueElement Value="T" CodeSystem="HL70066" DisplayName="Temporarily unemployed"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0309" Name="Coverage Type">
+		<ValueSetDefinition BindingIdentifier="HL70309" Name="Coverage Type">
 			<ValueElement Value="B" CodeSystem="HL70309" DisplayName="Both hospital and physician"/>
 			<ValueElement Value="H" CodeSystem="HL70309" DisplayName="Hospital/institutional"/>
 			<ValueElement Value="P" CodeSystem="HL70309" DisplayName="Physician/professional"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0068" Name="Guarantor Type">
+		<ValueSetDefinition BindingIdentifier="HL70068" Name="Guarantor Type">
 			<ValueElement Value="..." CodeSystem="HL70068" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0069" Name="Hospital Service">
+		<ValueSetDefinition BindingIdentifier="HL70069" Name="Hospital Service">
 			<ValueElement Value="CAR" CodeSystem="HL70069" DisplayName="Cardiac Service"/>
 			<ValueElement Value="MED" CodeSystem="HL70069" DisplayName="Medical Service"/>
 			<ValueElement Value="PUL" CodeSystem="HL70069" DisplayName="Pulmonary Service"/>
 			<ValueElement Value="SUR" CodeSystem="HL70069" DisplayName="Surgical Service"/>
 			<ValueElement Value="URO" CodeSystem="HL70069" DisplayName="Urology Service"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0307" Name="Building">
+		<ValueSetDefinition BindingIdentifier="HL70307" Name="Building">
 			<ValueElement Value="..." CodeSystem="HL70307" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0308" Name="Floor">
+		<ValueSetDefinition BindingIdentifier="HL70308" Name="Floor">
 			<ValueElement Value="..." CodeSystem="HL70308" DisplayName="No suggested values defined."/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0305" Name="Person location type">
+		<ValueSetDefinition BindingIdentifier="HL70305" Name="Person location type">
 			<ValueElement Value="C" CodeSystem="HL70305" DisplayName="Clinic"/>
 			<ValueElement Value="D" CodeSystem="HL70305" DisplayName="Department"/>
 			<ValueElement Value="H" CodeSystem="HL70305" DisplayName="Home"/>
@@ -1970,45 +1970,45 @@
 			<ValueElement Value="P" CodeSystem="HL70305" DisplayName="Phone"/>
 			<ValueElement Value="S" CodeSystem="HL70305" DisplayName="SNF"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0306" Name="Location status">
+		<ValueSetDefinition BindingIdentifier="HL70306" Name="Location status">
 			<ValueElement Value="..." CodeSystem="HL70306" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0072" Name="Insurance Plan ID">
+		<ValueSetDefinition BindingIdentifier="HL70072" Name="Insurance Plan ID">
 			<ValueElement Value="..." CodeSystem="HL70072" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0447" Name="Breed Code">
+		<ValueSetDefinition BindingIdentifier="HL70447" Name="Breed Code">
 			<ValueElement Value="..." CodeSystem="HL70447" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0446" Name="Species Code">
+		<ValueSetDefinition BindingIdentifier="HL70446" Name="Species Code">
 			<ValueElement Value="..." CodeSystem="HL70446" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0073" Name="Interest Rate Code">
+		<ValueSetDefinition BindingIdentifier="HL70073" Name="Interest Rate Code">
 			<ValueElement Value="..." CodeSystem="HL70073" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0445" Name="Identity Reliability Code">
+		<ValueSetDefinition BindingIdentifier="HL70445" Name="Identity Reliability Code">
 			<ValueElement Value="AL" CodeSystem="HL70445" DisplayName="Patient/Person Name is an Alias"/>
 			<ValueElement Value="UA" CodeSystem="HL70445" DisplayName="Unknown/Default Address"/>
 			<ValueElement Value="UD" CodeSystem="HL70445" DisplayName="Unknown/Default Date of Birth"/>
 			<ValueElement Value="US" CodeSystem="HL70445" DisplayName="Unknown/Default Social Security Number"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0444" Name="Name assembly order">
+		<ValueSetDefinition BindingIdentifier="HL70444" Name="Name assembly order">
 			<ValueElement Value="F" CodeSystem="HL70444" DisplayName="Prefix Family Middle Given Suffix"/>
 			<ValueElement Value="G" CodeSystem="HL70444" DisplayName="Prefix Given Middle Family Suffix"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0114" Name="Diet Type">
+		<ValueSetDefinition BindingIdentifier="HL70114" Name="Diet Type">
 			<ValueElement Value="..." CodeSystem="HL70114" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0139" Name="Employer Information Data">
+		<ValueSetDefinition BindingIdentifier="HL70139" Name="Employer Information Data">
 			<ValueElement Value="..." CodeSystem="HL70139" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0115" Name="Servicing Facility">
+		<ValueSetDefinition BindingIdentifier="HL70115" Name="Servicing Facility">
 			<ValueElement Value="..." CodeSystem="HL70115" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0136" Name="Yes/no indicator">
+		<ValueSetDefinition BindingIdentifier="HL70136" Name="Yes/no indicator">
 			<ValueElement Value="N" CodeSystem="HL70136" DisplayName="No"/>
 			<ValueElement Value="Y" CodeSystem="HL70136" DisplayName="Yes"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0116" Name="Bed Status">
+		<ValueSetDefinition BindingIdentifier="HL70116" Name="Bed Status">
 			<ValueElement Value="C" CodeSystem="HL70116" DisplayName="Closed"/>
 			<ValueElement Value="H" CodeSystem="HL70116" DisplayName="Housekeeping"/>
 			<ValueElement Value="I" CodeSystem="HL70116" DisplayName="Isolated"/>
@@ -2016,31 +2016,31 @@
 			<ValueElement Value="O" CodeSystem="HL70116" DisplayName="Occupied"/>
 			<ValueElement Value="U" CodeSystem="HL70116" DisplayName="Unoccupied"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0137" Name="Mail Claim Party">
+		<ValueSetDefinition BindingIdentifier="HL70137" Name="Mail Claim Party">
 			<ValueElement Value="E" CodeSystem="HL70137" DisplayName="Employer"/>
 			<ValueElement Value="G" CodeSystem="HL70137" DisplayName="Guarantor"/>
 			<ValueElement Value="I" CodeSystem="HL70137" DisplayName="Insurance company"/>
 			<ValueElement Value="O" CodeSystem="HL70137" DisplayName="Other"/>
 			<ValueElement Value="P" CodeSystem="HL70137" DisplayName="Patient"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0448" Name="Name context">
+		<ValueSetDefinition BindingIdentifier="HL70448" Name="Name context">
 			<ValueElement Value="..." CodeSystem="HL70448" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0117" Name="Account Status">
+		<ValueSetDefinition BindingIdentifier="HL70117" Name="Account Status">
 			<ValueElement Value="..." CodeSystem="HL70117" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0110" Name="Transfer to Bad Debt Code">
+		<ValueSetDefinition BindingIdentifier="HL70110" Name="Transfer to Bad Debt Code">
 			<ValueElement Value="..." CodeSystem="HL70110" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0135" Name="Assignment of Benefits">
+		<ValueSetDefinition BindingIdentifier="HL70135" Name="Assignment of Benefits">
 			<ValueElement Value="M" CodeSystem="HL70135" DisplayName="Modified assignment"/>
 			<ValueElement Value="N" CodeSystem="HL70135" DisplayName="No"/>
 			<ValueElement Value="Y" CodeSystem="HL70135" DisplayName="Yes"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0111" Name="Delete Account Code">
+		<ValueSetDefinition BindingIdentifier="HL70111" Name="Delete Account Code">
 			<ValueElement Value="..." CodeSystem="HL70111" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0112" Name="Discharge Disposition">
+		<ValueSetDefinition BindingIdentifier="HL70112" Name="Discharge Disposition">
 			<ValueElement Value="01" CodeSystem="HL70112" DisplayName="Discharged to home or self care (routine discharge)"/>
 			<ValueElement Value="02" CodeSystem="HL70112" DisplayName="Discharged/transferred to another short term general hospital for inpatient care"/>
 			<ValueElement Value="03" CodeSystem="HL70112" DisplayName="Discharged/transferred to skilled nursing facility (SNF)"/>
@@ -2059,30 +2059,30 @@
 			<ValueElement Value="41" CodeSystem="HL70112" DisplayName="Expired (i.e. died) in a medical facility; e.g., hospital, SNF, ICF, or free standing hospice"/>
 			<ValueElement Value="42" CodeSystem="HL70112" DisplayName="Expired (i.e. died)  - place unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0113" Name="Discharged to location">
+		<ValueSetDefinition BindingIdentifier="HL70113" Name="Discharged to location">
 			<ValueElement Value="..." CodeSystem="HL70113" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0339" Name="Advanced Beneficiary Notice Code">
+		<ValueSetDefinition BindingIdentifier="HL70339" Name="Advanced Beneficiary Notice Code">
 			<ValueElement Value="1" CodeSystem="HL70339" DisplayName="Service is subject to medical necessity procedures"/>
 			<ValueElement Value="2" CodeSystem="HL70339" DisplayName="Patient has been informed of responsibility, and agrees to pay for service"/>
 			<ValueElement Value="3" CodeSystem="HL70339" DisplayName="Patient has been informed of responsibility, and asks that the payer be billed"/>
 			<ValueElement Value="4" CodeSystem="HL70339" DisplayName="Advanced Beneficiary Notice has not been signed"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0018" Name="Patient Type">
+		<ValueSetDefinition BindingIdentifier="HL70018" Name="Patient Type">
 			<ValueElement Value="..." CodeSystem="HL70018" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0295" Name="Handicap">
+		<ValueSetDefinition BindingIdentifier="HL70295" Name="Handicap">
 			<ValueElement Value="..." CodeSystem="HL70295" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0296" Name="Primary Language">
+		<ValueSetDefinition BindingIdentifier="HL70296" Name="Primary Language">
 			<ValueElement Value="..." CodeSystem="HL70296" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0232" Name="Insurance Company Contact Reason">
+		<ValueSetDefinition BindingIdentifier="HL70232" Name="Insurance Company Contact Reason">
 			<ValueElement Value="01" CodeSystem="HL70232" DisplayName="Medicare claim status"/>
 			<ValueElement Value="02" CodeSystem="HL70232" DisplayName="Medicaid claim status"/>
 			<ValueElement Value="03" CodeSystem="HL70232" DisplayName="Name/address change"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0485" Name="Extended Priority Codes">
+		<ValueSetDefinition BindingIdentifier="HL70485" Name="Extended Priority Codes">
 			<ValueElement Value="A" CodeSystem="HL70485" DisplayName="ASAP"/>
 			<ValueElement Value="C" CodeSystem="HL70485" DisplayName="Callback"/>
 			<ValueElement Value="P" CodeSystem="HL70485" DisplayName="Preop"/>
@@ -2091,15 +2091,15 @@
 			<ValueElement Value="S" CodeSystem="HL70485" DisplayName="Stat"/>
 			<ValueElement Value="T" CodeSystem="HL70485" DisplayName="Timing critical"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0231" Name="Student Status">
+		<ValueSetDefinition BindingIdentifier="HL70231" Name="Student Status">
 			<ValueElement Value="F" CodeSystem="HL70231" DisplayName="Full-time student"/>
 			<ValueElement Value="N" CodeSystem="HL70231" DisplayName="Not a student"/>
 			<ValueElement Value="P" CodeSystem="HL70231" DisplayName="Part-time student"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0233" Name="Non-Concur Code/Description">
+		<ValueSetDefinition BindingIdentifier="HL70233" Name="Non-Concur Code/Description">
 			<ValueElement Value="..." CodeSystem="HL70233" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0190" Name="Address type">
+		<ValueSetDefinition BindingIdentifier="HL70190" Name="Address type">
 			<ValueElement Value="B" CodeSystem="HL70190" DisplayName="Firm/Business"/>
 			<ValueElement Value="BA" CodeSystem="HL70190" DisplayName="Bad address"/>
 			<ValueElement Value="BDL" CodeSystem="HL70190" DisplayName="Birth delivery location (address where birth occurred)"/>
@@ -2114,16 +2114,16 @@
 			<ValueElement Value="P" CodeSystem="HL70190" DisplayName="Permanent"/>
 			<ValueElement Value="RH" CodeSystem="HL70190" DisplayName="Registry home. Refers to the information system, typically managed by a public health agency, that stores patient information such as immunization histories or cancer data, regardless of where the patient obtains services."/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0333" Name="Driver's license issuing authority">
+		<ValueSetDefinition BindingIdentifier="HL70333" Name="Driver's license issuing authority">
 			<ValueElement Value="..." CodeSystem="HL70333" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0193" Name="Amount class">
+		<ValueSetDefinition BindingIdentifier="HL70193" Name="Amount class">
 			<ValueElement Value="AT" CodeSystem="HL70193" DisplayName="Amount"/>
 			<ValueElement Value="LM" CodeSystem="HL70193" DisplayName="Limit"/>
 			<ValueElement Value="PC" CodeSystem="HL70193" DisplayName="Percentage"/>
 			<ValueElement Value="UL" CodeSystem="HL70193" DisplayName="Unlimited"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0335" Name="Repeat pattern">
+		<ValueSetDefinition BindingIdentifier="HL70335" Name="Repeat pattern">
 			<ValueElement Value="A" CodeSystem="HL70335" DisplayName="Ante (before)"/>
 			<ValueElement Value="BID" CodeSystem="HL70335" DisplayName="twice a day at institution-specified times"/>
 			<ValueElement Value="C" CodeSystem="HL70335" DisplayName="service is provided continuously between start time and stop time"/>
@@ -2153,22 +2153,22 @@
 			<ValueElement Value="V" CodeSystem="HL70335" DisplayName="Cibus Vespertinus (dinner)"/>
 			<ValueElement Value="xID" CodeSystem="HL70335" DisplayName="창??X창?? times per day at institution-specified times, where X is a numeral 5 or greater."/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0189" Name="Ethnic Group">
+		<ValueSetDefinition BindingIdentifier="HL70189" Name="Ethnic Group">
 			<ValueElement Value="H" CodeSystem="HL70189" DisplayName="Hispanic or Latino"/>
 			<ValueElement Value="N" CodeSystem="HL70189" DisplayName="Not Hispanic or Latino"/>
 			<ValueElement Value="U" CodeSystem="HL70189" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0099" Name="VIP Indicator">
+		<ValueSetDefinition BindingIdentifier="HL70099" Name="VIP Indicator">
 			<ValueElement Value="..." CodeSystem="HL70099" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0534" Name="Notify Clergy Code">
+		<ValueSetDefinition BindingIdentifier="HL70534" Name="Notify Clergy Code">
 			<ValueElement Value="L" CodeSystem="HL70534" DisplayName="Last Rites only"/>
 			<ValueElement Value="N" CodeSystem="HL70534" DisplayName="No"/>
 			<ValueElement Value="O" CodeSystem="HL70534" DisplayName="Other"/>
 			<ValueElement Value="U" CodeSystem="HL70534" DisplayName="Unknown"/>
 			<ValueElement Value="Y" CodeSystem="HL70534" DisplayName="Yes"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0433" Name="Precaution Code">
+		<ValueSetDefinition BindingIdentifier="HL70433" Name="Precaution Code">
 			<ValueElement Value="A" CodeSystem="HL70433" DisplayName="Aggressive"/>
 			<ValueElement Value="B" CodeSystem="HL70433" DisplayName="Blind"/>
 			<ValueElement Value="C" CodeSystem="HL70433" DisplayName="Confused"/>
@@ -2179,7 +2179,7 @@
 			<ValueElement Value="P" CodeSystem="HL70433" DisplayName="Paraplegic"/>
 			<ValueElement Value="U" CodeSystem="HL70433" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0434" Name="Patient Condition Code">
+		<ValueSetDefinition BindingIdentifier="HL70434" Name="Patient Condition Code">
 			<ValueElement Value="A" CodeSystem="HL70434" DisplayName="Satisfactory"/>
 			<ValueElement Value="C" CodeSystem="HL70434" DisplayName="Critical"/>
 			<ValueElement Value="O" CodeSystem="HL70434" DisplayName="Other"/>
@@ -2187,13 +2187,13 @@
 			<ValueElement Value="S" CodeSystem="HL70434" DisplayName="Stable"/>
 			<ValueElement Value="U" CodeSystem="HL70434" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0021" Name="Bad Debt Agency Code">
+		<ValueSetDefinition BindingIdentifier="HL70021" Name="Bad Debt Agency Code">
 			<ValueElement Value="..." CodeSystem="HL70021" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0435" Name="Advance Directive Code">
+		<ValueSetDefinition BindingIdentifier="HL70435" Name="Advance Directive Code">
 			<ValueElement Value="DNR" CodeSystem="HL70435" DisplayName="Do not resuscitate"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0430" Name="Mode of Arrival Code">
+		<ValueSetDefinition BindingIdentifier="HL70430" Name="Mode of Arrival Code">
 			<ValueElement Value="A" CodeSystem="HL70430" DisplayName="Ambulance"/>
 			<ValueElement Value="C" CodeSystem="HL70430" DisplayName="Car"/>
 			<ValueElement Value="F" CodeSystem="HL70430" DisplayName="On foot"/>
@@ -2202,10 +2202,10 @@
 			<ValueElement Value="P" CodeSystem="HL70430" DisplayName="Public Transport"/>
 			<ValueElement Value="U" CodeSystem="HL70430" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0289" Name="County/parish">
+		<ValueSetDefinition BindingIdentifier="HL70289" Name="County/parish">
 			<ValueElement Value="..." CodeSystem="HL70289" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0431" Name="Recreational Drug Use Code">
+		<ValueSetDefinition BindingIdentifier="HL70431" Name="Recreational Drug Use Code">
 			<ValueElement Value="A" CodeSystem="HL70431" DisplayName="Alcohol"/>
 			<ValueElement Value="C" CodeSystem="HL70431" DisplayName="Tobacco - chewed"/>
 			<ValueElement Value="K" CodeSystem="HL70431" DisplayName="Kava"/>
@@ -2214,7 +2214,7 @@
 			<ValueElement Value="T" CodeSystem="HL70431" DisplayName="Tobacco - smoked"/>
 			<ValueElement Value="U" CodeSystem="HL70431" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0432" Name="Admission Level of Care Code">
+		<ValueSetDefinition BindingIdentifier="HL70432" Name="Admission Level of Care Code">
 			<ValueElement Value="AC" CodeSystem="HL70432" DisplayName="Acute"/>
 			<ValueElement Value="CH" CodeSystem="HL70432" DisplayName="Chronic"/>
 			<ValueElement Value="CO" CodeSystem="HL70432" DisplayName="Comatose"/>
@@ -2222,10 +2222,10 @@
 			<ValueElement Value="IM" CodeSystem="HL70432" DisplayName="Improved"/>
 			<ValueElement Value="MO" CodeSystem="HL70432" DisplayName="Moribund"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0288" Name="Census tract">
+		<ValueSetDefinition BindingIdentifier="HL70288" Name="Census tract">
 			<ValueElement Value="..." CodeSystem="HL70288" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0005" Name="Race">
+		<ValueSetDefinition BindingIdentifier="HL70005" Name="Race">
 			<ValueElement Value="1002-5" CodeSystem="HL70005" DisplayName="American Indian or Alaska Native"/>
 			<ValueElement Value="2028-9" CodeSystem="HL70005" DisplayName="Asian"/>
 			<ValueElement Value="2054-5" CodeSystem="HL70005" DisplayName="Black or African American"/>
@@ -2233,7 +2233,7 @@
 			<ValueElement Value="2106-3" CodeSystem="HL70005" DisplayName="White"/>
 			<ValueElement Value="2131-1" CodeSystem="HL70005" DisplayName="Other Race"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0004" Name="Patient Class">
+		<ValueSetDefinition BindingIdentifier="HL70004" Name="Patient Class">
 			<ValueElement Value="B" CodeSystem="HL70004" DisplayName="Obstetrics"/>
 			<ValueElement Value="C" CodeSystem="HL70004" DisplayName="Commercial Account"/>
 			<ValueElement Value="E" CodeSystem="HL70004" DisplayName="Emergency"/>
@@ -2244,10 +2244,10 @@
 			<ValueElement Value="R" CodeSystem="HL70004" DisplayName="Recurring patient"/>
 			<ValueElement Value="U" CodeSystem="HL70004" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0328" Name="Employee classification">
+		<ValueSetDefinition BindingIdentifier="HL70328" Name="Employee classification">
 			<ValueElement Value="..." CodeSystem="HL70328" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0007" Name="Admission Type">
+		<ValueSetDefinition BindingIdentifier="HL70007" Name="Admission Type">
 			<ValueElement Value="A" CodeSystem="HL70007" DisplayName="Accident"/>
 			<ValueElement Value="C" CodeSystem="HL70007" DisplayName="Elective"/>
 			<ValueElement Value="E" CodeSystem="HL70007" DisplayName="Emergency"/>
@@ -2256,10 +2256,10 @@
 			<ValueElement Value="R" CodeSystem="HL70007" DisplayName="Routine"/>
 			<ValueElement Value="U" CodeSystem="HL70007" DisplayName="Urgent"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0327" Name="Job code">
+		<ValueSetDefinition BindingIdentifier="HL70327" Name="Job code">
 			<ValueElement Value="..." CodeSystem="HL70327" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0006" Name="Religion">
+		<ValueSetDefinition BindingIdentifier="HL70006" Name="Religion">
 			<ValueElement Value="ABC" CodeSystem="HL70006" DisplayName="Christian: American Baptist Church"/>
 			<ValueElement Value="AGN" CodeSystem="HL70006" DisplayName="Agnostic"/>
 			<ValueElement Value="AME" CodeSystem="HL70006" DisplayName="Christian: African Methodist Episcopal Zion"/>
@@ -2344,7 +2344,7 @@
 			<ValueElement Value="WES" CodeSystem="HL70006" DisplayName="Christian: Wesleyan"/>
 			<ValueElement Value="WMC" CodeSystem="HL70006" DisplayName="Christian: Wesleyan Methodist"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0001" Name="Administrative Sex">
+		<ValueSetDefinition BindingIdentifier="HL70001" Name="Administrative Sex">
 			<ValueElement Value="A" CodeSystem="HL70001" DisplayName="Ambiguous"/>
 			<ValueElement Value="F" CodeSystem="HL70001" DisplayName="Female"/>
 			<ValueElement Value="M" CodeSystem="HL70001" DisplayName="Male"/>
@@ -2352,17 +2352,17 @@
 			<ValueElement Value="O" CodeSystem="HL70001" DisplayName="Other"/>
 			<ValueElement Value="U" CodeSystem="HL70001" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0223" Name="Living Dependency">
+		<ValueSetDefinition BindingIdentifier="HL70223" Name="Living Dependency">
 			<ValueElement Value="C" CodeSystem="HL70223" DisplayName="Small Children Dependent"/>
 			<ValueElement Value="M" CodeSystem="HL70223" DisplayName="Medical Supervision Required"/>
 			<ValueElement Value="O" CodeSystem="HL70223" DisplayName="Other"/>
 			<ValueElement Value="S" CodeSystem="HL70223" DisplayName="Spouse Dependent"/>
 			<ValueElement Value="U" CodeSystem="HL70223" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0222" Name="Contact Reason">
+		<ValueSetDefinition BindingIdentifier="HL70222" Name="Contact Reason">
 			<ValueElement Value="..." CodeSystem="HL70222" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0495" Name="Body Site Modifier">
+		<ValueSetDefinition BindingIdentifier="HL70495" Name="Body Site Modifier">
 			<ValueElement Value="ANT" CodeSystem="HL70495" DisplayName="Anterior"/>
 			<ValueElement Value="BIL" CodeSystem="HL70495" DisplayName="Bilateral"/>
 			<ValueElement Value="DIS" CodeSystem="HL70495" DisplayName="Distal"/>
@@ -2380,7 +2380,7 @@
 			<ValueElement Value="RUQ" CodeSystem="HL70495" DisplayName="Quadrant, Right Upper"/>
 			<ValueElement Value="UPP" CodeSystem="HL70495" DisplayName="Upper"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0220" Name="Living Arrangement">
+		<ValueSetDefinition BindingIdentifier="HL70220" Name="Living Arrangement">
 			<ValueElement Value="A" CodeSystem="HL70220" DisplayName="Alone"/>
 			<ValueElement Value="F" CodeSystem="HL70220" DisplayName="Family"/>
 			<ValueElement Value="I" CodeSystem="HL70220" DisplayName="Institution"/>
@@ -2388,7 +2388,7 @@
 			<ValueElement Value="S" CodeSystem="HL70220" DisplayName="Spouse Only"/>
 			<ValueElement Value="U" CodeSystem="HL70220" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0002" Name="Marital Status">
+		<ValueSetDefinition BindingIdentifier="HL70002" Name="Marital Status">
 			<ValueElement Value="A" CodeSystem="HL70002" DisplayName="Separated"/>
 			<ValueElement Value="B" CodeSystem="HL70002" DisplayName="Unmarried"/>
 			<ValueElement Value="C" CodeSystem="HL70002" DisplayName="Common law"/>
@@ -2406,15 +2406,15 @@
 			<ValueElement Value="U" CodeSystem="HL70002" DisplayName="Unknown"/>
 			<ValueElement Value="W" CodeSystem="HL70002" DisplayName="Widowed"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0098" Name="Type of Agreement">
+		<ValueSetDefinition BindingIdentifier="HL70098" Name="Type of Agreement">
 			<ValueElement Value="M" CodeSystem="HL70098" DisplayName="Maternity"/>
 			<ValueElement Value="S" CodeSystem="HL70098" DisplayName="Standard"/>
 			<ValueElement Value="U" CodeSystem="HL70098" DisplayName="Unified"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0399" Name="Country code">
+		<ValueSetDefinition BindingIdentifier="HL70399" Name="Country code">
 			<ValueElement Value="..." CodeSystem="HL70399" DisplayName="use 3-character (alphabetic) form of ISO 3166"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0396" Name="Coding system">
+		<ValueSetDefinition BindingIdentifier="HL70396" Name="Coding system">
 			<ValueElement Value="99zzz or L" CodeSystem="HL70396" DisplayName="Local general code (where z is an alphanumeric character)"/>
 			<ValueElement Value="ACR" CodeSystem="HL70396" DisplayName="American College of Radiology finding codes"/>
 			<ValueElement Value="ACTCODE" CodeSystem="HL70396" DisplayName="Table of HL7 Version 3 ActCode values"/>
@@ -2586,12 +2586,12 @@
 			<ValueElement Value="WC" CodeSystem="HL70396" DisplayName="WHO record # code with ASTM extension"/>
 			<ValueElement Value="X12DEnnnn" CodeSystem="HL70396" DisplayName="WHO ATC"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0093" Name="Release Information">
+		<ValueSetDefinition BindingIdentifier="HL70093" Name="Release Information">
 			<ValueElement Value="..." CodeSystem="HL70093" DisplayName="user-defined codes"/>
 			<ValueElement Value="N" CodeSystem="HL70093" DisplayName="No"/>
 			<ValueElement Value="Y" CodeSystem="HL70093" DisplayName="Yes"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0009" Name="Ambulatory Status">
+		<ValueSetDefinition BindingIdentifier="HL70009" Name="Ambulatory Status">
 			<ValueElement Value="A0" CodeSystem="HL70009" DisplayName="No functional limitations"/>
 			<ValueElement Value="A1" CodeSystem="HL70009" DisplayName="Ambulates with assistive device"/>
 			<ValueElement Value="A2" CodeSystem="HL70009" DisplayName="Wheelchair/stretcher bound"/>
@@ -2609,19 +2609,19 @@
 			<ValueElement Value="B5" CodeSystem="HL70009" DisplayName="Paraplegic"/>
 			<ValueElement Value="B6" CodeSystem="HL70009" DisplayName="Pregnant"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0326" Name="Visit Indicator">
+		<ValueSetDefinition BindingIdentifier="HL70326" Name="Visit Indicator">
 			<ValueElement Value="A" CodeSystem="HL70326" DisplayName="Account level (default)"/>
 			<ValueElement Value="V" CodeSystem="HL70326" DisplayName="Visit level"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0092" Name="Re-Admission Indicator">
+		<ValueSetDefinition BindingIdentifier="HL70092" Name="Re-Admission Indicator">
 			<ValueElement Value="R" CodeSystem="HL70092" DisplayName="Re-admission"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0524" Name="Sequence condition">
+		<ValueSetDefinition BindingIdentifier="HL70524" Name="Sequence condition">
 			<ValueElement Value="C" CodeSystem="HL70524" DisplayName="Repeating cycle of orders"/>
 			<ValueElement Value="R" CodeSystem="HL70524" DisplayName="Reserved for possible future use"/>
 			<ValueElement Value="S" CodeSystem="HL70524" DisplayName="Sequence conditions"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0429" Name="Production Class Code">
+		<ValueSetDefinition BindingIdentifier="HL70429" Name="Production Class Code">
 			<ValueElement Value="BR" CodeSystem="HL70429" DisplayName="Breeding/genetic stock"/>
 			<ValueElement Value="DA" CodeSystem="HL70429" DisplayName="Dairy"/>
 			<ValueElement Value="DR" CodeSystem="HL70429" DisplayName="Draft"/>
@@ -2635,7 +2635,7 @@
 			<ValueElement Value="SH" CodeSystem="HL70429" DisplayName="Show"/>
 			<ValueElement Value="U" CodeSystem="HL70429" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0427" Name="Risk Management Incident Code">
+		<ValueSetDefinition BindingIdentifier="HL70427" Name="Risk Management Incident Code">
 			<ValueElement Value="B" CodeSystem="HL70427" DisplayName="Body fluid exposure"/>
 			<ValueElement Value="C" CodeSystem="HL70427" DisplayName="Contaminated Substance"/>
 			<ValueElement Value="D" CodeSystem="HL70427" DisplayName="Diet Errors"/>
@@ -2651,7 +2651,7 @@
 			<ValueElement Value="S" CodeSystem="HL70427" DisplayName="Suicide Attempt"/>
 			<ValueElement Value="T" CodeSystem="HL70427" DisplayName="Transfusion error"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0527" Name="Calendar alignment">
+		<ValueSetDefinition BindingIdentifier="HL70527" Name="Calendar alignment">
 			<ValueElement Value="DM" CodeSystem="HL70527" DisplayName="day of the month"/>
 			<ValueElement Value="DW" CodeSystem="HL70527" DisplayName="day of the week (begins with Monday)"/>
 			<ValueElement Value="DY" CodeSystem="HL70527" DisplayName="day of the year"/>
@@ -2661,7 +2661,7 @@
 			<ValueElement Value="SN" CodeSystem="HL70527" DisplayName="second of the minute"/>
 			<ValueElement Value="WY" CodeSystem="HL70527" DisplayName="week of the year"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0528" Name="Event related period">
+		<ValueSetDefinition BindingIdentifier="HL70528" Name="Event related period">
 			<ValueElement Value="AC" CodeSystem="HL70528" DisplayName="before meal (from lat. ante cibus)"/>
 			<ValueElement Value="ACD" CodeSystem="HL70528" DisplayName="before lunch (from lat. ante cibus diurnus)"/>
 			<ValueElement Value="ACM" CodeSystem="HL70528" DisplayName="before breakfast (from lat. ante cibus matutinus)"/>
@@ -2676,14 +2676,14 @@
 			<ValueElement Value="PCM" CodeSystem="HL70528" DisplayName="after breakfast (from lat. post cibus matutinus)"/>
 			<ValueElement Value="PCV" CodeSystem="HL70528" DisplayName="after dinner (from lat. post cibus vespertinus)"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0010" Name="Physician ID">
+		<ValueSetDefinition BindingIdentifier="HL70010" Name="Physician ID">
 			<ValueElement Value="..." CodeSystem="HL70010" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0298" Name="CP range type">
+		<ValueSetDefinition BindingIdentifier="HL70298" Name="CP range type">
 			<ValueElement Value="F" CodeSystem="HL70298" DisplayName="Flat-rate. Apply the entire price to this interval, do not pro-rate the price if the full interval has not occurred/been consumed"/>
 			<ValueElement Value="P" CodeSystem="HL70298" DisplayName="Pro-rate. Apply this price to this interval, pro-rated by whatever portion of the interval has occurred/been consumed"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0529" Name="Precision">
+		<ValueSetDefinition BindingIdentifier="HL70529" Name="Precision">
 			<ValueElement Value="D" CodeSystem="HL70529" DisplayName="day"/>
 			<ValueElement Value="H" CodeSystem="HL70529" DisplayName="hour"/>
 			<ValueElement Value="L" CodeSystem="HL70529" DisplayName="month"/>
@@ -2691,13 +2691,13 @@
 			<ValueElement Value="S" CodeSystem="HL70529" DisplayName="second"/>
 			<ValueElement Value="Y" CodeSystem="HL70529" DisplayName="year"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0297" Name="CN ID source">
+		<ValueSetDefinition BindingIdentifier="HL70297" Name="CN ID source">
 			<ValueElement Value="..." CodeSystem="HL70297" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0212" Name="Nationality">
+		<ValueSetDefinition BindingIdentifier="HL70212" Name="Nationality">
 			<ValueElement Value="..." CodeSystem="HL70212" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0211" Name="Alternate character sets">
+		<ValueSetDefinition BindingIdentifier="HL70211" Name="Alternate character sets">
 			<ValueElement Value="8859/1" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/1 Character set"/>
 			<ValueElement Value="8859/2" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/2 Character set"/>
 			<ValueElement Value="8859/3" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/3 Character set"/>
@@ -2720,19 +2720,19 @@
 			<ValueElement Value="UNICODE UTF-32" CodeSystem="HL70211" DisplayName="UCS Transformation Format, 32-bit form"/>
 			<ValueElement Value="UNICODE UTF-8" CodeSystem="HL70211" DisplayName="UCS Transformation Format, 8-bit form"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0214" Name="Special Program Code">
+		<ValueSetDefinition BindingIdentifier="HL70214" Name="Special Program Code">
 			<ValueElement Value="CH" CodeSystem="HL70214" DisplayName="Child Health Assistance"/>
 			<ValueElement Value="ES" CodeSystem="HL70214" DisplayName="Elective Surgery Program"/>
 			<ValueElement Value="FP" CodeSystem="HL70214" DisplayName="Family Planning"/>
 			<ValueElement Value="O" CodeSystem="HL70214" DisplayName="Other"/>
 			<ValueElement Value="U" CodeSystem="HL70214" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0213" Name="Purge Status Code">
+		<ValueSetDefinition BindingIdentifier="HL70213" Name="Purge Status Code">
 			<ValueElement Value="D" CodeSystem="HL70213" DisplayName="The visit is marked for deletion and the user cannot enter new data against it."/>
 			<ValueElement Value="I" CodeSystem="HL70213" DisplayName="The visit is marked inactive and the user cannot enter new data against it."/>
 			<ValueElement Value="P" CodeSystem="HL70213" DisplayName="Marked for purge.  User is no longer able to update the visit."/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0038" Name="Order status">
+		<ValueSetDefinition BindingIdentifier="HL70038" Name="Order status">
 			<ValueElement Value="A" CodeSystem="HL70038" DisplayName="Some, but not all, results available"/>
 			<ValueElement Value="CA" CodeSystem="HL70038" DisplayName="Order was canceled"/>
 			<ValueElement Value="CM" CodeSystem="HL70038" DisplayName="Order is completed"/>
@@ -2743,43 +2743,43 @@
 			<ValueElement Value="RP" CodeSystem="HL70038" DisplayName="Order has been replaced"/>
 			<ValueElement Value="SC" CodeSystem="HL70038" DisplayName="In process, scheduled"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0216" Name="Patient Status Code">
+		<ValueSetDefinition BindingIdentifier="HL70216" Name="Patient Status Code">
 			<ValueElement Value="AI" CodeSystem="HL70216" DisplayName="Active Inpatient"/>
 			<ValueElement Value="DI" CodeSystem="HL70216" DisplayName="Discharged Inpatient"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0215" Name="Publicity Code">
+		<ValueSetDefinition BindingIdentifier="HL70215" Name="Publicity Code">
 			<ValueElement Value="F" CodeSystem="HL70215" DisplayName="Family only"/>
 			<ValueElement Value="N" CodeSystem="HL70215" DisplayName="No Publicity"/>
 			<ValueElement Value="O" CodeSystem="HL70215" DisplayName="Other"/>
 			<ValueElement Value="U" CodeSystem="HL70215" DisplayName="Unknown"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0172" Name="Veterans Military Status">
+		<ValueSetDefinition BindingIdentifier="HL70172" Name="Veterans Military Status">
 			<ValueElement Value="..." CodeSystem="HL70172" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0218" Name="Patient Charge Adjustment">
+		<ValueSetDefinition BindingIdentifier="HL70218" Name="Patient Charge Adjustment">
 			<ValueElement Value="..." CodeSystem="HL70218" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0173" Name="Coordination of Benefits">
+		<ValueSetDefinition BindingIdentifier="HL70173" Name="Coordination of Benefits">
 			<ValueElement Value="CO" CodeSystem="HL70173" DisplayName="Coordination"/>
 			<ValueElement Value="IN" CodeSystem="HL70173" DisplayName="Independent"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0356" Name="Alternate character set handling scheme">
+		<ValueSetDefinition BindingIdentifier="HL70356" Name="Alternate character set handling scheme">
 			<ValueElement Value="&lt;null&gt;" CodeSystem="HL70356" DisplayName="This is the default, indicating that there is no character set switching occurring in this message."/>
 			<ValueElement Value="2.3" CodeSystem="HL70356" DisplayName="The character set switching mode specified in HL7 2.5, section 2.7.2, 창??Escape sequences supporting multiple character sets창?? and section 2.A.46, &quot;XPN - extended person name&quot;."/>
 			<ValueElement Value="ISO 2022-1994" CodeSystem="HL70356" DisplayName="This standard is titled &quot;Information Technology - Character Code Structure and Extension Technique&quot;. ."/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0217" Name="Visit Priority Code">
+		<ValueSetDefinition BindingIdentifier="HL70217" Name="Visit Priority Code">
 			<ValueElement Value="1" CodeSystem="HL70217" DisplayName="Emergency"/>
 			<ValueElement Value="2" CodeSystem="HL70217" DisplayName="Urgent"/>
 			<ValueElement Value="3" CodeSystem="HL70217" DisplayName="Elective"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0219" Name="Recurring Service Code">
+		<ValueSetDefinition BindingIdentifier="HL70219" Name="Recurring Service Code">
 			<ValueElement Value="..." CodeSystem="HL70219" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0363" Name="Assigning authority" Extensibility="Open">
+		<ValueSetDefinition BindingIdentifier="HL70363" Name="Assigning authority" Extensibility="Open">
 			<ValueElement Value="..." CodeSystem="HL70363" DisplayName="No suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0364" Name="Comment type">
+		<ValueSetDefinition BindingIdentifier="HL70364" Name="Comment type">
 			<ValueElement Value="1R" CodeSystem="HL70364" DisplayName="Primary Reason"/>
 			<ValueElement Value="2R" CodeSystem="HL70364" DisplayName="Secondary Reason"/>
 			<ValueElement Value="AI" CodeSystem="HL70364" DisplayName="Ancillary Instructions"/>
@@ -2789,10 +2789,10 @@
 			<ValueElement Value="PI" CodeSystem="HL70364" DisplayName="Patient Instructions"/>
 			<ValueElement Value="RE" CodeSystem="HL70364" DisplayName="Remark"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0171" Name="Citizenship">
+		<ValueSetDefinition BindingIdentifier="HL70171" Name="Citizenship">
 			<ValueElement Value="..." CodeSystem="HL70171" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0360" Name="Degree/license/certificate">
+		<ValueSetDefinition BindingIdentifier="HL70360" Name="Degree/license/certificate">
 			<ValueElement Value="AA" CodeSystem="HL70360" DisplayName="Associate of Arts"/>
 			<ValueElement Value="AAS" CodeSystem="HL70360" DisplayName="Associate of Applied Science"/>
 			<ValueElement Value="ABA" CodeSystem="HL70360" DisplayName="Associate of Business Administration"/>
@@ -2852,7 +2852,7 @@
 			<ValueElement Value="SEC" CodeSystem="HL70360" DisplayName="Secretarial Certificate"/>
 			<ValueElement Value="TS" CodeSystem="HL70360" DisplayName="Trade School Graduate"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0165" Name="Administration Method">
+		<ValueSetDefinition BindingIdentifier="HL70165" Name="Administration Method">
 			<ValueElement Value="CH" CodeSystem="HL70165" DisplayName="Chew"/>
 			<ValueElement Value="DI" CodeSystem="HL70165" DisplayName="Dissolve"/>
 			<ValueElement Value="DU" CodeSystem="HL70165" DisplayName="Dust"/>
@@ -2869,11 +2869,11 @@
 			<ValueElement Value="WA" CodeSystem="HL70165" DisplayName="Wash"/>
 			<ValueElement Value="WI" CodeSystem="HL70165" DisplayName="Wipe"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0552" Name="Advanced beneficiary notice override reason"/>
-		<ValueSetDefinition BindingIdentifier="0042" Name="Company Plan Code">
+		<ValueSetDefinition BindingIdentifier="HL70552" Name="Advanced beneficiary notice override reason"/>
+		<ValueSetDefinition BindingIdentifier="HL70042" Name="Company Plan Code">
 			<ValueElement Value="..." CodeSystem="HL70042" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0201" Name="Telecommunication use code">
+		<ValueSetDefinition BindingIdentifier="HL70201" Name="Telecommunication use code">
 			<ValueElement Value="ASN" CodeSystem="HL70201" DisplayName="Answering Service Number"/>
 			<ValueElement Value="BPN" CodeSystem="HL70201" DisplayName="Beeper Number"/>
 			<ValueElement Value="EMR" CodeSystem="HL70201" DisplayName="Emergency Number"/>
@@ -2883,7 +2883,7 @@
 			<ValueElement Value="VHN" CodeSystem="HL70201" DisplayName="Vacation Home Number"/>
 			<ValueElement Value="WPN" CodeSystem="HL70201" DisplayName="Work Number"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0023" Name="Admit Source">
+		<ValueSetDefinition BindingIdentifier="HL70023" Name="Admit Source">
 			<ValueElement Value="1" CodeSystem="HL70023" DisplayName="Physician referral"/>
 			<ValueElement Value="2" CodeSystem="HL70023" DisplayName="Clinic referral"/>
 			<ValueElement Value="3" CodeSystem="HL70023" DisplayName="HMO referral"/>
@@ -2894,10 +2894,10 @@
 			<ValueElement Value="8" CodeSystem="HL70023" DisplayName="Court/law enforcement"/>
 			<ValueElement Value="9" CodeSystem="HL70023" DisplayName="Information not available"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0022" Name="Billing Status">
+		<ValueSetDefinition BindingIdentifier="HL70022" Name="Billing Status">
 			<ValueElement Value="..." CodeSystem="HL70022" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0200" Name="Name type">
+		<ValueSetDefinition BindingIdentifier="HL70200" Name="Name type">
 			<ValueElement Value="A" CodeSystem="HL70200" DisplayName="Alias Name"/>
 			<ValueElement Value="B" CodeSystem="HL70200" DisplayName="Name at Birth"/>
 			<ValueElement Value="C" CodeSystem="HL70200" DisplayName="Adopted Name"/>
@@ -2912,7 +2912,7 @@
 			<ValueElement Value="T" CodeSystem="HL70200" DisplayName="Indigenous/Tribal/Community Name"/>
 			<ValueElement Value="U" CodeSystem="HL70200" DisplayName="Unspecified"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0205" Name="Price type">
+		<ValueSetDefinition BindingIdentifier="HL70205" Name="Price type">
 			<ValueElement Value="AP" CodeSystem="HL70205" DisplayName="administrative price or handling fee"/>
 			<ValueElement Value="DC" CodeSystem="HL70205" DisplayName="direct unit cost"/>
 			<ValueElement Value="IC" CodeSystem="HL70205" DisplayName="indirect unit cost"/>
@@ -2921,13 +2921,13 @@
 			<ValueElement Value="TP" CodeSystem="HL70205" DisplayName="total price"/>
 			<ValueElement Value="UP" CodeSystem="HL70205" DisplayName="unit price, may be based on length of procedure or service"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0204" Name="Organizational name type">
+		<ValueSetDefinition BindingIdentifier="HL70204" Name="Organizational name type">
 			<ValueElement Value="A" CodeSystem="HL70204" DisplayName="Alias name"/>
 			<ValueElement Value="D" CodeSystem="HL70204" DisplayName="Display name"/>
 			<ValueElement Value="L" CodeSystem="HL70204" DisplayName="Legal name"/>
 			<ValueElement Value="SL" CodeSystem="HL70204" DisplayName="Stock exchange listing name"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0203" Name="Identifier type">
+		<ValueSetDefinition BindingIdentifier="HL70203" Name="Identifier type">
 			<ValueElement Value="AM" CodeSystem="HL70203" DisplayName="American Express"/>
 			<ValueElement Value="AN" CodeSystem="HL70203" DisplayName="Account number"/>
 			<ValueElement Value="ANC" CodeSystem="HL70203" DisplayName="Account number Creditor"/>
@@ -3014,7 +3014,7 @@
 			<ValueElement Value="WCN" CodeSystem="HL70203" DisplayName="Workers' Comp Number"/>
 			<ValueElement Value="XX" CodeSystem="HL70203" DisplayName="Organization identifier"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0202" Name="Telecommunication equipment type">
+		<ValueSetDefinition BindingIdentifier="HL70202" Name="Telecommunication equipment type">
 			<ValueElement Value="BP" CodeSystem="HL70202" DisplayName="Beeper"/>
 			<ValueElement Value="CP" CodeSystem="HL70202" DisplayName="Cellular Phone"/>
 			<ValueElement Value="FX" CodeSystem="HL70202" DisplayName="Fax"/>
@@ -3025,20 +3025,20 @@
 			<ValueElement Value="TTY" CodeSystem="HL70202" DisplayName="Teletypewriter"/>
 			<ValueElement Value="X.400" CodeSystem="HL70202" DisplayName="X.400 email address: Use Only If Telecommunication Use Code Is NET"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0346" Name="Certification Agency">
+		<ValueSetDefinition BindingIdentifier="HL70346" Name="Certification Agency">
 			<ValueElement Value="..." CodeSystem="HL70346" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0207" Name="Processing mode">
+		<ValueSetDefinition BindingIdentifier="HL70207" Name="Processing mode">
 			<ValueElement Value="A" CodeSystem="HL70207" DisplayName="Archive"/>
 			<ValueElement Value="I" CodeSystem="HL70207" DisplayName="Initial load"/>
 			<ValueElement Value="Not present" CodeSystem="HL70207" DisplayName="Not present (the default, meaning current  processing)"/>
 			<ValueElement Value="R" CodeSystem="HL70207" DisplayName="Restore from archive"/>
 			<ValueElement Value="T" CodeSystem="HL70207" DisplayName="Current processing, transmitted at intervals (scheduled or on demand)"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0345" Name="Appeal Reason">
+		<ValueSetDefinition BindingIdentifier="HL70345" Name="Appeal Reason">
 			<ValueElement Value="..." CodeSystem="HL70345" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0344" Name="Patient's Relationship to Insured">
+		<ValueSetDefinition BindingIdentifier="HL70344" Name="Patient's Relationship to Insured">
 			<ValueElement Value="01" CodeSystem="HL70344" DisplayName="Patient is insured"/>
 			<ValueElement Value="02" CodeSystem="HL70344" DisplayName="Spouse"/>
 			<ValueElement Value="03" CodeSystem="HL70344" DisplayName="Natural child/insured financial responsibility"/>
@@ -3059,16 +3059,16 @@
 			<ValueElement Value="18" CodeSystem="HL70344" DisplayName="Parent"/>
 			<ValueElement Value="19" CodeSystem="HL70344" DisplayName="Grandparent"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0343" Name="Military Handicapped Program Code">
+		<ValueSetDefinition BindingIdentifier="HL70343" Name="Military Handicapped Program Code">
 			<ValueElement Value="..." CodeSystem="HL70343" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0342" Name="Military Recipient">
+		<ValueSetDefinition BindingIdentifier="HL70342" Name="Military Recipient">
 			<ValueElement Value="..." CodeSystem="HL70342" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0341" Name="Guarantor Credit Rating Code">
+		<ValueSetDefinition BindingIdentifier="HL70341" Name="Guarantor Credit Rating Code">
 			<ValueElement Value="..." CodeSystem="HL70341" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0177" Name="Confidentiality code">
+		<ValueSetDefinition BindingIdentifier="HL70177" Name="Confidentiality code">
 			<ValueElement Value="AID" CodeSystem="HL70177" DisplayName="AIDS patient"/>
 			<ValueElement Value="EMP" CodeSystem="HL70177" DisplayName="Employee"/>
 			<ValueElement Value="ETH" CodeSystem="HL70177" DisplayName="Alcohol/drug treatment patient"/>
@@ -3080,7 +3080,7 @@
 			<ValueElement Value="V" CodeSystem="HL70177" DisplayName="Very restricted"/>
 			<ValueElement Value="VIP" CodeSystem="HL70177" DisplayName="Very important person or celebrity"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0032" Name="Charge/Price Indicator">
+		<ValueSetDefinition BindingIdentifier="HL70032" Name="Charge/Price Indicator">
 			<ValueElement Value="..." CodeSystem="HL70032" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>

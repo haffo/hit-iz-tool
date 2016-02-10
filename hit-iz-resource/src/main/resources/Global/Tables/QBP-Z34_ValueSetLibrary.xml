@@ -6,13 +6,13 @@
 		<BindingIdentifier>HL70362_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70361_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70091_IZ</BindingIdentifier>
-		<BindingIdentifier>0300</BindingIdentifier>
-		<BindingIdentifier>0471</BindingIdentifier>
-		<BindingIdentifier>0399</BindingIdentifier>
-		<BindingIdentifier>0363</BindingIdentifier>
-		<BindingIdentifier>0448</BindingIdentifier>
-		<BindingIdentifier>0289</BindingIdentifier>
-		<BindingIdentifier>0288</BindingIdentifier>
+		<BindingIdentifier>HL70300</BindingIdentifier>
+		<BindingIdentifier>HL70471</BindingIdentifier>
+		<BindingIdentifier>HL70399</BindingIdentifier>
+		<BindingIdentifier>HL70363</BindingIdentifier>
+		<BindingIdentifier>HL70448</BindingIdentifier>
+		<BindingIdentifier>HL70289</BindingIdentifier>
+		<BindingIdentifier>HL70288</BindingIdentifier>
 	</NoValidation>
 	<ValueSetDefinitions Group="CDC-HL7-IZ" Order="1">
 		<ValueSetDefinition BindingIdentifier="HL70001_IZ" Name="Sex">
@@ -456,7 +456,7 @@
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
 	<ValueSetDefinitions Group="HL7" Order="3">
-		<ValueSetDefinition BindingIdentifier="0301" Name="Universal ID type">
+		<ValueSetDefinition BindingIdentifier="HL70301" Name="Universal ID type">
 			<ValueElement Value="DNS" CodeSystem="HL70301" DisplayName="An Internet dotted name. Either in ASCII or as integers"/>
 			<ValueElement Value="GUID" CodeSystem="HL70301" DisplayName="Same as UUID."/>
 			<ValueElement Value="HCD" CodeSystem="HL70301" DisplayName="The CEN Healthcare Coding Scheme Designator. (Identifiers used in DICOM follow this assignment scheme.)"/>
@@ -469,7 +469,7 @@
 			<ValueElement Value="x400" CodeSystem="HL70301" DisplayName="An X.400 MHS format identifier"/>
 			<ValueElement Value="x500" CodeSystem="HL70301" DisplayName="An X.500 directory name"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0211" Name="Alternate character sets">
+		<ValueSetDefinition BindingIdentifier="HL70211" Name="Alternate character sets">
 			<ValueElement Value="8859/1" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/1 Character set"/>
 			<ValueElement Value="8859/2" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/2 Character set"/>
 			<ValueElement Value="8859/3" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/3 Character set"/>
@@ -492,38 +492,38 @@
 			<ValueElement Value="UNICODE UTF-32" CodeSystem="HL70211" DisplayName="UCS Transformation Format, 32-bit form"/>
 			<ValueElement Value="UNICODE UTF-8" CodeSystem="HL70211" DisplayName="UCS Transformation Format, 8-bit form"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0204" Name="Organizational name type">
+		<ValueSetDefinition BindingIdentifier="HL70204" Name="Organizational name type">
 			<ValueElement Value="A" CodeSystem="HL70204" DisplayName="Alias name"/>
 			<ValueElement Value="D" CodeSystem="HL70204" DisplayName="Display name"/>
 			<ValueElement Value="L" CodeSystem="HL70204" DisplayName="Legal name"/>
 			<ValueElement Value="SL" CodeSystem="HL70204" DisplayName="Stock exchange listing name"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0300" Name="Namespace ID">
+		<ValueSetDefinition BindingIdentifier="HL70300" Name="Namespace ID">
 			<ValueElement Value="..." CodeSystem="HL70300" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0398" Name="Continuation style code">
+		<ValueSetDefinition BindingIdentifier="HL70398" Name="Continuation style code">
 			<ValueElement Value="F" CodeSystem="HL70398" DisplayName="Fragmentation"/>
 			<ValueElement Value="I" CodeSystem="HL70398" DisplayName="Interactive Continuation"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0471" Name="Query name">
+		<ValueSetDefinition BindingIdentifier="HL70471" Name="Query name">
 			<ValueElement Value="..." CodeSystem="HL70471" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0399" Name="Country code">
+		<ValueSetDefinition BindingIdentifier="HL70399" Name="Country code">
 			<ValueElement Value="..." CodeSystem="HL70399" DisplayName="use 3-character (alphabetic) form of ISO 3166"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0356" Name="Alternate character set handling scheme">
+		<ValueSetDefinition BindingIdentifier="HL70356" Name="Alternate character set handling scheme">
 			<ValueElement Value="&lt;null&gt;" CodeSystem="HL70356" DisplayName="This is the default, indicating that there is no character set switching occurring in this message."/>
 			<ValueElement Value="2.3" CodeSystem="HL70356" DisplayName="The character set switching mode specified in HL7 2.5, section 2.7.2, 창??Escape sequences supporting multiple character sets창?? and section 2.A.46, &quot;XPN - extended person name&quot;."/>
 			<ValueElement Value="ISO 2022-1994" CodeSystem="HL70356" DisplayName="This standard is titled &quot;Information Technology - Character Code Structure and Extension Technique&quot;. ."/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0207" Name="Processing mode">
+		<ValueSetDefinition BindingIdentifier="HL70207" Name="Processing mode">
 			<ValueElement Value="A" CodeSystem="HL70207" DisplayName="Archive"/>
 			<ValueElement Value="I" CodeSystem="HL70207" DisplayName="Initial load"/>
 			<ValueElement Value="Not present" CodeSystem="HL70207" DisplayName="Not present (the default, meaning current  processing)"/>
 			<ValueElement Value="R" CodeSystem="HL70207" DisplayName="Restore from archive"/>
 			<ValueElement Value="T" CodeSystem="HL70207" DisplayName="Current processing, transmitted at intervals (scheduled or on demand)"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0396" Name="Coding system">
+		<ValueSetDefinition BindingIdentifier="HL70396" Name="Coding system">
 			<ValueElement Value="99zzz or L" CodeSystem="HL70396" DisplayName="Local general code (where z is an alphanumeric character)"/>
 			<ValueElement Value="ACR" CodeSystem="HL70396" DisplayName="American College of Radiology finding codes"/>
 			<ValueElement Value="ACTCODE" CodeSystem="HL70396" DisplayName="Table of HL7 Version 3 ActCode values"/>
@@ -695,17 +695,17 @@
 			<ValueElement Value="WC" CodeSystem="HL70396" DisplayName="WHO record # code with ASTM extension"/>
 			<ValueElement Value="X12DEnnnn" CodeSystem="HL70396" DisplayName="WHO ATC"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0397" Name="Sequencing">
+		<ValueSetDefinition BindingIdentifier="HL70397" Name="Sequencing">
 			<ValueElement Value="A" CodeSystem="HL70397" DisplayName="Ascending"/>
 			<ValueElement Value="AN" CodeSystem="HL70397" DisplayName="Ascending, case insensitive"/>
 			<ValueElement Value="D" CodeSystem="HL70397" DisplayName="Descending"/>
 			<ValueElement Value="DN" CodeSystem="HL70397" DisplayName="Descending, case insensitive"/>
 			<ValueElement Value="N" CodeSystem="HL70397" DisplayName="None"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0363" Name="Assigning authority" Extensibility="Open">
+		<ValueSetDefinition BindingIdentifier="HL70363" Name="Assigning authority" Extensibility="Open">
 			<ValueElement Value="..." CodeSystem="HL70363" DisplayName="No suggested values"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0360" Name="Degree/license/certificate">
+		<ValueSetDefinition BindingIdentifier="HL70360" Name="Degree/license/certificate">
 			<ValueElement Value="AA" CodeSystem="HL70360" DisplayName="Associate of Arts"/>
 			<ValueElement Value="AAS" CodeSystem="HL70360" DisplayName="Associate of Applied Science"/>
 			<ValueElement Value="ABA" CodeSystem="HL70360" DisplayName="Associate of Business Administration"/>
@@ -765,37 +765,37 @@
 			<ValueElement Value="SEC" CodeSystem="HL70360" DisplayName="Secretarial Certificate"/>
 			<ValueElement Value="TS" CodeSystem="HL70360" DisplayName="Trade School Graduate"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0061" Name="Check digit scheme">
+		<ValueSetDefinition BindingIdentifier="HL70061" Name="Check digit scheme">
 			<ValueElement Value="ISO" CodeSystem="HL70061" DisplayName="ISO 7064: 1983"/>
 			<ValueElement Value="M10" CodeSystem="HL70061" DisplayName="Mod 10 algorithm"/>
 			<ValueElement Value="M11" CodeSystem="HL70061" DisplayName="Mod 11 algorithm"/>
 			<ValueElement Value="NPI" CodeSystem="HL70061" DisplayName="Check digit algorithm in the US National Provider Identifier"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0465" Name="Name/address representation">
+		<ValueSetDefinition BindingIdentifier="HL70465" Name="Name/address representation">
 			<ValueElement Value="A" CodeSystem="HL70465" DisplayName="Alphabetic (i.e., Default or some single-byte)"/>
 			<ValueElement Value="I" CodeSystem="HL70465" DisplayName="Ideographic (i.e., Kanji)"/>
 			<ValueElement Value="P" CodeSystem="HL70465" DisplayName="Phonetic (i.e., ASCII, Katakana, Hiragana, etc.)"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0395" Name="Modify indicator">
+		<ValueSetDefinition BindingIdentifier="HL70395" Name="Modify indicator">
 			<ValueElement Value="M" CodeSystem="HL70395" DisplayName="Modified Subscription"/>
 			<ValueElement Value="N" CodeSystem="HL70395" DisplayName="New Subscription"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0394" Name="Response modality">
+		<ValueSetDefinition BindingIdentifier="HL70394" Name="Response modality">
 			<ValueElement Value="B" CodeSystem="HL70394" DisplayName="Batch"/>
 			<ValueElement Value="R" CodeSystem="HL70394" DisplayName="Real Time"/>
 			<ValueElement Value="T" CodeSystem="HL70394" DisplayName="Bolus (a series of responses sent at the same time without use of batch formatting)"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0444" Name="Name assembly order">
+		<ValueSetDefinition BindingIdentifier="HL70444" Name="Name assembly order">
 			<ValueElement Value="F" CodeSystem="HL70444" DisplayName="Prefix Family Middle Given Suffix"/>
 			<ValueElement Value="G" CodeSystem="HL70444" DisplayName="Prefix Given Middle Family Suffix"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0448" Name="Name context">
+		<ValueSetDefinition BindingIdentifier="HL70448" Name="Name context">
 			<ValueElement Value="..." CodeSystem="HL70448" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0289" Name="County/parish">
+		<ValueSetDefinition BindingIdentifier="HL70289" Name="County/parish">
 			<ValueElement Value="..." CodeSystem="HL70289" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0529" Name="Precision">
+		<ValueSetDefinition BindingIdentifier="HL70529" Name="Precision">
 			<ValueElement Value="D" CodeSystem="HL70529" DisplayName="day"/>
 			<ValueElement Value="H" CodeSystem="HL70529" DisplayName="hour"/>
 			<ValueElement Value="L" CodeSystem="HL70529" DisplayName="month"/>
@@ -803,7 +803,7 @@
 			<ValueElement Value="S" CodeSystem="HL70529" DisplayName="second"/>
 			<ValueElement Value="Y" CodeSystem="HL70529" DisplayName="year"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="0288" Name="Census tract">
+		<ValueSetDefinition BindingIdentifier="HL70288" Name="Census tract">
 			<ValueElement Value="..." CodeSystem="HL70288" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
