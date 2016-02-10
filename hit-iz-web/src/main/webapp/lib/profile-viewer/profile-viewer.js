@@ -75,7 +75,7 @@
             $scope.isRelevant = function (node) {
                 if (node === undefined || !$scope.options.relevance)
                     return true;
-                if (node.hide === false) {
+                if (node.hide == undefined || !node.hide || node.hide === false) {
                     if (node.predicates && node.predicates != null && node.predicates.length > 0 ) {
                         return  node.predicates[0].trueUsage === "R" || node.predicates[0].trueUsage === "RE" || node.predicates[0].falseUsage === "R" || node.predicates[0].falseUsage === "RE";
                     }else {
@@ -294,13 +294,13 @@
 
             $scope.initAll = function () {
                 $scope.nodeData = [];
-                $scope.predicates = [];
                 $scope.confStatements = [];
                 $scope.predicates = [];
                 $scope.segments = [];
                 $scope.datatypes = [];
                 $scope.parentsMap = [];
                 $scope.componentsParentMap = [];
+                $scope.model = null;
                 $rootScope.pvNodesMap = {};
                 $scope.tmpConfStatements = [].concat($scope.confStatements);
             };
@@ -311,7 +311,6 @@
                 $scope.options.collapse = true;
                 if (profile && profile.id != null) {
                     $scope.profile = profile;
-                    $scope.model = null;
                     $scope.profileService.getJson($scope.profile.id).then(function (jsonObject) {
                         $scope.initAll();
                         $scope.model = angular.fromJson(jsonObject);
@@ -321,7 +320,7 @@
                         angular.forEach($scope.model.datatypes, function (value, key) {
                             $scope.datatypes.push(value);
                         });
-                        $scope.datatypes = $filter('orderBy')($scope.datatypes, 'name');
+                        $scope.datatypes = $filter('orderBy')($scope.datatypes, 'id');
                         $scope.getNodeContent($scope.model.message);
                         $scope.loading = false;
                     }, function (error) {
@@ -374,6 +373,7 @@
                     if (parent.type === 'FIELD') {
                         children = angular.copy(children);
                         angular.forEach(children, function (child) {
+                            child.parent = parent;
                             child.type = parent.datatype === 'varies' ? 'DATATYPE' : 'COMPONENT';
                             child.path = parent.path + "." + child.position;
                             child.nodeParent = parent;
@@ -395,6 +395,7 @@
                     } else if (parent.type === 'COMPONENT') {
                         children = angular.copy(children);
                         angular.forEach(children, function (child) {
+                            child.parent = parent;
                             child.type = parent.datatype === 'varies' ? 'DATATYPE' : 'SUBCOMPONENT';
                             child.path = parent.path + "." + child.position;
                             child.nodeParent = parent;
@@ -502,7 +503,7 @@
             };
 
             $scope.visible = function (node) {
-                return  node ? $scope.isRelevant(node) && $scope.visible($scope.parentsMap[node.id]) : true;
+                 return  node ? $scope.isRelevant(node) ? node.type == 'COMPONENT' || node.type === 'SUBCOMPONENT' ?  $scope.visible(node.parent) : $scope.visible($scope.parentsMap[node.id]) : false:true;
             };
 
             $scope.getNodeContent = function (selectedNode) {
