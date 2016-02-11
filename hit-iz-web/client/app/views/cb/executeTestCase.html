@@ -30,16 +30,15 @@
                             <li ng-show="testCase['nav'].testStep != null">{{testCase['nav'].testStep}}</li>
                         </ol>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-10">
-                        <div ng-show="error != null">
+                    <div class="col-md-12" ng-if="error != null">
+                        <div >
                             <div style="padding-top: 10px;padding-bottom:10px">
                                 <div class="alert alert-danger" role="alert" ng-bind="error"></div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="row" ng-show="testCase.type === 'TestCase'">
@@ -64,13 +63,11 @@
                                  </span>
 
                         </div>
-                        <div ng-show="warning != null">
-                            <div style="padding-top: 10px;padding-bottom:10px">
+                        <div style="padding-top: 10px;padding-bottom:10px"  ng-if="warning != null">
                                 <div class="alert alert-info" role="alert"
                                      ng-bind-html="toHTML(warning)"></div>
-                            </div>
                         </div>
-                    </div>
+                     </div>
                     <div class="col-md-3">
                         <div ng-include="'views/cb/summary.html'"></div>
                         <div ng-include="'views/cb/console.html'" ng-show="user.info != null && (testStep.testingType === 'TA_INITIATOR' || testStep.testingType === 'SUT_INITIATOR')"></div>
