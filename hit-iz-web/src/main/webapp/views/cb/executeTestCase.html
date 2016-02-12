@@ -29,22 +29,13 @@
                             <li ng-show="testCase['nav'].testCase != null">{{testCase['nav'].testCase}}</li>
                             <li ng-show="testCase['nav'].testStep != null">{{testCase['nav'].testStep}}</li>
                         </ol>
+                        <div class="alert alert-danger" role="alert" ng-bind="error" ng-if="error != null"></div>
                     </div>
-
-                    <div class="col-md-12" ng-if="error != null">
-                        <div>
-                            <div style="padding-top: 10px;padding-bottom:10px">
-                                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-
                 <div class="row" ng-show="testCase.type === 'TestCase'">
                     <div class="col-md-9">
                         <div ng-include="'views/cb/teststeps.html'"></div>
-                        <div ng-show="testStep != null" style="margin:10px">
+                        <div ng-show="testStep != null">
                             <span class="pull-left">
                                             <button type="button" ng-click="goBack(testStep)" ng-show="!isTestCaseCompleted() && !isFirstStep(testStep)" title="Execute Previous Step" class="btn btn-sm btn-info">
                                                 <span><i class="fa fa-arrow-left"></i> Back</span>
@@ -59,7 +50,7 @@
                                  </span>
 
                         </div>
-                        <div style="padding-top: 10px;padding-bottom:10px" ng-if="warning != null">
+                        <div ng-if="warning != null">
                                 <div class="alert alert-info" role="alert" ng-bind-html="toHTML(warning)"></div>
                         </div>
                      </div>
