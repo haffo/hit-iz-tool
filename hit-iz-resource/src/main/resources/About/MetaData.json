@@ -1,6 +1,6 @@
 {
     	"version"	: "1.0.0",
-    	"rsbVersion"	: "1.0.1-SNAPSHOT-5",
+    	"rsbVersion"	: "1.0.1-SNAPSHOT-6",
     	"igVersion":"",
     	"name"	:"Immunization Test Suite",
 		"domain"		:"",
