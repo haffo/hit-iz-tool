@@ -373,8 +373,7 @@
                     if (parent.type === 'FIELD') {
                         children = angular.copy(children);
                         angular.forEach(children, function (child) {
-                            child.parent = parent;
-                            child.type = parent.datatype === 'varies' ? 'DATATYPE' : 'COMPONENT';
+                             child.type = parent.datatype === 'varies' ? 'DATATYPE' : 'COMPONENT';
                             child.path = parent.path + "." + child.position;
                             child.nodeParent = parent;
                             child.conformanceStatements = [];
@@ -395,8 +394,7 @@
                     } else if (parent.type === 'COMPONENT') {
                         children = angular.copy(children);
                         angular.forEach(children, function (child) {
-                            child.parent = parent;
-                            child.type = parent.datatype === 'varies' ? 'DATATYPE' : 'SUBCOMPONENT';
+                             child.type = parent.datatype === 'varies' ? 'DATATYPE' : 'SUBCOMPONENT';
                             child.path = parent.path + "." + child.position;
                             child.nodeParent = parent;
                             child.conformanceStatements = [];
@@ -503,7 +501,7 @@
             };
 
             $scope.visible = function (node) {
-                 return  node ? $scope.isRelevant(node) ? node.type == 'COMPONENT' || node.type === 'SUBCOMPONENT' ?  $scope.visible(node.parent) : $scope.visible($scope.parentsMap[node.id]) : false:true;
+                 return  node ? $scope.isRelevant(node) ? node.type == 'COMPONENT' || node.type === 'SUBCOMPONENT' ?  $scope.visible(node.nodeParent) : $scope.visible($scope.parentsMap[node.id]) : false:true;
             };
 
             $scope.getNodeContent = function (selectedNode) {

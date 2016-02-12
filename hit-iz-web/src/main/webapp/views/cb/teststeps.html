@@ -36,11 +36,11 @@
                     </span>
 
                     <span ng-show="row.testingType === 'TA_INITIATOR' || row.testingType === 'TA_RESPONDER'">
-                        <i class="fa fa-arrow-right"></i>
+                        <i class="fa fa-arrow-left"></i>
                     </span>
 
                     <span ng-show="row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER'">
-                        <i class="fa fa-arrow-left"></i>
+                        <i class="fa fa-arrow-right"></i>
                     </span>
                             <input ng-show="isTestCaseCompleted()" type="radio" ng-click="selectTestStep(row)" ng-checked="testStep != null && testStep.id === row.id">
                             {{row.position}}.

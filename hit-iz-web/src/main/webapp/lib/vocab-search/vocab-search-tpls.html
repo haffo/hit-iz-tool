@@ -266,13 +266,13 @@
     </div>
     <br/>
 
-    <div class="panel panel-info">
+    <div class="panel panel-info"  ng-if="selectedValueSetDefinition.valueSetElements.length > 0">
         <!-- Default panel contents -->
         <div class="panel-heading">Value Set Elements</div>
         <div class="divScroll-1">
             <div class="iz-vocab-table-result">
                 <table st-table="tmpValueSetElements"
-                       ng-if="selectedValueSetDefinition.valueSetElements.length > 0"
+
                        st-safe-src="selectedValueSetDefinition.valueSetElements"
                        class="table table-striped table-bordered ng-table-text stTable table-fix-header table-condensed vocab-result-table">
                     <thead>
@@ -324,15 +324,19 @@
 
                 </table>
 
-                <p style="color:red" ng-if="selectedValueSetDefinition.valueSetElements.length == 0">
-                    Table(value set) identified in the implementation guide but no codes are specified. The validation tool will issue an Alert since the element cannot be checked for content.
-                </p>
+
 
 
             </div>
 
         </div>
     </div>
+
+    <p style="color:red" ng-if="selectedValueSetDefinition.valueSetElements.length == 0">
+        Table (value set) identified in the implementation guide but no codes are specified. The validation tool will issue an Alert since the element cannot be checked for content.
+    </p>
+
+
 </div>
 </div>
 </div>
