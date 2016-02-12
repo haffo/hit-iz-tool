@@ -1075,7 +1075,7 @@ Initials Thereof", "data" : "", "categorization" : ""},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
 : ""},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
+"CVX", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1189,7 +1189,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "HIB NOS", "categorization"
 : ""},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
+"CVX", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1337,7 +1337,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
 : ""},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
+"CVX", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1451,7 +1451,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "IPV", "categorization"
 : ""},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
+"CVX", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1565,7 +1565,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "DTAP", "categorization"
 : ""},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
+"CVX", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1679,7 +1679,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
 : ""},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
+"CVX", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1793,7 +1793,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "MMR", "categorization"
 : ""},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
+"CVX", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1907,7 +1907,7 @@ used", "categorization" : ""},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "MMR", "categorization"
 : ""},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
+"CVX", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2055,7 +2055,7 @@ give", "categorization" : ""},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "IPV", "categorization"
 : ""},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
+"CVX", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -2169,7 +2169,7 @@ due", "categorization" : ""},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "DTAP", "categorization"
 : ""},
 							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CVX ", "categorization" : ""},
+"CVX", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
