@@ -49,12 +49,12 @@
                     </tr>
                     <tr>
                         <td>NIST Endpoint</td>
-                        <td>{{endpoint.value}}</td>
+                        <td>{{transport.config.sutInitiator.config}}</td>
                         <td>This is the destination's endpoint</td>
                     </tr>
                     <tr>
                         <td>NIST Endpoint WSDL</td>
-                        <td><a ng-href="{{endpoint.value}}.wsdl" target="_blank">{{endpoint.value}}.wsdl</a></td>
+                        <td><a ng-href="{{transport.config.sutInitiator.config}}.wsdl" target="_blank">{{transport.config.sutInitiator.config}}.wsdl</a></td>
                         <td>This is the destination's wsdl</td>
                     </tr>
                 </table>

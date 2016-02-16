@@ -15,7 +15,7 @@
         <span ng-show="testCase.executionStatus === 'COMPLETE'">Test Steps Result</span>
     </div>
     <div class="panel-body">
-        <table class="table table-striped table-bordered table-condensed">
+        <table st-table="testCase.children" style="margin-bottom: 0px" class="table table-bordered table-condensed stTable">
             <thead>
             <tr class="">
                 <th style="width:5%">#</th>
@@ -27,7 +27,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-class="{'active': testStep != null && row.id === testStep.id}" ng-repeat="row in testCase.children | orderBy:'position'">
+            <tr ng-class="{'current': testStep != null && row.id === testStep.id}" ng-repeat="row in testCase.children | orderBy:'position'">
                 <td style="width:5%">
                     <label>
                                     <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
@@ -147,22 +147,25 @@
                 </td>
             </tr>
             </tbody>
-            <tfoot ng-show="testStep != null">
-            <tr>
-                <td colspan="6" class="text-center" st-ratio="100">
-                    <button type="button" ng-click="goBack(testStep)" ng-show="!isTestCaseCompleted() && !isFirstStep(testStep)" title="Execute Previous Step" class="btn btn-sm btn-info">
+
+        </table>
+        <div style="margin-top:5px">
+        <span class="pull-left">
+                    <button ng-click="goBack(testStep)" ng-show="!isTestCaseCompleted() && !isFirstStep(testStep)" title="Execute Previous Step" class="btn btn-xs btn-info">
                         <span><i class="fa fa-arrow-left"></i> Back</span>
                     </button>
-
-                    <button type="button" ng-click="goNext(testStep)" ng-show="!isTestCaseCompleted() && isTestStepCompleted(testStep)" title="Execute Next Step" class="btn btn-sm btn-info">
-                        <span ng-show="isLastStep(testStep)"><i class="fa fa-check-circle"></i> Complete</span>
-                        <span ng-show="!isLastStep(testStep)"><i class="fa fa-arrow-right"></i> Next</span>
+</span>
+                    <span class="pull-right">
+                    <button ng-click="goNext(testStep)" ng-show="!isLastStep(testStep) && !isTestCaseCompleted() && isTestStepCompleted(testStep)" title="Execute Next Step" class="btn btn-xs btn-info">
+                         <span><i class="fa fa-arrow-right"></i> Next</span>
                     </button>
-                </td>
-            </tr>
-            </tfoot>
-        </table>
 
+                        <button ng-click="goNext(testStep)" ng-show="isLastStep(testStep) && !isTestCaseCompleted() && isTestStepCompleted(testStep)" title="Complete Test Case" class="btn btn-xs btn-info">
+                            <span><i class="fa fa-check-circle"></i> Complete</span>
+                         </button>
 
+                        </span>
+
+        </div>
     </div>
 </div>

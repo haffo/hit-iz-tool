@@ -25,7 +25,7 @@
             return {
                 restrict: 'A',
                 scope: {
-                    realm: '@'
+                    target: '@'
                 },
                 templateUrl: 'tds.html',
                 controller: 'TdsCtrl'
@@ -38,7 +38,7 @@
             return {
                 restrict: 'A',
                 scope: {
-                    realm: '@'
+                    target: '@'
                 },
                 templateUrl: 'testStory.html',
                 controller: 'TestStoryCtrl'
@@ -52,7 +52,7 @@
             return {
                 restrict: 'A',
                 scope: {
-                    realm: '@'
+                    target: '@'
                 },
                 templateUrl: 'messageContent.html',
                 controller: 'MessageContentCtrl'
@@ -65,7 +65,7 @@
             return {
                 restrict: 'A',
                 scope: {
-                    realm: '@'
+                    target: '@'
                 },
                 templateUrl: 'jurorDocument.html',
                 controller: 'JurorDocumentCtrl'
@@ -78,7 +78,7 @@
             return {
                 restrict: 'A',
                 scope: {
-                    realm: '@',
+                    target: '@',
                     format:'='
                  },
                 templateUrl: 'exampleMessage.html',
@@ -94,7 +94,7 @@
             $scope.editor = null;
             $scope.exampleMessage = null;
             $scope.error = null;
-            $scope.$on($scope.realm + "-example-message", function (event, exampleMessage, title) {
+            $scope.$on($scope.target + "-example-message", function (event, exampleMessage, title) {
                 $scope.exampleMessage = exampleMessage;
                 $scope.loading = true;
                 $scope.error = null;
@@ -148,7 +148,7 @@
                             $("#exampleMsg").scrollLeft();
                         }, 1000);
                     } else {
-                        $scope.editor = CodeMirror(document.getElementById($scope.realm + "-exampleMsg"), {
+                        $scope.editor = CodeMirror(document.getElementById($scope.target + "-exampleMsg"), {
                             value: $scope.exampleMessage,
                             lineNumbers: true,
                             fixedGutter: true,
@@ -170,7 +170,7 @@
             $scope.loading = false;
             $scope.jurorDocument = null;
             $scope.error = null;
-            $scope.$on($scope.realm + "-juror-document", function (event, jurorDocument, format,title) {
+            $scope.$on($scope.target + "-juror-document", function (event, jurorDocument, format,title) {
                 $scope.jurorDocument = jurorDocument;
                 $scope.loading = true;
                 $scope.error = null;
@@ -178,10 +178,10 @@
             });
 
             $scope.download = function (jurorDocId, title) {
-                var content = $("#" + $scope.realm + "jurorDocument").html();
+                var content = $("#" + $scope.target + "jurorDocument").html();
                 if (content && content != '') {
                     var form = document.createElement("form");
-                    form.action = 'api/testartifact/generateJurorDoc/pdf';
+                    form.action = 'api/artifact/generateJurorDoc/pdf';
                     form.method = "POST";
                     form.target = "_target";
                     var input = document.createElement("textarea");
@@ -212,7 +212,7 @@
             $scope.loading = false;
             $scope.tds = null;
             $scope.error = null;
-            $scope.$on($scope.realm + "-tds", function (event, tds, format,title) {
+            $scope.$on($scope.target + "-tds", function (event, tds, format,title) {
                 $scope.tds = tds;
                 $scope.loading = false;
                 $scope.error = null;
@@ -243,7 +243,7 @@
             $scope.loading = false;
             $scope.messageContent = null;
             $scope.error = null;
-            $scope.$on($scope.realm + "-test-story", function (event, testStory, format,title) {
+            $scope.$on($scope.target + "-test-story", function (event, testStory, format,title) {
                 $scope.testStory = testStory;
                 $scope.loading = false;
                 $scope.error = null;
@@ -261,7 +261,7 @@
             $scope.loading = false;
             $scope.editor = null;
             $scope.error = null;
-            $scope.realm = 'selected-testcase';
+            $scope.target = 'selected-testcase';
             $scope.$on($scope.type + ':testCaseSelected', function (event, testCase) {
                 $scope.tabs[0] = true;
                 $scope.tabs[1] = false;
@@ -276,17 +276,17 @@
                     $scope.testCase['jurorDocument'] = result['jurorDocument'];
                     $scope.testCase['testDataSpecification'] = result['testDataSpecification'];
                     $scope.testCase['messageContent'] = result['messageContent'];
-                    $rootScope.$emit($scope.realm + '-example-message', $scope.testCase.testContext.message.content, $scope.testCase.testContext.format,$scope.testCase.name);
-                    $rootScope.$emit($scope.realm + '-test-story', $scope.testCase['testStory'], $scope.testCase.testContext.format,$scope.testCase.name);
-                    $rootScope.$emit($scope.realm + '-juror-document', $scope.testCase['jurorDocument'], $scope.testCase.testContext.format,$scope.testCase.name);
-                    $rootScope.$emit($scope.realm + '-message-content', $scope.testCase['messageContent'], $scope.testCase.testContext.format,$scope.testCase.name);
-//                    $rootScope.$emit(realm + '-test-description', $scope.testCase['testDescription'], $scope.testCase.testContext.format,$scope.testCase.name);
-                    $rootScope.$emit($scope.realm + '-tds', $scope.testCase['testDataSpecification'], $scope.testCase.testContext.format,$scope.testCase.name);
-                    TestCaseDetailsService.removeHtml($scope.realm + '-testStory');
-                    TestCaseDetailsService.removeHtml($scope.realm + '-jurorDocument');
-                    TestCaseDetailsService.removeHtml($scope.realm + '-testDataSpecification');
-                    TestCaseDetailsService.removeHtml($scope.realm + '-messageContent');
-                    TestCaseDetailsService.removeHtml($scope.realm + '-testDescription');
+                    $rootScope.$emit($scope.target + '-example-message', $scope.testCase.testContext.message.content, $scope.testCase.testContext.format,$scope.testCase.name);
+                    $rootScope.$emit($scope.target + '-test-story', $scope.testCase['testStory'], $scope.testCase.testContext.format,$scope.testCase.name);
+                    $rootScope.$emit($scope.target + '-juror-document', $scope.testCase['jurorDocument'], $scope.testCase.testContext.format,$scope.testCase.name);
+                    $rootScope.$emit($scope.target + '-message-content', $scope.testCase['messageContent'], $scope.testCase.testContext.format,$scope.testCase.name);
+//                    $rootScope.$emit(target + '-test-description', $scope.testCase['testDescription'], $scope.testCase.testContext.format,$scope.testCase.name);
+                    $rootScope.$emit($scope.target + '-tds', $scope.testCase['testDataSpecification'], $scope.testCase.testContext.format,$scope.testCase.name);
+                    TestCaseDetailsService.removeHtml($scope.target + '-testStory');
+                    TestCaseDetailsService.removeHtml($scope.target + '-jurorDocument');
+                    TestCaseDetailsService.removeHtml($scope.target + '-testDataSpecification');
+                    TestCaseDetailsService.removeHtml($scope.target + '-messageContent');
+                    TestCaseDetailsService.removeHtml($scope.target + '-testDescription');
                     $scope.loadHtml('testStory');
                     $scope.loading = false;
                     $scope.error = null;
@@ -345,7 +345,7 @@
                             $("#exampleMsg").scrollLeft();
                         }, 1000);
                     } else {
-                        $scope.editor = CodeMirror(document.getElementById($scope.realm+ "-exampleMsg"), {
+                        $scope.editor = CodeMirror(document.getElementById($scope.target+ "-exampleMsg"), {
                             value: $scope.testCase.testContext.message.content,
                             lineNumbers: true,
                             fixedGutter: true,
@@ -430,7 +430,7 @@
         TestCaseDetailsService.download = function (path) {
             if (path != null) {
                 var form = document.createElement("form");
-                form.action = "api/testartifact/download";
+                form.action = "api/artifact/download";
                 form.method = "POST";
                 form.target = "_target";
                 var input = document.createElement("input");
