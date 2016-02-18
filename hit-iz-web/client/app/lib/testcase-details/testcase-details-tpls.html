@@ -13,155 +13,52 @@
                 <tabset>
                     <tab  active="tabs[0]" select="loadHtml('testStory')">
                         <tab-heading>
-                            <span ng-show="!testCase.testStory || testCase.testStory === null">Description</span>
-                            <span ng-show="testCase.testStory && testCase.testStory !== null">Test Story</span>
+                            <i class="fa fa-info"></i>
+                            <span ng-show="!testCase['testStory'] || testCase['testStory']  === null">Description</span>
+                            <span ng-show="testCase['testStory']  && testCase['testStory']  !== null">Test Story</span>
                         </tab-heading>
-
-
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                                <div>
-                                    <div class="pull-right" ng-show="testCase.testStory && testCase.testStory.pdfPath && testCase.testStory.pdfPath !== null">
-                                        <button title="Download Test Story" type="button" class="btn btn-sm btn-info"
-                                                ng-click="downloadTestArtifact(testCase.testStory.pdfPath)">
-                                            <i class="fa fa-download"></i>&nbsp;Download PDF
-                                        </button>
-                                    </div>
-
-                                    <br/>
-                                    <br/>
-
-                                    <div class="panel panel-info">
-                                        <div class="panel-body">
-                                            <div class="testcase-content">
-                                                <div id="testStory" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div test-story target="{{target}}" />
                     </tab>
 
-                    <tab heading="Test Data Specification" active="tabs[1]"
-                         ng-show="testCase.testDataSpecification && testCase.testDataSpecification !== null"
+                    <tab active="tabs[1]"
+                         ng-show="testCase['testDataSpecification'] && testCase['testDataSpecification'] !== null"
                          ng-click="tabs[1] = true; loadHtml('testDataSpecification')">
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                                <div class="pull-right">
-                                    <button title="Download Test Data Specification" type="button"
-                                            class="btn btn-sm btn-info"
-                                            ng-show="testCase.testDataSpecification.pdfPath && testCase.testDataSpecification.pdfPath !== null"
-                                            ng-click="downloadTestArtifact(testCase.testDataSpecification.pdfPath)">
-                                        <i class="fa fa-download"></i>&nbsp;Download PDF
-                                    </button>
-                                </div>
-
-                                <br/>
-                                <br/>
-
-                                <div class="panel panel-info">
-                                    <div class="panel-body">
-                                        <div class="testcase-content">
-                                            <div id="testDataSpecification"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <tab-heading>
+                            <i class="fa fa-list-alt"></i>Test Data Specification
+                        </tab-heading>
+                        <div test-data-specification target="{{target}}" />
                     </tab>
 
-                    <tab heading="Message Content" ng-show="testCase.messageContent && testCase.messageContent !== null"
+                    <tab ng-show="testCase['messageContent'] && testCase['messageContent'] !== null"
                          active="tabs[2]" ng-click="tabs[2] = true; loadHtml('messageContent')">
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                            <span class="pull-left">
-                                <button ng-show="isMcHelpPresent()" title="Message Content Help Info" type="button"
-                                        class="btn btn-xs btn-info"
-                                        ng-click="openMcInfo()">
-                                    <i class="fa fa-info-circle"></i>&nbsp;Help
-                                </button>
-                            </span>
-                            <span class="pull-right">
-                                <button title="Download Message Content" type="button" class="btn btn-sm btn-info"
-                                        ng-show="testCase.messageContent.pdfPath && testCase.messageContent.pdfPath !== null"
-                                        ng-click="downloadTestArtifact(testCase.messageContent.pdfPath)">
-                                    <i class="fa fa-download"></i>&nbsp;Download PDF
-                                </button>
-                            </span>
-                                <br/>
-                                <br/>
-
-                                <div class="panel panel-info">
-                                    <div class="panel-body">
-                                        <div class="testcase-content">
-                                            <div id="messageContent"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <tab-heading>
+                            <i class="fa fa-list-alt"></i>Message Content
+                        </tab-heading>
+                        <div message-content target="{{target}}" />
                     </tab>
 
 
-                    <tab heading="Juror Document" ng-show="testCase.jurorDocument  && testCase.jurorDocument !== null"
-                         active="tabs[3]" ng-click="tabs[3] = true; loadHtml('jurorDocument')">
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                                <div class="pull-right">
-                                    <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-info"-->
-                                    <!--ng-click="downloadJurorDoc('jurordoc',testCase.name)">-->
-                                    <!--<i class="fa fa-download"></i> PDF-->
-                                    <!--</button>-->
-                                    <button title="Download Juror Document" type="button" class="btn btn-sm btn-info"
-                                            ng-show="testCase.jurorDocument.pdfPath && testCase.jurorDocument.pdfPath !== null"
-                                            ng-click="downloadTestArtifact(testCase.jurorDocument.pdfPath)">
-                                        <i class="fa fa-download"></i>&nbsp;Download PDF
-                                    </button>
-                                </div>
-
-                                <br/>
-                                <br/>
-
-                                <div class="panel panel-info">
-                                    <div class="panel-body">
-                                        <div class="testcase-content">
-                                            <div id="jurorDocument"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <tab ng-show="testCase['juror-document']  && testCase['juror-document'] !== null"
+                         active="tabs[3]" ng-click="tabs[3] = true; loadHtml('juror-document')">
+                        <tab-heading>
+                            <i class="fa fa-list-alt"></i>Juror Document
+                        </tab-heading>
+                        <div juror-document target="{{target}}" />
                     </tab>
 
-                    <tab heading="Example Message" active="tabs[4]" ng-click="tabs[4] = true; buildTextEditor()"
+                    <tab active="tabs[4]" ng-click="tabs[4] = true; buildExampleMessageEditor()"
                          ng-show="testCase.testContext && testCase.testContext.message && testCase.testContext.message!== null && testCase.testContext.message.content != null">
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                                <div class="pull-right">
-                                    <button title="Download Message" type="button" class="btn btn-sm btn-info"
-                                            ng-click="downloadMessage()">
-                                        <i class="fa fa-download"></i>&nbsp;Download
-                                    </button>
-                                </div>
-                                <br/>
-                                <br/>
-
-                                <div class="panel panel-info">
-                                    <div class="panel-body">
-                                        <div id="exampleMsg" class="testcase-content"/>
-                                    </div>
-                                </div>
-                                <!--<pre class="message" ng-bind="testCase.testContext.message.content"></pre>-->
-                            </div>
-                        </div>
+                        <tab-heading>
+                            <i class="fa fa-file-text-o"></i>Example Message
+                        </tab-heading>
+                        <div example-message target="{{target}}" />
                     </tab>
                 </tabset>
          </div>
     </div>
 </script>
 
-<script type="text/ng-template" id="MessageContentInfoCtrl.html">
+<script type="text/ng-template" id="MessageContentInfo.html">
     <div class="modal-header">
                 <span style="font-weight: bold; font-size: 20px">
                     Message Content Information
@@ -179,4 +76,139 @@
             </div>
         </div>
     </div>
+</script>
+
+<script type="text/ng-template" id="TestDataSpecification.html">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div class="pull-right">
+                <button title="Download Test Data Specification" type="button"
+                        class="btn btn-sm btn-primary"
+                        ng-show="tds.pdfPath && tds.pdfPath !== null"
+                        ng-click="download()">
+                    <i class="fa fa-download"></i>&nbsp;Download PDF
+                </button>
+            </div>
+
+            <br/>
+            <br/>
+
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div class="testcase-content">
+                        <div id="{{target}}-testDataSpecification"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="MessageContent.html">
+    <div class="panel panel-info">
+        <div class="panel-body">
+                            <span class="pull-left">
+                                <button ng-show="isMcHelpPresent()" title="Message Content Help Info" type="button"
+                                        class="btn btn-xs btn-primary"
+                                        ng-click="openMcInfo()">
+                                    <i class="fa fa-info-circle"></i>&nbsp;Help
+                                </button>
+                            </span>
+                            <span class="pull-right">
+                                <button title="Download Message Content" type="button" class="btn btn-sm btn-primary"
+                                        ng-show="messageContent.pdfPath && messageContent.pdfPath !== null"
+                                        ng-click="download()">
+                                    <i class="fa fa-download"></i>&nbsp;Download PDF
+                                </button>
+                            </span>
+            <br/>
+            <br/>
+
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div class="testcase-content">
+                        <div id="{{target}}-messageContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="ExampleMessage.html">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div class="pull-right">
+                <button title="Download Message" type="button" class="btn btn-sm btn-primary"
+                        ng-click="download()">
+                    <i class="fa fa-download"></i>&nbsp;Download
+                </button>
+            </div>
+            <br/>
+            <br/>
+
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div id="{{target}}-exampleMessage" class="testcase-content"/>
+                </div>
+            </div>
+            <!--<pre class="message" ng-bind="testCase.testContext.message.content"></pre>-->
+        </div>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="TestStory.html">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div>
+                <div class="pull-right" ng-show="testStory && testStory.pdfPath && testStory.pdfPath !== null">
+                    <button title="Download Test Story" type="button" class="btn btn-sm btn-primary"
+                            ng-click="download()">
+                        <i class="fa fa-download"></i>&nbsp;Download PDF
+                    </button>
+                </div>
+
+                <br/>
+                <br/>
+
+                <div class="panel panel-info">
+                    <div class="panel-body">
+                        <div class="testcase-content">
+                            <div id="{{target}}-testStory" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="JurorDocument.html">
+<div class="panel panel-info">
+    <div class="panel-body">
+        <div class="pull-right">
+            <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"-->
+            <!--ng-click="downloadJurorDoc('jurordoc',testCase.name)">-->
+            <!--<i class="fa fa-download"></i> PDF-->
+            <!--</button>-->
+            <button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"
+                    ng-show="jurorDocument.pdfPath && jurorDocument.pdfPath !== null"
+                    ng-click="download()">
+                <i class="fa fa-download"></i>&nbsp;Download PDF
+            </button>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <div class="testcase-content">
+                    <div id="{{target}}-jurorDocument"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </script>

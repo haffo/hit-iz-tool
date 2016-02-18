@@ -246,28 +246,28 @@ angular.module('format').factory('MessageValidatorClass', function ($http, $q, $
     MessageValidatorClass.prototype.validate = function (testContextId, content, nav, contextType, dqaCodes, facilityId) {
         var delay = $q.defer();
         if (this.format && this.format != null) {
-            $http.post('api/' + this.format + '/testcontext/' + testContextId + '/validateMessage', angular.fromJson({"content": content, "contextType": contextType, "dqaCodes": dqaCodes, "facilityId": facilityId, "nav": nav})).then(
-                function (object) {
-                    try {
-                        delay.resolve(angular.fromJson(object.data));
-                    } catch (e) {
-                        delay.reject("Invalid character in the message");
-                    }
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//
-//            $http.get('../../resources/cf/newValidationResult3.json').then(
+//            $http.post('api/' + this.format + '/testcontext/' + testContextId + '/validateMessage', angular.fromJson({"content": content, "contextType": contextType, "dqaCodes": dqaCodes, "facilityId": facilityId, "nav": nav})).then(
 //                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
+//                    try {
+//                        delay.resolve(angular.fromJson(object.data));
+//                    } catch (e) {
+//                        delay.reject("Invalid character in the message");
+//                    }
 //                },
 //                function (response) {
 //                    delay.reject(response.data);
 //                }
 //            );
+
+
+            $http.get('../../resources/cf/newValidationResult3.json').then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
 
 //            $http.get('../../resources/erx/soap-validate-response.json').then(
 //                function (object) {
@@ -307,16 +307,7 @@ angular.module('format').factory('MessageParserClass', function ($http, $q, $tim
     MessageParserClass.prototype.parse = function (testContextId, content, name) {
         var delay = $q.defer();
         if (this.format && this.format != null) {
-            $http.post('api/' + this.format + '/testcontext/' + testContextId + '/parseMessage', angular.fromJson({"content": content})).then(
-                function (object) {
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-
-//            $http.get('../../resources/cf/messageObject.json').then(
+//            $http.post('api/' + this.format + '/testcontext/' + testContextId + '/parseMessage', angular.fromJson({"content": content})).then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
 //                },
@@ -324,6 +315,15 @@ angular.module('format').factory('MessageParserClass', function ($http, $q, $tim
 //                    delay.reject(response.data);
 //                }
 //            );
+
+            $http.get('../../resources/cf/messageObject.json').then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
 //            $http.get('../../resources/erx/soap-parse-response.json').then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
@@ -979,16 +979,7 @@ angular.module('format').factory('AppInfo', ['$http', '$q', function ($http, $q)
     return {
         get: function () {
             var delay = $q.defer();
-            $http.get('api/appInfo').then(
-                function (object) {
-                    delay.resolve(angular.fromJson(object.data));
-                },
-                function (response) {
-                    delay.reject(response.data);
-                }
-            );
-//
-//            $http.get('../../resources/appInfo.json').then(
+//            $http.get('api/appInfo').then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
 //                },
@@ -996,6 +987,15 @@ angular.module('format').factory('AppInfo', ['$http', '$q', function ($http, $q)
 //                    delay.reject(response.data);
 //                }
 //            );
+//
+            $http.get('../../resources/appInfo.json').then(
+                function (object) {
+                    delay.resolve(angular.fromJson(object.data));
+                },
+                function (response) {
+                    delay.reject(response.data);
+                }
+            );
 
             return delay.promise;
 
@@ -1017,17 +1017,17 @@ angular.module('format').factory('User', function ($q, $http, StorageService) {
     UserClass.prototype.load = function () {
         var delay = $q.defer();
         var user = this;
-        $http.post('api/user/current').then(
-            function (response) {
-                var data = angular.fromJson(response.data);
-                user.setInfo(data);
-                delay.resolve(data);
-            },
-            function (response) {
-                user.setInfo(null);
-                delay.reject(response.data);
-            }
-        );
+//        $http.post('api/user/current').then(
+//            function (response) {
+//                var data = angular.fromJson(response.data);
+//                user.setInfo(data);
+//                delay.resolve(data);
+//            },
+//            function (response) {
+//                user.setInfo(null);
+//                delay.reject(response.data);
+//            }
+//        );
 
         //        this.info = {};
 //        var backup = StorageService.get(StorageService.USER_KEY);
@@ -1044,14 +1044,14 @@ angular.module('format').factory('User', function ($q, $http, StorageService) {
 //                    StorageService.remove(StorageService.USER_KEY);
 //                }
 //            );
-//                $http.get('../../resources/cb/user.json').then(
-//                    function (response) {
-//                        delay.resolve(angular.fromJson(response.data));
-//                    },
-//                    function (response) {
-//                        delay.reject('Sorry,we did not get a response');
-//                    }
-//                );
+                $http.get('../../resources/cb/user.json').then(
+                    function (response) {
+                        delay.resolve(angular.fromJson(response.data));
+                    },
+                    function (response) {
+                        delay.reject('Sorry,we did not get a response');
+                    }
+                );
 //
 //        }
 
@@ -1092,22 +1092,22 @@ angular.module('format').factory('Session', function ($q, $http) {
 
     SessionClass.prototype.create = function (data) {
         var delay = $q.defer();
-        $http.post('api/session/create').then(
-            function (response) {
-                delay.resolve(response);
-            },
-            function (response) {
-                delay.reject(response.data);
-            }
-        );
-//        $http.get('../../resources/cb/session.json').then(
+//        $http.post('api/session/create').then(
 //            function (response) {
-//                delay.resolve(angular.fromJson(response.data));
+//                delay.resolve(response);
 //            },
 //            function (response) {
-//                delay.reject('Sorry,we did not get a response');
+//                delay.reject(response.data);
 //            }
 //        );
+        $http.get('../../resources/cb/session.json').then(
+            function (response) {
+                delay.resolve(angular.fromJson(response.data));
+            },
+            function (response) {
+                delay.reject('Sorry,we did not get a response');
+            }
+        );
         return delay.promise;
     };
 
@@ -1188,7 +1188,18 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
         self.protocol = protocol;
         self.config['sutInitiator'] = null;
         if (User.info && User.info != null && User.info.id != null) {
-            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/sutInitiator').then(
+//            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/sutInitiator').then(
+//                function (response) {
+//                    self.config['sutInitiator'] = angular.fromJson(response.data);
+//                    StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(self.config));
+//                    delay.resolve(true);
+//                },
+//                function (response) {
+//                    delay.reject(response);
+//                }
+//            );
+
+            $http.get('../../resources/cb/configListener.json').then(
                 function (response) {
                     self.config['sutInitiator'] = angular.fromJson(response.data);
                     StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(self.config));
@@ -1198,19 +1209,11 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
                     delay.reject(response);
                 }
             );
+
         } else {
             delay.reject(false);
         }
-//        $http.get('../../resources/cb/configListener.json').then(
-//            function (response) {
-//                self.config = angular.fromJson(response.data);
-//                StorageService.set(StorageService.USER_CONFIG_KEY,angular.toJson(self.config));
-//                delay.resolve(true);
-//            },
-//            function (response) {
-//                delay.reject(response);
-//            }
-//        );
+
 
         return delay.promise;
     };
@@ -1221,28 +1224,28 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
         var self = this;
         if (self.forms == null) self.forms = {};
         if (!self.forms[type] || self.forms[type] == null) {
-            $http.get('api/transport/config/form', {params: { 'protocol': protocol, 'type': type}}).then(
-                function (response) {
-                    var data = angular.fromJson(response.data);
-                    self.forms[type] = data.content;
-                    delay.resolve(self.forms[type]);
-                },
-                function (response) {
-                    delay.reject(response);
-                }
-            );
-
-//            var ext = type === 'TA_INITIATOR' ? 'taInitiatorForm.json': 'sutInitiatorForm.json';
-//            $http.get('../../resources/cb/'+ext ).then(
+//            $http.get('api/transport/config/form', {params: { 'protocol': protocol, 'type': type}}).then(
 //                function (response) {
-//                    var json = angular.fromJson(response.data);
-//                    self.forms[type] = json.value;
+//                    var data = angular.fromJson(response.data);
+//                    self.forms[type] = data.content;
 //                    delay.resolve(self.forms[type]);
 //                },
 //                function (response) {
 //                    delay.reject(response);
 //                }
 //            );
+
+            var ext = type === 'TA_INITIATOR' ? 'taInitiatorForm.json': 'sutInitiatorForm.json';
+            $http.get('../../resources/cb/'+ext ).then(
+                function (response) {
+                    var json = angular.fromJson(response.data);
+                    self.forms[type] = json.value;
+                    delay.resolve(self.forms[type]);
+                },
+                function (response) {
+                    delay.reject(response);
+                }
+            );
 
 
         } else {
@@ -1274,7 +1277,21 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
         var delay = $q.defer();
         var self = this;
         var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id, "config": config, "responseMessageId": responseMessageId});
-        $http.post('api/transport/' + self.domain + "/" + self.protocol + '/searchTransaction', data).then(
+//        $http.post('api/transport/' + self.domain + "/" + self.protocol + '/searchTransaction', data).then(
+//            function (response) {
+//                if (response.data != null && response.data != "") {
+//                    self.transactions[testStepId] = angular.fromJson(response.data);
+//                } else {
+//                    self.transactions[testStepId] = null;
+//                }
+//                delay.resolve(self.transactions[testStepId]);
+//            },
+//            function (response) {
+//                self.transactions[testStepId] = null;
+//                delay.reject(self.transactions[testStepId]);
+//            }
+//        );
+        $http.get('../../resources/cb/transaction.json').then(
             function (response) {
                 if (response.data != null && response.data != "") {
                     self.transactions[testStepId] = angular.fromJson(response.data);
@@ -1284,19 +1301,9 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
                 delay.resolve(self.transactions[testStepId]);
             },
             function (response) {
-                self.transactions[testStepId] = null;
-                delay.reject(self.transactions[testStepId]);
+                delay.reject(null);
             }
         );
-//        $http.get('../../resources/cb/transaction.json').then(
-//            function (response) {
-//                self.transactions[testStepId] = angular.fromJson(response.data);
-//                delay.resolve(self.transactions[testStepId]);
-//            },
-//            function (response) {
-//                delay.reject(null);
-//            }
-//        );
 
         return delay.promise;
     };
@@ -1325,62 +1332,62 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
     Transport.prototype.stopListener = function (testStepId, config) {
         var self = this;
         var delay = $q.defer();
-        this.deleteTransaction(testStepId).then(function (result) {
-            var data = angular.fromJson({"testStepId": testStepId});
-            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/stopListener', data).then(
-                function (response) {
-                    self.running = true;
-                    delay.resolve(true);
-                },
-                function (response) {
-                    self.running = false;
-                    delay.reject(null);
-                }
-            );
-        });
+//        this.deleteTransaction(testStepId).then(function (result) {
+//            var data = angular.fromJson({"testStepId": testStepId});
+//            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/stopListener', data).then(
+//                function (response) {
+//                    self.running = true;
+//                    delay.resolve(true);
+//                },
+//                function (response) {
+//                    self.running = false;
+//                    delay.reject(null);
+//                }
+//            );
+//        });
 
 //
-//        $http.get('../../resources/cb/stopListener.json').then(
-//            function (response) {
-//                self.running = true;
-//                self.deleteTransaction(testStepId);
-//                delay.resolve(true);
-//            },
-//            function (response) {
-//                self.running = false;
-//                delay.reject(null);
-//            }
-//        );
+        $http.get('../../resources/cb/stopListener.json').then(
+            function (response) {
+                self.running = true;
+                self.deleteTransaction(testStepId);
+                delay.resolve(true);
+            },
+            function (response) {
+                self.running = false;
+                delay.reject(null);
+            }
+        );
         return delay.promise;
     };
 
     Transport.prototype.startListener = function (testStepId, responseMessageId, sutInitiatorConfig) {
         var self = this;
         var delay = $q.defer();
-        this.deleteTransaction(testStepId).then(function (result) {
-            var data = angular.fromJson({"testStepId": testStepId, "responseMessageId": responseMessageId});
-            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/startListener', data).then(
-                function (response) {
-                    self.running = true;
-                    delay.resolve(true);
-                },
-                function (response) {
-                    self.running = false;
-                    delay.reject(null);
-                }
-            );
-        });
+//        this.deleteTransaction(testStepId).then(function (result) {
+//            var data = angular.fromJson({"testStepId": testStepId, "responseMessageId": responseMessageId});
+//            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/startListener', data).then(
+//                function (response) {
+//                    self.running = true;
+//                    delay.resolve(true);
+//                },
+//                function (response) {
+//                    self.running = false;
+//                    delay.reject(null);
+//                }
+//            );
+//        });
 
-//      $http.get('../../resources/cb/startListener.json').then(
-//            function (response) {
-//                self.running = true;
-//                delay.resolve(true);
-//            },
-//            function (response) {
-//                self.running = false;
-//                delay.reject(null);
-//            }
-//        );
+      $http.get('../../resources/cb/startListener.json').then(
+            function (response) {
+                self.running = true;
+                delay.resolve(true);
+            },
+            function (response) {
+                self.running = false;
+                delay.reject(null);
+            }
+        );
         return delay.promise;
     };
 
@@ -1389,25 +1396,25 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
         var self = this;
         this.deleteTransaction(testStepId).then(function (result) {
             var data = angular.fromJson({"testStepId": testStepId, "message": message, "config": self.config.taInitiator});
-            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/send', data).then(
-                function (response) {
-                    self.transactions[testStepId] = angular.fromJson(response.data);
-                    delay.resolve(self.transactions[testStepId]);
-                },
-                function (response) {
-                    self.transactions[testStepId] = null;
-                    delay.reject(response);
-                }
-            );
-//        $http.get('../../resources/cb/send.json').then(
-//            function (response) {
-//                self.transactions[testStepId] = angular.fromJson(response.data);
-//                delay.resolve(self.transactions[testStepId]);
-//            },
-//            function (response) {
-//                delay.reject(response);
-//            }
-//        );
+//            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/send', data).then(
+//                function (response) {
+//                    self.transactions[testStepId] = angular.fromJson(response.data);
+//                    delay.resolve(self.transactions[testStepId]);
+//                },
+//                function (response) {
+//                    self.transactions[testStepId] = null;
+//                    delay.reject(response);
+//                }
+//            );
+        $http.get('../../resources/cb/send.json').then(
+            function (response) {
+                self.transactions[testStepId] = angular.fromJson(response.data);
+                delay.resolve(self.transactions[testStepId]);
+            },
+            function (response) {
+                delay.reject(response);
+            }
+        );
         });
 
         return delay.promise;
