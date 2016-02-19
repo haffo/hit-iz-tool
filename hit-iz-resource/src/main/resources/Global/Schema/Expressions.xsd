@@ -57,7 +57,6 @@
 
 	<xs:simpleType name="ClassificationType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="E" />
 			<xs:enumeration value="W" />
 			<xs:enumeration value="A" />
 		</xs:restriction>

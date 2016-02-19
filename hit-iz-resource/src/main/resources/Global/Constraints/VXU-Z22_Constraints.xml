@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ConformanceContext UUID="2decb2ea-0b10-4c4c-9906-14e41392da67" xsi:noNamespaceSchemaLocation="../Schema/ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData>
-		<Description>Conformance context for VXU_V04, Version: 20150918-1</Description>
-	</MetaData>
+	<MetaData Name="Z22 Message Constranits" OrgName="NIST" Version="1.0.0" Date="20160219" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<Predicates>
 		<Datatype>
 			<ByID ID="XCN_IZ">
@@ -222,15 +220,24 @@
 				<Predicate ID="[RXA_IZ 1_5]9[1]" Target="9[1]" TrueUsage="R" FalseUsage="O">
 					<Description>If the value of RXA-20 (Completion Status) is one of List Values: 'CP','PA'.</Description>
 					<Condition>
-						<StringList Path="20[1]" CSV="CP,PA"/>
+						<AND>
+							<StringList Path="20[1]" CSV="CP,PA"/>
+							<Presence Path="20[1]"/>
+						</AND>
 					</Condition>
 				</Predicate>
 				<Predicate ID="[RXA_IZ 1_5]10[1]" Target="10[1]" TrueUsage="RE" FalseUsage="O">
 					<Description>If the value of RXA-9.1 (Identifier) is '00' AND if the value of RXA-20 (Completion Status) is one of List Values: 'CP','PA'.</Description>
 					<Condition>
 						<AND>
-							<PlainText Path="9[1].1[1]" Text="00" IgnoreCase="false"/>
-							<StringList Path="20[1]" CSV="CP,PA"/>
+							<AND>
+								<PlainText Path="9[1].1[1]" Text="00" IgnoreCase="false"/>
+								<Presence Path="9[1].1[1]"/>
+							</AND>
+							<AND>
+								<StringList Path="20[1]" CSV="CP,PA"/>
+								<Presence Path="20[1]"/>
+							</AND>
 						</AND>
 					</Condition>
 				</Predicate>
@@ -238,8 +245,14 @@
 					<Description>If the value of RXA-9.1 (Identifier) is '00' AND if the value of RXA-20 (Completion Status) is one of List Values: 'CP','PA'.</Description>
 					<Condition>
 						<AND>
-							<PlainText Path="9[1].1[1]" Text="00" IgnoreCase="false"/>
-							<StringList Path="20[1]" CSV="CP,PA"/>
+							<AND>
+								<PlainText Path="9[1].1[1]" Text="00" IgnoreCase="false"/>
+								<Presence Path="9[1].1[1]"/>
+							</AND>
+							<AND>
+								<StringList Path="20[1]" CSV="CP,PA"/>
+								<Presence Path="20[1]"/>
+							</AND>
 						</AND>
 					</Condition>
 				</Predicate>

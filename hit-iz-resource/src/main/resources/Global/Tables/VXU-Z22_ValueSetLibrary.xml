@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ValueSetLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/ValueSets.xsd" ValueSetLibraryIdentifier="5674a4b2-0e26-4f6a-9dc8-ba78a4727c83" Description="Automatically generated vacab for VXU_V04" Name="Vocab for VXU_V04" OrganizationName="HL7 NIST" Status="Active" ValueSetLibraryVersion="20150918-1">
+<ValueSetLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/ValueSets.xsd" ValueSetLibraryIdentifier="5674a4b2-0e26-4f6a-9dc8-ba78a4727c83">
+	<MetaData Name="Z22 Message ValueSets" OrgName="NIST" Version="1.0.0" Date="20160219" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<NoValidation>
 		<BindingIdentifier>HL70110</BindingIdentifier>
 		<BindingIdentifier>HL70018</BindingIdentifier>

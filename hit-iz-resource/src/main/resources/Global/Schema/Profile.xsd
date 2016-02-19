@@ -310,24 +310,29 @@
 	</xs:complexType>
 
 	<xs:complexType name="MetaDataType">
-		<xs:attribute name="SpecificationName" type="xs:string" use="optional">
+		<xs:attribute name="Name" type="NonEmptyString" use="required">
 			<xs:annotation>
-				<xs:documentation>Provides a name that clearly and concisely defines the message exchange being profiled.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="Name" type="xs:string" use="required">
-			<xs:annotation>
-				<xs:documentation>Provides a name that clearly and concisely defines the message exchange being profiled.</xs:documentation>
+				<xs:documentation>Name of this profile ex) Z22 Message profile</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="OrgName" type="NonEmptyString" use="required">
 			<xs:annotation>
-				<xs:documentation>Name of the organization that submitted the profile.</xs:documentation>
+				<xs:documentation>Organization Name of this profile ex) NIST</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="Version" type="NonEmptyString" use="optional">
+		<xs:attribute name="Version" type="NonEmptyString" use="required">
 			<xs:annotation>
-				<xs:documentation>The version identifier assigned to this profile by the author. There is no prescribed version numbering scheme.  However 'higher' versions should generally be interpreted to be more resent.</xs:documentation>
+				<xs:documentation>Version of this profile ex) 1.0.0</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Date" type="NonEmptyString" use="required">
+			<xs:annotation>
+				<xs:documentation>Date of this profile ex) YYYYMMDD</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="SpecificationName" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Provides a name that clearly and concisely defines the message exchange being profiled.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="Status" use="optional">
@@ -348,12 +353,11 @@
 				<xs:documentation>This provides a list of key-words that relate to the profile and that may be useful in profile searches.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="Date" type="NonEmptyString" use="optional"> </xs:attribute>
 	</xs:complexType>
 
 	<xs:complexType name="ConformanceProfileType">
 		<xs:sequence>
-			<xs:element name="MetaData" type="MetaDataType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MetaData" type="MetaDataType" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Encodings" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>

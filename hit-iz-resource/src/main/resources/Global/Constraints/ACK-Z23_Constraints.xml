@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ConformanceContext UUID="e99ce380-6861-4848-a0b3-a85a67674532" xsi:noNamespaceSchemaLocation="../Schema/ConformanceContext.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <MetaData>
-        <Description>Conformance context for ACK, Version: 20150918-1</Description>
-    </MetaData>
+    <MetaData Name="Z23 Message Constranits" OrgName="NIST" Version="1.0.0" Date="20160219" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
     <Predicates>
         <Datatype>
             <ByID ID="CWE_IZ">
