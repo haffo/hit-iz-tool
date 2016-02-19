@@ -108,7 +108,7 @@ public class IZConnectivityController {
     this.soapMessageParser = soapMessageParser;
   }
 
-  @Cacheable(value = "testCaseCache", key = "'conn-testcases'")
+  @Cacheable(value = "HitCache", key = "'conn-testcases'")
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
   public List<IZConnectivityTestPlan> testCases() {
     logger.info("Fetching all testPlans...");
@@ -170,7 +170,8 @@ public class IZConnectivityController {
         throw new UserNotFoundException();
       }
       Long testCaseId = requ.getTestStepId();
-      TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, "soap");
+      TransportConfig config =
+          transportConfigService.findOneByUserAndProtocolAndDomain(userId, "soap", "iz");
       config.setTaInitiator(requ.getConfig());
       transportConfigService.save(config);
       IZConnectivityTestCase testCase = testCaseRepository.findOne(testCaseId);

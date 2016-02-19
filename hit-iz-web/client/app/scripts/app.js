@@ -103,6 +103,9 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
         .when('/error', {
             templateUrl: 'error.html'
         })
+        .when('/transport-settings', {
+            templateUrl: 'views/transport-settings.html'
+        })
         .otherwise({
             redirectTo: '/'
         });

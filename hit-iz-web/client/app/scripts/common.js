@@ -62,6 +62,12 @@ angular.module('commonServices').factory('StorageService',
             },
             get: function (key) {
                 return localStorageService.get(key);
+            },
+            getTransportConfig: function (domain,protocol) {
+                return localStorageService.get(domain + "-" + protocol + "-transport-configs");
+            },
+            setTransportConfig: function (domain,protocol ,val) {
+                return localStorageService.set(domain + "-" + protocol + "-transport-configs", val);
             }
         };
         return service;

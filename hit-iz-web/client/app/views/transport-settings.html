@@ -1,0 +1,104 @@
+<style id="antiClickjack">body {
+    display: none !important;
+}</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
+<div ng-controller="TransportSettingsCtrl" ng-init="initSettings()">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div ng-show="loading" style="text-align:center">
+                <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+            </div>
+            <div ng-show="!loading">
+                <div ng-show="error !== null">
+                    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+                </div>
+                <div ng-show="error === null">
+                    <div ng-show="transport.configs != null">
+                        <div ng-repeat="domain in getDomains()">
+                            <tabset>
+                                <tab ng-repeat="protocol in getProtocols(domain)">
+                                    <tab-heading>
+                                        <i class="fa fa-cog"></i>{{protocol | 'uppercase'}}
+                                    </tab-heading>
+                                    <accordion close-others="false" ng-controller="DomainProtocolConfigCtrl"
+                                               ng-init="initDomainProtocolConfig(domain, protocol)">
+                                        <accordion-group is-open="taOpened" panel-class="panel-info">
+                                            <accordion-heading>
+                                                <i class="fa"
+                                                   ng-class="{'fa-caret-down': taOpened, 'fa-caret-right': !taOpened}"></i>
+                                                <i class="fa fa-cog fa-fw"></i> Receiver Configuration
+                                            </accordion-heading>
+                                            <div ng-controller="TaInitiatorConfigCtrl"
+                                                 ng-init="initTaInitiatorConfig(domain,protocol)">
+                                                <div ng-show="taInitiatorForm != null">
+                                                    <form name="taInitiatorForm-{{transportConfig.id}}"
+                                                          id="taInitiatorForm-{{transportConfig.id}}" novalidate
+                                                          class="form-horizontal">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div compile="initiatorForm"/>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <button class="btn btn-sm btn-danger" ng-click='reset()'
+                                                                        ng-disabled='saved || taInitiatorForm-{{transportConfig.id}}.$pristine'>
+                                                                    <i class="fa fa-times"></i> Reset
+                                                                </button>
+                                                                <button class="btn btn-sm btn-success" ng-click='save()'
+                                                                        ng-disabled='taInitiatorForm-{{transportConfig.id}}.$invalid || taInitiatorForm-{{transportConfig.id}}.$pristine'>
+                                                                    <i class="fa fa-check"></i> Save
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div ng-show="taInitiatorForm == null">
+                                                    No Config Available
+                                                </div>
+                                            </div>
+                                        </accordion-group>
+
+                                        <accordion-group is-open="sutOpened" panel-class="panel-info">
+                                            <accordion-heading>
+                                                <i class="fa"
+                                                   ng-class="{'fa-caret-down': sutOpened, 'fa-caret-right': !sutOpened}"></i>
+                                                <i class="fa fa-cog fa-fw"></i>Sender Configuration
+                                            </accordion-heading>
+                                            <div ng-controller="SutInitiatorConfigCtrl"
+                                                 ng-init="initSutInitiatorConfig(domain, protocol)">
+                                                <div ng-show="sutInitiatorForm != null">
+                                                    <form name="sutInitiatorForm-{{transportConfig.id}}"
+                                                          id="sutInitiatorForm-{{transportConfig.id}}" novalidate
+                                                          class="form-horizontal">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div compile="sutInitiatorForm"/>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div ng-show="sutInitiatorForm == null">
+                                                    No Config Available
+                                                </div>
+                                            </div>
+                                        </accordion-group>
+                                    </accordion>
+                                </tab>
+                            </tabset>
+                        </div>
+
+                    </div>
+                    <div ng-show="cb.transport.configs === null">
+                        No Settings Available.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

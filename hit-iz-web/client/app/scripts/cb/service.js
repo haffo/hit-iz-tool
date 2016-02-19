@@ -4,19 +4,18 @@
 angular.module('cb').factory('CB',
     ['Message', 'ValidationSettings', 'Tree', 'StorageService', 'Transport','Logger', 'User', function (Message, ValidationSettings,Tree,StorageService,Transport,Logger, User) {
 
-        var initTransport = function(){
-            var transport = new Transport();
-            if(StorageService.get(StorageService.USER_CONFIG_KEY) != null) {
-                transport.config = angular.fromJson(StorageService.get(StorageService.USER_CONFIG_KEY));
-            }
-            return transport;
-        };
+//        var initTransport = function(){
+//            var transport = new Transport();
+//            if(StorageService.get(StorageService.USER_CONFIG_KEY) != null) {
+//                transport.config = angular.fromJson(StorageService.get(StorageService.USER_CONFIG_KEY));
+//            }
+//            return transport;
+//        };
         var CB = {
             testCase: null,
             selectedTestCase: null,
             editor:null,
             tree: new Tree(),
-            transport:  initTransport(),
             cursor: null,
             message: new Message(),
             logger: new Logger(),

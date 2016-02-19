@@ -6,6 +6,7 @@
         "stage": "ISOLATED",
         "position": 1,
         "id": 3,
+        "transport":true,
         "testCases": [ ],
         "testCaseGroups": [
             {
@@ -747,6 +748,7 @@
         "name": "CDC Immunization Project (CNI)",
         "description": "No Description",
         "type": "TestPlan",
+        "transport":true,
         "stage": "ISOLATED",
         "position": 1,
         "id": 4,
@@ -1817,6 +1819,7 @@
         "description": "Targeted test plan to assess Isolated System Testing Automation",
         "type": "TestPlan",
         "stage": "ISOLATED",
+        "transport":true,
         "position": 1,
         "id": 5,
         "testCases": [ ],

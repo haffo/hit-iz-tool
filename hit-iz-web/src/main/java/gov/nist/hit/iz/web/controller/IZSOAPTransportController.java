@@ -89,6 +89,8 @@ public class IZSOAPTransportController {
 
 
   private final static String PROTOCOL = "soap";
+  private final static String DOMAIN = "soap";
+
 
   String SUMBIT_SINGLE_MESSAGE_TEMPLATE = null;
 
@@ -101,7 +103,8 @@ public class IZSOAPTransportController {
 
   @Transactional()
   @RequestMapping(value = "/taInitiator", method = RequestMethod.POST)
-  public Map<String, String> taInitiatorConfig(HttpSession session) throws UserNotFoundException {
+  public Map<String, String> taInitiatorConfig(HttpSession session, HttpServletRequest request)
+      throws UserNotFoundException {
     logger.info("Fetching user ta initiator information ... ");
     Long userId = SessionContext.getCurrentUserId(session);
     User user = null;
@@ -109,9 +112,10 @@ public class IZSOAPTransportController {
     if (userId == null || (user = userService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
-    transportConfig = transportConfigService.findOneByUserAndProtocol(user.getId(), PROTOCOL);
+    transportConfig =
+        transportConfigService.findOneByUserAndProtocolAndDomain(user.getId(), PROTOCOL, DOMAIN);
     if (transportConfig == null) {
-      transportConfig = transportConfigService.create(PROTOCOL);
+      transportConfig = transportConfigService.create(PROTOCOL, DOMAIN);
       user.addConfig(transportConfig);
       userService.save(user);
       transportConfigService.save(transportConfig);
@@ -132,9 +136,9 @@ public class IZSOAPTransportController {
     }
 
     TransportConfig transportConfig =
-        transportConfigService.findOneByUserAndProtocol(userId, PROTOCOL);
+        transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL, DOMAIN);
     if (transportConfig == null) {
-      transportConfig = transportConfigService.create(PROTOCOL);
+      transportConfig = transportConfigService.create(PROTOCOL, DOMAIN);
       user.addConfig(transportConfig);
       userService.save(user);
     }
@@ -211,7 +215,8 @@ public class IZSOAPTransportController {
   }
 
   private Map<String, String> getSutInitiatorConfig(Long userId) {
-    TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, PROTOCOL);
+    TransportConfig config =
+        transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL, DOMAIN);
     Map<String, String> sutInitiator = config != null ? config.getSutInitiator() : null;
     if (sutInitiator == null || sutInitiator.isEmpty())
       throw new gov.nist.hit.core.service.exception.TransportException(
@@ -244,7 +249,8 @@ public class IZSOAPTransportController {
 
       Long userId = SessionContext.getCurrentUserId(session);
       Long testStepId = request.getTestStepId();
-      TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, PROTOCOL);
+      TransportConfig config =
+          transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL, DOMAIN);
       config.setTaInitiator(request.getConfig());
       transportConfigService.save(config);
       TestStep testStep = testStepService.findOne(testStepId);
@@ -273,6 +279,27 @@ public class IZSOAPTransportController {
       throw new TransportException("Failed to send the message." + e1.getMessage());
     }
   }
+
+  @Transactional()
+  @RequestMapping(value = "/configs", method = RequestMethod.POST)
+  public TransportConfig configs(HttpSession session, HttpServletRequest request)
+      throws UserNotFoundException {
+    logger.info("Fetching user configuration information ... ");
+    Long userId = SessionContext.getCurrentUserId(session);
+    if (userId == null || userService.findOne(userId) == null) {
+      throw new UserNotFoundException();
+    }
+    Map<String, String> sutInitiatorConfig = sutInitiatorConfig(session, request);
+    Map<String, String> taInitiatorConfig = taInitiatorConfig(session, request);
+    TransportConfig transportConfig =
+        transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL, DOMAIN);
+    transportConfig.setSutInitiator(sutInitiatorConfig);
+    transportConfig.setTaInitiator(taInitiatorConfig);
+    transportConfigService.save(transportConfig);
+    return transportConfig;
+  }
+
+
 
   public TestStepService getTestStepService() {
     return testStepService;

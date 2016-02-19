@@ -16,15 +16,17 @@
     </div>
     <div class="panel-body">
         <table st-table="testCase.children" style="margin-bottom: 0px"
-                 class="table table-bordered  table-condensed stTable">
+               class="table table-bordered  table-condensed stTable">
             <thead>
             <tr class="">
                 <th style="width:5%">#</th>
                 <th style="width:20%">Name</th>
                 <th style="width:35%">Description</th>
                 <th style="width:15%">Execution Status</th>
+                <th style="width:10%" ng-show="testCase.transport === true && user.info != null && !transport.disabled">
+                    Transport
+                </th>
                 <th style="width:15%">Validation Result</th>
-                <th style="width:10%" ng-show="testCase.transport === true && user.info != null">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -70,26 +72,8 @@
                              </span>
                         </span>
                 </td>
-                <td style="width:15%">
-                    <span ng-show="row.testingType != 'TA_MANUAL' && row.testingType != 'SUT_MANUAL'">
-                    <span ng-show="getValidationStatus(row) < 0 && row.id !== testStep.id">Not started</span>
-                        <span ng-show="getValidationStatus(row) < 0 && row.id === testStep.id">
-                              In Progress
-                        </span>
-                    <span ng-show="getValidationStatus(row) > 0">
-                              <i title="Message is Invalid"
-                                 class="glyphicon glyphicon-remove red"></i> Failed
-                          </span>
-                            <span ng-show="getValidationStatus(row) == 0">
-                                      <i title="Message Is Valid"
-                                         class="glyphicon glyphicon-ok green"></i> Passed
-                             </span>
-                        </span>
-                     <span ng-show="row.testingType == 'TA_MANUAL' || row.testingType == 'SUT_MANUAL'">
-                        N/A
-                    </span>
-                </td>
-                <td style="width:10%" ng-show="testCase.transport === true && user.info != null">
+
+                <td style="width:10%" ng-show="testCase.transport === true && user.info != null && !transport.disabled">
 
                     <!--<a ng-show="row.testingType !== 'SUT_INITIATOR' && row.testingType !== 'TA_INITIATOR' && row.testingType !== 'SUT_RESPONDER' && row.testingType !== 'TA_RESPONDER' && transport.logs[row.id] && transport.logs[row.id] != null"-->
                     <!--ng-click="viewConsole(row.id)">-->
@@ -97,20 +81,20 @@
 
                     <div ng-show="testStep != null && row.id === testStep.id && testStep.testingType === 'SUT_INITIATOR'">
                         <div class="" style="margin-bottom: 20px" ng-show="transport.config.sutInitiator != null">
-                            <button title="Config Info" type="button"
-                                    ng-click="openConfig()"
-                                    class="btn btn-xs btn-info"><i
-                                    class="fa fa-cog"></i>
-                            </button>
+                            <!--<button title="Config Info" type="button"-->
+                                    <!--ng-click="openConfig()"-->
+                                    <!--class="btn btn-xs btn-info"><i-->
+                                    <!--class="fa fa-cog"></i>-->
+                            <!--</button>-->
                             <button type="button" title="Start Listening"
                                     ng-click="startListener()" ng-disabled="sutInitiatorForm.$invalid || connecting"
                                     title="Start listening"
                                     class="btn btn-xs btn-success">
-                                <i class="fa fa-play"></i>
+                                <i class="fa fa-play"></i>Listen
                             </button>
                             <button type="button" title="Stop Listening"
                                     ng-disabled="!connecting" ng-click="stopListener()"
-                                    class="btn btn-xs btn-warning"><i class="fa fa-stop"></i>
+                                    class="btn btn-xs btn-warning"><i class="fa fa-stop"></i>Stop
                             </button>
                             <!--<span ng-show="connecting">-->
                             <!--<i class="fa fa-spinner"></i> Remaining time (s): {{counter}} / {{counterMax}}-->
@@ -134,23 +118,23 @@
                     </div>
 
                     <div ng-show="testStep != null && row.id === testStep.id && testStep.testingType === 'TA_INITIATOR'">
-                        <div class="" style="margin-bottom: 20px" ng-show="transport.config.taInitiator != null">
-                            <button title="Config Info" type="button"
-                                    ng-click="openConfig()"
-                                    class="btn btn-xs btn-info"><i
-                                    class="fa fa-cog"></i>
-                            </button>
+                        <div class="" style="margin-bottom: 20px" ng-show="transport.configs[domain][protocol].data.taInitiator && transport.configs[domain][protocol].data.taInitiator != null">
+                            <!--<button title="Config Info" type="button"-->
+                                    <!--ng-click="openConfig()"-->
+                                    <!--class="btn btn-xs btn-info"><i-->
+                                    <!--class="fa fa-cog"></i>-->
+                            <!--</button>-->
                             <button type="button"
                                     ng-click="send()" ng-disabled="!hasUserContent() || connecting"
                                     title="Send" class="btn btn-xs btn-success">
-                                <i class="fa fa-share-square"></i>
+                                <i class="fa fa-share-square"></i>Send
                             </button>
                             <!--<span ng-show="connecting">-->
                             <!--<i class="fa fa-spinner"></i> Remaining time (s): {{counter}} / {{counterMax}}-->
                             <!--</span>-->
                         </div>
-                        <div class="" ng-show="transport.config.taInitiator == null">
-                            No configuration Information Available
+                        <div class="" ng-show="!transport.configs[domain][protocol].data.taInitiator || transport.configs[domain][protocol].data.taInitiator === null">
+                            No Configuration Information Found.
                         </div>
                         <!--<div class="row" collapse="configCollapsed">-->
                         <!--<div class="col-md-5">-->
@@ -167,6 +151,27 @@
 
 
                 </td>
+
+                <td style="width:15%">
+                    <span ng-show="row.testingType != 'TA_MANUAL' && row.testingType != 'SUT_MANUAL'">
+                    <span ng-show="getValidationStatus(row) < 0 && row.id !== testStep.id">Not started</span>
+                        <span ng-show="getValidationStatus(row) < 0 && row.id === testStep.id">
+                              In Progress
+                        </span>
+                    <span ng-show="getValidationStatus(row) > 0">
+                              <i title="Message is Invalid"
+                                 class="glyphicon glyphicon-remove red"></i> Failed
+                          </span>
+                            <span ng-show="getValidationStatus(row) == 0">
+                                      <i title="Message Is Valid"
+                                         class="glyphicon glyphicon-ok green"></i> Passed
+                             </span>
+                        </span>
+                     <span ng-show="row.testingType == 'TA_MANUAL' || row.testingType == 'SUT_MANUAL'">
+                        N/A
+                    </span>
+                </td>
+
             </tr>
             </tbody>
 
@@ -180,17 +185,17 @@
                     </button>
 </span>
                     <span class="pull-right">
-                    <button   ng-click="goNext(testStep)"
-                              ng-show="!isLastStep(testStep) && !isTestCaseCompleted() && isTestStepCompleted(testStep)"
-                              title="Execute Next Step" class="btn btn-xs btn-info">
-                         <span><i class="fa fa-arrow-right"></i> Next</span>
+                    <button ng-click="goNext(testStep)"
+                            ng-show="!isLastStep(testStep) && !isTestCaseCompleted() && isTestStepCompleted(testStep)"
+                            title="Execute Next Step" class="btn btn-xs btn-info">
+                        <span><i class="fa fa-arrow-right"></i> Next</span>
                     </button>
 
-                        <button   ng-click="goNext(testStep)"
-                                  ng-show="isLastStep(testStep) && !isTestCaseCompleted() && isTestStepCompleted(testStep)"
-                                  title="Complete Test Case" class="btn btn-xs btn-info">
+                        <button ng-click="goNext(testStep)"
+                                ng-show="isLastStep(testStep) && !isTestCaseCompleted() && isTestStepCompleted(testStep)"
+                                title="Complete Test Case" class="btn btn-xs btn-info">
                             <span><i class="fa fa-check-circle"></i> Complete</span>
-                         </button>
+                        </button>
 
                         </span>
 
