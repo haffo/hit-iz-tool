@@ -246,28 +246,28 @@ angular.module('format').factory('MessageValidatorClass', function ($http, $q, $
     MessageValidatorClass.prototype.validate = function (testContextId, content, nav, contextType, dqaCodes, facilityId) {
         var delay = $q.defer();
         if (this.format && this.format != null) {
-//            $http.post('api/' + this.format + '/testcontext/' + testContextId + '/validateMessage', angular.fromJson({"content": content, "contextType": contextType, "dqaCodes": dqaCodes, "facilityId": facilityId, "nav": nav})).then(
-//                function (object) {
-//                    try {
-//                        delay.resolve(angular.fromJson(object.data));
-//                    } catch (e) {
-//                        delay.reject("Invalid character in the message");
-//                    }
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-
-
-            $http.get('../../resources/cf/newValidationResult3.json').then(
+            $http.post('api/' + this.format + '/testcontext/' + testContextId + '/validateMessage', angular.fromJson({"content": content, "contextType": contextType, "dqaCodes": dqaCodes, "facilityId": facilityId, "nav": nav})).then(
                 function (object) {
-                    delay.resolve(angular.fromJson(object.data));
+                    try {
+                        delay.resolve(angular.fromJson(object.data));
+                    } catch (e) {
+                        delay.reject("Invalid character in the message");
+                    }
                 },
                 function (response) {
                     delay.reject(response.data);
                 }
             );
+
+
+//            $http.get('../../resources/cf/newValidationResult3.json').then(
+//                function (object) {
+//                    delay.resolve(angular.fromJson(object.data));
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
 
 //            $http.get('../../resources/erx/soap-validate-response.json').then(
 //                function (object) {
@@ -307,16 +307,7 @@ angular.module('format').factory('MessageParserClass', function ($http, $q, $tim
     MessageParserClass.prototype.parse = function (testContextId, content, name) {
         var delay = $q.defer();
         if (this.format && this.format != null) {
-//            $http.post('api/' + this.format + '/testcontext/' + testContextId + '/parseMessage', angular.fromJson({"content": content})).then(
-//                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-
-            $http.get('../../resources/cf/messageObject.json').then(
+            $http.post('api/' + this.format + '/testcontext/' + testContextId + '/parseMessage', angular.fromJson({"content": content})).then(
                 function (object) {
                     delay.resolve(angular.fromJson(object.data));
                 },
@@ -324,6 +315,15 @@ angular.module('format').factory('MessageParserClass', function ($http, $q, $tim
                     delay.reject(response.data);
                 }
             );
+
+//            $http.get('../../resources/cf/messageObject.json').then(
+//                function (object) {
+//                    delay.resolve(angular.fromJson(object.data));
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
 //            $http.get('../../resources/erx/soap-parse-response.json').then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
@@ -540,6 +540,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
                 node["children"] = node.testCases;
                 angular.forEach(node.children, function (testCase) {
                     testCase['transport'] = node['transport'];
+                    testCase['domain'] = node['domain'];
                     testCase['nav'] = {};
                     testCase['nav']['testStep'] = null;
                     testCase['nav'] = {};
@@ -551,6 +552,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
             } else {
                 angular.forEach(node.testCases, function (testCase) {
                     testCase['transport'] = node['transport'];
+                    testCase['domain'] = node['domain'];
                     node["children"].push(testCase);
                     testCase['nav'] = {};
                     testCase['nav']['testStep'] = null;
@@ -569,6 +571,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
                 node["children"] = node.testCaseGroups;
                 angular.forEach(node.children, function (testCaseGroup) {
                     testCaseGroup['transport'] = node['transport'];
+                    testCaseGroup['domain'] = node['domain'];
                     testCaseGroup['nav'] = {};
                     //node["children"].push(testCaseGroup);
                     testCaseGroup['nav']['testCase'] = null;
@@ -580,6 +583,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
             } else {
                 angular.forEach(node.testCaseGroups, function (testCaseGroup) {
                     testCaseGroup['transport'] = node['transport'];
+                    testCaseGroup['domain'] = node['domain'];
                     node["children"].push(testCaseGroup);
                     testCaseGroup['nav'] = {};
                     testCaseGroup['nav']['testCase'] = null;
@@ -979,16 +983,7 @@ angular.module('format').factory('AppInfo', ['$http', '$q', function ($http, $q)
     return {
         get: function () {
             var delay = $q.defer();
-//            $http.get('api/appInfo').then(
-//                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-//
-            $http.get('../../resources/appInfo.json').then(
+            $http.get('api/appInfo').then(
                 function (object) {
                     delay.resolve(angular.fromJson(object.data));
                 },
@@ -996,6 +991,15 @@ angular.module('format').factory('AppInfo', ['$http', '$q', function ($http, $q)
                     delay.reject(response.data);
                 }
             );
+//
+//            $http.get('../../resources/appInfo.json').then(
+//                function (object) {
+//                    delay.resolve(angular.fromJson(object.data));
+//                },
+//                function (response) {
+//                    delay.reject(response.data);
+//                }
+//            );
 
             return delay.promise;
 
@@ -1017,17 +1021,17 @@ angular.module('format').factory('User', function ($q, $http, StorageService) {
     UserClass.prototype.load = function () {
         var delay = $q.defer();
         var user = this;
-//        $http.post('api/user/current').then(
-//            function (response) {
-//                var data = angular.fromJson(response.data);
-//                user.setInfo(data);
-//                delay.resolve(data);
-//            },
-//            function (response) {
-//                user.setInfo(null);
-//                delay.reject(response.data);
-//            }
-//        );
+        $http.post('api/user/current').then(
+            function (response) {
+                var data = angular.fromJson(response.data);
+                user.setInfo(data);
+                delay.resolve(data);
+            },
+            function (response) {
+                user.setInfo(null);
+                delay.reject(response.data);
+            }
+        );
 
         //        this.info = {};
 //        var backup = StorageService.get(StorageService.USER_KEY);
@@ -1044,14 +1048,17 @@ angular.module('format').factory('User', function ($q, $http, StorageService) {
 //                    StorageService.remove(StorageService.USER_KEY);
 //                }
 //            );
-        $http.get('../../resources/cb/user.json').then(
-            function (response) {
-                delay.resolve(angular.fromJson(response.data));
-            },
-            function (response) {
-                delay.reject('Sorry,we did not get a response');
-            }
-        );
+//        $http.get('../../resources/cb/user.json').then(
+//            function (response) {
+//                var data = angular.fromJson(response.data);
+//                user.setInfo(data);
+//                delay.resolve(data);
+//            },
+//            function (response) {
+//                user.setInfo(null);
+//                delay.reject(response.data);
+//            }
+//        );
 //
 //        }
 
@@ -1092,22 +1099,22 @@ angular.module('format').factory('Session', function ($q, $http) {
 
     SessionClass.prototype.create = function (data) {
         var delay = $q.defer();
-//        $http.post('api/session/create').then(
-//            function (response) {
-//                delay.resolve(response);
-//            },
-//            function (response) {
-//                delay.reject(response.data);
-//            }
-//        );
-        $http.get('../../resources/cb/session.json').then(
+        $http.post('api/session/create').then(
             function (response) {
-                delay.resolve(angular.fromJson(response.data));
+                delay.resolve(response);
             },
             function (response) {
-                delay.reject('Sorry,we did not get a response');
+                delay.reject(response.data);
             }
         );
+//        $http.get('../../resources/cb/session.json').then(
+//            function (response) {
+//                delay.resolve(angular.fromJson(response.data));
+//            },
+//            function (response) {
+//                delay.reject('Sorry,we did not get a response');
+//            }
+//        );
         return delay.promise;
     };
 
@@ -1128,178 +1135,185 @@ angular.module('format').factory('Session', function ($q, $http) {
 });
 
 
-angular.module('format').factory('Transport', function ($q, $http, StorageService, User) {
-        var Transport = function () {
-            this.running = false;
-            this.configs = null;
-            this.transactions = [];
-            this.logs = {};
-            this.disabled = StorageService.get(StorageService.TRANSPORT_DISABLED) != null ?  StorageService.get(StorageService.TRANSPORT_DISABLED): false;
-        };
+angular.module('format').factory('Transport', function ($q, $http, StorageService, User, $timeout, $rootScope) {
+        var Transport = {
+            running: false,
+            configs: {},
+            transactions: [],
+            logs: {},
+            disabled: StorageService.get(StorageService.TRANSPORT_DISABLED) != null ? StorageService.get(StorageService.TRANSPORT_DISABLED) : false,
 
-        /**
-         *
-         * @param domain
-         */
-        Transport.prototype.setDiabled = function (disabled) {
-            this.disabled = disabled;
-        };
+            /**
+             *
+             * @param domain
+             */
+            setDisabled: function (disabled) {
+                this.disabled = disabled;
+            },
 
-
-        Transport.prototype.loadTaInitiatorConfig = function (protocol) {
-            var delay = $q.defer();
-            var self = this;
-            self.protocol = protocol;
-            self.config['taInitiator'] = null;
-            if (User.info && User.info != null && User.info.id != null) {
-                $http.post('api/transport/' + self.domain + "/" + self.protocol + '/taInitiator').then(
-                    function (response) {
-                        self.config['taInitiator'] = angular.fromJson(response.data);
-                        StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(self.config));
-                        delay.resolve(true);
-                    },
-                    function (response) {
-                        delay.reject(response);
-                    }
-                );
-            } else {
-                delay.reject(false);
-            }
-//        $http.get('../../resources/cb/configListener.json').then(
-//            function (response) {
-//                self.config = angular.fromJson(response.data);
-//                StorageService.set(StorageService.USER_CONFIG_KEY,angular.toJson(self.config));
-//                delay.resolve(true);
-//            },
-//            function (response) {
-//                delay.reject(response);
-//            }
-//        );
-
-            return delay.promise;
-        };
-
-
-        Transport.prototype.loadSutInitiatorConfig = function (protocol) {
-            var delay = $q.defer();
-            var self = this;
-            self.protocol = protocol;
-            self.config['sutInitiator'] = null;
-            if (User.info && User.info != null && User.info.id != null) {
-//            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/sutInitiator').then(
-//                function (response) {
-//                    self.config['sutInitiator'] = angular.fromJson(response.data);
-//                    StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(self.config));
-//                    delay.resolve(true);
-//                },
-//                function (response) {
-//                    delay.reject(response);
+//            loadTaInitiatorConfig: function (protocol) {
+//                var delay = $q.defer();
+//                var self = this;
+//                self.protocol = protocol;
+//                self.config['taInitiator'] = null;
+//                if (User.info && User.info != null && User.info.id != null) {
+//                    $http.post('api/transport/' + self.domain + "/" + self.protocol + '/taInitiator').then(
+//                        function (response) {
+//                            self.config['taInitiator'] = angular.fromJson(response.data);
+//                            StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(self.config));
+//                            delay.resolve(true);
+//                        },
+//                        function (response) {
+//                            delay.reject(response);
+//                        }
+//                    );
+//                } else {
+//                    delay.reject(false);
 //                }
-//            );
-
-                $http.get('../../resources/cb/configListener.json').then(
-                    function (response) {
-                        self.config['sutInitiator'] = angular.fromJson(response.data);
-                        StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(self.config));
-                        delay.resolve(true);
-                    },
-                    function (response) {
-                        delay.reject(response);
-                    }
-                );
-
-            } else {
-                delay.reject(false);
-            }
-
-
-            return delay.promise;
-        };
-
-
-        Transport.prototype.loadConfigForm = function (protocol, type) {
-            var delay = $q.defer();
-            var self = this;
-            if (self.forms == null) self.forms = {};
-            if (!self.forms[type] || self.forms[type] == null) {
-//            $http.get('api/transport/config/form', {params: { 'protocol': protocol, 'type': type}}).then(
-//                function (response) {
-//                    var data = angular.fromJson(response.data);
-//                    self.forms[type] = data.content;
-//                    delay.resolve(self.forms[type]);
-//                },
-//                function (response) {
-//                    delay.reject(response);
-//                }
-//            );
-
-                var ext = type === 'TA_INITIATOR' ? 'taInitiatorForm.json' : 'sutInitiatorForm.json';
-                $http.get('../../resources/cb/' + ext).then(
-                    function (response) {
-                        var json = angular.fromJson(response.data);
-                        self.forms[type] = json.value;
-                        delay.resolve(self.forms[type]);
-                    },
-                    function (response) {
-                        delay.reject(response);
-                    }
-                );
-
-
-            } else {
-                delay.resolve(self.forms[type]);
-            }
-
+////        $http.get('../../resources/cb/configListener.json').then(
+////            function (response) {
+////                self.config = angular.fromJson(response.data);
+////                StorageService.set(StorageService.USER_CONFIG_KEY,angular.toJson(self.config));
+////                delay.resolve(true);
+////            },
+////            function (response) {
+////                delay.reject(response);
+////            }
+////        );
 //
-//        $http.get('../../resources/cb/user.json').then(
-//            function (response) {
-//                var user = angular.fromJson(response.data);
-//                self.id = user.id;
-//                self.senderUsername = user.username;
-//                self.senderPassword = user.password;
-//                self.senderFacilityID = user.facilityID;
-//        self.endpoint = new Endpoint(user.endpoint);
-//                self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
-//                delay.resolve(true);
+//                return delay.promise;
 //            },
-//            function (response) {
-//                delay.reject(response);
-//            }
-//        );
-
-            return delay.promise;
-        };
-
-
-        Transport.prototype.getAllConfigForms = function () {
-            var delay = $q.defer();
-            //            $http.get('api/transport/config/forms').then(
-//                function (response) {
-//            var data = angular.fromJson(response.data);
-//            delay.resolve(data);
-//                },
-//                function (response) {
-//                    delay.reject(response);
+//
+//
+//            loadSutInitiatorConfig: function (protocol) {
+//                var delay = $q.defer();
+//                var self = this;
+//                self.protocol = protocol;
+//                self.config['sutInitiator'] = null;
+//                if (User.info && User.info != null && User.info.id != null) {
+////            $http.post('api/transport/' + self.domain + "/" + self.protocol + '/sutInitiator').then(
+////                function (response) {
+////                    self.config['sutInitiator'] = angular.fromJson(response.data);
+////                    StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(self.config));
+////                    delay.resolve(true);
+////                },
+////                function (response) {
+////                    delay.reject(response);
+////                }
+////            );
+//
+//                    $http.get('../../resources/cb/configListener.json').then(
+//                        function (response) {
+//                            self.config['sutInitiator'] = angular.fromJson(response.data);
+//                            StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(self.config));
+//                            delay.resolve(true);
+//                        },
+//                        function (response) {
+//                            delay.reject(response);
+//                        }
+//                    );
+//
+//                } else {
+//                    delay.reject(false);
 //                }
-//            );
-            $http.get('../../resources/cb/transport-forms.json').then(
-                function (response) {
-                    var data = angular.fromJson(response.data);
-                    delay.resolve(data);
-                },
-                function (response) {
-                    delay.reject(response);
-                }
-            );
+//
+//
+//                return delay.promise;
+//            },
+//
+//
+//            loadConfigForm: function (protocol, type) {
+//                var delay = $q.defer();
+//                var self = this;
+//                if (self.forms == null) self.forms = {};
+//                if (!self.forms[type] || self.forms[type] == null) {
+////            $http.get('api/transport/config/form', {params: { 'protocol': protocol, 'type': type}}).then(
+////                function (response) {
+////                    var data = angular.fromJson(response.data);
+////                    self.forms[type] = data.content;
+////                    delay.resolve(self.forms[type]);
+////                },
+////                function (response) {
+////                    delay.reject(response);
+////                }
+////            );
+//
+//                    var ext = type === 'TA_INITIATOR' ? 'taInitiatorForm.json' : 'sutInitiatorForm.json';
+//                    $http.get('../../resources/cb/' + ext).then(
+//                        function (response) {
+//                            var json = angular.fromJson(response.data);
+//                            self.forms[type] = json.value;
+//                            delay.resolve(self.forms[type]);
+//                        },
+//                        function (response) {
+//                            delay.reject(response);
+//                        }
+//                    );
+//
+//
+//                } else {
+//                    delay.resolve(self.forms[type]);
+//                }
+//
+////
+////        $http.get('../../resources/cb/user.json').then(
+////            function (response) {
+////                var user = angular.fromJson(response.data);
+////                self.id = user.id;
+////                self.senderUsername = user.username;
+////                self.senderPassword = user.password;
+////                self.senderFacilityID = user.facilityID;
+////        self.endpoint = new Endpoint(user.endpoint);
+////                self.transaction.init(self.senderUsername, self.senderPassword, self.senderFacilityID);
+////                delay.resolve(true);
+////            },
+////            function (response) {
+////                delay.reject(response);
+////            }
+////        );
+//
+//                return delay.promise;
+//            },
 
-            return delay.promise;
-        };
 
-        Transport.prototype.getConfigData = function (domain, protocol) {
-            var delay = $q.defer();
-            var self = this;
-            if (domain != null && protocol != null && User.info && User.info != null && User.info.id != null) {
-//                    $http.post('api/transport/' + self.domain + "/" + self.protocol + '/configs').then(
+            getAllConfigForms: function () {
+                var delay = $q.defer();
+                $http.get('api/transport/config/forms').then(
+                    function (response) {
+                        var data = angular.fromJson(response.data);
+                        delay.resolve(data);
+                    },
+                    function (response) {
+                        delay.reject(response);
+                    }
+                );
+//                $http.get('../../resources/cb/transport-forms.json').then(
+//                    function (response) {
+//                        var data = angular.fromJson(response.data);
+//                        delay.resolve(data);
+//                    },
+//                    function (response) {
+//                        delay.reject(response);
+//                    }
+//                );
+
+                return delay.promise;
+            },
+
+            getConfigData: function (domain, protocol) {
+                var delay = $q.defer();
+                var self = this;
+                if (domain != null && protocol != null && User.info && User.info != null && User.info.id != null) {
+                    $http.post('api/transport/' + domain + "/" + protocol + '/configs').then(
+                        function (response) {
+                            delay.resolve(angular.fromJson(response.data));
+                        },
+                        function (response) {
+                            delay.reject(response);
+                        }
+                    );
+//
+//                    $http.get('../../resources/cb/transport-config-data.json').then(
 //                        function (response) {
 //                            delay.resolve(angular.fromJson(response.data));
 //                        },
@@ -1307,244 +1321,246 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
 //                            delay.reject(response);
 //                        }
 //                    );
-
-                $http.get('../../resources/cb/transport-config-data.json').then(
-                    function (response) {
-                        delay.resolve(angular.fromJson(response.data));
-                    },
-                    function (response) {
-                        delay.reject(response);
-                    }
-                );
-            } else {
-                delay.reject("Domain, protocol or user info not provided");
-            }
-            return delay.promise;
-        };
+                } else {
+                    delay.reject("Domain, protocol or user info not provided");
+                }
+                return delay.promise;
+            },
 
 
-        Transport.prototype.searchTransaction = function (testStepId, config, responseMessageId) {
-            var delay = $q.defer();
-            var self = this;
-            if(config != null) {
-                var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id, "config": config, "responseMessageId": responseMessageId});
-//        $http.post('api/transport/' + self.domain + "/" + self.protocol + '/searchTransaction', data).then(
-//            function (response) {
-//                if (response.data != null && response.data != "") {
-//                    self.transactions[testStepId] = angular.fromJson(response.data);
-//                } else {
-//                    self.transactions[testStepId] = null;
-//                }
-//                delay.resolve(self.transactions[testStepId]);
-//            },
-//            function (response) {
-//                self.transactions[testStepId] = null;
-//                delay.reject(self.transactions[testStepId]);
-//            }
-//        );
-                $http.get('../../resources/cb/transaction.json').then(
-                    function (response) {
-                        if (response.data != null && response.data != "") {
-                            self.transactions[testStepId] = angular.fromJson(response.data);
-                        } else {
+            searchTransaction: function (testStepId, config, responseMessageId, domain, protocol) {
+                var delay = $q.defer();
+                var self = this;
+                if (config != null) {
+                    var data = angular.fromJson({"testStepId": testStepId, "userId": User.info.id, "config": config, "responseMessageId": responseMessageId});
+                    $http.post('api/transport/' + domain + "/" + protocol + '/searchTransaction', data).then(
+                        function (response) {
+                            if (response.data != null && response.data != "") {
+                                self.transactions[testStepId] = angular.fromJson(response.data);
+                            } else {
+                                self.transactions[testStepId] = null;
+                            }
+                            delay.resolve(self.transactions[testStepId]);
+                        },
+                        function (response) {
                             self.transactions[testStepId] = null;
+                            delay.reject(self.transactions[testStepId]);
                         }
-                        delay.resolve(self.transactions[testStepId]);
-                    },
-                    function (response) {
-                        delay.reject(null);
-                    }
-                );
-            }else{
-                delay.reject("Configuration info not found");
-            }
+                    );
+//                    $http.get('../../resources/cb/transaction.json').then(
+//                        function (response) {
+//                            if (response.data != null && response.data != "") {
+//                                self.transactions[testStepId] = angular.fromJson(response.data);
+//                            } else {
+//                                self.transactions[testStepId] = null;
+//                            }
+//                            delay.resolve(self.transactions[testStepId]);
+//                        },
+//                        function (response) {
+//                            delay.reject(null);
+//                        }
+//                    );
+                } else {
+                    delay.reject("Configuration info not found");
+                }
 
-            return delay.promise;
-        };
+                return delay.promise;
+            },
 
-        Transport.prototype.deleteTransaction = function (testStepId) {
-            var delay = $q.defer();
-            var self = this;
-            if (self.transactions && self.transactions != null && self.transactions[testStepId]) {
-                var transaction = self.transactions[testStepId];
-                $http.post('api/transport/transaction/' + transaction.id + '/delete').then(
-                    function (response) {
-                        delete self.transactions[testStepId];
-                        delay.resolve(true);
-                    },
-                    function (response) {
-                        delete self.transactions[testStepId];
-                        delay.resolve(true);
-                    }
-                );
-            } else {
-                delay.resolve(true);
-            }
-            return delay.promise;
-        };
+            deleteTransaction: function (testStepId) {
+                var delay = $q.defer();
+                var self = this;
+                if (self.transactions && self.transactions != null && self.transactions[testStepId]) {
+                    var transaction = self.transactions[testStepId];
+                    $http.post('api/transport/transaction/' + transaction.id + '/delete').then(
+                        function (response) {
+                            delete self.transactions[testStepId];
+                            delay.resolve(true);
+                        },
+                        function (response) {
+                            delete self.transactions[testStepId];
+                            delay.resolve(true);
+                        }
+                    );
+                } else {
+                    delay.resolve(true);
+                }
+                return delay.promise;
+            },
 
-        Transport.prototype.stopListener = function (testStepId, domain, protocol) {
-            var self = this;
-            var delay = $q.defer();
-//        this.deleteTransaction(testStepId).then(function (result) {
-//            var data = angular.fromJson({"testStepId": testStepId});
-//            $http.post('api/transport/' + domain + "/" + protocol + '/stopListener', data).then(
-//                function (response) {
-//                    self.running = true;
-//                    delay.resolve(true);
-//                },
-//                function (response) {
-//                    self.running = false;
-//                    delay.reject(null);
-//                }
-//            );
-//        });
+            stopListener: function (testStepId, domain, protocol) {
+                var self = this;
+                var delay = $q.defer();
+                this.deleteTransaction(testStepId).then(function (result) {
+                    var data = angular.fromJson({"testStepId": testStepId});
+                    $http.post('api/transport/' + domain + "/" + protocol + '/stopListener', data).then(
+                        function (response) {
+                            self.running = true;
+                            delay.resolve(true);
+                        },
+                        function (response) {
+                            self.running = false;
+                            delay.reject(null);
+                        }
+                    );
+                });
 
 //
-            $http.get('../../resources/cb/stopListener.json').then(
-                function (response) {
-                    self.running = true;
-                    self.deleteTransaction(testStepId);
-                    delay.resolve(true);
-                },
-                function (response) {
-                    self.running = false;
-                    delay.reject(null);
-                }
-            );
-            return delay.promise;
+//                $http.get('../../resources/cb/stopListener.json').then(
+//                    function (response) {
+//                        self.running = true;
+//                        self.deleteTransaction(testStepId);
+//                        delay.resolve(true);
+//                    },
+//                    function (response) {
+//                        self.running = false;
+//                        delay.reject(null);
+//                    }
+//                );
+                return delay.promise;
+            },
+
+            startListener: function (testStepId, responseMessageId, domain, protocol) {
+                var delay = $q.defer();
+                var self = this;
+                this.deleteTransaction(testStepId).then(function (result) {
+                    var data = angular.fromJson({"testStepId": testStepId, "responseMessageId": responseMessageId});
+                    $http.post('api/transport/' + domain + "/" + protocol + '/startListener', data).then(
+                        function (response) {
+                            self.running = true;
+                            delay.resolve(true);
+                        },
+                        function (response) {
+                            self.running = false;
+                            delay.reject(null);
+                        }
+                    );
+                });
+
+//                $http.get('../../resources/cb/startListener.json').then(
+//                    function (response) {
+//                        self.running = true;
+//                        delay.resolve(true);
+//                    },
+//                    function (response) {
+//                        self.running = false;
+//                        delay.reject(null);
+//                    }
+//                );
+                return delay.promise;
+            },
+
+            send: function (testStepId, message, domain, protocol) {
+                var delay = $q.defer();
+                var self = this;
+                this.deleteTransaction(testStepId).then(function (result) {
+                    var data = angular.fromJson({"testStepId": testStepId, "message": message, "config": self.configs[domain][protocol].data.taInitiator});
+                    $http.post('api/transport/' + domain + "/" + protocol + '/send', data).then(
+                        function (response) {
+                            self.transactions[testStepId] = angular.fromJson(response.data);
+                            delay.resolve(self.transactions[testStepId]);
+                        },
+                        function (response) {
+                            self.transactions[testStepId] = null;
+                            delay.reject(response);
+                        }
+                    );
+//                    $http.get('../../resources/cb/send.json').then(
+//                        function (response) {
+//                            self.transactions[testStepId] = angular.fromJson(response.data);
+//                            delay.resolve(self.transactions[testStepId]);
+//                        },
+//                        function (response) {
+//                            delay.reject(response);
+//                        }
+//                    );
+                });
+                return delay.promise;
+            },
+
+            init: function () {
+                this.error = null;
+                var delay = $q.defer();
+                var self = Transport;
+                this.getAllConfigForms().then(function (transportForms) {
+                    angular.forEach(transportForms, function (transportForm) {
+                        var domain = transportForm.domain;
+                        var protocol = transportForm.protocol;
+                        if (!self.configs[domain]) {
+                            self.configs[domain] = {};
+                        }
+                        if (!self.configs[domain][protocol]) {
+                            self.configs[domain][protocol] = {};
+                        }
+                        if (!self.configs[domain][protocol]['forms']) {
+                            self.configs[domain][protocol]['forms'] = {};
+                        }
+                        self.configs[domain][protocol]['forms'] = transportForm;
+
+                        if (!self.configs[domain][protocol]['data'] || self.configs[domain][protocol]['data'] == null) {
+                            $timeout(function () {
+                                self.getConfigData(domain, protocol).then(function (data) {
+                                    self.configs[domain][protocol]['data'] = data;
+                                    self.configs[domain][protocol]['open']={
+                                        ta:true,
+                                        sut:false
+                                    };
+                                    $rootScope.$emit(domain + "-" + protocol + "-data-loaded");
+                                }, function (error) {
+                                    self.configs[domain][protocol]['error'] = error.data;
+                                });
+                            });
+                        }
+                    });
+                }, function (error) {
+                    self.error = "Sorry, failed to load the transport settings";
+                });
+            }
         };
 
-        Transport.prototype.startListener = function (testStepId, responseMessageId, domain, protocol) {
-            var self = this;
-            var delay = $q.defer();
-//        this.deleteTransaction(testStepId).then(function (result) {
-//            var data = angular.fromJson({"testStepId": testStepId, "responseMessageId": responseMessageId});
-//            $http.post('api/transport/' + domain + "/" + protocol + '/startListener', data).then(
-//                function (response) {
-//                    self.running = true;
-//                    delay.resolve(true);
-//                },
-//                function (response) {
-//                    self.running = false;
-//                    delay.reject(null);
-//                }
-//            );
-//        });
-
-            $http.get('../../resources/cb/startListener.json').then(
-                function (response) {
-                    self.running = true;
-                    delay.resolve(true);
-                },
-                function (response) {
-                    self.running = false;
-                    delay.reject(null);
-                }
-            );
-            return delay.promise;
-        };
-
-        Transport.prototype.send = function (testStepId, message, domain, protocol) {
-            var delay = $q.defer();
-            var self = this;
-            this.deleteTransaction(testStepId).then(function (result) {
-                var data = angular.fromJson({"testStepId": testStepId, "message": message, "config": self.config.taInitiator});
-//            $http.post('api/transport/' + domain + "/" + protocol + '/send', data).then(
-//                function (response) {
-//                    self.transactions[testStepId] = angular.fromJson(response.data);
-//                    delay.resolve(self.transactions[testStepId]);
-//                },
-//                function (response) {
-//                    self.transactions[testStepId] = null;
-//                    delay.reject(response);
-//                }
-//            );
-                $http.get('../../resources/cb/send.json').then(
-                    function (response) {
-                        self.transactions[testStepId] = angular.fromJson(response.data);
-                        delay.resolve(self.transactions[testStepId]);
-                    },
-                    function (response) {
-                        delay.reject(response);
-                    }
-                );
-            });
-
-            return delay.promise;
-        };
         return Transport;
     }
 );
 
 
 angular.module('format')
-    .controller('TransportSettingsCtrl', ['$scope', 'Transport', function ($scope, Transport) {
+    .controller('TransportConfigListCtrl', ['$scope', 'Transport', function ($scope, Transport) {
         $scope.transport = Transport;
-        $scope.error = null;
-        $scope.domains = null;
-        $scope.protocols = null;
         $scope.loading = false;
-        $scope.initSettings = function () {
-            $scope.loading = true;
-            $scope.transport.configs = {};
-            $scope.transport.getAllConfigForms().then(function (transportForms) {
-                angular.forEach(transportForms, function (transportForm) {
-                    var domain = transportForms.domain;
-                    var protocol = transportForms.protocol;
-                    if (!$scope.transport.configs[domain]) {
-                        $scope.transport.configs[domain] = {};
-                    }
-                    if (!$scope.transport.configs[domain][protocol]) {
-                        $scope.transport.configs[domain][protocol] = {};
-                    }
-                    if (!$scope.transport.configs[domain][protocol]['forms']) {
-                        $scope.transport.configs[domain][protocol]['forms'] = {};
-                    }
-                    $scope.transport.configs[domain][protocol]['forms'] = transportForm;
-                });
-                $scope.loading = false;
-            }, function (error) {
-                $scope.error = "Sorry, failed to load the settings";
-                $scope.loading = false;
-            });
+        $scope.selectedProto = null;
+        $scope.selected = {
+            domain: null,
+            protocol: null
         };
 
         $scope.getDomains = function () {
-            return $scope.transport.configs ? Object.getOwnPropertyNames($scope.transport.configs):[];
+            return $scope.transport.configs ? Object.getOwnPropertyNames($scope.transport.configs) : [];
         };
 
         $scope.getProtocols = function (domain) {
-            return $scope.transport.configs  && $scope.transport.configs[domain] ? Object.getOwnPropertyNames($scope.transport.configs[domain]):[];
+            return domain != null && $scope.transport.configs && $scope.transport.configs[domain] ? Object.getOwnPropertyNames($scope.transport.configs[domain]) : [];
         };
+
+        $scope.initTransportConfigList = function () {
+            var doms = $scope.getDomains();
+            if (doms.length > 0)
+                $scope.selected.domain = doms[0];
+            var protos = $scope.getProtocols($scope.selected.domain);
+            if (protos.length > 0)
+                $scope.selected.protocol = protos[0];
+        };
+
+        $scope.selectPane = function (dom, proto) {
+            $scope.selected.protocol = proto;
+            $scope.selected.domain = dom;
+        };
+
+        $scope.isActivePane = function (dom, proto) {
+            return $scope.selected.protocol != null && $scope.selected.protocol === proto && $scope.selected.domain != null && $scope.selected.domain === dom;
+        }
 
 
     }]);
-
-
-angular.module('format').controller('DomainProtocolConfigCtrl', function ($scope, $http, User, Transport) {
-    $scope.transport = Transport;
-    $scope.transportConfig = null;
-    $scope.taOpened = false;
-    $scope.sutOpened = false;
-    $scope.domain = null;
-    $scope.protocol = null;
-    $scope.loading = false;
-    $scope.error = null;
-    $scope.initDomainProtocolConfig = function (domain, protocol) {
-        $scope.loading = true;
-        $scope.domain = domain;
-        $scope.protocol = protocol;
-        $scope.transport.getConfigData(domain, protocol).then(function (data) {
-            $scope.transport.configs[domain][protocol]['data'] = data;
-            $scope.transportConfig = data;
-            $scope.loading = false;
-        }, function (error) {
-            // TODO:
-            $scope.loading = false;
-        });
-    };
-});
 
 
 angular.module('format').controller('InitiatorConfigCtrl', function ($scope, $modalInstance, htmlForm, config, domain, protocol, $http, User) {
@@ -1575,41 +1591,69 @@ angular.module('format').controller('InitiatorConfigCtrl', function ($scope, $mo
 });
 
 
-angular.module('format').controller('TaInitiatorConfigCtrl', function ($scope, $http, User, StorageService, Transport) {
+angular.module('format').controller('TaInitiatorConfigCtrl', function ($scope, $http, User, StorageService, Transport, $rootScope) {
     $scope.transport = Transport;
     $scope.config = null;
     $scope.prevConfig = null;
-    $scope.taInitiatorForm = null;
     $scope.loading = false;
     $scope.error = null;
     $scope.protocol = null;
     $scope.saved = true;
     $scope.domain = null;
+    $scope.message = null;
 
     $scope.initTaInitiatorConfig = function (domain, protocol) {
-        $scope.config = angular.copy($scope.transport.configs[domain][protocol]['data']);
-        $scope.taInitiatorForm = $scope.transport.configs[domain][protocol]['forms']['taInitiatorForm'];
+        if (protocol && protocol != null && domain && domain != null) {
+            $scope.protocol = protocol;
+            $scope.domain = domain;
+            $scope.message = null;
+            $scope.loadData();
+            $rootScope.$on(domain + "-" + protocol + "-data-loaded", function (event) {
+                $scope.loadData();
+            });
+
+//
+//            if (!$scope.transport.configs[domain][protocol]['data'] || !$scope.transport.configs[domain][protocol]['data']['taInitiator']) {
+//                $scope.loading = true;
+//                $scope.transport.getConfigData(domain, protocol).then(function (data) {
+//                    $scope.transport.configs[domain][protocol]['data'] = data;
+//                    $scope.config = data.taInitiator;
+//                    $scope.prevConfig = angular.copy($scope.config);
+//                    $scope.loading = false;
+//                }, function (error) {
+//                    $scope.error = error.data;
+//                    $scope.loading = false;
+//                });
+//            } else {
+//                $scope.config = $scope.transport.configs[domain][protocol]['data']['taInitiator'];
+//                $scope.prevConfig = angular.copy($scope.config);
+//            }
+        } else {
+            $scope.error = "Protocol or domain not defined."
+        }
+    };
+
+    $scope.loadData = function () {
+        $scope.config = angular.copy($scope.transport.configs[$scope.domain][$scope.protocol]['data']['taInitiator']);
         $scope.prevConfig = angular.copy($scope.config);
-        $scope.protocol = protocol;
-        $scope.domain = domain;
+        $scope.message = null;
     };
 
     $scope.save = function () {
-        if ($scope.form != null) {
-            $scope.loading = true;
-            $scope.error = null;
+        $scope.error = null;
+        $scope.message = null;
 //        $http.get('../../resources/cb/saveConfig.json');
-            var data = angular.fromJson({"config": $scope.config, "userId": User.info.id, "type": "TA_INITIATOR", "protocol": $scope.protocol, "domain": $scope.domain});
-            $http.post('api/transport/config/save', data).then(function (result) {
-                $scope.loading = false;
-                $scope.prevConfig = angular.copy($scope.config);
-                $scope.saved = true;
-            }, function (error) {
-                $scope.error = error.data;
-                $scope.loading = false;
-                $scope.saved = false;
-            });
-        }
+        var data = angular.fromJson({"config": $scope.config, "userId": User.info.id, "type": "TA_INITIATOR", "protocol": $scope.protocol, "domain": $scope.domain});
+        $http.post('api/transport/config/save', data).then(function (result) {
+            $scope.transport.configs[$scope.domain][$scope.protocol]['data']['taInitiator'] = $scope.config;
+            $scope.loadData();
+            $scope.saved = true;
+            $scope.message = "Configuration Information Saved !"
+        }, function (error) {
+            $scope.error = error.data;
+            $scope.saved = false;
+            $scope.message = null;
+        });
     };
 
     $scope.reset = function () {
@@ -1619,20 +1663,43 @@ angular.module('format').controller('TaInitiatorConfigCtrl', function ($scope, $
 
 });
 
-angular.module('format').controller('SutInitiatorConfigCtrl', function ($scope, $http) {
+angular.module('format').controller('SutInitiatorConfigCtrl', function ($scope, $http, Transport, $rootScope) {
     $scope.transport = Transport;
     $scope.config = null;
-    $scope.taInitiatorForm = null;
     $scope.loading = false;
     $scope.error = null;
     $scope.protocol = null;
-
     $scope.initSutInitiatorConfig = function (domain, protocol) {
-        $scope.protocol = protocol;
-        $scope.domain = domain;
-        $scope.config = angular.copy($scope.transport.configs[domain][protocol]['data']);
-        $scope.sutInitiatorForm = $scope.transport.configs[domain][protocol]['forms']['sutInitiatorForm'];
+        if (protocol && protocol != null && domain && domain != null) {
+            $scope.protocol = protocol;
+            $scope.domain = domain;
+            $scope.loadData();
+            $rootScope.$on(domain + "-" + protocol + "-data-loaded", function (event) {
+                $scope.loadData();
+            });
+//            $scope.config = $scope.transport.configs[domain][protocol]['data']['sutInitiator'];
+//            if (!$scope.transport.configs[domain][protocol]['data'] || !$scope.transport.configs[domain][protocol]['data']['sutInitiator']) {
+//                $scope.loading = true;
+//                $scope.transport.getConfigData(domain, protocol).then(function (data) {
+//                    $scope.loading = false;
+//                    $scope.transport.configs[domain][protocol]['data'] = data;
+//                    $scope.config = data.sutInitiator;
+//                }, function (error) {
+//                    $scope.error = error.data;
+//                    $scope.loading = false;
+//                });
+//            } else {
+//                $scope.config = $scope.transport.configs[domain][protocol]['data']['sutInitiator'];
+//            }
+        } else {
+            $scope.error = "Protocol or domain not defined."
+        }
     };
+
+    $scope.loadData = function () {
+        $scope.config = $scope.transport.configs[$scope.domain][$scope.protocol]['data']['sutInitiator'];
+    };
+
 });
 
 

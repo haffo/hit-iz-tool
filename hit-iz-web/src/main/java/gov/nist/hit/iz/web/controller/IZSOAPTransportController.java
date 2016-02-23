@@ -89,7 +89,7 @@ public class IZSOAPTransportController {
 
 
   private final static String PROTOCOL = "soap";
-  private final static String DOMAIN = "soap";
+  private final static String DOMAIN = "iz";
 
 
   String SUMBIT_SINGLE_MESSAGE_TEMPLATE = null;
@@ -98,71 +98,6 @@ public class IZSOAPTransportController {
     SUMBIT_SINGLE_MESSAGE_TEMPLATE =
         IOUtils.toString(IsolatedTestingController.class
             .getResourceAsStream("/templates/SubmitSingleMessage.xml"));
-  }
-
-
-  @Transactional()
-  @RequestMapping(value = "/taInitiator", method = RequestMethod.POST)
-  public Map<String, String> taInitiatorConfig(HttpSession session, HttpServletRequest request)
-      throws UserNotFoundException {
-    logger.info("Fetching user ta initiator information ... ");
-    Long userId = SessionContext.getCurrentUserId(session);
-    User user = null;
-    TransportConfig transportConfig = null;
-    if (userId == null || (user = userService.findOne(userId)) == null) {
-      throw new UserNotFoundException();
-    }
-    transportConfig =
-        transportConfigService.findOneByUserAndProtocolAndDomain(user.getId(), PROTOCOL, DOMAIN);
-    if (transportConfig == null) {
-      transportConfig = transportConfigService.create(PROTOCOL, DOMAIN);
-      user.addConfig(transportConfig);
-      userService.save(user);
-      transportConfigService.save(transportConfig);
-    }
-    Map<String, String> config = transportConfig.getTaInitiator();
-    return config;
-  }
-
-  @Transactional()
-  @RequestMapping(value = "/sutInitiator", method = RequestMethod.POST)
-  public Map<String, String> sutInitiatorConfig(HttpSession session, HttpServletRequest request)
-      throws UserNotFoundException {
-    logger.info("Fetching user information ... ");
-    Long userId = SessionContext.getCurrentUserId(session);
-    User user = null;
-    if (userId == null || (user = userService.findOne(userId)) == null) {
-      throw new UserNotFoundException();
-    }
-
-    TransportConfig transportConfig =
-        transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL, DOMAIN);
-    if (transportConfig == null) {
-      transportConfig = transportConfigService.create(PROTOCOL, DOMAIN);
-      user.addConfig(transportConfig);
-      userService.save(user);
-    }
-    Map<String, String> config = transportConfig.getSutInitiator();
-    if (config == null) {
-      config = new HashMap<String, String>();
-      transportConfig.setSutInitiator(config);
-    }
-
-    int token = new Random().nextInt(999);
-    if (config.get("password") == null && config.get("username") == null) {
-      config.put("username", "vendor_" + user.getId() + "_" + token);
-      config.put("password", "vendor_" + user.getId() + "_" + token);
-      config.put("facilityID", "vendor_" + user.getId() + "_" + token);
-    }
-    if (config.get("faultPassword") == null && config.get("faultUsername") == null) {
-      config.put("faultUsername", "fault_vendor_" + user.getId() + "_" + token);
-      config.put("faultPassword", "fault_vendor_" + user.getId() + "_" + token);
-    }
-    if (config.get("endpoint") == null) {
-      config.put("endpoint", Utils.getUrl(request) + "/ws/iisService");
-    }
-    transportConfigService.save(transportConfig);
-    return config;
   }
 
   @Transactional
@@ -241,18 +176,16 @@ public class IZSOAPTransportController {
       throws TransportClientException {
     logger.info("Sending message");
     try {
+      Long userId = SessionContext.getCurrentUserId(session);
+      if (userId == null || (userService.findOne(userId)) == null) {
+        throw new UserNotFoundException();
+      }
 
       if (request.getConfig().get("endpoint") == null
           || "".equals(request.getConfig().get("endpoint"))) {
         throw new TransportException("No endpoint specified");
       }
-
-      Long userId = SessionContext.getCurrentUserId(session);
       Long testStepId = request.getTestStepId();
-      TransportConfig config =
-          transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL, DOMAIN);
-      config.setTaInitiator(request.getConfig());
-      transportConfigService.save(config);
       TestStep testStep = testStepService.findOne(testStepId);
       if (testStep == null)
         throw new TestCaseException("Unknown test step with id=" + testStepId);
@@ -280,23 +213,53 @@ public class IZSOAPTransportController {
     }
   }
 
-  @Transactional()
+  @Transactional
   @RequestMapping(value = "/configs", method = RequestMethod.POST)
   public TransportConfig configs(HttpSession session, HttpServletRequest request)
       throws UserNotFoundException {
     logger.info("Fetching user configuration information ... ");
     Long userId = SessionContext.getCurrentUserId(session);
-    if (userId == null || userService.findOne(userId) == null) {
+    User user = null;
+    if (userId == null || (user = userService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
-    Map<String, String> sutInitiatorConfig = sutInitiatorConfig(session, request);
-    Map<String, String> taInitiatorConfig = taInitiatorConfig(session, request);
     TransportConfig transportConfig =
         transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL, DOMAIN);
-    transportConfig.setSutInitiator(sutInitiatorConfig);
-    transportConfig.setTaInitiator(taInitiatorConfig);
-    transportConfigService.save(transportConfig);
+    if (transportConfig == null) {
+      transportConfig = transportConfigService.create(PROTOCOL, DOMAIN);
+      user.addConfig(transportConfig);
+      userService.save(user);
+      Map<String, String> sutInitiatorConfig = sutInitiatorConfig(user, request);
+      Map<String, String> taInitiatorConfig = taInitiatorConfig(user, request);
+      transportConfig.setSutInitiator(sutInitiatorConfig);
+      transportConfig.setTaInitiator(taInitiatorConfig);
+      transportConfigService.save(transportConfig);
+    }
     return transportConfig;
+  }
+
+  private Map<String, String> taInitiatorConfig(User user, HttpServletRequest request)
+      throws UserNotFoundException {
+    logger.info("Creating user ta initiator config information ... ");
+    Map<String, String> config = new HashMap<String, String>();
+    config.put("username", "");
+    config.put("password", "");
+    config.put("facilityID", "");
+    return config;
+  }
+
+  private Map<String, String> sutInitiatorConfig(User user, HttpServletRequest request)
+      throws UserNotFoundException {
+    logger.info("Creating user sut initiator config information ... ");
+    Map<String, String> config = new HashMap<String, String>();
+    int token = new Random().nextInt(999);
+    config.put("username", "vendor_" + user.getId() + "_" + token);
+    config.put("password", "vendor_" + user.getId() + "_" + token);
+    config.put("facilityID", "vendor_" + user.getId() + "_" + token);
+    config.put("faultUsername", "fault_vendor_" + user.getId() + "_" + token);
+    config.put("faultPassword", "fault_vendor_" + user.getId() + "_" + token);
+    config.put("endpoint", Utils.getUrl(request) + "/ws/iisService");
+    return config;
   }
 
 

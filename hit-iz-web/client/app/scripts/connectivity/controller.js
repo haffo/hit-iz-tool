@@ -133,8 +133,8 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal', 'Endpoint', '$cookies', 'StorageService', 'TestExecutionClock',
-        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal, Endpoint, $cookies, StorageService, TestExecutionClock) {
+    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal', 'Endpoint', '$cookies', 'StorageService', 'TestExecutionClock','SOAPConnectivityTransport',
+        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal, Endpoint, $cookies, StorageService, TestExecutionClock,SOAPConnectivityTransport) {
 
             $scope.logger = Connectivity.logger;
             $scope.loading = false;
@@ -144,7 +144,7 @@ angular.module('connectivity')
             $scope.connecting = false;
             $scope.error = null;
             $scope.endpoint = null;
-            $scope.transport = Connectivity.transport;
+            $scope.transport = SOAPConnectivityTransport;
             $scope.hidePwd = true;
 
             $scope.initExecution = function () {
@@ -155,12 +155,12 @@ angular.module('connectivity')
                     $scope.error = null;
                     $scope.connecting = false;
                     TestExecutionClock.stop();
-                    var testingType = $scope.testCase.sutType === 'RECEIVER' ? 'TA_INITIATOR' : 'SUT_INITIATOR';
-                    if (testingType === 'TA_INITIATOR') {
-                        $scope.transport.loadTaInitiatorConfig("soap");
-                    } else {
-                        $scope.transport.loadSutInitiatorConfig("soap");
-                    }
+//                    var testingType = $scope.testCase.sutType === 'RECEIVER' ? 'TA_INITIATOR' : 'SUT_INITIATOR';
+//                    if (testingType === 'TA_INITIATOR') {
+//                        $scope.transport.loadTaInitiatorConfig("soap");
+//                    } else {
+//                        $scope.transport.loadSutInitiatorConfig("soap");
+//                    }
                 });
             };
 
@@ -169,7 +169,9 @@ angular.module('connectivity')
             };
 
             $scope.isValidConfig = function () {
-                var taInitiator = $scope.transport.config.taInitiator;
+                var domain = SOAPConnectivityTransport.domain;
+                var protocol = SOAPConnectivityTransport.protocol;
+                var taInitiator = $scope.transport.configs[domain] && $scope.transport.configs[domain]!= null  && $scope.transport.configs[domain][protocol] && $scope.transport.configs[domain][protocol] != null && $scope.transport.configs[domain][protocol].data && $scope.transport.configs[domain][protocol].data != null ?$scope.transport.configs[domain][protocol].data.taInitiator:null;
                 return taInitiator &&  taInitiator != null &&  taInitiator.endpoint != null && taInitiator.endpoint != '';
             };
 
@@ -266,22 +268,11 @@ angular.module('connectivity')
                     templateUrl: 'TransactionConfigureReceiver.html',
                     controller: 'ConnectivityConfigureReceiverCtrl',
                     resolve: {
-                        config: function () {
-                            var config = StorageService.get(StorageService.USER_CONFIG_KEY);
-                            if (config != null && config != "") {
-                                config = angular.fromJson(config);
-                            } else {
-                                config = Connectivity.transport.config;
-                            }
-                            return  config.taInitiator;
+                        taInitiatorConfig: function () {
+                             var config = SOAPConnectivityTransport.configs[SOAPConnectivityTransport.domain][SOAPConnectivityTransport.protocol].data;
+                             return  config.taInitiator;
                         }
                     }
-                });
-                modalInstance.result.then(function (taInitiator) {
-                    Connectivity.transport.config.taInitiator = taInitiator;
-                    StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(Connectivity.transport.config));
-                }, function () {
-                    //$scope.triggerRespEvent('');
                 });
             };
 
@@ -558,21 +549,18 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityConfigureReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, User, config) {
+    .controller('ConnectivityConfigureReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, User, taInitiatorConfig,SOAPConnectivityTransport) {
         $scope.testCase = Connectivity.testCase;
-        $scope.config = angular.copy(config);
+        $scope.config = angular.copy(taInitiatorConfig);
         $scope.save = function () {
-            var data = angular.fromJson({"config": $scope.config, "userId": User.info.id, "type": "TA_INITIATOR", "protocol": "soap"});
-            $http.post('api/transport/config/save', data);
-            $modalInstance.close($scope.config);
+            var data = angular.fromJson({"config": $scope.config, "userId": User.info.id, "type": "TA_INITIATOR", "protocol": "soap", "domain": "iz"});
+            $http.post('api/transport/config/save', data).then(function (result) {
+                SOAPConnectivityTransport.configs[SOAPConnectivityTransport.domain][SOAPConnectivityTransport.protocol].data.taInitiator = $scope.config;
+                $modalInstance.close($scope.config);
+            }, function (error) {
+                $scope.error = error.data;
+            });
         };
-
-//        $scope.save = function () {
-////        $http.get('../../resources/cb/saveConfig.json');
-//            var data = angular.fromJson({"config": $scope.config, "userId": User.info.id, "type": "TA_INITIATOR","protocol": $scope.protocol});
-//            $http.post('api/transport/config/save', data);
-//            $modalInstance.close($scope.config);
-//        };
 
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
@@ -857,10 +845,10 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, logger, TestExecutionClock, message) {
+    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, logger, TestExecutionClock, message,SOAPConnectivityTransport) {
         $scope.testCase = testCase;
-        $scope.transport = Connectivity.transport;
-        $scope.config = $scope.transport.config.sutInitiator;
+        $scope.transport = SOAPConnectivityTransport;
+        $scope.config = SOAPConnectivityTransport.configs['iz']['soap'].data.sutInitiator;
         $scope.logger = logger;
         $scope.message = message;
         $scope.sent = null;
@@ -871,7 +859,10 @@ angular.module('connectivity')
         $scope.counter = 0;
         $scope.listenerReady = false;
         $scope.warning = null;
-        $scope.log = function (log) {
+        $scope.domain = SOAPConnectivityTransport.domain;
+        $scope.protocol = SOAPConnectivityTransport.protocol;
+
+            $scope.log = function (log) {
             $scope.logger.log(log);
         };
 
@@ -892,7 +883,7 @@ angular.module('connectivity')
             $scope.counter = $scope.counterMax;
             TestExecutionClock.stop();
             $scope.log("Stopping listener. Please wait....");
-            $scope.transport.stopListener($scope.testCase.id,$scope.config).then(function (response) {
+            $scope.transport.stopListener($scope.testCase.id,$scope.domain,$scope.protocol).then(function (response) {
                 $scope.log("Listener stopped.");
              }, function (error) {
                 $scope.log("Failed to stop the listener. Error is " + error);
@@ -910,13 +901,13 @@ angular.module('connectivity')
             $scope.warning = null;
             $scope.log("Starting listener. Please wait...");
             var rspMessageId = 0;
-            $scope.transport.startListener($scope.testCase.id, rspMessageId,$scope.config).then(function (started) {
+            $scope.transport.startListener($scope.testCase.id, rspMessageId,$scope.domain,$scope.protocol).then(function (started) {
                 if (started) {
                     $scope.log("Listener started.");
                     var execute = function () {
                         ++$scope.counter;
                         $scope.log("Waiting for incoming message....Elapsed time(second):" + $scope.counter + "s");
-                        $scope.transport.searchTransaction($scope.testCase.id, $scope.config).then(function (transaction) {
+                        $scope.transport.searchTransaction($scope.testCase.id,SOAPConnectivityTransport.configs[$scope.domain][$scope.protocol].data.sutInitiator,rspMessageId).then(function (transaction) {
                             if (transaction != null) {
                                 var incoming = transaction.incoming;
                                 var outbound = transaction.outgoing;

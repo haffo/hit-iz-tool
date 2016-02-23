@@ -1,23 +1,22 @@
 'use strict';
 angular.module('connectivity').factory('Connectivity',
     ['$rootScope', '$http', '$q', 'ConnectivityPart', 'Logger', 'Endpoint', 'SOAPConnectivityTransport', 'StorageService', function ($rootScope, $http, $q, ConnectivityPart, Logger, Endpoint, SOAPConnectivityTransport, StorageService) {
-
-        var initTransport = function () {
-            var transport = new SOAPConnectivityTransport();
-            if (StorageService.get(StorageService.USER_CONFIG_KEY) != null) {
-                transport.config = angular.fromJson(StorageService.get(StorageService.USER_CONFIG_KEY));
-            }
-            return transport;
-        };
+//
+//        var initTransport = function () {
+//            var transport = new SOAPConnectivityTransport();
+//            if (StorageService.get(StorageService.USER_CONFIG_KEY) != null) {
+//                transport.config = angular.fromJson(StorageService.get(StorageService.USER_CONFIG_KEY));
+//            }
+//            return transport;
+//        };
 
         var Connectivity = {
             testCase: null,
             selectedTestCase: null,
             logger: new Logger(),
             request: new ConnectivityPart(),
-            response: new ConnectivityPart(),
-            transport: initTransport()
-        };
+            response: new ConnectivityPart()
+         };
         return Connectivity;
     }]);
 
@@ -39,7 +38,7 @@ angular.module('connectivity').factory('ConnectivityTestCaseListLoader', ['$q', 
 //                }
 //            );
 //
-            $http.get('api/connectivity/testcases', {timeout: 60000}).then(
+            $http.get('api/connectivity/testcases').then(
                 function (response) {
                     delay.resolve(angular.fromJson(response.data));
                 },
@@ -135,16 +134,25 @@ angular.module('connectivity').factory('ConnectivityPart',
 
 
 
-angular.module('commonServices').factory('SOAPConnectivityTransport', function ($q, $http, Transport, User) {
+angular.module('commonServices').factory('SOAPConnectivityTransport', function ($q, $http, Transport, User,StorageService) {
     var SOAPConnectivityTransport = function () {
-        Transport.apply(this, arguments);
         this.domain = "iz";
         this.protocol = "soap";
     };
 
-    SOAPConnectivityTransport.prototype = Object.create(Transport.prototype);
-    SOAPConnectivityTransport.prototype.constructor = SOAPConnectivityTransport;
+    var SOAPConnectivityTransport = {
+        running: false,
+        configs: Transport.configs,
+        transactions: Transport.transactions,
+        logs: Transport.logs,
+        disabled: false,
+        domain: "iz",
+        protocol: "soap",
 
+//
+//    SOAPConnectivityTransport.prototype = createObject.(Transport.prototype);
+//    SOAPConnectivityTransport.prototype.constructor = SOAPConnectivityTransport;
+//
 
 //    SOAPConnectivityTransport.prototype.send = function (testCaseId, content) {
 //        var delay = $q.defer();
@@ -170,28 +178,26 @@ angular.module('commonServices').factory('SOAPConnectivityTransport', function (
 //    };
 
 //
-    SOAPConnectivityTransport.prototype.send = function (testCaseId) {
-        var delay = $q.defer();
-        var self = this;
-        if (self.transactions == undefined || self.transactions == null)
+        send: function (testCaseId) {
+            var delay = $q.defer();
+            var self = this;
             self.transactions = {};
-
-        this.deleteTransaction(testCaseId).then(function (result) {
-            var data = angular.fromJson({"testStepId": testCaseId, "userId": User.info.id, "config": self.config.taInitiator});
-            $http.post('api/connectivity/send', data, {timeout: 60000}).then(
-                function (response) {
-                    if (response.data != null && response.data != "") {
-                        self.transactions[testCaseId] = angular.fromJson(response.data);
-                    } else {
+            Transport.deleteTransaction(testCaseId).then(function (result) {
+                var data = angular.fromJson({"testStepId": testCaseId, "userId": User.info.id, "config": Transport.configs[SOAPConnectivityTransport.domain][SOAPConnectivityTransport.protocol].data.taInitiator});
+                $http.post('api/connectivity/send', data, {timeout: 60000}).then(
+                    function (response) {
+                        if (response.data != null && response.data != "") {
+                            self.transactions[testCaseId] = angular.fromJson(response.data);
+                        } else {
+                            self.transactions[testCaseId] = null;
+                        }
+                        delay.resolve(self.transactions[testCaseId]);
+                    },
+                    function (response) {
                         self.transactions[testCaseId] = null;
+                        delay.reject(self.transactions[testCaseId]);
                     }
-                    delay.resolve(self.transactions[testCaseId]);
-                },
-                function (response) {
-                    self.transactions[testCaseId] = null;
-                    delay.reject(self.transactions[testCaseId]);
-                }
-            );
+                );
 //        $http.get('../../resources/cb/send.json').then(
 //            function (response) {
 //                self.transactions[testStepId] = angular.fromJson(response.data);
@@ -201,10 +207,24 @@ angular.module('commonServices').factory('SOAPConnectivityTransport', function (
 //                delay.reject(response);
 //            }
 //        );
-        });
+            });
 
-        return delay.promise;
+            return delay.promise;
+        },
+
+        searchTransaction: function (testStepId, config, responseMessageId) {
+            return Transport.searchTransaction(testStepId, config, responseMessageId,SOAPConnectivityTransport.domain,SOAPConnectivityTransport.protocol);
+        },
+
+        stopListener: function (testStepId) {
+            return Transport.stopListener(testStepId, SOAPConnectivityTransport.domain, SOAPConnectivityTransport.protocol);
+        },
+
+        startListener: function (testStepId, responseMessageId) {
+            return Transport.startListener(testStepId, responseMessageId, SOAPConnectivityTransport.domain, SOAPConnectivityTransport.protocol);
+        }
     };
+
 
     return SOAPConnectivityTransport;
 });

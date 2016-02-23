@@ -6,6 +6,8 @@
         "stage": "ISOLATED",
         "position": 1,
         "id": 3,
+        "transport":true,
+        "domain":"iz",
         "testCases": [ ],
         "testCaseGroups": [
             {
@@ -22,6 +24,7 @@
                         "description": "Orders and Immunization events, non-administrations, and alerts presented for current visit.",
                         "type": "TestCase",
                         "position": 3,
+                        "protocol":"soap",
                         "id": 36,
                         "testingType": "DATAINSTANCE",
                         "testSteps": [
@@ -747,6 +750,8 @@
         "name": "CDC Immunization Project (CNI)",
         "description": "No Description",
         "type": "TestPlan",
+        "transport":true,
+        "domain":"iz",
         "stage": "ISOLATED",
         "position": 1,
         "id": 4,
@@ -1817,6 +1822,8 @@
         "description": "Targeted test plan to assess Isolated System Testing Automation",
         "type": "TestPlan",
         "stage": "ISOLATED",
+        "transport":true,
+        "domain":"iz",
         "position": 1,
         "id": 5,
         "testCases": [ ],
@@ -1834,6 +1841,7 @@
                         "parentName": "Transmit Immunization Report ",
                         "description": "Send the Immunization Report to the Immunization Registry (VXU/Z22) for Juana Mariana Gonzales.",
                         "type": "TestCase",
+                        "protocol":"soap",
                         "position": 1,
                         "id": 67,
                         "testingType": "DATAINSTANCE",

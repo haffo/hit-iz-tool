@@ -3,6 +3,7 @@
   "description" : "Targeted test plan to assess Isolated System Testing Automation",
   "type" : "Isolated",
   "transport" : true,
+   "domain" : "iz",
   "position" : 5,
   "skip":false
 }

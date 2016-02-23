@@ -166,7 +166,7 @@ app.factory('ErrorInterceptor', function ($q, $rootScope, $location, StorageServ
 //    };
 //});
 
-app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle) {
+app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle,Transport) {
 
 
     $rootScope.appInfo = {};
@@ -180,6 +180,8 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     Session.create().then(function (response) {
         // load current user
         User.load().then(function (response) {
+            console.log("initializing transport")
+            Transport.init();
         }, function (error) {
             $rootScope.openCriticalErrorDlg("Sorry we could not create a new user for your session. Please refresh the page and try again.");
         });
@@ -196,6 +198,8 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
             $rootScope.appInfo = {};
             $rootScope.openCriticalErrorDlg("Sorry we could not communicate with the server. Please try again");
         });
+
+
     }, function (error) {
         $rootScope.openCriticalErrorDlg("Sorry we could not start your session. Please refresh the page and try again.");
     });

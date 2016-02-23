@@ -2060,3 +2060,40 @@ hr.noMargin{
 tr.current {
   background-color: #ffef8f;
 }
+
+.base-has-error .help-block,
+.base-has-error .control-label,
+.base-has-error .radio,
+.base-has-error .checkbox,
+.base-has-error .radio-inline,
+.base-has-error .checkbox-inline,
+.base-has-error.radio label,
+.base-has-error.checkbox label,
+.base-has-error.radio-inline label,
+.base-has-error.checkbox-inline label {
+  color: #a94442;
+}
+.base-has-error .form-control {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.base-has-error .form-control:focus {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}
+.base-has-error .input-group-addon {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #a94442;
+}
+.base-has-error .form-control-feedback {
+  color: #a94442;
+}
+
+.console-modal .modal-dialog {
+  top: 0px;
+  position: absolute;
+  right: 0px;
+}

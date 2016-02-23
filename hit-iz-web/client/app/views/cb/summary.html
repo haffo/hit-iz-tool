@@ -34,7 +34,7 @@
             <tr ng-show="!transport.disabled && testCase.transport === true">
                 <td><b>Protocol</b></td>
                 <td>
-                    {{testCase.protocol | 'uppercase'}}
+                    {{testCase.protocol | uppercase}}
                 </td>
             </tr>
             <tr>
@@ -51,7 +51,7 @@
                     </span>
                 </span>
                 <span ng-show="testCase.executionStatus !== 'COMPLETE'">
-                 </span>
+                  </span>
                 </td>
             </tr>
         </table>

@@ -17,7 +17,7 @@
                             <span ng-show="!testCase['testStory'] || testCase['testStory']  === null">Description</span>
                             <span ng-show="testCase['testStory']  && testCase['testStory']  !== null">Test Story</span>
                         </tab-heading>
-                        <div test-story target="{{target}}" />
+                        <div test-story target="{{target}}"></div>
                     </tab>
 
                     <tab active="tabs[1]"
@@ -26,7 +26,7 @@
                         <tab-heading>
                             <i class="fa fa-list-alt"></i>Test Data Specification
                         </tab-heading>
-                        <div test-data-specification target="{{target}}" />
+                        <div test-data-specification target="{{target}}"></div>
                     </tab>
 
                     <tab ng-show="testCase['messageContent'] && testCase['messageContent'] !== null"
@@ -34,16 +34,16 @@
                         <tab-heading>
                             <i class="fa fa-list-alt"></i>Message Content
                         </tab-heading>
-                        <div message-content target="{{target}}" />
+                        <div message-content target="{{target}}"></div>
                     </tab>
 
 
-                    <tab ng-show="testCase['juror-document']  && testCase['juror-document'] !== null"
+                    <tab ng-show="testCase['juror-document']  && testCase['jurorDocument'] !== null"
                          active="tabs[3]" ng-click="tabs[3] = true; loadHtml('juror-document')">
                         <tab-heading>
                             <i class="fa fa-list-alt"></i>Juror Document
                         </tab-heading>
-                        <div juror-document target="{{target}}" />
+                        <div juror-document target="{{target}}"></div>
                     </tab>
 
                     <tab active="tabs[4]" ng-click="tabs[4] = true; buildExampleMessageEditor()"
@@ -51,7 +51,7 @@
                         <tab-heading>
                             <i class="fa fa-file-text-o"></i>Example Message
                         </tab-heading>
-                        <div example-message target="{{target}}" />
+                        <div example-message target="{{target}}"></div>
                     </tab>
                 </tabset>
          </div>
