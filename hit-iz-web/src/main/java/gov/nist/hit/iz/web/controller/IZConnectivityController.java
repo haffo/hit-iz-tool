@@ -15,7 +15,6 @@ package gov.nist.hit.iz.web.controller;
 import gov.nist.hit.core.api.SessionContext;
 import gov.nist.hit.core.domain.Command;
 import gov.nist.hit.core.domain.Transaction;
-import gov.nist.hit.core.domain.TransportConfig;
 import gov.nist.hit.core.domain.TransportRequest;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.domain.util.XmlUtil;
@@ -108,7 +107,7 @@ public class IZConnectivityController {
     this.soapMessageParser = soapMessageParser;
   }
 
-  @Cacheable(value = "testCaseCache", key = "'conn-testcases'")
+  @Cacheable(value = "HitCache", key = "'conn-testcases'")
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
   public List<IZConnectivityTestPlan> testCases() {
     logger.info("Fetching all testPlans...");
@@ -164,15 +163,11 @@ public class IZConnectivityController {
       if (requ.getConfig().get("endpoint") == null || "".equals(requ.getConfig().get("endpoint"))) {
         throw new TransportException("Failed to send the message. No endpoint specified");
       }
-
       Long userId = SessionContext.getCurrentUserId(session);
       if (userId == null || (userService.findOne(userId)) == null) {
         throw new UserNotFoundException();
       }
       Long testCaseId = requ.getTestStepId();
-      TransportConfig config = transportConfigService.findOneByUserAndProtocol(userId, "soap");
-      config.setTaInitiator(requ.getConfig());
-      transportConfigService.save(config);
       IZConnectivityTestCase testCase = testCaseRepository.findOne(testCaseId);
       if (testCase == null)
         throw new TestCaseException("Unknown testcase with id=" + testCaseId);
@@ -202,7 +197,7 @@ public class IZConnectivityController {
 
       return transaction;
     } catch (Exception e1) {
-      throw new TransportClientException("Failed to send the message." + e1.getMessage());
+      throw new TransportException("Failed to send the message." + e1.getMessage());
     }
   }
 

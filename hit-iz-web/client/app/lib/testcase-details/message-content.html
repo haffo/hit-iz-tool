@@ -1,0 +1,28 @@
+<div class="panel panel-info">
+    <div class="panel-body">
+                            <span class="pull-left">
+                                <button ng-show="isMcHelpPresent()" title="Message Content Help Info" type="button"
+                                        class="btn btn-xs btn-primary"
+                                        ng-click="openMcInfo()">
+                                    <i class="fa fa-info-circle"></i>&nbsp;Help
+                                </button>
+                            </span>
+                            <span class="pull-right">
+                                <button title="Download Message Content" type="button" class="btn btn-sm btn-primary"
+                                        ng-show="messageContent.pdfPath && messageContent.pdfPath !== null"
+                                        ng-click="download()">
+                                    <i class="fa fa-download"></i>&nbsp;Download PDF
+                                </button>
+                            </span>
+        <br/>
+        <br/>
+
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <div class="testcase-content">
+                    <div id="{{target}}-messageContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

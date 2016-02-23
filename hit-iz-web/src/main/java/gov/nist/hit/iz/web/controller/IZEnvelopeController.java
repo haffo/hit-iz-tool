@@ -62,7 +62,7 @@ public class IZEnvelopeController {
   @Autowired
   private SOAPValidationReportGenerator reportService;
 
-  @Cacheable(value = "testCaseCache", key = "'env-testcases'")
+  @Cacheable(value = "HitCache", key = "'env-testcases'")
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
   public List<IZEnvelopeTestPlan> testCases() {
     logger.info("Fetching all testplans...");

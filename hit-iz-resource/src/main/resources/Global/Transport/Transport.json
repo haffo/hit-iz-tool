@@ -1,6 +1,7 @@
 [
 			 {
 			 	"protocol":"soap",
+			 	"domain":"iz",
 			 	 "forms":{
 			 	 		"TA_INITIATOR":"TA_INITIATOR_SOAP_FORM.html",
 			 	 		"SUT_INITIATOR":"SUT_INITIATOR_SOAP_FORM.html"

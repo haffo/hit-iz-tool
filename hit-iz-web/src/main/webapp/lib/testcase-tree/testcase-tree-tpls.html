@@ -9,6 +9,8 @@
                    ng-click="user_clicks_branch(row.branch)">
                 <span style="white-space: nowrap" class="indented tree-label">
                      <i ng-class="get_icon_type(row.branch)"></i>
+                    <!--<span ng-show="row.branch.transport === true" class="badge">T</span>-->
+                    <span title="Transport supported" class="label label-danger label-icon" ng-show="row.branch.type === 'TestPlan' && row.branch.transport === true">T</span>
                     {{ row.label }} </span>
                 </a>
             <span ng-if="!is_node_selectable(row.branch)" class="nopointer"

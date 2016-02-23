@@ -11,82 +11,111 @@
 </script>
 
 <div class="row" ng-show="testStep != null">
+
+    <div class="col-md-12"
+         ng-show="detailsError !== null">
+        <div class="alert alert-danger"
+             role="alert"
+             ng-bind="detailsError"></div>
+    </div>
+
     <div class="col-md-12">
         <!--<div ng-show="testCase != null">-->
-            <!--<span style="font-size: 18px; font-weight: bold">{{testStep.position}}. Test Step: {{testStep.name}}</span>-->
-            <!--<hr class="noMargin" />-->
+        <!--<span style="font-size: 18px; font-weight: bold">{{testStep.position}}. Test Step: {{testStep.name}}</span>-->
+        <!--<hr class="noMargin" />-->
         <!--</div>-->
-        <div ng-show="testStep.testingType === 'DATAINSTANCE' || testStep.testingType === 'TA_RESPONDER' || testStep.testingType === 'SUT_RESPONDER' || testStep.testingType === 'TA_INITIATOR' || testStep.testingType === 'SUT_INITIATOR'">
-            <tabset>
-                <tab disabled="disabled()" select="setActiveTab(0)" active="tabs[0]">
-                    <tab-heading>
-                        <i class="fa fa-check-circle"></i>Validation
-                    </tab-heading>
+        <!--<div ng-show="testStep.testingType === 'DATAINSTANCE' || testStep.testingType === 'TA_RESPONDER' || testStep.testingType === 'SUT_RESPONDER' || testStep.testingType === 'TA_INITIATOR' || testStep.testingType === 'SUT_INITIATOR'">-->
+        <tabset>
+            <tab disabled="disabled()" select="setTestStepExecutionTab(0)" active="tabs[0]"
+                 ng-show="testStep.testContext && testStep.testContext != null">
+                <tab-heading>
+                    <i class="fa fa-check-circle"></i>Validation
+                </tab-heading>
 
-                    <div ng-include="'views/cb/validation.html'"></div>
-                </tab>
-                <tab disabled="disabled()" select="setActiveTab(1)" active="tabs[1]">
-                    <tab-heading>
-                        <i class="fa fa-file-o"></i>Report
-                    </tab-heading>
+                <div ng-include="'views/cb/validation.html'"></div>
+            </tab>
+            <tab disabled="disabled()" select="setTestStepExecutionTab(1)" active="tabs[1]"
+                 ng-show="testStep.testContext && testStep.testContext != null">
+                <tab-heading>
+                    <i class="fa fa-file-o"></i>Report
+                </tab-heading>
 
-                    <div ng-include="'views/cb/report.html'"></div>
-                </tab>
-                <tab disabled="disabled()" select="setActiveTab(2)" active="tabs[2]"
-                     ng-show="testStep.testContext.profile && testStep.testContext.profile!= null">
-                    <tab-heading>
-                        <i class="fa fa-th-list"></i>Profile Viewer
-                    </tab-heading>
-                    <div ng-include="'views/cb/profileViewer.html'"></div>
-                </tab>
-                <tab disabled="disabled()" select="setActiveTab(3)" active="tabs[3]"
-                     ng-show="testStep.testContext.vocabularyLibrary && testStep.testContext.vocabularyLibrary!= null">
-                    <tab-heading>
-                        <i class="fa fa-book"></i>ValueSets
-                    </tab-heading>
-                    <div ng-include="'views/cb/vocabulary.html'"></div>
-                </tab>
+                <div ng-include="'views/cb/report.html'"></div>
+            </tab>
+            <tab disabled="disabled()" select="setTestStepExecutionTab(2)" active="tabs[2]"
+                 ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.profile && testStep.testContext.profile!= null">
+                <tab-heading>
+                    <i class="fa fa-th-list"></i>Profile Viewer
+                </tab-heading>
+                <div ng-include="'views/cb/profileViewer.html'"></div>
+            </tab>
 
+            <tab disabled="disabled()" select="setTestStepExecutionTab(3)" active="tabs[3]"
+                 ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.vocabularyLibrary && testStep.testContext.vocabularyLibrary!= null">
+                <tab-heading>
+                    <i class="fa fa-book"></i>ValueSets
+                </tab-heading>
+                <div ng-include="'views/cb/vocabulary.html'"></div>
+            </tab>
 
-
-                <!--<tab ng-show="testStep.jurorDocument && testStep.jurorDocument != null && isMultiStepTesting()">-->
-                <!--<tab-heading>-->
-                <!--<i class="fa fa-check-circle"></i>Juror Document-->
-                <!--</tab-heading>-->
-                <!--<div class="panel panel-info">-->
-                <!--<div class="panel-body">-->
-                <!--<div class="pull-right">-->
-                <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"-->
-                <!--ng-click="downloadTestArtifact(testStep.jurorDocument.pdfPath)">-->
-                <!--<i class="fa fa-download"></i> PDF-->
-                <!--</button>-->
-                <!--</div>-->
-                <!--<br/>-->
-                <!--<br/>-->
-                <!--<div class="testcase-content" id="isolated_jurordoc">-->
-                <!--<div compile="testStep.jurorDocument.html"/>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</tab>-->
-            </tabset>
-        </div>
-
-        <div ng-show="testStep.testingType === 'SUT_MANUAL' || testStep.testingType === 'TA_MANUAL'">
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            Instruction
-                        </div>
-                        <div class="panel-body">
+            <tab active="tabs[4]" ng-click="setTestStepExecutionTab(4)"
+                 ng-show="isManualStep(testStep)">
+                <tab-heading>
+                    <i class="fa fa-wrench"></i>Action
+                </tab-heading>
+                <div class="panel panel-info">
+                    <div class="panel-body">
+                        <div class="testcase-content">
                             <div ng-bind-html="toHTML(testStep.description)"></div>
-                            <br/>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </tab>
+
+            <tab class="pull-right" ng-click="setTestStepExecutionTab(5)" active="tabs[5]"
+                 ng-show="testStep.testContext && testStep.testContext.message && testStep.testContext.message!== null && testStep.testContext.message.content != null">
+                <tab-heading>
+                    <i class="fa fa-file-text-o"></i>Example Message
+                </tab-heading>
+                <div example-message target="{{targ}}"></div>
+            </tab>
+
+            <tab class="pull-right" ng-show="testStep['jurorDocument']  && testStep['jurorDocument'] !== null" active="tabs[6]"
+                 ng-click="setTestStepExecutionTab(6)">
+                <tab-heading>
+                    <i class="fa fa-list-alt"></i> Juror Document
+                </tab-heading>
+                <div juror-document target="{{targ}}"></div>
+            </tab>
+
+
+            <tab class="pull-right" ng-show="testStep['messageContent'] && testStep['messageContent'] !== null" active="tabs[7]"
+                 ng-click="setTestStepExecutionTab(7)">
+                <tab-heading>
+                    <i class="fa fa-list-alt"></i> Message Content
+                </tab-heading>
+                <div message-content target="{{targ}}"></div>
+            </tab>
+
+            <tab class="pull-right"
+                 ng-show="testStep['testDataSpecification'] && testStep['testDataSpecification'] !== null" active="tabs[8]"
+                 ng-click="setTestStepExecutionTab(8)">
+                <tab-heading>
+                    <i class="fa fa-list-alt"></i>Test Data Specification
+                </tab-heading>
+
+                <div test-data-specification target="{{targ}}"></div>
+            </tab>
+
+            <tab class="pull-right" active="tabs[9]" ng-click="setTestStepExecutionTab(9)"
+                 ng-show="testStep['testStory'] && testStep['testStory'] !== null">
+                <tab-heading>
+                    <i class="fa fa-info"></i>Test Story
+                </tab-heading>
+                <div test-story target="{{targ}}"></div>
+            </tab>
+
+        </tabset>
     </div>
 
 </div>

@@ -1,4 +1,6 @@
-<style id="antiClickjack">body{display:none !important;}</style>
+<style id="antiClickjack">body {
+    display: none !important;
+}</style>
 <script type="text/javascript">
     if (self === top) {
         var antiClickjack = document.getElementById("antiClickjack");
@@ -266,7 +268,7 @@
     </div>
     <br/>
 
-    <div class="panel panel-info"  ng-if="selectedValueSetDefinition.valueSetElements.length > 0">
+    <div class="panel panel-info" ng-if="selectedValueSetDefinition.valueSetElements.length > 0">
         <!-- Default panel contents -->
         <div class="panel-heading">Value Set Elements</div>
         <div class="divScroll-1">
@@ -325,15 +327,14 @@
                 </table>
 
 
-
-
             </div>
 
         </div>
     </div>
 
     <p style="color:red" ng-if="selectedValueSetDefinition.valueSetElements.length == 0">
-        Table (value set) identified in the implementation guide but no codes are specified. The validation tool will issue an Alert since the element cannot be checked for content.
+        Table (value set) identified in the implementation guide but no codes are specified. The validation tool will
+        issue an Alert since the element cannot be checked for content.
     </p>
 
 
@@ -382,9 +383,9 @@
         </span>
         <span class="pull-right">
          <button class="btn btn-xs btn-primary" title="Close" type="button" class="pull-right point"
-           ng-click="cancel()">
-            <i class="fa fa-times"></i>Close
-        </button>
+                 ng-click="cancel()">
+             <i class="fa fa-times"></i>Close
+         </button>
             </span>
     </div>
     <div class="modal-body">
@@ -464,7 +465,8 @@
                                 </tfoot>
                             </table>
                             <p style="color:red" ng-if="valueSet.valueSetElements.length == 0">
-                                Table(value set) identified in the implementation guide but no codes are specified. The validation tool will issue an Alert since the element cannot be checked for content.
+                                Table(value set) identified in the implementation guide but no codes are specified. The
+                                validation tool will issue an Alert since the element cannot be checked for content.
                             </p>
 
                         </div>

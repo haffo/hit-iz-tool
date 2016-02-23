@@ -20,9 +20,13 @@
     <meta http-equiv="Expires" content="0">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
     <style>
-        [ng\: cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
-                          display: none !important;
-                      }
+        [ng\: cloak
+
+        ]
+        ,
+        [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+            display: none !important;
+        }
     </style>
     <meta name="viewport" content="width=device-width">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -67,7 +71,9 @@
     <link rel="stylesheet" href="lib/testcase-tree/testcase-tree.css"/>
     <link rel="stylesheet" href="lib/documentation-viewer/documentation-viewer.css"/>
 
-    <style id="antiClickjack">body{display:none !important;}</style>
+    <style id="antiClickjack">body {
+        display: none !important;
+    }</style>
     <script type="text/javascript">
         if (self === top) {
             var antiClickjack = document.getElementById("antiClickjack");
@@ -150,7 +156,7 @@
     <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
     <script src="bower_components/quick-ngrepeat/quick-ng-repeat.js"></script>
     <script src="bower_components/ng-idle/angular-idle.js"></script>
-     <!--<script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>-->
+    <!--<script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>-->
     <!--<script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>-->
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
 
@@ -158,7 +164,7 @@
 
     <!-- blueimp -->
 
-     <!--<script src="lib/lrInfiniteScroll/lrInfiniteScroll.js"></script>-->
+    <!--<script src="lib/lrInfiniteScroll/lrInfiniteScroll.js"></script>-->
     <script src="lib/blueimp/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
     <script src="lib/blueimp/blueimp-load-image/js/load-image.js"></script>
     <script src="lib/blueimp/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
@@ -170,7 +176,7 @@
     <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
     <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-angular.js"></script>
     <script src="lib/vkbeautify/vkbeautify.js"></script>
-     <script src="lib/angular-bootstrap-nav-tree/abn_tree_directive.js"></script>
+    <script src="lib/angular-bootstrap-nav-tree/abn_tree_directive.js"></script>
     <!--<script src="lib/tree-grid/tree-grid-directive.js"></script>-->
     <script src="lib/angular-treetable/js/jquery.treetable.js"></script>
     <script src="lib/angular-treetable/js/angular-treetable-custom.js"></script>
@@ -205,7 +211,6 @@
     <script src="scripts/cf/service.js"></script>
     <script src="scripts/cb/service.js"></script>
     <script src="scripts/connectivity/service.js"></script>
-    <script src="scripts/isolated/service.js"></script>
     <script src="scripts/vocab/service/vocab.js"></script>
     <script src="scripts/contact/service/contact.js"></script>
     <script src="scripts/common.js"></script>
@@ -215,7 +220,6 @@
     <script src="scripts/cf/controller.js"></script>
     <script src="scripts/cb/controller.js"></script>
     <script src="scripts/envelope/controller.js"></script>
-    <script src="scripts/isolated/controller.js"></script>
     <script src="scripts/contact/controller/contact.js"></script>
     <script src="scripts/about/controller/about.js"></script>
     <script src="scripts/header/controller/header.js"></script>
@@ -242,27 +246,6 @@
     <!--<input style="display:none" name="_csrf_header" ng-value="{{appInfo.csrfHeaderName}}"/>-->
     <!--<input style="display:none" name="_csrf_header" ng-value="{{appInfo.csrfHeaderName}}"/>-->
 
-
-    <script>
-//        $(document).ready(function() {
-//
-////            $.material.options = {
-////                "withRipples": ".btn:not(.btn-link), .card-image, .withripple",
-////                "inputElements": "input.form-control, textarea.form-control, select.form-control",
-////                "checkboxElements": ".checkbox > label > input[type=checkbox]",
-////                "radioElements": ".radio > label > input[type=radio]"
-////            };
-////
-////
-////            // This command is used to initialize some elements and make them work properly
-//////            $.material.init();
-////            $.material.init();
-//
-//
-//
-//
-//        });
-    </script>
 
 
 </div>

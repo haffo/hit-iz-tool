@@ -58,7 +58,7 @@ public class IsolatedTestingController {
 
   public IsolatedTestingController() {}
 
-  @Cacheable(value = "testCaseCache", key = "'isolated-testcases'")
+  @Cacheable(value = "HitCache", key = "'isolated-testcases'")
   @RequestMapping(value = "/testcases", method = RequestMethod.GET)
   public List<TestPlan> testCases() {
     logger.info("Fetching all isolated system test cases...");

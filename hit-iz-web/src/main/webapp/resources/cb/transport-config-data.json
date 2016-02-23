@@ -1,0 +1,6 @@
+{
+    "sutInitiator":{"faultPassword":"fault_vendor_90_134","password":"vendor_90_134","endpoint":"http://hit-dev.nist.gov:8098/iztool/ws/iisService","facilityID":"vendor_90_134","faultUsername":"fault_vendor_90_134","username":"vendor_90_134"},
+    "taInitiator":{},
+    "protocol":"soap",
+    "domain":"iz"
+}

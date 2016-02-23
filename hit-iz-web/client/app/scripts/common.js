@@ -44,7 +44,7 @@ angular.module('commonServices').factory('StorageService',
             USER_CONFIG_KEY: 'USER_CONFIG_KEY',
             TRANSPORT_CONFIG_KEY: 'TRANSPORT_CONFIG_KEY',
             APP_STATE_TOKEN: 'APP_STATE_TOKEN',
-
+            TRANSPORT_DISABLED:'TRANSPORT_DISABLED',
 
             remove: function (key) {
                 return localStorageService.remove(key);
@@ -62,6 +62,12 @@ angular.module('commonServices').factory('StorageService',
             },
             get: function (key) {
                 return localStorageService.get(key);
+            },
+            getTransportConfig: function (domain,protocol) {
+                return localStorageService.get(domain + "-" + protocol + "-transport-configs");
+            },
+            setTransportConfig: function (domain,protocol ,val) {
+                return localStorageService.set(domain + "-" + protocol + "-transport-configs", val);
             }
         };
         return service;
