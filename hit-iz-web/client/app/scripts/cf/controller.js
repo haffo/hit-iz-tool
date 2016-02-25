@@ -2,7 +2,7 @@
 
 
 angular.module('cf')
-    .controller('CFTestingCtrl', ['$scope', '$http', 'CF', '$window', '$modal', '$filter', '$rootScope', 'CFTestCaseListLoader', '$timeout', 'StorageService', 'TestCaseService','TestStepService', function ($scope, $http, CF, $window, $modal, $filter, $rootScope, CFTestCaseListLoader, $timeout, StorageService, TestCaseService,TestStepService) {
+    .controller('CFTestingCtrl', ['$scope', '$http', 'CF', '$window', '$modal', '$filter', '$rootScope', 'CFTestCaseListLoader', '$timeout', 'StorageService', 'TestCaseService', 'TestStepService', function ($scope, $http, CF, $window, $modal, $filter, $rootScope, CFTestCaseListLoader, $timeout, StorageService, TestCaseService, TestStepService) {
 
         $scope.cf = CF;
         $scope.loading = false;
@@ -13,6 +13,7 @@ angular.module('cf')
         $scope.tree = {};
         $scope.tabs = new Array();
         $scope.error = null;
+        $scope.collapsed = false;
 
         var testCaseService = new TestCaseService();
 
@@ -51,12 +52,42 @@ angular.module('cf')
         };
 
 
+        $scope.refreshTree = function () {
+            $timeout(function () {
+                if ($scope.testCases != null) {
+                    if (typeof $scope.tree.build_all == 'function') {
+                        $scope.tree.build_all($scope.testCases);
+                        var testCase = null;
+                        var id = StorageService.get(StorageService.CF_LOADED_TESTCASE_ID_KEY);
+                        if (id != null) {
+                            for (var i = 0; i < $scope.testCases.length; i++) {
+                                var found = testCaseService.findOneById(id, $scope.testCases[i]);
+                                if (found != null) {
+                                    testCase = found;
+                                    break;
+                                }
+                            }
+                        }
+                        if (testCase == null && $scope.testCases != null && $scope.testCases.length >= 0) {
+                            testCase = $scope.testCases[0];
+                        }
+                        if (testCase != null) {
+                            $scope.selectNode(testCase.id, testCase.type);
+                        }
+                        $scope.expandAll();
+                        $scope.error = null;
+                    } else {
+                        $scope.error = "Ooops, Something went wrong. Please refresh your page again.";
+                    }
+                }
+                $scope.loading = false;
+            },1000);
+        };
 
         $scope.initTesting = function () {
             StorageService.remove(StorageService.ACTIVE_SUB_TAB_KEY);
             $scope.error = null;
             $scope.testCases = [];
-
             $scope.loading = true;
             var tcLoader = new CFTestCaseListLoader();
             tcLoader.then(function (testCases) {
@@ -64,31 +95,7 @@ angular.module('cf')
                     testCaseService.buildCFTestCases(testPlan);
                 });
                 $scope.testCases = $filter('orderBy')(testCases, 'position');
-                if (typeof $scope.tree.build_all == 'function') {
-                    $scope.tree.build_all($scope.testCases);
-                    var testCase = null;
-                    var id = StorageService.get(StorageService.CF_LOADED_TESTCASE_ID_KEY);
-                    if (id != null) {
-                        for (var i = 0; i < $scope.testCases.length; i++) {
-                            var found = testCaseService.findOneById(id, $scope.testCases[i]);
-                            if (found != null) {
-                                testCase = found;
-                                break;
-                            }
-                        }
-                    }
-                    if (testCase == null && $scope.testCases != null && $scope.testCases.length >= 0) {
-                        testCase = $scope.testCases[0];
-                    }
-                    if (testCase != null) {
-                        $scope.selectNode(testCase.id, testCase.type);
-                    }
-                    $scope.expandAll();
-                    $scope.error = null;
-                } else {
-                    $scope.error = "Ooops, Something went wrong. Please refresh your page. We are sorry for the inconvenience.";
-                }
-                $scope.loading = false;
+                $scope.refreshTree();
             }, function (error) {
                 $scope.error = "Sorry, Cannot load the profiles. Try again";
                 $scope.loading = false;
@@ -96,7 +103,7 @@ angular.module('cf')
 
             $scope.$on("$destroy", function () {
                 var testStepId = StorageService.get(StorageService.CF_LOADED_TESTCASE_ID_KEY);
-                if(testStepId != null) TestStepService.clearRecords(testStepId);
+                if (testStepId != null) TestStepService.clearRecords(testStepId);
             });
         };
 
@@ -122,15 +129,14 @@ angular.module('cf')
 
 
         $scope.expandAll = function () {
-            if($scope.tree != null)
-            $scope.tree.expand_all();
+            if ($scope.tree != null)
+                $scope.tree.expand_all();
         };
 
         $scope.collapseAll = function () {
-            if($scope.tree != null)
-            $scope.tree.collapse_all();
+            if ($scope.tree != null)
+                $scope.tree.collapse_all();
         };
-
 
 
     }]);
@@ -142,7 +148,7 @@ angular.module('cf').controller('CFProfileInfoCtrl', function ($scope, $modalIns
 });
 
 angular.module('cf')
-    .controller('CFValidatorCtrl', ['$scope', '$http', 'CF', '$window', '$timeout', '$modal', 'NewValidationResult', '$rootScope', 'ServiceDelegator', 'StorageService','TestStepService', function ($scope, $http, CF, $window, $timeout, $modal, NewValidationResult, $rootScope, ServiceDelegator, StorageService,TestStepService) {
+    .controller('CFValidatorCtrl', ['$scope', '$http', 'CF', '$window', '$timeout', '$modal', 'NewValidationResult', '$rootScope', 'ServiceDelegator', 'StorageService', 'TestStepService', function ($scope, $http, CF, $window, $timeout, $modal, NewValidationResult, $rootScope, ServiceDelegator, StorageService, TestStepService) {
         $scope.cf = CF;
         $scope.testCase = CF.testCase;
         $scope.message = CF.message;
@@ -449,12 +455,12 @@ angular.module('cf')
         };
 
         $scope.expandAll = function () {
-            if($scope.cf.tree.root != null)
+            if ($scope.cf.tree.root != null)
                 $scope.cf.tree.root.expand_all();
         };
 
         $scope.collapseAll = function () {
-            if($scope.cf.tree.root!= null)
+            if ($scope.cf.tree.root != null)
                 $scope.cf.tree.root.collapse_all();
         };
 

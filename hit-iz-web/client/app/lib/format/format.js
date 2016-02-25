@@ -1481,39 +1481,43 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
             init: function () {
                 this.error = null;
                 var delay = $q.defer();
-                var self = Transport;
+                var self = this;
+                self.configs = {};
                 this.getAllConfigForms().then(function (transportForms) {
-                    angular.forEach(transportForms, function (transportForm) {
-                        var domain = transportForm.domain;
-                        var protocol = transportForm.protocol;
-                        if (!self.configs[domain]) {
-                            self.configs[domain] = {};
-                        }
-                        if (!self.configs[domain][protocol]) {
-                            self.configs[domain][protocol] = {};
-                        }
-                        if (!self.configs[domain][protocol]['forms']) {
-                            self.configs[domain][protocol]['forms'] = {};
-                        }
-                        self.configs[domain][protocol]['forms'] = transportForm;
+                    $rootScope.transportSupported = transportForms != null && transportForms.length > 0;
+                    if ($rootScope.transportSupported) {
+                        angular.forEach(transportForms, function (transportForm) {
+                            var domain = transportForm.domain;
+                            var protocol = transportForm.protocol;
+                            if (!self.configs[domain]) {
+                                self.configs[domain] = {};
+                            }
+                            if (!self.configs[domain][protocol]) {
+                                self.configs[domain][protocol] = {};
+                            }
+                            if (!self.configs[domain][protocol]['forms']) {
+                                self.configs[domain][protocol]['forms'] = {};
+                            }
+                            self.configs[domain][protocol]['forms'] = transportForm;
 
-                        if (!self.configs[domain][protocol]['data'] || self.configs[domain][protocol]['data'] == null) {
-                            $timeout(function () {
-                                self.getConfigData(domain, protocol).then(function (data) {
-                                    self.configs[domain][protocol]['data'] = data;
-                                    self.configs[domain][protocol]['open']={
-                                        ta:true,
-                                        sut:false
-                                    };
-                                    $rootScope.$emit(domain + "-" + protocol + "-data-loaded");
-                                }, function (error) {
-                                    self.configs[domain][protocol]['error'] = error.data;
+                            if (!self.configs[domain][protocol]['data'] || self.configs[domain][protocol]['data'] == null) {
+                                $timeout(function () {
+                                    self.getConfigData(domain, protocol).then(function (data) {
+                                        self.configs[domain][protocol]['data'] = data;
+                                        self.configs[domain][protocol]['open'] = {
+                                            ta: true,
+                                            sut: false
+                                        };
+                                        $rootScope.$emit(domain + "-" + protocol + "-data-loaded");
+                                    }, function (error) {
+                                        self.configs[domain][protocol]['error'] = error.data;
+                                    });
                                 });
-                            });
-                        }
-                    });
+                            }
+                        });
+                    }
                 }, function (error) {
-                    self.error = "Sorry, failed to load the transport settings";
+                    self.error = "No transport configs found.";
                 });
             }
         };
@@ -1540,6 +1544,11 @@ angular.module('format')
         $scope.getProtocols = function (domain) {
             return domain != null && $scope.transport.configs && $scope.transport.configs[domain] ? Object.getOwnPropertyNames($scope.transport.configs[domain]) : [];
         };
+
+        $scope.getConfigs = function () {
+            return $scope.transport.configs;
+        };
+
 
         $scope.initTransportConfigList = function () {
             var doms = $scope.getDomains();
