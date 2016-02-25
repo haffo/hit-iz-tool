@@ -25,7 +25,7 @@
         <tabset>
             <tab disabled="disabled()" select="setTestStepExecutionTab(0)" active="tabs[0]" ng-show="testStep.testContext && testStep.testContext != null">
                 <tab-heading>
-                    <i class="fa fa-check-circle"></i>Validation
+                    <i class="fa fa-check-circle"></i>Execution
                 </tab-heading>
 
                 <div ng-include="'views/cb/validation.html'"></div>
@@ -50,6 +50,14 @@
                 </tab-heading>
                 <div ng-include="'views/cb/vocabulary.html'"></div>
             </tab>
+
+            <tab active="tabs[10]" select="setTestStepExecutionTab(10)" ng-show="testStep.testingType ===  'SUT_MANUAL' || testStep.testingType ===  'TA_MANUAL'">
+                <tab-heading>
+                    <i class="fa fa-check-circle"></i>Execution
+                </tab-heading>
+                <div ng-include="'views/cb/manual.html'"></div>
+            </tab>
+
 
             <tab class="pull-right" ng-click="setTestStepExecutionTab(5)" active="tabs[5]" ng-show="testStep.testContext && testStep.testContext.message && testStep.testContext.message!== null && testStep.testContext.message.content != null">
                 <tab-heading>

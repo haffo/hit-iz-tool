@@ -143,7 +143,7 @@ angular.module('cb')
             $scope.$broadcast(mcId, testStep['messageContent'], testStep.name + "-MessageContent");
             $scope.$broadcast(tdsId, testStep['testDataSpecification'], testStep.name + "-TestDataSpecification");
             if ($scope.isManualStep(testStep)) {
-                $scope.setTestStepExecutionTab(4);
+                $scope.setTestStepExecutionTab(10);
             }
         };
 
@@ -211,6 +211,9 @@ angular.module('cb')
         };
 
         $scope.resetTestCase = function () {
+            if (CB.editor != null && CB.editor.instance != null) {
+                CB.editor.instance.setOption("readOnly", false);
+            }
             StorageService.remove(StorageService.CB_LOADED_TESTSTEP_TYPE_KEY);
             StorageService.remove(StorageService.CB_LOADED_TESTSTEP_ID_KEY);
             $scope.executeTestCase($scope.testCase);
@@ -375,6 +378,9 @@ angular.module('cb')
 
 
         $scope.clearExecution = function () {
+            if (CB.editor != null && CB.editor.instance != null) {
+                CB.editor.instance.setOption("readOnly", false);
+            }
             if ($scope.testCase != null) {
                 for (var i = 0; i < $scope.testCase.children.length; i++) {
                     var testStep = $scope.testCase.children[i];
@@ -693,6 +699,7 @@ angular.module('cb')
                 CB.testCase = testCase;
                 $scope.transport.logs = {};
                 $scope.transport.transactions = [];
+
                 $scope.testCase = testCase;
                 TestExecutionClock.stop();
                 $scope.testCase = testCase;
@@ -830,6 +837,9 @@ angular.module('cb')
             $timeout(function () {
                 $rootScope.$broadcast('cb:testCaseLoaded', testCase, tab);
             });
+            if (CB.editor != null && CB.editor.instance != null) {
+                CB.editor.instance.setOption("readOnly", false);
+            }
         };
 
 
@@ -1253,5 +1263,8 @@ angular.module('cb')
 
     });
 
-
+angular.module('cb')
+    .controller('CBManualCtrl', ['$scope', 'CB', function ($scope, CB) {
+        $scope.cb = CB;
+    }]);
 
