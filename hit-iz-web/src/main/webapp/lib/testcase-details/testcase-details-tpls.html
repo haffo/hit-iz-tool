@@ -10,51 +10,56 @@
 
         <div ng-show="error == null">
 
-                <tabset>
-                    <tab  active="tabs[0]" select="loadHtml('testStory')">
-                        <tab-heading>
-                            <i class="fa fa-info"></i>
-                            <span ng-show="!testCase['testStory'] || testCase['testStory']  === null">Description</span>
-                            <span ng-show="testCase['testStory']  && testCase['testStory']  !== null">Test Story</span>
-                        </tab-heading>
+            <tabset>
+                <tab active="tabs[0]" select="loadTestInfo()">
+                    <tab-heading>
+                        <i class="fa fa-list-alt"></i>
+                        <span ng-show="testCase['testStory']  && testCase['testStory']  !== null">Test Story</span>
+                        <span ng-show="!testCase['testStory']  || testCase['testStory']  === null">Description</span>
+                    </tab-heading>
+                    <div ng-show="testCase['testStory']  && testCase['testStory']  !== null">
                         <div test-story target="{{target}}"></div>
-                    </tab>
+                    </div>
+                    <div ng-show="!testCase['testStory']  || testCase['testStory']  === null">
+                        <div test-description target="{{target}}"></div>
+                    </div>
+                </tab>
 
-                    <tab active="tabs[1]"
-                         ng-show="testCase['testDataSpecification'] && testCase['testDataSpecification'] !== null"
-                         ng-click="tabs[1] = true; loadHtml('testDataSpecification')">
-                        <tab-heading>
-                            <i class="fa fa-list-alt"></i>Test Data Specification
-                        </tab-heading>
-                        <div test-data-specification target="{{target}}"></div>
-                    </tab>
+                <tab active="tabs[1]"
+                     ng-show="testCase['testDataSpecification'] && testCase['testDataSpecification'] !== null"
+                     ng-click="tabs[1] = true; loadArtifactHtml('testDataSpecification')">
+                    <tab-heading>
+                        <i class="fa fa-list-alt"></i>Test Data Specification
+                    </tab-heading>
+                    <div test-data-specification target="{{target}}"></div>
+                </tab>
 
-                    <tab ng-show="testCase['messageContent'] && testCase['messageContent'] !== null"
-                         active="tabs[2]" ng-click="tabs[2] = true; loadHtml('messageContent')">
-                        <tab-heading>
-                            <i class="fa fa-list-alt"></i>Message Content
-                        </tab-heading>
-                        <div message-content target="{{target}}"></div>
-                    </tab>
+                <tab ng-show="testCase['messageContent'] && testCase['messageContent'] !== null"
+                     active="tabs[2]" ng-click="tabs[2] = true; loadArtifactHtml('messageContent')">
+                    <tab-heading>
+                        <i class="fa fa-list-alt"></i>Message Content
+                    </tab-heading>
+                    <div message-content target="{{target}}"></div>
+                </tab>
 
 
-                    <tab ng-show="testCase['juror-document']  && testCase['jurorDocument'] !== null"
-                         active="tabs[3]" ng-click="tabs[3] = true; loadHtml('juror-document')">
-                        <tab-heading>
-                            <i class="fa fa-list-alt"></i>Juror Document
-                        </tab-heading>
-                        <div juror-document target="{{target}}"></div>
-                    </tab>
+                <tab ng-show="testCase['juror-document']  && testCase['jurorDocument'] !== null"
+                     active="tabs[3]" ng-click="tabs[3] = true; loadArtifactHtml('juror-document')">
+                    <tab-heading>
+                        <i class="fa fa-list-alt"></i>Juror Document
+                    </tab-heading>
+                    <div juror-document target="{{target}}"></div>
+                </tab>
 
-                    <tab active="tabs[4]" ng-click="tabs[4] = true; buildExampleMessageEditor()"
-                         ng-show="testCase.testContext && testCase.testContext.message && testCase.testContext.message!== null && testCase.testContext.message.content != null">
-                        <tab-heading>
-                            <i class="fa fa-file-text-o"></i>Example Message
-                        </tab-heading>
-                        <div example-message target="{{target}}"></div>
-                    </tab>
-                </tabset>
-         </div>
+                <tab active="tabs[4]" ng-click="tabs[4] = true; buildExampleMessageEditor()"
+                     ng-show="testCase.testContext && testCase.testContext.message && testCase.testContext.message!== null && testCase.testContext.message.content != null">
+                    <tab-heading>
+                        <i class="fa fa-file-text-o"></i>Example Message
+                    </tab-heading>
+                    <div example-message target="{{target}}"></div>
+                </tab>
+            </tabset>
+        </div>
     </div>
 </script>
 
@@ -64,7 +69,7 @@
                     Message Content Information
                 </span>
                 <span class="pull-right">
-                   <button class="btn btn-xs btn-primary"    ng-click="close()"> <i class="fa fa-times"></i>Close</button>
+                   <button class="btn btn-xs btn-primary" ng-click="close()"><i class="fa fa-times"></i>Close</button>
                 </span>
     </div>
     <div class="modal-body">
@@ -96,7 +101,7 @@
             <div class="panel panel-info">
                 <div class="panel-body">
                     <div class="testcase-content">
-                        <div id="{{target}}-testDataSpecification"/>
+                        <div id="{{target}}-testDataSpecification"></div>
                     </div>
                 </div>
             </div>
@@ -149,7 +154,7 @@
 
             <div class="panel panel-info">
                 <div class="panel-body">
-                    <div id="{{target}}-exampleMessage" class="testcase-content"/>
+                    <div id="{{target}}-exampleMessage" class="testcase-content"></div>
                 </div>
             </div>
             <!--<pre class="message" ng-bind="testCase.testContext.message.content"></pre>-->
@@ -175,7 +180,7 @@
                 <div class="panel panel-info">
                     <div class="panel-body">
                         <div class="testcase-content">
-                            <div id="{{target}}-testStory" />
+                            <div id="{{target}}-testStory"></div>
                         </div>
                     </div>
                 </div>
@@ -185,30 +190,41 @@
 </script>
 
 <script type="text/ng-template" id="JurorDocument.html">
-<div class="panel panel-info">
-    <div class="panel-body">
-        <div class="pull-right">
-            <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"-->
-            <!--ng-click="downloadJurorDoc('jurordoc',testCase.name)">-->
-            <!--<i class="fa fa-download"></i> PDF-->
-            <!--</button>-->
-            <button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"
-                    ng-show="jurorDocument.pdfPath && jurorDocument.pdfPath !== null"
-                    ng-click="download()">
-                <i class="fa fa-download"></i>&nbsp;Download PDF
-            </button>
-        </div>
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div class="pull-right">
+                <!--<button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"-->
+                <!--ng-click="downloadJurorDoc('jurordoc',testCase.name)">-->
+                <!--<i class="fa fa-download"></i> PDF-->
+                <!--</button>-->
+                <button title="Download Juror Document" type="button" class="btn btn-sm btn-primary"
+                        ng-show="jurorDocument.pdfPath && jurorDocument.pdfPath !== null"
+                        ng-click="download()">
+                    <i class="fa fa-download"></i>&nbsp;Download PDF
+                </button>
+            </div>
 
-        <br/>
-        <br/>
+            <br/>
+            <br/>
 
-        <div class="panel panel-info">
-            <div class="panel-body">
-                <div class="testcase-content">
-                    <div id="{{target}}-jurorDocument"/>
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div class="testcase-content">
+                        <div id="{{target}}-jurorDocument"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</script>
+
+
+<script type="text/ng-template" id="TestDescription.html">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div class="testcase-content">
+                <div id="{{target}}-testDescription"></div>
+            </div>
+        </div>
+    </div>
 </script>

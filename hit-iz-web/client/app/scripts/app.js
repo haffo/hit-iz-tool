@@ -180,8 +180,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     Session.create().then(function (response) {
         // load current user
         User.load().then(function (response) {
-            console.log("initializing transport")
-            Transport.init();
+             Transport.init();
         }, function (error) {
             $rootScope.openCriticalErrorDlg("Sorry we could not create a new user for your session. Please refresh the page and try again.");
         });

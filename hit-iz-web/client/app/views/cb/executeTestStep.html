@@ -58,20 +58,6 @@
                 <div ng-include="'views/cb/vocabulary.html'"></div>
             </tab>
 
-            <tab active="tabs[4]" ng-click="setTestStepExecutionTab(4)"
-                 ng-show="isManualStep(testStep)">
-                <tab-heading>
-                    <i class="fa fa-wrench"></i>Action
-                </tab-heading>
-                <div class="panel panel-info">
-                    <div class="panel-body">
-                        <div class="testcase-content">
-                            <div ng-bind-html="toHTML(testStep.description)"></div>
-                        </div>
-                    </div>
-                </div>
-            </tab>
-
             <tab class="pull-right" ng-click="setTestStepExecutionTab(5)" active="tabs[5]"
                  ng-show="testStep.testContext && testStep.testContext.message && testStep.testContext.message!== null && testStep.testContext.message.content != null">
                 <tab-heading>

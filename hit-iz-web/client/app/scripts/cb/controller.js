@@ -104,13 +104,13 @@ angular.module('cb')
             if($scope.activeTab  === 5){
                 $scope.buildExampleMessageEditor();
             }else if($scope.activeTab  === 6){
-                $scope.loadHtml('jurorDocument');
+                $scope.loadArtifactHtml('jurorDocument');
             }else if($scope.activeTab  === 7){
-                $scope.loadHtml('messageContent');
+                $scope.loadArtifactHtml('messageContent');
             }else if($scope.activeTab  === 8){
-                $scope.loadHtml('testDataSpecification');
+                $scope.loadArtifactHtml('testDataSpecification');
             }else if($scope.activeTab  === 9){
-                $scope.loadHtml('testStory');
+                $scope.loadArtifactHtml('testStory');
             }
         };
 
@@ -148,7 +148,8 @@ angular.module('cb')
         };
 
         $scope.loadTestStepExecutionPanel = function (testStep) {
-            console.log("exec:" + testStep.name);
+            $scope.exampleMessageEditor = null;
+            $scope.detailsError = null;
             var testContext = testStep['testContext'];
             if (testContext && testContext != null) {
                 $scope.setTestStepExecutionTab(0);
@@ -163,7 +164,6 @@ angular.module('cb')
                     }
                 });
             }
-            $scope.detailsError = null;
             var exampleMsgId = $scope.targ + '-exampleMessage';
             //if (testStep['testStory'] === undefined || testStep['testStory'] === null) {
                 TestCaseDetailsService.details("TestStep", testStep.id).then(function (result) {
@@ -171,10 +171,6 @@ angular.module('cb')
                     testStep['jurorDocument'] = result['jurorDocument'];
                     testStep['testDataSpecification'] = result['testDataSpecification'];
                     testStep['messageContent'] = result['messageContent'];
-                    console.log("testStory=" + $scope.testStep['testStory']);
-                    console.log("jurorDocument=" + $scope.testStep['jurorDocument']);
-                    console.log("testDataSpecification=" + $scope.testStep['testDataSpecification']);
-                    console.log("messageContent=" + $scope.testStep['messageContent']);
                     $scope.loadTestStepDetails(testStep);
                     $scope.detailsError = null;
                 }, function (error) {
@@ -192,21 +188,27 @@ angular.module('cb')
         };
 
         $scope.buildExampleMessageEditor = function () {
+            var eId = $scope.targ + '-exampleMessage';
+            if ($scope.exampleMessageEditor === null || !$scope.exampleMessageEditor) {
+                $timeout(function () {
+                    $scope.exampleMessageEditor = TestCaseDetailsService.buildExampleMessageEditor(eId, $scope.testStep.testContext.message.content, $scope.exampleMessageEditor, $scope.testStep.testContext && $scope.testStep.testContext != null ? $scope.testStep.testContext.format : null);
+                }, 100);
+            }
             $timeout(function () {
-                $scope.exampleMessageEditor = TestCaseDetailsService.buildExampleMessageEditor($scope.targ + '-exampleMessage', $scope.testStep.testContext.message.content, $scope.exampleMessageEditor, $scope.testStep.testContext && $scope.testStep.testContext != null ? $scope.testStep.testContext.format : null);
-            },100);
+                if ($("#" + eId)) {
+                    $("#" + eId).scrollLeft();
+                }
+            }, 1000);
         };
 
-
-        $scope.loadHtml = function (key) {
+        $scope.loadArtifactHtml = function (key) {
             if ($scope.testStep != null) {
-                var element = TestCaseDetailsService.loadHtml($scope.targ + "-" + key, $scope.testStep[key]);
+                var element = TestCaseDetailsService.loadArtifactHtml($scope.targ + "-" + key, $scope.testStep[key]);
                 if (element && element != null) {
                     $compile(element.contents())($scope);
                 }
             }
         };
-
 
         $scope.resetTestCase = function () {
             StorageService.remove(StorageService.CB_LOADED_TESTSTEP_TYPE_KEY);
@@ -215,8 +217,6 @@ angular.module('cb')
         };
 
         $scope.selectTestStep = function (testStep) {
-//            $timeout(function () {
-
             CB.testStep = testStep;
             $scope.testStep = testStep;
             if (testStep != null) {
@@ -229,9 +229,6 @@ angular.module('cb')
                 }
                 $scope.loadTestStepExecutionPanel(testStep);
             }
-//            if ($scope.isTestCaseCompleted()) {
-//                $scope.viewConsole(testStep);
-//            }
         };
 
         $scope.clearTestStep = function () {
@@ -301,92 +298,14 @@ angular.module('cb')
 
 
         $scope.executeTestStep = function (testStep) {
-
-
             CB.testStep = testStep;
             $scope.warning = null;
             var log = $scope.transport.logs[testStep.id];
             $scope.logger.content = log && log != null ? log : '';
             if (testStep != null) {
-//                if ($scope.testCase.transport === true && !$scope.isManualStep(testStep)) {
-//                    if ($scope.isSutInitiator(testStep) || $scope.isTaInitiator(testStep)) {
-//                        if ($scope.isSutInitiator(testStep)) {
-//                            $scope.transport.loadSutInitiatorConfig(testStep.protocol);
-//                        } else {
-//                            $scope.transport.loadTaInitiatorConfig(testStep.protocol);
-//                        }
-//                        $scope.transport.loadConfigForm(testStep.protocol, testStep['testingType']).then(function (form) {
-//                            if (testStep['testingType'] === 'TA_INITIATOR') {
-//                                $scope.taInititiatorForm = form;
-//                            } else if (testStep['testingType'] === 'SUT_INITIATOR') {
-//                                $scope.sutInititiatorForm = form;
-//                            }
-//                        });
-//                    }
-//                }
                 $scope.selectTestStep(testStep);
             }
         };
-
-
-//        $scope.openConfig = function () {
-//            if ($scope.testStep['testingType'] === 'SUT_INITIATOR') {
-//                var modalInstance = $modal.open({
-//                    templateUrl: 'SutInitiatorConfigForm.html',
-//                    windClass: 'initiator-config-modal',
-//                    backdrop: 'static',
-//                    'keyboard': false,
-//                    controller: 'InitiatorConfigCtrl',
-//                    resolve: {
-//                        htmlForm: function () {
-//                            return $scope.sutInititiatorForm;
-//                        },
-//                        config: function () {
-//                            return CB.transport.config.sutInitiator;
-//                        },
-//                        domain: function () {
-//                            return CB.transport.domain;
-//                        },
-//                        protocol: function () {
-//                            return CB.transport.protocol;
-//                        }
-//                    }
-//                });
-//            } else if ($scope.testStep['testingType'] === 'TA_INITIATOR') {
-//                var modalInstance = $modal.open({
-//                    templateUrl: 'TaInitiatorConfigForm.html',
-//                    size: 'initiator-config-modal',
-//                    backdrop: 'static',
-//                    'keyboard': false,
-//                    controller: 'InitiatorConfigCtrl',
-//                    resolve: {
-//                        htmlForm: function () {
-//                            return $scope.taInititiatorForm;
-//                        },
-//                        config: function () {
-//                            var config = StorageService.get(StorageService.USER_CONFIG_KEY);
-//                            if (config != null && config != "") {
-//                                config = angular.fromJson(config);
-//                            } else {
-//                                config = CB.transport.config;
-//                            }
-//                            return  config.taInitiator;
-//                        },
-//                        domain: function () {
-//                            return CB.transport.domain;
-//                        },
-//                        protocol: function () {
-//                            return CB.transport.protocol;
-//                        }
-//                    }
-//                });
-//                modalInstance.result.then(function (taInitiator) {
-//                    CB.transport.config.taInitiator = taInitiator;
-//                    StorageService.set(StorageService.USER_CONFIG_KEY, angular.toJson(CB.transport.config));
-//                }, function () {
-//                });
-//            }
-//        };
 
         $scope.completeTestCase = function () {
             $scope.testCase.executionStatus = 'COMPLETE';

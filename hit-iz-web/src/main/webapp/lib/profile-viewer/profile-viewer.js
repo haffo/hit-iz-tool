@@ -636,7 +636,7 @@
             $scope.getMessageChildTargetPath = function (element) {
                 if (element == null || element.type === "MESSAGE")
                     return "";
-                var parent = element.type === 'COMPONENT' ? element.nodeParent : element.parent;
+                var parent = element.type === 'COMPONENT' || element.type === 'FIELD' ? element.nodeParent : $scope.parentsMap[element.id]; //X
                 var pTarget = $scope.getMessageChildTargetPath(parent);
                 return pTarget === "" ? element.position + "[1]" : pTarget + "."
                     + element.position + "[1]";
@@ -645,7 +645,7 @@
             $scope.getSegmentChildTargetPath = function (element) {
                 if (element == null || element.type === "SEGMENT")
                     return "";
-                var parent = element.type === 'COMPONENT' ? element.nodeParent : element.parent;
+                var parent = element.type === 'COMPONENT' ? element.nodeParent :$scope.parentsMap[element.id]; //X
                 var pTarget = $scope.getSegmentChildTargetPath(parent);
                 return pTarget === "" ? element.position + "[1]" : pTarget + "."
                     + element.position + "[1]";
@@ -654,7 +654,7 @@
             $scope.getDatatypeChildTargetPath = function (element) {
                 if (element == null || element.type === "DATATYPE")
                     return "";
-                var parent = element.parent;
+                var parent =$scope.parentsMap[element.id]; //X
                 var pTarget = $scope.getDatatypeChildTargetPath(parent);
                 return pTarget === "" ? element.position + "[1]" : pTarget + "."
                     + element.position + "[1]";
@@ -663,7 +663,7 @@
             $scope.getGroupChildTargetPath = function (element, group) {
                 if (element == null || (element.type === "GROUP" && element.id === group.id))
                     return "";
-                var parent = element.parent;
+                var parent = $scope.parentsMap[element.id]; //X
                 var pTarget = $scope.getGroupChildTargetPath(parent);
                 return pTarget === "" ? element.position + "[1]" : pTarget + "."
                     + element.position + "[1]";
@@ -777,9 +777,9 @@
                     } else if (element.type === 'COMPONENT') {
                         return $scope.getGroup(element.nodeParent);
                     } else if (element.type === 'SEGMENT_REF') { // find the segment
-                        return element.parent;
+                        return $scope.parentsMap[element.id]; //X
                     } else if (element.type === 'GROUP') { // find the segment
-                        return element.parent;
+                        return $scope.parentsMap[element.id]; //X
                     }
                 }
                 return null;
@@ -1040,7 +1040,7 @@
                 }
             );
 
-//            $http.get('../../resources/cf/profile.json').then(
+//            $http.get('../../resources/cf/profile-1.json').then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
 //                },

@@ -60,6 +60,20 @@
         }
     ]);
 
+    mod.directive('testDescription', [
+        function () {
+            return {
+                restrict: 'A',
+                scope: {
+                    target: '@'
+                },
+                templateUrl: 'TestDescription.html',
+                controller: 'TestDescriptionCtrl'
+            };
+        }
+    ]);
+
+
     mod.directive('jurorDocument', [
         function () {
             return {
@@ -231,6 +245,16 @@
             };
         }]);
 
+    mod
+        .controller('TestDescriptionCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseDetailsService', '$compile', '$timeout', '$modal', function ($scope, $rootScope, $sce, TestCaseDetailsService, $compile, $timeout, $modal) {
+            $scope.description = null;
+            $scope.eId = $scope.target + "-testDescription";
+            $scope.$on($scope.eId, function (event, description, title) {
+                $scope.description = description;
+                $scope.title = title;
+            });
+        }]);
+
 
     mod
         .controller('TestCaseDetailsCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseDetailsService', '$compile', '$timeout', '$modal', function ($scope, $rootScope, $sce, TestCaseDetailsService, $compile, $timeout, $modal) {
@@ -248,6 +272,7 @@
                 $scope.testCase = testCase;
                 $scope.loading = true;
                 $scope.error = null;
+                $scope.editor = null;
 
                 var testContext = testCase['testContext'];
                 if (testContext && testContext != null) {
@@ -268,19 +293,20 @@
                     var jDocId = $scope.target + '-jurorDocument';
                     var mcId = $scope.target + '-messageContent';
                     var tdsId = $scope.target + '-testDataSpecification';
+                    var descId = $scope.target + '-testDescription';
 
                     TestCaseDetailsService.removeHtml(tdsId);
                     TestCaseDetailsService.removeHtml(mcId);
                     TestCaseDetailsService.removeHtml(jDocId);
                     TestCaseDetailsService.removeHtml(tsId);
-
+                    TestCaseDetailsService.removeHtml(descId);
 
                     $scope.$broadcast(tsId, $scope.testCase['testStory'], $scope.testCase.name + "-TestStory");
                     $scope.$broadcast(jDocId, $scope.testCase['jurorDocument'], $scope.testCase.name + "-JurorDocument");
                     $scope.$broadcast(mcId, $scope.testCase['messageContent'], $scope.testCase.name + "-MessageContent");
                     $scope.$broadcast(tdsId, $scope.testCase['testDataSpecification'], $scope.testCase.name + "-TestDataSpecification");
-
-                    $scope.loadHtml('testStory');
+                    $scope.$broadcast(descId, $scope.testCase['description'], $scope.testCase.name + "-TestDescription");
+                    $scope.loadTestInfo();
                     $scope.loading = false;
                     $scope.error = null;
                 }, function (error) {
@@ -294,14 +320,38 @@
                 });
             });
 
-            $scope.loadHtml = function (key) {
+            $scope.loadTestInfo = function () {
                 if ($scope.testCase != null) {
-                    var element = TestCaseDetailsService.loadHtml($scope.target + "-" + key, $scope.testCase[key]);
-                    if (element && element != null) {
-                        $compile(element.contents())($scope);
+                    if ($scope.testCase['testStory'] && $scope.testCase['testStory'] != null) {
+                        $scope.loadTestStory();
+                    } else {
+                        $scope.loadTestDescription();
                     }
                 }
             };
+
+            $scope.loadTestStory = function () {
+                $scope.loadHtmlContent($scope.target + "-" + "testStory", $scope.testCase["testStory"]);
+            };
+
+            $scope.loadTestDescription = function () {
+                var element = TestCaseDetailsService.loadHtmlContent($scope.target + "-" + "testDescription", $scope.testCase['description']);
+                if (element && element != null) {
+                    $compile(element.contents())($scope);
+                }
+            };
+
+            $scope.loadArtifactHtml = function (key) {
+                $scope.loadHtmlContent($scope.target + "-" + key, $scope.testCase[key]);
+            };
+
+            $scope.loadHtmlContent = function (id, content) {
+                var element = TestCaseDetailsService.loadArtifactHtml(id, content);
+                if (element && element != null) {
+                    $compile(element.contents())($scope);
+                }
+            };
+
 
 //            var getTestType = function (testCase) {
 //                return testCase.type.toLowerCase();
@@ -332,12 +382,18 @@
             };
 
             $scope.buildExampleMessageEditor = function () {
+                var eId = $scope.target + '-exampleMessage';
+                if ($scope.editor === null || !$scope.editor) {
+                    $timeout(function () {
+                        $scope.editor = TestCaseDetailsService.buildExampleMessageEditor(eId, $scope.testCase.testContext.message.content, $scope.editor, $scope.testCase.testContext && $scope.testCase.testContext != null ? $scope.testCase.testContext.format : null);
+                    }, 100);
+                }
                 $timeout(function () {
-                    $scope.editor = TestCaseDetailsService.buildExampleMessageEditor($scope.target + '-exampleMessage', $scope.testCase.testContext.message.content, $scope.editor, $scope.testCase.testContext && $scope.testCase.testContext != null ? $scope.testCase.testContext.format : null);
-                }, 100);
-
+                    if ($("#" + eId)) {
+                        $("#" + eId).scrollLeft();
+                    }
+                }, 1000);
             };
-
         }]);
 
     mod.factory('TestCaseDetailsService', function ($http, $q, $filter, $timeout) {
@@ -377,7 +433,7 @@
         };
 
 
-        TestCaseDetailsService.loadHtml = function (eId, artifact) {
+        TestCaseDetailsService.loadArtifactHtml = function (eId, artifact) {
             if (artifact && artifact !== null) {
                 var cont = null;
                 var element = $('#' + eId);
@@ -394,6 +450,18 @@
             return null;
         };
 
+        TestCaseDetailsService.loadHtmlContent = function (eId, content) {
+            if (content && content !== null) {
+                var element = $('#' + eId);
+                if (element && element != null) {
+                    element.html(content);
+                }
+                return element;
+            }
+            return null;
+        };
+
+
         TestCaseDetailsService.removeHtml = function (artifactType) {
             var element = $('#' + artifactType);
             if (element && element != null) {
@@ -402,10 +470,18 @@
         };
 
         TestCaseDetailsService.buildExampleMessageEditor = function (eId, content, edit, format) {
-            var editor = edit;
-            if (editor && editor != null) {
-                editor.setValue(content);
-            } else {
+//            var editor = edit;
+//            if (editor && editor != null) {
+//                var textArea = editor.toTextArea();
+//                if(textArea){
+//                    textArea.parent().rem
+//                }
+//
+//                editor.setValue(content);
+//            } else {
+//
+//            }
+            var
                 editor = CodeMirror(document.getElementById(eId), {
                     value: content,
                     lineNumbers: true,
@@ -415,14 +491,9 @@
                     mode: format,
                     showCursorWhenSelecting: true
                 });
-            }
+
 //                    $scope.editor.setSize("100%", getSizeByContent($scope.editor.getValue()));
             editor.setSize("100%", "590");
-            $timeout(function () {
-                if ($("#" + eId)) {
-                    $("#" + eId).scrollLeft();
-                }
-            }, 1000);
             return editor;
         };
 
