@@ -736,49 +736,58 @@ angular.module('cb')
                     testCaseService.buildTree(testPlan);
                 });
                 $scope.testCases = testCases;
-                if (typeof $scope.tree.build_all == 'function') {
-                    $scope.tree.build_all($scope.testCases);
-                    var testCase = null;
-                    var id = StorageService.get(StorageService.CB_SELECTED_TESTCASE_ID_KEY);
-                    var type = StorageService.get(StorageService.CB_SELECTED_TESTCASE_TYPE_KEY);
-                    if (id != null && type != null) {
-                        for (var i = 0; i < $scope.testCases.length; i++) {
-                            var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
-                            if (found != null) {
-                                testCase = found;
-                                break;
-                            }
-                        }
-                        if (testCase != null) {
-                            $scope.selectNode(id, type);
-                        }
-                    }
-
-                    testCase = null;
-                    id = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
-                    type = StorageService.get(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
-                    if (id != null && type != null) {
-                        for (var i = 0; i < $scope.testCases.length; i++) {
-                            var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
-                            if (found != null) {
-                                testCase = found;
-                                break;
-                            }
-                        }
-                        if (testCase != null) {
-                            var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
-                            $scope.loadTestCase(testCase, tab, false);
-                        }
-                    }
-                } else {
-                    $scope.error = "Ooops, Something went wrong. Please refresh your page. We are sorry for the inconvenience.";
-                }
-                $scope.loading = false;
+                $scope.refreshTree();
             }, function (error) {
                 $scope.loading = false;
                 $scope.error = "Sorry, Cannot load the test cases. Please try again";
             });
 
+        };
+
+
+        $scope.refreshTree = function () {
+            $timeout(function () {
+                if ($scope.testCases != null) {
+                    if (typeof $scope.tree.build_all == 'function') {
+                        $scope.tree.build_all($scope.testCases);
+                        var testCase = null;
+                        var id = StorageService.get(StorageService.CB_SELECTED_TESTCASE_ID_KEY);
+                        var type = StorageService.get(StorageService.CB_SELECTED_TESTCASE_TYPE_KEY);
+                        if (id != null && type != null) {
+                            for (var i = 0; i < $scope.testCases.length; i++) {
+                                var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
+                                if (found != null) {
+                                    testCase = found;
+                                    break;
+                                }
+                            }
+                            if (testCase != null) {
+                                $scope.selectNode(id, type);
+                            }
+                        }
+
+                        testCase = null;
+                        id = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
+                        type = StorageService.get(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
+                        if (id != null && type != null) {
+                            for (var i = 0; i < $scope.testCases.length; i++) {
+                                var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
+                                if (found != null) {
+                                    testCase = found;
+                                    break;
+                                }
+                            }
+                            if (testCase != null) {
+                                var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
+                                $scope.loadTestCase(testCase, tab, false);
+                            }
+                        }
+                    } else {
+                        $scope.error = "Ooops, Something went wrong. Please refresh your page again.";
+                    }
+                }
+                $scope.loading = false;
+            },1000);
         };
 
 

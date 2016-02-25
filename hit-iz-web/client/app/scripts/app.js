@@ -172,7 +172,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     $rootScope.appInfo = {};
 
     $rootScope.stackPosition = 0;
-
+    $rootScope.transportSupported = false;
     $rootScope.scrollbarWidth = null;
     $rootScope.vcModalInstance = null;
     $rootScope.sessionExpiredModalInstance = null;

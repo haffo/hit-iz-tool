@@ -21,7 +21,7 @@
         </div>
         <div ng-show="transport.error === null">
 
-            <div ng-show="transport.configs != null && transport.configs.length > 0">
+            <div ng-show="getDomains() != null && getDomains().length > 0">
 
                 <div class="row" style="margin-bottom: 10px">
                     <div class="col-md-12">
@@ -164,7 +164,7 @@
                  </div>
             </div>
 
-            <div ng-show="transport.configs === null || transport.configs.length === 0">
+            <div style="text-align: center; color:red; font-weight: bold" ng-show="getDomains() === null || getDomains().length === 0">
                 Transport is not supported.
             </div>
 
