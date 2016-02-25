@@ -724,6 +724,8 @@ angular.module('cb')
         $scope.loading = true;
         $scope.loadingTC = false;
         $scope.error = null;
+        $scope.collapsed = false;
+
         var testCaseService = new TestCaseService();
 
         $scope.initTestCase = function () {

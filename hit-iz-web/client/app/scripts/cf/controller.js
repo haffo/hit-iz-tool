@@ -13,6 +13,7 @@ angular.module('cf')
         $scope.tree = {};
         $scope.tabs = new Array();
         $scope.error = null;
+        $scope.collapsed = false;
 
         var testCaseService = new TestCaseService();
 
