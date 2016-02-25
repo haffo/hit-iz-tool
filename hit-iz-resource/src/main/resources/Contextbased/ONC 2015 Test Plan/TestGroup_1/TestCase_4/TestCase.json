@@ -1,6 +1,6 @@
 {
   "name" : "IZ-AD-4_Delete_Record",
   "description" : "Child deleted administration",
-  "domain" : "iz",
-  "position" : 4
+  "position" : 4,
+  "protocol" : "soap"
 }
