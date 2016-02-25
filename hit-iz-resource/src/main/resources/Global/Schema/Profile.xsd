@@ -345,6 +345,7 @@
 					<xs:enumeration value="Active"/>
 					<xs:enumeration value="Superceded"/>
 					<xs:enumeration value="Withdrawn"/>
+					<xs:enumeration value="Published"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>

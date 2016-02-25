@@ -1,6 +1,6 @@
 {
   "name" : "IZ-AD-10_Historical_IIS-SysError",
   "description" : "Historical administration resulting in system error",
-  "domain" : "iz",
-  "position" : 10
+  "position" : 10,
+  "protocol" : "soap"
 }
