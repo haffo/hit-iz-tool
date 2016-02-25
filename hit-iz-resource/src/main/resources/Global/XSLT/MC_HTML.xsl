@@ -2718,7 +2718,7 @@
 	<xsl:function xmlns:xalan="http://xml.apache.org/xslt" name="util:strip-tabsets2">
 		<xsl:param name="html"/>
 
-		<xsl:variable name="isOpenVar" select="'xslfulltab$1'"/>
+		<xsl:variable name="isOpenVar" select="'xslfulltab$2'"/>
 		<xsl:variable name="vertical-orientation" select="true()"/>
 		<xsl:variable name="accordion-block">
 			<xsl:value-of select="util:tag(concat(util:IfThenElse($vertical-orientation,                  concat('accordion-group class=&quot;panel-info&quot; type=&quot;pills&quot; style=&quot;margin-top:0;border: 1px ridge  #C6DEFF;&quot; is-open=&quot;', $isOpenVar, '&quot; '), 'tab'),                  util:IfThenElse($vertical-orientation, '', concat(' heading=&quot;', '$1', '&quot; ')), ' vertical=&quot;', $vertical-orientation, '&quot;'), '')"/>
