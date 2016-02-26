@@ -43,8 +43,8 @@
                 </tab>
 
 
-                <tab ng-show="testCase['juror-document']  && testCase['jurorDocument'] !== null"
-                     active="tabs[3]" ng-click="tabs[3] = true; loadArtifactHtml('juror-document')">
+                <tab ng-show="testCase['jurorDocument']  && testCase['jurorDocument'] !== null"
+                     active="tabs[3]" ng-click="tabs[3] = true; loadArtifactHtml('jurorDocument')">
                     <tab-heading>
                         <i class="fa fa-list-alt"></i>Juror Document
                     </tab-heading>
@@ -89,7 +89,7 @@
             <div class="pull-right">
                 <button title="Download Test Data Specification" type="button"
                         class="btn btn-sm btn-primary"
-                        ng-show="tds.pdfPath && tds.pdfPath !== null"
+                        ng-show="testDataSpecification.pdfPath && testDataSpecification.pdfPath !== null"
                         ng-click="download()">
                     <i class="fa fa-download"></i>&nbsp;Download PDF
                 </button>

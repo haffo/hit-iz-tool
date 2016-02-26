@@ -143,7 +143,7 @@ angular.module('cb')
             $scope.$broadcast(mcId, testStep['messageContent'], testStep.name + "-MessageContent");
             $scope.$broadcast(tdsId, testStep['testDataSpecification'], testStep.name + "-TestDataSpecification");
             if ($scope.isManualStep(testStep)) {
-                $scope.setTestStepExecutionTab(4);
+                $scope.setTestStepExecutionTab(10);
             }
         };
 
@@ -211,6 +211,9 @@ angular.module('cb')
         };
 
         $scope.resetTestCase = function () {
+            if (CB.editor != null && CB.editor.instance != null) {
+                CB.editor.instance.setOption("readOnly", false);
+            }
             StorageService.remove(StorageService.CB_LOADED_TESTSTEP_TYPE_KEY);
             StorageService.remove(StorageService.CB_LOADED_TESTSTEP_ID_KEY);
             $scope.executeTestCase($scope.testCase);
@@ -224,10 +227,25 @@ angular.module('cb')
                 StorageService.set(StorageService.CB_LOADED_TESTSTEP_ID_KEY, $scope.testStep.id);
                 if (!$scope.isManualStep(testStep)) {
                     if (testStep.executionMessage === undefined && testStep['testingType'] === 'TA_INITIATOR') {
-                        TestExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
+                        if(!$scope.transport.disabled &&  $scope.domain != null && $scope.protocol != null) {
+                            var populateMessage = $scope.transport.populateMessage(testStep.id, testStep.testContext.message.content, $scope.domain, $scope.protocol);
+                            populateMessage.then(function (response) {
+                                TestExecutionService.setExecutionMessage(testStep, response.outgoingMessage);
+                                $scope.loadTestStepExecutionPanel(testStep);
+                            }, function (error) {
+                                TestExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
+                                $scope.loadTestStepExecutionPanel(testStep);
+                            });
+                        }else{
+                            TestExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
+                            $scope.loadTestStepExecutionPanel(testStep);
+                        }
+                    }else{
+                        $scope.loadTestStepExecutionPanel(testStep);
                     }
+                }else{
+                    $scope.loadTestStepExecutionPanel(testStep);
                 }
-                $scope.loadTestStepExecutionPanel(testStep);
             }
         };
 
@@ -375,6 +393,9 @@ angular.module('cb')
 
 
         $scope.clearExecution = function () {
+            if (CB.editor != null && CB.editor.instance != null) {
+                CB.editor.instance.setOption("readOnly", false);
+            }
             if ($scope.testCase != null) {
                 for (var i = 0; i < $scope.testCase.children.length; i++) {
                     var testStep = $scope.testCase.children[i];
@@ -693,6 +714,7 @@ angular.module('cb')
                 CB.testCase = testCase;
                 $scope.transport.logs = {};
                 $scope.transport.transactions = [];
+
                 $scope.testCase = testCase;
                 TestExecutionClock.stop();
                 $scope.testCase = testCase;
@@ -830,6 +852,9 @@ angular.module('cb')
             $timeout(function () {
                 $rootScope.$broadcast('cb:testCaseLoaded', testCase, tab);
             });
+            if (CB.editor != null && CB.editor.instance != null) {
+                CB.editor.instance.setOption("readOnly", false);
+            }
         };
 
 
@@ -871,6 +896,8 @@ angular.module('cb')
         $scope.tError = null;
         $scope.tLoading = false;
         $scope.dqaCodes = StorageService.get(StorageService.DQA_OPTIONS_KEY) != null ? angular.fromJson(StorageService.get(StorageService.DQA_OPTIONS_KEY)) : [];
+        $scope.domain =null;
+        $scope.protocol = null;
 
         $scope.showDQAOptions = function () {
             var modalInstance = $modal.open({
@@ -1253,5 +1280,8 @@ angular.module('cb')
 
     });
 
-
+angular.module('cb')
+    .controller('CBManualCtrl', ['$scope', 'CB', function ($scope, CB) {
+        $scope.cb = CB;
+    }]);
 

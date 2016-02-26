@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.nist.hit.iz</groupId>
 	<artifactId>hit-iz-tool</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.1.1-SNAPSHOT</version>
 	<name>hit-iz-tool</name>
 	<description>Immunization tool</description>
 	<packaging>pom</packaging>
@@ -17,8 +17,8 @@
 
 	<properties>
 		<spring.version>4.1.1.RELEASE</spring.version>
-		<hithl7v2.version>1.0.4-SNAPSHOT</hithl7v2.version>
-		<hitcore.version>1.0.3-SNAPSHOT</hitcore.version>
+		<hithl7v2.version>1.0.4</hithl7v2.version>
+		<hitcore.version>1.0.3</hitcore.version>
 		<core.version>1.0.48</core.version>
 	</properties>
 
