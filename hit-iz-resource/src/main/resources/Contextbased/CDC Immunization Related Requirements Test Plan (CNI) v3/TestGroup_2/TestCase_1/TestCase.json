@@ -1,0 +1,6 @@
+{
+  "name" : "Query the Registry for Juana Mariana Gonzales",
+  "description" : "EMR Generates a Z44 query to the Immunization Registry to retrieve the Evaluated History and Forecast for Juana Mariana Gonzales. The Z42 response is used to display, reconcile, and update the immunization information in the EMR.<br>",
+  "position" : 1,
+  "protocol" : "soap"
+}

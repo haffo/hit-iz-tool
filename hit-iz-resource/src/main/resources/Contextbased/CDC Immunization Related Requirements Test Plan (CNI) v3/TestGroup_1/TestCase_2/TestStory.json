@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : " <p class=\"MsoNormal\" style=\"margin-bottom: 0.0001pt;\"><span style=\"font-size: 10pt; font-family: Arial, sans-serif;\">The\r\npractice site for the scenario is Shoreline Pediatrics. The EHR vendor loads\r\ndemographic data and clinical history for Juan Macel Gonzales. The data\r\nincludes a clinical history of Asthma. <br></span></p><span style=\"font-size: 10pt; font-family: Arial, sans-serif;\"></span>",
+  "comments" : "No Comments",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "<span style=\"font-size:11.0pt;line-height:107%;\r\nfont-family:\">The\r\nEMR has recorded all of the pediatric demographic data, historical immunizations, and clinical conditions  in the record created\r\nfor Juan Marcel Gonzales </span><span style=\"font-family: Calibri, sans-serif; font-size: 14.6666669845581px; line-height: 15.6933336257935px;\">using the test data provided</span><span style=\"font-size:11.0pt;line-height:107%;\r\nfont-family:\">.</span>",
+  "testObjectives" : "No Test Objectives",
+  "evaluationCriteria" : "No evaluation criteria",
+  "notes" : "No Note"
+}
