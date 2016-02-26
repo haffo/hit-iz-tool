@@ -29,7 +29,7 @@
             <tab disabled="disabled()" select="setTestStepExecutionTab(0)" active="tabs[0]"
                  ng-show="testStep.testContext && testStep.testContext != null">
                 <tab-heading>
-                    <i class="fa fa-check-circle"></i>Execution
+                    <i class="fa fa-check-circle"></i>Validation
                 </tab-heading>
 
                 <div ng-include="'views/cb/validation.html'"></div>
@@ -61,7 +61,7 @@
             <tab active="tabs[10]" select="setTestStepExecutionTab(10)"
                  ng-show="testStep.testingType ===  'SUT_MANUAL' || testStep.testingType ===  'TA_MANUAL'">
                 <tab-heading>
-                    <i class="fa fa-check-circle"></i>Execution
+                    <i class="fa fa-check-circle"></i>Validation
                 </tab-heading>
                 <div ng-include="'views/cb/manual.html'"></div>
             </tab>

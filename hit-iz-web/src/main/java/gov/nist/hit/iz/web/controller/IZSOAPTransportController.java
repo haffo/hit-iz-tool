@@ -18,6 +18,7 @@ import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.TransportConfig;
 import gov.nist.hit.core.domain.TransportMessage;
 import gov.nist.hit.core.domain.TransportRequest;
+import gov.nist.hit.core.domain.TransportResponse;
 import gov.nist.hit.core.domain.User;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.service.TestStepService;
@@ -262,6 +263,18 @@ public class IZSOAPTransportController {
     return config;
   }
 
+  @Transactional
+  @RequestMapping(value = "/populateMessage", method = RequestMethod.POST)
+  public TransportResponse populateMessage(HttpSession session,
+      @RequestBody TransportRequest transportRequest) throws UserNotFoundException {
+    logger.info("Fetching user configuration information ... ");
+    Long userId = SessionContext.getCurrentUserId(session);
+    if (userId == null || (userService.findOne(userId)) == null) {
+      throw new UserNotFoundException();
+    }
+    return new TransportResponse(transportRequest.getTestStepId(), transportRequest.getMessage(),
+        null);
+  }
 
 
   public TestStepService getTestStepService() {

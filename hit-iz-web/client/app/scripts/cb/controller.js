@@ -227,10 +227,25 @@ angular.module('cb')
                 StorageService.set(StorageService.CB_LOADED_TESTSTEP_ID_KEY, $scope.testStep.id);
                 if (!$scope.isManualStep(testStep)) {
                     if (testStep.executionMessage === undefined && testStep['testingType'] === 'TA_INITIATOR') {
-                        TestExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
+                        if(!$scope.transport.disabled &&  $scope.domain != null && $scope.protocol != null) {
+                            var populateMessage = $scope.transport.populateMessage(testStep.id, testStep.testContext.message.content, $scope.domain, $scope.protocol);
+                            populateMessage.then(function (response) {
+                                TestExecutionService.setExecutionMessage(testStep, response.outgoingMessage);
+                                $scope.loadTestStepExecutionPanel(testStep);
+                            }, function (error) {
+                                TestExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
+                                $scope.loadTestStepExecutionPanel(testStep);
+                            });
+                        }else{
+                            TestExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
+                            $scope.loadTestStepExecutionPanel(testStep);
+                        }
+                    }else{
+                        $scope.loadTestStepExecutionPanel(testStep);
                     }
+                }else{
+                    $scope.loadTestStepExecutionPanel(testStep);
                 }
-                $scope.loadTestStepExecutionPanel(testStep);
             }
         };
 
@@ -881,6 +896,8 @@ angular.module('cb')
         $scope.tError = null;
         $scope.tLoading = false;
         $scope.dqaCodes = StorageService.get(StorageService.DQA_OPTIONS_KEY) != null ? angular.fromJson(StorageService.get(StorageService.DQA_OPTIONS_KEY)) : [];
+        $scope.domain =null;
+        $scope.protocol = null;
 
         $scope.showDQAOptions = function () {
             var modalInstance = $modal.open({
