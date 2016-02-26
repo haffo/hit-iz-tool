@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<p>The physician accesses the record for Juana Mariana Gonzales and:</p>\r\n\r\n<p>&bull; Displays the registry forecast which includes the need for a second, valid MMRV vaccine and also the need for influenza and polio vaccines (since the registry has no information about them)</p>\r\n",
+  "comments" : "<p>No Comments</p>\r\n",
+  "preCondition" : "<p>A Z44 query has been submitted to the Immunization Registry and a Z42 response is provided back to the EMR. </p>\r\n",
+  "postCondition" : "<p>Evaluated Immunization History returned from the registry is reconciled and imported into the patient record (Juana Mariana Gonzales)</p>\r\n",
+  "testObjectives" : "<p><em>View Immunization Forecast:</em> The system provides a view of the immunization forecast provided by the public health immunization registry (IIS).  The display includes the forecast from the registry and includes recommended vaccination dates, minimum (earliest) date, ideal date, and maximum (latest) date for each vaccine included in the forecast.</p>\r\n",
+  "evaluationCriteria" : "<p>1. The EMR displays the information returned from the Immunization Registry according to the Juror Document.</p>\r\n\r\n<p>2. Verify that All forecast vaccines and dates returned by the registry are displayed to the user. </p>\r\n",
+  "notes" : "<p>No Note</p>\r\n"
+}
