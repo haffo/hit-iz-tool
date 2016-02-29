@@ -28,7 +28,7 @@ angular.module('cb').factory('CBTestCaseListLoader', ['$q', '$http',
     function ($q, $http) {
         return function () {
             var delay = $q.defer();
-            $http.get("api/cb/testcases").then(
+            $http.get("api/cb/testcases", {timeout: 60000}).then(
                 function (object) {
                     delay.resolve(angular.fromJson(object.data));
                 },
