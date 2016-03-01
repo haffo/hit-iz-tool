@@ -1,0 +1,47 @@
+<style id="antiClickjack">body {
+    display: none !important;
+}</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
+<script type="text/ng-template" id="ManualReportViewer.html">
+    <div class="row" style="margin-top: 0px">
+        <div class="col-md-10">
+            <div ng-show="loading" style="text-align:center">
+                <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+            </div>
+            <div ng-show="!loading">
+
+                <div ng-show="report && report !== null && report.html != null" class="cf-report"
+                     style="padding-top:20px">
+
+                    <a style="margin-right: 10px" class="point" ng-click="downloadAs('PDF')"><img src="images/pdf.png"
+                                                                                                  style="height:30px;width:30px"></a>
+                    <a style="margin-right: 10px" class="point" ng-click="downloadAs('DOC')"><img src="images/word.png"
+                                                                                                  style="height:30px;width:30px"></a>
+                    <a style="margin-right: 10px" class="point" ng-click="downloadAs('XML')"><img src="images/xml.jpeg"
+                                                                                                  style="height:30px;width:30px"></a>
+                    <a style="margin-right: 10px" class="point" ng-click="downloadAs('HTML')"><img src="images/html.png"
+                                                                                                   style="height:30px;width:30px"></a>
+                    <br/>
+                    <br/>
+                    <div>
+                        <div id="{{type}}-manual-report"></div>
+                    </div>
+                </div>
+
+                <div ng-show="!report || report === null || report.html == null">
+                    No report generated.
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</script>

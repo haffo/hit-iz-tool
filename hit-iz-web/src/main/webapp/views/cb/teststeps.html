@@ -156,21 +156,28 @@
         </td>
 
         <td style="width:15%">
-                    <span ng-show="row.testingType != 'TA_MANUAL' && row.testingType != 'SUT_MANUAL'">
-                    <span ng-show="getValidationStatus(row) < 0 && row.id !== testStep.id">Not started</span>
-                        <span ng-show="getValidationStatus(row) < 0 && row.id === testStep.id">
-                              In Progress
-                        </span>
-                    <span ng-show="getValidationStatus(row) > 0">
-                              <i title="Message is Invalid" class="glyphicon glyphicon-remove red"></i> Failed
-                          </span>
-                            <span ng-show="getValidationStatus(row) == 0">
-                                      <i title="Message Is Valid" class="glyphicon glyphicon-ok green"></i> Passed
-                             </span>
-                        </span>
-                     <span ng-show="row.testingType == 'TA_MANUAL' || row.testingType == 'SUT_MANUAL'">
-                        N/A
-                    </span>
+            <div ng-show="getValidationReport(row) === undefined">
+                <div ng-show="row.id !== testStep.id">Not started</div>
+                <div ng-show="row.id === testStep.id">
+                    In Progress
+                </div>
+            </div>
+            <div ng-show="getValidationReport(row) !== undefined">
+                <div ng-show="row.testingType != 'TA_MANUAL' && row.testingType != 'SUT_MANUAL'">
+                    <div ng-show="getValidationStatus(row) > 0">
+                        <i title="Message is Invalid" class="fa fa-check red"></i> Failed
+                    </div>
+                    <div ng-show="getValidationStatus(row) == 0">
+                        <i title="Message Is Valid" class="fa fa-check green"></i> Passed
+                    </div>
+                </div>
+
+                <div ng-show="row.testingType == 'TA_MANUAL' || row.testingType == 'SUT_MANUAL'">
+                    <i title="Step has failed" ng-show="getValidationStatus(row) < 0" class="fa fa-check red"></i>
+                    <i title="Step completed successfully" ng-show="getValidationStatus(row) >= 0" class="fa fa-check green"></i>
+                    <span ng-bind="getManualValidationStatusTitle(row)"></span>
+                </div>
+            </div>
         </td>
 
     </tr>

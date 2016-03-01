@@ -28,35 +28,43 @@
                     <i class="fa fa-check-circle"></i>Validation
                 </tab-heading>
 
-                <div ng-include="'views/cb/validation.html'"></div>
+                <div ng-include="'views/cb/auto/validation.html'"></div>
             </tab>
             <tab disabled="disabled()" select="setTestStepExecutionTab(1)" active="tabs[1]" ng-show="testStep.testContext && testStep.testContext != null">
                 <tab-heading>
                     <i class="fa fa-file-o"></i>Report
                 </tab-heading>
 
-                <div ng-include="'views/cb/report.html'"></div>
+                <div ng-include="'views/cb/auto/report.html'"></div>
             </tab>
             <tab disabled="disabled()" select="setTestStepExecutionTab(2)" active="tabs[2]" ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.profile && testStep.testContext.profile!= null">
                 <tab-heading>
                     <i class="fa fa-th-list"></i>Profile Viewer
                 </tab-heading>
-                <div ng-include="'views/cb/profileViewer.html'"></div>
+                <div ng-include="'views/cb/auto/profileViewer.html'"></div>
             </tab>
 
             <tab disabled="disabled()" select="setTestStepExecutionTab(3)" active="tabs[3]" ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.vocabularyLibrary && testStep.testContext.vocabularyLibrary!= null">
                 <tab-heading>
                     <i class="fa fa-book"></i>ValueSets
                 </tab-heading>
-                <div ng-include="'views/cb/vocabulary.html'"></div>
+                <div ng-include="'views/cb/auto/vocabulary.html'"></div>
             </tab>
 
             <tab active="tabs[10]" select="setTestStepExecutionTab(10)" ng-show="testStep.testingType ===  'SUT_MANUAL' || testStep.testingType ===  'TA_MANUAL'">
                 <tab-heading>
                     <i class="fa fa-check-circle"></i>Validation
                 </tab-heading>
-                <div ng-include="'views/cb/manual.html'"></div>
+                <div ng-include="'views/cb/manual/validation.html'"></div>
             </tab>
+
+            <tab active="tabs[11]" select="setTestStepExecutionTab(11)" ng-show="testStep.testingType ===  'SUT_MANUAL' || testStep.testingType ===  'TA_MANUAL'">
+                <tab-heading>
+                    <i class="fa fa-file-o"></i>Report
+                </tab-heading>
+                <div ng-include="'views/cb/manual/report.html'"></div>
+            </tab>
+
 
 
             <tab class="pull-right" ng-click="setTestStepExecutionTab(5)" active="tabs[5]" ng-show="testStep.testContext && testStep.testContext.message && testStep.testContext.message!== null && testStep.testContext.message.content != null">

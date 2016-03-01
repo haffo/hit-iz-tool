@@ -1,6 +1,4 @@
-<style id="antiClickjack">body {
-    display: none !important;
-}</style>
+<style id="antiClickjack">body{display:none !important;}</style>
 <script type="text/javascript">
     if (self === top) {
         var antiClickjack = document.getElementById("antiClickjack");
@@ -9,14 +7,15 @@
         top.location = self.location;
     }
 </script>
-<div ng-controller="CBManualCtrl">
+<div   ng-controller="CBManualReportCtrl" ng-init="init()">
     <div class="panel panel-info">
         <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-10">
-                        {{testStep.description}}
-                    </div>
-                </div>
+    <div ng-show="cb.testCase != null">
+        <div manual-report-viewer type="cb"></div>
+    </div>
+    <div ng-show="cb.testCase === null">
+        No TestCase Loaded.
+    </div>
             </div>
         </div>
-    </div>
+</div>

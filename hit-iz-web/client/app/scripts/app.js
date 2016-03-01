@@ -52,7 +52,8 @@ var app = angular.module('tool', [
     'hit-doc',
     'hit-dqa',
     'hit-settings',
-    'documentation'
+    'documentation',
+    'hit-manual-report-viewer'
 ]);
 
 var httpHeaders;

@@ -1395,7 +1395,7 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
                     self.error = "No transport configs found.";
                 });
             },
-            populateMessage : function(testStepId, message,domain, protocol){
+            populateMessage: function (testStepId, message, domain, protocol) {
                 var delay = $q.defer();
                 var self = this;
                 var data = angular.fromJson({"testStepId": testStepId, "message": message});
@@ -1420,7 +1420,7 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
 //                );
                 return delay.promise;
             }
-         };
+        };
 
         return Transport;
     }
@@ -1613,7 +1613,7 @@ angular.module('format').controller('SutInitiatorConfigCtrl', function ($scope, 
 
 
 angular.module('format').factory('TestExecutionService',
-    ['$q', '$http', 'ServiceDelegator', function ($q, $http, ServiceDelegator) {
+    ['$q', '$http', 'ServiceDelegator', 'ManualReportService', function ($q, $http, ServiceDelegator, ManualReportService) {
 
         var TestExecutionService = function () {
         };
@@ -1628,8 +1628,18 @@ angular.module('format').factory('TestExecutionService',
         };
 
         TestExecutionService.getValidationStatus = function (step) {
-            return  step != null && step.validationReport && step.validationReport.result && step.validationReport.result.errors && step.validationReport.result.errors.categories[0] && step.validationReport.result.errors.categories[0].data ? step.validationReport.result.errors.categories[0].data.length : -1;
+            return  step != null && step.validationReport && step.validationReport.result ? (step.testingType === 'SUT_MANUAL' || step.testingType === 'TA_MANUAL') && step.validationReport.result.value ? step.validationReport.result.value.indexOf("PASSED") : step.validationReport.result.errors && step.validationReport.result.errors.categories[0] && step.validationReport.result.errors.categories[0].data ? step.validationReport.result.errors.categories[0].data.length : -1 : -1;
         };
+
+        TestExecutionService.getManualValidationStatusTitle = function (step) {
+            if(step.validationReport  && step.validationReport.result) {
+                if (step.testingType === 'SUT_MANUAL' || step.testingType === 'TA_MANUAL') {
+                    return ManualReportService.findResultTitle(step.validationReport.result.value);
+                }
+            }
+            return "Not Defined";
+        };
+
 
         TestExecutionService.getValidationResult = function (step) {
             return step != null && step.validationReport ? step.validationReport.result : undefined;
@@ -1690,6 +1700,8 @@ angular.module('format').factory('TestExecutionService',
 
         return TestExecutionService;
     }]);
+
+
 
 
 angular.module('format').factory('TestExecutionClock', function ($interval, Clock) {

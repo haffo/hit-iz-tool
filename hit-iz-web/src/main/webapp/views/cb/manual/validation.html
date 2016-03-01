@@ -1,0 +1,69 @@
+<style id="antiClickjack">body {
+    display: none !important;
+}</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
+<div ng-controller="CBManualValidationCtrl">
+    <div class="panel panel-info">
+        <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <form name="manualStepForm" class="form-horizontal" novalidate="">
+                            <div class="form-group control-group" ng-class="{'has-success has-feedback': manualStepForm.resultValue.$valid, 'base-has-error has-feedback': !manualStepForm.resultValue.$valid}">
+                                <label class="control-label col-md-2" for="resultValue">
+                                    <div>Result</div>
+                                </label>
+                                <div class="col-md-4">
+                                    <select class="form-control" name="resultValue" id="resultValue" ng-model="report.result.value" required="" ng-disabled="isTestCaseCompleted() && testCase.type === 'TestCase'">
+                                        <option value="">---Please select---</option>
+                                        <option ng-repeat="resultOption in resultOptions" value="{{resultOption.value}}">{{resultOption.title}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group control-group">
+                                <label class="control-label col-md-2" for="resultComment">
+                                    <div>Comments</div>
+                                </label>
+                                <div class="col-md-8">
+                                    <textarea rows="9" ng-model="report.result.comments" id="resultComment" name="resultComment" ng-disabled="isTestCaseCompleted() && testCase.type === 'TestCase'" style="text-align:left;width:700px">
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-8">
+                                    <button class="btn btn-primary" id="submitManualResultButton" ng-click="save()" ng-disabled="!manualStepForm.$valid || saving || (isTestCaseCompleted() && testCase.type === \"TestCase\")">
+                                        <i class="fa fa-circle-check"></i><span>Save</span>
+                                    </button>
+                                </div>
+                                <div class="col-md-offset-2 col-md-8" style="padding-top: 20px">
+
+                                    <div ng-show="saving" style="text-align:center">
+                                        <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+                                    </div>
+
+                                    <div ng-show="!saving">
+                                        <div ng-show="error != null">
+                                            <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+                                        </div>
+                                        <div ng-show="saved">
+                                            <div class="alert alert-success" role="alert">Result Saved Successfully !</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
