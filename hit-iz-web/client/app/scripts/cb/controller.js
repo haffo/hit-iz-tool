@@ -1299,7 +1299,8 @@ angular.module('cb')
         $scope.testStep = null;
         $scope.report = null;
         $scope.resultOptions = ManualReportService.resultOptions;
-
+        $scope.saved = false;
+        $scope.error = null;
         $scope.$on('cb:manualTestStepLoaded', function (event, testStep) {
             $scope.testStep = testStep;
             $scope.report = TestExecutionService.getValidationReport(testStep) === undefined || TestExecutionService.getValidationReport(testStep) === null ? {"result": { "value": "", "comments": ""}, "html": null} : TestExecutionService.getValidationReport(testStep);

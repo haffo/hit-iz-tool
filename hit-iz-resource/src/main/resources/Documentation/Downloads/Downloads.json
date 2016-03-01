@@ -14,6 +14,11 @@
 			 "title":"iztool-1.0-0",
 			 "link":"http://hit-2015.nist.gov/wars/iztool-1.0.0.zip",
 			 "date":"02/04/2016"
-  			}		
+  			}, 
+			{
+			 "title":"iztool-1.2.0-SNAPSHOT",
+			 "link":"http://hit-2015.nist.gov/wars/iztool-1.2.0-SNAPSHOT.zip",
+			 "date":"03/01/2016"
+  			}			
 	]
 }
