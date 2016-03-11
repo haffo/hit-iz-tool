@@ -16,7 +16,7 @@ angular.module('connectivity').factory('Connectivity',
             logger: new Logger(),
             request: new ConnectivityPart(),
             response: new ConnectivityPart()
-         };
+        };
         return Connectivity;
     }]);
 
@@ -51,7 +51,6 @@ angular.module('connectivity').factory('ConnectivityTestCaseListLoader', ['$q', 
         };
     }
 ]);
-
 
 
 angular.module('connectivity').factory('ConnectivityValidator',
@@ -133,8 +132,7 @@ angular.module('connectivity').factory('ConnectivityPart',
     }]);
 
 
-
-angular.module('commonServices').factory('SOAPConnectivityTransport', function ($q, $http, Transport, User,StorageService) {
+angular.module('commonServices').factory('SOAPConnectivityTransport', function ($q, $http, Transport, User, StorageService) {
     var SOAPConnectivityTransport = function () {
         this.domain = "iz";
         this.protocol = "soap";
@@ -213,7 +211,7 @@ angular.module('commonServices').factory('SOAPConnectivityTransport', function (
         },
 
         searchTransaction: function (testStepId, config, responseMessageId) {
-            return Transport.searchTransaction(testStepId, config, responseMessageId,SOAPConnectivityTransport.domain,SOAPConnectivityTransport.protocol);
+            return Transport.searchTransaction(testStepId, config, responseMessageId, SOAPConnectivityTransport.domain, SOAPConnectivityTransport.protocol);
         },
 
         stopListener: function (testStepId) {
@@ -222,6 +220,15 @@ angular.module('commonServices').factory('SOAPConnectivityTransport', function (
 
         startListener: function (testStepId, responseMessageId) {
             return Transport.startListener(testStepId, responseMessageId, SOAPConnectivityTransport.domain, SOAPConnectivityTransport.protocol);
+        },
+        init: function () {
+            this.running = false;
+            this.configs = Transport.configs;
+            this.transactions = Transport.transactions;
+            this.logs = Transport.logs;
+            this.disabled = false;
+            this.domain = "iz";
+            this.protocol = "soap";
         }
     };
 

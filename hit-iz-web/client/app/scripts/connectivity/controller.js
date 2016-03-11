@@ -119,22 +119,21 @@ angular.module('connectivity')
         };
 
         $scope.expandAll = function () {
-            if($scope.tree != null)
+            if ($scope.tree != null)
                 $scope.tree.expand_all();
         };
 
         $scope.collapseAll = function () {
-            if($scope.tree != null)
+            if ($scope.tree != null)
                 $scope.tree.collapse_all();
         };
-
 
 
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal', 'Endpoint', '$cookies', 'StorageService', 'TestExecutionClock','SOAPConnectivityTransport',
-        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal, Endpoint, $cookies, StorageService, TestExecutionClock,SOAPConnectivityTransport) {
+    .controller('ConnectivityExecutionCtrl', ['$scope', '$timeout', '$interval', 'Connectivity', '$rootScope', '$modal', 'Endpoint', '$cookies', 'StorageService', 'TestExecutionClock', 'SOAPConnectivityTransport',
+        function ($scope, $timeout, $interval, Connectivity, $rootScope, $modal, Endpoint, $cookies, StorageService, TestExecutionClock, SOAPConnectivityTransport) {
 
             $scope.logger = Connectivity.logger;
             $scope.loading = false;
@@ -155,6 +154,8 @@ angular.module('connectivity')
                     $scope.error = null;
                     $scope.connecting = false;
                     TestExecutionClock.stop();
+                    SOAPConnectivityTransport.init();
+
 //                    var testingType = $scope.testCase.sutType === 'RECEIVER' ? 'TA_INITIATOR' : 'SUT_INITIATOR';
 //                    if (testingType === 'TA_INITIATOR') {
 //                        $scope.transport.loadTaInitiatorConfig("soap");
@@ -171,8 +172,8 @@ angular.module('connectivity')
             $scope.isValidConfig = function () {
                 var domain = SOAPConnectivityTransport.domain;
                 var protocol = SOAPConnectivityTransport.protocol;
-                var taInitiator = $scope.transport.configs[domain] && $scope.transport.configs[domain]!= null  && $scope.transport.configs[domain][protocol] && $scope.transport.configs[domain][protocol] != null && $scope.transport.configs[domain][protocol].data && $scope.transport.configs[domain][protocol].data != null ?$scope.transport.configs[domain][protocol].data.taInitiator:null;
-                return taInitiator &&  taInitiator != null &&  taInitiator.endpoint != null && taInitiator.endpoint != '';
+                var taInitiator = $scope.transport.configs[domain] && $scope.transport.configs[domain] != null && $scope.transport.configs[domain][protocol] && $scope.transport.configs[domain][protocol] != null && $scope.transport.configs[domain][protocol].data && $scope.transport.configs[domain][protocol].data != null ? $scope.transport.configs[domain][protocol].data.taInitiator : null;
+                return taInitiator && taInitiator != null && taInitiator.endpoint != null && taInitiator.endpoint != '';
             };
 
             $scope.openReceiverConfig = function () {
@@ -233,18 +234,18 @@ angular.module('connectivity')
                         var received = response.incoming;
                         var sent = response.outgoing;
                         $scope.logger.log("Outbound Message  -------------------------------------->");
-                        if(sent != null && sent != '') {
+                        if (sent != null && sent != '') {
                             $scope.logger.log(sent);
+                            Connectivity.request.message.content = sent;
+                            $scope.triggerReqEvent(sent);
                             $scope.logger.log("Inbound Message  <--------------------------------------");
-                            if(received != null && received != '') {
+                            if (received != null && received != '') {
                                 $scope.logger.log(received);
                                 $scope.triggerRespEvent(received);
-                            }else{
+                            } else {
                                 $scope.logger.log("No Inbound message received");
                             }
-                            $scope.triggerReqEvent(sent);
-
-                        }else{
+                        } else {
                             $scope.logger.log("No outbound message sent");
                         }
                         $scope.connecting = false;
@@ -266,13 +267,7 @@ angular.module('connectivity')
             $scope.configureReceiver = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'TransactionConfigureReceiver.html',
-                    controller: 'ConnectivityConfigureReceiverCtrl',
-                    resolve: {
-                        taInitiatorConfig: function () {
-                             var config = SOAPConnectivityTransport.configs[SOAPConnectivityTransport.domain][SOAPConnectivityTransport.protocol].data;
-                             return  config.taInitiator;
-                        }
-                    }
+                    controller: 'ConnectivityConfigureReceiverCtrl'
                 });
             };
 
@@ -291,6 +286,8 @@ angular.module('connectivity')
                     $rootScope.$broadcast('conn:respMessage', message);
                 });
             };
+
+
 
 
         }]);
@@ -549,11 +546,13 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityConfigureReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, User, taInitiatorConfig,SOAPConnectivityTransport) {
+    .controller('ConnectivityConfigureReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, User, SOAPConnectivityTransport, Transport) {
         $scope.testCase = Connectivity.testCase;
-        $scope.config = angular.copy(taInitiatorConfig);
+        SOAPConnectivityTransport.init();
+        var config = SOAPConnectivityTransport.configs[SOAPConnectivityTransport.domain][SOAPConnectivityTransport.protocol].data;
+        $scope.config = angular.copy(config.taInitiator);
         $scope.save = function () {
-            var data = angular.fromJson({"config": $scope.config, "userId": User.info.id, "type": "TA_INITIATOR", "protocol": "soap", "domain": "iz"});
+            var data = angular.fromJson({"config": $scope.config, "userId": User.info.id, "type": "TA_INITIATOR", "protocol": SOAPConnectivityTransport.protocol, "domain": SOAPConnectivityTransport.domain});
             $http.post('api/transport/config/save', data).then(function (result) {
                 SOAPConnectivityTransport.configs[SOAPConnectivityTransport.domain][SOAPConnectivityTransport.protocol].data.taInitiator = $scope.config;
                 $modalInstance.close($scope.config);
@@ -589,7 +588,7 @@ angular.module('connectivity')
 
 angular.module('connectivity')
     .controller('SOAPConnectivityConsoleCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, logger) {
-        $scope.logger =logger;
+        $scope.logger = logger;
         $scope.connecting = false;
         $scope.close = function () {
             $modalInstance.close();
@@ -845,10 +844,8 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, logger, TestExecutionClock, message,SOAPConnectivityTransport) {
+    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, logger, TestExecutionClock, message, SOAPConnectivityTransport) {
         $scope.testCase = testCase;
-        $scope.transport = SOAPConnectivityTransport;
-        $scope.config = SOAPConnectivityTransport.configs['iz']['soap'].data.sutInitiator;
         $scope.logger = logger;
         $scope.message = message;
         $scope.sent = null;
@@ -859,10 +856,13 @@ angular.module('connectivity')
         $scope.counter = 0;
         $scope.listenerReady = false;
         $scope.warning = null;
+        SOAPConnectivityTransport.init();
+        $scope.transport = SOAPConnectivityTransport;
+        $scope.config = SOAPConnectivityTransport.configs['iz']['soap'].data.sutInitiator;
         $scope.domain = SOAPConnectivityTransport.domain;
         $scope.protocol = SOAPConnectivityTransport.protocol;
 
-            $scope.log = function (log) {
+        $scope.log = function (log) {
             $scope.logger.log(log);
         };
 
@@ -883,9 +883,9 @@ angular.module('connectivity')
             $scope.counter = $scope.counterMax;
             TestExecutionClock.stop();
             $scope.log("Stopping listener. Please wait....");
-            $scope.transport.stopListener($scope.testCase.id,$scope.domain,$scope.protocol).then(function (response) {
+            $scope.transport.stopListener($scope.testCase.id, $scope.domain, $scope.protocol).then(function (response) {
                 $scope.log("Listener stopped.");
-             }, function (error) {
+            }, function (error) {
                 $scope.log("Failed to stop the listener. Error is " + error);
                 $scope.error = "Failed to stop the listener. Error is " + error;
             });
@@ -901,28 +901,28 @@ angular.module('connectivity')
             $scope.warning = null;
             $scope.log("Starting listener. Please wait...");
             var rspMessageId = 0;
-            $scope.transport.startListener($scope.testCase.id, rspMessageId,$scope.domain,$scope.protocol).then(function (started) {
+            $scope.transport.startListener($scope.testCase.id, rspMessageId, $scope.domain, $scope.protocol).then(function (started) {
                 if (started) {
                     $scope.log("Listener started.");
                     var execute = function () {
                         ++$scope.counter;
                         $scope.log("Waiting for incoming message....Elapsed time(second):" + $scope.counter + "s");
-                        $scope.transport.searchTransaction($scope.testCase.id,SOAPConnectivityTransport.configs[$scope.domain][$scope.protocol].data.sutInitiator,rspMessageId).then(function (transaction) {
+                        $scope.transport.searchTransaction($scope.testCase.id, SOAPConnectivityTransport.configs[$scope.domain][$scope.protocol].data.sutInitiator, rspMessageId).then(function (transaction) {
                             if (transaction != null) {
                                 var incoming = transaction.incoming;
                                 var outbound = transaction.outgoing;
                                 $scope.log("Incoming Message <--------------------------------------");
-                                if(incoming != null && incoming != '') {
+                                if (incoming != null && incoming != '') {
                                     $scope.log(incoming);
                                     $scope.received = incoming;
-                                }else{
+                                } else {
                                     $scope.log("Incoming message received is empty");
                                 }
                                 $scope.log("Outgoing Message:    -------------------------------------->");
-                                if(outbound != null && outbound != '') {
+                                if (outbound != null && outbound != '') {
                                     $scope.log(outbound);
                                     $scope.sent = outbound;
-                                }else{
+                                } else {
                                     $scope.log("Outbound message sent is empty");
                                 }
                                 $scope.stopListener();

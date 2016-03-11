@@ -14,7 +14,7 @@
         <div class="panel-body">
                 <div class="row">
                     <div class="col-md-10">
-                        <form name="manualStepForm" class="form-horizontal" novalidate="">
+                        <form name="manualStepForm" id="manualStepForm" class="form-horizontal" novalidate="">
                             <div class="form-group control-group" ng-class="{'has-success has-feedback': manualStepForm.resultValue.$valid, 'base-has-error has-feedback': !manualStepForm.resultValue.$valid}">
                                 <label class="control-label col-md-2" for="resultValue">
                                     <div>Result</div>
@@ -54,7 +54,7 @@
                                             <div class="alert alert-danger" role="alert" ng-bind="error"></div>
                                         </div>
                                         <div ng-show="saved">
-                                            <div class="alert alert-success" role="alert">Result Saved Successfully !</div>
+                                            <div class="alert alert-success" role="alert"><i class="fa fa-check"></i> Result Saved Successfully !</div>
                                         </div>
 
                                     </div>
