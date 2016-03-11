@@ -676,33 +676,6 @@ angular.module('commonServices').factory('Clock', function ($interval) {
     return Clock;
 });
 
-//
-//angular.module('hit-tool-services').factory('AppInfo', ['$http', '$q', function ($http, $q) {
-//    return function () {
-//        var delay = $q.defer();
-//        $http.get('api/appInfo').then(
-//            function (object) {
-//                delay.resolve(angular.fromJson(object.data));
-//            },
-//            function (response) {
-//                delay.reject(response.data);
-//            }
-//        );
-////
-////        $http.get('../../resources/appInfo.json').then(
-////            function (object) {
-////                delay.resolve(angular.fromJson(object.data));
-////            },
-////            function (response) {
-////                delay.reject(response.data);
-////            }
-////        );
-//
-//        return delay.promise;
-//    };
-//}]);
-
-
 app.controller('TableFoundCtrl', function ($scope, $modalInstance, table) {
     $scope.table = table;
     $scope.tmpTableElements = [].concat(table != null ? table.valueSetElements : []);

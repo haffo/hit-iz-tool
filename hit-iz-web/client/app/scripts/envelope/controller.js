@@ -152,8 +152,8 @@ angular.module('envelope')
 
 
         $scope.loadTestCase = function (testCase, tab) {
-            if (CB.editor.instance != null) {
-                CB.editor.instance.setOption("readOnly", false);
+            if (Envelope.editor.instance != null) {
+                Envelope.editor.instance.setOption("readOnly", false);
             }
             if (testCase.type === 'TestCase') {
                 Envelope.testCase = testCase;
