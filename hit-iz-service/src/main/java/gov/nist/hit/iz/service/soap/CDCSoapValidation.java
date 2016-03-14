@@ -40,9 +40,12 @@ public class CDCSoapValidation {
       String phase) {
     ArrayList<MessageFailureV3> soapFailures = new ArrayList<MessageFailureV3>();
     try {
-      Node content =
-          ConnectivityUtil.findNode(soapMessage, "/Envelope/Body/submitSingleMessage/hl7Message");
-      if (content != null) {
+
+      String hl7Path =
+          "//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessage']/*[local-name()='hl7Message']";
+
+      Node content = ConnectivityUtil.findNode(soapMessage, hl7Path);
+      if (content != null && !"".equals(content)) {
         String path = "/Envelope[1]/Body[1]/submitSingleMessage[1]/hl7Message[1]";
         String hl7Message = content.getTextContent();
         String cdataStart = "<![CDATA[";
