@@ -1,6 +1,5 @@
 {
   "name" : "IZ-AD-1_Admin_Chlid",
   "description" : "Maximally populated child administration",
-  "position" : 1,
-  "protocol" : "soap"
+  "position" : 1
 }

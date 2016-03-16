@@ -22,9 +22,6 @@
         <th style="width:20%">Name</th>
         <th style="width:35%">Description</th>
         <th style="width:15%">Execution Status</th>
-        <th style="width:10%" ng-show="testCase.transport === true && user.info != null && !transport.disabled">
-            Transport
-        </th>
         <th style="width:15%">Validation Result</th>
     </tr>
     </thead>
@@ -66,94 +63,6 @@
                         </span>
         </td>
 
-        <td style="width:10%" ng-show="testCase.transport === true && user.info != null && !transport.disabled">
-
-            <!--<a ng-show="row.testingType !== 'SUT_INITIATOR' && row.testingType !== 'TA_INITIATOR' && row.testingType !== 'SUT_RESPONDER' && row.testingType !== 'TA_RESPONDER' && transport.logs[row.id] && transport.logs[row.id] != null"-->
-            <!--ng-click="viewConsole(row.id)">-->
-            <!--</a>-->
-
-
-            <div ng-show="testCase.executionStatus !== 'COMPLETE'">
-
-                <div ng-show="testStep != null && row.id == testStep.id">
-                    <div ng-show="testStep.testingType === 'SUT_INITIATOR'">
-                        <div ng-show="transport.configs[domain][protocol].data.sutInitiator && transport.configs[domain][protocol].data.sutInitiator != null">
-                            <!--<button title="Config Info" type="button"-->
-                            <!--ng-click="openConfig()"-->
-                            <!--class="btn btn-xs btn-info"><i-->
-                            <!--class="fa fa-cog"></i>-->
-                            <!--</button>-->
-                            <button type="button" title="Start Listening" ng-click="startListener()" ng-disabled="connecting" title="Start listening" class="btn btn-xs btn-success">
-                                <i class="fa fa-play fa-fw"></i>Listen
-                            </button>
-                            <button type="button" title="Stop Listening" ng-disabled="!connecting" ng-click="stopListener()" class="btn btn-xs btn-warning"><i class="fa fa-stop fa-fw"></i>Stop
-                            </button>
-                            <!--<span ng-show="connecting">-->
-                            <!--<i class="fa fa-spinner"></i> Remaining time (s): {{counter}} / {{counterMax}}-->
-                            <!--</span>-->
-                        </div>
-
-                        <div ng-show="!transport.configs[domain][protocol].data.sutInitiator || transport.configs[domain][protocol].data.sutInitiator === null">
-                            No configuration Information Available
-                        </div>
-                        <!--<div class="row" collapse="configCollapsed">-->
-                        <!--<div class="col-md-5">-->
-                        <!--<fieldset>-->
-                        <!--<legend>Configuration Information</legend>-->
-                        <!--<form name="sutInitiatorForm" novalidate>-->
-                        <!--<div ng-bind-html="toHTML(sutInitiatorConfig)"/>-->
-                        <!--</form>-->
-                        <!--</fieldset>-->
-                        <!--</div>-->
-
-                        <!--</div>-->
-                    </div>
-
-                    <div ng-show="testStep.testingType === 'TA_INITIATOR'">
-                        <div class="" ng-show="transport.configs[domain][protocol].data.taInitiator && transport.configs[domain][protocol].data.taInitiator != null">
-                            <!--<button title="Config Info" type="button"-->
-                            <!--ng-click="openConfig()"-->
-                            <!--class="btn btn-xs btn-info"><i-->
-                            <!--class="fa fa-cog"></i>-->
-                            <!--</button>-->
-                            <button type="button" ng-click="send()" ng-disabled="!hasUserContent() || connecting" title="Send" class="btn btn-xs btn-success">
-                                Send <i class="fa fa-share-square fa-fw"></i>
-                            </button>
-                            <!--<span ng-show="connecting">-->
-                            <!--<i class="fa fa-spinner"></i> Remaining time (s): {{counter}} / {{counterMax}}-->
-                            <!--</span>-->
-                        </div>
-                        <div class="" ng-show="!transport.configs[domain][protocol].data.taInitiator || transport.configs[domain][protocol].data.taInitiator === null">
-                            No Configuration Information Found.
-                        </div>
-                        <!--<div class="row" collapse="configCollapsed">-->
-                        <!--<div class="col-md-5">-->
-                        <!--<fieldset>-->
-                        <!--<legend>Configuration Information</legend>-->
-                        <!--<form name="sutInitiatorForm" novalidate>-->
-                        <!--<div ng-bind-html="toHTML(sutInitiatorConfig)"/>-->
-                        <!--</form>-->
-                        <!--</fieldset>-->
-                        <!--</div>-->
-
-                        <!--</div>-->
-                    </div>
-                    <div ng-show="logger.content != '' && logger.content != null && (row.testingType === 'TA_INITIATOR' || row.testingType === 'SUT_INITIATOR')">
-                        <a class="point" ng-click="openConsole(row)"><i class="fa fa-file-text fa-fw"></i> View log</a>
-                    </div>
-                </div>
-                <div ng-show="(testStep === null || row.id != testStep.id) && transport.logs[row.id] != null && (row.testingType === 'TA_INITIATOR' || row.testingType === 'SUT_INITIATOR')">
-                    <a class="point" ng-click="viewConsole(row)"> <i class="fa fa-file-text fa-fw"></i> View
-                        log</a>
-                </div>
-            </div>
-            <div ng-show="testCase.executionStatus === 'COMPLETE'">
-                <div ng-show="transport.logs[row.id] != null && (row.testingType === 'TA_INITIATOR' || row.testingType === 'SUT_INITIATOR')">
-                    <a class="point" ng-click="viewConsole(row)"> <i class="fa fa-file-text fa-fw"></i> View
-                        log</a>
-                </div>
-            </div>
-        </td>
 
         <td style="width:15%">
             <div ng-show="getValidationReport(row) === undefined">

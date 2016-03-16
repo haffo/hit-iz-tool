@@ -38,8 +38,8 @@
                      </div>
                     <div class="col-md-3">
                         <div ng-include="'views/cb/summary.html'"></div>
-                        <!--<div ng-include="'views/cb/console.html'" ng-show="user.info != null && (testStep.testingType === 'TA_INITIATOR' || testStep.testingType === 'SUT_INITIATOR')"></div>-->
-                    </div>
+                        <div ng-include="'views/cb/transport.html'" ng-show="testStep != null && testCase.transport === true && user.info != null && !transport.disabled && (testStep.testingType === 'TA_INITIATOR' || testStep.testingType === 'SUT_INITIATOR')"></div>
+                     </div>
                 </div>
 
                 <div ng-include="'views/cb/executeTestStep.html'"></div>

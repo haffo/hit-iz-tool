@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-8">
                                     <button class="btn btn-success" id="submitManualResultButton" ng-click='save()'
-                                            ng-disabled='!manualStepForm.$valid || saving || (isTestCaseCompleted() && testCase.type === "TestCase")'>
+                                            ng-disabled="report.result.value === '' || report.result.value === null || !manualStepForm.$valid || saving || (isTestCaseCompleted() && testCase.type === 'TestCase')">
                                         <i class="fa fa-check"></i><span>Submit</span>
                                     </button>
                                 </div>

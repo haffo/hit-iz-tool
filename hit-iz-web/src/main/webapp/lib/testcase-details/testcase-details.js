@@ -111,24 +111,7 @@
                 $scope.title = title;
             });
 
-            $scope.isMcHelpPresent = function () {
-                return $rootScope.appInfo != null && $rootScope.appInfo.messageContentInfo != null;
-            };
 
-            $scope.openMcInfo = function () {
-                var modalInstance = $modal.open({
-                    templateUrl: 'MessageContentInfo.html',
-                    windowClass: 'messageContent-info-modal',
-                    controller: 'MessageContentInfoCtrl',
-                    keyboard: true,
-                    backdrop: true,
-                    resolve: {
-                        mcHelpInfo: function () {
-                            return $rootScope.appInfo.messageContentInfo;
-                        }
-                    }
-                });
-            };
 
             $scope.download = function () {
                 if ($scope.exampleMessage != null) {
@@ -226,6 +209,26 @@
                 $scope.messageContent = messageContent;
                 $scope.title = title;
             });
+
+            $scope.openMcInfo = function () {
+                var modalInstance = $modal.open({
+                    templateUrl: 'MessageContentInfo.html',
+                    windowClass: 'messageContent-info-modal',
+                    controller: 'MessageContentInfoCtrl',
+                    keyboard: true,
+                    backdrop: true,
+                    resolve: {
+                        mcHelpInfo: function () {
+                            return $rootScope.appInfo.messageContentInfo;
+                        }
+                    }
+                });
+            };
+
+            $scope.isMcHelpPresent = function () {
+                return $rootScope.appInfo != null && $rootScope.appInfo.messageContentInfo != null;
+            };
+
             $scope.download = function () {
                 if ($scope.messageContent != null)
                     TestCaseDetailsService.downloadByPath($scope.messageContent.pdfPath, $scope.title);

@@ -28,12 +28,12 @@
                 <td><b>Test Status</b></td>
                 <td>{{testCase.executionStatus === 'COMPLETE' ? 'Completed':'In Progress'}}</td>
             </tr>
-            <tr ng-show="!transport.disabled && testCase.transport === true">
-                <td><b>Protocol</b></td>
-                <td>
-                    {{testCase.protocol | uppercase}}
-                </td>
-            </tr>
+            <!--<tr ng-show="!transport.disabled && testCase.transport === true">-->
+                <!--<td><b>Protocol</b></td>-->
+                <!--<td>-->
+                    <!--{{testCase.protocol | uppercase}}-->
+                <!--</td>-->
+            <!--</tr>-->
             <tr>
                 <td><b>Test Result</b></td>
                 <td>

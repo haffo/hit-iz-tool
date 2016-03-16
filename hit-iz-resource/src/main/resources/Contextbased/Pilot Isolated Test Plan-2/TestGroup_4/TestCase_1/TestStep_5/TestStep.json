@@ -8,5 +8,5 @@
     "constraintId" : "e99ce380-6861-4848-a0b3-a85a67674532",
     "valueSetLibraryId" : "752481af-53be-4bcb-909d-d71d6fa49d1a"
   },
-  "protocol" : "soap"
+  "protocols" : ["soap"]
 }

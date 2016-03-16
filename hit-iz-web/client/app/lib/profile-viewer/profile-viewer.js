@@ -661,7 +661,7 @@
             };
 
             $scope.getGroupChildTargetPath = function (element, group) {
-                if (element == null || (element.type === "GROUP" && element.id === group.id))
+                if (!element || element == null || (element.type === "GROUP" && group && group!= null && element.id === group.id))
                     return "";
                 var parent = $scope.parentsMap[element.id]; //X
                 var pTarget = $scope.getGroupChildTargetPath(parent);

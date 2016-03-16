@@ -223,6 +223,11 @@ angular.module('cb')
             $scope.executeTestCase($scope.testCase);
         };
 
+
+        $scope.selectProtocol = function(testStep){
+            if(testStep != null) $scope.protocol = testStep.protocol;
+        };
+
         $scope.selectTestStep = function (testStep) {
             CB.testStep = testStep;
             $scope.testStep = testStep;
@@ -325,10 +330,13 @@ angular.module('cb')
             }
         };
 
-
         $scope.executeTestStep = function (testStep) {
             CB.testStep = testStep;
             $scope.warning = null;
+            if(testStep.protocols != null && testStep.protocols && testStep.protocols.length > 0){
+                testStep['protocol'] = testStep.protocols[0];
+                $scope.selectProtocol(testStep);
+            }
             var log = $scope.transport.logs[testStep.id];
             $scope.logger.content = log && log != null ? log : '';
             if (testStep != null) {
@@ -721,14 +729,12 @@ angular.module('cb')
                 $scope.warning = null;
                 $scope.connecting = false;
                 $scope.domain = testCase.domain;
-                $scope.protocol = testCase.protocol;
                 CB.testCase = testCase;
                 $scope.transport.logs = {};
                 $scope.transport.transactions = [];
-
                 $scope.testCase = testCase;
                 TestExecutionClock.stop();
-                $scope.testCase = testCase;
+                $scope.protocol = null;
                 $scope.clearExecution();
                 if (testCase.type === 'TestCase') {
                     $scope.executeTestStep($scope.testCase.children[0]);
