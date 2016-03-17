@@ -54,7 +54,7 @@
                                                 <form id="fileupload" data-file-upload="options" method="POST" enctype="multipart/form-data" data-ng-class="{'fileupload-processing': processing() || loadingFiles}" role="form" class="form-inline">
             <span><i class="glyphicon glyphicon-file"></i> Message Content
                     <span style="margin-right:10px"></span>
-                        <div class="btn-group">
+                        <div class="btn-group" ng-hide="isTestCase() && isTestCaseCompleted()">
                             <button title="Refresh at the interval of {{loadRate/1000}} second(s)" type="button" class="btn btn-xs btn-info" data-toggle="dropdown">
                                 <i class="fa fa-refresh"></i>
                                 <span ng-show="loadRate != 10000000000000000">{{loadRate/1000}}s</span>
@@ -83,19 +83,19 @@
                                     <!--DQA-->
                                 <!--</button>-->
 
-                                <button title="Validate" type="button" class="btn btn-xs btn-success" ng-disabled="isTestCase() && isTestCaseCompleted()" ng-click="execute()">
+                                <button title="Validate" type="button" class="btn btn-xs btn-success" ng-hide="isTestCase() && isTestCaseCompleted()" ng-click="execute()">
                                     <i class="fa fa-check-circle"></i>
                                     Validate
                                 </button>
 
-                                <button title="Load Example" type="button" class="btn btn-xs btn-info" ng-click="loadExampleMessage()" ng-disabled="!testStep.testContext.message ||  testStep.testContext.message === null || testStep.testContext.message.content === '' || (isTestCase() && isTestCaseCompleted())">
+                                <button title="Load Example" type="button" class="btn btn-xs btn-info" ng-click="loadExampleMessage()" ng-hide="!testStep.testContext.message ||  testStep.testContext.message === null || testStep.testContext.message.content === '' || (isTestCase() && isTestCaseCompleted())">
                                     <i class="fa fa-arrow-circle-down"></i>Load Example
                                 </button>
 
-                                <span title="Browse" class="btn btn-xs btn-info fileinput-button" ng-disabled="isTestCase() && isTestCaseCompleted()">
+                                <span title="Browse" class="btn btn-xs btn-info fileinput-button" ng-hide="isTestCase() && isTestCaseCompleted()">
                         <i class="fa fa-folder-open"></i>Browse
                         <span></span>
-                        <input type="file" name="file" id="file" multiple="false" ng-disabled="isTestCase() && isTestCaseCompleted()">
+                        <input type="file" name="file" id="file" multiple="false" ng-hide="isTestCase() && isTestCaseCompleted()">
                          </span>
                                 <button title="Download" type="button" class="btn btn-xs btn-info" ng-hide="!hasContent()" ng-click="saveMessage()">
                                     <i class="fa fa-download"></i>Download
@@ -103,7 +103,7 @@
 
 
 
-                                 <button title="Clear" type="button" class="btn btn-xs btn-warning" ng-disabled="isTestCase() && isTestCaseCompleted()" ng-click="clearMessage()">
+                                 <button title="Clear" type="button" class="btn btn-xs btn-warning" ng-hide="isTestCase() && isTestCaseCompleted()" ng-click="clearMessage()">
                                      <i class="fa fa-times"></i>Clear
                                  </button>
 
@@ -132,7 +132,7 @@
                                                 </button>
      <span class="pull-right">
 
-                                <button title="Remove Duplicates" type="button" class="btn btn-xs btn-warning" ng-click="removeDuplicates()">
+                                <button title="Remove Duplicates" type="button" class="btn btn-xs btn-warning" ng-hide="isTestCase() && isTestCaseCompleted()" ng-click="removeDuplicates()">
                                     <i class="fa fa-times"></i>
                                     Remove Duplicates
                                 </button>

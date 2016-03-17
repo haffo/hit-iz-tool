@@ -213,15 +213,10 @@
             $scope.openMcInfo = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'MessageContentInfo.html',
-                    windowClass: 'messageContent-info-modal',
+                    windowClass: 'message-content-info-modal',
                     controller: 'MessageContentInfoCtrl',
                     keyboard: true,
-                    backdrop: true,
-                    resolve: {
-                        mcHelpInfo: function () {
-                            return $rootScope.appInfo.messageContentInfo;
-                        }
-                    }
+                    backdrop: true
                 });
             };
 
@@ -532,8 +527,8 @@
     });
 
     mod.controller('MessageContentInfoCtrl',
-        function ($scope, $modalInstance, mcHelpInfo) {
-            $scope.mcHelpInfo = mcHelpInfo;
+        function ($scope, $modalInstance, $rootScope) {
+            $scope.mcHelpInfo = $rootScope.appInfo.messageContentInfo;
             $scope.close = function () {
                 $modalInstance.dismiss('cancel');
             }
