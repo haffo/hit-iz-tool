@@ -167,7 +167,7 @@ app.factory('ErrorInterceptor', function ($q, $rootScope, $location, StorageServ
 //    };
 //});
 
-app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle,Transport) {
+app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle,Transport,IdleService) {
 
 
     $rootScope.appInfo = {};
@@ -559,6 +559,11 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
             }
         );
     });
+
+    $rootScope.$on('Keepalive', function() {
+        IdleService.keepAlive();
+    });
+
 
     function closeModals() {
         if ($rootScope.warning) {

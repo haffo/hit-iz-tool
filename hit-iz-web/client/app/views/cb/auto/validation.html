@@ -61,7 +61,7 @@
                                                       class="form-inline">
             <span><i class="glyphicon glyphicon-file"></i> Message Content
                     <span style="margin-right:10px"></span>
-                        <div class="btn-group" ng-hide="isTestCase() && isTestCaseCompleted()">
+                        <div class="btn-group" ng-hide="isTestCase() && (isTestCaseCompleted() || (testCase.transport === true && user.info != null && !transport.disabled))">
                             <button title="Refresh at the interval of {{loadRate/1000}} second(s)" type="button"
                                     class="btn btn-xs btn-info"
                                     data-toggle="dropdown">
@@ -92,6 +92,7 @@
                                     <!--DQA-->
                                 <!--</button>-->
 
+
                                 <button title="Validate" type="button" class="btn btn-xs btn-success"
                                         ng-hide="isTestCase() && isTestCaseCompleted()"
                                         ng-click="execute()">
@@ -101,13 +102,13 @@
 
                                 <button title="Load Example" type="button" class="btn btn-xs btn-info"
                                         ng-click="loadExampleMessage()"
-                                        ng-hide="!testStep.testContext.message ||  testStep.testContext.message === null || testStep.testContext.message.content === '' || (isTestCase() && isTestCaseCompleted())"
+                                        ng-hide="!testStep.testContext.message ||  testStep.testContext.message === null || testStep.testContext.message.content === '' || (isTestCase() && (isTestCaseCompleted() || (testCase.transport === true && user.info != null && !transport.disabled)))"
                                         >
                                     <i class="fa fa-arrow-circle-down"></i>Load Example
                                 </button>
 
                                 <span title="Browse" class="btn btn-xs btn-info fileinput-button"
-                                      ng-hide="isTestCase() && isTestCaseCompleted()">
+                                      ng-hide="isTestCase() && (isTestCaseCompleted() || (testCase.transport === true && user.info != null && !transport.disabled))">
                         <i class="fa fa-folder-open"></i>Browse
                         <span></span>
                         <input type="file" name="file" id="file" multiple="false" ng-hide="isTestCase() && isTestCaseCompleted()">

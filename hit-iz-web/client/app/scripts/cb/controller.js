@@ -577,6 +577,18 @@ angular.module('cb')
             });
         };
 
+
+        $scope.abortListening = function () {
+            TestExecutionService.setExecutionStatus($scope.testStep, undefined);
+            $scope.stopListener();
+        };
+
+        $scope.completeListening = function () {
+            TestExecutionService.setExecutionStatus($scope.testStep, "COMPLETE");
+            $scope.stopListener();
+        };
+
+
         $scope.startListener = function () {
             $scope.openConsole($scope.testStep);
             var nextStep = $scope.findNextStep($scope.testStep.position);
@@ -588,6 +600,7 @@ angular.module('cb')
                 $scope.connecting = true;
                 $scope.error = null;
                 $scope.warning = null;
+                $scope.progressStep($scope.testStep);
                 $scope.logger.log("Starting listener. Please wait...");
                 $scope.transport.startListener($scope.testStep.id, rspMessageId, $scope.domain, $scope.protocol).then(function (started) {
                         if (started) {
@@ -632,17 +645,17 @@ angular.module('cb')
                                         } else {
                                             $scope.logger.log("Outbound message sent is empty");
                                         }
-                                        $scope.stopListener();
+                                        $scope.completeListening();
                                     } else if ($scope.counter >= $scope.counterMax) {
                                         $scope.warning = "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound message against those created for your system.</p>  <p>Possible cause (2):The endpoint address may be incorrect.   Verify that you are using the correct endpoint address that is displayed by the tool.</p>";
-                                        $scope.stopListener();
+                                        $scope.abortListening();
                                     }
                                 }, function (error) {
                                     $scope.error = error;
                                     $scope.log("Error: " + error);
                                     $scope.received = '';
                                     $scope.sent = '';
-                                    $scope.stopListener();
+                                    $scope.abortListening();
                                 });
                             };
                             TestExecutionClock.start(execute);
@@ -748,6 +761,13 @@ angular.module('cb')
         $scope.downloadTestCaseReports = function () {
             if ($scope.testCase != null) {
                 ReportService.downloadTestCaseReports($scope.testCase.id);
+            }
+        };
+
+        $scope.toggleTransport = function(disabled){
+            $scope.transport.disabled = disabled;
+            if (CB.editor.instance != null) {
+                CB.editor.instance.setOption("readOnly", !disabled);
             }
         };
 
@@ -1308,6 +1328,9 @@ angular.module('cb')
         $scope.saved = false;
         $scope.error = null;
         $scope.$on('cb:manualTestStepLoaded', function (event, testStep) {
+            $scope.saved = false;
+            $scope.saving = false;
+            $scope.error = null;
             $scope.testStep = testStep;
             $scope.report = TestExecutionService.getValidationReport(testStep) === undefined || TestExecutionService.getValidationReport(testStep) === null ? {"result": { "value": "", "comments": ""}, "html": null} : TestExecutionService.getValidationReport(testStep);
         });
