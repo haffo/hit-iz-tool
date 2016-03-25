@@ -42,7 +42,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/iz/report")
-@Api(value = "Immunization SOAP Validation Report API")
+@Api(value = "Immunization SOAP Validation Report API", tags = "SOAP Validation Report")
 public class SOAPReportController {
 
   static final Logger logger = LoggerFactory.getLogger(SOAPReportController.class);

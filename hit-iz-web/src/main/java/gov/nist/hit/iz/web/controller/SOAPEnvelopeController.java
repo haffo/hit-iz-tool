@@ -48,7 +48,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/envelope")
-@Api(value = "Immunization SOAP Envelope API")
+@Api(value = "Immunization SOAP Envelope API", tags = "SOAP Envelope")
 public class SOAPEnvelopeController {
 
   static final Logger logger = LoggerFactory.getLogger(SOAPEnvelopeController.class);

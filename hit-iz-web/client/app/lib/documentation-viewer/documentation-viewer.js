@@ -16,6 +16,17 @@
         }
     ]);
 
+    mod.directive('apiDocs', [
+        function () {
+            return {
+                restrict: 'A',
+                templateUrl: 'ApiDocs.html',
+                replace: false,
+                controller: 'ApiDocsCtrl'
+            };
+        }
+    ]);
+
 
     mod.directive('testcaseDoc', [
         function () {
@@ -330,6 +341,34 @@
                 $scope.data = [];
             });
         }]);
+
+    mod
+        .controller('ApiDocsCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout','$window', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout,$window) {
+            $scope.data = [];
+            $scope.loading = false;
+            $scope.error = null;
+            $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+            $scope.apiLink = null;
+
+            function getContextPath() {
+                return $window.location.pathname.substring(0, $window.location.pathname.indexOf("/",2));
+            }
+
+            $scope.apiLink = $window.location.protocol + "//" + $window.location.host + getContextPath() + $rootScope.appInfo.apiDocsPath;
+
+
+//            var listLoader = new DeliverableListLoader();
+//            listLoader.then(function (result) {
+//                $scope.error = null;
+//                $scope.data = result;
+//                $scope.loading = false;
+//            }, function (error) {
+//                $scope.loading = false;
+//                $scope.error = "Sorry, failed to load the files";
+//                $scope.data = [];
+//            });
+        }]);
+
 
     mod
         .controller('InstallationGuideCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'InstallationGuideLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, InstallationGuideLoader) {

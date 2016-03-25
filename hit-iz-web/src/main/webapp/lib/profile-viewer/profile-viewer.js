@@ -1027,7 +1027,7 @@
 
         ProfileService.prototype.getJson = function (id) {
             var delay = $q.defer();
-            $http.post('api/profile/' + id).then(
+            $http.get('api/profile/' + id).then(
                 function (object) {
                     try {
                         delay.resolve(angular.fromJson(object.data));

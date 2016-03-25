@@ -69,7 +69,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/transport/iz/soap")
-@Api(value = "Immunization SOAP Transport API")
+@Api(value = "Immunization SOAP Transport API", tags = "SOAP Transport")
 public class SOAPTransportController {
 
   static final Logger logger = LoggerFactory.getLogger(SOAPTransportController.class);

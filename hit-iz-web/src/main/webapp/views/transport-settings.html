@@ -55,9 +55,12 @@
                                             Protocols
                                         </div>
                                         <div class="panel-body">
+
                                             <label class="radio-inline" ng-repeat="proto in getProtocols(dom)">
                                                 <input type="radio" ng-click="selectPane(dom, proto)" ng-checked="isActivePane(dom,proto)">
                                                 {{proto | uppercase}}
+
+                                                <br>
                                             </label>
                                         </div>
                                     </div>

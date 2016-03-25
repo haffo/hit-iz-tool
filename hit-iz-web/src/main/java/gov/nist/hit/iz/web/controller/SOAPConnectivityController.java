@@ -70,7 +70,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/connectivity")
-@Api(value = "Immunization SOAP Connectivity API")
+@Api(value = "Immunization SOAP Connectivity API", tags = "SOAP Connectivity")
 public class SOAPConnectivityController {
 
   static final Logger logger = LoggerFactory.getLogger(SOAPConnectivityController.class);
