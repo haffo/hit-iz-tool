@@ -330,7 +330,7 @@
 
         VocabularyService.prototype.getJson = function (id) {
             var delay = $q.defer();
-            $http.post('api/valueSetLibrary/' + id).then(
+            $http.get('api/valueSetLibrary/' + id).then(
                 function (object) {
                     try {
                         delay.resolve(angular.fromJson(object.data));

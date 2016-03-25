@@ -35,6 +35,9 @@ import gov.nist.hit.core.transport.exception.TransportClientException;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 import gov.nist.hit.iz.web.utils.Utils;
 import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -66,9 +69,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/transport/iz/soap")
-public class IZSOAPTransportController {
+@Api(value = "Immunization SOAP Transport API")
+public class SOAPTransportController {
 
-  static final Logger logger = LoggerFactory.getLogger(IZSOAPTransportController.class);
+  static final Logger logger = LoggerFactory.getLogger(SOAPTransportController.class);
 
   @Autowired
   protected TestStepService testStepService;
@@ -95,15 +99,20 @@ public class IZSOAPTransportController {
 
   String SUMBIT_SINGLE_MESSAGE_TEMPLATE = null;
 
-  public IZSOAPTransportController() throws IOException {
+  public SOAPTransportController() throws IOException {
     SUMBIT_SINGLE_MESSAGE_TEMPLATE =
-        IOUtils.toString(IsolatedTestingController.class
+        IOUtils.toString(SOAPTransportController.class
             .getResourceAsStream("/templates/SubmitSingleMessage.xml"));
   }
 
+  @ApiOperation(value = "Start the listener of an incoming message", nickname = "startListener",
+      notes = "A user session is required")
   @Transactional
-  @RequestMapping(value = "/startListener", method = RequestMethod.POST)
-  public boolean startListener(@RequestBody TransportRequest request, HttpSession session)
+  @RequestMapping(value = "/startListener", method = RequestMethod.POST,
+      produces = "application/json")
+  public boolean startListener(
+      @ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request,
+      @ApiParam(value = "The user session", required = true) HttpSession session)
       throws UserNotFoundException {
     logger.info("Starting listener");
     Long userId = SessionContext.getCurrentUserId(session);
@@ -123,9 +132,14 @@ public class IZSOAPTransportController {
     return true;
   }
 
+  @ApiOperation(value = "Stop the listener of an incoming message", nickname = "stopListener",
+      notes = "A user session is required")
   @Transactional
-  @RequestMapping(value = "/stopListener", method = RequestMethod.POST)
-  public boolean stopListener(@RequestBody TransportRequest request, HttpSession session)
+  @RequestMapping(value = "/stopListener", method = RequestMethod.POST,
+      produces = "application/json")
+  public boolean stopListener(
+      @ApiParam(value = "the request", required = true) @RequestBody TransportRequest request,
+      @ApiParam(value = "The user session", required = true) HttpSession session)
       throws UserNotFoundException {
     logger.info("Stopping listener ");
     Long userId = SessionContext.getCurrentUserId(session);
@@ -160,8 +174,11 @@ public class IZSOAPTransportController {
     return sutInitiator;
   }
 
-  @RequestMapping(value = "/searchTransaction", method = RequestMethod.POST)
-  public Transaction searchTransaction(@RequestBody TransportRequest request) {
+  @ApiOperation(value = "Search a transaction of user", nickname = "searchTransaction")
+  @RequestMapping(value = "/searchTransaction", method = RequestMethod.POST,
+      produces = "application/json")
+  public Transaction searchTransaction(
+      @ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request) {
     logger.info("Searching transaction...");
     Map<String, String> criteria = new HashMap<String, String>();
     criteria.put("username", request.getConfig().get("username"));
@@ -171,9 +188,13 @@ public class IZSOAPTransportController {
     return transaction;
   }
 
+  @ApiOperation(value = "Send a message", nickname = "searchTransaction",
+      notes = "A user session is required")
   @Transactional()
-  @RequestMapping(value = "/send", method = RequestMethod.POST)
-  public Transaction send(@RequestBody TransportRequest request, HttpSession session)
+  @RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json")
+  public Transaction send(
+      @ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request,
+      @ApiParam(value = "The user session", required = true) HttpSession session)
       throws TransportClientException {
     logger.info("Sending message");
     try {
@@ -214,10 +235,13 @@ public class IZSOAPTransportController {
     }
   }
 
+  @ApiOperation(value = "Get the configuration information of user",
+      nickname = "searchTransaction", notes = "A user session is required")
   @Transactional
-  @RequestMapping(value = "/configs", method = RequestMethod.POST)
-  public TransportConfig configs(HttpSession session, HttpServletRequest request)
-      throws UserNotFoundException {
+  @RequestMapping(value = "/configs", method = RequestMethod.POST, produces = "application/json")
+  public TransportConfig configs(
+      @ApiParam(value = "The user session", required = true) HttpSession session,
+      HttpServletRequest request) throws UserNotFoundException {
     logger.info("Fetching user configuration information ... ");
     Long userId = SessionContext.getCurrentUserId(session);
     User user = null;
@@ -263,10 +287,14 @@ public class IZSOAPTransportController {
     return config;
   }
 
+  @ApiOperation(value = "", nickname = "", notes = "A user session is required", hidden = true)
   @Transactional
-  @RequestMapping(value = "/populateMessage", method = RequestMethod.POST)
-  public TransportResponse populateMessage(HttpSession session,
-      @RequestBody TransportRequest transportRequest) throws UserNotFoundException {
+  @RequestMapping(value = "/populateMessage", method = RequestMethod.POST,
+      produces = "application/json")
+  public TransportResponse populateMessage(
+      @ApiParam(value = "The user session", required = true) HttpSession session,
+      @ApiParam(value = "The transport request", required = true) @RequestBody TransportRequest transportRequest)
+      throws UserNotFoundException {
     logger.info("Fetching user configuration information ... ");
     Long userId = SessionContext.getCurrentUserId(session);
     if (userId == null || (userService.findOne(userId)) == null) {

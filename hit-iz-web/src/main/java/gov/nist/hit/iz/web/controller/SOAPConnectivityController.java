@@ -41,6 +41,9 @@ import gov.nist.hit.iz.service.soap.SOAPMessageValidator;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 import gov.nist.hit.iz.web.utils.Utils;
 import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 import java.util.List;
 
@@ -67,9 +70,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/connectivity")
-public class IZConnectivityController {
+@Api(value = "Immunization SOAP Connectivity API")
+public class SOAPConnectivityController {
 
-  static final Logger logger = LoggerFactory.getLogger(IZConnectivityController.class);
+  static final Logger logger = LoggerFactory.getLogger(SOAPConnectivityController.class);
 
   @Autowired
   private SOAPMessageValidator soapValidator;
@@ -107,25 +111,33 @@ public class IZConnectivityController {
     this.soapMessageParser = soapMessageParser;
   }
 
+  @ApiOperation(value = "Get the list of connectivity testing test cases",
+      nickname = "getSOAPConnectivityTestCases")
   @Cacheable(value = "HitCache", key = "'conn-testcases'")
-  @RequestMapping(value = "/testcases", method = RequestMethod.GET)
-  public List<IZConnectivityTestPlan> testCases() {
+  @RequestMapping(value = "/testcases", method = RequestMethod.GET, produces = "application/json")
+  public List<IZConnectivityTestPlan> getSOAPConnectivityTestCases() {
     logger.info("Fetching all testPlans...");
     return testPlanRepository.findAll();
 
   }
 
-  @RequestMapping(value = "/testcases/{testCaseId}", method = RequestMethod.GET)
-  public IZConnectivityTestCase testCase(@PathVariable final Long testCaseId) {
+  @ApiOperation(value = "Get a soap connectivity testing test case by its id",
+      nickname = "getSOAPConnectivityTestCaseById")
+  @RequestMapping(value = "/testcases/{testCaseId}", method = RequestMethod.GET,
+      produces = "application/json")
+  public IZConnectivityTestCase getSOAPConnectivityTestCaseById(
+      @ApiParam(value = "the id of the connectivity test case", required = true) @PathVariable final Long testCaseId) {
     IZConnectivityTestCase testCase = testCaseRepository.findOne(testCaseId);
     if (testCase == null)
       throw new TestCaseException("Unknown testCase with id=" + testCaseId);
     return testCase;
   }
 
-
-  @RequestMapping(value = "/validate", method = RequestMethod.POST)
-  public ValidationResult validate(@RequestBody final Command command)
+  @ApiOperation(value = "Validate a soap connectivity message",
+      nickname = "validateSOAPConnectivity")
+  @RequestMapping(value = "/validate", method = RequestMethod.POST, produces = "application/json")
+  public ValidationResult validateSOAPConnectivity(@ApiParam(
+      value = "the request of the validation", required = true) @RequestBody final Command command)
       throws SoapValidationException {
     try {
       logger.info("Validating connectivity response message " + command);
@@ -155,9 +167,11 @@ public class IZConnectivityController {
     }
   }
 
-  @RequestMapping(value = "/send", method = RequestMethod.POST)
-  public Transaction send(@RequestBody TransportRequest requ, HttpSession session)
-      throws TransportClientException {
+  @ApiOperation(value = "Send a connectivity message", nickname = "sendSOAPConnectivityMessage")
+  @RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json")
+  public Transaction sendSOAPConnectivityMessage(
+      @ApiParam(value = "the request of the transaction", required = true) @RequestBody TransportRequest requ,
+      HttpSession session) throws TransportClientException {
     logger.info("Sending message ");
     try {
       if (requ.getConfig().get("endpoint") == null || "".equals(requ.getConfig().get("endpoint"))) {

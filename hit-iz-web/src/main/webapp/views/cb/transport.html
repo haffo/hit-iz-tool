@@ -32,7 +32,7 @@
                         <td><b>Protocol</b></td>
                         <td>
                             <div class="form-group control-group" ng-show="testStep.protocols.length > 1" ng-class="{'has-success has-feedback': transportButtonForm.protocolSelect.$valid, 'igl-has-error has-feedback': !transportButtonForm.protocolSelect.$valid}">
-                                <select ng-model="testStep.protocol" ng-change="selectProtocol(testStep)" class="form-control input-sm" style="width:100px" required="" id="protocolSelect" name="protocolSelect" ng-disabled="testCase.executionStatus === 'COMPLETE'" ng-options="pro as (pro | uppercase) for pro in testStep.protocols">
+                                <select ng-model="testStep.protocol" ng-change="selectProtocol(testStep)" class="form-control input-sm" style="width:100px" required="" id="protocolSelect" name="protocolSelect" ng-disabled="testCase.executionStatus === 'COMPLETE'" ng-options="pro as (pro.value | uppercase) for pro in testStep.protocols | orderBy:'position'">
                                 </select>
                             </div>
                             <div ng-show="testStep.protocols.length == 1">{{testStep.protocol | uppercase}}</div>

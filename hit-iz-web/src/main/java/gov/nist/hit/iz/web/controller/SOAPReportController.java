@@ -14,6 +14,9 @@ package gov.nist.hit.iz.web.controller;
 
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.exception.SoapValidationReportException;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,9 +42,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/iz/report")
-public class IZReportController {
+@Api(value = "Immunization SOAP Validation Report API")
+public class SOAPReportController {
 
-  static final Logger logger = LoggerFactory.getLogger(IZReportController.class);
+  static final Logger logger = LoggerFactory.getLogger(SOAPReportController.class);
 
 
   @Autowired
@@ -53,10 +57,14 @@ public class IZReportController {
     return htmlReport;
   }
 
+  @ApiOperation(value = "Download a SOAP validation report", nickname = "downloadReport",
+      produces = "application/msword,text/html,application/xml,application/pdf")
   @RequestMapping(value = "/download", method = RequestMethod.POST,
       consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-  public String download(@RequestParam("format") String format,
-      @RequestParam("title") String title, @RequestParam("content") String xmlReport,
+  public String downloadReport(
+      @ApiParam(value = "the targeted format of the report", required = true) @RequestParam("format") String format,
+      @ApiParam(value = "the title of the downloaded report", required = true) @RequestParam("title") String title,
+      @ApiParam(value = "the xml validation report", required = true) @RequestParam("content") String xmlReport,
       HttpServletRequest request, HttpServletResponse response) {
     try {
       logger.info("Downloading validation report in " + format);
@@ -93,9 +101,11 @@ public class IZReportController {
     return null;
   }
 
+  @ApiOperation(value = "Generate an html SOAP validation report", nickname = "generateHTML")
   @RequestMapping(value = "/generate", method = RequestMethod.POST,
       consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-  public Map<String, String> generateHTML(@RequestParam("content") final String xmlReport) {
+  public Map<String, String> generateHTML(@ApiParam(value = "the xml validation report",
+      required = true) @RequestParam("content") final String xmlReport) {
     logger.info("Generating HTML Validation report");
     if (xmlReport == null) {
       throw new SoapValidationReportException("No xml report found in the request");
