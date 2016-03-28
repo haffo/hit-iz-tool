@@ -1616,6 +1616,14 @@ angular.module('format').factory('TestExecutionService',
     ['$q', '$http', 'ServiceDelegator', 'ManualReportService', function ($q, $http, ServiceDelegator, ManualReportService) {
 
         var TestExecutionService = function () {
+            this.resultOptions = [
+                {"title": "Passed", "value": "PASSED"},
+                {"title": "Passed - Notable Exception", "value": "PASSED_NOTABLE_EXCEPTION"},
+                {"title": "Failed", "value": "FAILED"},
+                {"title": "Failed - Not Supported", "value": "FAILED_NOT_SUPPORTED"},
+                {"title": "Incomplete", "value": "INCOMPLETE"},
+                {"title": "Inconclusive", "value": "INCONCLUSIVE"}
+            ];
         };
 
         TestExecutionService.setExecutionStatus = function (step, value) {
@@ -1630,6 +1638,21 @@ angular.module('format').factory('TestExecutionService',
         TestExecutionService.getValidationStatus = function (step) {
             return  step != null && step.validationReport && step.validationReport.result ? (step.testingType === 'SUT_MANUAL' || step.testingType === 'TA_MANUAL') && step.validationReport.result.value ? step.validationReport.result.value.indexOf("PASSED") : step.validationReport.result.errors && step.validationReport.result.errors.categories[0] && step.validationReport.result.errors.categories[0].data ? step.validationReport.result.errors.categories[0].data.length : -1 : -1;
         };
+
+        TestExecutionService.getTestCaseResult = function (testCase) {
+
+            for (var i = 0; i < $scope.testCase.children.length; i++) {
+                if ($scope.getValidationStatus($scope.testCase.children[i]) > 0) {
+                    return false;
+                }
+            }
+
+
+
+
+            return  step != null && step.validationReport && step.validationReport.result ? (step.testingType === 'SUT_MANUAL' || step.testingType === 'TA_MANUAL') && step.validationReport.result.value ? step.validationReport.result.value.indexOf("PASSED") : step.validationReport.result.errors && step.validationReport.result.errors.categories[0] && step.validationReport.result.errors.categories[0].data ? step.validationReport.result.errors.categories[0].data.length : -1 : -1;
+        };
+
 
         TestExecutionService.getManualValidationStatusTitle = function (step) {
             if(step.validationReport  && step.validationReport.result) {

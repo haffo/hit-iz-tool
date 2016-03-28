@@ -61,18 +61,10 @@
         }]);
 
 
-    mod.factory('ManualReportService', function ($http, $q, $filter) {
+    mod.factory('ManualReportService', function ($http, $q, $filter,TestExecutionService) {
 
         var ManualReportService = {
-            resultOptions: [
-                {"title": "Passed", "value": "PASSED"},
-                {"title": "Passed - Notable Exception", "value": "PASSED_NOTABLE_EXCEPTION"},
-                {"title": "Failed", "value": "FAILED"},
-                {"title": "Failed - Not Supported", "value": "FAILED_NOT_SUPPORTED"},
-                {"title": "Incomplete", "value": "INCOMPLETE"},
-                {"title": "Inconclusive", "value": "INCONCLUSIVE"}
-            ],
-
+            resultOptions:  TestExecutionService.resultOptions,
             findResultTitle: function (value) {
                 for (var i = 0; i < this.resultOptions.length; i++) {
                     if (this.resultOptions[i].value === value) {
