@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
 <ConformanceProfile ID="56fca537-ef99-407a-8e48-93e998a9463b" Type="Constrainable" HL7Version="2.5.1" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData Name="Z33 Message profile" OrgName="NIST" Version="1.0.0" Date="20160219" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
+	<MetaData Name="Z33 Message profile" OrgName="NIST" Version="1.0.1" Date="20160328" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
 		<Encoding>XML</Encoding>
@@ -97,8 +97,8 @@
 			<Field Name="Phone" Usage="RE" Min="0" Max="1" Datatype="XTN_IZ" MinLength="1" MaxLength="*"/>
 			<Field Name="Multiple birth indicator" Usage="RE" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="*" Binding="HL70136_IZ" BindingStrength="R"/>
 			<Field Name="Birth order" Usage="RE" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="*"/>
-			<Field Name="Client last updated date" Usage="O" Min="0" Max="1" Datatype="TS_NZ" MinLength="1" MaxLength="*"/>
-			<Field Name="Client last updated facility" Usage="O" Min="0" Max="1" Datatype="HD_IZ" MinLength="1" MaxLength="*"/>
+			<Field Name="Client last updated date" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="*"/>
+			<Field Name="Client last updated facility" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="*"/>
 		</Segment>
 		<Segment ID="RDF_IZ_V_5_RSP_Z32_236" Label="RDF_IZ_V_5_RSP_Z32_236" Name="RDF" Description="Table Row Definition">
 			<Field Name="Number of Columns per Row" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="3" ItemNo="00701"/>
@@ -148,6 +148,10 @@
 			<Component Name="Range Start Date/Time" Usage="O" Datatype="DTM" MinLength="1" MaxLength="26"/>
 			<Component Name="Range End Date/Time" Usage="O" Datatype="DTM" MinLength="1" MaxLength="26"/>
 		</Datatype>
+		<Datatype ID="DR" Label="DR" Name="DR" Description="Date/Time Range">
+			<Component Name="Range Start Date/Time" Usage="O" Datatype="DTM" MinLength="1" MaxLength="26"/>
+			<Component Name="Range End Date/Time" Usage="O" Datatype="DTM" MinLength="1" MaxLength="26"/>
+		</Datatype>
 		<Datatype ID="CWE_IZ" Label="CWE_IZ" Name="CWE" Description="Coded with Exceptions">
 			<Component Name="Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
@@ -177,7 +181,7 @@
 			<Component Name="Name Type Code" Usage="R" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70200_IZ" BindingStrength="R"/>
 			<Component Name="Name Representation Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70465" BindingStrength="R"/>
 			<Component Name="Name Context" Usage="O" Datatype="CE" MinLength="1" MaxLength="483" Binding="HL70448" BindingStrength="R" BindingLocation="1"/>
-			<Component Name="Name Validity Range" Usage="X" Datatype="DR_IZ_ST" MinLength="1" MaxLength="53"/>
+			<Component Name="Name Validity Range" Usage="X" Datatype="DR" MinLength="1" MaxLength="53"/>
 			<Component Name="Name Assembly Order" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70444" BindingStrength="R"/>
 			<Component Name="Effective Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 			<Component Name="Expiration Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
@@ -212,7 +216,7 @@
 			<Component Name="County/Parish Code" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70289" BindingStrength="R"/>
 			<Component Name="Census Tract" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70288" BindingStrength="R"/>
 			<Component Name="Address Representation Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70465" BindingStrength="R"/>
-			<Component Name="Address Validity Range" Usage="X" Datatype="DR_IZ_ST" MinLength="1" MaxLength="53"/>
+			<Component Name="Address Validity Range" Usage="X" Datatype="DR" MinLength="1" MaxLength="53"/>
 			<Component Name="Effective Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 			<Component Name="Expiration Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 		</Datatype>
@@ -226,7 +230,7 @@
 			<Component Name="Name Type Code" Usage="R" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70200_IZ" BindingStrength="R"/>
 			<Component Name="Name Representation Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70465" BindingStrength="R"/>
 			<Component Name="Name Context" Usage="O" Datatype="CE" MinLength="1" MaxLength="483" Binding="HL70448" BindingStrength="R" BindingLocation="1"/>
-			<Component Name="Name Validity Range" Usage="X" Datatype="DR_IZ_ST" MinLength="1" MaxLength="53"/>
+			<Component Name="Name Validity Range" Usage="X" Datatype="DR" MinLength="1" MaxLength="53"/>
 			<Component Name="Name Assembly Order" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70444" BindingStrength="R"/>
 			<Component Name="Effective Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
 			<Component Name="Expiration Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>

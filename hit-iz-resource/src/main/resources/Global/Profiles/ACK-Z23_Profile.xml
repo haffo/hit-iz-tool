@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
 <ConformanceProfile ID="f5545482-8dda-4495-930b-7383117cdf31" Type="Constrainable" HL7Version="2.5.1" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData Name="Z23 Message profile" OrgName="NIST" Version="1.0.0" Date="20160219" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
+	<MetaData Name="Z23 Message profile" OrgName="NIST" Version="1.0.1" Date="20160328" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
 		<Encoding>XML</Encoding>
