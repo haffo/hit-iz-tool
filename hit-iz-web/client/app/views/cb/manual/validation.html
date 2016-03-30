@@ -21,9 +21,9 @@
                                     <div>Result</div>
                                 </label>
                                 <div class="col-md-4">
-                                    <select class="form-control" name="resultValue" id="resultValue" ng-model="report.result.value" required ng-disabled="isTestCaseCompleted() && testCase.type === 'TestCase'">
+                                    <select class="form-control" name="resultValue" id="resultValue" ng-model="testExecutionService.testStepValidationResults[testStep.id]" required ng-disabled="isTestCaseCompleted() && testCase.type === 'TestCase'">
                                         <option value="">---Please select---</option>
-                                        <option ng-repeat="resultOption in resultOptions" value="{{resultOption.value}}">{{resultOption.title}}</option>
+                                        <option ng-repeat="resultOption in testExecutionService.resultOptions" value="{{resultOption.value}}">{{resultOption.title}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -34,7 +34,7 @@
                                     <div>Comments</div>
                                 </label>
                                 <div class="col-md-8">
-                                    <textarea rows="9" ng-model="report.result.comments" id="resultComment" name="resultComment" ng-disabled="isTestCaseCompleted() && testCase.type === 'TestCase'"
+                                    <textarea rows="9" ng-model="testExecutionService.testStepComments[testStep.id]" id="resultComment" name="resultComment" ng-disabled="isTestCaseCompleted() && testCase.type === 'TestCase'"
                                               style="text-align:left;width:700px;">
                                     </textarea>
                                 </div>
@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-8">
                                     <button class="btn btn-success" id="submitManualResultButton" ng-click='save()'
-                                            ng-disabled="report.result.value === '' || report.result.value === null || !manualStepForm.$valid || saving || (isTestCaseCompleted() && testCase.type === 'TestCase')">
+                                            ng-disabled="!testExecutionService.testStepValidationResults[testStep.id] || testExecutionService.testStepValidationResults[testStep.id] === '' || testExecutionService.testStepValidationResults[testStep.id] === null || !manualStepForm.$valid || saving || (isTestCaseCompleted() && testCase.type === 'TestCase')">
                                         <i class="fa fa-check"></i><span>Submit</span>
                                     </button>
                                 </div>

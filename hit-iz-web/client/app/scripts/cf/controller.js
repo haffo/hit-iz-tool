@@ -337,7 +337,7 @@ angular.module('cf')
 
         $scope.loadValidationResult = function (mvResult) {
             $timeout(function () {
-                $scope.$broadcast('cf:validationResultLoaded', mvResult, $scope.cf.testCase.id);
+                $scope.$broadcast('cf:validationResultLoaded', mvResult, $scope.cf.testCase);
             });
         };
 

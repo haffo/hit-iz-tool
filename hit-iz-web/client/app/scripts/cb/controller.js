@@ -32,7 +32,7 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBExecutionCtrl', ['$scope', '$window', '$rootScope', 'CB', '$modal', 'TestExecutionClock', 'Endpoint', 'TestExecutionService', '$timeout', 'StorageService', 'User', 'ReportService', 'SOAPEscaper', 'TestCaseDetailsService', '$compile', 'Transport','$filter', function ($scope, $window, $rootScope, CB, $modal, TestExecutionClock, Endpoint, TestExecutionService, $timeout, StorageService, User, ReportService, SOAPEscaper, TestCaseDetailsService, $compile, Transport,$filter) {
+    .controller('CBExecutionCtrl', ['$scope', '$window', '$rootScope', 'CB', '$modal', 'TestExecutionClock', 'Endpoint', 'TestExecutionService', '$timeout', 'StorageService', 'User', 'ReportService', 'SOAPEscaper', 'TestCaseDetailsService', '$compile', 'Transport', '$filter', function ($scope, $window, $rootScope, CB, $modal, TestExecutionClock, Endpoint, TestExecutionService, $timeout, StorageService, User, ReportService, SOAPEscaper, TestCaseDetailsService, $compile, Transport, $filter) {
         $scope.targ = "cb-executed-test-step";
         $scope.loading = false;
         $scope.error = null;
@@ -58,6 +58,7 @@ angular.module('cb')
         $scope.domain = null;
         $scope.protocol = null;
         $scope.exampleMessageEditor = null;
+        $scope.testExecutionService = TestExecutionService;
 
         $scope.initExecution = function () {
             $scope.$on('cb:testCaseLoaded', function (event, testCase, tab) {
@@ -224,8 +225,8 @@ angular.module('cb')
         };
 
 
-        $scope.selectProtocol = function(testStep){
-            if(testStep != null) $scope.protocol = testStep.protocol;
+        $scope.selectProtocol = function (testStep) {
+            if (testStep != null) $scope.protocol = testStep.protocol;
         };
 
         $scope.selectTestStep = function (testStep) {
@@ -235,18 +236,18 @@ angular.module('cb')
                 StorageService.set(StorageService.CB_LOADED_TESTSTEP_TYPE_KEY, $scope.testStep.type);
                 StorageService.set(StorageService.CB_LOADED_TESTSTEP_ID_KEY, $scope.testStep.id);
                 if (!$scope.isManualStep(testStep)) {
-                    if (testStep.executionMessage === undefined && testStep['testingType'] === 'TA_INITIATOR') {
+                    if ( $scope.testExecutionService.getTestStepExecutionMessage(testStep) === undefined && testStep['testingType'] === 'TA_INITIATOR') {
                         if (!$scope.transport.disabled && $scope.domain != null && $scope.protocol != null) {
                             var populateMessage = $scope.transport.populateMessage(testStep.id, testStep.testContext.message.content, $scope.domain, $scope.protocol);
                             populateMessage.then(function (response) {
-                                TestExecutionService.setExecutionMessage(testStep, response.outgoingMessage);
+                                $scope.testExecutionService.setTestStepExecutionMessage(testStep, response.outgoingMessage);
                                 $scope.loadTestStepExecutionPanel(testStep);
                             }, function (error) {
-                                TestExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
+                                $scope.testExecutionService.setTestStepExecutionMessage(testStep, testStep.testContext.message.content);
                                 $scope.loadTestStepExecutionPanel(testStep);
                             });
                         } else {
-                            TestExecutionService.setExecutionMessage(testStep, testStep.testContext.message.content);
+                            $scope.testExecutionService.setTestStepExecutionMessage(testStep, testStep.testContext.message.content);
                             $scope.loadTestStepExecutionPanel(testStep);
                         }
                     } else {
@@ -265,20 +266,20 @@ angular.module('cb')
         };
 
 
-        $scope.getExecutionStatus = function (testStep) {
-            return TestExecutionService.getExecutionStatus(testStep);
+        $scope.getTestStepExecutionStatus = function (testStep) {
+            return $scope.testExecutionService.getTestStepExecutionStatus(testStep);
         };
 
-        $scope.getValidationStatus = function (testStep) {
-            return TestExecutionService.getValidationStatus(testStep);
+        $scope.getTestStepValidationResult = function (testStep) {
+            return $scope.testExecutionService.getTestStepValidationResult(testStep);
         };
 
-        $scope.getValidationReport = function (testStep) {
-            return TestExecutionService.getValidationReport(testStep);
+        $scope.getTestStepValidationReport = function (testStep) {
+            return $scope.testExecutionService.getTestStepValidationReport(testStep);
         };
 
         $scope.getManualValidationStatusTitle = function (testStep) {
-            return TestExecutionService.getManualValidationStatusTitle(testStep);
+            return $scope.testExecutionService.getManualValidationStatusTitle(testStep);
         };
 
         $scope.isManualStep = function (testStep) {
@@ -293,12 +294,12 @@ angular.module('cb')
             return testStep['testingType'] == 'TA_INITIATOR';
         };
 
-        $scope.isStepCompleted = function (testStep) {
-            return $scope.getExecutionStatus(testStep) == 'COMPLETE';
+        $scope.isTestStepCompleted = function (testStep) {
+            return $scope.testExecutionService.getTestStepExecutionStatus(testStep) === 'COMPLETE';
         };
 
         $scope.completeStep = function (row) {
-            TestExecutionService.setExecutionStatus(row, 'COMPLETE');
+            $scope.testExecutionService.setTestStepExecutionStatus(row, 'COMPLETE');
         };
 
         $scope.completeManualStep = function (row) {
@@ -306,14 +307,11 @@ angular.module('cb')
         };
 
         $scope.progressStep = function (row) {
-            TestExecutionService.setExecutionStatus(row, 'IN_PROGRESS');
+            $scope.testExecutionService.setTestStepExecutionStatus(row, 'IN_PROGRESS');
         };
 
 
         $scope.goNext = function (row) {
-//            if ($scope.isManualStep(row)) {
-//                $scope.completeStep(row);
-//            }
             if (!$scope.isLastStep(row)) {
                 $scope.executeTestStep($scope.findNextStep(row.position));
             } else {
@@ -322,9 +320,6 @@ angular.module('cb')
         };
 
         $scope.goBack = function (row) {
-//            if ($scope.isManualStep(row)) {
-//                $scope.completeStep(row);
-//            }
             if (!$scope.isFirstStep(row)) {
                 $scope.executeTestStep($scope.findPreviousStep(row.position));
             }
@@ -333,7 +328,10 @@ angular.module('cb')
         $scope.executeTestStep = function (testStep) {
             CB.testStep = testStep;
             $scope.warning = null;
-            if(testStep.protocols != null && testStep.protocols && testStep.protocols.length > 0){
+            if($scope.isManualStep(testStep)){
+                $scope.testExecutionService.setTestStepExecutionStatus(testStep, 'COMPLETE');
+            }
+            if (testStep.protocols != null && testStep.protocols && testStep.protocols.length > 0) {
                 testStep['protocol'] = $scope.getDefaultProtocol(testStep);
                 $scope.selectProtocol(testStep);
             }
@@ -345,10 +343,10 @@ angular.module('cb')
         };
 
         $scope.getDefaultProtocol = function (testStep) {
-            if(testStep.protocols != null && testStep.protocols && testStep.protocols.length > 0){
+            if (testStep.protocols != null && testStep.protocols && testStep.protocols.length > 0) {
                 testStep.protocols = $filter('orderBy')(testStep.protocols, 'position');
-                for(var i=0; i < testStep.protocols.length; i++){
-                    if(testStep.protocols[i]['defaut'] != undefined && testStep.protocols[i]['defaut'] === true){
+                for (var i = 0; i < testStep.protocols.length; i++) {
+                    if (testStep.protocols[i]['defaut'] != undefined && testStep.protocols[i]['defaut'] === true) {
                         return testStep.protocols[i].value;
                     }
                 }
@@ -359,19 +357,16 @@ angular.module('cb')
 
 
         $scope.completeTestCase = function () {
-            $scope.testCase.executionStatus = 'COMPLETE';
+            $scope.testExecutionService.setTestCaseExecutionStatus($scope.testCase, 'COMPLETE');
             if (CB.editor.instance != null) {
                 CB.editor.instance.setOption("readOnly", true);
             }
+            TestExecutionService.setTestCaseValidationResultFromTestSteps($scope.testCase);
             $scope.clearTestStep();
         };
 
         $scope.isTestCaseCompleted = function () {
-            return $scope.testCase && $scope.testCase.executionStatus === 'COMPLETE';
-        };
-
-        $scope.isTestStepCompleted = function (row) {
-            return row != null && $scope.getExecutionStatus(row) == 'COMPLETE';
+            return $scope.testExecutionService.getTestCaseExecutionStatus($scope.testCase) === 'COMPLETE';
         };
 
         $scope.shouldNextStep = function (row) {
@@ -388,21 +383,19 @@ angular.module('cb')
 
 
         $scope.isTestCaseSuccessful = function () {
-            if ($scope.testCase != null) {
-                for (var i = 0; i < $scope.testCase.children.length; i++) {
-                    if ($scope.getValidationStatus($scope.testCase.children[i]) > 0) {
-                        return false;
-                    }
-                }
-            }
-            return true;
+            var status = $scope.testExecutionService.getTestCaseValidationResult($scope.testCase);
+            return status == 'PASSED' ? true : false;
         };
 
 
-        $scope.testStepSucceed = function (testStep) {
-            return $scope.getValidationStatus(testStep) <= 0;
+        $scope.isTestStepValidated = function(testStep){
+           return $scope.testExecutionService.getTestStepValidationResult(testStep) != undefined;
         };
 
+        $scope.isTestStepSuccessful = function (testStep) {
+            var status = $scope.testExecutionService.getTestStepValidationResult(testStep);
+            return status == 'PASSED' || 'PASSED_NOTABLE_EXCEPTION' ? true : false;
+        };
 
         $scope.findNextStep = function (position) {
             var nextStep = null;
@@ -429,28 +422,16 @@ angular.module('cb')
             if (CB.editor != null && CB.editor.instance != null) {
                 CB.editor.instance.setOption("readOnly", false);
             }
-            if ($scope.testCase != null) {
-                for (var i = 0; i < $scope.testCase.children.length; i++) {
-                    var testStep = $scope.testCase.children[i];
-                    TestExecutionService.deleteExecutionStatus(testStep);
-                    TestExecutionService.deleteValidationReport(testStep);
-                    TestExecutionService.deleteExecutionMessage(testStep);
-                    TestExecutionService.deleteMessageTree(testStep);
-                }
-                if ($scope.testCase.executionStatus) {
-                    delete $scope.testCase.executionStatus;
-                }
-            }
+            TestExecutionService.init();
         };
 
         $scope.setNextStepMessage = function (message) {
             var nextStep = $scope.findNextStep($scope.testStep.position);
             if (nextStep != null && !$scope.isManualStep(nextStep)) {
                 $scope.completeStep(nextStep);
-                TestExecutionService.setExecutionMessage(nextStep, message);
+                $scope.testExecutionService.setTestStepExecutionMessage(nextStep, message);
             }
         };
-
 
         $scope.log = function (log) {
             $scope.logger.log(log);
@@ -591,14 +572,19 @@ angular.module('cb')
             });
         };
 
+        $scope.updateTestStepValidationReport = function (testStep) {
+            TestExecutionService.updateTestStepValidationReport(testStep).then(function(report){
+                $rootScope.$emit('cb:updateTestStepValidationReport', report,testStep);
+            });
+        };
 
         $scope.abortListening = function () {
-            TestExecutionService.setExecutionStatus($scope.testStep, undefined);
+            $scope.testExecutionService.deleteTestStepExecutionStatus($scope.testStep);
             $scope.stopListener();
         };
 
         $scope.completeListening = function () {
-            TestExecutionService.setExecutionStatus($scope.testStep, "COMPLETE");
+            $scope.testExecutionService.setTestStepExecutionStatus($scope.testStep, "COMPLETE");
             $scope.stopListener();
         };
 
@@ -637,7 +623,7 @@ angular.module('cb')
                                             try {
                                                 var receivedMessage = parseRequest(incoming);
                                                 $scope.log(receivedMessage);
-                                                TestExecutionService.setExecutionMessage($scope.testStep, receivedMessage);
+                                                $scope.testExecutionService.setTestStepExecutionMessage($scope.testStep, receivedMessage);
                                                 $scope.$broadcast('cb:loadEditorContent', receivedMessage);
                                             } catch (error) {
                                                 $scope.error = errors[2];
@@ -772,13 +758,15 @@ angular.module('cb')
             }
         };
 
-        $scope.downloadTestCaseReports = function () {
+
+        $scope.exportAs = function (format) {
             if ($scope.testCase != null) {
-                ReportService.downloadTestCaseReports($scope.testCase.id);
+                ReportService.downloadTestCaseReports($scope.testCase.id, format, TestExecutionService.getTestCaseValidationResult($scope.testCase), TestExecutionService.getTestCaseComments($scope.testCase));
             }
         };
 
-        $scope.toggleTransport = function(disabled){
+
+        $scope.toggleTransport = function (disabled) {
             $scope.transport.disabled = disabled;
             if (CB.editor.instance != null) {
                 CB.editor.instance.setOption("readOnly", !disabled);
@@ -983,7 +971,7 @@ angular.module('cb')
                 if (testContext) {
                     var message = testContext.message && testContext.message != null ? testContext.message.content : '';
                     if ($scope.isTestCase()) {
-                        TestExecutionService.setExecutionMessage($scope.testStep, message);
+                        TestExecutionService.setTestStepExecutionMessage($scope.testStep, message);
                     }
                     $scope.nodelay = true;
                     $scope.cb.editor.instance.doc.setValue(message);
@@ -1082,14 +1070,14 @@ angular.module('cb')
                         var validator = ServiceDelegator.getMessageValidator($scope.testStep.testContext.format).validate($scope.testStep.testContext.id, $scope.cb.message.content, $scope.testStep.nav, "Based", [], "1223");
                         validator.then(function (mvResult) {
                             $scope.vLoading = false;
-                            $scope.setValidationReport(mvResult);
+                            $scope.setTestStepValidationReport(mvResult);
                         }, function (error) {
                             $scope.vLoading = false;
                             $scope.vError = error;
-                            $scope.setValidationReport(null);
+                            $scope.setTestStepValidationReport(null);
                         });
                     } else {
-                        $scope.setValidationReport(null);
+                        $scope.setTestStepValidationReport(null);
                         $scope.vLoading = false;
                         $scope.vError = null;
                     }
@@ -1097,23 +1085,24 @@ angular.module('cb')
             } catch (error) {
                 $scope.vLoading = false;
                 $scope.vError = null;
-                $scope.setValidationReport(null);
+                $scope.setTestStepValidationReport(null);
             }
         };
 
-        $scope.setValidationReport = function (mvResult) {
+        $scope.setTestStepValidationReport = function (mvResult) {
             if ($scope.testStep != null) {
                 if (mvResult != null) {
-                    TestExecutionService.setExecutionStatus($scope.testStep, 'COMPLETE');
+                    TestExecutionService.setTestStepExecutionStatus($scope.testStep, 'COMPLETE');
+                    TestExecutionService.setTestStepValidationReport($scope.testStep, mvResult);
                 }
-                $rootScope.$broadcast('cb:validationResultLoaded', mvResult, $scope.testStep.id);
+                $rootScope.$broadcast('cb:validationResultLoaded', mvResult, $scope.testStep);
             }
         };
 
-        $scope.setMessageTree = function (messageObject) {
+        $scope.setTestStepMessageTree = function (messageObject) {
             $scope.buildMessageTree(messageObject);
             var tree = messageObject && messageObject != null && messageObject.elements ? messageObject : undefined;
-            TestExecutionService.setMessageTree($scope.testStep, tree);
+            TestExecutionService.setTestStepMessageTree($scope.testStep, tree);
         };
 
         $scope.buildMessageTree = function (messageObject) {
@@ -1133,8 +1122,8 @@ angular.module('cb')
             $scope.nodelay = true;
             $scope.mError = null;
             if ($scope.testStep != null) {
-                TestExecutionService.deleteValidationReport($scope.testStep);
-                TestExecutionService.deleteMessageTree($scope.testStep);
+                TestExecutionService.deleteTestStepValidationReport($scope.testStep);
+                TestExecutionService.deleteTestStepMessageTree($scope.testStep);
             }
             if ($scope.editor) {
                 $scope.editor.doc.setValue('');
@@ -1154,14 +1143,14 @@ angular.module('cb')
                         var parsed = ServiceDelegator.getMessageParser($scope.testStep.testContext.format).parse($scope.testStep.testContext.id, $scope.cb.message.content);
                         parsed.then(function (value) {
                             $scope.tLoading = false;
-                            $scope.setMessageTree(value);
+                            $scope.setTestStepMessageTree(value);
                         }, function (error) {
                             $scope.tLoading = false;
                             $scope.tError = error;
-                            $scope.setMessageTree([]);
+                            $scope.setTestStepMessageTree([]);
                         });
                     } else {
-                        $scope.setMessageTree([]);
+                        $scope.setTestStepMessageTree([]);
                         $scope.tError = null;
                         $scope.tLoading = false;
                     }
@@ -1191,14 +1180,14 @@ angular.module('cb')
             StorageService.set(StorageService.CB_EDITOR_CONTENT_KEY, $scope.cb.message.content);
             $scope.refreshEditor();
             if (!$scope.isTestCase() || !$scope.isTestCaseCompleted()) {
-                TestExecutionService.setExecutionMessage($scope.testStep, $scope.cb.message.content);
-                TestExecutionService.deleteValidationReport($scope.testStep);
-                TestExecutionService.deleteMessageTree($scope.testStep);
+                TestExecutionService.setTestStepExecutionMessage($scope.testStep, $scope.cb.message.content);
+                TestExecutionService.deleteTestStepValidationReport($scope.testStep);
+                TestExecutionService.deleteTestStepMessageTree($scope.testStep);
                 $scope.validateMessage();
                 $scope.parseMessage();
             } else {
-                $scope.setValidationReport(TestExecutionService.getValidationReport($scope.testStep));
-                $scope.setMessageTree(TestExecutionService.getMessageTree($scope.testStep));
+                $scope.setTestStepValidationReport(TestExecutionService.getTestStepValidationReport($scope.testStep));
+                $scope.setTestStepMessageTree(TestExecutionService.getTestStepMessageTree($scope.testStep));
             }
         };
 
@@ -1210,7 +1199,7 @@ angular.module('cb')
             $scope.tError = null;
             $scope.mError = null;
             $scope.vError = null;
-            $scope.setValidationReport(null);
+            $scope.setTestStepValidationReport(null);
         };
 
         $scope.removeDuplicates = function () {
@@ -1230,7 +1219,7 @@ angular.module('cb')
             });
             $rootScope.$on('cb:reportLoaded', function (event, report) {
                 if ($scope.testStep != null) {
-                    TestExecutionService.setValidationReport($scope.testStep, report);
+                    TestExecutionService.setTestStepValidationReport($scope.testStep, report);
                 }
             });
             $scope.$on('cb:testStepLoaded', function (event, testStep) {
@@ -1246,7 +1235,7 @@ angular.module('cb')
                         content = StorageService.get(StorageService.CB_EDITOR_CONTENT_KEY) == null ? '' : StorageService.get(StorageService.CB_EDITOR_CONTENT_KEY);
                     } else {
                         $scope.nodelay = true;
-                        content = TestExecutionService.getExecutionMessage($scope.testStep);
+                        content = TestExecutionService.getTestStepExecutionMessage($scope.testStep);
                         content = content && content != null ? content : '';
                     }
                     if ($scope.editor) {
@@ -1332,13 +1321,13 @@ angular.module('cb')
     });
 
 angular.module('cb')
-    .controller('CBManualValidationCtrl', ['$scope', 'CB', '$http', 'TestExecutionService', '$timeout', 'ManualReportService','$rootScope', function ($scope, CB, $http, TestExecutionService, $timeout, ManualReportService,$rootScope) {
+    .controller('CBManualValidationCtrl', ['$scope', 'CB', '$http', 'TestExecutionService', '$timeout', 'ManualReportService', '$rootScope', function ($scope, CB, $http, TestExecutionService, $timeout, ManualReportService, $rootScope) {
         $scope.cb = CB;
         $scope.saving = false;
         $scope.error = null;
         $scope.testStep = null;
         $scope.report = null;
-        $scope.resultOptions = ManualReportService.resultOptions;
+        $scope.testExecutionService =TestExecutionService;
         $scope.saved = false;
         $scope.error = null;
         $scope.$on('cb:manualTestStepLoaded', function (event, testStep) {
@@ -1346,21 +1335,21 @@ angular.module('cb')
             $scope.saving = false;
             $scope.error = null;
             $scope.testStep = testStep;
-            $scope.report = TestExecutionService.getValidationReport(testStep) === undefined || TestExecutionService.getValidationReport(testStep) === null ? {"result": { "value": "", "comments": ""}, "html": null} : TestExecutionService.getValidationReport(testStep);
+            $scope.report = TestExecutionService.getTestStepValidationReport(testStep) === undefined || TestExecutionService.getTestStepValidationReport(testStep) === null ? {"result": { "value": "", "comments": ""}, "html": null} : TestExecutionService.getTestStepValidationReport(testStep);
         });
 
         $scope.save = function () {
             $scope.saving = true;
             $scope.saved = false;
             $scope.error = null;
-            ManualReportService.save($scope.report.result,$scope.testStep).then(function (report) {
+            ManualReportService.save($scope.report.result, $scope.testStep).then(function (report) {
                 $scope.report["id"] = report.id;
                 $scope.report["xml"] = report.xml;
-                TestExecutionService.setExecutionStatus($scope.testStep, 'COMPLETE');
+                TestExecutionService.setTestStepExecutionStatus($scope.testStep, 'COMPLETE');
                 var rep = angular.copy($scope.report);
-                TestExecutionService.setValidationReport($scope.testStep, rep);
+                TestExecutionService.setTestStepValidationReport($scope.testStep, rep);
                 $timeout(function () {
-                    $rootScope.$emit('cb:manualReportLoaded',rep, $scope.testStep.id);
+                    $rootScope.$emit('cb:manualReportLoaded', rep, $scope.testStep.id);
                 });
                 $scope.saving = false;
                 $scope.saved = true;

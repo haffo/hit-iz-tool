@@ -10,27 +10,28 @@
     }
 </script>
 <div class="panel panel-info">
-    <div class="panel-heading">
-        <span ng-show="testCase.executionStatus !== 'COMPLETE'">Test Steps Execution</span>
-        <span ng-show="testCase.executionStatus === 'COMPLETE'">Test Steps Result</span>
-    </div>
-    <div class="panel-body">
-        <table st-table="testCase.children" style="margin-bottom: 0px"
-               class="table table-bordered  table-condensed stTable">
-            <thead>
-            <tr class="">
-                <th style="width:5%">#</th>
-                <th style="width:20%">Name</th>
-                <th style="width:35%">Description</th>
-                <th style="width:15%">Execution Status</th>
-                <th style="width:15%">Validation Result</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-class="{'current': testStep != null && row.id === testStep.id}"
-                ng-repeat="row in testCase.children | orderBy:'position'">
-                <td style="width:5%">
-                    <label>
+<div class="panel-heading">
+    <span ng-show="!isTestCaseCompleted()">Test Steps Execution</span>
+    <span ng-show="isTestCaseCompleted()">Test Steps Result</span>
+</div>
+<div class="panel-body">
+<table st-table="testCase.children" style="margin-bottom: 0px"
+       class="table table-bordered  table-condensed stTable">
+    <thead>
+    <tr class="">
+        <th style="width:5%">#</th>
+        <th style="width:20%">Name</th>
+        <th style="width:25%">Description</th>
+        <th style="width:10%">Execution Status</th>
+        <th style="width:15%">Validation Result</th>
+        <th style="width:20%">Comments</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-class="{'current': testStep != null && row.id === testStep.id}"
+        ng-repeat="row in testCase.children | orderBy:'position'">
+        <td style="width:5%">
+            <label>
                                     <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
                        <i class="fa fa-wrench"></i>
                     </span>
@@ -42,26 +43,26 @@
                     <span ng-show="row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER'">
                         <i class="fa fa-arrow-right"></i>
                     </span>
-                        <input ng-show="isTestCaseCompleted()" type="radio"
-                               ng-click="selectTestStep(row)"
-                               ng-checked="testStep != null && testStep.id === row.id"
-                                >
-                        {{row.position}}.
-                    </label>
-                </td>
-                <td style="width:20%">
+                <input ng-show="isTestCaseCompleted()" type="radio"
+                       ng-click="selectTestStep(row)"
+                       ng-checked="testStep != null && testStep.id === row.id"
+                        >
+                {{row.position}}.
+            </label>
+        </td>
+        <td style="width:20%">
 
-                    {{row.name}}
-                </td>
-                <td style="width:35%" ng-bind-html="row.description"></td>
+            {{row.name}}
+        </td>
+        <td style="width:35%" ng-bind-html="row.description"></td>
 
 
-                <td style="width:15%">
+        <td style="width:20%">
 
-                    <div ng-show="getExecutionStatus(row) === undefined">
-                        <div ng-show="row.id !== testStep.id">Not started</div>
-                            <div ng-show="row.id === testStep.id">
-                                <div ng-show="testCase.transport === true && user.info != null && !transport.disabled">
+            <div ng-show="testExecutionService.getTestStepExecutionStatus(row) === undefined">
+                <div ng-show="row.id !== testStep.id">Not started</div>
+                <div ng-show="row.id === testStep.id">
+                    <div ng-show="testCase.transport === true && user.info != null && !transport.disabled">
                                     <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
                                         Waiting for input...
                                     </span>
@@ -77,19 +78,19 @@
                                     <span ng-show="row.testingType === 'SUT_RESPONDER'">
                                        Waiting to receive...
                                     </span>
-                                </div>
-                                <div ng-show="testCase.transport === false || user.info == null || transport.disabled">
+                    </div>
+                    <div ng-show="testCase.transport === false || user.info == null || transport.disabled">
                                         <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
                                             Waiting for user's input...
                                         </span>
                                         <span ng-show="row.testingType === 'TA_INITIATOR' || row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER' || row.testingType === 'TA_RESPONDER'">
                                             Waiting for message...
                                         </span>
-                                </div>
-                            </div>
-                        </div>
-                     <div ng-show="getExecutionStatus(row) === 'IN_PROGRESS'">
-                             <div ng-show="testCase.transport === true && user.info != null && !transport.disabled">
+                    </div>
+                </div>
+            </div>
+            <div ng-show="testExecutionService.getTestStepExecutionStatus(row) === 'IN_PROGRESS'">
+                <div ng-show="testCase.transport === true && user.info != null && !transport.disabled">
 
                                     <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
                                         Waiting for input...
@@ -100,20 +101,20 @@
                                     <span ng-show="row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER'">
                                         Waiting to receive...
                                     </span>
-                            </div>
-                            <div ng-show="testCase.transport === false || user.info == null || transport.disabled">
+                </div>
+                <div ng-show="testCase.transport === false || user.info == null || transport.disabled">
                                     <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
                                         Waiting for input...
                                     </span>
                                     <span ng-show="row.testingType === 'TA_INITIATOR' || row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER' || row.testingType === 'TA_RESPONDER'">
                                             Waiting for message...
                                     </span>
-                            </div>
-                    </div>
-                    <div ng-show="getExecutionStatus(row) === 'COMPLETE'">
-                        <div ng-show="testCase.transport === true && user.info != null && !transport.disabled">
-                            <i
-                                    class="fa fa-check green"></i>
+                </div>
+            </div>
+            <div ng-show="testExecutionService.getTestStepExecutionStatus(row) === 'COMPLETE'">
+                <div ng-show="testCase.transport === true && user.info != null && !transport.disabled">
+                    <i
+                            class="fa fa-check green"></i>
                                     <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
                                          Completed
                                     </span>
@@ -126,50 +127,109 @@
                                     <span ng-show="row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER'">
                                       Completed
                                     </span>
-                        </div>
-                        <div ng-show="testCase.transport === false || user.info == null || transport.disabled">
-                            <i
-                                    class="fa fa-check green"></i> Completed
+                </div>
+                <div ng-show="testCase.transport === false || user.info == null || transport.disabled">
+                    <i
+                            class="fa fa-check green"></i> Completed
 
-                        </div>
+                </div>
+            </div>
+        </td>
+
+
+        <td style="width:10%">
+
+            <div ng-if="!isTestCaseCompleted()">
+                <div ng-show="isTestStepCompleted(row)">
+                    <div ng-show="row.id === testStep.id">
+                        <select class="" name="resultValue" id="resultValue"
+                                ng-change="updateTestStepValidationReport(row)"
+                                ng-model="testExecutionService.testStepValidationResults[row.id]" required
+                                ng-disabled="row.id !== testStep.id">
+                            <option ng-repeat="resultOption in testExecutionService.resultOptions"
+                                    value="{{resultOption.value}}">{{resultOption.title}}
+                            </option>
+                        </select>
                     </div>
-                </td>
-
-
-                <td style="width:15%">
-                    <div ng-show="getValidationReport(row) === undefined">
-                        <div ng-show="row.id !== testStep.id">Not started</div>
-                        <div ng-show="row.id === testStep.id">
-                            In Progress
-                        </div>
+                    <div ng-show="row.id !== testStep.id">
+                        <i class="{{testExecutionService.getResultOptionByValue(testExecutionService.testStepValidationResults[row.id]).class}}"></i> {{testExecutionService.getResultOptionByValue(testExecutionService.testStepValidationResults[row.id]).title}}
                     </div>
-                    <div ng-show="getValidationReport(row) !== undefined">
-                        <div ng-show="row.testingType != 'TA_MANUAL' && row.testingType != 'SUT_MANUAL'">
-                            <div ng-show="getValidationStatus(row) > 0">
-                                <i title="Message is Invalid"
-                                   class="fa fa-check red"></i> Failed
-                            </div>
-                            <div ng-show="getValidationStatus(row) == 0">
-                                <i title="Message Is Valid"
-                                   class="fa fa-check green"></i> Passed
-                            </div>
-                        </div>
 
-                        <div ng-show="row.testingType == 'TA_MANUAL' || row.testingType == 'SUT_MANUAL'">
-                            <i title="Step has failed" ng-show="getValidationStatus(row) < 0"
-                               class="fa fa-check red"></i>
-                            <i title="Step completed successfully" ng-show="getValidationStatus(row) >= 0"
-                               class="fa fa-check green"></i>
-                            <span ng-bind="getManualValidationStatusTitle(row)"></span>
-                        </div>
+                </div>
+
+                <div ng-show="!isTestStepCompleted(row)">
+                    <div ng-show="row.id !== testStep.id">Not started</div>
+                    <div ng-show="row.id === testStep.id">
+                        In Progress
                     </div>
-                </td>
+                </div>
+            </div>
+            <div ng-if="isTestCaseCompleted()">
+                <i class="{{testExecutionService.getResultOptionByValue(testExecutionService.testStepValidationResults[row.id]).class}}"></i> {{testExecutionService.getResultOptionByValue(testExecutionService.testStepValidationResults[row.id]).title}}
+            </div>
 
-            </tr>
-            </tbody>
 
-        </table>
-        <div style="margin-top:5px">
+
+            <!--<div ng-show="getValidationReport(row) === undefined">-->
+            <!--<div ng-show="row.id !== testStep.id">Not started</div>-->
+            <!--<div ng-show="row.id === testStep.id">-->
+            <!--In Progress-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div ng-show="getValidationReport(row) !== undefined">-->
+            <!--<div ng-show="row.testingType != 'TA_MANUAL' && row.testingType != 'SUT_MANUAL'">-->
+            <!--<div ng-show="getValidationStatus(row) > 0">-->
+            <!--<i title="Message is Invalid"-->
+            <!--class="fa fa-check red"></i> Failed-->
+            <!--</div>-->
+            <!--<div ng-show="getValidationStatus(row) == 0">-->
+            <!--<i title="Message Is Valid"-->
+            <!--class="fa fa-check green"></i> Passed-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div ng-show="row.testingType == 'TA_MANUAL' || row.testingType == 'SUT_MANUAL'">-->
+            <!--<i title="Step has failed" ng-show="getValidationStatus(row) < 0"-->
+            <!--class="fa fa-check red"></i>-->
+            <!--<i title="Step completed successfully" ng-show="getValidationStatus(row) >= 0"-->
+            <!--class="fa fa-check green"></i>-->
+            <!--<span ng-bind="getManualValidationStatusTitle(row)"></span>-->
+            <!--</div>-->
+            <!--</div>-->
+        </td>
+        <td style="width:15%">
+
+            <div ng-if="!isTestCaseCompleted() && isTestStepCompleted(row)">
+                <a
+                   ng-show="row.id === testStep.id && (testExecutionService.testStepComments[row.id] === null || testExecutionService.testStepComments[row.id] == undefined)"
+                   ng-click="testExecutionService.testStepComments[row.id] = ' '" class="point">
+                    <i class="fa fa-pencil fa-fw"></i>
+                </a>
+                <textarea  style="width:100%;height:100%"
+                           class="form-control"
+                          ng-blur="updateTestStepValidationReport(row)"
+                          ng-model="testExecutionService.testStepComments[row.id]" ng-disabled="row.id !== testStep.id"
+                          ng-show="testExecutionService.testStepComments[row.id] !== null && testExecutionService.testStepComments[row.id] != undefined">
+                </textarea>
+                <a
+                   ng-show="row.id === testStep.id && testExecutionService.testStepComments[row.id] !== null && testExecutionService.testStepComments[row.id] !== undefined"
+                   ng-click="testExecutionService.testStepComments[row.id] = undefined;updateTestStepValidationReport(row);" class="point">
+                    <i class="fa fa-times fa-fw"></i>
+                </a>
+            </div>
+            <div ng-if="isTestCaseCompleted()">
+                <textarea  style="width:100%;height:100%"
+                          class="form-control"
+                          ng-model="testExecutionService.testStepComments[row.id]" ng-disabled="true"
+                          ng-show="testExecutionService.testStepComments[row.id] !== null && testExecutionService.testStepComments[row.id] != undefined">
+                </textarea>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+<div style="margin-top:5px">
         <span class="pull-left">
                     <button ng-click="goBack(testStep)"
                             ng-show="!isTestCaseCompleted() && !isFirstStep(testStep)"
@@ -179,19 +239,19 @@
 </span>
                     <span class="pull-right">
                     <button ng-click="goNext(testStep)"
-                            ng-show="!isLastStep(testStep) && !isTestCaseCompleted() && isTestStepCompleted(testStep)"
+                            ng-show="!isLastStep(testStep) && !isTestCaseCompleted() && isTestStepCompleted(testStep)&& isTestStepValidated(testStep)"
                             title="Execute Next Step" class="btn btn-xs btn-info">
                         <span><i class="fa fa-arrow-right"></i> Next</span>
                     </button>
 
                         <button ng-click="goNext(testStep)"
-                                ng-show="isLastStep(testStep) && !isTestCaseCompleted() && isTestStepCompleted(testStep)"
+                                ng-show="isLastStep(testStep) && !isTestCaseCompleted() && isTestStepCompleted(testStep) && isTestStepValidated(testStep)"
                                 title="Complete Test Case" class="btn btn-xs btn-info">
-                            <span><i class="fa fa-check-circle"></i> Complete</span>
+                            <span><i class="fa fa-check-circle"></i> Test Summary</span>
                         </button>
 
                         </span>
 
-        </div>
-    </div>
+</div>
+</div>
 </div>

@@ -1467,8 +1467,6 @@ angular.module('format')
         $scope.isActivePane = function (dom, proto) {
             return $scope.selected.protocol != null && $scope.selected.protocol === proto && $scope.selected.domain != null && $scope.selected.domain === dom;
         }
-
-
     }]);
 
 
@@ -1613,118 +1611,234 @@ angular.module('format').controller('SutInitiatorConfigCtrl', function ($scope, 
 
 
 angular.module('format').factory('TestExecutionService',
-    ['$q', '$http', 'ServiceDelegator', 'ManualReportService', function ($q, $http, ServiceDelegator, ManualReportService) {
+    ['$q', '$http', '$rootScope', 'ReportService', function ($q, $http, $rootScope, ReportService) {
 
-        var TestExecutionService = function () {
-            this.resultOptions = [
-                {"title": "Passed", "value": "PASSED"},
-                {"title": "Passed - Notable Exception", "value": "PASSED_NOTABLE_EXCEPTION"},
-                {"title": "Failed", "value": "FAILED"},
-                {"title": "Failed - Not Supported", "value": "FAILED_NOT_SUPPORTED"},
-                {"title": "Incomplete", "value": "INCOMPLETE"},
-                {"title": "Inconclusive", "value": "INCONCLUSIVE"}
-            ];
+        var TestExecutionService = {
+            resultOptions: [
+                {"title": "Passed", "value": "PASSED", "class": "fa fa-check green"},
+                {"title": "Passed - Notable Exception", "value": "PASSED_NOTABLE_EXCEPTION", "class": "fa fa-check green"},
+                {"title": "Failed", "value": "FAILED", "class": "fa fa-check red"},
+                {"title": "Failed - Not Supported", "value": "FAILED_NOT_SUPPORTED", "class": "fa fa-check red"},
+                {"title": "Incomplete", "value": "INCOMPLETE", "class": "fa fa-check gray"},
+                {"title": "Inconclusive", "value": "INCONCLUSIVE", "class": "fa fa-check yellow"}
+            ],
+            executionOptions: [
+                {"title": "In Progress", "value": "IN_PROGRESS"},
+                {"title": "Complete", "value": "COMPLETE"},
+                {"title": "Incomplete", "value": "INCOMPLETE"}
+            ],
+            testStepValidationResults: [],
+            testStepExecutionStatuses: [],
+            testCaseExecutionStatuses: [],
+            testCaseValidationResults: [],
+            testCaseComments: [],
+            testStepComments: [],
+            testStepValidationReports: [],
+            testStepExecutionMessages: [],
+            testStepMessageTrees: []
         };
 
-        TestExecutionService.setExecutionStatus = function (step, value) {
-            if (step != null)
-                step.executionStatus = value;
+
+        TestExecutionService.init = function () {
+            this.testStepValidationResults = [];
+            this.testStepExecutionStatuses = [];
+            this.testCaseExecutionStatuses = [];
+            this.testCaseValidationResults = [];
+            this.testCaseComments = [];
+            this.testStepComments = [];
+            this.testStepValidationReports = [];
+            this.testStepExecutionMessages = [];
+            this.testStepMessageTrees = [];
         };
 
-        TestExecutionService.getExecutionStatus = function (step) {
-            return step != null ? step.executionStatus : undefined;
+
+        TestExecutionService.setTestStepExecutionStatus = function (step, value) {
+            if (step != null) {
+                TestExecutionService.testStepExecutionStatuses[step.id] = value;
+            }
         };
 
-        TestExecutionService.getValidationStatus = function (step) {
-            return  step != null && step.validationReport && step.validationReport.result ? (step.testingType === 'SUT_MANUAL' || step.testingType === 'TA_MANUAL') && step.validationReport.result.value ? step.validationReport.result.value.indexOf("PASSED") : step.validationReport.result.errors && step.validationReport.result.errors.categories[0] && step.validationReport.result.errors.categories[0].data ? step.validationReport.result.errors.categories[0].data.length : -1 : -1;
+        TestExecutionService.getTestStepExecutionStatus = function (step) {
+            return step != null ? TestExecutionService.testStepExecutionStatuses[step.id] : undefined;
         };
 
-        TestExecutionService.getTestCaseResult = function (testCase) {
+        TestExecutionService.setTestCaseValidationResult = function (testCase, value) {
+            if (testCase != null) {
+                TestExecutionService.testCaseValidationResults[testCase.id] = value;
+            }
+        };
 
-            for (var i = 0; i < $scope.testCase.children.length; i++) {
-                if ($scope.getValidationStatus($scope.testCase.children[i]) > 0) {
-                    return false;
+        TestExecutionService.getTestCaseValidationResult = function (testCase) {
+            return testCase != null ? TestExecutionService.testCaseValidationResults[testCase.id] : undefined;
+        };
+
+        TestExecutionService.setTestCaseExecutionStatus = function (testCase, value) {
+            if (testCase != null) {
+                TestExecutionService.testCaseExecutionStatuses[testCase.id] = value;
+            }
+        };
+
+        TestExecutionService.getTestCaseExecutionStatus = function (testCase) {
+            return testCase != null ? TestExecutionService.testCaseExecutionStatuses[testCase.id] : undefined;
+        };
+
+        TestExecutionService.getTestStepValidationResult = function (step) {
+            return step != null ? TestExecutionService.testStepValidationResults[step.id] : undefined;
+        };
+
+        TestExecutionService.getTestCaseComments = function (testCase) {
+            return testCase != null ? TestExecutionService.testCaseComments[testCase.id] : undefined;
+        };
+
+        TestExecutionService.setTestCaseComments = function (testCase) {
+            return testCase != null ? TestExecutionService.testCaseComments[testCase.id] : undefined;
+        };
+
+        TestExecutionService.getTestStepComments = function (testStep) {
+            return testStep != null ? TestExecutionService.testStepComments[testStep.id] : undefined;
+        };
+
+        TestExecutionService.setTestStepComments = function (testStep, value) {
+            this.testStepComments[testStep.id] = value;
+            return this.updateTestStepValidationReport(testStep);
+        };
+
+        TestExecutionService.deleteTestStepComments = function (testStep) {
+            delete TestExecutionService.testStepComments[testStep.id];
+            return this.updateTestStepValidationReport(testStep);
+        };
+
+
+        TestExecutionService.setTestStepValidationResult = function (step, value) {
+            this.testStepValidationResults[step.id] = value;
+            return  this.updateTestStepValidationReport(step);
+        };
+
+        TestExecutionService.deleteTestStepValidationResult = function (step) {
+            delete TestExecutionService.testStepValidationResults[step.id];
+            return  this.updateTestStepValidationReport(step);
+        };
+
+
+        TestExecutionService.getTestStepMessageValidationResult = function (step) {
+            var result = -1;
+            try {
+                result = TestExecutionService.getTestStepValidationReport(step).result.errors.categories[0].data.length;
+            } catch (errr) {
+
+            }
+            return result;
+        };
+
+        TestExecutionService.getTestStepMessageValidationResultDesc = function (step) {
+            var result = TestExecutionService.getTestStepMessageValidationResult(step);
+            return result > 0 ? 'FAILED' : result === 0 ? 'PASSED' : undefined;
+        };
+
+        TestExecutionService.setTestCaseValidationResultFromTestSteps = function (testCase) {
+            for (var i = 0; i < testCase.children.length; i++) {
+                var testStep = testCase.children[i];
+                var result = TestExecutionService.getTestStepValidationResult(testStep);
+                if (result === 'INCOMPLETE') {
+                    TestExecutionService.setTestCaseValidationResult(testCase, 'INCOMPLETE');
+                    break;
+                } else if (result === 'INCONCLUSIVE') {
+                    TestExecutionService.setTestCaseValidationResult(testCase, 'INCONCLUSIVE');
+                    break;
+                } else if (result === 'FAILED_NOT_SUPPORTED' || result === 'FAILED') {
+                    TestExecutionService.setTestCaseValidationResult(testCase, 'FAILED');
+                    break;
+                } else if (result === 'PASSED_NOTABLE_EXCEPTION' || result === 'PASSED') {
+                    TestExecutionService.setTestCaseValidationResult(testCase, 'PASSED');
+                    break;
                 }
             }
-
-
-
-
-            return  step != null && step.validationReport && step.validationReport.result ? (step.testingType === 'SUT_MANUAL' || step.testingType === 'TA_MANUAL') && step.validationReport.result.value ? step.validationReport.result.value.indexOf("PASSED") : step.validationReport.result.errors && step.validationReport.result.errors.categories[0] && step.validationReport.result.errors.categories[0].data ? step.validationReport.result.errors.categories[0].data.length : -1 : -1;
         };
 
-
-        TestExecutionService.getManualValidationStatusTitle = function (step) {
-            if(step.validationReport  && step.validationReport.result) {
-                if (step.testingType === 'SUT_MANUAL' || step.testingType === 'TA_MANUAL') {
-                    return ManualReportService.findResultTitle(step.validationReport.result.value);
+        TestExecutionService.getResultOptionByValue = function (value) {
+            for (var i = 0; i < TestExecutionService.resultOptions.length; i++) {
+                if (TestExecutionService.resultOptions[i].value === value) {
+                    return TestExecutionService.resultOptions[i];
                 }
             }
-            return "Not Defined";
+            return null;
         };
 
 
         TestExecutionService.getValidationResult = function (step) {
-            return step != null && step.validationReport ? step.validationReport.result : undefined;
+            return step != null && TestExecutionService.getTestStepValidationReport(step) ? TestExecutionService.getTestStepValidationReport(step).result : undefined;
         };
 
-        TestExecutionService.setExecutionMessage = function (step, value) {
+        TestExecutionService.setTestStepExecutionMessage = function (step, value) {
             if (step != null)
-                step.executionMessage = value;
+                TestExecutionService.testStepExecutionMessages[step.id] = value;
 
         };
 
-        TestExecutionService.getExecutionMessage = function (step) {
-            return step != null ? step.executionMessage : undefined;
+        TestExecutionService.getTestStepExecutionMessage = function (step) {
+            return step != null ? TestExecutionService.testStepExecutionMessages[step.id] : undefined;
         };
 
-
-        TestExecutionService.setMessageTree = function (step, value) {
+        TestExecutionService.setTestStepMessageTree = function (step, value) {
             if (step != null)
-                step.messageTree = value;
+                TestExecutionService.testStepMessageTrees[step.id] = value;
         };
 
-        TestExecutionService.getMessageTree = function (step) {
-            return step != null ? step.messageTree : undefined;
+        TestExecutionService.getTestStepMessageTree = function (step) {
+            return step != null ? TestExecutionService.testStepMessageTrees[step.id] : undefined;
         };
 
-        TestExecutionService.getValidationReport = function (step) {
-            return step != null ? step.validationReport : undefined;
+        TestExecutionService.getTestStepValidationReport = function (step) {
+            return step != null ? TestExecutionService.testStepValidationReports[step.id] : undefined;
         };
 
-        TestExecutionService.setValidationReport = function (step, value) {
-            step.validationReport = value;
+        TestExecutionService.setTestStepValidationReport = function (step, value) {
+            TestExecutionService.testStepValidationReports[step.id] = value;
         };
 
 
-        TestExecutionService.deleteExecutionStatus = function (step) {
+        TestExecutionService.deleteTestStepExecutionStatus = function (step) {
             if (step != null)
-                delete step.executionStatus;
+                delete  TestExecutionService.testStepExecutionStatuses[step.id];
         };
 
-        TestExecutionService.deleteValidationReport = function (step) {
-            if (step && step.validationReport) {
-                delete step.validationReport;
+        TestExecutionService.deleteTestCaseExecutionStatus = function (testCase) {
+            if (testCase != null)
+                delete  TestExecutionService.testCaseExecutionStatuses[testCase.id];
+        };
+
+        TestExecutionService.deleteTestCaseValidationResult = function (testCase) {
+            if (testCase != null)
+                delete  TestExecutionService.testCaseValidationResults[testCase.id];
+        };
+
+
+        TestExecutionService.deleteTestStepValidationReport = function (step) {
+            delete TestExecutionService.testStepValidationReports[step.id]
+        };
+
+        TestExecutionService.deleteTestStepExecutionMessage = function (step) {
+            if (step) {
+                delete TestExecutionService.testStepExecutionMessages[step.id];
             }
         };
 
-        TestExecutionService.deleteExecutionMessage = function (step) {
-            if (step && step.executionMessage) {
-                delete step.executionMessage;
+        TestExecutionService.deleteTestStepMessageTree = function (step) {
+            if (step) {
+                delete  TestExecutionService.testStepMessageTrees[step.id];
             }
         };
 
-        TestExecutionService.deleteMessageTree = function (step) {
-            if (step && step.messageTree) {
-                delete step.messageTree;
-            }
+        TestExecutionService.updateTestStepValidationReport = function (testStep) {
+            var result = TestExecutionService.getTestStepValidationResult(testStep);
+            result = result != undefined ? result : null;
+            var comments = TestExecutionService.getTestStepComments(testStep);
+            comments = comments != undefined ? comments : null;
+            return ReportService.updateTestStepValidationReport(testStep, result, comments);
         };
-
 
         return TestExecutionService;
     }]);
-
-
 
 
 angular.module('format').factory('TestExecutionClock', function ($interval, Clock) {
