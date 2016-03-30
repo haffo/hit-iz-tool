@@ -38,7 +38,7 @@
     ]);
 
     mod
-        .controller('ValidationResultCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'ValidationResultHighlighter', '$sce', 'NewValidationResult', '$timeout', 'ServiceDelegator', 'Settings', function ($scope, $filter, $modal, $rootScope, ValidationResultHighlighter, $sce, NewValidationResult, $timeout,ServiceDelegator,Settings) {
+        .controller('ValidationResultCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'ValidationResultHighlighter', '$sce', 'NewValidationResult', '$timeout', 'ServiceDelegator', 'Settings', 'TestExecutionService',function ($scope, $filter, $modal, $rootScope, ValidationResultHighlighter, $sce, NewValidationResult, $timeout,ServiceDelegator,Settings,TestExecutionService) {
             $scope.validationTabs = new Array();
             $scope.currentType = null;
             $scope.settings = Settings;
@@ -169,7 +169,7 @@
                 });
             });
 
-            $scope.$on($scope.type + ':validationResultLoaded', function (event, mvResult,testStepId) {
+            $scope.$on($scope.type + ':validationResultLoaded', function (event, mvResult,testStep) {
 
                 if($scope.format != null) {
                     $scope.editorService = ServiceDelegator.getEditorService($scope.format);
@@ -188,8 +188,18 @@
                         validationResult = mvResult.result;
                     }
                 }
+
+                var rs = TestExecutionService.getTestStepValidationResult(testStep);
+                if(rs === undefined) { // set default
+                    TestExecutionService.setTestStepValidationResult(testStep, TestExecutionService.getTestStepMessageValidationResultDesc(testStep));
+                }
+
                 $timeout(function () {
-                    $rootScope.$emit($scope.type + ':reportLoaded', mvResult,testStepId);
+                    if($scope.type === 'cb'){
+                        $rootScope.$emit($scope.type + ':createTestStepValidationReport', mvResult,testStep);
+                    }else{
+                        $rootScope.$emit($scope.type + ':createMessageValidationReport', mvResult,testStep);
+                    }
                 });
 
                 $scope.validationResult = validationResult;

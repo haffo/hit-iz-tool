@@ -10,29 +10,29 @@
     }
 </script>
 <div class="panel panel-info"
-     ng-show="testStep.protocols != null && testStep.protocols && testStep.protocols.length > 0">
+     ng-show="">
     <div class="panel-heading">
         <span class="pull=left"><span title="Transport" class="label label-danger label-icon">T</span> Transport
         </span>
         <span class="pull-right">
              <div class="btn-group btn-group-xs" data-toggle="buttons" style="margin-right: 10px;">
                  <label class="btn   btn-cf-outline" ng-click="toggleTransport(false)"
-                        ng-disabled="testCase.executionStatus === 'COMPLETE'"
+                        ng-disabled="isTestCaseCompleted()"
                         ng-class="{'active': !transport.disabled}">
                      <input type="radio" ng-model="transport.disabled" autocomplete="off" checked
-                            ng-disabled="testCase.executionStatus === 'COMPLETE'">Enabled
+                            ng-disabled="isTestCaseCompleted()">Enabled
                  </label>
                  <label class="btn  btn-cf-outline" ng-click="toggleTransport(true)"
-                        ng-disabled="testCase.executionStatus === 'COMPLETE'"
+                        ng-disabled="isTestCaseCompleted()"
                         ng-class="{'active': transport.disabled}">
                      <input type="radio" ng-model="options.disabled" autocomplete="off"
-                            ng-disabled="testCase.executionStatus === 'COMPLETE'">Disabled
+                            ng-disabled="isTestCaseCompleted()">Disabled
                  </label>
              </div>
         </span>
     </div>
-    <div class="panel-body">
-        <div ng-show="!transport.disabled">
+    <div class="panel-body" ng-show="testStep.protocols != null && testStep.protocols && testStep.protocols.length > 0">
+        <div ng-show="!transport.disabled && (testStep.testingType === 'TA_INITIATOR' || testStep.testingType === 'SUT_INITIATOR')">
             <form name="transportButtonForm" id="transportButtonForm" novalidate>
                 <table class="table table-bordered" style="margin-bottom: 0px">
                     <tr>
@@ -42,7 +42,7 @@
                                  ng-class="{'has-success has-feedback': transportButtonForm.protocolSelect.$valid, 'igl-has-error has-feedback': !transportButtonForm.protocolSelect.$valid}">
                                 <select ng-model="testStep.protocol" ng-change="selectProtocol(testStep)"
                                         class="form-control input-sm" style="width:100px" required id="protocolSelect"
-                                        name="protocolSelect" ng-disabled="testCase.executionStatus === 'COMPLETE'"
+                                        name="protocolSelect" ng-disabled="isTestCaseCompleted()"
                                         ng-options="pro.value as (pro.value | uppercase) for pro in testStep.protocols | orderBy:'position'">
                                 </select>
                             </div>
@@ -56,13 +56,13 @@
                                 <span ng-show="transport.configs[domain][protocol].data.sutInitiator && transport.configs[domain][protocol].data.sutInitiator != null">
                                     <button type="button" title="Start Listening"
                                             ng-click="startListener()"
-                                            ng-disabled="testCase.executionStatus === 'COMPLETE' || connecting || !transportButtonForm.protocolSelect.$valid"
+                                            ng-disabled="isTestCaseCompleted() || connecting || !transportButtonForm.protocolSelect.$valid"
                                             title="Start listening"
                                             class="btn btn-xs btn-success">
                                         <i class="fa fa-play fa-fw"></i>Listen
                                     </button>
                                     <button type="button" title="Stop Listening"
-                                            ng-disabled="testCase.executionStatus === 'COMPLETE' || !connecting || !transportButtonForm.protocolSelect.$valid"
+                                            ng-disabled="isTestCaseCompleted() || !connecting || !transportButtonForm.protocolSelect.$valid"
                                             ng-click="abortListening()"
                                             class="btn btn-xs btn-warning"><i class="fa fa-stop fa-fw"></i>Stop
                                     </button>
@@ -76,7 +76,7 @@
                                       ng-show="transport.configs[domain][protocol].data.taInitiator && transport.configs[domain][protocol].data.taInitiator != null">
                                     <button type="button"
                                             ng-click="send()"
-                                            ng-disabled="testCase.executionStatus === 'COMPLETE' || !hasUserContent() || connecting || !transportButtonForm.protocolSelect.$valid"
+                                            ng-disabled="isTestCaseCompleted() || !hasUserContent() || connecting || !transportButtonForm.protocolSelect.$valid"
                                             title="Send" class="btn btn-xs btn-success">
                                         Send <i class="fa fa-share-square fa-fw"></i>
                                     </button>

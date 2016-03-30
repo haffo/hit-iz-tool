@@ -64,15 +64,14 @@
     mod.factory('ManualReportService', function ($http, $q, $filter,TestExecutionService) {
 
         var ManualReportService = {
-            resultOptions:  TestExecutionService.resultOptions,
-            findResultTitle: function (value) {
-                for (var i = 0; i < this.resultOptions.length; i++) {
-                    if (this.resultOptions[i].value === value) {
-                        return this.resultOptions[i].title;
-                    }
-                }
-                return "Not defined";
-            },
+//             findResultTitle: function (value) {
+//                for (var i = 0; i < TestExecutionService.resultOptions.length; i++) {
+//                    if (TestExecutionService.resultOptions[i].value === value) {
+//                        return TestExecutionService.resultOptions[i].title;
+//                    }
+//                }
+//                return "Not defined";
+//            },
 
             downloadTestStepReport: function (testStepId, format) {
                 var form = document.createElement("form");
@@ -92,17 +91,8 @@
 
             save: function (jsonReport, testStep) {
                 var delay = $q.defer();
-                var data = angular.fromJson({value: jsonReport.value, comments: jsonReport.comments, testStepId: testStep.id, nav: testStep.nav});
-                $http.post("api/manual/report/save", data).then(
-                    function (object) {
-                        delay.resolve(angular.fromJson(object.data));
-                    },
-                    function (response) {
-                        delay.reject(response.data);
-                    }
-                );
-//
-//                $http.get("../../resources/cb/manualSaveReport.json").then(
+                var data = angular.fromJson({value: TestExecutionService.testStepValidationResults[testStep.id], comments: TestExecutionService.testStepValidationResults[testStep.id], testStepId: testStep.id, nav: testStep.nav});
+//                $http.post("api/manual/report/save", data).then(
 //                    function (object) {
 //                        delay.resolve(angular.fromJson(object.data));
 //                    },
@@ -110,6 +100,15 @@
 //                        delay.reject(response.data);
 //                    }
 //                );
+//
+                $http.get("../../resources/cb/manualSaveReport.json").then(
+                    function (object) {
+                        delay.resolve(angular.fromJson(object.data));
+                    },
+                    function (response) {
+                        delay.reject(response.data);
+                    }
+                );
 
                 return delay.promise;
             },
