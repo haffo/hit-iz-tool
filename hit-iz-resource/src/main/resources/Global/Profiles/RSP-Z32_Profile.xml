@@ -725,8 +725,8 @@
 			<Component Name="Source" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
 		</Datatype>
 		<Datatype ID="DR" Label="DR" Name="DR" Description="Date/Time Range">
-			<Component Name="Range Start Date/Time" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
-			<Component Name="Range End Date/Time" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
+			<Component Name="Range Start Date/Time" Usage="O" Datatype="DTM" MinLength="1" MaxLength="26"/>
+			<Component Name="Range End Date/Time" Usage="O" Datatype="DTM" MinLength="1" MaxLength="26"/>
 		</Datatype>
 		<Datatype ID="ID" Label="ID" Name="ID" Description="String Data"/>
 		<Datatype ID="SAD" Label="SAD" Name="SAD" Description="Street Address">
