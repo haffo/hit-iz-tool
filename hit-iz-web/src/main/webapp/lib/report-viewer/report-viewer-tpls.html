@@ -26,29 +26,37 @@
             </div>
             <div ng-show="!loading">
 
-                <div ng-show="report && report !== null && report.html != null" class="cf-report"
-                     style="padding-top:20px">
+                <div ng-show="error != null">
+                    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+                </div>
 
-                    <a style="margin-right: 10px" class="point" ng-click="downloadAs('PDF')"><img src="images/pdf.png"
-                                                                                                  style="height:30px;width:30px"></a>
-                    <!--<a style="margin-right: 10px" class="point" ng-click="downloadAs('DOC')"><img src="images/word.png"-->
-                                                                                                  <!--style="height:30px;width:30px"></a>-->
-                    <a style="margin-right: 10px" class="point" ng-click="downloadAs('XML')"><img src="images/xml.jpeg"
-                                                                                                  style="height:30px;width:30px"></a>
-                    <a style="margin-right: 10px" class="point" ng-click="downloadAs('HTML')"><img src="images/html.png"
-                                                                                                   style="height:30px;width:30px"></a>
-                    <br/>
-                    <br/>
+                <div ng-show="error == null || !error">
+                    <div ng-show="report && report !== null && report.html != null" class="cf-report"
+                         style="padding-top:20px">
 
-                    <div>
-                        <div id="{{type}}-report"></div>
+                        <a style="margin-right: 10px" class="point" ng-click="downloadAs('PDF')"><img
+                                src="images/pdf.png"
+                                style="height:30px;width:30px"></a>
+                        <!--<a style="margin-right: 10px" class="point" ng-click="downloadAs('DOC')"><img src="images/word.png"-->
+                        <!--style="height:30px;width:30px"></a>-->
+                        <a style="margin-right: 10px" class="point" ng-click="downloadAs('XML')"><img
+                                src="images/xml.jpeg"
+                                style="height:30px;width:30px"></a>
+                        <a style="margin-right: 10px" class="point" ng-click="downloadAs('HTML')"><img
+                                src="images/html.png"
+                                style="height:30px;width:30px"></a>
+                        <br/>
+                        <br/>
                     </div>
 
 
-                </div>
 
-                <div ng-show="!report || report === null || report.html == null">
-                    No report generated.
+                    <div ng-show="!report || report === null || report.html == null">
+                        No report generated.
+                    </div>
+
+                    <div id="{{type}}-report"></div>
+
                 </div>
 
             </div>

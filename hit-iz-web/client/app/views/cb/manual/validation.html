@@ -40,30 +40,30 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-md-8">
-                                    <button class="btn btn-success" id="submitManualResultButton" ng-click='save()'
-                                            ng-disabled="!testExecutionService.testStepValidationResults[testStep.id] || testExecutionService.testStepValidationResults[testStep.id] === '' || testExecutionService.testStepValidationResults[testStep.id] === null || !manualStepForm.$valid || saving || (isTestCaseCompleted() && testCase.type === 'TestCase')">
-                                        <i class="fa fa-check"></i><span>Submit</span>
-                                    </button>
-                                </div>
-                                <div class="col-md-offset-2 col-md-8" style="padding-top: 20px">
+                            <!--<div class="form-group">-->
+                                <!--<div class="col-md-offset-2 col-md-8">-->
+                                    <!--<button class="btn btn-success" id="submitManualResultButton" ng-click='save()'-->
+                                            <!--ng-disabled="!testExecutionService.testStepValidationResults[testStep.id] || testExecutionService.testStepValidationResults[testStep.id] === '' || testExecutionService.testStepValidationResults[testStep.id] === null || !manualStepForm.$valid || saving || (isTestCaseCompleted() && testCase.type === 'TestCase')">-->
+                                        <!--<i class="fa fa-check"></i><span>Submit</span>-->
+                                    <!--</button>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-offset-2 col-md-8" style="padding-top: 20px">-->
 
-                                    <div ng-show="saving" style="text-align:center">
-                                        <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
-                                    </div>
+                                    <!--<div ng-show="saving" style="text-align:center">-->
+                                        <!--<i class="fa fa-circle-o-notch fa-spin fa-2x"></i>-->
+                                    <!--</div>-->
 
-                                    <div ng-show="!saving" >
-                                        <div ng-show="error != null">
-                                            <div class="alert alert-danger" role="alert" ng-bind="error"></div>
-                                        </div>
-                                        <div ng-show="saved">
-                                            <div class="alert alert-success" role="alert"><i class="fa fa-check"></i> Result Saved Successfully !</div>
-                                        </div>
+                                    <!--<div ng-show="!saving" >-->
+                                        <!--<div ng-show="error != null">-->
+                                            <!--<div class="alert alert-danger" role="alert" ng-bind="error"></div>-->
+                                        <!--</div>-->
+                                        <!--<div ng-show="saved">-->
+                                            <!--<div class="alert alert-success" role="alert"><i class="fa fa-check"></i> Result Saved Successfully !</div>-->
+                                        <!--</div>-->
 
-                                    </div>
-                                </div>
-                            </div>
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
 
                         </form>
                     </div>

@@ -178,6 +178,12 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     $rootScope.vcModalInstance = null;
     $rootScope.sessionExpiredModalInstance = null;
     $rootScope.errorModalInstanceInstance = null;
+
+    function getContextPath() {
+        return $window.location.pathname.substring(0, $window.location.pathname.indexOf("/",2));
+    }
+
+
     Session.create().then(function (response) {
         // load current user
         User.load().then(function (response) {
@@ -188,6 +194,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
         // load app info
         AppInfo.get().then(function (appInfo) {
             $rootScope.appInfo = appInfo;
+            $rootScope.apiLink = $window.location.protocol + "//" + $window.location.host + getContextPath() + $rootScope.appInfo.apiDocsPath;
             httpHeaders.common['rsbVersion'] = appInfo.rsbVersion;
             var previousToken = StorageService.get(StorageService.APP_STATE_TOKEN);
             if (previousToken != null && previousToken !== appInfo.rsbVersion) {

@@ -104,7 +104,9 @@
                                         ng-click="loadExampleMessage()"
                                         ng-hide="!testStep.testContext.message ||  testStep.testContext.message === null || testStep.testContext.message.content === '' || (isTestCase() && (isTestCaseCompleted() || (testCase.transport === true && user.info != null && !transport.disabled)))"
                                         >
-                                    <i class="fa fa-arrow-circle-down"></i>Load Example
+                                    <span ng-if="testStep.testingType !== 'TA_RESPONDER'"><i class="fa fa-arrow-circle-down"></i>Load Example</span>
+                                    <span ng-if="testStep.testingType === 'TA_RESPONDER'"><i class="fa fa-arrow-circle-down"></i>Load Test Message</span>
+
                                 </button>
 
                                 <span title="Browse" class="btn btn-xs btn-info fileinput-button"

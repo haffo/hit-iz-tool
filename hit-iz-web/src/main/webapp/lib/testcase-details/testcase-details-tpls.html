@@ -54,7 +54,9 @@
                 <tab active="tabs[4]" ng-click="tabs[4] = true; buildExampleMessageEditor()"
                      ng-show="testCase.testContext && testCase.testContext.message && testCase.testContext.message!== null && testCase.testContext.message.content != null">
                     <tab-heading>
-                        <i class="fa fa-file-text-o"></i>Example Message
+                        <i class="fa fa-file-text-o"></i>
+                        <span ng-if="testCase.testingType !== 'TA_RESPONDER'">Example Message</span>
+                        <span ng-if="testCase.testingType === 'TA_RESPONDER'">Test Message</span>
                     </tab-heading>
                     <div example-message target="{{target}}"></div>
                 </tab>

@@ -348,15 +348,10 @@
             $scope.loading = false;
             $scope.error = null;
             $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
-            $scope.apiLink = null;
 
-            function getContextPath() {
-                return $window.location.pathname.substring(0, $window.location.pathname.indexOf("/",2));
-            }
-
-            $scope.apiLink = $window.location.protocol + "//" + $window.location.host + getContextPath() + $rootScope.appInfo.apiDocsPath;
-
-
+            $scope.apiLink = function(){
+                return $rootScope.apiLink;
+            };
 //            var listLoader = new DeliverableListLoader();
 //            listLoader.then(function (result) {
 //                $scope.error = null;
@@ -590,7 +585,7 @@
 //                    }
 //                );
 
-                $http.get('api/documentation/testcases', {params: {"stage": stage}, timeout: 60000}).then(
+                $http.get('api/documentation/testcases', {timeout: 60000}).then(
                     function (object) {
                         if (object.data != null && object.data != "") {
                             delay.resolve(angular.fromJson(object.data));

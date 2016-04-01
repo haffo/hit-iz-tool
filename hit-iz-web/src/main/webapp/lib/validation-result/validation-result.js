@@ -169,7 +169,7 @@
                 });
             });
 
-            $scope.$on($scope.type + ':validationResultLoaded', function (event, mvResult,testStep) {
+            var destroyEvent1 = $rootScope.$on($scope.type + ':validationResultLoaded', function (event, mvResult,testStep) {
 
                 if($scope.format != null) {
                     $scope.editorService = ServiceDelegator.getEditorService($scope.format);
@@ -179,7 +179,7 @@
                 var report = null;
                 var validationResult = null;
                 var validationResultId = null;
-                if (mvResult !== null) {
+                if (mvResult !== null && mvResult != undefined) {
                     if (!mvResult.result) {
                         validationResult = new NewValidationResult();
                         validationResult.init(mvResult.json);
@@ -189,14 +189,16 @@
                     }
                 }
 
-                var rs = TestExecutionService.getTestStepValidationResult(testStep);
-                if(rs === undefined) { // set default
-                    TestExecutionService.setTestStepValidationResult(testStep, TestExecutionService.getTestStepMessageValidationResultDesc(testStep));
+                if(testStep.testingType != 'TA_RESPONDER'){
+                    var rs = TestExecutionService.getTestStepValidationResult(testStep);
+                    if(rs === undefined) { // set default
+                        TestExecutionService.setTestStepValidationResult(testStep, TestExecutionService.getTestStepMessageValidationResultDesc(testStep));
+                    }
                 }
 
                 $timeout(function () {
-                    if($scope.type === 'cb'){
-                        $rootScope.$emit($scope.type + ':createTestStepValidationReport', mvResult,testStep);
+                    if($scope.type === 'cb'){ // TODO: remove dependency
+                        $rootScope.$emit($scope.type + ':updateTestStepValidationReport', mvResult,testStep);
                     }else{
                         $rootScope.$emit($scope.type + ':createMessageValidationReport', mvResult,testStep);
                     }
@@ -275,6 +277,12 @@
             $scope.toHTML = function (content) {
                 return $sce.trustAsHtml(content);
             };
+
+
+            $rootScope.$on('$destroy', function() {
+                destroyEvent1(); // remove listener.
+            });
+
 
             $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
 
