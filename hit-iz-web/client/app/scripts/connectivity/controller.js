@@ -852,7 +852,7 @@ angular.module('connectivity')
         $scope.received = null;
         $scope.connecting = false;
         $scope.error = null;
-        $scope.counterMax = 30;
+        $scope.counterMax = 120; //2min
         $scope.counter = 0;
         $scope.listenerReady = false;
         $scope.warning = null;
@@ -927,7 +927,7 @@ angular.module('connectivity')
                                 }
                                 $scope.stopListener();
                             } else if ($scope.counter >= $scope.counterMax) {
-                                $scope.warning = "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound SOAP Envelope against those created for your system.</p>  <p>Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.</p>" +
+                                $scope.warning = "We did not receive any incoming message after 2 min. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound SOAP Envelope against those created for your system.</p>  <p>Possible cause (2):The SOAP endpoint address may be incorrect.   Verify that you are using the correct SOAP endpoint address that is displayed by the tool.</p>" +
                                     "<p>Possible cause (3):The HTTP header field Content-Type  may not be set correctly for use with SOAP 1.2.   SOAP 1.2 requires application/soap+xml, and SOAP 1.2 requires text/xml.  The NIST Tool follows SOAP 1.2, which is required by section 2 of the 'CDC Transport Layer Protocol Recommendation V1.1' (http://www.cdc.gov/vaccines/programs/iis/technical-guidance/SOAP/downloads/transport-specification.pdf)</p>";
                                 $scope.log("We did not receive any incoming message after 30s");
                                 $scope.stopListener();

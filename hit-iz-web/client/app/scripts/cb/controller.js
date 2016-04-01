@@ -47,7 +47,7 @@ angular.module('cb')
         $scope.sent = null;
         $scope.received = null;
         $scope.configCollapsed = true;
-        $scope.counterMax = 30;
+        $scope.counterMax = 120; // 2min
         $scope.counter = 0;
         $scope.listenerReady = false;
         $scope.testStepListCollapsed = false;
@@ -730,7 +730,7 @@ angular.module('cb')
                                         }
                                         $scope.completeListening();
                                     } else if ($scope.counter >= $scope.counterMax) {
-                                        $scope.warning = "We did not receive any incoming message after 30s. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound message against those created for your system.</p>  <p>Possible cause (2):The endpoint address may be incorrect.   Verify that you are using the correct endpoint address that is displayed by the tool.</p>";
+                                        $scope.warning = "We did not receive any incoming message after 2 min. <p>Possible cause (1): You are using wrong credentials. Please check the credentials in your outbound message against those created for your system.</p>  <p>Possible cause (2):The endpoint address may be incorrect.   Verify that you are using the correct endpoint address that is displayed by the tool.</p>";
                                         $scope.abortListening();
                                     }
                                 }, function (error) {
