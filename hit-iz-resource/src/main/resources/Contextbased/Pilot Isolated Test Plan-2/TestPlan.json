@@ -5,5 +5,5 @@
   "transport" : true,
    "domain" : "iz",
   "position" : 5,
-  "skip":false
+  "skip":true
 }
