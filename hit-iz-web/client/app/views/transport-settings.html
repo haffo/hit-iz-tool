@@ -30,15 +30,16 @@
                             <span style="font-weight:bold">Transport:</span>
 
                             <div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">
-                                <label class="btn   btn-cf-outline" ng-click="transport.disabled = false"
+                                <label class="btn   btn-cf-outline" ng-click="toggleTransport(false)"
                                        ng-class="{'active': !transport.disabled}">
                                     <input type="radio" ng-model="transport.disabled" autocomplete="off" checked>Enabled
                                 </label>
-                                <label class="btn  btn-cf-outline" ng-click="transport.disabled = true"
+                                <label class="btn  btn-cf-outline" ng-click="toggleTransport(true)"
                                        ng-class="{'active': transport.disabled}">
-                                    <input type="radio" ng-model="options.disabled" autocomplete="off">Disabled
+                                    <input type="radio" ng-model="transport.disabled" autocomplete="off">Disabled
                                 </label>
                             </div>
+
                         </div>
 
                         <hr style="margin-top:10px; margin-bottom:0px"/>

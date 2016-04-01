@@ -1416,7 +1416,7 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
 
 
 angular.module('format')
-    .controller('TransportConfigListCtrl', ['$scope', 'Transport', function ($scope, Transport) {
+    .controller('TransportConfigListCtrl', ['$scope', 'Transport','StorageService', function ($scope, Transport,StorageService) {
         $scope.transport = Transport;
         $scope.loading = false;
         $scope.selectedProto = null;
@@ -1454,7 +1454,13 @@ angular.module('format')
 
         $scope.isActivePane = function (dom, proto) {
             return $scope.selected.protocol != null && $scope.selected.protocol === proto && $scope.selected.domain != null && $scope.selected.domain === dom;
-        }
+        };
+
+        $scope.toggleTransport = function (disabled) {
+            $scope.transport.disabled = disabled;
+            StorageService.set(StorageService.TRANSPORT_DISABLED, disabled);
+        };
+
     }]);
 
 

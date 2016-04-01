@@ -87,7 +87,7 @@
                         </div>
                     </td>
                     <td style="width:35%">
-                        <div ng-if="isTestStepCompleted(testStep) || testStep.testingType === 'TA_RESPONDER'">
+                        <div ng-if="isTestStepCompleted(testStep) || testStep.testingType === 'TA_RESPONDER'" style="text-align:center">
                             <a ng-show="testExecutionService.testStepComments[testStep.id] === null || testExecutionService.testStepComments[testStep.id] == undefined" ng-click="testExecutionService.testStepComments[testStep.id] = ' '" class="point">
                                 <i class="fa fa-pencil fa-fw"></i>
                             </a>

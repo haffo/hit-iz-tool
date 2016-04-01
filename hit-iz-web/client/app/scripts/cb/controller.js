@@ -870,6 +870,7 @@ angular.module('cb')
 
         $scope.toggleTransport = function (disabled) {
             $scope.transport.disabled = disabled;
+            StorageService.set(StorageService.TRANSPORT_DISABLED, disabled);
             if (CB.editor.instance != null) {
                 CB.editor.instance.setOption("readOnly", !disabled);
             }
@@ -978,17 +979,15 @@ angular.module('cb')
         };
 
         $scope.loadTestCase = function (testCase, tab, clear) {
-            var previousId = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
-            TestExecutionService.clear(previousId);
-//            previousId = StorageService.get(StorageService.CB_LOADED_TESTSTEP_ID_KEY);
-//            if (previousId != null)TestStepService.clearRecords(previousId);
-
             var id = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
             var type = StorageService.get(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
             StorageService.set(StorageService.CB_LOADED_TESTCASE_ID_KEY, testCase.id);
             StorageService.set(StorageService.CB_LOADED_TESTCASE_TYPE_KEY, testCase.type);
             if (clear === undefined || clear === true) {
                 StorageService.remove(StorageService.CB_EDITOR_CONTENT_KEY);
+                var previousId = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
+                TestExecutionService.clear(previousId);
+                StorageService.remove(StorageService.CB_LOADED_TESTSTEP_ID_KEY);
             }
             $timeout(function () {
                 $rootScope.$broadcast('cb:testCaseLoaded', testCase, tab);
