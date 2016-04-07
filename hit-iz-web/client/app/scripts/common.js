@@ -45,6 +45,7 @@ angular.module('commonServices').factory('StorageService',
             TRANSPORT_CONFIG_KEY: 'TRANSPORT_CONFIG_KEY',
             APP_STATE_TOKEN: 'APP_STATE_TOKEN',
             TRANSPORT_DISABLED:'TRANSPORT_DISABLED',
+            TRANSPORT_PROTOCOL:'TRANSPORT_PROTOCOL',
 
             remove: function (key) {
                 return localStorageService.remove(key);

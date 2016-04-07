@@ -16,6 +16,48 @@ angular.module('hl7v2-edi').factory('HL7V2EDICursorServiceClass',
          * @param editor
          * @returns {*|Object|Array|string|number|Object|Array|Date|string|number}
          */
+        HL7V2EDICursorServiceClass.prototype.getSegment = function (editor) {
+            try {
+                if (editor != null) {
+                    var separators = editor.options.mode.separators;
+                    var separatorsArray = this.separatorsArray(separators);
+                    var cursor = editor.doc.getCursor(true);
+                    var cursorPosition = cursor.ch;
+                    var lineContent = editor.doc.getLine(cursor.line);
+                    var characters = lineContent.toString().split('');
+                    var startIndex = cursorPosition - 1;
+                    var endIndex = cursorPosition;
+                    if (separators.length == 0) {
+                        return;
+                    }
+                    // get the beginning of the element
+                    while (startIndex > 0) {
+                        if(characters[startIndex] === separators.segment_separator || characters[startIndex] === '\n' || characters[startIndex] === '\r'){
+                            break;
+                        }else{
+                            startIndex--;
+                        }
+                    }
+                    // get the end of the element
+                    while (endIndex < characters.length) {
+                        if(characters[endIndex] === separators.segment_separator|| characters[endIndex] === '\n' || characters[endIndex] === '\r'){
+                            break;
+                        } else {
+                            endIndex++;
+                        }
+                    }
+                    return lineContent.substring(startIndex, endIndex+1);
+                }
+            } catch (e) {
+
+            }
+        };
+
+        /**
+         *
+         * @param editor
+         * @returns {*|Object|Array|string|number|Object|Array|Date|string|number}
+         */
         HL7V2EDICursorServiceClass.prototype.getCoordinate = function (editor) {
             try {
                 if (editor != null) {
@@ -23,7 +65,7 @@ angular.module('hl7v2-edi').factory('HL7V2EDICursorServiceClass',
                     var separatorsArray = this.separatorsArray(separators);
                     var cursor = editor.doc.getCursor(true);
                     var cursorPosition = cursor.ch;
-                    var segment = editor.doc.getLine(cursor.line);
+                    var segment = this.getSegment(editor);
                     var characters = segment.toString().split('');
                     var startIndex = cursorPosition - 1;
                     var endIndex = cursorPosition;
@@ -53,6 +95,8 @@ angular.module('hl7v2-edi').factory('HL7V2EDICursorServiceClass',
 
             }
         };
+
+
 
         /**
          *

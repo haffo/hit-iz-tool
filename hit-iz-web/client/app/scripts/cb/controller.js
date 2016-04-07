@@ -56,12 +56,12 @@ angular.module('cb')
         $scope.taInititiatorForm = '';
         $scope.user = User;
         $scope.domain = null;
-        $scope.protocol = null;
+        $scope.protocol = StorageService.get(StorageService.TRANSPORT_PROTOCOL) != null && StorageService.get(StorageService.TRANSPORT_PROTOCOL) != undefined ?StorageService.get(StorageService.TRANSPORT_PROTOCOL):null;
         $scope.exampleMessageEditor = null;
         $scope.testExecutionService = TestExecutionService;
         $scope.loadingExecution = false;
         $scope.initExecution = function () {
-             $scope.$on('cb:testCaseLoaded', function (event, testCase, tab) {
+            $scope.$on('cb:testCaseLoaded', function (event, testCase, tab) {
                 $scope.executeTestCase(testCase, tab);
             });
         };
@@ -251,7 +251,10 @@ angular.module('cb')
 
 
         $scope.selectProtocol = function (testStep) {
-            if (testStep != null) $scope.protocol = testStep.protocol;
+            if (testStep != null) {
+                $scope.protocol = testStep.protocol;
+                StorageService.set(StorageService.TRANSPORT_PROTOCOL, $scope.protocol);
+            }
         };
 
         $scope.selectTestStep = function (testStep) {
@@ -375,8 +378,13 @@ angular.module('cb')
                 if ($scope.isManualStep(testStep) || testStep.testingType === 'TA_RESPONDER') {
                     $scope.testExecutionService.setTestStepExecutionStatus(testStep, 'COMPLETE');
                 }
+                testStep.protocol = null;
+                $scope.protocol = null;
                 if (testStep.protocols != null && testStep.protocols && testStep.protocols.length > 0) {
-                    testStep['protocol'] = $scope.getDefaultProtocol(testStep);
+                    var protocol = StorageService.get(StorageService.TRANSPORT_PROTOCOL) != null && StorageService.get(StorageService.TRANSPORT_PROTOCOL) != undefined ?StorageService.get(StorageService.TRANSPORT_PROTOCOL):null;
+                    protocol = protocol != null && testStep.protocols.indexOf(protocol) > 0 ? protocol : null;
+                    protocol = protocol != null ? protocol : $scope.getDefaultProtocol(testStep);
+                    testStep['protocol'] = protocol;
                     $scope.selectProtocol(testStep);
                 }
                 var log = $scope.transport.logs[testStep.id];
@@ -831,14 +839,13 @@ angular.module('cb')
                 $scope.transport.transactions = [];
                 $scope.testCase = testCase;
                 TestExecutionClock.stop();
-                $scope.protocol = null;
                 if (CB.editor != null && CB.editor.instance != null) {
                     CB.editor.instance.setOption("readOnly", false);
                 }
                 if (testCase.type === 'TestCase') {
                     var testStepId = StorageService.get(StorageService.CB_LOADED_TESTSTEP_ID_KEY);
                     var testStep = $scope.findTestStepById(testStepId);
-                    testStep = testStep != null ? testStep:$scope.testCase.children[0];
+                    testStep = testStep != null ? testStep : $scope.testCase.children[0];
                     $scope.executeTestStep(testStep);
                 } else if (testCase.type === 'TestStep') {
                     $scope.executeTestStep(testCase);
@@ -880,7 +887,7 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBTestCaseCtrl', ['$scope', '$window', '$filter', '$rootScope', 'CB', '$timeout', 'CBTestCaseListLoader', '$sce', 'StorageService', 'TestCaseService', 'TestStepService', 'TestExecutionService', function ($scope, $window, $filter, $rootScope, CB, $timeout, CBTestCaseListLoader, $sce, StorageService, TestCaseService, TestStepService,TestExecutionService) {
+    .controller('CBTestCaseCtrl', ['$scope', '$window', '$filter', '$rootScope', 'CB', '$timeout', 'CBTestCaseListLoader', '$sce', 'StorageService', 'TestCaseService', 'TestStepService', 'TestExecutionService', function ($scope, $window, $filter, $rootScope, CB, $timeout, CBTestCaseListLoader, $sce, StorageService, TestCaseService, TestStepService, TestExecutionService) {
         $scope.selectedTestCase = CB.selectedTestCase;
         $scope.testCase = CB.testCase;
         $scope.testCases = [];
