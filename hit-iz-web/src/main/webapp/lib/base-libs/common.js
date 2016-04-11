@@ -862,17 +862,20 @@ angular.module('format').factory('SecurityFaultCredentials', function ($q, $http
 });
 
 
-angular.module('format').factory('Clock', function ($interval) {
+angular.module('format').factory('Clock', function ($interval, $timeout) {
     var Clock = function (intervl) {
         this.value = undefined;
         this.intervl = intervl;
+        this.timeout = null;
     };
     Clock.prototype.start = function (fn) {
         if (angular.isDefined(this.value)) {
             this.stop();
         }
         this.value = $interval(fn, this.intervl);
-    };
+     };
+
+
     Clock.prototype.stop = function () {
         if (angular.isDefined(this.value)) {
             $interval.cancel(this.value);
@@ -1416,7 +1419,7 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
 
 
 angular.module('format')
-    .controller('TransportConfigListCtrl', ['$scope', 'Transport','StorageService', function ($scope, Transport,StorageService) {
+    .controller('TransportConfigListCtrl', ['$scope', 'Transport', 'StorageService', function ($scope, Transport, StorageService) {
         $scope.transport = Transport;
         $scope.loading = false;
         $scope.selectedProto = null;

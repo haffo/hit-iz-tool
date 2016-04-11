@@ -667,27 +667,6 @@ app.directive('stRatio', function () {
 
 });
 
-
-angular.module('commonServices').factory('Clock', function ($interval) {
-    var Clock = function (intervl) {
-        this.value = undefined;
-        this.intervl = intervl;
-    };
-    Clock.prototype.start = function (fn) {
-        if (angular.isDefined(this.value)) {
-            this.stop();
-        }
-        this.value = $interval(fn, this.intervl);
-    };
-    Clock.prototype.stop = function () {
-        if (angular.isDefined(this.value)) {
-            $interval.cancel(this.value);
-            this.value = undefined;
-        }
-    };
-    return Clock;
-});
-
 app.controller('TableFoundCtrl', function ($scope, $modalInstance, table) {
     $scope.table = table;
     $scope.tmpTableElements = [].concat(table != null ? table.valueSetElements : []);

@@ -34,6 +34,7 @@ import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.core.transport.exception.TransportClientException;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 import gov.nist.hit.iz.web.utils.Utils;
+import gov.nist.hit.iz.ws.IZWSConstant;
 import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -105,8 +106,8 @@ public class SOAPTransportController {
             .getResourceAsStream("/templates/SubmitSingleMessage.xml"));
   }
 
-  @ApiOperation(value = "Start the listener of an incoming message", nickname = "startListener",
-      notes = "A user session is required")
+  @ApiOperation(value = "Start the listener of an incoming transaction",
+      nickname = "startListener", notes = "A user session is required")
   @Transactional
   @RequestMapping(value = "/startListener", method = RequestMethod.POST,
       produces = "application/json")
@@ -119,20 +120,22 @@ public class SOAPTransportController {
     if (userId == null || (userService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
+    clearExchanges(userId);
+
     if (request.getResponseMessageId() == null)
       throw new gov.nist.hit.core.service.exception.TransportException("Response message not found");
-    removeUserTransaction(userId);
 
     TransportMessage transportMessage = new TransportMessage();
     transportMessage.setMessageId(request.getResponseMessageId());
     Map<String, String> config = new HashMap<String, String>();
     config.putAll(getSutInitiatorConfig(userId));
+    config.put(IZWSConstant.LISTENER_STATUS, IZWSConstant.LISTENER_STARTED);
     transportMessage.setProperties(config);
     transportMessageService.save(transportMessage);
     return true;
   }
 
-  @ApiOperation(value = "Stop the listener of an incoming message", nickname = "stopListener",
+  @ApiOperation(value = "Stop the listener of an incoming transaction", nickname = "stopListener",
       notes = "A user session is required")
   @Transactional
   @RequestMapping(value = "/stopListener", method = RequestMethod.POST,
@@ -146,23 +149,37 @@ public class SOAPTransportController {
     if (userId == null || (userService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
-    removeUserTransaction(userId);
+    clearExchanges(userId);
     return true;
   }
 
-  @Transactional
-  private boolean removeUserTransaction(Long userId) {
+  private boolean clearExchanges(Long userId) {
     Map<String, String> config = getSutInitiatorConfig(userId);
-    List<TransportMessage> transportMessages = transportMessageService.findAllByProperties(config);
-    if (transportMessages != null) {
-      transportMessageService.delete(transportMessages);
-    }
-    List<Transaction> transactions = transactionService.findAllByProperties(config);
-    if (transactions != null) {
-      transactionService.delete(transactions);
-    }
+    Map<String, String> criteria = new HashMap<String, String>();
+    criteria.put("username", config.get("username"));
+    criteria.put("password", config.get("password"));
+    criteria.put("facilityID", config.get("facilityID"));
+    clearMessages(criteria);
+    clearTransactions(criteria);
     return true;
   }
+
+  private void clearMessages(Map<String, String> criteria) {
+    List<TransportMessage> transportMessages =
+        transportMessageService.findAllByProperties(criteria);
+    if (transportMessages != null && !transportMessages.isEmpty()) {
+      transportMessageService.delete(transportMessages);
+    }
+  }
+
+  private void clearTransactions(Map<String, String> criteria) {
+    List<Transaction> transactions = transactionService.findAllByProperties(criteria);
+    if (transactions != null && !transactions.isEmpty()) {
+      transactionService.delete(transactions);
+    }
+  }
+
+
 
   private Map<String, String> getSutInitiatorConfig(Long userId) {
     TransportConfig config =

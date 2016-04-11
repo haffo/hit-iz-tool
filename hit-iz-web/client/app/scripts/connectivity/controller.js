@@ -844,7 +844,7 @@ angular.module('connectivity')
     }]);
 
 angular.module('connectivity')
-    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, logger, TestExecutionClock, message, SOAPConnectivityTransport) {
+    .controller('ConnectivityReceiverCtrl', function ($scope, $sce, $http, Connectivity, $rootScope, $modalInstance, testCase, logger, TestExecutionClock, message, SOAPConnectivityTransport,$timeout) {
         $scope.testCase = testCase;
         $scope.logger = logger;
         $scope.message = message;
@@ -941,7 +941,7 @@ angular.module('connectivity')
                         });
                     };
                     TestExecutionClock.start(execute);
-                } else {
+                 } else {
                     $scope.error = "Failed to start the listener. Please contact the administrator for any question";
                     $scope.log($scope.error);
                     $scope.log("Transaction aborted");

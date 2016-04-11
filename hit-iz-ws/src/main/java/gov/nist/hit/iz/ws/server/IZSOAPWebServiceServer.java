@@ -4,11 +4,13 @@ import gov.nist.healthcare.core.MalformedMessageException;
 import gov.nist.healthcare.core.message.MessageLocation;
 import gov.nist.healthcare.core.message.v2.er7.Er7Message;
 import gov.nist.hit.core.domain.Transaction;
+import gov.nist.hit.core.domain.TransportMessage;
 import gov.nist.hit.core.repo.MessageRepository;
 import gov.nist.hit.core.service.TransactionService;
 import gov.nist.hit.core.service.TransportMessageService;
 import gov.nist.hit.core.service.UserService;
 import gov.nist.hit.core.transport.exception.TransportServerException;
+import gov.nist.hit.iz.ws.IZWSConstant;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestRequestType;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestResponseType;
 import gov.nist.hit.iz.ws.jaxb.SubmitSingleMessageRequestType;
@@ -70,10 +72,26 @@ public class IZSOAPWebServiceServer implements TransportServer {
     if (hl7Message == null || hl7Message.equals("")) {
       throw new TransportServerException("No Hl7 Message Provided");
     }
-    String responseMessage =
-        getResponseMessage(request.getUsername(), request.getPassword(), request.getFacilityID());
-    return getSubmitSingleMessageResponse(hl7Message, responseMessage);
+    Map<String, String> properties =
+        getProperties(request.getUsername(), request.getPassword(), request.getFacilityID());
+    TransportMessage message = transportMessageService.findOneByProperties(properties);
+    if (message != null
+        && IZWSConstant.LISTENER_STARTED.equals(message.getProperties().get(
+            IZWSConstant.LISTENER_STATUS))) {
+      String responseMessage = getResponseMessage(message.getId());
+      return getSubmitSingleMessageResponse(hl7Message, responseMessage);
+    } else {
+      throw new TransportServerException("Listener not started");
+    }
   }
+
+  public String getResponseMessage(Long messageId) {
+    if (messageId != null) {
+      return messageRepository.getContentById(messageId);
+    }
+    return null;
+  }
+
 
   public String getResponseMessage(String username, String password, String facilityID) {
     Map<String, String> properties = getProperties(username, password, facilityID);

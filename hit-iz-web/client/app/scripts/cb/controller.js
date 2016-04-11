@@ -749,7 +749,9 @@ angular.module('cb')
                                     $scope.abortListening();
                                 });
                             };
+
                             TestExecutionClock.start(execute);
+
                         } else {
                             $scope.logger.log("Failed to start listener");
                             $scope.logger.log("Transaction stopped");
