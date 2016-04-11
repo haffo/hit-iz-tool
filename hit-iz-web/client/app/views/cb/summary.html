@@ -60,7 +60,7 @@
                 <tr>
                     <td><b>Comments</b></td>
                     <td>
-                        <div ng-show="isTestCaseCompleted()">
+                        <div ng-show="isTestCaseCompleted()" style="text-align:center">
                             <a
                                     ng-show="testExecutionService.testCaseComments[testCase.id] === null || testExecutionService.testCaseComments[testCase.id] == undefined"
                                     ng-click="testExecutionService.testCaseComments[testCase.id] = ' '" class="point">
@@ -73,7 +73,7 @@
                             </textarea>
                             <a
                                     ng-show="testExecutionService.testCaseComments[testCase.id] !== null && testExecutionService.testCaseComments[testCase.id] !== undefined"
-                                    ng-click="testExecutionService.testCaseComments[testCase.id] = '';" class="point">
+                                    ng-click="testExecutionService.testCaseComments[testCase.id] = null;" class="point">
                                 <i class="fa fa-times fa-fw"></i>
                             </a>
                         </div>

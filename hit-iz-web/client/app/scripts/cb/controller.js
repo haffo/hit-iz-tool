@@ -657,7 +657,7 @@ angular.module('cb')
         $scope.updateTestStepValidationReport = function (testStep) {
             StorageService.set("testStepValidationResults", angular.toJson(TestExecutionService.testStepValidationResults));
             StorageService.set("testStepComments", angular.toJson(TestExecutionService.testStepComments));
-            if (testStep.id !== $scope.testStep.id) {
+            if ($scope.testStep  === null || testStep.id !== $scope.testStep.id) {
                 TestExecutionService.updateTestStepValidationReport(testStep);
             } else {
                 $rootScope.$emit('cb:updateTestStepValidationReport', null, testStep);
