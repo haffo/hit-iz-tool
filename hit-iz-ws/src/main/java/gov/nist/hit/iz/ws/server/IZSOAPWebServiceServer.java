@@ -78,7 +78,7 @@ public class IZSOAPWebServiceServer implements TransportServer {
     if (message != null
         && IZWSConstant.LISTENER_STARTED.equals(message.getProperties().get(
             IZWSConstant.LISTENER_STATUS))) {
-      String responseMessage = getResponseMessage(message.getId());
+      String responseMessage = getResponseMessage(message.getMessageId());
       return getSubmitSingleMessageResponse(hl7Message, responseMessage);
     } else {
       throw new TransportServerException("Listener not started");
