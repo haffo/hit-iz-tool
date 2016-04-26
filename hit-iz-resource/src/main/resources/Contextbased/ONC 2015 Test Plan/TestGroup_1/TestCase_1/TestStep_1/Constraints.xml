@@ -425,943 +425,334 @@
             <Presence Path="4[1].18[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="5[1].1[1]">
+      </ByID>
+    </Message>
+  </Constraints>
+  <OrderIndifferent>
+    <Context List="5[*]">
+      <Pattern>
+        <Trigger>
+          <ErrorMessage>ERROR AN ORDER GROUP WITH NK1-3.1 = MTH is expected</ErrorMessage>
+          <Assertion>
+            <AND>
+              <Presence Path="3[1].1[1]"/>
+              <PlainText IgnoreCase="true" Path="3[1].1[1]" Text="MTH"/>
+            </AND>
+          </Assertion>
+        </Trigger>
+        <Constraints><Constraint ID="Content" Target="1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].1[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
           <Description>Expected content is missing. The empty value at NK1-1 (Set ID - NK1) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].1[1]"/>
+            <Presence Path="1[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].2[1].1[1].1[1]">
+        </Constraint><Constraint ID="Content" Target="2[1].1[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].2[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1-2.1.1 (Surname) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].2[1].1[1].1[1]"/>
+            <Presence Path="2[1].1[1].1[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].2[1].2[1]">
+        </Constraint><Constraint ID="Content" Target="2[1].2[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].2[1].2[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1-2.2 (Given Name) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].2[1].2[1]"/>
+            <Presence Path="2[1].2[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].2[1].3[1]">
+        </Constraint><Constraint ID="Content" Target="2[1].3[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].2[1].3[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1-2.3 (Second and Further
             Given Names or Initials Thereof) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].2[1].3[1]"/>
+            <Presence Path="2[1].3[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].2[1].7[1]">
+        </Constraint><Constraint ID="Content" Target="2[1].7[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].2[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected content is missing. The empty value at NK1-2.7 (Name Type Code) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].2[1].7[1]"/>
+            <Presence Path="2[1].7[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].2[1].7[1]">
+        </Constraint><Constraint ID="Content" Target="2[1].7[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].2[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Invalid content (based on test case fixed data). The value at NK1-2.7 (Name
             Type Code) does not match the expected value: 'L'.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="5[1].2[1].7[1]" Text="L"/>
+            <PlainText IgnoreCase="true" Path="2[1].7[1]" Text="L"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].3[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at NK1-3.1 (Identifier) is
-            expected to be present.</Description>
-          <Assertion>
-            <Presence Path="5[1].3[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].3[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at NK1-3.1
-            (Identifier) does not match the expected value: 'MTH'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="5[1].3[1].1[1]" Text="MTH"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].3[1].2[1]">
+        </Constraint><Constraint ID="Content" Target="3[1].2[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].3[1].2[1]" Source="TestCase" TestDataCategorization="Presence-Test Case Proper"/>
           <Description>Expected content is missing. The empty value at NK1-3.2 (Text) is expected to
             be present.</Description>
           <Assertion>
-            <Presence Path="5[1].3[1].2[1]"/>
+            <Presence Path="3[1].2[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].3[1].3[1]">
+        </Constraint><Constraint ID="Content" Target="3[1].3[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].3[1].3[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
           <Description>Expected content is missing. The empty value at NK1-3.3 (Name of Coding
             System) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].3[1].3[1]"/>
+            <Presence Path="3[1].3[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].4[1].1[1].1[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].1[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].4[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1-4.1.1 (Street or Mailing
             Address) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].4[1].1[1].1[1]"/>
+            <Presence Path="4[1].1[1].1[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].4[1].3[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].3[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].4[1].3[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1-4.3 (City) is expected to
             be present.</Description>
           <Assertion>
-            <Presence Path="5[1].4[1].3[1]"/>
+            <Presence Path="4[1].3[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].4[1].4[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].4[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].4[1].4[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1-4.4 (State or Province)
             is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].4[1].4[1]"/>
+            <Presence Path="4[1].4[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].4[1].5[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].5[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].4[1].5[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1-4.5 (Zip or Postal Code)
             is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].4[1].5[1]"/>
+            <Presence Path="4[1].5[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].4[1].6[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].6[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].4[1].6[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1-4.6 (Country) is expected
             to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].4[1].6[1]"/>
+            <Presence Path="4[1].6[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].4[1].7[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].7[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].4[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected content is missing. The empty value at NK1-4.7 (Address Type) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].4[1].7[1]"/>
+            <Presence Path="4[1].7[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].4[1].7[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].7[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].4[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Invalid content (based on test case fixed data). The value at NK1-4.7
             (Address Type) does not match the expected value: 'P'.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="5[1].4[1].7[1]" Text="P"/>
+            <PlainText IgnoreCase="true" Path="4[1].7[1]" Text="P"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].5[1].2[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].2[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].5[1].2[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected content is missing. The empty value at NK1-5.2 (Telecommunication
             Use Code) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].5[1].2[1]"/>
+            <Presence Path="5[1].2[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].5[1].2[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].2[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].5[1].2[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Invalid content (based on test case fixed data). The value at NK1-5.2
             (Telecommunication Use Code) does not match the expected value: 'PRN'.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="5[1].5[1].2[1]" Text="PRN"/>
+            <PlainText IgnoreCase="true" Path="5[1].2[1]" Text="PRN"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].5[1].3[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].3[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].5[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected content is missing. The empty value at NK1-5.3 (Telecommunication
             Equipment Type) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].5[1].3[1]"/>
+            <Presence Path="5[1].3[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].5[1].3[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].3[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].5[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Invalid content (based on test case fixed data). The value at NK1-5.3
             (Telecommunication Equipment Type) does not match the expected value:
             'PH'.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="5[1].5[1].3[1]" Text="PH"/>
+            <PlainText IgnoreCase="true" Path="5[1].3[1]" Text="PH"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].5[1].6[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].6[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].5[1].6[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1-5.6 (Area/City Code) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].5[1].6[1]"/>
+            <Presence Path="5[1].6[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[1].5[1].7[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].7[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[1].5[1].7[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1-5.7 (Local Number) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[1].5[1].7[1]"/>
+            <Presence Path="5[1].7[1]"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="5[2].1[1]">
+        </Constraints>
+      </Pattern>
+      <Pattern>
+        <Trigger>
+          <ErrorMessage>ERROR AN ORDER GROUP WITH NK1-3.1 = FTH is expected</ErrorMessage>
+          <Assertion>
+            <AND>
+              <Presence Path="3[1].1[1]"/>
+              <PlainText IgnoreCase="true" Path="3[1].1[1]" Text="FTH"/>
+            </AND>
+          </Assertion>
+        </Trigger>
+        <Constraints><Constraint ID="Content" Target="1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].1[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
           <Description>Expected content is missing. The empty value at NK1[2]-1 (Set ID - NK1) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].1[1]"/>
+            <Presence Path="1[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].2[1].1[1].1[1]">
+        </Constraint><Constraint ID="Content" Target="2[1].1[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].2[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1[2]-2.1.1 (Surname) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].2[1].1[1].1[1]"/>
+            <Presence Path="2[1].1[1].1[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].2[1].2[1]">
+        </Constraint><Constraint ID="Content" Target="2[1].2[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].2[1].2[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1[2]-2.2 (Given Name) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].2[1].2[1]"/>
+            <Presence Path="2[1].2[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].2[1].3[1]">
+        </Constraint><Constraint ID="Content" Target="2[1].3[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].2[1].3[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1[2]-2.3 (Second and
             Further Given Names or Initials Thereof) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].2[1].3[1]"/>
+            <Presence Path="2[1].3[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].2[1].7[1]">
+        </Constraint><Constraint ID="Content" Target="2[1].7[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].2[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected content is missing. The empty value at NK1[2]-2.7 (Name Type Code)
             is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].2[1].7[1]"/>
+            <Presence Path="2[1].7[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].2[1].7[1]">
+        </Constraint><Constraint ID="Content" Target="2[1].7[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].2[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Invalid content (based on test case fixed data). The value at NK1[2]-2.7
             (Name Type Code) does not match the expected value: 'L'.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="5[2].2[1].7[1]" Text="L"/>
+            <PlainText IgnoreCase="true" Path="2[1].7[1]" Text="L"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].3[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Expected content is missing. The empty value at NK1[2]-3.1 (Identifier) is
-            expected to be present.</Description>
-          <Assertion>
-            <Presence Path="5[2].3[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].3[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].3[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at NK1[2]-3.1
-            (Identifier) does not match the expected value: 'FTH'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="5[2].3[1].1[1]" Text="FTH"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].3[1].2[1]">
+        </Constraint><Constraint ID="Content" Target="3[1].2[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].3[1].2[1]" Source="TestCase" TestDataCategorization="Presence-Test Case Proper"/>
           <Description>Expected content is missing. The empty value at NK1[2]-3.2 (Text) is expected
             to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].3[1].2[1]"/>
+            <Presence Path="3[1].2[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].3[1].3[1]">
+        </Constraint><Constraint ID="Content" Target="3[1].3[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].3[1].3[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
           <Description>Expected content is missing. The empty value at NK1[2]-3.3 (Name of Coding
             System) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].3[1].3[1]"/>
+            <Presence Path="3[1].3[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].4[1].1[1].1[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].1[1].1[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].4[1].1[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1[2]-4.1.1 (Street or
             Mailing Address) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].4[1].1[1].1[1]"/>
+            <Presence Path="4[1].1[1].1[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].4[1].3[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].3[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].4[1].3[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1[2]-4.3 (City) is expected
             to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].4[1].3[1]"/>
+            <Presence Path="4[1].3[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].4[1].4[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].4[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].4[1].4[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1[2]-4.4 (State or
             Province) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].4[1].4[1]"/>
+            <Presence Path="4[1].4[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].4[1].5[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].5[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].4[1].5[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1[2]-4.5 (Zip or Postal
             Code) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].4[1].5[1]"/>
+            <Presence Path="4[1].5[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].4[1].6[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].6[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].4[1].6[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1[2]-4.6 (Country) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].4[1].6[1]"/>
+            <Presence Path="4[1].6[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].4[1].7[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].7[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].4[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected content is missing. The empty value at NK1[2]-4.7 (Address Type) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].4[1].7[1]"/>
+            <Presence Path="4[1].7[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].4[1].7[1]">
+        </Constraint><Constraint ID="Content" Target="4[1].7[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].4[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Invalid content (based on test case fixed data). The value at NK1[2]-4.7
             (Address Type) does not match the expected value: 'P'.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="5[2].4[1].7[1]" Text="P"/>
+            <PlainText IgnoreCase="true" Path="4[1].7[1]" Text="P"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].5[1].2[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].2[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].5[1].2[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected content is missing. The empty value at NK1[2]-5.2 (Telecommunication
             Use Code) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].5[1].2[1]"/>
+            <Presence Path="5[1].2[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].5[1].2[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].2[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].5[1].2[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Invalid content (based on test case fixed data). The value at NK1[2]-5.2
             (Telecommunication Use Code) does not match the expected value: 'PRN'.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="5[2].5[1].2[1]" Text="PRN"/>
+            <PlainText IgnoreCase="true" Path="5[1].2[1]" Text="PRN"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].5[1].3[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].3[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].5[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Expected content is missing. The empty value at NK1[2]-5.3 (Telecommunication
             Equipment Type) is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].5[1].3[1]"/>
+            <Presence Path="5[1].3[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].5[1].3[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].3[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].5[1].3[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Invalid content (based on test case fixed data). The value at NK1[2]-5.3
             (Telecommunication Equipment Type) does not match the expected value:
             'CP'.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="5[2].5[1].3[1]" Text="CP"/>
+            <PlainText IgnoreCase="true" Path="5[1].3[1]" Text="CP"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].5[1].6[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].6[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].5[1].6[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1[2]-5.6 (Area/City Code)
             is expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].5[1].6[1]"/>
+            <Presence Path="5[1].6[1]"/>
           </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="5[2].5[1].7[1]">
+        </Constraint><Constraint ID="Content" Target="5[1].7[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].5[1].7[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
           <Description>Expected content is missing. The empty value at NK1[2]-5.7 (Local Number) is
             expected to be present.</Description>
           <Assertion>
-            <Presence Path="5[2].5[1].7[1]"/>
+            <Presence Path="5[1].7[1]"/>
           </Assertion>
         </Constraint>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </ByID>
-    </Message>
-  </Constraints>
-  <OrderIndifferent>
+        </Constraints>
+      </Pattern>
+    </Context>
     <Context List="9[*]">
       <Pattern>
         <Trigger>
@@ -5383,7 +4774,6 @@
             </Assertion>
           </Constraint>
         </Constraints>
-
       </Pattern>
     </Context>
   </OrderIndifferent>
