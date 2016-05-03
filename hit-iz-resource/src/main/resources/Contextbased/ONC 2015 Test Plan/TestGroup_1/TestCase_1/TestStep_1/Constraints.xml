@@ -1693,8 +1693,8 @@
               </Constraints>
             </Pattern>
 
-            <Pattern>
-              <Trigger Cardinality="3">
+            <Pattern Cardinality="3">
+              <Trigger>
                 <ErrorMessage>ERROR AN OBX SEGMENT WITH OBX-3.1 = 69764-9 is expected</ErrorMessage>
                 <Assertion>
                   <AND>
@@ -1849,8 +1849,8 @@
               </Constraints>
             </Pattern>
 
-            <Pattern>
-              <Trigger Cardinality="3">
+            <Pattern Cardinality="3">
+              <Trigger>
                 <ErrorMessage>ERROR AN OBX SEGMENT WITH OBX-3.1 = 29769-7 is expected</ErrorMessage>
                 <Assertion>
                   <AND>

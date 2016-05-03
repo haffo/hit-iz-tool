@@ -1647,8 +1647,8 @@
           </Context>
         </Contexts>
       </Pattern>
-      <Pattern>
-        <Trigger Cardinality="2">
+      <Pattern Cardinality="2">
+        <Trigger>
           <ErrorMessage>ERROR AN ORDER GROUP WITH RXA-5.1 = 88 is expected</ErrorMessage>
           <Assertion>
             <AND>
