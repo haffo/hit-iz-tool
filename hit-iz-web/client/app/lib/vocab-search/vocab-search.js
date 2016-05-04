@@ -147,6 +147,20 @@
                 return $scope.selectedValueSetDefinition != null && $scope.selectedTableLibrary && $scope.selectedTableLibrary.noValidation && $scope.selectedTableLibrary.noValidation.ids && $scope.selectedTableLibrary.noValidation.ids.indexOf($scope.selectedValueSetDefinition.bindingIdentifier) > 0;
             };
 
+            $scope.isNoCodeFound = function (id) {
+                for(var i=0; i < $scope.selectedTableLibrary.noValidation.ids.length; i++){
+                    if($scope.selectedTableLibrary.noValidation.ids[i].id === id){
+                        return true;
+                    }
+                }
+                return false;
+            };
+
+
+
+
+
+
             $scope.openCopyrightDlg = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'ValueSetCopyrightCtrl.html',
