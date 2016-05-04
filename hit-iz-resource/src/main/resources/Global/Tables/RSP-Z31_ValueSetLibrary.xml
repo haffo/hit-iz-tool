@@ -81,70 +81,7 @@
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70361_IZ" Name="Application"/>
 		<ValueSetDefinition BindingIdentifier="HL70363_IZ" Name="Assigning Authority" Extensibility="Open">
-			<ValueElement Value="AKA" CodeSystem="HL70363" DisplayName="ALASKA"/>
-			<ValueElement Value="ALA" CodeSystem="HL70363" DisplayName="ALABAMA"/>
-			<ValueElement Value="ARA" CodeSystem="HL70363" DisplayName="ARKANSAS"/>
-			<ValueElement Value="ASA" CodeSystem="HL70363" DisplayName="AMERICAN SAMOA"/>
-			<ValueElement Value="AZA" CodeSystem="HL70363" DisplayName="ARIZONA"/>
-			<ValueElement Value="BAA" CodeSystem="HL70363" DisplayName="NEW YORK CITY"/>
-			<ValueElement Value="CAA" CodeSystem="HL70363" DisplayName="CALIFORNIA"/>
-			<ValueElement Value="CHA" CodeSystem="HL70363" DisplayName="CHICAGO"/>
-			<ValueElement Value="COA" CodeSystem="HL70363" DisplayName="COLORADO"/>
-			<ValueElement Value="CTA" CodeSystem="HL70363" DisplayName="CONNECTICUT"/>
-			<ValueElement Value="DCA" CodeSystem="HL70363" DisplayName="DISTRICT OF COLUMBIA"/>
-			<ValueElement Value="DEA" CodeSystem="HL70363" DisplayName="DELAWARE"/>
-			<ValueElement Value="FLA" CodeSystem="HL70363" DisplayName="FLORIDA"/>
-			<ValueElement Value="FMA" CodeSystem="HL70363" DisplayName="FED STATES MICRO"/>
-			<ValueElement Value="GAA" CodeSystem="HL70363" DisplayName="GEORGIA"/>
-			<ValueElement Value="GUA" CodeSystem="HL70363" DisplayName="GUAM"/>
-			<ValueElement Value="HIA" CodeSystem="HL70363" DisplayName="HAWAII"/>
-			<ValueElement Value="IAA" CodeSystem="HL70363" DisplayName="IOWA"/>
-			<ValueElement Value="IDA" CodeSystem="HL70363" DisplayName="IDAHO"/>
-			<ValueElement Value="ILA" CodeSystem="HL70363" DisplayName="ILLINOIS"/>
-			<ValueElement Value="INA" CodeSystem="HL70363" DisplayName="INDIANA"/>
-			<ValueElement Value="KSA" CodeSystem="HL70363" DisplayName="KANSAS"/>
-			<ValueElement Value="KYA" CodeSystem="HL70363" DisplayName="KENTUCKY"/>
-			<ValueElement Value="LAA" CodeSystem="HL70363" DisplayName="LOUISIANA"/>
-			<ValueElement Value="MAA" CodeSystem="HL70363" DisplayName="MASSACHUSETTS"/>
-			<ValueElement Value="MDA" CodeSystem="HL70363" DisplayName="MARYLAND"/>
-			<ValueElement Value="MEA" CodeSystem="HL70363" DisplayName="MAINE"/>
-			<ValueElement Value="MHA" CodeSystem="HL70363" DisplayName="REP MARS ISLANDS"/>
-			<ValueElement Value="MIA" CodeSystem="HL70363" DisplayName="MICHIGAN"/>
-			<ValueElement Value="MNA" CodeSystem="HL70363" DisplayName="MINNESOTA"/>
-			<ValueElement Value="MOA" CodeSystem="HL70363" DisplayName="MISSOURI"/>
-			<ValueElement Value="MPA" CodeSystem="HL70363" DisplayName="NO. MARIANA ISLAND"/>
-			<ValueElement Value="MSA" CodeSystem="HL70363" DisplayName="MISSISSIPPI"/>
-			<ValueElement Value="MTA" CodeSystem="HL70363" DisplayName="MONTANA"/>
-			<ValueElement Value="NCA" CodeSystem="HL70363" DisplayName="NORTH CAROLINA"/>
-			<ValueElement Value="NDA" CodeSystem="HL70363" DisplayName="NORTH DAKOTA"/>
-			<ValueElement Value="NEA" CodeSystem="HL70363" DisplayName="NEBRASKA"/>
-			<ValueElement Value="NHA" CodeSystem="HL70363" DisplayName="NEW HAMPSHIRE"/>
-			<ValueElement Value="NJA" CodeSystem="HL70363" DisplayName="NEW JERSEY"/>
-			<ValueElement Value="NMA" CodeSystem="HL70363" DisplayName="NEW MEXICO"/>
-			<ValueElement Value="NVA" CodeSystem="HL70363" DisplayName="NEVADA"/>
-			<ValueElement Value="NYA" CodeSystem="HL70363" DisplayName="NEW YORK STATE"/>
-			<ValueElement Value="OHA" CodeSystem="HL70363" DisplayName="OHIO"/>
-			<ValueElement Value="OKA" CodeSystem="HL70363" DisplayName="OKLAHOMA"/>
-			<ValueElement Value="ORA" CodeSystem="HL70363" DisplayName="OREGON"/>
-			<ValueElement Value="PAA" CodeSystem="HL70363" DisplayName="PENNSYLVANIA"/>
-			<ValueElement Value="PHA" CodeSystem="HL70363" DisplayName="PHILADELPHIA"/>
-			<ValueElement Value="PRA" CodeSystem="HL70363" DisplayName="PUERTO RICO"/>
-			<ValueElement Value="RIA" CodeSystem="HL70363" DisplayName="RHODE ISLAND"/>
-			<ValueElement Value="RPA" CodeSystem="HL70363" DisplayName="REPUBLIC PALAU"/>
-			<ValueElement Value="SCA" CodeSystem="HL70363" DisplayName="SOUTH CAROLINA"/>
-			<ValueElement Value="SDA" CodeSystem="HL70363" DisplayName="SOUTH DAKOTA"/>
-			<ValueElement Value="TBA" CodeSystem="HL70363" DisplayName="SAN ANTONIO"/>
-			<ValueElement Value="THA" CodeSystem="HL70363" DisplayName="HOUSTON"/>
-			<ValueElement Value="TNA" CodeSystem="HL70363" DisplayName="TENNESSEE"/>
-			<ValueElement Value="TXA" CodeSystem="HL70363" DisplayName="TEXAS"/>
-			<ValueElement Value="UTA" CodeSystem="HL70363" DisplayName="UTAH"/>
-			<ValueElement Value="VAA" CodeSystem="HL70363" DisplayName="VIRGINIA"/>
-			<ValueElement Value="VIA" CodeSystem="HL70363" DisplayName="VIRGIN ISLANDS"/>
-			<ValueElement Value="VTA" CodeSystem="HL70363" DisplayName="VERMONT"/>
-			<ValueElement Value="WAA" CodeSystem="HL70363" DisplayName="WASHINGTON"/>
-			<ValueElement Value="WIA" CodeSystem="HL70363" DisplayName="WISCONSIN"/>
-			<ValueElement Value="WVA" CodeSystem="HL70363" DisplayName="WEST VIRGINIA"/>
-			<ValueElement Value="WYA" CodeSystem="HL70363" DisplayName="WYOMING"/>
+			<ValueElement Value="..." CodeSystem="HL70363" DisplayName="Table (value set) identified in the implementation guide specifies codes that are not meaningful for all uses of this value set. Therefore, the validation tool will consider the value set as Empty and will issue an Alert since the element cannot be checked for content."/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70155_IZ" Name="Accept/Application acknowledgment conditions">
 			<ValueElement Value="AL" CodeSystem="HL70155" DisplayName="Always"/>
