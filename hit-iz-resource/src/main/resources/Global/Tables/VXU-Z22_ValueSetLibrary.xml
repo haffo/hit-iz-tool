@@ -66,7 +66,7 @@
 		<BindingIdentifier>HL70552</BindingIdentifier>
 		<BindingIdentifier>HL70361_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70362_IZ</BindingIdentifier>
-		<BindingIdentifier displayText="Table (value set) identified in the implementation guide specifies codes that are not meaningful for all uses of this value set. Therefore, the validation tool will consider the value set as Empty and will issue an Alert since the element cannot be checked for content.">HL70363_IZ</BindingIdentifier>
+		<BindingIdentifier>HL70363_IZ</BindingIdentifier>
 	</NoValidation>
 	<ValueSetDefinitions Group="CDC-HL7-IZ" Order="1">
 		<ValueSetDefinition BindingIdentifier="HL70003_IZ" Name="Event type">
@@ -119,7 +119,7 @@
 			<ValueElement Value="OK" CodeSystem="HL70119" DisplayName="Order accepted &amp; OK"/>
 			<ValueElement Value="RE" CodeSystem="HL70119" DisplayName="Observations to follow"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="HL70363_IZ" Name="Assigning Authority" Extensibility="Open"/>
+		<ValueSetDefinition BindingIdentifier="HL70363_IZ" Name="Assigning Authority" Extensibility="Open" NoCodeDisplayText="Table (value set) identified in the implementation guide specifies codes that are not meaningful for all uses of this value set. Therefore, the validation tool will consider the value set as Empty and will issue an Alert since the element cannot be checked for content."/>
 		<ValueSetDefinition BindingIdentifier="HL70354_IZ" Name="Message structure">
 			<ValueElement Value="ACK" CodeSystem="HL70354" DisplayName="ACK"/>
 			<ValueElement Value="QBP_Q11" CodeSystem="HL70354" DisplayName="QBP"/>

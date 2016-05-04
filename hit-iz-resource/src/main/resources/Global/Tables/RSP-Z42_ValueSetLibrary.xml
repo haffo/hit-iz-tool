@@ -3,7 +3,7 @@
 <ValueSetLibrary xsi:noNamespaceSchemaLocation="../Schema/ValueSets.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ValueSetLibraryIdentifier="1fa6401d-2060-486a-872b-1c064b606587">
 	<MetaData Name="Z42 Message ValueSets" OrgName="NIST" Version="1.0.0" Date="20160219" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<NoValidation>
-		<BindingIdentifier displayText="Table (value set) identified in the implementation guide specifies codes that are not meaningful for all uses of this value set. Therefore, the validation tool will consider the value set as Empty and will issue an Alert since the element cannot be checked for content.">HL70363_IZ</BindingIdentifier>
+		<BindingIdentifier>HL70363_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70361_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70362_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70296</BindingIdentifier>
@@ -83,7 +83,7 @@
 			<ValueElement Value="OK" CodeSystem="HL70119" DisplayName="Order accepted &amp; OK"/>
 			<ValueElement Value="RE" CodeSystem="HL70119" DisplayName="Observations to follow"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="HL70363_IZ" Name="Assigning Authority" Extensibility="Open"/>
+		<ValueSetDefinition BindingIdentifier="HL70363_IZ" Name="Assigning Authority" Extensibility="Open" NoCodeDisplayText="Table (value set) identified in the implementation guide specifies codes that are not meaningful for all uses of this value set. Therefore, the validation tool will consider the value set as Empty and will issue an Alert since the element cannot be checked for content."/>
 		<ValueSetDefinition BindingIdentifier="HL70155_IZ" Name="Accept/Application acknowledgment conditions">
 			<ValueElement Value="AL" CodeSystem="HL70155" DisplayName="Always"/>
 			<ValueElement Value="NE" CodeSystem="HL70155" DisplayName="Never"/>
