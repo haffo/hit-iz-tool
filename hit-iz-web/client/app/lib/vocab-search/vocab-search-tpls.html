@@ -332,17 +332,19 @@
         </div>
     </div>
 
-    <p style="color:red" ng-if="selectedValueSetDefinition.valueSetElements.length == 0">
+    <div ng-if="selectedValueSetDefinition.valueSetElements.length == 0">
+        <p style="color:red"
+           ng-if="!selectedValueSetDefinition.noCodeDisplayText || selectedValueSetDefinition.noCodeDisplayText === null">
+            Table (value set) identified in the implementation guide but no codes are specified. The validation tool
+            will
+            issue an Alert since the element cannot be checked for content.
+        </p>
 
-    <div ng-if="!selectedValueSetDefinition.noCodeDisplayText || selectedValueSetDefinition.noCodeDisplayText === null">
-        Table (value set) identified in the implementation guide but no codes are specified. The validation tool will
-        issue an Alert since the element cannot be checked for content.
+        <p style="color:red"
+           ng-if="selectedValueSetDefinition.noCodeDisplayText && selectedValueSetDefinition.noCodeDisplayText !== null">
+            {{selectedValueSetDefinition.noCodeDisplayText}}
+        </p>
     </div>
-    <div ng-if="selectedValueSetDefinition.noCodeDisplayText && selectedValueSetDefinition.noCodeDisplayText !== null">
-        {{selectedValueSetDefinition.noCodeDisplayText}}
-    </div>
-    </p>
-
 
 </div>
 </div>
