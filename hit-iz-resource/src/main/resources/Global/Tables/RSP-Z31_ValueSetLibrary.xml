@@ -5,7 +5,7 @@
 	<NoValidation>
 		<BindingIdentifier>HL70361_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70362_IZ</BindingIdentifier>
-		<BindingIdentifier>HL70363_IZ</BindingIdentifier>
+		<BindingIdentifier displayText="Table (value set) identified in the implementation guide specifies codes that are not meaningful for all uses of this value set. Therefore, the validation tool will consider the value set as Empty and will issue an Alert since the element cannot be checked for content.">HL70363_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70295</BindingIdentifier>
 		<BindingIdentifier>HL70296</BindingIdentifier>
 		<BindingIdentifier>HL70333</BindingIdentifier>

@@ -3,7 +3,7 @@
 <ValueSetLibrary xsi:noNamespaceSchemaLocation="../Schema/ValueSets.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ValueSetLibraryIdentifier="17a7b337-3043-4118-9212-ee39ef5365e9">
 	<MetaData Name="Z34 Message ValueSets" OrgName="NIST" Version="1.0.0" Date="20160219" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<NoValidation>
-		<BindingIdentifier>HL70363_IZ</BindingIdentifier>
+		<BindingIdentifier displayText="Table (value set) identified in the implementation guide specifies codes that are not meaningful for all uses of this value set. Therefore, the validation tool will consider the value set as Empty and will issue an Alert since the element cannot be checked for content.">HL70363_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70362_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70361_IZ</BindingIdentifier>
 		<BindingIdentifier>HL70091_IZ</BindingIdentifier>

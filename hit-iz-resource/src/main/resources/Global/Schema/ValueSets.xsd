@@ -8,7 +8,15 @@
 				<xs:element name="NoValidation" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence minOccurs="0" maxOccurs="unbounded">
-							<xs:element name="BindingIdentifier" type="xs:string"/>
+							<xs:element name="BindingIdentifier">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="displayText"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
