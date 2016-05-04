@@ -80,9 +80,7 @@
 			<ValueElement Value="T" CodeSystem="HL70103" DisplayName="Training"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70361_IZ" Name="Application"/>
-		<ValueSetDefinition BindingIdentifier="HL70363_IZ" Name="Assigning Authority" Extensibility="Open">
-			<ValueElement Value="..." CodeSystem="HL70363" DisplayName="Table (value set) identified in the implementation guide specifies codes that are not meaningful for all uses of this value set. Therefore, the validation tool will consider the value set as Empty and will issue an Alert since the element cannot be checked for content."/>
-		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70363_IZ" Name="Assigning Authority" Extensibility="Open"/>
 		<ValueSetDefinition BindingIdentifier="HL70155_IZ" Name="Accept/Application acknowledgment conditions">
 			<ValueElement Value="AL" CodeSystem="HL70155" DisplayName="Always"/>
 			<ValueElement Value="NE" CodeSystem="HL70155" DisplayName="Never"/>
