@@ -511,7 +511,7 @@
 			<Field Name="Date/Time of Transaction" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00223"/>
 			<Field Name="Entered By" Usage="RE" Min="0" Max="1" Datatype="XCN_IZ" MinLength="1" MaxLength="250" ItemNo="00224"/>
 			<Field Name="Verified By" Usage="O" Min="0" Max="*" Datatype="XCN" MinLength="1" MaxLength="250" ItemNo="00225"/>
-			<Field Name="Ordering Provider" Usage="C" Min="0" Max="1" Datatype="XCN" MinLength="1" MaxLength="250" ItemNo="00226"/>
+			<Field Name="Ordering Provider" Usage="C" Min="0" Max="1" Datatype="XCN_IZ" MinLength="1" MaxLength="250" ItemNo="00226"/>
 			<Field Name="Enterer's Location" Usage="O" Min="0" Max="1" Datatype="PL" MinLength="1" MaxLength="80" ItemNo="00227"/>
 			<Field Name="Call Back Phone Number" Usage="O" Min="0" Max="2" Datatype="XTN" MinLength="1" MaxLength="250" ItemNo="00228"/>
 			<Field Name="Order Effective Date/Time" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00229"/>

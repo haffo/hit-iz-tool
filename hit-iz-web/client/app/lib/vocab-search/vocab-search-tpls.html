@@ -472,10 +472,20 @@
                                 </tr>
                                 </tfoot>
                             </table>
-                            <p style="color:red" ng-if="valueSet.valueSetElements.length == 0">
-                                Table(value set) identified in the implementation guide but no codes are specified. The
-                                validation tool will issue an Alert since the element cannot be checked for content.
-                            </p>
+
+                            <div ng-if="valueSet.valueSetElements.length == 0">
+                                <p style="color:red"
+                                   ng-if="!valueSet.noCodeDisplayText || valueSet.noCodeDisplayText === null || valueSet.noCodeDisplayText === ''">
+                                    Table (value set) identified in the implementation guide but no codes are specified. The validation tool
+                                    will
+                                    issue an Alert since the element cannot be checked for content.
+                                </p>
+
+                                <p style="color:red"
+                                   ng-if="valueSet.noCodeDisplayText && valueSet.noCodeDisplayText !== null">
+                                    {{valueSet.noCodeDisplayText}}
+                                </p>
+                            </div>
 
                         </div>
                     </div>
