@@ -512,7 +512,9 @@ public class CDCSoapValidation {
           XPathExpression<Element> expr =
               xFactory.compile(tp1, Filters.element(), null, SOAPNs, CDCNs);
           Element child = expr.evaluateFirst(jdomDocument);
-          failure.setLine(((LocatedElement) child).getLine());
+          if (child != null) {
+            failure.setLine(((LocatedElement) child).getLine());
+          }
         } catch (JDOMException | IOException e) {
         }
       }

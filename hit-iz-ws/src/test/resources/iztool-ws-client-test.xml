@@ -17,69 +17,75 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
 
 
 
-	<context:component-scan base-package="gov.nist.healthcare.tools.hl7.v2.iz.tool.ws" />
-
+	<!-- <context:component-scan base-package="gov.nist.hit.iz.ws" /> -->
 	<bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory">
 		<property name="soapVersion">
 			<util:constant static-field="org.springframework.ws.soap.SoapVersion.SOAP_12" />
 		</property>
 	</bean>
+	<!-- <bean id="poxMessageFactory" class="org.springframework.ws.pox.dom.DomPoxMessageFactory"> 
+		<property name="contentType" value="application/soap+xml;action='urn:cdc:iisb:2011:connectivityTest'" 
+		/> </bean> -->
 
+	<!-- <bean id="axiomMessageFactory" class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory"> 
+		<property name="contentType" value="application/soap+xml;action=urn:cdc:iisb:2011:connectivityTest" 
+		/> </bean> -->
 	<sws:static-wsdl id="iisService" location="classpath:/ws/iisService.wsdl" />
 
-	<!-- <sws:interceptors>
-
-		<sws:payloadRoot namespaceUri="urn:cdc:iisb:2011" localPart="submitSingleMessage">
-    			<bean class="gov.nist.healthcare.tools.hl7.v2.iz.tool.ws.server.interceptor.SubmitSingleMessageInterceptor">
-     			</bean>
-  		</sws:payloadRoot> 
-  		
-  		<bean
-			class="org.springframework.ws.soap.server.endpoint.interceptor.SoapEnvelopeLoggingInterceptor">
-			 <property name="logRequest" value="true"></property>
-        	<property name="logResponse" value="true"></property>
-		</bean>
-  
-		
-	</sws:interceptors>
- -->
- 	<bean id="validatingInterceptor"
+	<!-- <bean id="clientInterceptor" class="gov.nist.hit.iz.ws.server.interceptor.ConnectivityTestClientInterceptor"></bean> -->
+	<bean id="validatingInterceptor"
 		class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor">
 		<property name="schema" value="classpath:/ws/cdc.xsd" />
 		<property name="validateRequest" value="true" />
 		<property name="validateResponse" value="true" />
-	</bean>  
+	</bean>
 
 	<bean id="exceptionResolver"
-		class="gov.nist.healthcare.tools.hl7.v2.iz.tool.ws.server.SoapFaultDetailsDefinitionExceptionResolver">
+		class="gov.nist.hit.iz.ws.server.SoapFaultDetailsDefinitionExceptionResolver">
 		<property name="defaultFault" value="SERVER" />
-	 	<property name="exceptionMappings">
-	 		<map>
-	 			<entry key="org.springframework.oxm.ValidationFailureException" value="CLIENT,Invalid request"/>
-	 			<entry key="gov.nist.healthcare.tools.hl7.v2.iz.tool.ws.server.exception.MessageTooLargeException" value="SENDER"/>
-	 			<entry key="java.lang.UnsupportedOperationException" value="SENDER" />
-	 			<entry key="java.lang.SecurityException" value="SENDER" />
-	 			<entry key="gov.nist.healthcare.tools.core.transport.TransportServerException" value="SENDER"/>
-	 		</map>
-		</property> 
+		<property name="exceptionMappings">
+			<map>
+				<entry key="org.springframework.oxm.ValidationFailureException"
+					value="CLIENT,Invalid request" />
+				<entry
+					key="gov.nist.hit.iz.ws.server.exception.MessageTooLargeException"
+					value="SENDER" />
+				<entry key="java.lang.UnsupportedOperationException" value="SENDER" />
+				<entry key="java.lang.SecurityException" value="SENDER" />
+				<entry key="gov.nist.hit.core.transport.TransportServerException"
+					value="SENDER" />
+			</map>
+		</property>
 	</bean>
 
 
-
-	<bean id="poxMessageFactory" class="org.springframework.ws.pox.dom.DomPoxMessageFactory">
-		<property name="contentType" value="application/soap+xml" />
+	<bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
+		<property name="messageSender" ref="messageSender" />
+		<property name="messageFactory" ref="messageFactory" />
+		<property name="checkConnectionForFault" value="false" />
+		<property name="checkConnectionForError" value="false" />
+		<property name="marshaller">
+			<ref bean="izwsMarshaller" />
+		</property>
+		<property name="unmarshaller">
+			<ref bean="izwsMarshaller" />
+		</property>
 	</bean>
- 
+
+	<bean id="izwsMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="contextPath" value="gov.nist.hit.iz.ws.jaxb" />
+	</bean>
+
+
 
 	<bean id="messageSender"
-		class="org.springframework.ws.transport.http.CommonsHttpMessageSender">
+		class="org.springframework.ws.transport.http.HttpComponentsMessageSender">
 	</bean>
-<!-- 
-	<bean id="webServiceClient" class="gov.nist.healthcare.tools.hl7.v2.iz.tool.ws.client.WebServiceClient">
-  		<constructor-arg name="webServiceTemplate" ref="webServiceTemplate" />
-  	</bean>
-  	 -->
-   
- 
- 	
+
+	<bean id="izSOAPWebServiceClient" class="gov.nist.hit.iz.ws.client.IZSOAPWebServiceClientImpl">
+		<constructor-arg name="webServiceTemplate" ref="webServiceTemplate" />
+	</bean>
+
+
+
 </beans>

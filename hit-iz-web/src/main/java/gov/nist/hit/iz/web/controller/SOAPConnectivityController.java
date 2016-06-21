@@ -39,6 +39,7 @@ import gov.nist.hit.iz.service.exception.SoapValidationException;
 import gov.nist.hit.iz.service.soap.SOAPMessageParser;
 import gov.nist.hit.iz.service.soap.SOAPMessageValidator;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
+import gov.nist.hit.iz.web.config.IZConstants;
 import gov.nist.hit.iz.web.utils.Utils;
 import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
 import io.swagger.annotations.Api;
@@ -183,6 +184,7 @@ public class SOAPConnectivityController {
       }
       Long testCaseId = requ.getTestStepId();
       IZConnectivityTestCase testCase = testCaseRepository.findOne(testCaseId);
+      String soapAction = null;
       if (testCase == null)
         throw new TestCaseException("Unknown testcase with id=" + testCaseId);
       // String outgoingMessage = requ.getMessage();
@@ -192,12 +194,13 @@ public class SOAPConnectivityController {
             ConnectivityUtil.updateSubmitSingleMessageRequest(outgoingMessage, null, requ
                 .getConfig().get("username"), requ.getConfig().get("password"), requ.getConfig()
                 .get("facilityID"));
-
+        soapAction = IZConstants.SUBMITSINGLEMESSAGE_SOAP_ACTION;
       } else if (IZTestType.RECEIVER_CONNECTIVITY.toString().equals(testCase.getTestType())) {
         outgoingMessage = ConnectivityUtil.updateConnectivityRequest(outgoingMessage);
+        soapAction = IZConstants.CONNECTIVITYTEST_SOAP_ACTION;
       }
       String incomingMessage =
-          webServiceClient.send(outgoingMessage, requ.getConfig().get("endpoint"));
+          webServiceClient.send(outgoingMessage, requ.getConfig().get("endpoint"), soapAction);
       String tmp = incomingMessage;
       try {
         incomingMessage = XmlUtil.prettyPrint(incomingMessage);

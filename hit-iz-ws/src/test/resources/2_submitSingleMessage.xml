@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<Envelope  xmlns="http://www.w3.org/2003/05/soap-envelope">
+  <Header/>
+  <Body>
 <urn:submitSingleMessage xmlns:urn="urn:cdc:iisb:2011">
 	<!--Optional: -->
-	<urn:username>test</urn:username>
+	<urn:username>vendor_11_597</urn:username>
 	<!--Optional: -->
-	<urn:password>12345</urn:password>
+	<urn:password>vendor_11_597</urn:password>
 	<!--Optional: -->
-	<urn:facilityID>FAC_TEST</urn:facilityID>
+	<urn:facilityID>vendor_11_597</urn:facilityID>
 	<urn:hl7Message>HL7_MESSAGE</urn:hl7Message>
 </urn:submitSingleMessage>
+</Body>
+</Envelope>

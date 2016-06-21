@@ -43,6 +43,8 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
 
   @Override
   public boolean handleRequest(MessageContext messageContext, Object endpoint) throws Exception {
+    // SoapMessage message = (SoapMessage) messageContext.getRequest();
+    // message.setSoapAction(IZWSConstant.SUBMITSINGLEMESSAGE_SOAP_ACTION);
     return true;
   }
 
