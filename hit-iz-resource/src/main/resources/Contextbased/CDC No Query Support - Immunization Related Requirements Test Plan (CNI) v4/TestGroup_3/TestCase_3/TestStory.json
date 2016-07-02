@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<span style=\"font-size: 13.3333px;\">Following the vaccinations given during the visit, the EMR transmits an Immunization report to the Immunization Registry using the VXU/Z22. The Vaccination report includes all newly administered vaccines. The report should include vaccines incorrectly recorded in the IIS. The report MAY send the immunizations that the EMR imported from the IIS.</span><br style=\"font-size: 13.3333px;\"><div style=\"font-size: 13.3333px;\"><br></div>",
+  "comments" : "No Comments",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "<span style=\"font-size: 13.3333px; font-style: italic;\"><span style=\"font-weight: bold;\">Transmit Standard Patient Immunization History Report: </span></span><span style=\"font-size: 13.3333px;\">The EHR or other clinical software system directly or indirectly through an intermediary creates and transmits a report of a patient's immunization history to public health immunization registries.</span><br style=\"font-size: 13.3333px;\"><br style=\"font-size: 13.3333px;\">",
+  "evaluationCriteria" : "<span style=\"line-height: 107%; font-family: Arial; font-size: small;\">Evaluation criteria is defined within each test\r\nstep.</span>",
+  "notes" : "No Note"
+}
