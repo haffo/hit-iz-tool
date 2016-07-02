@@ -53,12 +53,15 @@ var app = angular.module('tool', [
     'hit-dqa',
     'hit-settings',
     'documentation',
-    'hit-manual-report-viewer'
+    'hit-manual-report-viewer',
+    'ui-notification',
+    'blockUI'
+
 ]);
 
 var httpHeaders;
 
-app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider, KeepaliveProvider, IdleProvider) {
+app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider, KeepaliveProvider, IdleProvider,NotificationProvider,blockUIConfig) {
 
     localStorageServiceProvider
         .setPrefix('hit-tool')
@@ -117,6 +120,14 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
     IdleProvider.idle(7200);
     IdleProvider.timeout(30);
     KeepaliveProvider.interval(10);
+
+    NotificationProvider.setOptions({
+        delay: 30000,
+        maxCount:1
+    });
+    blockUIConfig.message = 'Processing...';
+    blockUIConfig.blockBrowserNavigation = true;
+
 
     httpHeaders = $httpProvider.defaults.headers;
 

@@ -40,9 +40,8 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
         	<property name="logResponse" value="true"></property>
 		</bean>
   
-		
 	</sws:interceptors>
-
+     			
  	<bean id="validatingInterceptor"
 		class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor">
 		<property name="schema" value="classpath:/ws/cdc.xsd" />
@@ -64,29 +63,31 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
 		</property> 
 	</bean>
 
-
-
-	<bean id="poxMessageFactory" class="org.springframework.ws.pox.dom.DomPoxMessageFactory">
-		<property name="contentType" value="application/soap+xml" />
-	</bean>
-
  	<bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
 		<property name="messageSender" ref="messageSender" />
-		<property name="messageFactory" ref="poxMessageFactory" />
+		<property name="messageFactory" ref="messageFactory" />
 		<property name="checkConnectionForFault"  value="false" />
-		<property name="checkConnectionForError"  value="false" />
+		<property name="checkConnectionForError"  value="false" /> 
+		<property name="marshaller">
+			<ref bean="izwsMarshaller" />
+		</property>
+		<property name="unmarshaller">
+			<ref bean="izwsMarshaller" />
+		</property> 
 	</bean>
  
-
 	<bean id="messageSender"
-		class="org.springframework.ws.transport.http.CommonsHttpMessageSender">
+		class="org.springframework.ws.transport.http.HttpComponentsMessageSender">
 	</bean>
 
 	<bean id="izSOAPWebServiceClient" class="gov.nist.hit.iz.ws.client.IZSOAPWebServiceClientImpl">
   		<constructor-arg name="webServiceTemplate" ref="webServiceTemplate" />
   	</bean>
   	
-   
- 
+  		<bean id="izwsMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="contextPath" value="gov.nist.hit.iz.ws.jaxb" />
+	</bean>
+  	
+  	
  	
 </beans>

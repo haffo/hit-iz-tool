@@ -33,6 +33,7 @@ import gov.nist.hit.core.service.exception.UserNotFoundException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
 import gov.nist.hit.core.transport.exception.TransportClientException;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
+import gov.nist.hit.iz.web.config.IZConstants;
 import gov.nist.hit.iz.web.utils.Utils;
 import gov.nist.hit.iz.ws.IZWSConstant;
 import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
@@ -234,7 +235,8 @@ public class SOAPTransportController {
               request.getMessage(), request.getConfig().get("username"),
               request.getConfig().get("password"), request.getConfig().get("facilityID"));
       String incomingMessage =
-          webServiceClient.send(outgoingMessage, request.getConfig().get("endpoint"));
+          webServiceClient.send(outgoingMessage, request.getConfig().get("endpoint"),
+              IZConstants.SUBMITSINGLEMESSAGE_SOAP_ACTION);
       String tmp = incomingMessage;
       try {
         incomingMessage = XmlUtil.prettyPrint(incomingMessage);
