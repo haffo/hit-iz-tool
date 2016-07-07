@@ -1,0 +1,30 @@
+MSH|^~\&|Test EHR Application|X68||NIST Test Iz Reg|20120701082240-0500||VXU^V04^VXU_V04|NIST-IZ-001.00|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS
+PID|1||123456^^^MYEHR^MR~987633^^^MYIIS^SR||Morales^Mariela^Gonzales^^^^L|Gonzales^Joanna^Elena^^^^M|201510011115|F||2106-3^White^CDCREC|3321 Standish Way^^Stamford^CT^06903^USA^L~325 Shorline Drive^^Stamford^CT^06901^^BDL||^PRN^PH^^1^203^5551214||eng^English^ISO639|||||||2135-2^Hispanic or Latino^CDCREC|Shoreline Hospital|Y|1
+ORC|RE||197027^DCS|||||||^Sirtis^Lisa||^Carter^Jane^^^^^^^L^^^^^^^^^^^MD|||||SH^Shoreline Hospital^HL70362||||||||||||||
+RXA|0|1|20151001|20151001|08^hepatitis B vaccine, pediatric or pediatric/adolescent dosage^CVX^58160-0820-11^ENGERIX-B^NDC|999|||08^Historical information - from public agency^NIP001|^Sirtis^Lisa|^^^DCS_DC^^^^^325 Shorline Drive^^Stamford^CT^06901||||6332FK33|20101214|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||9999^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20151031|20151031|45^hepatitis B vaccine, unspecified formulation^CVX|999||||||||||||||NA|A
+OBX|1|CE|30945-0^Vaccination contraindication^LN|1|VXC23^current fever with moderate-to-severe illness^CDCPHINVS||||||F|||20151031
+OBX|2|TS|30946-8^Vaccination contraindication/precaution effective date^LN|1|20150715||||||F|||20151031
+OBX|3|TS|30944-3^Vaccination temporary contraindication/precaution expiration date^LN|1|20151201||||||F|||20151031
+ORC|RE||9999^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20151031|20151031|107^DTaP, unspecified formulation^CVX|999||||||||||||||NA|A
+OBX|1|CE|30945-0^Vaccination contraindication^LN|1|VXC23^current fever with moderate-to-severe illness^CDCPHINVS||||||F|||20151031
+OBX|2|TS|30946-8^Vaccination contraindication/precaution effective date^LN|1|20150715||||||F|||20151031
+OBX|3|TS|30944-3^Vaccination temporary contraindication/precaution expiration date^LN|1|20151201||||||F|||20151031
+ORC|RE||9999^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20151031|20151031|08^Hib^CVX|999||||||||||||||NA|A
+OBX|1|CE|30945-0^Vaccination contraindication^LN|1|VXC23^current fever with moderate-to-severe illness^CDCPHINVS||||||F|||20151031
+OBX|2|TS|30946-8^Vaccination contraindication/precaution effective date^LN|1|20150715||||||F|||20151031
+OBX|3|TS|30944-3^Vaccination temporary contraindication/precaution expiration date^LN|1|20151201||||||F|||20151031
+ORC|RE||9999^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20151031|20151031|152^Pneumococcal Conjugate, unspecified formulation^CVX|999||||||||||||||NA|A
+OBX|1|CE|30945-0^Vaccination contraindication^LN|1|VXC23^current fever with moderate-to-severe illness^CDCPHINVS||||||F|||20151031
+OBX|2|TS|30946-8^Vaccination contraindication/precaution effective date^LN|1|20150715||||||F|||20151031
+OBX|3|TS|30944-3^Vaccination temporary contraindication/precaution expiration date^LN|1|20151201||||||F|||20151031
+ORC|RE||9999^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20151031|20151031|122^rotavirus, unspecified formulation^CVX|999||||||||||||||NA|A
+OBX|1|CE|30945-0^Vaccination contraindication^LN|1|VXC23^current fever with moderate-to-severe illness^CDCPHINVS||||||F|||20151031
+OBX|2|TS|30946-8^Vaccination contraindication/precaution effective date^LN|1|20150715||||||F|||20151031
+OBX|3|TS|30944-3^Vaccination temporary contraindication/precaution expiration date^LN|1|20151201||||||F|||20151031
