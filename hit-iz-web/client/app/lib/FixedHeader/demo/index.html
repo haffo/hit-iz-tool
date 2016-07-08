@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Header Demo</title>
+
+    <link rel="stylesheet" href="../dist/fixed-header.css">
+    <link rel="stylesheet" href="demo.css">
+  </head>
+  <body ng-controller="ctrl">
+
+    <div class="my-table">
+      <table oci.fixed-header>
+        <thead>
+        <tr>
+            <th>First</th>
+            <th>Middle</th>
+            <th>Last</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="my-table">
+      <table oci.fixed-header>
+        <thead>
+        <tr>
+            <th ng-repeat="header in headers">
+                <div class="th-inner">
+                    {{header}}
+                </div>
+            </th>
+        </tr>
+        <tr class="hidden-header">
+            <th ng-repeat="header in headers">
+                <div class="th-inner">
+                    {{header}}
+                </div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+          <tr> <td>Bob</td> <td>L</td> <td>Smith</td> </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../dist/fixed-header.js"></script>
+    <script src="demo.js"></script>
+  </body>
+</html>

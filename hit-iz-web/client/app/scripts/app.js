@@ -55,7 +55,8 @@ var app = angular.module('tool', [
     'documentation',
     'hit-manual-report-viewer',
     'ui-notification',
-    'blockUI'
+    'blockUI',
+    'oci.fixedHeader'
 
 ]);
 

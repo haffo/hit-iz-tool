@@ -36,7 +36,7 @@
                                      ng-init="init(valueSetDefinitionGroup)">
                                     <div class="iz-vocab-table">
                                         <table st-table="tmpList" st-safe-src="tableList"
-                                               class="table table-striped table-bordered ng-table-text stTable table-fix-header vocab-tab-table">
+                                               class="table table-striped ng-table-text stTable fixed-header vocab-tab-table">
                                             <thead>
 
                                             <tr>
@@ -45,7 +45,7 @@
                                                            type="search"/>
                                                 </th>
                                             </tr>
-                                            <tr class="tbl-header" style="margin-right: {{scrollbarWidth}}px;">
+                                            <tr class="tbl-header">
                                                 <th st-ratio="50" st-sort="bindingIdentifier">Binding Identifier</th>
                                                 <th st-sort="name" st-ratio="50">Value Set Name</th>
                                             </tr>
@@ -67,7 +67,7 @@
                                             </tbody>
 
                                             <tfoot ng-show="tableList.length >=100">
-                                            <tr style="margin-right:{{scrollbarWidth}}px">
+                                            <tr>
                                                 <td colspan="2" class="text-center" st-ratio="100">
                                                     <div class="" st-pagination="" st-items-by-page="100"
                                                          st-displayed-pages="10"></div>
@@ -138,7 +138,7 @@
                 <div class="iz-vocab-table-result"
                      ng-show="selectionCriteria === 'TableId' || selectionCriteria === 'ValueSetCode' || selectionCriteria === 'ValueSetName'">
                     <table st-table="tmpSearchResults" st-safe-src="searchResults"
-                           class="table table-striped table-bordered ng-table-text stTable table-fix-header vocab-result-table">
+                           class="table table-striped ng-table-text stTable fixed-header vocab-result-table">
                         <thead>
                         <tr>
                             <th colspan="2" st-ratio="100">
@@ -146,7 +146,7 @@
                             </th>
                         </tr>
 
-                        <tr class="tbl-header" style="margin-right: {{scrollbarWidth}}px;">
+                        <tr class="tbl-header">
                             <th st-ratio="50" st-sort="bindingIdentifier">Binding Identifier</th>
                             <th st-ratio="50" st-sort="name">ValueSet Name</th>
                             <!--<th st-ratio="20" st-sort="description">Description</th>-->
@@ -187,7 +187,7 @@
                         </tr>
                         </tbody>
                         <tfoot ng-show="searchResults.length >=100">
-                        <tr style="margin-right:{{scrollbarWidth}}px">
+                        <tr>
                             <th colspan="2" class="text-center" st-ratio="100">
                                 <div class="" st-pagination="" st-items-by-page="100"
                                      st-displayed-pages="10"></div>
@@ -199,7 +199,7 @@
                 <div class="iz-vocab-table-result"
                      ng-show="selectionCriteria === 'Value' || selectionCriteria === 'Description'">
                     <table st-table="tmpSearchResults" st-safe-src="searchResults"
-                           class="table table-striped table-bordered ng-table-text stTable table-fix-header vocab-result-table">
+                           class="table table-striped ng-table-text stTable fix-header vocab-result-table">
                         <thead>
 
                         <tr>
@@ -208,7 +208,7 @@
                             </th>
                         </tr>
 
-                        <tr class="tbl-header" style="margin-right: {{scrollbarWidth}}px;">
+                        <tr class="tbl-header">
                             <th st-ratio="30" st-sort="value">Value</th>
                             <th st-ratio="30" st-sort="codeSystem">Code System</th>
                             <th st-ratio="40" st-sort="displayName">Description</th>
@@ -232,7 +232,7 @@
                         </tr>
                         </tbody>
                         <tfoot ng-show="searchResults.length >=100">
-                        <tr style="margin-right:{{scrollbarWidth}}px">
+                        <tr>
                             <th colspan="3" class="text-center" st-ratio="100">
                                 <div class="" st-pagination="" st-items-by-page="100"
                                      st-displayed-pages="10"></div>
@@ -276,7 +276,7 @@
                 <table st-table="tmpValueSetElements"
 
                        st-safe-src="selectedValueSetDefinition.valueSetElements"
-                       class="table table-striped table-bordered ng-table-text stTable table-fix-header table-condensed vocab-result-table">
+                       class="table table-striped ng-table-text stTable fix-header table-condensed vocab-result-table">
                     <thead>
                     <tr>
                         <th colspan="3" st-ratio="100">
@@ -284,7 +284,7 @@
                         </th>
                     </tr>
 
-                    <tr class="tbl-header" style="margin-right: {{scrollbarWidth}}px;">
+                    <tr class="tbl-header">
                         <th st-ratio="30" st-sort="code">Code</th>
                         <th st-ratio="30" st-sort="codeSystem">Code System</th>
                         <th st-ratio="40" st-sort="displayName">Description</th>
@@ -315,7 +315,7 @@
                     <!--</tfoot>-->
 
                     <tfoot ng-show="selectedValueSetDefinition.valueSetElements.length >=100">
-                    <tr style="margin-right:{{scrollbarWidth}}px">
+                    <tr>
                         <td colspan="5" class="text-center" st-ratio="100">
                             <div class="" st-pagination="" st-items-by-page="100"
                                  st-displayed-pages="10"></div>
@@ -425,7 +425,7 @@
                         <div class="iz-vocab-table-result">
                             <table st-table="tmpValueSetElements" st-safe-src="valueSet.valueSetElements"
                                    ng-if="valueSet.valueSetElements.length > 0"
-                                   class="table table-striped table-bordered ng-table-text stTable table-fix-header vocab-result-table">
+                                   class="table table-striped ng-table-text stTable fix-header vocab-result-table">
                                 <thead>
                                 <tr>
                                     <th colspan="3" st-ratio="100">
@@ -434,7 +434,7 @@
                                     </th>
                                 </tr>
 
-                                <tr class="tbl-header" style="margin-right: {{scrollbarWidth}}px;">
+                                <tr class="tbl-header">
                                     <th st-ratio="30" st-sort="code">Value (Code)</th>
                                     <th st-ratio="30" st-sort="codesys">Code Sys</th>
                                     <th st-ratio="40" st-sort="displayName">Description</th>

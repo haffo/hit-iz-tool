@@ -259,7 +259,7 @@ angular.module('format').factory('MessageValidatorClass', function ($http, $q, $
                 }
             );
 
-
+//
 //            $http.get('../../resources/cf/newValidationResult3.json').then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));

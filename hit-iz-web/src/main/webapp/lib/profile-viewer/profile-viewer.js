@@ -531,11 +531,7 @@
 
             $scope.setAllRelevance = function (value) {
                 $scope.options.relevance = value;
-//                if (value) {
-//                    $scope.hideIndenters();
-//                } else {
-//                    $scope.showIndenters();
-//                }
+
             };
 
             $scope.hideIndenters = function () {
@@ -889,7 +885,7 @@
                 if ($scope.csWidth === null) {
                     var tableWidth = $scope.getTableWidth();
                     if (tableWidth > 0) {
-                        var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 700 : 950;
+                        var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 800 : 800;
                         var left = tableWidth - otherColumsWidth;
                         $scope.csWidth = {"width": 2 * parseInt(left / 3) + "px"};
                     }
@@ -901,7 +897,7 @@
                 if ($scope.predWidth === null) {
                     var tableWidth = $scope.getTableWidth();
                     if (tableWidth > 0) {
-                        var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 700 : 950;
+                        var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 800 : 800;
                         var left = tableWidth - otherColumsWidth;
                         $scope.predWidth = {"width": parseInt(left / 3) + "px"};
                     }
@@ -934,9 +930,23 @@
                 return node.id;
             };
 
+            $scope.getDatatypeNodeName3 = function (node) {
+                return node.id + ":" + node.description;
+            };
+
+
             $scope.isSubDT = function (component) {
                 return component.type === 'COMPONENT' && $scope.parentsMap && $scope.parentsMap[component.id] && $scope.parentsMap[component.id].type === 'COMPONENT';
             };
+
+            $scope.getComponentNodeName2 = function (node) {
+                return node.position + "." + node.name;
+            };
+
+            $scope.getSegmentReadName = function (node) {
+                return node.name + "." + node.description;
+            };
+
 
 
         }

@@ -174,16 +174,16 @@
                             > Highlight All
                 </div>
                 <br/>
-
-                <table st-table="tmpData" st-safe-src="currentCategory.data"
-                       class="table table-striped table-bordered table-condensed table-fix-header validation-result-table">
+                <div class="my-table">
+                <table  st-table="tmpData" st-safe-src="currentCategory.data"
+                       class="table table-condensed fixed-header">
                     <thead>
                     <!--<tr ng-show="data.length >= 100">-->
                     <!--<th colspan="5" class="text-center" st-ratio="100">-->
                     <!--<div class="validation-pagination" st-pagination="" st-items-by-page="100" st-displayed-pages="10"></div>-->
                     <!--</th>-->
                     <!--</tr>-->
-                    <tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px">
+                    <tr class="tbl-header"  >
                         <th st-sort="path" st-ratio="30">Path</th>
                         <th st-sort="description" st-ratio="60">Description</th>
                         <th st-sort="line" st-ratio="10">Line #</th>
@@ -215,7 +215,7 @@
                     </tr>
                     </tbody>
                     <tfoot ng-show="currentCategory.data.length >= 100">
-                    <tr style="margin-right:{{scrollbarWidth}}px">
+                    <tr  >
                         <td colspan="5" class="text-center" st-ratio="100">
                             <div class="validation-pagination" st-pagination="" st-items-by-page="100"
                                  st-displayed-pages="10"></div>
@@ -223,6 +223,7 @@
                     </tr>
                     </tfoot>
                 </table>
+                    </div>
             </div>
             <div ng-if="currentCategory.data == null || currentCategory.data.length == 0">
                 No {{currentType}} found.
