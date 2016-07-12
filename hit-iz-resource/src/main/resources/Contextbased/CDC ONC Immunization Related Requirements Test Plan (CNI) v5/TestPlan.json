@@ -4,5 +4,6 @@
   "type" : "Isolated",
   "transport" : true,
   "position" : 10,
-  "domain" : "iz"
+  "domain" : "iz",
+  "skip":true
 }
