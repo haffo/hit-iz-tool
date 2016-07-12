@@ -302,7 +302,7 @@ ul.result-settings {
 }
 
 .stTable {
-  margin-top: 5px;
+  //margin-top: 5px;
 }
 
 .point {
@@ -552,7 +552,7 @@ select.form-control:checked {
 }
 
 .ng-table-text {
-  font-size: 12px;
+//  font-size: 12px;
 }
 
 .st-selected {
@@ -1577,12 +1577,6 @@ li.validation-result-subtab {
   overflow-y: auto;
 }
 
-.container-doc-testcase-tree {
-  width: 100% !important;
-  max-width: 100% !important;
-  max-height: 800px !important;
-  overflow: auto;
-}
 
 .profile-modal .modal-dialog {
   width: 60%;
@@ -1776,12 +1770,7 @@ table.table-fix-header tfoot td {
   //  margin-top: 20px;
 }
 
-.confstatement-table {
-  //  height: 500px !important;
-  max-height: 600px !important;
-  //  overflow: auto;
-  //  margin-top: 20px;
-}
+
 
 
 .container-profile-table {
@@ -1798,16 +1787,9 @@ table.table-fix-header tfoot td {
 
 }
 
-table.vocab-tab-table {
-  max-height: 500px !important;
-
-}
 
 
 
-table.vocab-result-table {
-  max-height: 600px !important;
-}
 
 
 .iz-vocab-table {
@@ -1847,9 +1829,6 @@ table.vocab-result-table {
 }
 
 
-table.validation-result-table {
-  max-height: 340px !important;
-}
 
 
 
@@ -2156,7 +2135,10 @@ table.fixed-header{
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   display: flex;
+  display: -ms-flexbox;
   flex-direction: column;
+  -ms-flex-direction: column;
+
   align-items: stretch;
   height: 320px; /* this can vary */
   overflow: auto;
@@ -2169,7 +2151,9 @@ table.fixed-header * {
 
 table.fixed-header > thead {
   display: flex;
-  flex-direction: column;
+   flex-direction: column;
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
   align-items: stretch;
 }
 
@@ -2182,6 +2166,11 @@ table.fixed-header > thead > tr, table.fixed-header > tbody > tr, tfoot > tr {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  display: -ms-flexbox;
+  display: -ms-flexbox;
+  -ms-flex-direction: row;
+  -ms-flex-wrap: nowrap;
+
 }
 
 table.fixed-header > thead, table.fixed-header > tfoot {
@@ -2206,12 +2195,10 @@ tfoot td {
 
 table.fixed-header > tbody > tr > th, table.fixed-header > tbody > tr > td, table.fixed-header > tfoot > tr > th, table.fixed-header > tfoot > tr > td {
   border: 1px solid #dddddd;
+  text-align: left;
 }
 
 
-table.profile-table{
-  height: 800px !important;
-}
 
 .col-fixed-350 {
   float: left;
@@ -2240,3 +2227,116 @@ table.profile-table{
   max-width: 100%;
  }
 
+
+table.validation-result-table {
+  max-height: 325px !important;
+  height: 320px !important;
+ }
+
+
+
+
+table.profile-table{
+  max-height: 900px !important;
+  height: 800px !important;
+ }
+
+div.fixed-table-container div.th-inner {
+  /* the height of the header row */
+}
+
+//div.fixed-table-container-inner table thead tr.table-header, div.fixed-table-container-inner table thead tr.table-header * {
+//  background-color: #d9edf7;
+//  color: #3a87ad;
+//}
+
+div.fixed-table-container-inner {
+  border-top: 1px solid #ddd;
+}
+
+
+div.fixed-table-container div.fixed-table-container {
+  /* the height of the header row - this needs to match line-height above */
+  padding-top: 30px;
+}
+
+div.fixed-table-container tr.hidden-header .th-inner {
+  padding-right: 5px;
+}
+
+div.validation-result-table-container {
+  /* the maximum height of the table: */
+  //max-height: 320px;
+  width: 100%;
+  height: 320px;
+
+}
+
+div.confstatement-table-container div.fixed-table-container-inner {
+  /* the maximum height of the table: */
+  max-height: 800px !important;
+  width: 100%;
+}
+
+
+div.vocab-tab-table-container div.fixed-table-container-inner {
+  /* the maximum height of the table: */
+  max-height: 500px !important;
+  width: 100%;
+}
+
+
+div.vocab-result-table-container div.fixed-table-container-inner{
+  max-height: 600px !important;
+  width: 100%;
+}
+
+div.profile-table-container div.fixed-table-container-inner{
+  max-height: 800px !important;
+  width: 100%;
+}
+
+div.fixed-table-container-inner > tr.hidden-header{
+  display: none;
+}
+
+div.doc-testcase-tree-container div.fixed-table-container-inner{
+  max-height: 500px !important;
+  width: 100%;
+}
+
+.st-sort-descent:before {
+  content: none;
+ }
+
+.st-sort-ascent:before {
+  content: none;
+ }
+
+
+div.vocab-result-table-container,div.doc-testcase-tree-container,div.vocab-tab-table-container,div.validation-result-table-container {
+  margin-top:20px;
+}
+
+.profile-table-container2 {
+  max-width: 99%;
+  overflow: auto;
+}
+
+.tbl-header{
+  max-height: 20px;
+  height: 20px;
+}
+
+.table-header{
+  color: #3a87ad;
+//  border:1px solid #ddd;
+}
+
+.th-height{
+  height:30px;
+   border:1px solid #ddd;
+  border-bottom:0px;
+   background-color: #d9edf7;
+  color: #3a87ad;
+}

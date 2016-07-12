@@ -56,7 +56,8 @@ var app = angular.module('tool', [
     'hit-manual-report-viewer',
     'ui-notification',
     'blockUI',
-    'oci.fixedHeader'
+    'ociFixedHeader',
+    'ngTablescroll'
 
 ]);
 

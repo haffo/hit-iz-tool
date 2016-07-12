@@ -191,4 +191,5 @@ table.testcase-doc-tree tr.testcase-doc-tree-row.active td {
 
 table.doc-table {
     max-height: 500px !important;
+    height: 500px !important;
 }

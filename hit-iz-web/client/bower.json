@@ -19,8 +19,9 @@
     "sass-bootstrap": "~3.0.2",
     "underscore": "~1.8.3",
     "ng-idle": "~1.1.1",
-      "angular-block-ui": "^0.2.2",
-      "angular-ui-notification": "^0.2.0"
+    "angular-block-ui": "^0.2.2",
+    "angular-ui-notification": "^0.2.0",
+    "angular-tablescroll": "^2.0.0"
   },
   "devDependencies": {
     "angular-mocks": "1.4.7",

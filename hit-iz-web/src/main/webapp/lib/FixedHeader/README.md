@@ -20,11 +20,11 @@ Add `oci.fixedHeader` as a module dependency on your module:
 angular.module('app', ['oci.fixedHeader']);
 ```
 
-Add `oci.fixed-header` as an attribute to your table:
+Add `oci-fixed-header` as an attribute to your table:
 
 ```html
 <div class="my-table">
-  <table oci.fixed-header>
+  <table oci-fixed-header>
   <!-- table markup goes here ... -->
   </table>
 </div>

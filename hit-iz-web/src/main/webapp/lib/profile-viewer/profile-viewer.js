@@ -519,7 +519,7 @@
                         $scope.csWidth = null;
                         $scope.getCsWidth();
                         $scope.getPredWidth();
-                    }, 100);
+                    }, 1000);
 
                 }
 //                $scope.setAllRelevance($scope.options.relevance);
@@ -882,26 +882,26 @@
             };
 
             $scope.getCsWidth = function () {
-                if ($scope.csWidth === null) {
+                //if ($scope.csWidth === null) {
                     var tableWidth = $scope.getTableWidth();
                     if (tableWidth > 0) {
                         var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 800 : 800;
                         var left = tableWidth - otherColumsWidth;
                         $scope.csWidth = {"width": 2 * parseInt(left / 3) + "px"};
                     }
-                }
+                //}
                 return $scope.csWidth;
             };
 
             $scope.getPredWidth = function () {
-                if ($scope.predWidth === null) {
+                //if ($scope.predWidth === null) {
                     var tableWidth = $scope.getTableWidth();
                     if (tableWidth > 0) {
                         var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 800 : 800;
                         var left = tableWidth - otherColumsWidth;
                         $scope.predWidth = {"width": parseInt(left / 3) + "px"};
                     }
-                }
+               // }
                 return $scope.predWidth;
             };
 

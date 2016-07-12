@@ -7,21 +7,26 @@
 (function () {
     'use strict';
 
-    angular.module('oci.fixedHeader', [])
-        .directive('oci.fixedHeader', function () {
+    angular.module('ociFixedHeader', [])
+        .directive('ociFixedHeader', function () {
             return function link(scope, elem) {
                 // Wrap the contents of every header cell with div.th-inner so that the
                 // CSS can relocate it.
                 var header = elem.find('thead').find('tr');
+                header.addClass('table-header');
                 angular.forEach(header.find('th'), function (th) {
-                    angular.element(th).contents().wrap('<div class="th-inner"></div>');
+                    var classes = th.className;
+                    var inner = $('<div class="th-inner"></div>');
+                    console.log(classes);
+                    inner.addClass(classes);
+                    angular.element(th).contents().wrap(inner);
                 });
 
                 // Make a clone of the header that we hide using css. The purpose of this
                 // is to allow the width of the contents of the header to be included
                 // in the calculation of the widths of the columns
                 var hiddenHeader = header.clone();
-                hiddenHeader.addClass('hidden-header');
+                hiddenHeader.addClass('hidden-header').removeClass('table-header');
                 header.after(hiddenHeader);
 
                 // wrap the table in a couple of divs that bring in important css modifications

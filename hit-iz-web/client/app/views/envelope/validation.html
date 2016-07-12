@@ -133,10 +133,11 @@
                         </tab-heading>
                         <div class="panel panel-info">
                             <div class="panel-body">
+                                <div class="validation-result-table-container fixed-table-container">
                                 <table st-table="errorsCollection" st-safe-src="validationResult.errors.data"
-                                       class="table table-striped table-bordered ng-table-text">
+                                       class="table table-condensed  table-bordered table-striped ng-table-text" oci-fixed-header>
                                     <thead>
-                                    <tr class="tbl-header">
+                                    <tr class="tbl-header-2">
                                         <th st-sort="path">Path</th>
                                         <th>Description</th>
                                         <th st-sort="line">Line</th>
@@ -176,6 +177,7 @@
                                     <!--</tfoot>-->
 
                                 </table>
+                                    </div>
                             </div>
                         </div>
                     </tab>
@@ -187,10 +189,11 @@
                         </tab-heading>
                         <div class="panel panel-info">
                             <div class="panel-body">
+                                <div class="validation-result-table-container fixed-table-container">
                                 <table st-table="warningsCollection" st-safe-src="validationResult.warnings.data"
-                                       class="table table-striped table-bordered ng-table-text ">
+                                       class="table table-condensed  table-bordered table-striped ng-table-text" oci-fixed-header>
                                     <thead>
-                                    <tr class="tbl-header">
+                                    <tr class="tbl-header-2">
                                         <th st-sort="path">Path</th>
                                         <th>Description</th>
                                         <th st-sort="line">Line</th>
@@ -231,6 +234,7 @@
                                     <!--</tfoot>-->
 
                                 </table>
+                                    </div>
                             </div>
                         </div>
                     </tab>
@@ -243,11 +247,12 @@
                         <!--<validation-result-viewer results="validationResult.alerts"/>-->
                         <div class="panel panel-info">
                             <div class="panel-body">
+                                <div class="validation-result-table-container fixed-table-container">
                                 <table
                                         st-table="alertsCollection" st-safe-src="validationResult.alerts.data"
-                                        class="table table-striped table-bordered ng-table-text ">
+                                        class="table table-condensed  table-bordered table-striped ng-table-text" oci-fixed-header>
                                     <thead>
-                                    <tr class="tbl-header">
+                                    <tr class="tbl-header-2">
                                         <th st-sort="path">Path</th>
                                         <th>Description</th>
                                         <th st-sort="line">Line</th>
@@ -270,6 +275,7 @@
                                     </tr>
                                     </tbody>
                                 </table>
+                                    </div>
                             </div>
                         </div>
                     </tab>
