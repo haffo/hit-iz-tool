@@ -6,18 +6,24 @@
 </div>
 <div class='form-group control-group'>
 	<label for='password' class='col-md-2 control-label'>Password</label>
-	<div class='controls col-md-6'>
-		<span type='text' class='form-control' name='password'
-			ng-bind='config.password' />
+	<div class='controls col-md-6'>			
+	    <span type='text' class='form-control' name='password'
+			 ng-bind='config.password' />
 	</div>
 </div>
+
 <div class='form-group control-group'>
 	<label for='facilityID' class='col-md-2 control-label'>FacilityID</label>
 	<div class='controls col-md-6'>
 		<span class='form-control' name='facilityId'
-			ng-bind='config.facilityID' />
+			ng-bind='config.facilityID' ng-show="!isAuthenticated()" />
+		<input
+			class='form-control' name='facilityIDInput'
+			ng-show="isAuthenticated()" id='facilityIDInput' type='text'
+			ng-model='config.facilityID'>
 	</div>
 </div>
+
 <div class='form-group control-group'>
 	<label for='endpoint' class='col-md-2 control-label'>Endpoint</label>
 	<div class='controls col-md-6'>

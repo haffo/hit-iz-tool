@@ -1,0 +1,23 @@
+<style id="antiClickjack">body{display:none !important;}</style>
+<script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
+<div class="modal-header">
+    <h1>
+        <div msg key="registration.agreement.title"></div>
+    </h1>
+</div>
+<div class="modal-body">
+    <div id="agreement">
+        <div msg key="registration.agreement.content"></div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-large"  ng-click="acceptAgreement()" ><div msg key="registration.agreement.acceptButton"></div></button>
+    <button class="btn btn-large"  ng-click='doNotAcceptAgreement()'><div msg key="registration.agreement.cancelButton"></div></button>
+</div>

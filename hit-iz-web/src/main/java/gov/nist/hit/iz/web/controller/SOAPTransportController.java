@@ -12,6 +12,7 @@
 
 package gov.nist.hit.iz.web.controller;
 
+import gov.nist.auth.hit.core.domain.Account;
 import gov.nist.hit.core.api.SessionContext;
 import gov.nist.hit.core.domain.TestStep;
 import gov.nist.hit.core.domain.Transaction;
@@ -19,13 +20,13 @@ import gov.nist.hit.core.domain.TransportConfig;
 import gov.nist.hit.core.domain.TransportMessage;
 import gov.nist.hit.core.domain.TransportRequest;
 import gov.nist.hit.core.domain.TransportResponse;
-import gov.nist.hit.core.domain.User;
 import gov.nist.hit.core.domain.util.XmlUtil;
+import gov.nist.hit.core.service.AccountService;
+import gov.nist.hit.core.service.PasswordService;
 import gov.nist.hit.core.service.TestStepService;
 import gov.nist.hit.core.service.TransactionService;
 import gov.nist.hit.core.service.TransportConfigService;
 import gov.nist.hit.core.service.TransportMessageService;
-import gov.nist.hit.core.service.UserService;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.core.service.exception.TransportException;
@@ -80,7 +81,7 @@ public class SOAPTransportController {
   protected TestStepService testStepService;
 
   @Autowired
-  protected UserService userService;
+  protected AccountService accountService;
 
   @Autowired
   protected TransactionService transactionService;
@@ -94,6 +95,8 @@ public class SOAPTransportController {
   @Autowired
   private IZSOAPWebServiceClient webServiceClient;
 
+  @Autowired
+  private PasswordService passwordService;
 
   private final static String PROTOCOL = "soap";
   private final static String DOMAIN = "iz";
@@ -118,7 +121,7 @@ public class SOAPTransportController {
       throws UserNotFoundException {
     logger.info("Starting listener");
     Long userId = SessionContext.getCurrentUserId(session);
-    if (userId == null || (userService.findOne(userId)) == null) {
+    if (userId == null || (accountService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
     clearExchanges(userId);
@@ -147,7 +150,7 @@ public class SOAPTransportController {
       throws UserNotFoundException {
     logger.info("Stopping listener ");
     Long userId = SessionContext.getCurrentUserId(session);
-    if (userId == null || (userService.findOne(userId)) == null) {
+    if (userId == null || (accountService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
     clearExchanges(userId);
@@ -217,7 +220,7 @@ public class SOAPTransportController {
     logger.info("Sending message");
     try {
       Long userId = SessionContext.getCurrentUserId(session);
-      if (userId == null || (userService.findOne(userId)) == null) {
+      if (userId == null || (accountService.findOne(userId)) == null) {
         throw new UserNotFoundException();
       }
 
@@ -263,16 +266,15 @@ public class SOAPTransportController {
       HttpServletRequest request) throws UserNotFoundException {
     logger.info("Fetching user configuration information ... ");
     Long userId = SessionContext.getCurrentUserId(session);
-    User user = null;
-    if (userId == null || (user = userService.findOne(userId)) == null) {
+    Account user = null;
+    if (userId == null || (user = accountService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
     TransportConfig transportConfig =
         transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL, DOMAIN);
     if (transportConfig == null) {
       transportConfig = transportConfigService.create(PROTOCOL, DOMAIN);
-      user.addConfig(transportConfig);
-      userService.save(user);
+      transportConfig.setUserId(userId);
       Map<String, String> sutInitiatorConfig = sutInitiatorConfig(user, request);
       Map<String, String> taInitiatorConfig = taInitiatorConfig(user, request);
       transportConfig.setSutInitiator(sutInitiatorConfig);
@@ -282,7 +284,7 @@ public class SOAPTransportController {
     return transportConfig;
   }
 
-  private Map<String, String> taInitiatorConfig(User user, HttpServletRequest request)
+  private Map<String, String> taInitiatorConfig(Account user, HttpServletRequest request)
       throws UserNotFoundException {
     logger.info("Creating user ta initiator config information ... ");
     Map<String, String> config = new HashMap<String, String>();
@@ -292,13 +294,15 @@ public class SOAPTransportController {
     return config;
   }
 
-  private Map<String, String> sutInitiatorConfig(User user, HttpServletRequest request)
+  private Map<String, String> sutInitiatorConfig(Account user, HttpServletRequest request)
       throws UserNotFoundException {
     logger.info("Creating user sut initiator config information ... ");
     Map<String, String> config = new HashMap<String, String>();
     int token = new Random().nextInt(999);
-    config.put("username", "vendor_" + user.getId() + "_" + token);
-    config.put("password", "vendor_" + user.getId() + "_" + token);
+    config.put("username",
+        user.isGuestAccount() ? "vendor_" + user.getId() + "_" + token : user.getUsername());
+    config.put("password", user.isGuestAccount() ? "vendor_" + user.getId() + "_" + token
+        : passwordService.getEncryptedPassword(user.getUsername()));
     config.put("facilityID", "vendor_" + user.getId() + "_" + token);
     config.put("faultUsername", "fault_vendor_" + user.getId() + "_" + token);
     config.put("faultPassword", "fault_vendor_" + user.getId() + "_" + token);
@@ -316,7 +320,7 @@ public class SOAPTransportController {
       throws UserNotFoundException {
     logger.info("Fetching user configuration information ... ");
     Long userId = SessionContext.getCurrentUserId(session);
-    if (userId == null || (userService.findOne(userId)) == null) {
+    if (userId == null || (accountService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
     return new TransportResponse(transportRequest.getTestStepId(), transportRequest.getMessage(),
@@ -333,16 +337,6 @@ public class SOAPTransportController {
     this.testStepService = testStepService;
   }
 
-
-
-  public UserService getUserService() {
-    return userService;
-  }
-
-
-  public void setUserService(UserService userService) {
-    this.userService = userService;
-  }
 
 
   public TransportMessageService getTransportMessageService() {
@@ -382,6 +376,24 @@ public class SOAPTransportController {
 
   public void setWebServiceClient(IZSOAPWebServiceClient webServiceClient) {
     this.webServiceClient = webServiceClient;
+  }
+
+
+
+  public AccountService getAccountService() {
+    return accountService;
+  }
+
+  public void setAccountService(AccountService accountService) {
+    this.accountService = accountService;
+  }
+
+  public PasswordService getPasswordService() {
+    return passwordService;
+  }
+
+  public void setPasswordService(PasswordService passwordService) {
+    this.passwordService = passwordService;
   }
 
   @ResponseBody

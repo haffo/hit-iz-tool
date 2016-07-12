@@ -18,8 +18,8 @@ import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.TransportRequest;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.domain.util.XmlUtil;
+import gov.nist.hit.core.service.AccountService;
 import gov.nist.hit.core.service.TransportConfigService;
-import gov.nist.hit.core.service.UserService;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.MessageValidationException;
 import gov.nist.hit.core.service.exception.TestCaseException;
@@ -101,7 +101,8 @@ public class SOAPConnectivityController {
   protected TransportConfigService transportConfigService;
 
   @Autowired
-  protected UserService userService;
+  protected AccountService accountService;
+
 
 
   public SOAPMessageParser getSoapParser() {
@@ -179,7 +180,7 @@ public class SOAPConnectivityController {
         throw new TransportException("Failed to send the message. No endpoint specified");
       }
       Long userId = SessionContext.getCurrentUserId(session);
-      if (userId == null || (userService.findOne(userId)) == null) {
+      if (userId == null || (accountService.findOne(userId)) == null) {
         throw new UserNotFoundException();
       }
       Long testCaseId = requ.getTestStepId();

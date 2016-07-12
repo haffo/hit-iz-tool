@@ -32,7 +32,7 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBExecutionCtrl', ['$scope', '$window', '$rootScope', 'CB', '$modal', 'TestExecutionClock', 'Endpoint', 'TestExecutionService', '$timeout', 'StorageService', 'User', 'ReportService', 'SOAPEscaper', 'TestCaseDetailsService', '$compile', 'Transport', '$filter', function ($scope, $window, $rootScope, CB, $modal, TestExecutionClock, Endpoint, TestExecutionService, $timeout, StorageService, User, ReportService, SOAPEscaper, TestCaseDetailsService, $compile, Transport, $filter) {
+    .controller('CBExecutionCtrl', ['$scope', '$window', '$rootScope', 'CB', '$modal', 'TestExecutionClock', 'Endpoint', 'TestExecutionService', '$timeout', 'StorageService', 'User', 'ReportService',  'TestCaseDetailsService', '$compile', 'Transport', '$filter', 'SOAPEscaper', function ($scope, $window, $rootScope, CB, $modal, TestExecutionClock, Endpoint, TestExecutionService, $timeout, StorageService, User, ReportService, TestCaseDetailsService, $compile, Transport, $filter,SOAPEscaper) {
         $scope.targ = "cb-executed-test-step";
         $scope.loading = false;
         $scope.error = null;
@@ -1022,7 +1022,7 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBValidatorCtrl', ['$scope', '$http', 'CB', '$window', '$timeout', '$modal', 'NewValidationResult', '$rootScope', 'ServiceDelegator', 'StorageService', 'TestExecutionService', function ($scope, $http, CB, $window, $timeout, $modal, NewValidationResult, $rootScope, ServiceDelegator, StorageService, TestExecutionService) {
+    .controller('CBValidatorCtrl',['$scope', '$http', 'CB', '$window', '$timeout', '$modal', 'NewValidationResult', '$rootScope', 'ServiceDelegator', 'StorageService', 'TestExecutionService','MessageUtil', function ($scope, $http, CB, $window, $timeout, $modal, NewValidationResult, $rootScope, ServiceDelegator, StorageService, TestExecutionService,MessageUtil) {
 
         $scope.cb = CB;
         $scope.testStep = null;
@@ -1047,6 +1047,7 @@ angular.module('cb')
         $scope.dqaCodes = StorageService.get(StorageService.DQA_OPTIONS_KEY) != null ? angular.fromJson(StorageService.get(StorageService.DQA_OPTIONS_KEY)) : [];
         $scope.domain = null;
         $scope.protocol = null;
+        $scope.hasNonPrintable = false;
 
         $scope.showDQAOptions = function () {
             var modalInstance = $modal.open({
@@ -1290,6 +1291,7 @@ angular.module('cb')
             $scope.mError = null;
             $scope.vError = null;
             $scope.cb.message.content = $scope.editor.doc.getValue();
+            $scope.setHasNonPrintableCharacters();
             StorageService.set(StorageService.CB_EDITOR_CONTENT_KEY, $scope.cb.message.content);
             $scope.refreshEditor();
             if (!$scope.isTestCase() || !$scope.isTestCaseCompleted()) {
@@ -1387,6 +1389,30 @@ angular.module('cb')
             if ($scope.cb.tree.root != null)
                 $scope.cb.tree.root.collapse_all();
         };
+
+
+        $scope.setHasNonPrintableCharacters = function () {
+            $scope.hasNonPrintable = MessageUtil.hasNonPrintable($scope.cb.message.content);
+        };
+
+        $scope.showMessageWithHexadecimal = function () {
+            var modalInstance = $modal.open({
+                templateUrl: 'MessageWithHexadecimal.html',
+                controller: 'MessageWithHexadecimalDlgCtrl',
+                windowClass: 'valueset-modal',
+                animation:false,
+                keyboard:true,
+                backdrop:true,
+                resolve: {
+                    original: function () {
+                        return  $scope.cb.message.content;
+                    }
+                }
+            });
+        };
+
+
+
 
     }]);
 

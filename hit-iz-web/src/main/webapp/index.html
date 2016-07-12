@@ -34,10 +34,9 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="styles/ed61a8a0.vendor.css">
     <!-- For project CSS files -->
-    <link rel="stylesheet" href="styles/626a2229.main.css">
+    <link rel="stylesheet" href="styles/8efd529e.main.css">
 
     <!-- Custom styles for this template -->
-    <script src="lib/utils.js"></script>
     <link href="styles/95f30d28.carousel.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/0831cba6.font-awesome.min.css">
 
@@ -83,7 +82,7 @@
     </script>
     <!--<link rel="stylesheet" href="lib/tree-grid/treeGrid.css">-->
 </head>
-<body ng-app="tool" window-exit="">
+<body ng-controller="MainCtrl" ng-app="hit-app" window-exit="">
 <div id="wrapper">
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
@@ -98,49 +97,15 @@
     <div ng-include="'views/header.html'"></div>
     <!-- Add your site or application content here -->
     <div id="appcontainer">
-        <!--<div class="container">-->
-        <!--<div class="row">-->
-        <!--<div class="col-md-10">-->
-        <!--<div ng-class="'alert alert-'+msg().type" ng-show="msg().show" id="ehralert">-->
-        <!--<button type="button" class="close" ng-click="msg().show=false">×</button>-->
-        <!--<div ng-bind="msg().text"></div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
         <div ng-view=""></div>
-
-        <!--<script type="text/ng-template" id="warning-dialog.html">-->
-        <!--<div class="modal-header">-->
-        <!--<h3>Your session will expire soon!</h3>-->
-        <!--</div>-->
-        <!--<div idle-countdown="countdown" ng-init="countdown=30" class="modal-body">-->
-        <!--<progressbar type="warning" max="30" value="30" animate="false" class="progress-striped active">Your session-->
-        <!--will expire in {{countdown}} second(s).-->
-        <!--</progressbar>-->
-        <!--</div>-->
-        <!--</script>-->
-
-        <!--<script type="text/ng-template" id="timedout-dialog.html">-->
-        <!--<div class="modal-header">-->
-        <!--<h3>Session Expired</h3>-->
-        <!--</div>-->
-        <!--<div class="modal-body">-->
-        <!--<p>-->
-        <!--Your session has expired due to inactivity for a long time.-->
-        <!--</p>-->
-        <!--</div>-->
-        <!--</script>-->
-
-
     </div>
 
     <div ng-include="'views/footer.html'"></div>
 
-    <script src="scripts/0097765f.vendor.js"></script>
+    <script src="scripts/e13a2317.vendor.js"></script>
 
     <!-- blueimp -->
-
+    <script src="lib/i18n/jquery.i18n.properties-1.0.9.js"></script>
      <script src="lib/blueimp/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
     <script src="lib/blueimp/blueimp-load-image/js/load-image.js"></script>
     <script src="lib/blueimp/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
@@ -159,7 +124,7 @@
 
     <script src="lib/x2js/xml2json.min.js"></script>
     <script src="lib/FixedHeader/dist/fixed-header.js"></script>
-
+    <script src="lib/utils.js"></script>
     <script src="lib/vocab-search/vocab-search.js"></script>
     <script src="lib/profile-viewer/profile-viewer.js"></script>
     <script src="lib/dqa/dqa.js"></script>
@@ -179,7 +144,7 @@
     <script src="lib/settings/settings.js"></script>
 
 
-    <script src="scripts/d5945c0f.scripts.js"></script>
+    <script src="scripts/fd2e7b0f.scripts.js"></script>
 
     <div ng-include="'views/error.html'"></div>
     <div ng-include="'views/templates.html'"></div>

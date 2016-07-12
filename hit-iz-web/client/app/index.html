@@ -46,7 +46,6 @@
     <!-- endbuild -->
 
     <!-- Custom styles for this template -->
-    <script src="lib/utils.js"></script>
     <link href="styles/carousel.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/font-awesome.min.css">
 
@@ -92,7 +91,7 @@
     </script>
     <!--<link rel="stylesheet" href="lib/tree-grid/treeGrid.css">-->
 </head>
-<body ng-app="tool" window-exit>
+<body  ng-controller="MainCtrl" ng-app="hit-app" window-exit>
 <div id="wrapper">
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
@@ -107,41 +106,7 @@
     <div ng-include="'views/header.html'"></div>
     <!-- Add your site or application content here -->
     <div id="appcontainer">
-        <!--<div class="container">-->
-        <!--<div class="row">-->
-        <!--<div class="col-md-10">-->
-        <!--<div ng-class="'alert alert-'+msg().type" ng-show="msg().show" id="ehralert">-->
-        <!--<button type="button" class="close" ng-click="msg().show=false">×</button>-->
-        <!--<div ng-bind="msg().text"></div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
         <div ng-view=""></div>
-
-        <!--<script type="text/ng-template" id="warning-dialog.html">-->
-        <!--<div class="modal-header">-->
-        <!--<h3>Your session will expire soon!</h3>-->
-        <!--</div>-->
-        <!--<div idle-countdown="countdown" ng-init="countdown=30" class="modal-body">-->
-        <!--<progressbar type="warning" max="30" value="30" animate="false" class="progress-striped active">Your session-->
-        <!--will expire in {{countdown}} second(s).-->
-        <!--</progressbar>-->
-        <!--</div>-->
-        <!--</script>-->
-
-        <!--<script type="text/ng-template" id="timedout-dialog.html">-->
-        <!--<div class="modal-header">-->
-        <!--<h3>Session Expired</h3>-->
-        <!--</div>-->
-        <!--<div class="modal-body">-->
-        <!--<p>-->
-        <!--Your session has expired due to inactivity for a long time.-->
-        <!--</p>-->
-        <!--</div>-->
-        <!--</script>-->
-
-
     </div>
 
     <div ng-include="'views/footer.html'"></div>
@@ -169,12 +134,11 @@
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="bower_components/angular-block-ui/dist/angular-block-ui.js"></script>
     <script src="bower_components/angular-ui-notification/dist/angular-ui-notification.js"></script>
-    <script src="bower_components/angular-tablescroll/angular-tablescroll.js"></script>
 
     <!-- endbuild -->
 
     <!-- blueimp -->
-
+    <script src="lib/i18n/jquery.i18n.properties-1.0.9.js"></script>
      <script src="lib/blueimp/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
     <script src="lib/blueimp/blueimp-load-image/js/load-image.js"></script>
     <script src="lib/blueimp/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
@@ -193,7 +157,7 @@
 
     <script src="lib/x2js/xml2json.min.js"></script>
     <script src="lib/FixedHeader/dist/fixed-header.js"></script>
-
+    <script src="lib/utils.js"></script>
     <script src="lib/vocab-search/vocab-search.js"></script>
     <script src="lib/profile-viewer/profile-viewer.js"></script>
     <script src="lib/dqa/dqa.js"></script>
@@ -216,27 +180,24 @@
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <!-- Services-->
-    <script src="scripts/my.resource.js"></script>
-    <script src="scripts/testing/service/testing.js"></script>
+    <script src="scripts/base64.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/main/service.js"></script>
+    <script src="scripts/account/service.js"></script>
     <script src="scripts/envelope/service.js"></script>
     <script src="scripts/cf/service.js"></script>
     <script src="scripts/cb/service.js"></script>
     <script src="scripts/connectivity/service.js"></script>
-    <script src="scripts/vocab/service/vocab.js"></script>
-    <script src="scripts/contact/service/contact.js"></script>
-    <script src="scripts/common.js"></script>
+
     <!-- Controllers-->
-    <script src="scripts/main/controller/main.js"></script>
-    <script src="scripts/testing/controller/testing.js"></script>
+    <script src="scripts/main/controller.js"></script>
+    <script src="scripts/account/controller.js"></script>
+    <script src="scripts/directives/directives.js"></script>
+    <script src="scripts/account/directive.js"></script>
     <script src="scripts/cf/controller.js"></script>
     <script src="scripts/cb/controller.js"></script>
     <script src="scripts/envelope/controller.js"></script>
-    <script src="scripts/contact/controller/contact.js"></script>
-    <script src="scripts/about/controller/about.js"></script>
-    <script src="scripts/header/controller/header.js"></script>
     <script src="scripts/connectivity/controller.js"></script>
-    <script src="scripts/directives/directives.js"></script>
-
 
     <!-- endbuild -->
 

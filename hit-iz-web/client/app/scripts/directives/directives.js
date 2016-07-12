@@ -87,14 +87,30 @@ angular.module('hit-tool-directives').directive('windowExit', function($window, 
             var myEvent = $window.attachEvent || $window.addEventListener,
                 chkevent = $window.attachEvent ? 'onbeforeunload' : 'beforeunload'; /// make IE7, IE8 compatable
             myEvent(chkevent, function (e) { // For >=IE7, Chrome, Firefox
-                 $templateCache.removeAll();
+                $templateCache.removeAll();
             });
         }
     };
 });
 
 
-
-
-
-
+angular.module('hit-tool-directives')
+    .directive('msg', [function () {
+        return {
+            restrict: 'EA',
+            replace: true,
+            link: function (scope, element, attrs) {
+                //console.log("Dir");
+                var key = attrs.key;
+                if (attrs.keyExpr) {
+                    scope.$watch(attrs.keyExpr, function (value) {
+                        key = value;
+                        element.text($.i18n.prop(value));
+                    });
+                }
+                scope.$watch('language()', function (value) {
+                    element.text($.i18n.prop(key));
+                });
+            }
+        };
+    }]);

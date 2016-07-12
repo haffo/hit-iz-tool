@@ -259,7 +259,7 @@ angular.module('format').factory('MessageValidatorClass', function ($http, $q, $
                 }
             );
 
-//
+
 //            $http.get('../../resources/cf/newValidationResult3.json').then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
@@ -873,7 +873,7 @@ angular.module('format').factory('Clock', function ($interval, $timeout) {
             this.stop();
         }
         this.value = $interval(fn, this.intervl);
-     };
+    };
 
 
     Clock.prototype.stop = function () {
@@ -998,7 +998,7 @@ angular.module('format').factory('AppInfo', ['$http', '$q', function ($http, $q)
                     delay.reject(response.data);
                 }
             );
-//
+
 //            $http.get('../../resources/appInfo.json').then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
@@ -1025,17 +1025,15 @@ angular.module('format').factory('User', function ($q, $http, StorageService) {
         //StorageService.set(StorageService.USER_KEY,angular.toJson(data));
     };
 
-    UserClass.prototype.load = function () {
+    UserClass.prototype.getGuest = function () {
         var delay = $q.defer();
         var user = this;
-        $http.post('api/user/current').then(
+        $http.post('api/accounts/guest').then(
             function (response) {
                 var data = angular.fromJson(response.data);
-                user.setInfo(data);
-                delay.resolve(data);
+                 delay.resolve(data);
             },
             function (response) {
-                user.setInfo(null);
                 delay.reject(response.data);
             }
         );
@@ -1056,22 +1054,58 @@ angular.module('format').factory('User', function ($q, $http, StorageService) {
         return delay.promise;
     };
 
-    UserClass.prototype.delete = function () {
+    UserClass.prototype.createGuestIfNotExist = function () {
         var delay = $q.defer();
         var user = this;
-        $http.post('api/user/delete').then(
+        $http.post('api/accounts/guest/createIfNotExist').then(
             function (response) {
                 var data = angular.fromJson(response.data);
-                user.setInfo(null);
-                delay.resolve(true);
+                delay.resolve(data);
             },
             function (response) {
-                user.setInfo(null);
-                delay.reject(response.data);
+                 delay.reject(response.data);
             }
         );
+
+//
+//        $http.get('../../resources/cb/user.json').then(
+//            function (response) {
+//                var data = angular.fromJson(response.data);
+//                user.setInfo(data);
+//                delay.resolve(data);
+//            },
+//            function (response) {
+//                user.setInfo(null);
+//                delay.reject(response.data);
+//            }
+//        );
+
         return delay.promise;
     };
+
+
+    UserClass.prototype.initUser = function (currentUser) {
+        this.info = {};
+        if (currentUser != null && currentUser) {
+            this.info.id = currentUser.accountId;
+        }
+    };
+
+//        var delay = $q.defer();
+//        var user = this;
+//        $http.post('api/accounts/guest/delete').then(
+//            function (response) {
+//                var data = angular.fromJson(response.data);
+//                user.setInfo(null);
+//                delay.resolve(true);
+//            },
+//            function (response) {
+//                user.setInfo(null);
+//                delay.reject(response.data);
+//            }
+//        );
+//        return delay.promise;
+//    };
 
 //    UserClass.prototype.delete = function () {
 //        if(this.info && this.info != null && this.info.id != null){
@@ -1084,7 +1118,7 @@ angular.module('format').factory('User', function ($q, $http, StorageService) {
 });
 
 
-angular.module('format').factory('Session', function ($q, $http) {
+angular.module('format').factory('Session', ['$q', '$http', function ($q, $http) {
     var SessionClass = function () {
     };
 
@@ -1123,7 +1157,7 @@ angular.module('format').factory('Session', function ($q, $http) {
     };
 
     return new SessionClass();
-});
+}]);
 
 
 angular.module('format').factory('Transport', function ($q, $http, StorageService, User, $timeout, $rootScope) {
@@ -1153,14 +1187,14 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
                         delay.reject(response);
                     }
                 );
-//                $http.get('../../resources/cb/transport-forms.json').then(
-//                    function (response) {
-//                        var data = angular.fromJson(response.data);
-//                        delay.resolve(data);
-//                    },
-//                    function (response) {
-//                        delay.reject(response);
-//                    }
+
+//                $http.get('../../resources/cb/transport-config-forms.json').then(
+//                        function (response) {
+//                            delay.resolve(angular.fromJson(response.data));
+//                        },
+//                        function (response) {
+//                            delay.reject(response);
+//                        }
 //                );
 
                 return delay.promise;
@@ -1419,7 +1453,7 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
 
 
 angular.module('format')
-    .controller('TransportConfigListCtrl', ['$scope', 'Transport', 'StorageService', function ($scope, Transport, StorageService) {
+    .controller('TransportConfigListCtrl', ['$scope', 'Transport', 'StorageService', '$http', 'User', function ($scope, Transport, StorageService, $http, User) {
         $scope.transport = Transport;
         $scope.loading = false;
         $scope.selectedProto = null;
@@ -1434,6 +1468,14 @@ angular.module('format')
 
         $scope.getProtocols = function (domain) {
             return domain != null && $scope.transport.configs && $scope.transport.configs[domain] ? Object.getOwnPropertyNames($scope.transport.configs[domain]) : [];
+        };
+
+        $scope.getProtoDescription = function (domain, protocol) {
+            try{
+                return $scope.transport.configs[domain][protocol]['forms']['description'];
+            }catch(error){
+            }
+            return null;
         };
 
         $scope.getConfigs = function () {
@@ -1463,6 +1505,7 @@ angular.module('format')
             $scope.transport.disabled = disabled;
             StorageService.set(StorageService.TRANSPORT_DISABLED, disabled);
         };
+
 
     }]);
 
@@ -1567,10 +1610,11 @@ angular.module('format').controller('TaInitiatorConfigCtrl', function ($scope, $
 
 });
 
-angular.module('format').controller('SutInitiatorConfigCtrl', function ($scope, $http, Transport, $rootScope) {
+angular.module('format').controller('SutInitiatorConfigCtrl', function ($scope, $http, Transport, $rootScope, User) {
     $scope.transport = Transport;
     $scope.config = null;
     $scope.loading = false;
+    $scope.saving = false;
     $scope.error = null;
     $scope.protocol = null;
     $scope.initSutInitiatorConfig = function (domain, protocol) {
@@ -1604,6 +1648,22 @@ angular.module('format').controller('SutInitiatorConfigCtrl', function ($scope, 
         $scope.config = $scope.transport.configs[$scope.domain][$scope.protocol]['data']['sutInitiator'];
     };
 
+    $scope.saveSutInitiatorConfig = function (domain, protocole) {
+        var config = $scope.config;
+        if (config) {
+            $scope.saving = true;
+            var tmpConfig = angular.copy(config);
+            delete tmpConfig["password"];
+            delete tmpConfig["username"];
+            var data = angular.fromJson({"config": $scope.config, "userId": User.info.id, "type": "SUT_INITIATOR", "protocol": protocole, "domain": domain});
+            $http.post('api/transport/config/save', data).then(function (result) {
+                $scope.saving = false;
+            }, function (error) {
+                $scope.saving = false;
+                $scope.error = error;
+            });
+        }
+    };
 });
 
 
@@ -1914,7 +1974,9 @@ angular.module('format').factory('TestExecutionService',
             result = result != undefined ? result : null;
             var comments = TestExecutionService.getTestStepComments(testStep);
             comments = comments != undefined ? comments : null;
-            return ReportService.updateTestStepValidationReport(testStep, result, comments);
+            var report = TestExecutionService.getTestStepValidationReport(testStep);
+            var xmlMessageOrManualValidation = report != null ? report.xml:null;
+            return ReportService.updateTestStepValidationReport(xmlMessageOrManualValidation, testStep.id, result, comments);
         };
 
         return TestExecutionService;

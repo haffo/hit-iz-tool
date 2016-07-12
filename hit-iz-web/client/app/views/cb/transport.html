@@ -20,13 +20,13 @@
                         ng-disabled="isTestCaseCompleted()"
                         ng-class="{'active': !transport.disabled}">
                      <input type="radio" ng-model="transport.disabled" autocomplete="off" checked
-                            ng-disabled="isTestCaseCompleted()">Enabled
+                            ng-disabled="isTestCaseCompleted()">On
                  </label>
                  <label class="btn  btn-cf-outline" ng-click="toggleTransport(true)"
                         ng-disabled="isTestCaseCompleted()"
                         ng-class="{'active': transport.disabled}">
                      <input type="radio" ng-model="transport.disabled" autocomplete="off"
-                            ng-disabled="isTestCaseCompleted()">Disabled
+                            ng-disabled="isTestCaseCompleted()">Off
                  </label>
              </div>
         </span>

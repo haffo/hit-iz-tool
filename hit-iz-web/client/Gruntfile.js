@@ -317,7 +317,8 @@ module.exports = function (grunt) {
                             'styles/fonts/{,*/}*.*',
                             'styles/font-awesome*.css',
                             'styles/report.css',
-                            'styles/carousel.css'
+                            'styles/carousel.css',
+                            'lang/*'
                         ]
                     },
                     {

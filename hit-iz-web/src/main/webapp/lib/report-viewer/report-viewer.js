@@ -270,13 +270,14 @@
 
         ReportService.updateTestStepValidationReport = function (xmlMessageValidationReport, testStepId, result, comments) {
             var delay = $q.defer();
-            var data = $.param({xmlMessageValidationReport: xmlMessageValidationReport, testStepId: testStepId, result: result, comments: comments});
-            var config = {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-                }
-            };
-            $http.post("api/testStepValidationReport/update", data, config).then(
+//            var data = $.param(;
+            var data = {xml: xmlMessageValidationReport, testStep: {id: testStepId}, result: result, comments: comments};
+//             var config = {
+//                headers: {
+//                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+//                }
+//            };
+            $http.post("api/testStepValidationReport/update", data).then(
                 function (object) {
                     delay.resolve(angular.fromJson(object.data));
                 },
@@ -304,17 +305,7 @@
 
 //        ReportService.updateTestStepValidationReport = function (testStep, result, comments) {
 //            var delay = $q.defer();
-//            var config = {
-//                headers: {
-//                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-//                }
-//            };
-//
-//            var data = $.param({
-//                result: result,
-//                comments: comments,
-//                testStepId: testStep.id
-//            });
+//            var data = {xml: xmlMessageValidationReport, testStep: testStep:{id:testStep.id}, result: result, comments: comments};
 //            $http.post("api/testStepValidationReport/update", data, config).then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
