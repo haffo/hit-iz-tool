@@ -287,7 +287,7 @@ ul.result-settings {
 }
 
 .ng-table-text {
-  font-size: 12px;
+  //font-size: 12px;
 }
 
 .st-selected {
@@ -2095,111 +2095,6 @@ tr.current {
 }
 
 
-//div.my-table div.fixed-table-container-inner {
-//  /* the maximum height of the table: */
-//  max-height: 320px;
-//  width: 100%;
-//}
-//
-//div.my-table div.th-inner {
-//  /* the height of the header row */
-//  line-height: 30px;
-//}
-//
-//div.my-table div.fixed-table-container {
-//  /* the height of the header row - this needs to match line-height above */
-//  padding-top: 30px;
-//}
-//
-//div.my-table tr.hidden-header .th-inner {
-//  padding-right: 5px;
-//}
-//
-//
-//div.my-table tr.tbl-header .th-inner {
-//  background-color: #d9edf7;
-//  color: #3a87ad;
-//  font-weight: normal;
-//  border-color: #bce8f1;
-//}
-
-//
-//div.my-table tr.tbl-header {
-//  background-color: #d9edf7;
-//  color: #3a87ad;
-//  font-weight: normal;
-//  border-color: #bce8f1;
-//}
-
-table.fixed-header{
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  display: flex;
-  display: -ms-flexbox;
-  flex-direction: column;
-  -ms-flex-direction: column;
-
-  align-items: stretch;
-  height: 320px; /* this can vary */
-  overflow: auto;
-}
-
-table.fixed-header * {
-  box-sizing: inherit;
-  -moz-box-sizing: inherit;
-}
-
-table.fixed-header > thead {
-  display: flex;
-   flex-direction: column;
-  display: -ms-flexbox;
-  -ms-flex-direction: column;
-  align-items: stretch;
-}
-
-table.fixed-header > tbody {
-  overflow-y: scroll;
-  display: inline-block;
-}
-
-table.fixed-header > thead > tr, table.fixed-header > tbody > tr, tfoot > tr {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  display: -ms-flexbox;
-  display: -ms-flexbox;
-  -ms-flex-direction: row;
-  -ms-flex-wrap: nowrap;
-
-}
-
-table.fixed-header > thead, table.fixed-header > tfoot {
-  flex-shrink: 0;
-}
-
-table.fixed-header > thead > th, table.fixed-header > tbody td {
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  display: inline-block;
-}
-
-table.fixed-header > tfoot {
-  display: inline-block;
-}
-
-tfoot td {
-  width: 100%;
-  display: inline-block;
-}
-
-
-table.fixed-header > tbody > tr > th, table.fixed-header > tbody > tr > td, table.fixed-header > tfoot > tr > th, table.fixed-header > tfoot > tr > td {
-  border: 1px solid #dddddd;
-  text-align: left;
-}
-
-
-
 .col-fixed-350 {
   float: left;
   width: 350px;
@@ -2264,11 +2159,10 @@ div.fixed-table-container tr.hidden-header .th-inner {
   padding-right: 5px;
 }
 
-div.validation-result-table-container {
+div.validation-result-table-container div.fixed-table-container-inner {
   /* the maximum height of the table: */
-  //max-height: 320px;
+  max-height: 320px;
   width: 100%;
-  height: 320px;
 
 }
 
@@ -2339,4 +2233,23 @@ div.vocab-result-table-container,div.doc-testcase-tree-container,div.vocab-tab-t
   border-bottom:0px;
    background-color: #d9edf7;
   color: #3a87ad;
+}
+
+//.table-line-break tr td {
+//  text-align: left;
+//  overflow-wrap: break-word;
+//}
+
+table.table-line-break {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+div.table-container{
+    width: 100%;
+    padding-top:10px;
+}
+
+.table-bordered tbody tr td{
+  border: 1px solid #ddd;
 }

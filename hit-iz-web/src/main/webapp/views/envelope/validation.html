@@ -122,10 +122,10 @@
                                 <div class="validation-result-table-container fixed-table-container">
                                 <table st-table="errorsCollection" st-safe-src="validationResult.errors.data" class="table table-condensed table-bordered table-striped ng-table-text" oci-fixed-header="">
                                     <thead>
-                                    <tr class="tbl-header-2">
-                                        <th st-sort="path">Path</th>
-                                        <th>Description</th>
-                                        <th st-sort="line">Line</th>
+                                    <tr class="">
+                                        <th st-sort="path" st-ratio="30">Path</th>
+                                        <th st-ratio="60">Description</th>
+                                        <th st-sort="line" st-ratio="10">Line #</th>
                                     </tr>
                                     <!--<tr>-->
                                     <!--&lt;!&ndash;<th>&ndash;&gt;-->
@@ -140,12 +140,12 @@
                                     <tbody>
 
                                     <tr ng-repeat="row in errorsCollection">
-                                        <td>
+                                        <td st-ratio="30">
                                             <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                             <span ng-show="row.path == null">N/A</span>
                                         </td>
-                                        <td compile="row.description"></td>
-                                        <td>
+                                        <td st-ratio="60" compile="row.description"></td>
+                                        <td st-ratio="10">
                                             <span ng-show="row.line" ng-bind="row.line"></span>
                                             <span ng-show="row.line == null">N/A</span>
                                         </td>
@@ -175,10 +175,10 @@
                                 <div class="validation-result-table-container fixed-table-container">
                                 <table st-table="warningsCollection" st-safe-src="validationResult.warnings.data" class="table table-condensed table-bordered table-striped ng-table-text" oci-fixed-header="">
                                     <thead>
-                                    <tr class="tbl-header-2">
-                                        <th st-sort="path">Path</th>
-                                        <th>Description</th>
-                                        <th st-sort="line">Line</th>
+                                    <tr class="">
+                                        <th st-sort="path" st-ratio="30">Path</th>
+                                        <th st-ratio="60">Description</th>
+                                        <th st-sort="line" st-ratio="10">Line #</th>
                                     </tr>
                                     <!--<tr>-->
                                     <!--&lt;!&ndash;<th>&ndash;&gt;-->
@@ -193,12 +193,12 @@
                                     <tbody>
 
                                     <tr ng-repeat="row in warningsCollection">
-                                        <td>
+                                        <td st-ratio="30">
                                             <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                             <span ng-show="row.path == null">N/A</span>
                                         </td>
-                                        <td compile="row.description"></td>
-                                        <td>
+                                        <td st-ratio="60" compile="row.description"></td>
+                                        <td st-ratio="10">
                                             <span ng-show="row.line" ng-bind="row.line"></span>
                                             <span ng-show="row.line == null">N/A</span>
                                         </td>
@@ -230,21 +230,21 @@
                                 <div class="validation-result-table-container fixed-table-container">
                                 <table st-table="alertsCollection" st-safe-src="validationResult.alerts.data" class="table table-condensed table-bordered table-striped ng-table-text" oci-fixed-header="">
                                     <thead>
-                                    <tr class="tbl-header-2">
-                                        <th st-sort="path">Path</th>
-                                        <th>Description</th>
-                                        <th st-sort="line">Line</th>
+                                    <tr class="">
+                                        <th st-sort="path" st-ratio="30">Path</th>
+                                        <th st-ratio="60">Description</th>
+                                        <th st-sort="line" st-ratio="10">Line #</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
                                     <tr ng-repeat="row in alertsCollection">
-                                        <td>
+                                        <td st-ratio="30">
                                             <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                             <span ng-show="row.path == null">N/A</span>
                                         </td>
-                                        <td compile="row.description"></td>
-                                        <td>
+                                        <td st-ratio="60" compile="row.description"></td>
+                                        <td st-ratio="10">
                                             <span ng-show="row.line" ng-bind="row.line"></span>
                                             <span ng-show="row.line == null">N/A</span>
                                         </td>

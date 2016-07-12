@@ -4,7 +4,7 @@
  License: MIT
  */
 
-(function () {
+(function (angular) {
     'use strict';
 
     angular.module('ociFixedHeader', [])
@@ -12,13 +12,14 @@
             return function link(scope, elem) {
                 // Wrap the contents of every header cell with div.th-inner so that the
                 // CSS can relocate it.
+                elem.addClass('table-line-break');
                 var header = elem.find('thead').find('tr');
                 header.addClass('table-header');
                 angular.forEach(header.find('th'), function (th) {
                     var classes = th.className;
-                    var inner = $('<div class="th-inner"></div>');
-                    console.log(classes);
-                    inner.addClass(classes);
+                    var inner = $('<div class="th-inner" style="width:inherit;"></div>');
+//                    inner.css("width", th.width);
+                      inner.addClass(classes);
                     angular.element(th).contents().wrap(inner);
                 });
 
@@ -34,4 +35,4 @@
                 elem.wrap('<div class="fixed-table-container-inner"></div>');
             };
         });
-})();
+})(angular);

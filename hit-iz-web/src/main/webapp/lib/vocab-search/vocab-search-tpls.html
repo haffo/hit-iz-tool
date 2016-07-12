@@ -34,53 +34,54 @@
                             <div class="panel-body">
                                 <div ng-controller="VocabGroupCtrl"
                                      ng-init="init(valueSetDefinitionGroup)">
-                                    <div class="vocab-tab-table-container fixed-table-container">
-                                        <table st-table="tmpList" st-safe-src="tableList"
-                                               class="table table-striped table-bordered ng-table-text stTable" oci-fixed-header>
+                                    <div class="table-container">
+                                        <table st-table="tmpList" st-safe-src="tableList" style="width:100%;">
                                             <thead>
-
-                                            <tr class="tbl-header-2">
-                                                <th st-ratio="50" st-sort="bindingIdentifier">Binding Identifier</th>
-                                                <th st-sort="name" st-ratio="50">Value Set Name</th>
+                                            <tr>
+                                                <th colspan="2" st-ratio="100">
+                                                    <input st-search placeholder="Search" class="input-sm form-control"
+                                                           type="search"/>
+                                                </th>
                                             </tr>
-
-                                            <!--<tr>-->
-                                                <!--<th st-ratio="50">-->
-                                                    <!--<input st-search="bindingIdentifier" class="input-sm form-control"-->
-                                                           <!--type="search"/>-->
-                                                <!--</th>-->
-                                                <!--<th st-ratio="50">-->
-                                                    <!--<input st-search="name"  class="input-sm form-control"-->
-                                                           <!--type="search"/>-->
-                                                <!--</th>-->
-                                            <!--</tr>-->
-
                                             </thead>
-                                            <tbody>
-                                            <tr ng-repeat="row in tmpList">
-                                                <td st-ratio="50">
-                                                    <a class="point" ng-show="row.bindingIdentifier"
-                                                       ng-click="selectValueSetDefinition(row,tableLibrary)"
-                                                       ng-bind="row.bindingIdentifier"></a>
-                                                    <span ng-show="row.bindingIdentifier == null">N/A</span>
-                                                </td>
-                                                <td st-ratio="50">
-                                                    <span ng-show="row.name" ng-bind="row.name"></span>
-                                                    <span ng-show="row.name == null">N/A</span>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-
-                                            <!--<tfoot ng-show="tableList.length >=100">-->
-                                            <!--<tr>-->
-                                                <!--<td colspan="2" class="text-center" st-ratio="100">-->
-                                                    <!--<div class="" st-pagination="" st-items-by-page="100"-->
-                                                         <!--st-displayed-pages="10"></div>-->
-                                                <!--</td>-->
-                                            <!--</tr>-->
-                                            <!--</tfoot>-->
-
                                         </table>
+                                        <div class="vocab-tab-table-container fixed-table-container">
+                                            <table st-table="tmpList" st-safe-src="tableList"
+                                                   class="table table-striped table-bordered ng-table-text stTable"
+                                                   oci-fixed-header>
+                                                <thead>
+                                                <tr class="tbl-header-2">
+                                                    <th st-ratio="50" st-sort="bindingIdentifier">Binding Identifier
+                                                    </th>
+                                                    <th st-sort="name" st-ratio="50">Value Set Name</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr ng-repeat="row in tmpList">
+                                                    <td st-ratio="50">
+                                                        <a class="point" ng-show="row.bindingIdentifier"
+                                                           ng-click="selectValueSetDefinition(row,tableLibrary)"
+                                                           ng-bind="row.bindingIdentifier"></a>
+                                                        <span ng-show="row.bindingIdentifier == null">N/A</span>
+                                                    </td>
+                                                    <td st-ratio="50">
+                                                        <span ng-show="row.name" ng-bind="row.name"></span>
+                                                        <span ng-show="row.name == null">N/A</span>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+
+                                                <!--<tfoot ng-show="tableList.length >=100">-->
+                                                <!--<tr>-->
+                                                <!--<td colspan="2" class="text-center" st-ratio="100">-->
+                                                <!--<div class="" st-pagination="" st-items-by-page="100"-->
+                                                <!--st-displayed-pages="10"></div>-->
+                                                <!--</td>-->
+                                                <!--</tr>-->
+                                                <!--</tfoot>-->
+
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -139,14 +140,25 @@
     <div class="panel panel-info">
         <div class="panel-body">
 
-            <div class="divScroll-1">
+            <div class="table-container"
+                 ng-show="selectionCriteria === 'TableId' || selectionCriteria === 'ValueSetCode' || selectionCriteria === 'ValueSetName'">
+                <table st-table="tmpSearchResults" st-safe-src="searchResults" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th colspan="2" st-ratio="100">
+                            <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+
                 <div class="vocab-result-table-container fixed-table-container"
-                     ng-show="selectionCriteria === 'TableId' || selectionCriteria === 'ValueSetCode' || selectionCriteria === 'ValueSetName'">
+                        >
                     <table st-table="tmpSearchResults" st-safe-src="searchResults"
-                           class="table table-striped table-bordered ng-table-text stTable" oci-fixed-header>
+                           class="table table-striped table-bordered table-condensed table-line-break" oci-fixed-header>
                         <thead>
 
-                        <tr class="tbl-header-2">
+                        <tr class="">
                             <th st-ratio="50" st-sort="bindingIdentifier">Binding Identifier</th>
                             <th st-ratio="50" st-sort="name">ValueSet Name</th>
                             <!--<th st-ratio="20" st-sort="description">Description</th>-->
@@ -154,14 +166,14 @@
                             <!--<th st-ratio="20" st-sort="oid"> Value Set OID</th>-->
                         </tr>
                         <!--<tr>-->
-                            <!--<th st-ratio="50">-->
-                                <!--<input st-search="bindingIdentifier" class="input-sm form-control"-->
-                                       <!--type="search"/>-->
-                            <!--</th>-->
-                            <!--<th st-ratio="50">-->
-                                <!--<input st-search="name"  class="input-sm form-control"-->
-                                       <!--type="search"/>-->
-                            <!--</th>-->
+                        <!--<th st-ratio="50">-->
+                        <!--<input st-search="bindingIdentifier" class="input-sm form-control"-->
+                        <!--type="search"/>-->
+                        <!--</th>-->
+                        <!--<th st-ratio="50">-->
+                        <!--<input st-search="name"  class="input-sm form-control"-->
+                        <!--type="search"/>-->
+                        <!--</th>-->
                         <!--</tr>-->
 
                         </thead>
@@ -198,24 +210,36 @@
                         </tbody>
                         <!--<tfoot ng-show="searchResults.length >=100">-->
                         <!--<tr>-->
-                            <!--<th colspan="2" class="text-center" st-ratio="100">-->
-                                <!--<div class="" st-pagination="" st-items-by-page="100"-->
-                                     <!--st-displayed-pages="10"></div>-->
-                            <!--</th>-->
+                        <!--<th colspan="2" class="text-center" st-ratio="100">-->
+                        <!--<div class="" st-pagination="" st-items-by-page="100"-->
+                        <!--st-displayed-pages="10"></div>-->
+                        <!--</th>-->
                         <!--</tr>-->
                         <!--</tfoot>-->
                     </table>
                 </div>
-                <div class="vocab-result-table-container fixed-table-container"
-                     ng-show="selectionCriteria === 'Value' || selectionCriteria === 'Description'">
-                    <table st-table="tmpSearchResults" st-safe-src="searchResults"
-                           class="table table-striped table-bordered ng-table-text stTable" oci-fixed-header>
-                        <thead>
+            </div>
 
+
+            <div class="table-container" ng-show="selectionCriteria === 'Value' || selectionCriteria === 'Description'">
+                <table st-table="tmpSearchResults" st-safe-src="searchResults" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th colspan="2" st-ratio="100">
+                            <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+                <div class="vocab-result-table-container fixed-table-container"
+                        >
+                    <table st-table="tmpSearchResults" st-safe-src="searchResults"
+                           class="table table-striped table-bordered table-condensed table-line-break" oci-fixed-header>
+                        <thead>
                         <!--<tr>-->
-                            <!--<th colspan="3" st-ratio="100">-->
-                                <!--<input st-search placeholder="Search" class="input-sm form-control" type="search"/>-->
-                            <!--</th>-->
+                        <!--<th colspan="3" st-ratio="100">-->
+                        <!--<input st-search placeholder="Search" class="input-sm form-control" type="search"/>-->
+                        <!--</th>-->
                         <!--</tr>-->
 
                         <tr class="tbl-header-2">
@@ -230,30 +254,29 @@
                         <tbody>
                         <tr ng-repeat="row in tmpSearchResults">
                             <td st-ratio="30">
-                                <span>{{row.value}}</span>
+                                {{row.value}}
                             </td>
                             <td st-ratio="30">
-                                <span ng-show="row.codeSystem">{{row.codeSystem}}</span>
+                                {{row.codeSystem}}
                             </td>
 
                             <td st-ratio="40">
-                                <span>{{row.displayName}}</span>
+                                {{row.displayName}}
                             </td>
                         </tr>
                         </tbody>
                         <!--<tfoot ng-show="searchResults.length >=100">-->
                         <!--<tr>-->
-                            <!--<th colspan="3" class="text-center" st-ratio="100">-->
-                                <!--<div class="" st-pagination="" st-items-by-page="100"-->
-                                     <!--st-displayed-pages="10"></div>-->
-                            <!--</th>-->
+                        <!--<th colspan="3" class="text-center" st-ratio="100">-->
+                        <!--<div class="" st-pagination="" st-items-by-page="100"-->
+                        <!--st-displayed-pages="10"></div>-->
+                        <!--</th>-->
                         <!--</tr>-->
                         <!--</tfoot>-->
                     </table>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -281,16 +304,31 @@
     <div class="panel panel-info" ng-if="selectedValueSetDefinition.valueSetElements.length > 0">
         <!-- Default panel contents -->
         <div class="panel-heading">Value Set Elements</div>
-        <div class="divScroll-1">
+
+        <div class="table-container">
+            <table st-table="tmpValueSetElements" st-safe-src="selectedValueSetDefinition.valueSetElements" style="width:100%">
+                <thead>
+                <tr>
+                    <th colspan="3" st-ratio="100">
+                        <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+
             <div class="vocab-result-table-container fixed-table-container">
+
+
+
                 <table st-table="tmpValueSetElements"
                        st-safe-src="selectedValueSetDefinition.valueSetElements"
-                       class="table table-striped table-bordered ng-table-text stTable table-condensed" oci-fixed-header>
+                       class="table table-striped table-bordered table-condensed table-line-break table-condensed table-line-break"
+                       oci-fixed-header>
                     <thead>
                     <!--<tr>-->
-                        <!--<th colspan="3" st-ratio="100">-->
-                            <!--<input st-search placeholder="Search" class="input-sm form-control" type="search"/>-->
-                        <!--</th>-->
+                    <!--<th colspan="3" st-ratio="100">-->
+                    <!--<input st-search placeholder="Search" class="input-sm form-control" type="search"/>-->
+                    <!--</th>-->
                     <!--</tr>-->
 
                     <tr class="tbl-header-2">
@@ -325,21 +363,20 @@
 
                     <!--<tfoot ng-show="selectedValueSetDefinition.valueSetElements.length >=100">-->
                     <!--<tr>-->
-                        <!--<td colspan="5" class="text-center" st-ratio="100">-->
-                            <!--<div class="" st-pagination="" st-items-by-page="100"-->
-                                 <!--st-displayed-pages="10"></div>-->
-                        <!--</td>-->
+                    <!--<td colspan="5" class="text-center" st-ratio="100">-->
+                    <!--<div class="" st-pagination="" st-items-by-page="100"-->
+                    <!--st-displayed-pages="10"></div>-->
+                    <!--</td>-->
                     <!--</tr>-->
                     <!--</tfoot>-->
 
 
                 </table>
 
-
+</div>
             </div>
 
-        </div>
-    </div>
+     </div>
 
     <div ng-if="selectedValueSetDefinition.valueSetElements.length == 0">
         <p style="color:red"
@@ -430,17 +467,30 @@
 
                 <div class="panel panel-info">
                     <div class="panel-heading">Value Set Elements</div>
-                    <div class="divScroll-1">
-                        <div class="vocab-result-table-container fixed-table-container">
+
+                    <div class="table-container">
+                        <table st-table="tmpValueSetElements" st-safe-src="valueSet.valueSetElements" style="width:100%"  ng-if="valueSet.valueSetElements.length > 0">
+                            <thead>
+                            <tr>
+                                <th colspan="3" st-ratio="100">
+                                    <input st-search placeholder="Search" class="input-sm form-control"
+                                           type="search"/>
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+                         <div class="vocab-result-table-container fixed-table-container">
+
                             <table st-table="tmpValueSetElements" st-safe-src="valueSet.valueSetElements"
                                    ng-if="valueSet.valueSetElements.length > 0"
-                                   class="table table-striped table-bordered ng-table-text stTable" oci-fixed-header>
+                                   class="table table-striped table-bordered table-condensed table-line-break"
+                                   oci-fixed-header>
                                 <thead>
                                 <!--<tr>-->
-                                    <!--<th colspan="3" st-ratio="100">-->
-                                        <!--<input st-search placeholder="Search" class="input-sm form-control"-->
-                                               <!--type="search"/>-->
-                                    <!--</th>-->
+                                <!--<th colspan="3" st-ratio="100">-->
+                                <!--<input st-search placeholder="Search" class="input-sm form-control"-->
+                                <!--type="search"/>-->
+                                <!--</th>-->
                                 <!--</tr>-->
 
                                 <tr class="tbl-header-2">
@@ -455,29 +505,29 @@
                                 <tbody>
 
                                 <!--<tr ng-repeat="row in tmpValueSetElements">-->
-                                    <!--<td st-ratio="30">-->
-                                        <!--<span>{{row.value}}</span>-->
-                                    <!--</td>-->
-                                    <!--<td st-ratio="30">-->
-                                        <!--<span>{{row.codeSystem}}</span>-->
-                                    <!--</td>-->
-                                    <!--<td st-ratio="40">-->
-                                        <!--<span>{{row.displayName}}</span>-->
-                                    <!--</td>-->
-                                    <!--&lt;!&ndash;<td st-ratio="50">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<span>{{row.source}}</span>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<td st-ratio="50">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<span>{{row.usageType}}</span>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                                <!--<td st-ratio="30">-->
+                                <!--<span>{{row.value}}</span>-->
+                                <!--</td>-->
+                                <!--<td st-ratio="30">-->
+                                <!--<span>{{row.codeSystem}}</span>-->
+                                <!--</td>-->
+                                <!--<td st-ratio="40">-->
+                                <!--<span>{{row.displayName}}</span>-->
+                                <!--</td>-->
+                                <!--&lt;!&ndash;<td st-ratio="50">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span>{{row.source}}</span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<td st-ratio="50">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span>{{row.usageType}}</span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</td>&ndash;&gt;-->
                                 <!--</tr>-->
                                 </tbody>
                                 <!--<tfoot>-->
                                 <!--<tr>-->
-                                    <!--<th colspan="2" class="text-center" st-ratio="100">-->
-                                        <!--<div class="" st-pagination="" st-items-by-page="100"-->
-                                             <!--st-displayed-pages="10"></div>-->
-                                    <!--</th>-->
+                                <!--<th colspan="2" class="text-center" st-ratio="100">-->
+                                <!--<div class="" st-pagination="" st-items-by-page="100"-->
+                                <!--st-displayed-pages="10"></div>-->
+                                <!--</th>-->
                                 <!--</tr>-->
                                 <!--</tfoot>-->
                             </table>
@@ -485,7 +535,8 @@
                             <div ng-if="valueSet.valueSetElements.length == 0">
                                 <p style="color:red"
                                    ng-if="!valueSet.noCodeDisplayText || valueSet.noCodeDisplayText === null || valueSet.noCodeDisplayText === ''">
-                                    Table (value set) identified in the implementation guide but no codes are specified. The validation tool
+                                    Table (value set) identified in the implementation guide but no codes are specified.
+                                    The validation tool
                                     will
                                     issue an Alert since the element cannot be checked for content.
                                 </p>
@@ -497,8 +548,8 @@
                             </div>
 
                         </div>
+                 </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
