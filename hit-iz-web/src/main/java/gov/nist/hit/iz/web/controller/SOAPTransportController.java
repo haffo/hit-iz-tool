@@ -259,7 +259,6 @@ public class SOAPTransportController {
 
   @ApiOperation(value = "Get the configuration information of user",
       nickname = "searchTransaction", notes = "A user session is required")
-  @Transactional
   @RequestMapping(value = "/configs", method = RequestMethod.POST, produces = "application/json")
   public TransportConfig configs(
       @ApiParam(value = "The user session", required = true) HttpSession session,
@@ -270,6 +269,7 @@ public class SOAPTransportController {
     if (userId == null || (user = accountService.findOne(userId)) == null) {
       throw new UserNotFoundException();
     }
+
     TransportConfig transportConfig =
         transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL, DOMAIN);
     if (transportConfig == null) {

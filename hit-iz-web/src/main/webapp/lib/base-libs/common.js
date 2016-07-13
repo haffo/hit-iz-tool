@@ -1979,6 +1979,18 @@ angular.module('format').factory('TestExecutionService',
             return ReportService.updateTestStepValidationReport(xmlMessageOrManualValidation, testStep.id, result, comments);
         };
 
+//        TestExecutionService.updateTestStepValidationReport = function (testStep) {
+//            StorageService.set("testStepValidationResults", angular.toJson(TestExecutionService.testStepValidationResults));
+//            StorageService.set("testStepComments", angular.toJson(TestExecutionService.testStepComments));
+//            var result = TestExecutionService.getTestStepValidationResult(testStep);
+//            result = result != undefined ? result : null;
+//            var comments = TestExecutionService.getTestStepComments(testStep);
+//            comments = comments != undefined ? comments : null;
+//            return ReportService.updateTestStepValidationReport(testStep, result, comments);
+//        };
+//
+
+
         return TestExecutionService;
     }]);
 

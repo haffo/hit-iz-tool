@@ -34,17 +34,36 @@
                     <div ng-show="report && report !== null && report.html != null" class="cf-report"
                          style="padding-top:20px">
 
-                        <a style="margin-right: 10px" class="point" ng-click="downloadAs('PDF')"><img
-                                src="images/pdf.png"
-                                style="height:30px;width:30px"></a>
-                        <!--<a style="margin-right: 10px" class="point" ng-click="downloadAs('DOC')"><img src="images/word.png"-->
-                        <!--style="height:30px;width:30px"></a>-->
-                        <a style="margin-right: 10px" class="point" ng-click="downloadAs('XML')"><img
-                                src="images/xml.jpeg"
-                                style="height:30px;width:30px"></a>
-                        <a style="margin-right: 10px" class="point" ng-click="downloadAs('HTML')"><img
-                                src="images/html.png"
-                                style="height:30px;width:30px"></a>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary btn-md dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Download As <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li> <a class="point" ng-click="downloadAs('PDF')"><img
+                                        src="images/pdf.png"
+                                        style="height:15px;width:15px">PDF</a></li>
+                                <li><a  class="point" ng-click="downloadAs('XML')"><img
+                                        src="images/xml.jpeg"
+                                        style="height:15px;width:15px">XML</a></li>
+                                <li> <a class="point" ng-click="downloadAs('HTML')"><img
+                                        src="images/html.png"
+                                        style="height:15;width:15px">HTML</a></li>
+                            </ul>
+                        </div>
+
+
+                        <!--<a style="margin-right: 10px" class="point" ng-click="downloadAs('PDF')"><img-->
+                                <!--src="images/pdf.png"-->
+                                <!--style="height:30px;width:30px"></a>-->
+                        <!--&lt;!&ndash;<a style="margin-right: 10px" class="point" ng-click="downloadAs('DOC')"><img src="images/word.png"&ndash;&gt;-->
+                        <!--&lt;!&ndash;style="height:30px;width:30px"></a>&ndash;&gt;-->
+                        <!--<a style="margin-right: 10px" class="point" ng-click="downloadAs('XML')"><img-->
+                                <!--src="images/xml.jpeg"-->
+                                <!--style="height:30px;width:30px"></a>-->
+                        <!--<a style="margin-right: 10px" class="point" ng-click="downloadAs('HTML')"><img-->
+                                <!--src="images/html.png"-->
+                                <!--style="height:30px;width:30px"></a>-->
                         <br/>
                         <br/>
                     </div>
