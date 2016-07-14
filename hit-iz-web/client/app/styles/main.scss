@@ -1391,9 +1391,6 @@ table.cf-profiles {
   color:black;
 }
 
-.nav-tabs > .active > a:hover {
-  background-color: #ffec9d;
-}
 
 .nav-tabs > a:hover {
   color: black;
@@ -1416,12 +1413,13 @@ table.cf-profiles {
 //  background-color: #ffcc00;
 //}
 
+
 .dropdown-menu {
-  background-color: #ececec;
+ // background-color: #ffec9d;
 }
 
 .dropdown-menu li > a {
-  color: black;
+  color: #666666;
 }
 
 .dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a {
@@ -1437,8 +1435,7 @@ table.cf-profiles {
 
 .nav-tabs > li > a {
   color: #003399;
-  border-radius: 0px;
-}
+ }
 
 //.nav-tabs > li > a:hover {
 //  color: #003399;
@@ -2126,6 +2123,15 @@ tr.current {
   background: #f4f4f4;
 }
 
+ul.dropdown-menu, ul.dropdown-menu > li, ul.dropdown-menu > li > a  {
+  background: #f4f4f4;
+}
+
+
+ul.dropdown-menu > li > a:hover,ul.dropdown-menu > li > a:focus {
+  background: #f2c60d;
+}
+
 
 .input-help {
   display: none;
@@ -2417,7 +2423,7 @@ div.fixed-table-container tr.hidden-header .th-inner {
 
 div.validation-result-table-container div.fixed-table-container-inner {
   /* the maximum height of the table: */
-  max-height: 320px;
+  max-height: 310px;
   width: 100%;
 
 }
@@ -2495,4 +2501,9 @@ div.table-container{
 
 .table-bordered tbody tr td{
   border: 1px solid #ddd;
+}
+
+ul.nav-tabs > li {
+  border-top-left-radius:2px;
+  border-top-right-radius:2px;
 }

@@ -20,7 +20,7 @@
     ]);
 
     mod
-        .controller('ReportViewerCtrl', ['$scope', '$rootScope', '$compile', 'ReportService', 'TestExecutionService', function ($scope, $rootScope, $compile, ReportService, TestExecutionService) {
+        .controller('ReportViewerCtrl', ['$scope', '$rootScope', '$compile', 'ReportService', 'TestExecutionService', 'Notification', function ($scope, $rootScope, $compile, ReportService, TestExecutionService,Notification) {
             $scope.report = null;
             $scope.testStepId = null;
             $scope.error = null;
@@ -42,7 +42,7 @@
                         $scope.report = null;
                         $scope.compile();
                         $scope.loading = false;
-                        $scope.error = error;
+                        Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 10000});
                     });
                 } else {
                     $scope.report = null;
@@ -88,7 +88,7 @@
                         $scope.report = null;
 //                    $scope.loading = false;
                         $scope.compile();
-                        $scope.error = error;
+                        Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 10000});
                     });
                 }
             });
@@ -151,7 +151,7 @@
         }]);
 
 
-    mod.factory('ReportService', function ($http, $q, $filter) {
+    mod.factory('ReportService', function ($rootScope, $http, $q, $filter,Notification) {
         var ReportService = function () {
         };
 
@@ -219,17 +219,13 @@
 
         ReportService.createMessageValidationReport = function (xmlMessageValidationReport, testStepId) {
             var delay = $q.defer();
-            var data = $.param({xmlMessageValidationReport: xmlMessageValidationReport, testStepId: testStepId});
-            var config = {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-                }
-            };
-            $http.post("api/messageValidationReport/create", data, config).then(
+            var data = angular.fromJson({"xmlMessageValidationReport": xmlMessageValidationReport, "testStepId": testStepId});
+            $http.post("api/testStepValidationReport/create", data).then(
                 function (object) {
                     delay.resolve(angular.fromJson(object.data));
                 },
                 function (response) {
+                    Notification.error({message: "Failed to generate the report. Please try again", templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 10000});
                     delay.reject(response.data);
                 }
             );
@@ -251,6 +247,7 @@
                     delay.resolve(angular.fromJson(object.data));
                 },
                 function (response) {
+                    Notification.error({message: response.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 10000});
                     delay.reject(response.data);
                 }
             );
@@ -271,25 +268,17 @@
 
         ReportService.updateTestStepValidationReport = function (xmlMessageValidationReport, testStepId, result, comments) {
             var delay = $q.defer();
-
-
-            var data = $.param({xmlMessageValidationReport: xmlMessageValidationReport, testStepId: testStepId, result: result, comments: comments});
-            var config = {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-                }
-            };
-            $http.post("api/testStepValidationReport/update", data, config).then(
+            var data = angular.fromJson({"xmlMessageValidationReport": xmlMessageValidationReport, "testStepId": testStepId, "result": result, "comments": comments});
+            $http.post("api/testStepValidationReport/update", data).then(
                 function (object) {
-                    delay.resolve(angular.fromJson(object.data));
+                    var res = object.data != null && object.data != "" ? angular.fromJson(object.data): null;
+                    delay.resolve(res);
                 },
                 function (response) {
+                    Notification.error({message: response.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 10000});
                     delay.reject(response.data);
                 }
             );
-
-
-
 //
 ////            var data = $.param(;
 //            var data = angular.fromJson({xml: xmlMessageValidationReport, testStep: {id: testStepId}, result: result, comments: comments});

@@ -441,9 +441,8 @@ angular.module('cb')
 
         $scope.isTestCaseSuccessful = function () {
             var status = $scope.testExecutionService.getTestCaseValidationResult($scope.testCase);
-            return status == 'PASSED' ? true : false;
+            return status === 'PASSED';
         };
-
 
         $scope.isTestStepValidated = function (testStep) {
             return $scope.testExecutionService.getTestStepValidationResult(testStep) != undefined;
@@ -655,6 +654,7 @@ angular.module('cb')
         };
 
         $scope.updateTestStepValidationReport = function (testStep) {
+
             StorageService.set("testStepValidationResults", angular.toJson(TestExecutionService.testStepValidationResults));
             StorageService.set("testStepComments", angular.toJson(TestExecutionService.testStepComments));
             if ($scope.testStep  === null || testStep.id !== $scope.testStep.id) {

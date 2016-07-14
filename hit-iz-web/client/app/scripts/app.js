@@ -56,8 +56,7 @@ var app = angular.module('hit-app', [
     'documentation',
     'hit-manual-report-viewer',
     'ui-notification',
-    'blockUI',
-    'ociFixedHeader'
+     'ociFixedHeader'
 ]);
 
 
@@ -75,7 +74,7 @@ var httpHeaders,
 //the message to be shown to the user
 var msg = {};
 
-app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider, KeepaliveProvider, IdleProvider, NotificationProvider, blockUIConfig) {
+app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider, KeepaliveProvider, IdleProvider, NotificationProvider) {
 
     localStorageServiceProvider
         .setPrefix("hit-app")
@@ -163,9 +162,6 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
         delay: 30000,
         maxCount: 1
     });
-    blockUIConfig.message = 'Loading...';
-    blockUIConfig.blockBrowserNavigation = true;
-
 
     httpHeaders = $httpProvider.defaults.headers;
 
@@ -174,8 +170,7 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
 
 app.factory('interceptor1', function ($q, $rootScope, $location, StorageService, $window) {
     var handle = function (response) {
-        console.log("interceptor1");
-        if (response.status === 440) {
+         if (response.status === 440) {
             response.data = "Session timeout";
             $rootScope.openSessionExpiredDlg();
         } else if (response.status === 498) {
@@ -202,8 +197,7 @@ app.factory('interceptor2', function ($q, $rootScope, $location, StorageService,
         },
         responseError: function (response) {
             if (response.status === 401) {
-                console.log("interceptor2");
-                //We catch everything but this one. So public users are not bothered
+                 //We catch everything but this one. So public users are not bothered
                 //with a login windows when browsing home.
                 if (response.config.url !== 'api/accounts/cuser') {
                     //We don't intercept this request
@@ -235,8 +229,7 @@ app.factory('interceptor3', function ($q, $rootScope, $location, StorageService,
             return response || $q.when(response);
         },
         responseError: function (response) {
-            console.log("interceptor3");
-            //hide the spinner
+             //hide the spinner
             spinner = false;
             return $q.reject(response);
         }
@@ -250,8 +243,7 @@ app.factory('interceptor4', function ($q, $rootScope, $location, StorageService,
         if (response.data && response.data.text && response.data.type) {
             if (response.status === 401) {
 //                        console.log("setting login message");
-                console.log("401");
-                loginMessage = {
+                 loginMessage = {
                     text: response.data.text,
                     type: response.data.type,
                     skip: response.data.skip,
@@ -260,8 +252,7 @@ app.factory('interceptor4', function ($q, $rootScope, $location, StorageService,
                 };
 
             } else if (response.status === 503) {
-                console.log("503");
-                msg = {
+                 msg = {
                     text: "server.down",
                     type: "danger",
                     show: true,

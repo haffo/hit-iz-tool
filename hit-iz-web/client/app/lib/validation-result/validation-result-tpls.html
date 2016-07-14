@@ -9,8 +9,7 @@
                       ng-bind="validationResult.errors.categories[0].data.length"></span>
                     Errors
                 </tab-heading>
-
-                <tabset>
+                <tabset style="margin-top:5px">
                     <tab ng-repeat="category in validationResult.errors.categories" class="validation-result-subtab"
                          active="subActive.errors[category.title]"
                          ng-if="category.data.length > 0"
@@ -32,8 +31,7 @@
         <span class="badge failure failure-warnings"
               ng-bind="validationResult.warnings.categories[0].data.length"></span> Warnings
                 </tab-heading>
-
-                <tabset>
+                <tabset style="margin-top:5px">
                     <tab ng-repeat="category in validationResult.warnings.categories" class="validation-result-subtab"
                          active="subActive.warnings[category.title]"
                          ng-if="category.data.length > 0"
@@ -54,8 +52,7 @@
                       ng-bind="validationResult.alerts.categories[0].data.length"></span>
                     Alerts
                 </tab-heading>
-
-                <tabset>
+                <tabset style="margin-top:5px">
                     <tab ng-repeat="category in validationResult.alerts.categories" class="validation-result-subtab"
                          active="subActive.alerts[category.title]"
                          ng-if="category.data.length > 0"
@@ -73,12 +70,12 @@
                  active="active.affirmatives" ng-show="settings.options.validation.show.affirmatives">
                 <tab-heading>
 
+
                 <span class="badge failure failure-affirmatives"
                       ng-bind="validationResult.affirmatives.categories[0].data.length"></span>
                     Affirmatives
                 </tab-heading>
-
-                <tabset>
+                <tabset style="margin-top:5px">
                     <tab ng-repeat="category in validationResult.affirmatives.categories"
                          class="validation-result-subtab"
                          active="subActive.affirmatives[category.title]"

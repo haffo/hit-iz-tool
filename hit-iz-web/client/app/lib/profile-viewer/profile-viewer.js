@@ -897,8 +897,8 @@
                 //if ($scope.predWidth === null) {
                     var tableWidth = $scope.getTableWidth();
                     if (tableWidth > 0) {
-                        var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 800 : 800;
-                        var left = tableWidth - otherColumsWidth;
+                        //var otherColumsWidth = !$scope.nodeData || $scope.nodeData === null || $scope.nodeData.type === 'MESSAGE' ? 800 : 800;
+                        var left = tableWidth - 800;
                         $scope.predWidth = {"width": parseInt(left / 3) + "px"};
                     }
                // }
@@ -907,7 +907,7 @@
 
 
             $scope.getSegmentRefNodeName = function (node) {
-                return node && $scope.model.segments[node.ref] ? node.position + "." + $scope.model.segments[node.ref].name + ":" + $scope.model.segments[node.ref].description : '';
+                return node && $scope.model != null && $scope.model.segments[node.ref] ? node.position + "." + $scope.model.segments[node.ref].name + ":" + $scope.model.segments[node.ref].description : '';
             };
 
             $scope.getGroupNodeName = function (node) {

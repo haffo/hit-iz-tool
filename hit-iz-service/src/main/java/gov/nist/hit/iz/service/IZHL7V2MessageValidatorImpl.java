@@ -45,7 +45,7 @@ public class IZHL7V2MessageValidatorImpl extends HL7V2MessageValidator {
 
         JSONObject config = new JSONObject();
         config.put("excluded", "affirmative");
-        return new MessageValidationResult(report.to("json").toString(), report.render("iz-report",
+        return new MessageValidationResult(report.to("json").toString(), report.render("report",
             config));
       }
       throw new MessageValidationException(); // TODO: FIXME

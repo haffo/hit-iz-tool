@@ -1538,7 +1538,7 @@ angular.module('format').controller('InitiatorConfigCtrl', function ($scope, $mo
 });
 
 
-angular.module('format').controller('TaInitiatorConfigCtrl', function ($scope, $http, User, StorageService, Transport, $rootScope) {
+angular.module('format').controller('TaInitiatorConfigCtrl', function ($scope, $http, User, StorageService, Transport, $rootScope, Notification) {
     $scope.transport = Transport;
     $scope.config = null;
     $scope.prevConfig = null;
@@ -1595,9 +1595,9 @@ angular.module('format').controller('TaInitiatorConfigCtrl', function ($scope, $
             $scope.transport.configs[$scope.domain][$scope.protocol]['data']['taInitiator'] = $scope.config;
             $scope.loadData();
             $scope.saved = true;
-            $scope.message = "Configuration Information Saved !"
+            Notification.success({message: "Configuration Information Saved !", templateUrl: "NotificationSuccessTemplate.html", scope: $rootScope, delay: 5000});
         }, function (error) {
-            $scope.error = error.data;
+            Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 10000});
             $scope.saved = false;
             $scope.message = null;
         });
@@ -1606,11 +1606,12 @@ angular.module('format').controller('TaInitiatorConfigCtrl', function ($scope, $
     $scope.reset = function () {
         $scope.config = angular.copy($scope.prevConfig);
         $scope.saved = true;
+
     };
 
 });
 
-angular.module('format').controller('SutInitiatorConfigCtrl', function ($scope, $http, Transport, $rootScope, User) {
+angular.module('format').controller('SutInitiatorConfigCtrl', function ($scope, $http, Transport, $rootScope, User,Notification) {
     $scope.transport = Transport;
     $scope.config = null;
     $scope.loading = false;
@@ -1658,9 +1659,12 @@ angular.module('format').controller('SutInitiatorConfigCtrl', function ($scope, 
             var data = angular.fromJson({"config": $scope.config, "userId": User.info.id, "type": "SUT_INITIATOR", "protocol": protocole, "domain": domain});
             $http.post('api/transport/config/save', data).then(function (result) {
                 $scope.saving = false;
+                Notification.success({message: "Configuration Information Saved !", templateUrl: "NotificationSuccessTemplate.html", scope: $rootScope, delay: 5000});
             }, function (error) {
                 $scope.saving = false;
                 $scope.error = error;
+                Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 10000});
+
             });
         }
     };
@@ -1859,24 +1863,27 @@ angular.module('format').factory('TestExecutionService',
         };
 
         TestExecutionService.setTestCaseValidationResultFromTestSteps = function (testCase) {
+            var results = [];
             for (var i = 0; i < testCase.children.length; i++) {
                 var testStep = testCase.children[i];
                 var result = TestExecutionService.getTestStepValidationResult(testStep);
-                if (result === 'INCOMPLETE') {
-                    TestExecutionService.setTestCaseValidationResult(testCase, 'INCOMPLETE');
-                    break;
-                } else if (result === 'INCONCLUSIVE') {
-                    TestExecutionService.setTestCaseValidationResult(testCase, 'INCONCLUSIVE');
-                    break;
-                } else if (result === 'FAILED_NOT_SUPPORTED' || result === 'FAILED') {
-                    TestExecutionService.setTestCaseValidationResult(testCase, 'FAILED');
-                    break;
-                } else if (result === 'PASSED_NOTABLE_EXCEPTION' || result === 'PASSED') {
-                    TestExecutionService.setTestCaseValidationResult(testCase, 'PASSED');
-                    break;
-                }
+                result = result != null && result != undefined && result != '' ? result: 'INCOMPLETE';
+                results.push(result);
             }
-        };
+            var res =null;
+            if(results.indexOf('INCOMPLETE') >= 0){
+                res = 'INCOMPLETE';
+            }else if(results.indexOf('INCONCLUSIVE') >= 0){
+                res = 'INCONCLUSIVE';
+            }else if(results.indexOf('FAILED_NOT_SUPPORTED') >= 0 || results.indexOf('FAILED') >= 0){
+                res = 'FAILED';
+            }else if(results.indexOf('PASSED_NOTABLE_EXCEPTION') >= 0 ){
+                res = 'PASSED_NOTABLE_EXCEPTION';
+            }else{
+                res = 'PASSED';
+            }
+            TestExecutionService.setTestCaseValidationResult(testCase, res);
+         };
 
         TestExecutionService.getResultOptionByValue = function (value) {
             for (var i = 0; i < TestExecutionService.resultOptions.length; i++) {
