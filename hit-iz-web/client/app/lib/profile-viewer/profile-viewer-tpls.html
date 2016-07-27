@@ -108,7 +108,8 @@
                     </ul>
                     <div class="panel panel-info">
                         <div class="panel-body">
-                            <div class="profile-table-container2">
+                            <div ng-show="!loadingTabContent">
+                            <div class="profile-table-container2" ng-show="!confStatementsActive">
 
                                 <!--<div id="profile-tab-content" class="profile-table-container fixed-table-container">-->
 
@@ -116,7 +117,7 @@
 
                                 <table pv-table pv-params="params"
                                        class="table  table-condensed table-bordered table-line-break"
-                                       ng-show="!confStatementsActive && (nodeData.type === 'SEGMENT' ? isSegmentVisible(nodeData) : true)">
+                                       ng-show="nodeData.type === 'SEGMENT' ? isSegmentVisible(nodeData) : true">
                                     <thead>
                                     <tr class="tbl-header"
                                         ng-if="nodeData.type !== 'DATATYPE'">
@@ -153,7 +154,6 @@
                                     </thead>
                                 </table>
                             </div>
-                        </div>
 
                         <div ng-show="confStatementsActive" class="confstatement-table-container fixed-table-container">
                             <table st-table="model.tmpConfStatementList" st-safe-src="model.confStatementList"
@@ -185,6 +185,11 @@
                             </table>
                         </div>
 
+</div>
+
+                            <div ng-show="loadingTabContent" style="text-align:center">
+                                <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+                            </div>
 
                     </div>
                 </div>

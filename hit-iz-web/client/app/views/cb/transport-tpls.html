@@ -10,21 +10,13 @@
     }
 </script>
 <script type="text/ng-template" id="PastTestStepConsole.html">
-    <div class="modal-header">
-        <span style="font-weight: bold; font-size: 20px">
-           {{title}} - Console
-        </span>
-        <span class="pull-right">
-                 <button title="Close" type="button" class="pull-right btn btn-xs btn-primary"
-                         ng-click="close()">
-                     <i class="fa fa-times"></i>Close
-                 </button>
-        </span>
-    </div>
-    <div class="modal-body">
-        <textarea class="well" wrap="off"
-                  style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%"
-                  rows="23"
+    <div class="console-dlg">
+        <button title="Close" type="button" class="pull-right btn btn-xs btn-default"
+                ng-click="close()">
+            <i class="fa fa-times"></i>
+        </button>
+        <textarea class="well console-dlg console-content" wrap="off"
+                   rows="10"
                   disabled
                   ng-model="log"></textarea>
 
@@ -32,16 +24,13 @@
 </script>
 
 <script type="text/ng-template" id="CurrentTestStepConsole.html">
-    <div class="modal-body console-dlg">
-         <span class="pull-right">
-                 <button title="Close" type="button" class="pull-right btn btn-xs btn-primary"
-                         ng-click="close()">
-                     <i class="fa fa-times"></i>
-                 </button>
-        </span>
-        <textarea class="well" wrap="off"
-                  style="overflow: auto;width: 100%; height: 100%;font-family: monospace; background-color: darkgray; color:white"
-                  rows="10"
+    <div class="console-dlg">
+        <button title="Close" type="button" class="pull-right btn btn-xs btn-default"
+                ng-click="close()">
+            <i class="fa fa-times"></i>
+        </button>
+        <textarea class="well console-dlg console-content" wrap="off"
+                   rows="10"
                   disabled
                   ng-model="logger.content"></textarea>
 

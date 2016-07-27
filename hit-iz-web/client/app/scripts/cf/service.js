@@ -21,15 +21,7 @@ angular.module('cf').factory('CFTestCaseListLoader', ['$q', '$http', 'StorageSer
     function ($q, $http, StorageService,$timeout) {
         return function () {
             var delay = $q.defer();
-//                $http.get("api/cf/testcases", {timeout: 180000}).then(
-//                    function (object) {
-//                         delay.resolve(angular.fromJson(object.data));
-//                    },
-//                    function (response) {
-//                        delay.reject(response.data);
-//                    }
-//                );
-                $http.get('../../resources/cf/testCases.json').then(
+                $http.get("api/cf/testcases", {timeout: 180000}).then(
                     function (object) {
                          delay.resolve(angular.fromJson(object.data));
                     },
@@ -37,6 +29,14 @@ angular.module('cf').factory('CFTestCaseListLoader', ['$q', '$http', 'StorageSer
                         delay.reject(response.data);
                     }
                 );
+//                $http.get('../../resources/cf/testCases.json').then(
+//                    function (object) {
+//                         delay.resolve(angular.fromJson(object.data));
+//                    },
+//                    function (response) {
+//                        delay.reject(response.data);
+//                    }
+//                );
 
             return delay.promise;
         };

@@ -12,6 +12,28 @@
 
 package gov.nist.hit.iz.web.controller;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
 import gov.nist.auth.hit.core.domain.Account;
 import gov.nist.hit.core.api.SessionContext;
 import gov.nist.hit.core.domain.TestStep;
@@ -41,29 +63,6 @@ import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Harold Affo (NIST)
@@ -105,18 +104,17 @@ public class SOAPTransportController {
   String SUMBIT_SINGLE_MESSAGE_TEMPLATE = null;
 
   public SOAPTransportController() throws IOException {
-    SUMBIT_SINGLE_MESSAGE_TEMPLATE =
-        IOUtils.toString(SOAPTransportController.class
-            .getResourceAsStream("/templates/SubmitSingleMessage.xml"));
+    SUMBIT_SINGLE_MESSAGE_TEMPLATE = IOUtils.toString(
+        SOAPTransportController.class.getResourceAsStream("/templates/SubmitSingleMessage.xml"));
   }
 
-  @ApiOperation(value = "Start the listener of an incoming transaction",
-      nickname = "startListener", notes = "A user session is required")
-  @Transactional
+  @ApiOperation(value = "Start the listener of an incoming transaction", nickname = "startListener",
+      notes = "A user session is required")
   @RequestMapping(value = "/startListener", method = RequestMethod.POST,
       produces = "application/json")
   public boolean startListener(
-      @ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request,
+      @ApiParam(value = "the transport request",
+          required = true) @RequestBody TransportRequest request,
       @ApiParam(value = "The user session", required = true) HttpSession session)
       throws UserNotFoundException {
     logger.info("Starting listener");
@@ -127,7 +125,8 @@ public class SOAPTransportController {
     clearExchanges(userId);
 
     if (request.getResponseMessageId() == null)
-      throw new gov.nist.hit.core.service.exception.TransportException("Response message not found");
+      throw new gov.nist.hit.core.service.exception.TransportException(
+          "Response message not found");
 
     TransportMessage transportMessage = new TransportMessage();
     transportMessage.setMessageId(request.getResponseMessageId());
@@ -141,7 +140,6 @@ public class SOAPTransportController {
 
   @ApiOperation(value = "Stop the listener of an incoming transaction", nickname = "stopListener",
       notes = "A user session is required")
-  @Transactional
   @RequestMapping(value = "/stopListener", method = RequestMethod.POST,
       produces = "application/json")
   public boolean stopListener(
@@ -198,8 +196,8 @@ public class SOAPTransportController {
   @ApiOperation(value = "Search a transaction of user", nickname = "searchTransaction")
   @RequestMapping(value = "/searchTransaction", method = RequestMethod.POST,
       produces = "application/json")
-  public Transaction searchTransaction(
-      @ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request) {
+  public Transaction searchTransaction(@ApiParam(value = "the transport request",
+      required = true) @RequestBody TransportRequest request) {
     logger.info("Searching transaction...");
     Map<String, String> criteria = new HashMap<String, String>();
     criteria.put("username", request.getConfig().get("username"));
@@ -211,10 +209,10 @@ public class SOAPTransportController {
 
   @ApiOperation(value = "Send a message", nickname = "searchTransaction",
       notes = "A user session is required")
-  @Transactional()
   @RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json")
   public Transaction send(
-      @ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request,
+      @ApiParam(value = "the transport request",
+          required = true) @RequestBody TransportRequest request,
       @ApiParam(value = "The user session", required = true) HttpSession session)
       throws TransportClientException {
     logger.info("Sending message");
@@ -233,13 +231,11 @@ public class SOAPTransportController {
       if (testStep == null)
         throw new TestCaseException("Unknown test step with id=" + testStepId);
       String outgoingMessage = request.getMessage();
-      outgoingMessage =
-          ConnectivityUtil.updateSubmitSingleMessageRequest(SUMBIT_SINGLE_MESSAGE_TEMPLATE,
-              request.getMessage(), request.getConfig().get("username"),
-              request.getConfig().get("password"), request.getConfig().get("facilityID"));
-      String incomingMessage =
-          webServiceClient.send(outgoingMessage, request.getConfig().get("endpoint"),
-              IZConstants.SUBMITSINGLEMESSAGE_SOAP_ACTION);
+      outgoingMessage = ConnectivityUtil.updateSubmitSingleMessageRequest(
+          SUMBIT_SINGLE_MESSAGE_TEMPLATE, request.getMessage(), request.getConfig().get("username"),
+          request.getConfig().get("password"), request.getConfig().get("facilityID"));
+      String incomingMessage = webServiceClient.send(outgoingMessage,
+          request.getConfig().get("endpoint"), IZConstants.SUBMITSINGLEMESSAGE_SOAP_ACTION);
       String tmp = incomingMessage;
       try {
         incomingMessage = XmlUtil.prettyPrint(incomingMessage);
@@ -257,8 +253,8 @@ public class SOAPTransportController {
     }
   }
 
-  @ApiOperation(value = "Get the configuration information of user",
-      nickname = "searchTransaction", notes = "A user session is required")
+  @ApiOperation(value = "Get the configuration information of user", nickname = "searchTransaction",
+      notes = "A user session is required")
   @RequestMapping(value = "/configs", method = RequestMethod.POST, produces = "application/json")
   public TransportConfig configs(
       @ApiParam(value = "The user session", required = true) HttpSession session,
@@ -311,12 +307,12 @@ public class SOAPTransportController {
   }
 
   @ApiOperation(value = "", nickname = "", notes = "A user session is required", hidden = true)
-  @Transactional
   @RequestMapping(value = "/populateMessage", method = RequestMethod.POST,
       produces = "application/json")
   public TransportResponse populateMessage(
       @ApiParam(value = "The user session", required = true) HttpSession session,
-      @ApiParam(value = "The transport request", required = true) @RequestBody TransportRequest transportRequest)
+      @ApiParam(value = "The transport request",
+          required = true) @RequestBody TransportRequest transportRequest)
       throws UserNotFoundException {
     logger.info("Fetching user configuration information ... ");
     Long userId = SessionContext.getCurrentUserId(session);
