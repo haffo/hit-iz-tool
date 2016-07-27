@@ -6,9 +6,9 @@ import gov.nist.healthcare.core.message.v2.er7.Er7Message;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.TransportMessage;
 import gov.nist.hit.core.repo.MessageRepository;
+import gov.nist.hit.core.service.AccountService;
 import gov.nist.hit.core.service.TransactionService;
 import gov.nist.hit.core.service.TransportMessageService;
-import gov.nist.hit.core.service.UserService;
 import gov.nist.hit.core.transport.exception.TransportServerException;
 import gov.nist.hit.iz.ws.IZWSConstant;
 import gov.nist.hit.iz.ws.jaxb.ConnectivityTestRequestType;
@@ -40,7 +40,7 @@ public class IZSOAPWebServiceServer implements TransportServer {
   private static final String NAMESPACE_URI = "urn:cdc:iisb:2011";
 
   @Autowired
-  private UserService userService;
+  private AccountService userService;
 
   @Autowired
   private TransactionService transactionService;

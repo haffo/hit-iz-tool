@@ -7,7 +7,7 @@
         top.location = self.location;
     }
 </script>
-<div ng-controller="AboutCtrl" style="margin:10px">
+<div style="margin:10px">
 
     <div style="margin-bottom: 20px">
         <div class="panel panel-info">
@@ -16,9 +16,7 @@
                 <p>
                     Tool Version:{{appInfo.version}}
                 </p>
-                <p>
-                    Resource Bundle Version:{{appInfo.rsbVersion}}
-                </p>
+
                 <p>
                     Deployment Date: {{appInfo.date |  date: 'MM/dd/yyyy HH:mm:ss'}}
                 </p>

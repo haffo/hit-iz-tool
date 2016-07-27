@@ -20,28 +20,37 @@
         <div ng-show="error === null">
             <div ng-show="profile != null && model != null">
                 <div class="" style="margin-bottom: 10px;">
+                    <div class="btn-group btn-group-sm" role="group" aria-label="..." style="margin-right: 10px;">
+                        <button  class="btn btn-cf-outline"  ng-click="setAllRelevance(true);loadContent();" ng-class="{'active': options.relevance}">R,RE,C (only)</button>
+                        <button  class="btn btn-cf-outline"  ng-click="setAllRelevance(false);loadContent();" ng-class="{'active': !options.relevance}">R,RE,C,O,X (All)</button>
+                     </div>
 
-                    <div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">
-                        <label class="btn   btn-cf-outline" ng-click="setAllRelevance(true)"
-                               ng-class="{'active': options.relevance}">
-                            <input type="radio" ng-model="options.relevance" autocomplete="off" checked>R,RE,C (only)
-                        </label>
-                        <label class="btn  btn-cf-outline" ng-click="setAllRelevance(false)"
-                               ng-class="{'active': !options.relevance}">
-                            <input type="radio" ng-model="options.relevance" autocomplete="off">R,RE,C,O,X (All)
-                        </label>
+                    <!--<div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">-->
+                        <!--<label class="btn   btn-cf-outline" ng-click="setAllRelevance(true)"-->
+                               <!--ng-class="{'active': options.relevance}">-->
+                            <!--<input type="radio"  ng-model="options.relevance" autocomplete="off" checked>R,RE,C (only)-->
+                        <!--</label>-->
+                        <!--<label class="btn  btn-cf-outline" ng-click="setAllRelevance(false)"-->
+                               <!--ng-class="{'active': !options.relevance}">-->
+                            <!--<input type="radio"   ng-model="options.relevance" autocomplete="off">R,RE,C,O,X (All)-->
+                        <!--</label>-->
+                    <!--</div>-->
+
+                    <div class="btn-group btn-group-sm" role="group" aria-label="..." style="margin-right: 10px;">
+                        <button type="button" class="btn btn-cf-outline"  ng-click="setAllConcise(true)" ng-class="{'active': options.concise}">Concise View</button>
+                        <button type="button" class="btn btn-cf-outline"  ng-click="setAllConcise(false)" ng-class="{'active': !options.concise}">Expanded View</button>
                     </div>
 
-                    <div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">
-                        <label class="btn   btn-cf-outline" ng-click="setAllConcise(true)"
-                               ng-class="{'active': options.concise}">
-                            <input type="radio" ng-model="options.concise" autocomplete="off" checked>Concise View
-                        </label>
-                        <label class="btn btn-cf-outline" ng-click="setAllConcise(false)"
-                               ng-class="{'active': !options.concise}">
-                            <input type="radio" ng-model="options.concise" autocomplete="off">Expanded View
-                        </label>
-                    </div>
+                    <!--<div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">-->
+                        <!--<label class="btn   btn-cf-outline" ng-click="setAllConcise(true)"-->
+                               <!--ng-class="{'active': options.concise}">-->
+                            <!--<input type="radio"  ng-model="options.concise" autocomplete="off" checked>Concise View-->
+                        <!--</label>-->
+                        <!--<label class="btn btn-cf-outline" ng-click="setAllConcise(false)"-->
+                               <!--ng-class="{'active': !options.concise}">-->
+                            <!--<input type="radio"  ng-model="options.concise" autocomplete="off">Expanded View-->
+                        <!--</label>-->
+                    <!--</div>-->
                     <!--<div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">-->
                     <!--<label class="btn   btn-cf-outline"   ng-click="collapseAll(true)" ng-class="{'active': options.collapse}">-->
                     <!--<input type="radio"   ng-model="options.collapse"  autocomplete="off" checked>Collapse All-->
@@ -79,12 +88,12 @@
                         <li
                                 ng-class="{'active':nodeData != null && nodeData.name === 'FULL' && !confStatementsActive}">
                             <a
-                                    ng-click="getNodeContent(model.message)">FULL</a></li>
+                                    ng-click="getTabContent(model.message)">FULL</a></li>
                         <li ng-show="isSegmentVisible(element)"
-                            ng-repeat="element in segments"
+                            ng-repeat="element in model.segmentList"
                             ng-class="{'active':nodeData != null && nodeData.name === element.name && !confStatementsActive}">
                             <a
-                                    ng-click="getNodeContent(element)">{{::element.name}}</a></li>
+                                    ng-click="getTabContent(element)">{{::element.name}}</a></li>
 
 
                         <li
@@ -101,9 +110,9 @@
                         <div class="panel-body">
                             <div class="profile-table-container2">
 
-                            <!--<div id="profile-tab-content" class="profile-table-container fixed-table-container">-->
+                                <!--<div id="profile-tab-content" class="profile-table-container fixed-table-container">-->
 
-                            <!--<div style="margin-top:5px" id="profile-tab-content" class="profile-table-container">-->
+                                <!--<div style="margin-top:5px" id="profile-tab-content" class="profile-table-container">-->
 
                                 <table pv-table pv-params="params"
                                        class="table  table-condensed table-bordered table-line-break"
@@ -144,50 +153,52 @@
                                     </thead>
                                 </table>
                             </div>
-                                </div>
-
-                            <div ng-show="confStatementsActive" class="confstatement-table-container fixed-table-container">
-                                <table st-table="tmpConfStatements" st-safe-src="confStatements"
-                                       class="table table-striped table-bordered table-condensed table-line-break" oci-fixed-header>
-                                    <thead>
-                                    <!--<tr>-->
-                                    <!--<th colspan="2" class="text-center">-->
-                                    <!--<div  st-items-by-page="25" st-pagination=""></div>-->
-                                    <!--</th>-->
-                                    <!--</tr>-->
-                                    <!--<tr>-->
-                                        <!--<th colspan="2" st-ratio="100">-->
-                                            <!--<input st-search placeholder="" class="input-sm form-control"-->
-                                                   <!--type="search"/>-->
-                                        <!--</th>-->
-                                    <!--</tr>-->
-                                    <tr class="">
-                                        <th st-sort="constraintId" st-ratio="20">ID</th>
-                                        <th st-sort="description" st-ratio="80">Description</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr ng-repeat="row in tmpConfStatements">
-                                        <td st-ratio="20" ng-bind="::row.constraintId"></td>
-                                        <td st-ratio="80" ng-bind="::row.description"></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-
                         </div>
+
+                        <div ng-show="confStatementsActive" class="confstatement-table-container fixed-table-container">
+                            <table st-table="model.tmpConfStatementList" st-safe-src="model.confStatementList"
+                                   class="table table-striped table-bordered table-condensed table-line-break"
+                                   oci-fixed-header>
+                                <thead>
+                                <!--<tr>-->
+                                <!--<th colspan="2" class="text-center">-->
+                                <!--<div  st-items-by-page="25" st-pagination=""></div>-->
+                                <!--</th>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                <!--<th colspan="2" st-ratio="100">-->
+                                <!--<input st-search placeholder="" class="input-sm form-control"-->
+                                <!--type="search"/>-->
+                                <!--</th>-->
+                                <!--</tr>-->
+                                <tr class="">
+                                    <th st-sort="constraintId" st-ratio="20">ID</th>
+                                    <th st-sort="description" st-ratio="80">Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="row in model.tmpConfStatementList">
+                                    <td st-ratio="20" ng-bind="::row.constraintId"></td>
+                                    <td st-ratio="80" ng-bind="::row.description"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 </script>
 
 
 <script type="text/ng-template" id="MessageFieldViewTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+    <tr pv-node  is-branch="hasRelevantChild(node)" node="node">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
 
 
              <span
@@ -203,7 +214,7 @@
         <td class="col-xs-1 col-fixed-80">
             <div>
                 <span>{{node.usage}}</span>
-				<span ng-repeat="p in node.predicates">
+				<span ng-repeat="p in node.selfPredicates">
 					({{p.trueUsage}}/{{p.falseUsage}})
 				</span>
             </div>
@@ -232,11 +243,11 @@
                     <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset"
                        ng-click="showValueSetDefinition(valueSet)"
                        class="cs-concise-view concise-view"
-                          tooltip-html="::valueSet"
-                          tooltip-append-to-body="true"
-                          tooltip-class="constraints-tooltip"
-                          ng-bind-html="valueSet"
-                          tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
+                       tooltip-html="::valueSet"
+                       tooltip-append-to-body="true"
+                       tooltip-class="constraints-tooltip"
+                       ng-bind-html="valueSet"
+                       tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
 
                 </span>
             </div>
@@ -248,7 +259,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger
                   tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="predicate in node.predicates"
+            <span ng-repeat="predicate in node.selfPredicates"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                     {{::predicate.description}}
@@ -262,7 +273,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getConfStatementsAsOneLineString(node)"
                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="confStatement in node.conformanceStatements"
+            <span ng-repeat="confStatement in node.selfConformanceStatements"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                    {{::confStatement.constraintId}} : {{::confStatement.description}}
@@ -273,8 +284,9 @@
 </script>
 
 <script type="text/ng-template" id="MessageComponentViewTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+    <tr pv-node  is-branch="hasRelevantChild(node)" node="node">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
 
 
              <span
@@ -288,13 +300,11 @@
                   </span>
 
 
-
-
         </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
                 <span>{{node.usage}}</span>
-				<span ng-repeat="p in node.predicates">
+				<span ng-repeat="p in node.selfPredicates">
 					({{p.trueUsage}}/{{p.falseUsage}})
 				</span>
             </div>
@@ -333,7 +343,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger
                   tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="predicate in node.predicates"
+            <span ng-repeat="predicate in node.selfPredicates"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                     {{::predicate.description}}
@@ -347,7 +357,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getConfStatementsAsOneLineString(node)"
                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="confStatement in node.conformanceStatements"
+            <span ng-repeat="confStatement in node.selfConformanceStatements"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                    {{::confStatement.constraintId}} : {{::confStatement.description}}
@@ -359,7 +369,8 @@
 
 <script type="text/ng-template" id="MessageDatatypeViewTree.html">
     <tr pv-node is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
 
             <span
                     tooltip-enable="options.concise"
@@ -371,8 +382,7 @@
                   </span>
 
 
-
-         </td>
+        </td>
         <td class="col-xs-1 col-fixed-80 nodata">
         </td>
         <td class="col-xs-1 col-fixed-80 nodata">
@@ -388,7 +398,7 @@
                   tooltip-html="getPredicatesAsMultipleLinesString(node)" tooltip-append-to-body="true"
                   tooltip-class="constraints-tooltip" ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger
                   tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="predicate in node.predicates" ng-if="!options.concise">
+            <span ng-repeat="predicate in node.selfPredicates" ng-if="!options.concise">
                 <span class="expanded-view">
                     {{::predicate.description}}
                 </span>
@@ -399,7 +409,7 @@
                   tooltip-html="getConfStatementsAsMultipleLinesString(node)" tooltip-append-to-body="true"
                   tooltip-class="constraints-tooltip" ng-bind-html="getConfStatementsAsOneLineString(node)"
                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="confStatement in node.conformanceStatements" ng-if="!options.concise">
+            <span ng-repeat="confStatement in node.selfConformanceStatements" ng-if="!options.concise">
                 <span class="expanded-view">
                    {{::confStatement.constraintId}} : {{::confStatement.description}}
                 </span>
@@ -410,8 +420,9 @@
 
 
 <script type="text/ng-template" id="MessageReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+    <tr pv-node  is-branch="hasRelevantChild(node)" node="node">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
             <span>{{::node.event}}^{{::node.structID}}:{{::node.description}}</span>
         </td>
         <td class="col-xs-1 col-fixed-80 nodata">
@@ -435,26 +446,30 @@
 </script>
 
 <script type="text/ng-template" id="MessageSegmentRefReadTree.html">
-    <tr pv-node ng-show="visible(node,node.predicates)" is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+    <tr pv-node  is-branch="hasRelevantChild(node)" node="node">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
             <span class="label label-segment label-icon">S</span>
 
             <a class="point"
                ng-click="showRefSegment(node.ref)"
                class="concise-view" ng-if="options.concise"
-                  tooltip-html="getSegmentRefNodeName(node)" tooltip-append-to-body="true"
-                  tooltip-class="constraints-tooltip" ng-bind-html="getSegmentRefNodeName(node)"
-                  tooltip-trigger tooltip-animation="false" tooltip-placement="left"></a>
+               tooltip-html="getSegmentRefNodeName(node)" tooltip-append-to-body="true"
+               tooltip-class="constraints-tooltip" ng-bind-html="getSegmentRefNodeName(node)"
+               tooltip-trigger tooltip-animation="false" tooltip-placement="left"></a>
 
-             <a class="point"
-                ng-click="showRefSegment(node.ref)"
-                     ng-if="!options.concise" class="expanded-view">
-                   {{getSegmentRefNodeName(node)}}
-             </a>
+            <a class="point"
+               ng-click="showRefSegment(node.ref)"
+               ng-if="!options.concise" class="expanded-view">
+                {{getSegmentRefNodeName(node)}}
+            </a>
 
         </td>
         <td class="col-xs-1 col-fixed-80">
             <span ng-bind="node.usage"></span>
+             <span ng-repeat="p in node.selfPredicates">
+					({{p.trueUsage}}/{{p.falseUsage}})
+				</span>
         </td>
         <td class="col-xs-1 col-fixed-80">
             [{{::node.min}}, {{::node.max}}]
@@ -472,7 +487,7 @@
                   tooltip-html="getPredicatesAsMultipleLinesString(node)" tooltip-append-to-body="true"
                   tooltip-class="constraints-tooltip" ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger
                   tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="predicate in  node.predicates" ng-if="!options.concise">
+            <span ng-repeat="predicate in  node.selfPredicates" ng-if="!options.concise">
                 <span class="expanded-view">
                     {{::predicate.description}}
                 </span>
@@ -483,7 +498,7 @@
                   tooltip-html="getConfStatementsAsMultipleLinesString(node)" tooltip-append-to-body="true"
                   tooltip-class="constraints-tooltip" ng-bind-html="getConfStatementsAsOneLineString(node)"
                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="confStatement in node.conformanceStatements" ng-if="!options.concise">
+            <span ng-repeat="confStatement in node.selfConformanceStatements" ng-if="!options.concise">
                 <span class="expanded-view">
                    {{::confStatement.constraintId}} : {{::confStatement.description}}
                 </span>
@@ -493,8 +508,9 @@
 </script>
 
 <script type="text/ng-template" id="MessageGroupReadTree.html">
-    <tr pv-node ng-show="visible(node,node.predicates)" is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+    <tr pv-node  is-branch="hasRelevantChild(node)" node="node">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
 
 
                 <span
@@ -510,6 +526,9 @@
         </td>
         <td class="col-xs-1 col-fixed-80">
             <span ng-bind="node.usage"></span>
+            <span ng-repeat="p in node.selfPredicates">
+					({{p.trueUsage}}/{{p.falseUsage}})
+				</span>
         </td>
         <td class="col-xs-1 col-fixed-80">
             [{{::node.min}}, {{::node.max}}]
@@ -529,7 +548,7 @@
                   tooltip-html="getPredicatesAsMultipleLinesString(node)" tooltip-append-to-body="true"
                   tooltip-class="constraints-tooltip" ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger
                   tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="predicate in  node.predicates" ng-if="!options.concise">
+            <span ng-repeat="predicate in  node.selfPredicates" ng-if="!options.concise">
                 <span class="expanded-view">
                     {{::predicate.description}}
                 </span>
@@ -541,7 +560,7 @@
                   tooltip-html="getConfStatementsAsMultipleLinesString(node)" tooltip-append-to-body="true"
                   tooltip-class="constraints-tooltip" ng-bind-html="getConfStatementsAsOneLineString(node)"
                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="confStatement in node.conformanceStatements" ng-if="!options.concise">
+            <span ng-repeat="confStatement in node.selfConformanceStatements" ng-if="!options.concise">
                 <span class="expanded-view">
                    {{::confStatement.constraintId}} : {{::confStatement.description}}
                 </span>
@@ -552,18 +571,18 @@
 </script>
 
 <script type="text/ng-template" id="DatatypeReadTree.html">
-    <tr pv-node is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+    <tr pv-node ng-show="isDatatypeVisible(node)" is-branch="hasRelevantChild(node)" node="node">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
 
-            <span class="label label-datatype label-icon">D</span>
-             <span class="concise-view" ng-if="options.concise"
-                   tooltip-html="getDatatypeNodeName3(node)" tooltip-append-to-body="true"
-                   tooltip-class="constraints-tooltip" ng-bind-html="getDatatypeNodeName3(node)"
-                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-             <span
-                     ng-if="!options.concise" class="expanded-view">
-                   {{getDatatypeNodeName3(node)}}
-             </span>
+              <span
+                      tooltip-enable="options.concise"
+                      tooltip-html="getDatatypeNodeName3(node)" tooltip-append-to-body="true"
+                      tooltip-class="constraints-tooltip"
+                      tooltip-trigger tooltip-animation="false" tooltip-placement="left">
+                                  <span class="label label-datatype label-icon">D</span>
+<span>{{getDatatypeNodeName3(node)}}</span>
+                  </span>
 
 
 
@@ -587,10 +606,9 @@
 </script>
 
 <script type="text/ng-template" id="DatatypeComponentReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
-
-
+    <tr pv-node  is-branch="hasRelevantChild(node)" node="node">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
              <span
                      tooltip-enable="options.concise"
                      tooltip-html="getComponentNodeName2(node)" tooltip-append-to-body="true"
@@ -605,7 +623,7 @@
         <td class="col-xs-1 col-fixed-80">
             <div>
                 <span>{{node.usage}}</span>
-				<span ng-repeat="p in node.predicates">
+				<span ng-repeat="p in node.selfPredicates">
 					({{p.trueUsage}}/{{p.falseUsage}})
 				</span>
             </div>
@@ -645,7 +663,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger
                   tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="predicate in node.predicates"
+            <span ng-repeat="predicate in node.selfPredicates"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                     {{::predicate.description}}
@@ -659,7 +677,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getConfStatementsAsOneLineString(node)"
                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="confStatement in node.conformanceStatements"
+            <span ng-repeat="confStatement in node.selfConformanceStatements"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                    {{::confStatement.constraintId}} : {{::confStatement.description}}
@@ -670,8 +688,9 @@
 </script>
 
 <script type="text/ng-template" id="DatatypeSubComponentReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+    <tr pv-node  is-branch="hasRelevantChild(node)" node="node">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
 
              <span
                      tooltip-enable="options.concise"
@@ -681,13 +700,11 @@
                                     <span class="label label-sub-component label-icon">S</span>
 <span>{{getComponentNodeName2(node)}}</span>
                   </span>
-
-
-         </td>
+        </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
                 <span>{{node.usage}}</span>
-				<span ng-repeat="p in node.predicates">
+				<span ng-repeat="p in node.selfPredicates">
 					({{p.trueUsage}}/{{p.falseUsage}})
 				</span>
             </div>
@@ -706,18 +723,18 @@
         </td>
 
         <td class="col-xs-1 col-fixed-150">
-                 <div ng-show="node.table != undefined  && node.table !== null">
-                    <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset"
-                       ng-click="showValueSetDefinition(valueSet)"
-                       class="cs-concise-view concise-view"
-                       tooltip-html="::valueSet"
-                       tooltip-append-to-body="true"
-                       tooltip-class="constraints-tooltip"
-                       ng-bind-html="valueSet"
-                       tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
+            <div ng-show="node.table != undefined  && node.table !== null">
+                <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset"
+                   ng-click="showValueSetDefinition(valueSet)"
+                   class="cs-concise-view concise-view"
+                   tooltip-html="::valueSet"
+                   tooltip-append-to-body="true"
+                   tooltip-class="constraints-tooltip"
+                   ng-bind-html="valueSet"
+                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
 
-                </div>
-         </td>
+            </div>
+        </td>
 
         <td class="col-xs-2 col-predicate" ng-style="predWidth">
             <span class="predicate-concise-view concise-view" ng-if="options.concise"
@@ -726,7 +743,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger
                   tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="predicate in node.predicates"
+            <span ng-repeat="predicate in node.selfPredicates"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                     {{::predicate.description}}
@@ -740,7 +757,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getConfStatementsAsOneLineString(node)"
                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="confStatement in node.conformanceStatements"
+            <span ng-repeat="confStatement in node.selfConformanceStatements"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                    {{::confStatement.constraintId}} : {{::confStatement.description}}
@@ -751,10 +768,9 @@
 </script>
 
 <script type="text/ng-template" id="SegmentReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
-
-
+    <tr pv-node  is-branch="hasRelevantChild(node)" node="node">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
               <span
                       tooltip-enable="options.concise"
                       tooltip-html="getSegmentReadName(node)" tooltip-append-to-body="true"
@@ -763,8 +779,6 @@
                                      <span class="label label-segment label-icon">S</span>
 <span>{{getSegmentReadName(node)}}</span>
                   </span>
-
-
 
 
         </td>
@@ -788,9 +802,10 @@
     </tr>
 </script>
 <script type="text/ng-template" id="SegmentFieldReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
+    <tr pv-node  is-branch="hasRelevantChild(node)" node="node">
 
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
 
 
                  <span
@@ -808,7 +823,7 @@
         <td class="col-xs-1 col-fixed-80">
             <div>
                 <span>{{node.usage}}</span>
-				<span ng-repeat="p in node.predicates">
+				<span ng-repeat="p in node.selfPredicates">
 					({{p.trueUsage}}/{{p.falseUsage}})
 				</span>
             </div>
@@ -846,7 +861,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger
                   tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="predicate in node.predicates" ng-if="!options.concise">
+            <span ng-repeat="predicate in node.selfPredicates" ng-if="!options.concise">
                 <span class="expanded-view">
                     {{::predicate.description}}
                 </span>
@@ -859,7 +874,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getConfStatementsAsOneLineString(node)"
                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="confStatement in node.conformanceStatements"
+            <span ng-repeat="confStatement in node.selfConformanceStatements"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                    {{::confStatement.constraintId}} : {{::confStatement.description}}
@@ -870,8 +885,9 @@
 </script>
 
 <script type="text/ng-template" id="SegmentComponentReadTree.html">
-    <tr pv-node ng-show="visible(node)" is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+    <tr pv-node  is-branch="hasRelevantChild(node)" node="node">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
 
              <span
                      tooltip-enable="options.concise"
@@ -884,13 +900,11 @@
                   </span>
 
 
-
-
         </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
                 <span>{{node.usage}}</span>
-				<span ng-repeat="p in node.predicates">
+				<span ng-repeat="p in node.selfPredicates">
 					({{p.trueUsage}}/{{p.falseUsage}})
 				</span>
             </div>
@@ -930,7 +944,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger
                   tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="predicate in node.predicates"
+            <span ng-repeat="predicate in node.selfPredicates"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                     {{::predicate.description}}
@@ -944,7 +958,7 @@
                   tooltip-class="constraints-tooltip"
                   ng-bind-html="getConfStatementsAsOneLineString(node)"
                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="confStatement in node.conformanceStatements"
+            <span ng-repeat="confStatement in node.selfConformanceStatements"
                   ng-if="!options.concise">
                 <span class="expanded-view">
                    {{::confStatement.constraintId}} : {{::confStatement.description}}
@@ -958,7 +972,8 @@
 
 <script type="text/ng-template" id="SegmentDatatypeReadTree.html">
     <tr pv-node is-branch="hasRelevantChild(node)" node="node">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
              <span
                      tooltip-enable="options.concise"
                      tooltip-html="getDatatypeNodeName2(node)" tooltip-append-to-body="true"
@@ -985,7 +1000,7 @@
                   tooltip-html="getPredicatesAsMultipleLinesString(node)" tooltip-append-to-body="true"
                   tooltip-class="constraints-tooltip" ng-bind-html="getPredicatesAsOneLineString(node)" tooltip-trigger
                   tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="predicate in node.predicates" ng-if="!options.concise">
+            <span ng-repeat="predicate in node.selfPredicates" ng-if="!options.concise">
                 <span class="expanded-view">
                     {{::predicate.description}}
                 </span>
@@ -996,7 +1011,7 @@
                   tooltip-html="getConfStatementsAsMultipleLinesString(node)" tooltip-append-to-body="true"
                   tooltip-class="constraints-tooltip" ng-bind-html="getConfStatementsAsOneLineString(node)"
                   tooltip-trigger tooltip-animation="false" tooltip-placement="left"/>
-            <span ng-repeat="confStatement in node.conformanceStatements" ng-if="!options.concise">
+            <span ng-repeat="confStatement in node.selfConformanceStatements" ng-if="!options.concise">
                 <span class="expanded-view">
                    {{::confStatement.constraintId}} : {{::confStatement.description}}
                 </span>
@@ -1008,7 +1023,8 @@
 
 <script type="text/ng-template" id="SegmentNoReleventChildTree.html">
     <tr pv-node is-branch="true" node="node" class="nodata">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
             No (R,RE,C)s found. Click "R,RE,C,0,X(All)" button to view all.
         </td>
 
@@ -1032,7 +1048,8 @@
 
 <script type="text/ng-template" id="DatatypeNoReleventChildTree.html">
     <tr pv-node is-branch="true" node="node" class="nodata">
-        <td class="col-xs-2 col-fixed-350" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+        <td class="col-xs-2 col-fixed-350"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
             No (R,RE,C)s found. Click "R,RE,C,0,X(All)" button to view all.
         </td>
         <td class="col-xs-1 col-fixed-80 nodata">
@@ -1052,7 +1069,8 @@
 
 <script type="text/ng-template" id="MessageNoReleventChildTree.html">
     <tr pv-node is-branch="true" node="node" class="nodata">
-        <td class="col-xs-2 col-fixed-350" class="nodata" ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
+        <td class="col-xs-2 col-fixed-350" class="nodata"
+            ng-class="{'name-concise-view concise-view':options.concise, 'expanded-view': !options.concise}">
             No (R,RE,C)s found. Click "R,RE,C,0,X(All)" button to view all.
         </td>
         <td class="col-xs-1 col-fixed-80 nodata">
