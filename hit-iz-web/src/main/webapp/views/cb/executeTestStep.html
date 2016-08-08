@@ -12,7 +12,7 @@
 
 <div class="testStep" ng-show="testStep != null">
 
-<div class="col-md-12" ng-show="detailsError !== null">
+<div class="col-md-12" ng-show="detailsError !== null && detailsError != undefined">
     <div class="alert alert-danger" role="alert" ng-bind="detailsError"></div>
 </div>
 
@@ -103,7 +103,6 @@
             </table>
         </div>
 
-
         <tabset>
             <tab disabled="disabled()" select="setTestStepExecutionTab(0)" active="tabs[0]" ng-show="testStep.testContext && testStep.testContext != null">
                 <tab-heading>
@@ -119,6 +118,7 @@
 
                 <div ng-include="'views/cb/report.html'"></div>
             </tab>
+
             <tab disabled="disabled()" select="setTestStepExecutionTab(2)" active="tabs[2]" ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.profile && testStep.testContext.profile!= null">
                 <tab-heading>
                     <i class="fa fa-th-list"></i>Profile Viewer
@@ -190,6 +190,8 @@
             </tab>
 
         </tabset>
+
+
     </div>
 </div>
 

@@ -151,9 +151,9 @@ angular.module('cb')
         $scope.loadTestStepExecutionPanel = function (testStep) {
             $scope.exampleMessageEditor = null;
             $scope.detailsError = null;
-            $scope.setTestStepExecutionTab(0);
             var testContext = testStep['testContext'];
             if (testContext && testContext != null) {
+                $scope.setTestStepExecutionTab(0);
                 $scope.$broadcast('cb:testStepLoaded', testStep);
                 $scope.$broadcast('cb:profileLoaded', testContext.profile);
                 $scope.$broadcast('cb:valueSetLibraryLoaded', testContext.vocabularyLibrary);
@@ -163,7 +163,9 @@ angular.module('cb')
                     $scope.$broadcast($scope.targ + '-exampleMessage', exampleMessage, testContext.format, testStep.name);
                 }
              } else { // manual testing ?
+                $scope.setTestStepExecutionTab(1);
                 var report = TestExecutionService.getTestStepValidationReportObject(testStep);
+                console.log(">>>>>>>>>>>>> "+ report);
                 report = report != undefined ? report : null;
                 $rootScope.$emit('cb:initValidationReport', report, testStep);
             }
@@ -258,12 +260,11 @@ angular.module('cb')
                         } else {
                             var con = $scope.testExecutionService.getTestStepExecutionMessage(testStep);
                             con = con != null && con != undefined ? con : testStep.testContext.message.content;
-                            $scope.testExecutionService.setTestStepExecutionMessage(con);
+                            $scope.testExecutionService.setTestStepExecutionMessage(testStep, con);
                             $scope.loadTestStepExecutionPanel(testStep);
                         }
                     } else if ($scope.testExecutionService.getTestStepExecutionMessage(testStep) === undefined && testStep['testingType'] === 'TA_RESPONDER' && $scope.transport.disabled) {
-                        console.log("set execution message to="+ testStep.testContext.message.content);
-                        $scope.testExecutionService.setTestStepExecutionMessage(testStep.testContext.message.content);
+                         $scope.testExecutionService.setTestStepExecutionMessage(testStep, testStep.testContext.message.content);
                         $scope.loadTestStepExecutionPanel(testStep);
                     } else {
                         $scope.loadTestStepExecutionPanel(testStep);
@@ -1248,18 +1249,24 @@ angular.module('cb')
             $scope.mError = null;
             $scope.vError = null;
             $scope.cb.message.content = $scope.editor.doc.getValue();
+            //console.log("message is=" + $scope.editor.doc.getValue());
             $scope.setHasNonPrintableCharacters();
             StorageService.set(StorageService.CB_EDITOR_CONTENT_KEY, $scope.cb.message.content);
             $scope.refreshEditor();
             if (!$scope.isTestCase() || !$scope.isTestCaseCompleted()) {
                 TestExecutionService.setTestStepExecutionMessage($scope.testStep, $scope.cb.message.content);
-//                TestExecutionService.deleteTestStepValidationReport($scope.testStep);
-//                TestExecutionService.deleteTestStepMessageTree($scope.testStep);
                 $scope.validateMessage();
                 $scope.parseMessage();
             } else {
                 $scope.setTestStepValidationReport(TestExecutionService.getTestStepValidationReport($scope.testStep));
                 $scope.setTestStepMessageTree(TestExecutionService.getTestStepMessageTree($scope.testStep));
+            }
+        };
+
+        $scope.executeWithMessage = function (content) {
+            if($scope.editor) {
+                $scope.editor.doc.setValue(content);
+                $scope.execute();
             }
         };
 
@@ -1306,16 +1313,11 @@ angular.module('cb')
                 } else {
                     $scope.nodelay = true;
                     content = TestExecutionService.getTestStepExecutionMessage($scope.testStep);
-                    content = content && content != null ? content : '';
-                    console.log("load test step execution message" + content);
-
+                    if(content == undefined)
+                        content = '';
                 }
-                if ($scope.editor) {
-                    console.log("set edit content");
-                    $scope.editor.doc.setValue(content);
-                    $scope.execute();
-                }
-            }
+                $scope.executeWithMessage(content);
+             }
         });
 
         $scope.$on('cb:removeTestStep', function (event, testStep) {

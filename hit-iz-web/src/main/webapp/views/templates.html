@@ -81,6 +81,7 @@
                         <label>Endpoint</label>
                         <input type="url" name="endpoint" class="form-control" ng-model="config.endpoint"
                                placeholder="SUT Endpoint" required>
+
                         <p ng-show="receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine"
                            class="help-block">
                             Invalid url. Expected format is {{appInfo.url}}</p>
@@ -240,6 +241,7 @@
     <div class="modal-body error-dlg">
         <div ng-include="'InvalidAppState.html'"></div>
         <br/>
+
         <div style="text-align:center">
             <p>Please click
                 <button class="btn btn-sm btn-primary" ng-click="close()" type="button"
@@ -247,7 +249,8 @@
                     <i class="fa fa-refresh"></i>
                     reset
                 </button>
-                to reinitialize your browser.</p>
+                to reinitialize your browser.
+            </p>
         </div>
 
     </div>
