@@ -1,0 +1,2 @@
+MSH|^~\&|MYIIS|MyStateIIS|MYEHR|Myclinic|20091130020020-0500||RSP^K11^RSP_K11|7731029|P|2.5.1|||NE|NE|||||Z42^CDCPHINVS|A_Clinic^SOME_SYSTEM^^^^X68^AN^^^A_Clinic1234|
+QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS|37374859||Gonzales^Juan^Marcel^^^^L|Morales^Anita^Francesca^^^^L|201403041100|M|3321 Standish Way^^Stamford^CT^06903^^L|^PRN^PH^^1^203^5551213||||
