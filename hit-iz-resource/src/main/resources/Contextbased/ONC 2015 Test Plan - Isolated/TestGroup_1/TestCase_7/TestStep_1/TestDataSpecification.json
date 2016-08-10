@@ -1,0 +1,60 @@
+{
+"version" : "2.9.11",
+"profile" : "VXU_V04",
+"tables":
+[
+		{
+			"title":"Patient Information",
+			"elements" : 
+			[
+				{"element" : "Patient Name", "data" : "Helen Barrett"},
+				{"element" : "Mother's Maiden Name", "data" : ""},
+				{"element" : "ID Number", "data" : "7120 "},
+				{"element" : "Date/Time of Birth", "data" : "03/17/1950"},
+				{"element" : "Administrative Sex", "data" : "Female"},
+				{"element" : "Patient Address ", "data" : "763 Main St Bozeman MT 59715 USA "},
+				{"element" : "Local Number", "data" : "(406)555-4064"},
+				{"element" : "Email", "data" : "Helen.Barrett@isp.com"},
+				{"element" : "Race", "data" : "White"},
+				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
+				{"element" : "Multiple Birth Indicator", "data" : "No"},
+				{"element" : "Birth Order", "data" : "1"}
+			]
+		},
+		{
+			"title":"Immunization Registry Information",
+			"elements" : 
+			[
+				{"element" : "Immunization Registry Status", "data" : "Active"},
+				{"element" : "Immunization Registry Status Effective Date", "data" : "03/17/1950"},
+				{"element" : "Publicity Code", "data" : "Reminder/recall - any method"},
+				{"element" : "Publicity Code Effective Date", "data" : "06/25/2015"},
+				{"element" : "Protection Indicator", "data" : "Yes"},
+				{"element" : "Protection Indicator Effective Date", "data" : "06/25/2015"}
+			]
+		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Vaccine", "data" : "zoster"},
+				{"element" : "Date/Time Start of Administration", "data" : "03/17/2015"},
+				{"element" : "Administered Amount", "data" : "999"},
+				{"element" : "Administered Units", "data" : ""},
+				{"element" : "Administration Notes", "data" : "Historical Administration"},
+				{"element" : "Administering Provider", "data" : ""},
+				{"element" : "Substance Lot Number", "data" : ""},
+				{"element" : "Substance Expiration Date", "data" : ""},
+				{"element" : "Substance Manufacturer Name", "data" : ""},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "Complete"},
+				{"element" : "Action Code", "data" : "Add"},
+				{"element" : "Route", "data" : ""},
+				{"element" : "Administration Site", "data" : ""},
+				{"element" : "Entering Organization", "data" : "NISTEHRFacility"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : ""},		]
+
+		}
+]
+}

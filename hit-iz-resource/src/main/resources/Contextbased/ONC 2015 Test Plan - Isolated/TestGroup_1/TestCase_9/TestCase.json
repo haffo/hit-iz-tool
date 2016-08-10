@@ -1,0 +1,6 @@
+{
+  "name" : "IZ-AD-9_Admin_IIS-2Warnings",
+  "description" : "New administration resulting in multiple soft errors",
+  "position" : 9,
+  "protocol" : "soap"
+}

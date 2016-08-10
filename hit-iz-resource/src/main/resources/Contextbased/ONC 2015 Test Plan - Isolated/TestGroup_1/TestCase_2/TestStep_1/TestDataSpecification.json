@@ -1,0 +1,127 @@
+{
+"version" : "2.9.11",
+"profile" : "VXU_V04",
+"tables":
+[
+		{
+			"title":"Patient Information",
+			"elements" : 
+			[
+				{"element" : "Patient Name", "data" : "Elise Wong"},
+				{"element" : "Mother's Maiden Name", "data" : ""},
+				{"element" : "ID Number", "data" : "90012 "},
+				{"element" : "Date/Time of Birth", "data" : "06/15/1983"},
+				{"element" : "Administrative Sex", "data" : "Female"},
+				{"element" : "Patient Address ", "data" : "9200 Wellington Trail Bozeman MT 59715
+USA "},
+				{"element" : "Local Number", "data" : "(406)555-7896"},
+				{"element" : "Email", "data" : "Elise.Wong@isp.com"},
+				{"element" : "Race", "data" : "Asian"},
+				{"element" : "Ethnic Group", "data" : "Not Hispanic or Latino"},
+				{"element" : "Multiple Birth Indicator", "data" : "No"},
+				{"element" : "Birth Order", "data" : "1"}
+			]
+		},
+		{
+			"title":"Immunization Registry Information",
+			"elements" : 
+			[
+				{"element" : "Immunization Registry Status", "data" : "Active"},
+				{"element" : "Immunization Registry Status Effective Date", "data" : "06/15/1983"},
+				{"element" : "Publicity Code", "data" : "Reminder/recall - any method"},
+				{"element" : "Publicity Code Effective Date", "data" : "06/24/2015"},
+				{"element" : "Protection Indicator", "data" : "No"},
+				{"element" : "Protection Indicator Effective Date", "data" : "06/24/2015"}
+			]
+		{
+			"title":"Vaccine Administration Information[*]",
+
+<accordion>		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Vaccine", "data" : "TENIVAC"},
+				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
+				{"element" : "Administered Amount", "data" : "0.5"},
+				{"element" : "Administered Units", "data" : "mL"},
+				{"element" : "Administration Notes", "data" : "New Record"},
+				{"element" : "Administering Provider", "data" : "Lily Jackson"},
+				{"element" : "Substance Lot Number", "data" : "315841"},
+				{"element" : "Substance Expiration Date", "data" : "12/16/2015"},
+				{"element" : "Substance Manufacturer Name", "data" : "Sanofi Pasteur"},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "Complete"},
+				{"element" : "Action Code", "data" : "Add"},
+				{"element" : "Route", "data" : "Intramuscular"},
+				{"element" : "Administration Site", "data" : "Right Deltoid"},
+				{"element" : "Entering Organization", "data" : "NISTEHRFacility"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : "Wilma Thomas"},
+					{"element" : "obx", "data" : 
+					{
+						"title":"Observations",
+						"elements" : 
+						[
+							{"element" : "Vaccine Funding Source", "data" : "Private"},
+							{"element" : "", "data" : ""},
+							{"element" : "Vaccine Funding Program Eligibility", "data" : "Not VFC Eligible"},
+							{"element" : "", "data" : ""},
+							{"element" : "Document Type", "data" : "Tetanus/Diphtheria (Td) VIS"},
+							{"element" : "Date Vis Presented", "data" : "06/24/2015"},
+	
+	]					}
+					}
+		]
+					}
+					}
+		]
+		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Vaccine", "data" : "influenza, unspecified formulation"},
+				{"element" : "Date/Time Start of Administration", "data" : "10/12/2014"},
+				{"element" : "Administered Amount", "data" : "999"},
+				{"element" : "Administered Units", "data" : ""},
+				{"element" : "Administration Notes", "data" : "Historical Administration"},
+				{"element" : "Administering Provider", "data" : ""},
+				{"element" : "Substance Lot Number", "data" : ""},
+				{"element" : "Substance Expiration Date", "data" : ""},
+				{"element" : "Substance Manufacturer Name", "data" : ""},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "Complete"},
+				{"element" : "Action Code", "data" : "Add"},
+				{"element" : "Route", "data" : ""},
+				{"element" : "Administration Site", "data" : ""},
+				{"element" : "Entering Organization", "data" : "NISTEHRFacility"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : ""},		]
+		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Vaccine", "data" : "influenza, unspecified formulation"},
+				{"element" : "Date/Time Start of Administration", "data" : "11/12/2013"},
+				{"element" : "Administered Amount", "data" : "999"},
+				{"element" : "Administered Units", "data" : ""},
+				{"element" : "Administration Notes", "data" : "Historical Administration"},
+				{"element" : "Administering Provider", "data" : ""},
+				{"element" : "Substance Lot Number", "data" : ""},
+				{"element" : "Substance Expiration Date", "data" : ""},
+				{"element" : "Substance Manufacturer Name", "data" : ""},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "Complete"},
+				{"element" : "Action Code", "data" : "Add"},
+				{"element" : "Route", "data" : ""},
+				{"element" : "Administration Site", "data" : ""},
+				{"element" : "Entering Organization", "data" : "NISTEHRFacility"},
+				{"element" : "Entered By", "data" : "Lily Jackson"},
+				{"element" : "Ordered By", "data" : ""},		]
+
+</accordion>
+		}
+]
+}

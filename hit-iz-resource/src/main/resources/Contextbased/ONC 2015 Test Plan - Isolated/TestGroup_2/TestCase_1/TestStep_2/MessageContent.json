@@ -1,0 +1,2265 @@
+{
+"version" : "1.8.3",
+"profile" : "MessageContent",
+"tables":
+[
+		{
+			"title":"MSH : Message Header",
+			"elements" : 
+			[
+				{"location" : "MSH.1", "dataelement" : "Field Separator", "data" : "|", "categorization"
+: ""},
+				{"location" : "MSH.2", "dataelement" : "Encoding Characters", "data" : "^~\&amp;",
+"categorization" : ""},
+				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NISTIISAPP",
+"categorization" : ""},
+							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NISTIISFAC",
+"categorization" : ""},
+							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NISTEHRAPP",
+"categorization" : ""},
+							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NISTEHRFAC",
+"categorization" : ""},
+							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "MSH.7", "dataelement" : "Date/Time Of Message", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.7.1", "dataelement" : "Time", "data" : "20151031145233-0500",
+"categorization" : ""},
+				{"location" : "MSH.9", "dataelement" : "Message Type", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.9.1", "dataelement" : "Message Code", "data" : "RSP", "categorization"
+: ""},
+							{"location" : "MSH.9.2", "dataelement" : "Trigger Event", "data" : "K11", "categorization"
+: ""},
+							{"location" : "MSH.9.3", "dataelement" : "Message Structure", "data" : "RSP_K11",
+"categorization" : ""},
+				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "NIST-IZ-QR-1.2_Response_K11_Z42",
+"categorization" : ""},
+				{"location" : "MSH.11", "dataelement" : "Processing ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.11.1", "dataelement" : "Processing ID", "data" : "P", "categorization"
+: ""},
+				{"location" : "MSH.12", "dataelement" : "Version ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.12.1", "dataelement" : "Version ID", "data" : "2.5.1", "categorization"
+: ""},
+				{"location" : "MSH.15", "dataelement" : "Accept Acknowledgment Type", "data" :
+"NE", "categorization" : ""},
+				{"location" : "MSH.16", "dataelement" : "Application Acknowledgment Type", "data"
+: "NE", "categorization" : ""},
+				{"location" : "MSH.21", "dataelement" : "Message Profile Identifier", "data" :
+"", "categorization" : ""},
+							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z42",
+"categorization" : ""},
+							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS",
+"categorization" : ""},
+							{"location" : "MSH.21.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.21.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
+: "", "categorization" : ""},
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
+"categorization" : ""},
+							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
+"categorization" : ""},
+									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
+"XX", "categorization" : ""},
+							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
+: "100-3322", "categorization" : ""},
+				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
+"data" : "", "categorization" : ""},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
+"categorization" : ""},
+							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
+"categorization" : ""},
+									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
+"XX", "categorization" : ""},
+							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
+: "100-6482", "categorization" : ""},		]
+		{
+			"title":"MSA : Message Acknowledgment",
+			"elements" : 
+			[
+				{"location" : "MSA.1", "dataelement" : "Acknowledgment Code", "data" : "AA", "categorization"
+: ""},
+				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "NIST-IZ-QR-1.1_Query_Q11_Z44",
+"categorization" : ""},		]
+		{
+			"title":"QAK : Query Acknowledgment",
+			"elements" : 
+			[
+				{"location" : "QAK.1", "dataelement" : "Query Tag", "data" : "IZ-1.1-2015", "categorization"
+: ""},
+				{"location" : "QAK.2", "dataelement" : "Query Response Status", "data" : "OK",
+"categorization" : ""},
+				{"location" : "QAK.3", "dataelement" : "Message Query Name", "data" : "", "categorization"
+: ""},
+							{"location" : "QAK.3.1", "dataelement" : "Identifier", "data" : "Z44", "categorization"
+: ""},
+							{"location" : "QAK.3.2", "dataelement" : "Text", "data" : "Request Evaluated
+History and Forecast", "categorization" : ""},
+							{"location" : "QAK.3.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},		]
+		{
+			"title":"QPD : Query Parameter Definition",
+			"elements" : 
+			[
+				{"location" : "QPD.1", "dataelement" : "Message Query Name", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.1.1", "dataelement" : "Identifier", "data" : "Z44", "categorization"
+: ""},
+							{"location" : "QPD.1.2", "dataelement" : "Text", "data" : "Request Evaluated
+History and Forecast", "categorization" : ""},
+							{"location" : "QPD.1.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "QPD.2", "dataelement" : "Query Tag", "data" : "IZ-1.1-2015", "categorization"
+: ""},
+				{"location" : "QPD.3", "dataelement" : "PatientList", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.3.1", "dataelement" : "ID Number", "data" : "171122", "categorization"
+: ""},
+							{"location" : "QPD.3.4", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "NIST-MPI-1",
+"categorization" : ""},
+									{"location" : "QPD.3.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+									{"location" : "QPD.3.4.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "QPD.3.5", "dataelement" : "Identifier Type Code", "data" : "MR",
+"categorization" : ""},
+				{"location" : "QPD.4", "dataelement" : "PatientName", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.4.1", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "QPD.4.1.1", "dataelement" : "Surname", "data" : "Fairchild",
+"categorization" : ""},
+							{"location" : "QPD.4.2", "dataelement" : "Given Name", "data" : "Cameron",
+"categorization" : ""},
+							{"location" : "QPD.4.3", "dataelement" : "Second and Further Given Names or
+Initials Thereof", "data" : "A", "categorization" : ""},
+							{"location" : "QPD.4.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
+: ""},
+				{"location" : "QPD.5", "dataelement" : "PatientMotherMaidenName", "data" : "",
+"categorization" : ""},
+							{"location" : "QPD.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "QPD.5.1.1", "dataelement" : "Surname", "data" : "Fairlady",
+"categorization" : ""},
+							{"location" : "QPD.5.7", "dataelement" : "Name Type Code", "data" : "M", "categorization"
+: ""},
+				{"location" : "QPD.6", "dataelement" : "PatientDateOfBirth", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.6.1", "dataelement" : "Time", "data" : "20090214", "categorization"
+: ""},
+				{"location" : "QPD.7", "dataelement" : "Patient Sex", "data" : "M", "categorization"
+: ""},
+				{"location" : "QPD.8", "dataelement" : "Patient Address", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.8.1", "dataelement" : "Street Address", "data" : "", "categorization"
+: ""},
+									{"location" : "QPD.8.1.1", "dataelement" : "Street or Mailing Address", "data"
+: "105 Laurel Run Rd", "categorization" : ""},
+							{"location" : "QPD.8.2", "dataelement" : "Other Designation", "data" : "",
+"categorization" : ""},
+							{"location" : "QPD.8.3", "dataelement" : "City", "data" : "Bozeman", "categorization"
+: ""},
+							{"location" : "QPD.8.4", "dataelement" : "State or Province", "data" : "MT",
+"categorization" : ""},
+							{"location" : "QPD.8.5", "dataelement" : "Zip or Postal Code", "data" : "",
+"categorization" : ""},
+							{"location" : "QPD.8.6", "dataelement" : "Country", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.8.7", "dataelement" : "Address Type", "data" : "P", "categorization"
+: ""},
+				{"location" : "QPD.9", "dataelement" : "Phone", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.9.2", "dataelement" : "Telecommunication Use Code", "data"
+: "", "categorization" : ""},
+							{"location" : "QPD.9.3", "dataelement" : "Telecommunication Equipment Type",
+"data" : "", "categorization" : ""},
+							{"location" : "QPD.9.4", "dataelement" : "Email Address", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.9.6", "dataelement" : "Area/City Code", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.9.7", "dataelement" : "Local Number", "data" : "", "categorization"
+: ""},
+				{"location" : "QPD.10", "dataelement" : "Multiple birth indicator", "data" : "",
+"categorization" : ""},
+				{"location" : "QPD.11", "dataelement" : "Birth order", "data" : "", "categorization"
+: ""},		]
+		{
+			"title":"PID : Patient Identification",
+			"elements" : 
+			[
+				{"location" : "PID.1", "dataelement" : "Set ID - PID", "data" : "1", "categorization"
+: ""},
+				{"location" : "PID.3[1]", "dataelement" : "Patient Identifier List", "data" :
+"", "categorization" : ""},
+							{"location" : "PID.3[1].1", "dataelement" : "ID Number", "data" : "171122",
+"categorization" : ""},
+							{"location" : "PID.3[1].4", "dataelement" : "Assigning Authority", "data" :
+"", "categorization" : ""},
+									{"location" : "PID.3[1].4.1", "dataelement" : "Namespace ID", "data" : "NIST-MPI-1",
+"categorization" : ""},
+									{"location" : "PID.3[1].4.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "PID.3[1].4.3", "dataelement" : "Universal ID Type", "data"
+: "", "categorization" : ""},
+							{"location" : "PID.3[1].5", "dataelement" : "Identifier Type Code", "data"
+: "MR", "categorization" : ""},
+				{"location" : "PID.3[2]", "dataelement" : "Patient Identifier List", "data" :
+"", "categorization" : ""},
+							{"location" : "PID.3[2].1", "dataelement" : "ID Number", "data" : "34500907",
+"categorization" : ""},
+							{"location" : "PID.3[2].4", "dataelement" : "Assigning Authority", "data" :
+"", "categorization" : ""},
+									{"location" : "PID.3[2].4.1", "dataelement" : "Namespace ID", "data" : "NIST-IIS-MPI",
+"categorization" : ""},
+									{"location" : "PID.3[2].4.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "PID.3[2].4.3", "dataelement" : "Universal ID Type", "data"
+: "", "categorization" : ""},
+							{"location" : "PID.3[2].5", "dataelement" : "Identifier Type Code", "data"
+: "SR", "categorization" : ""},
+				{"location" : "PID.5", "dataelement" : "Patient Name", "data" : "", "categorization"
+: ""},
+							{"location" : "PID.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "PID.5.1.1", "dataelement" : "Surname", "data" : "Fairchild",
+"categorization" : ""},
+							{"location" : "PID.5.2", "dataelement" : "Given Name", "data" : "Cameron",
+"categorization" : ""},
+							{"location" : "PID.5.3", "dataelement" : "Second and Further Given Names or
+Initials Thereof", "data" : "A", "categorization" : ""},
+							{"location" : "PID.5.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
+: ""},
+				{"location" : "PID.7", "dataelement" : "Date/Time of Birth", "data" : "", "categorization"
+: ""},
+							{"location" : "PID.7.1", "dataelement" : "Time", "data" : "20090214", "categorization"
+: ""},
+				{"location" : "PID.8", "dataelement" : "Administrative Sex", "data" : "M", "categorization"
+: ""},
+				{"location" : "PID.11", "dataelement" : "Patient Address", "data" : "", "categorization"
+: ""},
+							{"location" : "PID.11.1", "dataelement" : "Street Address", "data" : "", "categorization"
+: ""},
+									{"location" : "PID.11.1.1", "dataelement" : "Street or Mailing Address",
+"data" : "105 Laurel Run Rd", "categorization" : ""},
+							{"location" : "PID.11.2", "dataelement" : "Other Designation", "data" : "",
+"categorization" : ""},
+							{"location" : "PID.11.3", "dataelement" : "City", "data" : "Bozeman", "categorization"
+: ""},
+							{"location" : "PID.11.4", "dataelement" : "State or Province", "data" : "MT",
+"categorization" : ""},
+							{"location" : "PID.11.5", "dataelement" : "Zip or Postal Code", "data" : "",
+"categorization" : ""},
+							{"location" : "PID.11.6", "dataelement" : "Country", "data" : "", "categorization"
+: ""},
+							{"location" : "PID.11.7", "dataelement" : "Address Type", "data" : "P", "categorization"
+: ""},
+				{"location" : "PID.30", "dataelement" : "Patient Death Indicator", "data" : "",
+"categorization" : ""},		]
+		{
+			"title":"ORC[*]",
+
+<accordion>		{
+			"title":"ORC : Common Order",
+			"elements" : 
+			[
+				{"location" : "ORC.1", "dataelement" : "Order Control", "data" : "RE", "categorization"
+: ""},
+				{"location" : "ORC.2", "dataelement" : "Placer Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.1", "dataelement" : "Entity Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.2.2", "dataelement" : "Namespace ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.3", "dataelement" : "Filler Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197023",
+"categorization" : ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
+"categorization" : ""},
+							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
+"categorization" : ""},
+							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "NISTEHRFacility",
+"categorization" : ""},
+							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
+"HL70362", "categorization" : ""},		]
+		{
+			"title":"ORC : Common Order",
+			"elements" : 
+			[
+				{"location" : "ORC.1", "dataelement" : "Order Control", "data" : "RE", "categorization"
+: ""},
+				{"location" : "ORC.2", "dataelement" : "Placer Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.1", "dataelement" : "Entity Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.2.2", "dataelement" : "Namespace ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.3", "dataelement" : "Filler Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197027",
+"categorization" : ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
+"categorization" : ""},
+							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},		]
+		{
+			"title":"ORC : Common Order",
+			"elements" : 
+			[
+				{"location" : "ORC.1", "dataelement" : "Order Control", "data" : "RE", "categorization"
+: ""},
+				{"location" : "ORC.2", "dataelement" : "Placer Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.1", "dataelement" : "Entity Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.2.2", "dataelement" : "Namespace ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.3", "dataelement" : "Filler Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197028",
+"categorization" : ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
+"categorization" : ""},
+							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},		]
+		{
+			"title":"ORC : Common Order",
+			"elements" : 
+			[
+				{"location" : "ORC.1", "dataelement" : "Order Control", "data" : "RE", "categorization"
+: ""},
+				{"location" : "ORC.2", "dataelement" : "Placer Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.1", "dataelement" : "Entity Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.2.2", "dataelement" : "Namespace ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.3", "dataelement" : "Filler Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197028",
+"categorization" : ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
+"categorization" : ""},
+							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},		]
+		{
+			"title":"ORC : Common Order",
+			"elements" : 
+			[
+				{"location" : "ORC.1", "dataelement" : "Order Control", "data" : "RE", "categorization"
+: ""},
+				{"location" : "ORC.2", "dataelement" : "Placer Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.1", "dataelement" : "Entity Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.2.2", "dataelement" : "Namespace ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.3", "dataelement" : "Filler Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "197028",
+"categorization" : ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
+"categorization" : ""},
+							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},		]
+		{
+			"title":"ORC : Common Order",
+			"elements" : 
+			[
+				{"location" : "ORC.1", "dataelement" : "Order Control", "data" : "RE", "categorization"
+: ""},
+				{"location" : "ORC.2", "dataelement" : "Placer Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.1", "dataelement" : "Entity Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.2.2", "dataelement" : "Namespace ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.2.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.3", "dataelement" : "Filler Order Number", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.1", "dataelement" : "Entity Identifier", "data" : "9999",
+"categorization" : ""},
+							{"location" : "ORC.3.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
+"categorization" : ""},
+							{"location" : "ORC.3.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "ORC.3.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
+"categorization" : ""},
+							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
+"categorization" : ""},
+							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "NISTEHRFacility",
+"categorization" : ""},
+							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
+"HL70362", "categorization" : ""},		]
+
+</accordion>		{
+			"title":"RXA[*]",
+
+<accordion>		{
+			"title":"RXA : Pharmacy/Treatment Administration",
+			"elements" : 
+			[
+				{"location" : "RXA.1", "dataelement" : "Give Sub-ID Counter", "data" : "0", "categorization"
+: ""},
+				{"location" : "RXA.2", "dataelement" : "Administration Sub-ID Counter", "data"
+: "1", "categorization" : ""},
+				{"location" : "RXA.3", "dataelement" : "Date/Time Start of Administration", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.3.1", "dataelement" : "Time", "data" : "20090415", "categorization"
+: ""},
+				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "31", "categorization"
+: ""},
+							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "Hep B Peds NOS",
+"categorization" : ""},
+							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
+"categorization" : ""},
+				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
+: ""},
+							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "historical record",
+"categorization" : ""},
+							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
+"NIP001", "categorization" : ""},
+				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
+Initials Thereof", "data" : "", "categorization" : ""},
+							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
+"data" : "", "categorization" : ""},
+							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
+: ""},		]
+		{
+			"title":"RXA : Pharmacy/Treatment Administration",
+			"elements" : 
+			[
+				{"location" : "RXA.1", "dataelement" : "Give Sub-ID Counter", "data" : "0", "categorization"
+: ""},
+				{"location" : "RXA.2", "dataelement" : "Administration Sub-ID Counter", "data"
+: "1", "categorization" : ""},
+				{"location" : "RXA.3", "dataelement" : "Date/Time Start of Administration", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.3.1", "dataelement" : "Time", "data" : "20090314", "categorization"
+: ""},
+				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "48", "categorization"
+: ""},
+							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "HIB PRP-T", "categorization"
+: ""},
+							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
+"categorization" : ""},
+				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
+: ""},
+							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "historic immunization
+record", "categorization" : ""},
+							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
+"NIP001", "categorization" : ""},
+				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "5111", "categorization"
+: ""},
+							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "Sticker",
+"categorization" : ""},
+							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "Nurse", "categorization"
+: ""},
+							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
+Initials Thereof", "data" : "", "categorization" : ""},
+							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "NIST-PI-1",
+"categorization" : ""},
+									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "L",
+"categorization" : ""},
+							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
+"PRN", "categorization" : ""},
+				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "NIST-Clinic-1",
+"categorization" : ""},
+									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
+"data" : "", "categorization" : ""},
+							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
+: ""},		]
+		{
+			"title":"RXA : Pharmacy/Treatment Administration",
+			"elements" : 
+			[
+				{"location" : "RXA.1", "dataelement" : "Give Sub-ID Counter", "data" : "0", "categorization"
+: ""},
+				{"location" : "RXA.2", "dataelement" : "Administration Sub-ID Counter", "data"
+: "1", "categorization" : ""},
+				{"location" : "RXA.3", "dataelement" : "Date/Time Start of Administration", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.3.1", "dataelement" : "Time", "data" : "20091011", "categorization"
+: ""},
+				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "110", "categorization"
+: ""},
+							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "DTAP-Hep B-IPV",
+"categorization" : ""},
+							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
+"categorization" : ""},
+				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
+: ""},
+							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "historic immunization
+record", "categorization" : ""},
+							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
+"NIP001", "categorization" : ""},
+				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
+Initials Thereof", "data" : "", "categorization" : ""},
+							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
+"data" : "", "categorization" : ""},
+							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
+: ""},		]
+		{
+			"title":"RXA : Pharmacy/Treatment Administration",
+			"elements" : 
+			[
+				{"location" : "RXA.1", "dataelement" : "Give Sub-ID Counter", "data" : "0", "categorization"
+: ""},
+				{"location" : "RXA.2", "dataelement" : "Administration Sub-ID Counter", "data"
+: "1", "categorization" : ""},
+				{"location" : "RXA.3", "dataelement" : "Date/Time Start of Administration", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.3.1", "dataelement" : "Time", "data" : "20100411", "categorization"
+: ""},
+				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "08", "categorization"
+: ""},
+							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "Hep BPEDS", "categorization"
+: ""},
+							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
+"categorization" : ""},
+				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
+: ""},
+							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "historic immunization
+record", "categorization" : ""},
+							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
+"NIP001", "categorization" : ""},
+				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "5111", "categorization"
+: ""},
+							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "Sticker",
+"categorization" : ""},
+							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "Nurse", "categorization"
+: ""},
+							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
+Initials Thereof", "data" : "", "categorization" : ""},
+							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "NIST-PI-1",
+"categorization" : ""},
+									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "L",
+"categorization" : ""},
+							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
+"PRN", "categorization" : ""},
+				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
+"data" : "", "categorization" : ""},
+							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
+: ""},		]
+		{
+			"title":"RXA : Pharmacy/Treatment Administration",
+			"elements" : 
+			[
+				{"location" : "RXA.1", "dataelement" : "Give Sub-ID Counter", "data" : "0", "categorization"
+: ""},
+				{"location" : "RXA.2", "dataelement" : "Administration Sub-ID Counter", "data"
+: "1", "categorization" : ""},
+				{"location" : "RXA.3", "dataelement" : "Date/Time Start of Administration", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.3.1", "dataelement" : "Time", "data" : "20100415", "categorization"
+: ""},
+				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "03", "categorization"
+: ""},
+							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "MMR", "categorization"
+: ""},
+							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
+"categorization" : ""},
+				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "01", "categorization"
+: ""},
+							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "historic immunization
+record", "categorization" : ""},
+							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
+"NIP001", "categorization" : ""},
+				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
+Initials Thereof", "data" : "", "categorization" : ""},
+							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
+"data" : "", "categorization" : ""},
+							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "CP", "categorization"
+: ""},		]
+		{
+			"title":"RXA : Pharmacy/Treatment Administration",
+			"elements" : 
+			[
+				{"location" : "RXA.1", "dataelement" : "Give Sub-ID Counter", "data" : "0", "categorization"
+: ""},
+				{"location" : "RXA.2", "dataelement" : "Administration Sub-ID Counter", "data"
+: "1", "categorization" : ""},
+				{"location" : "RXA.3", "dataelement" : "Date/Time Start of Administration", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.3.1", "dataelement" : "Time", "data" : "20091031", "categorization"
+: ""},
+				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "998", "categorization"
+: ""},
+							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "no vaccine admin",
+"categorization" : ""},
+							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "RXA.6", "dataelement" : "Administered Amount", "data" : "999",
+"categorization" : ""},
+				{"location" : "RXA.7", "dataelement" : "Administered Units", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.7.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.9", "dataelement" : "Administration Notes", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.9.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.9.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.9.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.10", "dataelement" : "Administering Provider", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.10.1", "dataelement" : "ID Number", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.2", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.10.2.1", "dataelement" : "Surname", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.3", "dataelement" : "Given Name", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.4", "dataelement" : "Second and Further Given Names or
+Initials Thereof", "data" : "", "categorization" : ""},
+							{"location" : "RXA.10.9", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.1", "dataelement" : "Namespace ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
+"categorization" : ""},
+							{"location" : "RXA.11.4", "dataelement" : "Facility", "data" : "", "categorization"
+: ""},
+									{"location" : "RXA.11.4.1", "dataelement" : "Namespace ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.11.4.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "RXA.11.4.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
+: "", "categorization" : ""},
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
+"data" : "", "categorization" : ""},
+							{"location" : "RXA.18.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "RXA.18.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "RXA.20", "dataelement" : "Completion Status", "data" : "NA", "categorization"
+: ""},		]
+
+</accordion>		{
+			"title":"OBX[*]",
+
+<accordion>		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59781-5",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "dose validity",
+"categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "17", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "HIB NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59781-5",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "dose validity",
+"categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "N", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "4", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ST", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30982-3",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Reason applied ",
+"categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Too Young",
+"categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59781-5",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "dose validity",
+"categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "4", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "10", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "IPV", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "5", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "6", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59781-5",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "dose validity",
+"categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "7", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "20", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "DTAP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "8", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "9", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59781-5",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "dose validity",
+"categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "45", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hep B NOS", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59781-5",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "dose validity",
+"categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "03", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "MMR", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "ID", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59781-5",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "dose validity",
+"categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "Y", "categorization"
+: ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "03", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "MMR", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30980-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Date vaccination
+due", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20150214",
+"categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "4", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30981-5",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Earliest Date to
+give", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "1", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100614",
+"categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "5", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "10", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "IPV", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "6", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "7", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30980-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Date vaccination
+due", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "2", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100214",
+"categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "8", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30956-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "vaccine type", "categorization"
+: ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "107", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "DTAP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "9", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "CE", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "59779-9",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Immunization Schedule
+used", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC16", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "ACIP", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+		{
+			"title":"OBX : Observation/Result",
+			"elements" : 
+			[
+				{"location" : "OBX.1", "dataelement" : "Set ID - OBX", "data" : "10", "categorization"
+: ""},
+				{"location" : "OBX.2", "dataelement" : "Value Type", "data" : "DT", "categorization"
+: ""},
+				{"location" : "OBX.3", "dataelement" : "Observation Identifier", "data" : "",
+"categorization" : ""},
+							{"location" : "OBX.3.1", "dataelement" : "Identifier", "data" : "30980-7",
+"categorization" : ""},
+							{"location" : "OBX.3.2", "dataelement" : "Text", "data" : "Date vaccination
+due", "categorization" : ""},
+							{"location" : "OBX.3.3", "dataelement" : "Name of Coding System", "data" :
+"LN", "categorization" : ""},
+				{"location" : "OBX.4", "dataelement" : "Observation Sub-ID", "data" : "3", "categorization"
+: ""},
+				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "20100214",
+"categorization" : ""},
+				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.2", "dataelement" : "Text", "data" : "", "categorization"
+: ""},
+							{"location" : "OBX.6.3", "dataelement" : "Name of Coding System", "data" :
+"", "categorization" : ""},
+				{"location" : "OBX.11", "dataelement" : "Observation Result Status", "data" :
+"F", "categorization" : ""},
+				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
+: "", "categorization" : ""},
+							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20151031", "categorization"
+: ""},		]
+
+</accordion>
+		}
+]
+}

@@ -1,0 +1,12 @@
+{
+  "name" : "IZ-AD-8.2_Receive_ACK_Z23",
+  "description" : "Tests the ability to consume an ACK message containing a warning",
+  "type" : "TA_INITIATOR",
+  "position" : 2,
+  "hl7v2" : {
+    "messageId" : "8da46a56-9f9a-4897-b7f1-08862c73d66a",
+    "constraintId" : "e99ce380-6861-4848-a0b3-a85a67674532",
+    "valueSetLibraryId" : "752481af-53be-4bcb-909d-d71d6fa49d1a"
+  },
+  "protocols" : [ "soap" ]
+}

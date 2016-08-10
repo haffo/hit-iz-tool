@@ -1,0 +1,6 @@
+{
+  "name" : "IZ-AD-5_Refusal",
+  "description" : "Child administration with refusal. Also test multiple birth indicator.",
+  "position" : 5,
+  "protocol" : "soap"
+}

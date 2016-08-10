@@ -1,0 +1,12 @@
+{
+  "name" : "IZ-QR-4.1_Query_Q11_Z44",
+  "description" : "Query will find too many matches",
+  "type" : "SUT_INITIATOR",
+  "position" : 1,
+  "hl7v2" : {
+    "messageId" : "b760d322-9afd-439e-96f5-43db66937c4e",
+    "constraintId" : "689b43b7-f088-479f-8ba1-551618d13ea3",
+    "valueSetLibraryId" : "c01bbec1-cf6a-4748-8a6c-2dae2e4b8d0e"
+  },
+  "protocols" : [ "soap" ]
+}

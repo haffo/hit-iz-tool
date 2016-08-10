@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "A 32 year old female, Elise Wong, visits a clinic for a well woman visit. A clinic staff member collects basic patient demographic information including name, date of birth and sex. A clinic provider, Wilma Thomas (physician ID 654) reviews the patient's vaccination history and determines that Elise has received her influenza vaccinations on 10/12/2014 and 11/12/2013, but is in need of a tetanus booster. Because of the patient's age she does not qualify for Vaccine For Children (VFC) supplied vaccine. Elise is given the appropriate Vaccine Information Sheet (VIS) to review. After reading it, she agrees to receive the recommended vaccination. She also agrees that the data should be shared once it is incorporated into the local IIS. She indicates that reminders and recalls may be sent by any method. An appropriate dose of Tdap (TENIVAC) is selected from the clinic's stock of privately funded vaccines. A clinician, Lily Jackson (ID 7824) prepares and administers the doses to the patient and then enters the data into the EHR and transmits it to the IIS.",
+  "comments" : "<p>No Comments</p>\r\n",
+  "preCondition" : "No PreCondition\r\n",
+  "postCondition" : "No PostCondition\r\n",
+  "testObjectives" : "Support for a \"not eligible\" VFC.<br>Support for both phone number and e-mail.<br>",
+  "evaluationCriteria" : "Message Validation Report\r\n",
+  "notes" : "<p class=\"MsoNormal\" style=\"margin-bottom: 0.0001pt;\">For new administration messages, the vaccine is communicated using\r\nNDC codes in RXA-5 (Administered Code). For a given vaccine, one or more NDC\r\ncodes may be appropriate to message. For this reason, RXA-5.1 is categorized as\r\n\"Value - Test Case Fixed List\" and allows for multiple valid values. The\r\nMessage Content and Example Message data contain a single representative valid\r\nNDC code for example purposes.<o:p></o:p></p>"
+}

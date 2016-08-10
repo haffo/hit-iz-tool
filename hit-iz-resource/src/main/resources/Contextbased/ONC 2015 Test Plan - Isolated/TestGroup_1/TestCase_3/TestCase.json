@@ -1,0 +1,6 @@
+{
+  "name" : "IZ-AD-3_No_Consent",
+  "description" : "Child administration without consent for sharing. Also test the ability to send the patient's full first and middle names.",
+  "position" : 3,
+  "protocol" : "soap"
+}
