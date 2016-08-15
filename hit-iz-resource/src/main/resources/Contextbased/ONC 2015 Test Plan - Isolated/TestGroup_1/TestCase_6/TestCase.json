@@ -1,0 +1,6 @@
+{
+  "name" : "IZ-AD-6_Update_Record",
+  "description" : "Child updated administration",
+  "position" : 6,
+  "protocol" : "soap"
+}

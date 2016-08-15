@@ -1,0 +1,12 @@
+{
+  "name" : "IZ-QR-3.2_Response_NF_K11_Z33",
+  "description" : "Response with no matches found",
+  "type" : "TA_RESPONDER",
+  "position" : 2,
+  "hl7v2" : {
+    "messageId" : "6a54b5a1-3d50-423e-9f84-8a721ad76342",
+    "constraintId" : "579f6f38-3440-4ff3-b859-0b29838849e2",
+    "valueSetLibraryId" : "e3996dd4-81e0-47e4-a77d-1be4213b4cba"
+  },
+  "protocols" : [ "soap" ]
+}

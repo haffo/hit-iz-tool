@@ -1,0 +1,12 @@
+{
+  "name" : "IZ-QR-2.2_Response_K11_Z42",
+  "description" : "return response to query for an adult with historical smallpox vaccination ",
+  "type" : "TA_RESPONDER",
+  "position" : 2,
+  "hl7v2" : {
+    "messageId" : "e13dfbab-8832-4c3f-bfa5-0e9c18e644c4",
+    "constraintId" : "95c4f44d-7da8-4914-bce0-23c31a310115",
+    "valueSetLibraryId" : "1fa6401d-2060-486a-872b-1c064b606587"
+  },
+  "protocols" : [ "soap" ]
+}

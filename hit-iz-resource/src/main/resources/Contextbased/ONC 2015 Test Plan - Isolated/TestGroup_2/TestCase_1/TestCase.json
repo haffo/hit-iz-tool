@@ -1,0 +1,6 @@
+{
+  "name" : "IZ-QR-1_Query_Child",
+  "description" : "Query for a child with immunization history. A response message with evaluated history and forecast is returned. <br>",
+  "position" : 1,
+  "protocol" : "soap"
+}

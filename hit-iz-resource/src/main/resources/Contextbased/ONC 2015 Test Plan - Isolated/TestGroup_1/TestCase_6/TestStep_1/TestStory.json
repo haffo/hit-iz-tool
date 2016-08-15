@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "After documenting vaccinations for Tyler Owen Banks the clinician, Lily Jackson (ID 456) recognizes that an error was made during data entry for the Hepatitis A vaccine. The Lot Number was entered incorrectly. She updates the data in the EHR and transmits it to the IIS.",
+  "comments" : "No Comments",
+  "preCondition" : "The IZ-AD-5.1_Send_V04_Z22 test step has been successfully completed.<br>",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "Support for sending an update notification.<br>",
+  "evaluationCriteria" : "Message Validation Report.<br>",
+  "notes" : "Lot number changed from 208940 in Test Case 5 to 208490 in Test Case 6.<br><div><p class=\"MsoNormal\" style=\"margin-bottom: 0.0001pt;\">For new administration messages, the vaccine is communicated using\r\nNDC codes in RXA-5 (Administered Code). For a given vaccine, one or more NDC\r\ncodes may be appropriate to message. For this reason, RXA-5.1 is categorized as\r\n\"Value - Test Case Fixed List\" and allows for multiple valid values. The\r\nMessage Content and Example Message data contain a single representative valid\r\nNDC code for example purposes.<o:p></o:p></p></div>"
+}

@@ -1,0 +1,6 @@
+{
+  "name" : "IZ-QR-2_Query_Adult",
+  "description" : "Query for an adult using the most significant query parameters. The patient is found in the IIS. A response message is returned with a signal immunization event and multiple immunization recomendations. <br>",
+  "position" : 2,
+  "protocol" : "soap"
+}
