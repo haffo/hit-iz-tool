@@ -1555,7 +1555,7 @@
                 }
             );
 
-//            $http.get('../../resources/cf/profile-lri.json').then(
+//            $http.get('../../resources/cf/profile-loi.json').then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
 //                },

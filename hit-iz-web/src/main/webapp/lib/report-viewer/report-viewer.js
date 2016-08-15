@@ -50,7 +50,6 @@
                 }
             });
 
-
             destroyEvent2 = $rootScope.$on($scope.type + ':initValidationReport', function (event, report, testStep) {
                 $scope.loading = true;
                 $scope.testStepId = testStep.id;
