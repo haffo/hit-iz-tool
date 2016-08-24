@@ -3,8 +3,8 @@
 /* "newcap": false */
 
 angular.module('account')
-    .controller('UserProfileCtrl', ['$scope', '$resource', 'AccountLoader', 'Account', 'userInfoService', '$location','Transport',
-        function ($scope, $resource, AccountLoader, Account, userInfoService, $location,Transport) {
+    .controller('UserProfileCtrl', ['$scope', '$resource', 'AccountLoader', 'Account', 'userInfoService', '$location','Transport','Notification',
+        function ($scope, $resource, AccountLoader, Account, userInfoService, $location,Transport,Notification) {
             var PasswordChange = $resource('api/accounts/:id/passwordchange', {id:'@id'});
 
             $scope.accountpwd = {};
@@ -20,7 +20,7 @@ angular.module('account')
                 new Account($scope.account).$save().then(function(){
                    Transport.init();
                 }, function(error){
-
+                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                 });
 
                 $scope.accountOrig = angular.copy($scope.account);
@@ -45,6 +45,8 @@ angular.module('account')
                 //TODO: Check return value???
                 user.$save().then(function(result){
                     $scope.msg = angular.fromJson(result);
+                }, function(error){
+                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                 });
             };
 
@@ -58,6 +60,8 @@ angular.module('account')
                     userInfoService.setCurrentUser(null);
                     $scope.$emit('event:logoutRequest');
                     $location.url('/home');
+                },function(error){
+                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                 });
             };
 
@@ -69,8 +73,9 @@ angular.module('account')
                         $scope.$apply();
                     }
                 },
-                function() {
+                function(error) {
 //                console.log('Error fetching account information');
+                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                 }
             );
         }
@@ -104,8 +109,8 @@ angular.module('account')
 'use strict';
 
 angular.module('account')
-    .controller('AccountsListCtrl', ['$scope', 'MultiAuthorsLoader', 'MultiSupervisorsLoader','Account', '$modal', '$resource','AccountLoader','userInfoService','$location',
-        function ($scope, MultiAuthorsLoader, MultiSupervisorsLoader, Account, $modal, $resource, AccountLoader, userInfoService, $location) {
+    .controller('AccountsListCtrl', ['$scope', 'MultiAuthorsLoader', 'MultiSupervisorsLoader','Account', '$modal', '$resource','AccountLoader','userInfoService','$location','Notification',
+        function ($scope, MultiAuthorsLoader, MultiSupervisorsLoader, Account, $modal, $resource, AccountLoader, userInfoService, $location, Notification) {
 
             //$scope.accountTypes = [{ 'name':'Author', 'type':'author'}, {name:'Supervisor', type:'supervisor'}];
             //$scope.accountType = $scope.accountTypes[0];
@@ -126,7 +131,11 @@ angular.module('account')
             $scope.updateAccount = function() {
                 //not sure it is very clean...
                 //TODO: Add call back?
-                new Account($scope.account).$save();
+                new Account($scope.account).$save(function(data){
+
+                }, function(error){
+                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
+                });
                 $scope.accountOrig = angular.copy($scope.account);
             };
 
@@ -148,6 +157,8 @@ angular.module('account')
                 //TODO: Check return value???
                 user.$save().then(function(result){
                     $scope.msg = angular.fromJson(result);
+                },function(error){
+                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                 });
             };
 
@@ -157,6 +168,8 @@ angular.module('account')
                     new MultiAuthorsLoader().then(function (response) {
                         $scope.accountList = response;
                         $scope.tmpAccountList = [].concat($scope.accountList);
+                    },function(error){
+                        Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                     });
                 }
             };
@@ -191,7 +204,8 @@ angular.module('account')
                 modalInstance.result.then(function (accountToDelete,accountList ) {
                     $scope.accountToDelete = accountToDelete;
                     $scope.accountList = accountList;
-                }, function () {
+                }, function (error) {
+                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                 });
             };
 
@@ -202,6 +216,8 @@ angular.module('account')
                 user.$save().then(function(result){
                     $scope.account.pending = false;
                     $scope.msg = angular.fromJson(result);
+                },function(error){
+                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                 });
             };
 
@@ -212,6 +228,8 @@ angular.module('account')
                 user.$save().then(function(result){
                     $scope.account.pending = true;
                     $scope.msg = angular.fromJson(result);
+                },function(error){
+                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                 });
             };
 
@@ -221,7 +239,7 @@ angular.module('account')
 
 
 
-angular.module('account').controller('ConfirmAccountDeleteCtrl', function ($scope, $modalInstance, accountToDelete,accountList,Account) {
+angular.module('account').controller('ConfirmAccountDeleteCtrl', function ($scope, $modalInstance, accountToDelete,accountList,Account,Notification) {
 
     $scope.accountToDelete = accountToDelete;
     $scope.accountList = accountList;
@@ -235,8 +253,10 @@ angular.module('account').controller('ConfirmAccountDeleteCtrl', function ($scop
                 }
                 $modalInstance.close($scope.accountToDelete);
             },
-            function() {
+            function(error) {
 //                            console.log('There was an error deleting the account');
+                Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
+
             }
         );
     };
@@ -247,8 +267,8 @@ angular.module('account').controller('ConfirmAccountDeleteCtrl', function ($scop
 });
 
 angular.module('account')
-    .controller('ForgottenCtrl', ['$scope', '$resource','$rootScope',
-        function ($scope, $resource,$rootScope) {
+    .controller('ForgottenCtrl', ['$scope', '$resource','$rootScope','Notification',
+        function ($scope, $resource,$rootScope, Notification) {
             var ForgottenRequest = $resource('api/sooa/accounts/passwordreset', {username:'@username'});
 
             $scope.requestResetPassword =  function() {
@@ -258,6 +278,8 @@ angular.module('account')
                     if ( resetReq.text === 'resetRequestProcessed' ) {
                         $scope.username = '';
                     }
+                }, function(error){
+                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                 });
             };
 
@@ -331,8 +353,8 @@ angular.module('account')
 'use strict';
 
 angular.module('account')
-    .controller('RegisterResetPasswordCtrl', ['$scope', '$resource', '$modal', '$routeParams', 'isFirstSetup',
-        function ($scope, $resource, $modal, $routeParams, isFirstSetup) {
+    .controller('RegisterResetPasswordCtrl', ['$scope', '$resource', '$modal', '$routeParams', 'isFirstSetup','Notification',
+        function ($scope, $resource, $modal, $routeParams, isFirstSetup, Notification) {
             $scope.agreed = false;
             $scope.displayForm = true;
             $scope.isFirstSetup = isFirstSetup;
@@ -398,6 +420,8 @@ angular.module('account')
                     resetAcctPass.$save(function () {
                         $scope.user.password = '';
                         $scope.user.passwordConfirm = '';
+                    }, function(error){
+                        Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                     });
                 }
             };

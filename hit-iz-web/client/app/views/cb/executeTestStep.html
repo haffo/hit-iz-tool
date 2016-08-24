@@ -13,7 +13,7 @@
 <div class="testStep" ng-show="testStep != null">
 
 <div class="col-md-12"
-     ng-show="detailsError !== null">
+     ng-show="detailsError !== null && detailsError != undefined">
     <div class="alert alert-danger"
          role="alert"
          ng-bind="detailsError"></div>
@@ -24,7 +24,7 @@
         <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
     </div>
     <div ng-show="!loadingExecution">
-        <div ng-if="testCase.type === 'TestStep'" style="margin-bottom: 10px">
+        <div ng-if="testCase.type === 'TestStep'" style="margin-bottom: 10px;">
             <table style="margin-bottom: 0px"
                    class="table table-bordered  table-condensed stTable execution-table">
                 <thead>
@@ -120,7 +120,6 @@
             </table>
         </div>
 
-
         <tabset>
             <tab disabled="disabled()" select="setTestStepExecutionTab(0)" active="tabs[0]"
                  ng-show="testStep.testContext && testStep.testContext != null">
@@ -130,13 +129,14 @@
 
                 <div ng-include="'views/cb/auto/validation.html'"></div>
             </tab>
-            <tab disabled="disabled()" select="setTestStepExecutionTab(1)" active="tabs[1]">
+            <tab  disabled="disabled()" select="setTestStepExecutionTab(1)" active="tabs[1]">
                 <tab-heading>
                     <i class="fa fa-file-o"></i>Report
                 </tab-heading>
 
                 <div ng-include="'views/cb/report.html'"></div>
             </tab>
+
             <tab disabled="disabled()" select="setTestStepExecutionTab(2)" active="tabs[2]"
                  ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.profile && testStep.testContext.profile!= null">
                 <tab-heading>
@@ -219,6 +219,8 @@
             </tab>
 
         </tabset>
+
+
     </div>
 </div>
 

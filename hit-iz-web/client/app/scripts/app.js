@@ -323,6 +323,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     }
 
     var initUser = function (user) {
+        console.log("user="+ angular.toJson(user));
         userInfoService.setCurrentUser(user);
         User.initUser(user);
         Transport.init();
@@ -462,7 +463,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
             //Let's get user info now
             httpHeaders.common['Authorization'] = null;
             $http.get('api/accounts/cuser').then(function (result) {
-                if (result.data && result.data != null) {
+                 if (result.data && result.data != null) {
                     var rs = angular.fromJson(result.data);
                     initUser(rs);
                     $rootScope.$broadcast('event:loginConfirmed');
