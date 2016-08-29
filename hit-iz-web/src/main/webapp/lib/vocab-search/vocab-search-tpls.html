@@ -317,9 +317,6 @@
             </table>
 
             <div class="vocab-result-table-container fixed-table-container">
-
-
-
                 <table st-table="tmpValueSetElements"
                        st-safe-src="selectedValueSetDefinition.valueSetElements"
                        class="table table-striped table-bordered table-condensed table-line-break table-condensed table-line-break"
@@ -469,7 +466,8 @@
                     <div class="panel-heading">Value Set Elements</div>
 
                     <div class="table-container">
-                        <table st-table="tmpValueSetElements" st-safe-src="valueSet.valueSetElements" style="width:100%"  ng-if="valueSet.valueSetElements.length > 0">
+                        <div ng-if="valueSet.valueSetElements.length > 0">
+                        <table st-table="tmpValueSetElements" st-safe-src="valueSet.valueSetElements" style="width:100%">
                             <thead>
                             <tr>
                                 <th colspan="3" st-ratio="100">
@@ -480,10 +478,8 @@
                             </thead>
                         </table>
                          <div class="vocab-result-table-container fixed-table-container">
-
                             <table st-table="tmpValueSetElements" st-safe-src="valueSet.valueSetElements"
-                                   ng-if="valueSet.valueSetElements.length > 0"
-                                   class="table table-striped table-bordered table-condensed table-line-break"
+                                    class="table table-striped table-bordered table-condensed table-line-break"
                                    oci-fixed-header>
                                 <thead>
                                 <!--<tr>-->
@@ -504,23 +500,23 @@
                                 </thead>
                                 <tbody>
 
-                                <!--<tr ng-repeat="row in tmpValueSetElements">-->
-                                <!--<td st-ratio="30">-->
-                                <!--<span>{{row.value}}</span>-->
+                                <tr ng-repeat="row in tmpValueSetElements">
+                                <td st-ratio="30">
+                                <span>{{row.value}}</span>
+                                </td>
+                                <td st-ratio="30">
+                                <span>{{row.codeSystem}}</span>
+                                </td>
+                                <td st-ratio="40">
+                                <span>{{row.displayName}}</span>
+                                </td>
+                                <!--<td st-ratio="50">-->
+                                <!--<span>{{row.source}}</span>-->
                                 <!--</td>-->
-                                <!--<td st-ratio="30">-->
-                                <!--<span>{{row.codeSystem}}</span>-->
+                                <!--<td st-ratio="50">-->
+                                <!--<span>{{row.usageType}}</span>-->
                                 <!--</td>-->
-                                <!--<td st-ratio="40">-->
-                                <!--<span>{{row.displayName}}</span>-->
-                                <!--</td>-->
-                                <!--&lt;!&ndash;<td st-ratio="50">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<span>{{row.source}}</span>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</td>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<td st-ratio="50">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<span>{{row.usageType}}</span>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</td>&ndash;&gt;-->
-                                <!--</tr>-->
+                                </tr>
                                 </tbody>
                                 <!--<tfoot>-->
                                 <!--<tr>-->
@@ -531,6 +527,8 @@
                                 <!--</tr>-->
                                 <!--</tfoot>-->
                             </table>
+
+                             </div>
 
                             <div ng-if="valueSet.valueSetElements.length == 0">
                                 <p style="color:red"
