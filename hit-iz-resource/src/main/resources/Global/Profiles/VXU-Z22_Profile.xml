@@ -565,7 +565,7 @@
 			<Field Name="Administration Sub-ID Counter" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="1" ItemNo="00344"/>
 			<Field Name="Date/Time Start of Administration" Usage="R" Min="1" Max="1" Datatype="TS_NZ" MinLength="1" MaxLength="26" ItemNo="00345"/>
 			<Field Name="Date/Time End of Administration" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00346"/>
-			<Field Name="Administered Code" Usage="R" Min="1" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="CVX:NDC" BindingStrength="R" BindingLocation="1" ItemNo="00347"/>
+			<Field Name="Administered Code" Usage="R" Min="1" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="CVX:NDC_Use:NDC_Sale" BindingStrength="R" BindingLocation="1" ItemNo="00347"/>
 			<Field Name="Administered Amount" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="20" ItemNo="00348"/>
 			<Field Name="Administered Units" Usage="C" Min="0" Max="1" Datatype="CE_IZ" MinLength="1" MaxLength="250" Binding="UCUM" BindingStrength="R" BindingLocation="1" ItemNo="00349"/>
 			<Field Name="Administered Dosage Form" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00350"/>

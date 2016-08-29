@@ -155,9 +155,9 @@ History and Forecast", "categorization" : ""},
 : ""},
 							{"location" : "QPD.3.4", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
-									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "NIST
-MPI", "categorization" : ""},
-									{"location" : "QPD.3.4.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.30.2",
+									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "NIST-MPI-1",
+"categorization" : ""},
+									{"location" : "QPD.3.4.2", "dataelement" : "Universal ID", "data" : "2.16.840.1.113883.3.72.5.40.5",
 "categorization" : ""},
 									{"location" : "QPD.3.4.3", "dataelement" : "Universal ID Type", "data" :
 "ISO", "categorization" : ""},
