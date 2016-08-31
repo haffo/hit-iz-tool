@@ -1008,7 +1008,7 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300017211111108",
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300017211160720",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Polio VIS", "categorization"
 : "Presence-Test Case Proper"},

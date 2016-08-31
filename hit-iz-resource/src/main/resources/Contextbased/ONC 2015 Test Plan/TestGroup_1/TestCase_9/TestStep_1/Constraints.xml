@@ -2813,10 +2813,10 @@
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="OBX[1].5[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
           <Description>Invalid content (based on test case fixed data). The value at
             OBX-5.1 (Observation Value) does not match the expected value:
-            one of '253088698300017211111108' and '253088698300003511070517'.</Description>
+            one of '253088698300017211160720' and '253088698300003511070517'.</Description>
           <Assertion>
             <OR>
-              <PlainText IgnoreCase="true" Path="5[1].1[1]" Text="253088698300017211111108"/>
+              <PlainText IgnoreCase="true" Path="5[1].1[1]" Text="253088698300017211160720"/>
               <PlainText IgnoreCase="true" Path="5[1].1[1]" Text="253088698300003511070517"/>
             </OR>
           </Assertion>

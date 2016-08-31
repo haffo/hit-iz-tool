@@ -1714,8 +1714,8 @@
 			<ValueElement Value="253088698300006611140204" CodeSystem="cdcgs1vis" DisplayName="Haemophilus Influenzae type b VIS"/>
 			<ValueElement Value="253088698300006611150402" CodeSystem="cdcgs1vis" DisplayName="Haemophilus Influenzae type b VIS"/>
 			<ValueElement Value="253088698300006611981216" CodeSystem="cdcgs1vis" DisplayName="Haemophilus Influenzae type b VIS"/>
-			<ValueElement Value="253088698300004211111025" CodeSystem="cdcgs1vis" DisplayName="Hepatitis A VIS"/>
-			<ValueElement Value="253088698300005911120202" CodeSystem="cdcgs1vis" DisplayName="Hepatitis B VIS"/>
+			<ValueElement Value="253088698300004211160720" CodeSystem="cdcgs1vis" DisplayName="Hepatitis A VIS"/>
+			<ValueElement Value="253088698300005911160720" CodeSystem="cdcgs1vis" DisplayName="Hepatitis B VIS"/>
 			<ValueElement Value="253088698300007311110503" CodeSystem="cdcgs1vis" DisplayName="Human papillomavirus Vaccine (Cervarix) VIS"/>
 			<ValueElement Value="253088698300008011120222" CodeSystem="cdcgs1vis" DisplayName="Human papillomavirus Vaccine (Gardasil) VIS"/>
 			<ValueElement Value="253088698300008011130517" CodeSystem="cdcgs1vis" DisplayName="Human papillomavirus Vaccine (Gardasil) VIS"/>
@@ -1734,10 +1734,10 @@
 			<ValueElement Value="253088698300026411121116" CodeSystem="cdcgs1vis" DisplayName="Multiple Vaccines VIS"/>
 			<ValueElement Value="253088698300026411141022" CodeSystem="cdcgs1vis" DisplayName="Multiple Vaccines VIS"/>
 			<ValueElement Value="253088698300015811100416" CodeSystem="cdcgs1vis" DisplayName="Pneumococcal Conjugate (PCV13) VIS"/>
-			<ValueElement Value="253088698300015811130227" CodeSystem="cdcgs1vis" DisplayName="Pneumococcal Conjugate (PCV13) VIS"/>
+			<ValueElement Value="253088698300015811151105" CodeSystem="cdcgs1vis" DisplayName="Pneumococcal Conjugate (PCV13) VIS"/>
 			<ValueElement Value="253088698300016511091006" CodeSystem="cdcgs1vis" DisplayName="Pneumococcal Polysaccharide VIS"/>
 			<ValueElement Value="253088698300016511150424" CodeSystem="cdcgs1vis" DisplayName="Pneumococcal Polysaccharide VIS"/>
-			<ValueElement Value="253088698300017211111108" CodeSystem="cdcgs1vis" DisplayName="Polio VIS"/>
+			<ValueElement Value="253088698300017211160720" CodeSystem="cdcgs1vis" DisplayName="Polio VIS"/>
 			<ValueElement Value="253088698300018911091006" CodeSystem="cdcgs1vis" DisplayName="Rabies VIS"/>
 			<ValueElement Value="253088698300019611101206" CodeSystem="cdcgs1vis" DisplayName="Rotavirus VIS"/>
 			<ValueElement Value="253088698300019611130826" CodeSystem="cdcgs1vis" DisplayName="Rotavirus VIS"/>
