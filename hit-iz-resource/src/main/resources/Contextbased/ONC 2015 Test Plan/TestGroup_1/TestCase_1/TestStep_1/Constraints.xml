@@ -699,10 +699,9 @@
           </Assertion>
         </Constraint><Constraint ID="Content" Target="4[1].7[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].4[1].7[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at NK1[2]-4.7
-            (Address Type) does not match the expected value: 'P'.</Description>
+          <Description>Invalid content (based on test case fixed data). The value at NK1-4.7 (Address Type) does not match one of the expected values: 'P','C','H','L'.</Description>
           <Assertion>
-            <PlainText IgnoreCase="true" Path="4[1].7[1]" Text="P"/>
+            <StringList CSV="P,C,H,L" IgnoreCase="false" Path="4[1].7[1]"/>
           </Assertion>
         </Constraint><Constraint ID="Content" Target="5[1].2[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="NK1[2].5[1].2[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
@@ -1784,12 +1783,12 @@
                   <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="OBX[1].5[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
                   <Description>Invalid content (based on test case fixed data). The value at
                     ORDER.OBSERVATION.OBX-5.1 (Observation Value) does not match the expected
-                    value: one of '253088698300017211160720', '253088698300005911120202', '253088698300003511070517'.</Description>
+                    value: one of '253088698300017211160720', '253088698300006611150402', '253088698300003511070517'.</Description>
                   <Assertion>
                     <OR>
                       <PlainText IgnoreCase="true" Path="5[1].1[1]" Text="253088698300017211160720"/>
                       <OR>
-                        <PlainText IgnoreCase="true" Path="5[1].1[1]" Text="253088698300005911120202"/>
+                        <PlainText IgnoreCase="true" Path="5[1].1[1]" Text="253088698300006611150402"/>
                         <PlainText IgnoreCase="true" Path="5[1].1[1]" Text="253088698300003511070517"/>
                       </OR>
                     </OR>
