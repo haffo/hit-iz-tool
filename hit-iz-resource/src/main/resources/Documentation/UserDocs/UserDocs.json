@@ -58,5 +58,11 @@
 			 "name":"NIST-HL7v2-Understanding-Validation.pptx",
 			 "date":"02/03/2016",
 			 "order":10
+			},
+			{
+			 "title":"NIST Immunization Tool SOAP Tutorial",
+			 "name":"NIST_IZ_Tool_SOAP_Tutorial.pdf",
+			 "date":"08/31/2016",
+			 "order":11
 			}
 ]

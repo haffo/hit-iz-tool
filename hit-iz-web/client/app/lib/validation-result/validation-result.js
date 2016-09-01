@@ -201,6 +201,7 @@
                         $rootScope.$emit($scope.type + ':updateTestStepValidationReport', mvResult,testStep);
                     }else{
                         $rootScope.$emit($scope.type + ':createMessageValidationReport', mvResult,testStep);
+                        console.log("createMessageValidationReport called");
                     }
                 });
 
