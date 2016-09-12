@@ -1751,6 +1751,7 @@
 			<ValueElement Value="253088698300023311120529" CodeSystem="cdcgs1vis" DisplayName="Typhoid VIS"/>
 			<ValueElement Value="253088698300024011080313" CodeSystem="cdcgs1vis" DisplayName="Varicella (Chickenpox) VIS"/>
 			<ValueElement Value="253088698300025711110330" CodeSystem="cdcgs1vis" DisplayName="Yellow Fever VIS"/>
+			<ValueElement Value="253088698300026411151105" CodeSystem="cdcgs1vis" DisplayName="Multi Pediatric Vaccines VIS"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_FundingEligibilityObsMethod_IIS" Name="Funding Eligibility Observation Method (IIS)">
 			<ValueElement Value="VXC40" CodeSystem="CDCPHINVS" DisplayName="Eligibility captured at the immunization level"/>
