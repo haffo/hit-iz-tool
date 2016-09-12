@@ -10,14 +10,14 @@
     }
 </script>
 <script type="text/ng-template" id="ProfileViewer.html">
-    <div ng-show="loading" style="text-align:center">
+    <div ng-if="loading" style="text-align:center">
         <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
     </div>
-    <div ng-show="!loading">
-        <div ng-show="error !== null">
+    <div ng-if="!loading">
+        <div ng-if="error !== null">
             <div class="alert alert-danger" role="alert" ng-bind="error"></div>
         </div>
-        <div ng-show="error === null">
+        <div ng-if="error === null">
             <div ng-show="profile != null && model != null">
                 <div class="" style="margin-bottom: 10px;">
                     <div class="btn-group btn-group-sm" role="group" aria-label="..." style="margin-right: 10px;">
@@ -89,9 +89,9 @@
                                 ng-class="{'active':nodeData != null && nodeData.name === 'FULL' && !confStatementsActive}">
                             <a
                                     ng-click="getTabContent(model.message)">FULL</a></li>
-                        <li ng-show="isSegmentVisible(element)"
+                        <li ng-if="isSegmentVisible(element)"
                             ng-repeat="element in model.segmentList"
-                            ng-class="{'active':nodeData != null && nodeData.name === element.name && !confStatementsActive}">
+                            ng-class="{'active':nodeData != null && nodeData.id === element.id && !confStatementsActive}">
                             <a
                                     ng-click="getTabContent(element)">{{::element.name}}</a></li>
 
@@ -108,8 +108,8 @@
                     </ul>
                     <div class="panel panel-info">
                         <div class="panel-body">
-                            <div ng-show="!loadingTabContent">
-                            <div class="profile-table-container2" ng-show="!confStatementsActive">
+                            <div ng-if="!loadingTabContent">
+                            <div class="profile-table-container2" ng-if="!confStatementsActive">
 
                                 <!--<div id="profile-tab-content" class="profile-table-container fixed-table-container">-->
 
@@ -117,7 +117,7 @@
 
                                 <table pv-table pv-params="params"
                                        class="table  table-condensed table-bordered table-line-break"
-                                       ng-show="nodeData.type === 'SEGMENT' ? isSegmentVisible(nodeData) : true">
+                                       ng-if="nodeData.type === 'SEGMENT' ? isSegmentVisible(nodeData) : true">
                                     <thead>
                                     <tr class="tbl-header"
                                         ng-if="nodeData.type !== 'DATATYPE'">
@@ -155,7 +155,7 @@
                                 </table>
                             </div>
 
-                        <div ng-show="confStatementsActive" class="confstatement-table-container fixed-table-container">
+                        <div ng-if="confStatementsActive" class="confstatement-table-container fixed-table-container">
                             <table st-table="model.tmpConfStatementList" st-safe-src="model.confStatementList"
                                    class="table table-striped table-bordered table-condensed table-line-break"
                                    oci-fixed-header>
@@ -187,7 +187,7 @@
 
 </div>
 
-                            <div ng-show="loadingTabContent" style="text-align:center">
+                            <div ng-if="loadingTabContent" style="text-align:center">
                                 <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
                             </div>
 
@@ -212,26 +212,26 @@
                      tooltip-class="constraints-tooltip"
                      tooltip-trigger tooltip-animation="false" tooltip-placement="left">
                               <span class="label label-field label-icon">F</span>
-<span>{{getFieldNodeName(node)}}</span>
+<span>{{::getFieldNodeName(node)}}</span>
                   </span>
 
         </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
-                <span>{{node.usage}}</span>
+                <span>{{::node.usage}}</span>
 				<span ng-repeat="p in node.selfPredicates">
-					({{p.trueUsage}}/{{p.falseUsage}})
+					({{::p.trueUsage}}/{{::p.falseUsage}})
 				</span>
             </div>
         </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
-                <span>[{{node.min}},{{node.max}}]</span>
+                <span>[{{::node.min}},{{::node.max}}]</span>
             </div>
         </td>
         <td class="col-xs-1 col-fixed-100">
             <div>
-                <span>[{{node.minLength}},{{node.maxLength}}]</span>
+                <span>[{{::node.minLength}},{{::node.maxLength}}]</span>
             </div>
         </td>
         <td class="col-xs-1 col-fixed-80">
@@ -244,7 +244,7 @@
         </td>
         <td class="col-xs-1 col-fixed-150">
             <div>
-				<span ng-show="node.table != undefined && node.table != null">
+				<span ng-if="node.table != undefined && node.table != null">
                     <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset"
                        ng-click="showValueSetDefinition(valueSet)"
                        class="cs-concise-view concise-view"
@@ -299,18 +299,18 @@
                      tooltip-html="getComponentNodeName(node)" tooltip-append-to-body="true"
                      tooltip-class="constraints-tooltip"
                      tooltip-trigger tooltip-animation="false" tooltip-placement="left">
-                              <span class="label label-sub-component label-icon" ng-show="node.type === 'SUBCOMPONENT'">S</span>
-                <span class="label label-component label-icon" ng-show="node.type === 'COMPONENT'">C</span>
-<span>{{getComponentNodeName(node)}}</span>
+                              <span class="label label-sub-component label-icon" ng-if="node.type === 'SUBCOMPONENT'">S</span>
+                <span class="label label-component label-icon" ng-if="node.type === 'COMPONENT'">C</span>
+<span>{{::getComponentNodeName(node)}}</span>
                   </span>
 
 
         </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
-                <span>{{node.usage}}</span>
+                <span>{{::node.usage}}</span>
 				<span ng-repeat="p in node.selfPredicates">
-					({{p.trueUsage}}/{{p.falseUsage}})
+					({{::p.trueUsage}}/{{::p.falseUsage}})
 				</span>
             </div>
         </td>
@@ -318,7 +318,7 @@
         </td>
         <td class="col-xs-1 col-fixed-100">
             <div>
-                [{{node.minLength}},{{node.maxLength}}]
+                [{{::node.minLength}},{{::node.maxLength}}]
             </div>
         </td>
         <td class="col-xs-1 col-fixed-80">
@@ -330,7 +330,7 @@
                     tooltip-animation="false" tooltip-placement="left"/>
         </td>
         <td class="col-xs-1 col-fixed-150">
-            <div ng-show="node.table != undefined  && node.table !== null">
+            <div ng-if="node.table != undefined  && node.table !== null">
                 <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset"
                    ng-click="showValueSetDefinition(valueSet)"
                    class="cs-concise-view concise-view"
@@ -383,7 +383,7 @@
                     tooltip-class="constraints-tooltip"
                     tooltip-trigger tooltip-animation="false" tooltip-placement="left">
                                   <span class="label label-datatype label-icon">D</span>
-<span>{{getDatatypeNodeName2(node)}}</span>
+<span>{{::getDatatypeNodeName2(node)}}</span>
                   </span>
 
 
@@ -466,14 +466,14 @@
             <a class="point"
                ng-click="showRefSegment(node.ref)"
                ng-if="!options.concise" class="expanded-view">
-                {{getSegmentRefNodeName(node)}}
+                {{::getSegmentRefNodeName(node)}}
             </a>
 
         </td>
         <td class="col-xs-1 col-fixed-80">
-            <span ng-bind="node.usage"></span>
+            <span ng-bind="::node.usage"></span>
              <span ng-repeat="p in node.selfPredicates">
-					({{p.trueUsage}}/{{p.falseUsage}})
+					({{::p.trueUsage}}/{{::p.falseUsage}})
 				</span>
         </td>
         <td class="col-xs-1 col-fixed-80">
@@ -524,15 +524,15 @@
                         tooltip-class="constraints-tooltip"
                         tooltip-trigger tooltip-animation="false" tooltip-placement="left">
                                     <span class="label label-success label-icon">G</span>
-<span>{{getGroupNodeName(node)}}</span>
+<span>{{::getGroupNodeName(node)}}</span>
                   </span>
 
 
         </td>
         <td class="col-xs-1 col-fixed-80">
-            <span ng-bind="node.usage"></span>
+            <span ng-bind="::node.usage"></span>
             <span ng-repeat="p in node.selfPredicates">
-					({{p.trueUsage}}/{{p.falseUsage}})
+					({{::p.trueUsage}}/{{::p.falseUsage}})
 				</span>
         </td>
         <td class="col-xs-1 col-fixed-80">
@@ -586,7 +586,7 @@
                       tooltip-class="constraints-tooltip"
                       tooltip-trigger tooltip-animation="false" tooltip-placement="left">
                                   <span class="label label-datatype label-icon">D</span>
-<span>{{getDatatypeNodeName3(node)}}</span>
+<span>{{::getDatatypeNodeName3(node)}}</span>
                   </span>
 
 
@@ -620,16 +620,16 @@
                      tooltip-class="constraints-tooltip"
                      tooltip-trigger tooltip-animation="false" tooltip-placement="left">
                                     <span class="label label-component label-icon">C</span>
-<span>{{getComponentNodeName2(node)}}</span>
+<span>{{::getComponentNodeName2(node)}}</span>
                   </span>
 
 
         </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
-                <span>{{node.usage}}</span>
+                <span>{{::node.usage}}</span>
 				<span ng-repeat="p in node.selfPredicates">
-					({{p.trueUsage}}/{{p.falseUsage}})
+					({{::p.trueUsage}}/{{::p.falseUsage}})
 				</span>
             </div>
         </td>
@@ -648,7 +648,7 @@
 
         <td class="col-xs-1 col-fixed-150">
             <div>
-                <div ng-show="node.table != undefined  && node.table !== null">
+                <div ng-if="node.table != undefined  && node.table !== null">
                     <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset"
                        ng-click="showValueSetDefinition(valueSet)"
                        class="cs-concise-view concise-view"
@@ -703,14 +703,14 @@
                      tooltip-class="constraints-tooltip"
                      tooltip-trigger tooltip-animation="false" tooltip-placement="left">
                                     <span class="label label-sub-component label-icon">S</span>
-<span>{{getComponentNodeName2(node)}}</span>
+<span>{{::getComponentNodeName2(node)}}</span>
                   </span>
         </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
-                <span>{{node.usage}}</span>
+                <span>{{::node.usage}}</span>
 				<span ng-repeat="p in node.selfPredicates">
-					({{p.trueUsage}}/{{p.falseUsage}})
+					({{::p.trueUsage}}/{{::p.falseUsage}})
 				</span>
             </div>
         </td>
@@ -728,7 +728,7 @@
         </td>
 
         <td class="col-xs-1 col-fixed-150">
-            <div ng-show="node.table != undefined  && node.table !== null">
+            <div ng-if="node.table != undefined  && node.table !== null">
                 <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset"
                    ng-click="showValueSetDefinition(valueSet)"
                    class="cs-concise-view concise-view"
@@ -782,7 +782,7 @@
                       tooltip-class="constraints-tooltip"
                       tooltip-trigger tooltip-animation="false" tooltip-placement="left">
                                      <span class="label label-segment label-icon">S</span>
-<span>{{getSegmentReadName(node)}}</span>
+<span>{{::getSegmentReadName(node)}}</span>
                   </span>
 
 
@@ -819,7 +819,7 @@
                          tooltip-class="constraints-tooltip"
                          tooltip-trigger tooltip-animation="false" tooltip-placement="left">
                                      <span class="label label-field label-icon">F</span>
-<span>{{getFieldNodeName(node)}}</span>
+<span>{{::getFieldNodeName(node)}}</span>
                   </span>
 
 
@@ -827,9 +827,9 @@
 
         <td class="col-xs-1 col-fixed-80">
             <div>
-                <span>{{node.usage}}</span>
+                <span>{{::node.usage}}</span>
 				<span ng-repeat="p in node.selfPredicates">
-					({{p.trueUsage}}/{{p.falseUsage}})
+					({{::p.trueUsage}}/{{::p.falseUsage}})
 				</span>
             </div>
         </td>
@@ -848,7 +848,7 @@
                      tooltip-animation="false" tooltip-placement="left"/>
         </td>
         <td class="col-xs-1 col-fixed-150">
-            <div ng-show="node.table != undefined  && node.table !== null">
+            <div ng-if="node.table != undefined  && node.table !== null">
                 <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset"
                    ng-click="showValueSetDefinition(valueSet)"
                    class="cs-concise-view concise-view"
@@ -899,18 +899,18 @@
                      tooltip-html="getComponentNodeName(node)" tooltip-append-to-body="true"
                      tooltip-class="constraints-tooltip"
                      tooltip-trigger tooltip-animation="false" tooltip-placement="left">
-                                     <span class="label label-component label-icon" ng-show="node.type === 'COMPONENT'">C</span>
-            <span class="label label-sub-component label-icon" ng-show="node.type === 'SUBCOMPONENT'">S</span>
-<span>{{getComponentNodeName(node)}}</span>
+                                     <span class="label label-component label-icon" ng-if="node.type === 'COMPONENT'">C</span>
+            <span class="label label-sub-component label-icon" ng-if="node.type === 'SUBCOMPONENT'">S</span>
+<span>{{::getComponentNodeName(node)}}</span>
                   </span>
 
 
         </td>
         <td class="col-xs-1 col-fixed-80">
             <div>
-                <span>{{node.usage}}</span>
+                <span>{{::node.usage}}</span>
 				<span ng-repeat="p in node.selfPredicates">
-					({{p.trueUsage}}/{{p.falseUsage}})
+					({{::p.trueUsage}}/{{::p.falseUsage}})
 				</span>
             </div>
         </td>
@@ -930,7 +930,7 @@
                      tooltip-animation="false" tooltip-placement="left"/>
         </td>
         <td class="col-xs-1 col-fixed-150">
-            <div ng-show="node.table != undefined  && node.table !== null">
+            <div ng-if="node.table != undefined  && node.table !== null">
                 <a ng-repeat="valueSet in getValueSet(node.table)" class="point valueset"
                    ng-click="showValueSetDefinition(valueSet)"
                    class="cs-concise-view concise-view"
@@ -985,7 +985,7 @@
                      tooltip-class="constraints-tooltip"
                      tooltip-trigger tooltip-animation="false" tooltip-placement="left">
                                      <span class="label label-datatype label-icon">D</span>
-<span>{{getDatatypeNodeName2(node)}}</span>
+<span>{{::getDatatypeNodeName2(node)}}</span>
                   </span>
 
         </td>
@@ -1079,7 +1079,7 @@
             No (R,RE,C)s found. Click "R,RE,C,0,X(All)" button to view all.
         </td>
         <td class="col-xs-1 col-fixed-80 nodata">
-            <span ng-bind="node.usage"></span>
+            <span ng-bind="::node.usage"></span>
         </td>
         <td class="col-xs-1 col-fixed-80 nodata">
         </td>

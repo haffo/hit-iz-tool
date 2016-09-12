@@ -272,6 +272,21 @@
             return valueSetDefinitions;
         };
 
+
+        VocabularyService.prototype.searchTableById = function (bindingIdentifier) {
+            var valueSetDefinitions = [];
+            angular.forEach(this.valueSetDefinitionGroups, function (valueSetDefinitionsGroup) {
+                angular.forEach(valueSetDefinitionsGroup.valueSetDefinitions, function (valueSetDefinition) {
+                    if (valueSetDefinition.bindingIdentifier && valueSetDefinition.bindingIdentifier === bindingIdentifier) {
+                        valueSetDefinitions.push(valueSetDefinition);
+                    }
+
+                });
+            });
+            return valueSetDefinitions;
+        };
+
+
 //        VocabularyService.prototype.initValueSetDefinitionGroups = function (all, valueSetIds) {
 //            this.valueSetDefinitionGroups = [];
 //            var that = this;
@@ -321,10 +336,10 @@
 //        };
 
         VocabularyService.prototype.showValueSetDefinition = function (tableId) {
-            var tables = this.searchTablesById(tableId, this.valueSetDefinitionGroups);
+            var tables = this.searchTableById(tableId, this.valueSetDefinitionGroups);
             var t = tables.length > 0 ? tables[0] : null;
             var modalInstance = null;
-            if (t != null) {
+//            if (t != null) {
                  modalInstance = $modal.open({
                     templateUrl: 'TableFoundCtrl.html',
                     controller: 'ValueSetDetailsCtrl',
@@ -338,7 +353,7 @@
                         }
                     }
                 });
-            }
+//            }
             return modalInstance;
         };
 
@@ -356,7 +371,7 @@
                     delay.reject(response.data);
                 }
             );
-
+//
 //            $http.get('../../resources/cf/vocab.json').then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));

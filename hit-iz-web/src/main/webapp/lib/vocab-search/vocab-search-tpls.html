@@ -15,7 +15,7 @@
 </div>
 <div ng-show="!loading">
 <div ng-show="error !== null">
-    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+    <div class="alert alert-danger" role="alert" ng-bind="::error"></div>
 </div>
 <div ng-show="error === null">
 <div ng-show="valueSetDefinitionGroups != null && valueSetDefinitionGroups.length > 0">
@@ -61,7 +61,7 @@
                                                     <td st-ratio="50">
                                                         <a class="point" ng-show="row.bindingIdentifier"
                                                            ng-click="selectValueSetDefinition(row,tableLibrary)"
-                                                           ng-bind="row.bindingIdentifier"></a>
+                                                           ng-bind="::row.bindingIdentifier"></a>
                                                         <span ng-show="row.bindingIdentifier == null">N/A</span>
                                                     </td>
                                                     <td st-ratio="50">
@@ -91,7 +91,7 @@
             </div>
 
             <div ng-show="error != null">
-                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+                <div class="alert alert-danger" role="alert" ng-bind="::error"></div>
             </div>
 
         </div>
@@ -131,7 +131,7 @@
 
 <div ng-show="vocabResError != null">
     <div class="alert alert-info" role="alert"
-         ng-bind="vocabResError"></div>
+         ng-bind="::vocabResError"></div>
 </div>
 
 <div ng-show="vocabResError == null">
@@ -183,27 +183,27 @@
                             <td st-ratio="50">
                                 <a ng-show="row.bindingIdentifier" class="point"
                                    ng-click="selectValueSetDefinition2(row)"
-                                   ng-bind="row.bindingIdentifier"></a>
+                                   ng-bind="::row.bindingIdentifier"></a>
                             </td>
 
                             <td st-ratio="50">
-                                <span ng-show="row.name" ng-bind="row.name"></span>
+                                <span ng-show="row.name" ng-bind="::row.name"></span>
                                 <span ng-show="row.name == null">N/A</span>
                             </td>
 
                             <!--<td st-ratio="20">-->
-                            <!--<span ng-show="row.description" ng-bind="row.description"></span>-->
+                            <!--<span ng-show="row.description" ng-bind="::row.description"></span>-->
                             <!--<span ng-show="row.description == null">N/A</span>-->
                             <!--</td>-->
 
 
                             <!--<td st-ratio="20">-->
-                            <!--<span ng-show="row.version" ng-bind="row.version"></span>-->
+                            <!--<span ng-show="row.version" ng-bind="::row.version"></span>-->
                             <!--<span ng-show="row.version == null">N/A</span>-->
                             <!--</td>-->
 
                             <!--<td st-ratio="20">-->
-                            <!--<span ng-show="row.oid" ng-bind="row.oid"></span>-->
+                            <!--<span ng-show="row.oid" ng-bind="::row.oid"></span>-->
                             <!--<span ng-show="row.oid == null">N/A</span>-->
                             <!--</td>-->
                         </tr>
@@ -254,14 +254,14 @@
                         <tbody>
                         <tr ng-repeat="row in tmpSearchResults">
                             <td st-ratio="30">
-                                {{row.value}}
+                                {{::row.value}}
                             </td>
                             <td st-ratio="30">
-                                {{row.codeSystem}}
+                                {{::row.codeSystem}}
                             </td>
 
                             <td st-ratio="40">
-                                {{row.displayName}}
+                                {{::row.displayName}}
                             </td>
                         </tr>
                         </tbody>
@@ -288,7 +288,7 @@
         <table class="table table-bordered">
             <tr ng-show="selectedValueSetDefinition.bindingIdentifier != null && selectedValueSetDefinition.bindingIdentifier != ''">
                 <td>Binding Identifier</td>
-                <td ng-bind="selectedValueSetDefinition.bindingIdentifier"></td>
+                <td ng-bind="::selectedValueSetDefinition.bindingIdentifier"></td>
             </tr>
             <tr ng-show="selectedValueSetDefinition.name != null && selectedValueSetDefinition.name != ''">
                 <td>Value Set Name</td>
@@ -339,14 +339,14 @@
 
                     <tr ng-repeat="row in tmpValueSetElements">
                         <td st-ratio="30">
-                            <span>{{row.value}}</span>
+                            <span>{{::row.value}}</span>
                         </td>
                         <td st-ratio="30">
-                            <span>{{row.codeSystem}}</span>
+                            <span>{{::row.codeSystem}}</span>
                         </td>
 
                         <td st-ratio="40">
-                            <span>{{row.displayName}}</span>
+                            <span>{{::row.displayName}}</span>
                         </td>
                     </tr>
                     </tbody>
@@ -385,7 +385,7 @@
 
         <p style="color:red"
            ng-if="selectedValueSetDefinition.noCodeDisplayText && selectedValueSetDefinition.noCodeDisplayText !== null">
-            {{selectedValueSetDefinition.noCodeDisplayText}}
+            {{::selectedValueSetDefinition.noCodeDisplayText}}
         </p>
     </div>
 
@@ -429,8 +429,8 @@
 <script type="text/ng-template" id="TableFoundCtrl.html">
     <div class="modal-header">
   <span style="font-weight: bold; font-size: 20px">
-            <span ng-show="valueSet !== null" class="modal-title">ValueSet:{{valueSet.bindingIdentifier}}</span>
-      <span ng-show="valueSet === null" class="modal-title">Value Set Not Found</span>
+            <span ng-if="valueSet !== null" class="modal-title">ValueSet:{{::valueSet.bindingIdentifier}}</span>
+      <span ng-if="valueSet === null" class="modal-title">Value Set Not Found</span>
         </span>
         <span class="pull-right">
          <button class="btn btn-xs btn-primary" title="Close" type="button" class="pull-right point"
@@ -441,23 +441,23 @@
     </div>
     <div class="modal-body">
         <div class="valueset-modal-content">
-            <div ng-show="table !== null">
+            <div ng-if="valueSet !== null">
                 <div class="panel panel-info">
                     <!-- Default panel contents -->
                     <div class="panel-heading">Value Set Attributes</div>
                     <!-- Table -->
                     <table class="table table-bordered">
-                        <tr ng-show="valueSet.bindingIdentifier != null && valueSet.bindingIdentifier != ''">
+                        <tr ng-if="valueSet.bindingIdentifier != null && valueSet.bindingIdentifier != ''">
                             <td>Binding Identifier</td>
-                            <td ng-bind="valueSet.bindingIdentifier"></td>
+                            <td ng-bind="::valueSet.bindingIdentifier"></td>
                         </tr>
-                        <tr ng-show="valueSet.name != null && valueSet.name != ''">
+                        <tr ng-if="valueSet.name != null && valueSet.name != ''">
                             <td>Value Set Name</td>
-                            <td ng-bind="valueSet.name"></td>
+                            <td ng-bind="::valueSet.name"></td>
                         </tr>
                     </table>
                                     <span style="color:red; font-weight:bold;"
-                                          ng-show="isNoValidation()">This table will not be validated.
+                                          ng-if="isNoValidation()">This table will not be validated.
                                     </span>
                 </div>
                 <br/>
@@ -502,19 +502,19 @@
 
                                 <tr ng-repeat="row in tmpValueSetElements">
                                 <td st-ratio="30">
-                                <span>{{row.value}}</span>
+                                <span>{{::row.value}}</span>
                                 </td>
                                 <td st-ratio="30">
-                                <span>{{row.codeSystem}}</span>
+                                <span>{{::row.codeSystem}}</span>
                                 </td>
                                 <td st-ratio="40">
-                                <span>{{row.displayName}}</span>
+                                <span>{{::row.displayName}}</span>
                                 </td>
                                 <!--<td st-ratio="50">-->
-                                <!--<span>{{row.source}}</span>-->
+                                <!--<span>{{::row.source}}</span>-->
                                 <!--</td>-->
                                 <!--<td st-ratio="50">-->
-                                <!--<span>{{row.usageType}}</span>-->
+                                <!--<span>{{::row.usageType}}</span>-->
                                 <!--</td>-->
                                 </tr>
                                 </tbody>
@@ -549,12 +549,13 @@
                  </div>
                     </div>
             </div>
-        </div>
-    </div>
-    <div ng-show="table === null">
+
+    <p ng-if="valueSet === null" style="text-align:center">
         Sorry, Could not find this table in the library.
+    </p>
     </div>
-    </div>
+        </div>
+
     <!--<div class="modal-footer">-->
     <!--<button title="Close" type="button" class="pull-right btn btn-sm btn-primary"-->
     <!--ng-click="cancel()">-->

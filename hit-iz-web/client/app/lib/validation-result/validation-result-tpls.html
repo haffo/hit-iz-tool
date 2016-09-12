@@ -6,7 +6,7 @@
                  ng-show="settings.options.validation.show.errors">
                 <tab-heading>
                 <span class="badge failure failure-errors"
-                      ng-bind="validationResult.errors.categories[0].data.length"></span>
+                      ng-bind="::validationResult.errors.categories[0].data.length"></span>
                     Errors
                 </tab-heading>
                 <tabset style="margin-top:5px">
@@ -17,7 +17,7 @@
                         <tab-heading>
 
                             <span class="badge failure failure-errors" ng-bind="category.data.length"></span>
-                            {{category.title}}
+                           {{::category.title}}
                         </tab-heading>
                     </tab>
                 </tabset>
@@ -29,7 +29,7 @@
                 <tab-heading>
 
         <span class="badge failure failure-warnings"
-              ng-bind="validationResult.warnings.categories[0].data.length"></span> Warnings
+              ng-bind="::validationResult.warnings.categories[0].data.length"></span> Warnings
                 </tab-heading>
                 <tabset style="margin-top:5px">
                     <tab ng-repeat="category in validationResult.warnings.categories" class="validation-result-subtab"
@@ -39,7 +39,7 @@
                         <tab-heading>
 
                             <span class="badge failure failure-warnings" ng-bind="category.data.length"></span>
-                            {{category.title}}
+                           {{::category.title}}
                         </tab-heading>
                     </tab>
                 </tabset>
@@ -49,7 +49,7 @@
                 <tab-heading>
 
                 <span class="badge failure failure-alerts"
-                      ng-bind="validationResult.alerts.categories[0].data.length"></span>
+                      ng-bind="::validationResult.alerts.categories[0].data.length"></span>
                     Alerts
                 </tab-heading>
                 <tabset style="margin-top:5px">
@@ -60,7 +60,7 @@
                         <tab-heading>
 
                             <span class="badge failure failure-alerts" ng-bind="category.data.length"></span>
-                            {{category.title}}
+                           {{::category.title}}
                         </tab-heading>
                     </tab>
                 </tabset>
@@ -72,7 +72,7 @@
 
 
                 <span class="badge failure failure-affirmatives"
-                      ng-bind="validationResult.affirmatives.categories[0].data.length"></span>
+                      ng-bind="::validationResult.affirmatives.categories[0].data.length"></span>
                     Affirmatives
                 </tab-heading>
                 <tabset style="margin-top:5px">
@@ -84,7 +84,7 @@
                         <tab-heading>
 
                             <span class="badge failure failure-affirmatives" ng-bind="category.data.length"></span>
-                            {{category.title}}
+                           {{::category.title}}
                         </tab-heading>
                     </tab>
                 </tabset>
@@ -93,14 +93,14 @@
             <!--<tab ng-if="validationResult.dqa && validationResult.dqa  != null" ng-click="showValidationTable(validationResult.dqa.categories[0].data)">-->
             <!--<tab-heading>-->
             <!--<span class="badge failure failure-dqa"-->
-            <!--ng-bind="validationResult.dqa.categories[0].data.length"></span>-->
+            <!--ng-bind="::validationResult.dqa.categories[0].data.length"></span>-->
             <!--DQA-->
             <!--</tab-heading>-->
             <!--<tabset>-->
             <!--<tab ng-repeat="category in validationResult.dqa.categories" class="validation-result-subtab" active="category.title === 'All'"-->
             <!--ng-click="showValidationTable(category.data)">-->
             <!--<tab-heading>-->
-            <!--<span class="badge failure failure-dqa" ng-bind="category.data.length"></span>-->
+            <!--<span class="badge failure failure-dqa" ng-bind="::category.data.length"></span>-->
             <!--{{category.title}}-->
             <!--</tab-heading>-->
             <!--</tab>-->
@@ -125,7 +125,7 @@
 <script type="text/ng-template" id="ValidationResultDetailsCtrl.html">
     <div class="modal-header modal-wide">
           <span style="font-weight: bold; font-size: 20px">
-            <span class="modal-title" ng-bind="selectedElement.path"></span>
+            <span class="modal-title" ng-bind="::selectedElement.path"></span>
           </span>
          <span class="pull-right">
              <button class="btn btn-primary" ng-click="ok()">Close</button>
@@ -136,14 +136,14 @@
             <div ng-if="selectedElement.stackTrace && selectedElement.stackTrace != null">
                 <h4>StackTrace</h4>
             <pre>
-                {{selectedElement.stackTrace | json}}
+               {{::selectedElement.stackTrace | json}}
             </pre>
                 <br/>
             </div>
             <div ng-if="selectedElement.metaData && selectedElement.metaData != null">
                 <h4>MetaData</h4>
             <pre>
-                {{selectedElement.metaData | json}}
+               {{::selectedElement.metaData | json}}
             </pre>
             </div>
         </div>
@@ -190,14 +190,14 @@
                     <tbody>
                     <tr ng-repeat="row in tmpData">
                         <td st-ratio="30">
-                            <a class="point" ng-if="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                            <a class="point" ng-if="row.path" ng-click="select(row)" ng-bind="::row.path"></a>
                             <span ng-if="row.path == null">N/A</span>
                         </td>
                         <td st-ratio="60">
-                            <span ng-bind="row.description"></span>
+                            <span ng-bind="::row.description"></span>
                         </td>
                         <td st-ratio="10">
-                            <span ng-if="row.line" ng-bind="row.line"></span>
+                            <span ng-if="row.line" ng-bind="::row.line"></span>
                             <span ng-if="row.line == null">N/A</span>
                         </td>
                         <!--<td st-ratio="10">-->
@@ -222,7 +222,7 @@
                     </div>
              </div>
             <div ng-if="currentCategory.data == null || currentCategory.data.length == 0">
-                No {{currentType}} found.
+                No{{::currentType}} found.
             </div>
 
         </div>
