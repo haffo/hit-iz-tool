@@ -12,12 +12,12 @@
 
 package gov.nist.hit.iz.web.utils;
 
+import javax.servlet.http.HttpServletRequest;
+
 import gov.nist.hit.core.domain.Command;
 import gov.nist.hit.core.domain.IntegrationProfile;
 import gov.nist.hit.core.service.exception.ProfileException;
 import gov.nist.hit.iz.service.exception.MessageContentNotFoundException;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Harold Affo(NIST)
@@ -42,6 +42,10 @@ public class Utils {
   public static String getUrl(HttpServletRequest request) {
     String scheme = request.getScheme();
     String host = request.getHeader("Host");
+    System.out.println(host);
+    host = host.replaceAll("hit-2015.nist.gov:", "hl7v2-iz-r1.5-testing.nist.gov:"); // Heat
+                                                                                     // me
+                                                                                     // !!
     return scheme + "://" + host + request.getContextPath();
   }
 

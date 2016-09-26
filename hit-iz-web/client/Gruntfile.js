@@ -315,7 +315,6 @@ module.exports = function (grunt) {
                             'resources/**/*',
                             'images/**/*',
                             'styles/fonts/{,*/}*.*',
-                            'styles/font-awesome*.css',
                             'styles/report.css',
                             'styles/carousel.css',
                             'lang/*'

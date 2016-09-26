@@ -299,9 +299,12 @@ public class SOAPTransportController {
         user.isGuestAccount() ? "vendor_" + user.getId() + "_" + token : user.getUsername());
     config.put("password", user.isGuestAccount() ? "vendor_" + user.getId() + "_" + token
         : passwordService.getEncryptedPassword(user.getUsername()));
-    config.put("facilityID", "vendor_" + user.getId() + "_" + token);
-    config.put("faultUsername", "fault_vendor_" + user.getId() + "_" + token);
-    config.put("faultPassword", "fault_vendor_" + user.getId() + "_" + token);
+    config.put("facilityID",
+        user.isGuestAccount() ? "vendor_" + user.getId() + "_" + token : user.getUsername());
+    config.put("faultUsername",
+        user.isGuestAccount() ? "fault_vendor_" + user.getId() + "_" + token : user.getUsername());
+    config.put("faultPassword",
+        user.isGuestAccount() ? "fault_vendor_" + user.getId() + "_" + token : user.getUsername());
     config.put("endpoint", Utils.getUrl(request) + "/ws/iisService");
     return config;
   }

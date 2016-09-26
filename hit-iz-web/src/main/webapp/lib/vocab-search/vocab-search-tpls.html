@@ -15,7 +15,7 @@
 </div>
 <div ng-show="!loading">
 <div ng-show="error !== null">
-    <div class="alert alert-danger" role="alert" ng-bind="::error"></div>
+    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
 </div>
 <div ng-show="error === null">
 <div ng-show="valueSetDefinitionGroups != null && valueSetDefinitionGroups.length > 0">
@@ -59,9 +59,9 @@
                                                 <tbody>
                                                 <tr ng-repeat="row in tmpList">
                                                     <td st-ratio="50">
-                                                        <a class="point" ng-show="row.bindingIdentifier"
+                                                        <a class="point" ng-show="row.bindingIdentifier != null"
                                                            ng-click="selectValueSetDefinition(row,tableLibrary)"
-                                                           ng-bind="::row.bindingIdentifier"></a>
+                                                           ng-bind="row.bindingIdentifier"></a>
                                                         <span ng-show="row.bindingIdentifier == null">N/A</span>
                                                     </td>
                                                     <td st-ratio="50">
@@ -91,7 +91,7 @@
             </div>
 
             <div ng-show="error != null">
-                <div class="alert alert-danger" role="alert" ng-bind="::error"></div>
+                <div class="alert alert-danger" role="alert" ng-bind="error"></div>
             </div>
 
         </div>
@@ -131,7 +131,7 @@
 
 <div ng-show="vocabResError != null">
     <div class="alert alert-info" role="alert"
-         ng-bind="::vocabResError"></div>
+         ng-bind="vocabResError"></div>
 </div>
 
 <div ng-show="vocabResError == null">
@@ -181,29 +181,29 @@
 
                         <tr ng-repeat="row in tmpSearchResults">
                             <td st-ratio="50">
-                                <a ng-show="row.bindingIdentifier" class="point"
+                                <a ng-if="row.bindingIdentifier" class="point"
                                    ng-click="selectValueSetDefinition2(row)"
-                                   ng-bind="::row.bindingIdentifier"></a>
+                                   ng-bind="row.bindingIdentifier"></a>
                             </td>
 
                             <td st-ratio="50">
-                                <span ng-show="row.name" ng-bind="::row.name"></span>
-                                <span ng-show="row.name == null">N/A</span>
+                                <span ng-if="row.name" ng-bind="row.name"></span>
+                                <span ng-if="row.name == null">N/A</span>
                             </td>
 
                             <!--<td st-ratio="20">-->
-                            <!--<span ng-show="row.description" ng-bind="::row.description"></span>-->
+                            <!--<span ng-show="row.description" ng-bind="row.description"></span>-->
                             <!--<span ng-show="row.description == null">N/A</span>-->
                             <!--</td>-->
 
 
                             <!--<td st-ratio="20">-->
-                            <!--<span ng-show="row.version" ng-bind="::row.version"></span>-->
+                            <!--<span ng-show="row.version" ng-bind="row.version"></span>-->
                             <!--<span ng-show="row.version == null">N/A</span>-->
                             <!--</td>-->
 
                             <!--<td st-ratio="20">-->
-                            <!--<span ng-show="row.oid" ng-bind="::row.oid"></span>-->
+                            <!--<span ng-show="row.oid" ng-bind="row.oid"></span>-->
                             <!--<span ng-show="row.oid == null">N/A</span>-->
                             <!--</td>-->
                         </tr>
@@ -288,7 +288,7 @@
         <table class="table table-bordered">
             <tr ng-show="selectedValueSetDefinition.bindingIdentifier != null && selectedValueSetDefinition.bindingIdentifier != ''">
                 <td>Binding Identifier</td>
-                <td ng-bind="::selectedValueSetDefinition.bindingIdentifier"></td>
+                <td ng-bind="selectedValueSetDefinition.bindingIdentifier"></td>
             </tr>
             <tr ng-show="selectedValueSetDefinition.name != null && selectedValueSetDefinition.name != ''">
                 <td>Value Set Name</td>
@@ -385,7 +385,7 @@
 
         <p style="color:red"
            ng-if="selectedValueSetDefinition.noCodeDisplayText && selectedValueSetDefinition.noCodeDisplayText !== null">
-            {{::selectedValueSetDefinition.noCodeDisplayText}}
+            {{selectedValueSetDefinition.noCodeDisplayText}}
         </p>
     </div>
 
@@ -429,7 +429,7 @@
 <script type="text/ng-template" id="TableFoundCtrl.html">
     <div class="modal-header">
   <span style="font-weight: bold; font-size: 20px">
-            <span ng-if="valueSet !== null" class="modal-title">ValueSet:{{::valueSet.bindingIdentifier}}</span>
+            <span ng-if="valueSet !== null" class="modal-title">ValueSet:{{valueSet.bindingIdentifier}}</span>
       <span ng-if="valueSet === null" class="modal-title">Value Set Not Found</span>
         </span>
         <span class="pull-right">
@@ -449,11 +449,11 @@
                     <table class="table table-bordered">
                         <tr ng-if="valueSet.bindingIdentifier != null && valueSet.bindingIdentifier != ''">
                             <td>Binding Identifier</td>
-                            <td ng-bind="::valueSet.bindingIdentifier"></td>
+                            <td ng-bind="valueSet.bindingIdentifier"></td>
                         </tr>
                         <tr ng-if="valueSet.name != null && valueSet.name != ''">
                             <td>Value Set Name</td>
-                            <td ng-bind="::valueSet.name"></td>
+                            <td ng-bind="valueSet.name"></td>
                         </tr>
                     </table>
                                     <span style="color:red; font-weight:bold;"
@@ -511,10 +511,10 @@
                                 <span>{{::row.displayName}}</span>
                                 </td>
                                 <!--<td st-ratio="50">-->
-                                <!--<span>{{::row.source}}</span>-->
+                                <!--<span>{{row.source}}</span>-->
                                 <!--</td>-->
                                 <!--<td st-ratio="50">-->
-                                <!--<span>{{::row.usageType}}</span>-->
+                                <!--<span>{{row.usageType}}</span>-->
                                 <!--</td>-->
                                 </tr>
                                 </tbody>

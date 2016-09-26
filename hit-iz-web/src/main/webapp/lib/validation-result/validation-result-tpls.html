@@ -3,10 +3,10 @@
     <div ng-show="validationResult !== null">
         <tabset>
             <tab ng-click="showValidationTable(validationResult.errors.categories[0],'errors')" active="active.errors"
-                 ng-show="settings.options.validation.show.errors">
+                 ng-if="settings.options.validation.show.errors">
                 <tab-heading>
                 <span class="badge failure failure-errors"
-                      ng-bind="::validationResult.errors.categories[0].data.length"></span>
+                      ng-bind="validationResult.errors.categories[0].data.length"></span>
                     Errors
                 </tab-heading>
                 <tabset style="margin-top:5px">
@@ -17,19 +17,19 @@
                         <tab-heading>
 
                             <span class="badge failure failure-errors" ng-bind="category.data.length"></span>
-                           {{::category.title}}
+                           {{category.title}}
                         </tab-heading>
                     </tab>
                 </tabset>
             </tab>
 
             <tab ng-click="showValidationTable(validationResult.warnings.categories[0],'warnings')"
-                 ng-show="settings.options.validation.show.warnings"
+                 ng-if="settings.options.validation.show.warnings"
                  active="active.warnings">
                 <tab-heading>
 
         <span class="badge failure failure-warnings"
-              ng-bind="::validationResult.warnings.categories[0].data.length"></span> Warnings
+              ng-bind="validationResult.warnings.categories[0].data.length"></span> Warnings
                 </tab-heading>
                 <tabset style="margin-top:5px">
                     <tab ng-repeat="category in validationResult.warnings.categories" class="validation-result-subtab"
@@ -39,17 +39,17 @@
                         <tab-heading>
 
                             <span class="badge failure failure-warnings" ng-bind="category.data.length"></span>
-                           {{::category.title}}
+                           {{category.title}}
                         </tab-heading>
                     </tab>
                 </tabset>
             </tab>
             <tab ng-click="showValidationTable(validationResult.alerts.categories[0],'alerts')" active="active.alerts"
-                 ng-show="settings.options.validation.show.alerts">
+                 ng-if="settings.options.validation.show.alerts">
                 <tab-heading>
 
                 <span class="badge failure failure-alerts"
-                      ng-bind="::validationResult.alerts.categories[0].data.length"></span>
+                      ng-bind="validationResult.alerts.categories[0].data.length"></span>
                     Alerts
                 </tab-heading>
                 <tabset style="margin-top:5px">
@@ -60,19 +60,19 @@
                         <tab-heading>
 
                             <span class="badge failure failure-alerts" ng-bind="category.data.length"></span>
-                           {{::category.title}}
+                           {{category.title}}
                         </tab-heading>
                     </tab>
                 </tabset>
             </tab>
 
             <tab ng-click="showValidationTable(validationResult.affirmatives.categories[0],'affirmatives')"
-                 active="active.affirmatives" ng-show="settings.options.validation.show.affirmatives">
+                 active="active.affirmatives" ng-if="settings.options.validation.show.affirmatives">
                 <tab-heading>
 
 
                 <span class="badge failure failure-affirmatives"
-                      ng-bind="::validationResult.affirmatives.categories[0].data.length"></span>
+                      ng-bind="validationResult.affirmatives.categories[0].data.length"></span>
                     Affirmatives
                 </tab-heading>
                 <tabset style="margin-top:5px">
@@ -84,7 +84,7 @@
                         <tab-heading>
 
                             <span class="badge failure failure-affirmatives" ng-bind="category.data.length"></span>
-                           {{::category.title}}
+                           {{category.title}}
                         </tab-heading>
                     </tab>
                 </tabset>
@@ -93,14 +93,14 @@
             <!--<tab ng-if="validationResult.dqa && validationResult.dqa  != null" ng-click="showValidationTable(validationResult.dqa.categories[0].data)">-->
             <!--<tab-heading>-->
             <!--<span class="badge failure failure-dqa"-->
-            <!--ng-bind="::validationResult.dqa.categories[0].data.length"></span>-->
+            <!--ng-bind="validationResult.dqa.categories[0].data.length"></span>-->
             <!--DQA-->
             <!--</tab-heading>-->
             <!--<tabset>-->
             <!--<tab ng-repeat="category in validationResult.dqa.categories" class="validation-result-subtab" active="category.title === 'All'"-->
             <!--ng-click="showValidationTable(category.data)">-->
             <!--<tab-heading>-->
-            <!--<span class="badge failure failure-dqa" ng-bind="::category.data.length"></span>-->
+            <!--<span class="badge failure failure-dqa" ng-bind="category.data.length"></span>-->
             <!--{{category.title}}-->
             <!--</tab-heading>-->
             <!--</tab>-->
@@ -125,7 +125,7 @@
 <script type="text/ng-template" id="ValidationResultDetailsCtrl.html">
     <div class="modal-header modal-wide">
           <span style="font-weight: bold; font-size: 20px">
-            <span class="modal-title" ng-bind="::selectedElement.path"></span>
+            <span class="modal-title" ng-bind="selectedElement.path"></span>
           </span>
          <span class="pull-right">
              <button class="btn btn-primary" ng-click="ok()">Close</button>
@@ -136,14 +136,14 @@
             <div ng-if="selectedElement.stackTrace && selectedElement.stackTrace != null">
                 <h4>StackTrace</h4>
             <pre>
-               {{::selectedElement.stackTrace | json}}
+               {{selectedElement.stackTrace | json}}
             </pre>
                 <br/>
             </div>
             <div ng-if="selectedElement.metaData && selectedElement.metaData != null">
                 <h4>MetaData</h4>
             <pre>
-               {{::selectedElement.metaData | json}}
+               {{selectedElement.metaData | json}}
             </pre>
             </div>
         </div>
@@ -163,7 +163,7 @@
         <!--<div ui-grid="gridOptions" class="grid"></div>-->
         <div ng-show="currentCategory && currentCategory !== null">
 
-            <div ng-if="currentCategory.data != null && currentCategory.data.length > 0">
+            <div ng-show="currentCategory.data != null && currentCategory.data.length > 0">
                 <div class="">
                     <input type="checkbox" title="Highlight All in editor"
                            ng-model="checkboxConfig[currentType][currentCategory.title]"
@@ -221,8 +221,8 @@
                 </table>
                     </div>
              </div>
-            <div ng-if="currentCategory.data == null || currentCategory.data.length == 0">
-                No{{::currentType}} found.
+            <div ng-show="currentCategory.data == null || currentCategory.data.length == 0">
+                No {{currentType}} found.
             </div>
 
         </div>

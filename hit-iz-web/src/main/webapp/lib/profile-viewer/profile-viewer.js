@@ -208,11 +208,10 @@
              * @returns {boolean}
              */
             $scope.isSegmentVisible = function (segment) {
-                if (segment.referencers) {
+                 if ($scope.options.relevance && segment.referencers) {
                     for (var i = 0; i < segment.referencers.length; i++) {
                         var segRef = segment.referencers[i];
-                        var relevent = segRef && segRef != null && (!$scope.options.relevance ? true: segRef.usageRelevent);
-                        if (!relevent) {
+                        if (!segRef.usageRelevent) {
                             return false;
                         }
                     }
@@ -350,12 +349,13 @@
              * @param messageOrGroup
              */
             var processSegRef = function (segRef, messageOrGroup) {
-                $scope.collectSelfConstraints(segRef, messageOrGroup);
                 segRef.position = parseInt(segRef.position);
-                segRef.usageRelevent = messageOrGroup != undefined && messageOrGroup != null ? messageOrGroup.usageRelevent && isNodeUsageRelevant(segRef) : isNodeUsageRelevant(segRef);
                 if (messageOrGroup && messageOrGroup != null) {
                     $scope.parentsMap[segRef.id] = messageOrGroup;
                 }
+                processSegRefOrGroupConstraints(segRef);
+                $scope.collectSelfConstraints(segRef, messageOrGroup);
+                segRef.usageRelevent = messageOrGroup != undefined && messageOrGroup != null ? messageOrGroup.usageRelevent && isNodeUsageRelevant(segRef) : isNodeUsageRelevant(segRef);
                 var segment = $scope.model.segments[segRef.ref];
                processSegment(segment, segRef);
             };
@@ -367,9 +367,10 @@
              */
             var processGroup = function (group, parent) {
                processConstraints(group, parent);
-                group.position = parseInt(group.position);
-                $scope.parentsMap[group.id] = parent;
-                group.usageRelevent = parent != undefined &&  parent != null ? parent.usageRelevent && isNodeUsageRelevant(group):isNodeUsageRelevant(group);
+               group.position = parseInt(group.position);
+               $scope.parentsMap[group.id] = parent;
+               processSegRefOrGroupConstraints(group);
+               group.usageRelevent = parent != undefined &&  parent != null ? parent.usageRelevent && isNodeUsageRelevant(group):isNodeUsageRelevant(group);
                 if (group.children && group.children != null && group.children.length > 0) {
                     angular.forEach(group.children, function (segmentRefOrGroup) {
                        processElement(segmentRefOrGroup, group);
@@ -725,14 +726,33 @@
                 angular.forEach(children, function (child) {
                     child.selfConformanceStatements = [];
                     child.selfPredicates = [];
-                    child.selfConformanceStatements = getSegmentLevelConfStatements(child);
-                    child.selfPredicates = getSegmentLevelPredicates(child);
+                    child.selfConformanceStatements = child.selfConformanceStatements.concat(getGroupLevelConfStatements(child));
+                    child.selfPredicates = child.selfPredicates.concat(getGroupLevelPredicates(child));
+                    child.selfConformanceStatements = child.selfConformanceStatements.concat(getMessageLevelConfStatements(child));
+                    child.selfPredicates = child.selfPredicates.concat(getMessageLevelPredicates(child));
                     if (!$scope.visible(child)) {
                         removeCandidates.push(child);
                     }
                 });
                 return children;
             };
+
+
+            /**
+             *
+             * @param nodeData
+             * @param removeCandidates
+             * @returns {*}
+             */
+            var processSegRefOrGroupConstraints = function (segORGroup) {
+                segORGroup.selfConformanceStatements = [];
+                segORGroup.selfPredicates = [];
+                segORGroup.selfConformanceStatements = segORGroup.selfConformanceStatements.concat(getGroupLevelConfStatements(segORGroup));
+                segORGroup.selfPredicates = segORGroup.selfPredicates.concat(getGroupLevelPredicates(segORGroup));
+                segORGroup.selfConformanceStatements = segORGroup.selfConformanceStatements.concat(getMessageLevelConfStatements(segORGroup));
+                segORGroup.selfPredicates = segORGroup.selfPredicates.concat(getMessageLevelPredicates(segORGroup));
+            };
+
 
             /**
              *
