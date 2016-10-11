@@ -175,7 +175,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="doc in docs track by doc.id | orderBy: '-date'">
+                        <tr ng-repeat="doc in docs | orderBy: '-date'">
                             <td st-ratio="40">{{::doc.title}}</td>
                             <td st-ratio="35">
                                 <div ng-if="doc.name != null">
@@ -241,7 +241,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="doc in data track by doc.id | orderBy:'position'">
+                            <tr ng-repeat="doc in data | orderBy:'position'">
                                 <td st-ratio="50">{{::doc.title}}</td>
                                 <td st-ratio="50">
                                     <span ng-if="doc.name == null">-</span>
@@ -408,7 +408,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="doc in docs track by doc.id | orderBy:'position'">
+                        <tr ng-repeat="doc in docs | orderBy:'position'">
                             <td st-ratio="40">{{::doc.title}}</td>
                             <td st-ratio="35">
                                 <span ng-if="doc.path == null">-</span>
@@ -491,7 +491,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="doc in data track by doc.id | orderBy:'date'">
+                        <tr ng-repeat="doc in data  | orderBy:'-date'">
                             <td st-ratio="70">
                                 <a class="point" target="_blank" ng-href="{{doc.path}}">{{::doc.title}}</a>
                             </td>
