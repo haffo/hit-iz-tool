@@ -165,9 +165,8 @@ angular.module('cb')
              } else { // manual testing ?
                 $scope.setTestStepExecutionTab(1);
                 var report = TestExecutionService.getTestStepValidationReportObject(testStep);
-                console.log(">>>>>>>>>>>>> "+ report);
                 report = report != undefined ? report : null;
-                $rootScope.$emit('cb:initValidationReport', report, testStep);
+                $rootScope.$emit('cbManual:initValidationReport', report, testStep);
             }
 
             var exampleMsgId = $scope.targ + '-exampleMessage';
@@ -623,7 +622,8 @@ angular.module('cb')
             if ($scope.testStep === null || testStep.id !== $scope.testStep.id) {
                 TestExecutionService.updateTestStepValidationReport(testStep);
             } else {
-                $rootScope.$emit('cb:updateTestStepValidationReport', null, testStep);
+                var reportType = testStep.testContext && testStep.testContext != null ? 'cbValidation': 'cbManual';
+                $rootScope.$emit(reportType+ ':updateTestStepValidationReport', null, testStep);
             }
         };
 

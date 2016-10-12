@@ -198,7 +198,8 @@
 
                 $timeout(function () {
                     if($scope.type === 'cb'){ // TODO: remove dependency
-                        $rootScope.$emit($scope.type + ':updateTestStepValidationReport', mvResult,testStep);
+                        var reportType = testStep.testContext && testStep.testContext != null ? 'cbValidation': 'cbManual';
+                        $rootScope.$emit(reportType + ':updateTestStepValidationReport', mvResult,testStep);
                     }else{
                         $rootScope.$emit($scope.type + ':createMessageValidationReport', mvResult,testStep);
                         console.log("createMessageValidationReport called");

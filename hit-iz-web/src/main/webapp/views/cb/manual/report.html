@@ -11,8 +11,7 @@
     <div class="panel panel-info">
         <div class="panel-body">
     <div ng-show="cb.testCase != null">
-        <div ng-if="cb.testCase.testContext && cb.testCase.testContext != null" report-viewer="" type="cbValidation"></div>
-        <div ng-if="!cb.testCase.testContext || cb.testCase.testContext === null" report-viewer="" type="cbManual"></div>
+         <div report-viewer="" type="cbManual"></div>
     </div>
     <div ng-show="cb.testCase === null">
         No TestCase Loaded.

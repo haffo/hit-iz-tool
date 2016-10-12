@@ -42,7 +42,7 @@
                         $scope.report = null;
                         $scope.compile();
                         $scope.loading = false;
-                        Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 30000});
+                        //Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 30000});
                     });
                 } else {
                     $scope.report = null;
@@ -55,8 +55,7 @@
                 $scope.loading = true;
                 $scope.testStepId = testStep.id;
                 if (report != null && report != undefined) {
-                    console.log("<<<<<<<<<< report" + report);
-                    if( report.html == null){
+                     if( report.html == null){
                         var comments =  report.comments != undefined ? report.comments : null;
                         var xml = report.xml != undefined ? report.xml : null;
                         var result = report.result != undefined ? report.result : null;
@@ -69,7 +68,7 @@
                             $scope.report = null;
                              $scope.compile();
                             $scope.loading = false;
-                            Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 30000});
+                            //Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 30000});
                         });
                     }else{
                         $scope.report = report;
@@ -106,7 +105,7 @@
                         $scope.report = null;
 //                    $scope.loading = false;
                         $scope.compile();
-                        Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 30000});
+                        //Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 30000});
                     });
                 }
             });
