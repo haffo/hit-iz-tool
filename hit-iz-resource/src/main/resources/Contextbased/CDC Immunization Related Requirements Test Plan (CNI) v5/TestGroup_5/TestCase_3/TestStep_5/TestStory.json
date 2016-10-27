@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<p>Following the visit, the EMR transmits an Immunization report to the Immunization Registry using the VXU/Z22. This will result in multiple warnings from the IIS to assess the EMR ability to receive and display the warnings.</p>\r\n",
+  "comments" : "<p>The Report must include the newly administered vaccine recorded in the EMR. The report may include the information imported from the IIS</p>\r\n",
+  "preCondition" : "<p>The vaccines for the visit have been administered.</p>\r\n",
+  "postCondition" : "<p>The Immunization Report has been transmitted to the IIS using a valid Z22 VXU in accordance with the test data correctly and without omission.</p>\r\n",
+  "testObjectives" : "<p><em><strong>Transmit Standard Patient Immunization History Report: </strong></em>The EHR or other clinical software system directly or indirectly through an intermediary creates and transmits a report of a patient's immunization history to public health immunization registries.</p><p>Set up <span style=\"font-family: Arial; font-size: small;\"><em><span style=\"line-height: 107%; font-style: normal;\">to verify that the EMR is able to receive and display the multiple warning response from the IIS.</span></em></span></p>\r\n",
+  "evaluationCriteria" : "<p>The VXU/Z22 message passes validation using the NIST Immunization VXU Validation Tool (Z22) (context-free). The content of the message correctly reflects the test data (context-based) in accordance with the Test Data Specification and the Message Content. <br></p>\r\n",
+  "notes" : "<p>The protection indicator for Juana Maria is 'Yes'. If this setting \r\nrestricts the EMR from transmitting to the IIS, then the protection \r\nindicator for Juana Maria may be modified to 'No' for the purpose of \r\nthis transaction. </p>\r\n"
+}

@@ -1,0 +1,3044 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:util="http://hl7.nist.gov/data-specs/util">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title></title><style type="text/css">
+			@media screen {
+			.test-data-specs-main legend {text-align:center;font-size:110%; font-weight:bold;}					
+			.test-data-specs-main .nav-tabs {font-weight:bold;}					
+			.test-data-specs-main .tds_obxGrpSpl {background:#B8B8B8;}
+			.test-data-specs-main maskByMediaType {display:table;}
+			.test-data-specs-main table tbody tr th {font-size:95%}
+			.test-data-specs-main table tbody tr td {font-size:100%;}
+			.test-data-specs-main table tbody tr th {text-align:left;background:#C6DEFF}
+			.test-data-specs-main table thead tr th {text-align:center;}
+			.test-data-specs-main fieldset {text-align:center;}
+			.test-data-specs-main table { width:98%;border: 1px groove;table-layout: fixed; margin:0 auto;border-collapse: collapse;}
+			.test-data-specs-main table  tr { border: 3px groove; }
+			.test-data-specs-main table  th { border: 2px groove;}
+			.test-data-specs-main table  td { border: 2px groove; }
+			.test-data-specs-main table thead {border: 1px groove;background:#446BEC;text-align:left;}
+			.test-data-specs-main .separator {background:rgb(240, 240, 255); text-align:left;}
+			.test-data-specs-main table tbody tr td {text-align:left}
+			.test-data-specs-main .noData {background:#B8B8B8;}
+			.test-data-specs-main .childField {background:#B8B8B8;}
+			.test-data-specs-main .title {text-align:left;}
+			.test-data-specs-main h3 {text-align:center;page-break-inside: avoid;}
+			.test-data-specs-main h2 {text-align:center;}
+			.test-data-specs-main h1 {text-align:center;}
+			.test-data-specs-main .pgBrk {padding-top:15px;}
+			.test-data-specs-main .er7Msg {width:100%;}
+			.test-data-specs-main .embSpace {padding-left:15px;}			
+			.test-data-specs-main .accordion-heading { font-weight:bold; font-size:90%;}										
+			.test-data-specs-main .accordion-heading i.fa:after { content: "\00a0 "; }									
+			.test-data-specs-main  panel { margin: 10px 5px 5px 5px; }
+			}
+			
+			@media print {
+			.test-data-specs-main legend {text-align:center;font-size:110%; font-weight:bold;}					
+			.test-data-specs-main .nav-tabs {font-weight:bold;}					
+			.test-data-specs-main .obxGrpSpl {background:#B8B8B8;}
+			.test-data-specs-main maskByMediaType {display:table;}
+			.test-data-specs-main table tbody tr th {font-size:90%}
+			.test-data-specs-main table tbody tr td {font-size:90%;}
+			.test-data-specs-main table tbody tr th {text-align:left;background:#C6DEFF}
+			.test-data-specs-main table thead tr th {text-align:center;background:#4682B4}
+			.test-data-specs-main fieldset {text-align:center;page-break-inside: avoid;}
+			.test-data-specs-main table { width:98%;border: 1px groove;table-layout: fixed; margin:0 auto;page-break-inside: avoid;border-collapse: collapse;}
+			.test-data-specs-main table[id=vendor-labResults] thead tr {font-size:80%}
+			.test-data-specs-main table[id=vendor-labResults] tbody tr {font-size:75%}
+			.test-data-specs-main table  tr { border: 3px groove; }
+			.test-data-specs-main table  th { border: 2px groove;}
+			.test-data-specs-main table  td { border: 2px groove; }
+			.test-data-specs-main table thead {border: 1px groove;background:#446BEC;text-align:left;}
+			.test-data-specs-main .separator {background:rgb(240, 240, 255); text-align:left;}
+			.test-data-specs-main table tbody tr td {text-align:left;}
+			.test-data-specs-main .noData {background:#B8B8B8;}
+			.test-data-specs-main .childField {background:#B8B8B8;}
+			.test-data-specs-main .tds_title {text-align:left;margin-bottom:1%}
+			.test-data-specs-main h3 {text-align:center;}
+			.test-data-specs-main h2 {text-align:center;}
+			.test-data-specs-main h1 {text-align:center;}
+			.test-data-specs-main .tds_pgBrk {page-break-after:always;}
+			.test-data-specs-main #er7Message table {border:0px;width:80%}
+			.test-data-specs-main #er7Message td {background:#B8B8B8;font-size:65%;margin-top:6.0pt;border:0px;text-wrap:preserve-breaks;white-space:pre;}
+			.test-data-specs-main .er7Msg {width:100%;font-size:80%;}
+			.test-data-specs-main .er7MsgNote{width:100%;font-style:italic;font-size:80%;}
+			.test-data-specs-main .embSpace {padding-left:15px;}
+			.test-data-specs-main .embSubSpace {padding-left:25px;}
+			.test-data-specs-main .accordion-heading { font-weight:bold; font-size:90%; }										
+			.test-data-specs-main .accordion-heading i.fa:after { content: "\00a0 "; }									
+			.test-data-specs-main  panel { margin: 10px 5px 5px 5px; }
+			}
+		</style></head>
+   <body>
+      <div class="test-data-specs-main">
+<fieldset>
+<legend>Patient Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Patient Name
+		</td>
+		<td colspan=1>Juan Marcel Marina
+		</td></tr>
+		<tr>
+		<td colspan=1>Mother's Maiden Name
+		</td>
+		<td colspan=1>Anita Morales
+		</td></tr>
+		<tr>
+		<td colspan=1>ID Number
+		</td>
+		<td colspan=1>123456 987633 
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time of Birth
+		</td>
+		<td colspan=1>03/04/2015 11:00 
+		</td></tr>
+		<tr>
+		<td colspan=1>Administrative Sex
+		</td>
+		<td colspan=1>Male
+		</td></tr>
+		<tr>
+		<td colspan=1>Patient Address 
+		</td>
+		<td colspan=1>4623 Standish Way Stamford CT 06903 USA 
+		</td></tr>
+		<tr>
+		<td colspan=1>Local Number
+		</td>
+		<td colspan=1>(203)555-1213
+		</td></tr>
+		<tr>
+		<td colspan=1>Race
+		</td>
+		<td colspan=1>White
+		</td></tr>
+		<tr>
+		<td colspan=1>Ethnic Group
+		</td>
+		<td colspan=1>Hispanic or Latino
+		</td></tr>
+		<tr>
+		<td colspan=1>Multiple Birth Indicator
+		</td>
+		<td colspan=1>No
+		</td></tr>
+		<tr>
+		<td colspan=1>Birth Order
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		</table>
+</fieldset>
+<fieldset>
+<legend>Immunization Registry Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Immunization Registry Status
+		</td>
+		<td colspan=1>Active
+		</td></tr>
+		<tr>
+		<td colspan=1>Immunization Registry Status Effective Date
+		</td>
+		<td colspan=1>03/04/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Publicity Code
+		</td>
+		<td colspan=1>Reminder/recall - no calls
+		</td></tr>
+		<tr>
+		<td colspan=1>Publicity Code Effective Date
+		</td>
+		<td colspan=1>03/04/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Protection Indicator
+		</td>
+		<td colspan=1>No
+		</td></tr>
+		<tr>
+		<td colspan=1>Protection Indicator Effective Date
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		</table>
+</fieldset>
+<fieldset>
+<legend>Guardian or Responsible Party</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Name
+		</td>
+		<td colspan=1>Manuel Marcel Gonzales
+		</td></tr>
+		<tr>
+		<td colspan=1>Relationship
+		</td>
+		<td colspan=1>Father
+		</td></tr>
+		<tr>
+		<td colspan=1>Address
+		</td>
+		<td colspan=1>4623 Standish Way Stamford CT 06903 
+		</td></tr>
+		<tr>
+		<td colspan=1>Phone Number
+		</td>
+		<td colspan=1>(203)555-1213
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information[*]</legend>
+<diV>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Hepatitis B
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>03/04/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>6332FK34
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>12/14/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>GlaxoSmithKline Biologicals SA
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Shoreline Hospital
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>Lisa Sirtis
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>Jane Carter
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Hepatitis B
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>04/15/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>6352FK2
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>10/01/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>GlaxoSmithKline Biologicals SA
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Right Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>ENGERIX-B
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>10/31/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>0.5
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>Sandra Molina
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>6332FK26
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>10/31/2017
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>GlaxoSmithKline Biologicals SA
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Shoreline Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>Sandra Molina
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>Frank Smith
+		</td></tr>
+		</table>
+		<br/>
+					<table>
+					<tr>
+					<th colspan=1>Element
+					</th>
+					<th colspan=1>Data
+					</th>
+					</tr>
+					<tr>
+					<td colspan=1>vaccine fund pgm elig cat
+					</td>
+					<td colspan=1>Not VFC elig
+					</td></tr>
+					<tr>
+					<td colspan=1>Vaccine funding source
+					</td>
+					<td colspan=1>Private
+					</td></tr>
+					<tr class='obxGrpSpl'>
+					<td colspan='2'>
+					</td>
+					</tr>
+					<tr>
+					<td colspan=1>vaccine type
+					</td>
+					<td colspan=1>Hepatitis B
+					</td></tr>
+					<tr>
+					<td colspan=1>Date vaccine information statement published
+					</td>
+					<td colspan=1>07/15/2015
+					</td></tr>
+					<tr>
+					<td colspan=1>Date vaccine information statement presented
+					</td>
+					<td colspan=1>07/15/2015
+					</td></tr>
+					</table>
+					<br/>
+					</fieldset>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>DTaP
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>05/15/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>D409QS2342
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>11/30/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Sanofi Pasteur Inc
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>DTaP
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>07/13/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>D409QS2434
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>09/04/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Sanofi Pasteur Inc
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>DTaP
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>09/16/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>D409QS250
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>12/01/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Sanofi Pasteur Inc
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>DTaP
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>08/20/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>D409QS250
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>03/01/2017
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Sanofi Pasteur Inc
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Hib
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>05/14/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>7M54K9255
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>03/24/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Merck Sharp and Dohme Corp.
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Right Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Hib
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>07/21/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>7M55K3343
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>10/30/2014
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Merck Sharp and Dohme Corp.
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Hib
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>09/27/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>7M75K4577
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>05/23/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Merck Sharp and Dohme Corp.
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Right Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Hib
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>05/04/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>7M53K5535
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>10/14/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Merck Sharp and Dohme Corp.
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Polio (IPV)
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>05/14/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>D333PV2444
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>10/03/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>MSanofi Pasteur Inc.
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>SC
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Polio (IPV)
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>07/21/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>D333PV4343
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>03/23/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>MSanofi Pasteur Inc.
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>SC
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Polio (IPV)
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>10/15/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>D333PV4343
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>02/22/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>MSanofi Pasteur Inc.
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>SC
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Pneumococcal conjugate (PCV13)
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>05/18/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>P243V3321
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>01/30/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Pfizer, Inc
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Pneumococcal conjugate (PCV13)
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>07/21/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>P343V8445
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>03/30/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Pfizer, Inc
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Pneumococcal conjugate (PCV13)
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>09/27/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>P853V2175
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>08/30/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Pfizer, Inc
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Right Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Pneumococcal conjugate (PCV13)
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>05/04/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>P853V58544
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>01/18/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Pfizer, Inc
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Rotavirus
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>05/18/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>6359RV543
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>10/29/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>GlaxoSmithKline Biologicals SA
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Rotavirus
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>09/21/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>6359RV933
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>05/10/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>GlaxoSmithKline Biologicals SA
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Thigh Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Influenza
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>09/27/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>D8043IN8738
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>03/12/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Sanofi Pasteur
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Influenza
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>10/20/2015
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>D8043IN8798
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>05/22/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Sanofi Pasteur
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Right Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>FLUZONE QUADRIVALENT
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>10/31/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>0.25
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>Sandra Molina
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>D8043IN8855
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>10/31/2017
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Sanofi Pasteur
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Shoreline Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>Sandra Molina
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>Frank Smith
+		</td></tr>
+		</table>
+		<br/>
+					<table>
+					<tr>
+					<th colspan=1>Element
+					</th>
+					<th colspan=1>Data
+					</th>
+					</tr>
+					<tr>
+					<td colspan=1>VIS Publication Date
+					</td>
+					<td colspan=1>08/19/2014
+					</td></tr>
+					<tr>
+					<td colspan=1>VIS Presentation Date
+					</td>
+					<td colspan=1>07/15/2015
+					</td></tr>
+					<tr>
+					<td colspan=1>vaccine fund pgm elig cat
+					</td>
+					<td colspan=1>Not VFC elig
+					</td></tr>
+					<tr>
+					<td colspan=1>Vaccine funding source
+					</td>
+					<td colspan=1>Private
+					</td></tr>
+					</table>
+					<br/>
+					</fieldset>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Hepatitis A
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>05/15/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>6359RT35
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>01/04/2017
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>GlaxoSmithKline Biologicals SA
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Right Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Hepatitis A
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>09/21/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>Sandra Molina
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>6359RT47
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>11/11/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>GlaxoSmithKline Biologicals SA
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Shoreline Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>Sandra Molina
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>Frank Smith
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>MMR and Varicella
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>10/20/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>7W27V7632
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>12/15/2017
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Merck Sharp and Dohme Corp.
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>SC
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>Menveo
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>10/31/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>0.5
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>Sandra Molina
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>6333FK87
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>10/31/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>GlaxoSmithKline Biologicals SA
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>IM
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Deltoid
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Shoreline Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>Sandra Molina
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>Frank Smith
+		</td></tr>
+		</table>
+		<br/>
+					<table>
+					<tr>
+					<th colspan=1>Element
+					</th>
+					<th colspan=1>Data
+					</th>
+					</tr>
+					<tr>
+					<td colspan=1>vaccine type
+					</td>
+					<td colspan=1>Hepatitis B
+					</td></tr>
+					<tr class='obxGrpSpl'>
+					<td colspan='2'>
+					</td>
+					</tr>
+					<tr>
+					<td colspan=1>VIS Publication Date
+					</td>
+					<td colspan=1>03/31/2016
+					</td></tr>
+					<tr>
+					<td colspan=1>VIS Presentation Date
+					</td>
+					<td colspan=1>07/15/2015
+					</td></tr>
+					<tr>
+					<td colspan=1>vaccine fund pgm elig cat
+					</td>
+					<td colspan=1>Not VFC elig
+					</td></tr>
+					<tr>
+					<td colspan=1>Vaccine funding source
+					</td>
+					<td colspan=1>Private
+					</td></tr>
+					</table>
+					<br/>
+					</fieldset>
+</fieldset>
+<fieldset>
+<legend>Vaccine Administration Information</legend>
+		<table>
+		<tr>
+		<th colspan=1>Element
+		</th>
+		<th colspan=1>Data
+		</th>
+		</tr>
+		<tr>
+		<td colspan=1>Administered Vaccine
+		</td>
+		<td colspan=1>MMR and Varicella
+		</td></tr>
+		<tr>
+		<td colspan=1>Date/Time Start of Administration
+		</td>
+		<td colspan=1>10/20/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Amount
+		</td>
+		<td colspan=1>999
+		</td></tr>
+		<tr>
+		<td colspan=1>Administered Units
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Notes
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Administering Provider
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Lot Number
+		</td>
+		<td colspan=1>7W27V7632
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Expiration Date
+		</td>
+		<td colspan=1>12/15/2016
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance Manufacturer Name
+		</td>
+		<td colspan=1>Merck Sharp and Dohme Corp.
+		</td></tr>
+		<tr>
+		<td colspan=1>Substance/Treatment Refusal Reason
+		</td>
+		<td class='noData' colspan=1>
+		</td></tr>
+		<tr>
+		<td colspan=1>Completion Status
+		</td>
+		<td colspan=1>Complete
+		</td></tr>
+		<tr>
+		<td colspan=1>Action Code
+		</td>
+		<td colspan=1>Add
+		</td></tr>
+		<tr>
+		<td colspan=1>Route
+		</td>
+		<td colspan=1>SC
+		</td></tr>
+		<tr>
+		<td colspan=1>Administration Site
+		</td>
+		<td colspan=1>Left Thigh
+		</td></tr>
+		<tr>
+		<td colspan=1>Entering Organization
+		</td>
+		<td colspan=1>Oceanview Pediatrics
+		</td></tr>
+		<tr>
+		<td colspan=1>Entered By
+		</td>
+		<td colspan=1>J. Martinez
+		</td></tr>
+		<tr>
+		<td colspan=1>Ordered By
+		</td>
+		<td colspan=1>J. Rodriguez
+		</td></tr>
+		</table>
+		<br/>
+</fieldset>
+</div>
+</fieldset></div>
+   </body>
+</html>
