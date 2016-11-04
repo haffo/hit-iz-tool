@@ -100,6 +100,18 @@
         }
     ]);
 
+    mod.directive('testDocuments', [
+        function () {
+            return {
+                restrict: 'A',
+                scope: {
+                    target: '@'
+                },
+                templateUrl: 'TestDocuments.html',
+                controller: 'TestDocumentsCtrl'
+            };
+        }
+    ]);
 
     mod
         .controller('ExampleMessageCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseDetailsService', '$compile', '$timeout', '$modal', function ($scope, $rootScope, $sce, TestCaseDetailsService, $compile, $timeout, $modal) {
@@ -244,6 +256,55 @@
                     TestCaseDetailsService.downloadByPath($scope.testStory.pdfPath, $scope.title);
             };
         }]);
+
+
+
+    mod
+        .controller('TestDocumentsCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseDetailsService', '$compile', '$timeout', '$modal', function ($scope, $rootScope, $sce, TestCaseDetailsService, $compile, $timeout, $modal) {
+            $scope.testDocuments = null;
+            $scope.eId = $scope.target + "-testDocuments";
+            $scope.$on($scope.eId, function (event, testDocuments, title) {
+                $scope.testDocuments = testDocuments;
+            });
+
+            $scope.isLink = function (path) {
+                return path && path != null && path.startsWith("http");
+            };
+
+            $scope.downloadDocument = function (path) {
+                if (path != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadDocument";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "path";
+                    input.value = path;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            };
+
+            $scope.gotToDoc = function (path) {
+                if (path != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadDocument";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "path";
+                    input.value = path;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            }
+
+        }]);
+
 
     mod
         .controller('TestDescriptionCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseDetailsService', '$compile', '$timeout', '$modal', function ($scope, $rootScope, $sce, TestCaseDetailsService, $compile, $timeout, $modal) {
