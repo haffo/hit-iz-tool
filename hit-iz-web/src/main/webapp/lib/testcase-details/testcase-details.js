@@ -100,6 +100,18 @@
         }
     ]);
 
+    mod.directive('supplementDocuments', [
+        function () {
+            return {
+                restrict: 'A',
+                scope: {
+                    target: '@'
+                },
+                templateUrl: 'SupplementDocuments.html',
+                controller: 'SupplementDocumentsCtrl'
+            };
+        }
+    ]);
 
     mod
         .controller('ExampleMessageCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseDetailsService', '$compile', '$timeout', '$modal', function ($scope, $rootScope, $sce, TestCaseDetailsService, $compile, $timeout, $modal) {
@@ -245,6 +257,56 @@
             };
         }]);
 
+
+
+    mod
+        .controller('SupplementDocumentsCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseDetailsService', '$compile', '$timeout', '$modal', function ($scope, $rootScope, $sce, TestCaseDetailsService, $compile, $timeout, $modal) {
+            $scope.supplements = null;
+            $scope.eId = $scope.target + "-supplements";
+            $scope.$on($scope.eId, function (event, supplements, title) {
+                console.log("new supplements catched");
+                $scope.supplements = supplements;
+            });
+
+            $scope.isLink = function (path) {
+                return path && path != null && path.startsWith("http");
+            };
+
+            $scope.downloadDocument = function (path) {
+                if (path != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadDocument";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "path";
+                    input.value = path;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            };
+
+            $scope.gotToDoc = function (path) {
+                if (path != null) {
+                    var form = document.createElement("form");
+                    form.action = "api/documentation/downloadDocument";
+                    form.method = "POST";
+                    form.target = "_target";
+                    var input = document.createElement("input");
+                    input.name = "path";
+                    input.value = path;
+                    form.appendChild(input);
+                    form.style.display = 'none';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            }
+
+        }]);
+
+
     mod
         .controller('TestDescriptionCtrl', ['$scope', '$rootScope', '$sce', 'TestCaseDetailsService', '$compile', '$timeout', '$modal', function ($scope, $rootScope, $sce, TestCaseDetailsService, $compile, $timeout, $modal) {
             $scope.description = null;
@@ -269,6 +331,7 @@
                 $scope.tabs[2] = false;
                 $scope.tabs[3] = false;
                 $scope.tabs[4] = false;
+                $scope.tabs[5] = false;
                 $scope.testCase = testCase;
                 $scope.loading = true;
                 $scope.error = null;
@@ -288,12 +351,14 @@
                     $scope.testCase['jurorDocument'] = result['jurorDocument'];
                     $scope.testCase['testDataSpecification'] = result['testDataSpecification'];
                     $scope.testCase['messageContent'] = result['messageContent'];
+                    $scope.testCase['supplements'] = result['supplements'];
 
                     var tsId = $scope.target + '-testStory';
                     var jDocId = $scope.target + '-jurorDocument';
                     var mcId = $scope.target + '-messageContent';
                     var tdsId = $scope.target + '-testDataSpecification';
                     var descId = $scope.target + '-testDescription';
+                    var supplementsId = $scope.target + '-supplements';
 
                     TestCaseDetailsService.removeHtml(tdsId);
                     TestCaseDetailsService.removeHtml(mcId);
@@ -306,6 +371,8 @@
                     $scope.$broadcast(mcId, $scope.testCase['messageContent'], $scope.testCase.name + "-MessageContent");
                     $scope.$broadcast(tdsId, $scope.testCase['testDataSpecification'], $scope.testCase.name + "-TestDataSpecification");
                     $scope.$broadcast(descId, $scope.testCase['description'], $scope.testCase.name + "-TestDescription");
+                    $scope.$broadcast(supplementsId, $scope.testCase['supplements'], $scope.testCase.name + "-Supplements");
+
                     $scope.loadTestInfo();
                     $scope.loading = false;
                     $scope.error = null;
@@ -315,6 +382,7 @@
                     $scope.testCase['jurorDocument'] = null;
                     $scope.testCase['testDataSpecification'] = null;
                     $scope.testCase['messageContent'] = null;
+                    $scope.testCase['supplements'] = null;
                     $scope.loading = false;
                     $scope.error = "Sorry, could not load the details. Please try again";
                 });
@@ -351,6 +419,12 @@
                     $compile(element.contents())($scope);
                 }
             };
+
+            $scope.loadTestDocuments = function (key) {
+                $scope.loadHtmlContent($scope.target + "-" + key, $scope.testCase[key]);
+            };
+
+
 
 
 //            var getTestType = function (testCase) {
