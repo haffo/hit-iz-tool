@@ -153,6 +153,9 @@
             $scope.eId = $scope.target + "-jurorDocument";
             $scope.$on($scope.eId, function (event, jurorDocument, title) {
                 $scope.jurorDocument = jurorDocument;
+                if($scope.jurorDocument !=null && $scope.jurorDocument.html !=null){
+                    $scope.jurorDocument.html =  TestCaseDetailsService.disableInputs($scope.jurorDocument.html);
+                }
                 $scope.error = null;
                 $scope.title = title;
             });
@@ -203,6 +206,9 @@
             $scope.eId = $scope.target + "-testDataSpecification";
             $scope.$on($scope.eId, function (event, testDataSpecification, title) {
                 $scope.testDataSpecification = testDataSpecification;
+                if($scope.testDataSpecification !=null && $scope.testDataSpecification.html !=null){
+                    $scope.testDataSpecification.html =  TestCaseDetailsService.disableInputs($scope.testDataSpecification.html);
+                }
                 $scope.loading = false;
                 $scope.error = null;
                 $scope.title = title;
@@ -219,6 +225,9 @@
             $scope.eId = $scope.target + "-messageContent";
             $scope.$on($scope.eId, function (event, messageContent, title) {
                 $scope.messageContent = messageContent;
+                if($scope.messageContent !=null && $scope.messageContent.html !=null){
+                    $scope.messageContent.html =  TestCaseDetailsService.disableInputs($scope.messageContent.html);
+                }
                 $scope.title = title;
             });
 
@@ -249,6 +258,9 @@
             $scope.eId = $scope.target + "-testStory";
             $scope.$on($scope.eId, function (event, testStory, title) {
                 $scope.testStory = testStory;
+                if($scope.testStory !=null && $scope.testStory.html !=null){
+                    $scope.testStory.html =  TestCaseDetailsService.disableInputs($scope.testStory.html);
+                }
                 $scope.title = title;
             });
             $scope.download = function () {
@@ -296,6 +308,9 @@
             $scope.eId = $scope.target + "-testDescription";
             $scope.$on($scope.eId, function (event, description, title) {
                 $scope.description = description;
+                if($scope.description !=null){
+                    $scope.description =  TestCaseDetailsService.disableInputs($scope.description);
+                }
                 $scope.title = title;
             });
         }]);
@@ -506,6 +521,11 @@
             }
             return null;
         };
+
+        TestCaseDetailsService.disableInputs = function (content) {
+            return content.replace(new RegExp("<input ", 'g'), "<input disabled='true' ").replace(new RegExp("<textarea ", 'g'), "<textarea disabled='true' ");
+        };
+
 
         TestCaseDetailsService.loadHtmlContent = function (eId, content) {
             if (content && content !== null) {
