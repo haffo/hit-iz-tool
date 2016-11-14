@@ -9,7 +9,7 @@
                       ng-bind="validationResult.errors.categories[0].data.length"></span>
                     Errors
                 </tab-heading>
-                <tabset style="margin-top:5px">
+                 <tabset style="margin-top:5px" ng-show="validationResult.errors.categories.length > 1">
                     <tab ng-repeat="category in validationResult.errors.categories" class="validation-result-subtab"
                          active="subActive.errors[category.title]"
                          ng-if="category.data.length > 0"
@@ -21,17 +21,16 @@
                         </tab-heading>
                     </tab>
                 </tabset>
-            </tab>
+             </tab>
 
             <tab ng-click="showValidationTable(validationResult.warnings.categories[0],'warnings')"
                  ng-if="settings.options.validation.show.warnings"
                  active="active.warnings">
                 <tab-heading>
-
         <span class="badge failure failure-warnings"
               ng-bind="validationResult.warnings.categories[0].data.length"></span> Warnings
                 </tab-heading>
-                <tabset style="margin-top:5px">
+                <tabset style="margin-top:5px" ng-show="validationResult.warnings.categories.length > 1">
                     <tab ng-repeat="category in validationResult.warnings.categories" class="validation-result-subtab"
                          active="subActive.warnings[category.title]"
                          ng-if="category.data.length > 0"
@@ -47,12 +46,11 @@
             <tab ng-click="showValidationTable(validationResult.alerts.categories[0],'alerts')" active="active.alerts"
                  ng-if="settings.options.validation.show.alerts">
                 <tab-heading>
-
                 <span class="badge failure failure-alerts"
                       ng-bind="validationResult.alerts.categories[0].data.length"></span>
                     Alerts
                 </tab-heading>
-                <tabset style="margin-top:5px">
+                <tabset style="margin-top:5px" ng-show="validationResult.alerts.categories.length > 1">
                     <tab ng-repeat="category in validationResult.alerts.categories" class="validation-result-subtab"
                          active="subActive.alerts[category.title]"
                          ng-if="category.data.length > 0"
@@ -69,13 +67,11 @@
             <tab ng-click="showValidationTable(validationResult.affirmatives.categories[0],'affirmatives')"
                  active="active.affirmatives" ng-if="settings.options.validation.show.affirmatives">
                 <tab-heading>
-
-
                 <span class="badge failure failure-affirmatives"
                       ng-bind="validationResult.affirmatives.categories[0].data.length"></span>
                     Affirmatives
                 </tab-heading>
-                <tabset style="margin-top:5px">
+                <tabset style="margin-top:5px" ng-show="validationResult.affirmatives.categories.length > 1">
                     <tab ng-repeat="category in validationResult.affirmatives.categories"
                          class="validation-result-subtab"
                          active="subActive.affirmatives[category.title]"

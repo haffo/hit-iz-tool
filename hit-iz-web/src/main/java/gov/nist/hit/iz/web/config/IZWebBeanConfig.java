@@ -12,19 +12,24 @@
 
 package gov.nist.hit.iz.web.config;
 
-import gov.nist.hit.core.hl7v2.service.HL7V2MessageParser;
-import gov.nist.hit.core.hl7v2.service.HL7V2MessageParserImpl;
-import gov.nist.hit.core.hl7v2.service.HL7V2MessageValidator;
-import gov.nist.hit.core.hl7v2.service.HL7V2ResourcebundleLoaderImpl;
-import gov.nist.hit.core.hl7v2.service.HL7V2ValidationReportConverter;
-import gov.nist.hit.core.hl7v2.service.HL7V2ValidationReportConverterImpl;
-import gov.nist.hit.core.service.ResourcebundleLoader;
-import gov.nist.hit.iz.service.IZHL7V2MessageValidatorImpl;
-import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
-import gov.nist.hit.iz.service.soap.SOAPValidationReportGeneratorImpl;
+import java.io.IOException;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import gov.nist.hit.core.hl7v2.service.HL7V2MessageParser;
+import gov.nist.hit.core.hl7v2.service.HL7V2MessageParserImpl;
+import gov.nist.hit.core.hl7v2.service.HL7V2MessageValidator;
+import gov.nist.hit.core.hl7v2.service.HL7V2ResourceLoaderImpl;
+import gov.nist.hit.core.hl7v2.service.HL7V2ValidationReportConverter;
+import gov.nist.hit.core.hl7v2.service.HL7V2ValidationReportConverterImpl;
+import gov.nist.hit.core.service.ResourceLoader;
+import gov.nist.hit.core.service.exception.ProfileParserException;
+import gov.nist.hit.iz.service.IZHL7V2MessageValidatorImpl;
+import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
+import gov.nist.hit.iz.service.soap.SOAPValidationReportGeneratorImpl;
 
 /**
  * @author Harold Affo (NIST)
@@ -34,33 +39,30 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class IZWebBeanConfig {
 
-  @Bean
-  public HL7V2MessageValidator hl7v2MessageValidator() {
-    return new IZHL7V2MessageValidatorImpl();
-  }
+	@Bean
+	public HL7V2MessageValidator hl7v2MessageValidator() {
+		return new IZHL7V2MessageValidatorImpl();
+	}
 
-  @Bean
-  public HL7V2MessageParser hl7v2MessageParser() {
-    return new HL7V2MessageParserImpl();
-  }
+	@Bean
+	public HL7V2MessageParser hl7v2MessageParser() {
+		return new HL7V2MessageParserImpl();
+	}
 
-  @Bean
-  public ResourcebundleLoader resourcebundleLoader() {
-    HL7V2ResourcebundleLoaderImpl rs = new HL7V2ResourcebundleLoaderImpl();
-    return rs;
-  }
+	@Bean
+	public ResourceLoader resourceLoader() throws JsonProcessingException, ProfileParserException, IOException {
+		HL7V2ResourceLoaderImpl rs = new HL7V2ResourceLoaderImpl();
+		return rs;
+	}
 
+	@Bean
+	public SOAPValidationReportGenerator soapValidationReportGenerator() {
+		return new SOAPValidationReportGeneratorImpl();
+	}
 
-  @Bean
-  public SOAPValidationReportGenerator soapValidationReportGenerator() {
-    return new SOAPValidationReportGeneratorImpl();
-  }
-
-  @Bean
-  public HL7V2ValidationReportConverter validationReportConverter() {
-    return new HL7V2ValidationReportConverterImpl();
-  }
-
-
+	@Bean
+	public HL7V2ValidationReportConverter validationReportConverter() {
+		return new HL7V2ValidationReportConverterImpl();
+	}
 
 }

@@ -118,7 +118,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="doc in docs track by doc.id  | orderBy: '-date'">
+                        <tr ng-repeat="doc in docs | orderBy: '-date'">
                             <td st-ratio="40"> {{::doc.title}}</td>
                             <td st-ratio="35">
                                 <div ng-if="doc.name != null">
