@@ -7,5 +7,9 @@
 		"adminEmail"	:"robert.snelick@nist.gov",
 		"description"	:"",
 		"header" 	:"",
-		"homeTitle":"Welcome to the NIST Immunization Test Suite!"
+		"homeTitle":"Welcome to the NIST Immunization Test Suite!",
+		"fileUpload":{
+ 			"contentTypes" : "application/xml,text/xml,text/plain",
+ 			"maxSize": "10MB"
+		}
  }

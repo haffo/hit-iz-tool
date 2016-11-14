@@ -980,7 +980,7 @@ angular.module('cb')
 
 
 angular.module('cb')
-    .controller('CBValidatorCtrl', ['$scope', '$http', 'CB', '$window', '$timeout', '$modal', 'NewValidationResult', '$rootScope', 'ServiceDelegator', 'StorageService', 'TestExecutionService', 'MessageUtil', function ($scope, $http, CB, $window, $timeout, $modal, NewValidationResult, $rootScope, ServiceDelegator, StorageService, TestExecutionService, MessageUtil) {
+    .controller('CBValidatorCtrl', ['$scope', '$http', 'CB', '$window', '$timeout', '$modal', 'NewValidationResult', '$rootScope', 'ServiceDelegator', 'StorageService', 'TestExecutionService', 'MessageUtil','FileUpload', function ($scope, $http, CB, $window, $timeout, $modal, NewValidationResult, $rootScope, ServiceDelegator, StorageService, TestExecutionService, MessageUtil,FileUpload) {
 
         $scope.cb = CB;
         $scope.testStep = null;
@@ -1049,48 +1049,30 @@ angular.module('cb')
             }
         };
 
-        $scope.options = {
-            acceptFileTypes: /(\.|\/)(txt|text|hl7|xml)$/i,
-            paramName: 'file',
-            formAcceptCharset: 'utf-8',
-            autoUpload: true,
-            type: 'POST'
-        };
 
-                $scope.uploadMessage = function(file, errFiles) {
-        $scope.f = file;
-        $scope.errFile = errFiles && errFiles[0];
-        if (file) {
-            file.upload = Upload.upload({
-                url: 'api/message/upload',
-                data: {file: file}
-            });
-
-            file.upload.then(function (response) {
+        $scope.uploadMessage = function(file, errFiles) {
+            $scope.f = file;
+            FileUpload.uploadMessage(file,errFiles).then(function(response){
                 $timeout(function () {
                     file.result = response.data;
                     var result = response.data;
                     var fileName = file.name;
-                     $scope.nodelay = true;
-                            var tmp = angular.fromJson(result);
-                            $scope.cb.message.name = fileName;
-                            $scope.cb.editor.instance.doc.setValue(tmp.content);
-                            $scope.mError = null;
-                            $scope.execute();
-
-
+                    $scope.nodelay = true;
+                    var tmp = angular.fromJson(result);
+                    $scope.cb.message.name = fileName;
+                    $scope.cb.editor.instance.doc.setValue(tmp.content);
+                    $scope.mError = null;
+                    $scope.execute();
+                    Notification.success({message: "File " + fileName + " successfully uploaded!", templateUrl: "NotificationSuccessTemplate.html", scope: $rootScope, delay: 30000});
                 });
-            }, function (response) {
-                var fileName = file.name;
-                     $scope.cb.message.name = fileName;
-                            $scope.mError = 'Sorry, Cannot upload file: ' + fileName + ", Error: " + errorThrown;
-                        
-            }, function (evt) {
-                file.progress = Math.min(100, parseInt(100.0 * 
-                                         evt.loaded / evt.total));
+            }, function(response){
+                $scope.mError = response.data;
             });
-        }   
-    };
+        };
+
+
+
+
 
         $scope.setLoadRate = function (value) {
             $scope.loadRate = value;

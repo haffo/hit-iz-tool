@@ -123,7 +123,8 @@
                          </span>-->
 
          <button class="btn btn-xs btn-info" type="file" name="file" id="file" ng-hide="isTestCase() && (isTestCaseCompleted() || (testCase.transport === true && user.info != null && !transport.disabled))" ngf-select="uploadMessage($file, $invalidFiles)"
-          ngf-pattern="'.xml,.txt,.er7'" ngf-max-height="1000" ngf-max-size="1MB">
+                 ngf-accept="appInfo.uploadContentTypes"
+                 ngf-pattern="appInfo.uploadContentTypes" ngf-max-size="appInfo.uploadMaxSize">
       <i class="fa fa-folder-open"></i>Browse</button>
 
 

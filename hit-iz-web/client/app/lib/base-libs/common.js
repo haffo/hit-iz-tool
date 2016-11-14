@@ -2114,3 +2114,37 @@ angular.module('format').factory('IdleService',
     });
 
 
+
+angular.module('format').factory('FileUpload', function ($filter, $q, Upload,Notification) {
+    var FileUpload = function () {
+
+    };
+
+    FileUpload.uploadMessage = function (file, errFiles) {
+        var delay = $q.defer();
+        if( errFiles && errFiles[0] ){
+            var errFile =  errFiles[0];
+            var errorMsg = null;
+            if(errFile.$error === 'pattern'){
+                errorMsg = "Unsupported content type. Supported content types are : '" + errFile.$errorParam + "'";
+            }
+            if(errFile.$error === 'maxSize'){
+                errorMsg = "File is too big. Maximum accepted size is : '" + errFile.$errorParam + "'";
+            }
+            delay.reject({"data": errorMsg});
+        }else if (file) {
+            file.upload = Upload.upload({
+                url: 'api/message/upload',
+                data: {file: file}
+            });
+            file.upload.then(function (response) {
+                delay.resolve(response);
+            }, function (response) {
+                delay.reject(response);
+            });
+        }
+        return delay.promise;
+    };
+    return FileUpload;
+
+});

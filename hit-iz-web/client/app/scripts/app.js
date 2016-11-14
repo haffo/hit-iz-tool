@@ -318,14 +318,6 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     $rootScope.sessionExpiredModalInstance = null;
     $rootScope.errorModalInstanceInstance = null;
 
-                 $rootScope.uploadOptions = {
-            acceptFileTypes: /(\.|\/)(txt|text|hl7|xml)$/i,
-            paramName: 'file',
-            formAcceptCharset: 'utf-8',
-            autoUpload: true,
-            type: 'POST'
-        };
-
     function getContextPath() {
         return $window.location.pathname.substring(0, $window.location.pathname.indexOf("/", 2));
     }
