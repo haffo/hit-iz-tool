@@ -68,8 +68,7 @@
 <div id="messagePanel" class="panel panel-info">
     <!-- Default panel contents -->
     <div class="panel-heading">
-        <form id="fileupload" data-file-upload="options" method="POST" enctype="multipart/form-data"
-              data-ng-class="{'fileupload-processing': processing() || loadingFiles}" role="form"
+        <form  role="form"
               class="form-inline">
             <span><i class="glyphicon glyphicon-file"></i> SOAP Envelope</span>
                             <span class="row fileupload-buttonbar  pull-right">
@@ -92,6 +91,12 @@
                         <span></span>
                         <input type="file" name="file" id="file" multiple="false" ng-disabled="disabled">
                          </span>
+
+
+                            <button class="btn btn-xs btn-info" type="file" name="file" id="file" ng-disabled="disabled" ngf-select="uploadMessage($file, $invalidFiles)"
+          ngf-pattern="'.xml,.txt'" ngf-max-height="1000" ngf-max-size="1MB">
+      <i class="fa fa-folder-open"></i>Browse</button>
+
                                 <!--<span class="" ng-bind="fileName"></span>-->
                                 <button title="Download" type="button" class="btn btn-xs btn-info"
                                         ng-click="saveMessage()">

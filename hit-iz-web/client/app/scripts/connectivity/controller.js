@@ -326,14 +326,6 @@ angular.module('connectivity')
         $scope.warningsCollection = [].concat($scope.warnings.data);
         $scope.selectedExampleMessage = {id: -1, content: ''};
         $scope.error = null;
-        $scope.options = {
-//            acceptFileTypes: /(\.|\/)(txt|text|hl7|json)$/i,
-            paramName: 'file',
-            formAcceptCharset: 'utf-8',
-            autoUpload: true,
-            type: 'POST'
-        };
-
         $scope.hasContent = function () {
             return  $scope.request.getContent() != '' && $scope.request.getContent() != null;
         };
@@ -636,17 +628,6 @@ angular.module('connectivity')
 
         $scope.warnings = $scope.validationResult.warnings;
         $scope.warningsCollection = [].concat($scope.warnings.data);
-
-
-        // Options you want to pass to jQuery File Upload e.g.:
-        $scope.options = {
-//            acceptFileTypes: /(\.|\/)(txt|text|hl7|json)$/i,
-            paramName: 'file',
-            formAcceptCharset: 'utf-8',
-            autoUpload: true,
-            type: 'POST'
-        };
-
         $scope.error = null;
 
         $scope.initResponse = function () {

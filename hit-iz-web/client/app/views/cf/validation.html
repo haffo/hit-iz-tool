@@ -50,9 +50,7 @@
                         <div class="row">
                             <div id="messagePanel" class="panel panel-info">
                                 <div class="panel-heading">
-                                    <form id="fileupload" data-file-upload="options" method="POST"
-                                          enctype="multipart/form-data"
-                                          data-ng-class="{'fileupload-processing': processing() || loadingFiles}"
+                                    <form id="fileupload"
                                           role="form"
                                           class="form-inline">
             <span><i class="glyphicon glyphicon-file"></i> Message Content
@@ -113,12 +111,17 @@
                                 </button>
 
 
-                                <span title="Browse" class="btn btn-xs btn-info fileinput-button"
+                                <!--<span title="Browse" class="btn btn-xs btn-info fileinput-button"
                                       ng-class="{disabled: disabled}">
                         <i class="fa fa-folder-open"></i>Browse
                         <span></span>
                         <input type="file" name="file" id="file" multiple="false" ng-disabled="disabled">
-                         </span>
+                         </span>-->
+
+                           <button class="btn btn-xs btn-info" type="file" name="file" id="file" ng-disabled="disabled" ngf-select="uploadMessage($file, $invalidFiles)"
+          ngf-pattern="'.xml,.txt,.er7'" ngf-max-height="1000" ngf-max-size="1MB">
+      <i class="fa fa-folder-open"></i>Browse</button>
+
                                 <button title="Download" type="button" class="btn btn-xs btn-info"
                                         ng-disabled="!hasContent()"
                                         ng-click="saveMessage()">

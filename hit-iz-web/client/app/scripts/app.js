@@ -36,7 +36,6 @@ var app = angular.module('hit-app', [
     'cf',
     'cb',
     'ngTreetable',
-    'blueimp.fileupload',
     'hit-tool-directives',
     'hit-tool-services',
     'commonServices',
@@ -56,7 +55,8 @@ var app = angular.module('hit-app', [
     'documentation',
     'hit-manual-report-viewer',
     'ui-notification',
-     'ociFixedHeader'
+     'ociFixedHeader',
+     'ngFileUpload'
 ]);
 
 
@@ -317,6 +317,14 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     $rootScope.vcModalInstance = null;
     $rootScope.sessionExpiredModalInstance = null;
     $rootScope.errorModalInstanceInstance = null;
+
+                 $rootScope.uploadOptions = {
+            acceptFileTypes: /(\.|\/)(txt|text|hl7|xml)$/i,
+            paramName: 'file',
+            formAcceptCharset: 'utf-8',
+            autoUpload: true,
+            type: 'POST'
+        };
 
     function getContextPath() {
         return $window.location.pathname.substring(0, $window.location.pathname.indexOf("/", 2));

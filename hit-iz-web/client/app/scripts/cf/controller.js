@@ -149,7 +149,7 @@ angular.module('cf').controller('CFProfileInfoCtrl', function ($scope, $modalIns
 });
 
 angular.module('cf')
-    .controller('CFValidatorCtrl',[ '$scope', '$http', 'CF', '$window', '$timeout', '$modal', 'NewValidationResult', '$rootScope', 'ServiceDelegator', 'StorageService', 'TestStepService','MessageUtil',function ($scope, $http, CF, $window, $timeout, $modal, NewValidationResult, $rootScope, ServiceDelegator, StorageService, TestStepService,MessageUtil) {
+    .controller('CFValidatorCtrl',[ '$scope', '$http', 'CF', '$window', '$timeout', '$modal', 'NewValidationResult', '$rootScope', 'ServiceDelegator', 'StorageService', 'TestStepService','MessageUtil', 'Upload','Notification',function ($scope, $http, CF, $window, $timeout, $modal, NewValidationResult, $rootScope, ServiceDelegator, StorageService, TestStepService,MessageUtil,Upload,Notification) {
         $scope.cf = CF;
         $scope.testCase = CF.testCase;
         $scope.message = CF.message;
@@ -204,41 +204,39 @@ angular.module('cf')
             }, 1000);
         };
 
+        $scope.uploadMessage = function(file, errFiles) {
+        $scope.f = file;
+        $scope.errFile = errFiles && errFiles[0];
+        if (file) {
+            file.upload = Upload.upload({
+                url: 'api/message/upload',
+                data: {file: file}
+            });
 
-        $scope.options = {
-//            acceptFileTypes: /(\.|\/)(txt|text|hl7|json)$/i,
-            paramName: 'file',
-            formAcceptCharset: 'utf-8',
-            autoUpload: true,
-            type: 'POST'
-        };
-
-        $scope.$on('fileuploadadd', function (e, data) {
-            if (data.autoUpload || (data.autoUpload !== false &&
-                $(this).fileupload('option', 'autoUpload'))) {
-                data.process().done(function () {
-                    var fileName = data.files[0].name;
-                    data.url = 'api/message/upload';
-                    var jqXHR = data.submit()
-                        .success(function (result, textStatus, jqXHR) {
-                            $scope.nodelay = true;
+            file.upload.then(function (response) {
+                $timeout(function () {
+                    file.result = response.data;
+                    var result = response.data;
+                    var fileName = file.name;
+                    $scope.nodelay = true;
                             var tmp = angular.fromJson(result);
                             $scope.cf.message.name = fileName;
                             $scope.cf.editor.instance.doc.setValue(tmp.content);
                             $scope.mError = null;
                             $scope.execute();
-                        })
-                        .error(function (jqXHR, textStatus, errorThrown) {
-                            $scope.cf.message.name = fileName;
-                            $scope.mError = 'Sorry, Cannot upload file: ' + fileName + ", Error: " + errorThrown;
-                        })
-                        .complete(function (result, textStatus, jqXHR) {
-
-                        });
+                           Notification.success({message: "File "+ fileName + " successfully uploaded!", templateUrl: "NotificationSuccessTemplate.html", scope: $rootScope, delay: 30000});
                 });
-
-            }
-        });
+            }, function (response) {
+                var fileName = file.name;
+                $scope.cf.message.name = fileName;
+                $scope.mError = 'Sorry, Cannot upload file: ' + fileName + ", Error: " + response.data;
+                Notification.error({message: $scope.mError, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 30000});
+            }, function (evt) {
+                file.progress = Math.min(100, parseInt(100.0 * 
+                                         evt.loaded / evt.total));
+            });
+        }   
+    };
 
         $scope.loadMessage = function () {
             if ($scope.cf.testCase.testContext.message && $scope.cf.testCase.testContext.message != null) {
@@ -433,7 +431,6 @@ angular.module('cf')
             $scope.vError = null;
             $scope.initCodemirror();
             $scope.refreshEditor();
-
             $scope.$on('cf:testCaseLoaded', function (event, testCase) {
                 $scope.testCase = testCase;
                 if ($scope.testCase != null) {

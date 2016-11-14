@@ -1050,39 +1050,47 @@ angular.module('cb')
         };
 
         $scope.options = {
-//            acceptFileTypes: /(\.|\/)(txt|text|hl7|json)$/i,
+            acceptFileTypes: /(\.|\/)(txt|text|hl7|xml)$/i,
             paramName: 'file',
             formAcceptCharset: 'utf-8',
             autoUpload: true,
             type: 'POST'
         };
 
-        $scope.$on('fileuploadadd', function (e, data) {
-            if (data.autoUpload || (data.autoUpload !== false &&
-                $(this).fileupload('option', 'autoUpload'))) {
-                data.process().done(function () {
-                    var fileName = data.files[0].name;
-                    data.url = 'api/message/upload';
-                    var jqXHR = data.submit()
-                        .success(function (result, textStatus, jqXHR) {
-                            $scope.nodelay = true;
+                $scope.uploadMessage = function(file, errFiles) {
+        $scope.f = file;
+        $scope.errFile = errFiles && errFiles[0];
+        if (file) {
+            file.upload = Upload.upload({
+                url: 'api/message/upload',
+                data: {file: file}
+            });
+
+            file.upload.then(function (response) {
+                $timeout(function () {
+                    file.result = response.data;
+                    var result = response.data;
+                    var fileName = file.name;
+                     $scope.nodelay = true;
                             var tmp = angular.fromJson(result);
                             $scope.cb.message.name = fileName;
                             $scope.cb.editor.instance.doc.setValue(tmp.content);
                             $scope.mError = null;
                             $scope.execute();
-                        })
-                        .error(function (jqXHR, textStatus, errorThrown) {
-                            $scope.cb.message.name = fileName;
-                            $scope.mError = 'Sorry, Cannot upload file: ' + fileName + ", Error: " + errorThrown;
-                        })
-                        .complete(function (result, textStatus, jqXHR) {
 
-                        });
+
                 });
-            }
-        });
-
+            }, function (response) {
+                var fileName = file.name;
+                     $scope.cb.message.name = fileName;
+                            $scope.mError = 'Sorry, Cannot upload file: ' + fileName + ", Error: " + errorThrown;
+                        
+            }, function (evt) {
+                file.progress = Math.min(100, parseInt(100.0 * 
+                                         evt.loaded / evt.total));
+            });
+        }   
+    };
 
         $scope.setLoadRate = function (value) {
             $scope.loadRate = value;
@@ -1338,7 +1346,6 @@ angular.module('cb')
         });
 
         $scope.initValidation = function () {
-
 
         };
 
