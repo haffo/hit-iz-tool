@@ -190,7 +190,7 @@ angular.module('envelope')
     }]);
 
 angular.module('envelope')
-    .controller('EnvelopeValidatorCtrl', ['$scope', '$http', '$window', 'SOAPFormatter', 'Envelope', 'SOAPEditorUtils', '$rootScope', 'SOAPParser', 'SOAPTreeUtils', 'EnvelopeValidator', '$timeout', 'StorageService', function ($scope, $http, $window, SOAPFormatter, Envelope, SOAPEditorUtils, $rootScope, SOAPParser, SOAPTreeUtils, EnvelopeValidator, $timeout, StorageService) {
+    .controller('EnvelopeValidatorCtrl', ['$scope', '$http', '$window', 'SOAPFormatter', 'Envelope', 'SOAPEditorUtils', '$rootScope', 'SOAPParser', 'SOAPTreeUtils', 'EnvelopeValidator', '$timeout', 'StorageService','FileUpload','Notification', function ($scope, $http, $window, SOAPFormatter, Envelope, SOAPEditorUtils, $rootScope, SOAPParser, SOAPTreeUtils, EnvelopeValidator, $timeout, StorageService,FileUpload,Notification) {
         $scope.testCase = Envelope.testCase;
         $scope.selectedTestCase = Envelope.selectedTestCase;
         $scope.vLoading = true;
@@ -325,41 +325,27 @@ angular.module('envelope')
 
             $scope.setValidationResult({});
             $scope.refreshEditor();
-
-
         };
 
-        $scope.options = {
-//            acceptFileTypes: /(\.|\/)(txt|text|hl7|json)$/i,
-            paramName: 'file',
-            formAcceptCharset: 'utf-8',
-            autoUpload: true,
-            type: 'POST'
-        };
 
-        $scope.$on('fileuploadadd', function (e, data) {
-            if (data.autoUpload || (data.autoUpload !== false &&
-                $(this).fileupload('option', 'autoUpload'))) {
-                data.process().done(function () {
-                    var fileName = data.files[0].name;
-                    data.url = 'api/message/upload';
-                    var jqXHR = data.submit()
-                        .success(function (result, textStatus, jqXHR) {
-                            var tmp = angular.fromJson(result);
-                            $scope.message(result.content);
-                            $scope.uploadError = null;
-                            $scope.fileName = fileName;
-                        })
-                        .error(function (jqXHR, textStatus, errorThrown) {
-                            $scope.fileName = fileName;
-                            $scope.uploadError = 'Sorry, Cannot upload file: ' + fileName + ", Error: " + errorThrown;
-                        })
-                        .complete(function (result, textStatus, jqXHR) {
-
-                        });
+        $scope.uploadMessage = function(file, errFiles) {
+            $scope.f = file;
+            FileUpload.uploadMessage(file,errFiles).then(function(response){
+                $timeout(function () {
+                    file.result = response.data;
+                    var result = response.data;
+                    var fileName = file.name;
+                    var tmp = angular.fromJson(result);
+                    $scope.message(result.content);
+                    $scope.uploadError = null;
+                    $scope.fileName = fileName;
+                    Notification.success({message: "File " + fileName + " successfully uploaded!", templateUrl: "NotificationSuccessTemplate.html", scope: $rootScope, delay: 30000});
                 });
-            }
-        });
+            }, function(response){
+                $scope.uploadError = response.data;
+            });
+        };
+
 
         $scope.getMessageName = function () {
             return Envelope.message.name;

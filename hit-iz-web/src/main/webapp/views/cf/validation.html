@@ -47,7 +47,7 @@
                         <div class="row">
                             <div id="messagePanel" class="panel panel-info">
                                 <div class="panel-heading">
-                                    <form id="fileupload" data-file-upload="options" method="POST" enctype="multipart/form-data" data-ng-class="{'fileupload-processing': processing() || loadingFiles}" role="form" class="form-inline">
+                                    <form id="fileupload" role="form" class="form-inline">
             <span><i class="glyphicon glyphicon-file"></i> Message Content
                     <span style="margin-right:10px"></span>
 
@@ -75,7 +75,7 @@
 
 
             </span>
-                            <span class="row fileupload-buttonbar pull-right">
+                            <span class="row pull-right">
                                 <button title="Validate" type="button" class="btn btn-xs btn-info" ng-show="cf.testCase.testContext.dqa === true" ng-click="showDQAOptions()">
                                     <i class="fa fa-cog"></i>
                                     DQA
@@ -97,11 +97,16 @@
                                 </button>
 
 
-                                <span title="Browse" class="btn btn-xs btn-info fileinput-button" ng-class="{disabled: disabled}">
+                                <!--<span title="Browse" class="btn btn-xs btn-info fileinput-button"
+                                      ng-class="{disabled: disabled}">
                         <i class="fa fa-folder-open"></i>Browse
                         <span></span>
                         <input type="file" name="file" id="file" multiple="false" ng-disabled="disabled">
-                         </span>
+                         </span>-->
+
+                           <button class="btn btn-xs btn-info" type="file" name="file" id="file" ng-disabled="disabled" ngf-select="uploadMessage($file, $invalidFiles)" ngf-accept="appInfo.uploadContentTypes" ngf-pattern="appInfo.uploadContentTypes" ngf-max-size="appInfo.uploadMaxSize">
+      <i class="fa fa-folder-open"></i>Browse</button>
+
                                 <button title="Download" type="button" class="btn btn-xs btn-info" ng-disabled="!hasContent()" ng-click="saveMessage()">
                                     <i class="fa fa-download"></i>Download
                                 </button>

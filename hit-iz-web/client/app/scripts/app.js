@@ -36,7 +36,6 @@ var app = angular.module('hit-app', [
     'cf',
     'cb',
     'ngTreetable',
-    'blueimp.fileupload',
     'hit-tool-directives',
     'hit-tool-services',
     'commonServices',
@@ -56,7 +55,8 @@ var app = angular.module('hit-app', [
     'documentation',
     'hit-manual-report-viewer',
     'ui-notification',
-     'ociFixedHeader'
+     'ociFixedHeader',
+     'ngFileUpload'
 ]);
 
 
