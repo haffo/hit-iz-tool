@@ -83,7 +83,7 @@
                          </span>
 
 
-                            <button class="btn btn-xs btn-info" type="file" name="file" id="file" ng-disabled="disabled" ngf-select="uploadMessage($file, $invalidFiles)" ngf-pattern="'.xml,.txt'" ngf-max-height="1000" ngf-max-size="1MB">
+                            <button class="btn btn-xs btn-info" type="file" name="file" id="file" ng-disabled="disabled" ngf-select="uploadMessage($file, $invalidFiles)" ngf-accept="appInfo.uploadContentTypes" ngf-pattern="appInfo.uploadContentTypes" ngf-max-size="appInfo.uploadMaxSize">
       <i class="fa fa-folder-open"></i>Browse</button>
 
                                 <!--<span class="" ng-bind="fileName"></span>-->
