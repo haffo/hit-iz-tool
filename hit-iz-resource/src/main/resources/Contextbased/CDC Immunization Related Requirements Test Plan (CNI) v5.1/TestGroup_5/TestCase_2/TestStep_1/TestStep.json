@@ -1,0 +1,6 @@
+{
+  "name" : "Record Combo Vaccine administration",
+  "description" : "The EMR is able to document all attributes associated with the new vaccine administration.",
+  "type" : "SUT_MANUAL",
+  "position" : 1
+}
