@@ -1,4 +1,5 @@
 {
+  "id" : 447229,
   "name" : "Transmit the immunization report to the Immunization Registry",
   "description" : "The EMR send the Immunization Report to the Immunization Registry (VXU/Z22) for updated vaccination information from the visit. This includes all newly administered vaccines and may include historical information updated in the EMR during the visit.",
   "type" : "SUT_INITIATOR",

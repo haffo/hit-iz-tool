@@ -1,4 +1,5 @@
 {
+  "id" : 175825,
   "name" : "Transmit the Immunization Report for Juana Maria Gonzales Morales - warning handling",
   "description" : "The EMR sends the Immunization Report to the Immunization Registry (VXU/Z22) for updated vaccination information from the visit. This will result in a warning from the IIS to assess the EMR ability to receive and display the warning.",
   "type" : "SUT_INITIATOR",

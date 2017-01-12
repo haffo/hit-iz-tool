@@ -1,4 +1,5 @@
 {
+  "id" : 401377,
   "name" : "Enter Initial Immunization Data for Juana Mariana Gonzales Reported by Parent",
   "description" : "Patient History from a pharmacy as reported by the parent is entered into the EMR.",
   "type" : "SUT_MANUAL",

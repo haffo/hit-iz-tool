@@ -1,4 +1,5 @@
 {
+  "id" : 607192,
   "name" : "Enter Initial Clinical Information for Mariela",
   "description" : "The EHR captures structured data indicating that Mariela has a fever in the current visit.",
   "type" : "SUT_MANUAL",

@@ -1,4 +1,5 @@
 {
+  "id" : 60843,
   "name" : "Records Influenza Vaccine administration with VFC eligibility checking",
   "description" : "The provider records the vaccine administration from a VFC source and alerted that the patient is not VFC eligible.",
   "type" : "SUT_MANUAL",

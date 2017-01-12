@@ -1,4 +1,5 @@
 {
+  "id" : 301348,
   "name" : "Enter Initial Demographic Data for Juana Maria Gonzales Morales",
   "description" : "Juana Maria Gonzales Morales, infant twin, is entered as a new patient in the EMR, including all pediatric demographic information.",
   "type" : "SUT_MANUAL",

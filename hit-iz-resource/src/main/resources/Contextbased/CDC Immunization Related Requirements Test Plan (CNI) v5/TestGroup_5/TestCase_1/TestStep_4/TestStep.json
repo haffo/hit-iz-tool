@@ -1,4 +1,5 @@
 {
+  "id" : 1052510,
   "name" : "Query Registry for vaccination history and forecast no persons found response",
   "description" : "Vendor SHALL be able to Generate a Z44 Query correctly and without ommission according to supplied test data",
   "type" : "SUT_INITIATOR",
