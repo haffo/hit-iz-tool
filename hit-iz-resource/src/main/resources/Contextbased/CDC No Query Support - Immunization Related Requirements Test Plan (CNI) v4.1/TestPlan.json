@@ -1,4 +1,5 @@
 {
+  "id" : 763313,
   "name" : "CDC No Query Support - Immunization Related Requirements Test Plan (CNI) v4.1",
   "description" : "This test plan is to be used for the testing of the CDC EHR Immunization Related Requirements developed under Contract-No: 200-2014-60994 for testing products that are not able to support the Immunization Registry Query/Response functions. All test cases are required to be executed, including test steps related to the Registry Query/Response. While the system under test will not be able to perform those functions, the rationale will be documented in the tool. The test plan includes both functional and interoperability tests including Vaccine Update Notifications (HL7 V2.5.1 VXU/Z22) and Query and Response (Evaluated History and Forecast Group Z44/Z42). This test plan utilizes data entry to record the full vaccination history for each patient during the Initial Data Load rather than importing from the HL7 Query Response message (Z42).<br><br>",
   "type" : "Isolated",

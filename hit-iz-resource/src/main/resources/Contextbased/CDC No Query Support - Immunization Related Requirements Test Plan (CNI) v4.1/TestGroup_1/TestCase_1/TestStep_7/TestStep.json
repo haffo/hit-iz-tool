@@ -1,4 +1,5 @@
 {
+  "id" : 824653,
   "name" : "Enter HepB Dose1 and 3 of 3",
   "description" : "<span style=\"font-size:10.0pt;line-height:107%;\r\nfont-family:\"Arial\",sans-serif;mso-fareast-font-family:\"Times New Roman\";\r\ncolor:#4F4F4F;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:\r\nAR-SA\">Patient History for HepB is entered into the EMR.</span>",
   "type" : "SUT_MANUAL",

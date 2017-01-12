@@ -1,4 +1,5 @@
 {
+  "id" : 725435,
   "name" : "Transmit the Immunization Report for Mariela Gonzales Morales",
   "description" : "The EMR sends the Immunization Report to the Immunization Registry (VXU/Z22) for updated vaccination information from the visit. This includes the vaccine deferral and may include historical information updated in the EMR during the visit.",
   "type" : "SUT_INITIATOR",

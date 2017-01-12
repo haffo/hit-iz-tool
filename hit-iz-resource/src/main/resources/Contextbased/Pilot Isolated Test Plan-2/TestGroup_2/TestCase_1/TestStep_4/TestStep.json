@@ -1,4 +1,5 @@
 {
+  "id" : 12572,
   "name" : "Mark first MMRV Dose as Invalid",
   "description" : "If the EHR does not already flag the first MMRV as invalid, the provider updates the first MMRV to indicate it is ?invalid? as it was given too early (as notified by the registry).",
   "type" : "SUT_MANUAL",

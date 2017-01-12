@@ -1,4 +1,5 @@
 {
+  "id" : 402858,
   "name" : "Transmit Delete from Bad Lot",
   "description" : "The Provider receives notification that the Hepatitis B vaccine lot 6352FK2 has been identified as a bad lot. A delete notification for the Hepatitis B vaccination administered is transmitted to the Immunization Registry.",
   "type" : "SUT_INITIATOR",

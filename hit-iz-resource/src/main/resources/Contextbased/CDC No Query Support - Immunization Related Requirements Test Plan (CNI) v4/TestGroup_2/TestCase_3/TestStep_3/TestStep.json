@@ -1,4 +1,5 @@
 {
+  "id" : 658402,
   "name" : "Record an adverse reaction",
   "description" : "The Provider records in the EMR an adverse reaction of persistent, inconsolable crying lasting > 3 hours within 48 hours of dose.",
   "type" : "SUT_MANUAL",

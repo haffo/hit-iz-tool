@@ -1,4 +1,5 @@
 {
+  "id" : 552773,
   "name" : "Orders administration of DTaP vaccine and alerted that the dose is too early",
   "description" : "The provider orders a DTaP vaccine (dose 5). The EMR provides an alert that the vaccine dose is too early.",
   "type" : "SUT_MANUAL",

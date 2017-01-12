@@ -1,4 +1,5 @@
 {
+  "id" : 472572,
   "name" : "Order meningococcal vaccine for congenital asplenia indication",
   "description" : "Due to the congenital asplenia indication, the EMR recommends Menveo vaccine.",
   "type" : "SUT_MANUAL",

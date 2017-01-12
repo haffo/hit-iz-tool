@@ -1,4 +1,5 @@
 {
+  "id" : 1073625,
   "name" : "Select Patient Juana Mariana Vazquez",
   "description" : "Select patient Juana Mariana Vazquez, distinguishing the patient from other patients with similar demographics (similar names).",
   "type" : "SUT_MANUAL",

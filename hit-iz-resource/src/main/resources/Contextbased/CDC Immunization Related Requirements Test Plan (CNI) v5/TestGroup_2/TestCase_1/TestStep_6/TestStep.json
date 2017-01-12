@@ -1,4 +1,5 @@
 {
+  "id" : 238737,
   "name" : "Reconcile and import vaccinations from Evaluated History and Forecast for Juana Mariana Vazquez",
   "description" : "The Provider uses the EMR to compare the immunization history results (Z42) returned by the Immunization Registry in response to the Z44 Query with the immunization history in the local system, and reconcile (import/update) records.",
   "type" : "SUT_MANUAL",
