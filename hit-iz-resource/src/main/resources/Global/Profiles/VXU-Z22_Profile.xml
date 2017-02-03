@@ -599,12 +599,39 @@
 		<Segment ID="OBX_IZ 1_5" Label="OBX_IZ 1_5" Name="OBX" Description="Observation/Result">
 			<DynamicMapping>
 				<Mapping Position="5" Reference="2">
+					<!--Existing Cases-->
 					<Case Value="CE" Datatype="CE_IZ"/>
 					<Case Value="DT" Datatype="DT"/>
 					<Case Value="TS" Datatype="TS"/>
 					<Case Value="ST" Datatype="ST"/>
 					<Case Value="NM" Datatype="NM"/>
 					<Case Value="ID" Datatype="ID"/>
+					
+					<!--Added Cases by 0125-->
+					<Case Value="CQ" Datatype="CQ"/>
+					<Case Value="CWE" Datatype="CWE"/>
+					<Case Value="CX" Datatype="CX"/>
+					<Case Value="DTM" Datatype="DTM"/>
+					<Case Value="EI" Datatype="EI"/>
+					<Case Value="FN" Datatype="FN"/>
+					<Case Value="FT" Datatype="FT"/>
+					<Case Value="HD" Datatype="HD"/>
+					<Case Value="IS" Datatype="IS"/>
+					<Case Value="SAD" Datatype="SAD"/>
+					<Case Value="SI" Datatype="SI"/>
+					<Case Value="XAD" Datatype="XAD"/>
+					<Case Value="XCN" Datatype="XCN"/>
+					<Case Value="XON" Datatype="XON"/>
+					<Case Value="XPN" Datatype="XPN"/>
+					<Case Value="XTN" Datatype="XTN"/>
+					
+					<!-- These DTs don't make sence, even 0125 has these 
+					<Case Value="ERL" Datatype="ERL"/>
+					<Case Value="LA2" Datatype="LA2"/>
+					<Case Value="MSG" Datatype="MSG"/>
+					<Case Value="PT" Datatype="PT"/>
+					<Case Value="VID" Datatype="VID"/>
+					-->
 				</Mapping>
 			</DynamicMapping>
 			<Field Name="Set ID - OBX" Usage="R" Min="1" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00569"/>
