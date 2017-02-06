@@ -596,18 +596,22 @@
 			<Field Name="Routing Instruction" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="01315"/>
 			<Field Name="Administration Site Modifier" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="250" Binding="HL70495" BindingStrength="R" BindingLocation="1" ItemNo="01670"/>
 		</Segment>
-		<Segment ID="OBX_IZ 1_5" Label="OBX_IZ 1_5" Name="OBX" Description="Observation/Result">
+		<Segment ID="OBX_IZ 1_5" Label="OBX_IZ 1_5" Name="OBX" Description="Observation/Result">			
 			<DynamicMapping>
-				<Mapping Position="5" Reference="2">
+				<Mapping Position="5" Reference="2" SecondReference="3.1">
 					<!--Existing Cases-->
-					<Case Value="CE" Datatype="CE_IZ"/>
+					<Case Value="CE" SecondValue="64994-7" Datatype="CE_IZ"/>
+					<Case Value="CE" SecondValue="69764-9" Datatype="CE_IZ"/>
+					<Case Value="CE" SecondValue="30956-7" Datatype="CE_IZ"/>
+					<Case Value="CE" Datatype="CE"/>
 					<Case Value="DT" Datatype="DT"/>
 					<Case Value="TS" Datatype="TS"/>
 					<Case Value="ST" Datatype="ST"/>
 					<Case Value="NM" Datatype="NM"/>
 					<Case Value="ID" Datatype="ID"/>
 					
-					<!--Added Cases by 0125-->
+					<!--New Cases added by 0125-->
+					<Case Value="CNE" Datatype="CNE"/>
 					<Case Value="CQ" Datatype="CQ"/>
 					<Case Value="CWE" Datatype="CWE"/>
 					<Case Value="CX" Datatype="CX"/>
@@ -619,19 +623,18 @@
 					<Case Value="IS" Datatype="IS"/>
 					<Case Value="SAD" Datatype="SAD"/>
 					<Case Value="SI" Datatype="SI"/>
+					<Case Value="TX" Datatype="TX"/>
 					<Case Value="XAD" Datatype="XAD"/>
 					<Case Value="XCN" Datatype="XCN"/>
 					<Case Value="XON" Datatype="XON"/>
 					<Case Value="XPN" Datatype="XPN"/>
 					<Case Value="XTN" Datatype="XTN"/>
 					
-					<!-- These DTs don't make sence, even 0125 has these 
-					<Case Value="ERL" Datatype="ERL"/>
+					<!-- Following DTs were added because of No base DT definition-->
 					<Case Value="LA2" Datatype="LA2"/>
-					<Case Value="MSG" Datatype="MSG"/>
-					<Case Value="PT" Datatype="PT"/>
-					<Case Value="VID" Datatype="VID"/>
-					-->
+					<Case Value="ED" Datatype="ED"/>
+					<Case Value="RP" Datatype="RP"/>
+					<Case Value="SN" Datatype="SN"/>
 				</Mapping>
 			</DynamicMapping>
 			<Field Name="Set ID - OBX" Usage="R" Min="1" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00569"/>
@@ -1190,6 +1193,43 @@
 			<Component Name="To Value" Usage="O" Datatype="NM" MinLength="1" MaxLength="16"/>
 			<Component Name="Range Units" Usage="O" Datatype="CE" MinLength="1" MaxLength="483"/>
 			<Component Name="Range Type" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70298" BindingStrength="R"/>
+		</Datatype>
+		<Datatype ID="LA2" Label="LA2" Name="LA2" Description="Location with Address Variation 2">
+			<Component Name="Point of Care" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70302" BindingStrength="R"/>
+			<Component Name="Room" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70303" BindingStrength="R"/>
+			<Component Name="Bed" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70304" BindingStrength="R"/>
+			<Component Name="Facility" Usage="R" Datatype="HD" MinLength="1" MaxLength="227" Binding="HL70362" BindingStrength="R" BindingLocation="1"/>
+			<Component Name="Location Status" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70306" BindingStrength="R"/>
+			<Component Name="Patient Location Type" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70305" BindingStrength="R"/>
+			<Component Name="Building" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70307" BindingStrength="R"/>
+			<Component Name="Floor" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70308" BindingStrength="R"/>
+			<Component Name="Street Address" Usage="O" Datatype="ST" MinLength="1" MaxLength="120"/>
+			<Component Name="Other Designation" Usage="O" Datatype="ST" MinLength="1" MaxLength="120"/>
+			<Component Name="City" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
+			<Component Name="State or Province" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
+			<Component Name="Zip or Postal Code" Usage="O" Datatype="ST" MinLength="1" MaxLength="12"/>
+			<Component Name="Country" Usage="O" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70399" BindingStrength="R"/>
+			<Component Name="Address Type" Usage="O" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70190" BindingStrength="R"/>
+			<Component Name="Other Geographic Designation" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
+		</Datatype>
+		<Datatype ID="ED" Name="ED" Label="ED" Description="Encapsulated Data">
+			<Component Name="Source Application" Usage="O" Datatype="HD" MinLength="0" MaxLength="1027" ConfLength="1"/>
+			<Component Name="Type of Data" Usage="R" Datatype="ID" MinLength="0" MaxLength="11" ConfLength="1" Binding="0834"/>
+			<Component Name="Data Subtype" Usage="O" Datatype="ID" MinLength="0" MaxLength="32" ConfLength="1" Binding="0291"/>
+			<Component Name="Encoding" Usage="R" Datatype="ID" MinLength="0" MaxLength="6" ConfLength="1" Binding="0299"/>
+			<Component Name="Data" Usage="R" Datatype="TX" MinLength="0" MaxLength="*" ConfLength="1"/>
+		</Datatype>
+		<Datatype ID="RP" Name="RP" Label="RP" Description="Reference Pointer">
+			<Component Name="Pointer" Usage="O" Datatype="ST" MinLength="0" MaxLength="999" ConfLength="1"/>
+			<Component Name="Aplication ID" Usage="O" Datatype="HD" MinLength="0" MaxLength="1027" ConfLength="1"/>
+			<Component Name="Type of Data" Usage="O" Datatype="ID" MinLength="0" MaxLength="11" ConfLength="1" Binding="0834"/>
+			<Component Name="Subtype" Usage="O" Datatype="ID" MinLength="0" MaxLength="32" ConfLength="1" Binding="0291"/>
+		</Datatype>
+		<Datatype ID="SN" Name="SN" Label="SN" Description="Structured Numeric">
+			<Component Name="Comparator" Usage="O" Datatype="ST" MinLength="0" MaxLength="2" ConfLength="1"/>
+			<Component Name="Num1" Usage="O" Datatype="NM" MinLength="0" MaxLength="15" ConfLength="1"/>
+			<Component Name="Separator/Suffix" Usage="O" Datatype="ST" MinLength="0" MaxLength="1" ConfLength="1"/>
+			<Component Name="Num2" Usage="O" Datatype="NM" MinLength="0" MaxLength="15" ConfLength="1"/>
 		</Datatype>
 	</Datatypes>
 </ConformanceProfile>
