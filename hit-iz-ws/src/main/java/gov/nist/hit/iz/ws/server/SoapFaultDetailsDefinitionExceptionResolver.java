@@ -1,13 +1,5 @@
 package gov.nist.hit.iz.ws.server;
 
-import gov.nist.hit.core.transport.exception.TransportServerException;
-import gov.nist.hit.iz.ws.jaxb.MessageTooLargeFaultType;
-import gov.nist.hit.iz.ws.jaxb.SecurityFaultType;
-import gov.nist.hit.iz.ws.jaxb.SoapFaultType;
-import gov.nist.hit.iz.ws.jaxb.UnsupportedOperationFaultType;
-import gov.nist.hit.iz.ws.server.exception.MessageTooLargeException;
-import gov.nist.hit.iz.ws.utils.WsdlUtil;
-
 import java.io.IOException;
 import java.math.BigInteger;
 
@@ -23,17 +15,20 @@ import org.springframework.ws.soap.SoapFaultDetail;
 import org.springframework.ws.soap.server.endpoint.SoapFaultMappingExceptionResolver;
 import org.springframework.xml.transform.StringSource;
 
-public class SoapFaultDetailsDefinitionExceptionResolver extends
-		SoapFaultMappingExceptionResolver {
+import gov.nist.hit.core.transport.exception.TransportServerException;
+import gov.nist.hit.iz.ws.jaxb.MessageTooLargeFaultType;
+import gov.nist.hit.iz.ws.jaxb.SecurityFaultType;
+import gov.nist.hit.iz.ws.jaxb.SoapFaultType;
+import gov.nist.hit.iz.ws.jaxb.UnsupportedOperationFaultType;
+import gov.nist.hit.iz.ws.server.exception.MessageTooLargeException;
+import gov.nist.hit.iz.ws.utils.WsdlUtil;
 
-	private static final BigInteger MESSAGETOOLARGEFAULT_CODE = BigInteger
-			.valueOf(1000);
-	private static final BigInteger SECURITYFAULT_CODE = BigInteger
-			.valueOf(2000);
-	private static final BigInteger UNSUPPORTEDOPERATIONFAULT_CODE = BigInteger
-			.valueOf(3000);
-	private static final BigInteger UNKNOWNFAULT_CODE = BigInteger
-			.valueOf(4000);
+public class SoapFaultDetailsDefinitionExceptionResolver extends SoapFaultMappingExceptionResolver {
+
+	private static final BigInteger MESSAGETOOLARGEFAULT_CODE = BigInteger.valueOf(1000);
+	private static final BigInteger SECURITYFAULT_CODE = BigInteger.valueOf(2000);
+	private static final BigInteger UNSUPPORTEDOPERATIONFAULT_CODE = BigInteger.valueOf(3000);
+	private static final BigInteger UNKNOWNFAULT_CODE = BigInteger.valueOf(4000);
 
 	@Override
 	protected void customizeFault(Object endpoint, Exception ex, SoapFault fault) {
@@ -59,13 +54,12 @@ public class SoapFaultDetailsDefinitionExceptionResolver extends
 		MessageTooLargeFaultType faultDocument = new MessageTooLargeFaultType();
 		faultDocument.setCode(MESSAGETOOLARGEFAULT_CODE);
 		faultDocument.setDetail(e.getMessage());
-		faultDocument.setReason("MessageTooLargeFault");
+		faultDocument.setReason("MessageTooLarge");
 		try {
 			Transformer trn = TransformerFactory.newInstance().newTransformer();
 			SoapFaultDetail faultDetail = fault.addFaultDetail();
 			Result result = faultDetail.getResult();
-			trn.transform(new StringSource(WsdlUtil.toString(faultDocument)),
-					result);
+			trn.transform(new StringSource(WsdlUtil.toString(faultDocument)), result);
 		} catch (TransformerException ex) {
 			logger.error("problem with XML transform: ", ex);
 		} catch (XmlMappingException e1) {
@@ -86,13 +80,12 @@ public class SoapFaultDetailsDefinitionExceptionResolver extends
 		SecurityFaultType faultDocument = new SecurityFaultType();
 		faultDocument.setCode(SECURITYFAULT_CODE);
 		faultDocument.setDetail(e.getMessage());
-		faultDocument.setReason("SecurityFault");
+		faultDocument.setReason("Security");
 		try {
 			Transformer trn = TransformerFactory.newInstance().newTransformer();
 			SoapFaultDetail faultDetail = fault.addFaultDetail();
 			Result result = faultDetail.getResult();
-			trn.transform(new StringSource(WsdlUtil.toString(faultDocument)),
-					result);
+			trn.transform(new StringSource(WsdlUtil.toString(faultDocument)), result);
 		} catch (TransformerException ex) {
 			logger.error("problem with XML transform: ", ex);
 		} catch (XmlMappingException e1) {
@@ -114,13 +107,12 @@ public class SoapFaultDetailsDefinitionExceptionResolver extends
 		UnsupportedOperationFaultType faultDocument = new UnsupportedOperationFaultType();
 		faultDocument.setCode(UNSUPPORTEDOPERATIONFAULT_CODE);
 		faultDocument.setDetail(e.getMessage());
-		faultDocument.setReason("UnsupportedOperationFault");
+		faultDocument.setReason("UnsupportedOperation");
 		try {
 			Transformer trn = TransformerFactory.newInstance().newTransformer();
 			SoapFaultDetail faultDetail = fault.addFaultDetail();
 			Result result = faultDetail.getResult();
-			trn.transform(new StringSource(WsdlUtil.toString(faultDocument)),
-					result);
+			trn.transform(new StringSource(WsdlUtil.toString(faultDocument)), result);
 		} catch (TransformerException ex) {
 			logger.error("problem with XML transform: ", ex);
 		} catch (XmlMappingException e1) {
@@ -141,13 +133,12 @@ public class SoapFaultDetailsDefinitionExceptionResolver extends
 		SoapFaultType faultDocument = new SoapFaultType();
 		faultDocument.setCode(UNKNOWNFAULT_CODE);
 		faultDocument.setDetail(e.getMessage());
-		faultDocument.setReason("UnknownFault");
+		faultDocument.setReason("Unknown");
 		try {
 			Transformer trn = TransformerFactory.newInstance().newTransformer();
 			SoapFaultDetail faultDetail = fault.addFaultDetail();
 			Result result = faultDetail.getResult();
-			trn.transform(new StringSource(WsdlUtil.toString(faultDocument)),
-					result);
+			trn.transform(new StringSource(WsdlUtil.toString(faultDocument)), result);
 		} catch (TransformerException ex) {
 			logger.error("problem with XML transform: ", ex);
 		} catch (XmlMappingException e1) {
@@ -168,13 +159,12 @@ public class SoapFaultDetailsDefinitionExceptionResolver extends
 		SoapFaultType faultDocument = new SoapFaultType();
 		faultDocument.setCode(UNKNOWNFAULT_CODE);
 		faultDocument.setDetail(e.getMessage());
-		faultDocument.setReason("UnknownFault");
+		faultDocument.setReason("Unknown");
 		try {
 			Transformer trn = TransformerFactory.newInstance().newTransformer();
 			SoapFaultDetail faultDetail = fault.addFaultDetail();
 			Result result = faultDetail.getResult();
-			trn.transform(new StringSource(WsdlUtil.toString(faultDocument)),
-					result);
+			trn.transform(new StringSource(WsdlUtil.toString(faultDocument)), result);
 		} catch (TransformerException ex) {
 			logger.error("problem with XML transform: ", ex);
 		} catch (XmlMappingException e1) {
