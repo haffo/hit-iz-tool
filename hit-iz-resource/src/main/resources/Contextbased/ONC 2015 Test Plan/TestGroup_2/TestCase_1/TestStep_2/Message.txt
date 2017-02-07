@@ -4,7 +4,7 @@ QAK|IZ-1.1-2015|OK|Z44^Request Evaluated History and Forecast^CDCPHINVS
 QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS|IZ-1.1-2015|171122^^^NIST-MPI-1^MR|Fairchild^Cameron^A^^^^L|Fairlady^^^^^^M|20090214|M|105 Laurel Run Rd^^Bozeman^MT^^^P
 PID|1||171122^^^NIST-MPI-1^MR~34500907^^^NIST-IIS-MPI^SR||Fairchild^Cameron^A^^^^L||20090214|M|||105 Laurel Run Rd^^Bozeman^MT^^^P
 ORC|RE||197023^NIST-AA-IZ-2||||||||||||||NISTEHRFAC^NISTEHRFacility^HL70362
-RXA|0|1|20090415||31^Hep B Peds NOS^CVX|999|||01^historical record^NIP001|||||||||||CP
+RXA|0|1|20090415||45^Hep B Unspec^CVX|999|||01^historical record^NIP001|||||||||||CP
 OBX|1|CE|30956-7^vaccine type^LN|1|45^Hep B NOS^CVX||||||F|||20151031
 OBX|2|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20151031
 OBX|3|ID|59781-5^dose validity^LN|1|Y||||||F|||20151031

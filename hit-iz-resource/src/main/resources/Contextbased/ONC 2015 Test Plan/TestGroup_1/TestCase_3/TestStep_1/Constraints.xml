@@ -555,11 +555,11 @@
     <Context List="9[*]">
       <Pattern>
         <Trigger>
-          <ErrorMessage>Invalid content (based on test case fixed data). The value at ORDER.RXA-5.1 (Identifier) does not match one of the expected values: '58160-0830-05','58160-0830-52','58160-0830-34','58160-0830-43'</ErrorMessage>
+          <ErrorMessage>Invalid content (based on test case fixed data). The value at ORDER.RXA-5.1 (Identifier) does not match one of the expected values: '00006-4121-01','00006-4119-03','00006-4121-02','00006-4119-02', and '00006-4119-01'</ErrorMessage>
           <Assertion>
             <AND>
               <Presence Path="3[1].5[1].1[1]"/>
-              <StringList CSV="58160-0830-05,58160-0830-52,58160-0830-34,58160-0830-43" IgnoreCase="false" Path="3[1].5[1].1[1]"/>
+              <StringList CSV="00006-4121-01,00006-4119-03,00006-4121-02,00006-4119-02,00006-4119-01" IgnoreCase="false" Path="3[1].5[1].1[1]"/>
             </AND>
           </Assertion>
         </Trigger>
@@ -882,9 +882,9 @@
           <Constraint ID="Content" Target="3[1].17[1].1[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER.RXA[1].17[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
             <Description>Invalid content (based on test case fixed data). The value at
-              ORDER.RXA-17.1 (Identifier) does not match the expected value: 'SKB'.</Description>
+              ORDER.RXA-17.1 (Identifier) does not match the expected value: 'MSD'.</Description>
             <Assertion>
-              <PlainText IgnoreCase="true" Path="3[1].17[1].1[1]" Text="SKB"/>
+              <PlainText IgnoreCase="true" Path="3[1].17[1].1[1]" Text="MSD"/>
             </Assertion>
           </Constraint>
           <Constraint ID="Content" Target="3[1].17[1].2[1]">
@@ -1571,9 +1571,9 @@
                   <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="ORDER.OBSERVATION.OBX[1].5[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
                   <Description>Invalid content (based on test case fixed data). The value at
                     ORDER.OBSERVATION.OBX-5.1 (Observation Value) does not match the expected
-                    value: '253088698300007311110503'.</Description>
+                    value: '253088698300029511161202'.</Description>
                   <Assertion>
-                    <PlainText IgnoreCase="true" Path="1[1].5[1].1[1]" Text="253088698300007311110503"/>
+                    <PlainText IgnoreCase="true" Path="1[1].5[1].1[1]" Text="253088698300029511161202"/>
                   </Assertion>
                 </Constraint>
                 <Constraint ID="Content" Target="1[1].5[1].2[1]">

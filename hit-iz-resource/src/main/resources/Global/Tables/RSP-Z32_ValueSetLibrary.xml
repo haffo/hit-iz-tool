@@ -2568,5 +2568,37 @@
 		<ValueSetDefinition BindingIdentifier="HL70032" Name="Charge/Price Indicator">
 			<ValueElement Value="..." CodeSystem="HL70032" DisplayName="no suggested values"/>
 		</ValueSetDefinition>
+		
+		<ValueSetDefinition BindingIdentifier="HL70291" Name="Subtype of referenced data">
+			<ValueElement Value="JOT" CodeSystem="HL70291" DisplayName="Electronic ink data (Jot 1.0 standard)"/>
+			<ValueElement Value="x-hl7-cda-level-one" CodeSystem="HL70291" DisplayName="HL7 Clinical Document Architecture Level One document"/>
+			<ValueElement Value="BASIC" CodeSystem="HL70291" DisplayName="ISDN PCM audio data"/>
+			<ValueElement Value="PICT" CodeSystem="HL70291" DisplayName="PICT format image data"/>
+			<ValueElement Value="GIF" CodeSystem="HL70291" DisplayName="Graphics Interchange Format"/>
+			<ValueElement Value="SGML" CodeSystem="HL70291" DisplayName="Standard Generalized Markup Language (HL7 V2.3.1 and later)"/>
+			<ValueElement Value="JPEG" CodeSystem="HL70291" DisplayName="Joint Photographic Experts Group"/>
+			<ValueElement Value="XML" CodeSystem="HL70291" DisplayName="Extensible Markup Language (HL7 V2.3.1 and later)"/>
+			<ValueElement Value="DICOM" CodeSystem="HL70291" DisplayName="Digital Imaging and Communications in Medicine"/>
+			<ValueElement Value="PostScript" CodeSystem="HL70291" DisplayName="PostScript program"/>
+			<ValueElement Value="HTML" CodeSystem="HL70291" DisplayName="Hypertext Markup Language"/>
+			<ValueElement Value="TIFF" CodeSystem="HL70291" DisplayName="TIFF image data"/>
+			<ValueElement Value="Octet-stream" CodeSystem="HL70291" DisplayName="Uninterpreted binary data"/>
+			<ValueElement Value="FAX" CodeSystem="HL70291" DisplayName="Facsimile data"/>
+			<ValueElement Value="RTF" CodeSystem="HL70291" DisplayName="Rich Text Format"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70299" Name="Subtype of referenced data">
+			<ValueElement Value="Base64" CodeSystem="HL70299" DisplayName="Encoding as defined by MIME (Multipurpose Internet Mail Extensions) standard RFC 1521. Four consecutive ASCII characters represent three consecutive octets of binary data. Base64 utilizes a 65-character subset of US-ASCII, consisting of both the upper and"/>
+			<ValueElement Value="Hex" CodeSystem="HL70299" DisplayName="Hexadecimal encoding - consecutive pairs of hexadecimal digits represent consecutive single octets."/>
+			<ValueElement Value="A" CodeSystem="HL70299" DisplayName="No encoding - data are displayable ASCII characters."/>			
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70834" Name="MIME Types">
+			<ValueElement Value="video" CodeSystem="HL70834" DisplayName="Video data"/>
+			<ValueElement Value="audio" CodeSystem="HL70834" DisplayName="Audio data"/>
+			<ValueElement Value="multipart" CodeSystem="HL70834" DisplayName="MIME multipart package"/>
+			<ValueElement Value="image" CodeSystem="HL70834" DisplayName="Image data"/>
+			<ValueElement Value="text" CodeSystem="HL70834" DisplayName="Text data"/>
+			<ValueElement Value="application" CodeSystem="HL70834" DisplayName="Application data"/>
+			<ValueElement Value="model" CodeSystem="HL70834" DisplayName="Model data"/>
+		</ValueSetDefinition>
 	</ValueSetDefinitions>
 </ValueSetLibrary>

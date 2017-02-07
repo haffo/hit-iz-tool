@@ -1,7 +1,6 @@
 {
-  "id" : 432832,
+  "id" : 745074,
   "name" : "IZ-AD-1_Admin_Child",
   "description" : "Maximally populated child administration",
-  "position" : 1,
-  "protocol" : "soap"
+  "position" : 1
 }

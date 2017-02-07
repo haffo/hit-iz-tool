@@ -943,7 +943,7 @@
 			<Component Name="Point of Care" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70302" BindingStrength="R"/>
 			<Component Name="Room" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70303" BindingStrength="R"/>
 			<Component Name="Bed" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70304" BindingStrength="R"/>
-			<Component Name="Facility" Usage="R" Datatype="HD" MinLength="1" MaxLength="227" Binding="HL70362" BindingStrength="R" BindingLocation="1"/>
+			<Component Name="Facility" Usage="O" Datatype="HD" MinLength="1" MaxLength="227" BindingStrength="R" BindingLocation="1"/>
 			<Component Name="Location Status" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70306" BindingStrength="R"/>
 			<Component Name="Patient Location Type" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70305" BindingStrength="R"/>
 			<Component Name="Building" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70307" BindingStrength="R"/>
@@ -959,16 +959,16 @@
 		</Datatype>
 		<Datatype ID="ED" Name="ED" Label="ED" Description="Encapsulated Data">
 			<Component Name="Source Application" Usage="O" Datatype="HD" MinLength="0" MaxLength="1027" ConfLength="1"/>
-			<Component Name="Type of Data" Usage="R" Datatype="ID" MinLength="0" MaxLength="11" ConfLength="1" Binding="0834"/>
-			<Component Name="Data Subtype" Usage="O" Datatype="ID" MinLength="0" MaxLength="32" ConfLength="1" Binding="0291"/>
-			<Component Name="Encoding" Usage="R" Datatype="ID" MinLength="0" MaxLength="6" ConfLength="1" Binding="0299"/>
+			<Component Name="Type of Data" Usage="R" Datatype="ID" MinLength="0" MaxLength="11" ConfLength="1" Binding="HL70834"/>
+			<Component Name="Data Subtype" Usage="O" Datatype="ID" MinLength="0" MaxLength="32" ConfLength="1" Binding="HL70291"/>
+			<Component Name="Encoding" Usage="R" Datatype="ID" MinLength="0" MaxLength="6" ConfLength="1" Binding="HL70299"/>
 			<Component Name="Data" Usage="R" Datatype="TX" MinLength="0" MaxLength="*" ConfLength="1"/>
 		</Datatype>
 		<Datatype ID="RP" Name="RP" Label="RP" Description="Reference Pointer">
 			<Component Name="Pointer" Usage="O" Datatype="ST" MinLength="0" MaxLength="999" ConfLength="1"/>
 			<Component Name="Aplication ID" Usage="O" Datatype="HD" MinLength="0" MaxLength="1027" ConfLength="1"/>
-			<Component Name="Type of Data" Usage="O" Datatype="ID" MinLength="0" MaxLength="11" ConfLength="1" Binding="0834"/>
-			<Component Name="Subtype" Usage="O" Datatype="ID" MinLength="0" MaxLength="32" ConfLength="1" Binding="0291"/>
+			<Component Name="Type of Data" Usage="O" Datatype="ID" MinLength="0" MaxLength="11" ConfLength="1" Binding="HL70834"/>
+			<Component Name="Subtype" Usage="O" Datatype="ID" MinLength="0" MaxLength="32" ConfLength="1" Binding="HL70291"/>
 		</Datatype>
 		<Datatype ID="SN" Name="SN" Label="SN" Description="Structured Numeric">
 			<Component Name="Comparator" Usage="O" Datatype="ST" MinLength="0" MaxLength="2" ConfLength="1"/>

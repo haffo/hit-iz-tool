@@ -46,7 +46,7 @@
 			"title":"Vaccine Administration Information",
 			"elements" : 
 			[
-				{"element" : "Administered Vaccine", "data" : "CERVARIX"},
+				{"element" : "Administered Vaccine", "data" : "GARDASIL 9"},
 				{"element" : "Date/Time Start of Administration", "data" : "06/24/2015"},
 				{"element" : "Administered Amount", "data" : "0.5"},
 				{"element" : "Administered Units", "data" : "mL"},
@@ -54,7 +54,7 @@
 				{"element" : "Administering Provider", "data" : "Lily Jackson"},
 				{"element" : "Substance Lot Number", "data" : "795441"},
 				{"element" : "Substance Expiration Date", "data" : "12/23/2015"},
-				{"element" : "Substance Manufacturer Name", "data" : "GlaxoSmithKline"},
+				{"element" : "Substance Manufacturer Name", "data" : "Merck Sharp &amp; Dohme Corp."},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
 				{"element" : "Completion Status", "data" : "Complete"},
 				{"element" : "Action Code", "data" : "Delete"},
@@ -73,8 +73,7 @@
 							{"element" : "Vaccine Funding Program Eligibility", "data" : "VFC Eligible
 - Underinsured"},
 							{"element" : "", "data" : ""},
-							{"element" : "Document Type", "data" : "Human papillomavirus Vaccine (Cervarix)
-VIS"},
+							{"element" : "Document Type", "data" : "HPV Vaccine VIS"},
 							{"element" : "Date Vis Presented", "data" : "06/24/2015"},
 	
 	]					}
