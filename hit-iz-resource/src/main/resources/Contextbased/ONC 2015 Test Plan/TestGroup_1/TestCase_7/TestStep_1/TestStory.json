@@ -5,5 +5,5 @@
   "postCondition" : "No PostCondition",
   "testObjectives" : "Support for Sending Responsible Organization (MSH-22) and Receiving Responsible Organization (MSH-23) to include:<br>1. Identifier<br>2. Identifier Type Code<br>3. Assigning Authority for the Identifier<br><br>Support for both phone number and e-mail.<br>",
   "evaluationCriteria" : "Message Validation Report.<br>",
-  "notes" : "Tester should refer to the Message Content tab for expected elements needed to be valued in MSH-22 and MSH-23. Examples values are provided.<br>"
+  "notes" : "<br>"
 }

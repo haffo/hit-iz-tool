@@ -1,7 +1,6 @@
 {
-  "id" : 1187719,
+  "id" : 1368,
   "name" : "IZ-QR-4_Query_Too_Many",
   "description" : "Query finds too many matches",
-  "position" : 4,
-  "protocol" : "soap"
+  "position" : 4
 }

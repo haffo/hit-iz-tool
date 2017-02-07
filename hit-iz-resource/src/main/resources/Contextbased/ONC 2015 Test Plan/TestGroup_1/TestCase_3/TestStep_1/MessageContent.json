@@ -388,9 +388,9 @@ Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content In
 : "Presence-Content Indifferent"},
 				{"location" : "RXA.5", "dataelement" : "Administered Code", "data" : "", "categorization"
 : ""},
-							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "58160-0830-05",
+							{"location" : "RXA.5.1", "dataelement" : "Identifier", "data" : "00006-4119-01",
 "categorization" : "Value-Test Case Fixed List"},
-							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "CERVARIX", "categorization"
+							{"location" : "RXA.5.2", "dataelement" : "Text", "data" : "GARDASIL 9", "categorization"
 : "Presence-Test Case Proper"},
 							{"location" : "RXA.5.3", "dataelement" : "Name of Coding System", "data" :
 "NDC", "categorization" : "Value-Profile Fixed"},
@@ -454,10 +454,10 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 : "Presence-Content Indifferent"},
 				{"location" : "RXA.17", "dataelement" : "Substance Manufacturer Name", "data"
 : "", "categorization" : ""},
-							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "SKB", "categorization"
+							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "MSD", "categorization"
 : "Value-Test Case Fixed"},
-							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "GlaxoSmithKline",
-"categorization" : "Presence-Test Case Proper"},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "Merck Sharp &amp; Dohme
+Corp.", "categorization" : "Presence-Test Case Proper"},
 							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
 "MVX", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
@@ -515,12 +515,6 @@ Source", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC50", "categorization"
-: "Value-Test Case Fixed"},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Public", "categorization"
-: "Presence-Test Case Proper"},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -563,12 +557,6 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V05", "categorization"
-: "Value-Test Case Fixed"},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "VFC Eligible - Underinsured",
-"categorization" : "Presence-Test Case Proper"},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"HL70064", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -611,12 +599,6 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300007311110503",
-"categorization" : "Value-Test Case Fixed"},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Human papillomavirus
-Vaccine (Cervarix) VIS", "categorization" : "Presence-Test Case Proper"},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"cdcgs1vis", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"

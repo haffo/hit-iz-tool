@@ -1106,12 +1106,6 @@ Source", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "PHC70", "categorization"
-: "Value-Test Case Fixed"},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Private", "categorization"
-: "Presence-Test Case Proper"},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1154,12 +1148,6 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
-: "Value-Test Case Fixed"},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC Eligible",
-"categorization" : "Presence-Test Case Proper"},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"HL70064", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1202,12 +1190,6 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300026411151105",
-"categorization" : "Value-Test Case Fixed"},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Multi Pediatric
-Vaccines VIS", "categorization" : "Presence-Test Case Proper"},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"cdcgs1vis", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1292,12 +1274,6 @@ Source", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "PHC70", "categorization"
-: "Value-Test Case Fixed"},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Private", "categorization"
-: "Presence-Test Case Proper"},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1340,12 +1316,6 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
-: "Value-Test Case Fixed"},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC Eligible",
-"categorization" : "Presence-Test Case Proper"},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"HL70064", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1388,12 +1358,6 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300004211160720",
-"categorization" : "Value-Test Case Fixed"},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Hepatitis A VIS",
-"categorization" : "Presence-Test Case Proper"},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"cdcgs1vis", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1478,12 +1442,6 @@ Source", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "PHC70", "categorization"
-: "Value-Test Case Fixed"},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Private", "categorization"
-: "Presence-Test Case Proper"},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1526,12 +1484,6 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
-: ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC Eligible",
-"categorization" : ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"HL70064", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -1574,12 +1526,6 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300012711120420",
-"categorization" : ""},
-							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Measles/Mumps/Rubella
-VIS", "categorization" : ""},
-							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
-"cdcgs1vis", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
