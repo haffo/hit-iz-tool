@@ -294,8 +294,8 @@ angular.module('account')
 'use strict';
 
 angular.module('account')
-    .controller('RegistrationCtrl', ['$scope', '$resource', '$modal', '$location','$rootScope',
-        function ($scope, $resource, $modal, $location,$rootScope) {
+    .controller('RegistrationCtrl', ['$scope', '$resource', '$modal', '$location','$rootScope','Notification',
+        function ($scope, $resource, $modal, $location,$rootScope,Notification) {
             $scope.account = {};
             $scope.registered = false;
             $scope.agreed = false;
@@ -326,7 +326,8 @@ angular.module('account')
                                 $scope.account = {};
                                 //should unfreeze the form
                                 $scope.registered = true;
-                                $location.path('/registrationSubmitted');
+                                $location.path('/home');
+                                Notification.success({message: $rootScope.appInfo.registrationSubmittedContent, templateUrl: "NotificationSuccessTemplate.html", scope: $rootScope, delay: 30000});
                             }else{
                                 $scope.registered = false;
                             }
