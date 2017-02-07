@@ -204,6 +204,7 @@
 						<xs:element name="Case" minOccurs="1" maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:attribute name="Value" type="NonEmptyString" use="required"/>
+								<xs:attribute name="SecondValue" type="NonEmptyString" use="optional"/>
 								<xs:attribute name="Datatype" type="DatatypeNameType" use="required"/>
 								<!--FIXME Allow Usage, Cardinality, Length and Value Set -->
 							</xs:complexType>
@@ -215,6 +216,11 @@
 						</xs:annotation>
 					</xs:attribute>
 					<xs:attribute name="Reference" type="PositiveInteger" use="required">
+						<xs:annotation>
+							<xs:documentation>The primitive data element that defines the data type to use depending on its value</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="SecondReference" type="xs:string" use="optional">
 						<xs:annotation>
 							<xs:documentation>The primitive data element that defines the data type to use depending on its value</xs:documentation>
 						</xs:annotation>
