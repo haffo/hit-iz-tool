@@ -455,8 +455,8 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 : "", "categorization" : ""},
 							{"location" : "RXA.17.1", "dataelement" : "Identifier", "data" : "MSD", "categorization"
 : "Value-Test Case Fixed"},
-							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "Merck Sharp &amp; Dohme
-Corp.", "categorization" : "Presence-Test Case Proper"},
+							{"location" : "RXA.17.2", "dataelement" : "Text", "data" : "Merck Sharp \T\
+Dohme Corp.", "categorization" : "Presence-Test Case Proper"},
 							{"location" : "RXA.17.3", "dataelement" : "Name of Coding System", "data" :
 "MVX", "categorization" : "Value-Profile Fixed"},
 				{"location" : "RXA.18", "dataelement" : "Substance/Treatment Refusal Reason",
