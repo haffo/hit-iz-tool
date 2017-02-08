@@ -54,7 +54,7 @@
 				{"element" : "Administering Provider", "data" : "Lily Jackson"},
 				{"element" : "Substance Lot Number", "data" : "795441"},
 				{"element" : "Substance Expiration Date", "data" : "12/23/2015"},
-				{"element" : "Substance Manufacturer Name", "data" : "Merck Sharp \T\ Dohme Corp."},
+				{"element" : "Substance Manufacturer Name", "data" : "Merck and Co., Inc."},
 				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
 				{"element" : "Completion Status", "data" : "Complete"},
 				{"element" : "Action Code", "data" : "Add"},
