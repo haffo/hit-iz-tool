@@ -281,6 +281,7 @@
             </assert>    
         </rule>
         
+        <!--
         <rule context="soap:Body/soap:Fault/soap:Code/soap:Value">
             <assert test="normalize-space(.)">
                 ERROR: CDC_WSDL1.0: the Code/Value element doesn't contain any data.  A value of 'Sender' or 'Receiver' is required.
@@ -289,6 +290,8 @@
                 WARNING: CDC_WSDL1.0: the Code/Value element must contain a value of 'Sender' or 'Receiver' 
             </assert>   
         </rule>
+        -->
+        
            
         <rule context="soap:Body/soap:Fault/soap:Reason">
             <assert test="count(soap:Text) = 1">
@@ -390,6 +393,7 @@
             </assert>    
         </rule>
         
+        <!--
         <rule context="soap:Body/soap:Fault/soap:Code/soap:Value">
             <assert test="normalize-space(.)">
                 ERROR: CDC_WSDL1.0: the Code/Value element doesn't contain any data.  A value of 'Sender' or 'Receiver' is required.
@@ -398,6 +402,7 @@
                 WARNING: CDC_WSDL1.0: the Code/Value element must contain a value of 'Sender' or 'Receiver' 
             </assert>   
         </rule>
+        -->
         
         <rule context="soap:Body/soap:Fault/soap:Reason">
             <assert test="count(soap:Text) = 1">
@@ -506,6 +511,7 @@
             </assert>    
         </rule>
         
+        <!--
         <rule context="soap:Body/soap:Fault/soap:Code/soap:Value">
             <assert test="normalize-space(.)">
                 ERROR: CDC_WSDL1.0: the Code/Value element doesn't contain any data.  A value of 'Sender' or 'Receiver' is required.
@@ -514,6 +520,7 @@
                 WARNING: CDC_WSDL1.0: the Code/Value element must contain a value of 'Sender' or 'Receiver' 
             </assert>   
         </rule>
+        -->
         
         <rule context="soap:Body/soap:Fault/soap:Reason">
             <assert test="count(soap:Text) = 1">
@@ -615,6 +622,7 @@
             </assert>    
         </rule>
         
+        <!--
         <rule context="soap:Body/soap:Fault/soap:Code/soap:Value">
             <assert test="normalize-space(.)">
                 ERROR: CDC_WSDL1.0: the Code/Value element doesn't contain any data.  A value of 'Sender' or 'Receiver' is required.
@@ -623,6 +631,7 @@
                 WARNING: CDC_WSDL1.0: the Code/Value element must contain a value of 'Sender' or 'Receiver' 
             </assert>   
         </rule>
+        -->
         
         <rule context="soap:Body/soap:Fault/soap:Reason">
             <assert test="count(soap:Text) = 1">
