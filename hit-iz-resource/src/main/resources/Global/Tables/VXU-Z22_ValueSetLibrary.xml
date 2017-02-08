@@ -1177,514 +1177,514 @@
 			<ValueElement Value="121" DisplayName="zoster" CodeSystem="CVX"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="NDC_Sale" Name="NDC Unit of Sale">
-			<ValueElement Value="00006-4963-41" DisplayName="zoster" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4963-00" DisplayName="zoster" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0915-01" DisplayName="yellow fever" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0915-05" DisplayName="yellow fever" CodeSystem="NDC"/>
-			<ValueElement Value="69401-0000-01" DisplayName="typhoid, oral" CodeSystem="NDC"/>
-			<ValueElement Value="70460-0002-01" DisplayName="cholera, live attenuated" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4827-00" DisplayName="varicella" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4826-00" DisplayName="varicella" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4095-09" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4096-09" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4841-00" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4841-41" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4096-02" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4095-02" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4831-41" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0790-51" DisplayName="typhoid, ViCPs" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0790-20" DisplayName="typhoid, ViCPs" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0815-11" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0815-46" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0815-52" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0815-48" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0815-34" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
 			<ValueElement Value="00005-0100-02" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
 			<ValueElement Value="00005-0100-05" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
 			<ValueElement Value="00005-0100-10" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0298-10" DisplayName="DTaP" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0820-10" DisplayName="tetanus toxoid, adsorbed" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0800-83" DisplayName="tetanus toxoid, adsorbed" CodeSystem="NDC"/>
-			<ValueElement Value="13533-0131-01" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
-			<ValueElement Value="14362-0111-04" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4133-41" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
-			<ValueElement Value="17478-0131-01" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0215-15" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0215-10" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4047-41" DisplayName="rotavirus, pentavalent" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4047-20" DisplayName="rotavirus, pentavalent" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0854-52" DisplayName="rotavirus, monovalent" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4980-00" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4981-00" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4093-09" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4093-02" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4995-41" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4094-02" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4094-09" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4992-00" DisplayName="Hep B, dialysis" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4995-00" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="63851-0501-02" DisplayName="Rabies - IM fibroblast culture" CodeSystem="NDC"/>
-			<ValueElement Value="63851-0501-01" DisplayName="Rabies - IM fibroblast culture" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0562-10" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4999-00" DisplayName="MMRV" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4171-00" DisplayName="MMRV" CodeSystem="NDC"/>
+			<ValueElement Value="00005-1970-50" DisplayName="pneumococcal conjugate PCV 7" CodeSystem="NDC"/>
+			<ValueElement Value="00005-1971-02" DisplayName="Pneumococcal conjugate PCV 13" CodeSystem="NDC"/>
 			<ValueElement Value="00005-1971-04" DisplayName="Pneumococcal conjugate PCV 13" CodeSystem="NDC"/>
 			<ValueElement Value="00005-1971-05" DisplayName="Pneumococcal conjugate PCV 13" CodeSystem="NDC"/>
-			<ValueElement Value="00005-1971-02" DisplayName="Pneumococcal conjugate PCV 13" CodeSystem="NDC"/>
-			<ValueElement Value="00005-1970-50" DisplayName="pneumococcal conjugate PCV 7" CodeSystem="NDC"/>
-			<ValueElement Value="54868-4320-00" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
-			<ValueElement Value="54868-3339-01" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4739-00" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4943-00" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4837-03" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0510-05" DisplayName="DTaP-Hib-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4897-00" DisplayName="Hib (PRP-OMP)" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0811-51" DisplayName="DTaP-Hep B-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0811-52" DisplayName="DTaP-Hep B-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="54868-0980-00" DisplayName="MMR" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4681-00" DisplayName="MMR" CodeSystem="NDC"/>
-			<ValueElement Value="46028-0208-01" DisplayName="Meningococcal MCV4O" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0489-91" DisplayName="meningococcal MPSV4" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0489-01" DisplayName="meningococcal MPSV4" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0809-05" DisplayName="Meningococcal C/Y-HIB PRP" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0801-11" DisplayName="Meningococcal C/Y-HIB PRP" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0589-05" DisplayName="meningococcal MCV4P" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0812-52" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0812-11" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="42515-0001-01" DisplayName="Japanese Encephalitis IM" CodeSystem="NDC"/>
-			<ValueElement Value="42515-0001-01" DisplayName="Japanese Encephalitis IM" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0860-10" DisplayName="IPV" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0860-55" DisplayName="IPV" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0200-10" DisplayName="Novel Influenza-H1N1-09, nasal" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0200-10" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0200-02" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0650-10" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0650-90" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0640-15" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0650-70" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0650-50" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0650-25" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0519-01" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0519-25" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0629-10" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0808-15" DisplayName="Influenza A monovalent (H5N1), ADJUVANTED-2013" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0810-52" DisplayName="DTaP" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0810-11" DisplayName="DTaP" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0806-05" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0825-52" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0825-11" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0826-52" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0826-34" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0826-11" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4119-02" DisplayName="HPV9" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4121-02" DisplayName="HPV9" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4119-03" DisplayName="HPV9" CodeSystem="NDC"/>
 			<ValueElement Value="00006-4045-00" DisplayName="HPV, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="00006-4045-41" DisplayName="HPV, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4109-09" DisplayName="HPV, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4047-20" DisplayName="rotavirus, pentavalent" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4047-41" DisplayName="rotavirus, pentavalent" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4093-02" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4093-09" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4094-02" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4094-09" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4095-02" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4095-09" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4096-02" DisplayName="Hep A, adult" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4096-09" DisplayName="Hep A, adult" CodeSystem="NDC"/>
 			<ValueElement Value="00006-4109-02" DisplayName="HPV, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0514-25" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0516-25" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0414-50" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0414-10" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0415-10" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0416-10" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0513-25" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0416-50" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0625-15" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0413-50" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0413-10" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0621-15" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0708-40" DisplayName="influenza, intradermal, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0703-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0709-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0710-40" DisplayName="influenza, intradermal, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0391-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0397-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0389-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0393-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0399-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0395-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0705-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0392-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0013-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0014-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0394-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0010-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0112-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0010-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0010-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0386-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0387-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0707-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0013-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0113-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0012-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0012-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0111-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0011-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0011-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0388-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0396-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0390-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0113-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0114-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0114-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0116-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0116-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0115-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0115-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0113-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0117-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0112-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0112-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0119-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0119-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0118-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0118-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0117-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0301-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0300-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0303-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0302-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0109-10" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0110-10" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0108-10" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0107-01" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4109-09" DisplayName="HPV, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4119-02" DisplayName="HPV9" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4119-03" DisplayName="HPV9" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4121-02" DisplayName="HPV9" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4133-41" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4171-00" DisplayName="MMRV" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4681-00" DisplayName="MMR" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4739-00" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4826-00" DisplayName="varicella" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4827-00" DisplayName="varicella" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4831-41" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4837-03" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4841-00" DisplayName="Hep A, adult" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4841-41" DisplayName="Hep A, adult" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4897-00" DisplayName="Hib (PRP-OMP)" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4898-00" DisplayName="Hib-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4943-00" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4963-00" DisplayName="zoster" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4963-41" DisplayName="zoster" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4980-00" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4981-00" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4992-00" DisplayName="Hep B, dialysis" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4995-00" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4995-41" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4999-00" DisplayName="MMRV" CodeSystem="NDC"/>
+			<ValueElement Value="00052-0603-02" DisplayName="BCG" CodeSystem="NDC"/>
+			<ValueElement Value="13533-0131-01" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="14362-0111-04" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="17478-0131-01" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0845-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0850-52" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0889-07" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0890-07" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0891-11" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0893-07" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0894-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0895-11" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="19515-0898-11" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="19515-0901-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="19515-0903-11" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="19515-0908-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0895-11" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0891-11" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0894-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0845-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0890-07" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0893-07" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0850-52" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0889-07" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0200-01" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="63851-0612-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="62577-0613-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="63851-0613-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="62577-0614-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0614-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="42874-0015-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="42874-0013-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="42874-0014-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="42874-0012-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="42874-0016-01" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0901-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0900-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0903-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0905-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0881-52" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0880-52" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0879-52" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0883-52" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0000-01" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0001-01" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0821-34" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0820-11" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0820-52" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0821-52" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0821-11" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0278-10" DisplayName="DT (pediatric)" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0225-10" DisplayName="DT (pediatric)" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0291-83" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0291-10" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0286-01" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0286-10" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0286-05" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4898-00" DisplayName="Hib-Hep B" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0830-52" DisplayName="HPV, bivalent" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0830-34" DisplayName="HPV, bivalent" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0842-34" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0842-52" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0842-51" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0842-11" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="64678-0211-01" DisplayName="anthrax" CodeSystem="NDC"/>
-			<ValueElement Value="46028-0114-02" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0976-20" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0976-06" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
-			<ValueElement Value="46028-0114-01" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
-			<ValueElement Value="00052-0603-02" DisplayName="BCG" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0316-01" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0416-10" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0115-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0113-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0016-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0114-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
 			<ValueElement Value="33332-0010-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0116-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0015-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0110-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
 			<ValueElement Value="33332-0013-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="33332-0014-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="51285-0138-50" DisplayName="Adenovirus types 4 and 7" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0400-15" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0400-10" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0400-05" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0545-05" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0545-03" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>	
-		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="NDC_Use" Name="NDC Unit of Use">
-			<ValueElement Value="49281-0415-58" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0115-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0015-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0302-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="42874-0015-01" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0118-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0118-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0883-41" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0000-11" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
-			<ValueElement Value="69401-0000-01" DisplayName="typhoid, oral" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0547-58" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0200-11" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="70460-0002-02" DisplayName="cholera, live attenuated" CodeSystem="NDC"/>
-			<ValueElement Value="42515-0001-01" DisplayName="Japanese Encephalitis IM" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0016-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0116-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0200-11" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0614-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0001-11" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0119-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0119-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0883-41" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="42874-0016-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0850-41" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0845-01" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0399-88" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0303-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0905-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0516-00" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0416-88" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0416-58" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0625-78" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0710-48" DisplayName="influenza, intradermal, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0908-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0903-01" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0316-02" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0416-11" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0976-02" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0976-02" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0301-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0014-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0114-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="63851-0613-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0117-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0117-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4093-01" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4094-01" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4095-01" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4096-01" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4963-01" DisplayName="zoster" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4963-01" DisplayName="zoster" CodeSystem="NDC"/>
-			<ValueElement Value="42874-0014-01" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0414-88" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0395-88" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0709-48" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0881-41" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0809-01" DisplayName="Meningococcal C/Y-HIB PRP" CodeSystem="NDC"/>
-			<ValueElement Value="62577-0613-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0893-02" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0621-78" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="00005-0100-01" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
-			<ValueElement Value="00005-0100-01" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
-			<ValueElement Value="00005-0100-01" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4047-01" DisplayName="rotavirus, pentavalent" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4109-01" DisplayName="HPV, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="62577-0613-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4121-01" DisplayName="HPV9" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4119-01" DisplayName="HPV9" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4119-01" DisplayName="HPV9" CodeSystem="NDC"/>
-			<ValueElement Value="63851-0511-11" DisplayName="Rabies - IM fibroblast culture" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0562-58" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="46028-0114-11" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
-			<ValueElement Value="46028-0114-11" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4171-01" DisplayName="MMRV" CodeSystem="NDC"/>
-			<ValueElement Value="13533-0131-00" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0396-78" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0397-88" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="62577-0614-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0903-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0898-01" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0901-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0393-88" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0810-43" DisplayName="DTaP" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0810-01" DisplayName="DTaP" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0790-38" DisplayName="typhoid, ViCPs" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0790-88" DisplayName="typhoid, ViCPs" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0640-15" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0650-10" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0650-90" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0650-25" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0650-70" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0650-50" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0707-48" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0110-01" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4681-01" DisplayName="MMR" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0215-58" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0215-88" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="46028-0218-11" DisplayName="Meningococcal MCV4O" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0387-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0386-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0010-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0010-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0010-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="54868-0980-00" DisplayName="MMR" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0830-43" DisplayName="HPV, bivalent" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0830-05" DisplayName="HPV, bivalent" CodeSystem="NDC"/>
-			<ValueElement Value="00005-1971-01" DisplayName="Pneumococcal conjugate PCV 13" CodeSystem="NDC"/>
-			<ValueElement Value="00005-1971-01" DisplayName="Pneumococcal conjugate PCV 13" CodeSystem="NDC"/>
-			<ValueElement Value="00005-1971-01" DisplayName="Pneumococcal conjugate PCV 13" CodeSystem="NDC"/>
-			<ValueElement Value="17478-0131-00" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0812-43" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0812-01" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0108-01" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4898-01" DisplayName="Hib-Hep B" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0809-01" DisplayName="Meningococcal C/Y-HIB PRP" CodeSystem="NDC"/>
-			<ValueElement Value="63851-0612-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4992-01" DisplayName="Hep B, dialysis" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4981-01" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4980-00" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4093-01" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4094-01" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4109-01" DisplayName="HPV, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0112-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0112-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0107-01" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0225-58" DisplayName="DT (pediatric)" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0705-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="42515-0001-00" DisplayName="Japanese Encephalitis IM" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0879-41" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0880-41" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0820-01" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0820-43" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0821-01" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0821-43" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0821-05" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="42874-0012-01" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0278-10" DisplayName="DT (pediatric)" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0109-01" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0890-02" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0889-02" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0900-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0860-78" DisplayName="IPV" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0860-88" DisplayName="IPV" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0389-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0388-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0011-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0011-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0703-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0111-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0200-10" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0200-02" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0298-10" DisplayName="DTaP" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0806-01" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0013-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0113-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0391-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0012-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0012-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0112-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0390-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4897-01" DisplayName="Hib (PRP-OMP)" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0291-83" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0291-10" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0413-88" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0413-58" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0513-00" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0113-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0113-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="00005-1970-49" DisplayName="pneumococcal conjugate PCV 7" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4047-01" DisplayName="rotavirus, pentavalent" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0811-43" DisplayName="DTaP-Hep B-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0811-41" DisplayName="DTaP-Hep B-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4827-01" DisplayName="varicella" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4826-01" DisplayName="varicella" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0842-41" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0842-01" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0842-43" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0842-05" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0300-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0589-58" DisplayName="meningococcal MCV4P" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4095-01" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4096-01" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4831-01" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
-			<ValueElement Value="63851-0511-11" DisplayName="Rabies - IM fibroblast culture" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0200-01" DisplayName="Novel Influenza-H1N1-09, nasal" CodeSystem="NDC"/>
-			<ValueElement Value="14362-0111-03" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0015-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0016-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0110-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0113-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0114-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0115-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0116-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0316-01" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0416-10" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="33332-0519-01" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
 			<ValueElement Value="33332-0519-25" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
 			<ValueElement Value="33332-0629-10" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0825-43" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0825-01" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0826-43" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0826-05" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0826-01" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0010-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="33332-0110-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0115-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0115-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4133-01" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
-			<ValueElement Value="54868-4320-09" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
-			<ValueElement Value="54868-3339-09" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
-			<ValueElement Value="00052-0603-01" DisplayName="BCG" CodeSystem="NDC"/>
-			<ValueElement Value="64678-0211-05" DisplayName="anthrax" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4739-01" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4943-01" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0013-58" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0013-88" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/><ValueElement Value="49281-0392-78" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0113-00" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0820-10" DisplayName="tetanus toxoid, adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="42515-0001-01" DisplayName="Japanese Encephalitis IM" CodeSystem="NDC"/>
+			<ValueElement Value="42874-0012-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="42874-0013-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="42874-0014-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="42874-0015-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="42874-0016-01" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="46028-0114-01" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
+			<ValueElement Value="46028-0114-02" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
+			<ValueElement Value="46028-0208-01" DisplayName="Meningococcal MCV4O" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0010-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0010-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0010-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0011-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0011-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0012-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0012-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0013-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0013-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0014-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0111-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0112-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0113-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0215-10" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0215-15" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0225-10" DisplayName="DT (pediatric)" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0278-10" DisplayName="DT (pediatric)" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0286-01" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0286-05" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0286-10" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0291-10" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0291-83" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0298-10" DisplayName="DTaP" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0386-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0387-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0388-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0389-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0390-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0391-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0392-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0393-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0394-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0395-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0396-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0397-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0399-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0400-05" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0400-10" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0400-15" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0413-10" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0413-50" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0414-10" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0414-50" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0415-10" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0416-10" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0416-50" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0489-01" DisplayName="meningococcal MPSV4" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0489-91" DisplayName="meningococcal MPSV4" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0510-05" DisplayName="DTaP-Hib-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0513-25" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0514-25" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0516-25" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0545-03" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0545-05" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0562-10" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0589-05" DisplayName="meningococcal MCV4P" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0621-15" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0625-15" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0640-15" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0650-10" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0650-25" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0650-50" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0650-70" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0650-90" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0703-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0705-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0707-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0708-40" DisplayName="influenza, intradermal, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0709-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0710-40" DisplayName="influenza, intradermal, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0790-20" DisplayName="typhoid, ViCPs" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0790-51" DisplayName="typhoid, ViCPs" CodeSystem="NDC"/>
 			<ValueElement Value="49281-0800-83" DisplayName="tetanus toxoid, adsorbed" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0400-88" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0286-58" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0286-58" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0286-58" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0815-41" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0815-43" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0815-05" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0815-43" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0815-01" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0820-10" DisplayName="tetanus toxoid, adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0860-10" DisplayName="IPV" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0860-55" DisplayName="IPV" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0915-01" DisplayName="yellow fever" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0915-05" DisplayName="yellow fever" CodeSystem="NDC"/>
+			<ValueElement Value="51285-0138-50" DisplayName="Adenovirus types 4 and 7" CodeSystem="NDC"/>
+			<ValueElement Value="54868-0980-00" DisplayName="MMR" CodeSystem="NDC"/>
+			<ValueElement Value="54868-3339-01" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
+			<ValueElement Value="54868-4320-00" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0801-11" DisplayName="Meningococcal C/Y-HIB PRP" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0806-05" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0808-15" DisplayName="Influenza A monovalent (H5N1), ADJUVANTED-2013" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0809-05" DisplayName="Meningococcal C/Y-HIB PRP" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0810-11" DisplayName="DTaP" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0810-52" DisplayName="DTaP" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0811-51" DisplayName="DTaP-Hep B-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0811-52" DisplayName="DTaP-Hep B-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0812-11" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0812-52" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0815-11" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0815-34" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0815-46" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0815-48" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0815-52" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0820-11" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0820-52" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0821-11" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0821-34" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0821-52" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0825-11" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0825-52" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0826-11" DisplayName="Hep A, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0826-34" DisplayName="Hep A, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0826-52" DisplayName="Hep A, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0830-34" DisplayName="HPV, bivalent" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0830-52" DisplayName="HPV, bivalent" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0842-11" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0842-34" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0842-51" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0842-52" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0854-52" DisplayName="rotavirus, monovalent" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0879-52" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0880-52" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0881-52" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0883-52" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0900-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0901-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0903-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0905-52" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0976-06" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0976-20" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
+			<ValueElement Value="62577-0613-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="62577-0614-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="63851-0501-01" DisplayName="Rabies - IM fibroblast culture" CodeSystem="NDC"/>
+			<ValueElement Value="63851-0501-02" DisplayName="Rabies - IM fibroblast culture" CodeSystem="NDC"/>
+			<ValueElement Value="63851-0612-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="63851-0613-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="64678-0211-01" DisplayName="anthrax" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0107-01" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0108-10" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0109-10" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0110-10" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0200-10" DisplayName="Novel Influenza-H1N1-09, nasal" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0300-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0301-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0302-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0303-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0000-01" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0112-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0112-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0113-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0113-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0114-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="66521-0114-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="76420-0482-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="19515-0895-01" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4999-01" DisplayName="MMRV" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0545-15" DisplayName="DTaP-Hib-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="51285-0174-02" DisplayName="Adenovirus types 4 and 7" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0487-58" DisplayName="meningococcal MPSV4" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0915-58" DisplayName="yellow fever" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0547-58" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0851-01" DisplayName="rotavirus, monovalent" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0915-68" DisplayName="yellow fever" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0488-78" DisplayName="meningococcal MPSV4" CodeSystem="NDC"/>
-			<ValueElement Value="46028-0219-11" DisplayName="Meningococcal MCV4O" CodeSystem="NDC"/>
-			<ValueElement Value="51285-0175-02" DisplayName="Adenovirus types 4 and 7" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0560-05" DisplayName="DTaP-Hib-IPV" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0400-58" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0400-58" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="42874-0013-01" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0116-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="66521-0116-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0115-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0115-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0116-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0116-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0117-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0117-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0118-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0118-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0200-02" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0200-10" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="69401-0000-01" DisplayName="typhoid, oral" CodeSystem="NDC"/>
+			<ValueElement Value="70460-0002-01" DisplayName="cholera, live attenuated" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0001-01" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0119-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0119-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0200-01" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0614-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
+				
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="NDC_Use" Name="NDC Unit of Use">
+			<ValueElement Value="00005-0100-01" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
+			<ValueElement Value="00005-1970-49" DisplayName="pneumococcal conjugate PCV 7" CodeSystem="NDC"/>
+			<ValueElement Value="00005-1971-01" DisplayName="Pneumococcal conjugate PCV 13" CodeSystem="NDC"/>
 			<ValueElement Value="00006-4045-01" DisplayName="HPV, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4045-01" DisplayName="HPV, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4995-01" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4995-01" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4841-01" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="00006-4841-01" DisplayName="Hep A, adult" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0804-01" DisplayName="Influenza A monovalent (H5N1), ADJUVANTED-2013" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0802-02" DisplayName="Influenza A monovalent (H5N1), ADJUVANTED-2013" CodeSystem="NDC"/>
-			<ValueElement Value="58160-0901-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4047-01" DisplayName="rotavirus, pentavalent" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4093-01" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4094-01" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4095-01" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4096-01" DisplayName="Hep A, adult" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4109-01" DisplayName="HPV, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4119-01" DisplayName="HPV9" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4121-01" DisplayName="HPV9" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4133-01" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4171-01" DisplayName="MMRV" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4681-01" DisplayName="MMR" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4739-01" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4826-01" DisplayName="varicella" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4827-01" DisplayName="varicella" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4831-01" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
 			<ValueElement Value="00006-4837-01" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4841-01" DisplayName="Hep A, adult" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4897-01" DisplayName="Hib (PRP-OMP)" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4898-01" DisplayName="Hib-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4943-01" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4963-01" DisplayName="zoster" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4980-00" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4981-01" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4992-01" DisplayName="Hep B, dialysis" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4995-01" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="00006-4999-01" DisplayName="MMRV" CodeSystem="NDC"/>
+			<ValueElement Value="00052-0603-01" DisplayName="BCG" CodeSystem="NDC"/>
+			<ValueElement Value="13533-0131-00" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="14362-0111-03" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="17478-0131-00" DisplayName="Td (adult), adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0845-01" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0850-41" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0889-02" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0890-02" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
 			<ValueElement Value="19515-0891-01" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="19515-0893-02" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
 			<ValueElement Value="19515-0894-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0514-00" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
-			<ValueElement Value="49281-0394-78" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0895-01" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0898-01" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0901-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0903-01" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0908-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0010-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0013-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0014-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0015-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0016-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0110-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0113-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0114-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0115-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0116-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0316-02" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0416-11" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0519-01" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0519-25" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="33332-0629-10" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
+			<ValueElement Value="42515-0001-00" DisplayName="Japanese Encephalitis IM" CodeSystem="NDC"/>
+			<ValueElement Value="42515-0001-01" DisplayName="Japanese Encephalitis IM" CodeSystem="NDC"/>
+			<ValueElement Value="42874-0012-01" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="42874-0013-01" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="42874-0014-01" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="42874-0015-01" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="42874-0016-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="46028-0114-11" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
+			<ValueElement Value="46028-0218-11" DisplayName="Meningococcal MCV4O" CodeSystem="NDC"/>
+			<ValueElement Value="46028-0219-11" DisplayName="Meningococcal MCV4O" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0010-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0010-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0010-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0011-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0011-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0012-10" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0012-50" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0013-58" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0013-88" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="49281-0014-88" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0111-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0112-25" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0113-00" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0215-58" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0215-88" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0225-58" DisplayName="DT (pediatric)" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0278-10" DisplayName="DT (pediatric)" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0286-58" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0291-10" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0291-83" DisplayName="Td (adult) preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0298-10" DisplayName="DTaP" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0386-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0387-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0388-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0389-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0390-15" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0391-65" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0392-78" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0393-88" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0394-78" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0395-88" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0396-78" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0397-88" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0399-88" DisplayName="Influenza, high dose seasonal" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0400-58" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0400-88" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0413-58" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0413-88" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="49281-0414-58" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0414-88" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0415-58" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0416-58" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0416-88" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0487-58" DisplayName="meningococcal MPSV4" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0488-78" DisplayName="meningococcal MPSV4" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0513-00" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0514-00" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0516-00" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0545-15" DisplayName="DTaP-Hib-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0547-58" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0560-05" DisplayName="DTaP-Hib-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0562-58" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0589-58" DisplayName="meningococcal MCV4P" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0621-78" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0625-78" DisplayName="influenza, injectable, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0640-15" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0650-10" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0650-25" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0650-50" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0650-70" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0650-90" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0703-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0705-55" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0707-48" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0709-48" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0710-48" DisplayName="influenza, intradermal, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0790-38" DisplayName="typhoid, ViCPs" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0790-88" DisplayName="typhoid, ViCPs" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0800-83" DisplayName="tetanus toxoid, adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0820-10" DisplayName="tetanus toxoid, adsorbed" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0860-78" DisplayName="IPV" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0860-88" DisplayName="IPV" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0915-58" DisplayName="yellow fever" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0915-68" DisplayName="yellow fever" CodeSystem="NDC"/>
+			<ValueElement Value="51285-0174-02" DisplayName="Adenovirus types 4 and 7" CodeSystem="NDC"/>
+			<ValueElement Value="51285-0175-02" DisplayName="Adenovirus types 4 and 7" CodeSystem="NDC"/>
+			<ValueElement Value="54868-0980-00" DisplayName="MMR" CodeSystem="NDC"/>
+			<ValueElement Value="54868-3339-09" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
+			<ValueElement Value="54868-4320-09" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0802-02" DisplayName="Influenza A monovalent (H5N1), ADJUVANTED-2013" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0804-01" DisplayName="Influenza A monovalent (H5N1), ADJUVANTED-2013" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0806-01" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0809-01" DisplayName="Meningococcal C/Y-HIB PRP" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0810-01" DisplayName="DTaP" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0810-43" DisplayName="DTaP" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0811-41" DisplayName="DTaP-Hep B-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0811-43" DisplayName="DTaP-Hep B-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0812-01" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0812-43" DisplayName="DTaP-IPV" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0815-01" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0815-05" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0815-41" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0815-43" DisplayName="Hep A-Hep B" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0820-01" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0820-43" DisplayName="Hep B, adolescent or pediatric" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0821-01" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0821-05" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0821-43" DisplayName="Hep B, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0825-01" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0825-43" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0826-01" DisplayName="Hep A, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0826-05" DisplayName="Hep A, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0826-43" DisplayName="Hep A, adult" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0830-05" DisplayName="HPV, bivalent" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0830-43" DisplayName="HPV, bivalent" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0842-01" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0842-05" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0842-41" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0842-43" DisplayName="Tdap" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0851-01" DisplayName="rotavirus, monovalent" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0879-41" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0880-41" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0881-41" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0883-41" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0900-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0901-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0903-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0905-41" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0976-02" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
+			<ValueElement Value="62577-0613-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="62577-0614-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="63851-0511-11" DisplayName="Rabies - IM fibroblast culture" CodeSystem="NDC"/>
+			<ValueElement Value="63851-0612-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="63851-0613-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="64678-0211-05" DisplayName="anthrax" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0107-01" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0108-01" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0109-01" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0110-01" DisplayName="influenza, live, intranasal" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0200-01" DisplayName="Novel Influenza-H1N1-09, nasal" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0300-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0301-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0302-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0303-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0000-11" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0112-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/><ValueElement Value="66521-0112-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0113-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0113-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0114-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0115-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0115-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0116-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0116-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0117-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0117-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0118-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0118-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0200-02" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
+			<ValueElement Value="66521-0200-10" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
+			<ValueElement Value="69401-0000-01" DisplayName="typhoid, oral" CodeSystem="NDC"/>
+			<ValueElement Value="70460-0002-02" DisplayName="cholera, live attenuated" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0001-11" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0119-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0119-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0200-11" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0614-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="76420-0482-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_ImmunizationFundingSource_IIS" Name="Immunization Funding Source (IIS)">
 			<ValueElement Value="PHC70" CodeSystem="CDCPHINVS" DisplayName="Private funds "/>
