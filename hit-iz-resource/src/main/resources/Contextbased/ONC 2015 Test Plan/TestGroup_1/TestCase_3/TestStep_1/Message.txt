@@ -3,7 +3,7 @@ PID|1||89778^^^NIST-MPI-1^MR||Benton^Katherine^Mackenzie^^^^L|Jones^^^^^^M|20031
 PD1|||||||||||01^No reminder/recall^HL70215|Y|20150624|||A|20031221|20150624
 NK1|1|Benton^Kari^Michelle^^^^L|MTH^Mother^HL70063|89 West 21st Ave^^Bozeman^MT^59715^USA^P|^PRN^PH^^^406^5554019
 ORC|RE|5237^NIST-AA-IZ-2|31309^NIST-AA-IZ-2|||||||7824^Jackson^Lily^Suzanne^^^^^NIST-PI-1^L^^^PRN||654^Thomas^Wilma^Elizabeth^^^^^NIST-PI-1^L^^^MD|||||NISTEHRFAC^NISTEHRFacility^HL70362|
-RXA|0|1|20150624||00006-4119-01^GARDASIL 9^NDC|0.5|mL^mL^UCUM||00^New Record^NIP001|7824^Jackson^Lily^Suzanne^^^^^NIST-PI-1^L^^^PRN|^^^NIST-Clinic-1||||795441|20151223|MSD^Merck Sharp \T\ Dohme Corp.^MVX|||CP|A
+RXA|0|1|20150624||00006-4119-01^GARDASIL 9^NDC|0.5|mL^mL^UCUM||00^New Record^NIP001|7824^Jackson^Lily^Suzanne^^^^^NIST-PI-1^L^^^PRN|^^^NIST-Clinic-1||||795441|20151223|MSD^Merck and Co., Inc.^MVX|||CP|A
 RXR|C28161^Intramuscular^NCIT|RD^Right Deltoid^HL70163
 OBX|1|CE|30963-3^Vaccine Funding Source^LN|1|VXC50^Public^CDCPHINVS||||||F|||20150624
 OBX|2|CE|64994-7^Vaccine Funding Program Eligibility^LN|2|V05^VFC Eligible - Underinsured^HL70064||||||F|||20150624|||VXC40^per immunization^CDCPHINVS
