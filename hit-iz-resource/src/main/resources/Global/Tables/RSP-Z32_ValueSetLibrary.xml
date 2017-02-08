@@ -963,7 +963,6 @@
 			<ValueElement Value="AB" CodeSystem="MVX" DisplayName="Abbott Laboratories"/>
 			<ValueElement Value="ACA" CodeSystem="MVX" DisplayName="Acambis, Inc"/>
 			<ValueElement Value="AD" CodeSystem="MVX" DisplayName="Adams Laboratories, Inc."/>
-			<ValueElement Value="AKR" CodeSystem="MVX" DisplayName="Akorn, Inc"/>
 			<ValueElement Value="ALP" CodeSystem="MVX" DisplayName="Alpha Therapeutic Corporation"/>
 			<ValueElement Value="AR" CodeSystem="MVX" DisplayName="Armour"/>
 			<ValueElement Value="AVB" CodeSystem="MVX" DisplayName="Aventis Behring L.L.C."/>
@@ -973,60 +972,67 @@
 			<ValueElement Value="BAY" CodeSystem="MVX" DisplayName="Bayer Corporation"/>
 			<ValueElement Value="BP" CodeSystem="MVX" DisplayName="Berna Products"/>
 			<ValueElement Value="BPC" CodeSystem="MVX" DisplayName="Berna Products Corporation"/>
-			<ValueElement Value="BRR" CodeSystem="MVX" DisplayName="Barr Laboratories"/>
 			<ValueElement Value="BTP" CodeSystem="MVX" DisplayName="Biotest Pharmaceuticals Corporation"/>
+			<ValueElement Value="MIP" CodeSystem="MVX" DisplayName="Emergent BioDefense Operations Lansing"/>
+			<ValueElement Value="CSL" CodeSystem="MVX" DisplayName="bioCSL"/>
+			<ValueElement Value="CNJ" CodeSystem="MVX" DisplayName="Cangene Corporation"/>
+			<ValueElement Value="CMP" CodeSystem="MVX" DisplayName="Celltech Medeva Pharmaceuticals"/>
 			<ValueElement Value="CEN" CodeSystem="MVX" DisplayName="Centeon L.L.C."/>
 			<ValueElement Value="CHI" CodeSystem="MVX" DisplayName="Chiron Corporation"/>
-			<ValueElement Value="CMP" CodeSystem="MVX" DisplayName="Celltech Medeva Pharmaceuticals"/>
-			<ValueElement Value="CNJ" CodeSystem="MVX" DisplayName="Cangene Corporation"/>
 			<ValueElement Value="CON" CodeSystem="MVX" DisplayName="Connaught"/>
-			<ValueElement Value="CRU" CodeSystem="MVX" DisplayName="Crucell"/>
-			<ValueElement Value="CSL" CodeSystem="MVX" DisplayName="CSL Behring, Inc"/>
 			<ValueElement Value="DVC" CodeSystem="MVX" DisplayName="DynPort Vaccine Company, LLC"/>
 			<ValueElement Value="EVN" CodeSystem="MVX" DisplayName="Evans Medical Limited"/>
 			<ValueElement Value="GEO" CodeSystem="MVX" DisplayName="GeoVax Labs, Inc."/>
+			<ValueElement Value="SKB" CodeSystem="MVX" DisplayName="GlaxoSmithKline"/>
 			<ValueElement Value="GRE" CodeSystem="MVX" DisplayName="Greer Laboratories, Inc."/>
-			<ValueElement Value="GRF" CodeSystem="MVX" DisplayName="Grifols"/>
 			<ValueElement Value="IAG" CodeSystem="MVX" DisplayName="Immuno International AG"/>
-			<ValueElement Value="IDB" CodeSystem="MVX" DisplayName="ID Biomedical"/>
-			<ValueElement Value="IM" CodeSystem="MVX" DisplayName="Merieux"/>
-			<ValueElement Value="INT" CodeSystem="MVX" DisplayName="Intercell Biomedical"/>
 			<ValueElement Value="IUS" CodeSystem="MVX" DisplayName="Immuno-U.S., Inc."/>
-			<ValueElement Value="JNJ" CodeSystem="MVX" DisplayName="Johnson and Johnson"/>
-			<ValueElement Value="JPN" CodeSystem="MVX" DisplayName="The Research Foundation for Microbial Diseases of Osaka University (BIKEN)"/>
+			<ValueElement Value="INT" CodeSystem="MVX" DisplayName="Intercell Biomedical"/>
 			<ValueElement Value="KGC" CodeSystem="MVX" DisplayName="Korea Green Cross Corporation"/>
 			<ValueElement Value="LED" CodeSystem="MVX" DisplayName="Lederle"/>
-			<ValueElement Value="MA" CodeSystem="MVX" DisplayName="Massachusetts Public Health Biologic Laboratories"/>
 			<ValueElement Value="MBL" CodeSystem="MVX" DisplayName="Massachusetts Biologic Laboratories"/>
+			<ValueElement Value="MA" CodeSystem="MVX" DisplayName="Massachusetts Public Health Biologic Laboratories"/>
 			<ValueElement Value="MED" CodeSystem="MVX" DisplayName="MedImmune, Inc."/>
-			<ValueElement Value="MIL" CodeSystem="MVX" DisplayName="Miles"/>
-			<ValueElement Value="MIP" CodeSystem="MVX" DisplayName="Emergent BioDefense Operations Lansing"/>
 			<ValueElement Value="MSD" CodeSystem="MVX" DisplayName="Merck and Co., Inc."/>
+			<ValueElement Value="IM" CodeSystem="MVX" DisplayName="Merieux"/>
+			<ValueElement Value="MIL" CodeSystem="MVX" DisplayName="Miles"/>
 			<ValueElement Value="NAB" CodeSystem="MVX" DisplayName="NABI"/>
+			<ValueElement Value="NYB" CodeSystem="MVX" DisplayName="New York Blood Center"/>
 			<ValueElement Value="NAV" CodeSystem="MVX" DisplayName="North American Vaccine, Inc."/>
 			<ValueElement Value="NOV" CodeSystem="MVX" DisplayName="Novartis Pharmaceutical Corporation"/>
 			<ValueElement Value="NVX" CodeSystem="MVX" DisplayName="Novavax, Inc."/>
-			<ValueElement Value="NYB" CodeSystem="MVX" DisplayName="New York Blood Center"/>
-			<ValueElement Value="ORT" CodeSystem="MVX" DisplayName="Ortho-clinical Diagnostics"/>
 			<ValueElement Value="OTC" CodeSystem="MVX" DisplayName="Organon Teknika Corporation"/>
-			<ValueElement Value="OTH" CodeSystem="MVX" DisplayName="Other manufacturer"/>
+			<ValueElement Value="ORT" CodeSystem="MVX" DisplayName="Ortho-clinical Diagnostics"/>
 			<ValueElement Value="PD" CodeSystem="MVX" DisplayName="Parkedale Pharmaceuticals"/>
-			<ValueElement Value="PFR" CodeSystem="MVX" DisplayName="Pfizer, Inc"/>
-			<ValueElement Value="PMC" CodeSystem="MVX" DisplayName="sanofi pasteur"/>
-			<ValueElement Value="PRX" CodeSystem="MVX" DisplayName="Praxis Biologics"/>
-			<ValueElement Value="PSC" CodeSystem="MVX" DisplayName="Protein Sciences"/>
 			<ValueElement Value="PWJ" CodeSystem="MVX" DisplayName="PowderJect Pharmaceuticals"/>
+			<ValueElement Value="PRX" CodeSystem="MVX" DisplayName="Praxis Biologics"/>
+			<ValueElement Value="JPN" CodeSystem="MVX" DisplayName="The Research Foundation for Microbial Diseases of Osaka University (BIKEN)"/>
+			<ValueElement Value="PMC" CodeSystem="MVX" DisplayName="sanofi pasteur"/>
 			<ValueElement Value="SCL" CodeSystem="MVX" DisplayName="Sclavo, Inc."/>
-			<ValueElement Value="SI" CodeSystem="MVX" DisplayName="Swiss Serum and Vaccine Inst."/>
-			<ValueElement Value="SKB" CodeSystem="MVX" DisplayName="GlaxoSmithKline"/>
 			<ValueElement Value="SOL" CodeSystem="MVX" DisplayName="Solvay Pharmaceuticals"/>
+			<ValueElement Value="SI" CodeSystem="MVX" DisplayName="Swiss Serum and Vaccine Inst."/>
 			<ValueElement Value="TAL" CodeSystem="MVX" DisplayName="Talecris Biotherapeutics"/>
-			<ValueElement Value="UNK" CodeSystem="MVX" DisplayName="Unknown manufacturer"/>
 			<ValueElement Value="USA" CodeSystem="MVX" DisplayName="United States Army Medical Research and Material Command"/>
 			<ValueElement Value="VXG" CodeSystem="MVX" DisplayName="VaxGen"/>
 			<ValueElement Value="WA" CodeSystem="MVX" DisplayName="Wyeth-Ayerst"/>
 			<ValueElement Value="WAL" CodeSystem="MVX" DisplayName="Wyeth"/>
 			<ValueElement Value="ZLB" CodeSystem="MVX" DisplayName="ZLB Behring"/>
+			<ValueElement Value="OTH" CodeSystem="MVX" DisplayName="Other manufacturer"/>
+			<ValueElement Value="UNK" CodeSystem="MVX" DisplayName="Unknown manufacturer"/>
+			<ValueElement Value="AKR" CodeSystem="MVX" DisplayName="Akorn, Inc"/>
+			<ValueElement Value="PFR" CodeSystem="MVX" DisplayName="Pfizer, Inc"/>
+			<ValueElement Value="BRR" CodeSystem="MVX" DisplayName="Barr Laboratories"/>
+			<ValueElement Value="JNJ" CodeSystem="MVX" DisplayName="Johnson and Johnson"/>
+			<ValueElement Value="PSC" CodeSystem="MVX" DisplayName="Protein Sciences"/>
+			<ValueElement Value="IDB" CodeSystem="MVX" DisplayName="ID Biomedical"/>
+			<ValueElement Value="GRF" CodeSystem="MVX" DisplayName="Grifols"/>
+			<ValueElement Value="CRU" CodeSystem="MVX" DisplayName="Crucell"/>
+			<ValueElement Value="KED" CodeSystem="MVX" DisplayName="Kedrion Biopharma"/>
+			<ValueElement Value="PAX" CodeSystem="MVX" DisplayName="PaxVax"/>
+			<ValueElement Value="MCM" CodeSystem="MVX" DisplayName="MCM Vaccine Company"/>
+			<ValueElement Value="SEQ" CodeSystem="MVX" DisplayName="Seqirus"/>
+			<ValueElement Value="VAL" CodeSystem="MVX" DisplayName="Valneva"/>
+			<ValueElement Value="DYN" CodeSystem="MVX" DisplayName="Dynaport"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="CVX" Name="Codes for Vaccines administered">
 			<ValueElement Value="998" DisplayName="no vaccine administered" CodeSystem="CVX"/>
