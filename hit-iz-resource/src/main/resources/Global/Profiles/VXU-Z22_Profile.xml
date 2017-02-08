@@ -29,7 +29,7 @@
 					<Segment Ref="TQ1_118" Usage="R" Min="1" Max="1"/>
 					<Segment Ref="TQ2_47" Usage="O" Min="0" Max="1"/>
 				</Group>
-				<Segment Ref="RXA_IZ 1_5" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="RXA_IZ 1_5_Z22" Usage="R" Min="1" Max="1"/>
 				<Segment Ref="RXR_IZ 1_5" Usage="RE" Min="0" Max="1"/>
 				<Group ID="VXU_V04.ORDER.OBSERVATION" Name="VXU_V04.ORDER.OBSERVATION" Usage="RE" Min="0" Max="*">
 					<Segment Ref="OBX_IZ 1_5" Usage="R" Min="1" Max="1"/>
@@ -560,7 +560,7 @@
 			<Field Name="Cyclic Group Maximum Number of Repeats" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="10" ItemNo="01656"/>
 			<Field Name="Special Service Request Relationship" Usage="C" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70506" BindingStrength="R" ItemNo="01657"/>
 		</Segment>
-		<Segment ID="RXA_IZ 1_5" Label="RXA_IZ 1_5" Name="RXA" Description="Pharmacy/Treatment Administration">
+		<Segment ID="RXA_IZ 1_5_Z22" Label="RXA_IZ 1_5_Z22" Name="RXA" Description="Pharmacy/Treatment Administration">
 			<Field Name="Give Sub-ID Counter" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="1" ItemNo="00342"/>
 			<Field Name="Administration Sub-ID Counter" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="1" ItemNo="00344"/>
 			<Field Name="Date/Time Start of Administration" Usage="R" Min="1" Max="1" Datatype="TS_NZ" MinLength="1" MaxLength="26" ItemNo="00345"/>
