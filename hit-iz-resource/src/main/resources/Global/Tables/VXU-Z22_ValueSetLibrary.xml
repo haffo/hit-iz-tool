@@ -992,6 +992,8 @@
 			<ValueElement Value="2131-1" CodeSystem="CDCREC" DisplayName="Other Race"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="CVX" Name="Codes for Vaccines administered">
+			<ValueElement Value="183" DisplayName="Yellow fever vaccine - alt" CodeSystem="CVX"/>
+			<ValueElement Value="184" DisplayName="Yellow fever, unspecified formulation" CodeSystem="CVX"/>
 			<ValueElement Value="998" DisplayName="no vaccine administered" CodeSystem="CVX"/>
 			<ValueElement Value="999" DisplayName="unknown" CodeSystem="CVX"/>
 			<ValueElement Value="143" DisplayName="Adenovirus types 4 and 7" CodeSystem="CVX"/>
