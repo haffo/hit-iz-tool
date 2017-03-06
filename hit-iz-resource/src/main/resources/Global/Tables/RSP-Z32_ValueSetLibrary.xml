@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ValueSetLibrary xsi:noNamespaceSchemaLocation="../Schema/ValueSets.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ValueSetLibraryIdentifier="db5e4334-9c91-4216-9635-fa4065ecebe7">
+<ValueSetLibrary xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Jungyubw/NIST_healthcare_hl7_v2_profile_schema/master/Schema/NIST%20Validation%20Schema/ValueSets.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ValueSetLibraryIdentifier="db5e4334-9c91-4216-9635-fa4065ecebe7">
 	<MetaData Name="Z32 Message ValueSets" OrgName="NIST" Version="1.0.0" Date="20160219" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<NoValidation>
 		<BindingIdentifier>HL70087</BindingIdentifier>
@@ -1035,6 +1035,8 @@
 			<ValueElement Value="DYN" CodeSystem="MVX" DisplayName="Dynaport"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="CVX" Name="Codes for Vaccines administered">
+			<ValueElement Value="183" DisplayName="Yellow fever vaccine - alt" CodeSystem="CVX"/>
+			<ValueElement Value="184" DisplayName="Yellow fever, unspecified formulation" CodeSystem="CVX"/>
 			<ValueElement Value="998" DisplayName="no vaccine administered" CodeSystem="CVX"/>
 			<ValueElement Value="999" DisplayName="unknown" CodeSystem="CVX"/>
 			<ValueElement Value="143" DisplayName="Adenovirus types 4 and 7" CodeSystem="CVX"/>
