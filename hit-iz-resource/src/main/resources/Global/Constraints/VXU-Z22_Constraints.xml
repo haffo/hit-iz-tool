@@ -535,7 +535,7 @@
 					</Assertion>
 				</Constraint>
 			</ByID>
-			<ByID ID="RXA_IZ 1_5">
+			<ByID ID="RXA_IZ 1_5_Z22">
 				<Constraint ID="IZ-28" Target="1[1]">
 					<Description>The value of RXA-1 (Give Sub-ID Counter) SHALL be '0'.</Description>
 					<Assertion>
