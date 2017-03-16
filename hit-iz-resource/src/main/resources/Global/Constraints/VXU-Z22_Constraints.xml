@@ -208,7 +208,7 @@
 					</Condition>
 				</Predicate>
 			</ByID>
-			<ByID ID="RXA_IZ 1_5">
+			<ByID ID="RXA_IZ 1_5_Z22">
 				<Predicate ID="[RXA_IZ 1_5]7[1]" Target="7[1]" TrueUsage="R" FalseUsage="X">
 					<Description>If the value of RXA-6 (Administered Amount) is not '999'.</Description>
 					<Condition>
