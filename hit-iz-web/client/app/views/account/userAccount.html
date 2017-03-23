@@ -10,29 +10,27 @@
 <div ng-controller="UserAccountCtrl" ng-init="initAccount()">
     <div class="container" style="margin-top: 20px"  ng-show="isAuthenticated() && !isPending()">
 
-        <div ng-include="'views/account/userProfile.html'"></div>
+      <tabset>
+        <tab>
+          <tab-heading>
+            <i class="fa fa-user"></i>&nbsp;<span msg
+                                                  key="navbar.account"></span></a>
+          </tab-heading>
+          <div id="account" class="accountMgt">
+            <div ng-include="'views/account/userProfile.html'"></div>
+          </div>
+        </tab>
 
-        <!--<tabset>-->
-            <!--<tab>-->
-                <!--<tab-heading>-->
-                    <!--<i class="fa fa-user"></i>&nbsp;<span msg-->
-                                                          <!--key="navbar.account"></span></a>-->
-                <!--</tab-heading>-->
-                <!--<div id="account" class="accountMgt">-->
-                    <!--<div ng-include="'views/account/userProfile.html'"></div>-->
-                <!--</div>-->
-            <!--</tab>-->
+        <tab ng-show="isAdmin()">
+          <tab-heading>
+            <i class="fa fa-cog"></i>&nbsp;<span msg key="navbar.manage"></span>
+          </tab-heading>
+          <div id="accounts" class="accountMgt">
+            <div ng-include="'views/account/accountsList.html'"></div>
+          </div>
+        </tab>
 
-            <!--&lt;!&ndash;<tab ng-show="isAdmin()">&ndash;&gt;-->
-                <!--&lt;!&ndash;<tab-heading>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<i class="fa fa-cog"></i>&nbsp;<span msg key="navbar.manage"></span>&ndash;&gt;-->
-                <!--&lt;!&ndash;</tab-heading>&ndash;&gt;-->
-                <!--&lt;!&ndash;<div id="accounts" class="accountMgt">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div ng-include="'views/account/accountsList.html'"></div>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;</tab>&ndash;&gt;-->
-
-        <!--</tabset>-->
+      </tabset>
     </div>
     <div class="container" style="margin-top: 20px"  ng-show="isPending()">
         <div class="row">

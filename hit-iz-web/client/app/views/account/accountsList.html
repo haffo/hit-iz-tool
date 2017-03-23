@@ -11,18 +11,15 @@
     <div class="row">
         <div class="col-md-12">
                 <h3>
-                    <div msg="" key="manage.author.title"></div>
+                    <div msg="" key="manage.tester.title"></div>
                 </h3>
-                <p>
-
-                <div msg="" key="manage.author.message"></div>
-                </p>
             <div class="igl-table">
                 <table st-table="tmpAccountList" st-safe-src="accountList"
                        class="table table-striped table-bordered table-condensed table-fix-header">
                     <thead>
                     <tr >
-                        <th colspan="8" st-ratio="100"><input st-search="" class="form-control" type="text"/></th>
+                        <th st-ratio="5">{{accountList.length}} Users</th>
+                        <th colspan="5" st-ratio="95"><input st-search="" class="form-control" type="text"/></th>
                     </tr>
                     <tr class="tbl-header" style="margin-right: {{scrollbarWidth}}px;">
                         <th st-ratio="5"></th>
@@ -39,7 +36,7 @@
                             <div msg key='account.title'></div>
                         </th>
                         <th st-ratio="15">
-                            <div msg key='account.status'></div>
+                            <div msg key='account.type'></div>
                         </th>
                     </tr>
                     </thead>
@@ -50,19 +47,30 @@
                                    ng-checked="account != null && row == account"
                                    type="radio">
                             </td>
-                        <td ng-bind="row.fullName" st-ratio="20"></td>
-                        <td ng-bind="row.email" st-ratio="20"></td>
+                        <td  st-ratio="20">
+                          <span ng-show="!row.username">Guest</span>
+                          <span ng-show="row.username">{{::row.fullName}}</span>
+                        </td>
+                        <td st-ratio="20">
+                          <span ng-show="!row.username">N/A</span>
+                          <span ng-show="row.username">{{::row.email}}</span>
+
+                        </td>
                         <!--<td ng-bind="row.phone" st-ratio="10"></td>-->
-                        <td ng-bind="row.employer" st-ratio="20"></td>
-                        <td ng-bind="row.title" st-ratio="20"></td>
-                        <!--<td ng-bind="row.juridiction" st-ratio="10"></td>-->
-                        <td st-ratio="15">
-                            <span ng-show="!row.pending"><i class="fa fa-check success"></i>&nbsp;Approved</span>
-                            <span ng-show="row.pending"><i class="fa fa-times danger"></i>&nbsp;Pending</span>
+                        <td st-ratio="20">
+                          <span ng-show="!row.username">N/A</span>
+                          <span ng-show="row.username">{{::row.employer}}</span>
+                        </td>
+                        <td st-ratio="20">
+                          <span ng-show="!row.username">N/A</span>
+                          <span ng-show="row.username">{{::row.title}}</span>
+                        </td>
+                        <td st-ratio="15"><span ng-show="!row.username">Guest</span>
+                          <span ng-show="row.username">Tester</span>
                         </td>
                     </tr>
                     </tbody>
-                    <tfoot ng-show="tmpAccountList.length >= 20">
+                    <tfoot ng-show="accountList.length >= 20">
                     <tr style="margin-right: {{scrollbarWidth}}px;">
                         <td colspan="8">
                             <div st-pagination="" st-items-by-page="20" st-displayed-pages="7"></div>
@@ -85,7 +93,13 @@
     <div class="row" ng-show="account != null">
         <div class="col-md-12">
 
+          <div ng-show="!account.username || account.username == null">
+            <h3 class="page-header">Guest Account</h3>
+          </div>
+
+            <div ng-show="account.username && account.username != null">
             <h3 class="page-header">Account: {{account.fullName}}</h3>
+
 
             <!--Body content-->
             <h4 class="page-header"><div msg key="account.resetUserMessage"></div></h4>
@@ -132,42 +146,14 @@
                     </div>
                 </div>
             </div>
-
-            <div ng-show="account.pending">
-            <h4><div msg key="account.approveUserSectionTitle"></div></h4>
-            <div ng-form name="approveAccountForm" class="form-horizontal" novalidate>
-                <p>
-                <div msg key="account.approveUserMessage"></div>
-                </p>
-                <div class="control-group form-group">
-                    <div class="controls col-md-10">
-                        <button class="btn btn-success" ng-click='approveAccount()'><i class="fa fa-check"></i>&nbsp;<span msg key="account.approveUserButton"></span></button>
-                    </div>
-                </div>
             </div>
-            </div>
-
-            <div ng-show="!account.pending">
-                <h4><div msg key="account.suspendUserSectionTitle"></div></h4>
-            <div ng-form name="suspendAccountForm" class="form-horizontal" novalidate>
-                <p>
-                <div msg key="account.suspendUserMessage"></div>
-                </p>
-                <div class="control-group form-group">
-                    <div class="controls col-md-10">
-                        <button class="btn btn-warning" ng-click='suspendAccount()'><i class="fa fa-times"></i>&nbsp;<span msg key="account.suspendUserButton"></span></button>
-                    </div>
-                </div>
-            </div>
-            </div>
-
-
 
             <h4><div msg key="account.deleteUserSectionTitle"></div></h4>
             <div ng-form name="deleteAccountForm" class="form-horizontal" novalidate>
                 <p>
-                <div msg key="account.deleteUserMessage"></div>
-                </p>
+                <div ng-show="account.username && account.username != null" msg key="account.deleteUserMessage"></div>
+                <div ng-show="!account.username || account.username === null" msg key="account.deleteGuestMessage"></div>
+              </p>
                 <div class="control-group form-group">
                     <div class="controls col-md-10">
                         <button class="btn btn-danger" ng-click='deleteAccount()'><i class="fa fa-times"></i>&nbsp;<span msg key="account.deleteButton"></span></button>
