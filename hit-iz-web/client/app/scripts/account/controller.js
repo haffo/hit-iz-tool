@@ -119,12 +119,15 @@ angular.module('account')
             $scope.accountOrig = null;
             $scope.accountType = "tester";
             $scope.scrollbarWidth = $scope.getScrollbarWidth();
+            $scope.authorities = [];
 
 //        var PasswordChange = $resource('api/accounts/:id/passwordchange', {id:'@id'});
             var PasswordChange = $resource('api/accounts/:id/userpasswordchange', {id:'@id'});
             var ApproveAccount = $resource('api/accounts/:id/approveaccount', {id:'@id'});
             var SuspendAccount = $resource('api/accounts/:id/suspendaccount', {id:'@id'});
-            $scope.msg = null;
+          var AccountTypeChange = $resource('api/accounts/:id/useraccounttypechange', {id:'@id'});
+
+          $scope.msg = null;
 
             $scope.accountpwd = {};
 
@@ -162,6 +165,20 @@ angular.module('account')
                 });
             };
 
+          $scope.saveAccountType = function() {
+            var authorityChange = new AccountTypeChange();
+            authorityChange.username = $scope.account.username;
+            authorityChange.accountType = $scope.account.accountType;
+            authorityChange.id = $scope.account.id;
+            //TODO: Check return value???
+            authorityChange.$save().then(function(result){
+              $scope.msg = angular.fromJson(result);
+            },function(error){
+              Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
+            });
+          };
+
+
             $scope.loadAccounts = function(){
                 if (userInfoService.isAuthenticated() && userInfoService.isAdmin()) {
                     $scope.msg = null;
@@ -181,6 +198,7 @@ angular.module('account')
             $scope.selectAccount = function(row) {
                 $scope.accountpwd = {};
                 $scope.account = row;
+              $scope.authorities =
                 $scope.accountOrig = angular.copy($scope.account);
             };
 

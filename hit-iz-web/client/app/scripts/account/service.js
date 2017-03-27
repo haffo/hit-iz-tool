@@ -45,9 +45,10 @@ angular.module('account').factory('AccountLoader', ['Account', '$q',
 
 'use strict';
 
+
 angular.module('account').factory('Testers', ['$resource',
     function ($resource) {
-        return $resource('api/shortaccounts', {filter:'accountType::tester'});
+        return $resource('api/shortaccounts', {filter:['accountType::tester', 'accountType::deployer', 'accountType::admin']});
     }
 ]);
 
@@ -140,8 +141,8 @@ angular.module('account').factory('userLoaderService', ['userInfo', '$q',
     }
 ]);
 
-angular.module('account').factory('userInfoService', ['StorageService', 'userLoaderService','User','Transport','$q','$timeout',
-    function(StorageService,userLoaderService,User,Transport,$q,$timeout) {
+angular.module('account').factory('userInfoService', ['StorageService', 'userLoaderService','User','Transport','$q','$timeout','$rootScope',
+    function(StorageService,userLoaderService,User,Transport,$q,$timeout,$rootScope) {
         var currentUser = null;
         var supervisor = false,
             tester = false,
@@ -207,7 +208,14 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
         };
 
         var isAdmin = function() {
-            return admin;
+          if (!admin && $rootScope.appInfo.adminEmails != null && $rootScope.appInfo.adminEmails) {
+            if (Array.isArray($rootScope.appInfo.adminEmails)) {
+              admin = $rootScope.appInfo.adminEmails.indexOf(currentUser.email) >= 0;
+            } else {
+              admin = $rootScope.appInfo.adminEmails === currentUser.email;
+            }
+          }
+          return admin;
         };
 
         var isTester = function() {
@@ -270,9 +278,6 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
                                 break;
                             case 'tester':
                                 tester = true;
-                                break;
-                            case 'supervisor':
-                                supervisor = true;
                                 break;
                             default:
                         }

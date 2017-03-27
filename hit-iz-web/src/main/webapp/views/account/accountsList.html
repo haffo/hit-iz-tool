@@ -63,7 +63,11 @@
                           <span ng-show="row.username">{{::row.title}}</span>
                         </td>
                         <td st-ratio="15"><span ng-show="!row.username">Guest</span>
-                          <span ng-show="row.username">Tester</span>
+                          <span ng-show="row.username">
+
+                              {{row.accountType}}
+
+                          </span>
                         </td>
                     </tr>
                     </tbody>
@@ -144,6 +148,32 @@
                 </div>
             </div>
             </div>
+
+
+          <h4 class="page-header"><div msg="" key="account.changeAccountTypeMessage"></div></h4>
+          <div ng-form="" name="changeAccountTypeForm" class="form-horizontal" novalidate="">
+            <div class="control-group form-group">
+              <label class="control-label col-md-2"><div msg="" key="account.accountType"></div></label>
+              <div class="controls col-md-7">
+                   <label class="radio-inline">
+                    <input type="radio" ng-model="account.accountType" value="tester"> Tester
+                   </label>
+                  <label class="radio-inline">
+                    <input type="radio" ng-model="account.accountType" value="deployer"> Deployer
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" ng-model="account.accountType" value="admin"> Admin
+                  </label>
+                </div>
+             </div>
+            <div class="control-group form-group">
+              <div class="col-md-offset-2 col-md-7">
+                <button class="btn btn-primary" ng-click="saveAccountType()" ng-disabled="!changeAccountTypeForm.$valid"><div msg="" key="account.changeAccountTypeButton"></div></button>
+              </div>
+            </div>
+
+          </div>
+
 
             <h4><div msg="" key="account.deleteUserSectionTitle"></div></h4>
             <div ng-form="" name="deleteAccountForm" class="form-horizontal" novalidate="">
