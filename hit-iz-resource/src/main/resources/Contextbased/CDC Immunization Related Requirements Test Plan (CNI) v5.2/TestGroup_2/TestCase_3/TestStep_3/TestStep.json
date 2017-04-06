@@ -1,0 +1,7 @@
+{
+  "id" : 180759,
+  "name" : "Record an adverse reaction",
+  "description" : "The Provider records in the EMR an adverse reaction of rash within 14 days of dose.",
+  "type" : "SUT_MANUAL",
+  "position" : 3
+}
