@@ -1,11 +1,11 @@
 {
-    	"version"	: "1.5.0",
-    	"rsbVersion"	: "1.5.0",
+    	"version"	: "1.5.1",
+    	"rsbVersion"	: "1.5.1",
     	"igVersion":"",
     	"name"	:"Immunization Test Suite",
 		"domain"		:"",
-		"adminEmail"	:"robert.snelick@nist.gov",
-		"description"	:"",
+		"adminEmail":["robert.snelick@nist.gov", "haffo@nist.gov"],
+		"description":"",
 		"header" 	:"",
 		"homeTitle":"Welcome to the NIST Immunization Test Suite!",
 		"fileUpload":{

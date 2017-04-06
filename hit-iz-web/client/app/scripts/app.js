@@ -323,8 +323,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     }
 
     var initUser = function (user) {
-        console.log("user="+ angular.toJson(user));
-        userInfoService.setCurrentUser(user);
+      userInfoService.setCurrentUser(user);
         User.initUser(user);
         Transport.init();
     };

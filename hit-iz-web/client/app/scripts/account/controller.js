@@ -109,8 +109,8 @@ angular.module('account')
 'use strict';
 
 angular.module('account')
-    .controller('AccountsListCtrl', ['$scope', 'MultiAuthorsLoader', 'MultiSupervisorsLoader','Account', '$modal', '$resource','AccountLoader','userInfoService','$location','Notification',
-        function ($scope, MultiAuthorsLoader, MultiSupervisorsLoader, Account, $modal, $resource, AccountLoader, userInfoService, $location, Notification) {
+    .controller('AccountsListCtrl', ['$scope', 'MultiTestersLoader', 'MultiSupervisorsLoader','Account', '$modal', '$resource','AccountLoader','userInfoService','$location','Notification',
+        function ($scope, MultiTestersLoader, MultiSupervisorsLoader, Account, $modal, $resource, AccountLoader, userInfoService, $location, Notification) {
 
             //$scope.accountTypes = [{ 'name':'Author', 'type':'author'}, {name:'Supervisor', type:'supervisor'}];
             //$scope.accountType = $scope.accountTypes[0];
@@ -119,12 +119,15 @@ angular.module('account')
             $scope.accountOrig = null;
             $scope.accountType = "tester";
             $scope.scrollbarWidth = $scope.getScrollbarWidth();
+            $scope.authorities = [];
 
 //        var PasswordChange = $resource('api/accounts/:id/passwordchange', {id:'@id'});
             var PasswordChange = $resource('api/accounts/:id/userpasswordchange', {id:'@id'});
             var ApproveAccount = $resource('api/accounts/:id/approveaccount', {id:'@id'});
             var SuspendAccount = $resource('api/accounts/:id/suspendaccount', {id:'@id'});
-            $scope.msg = null;
+          var AccountTypeChange = $resource('api/accounts/:id/useraccounttypechange', {id:'@id'});
+
+          $scope.msg = null;
 
             $scope.accountpwd = {};
 
@@ -162,10 +165,24 @@ angular.module('account')
                 });
             };
 
+          $scope.saveAccountType = function() {
+            var authorityChange = new AccountTypeChange();
+            authorityChange.username = $scope.account.username;
+            authorityChange.accountType = $scope.account.accountType;
+            authorityChange.id = $scope.account.id;
+            //TODO: Check return value???
+            authorityChange.$save().then(function(result){
+              $scope.msg = angular.fromJson(result);
+            },function(error){
+              Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
+            });
+          };
+
+
             $scope.loadAccounts = function(){
                 if (userInfoService.isAuthenticated() && userInfoService.isAdmin()) {
                     $scope.msg = null;
-                    new MultiAuthorsLoader().then(function (response) {
+                    new MultiTestersLoader().then(function (response) {
                         $scope.accountList = response;
                         $scope.tmpAccountList = [].concat($scope.accountList);
                     },function(error){
@@ -181,6 +198,7 @@ angular.module('account')
             $scope.selectAccount = function(row) {
                 $scope.accountpwd = {};
                 $scope.account = row;
+              $scope.authorities =
                 $scope.accountOrig = angular.copy($scope.account);
             };
 
@@ -201,37 +219,41 @@ angular.module('account')
                         }
                     }
                 });
-                modalInstance.result.then(function (accountToDelete,accountList ) {
-                    $scope.accountToDelete = accountToDelete;
-                    $scope.accountList = accountList;
+                modalInstance.result.then(function (accountToDelete) {
+                  var rowIndex = $scope.accountList.indexOf(accountToDelete);
+                    if(rowIndex !== -1){
+                      $scope.accountList.splice(rowIndex,1);
+                    }
+                    $scope.tmpAccountList = [].concat($scope.accountList);
+                    $scope.account =null;
                 }, function (error) {
-                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
+                     Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
                 });
             };
 
-            $scope.approveAccount = function() {
-                var user = new ApproveAccount();
-                user.username = $scope.account.username;
-                user.id = $scope.account.id;
-                user.$save().then(function(result){
-                    $scope.account.pending = false;
-                    $scope.msg = angular.fromJson(result);
-                },function(error){
-                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
-                });
-            };
-
-            $scope.suspendAccount = function(){
-                var user = new SuspendAccount();
-                user.username = $scope.account.username;
-                user.id = $scope.account.id;
-                user.$save().then(function(result){
-                    $scope.account.pending = true;
-                    $scope.msg = angular.fromJson(result);
-                },function(error){
-                    Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
-                });
-            };
+            // $scope.approveAccount = function() {
+            //     var user = new ApproveAccount();
+            //     user.username = $scope.account.username;
+            //     user.id = $scope.account.id;
+            //     user.$save().then(function(result){
+            //         $scope.account.pending = false;
+            //         $scope.msg = angular.fromJson(result);
+            //     },function(error){
+            //         Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
+            //     });
+            // };
+            //
+            // $scope.suspendAccount = function(){
+            //     var user = new SuspendAccount();
+            //     user.username = $scope.account.username;
+            //     user.id = $scope.account.id;
+            //     user.$save().then(function(result){
+            //         $scope.account.pending = true;
+            //         $scope.msg = angular.fromJson(result);
+            //     },function(error){
+            //         Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
+            //     });
+            // };
 
 
         }
@@ -247,16 +269,10 @@ angular.module('account').controller('ConfirmAccountDeleteCtrl', function ($scop
         //console.log('Delete for', $scope.accountList[rowIndex]);
         Account.remove({id:accountToDelete.id},
             function() {
-                var rowIndex = $scope.accountList.indexOf(accountToDelete);
-                if(index !== -1){
-                    $scope.accountList.splice(rowIndex,1);
-                }
                 $modalInstance.close($scope.accountToDelete);
             },
             function(error) {
-//                            console.log('There was an error deleting the account');
-                Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
-
+                 Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $scope, delay: 50000});
             }
         );
     };

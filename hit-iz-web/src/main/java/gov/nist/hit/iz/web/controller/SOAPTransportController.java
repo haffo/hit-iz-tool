@@ -35,10 +35,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import gov.nist.auth.hit.core.domain.Account;
+import gov.nist.auth.hit.core.domain.TransportConfig;
 import gov.nist.hit.core.api.SessionContext;
 import gov.nist.hit.core.domain.TestStep;
 import gov.nist.hit.core.domain.Transaction;
-import gov.nist.hit.core.domain.TransportConfig;
 import gov.nist.hit.core.domain.TransportMessage;
 import gov.nist.hit.core.domain.TransportRequest;
 import gov.nist.hit.core.domain.TransportResponse;
