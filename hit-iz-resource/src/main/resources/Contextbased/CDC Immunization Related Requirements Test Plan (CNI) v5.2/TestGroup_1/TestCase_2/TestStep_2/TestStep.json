@@ -1,0 +1,7 @@
+{
+  "id" : 310494,
+  "name" : "Enter Clinical History for Juan Marcel Marina",
+  "description" : "The EHR captures structured data regarding a problem of congenital asplenia as part of the clinical history.",
+  "type" : "SUT_MANUAL",
+  "position" : 2
+}

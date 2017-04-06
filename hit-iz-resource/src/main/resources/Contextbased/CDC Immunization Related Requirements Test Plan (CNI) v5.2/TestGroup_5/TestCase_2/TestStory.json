@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<span style=\"font-size: 13.3333px;\">This test will consist of ordering vaccines for the test patients, reviewing any alerts caused by specific scenarios, and documenting vaccinations administered to the patients. </span>",
+  "comments" : "No Comments",
+  "preCondition" : "<span style=\"line-height: 107%; font-family: Arial; font-size: small;\">Juana Maria Gonzales Morales is entered as a patient in the EMR with complete Demographic\r\ndata, Immunization History Data, and Clinical Data according to the steps in\r\nthe 'Juana Maria Gonzales Morales Initial Data Load'</span>",
+  "postCondition" : "<span style=\"line-height: 107%; font-family: Arial; font-size: small;\">Visit\r\norders are entered in Juana Maria Gonzales Morales' record.</span>",
+  "testObjectives" : "<p><em><span style=\"font-style: normal; font-family: Arial; font-size: small;\">Supporting data for error handling tests.<o:p></o:p></span></em></p><em><span style=\"font-weight: bold;\">Record Vaccine Administration:</span> </em>The EHR or other clinical software system records information about each vaccine administered. The EHR records this information as structured data elements, including, at a minimum: date administered, administering clinician, site of administration (e.g., left arm), immunization type, product, lot number, manufacturer, Vaccine Information Statement date, and quantity of vaccine/dose size.<span style=\"font-family: Arial; font-size: small;\"><em><span style=\"line-height: 107%; font-style: normal;\"></span></em></span>",
+  "evaluationCriteria" : "<span style=\"line-height: 107%; font-family: Arial; font-size: small;\">Evaluation criteria is defined within each test\r\nstep.</span>",
+  "notes" : "No Note"
+}

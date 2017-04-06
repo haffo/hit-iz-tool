@@ -1,0 +1,7 @@
+{
+  "id" : 790695,
+  "name" : "Select Patient Juan Marcel Marina",
+  "description" : "Select patient Juan Marcel Marina, distinguishing the patient from other patients with similar demographics (similar names).",
+  "type" : "SUT_MANUAL",
+  "position" : 1
+}
