@@ -323,7 +323,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     }
 
     var initUser = function (user) {
-      userInfoService.setCurrentUser(user);
+        userInfoService.setCurrentUser(user);
         User.initUser(user);
         Transport.init();
     };
@@ -465,7 +465,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
             $http.get('api/accounts/cuser').then(function (result) {
                  if (result.data && result.data != null) {
                     var rs = angular.fromJson(result.data);
-                    initUser(rs);
+                    userInfoService.setCurrentUser(rs);
                     $rootScope.$broadcast('event:loginConfirmed');
                 } else {
                     userInfoService.setCurrentUser(null);
