@@ -25,28 +25,29 @@ import gov.nist.hit.iz.service.exception.MessageContentNotFoundException;
  */
 public class Utils {
 
-  public static String getContent(IntegrationProfile integrationProfile) throws ProfileException {
-    if (integrationProfile == null || "".equals(integrationProfile.getXml())) {
-      throw new ProfileException("Not integrationProfile found in the request");
-    }
-    return integrationProfile.getXml();
-  }
+	public static String getContent(IntegrationProfile integrationProfile) throws ProfileException {
+		if (integrationProfile == null || "".equals(integrationProfile.getXml())) {
+			throw new ProfileException("No integrationProfile found in the request");
+		}
+		return integrationProfile.getXml();
+	}
 
-  public static String getContent(Command request) {
-    if (request == null || "".equals(request.getContent())) {
-      throw new MessageContentNotFoundException("No content found in the request");
-    }
-    return request.getContent();
-  }
+	public static String getContent(Command request) {
+		if (request == null || "".equals(request.getContent())) {
+			throw new MessageContentNotFoundException("No content found in the request");
+		}
+		return request.getContent();
+	}
 
-  public static String getUrl(HttpServletRequest request) {
-    String scheme = request.getScheme();
-    String host = request.getHeader("Host");
-    System.out.println(host);
-    host = host.replaceAll("hit-2015.nist.gov:", "hl7v2-iz-r1.5-testing.nist.gov:"); // Heat
-                                                                                     // me
-                                                                                     // !!
-    return scheme + "://" + host + request.getContextPath();
-  }
+	public static String getUrl(HttpServletRequest request) {
+		String scheme = request.getScheme();
+		String host = request.getHeader("Host");
+		if (host.contains("psapps01.nist.gov")) {
+			host = "www-s.nist.gov";
+		} else {
+			host = host.replaceAll("hit-2015.nist.gov:", "hl7v2-iz-r1.5-testing.nist.gov:");
+		}
+		return scheme + "://" + host + request.getContextPath();
+	}
 
 }
