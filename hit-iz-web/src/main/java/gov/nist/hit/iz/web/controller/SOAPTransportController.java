@@ -248,18 +248,17 @@ public class SOAPTransportController {
 		if (userId == null || (user = accountService.findOne(userId)) == null) {
 			throw new UserNotFoundException();
 		}
-
 		TransportConfig transportConfig = transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL,
 				DOMAIN);
 		if (transportConfig == null) {
 			transportConfig = transportConfigService.create(PROTOCOL, DOMAIN);
 			transportConfig.setUserId(userId);
-			Map<String, String> sutInitiatorConfig = sutInitiatorConfig(user, request);
 			Map<String, String> taInitiatorConfig = taInitiatorConfig(user, request);
-			transportConfig.setSutInitiator(sutInitiatorConfig);
 			transportConfig.setTaInitiator(taInitiatorConfig);
-			transportConfigService.save(transportConfig);
 		}
+		Map<String, String> sutInitiatorConfig = sutInitiatorConfig(user, request);
+		transportConfig.setSutInitiator(sutInitiatorConfig);
+		transportConfigService.save(transportConfig);
 		return transportConfig;
 	}
 
