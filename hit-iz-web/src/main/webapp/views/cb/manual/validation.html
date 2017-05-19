@@ -14,25 +14,28 @@
         <div class="panel-body">
                 <div class="row">
                     <div class="col-md-10">
-                        <form name="manualStepForm" id="manualStepForm" class="form-horizontal" novalidate="">
-                            <div class="form-group control-group" ng-class="{'has-success has-feedback': manualStepForm.resultValue.$valid, 'base-has-error has-feedback': !manualStepForm.resultValue.$valid}">
+                        <form name="manualStepForm" id="manualStepForm" class="form-horizontal" novalidate>
+                            <div class="form-group control-group"
+                                 ng-class="{'has-success has-feedback': manualStepForm.resultValue.$valid, 'base-has-error has-feedback': !manualStepForm.resultValue.$valid}">
                                 <label class="control-label col-md-2" for="resultValue">
                                     <div>Result</div>
                                 </label>
                                 <div class="col-md-4">
-                                    <select class="form-control" name="resultValue" id="resultValue" ng-model="testExecutionService.testStepValidationResults[testStep.id]" required="" ng-disabled="isTestCaseCompleted() && testCase.type === 'TestCase'">
+                                    <select class="form-control" name="resultValue" id="resultValue" ng-model="testExecutionService.testStepValidationResults[testStep.id]" required ng-disabled="isTestCaseCompleted() && testCase.type === 'TestCase'">
                                         <option value="">---Please select---</option>
                                         <option ng-repeat="resultOption in testExecutionService.resultOptions" value="{{resultOption.value}}">{{resultOption.title}}</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="form-group control-group">
+                            <div class="form-group control-group"
+                                 >
                                 <label class="control-label col-md-2" for="resultComment">
                                     <div>Comments</div>
                                 </label>
                                 <div class="col-md-8">
-                                    <textarea rows="9" ng-model="testExecutionService.testStepComments[testStep.id]" id="resultComment" name="resultComment" ng-disabled="isTestCaseCompleted() && testCase.type === 'TestCase'" style="text-align:left;width:700px">
+                                    <textarea rows="9" ng-model="testExecutionService.testStepComments[testStep.id]" id="resultComment" name="resultComment" ng-disabled="isTestCaseCompleted() && testCase.type === 'TestCase'"
+                                              style="text-align:left;width:700px;">
                                     </textarea>
                                 </div>
                             </div>
@@ -68,3 +71,4 @@
             </div>
         </div>
     </div>
+</div>

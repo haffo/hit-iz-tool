@@ -12,8 +12,11 @@
 
 <div class="testStep" ng-show="testStep != null">
 
-<div class="col-md-12" ng-show="detailsError !== null && detailsError != undefined">
-    <div class="alert alert-danger" role="alert" ng-bind="detailsError"></div>
+<div class="col-md-12"
+     ng-show="detailsError !== null && detailsError != undefined">
+    <div class="alert alert-danger"
+         role="alert"
+         ng-bind="detailsError"></div>
 </div>
 
 <div class="col-md-12">
@@ -21,8 +24,9 @@
     <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
 </div>
 <div ng-show="!loadingExecution">
-    <div ng-if="testCase.type === 'TestStep'" style="margin-bottom: 10px">
-        <table style="margin-bottom: 0px" class="table table-bordered table-condensed stTable execution-table">
+    <div ng-if="testCase.type === 'TestStep'" style="margin-bottom: 10px;">
+        <table style="margin-bottom: 0px"
+               class="table table-bordered  table-condensed stTable execution-table">
             <thead>
             <tr class="">
                 <th style="width:5%">#</th>
@@ -70,14 +74,19 @@
                                     </span>
                     </div>
                     <div ng-show="testExecutionService.getTestStepExecutionStatus(testStep) === 'COMPLETE'">
-                        <i class="fa fa-check green"></i> Completed
+                        <i
+                                class="fa fa-check green"></i> Completed
                     </div>
                 </td>
 
                 <td style="width:20%">
                     <div ng-show="isTestStepCompleted(testStep)  || testStep.testingType === 'TA_RESPONDER'">
-                        <select class="" name="resultValue" id="resultValue" ng-change="updateTestStepValidationReport(testStep)" ng-model="testExecutionService.testStepValidationResults[testStep.id]" required="">
-                            <option ng-repeat="resultOption in testExecutionService.resultOptions" value="{{resultOption.value}}"><i class="{{resultOption.class}}"></i>
+                        <select class="" name="resultValue" id="resultValue"
+                                ng-change="updateTestStepValidationReport(testStep)"
+                                ng-model="testExecutionService.testStepValidationResults[testStep.id]" required
+                                >
+                            <option ng-repeat="resultOption in testExecutionService.resultOptions"
+                                    value="{{resultOption.value}}"><i class="{{resultOption.class}}"></i>
                                 {{resultOption.title}}
                             </option>
                         </select>
@@ -86,14 +95,24 @@
                         In Progress
                     </div>
                 </td>
-                <td style="width:35%">
-                    <div ng-if="isTestStepCompleted(testStep) || testStep.testingType === 'TA_RESPONDER'" style="text-align:center">
-                        <a ng-show="testExecutionService.testStepComments[testStep.id] === null || testExecutionService.testStepComments[testStep.id] == undefined" ng-click="testExecutionService.testStepComments[testStep.id] = ' '" class="point">
+                <td style="width:35%;">
+                    <div ng-if="isTestStepCompleted(testStep) || testStep.testingType === 'TA_RESPONDER'"
+                         style="text-align:center">
+                        <a
+                                ng-show="testExecutionService.testStepComments[testStep.id] === null || testExecutionService.testStepComments[testStep.id] == undefined"
+                                ng-click="testExecutionService.testStepComments[testStep.id] = ' '" class="point">
                             <i class="fa fa-pencil fa-fw"></i>
                         </a>
-                        <textarea style="width:100%;height:100%" class="form-control" ng-blur="updateTestStepValidationReport(testStep)" ng-model="testExecutionService.testStepComments[testStep.id]" ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] != undefined">
+                        <textarea style="width:100%;height:100%"
+                                  class="form-control"
+                                  ng-blur="updateTestStepValidationReport(testStep)"
+                                  ng-model="testExecutionService.testStepComments[testStep.id]"
+                                  ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] != undefined">
                         </textarea>
-                        <a ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] !== undefined" ng-click="testExecutionService.testStepComments[testStep.id] = null;updateTestStepValidationReport(testStep)" class="point">
+                        <a
+                                ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] !== undefined"
+                                ng-click="testExecutionService.testStepComments[testStep.id] = null;updateTestStepValidationReport(testStep)"
+                                class="point">
                             <i class="fa fa-times fa-fw"></i>
                         </a>
                     </div>
@@ -104,7 +123,8 @@
     </div>
 
     <tabset>
-        <tab disabled="disabled()" select="setTestStepExecutionTab(0)" active="tabs[0]" ng-show="testStep.testContext && testStep.testContext != null">
+        <tab disabled="disabled()" select="setTestStepExecutionTab(0)" active="tabs[0]"
+             ng-show="testStep.testContext && testStep.testContext != null">
             <tab-heading>
                 <i class="fa fa-check-circle"></i>Validation
             </tab-heading>
@@ -123,14 +143,16 @@
             </div>
         </tab>
 
-        <tab disabled="disabled()" select="setTestStepExecutionTab(2)" active="tabs[2]" ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.profile && testStep.testContext.profile!= null">
+        <tab disabled="disabled()" select="setTestStepExecutionTab(2)" active="tabs[2]"
+             ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.profile && testStep.testContext.profile!= null">
             <tab-heading>
                 <i class="fa fa-th-list"></i>Profile Viewer
             </tab-heading>
             <div ng-include="'views/cb/auto/profileViewer.html'"></div>
         </tab>
 
-        <tab disabled="disabled()" select="setTestStepExecutionTab(3)" active="tabs[3]" ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.vocabularyLibrary && testStep.testContext.vocabularyLibrary!= null">
+        <tab disabled="disabled()" select="setTestStepExecutionTab(3)" active="tabs[3]"
+             ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.vocabularyLibrary && testStep.testContext.vocabularyLibrary!= null">
             <tab-heading>
                 <i class="fa fa-book"></i>ValueSets
             </tab-heading>
@@ -154,43 +176,52 @@
         <!--</tab>-->
 
 
-        <tab class="pull-right" ng-click="setTestStepExecutionTab(5)" active="tabs[5]" ng-show="testStep.testContext && testStep.testContext.message && testStep.testContext.message!== null && testStep.testContext.message.content != null">
+        <tab class="pull-right" ng-click="setTestStepExecutionTab(5)" active="tabs[5]"
+             ng-show="testStep.testContext && testStep.testContext.message && testStep.testContext.message!== null && testStep.testContext.message.content != null">
             <tab-heading>
                 <i class="fa fa-file-text-o"></i>
                 <span ng-if="testStep.testingType !== 'TA_RESPONDER'">Example Message</span>
                 <span ng-if="testStep.testingType === 'TA_RESPONDER'">Test Message</span>
             </tab-heading>
-            <div example-message="" target="{{targ}}"></div>
+            <div example-message target="{{targ}}"></div>
         </tab>
 
-        <tab class="pull-right" ng-show="testStep['jurorDocument']  && testStep['jurorDocument'] !== null" active="tabs[6]" ng-click="setTestStepExecutionTab(6)">
+        <tab class="pull-right" ng-show="testStep['jurorDocument']  && testStep['jurorDocument'] !== null"
+             active="tabs[6]"
+             ng-click="setTestStepExecutionTab(6)">
             <tab-heading>
                 <i class="fa fa-list-alt"></i> Juror Document
             </tab-heading>
-            <div juror-document="" target="{{targ}}"></div>
+            <div juror-document target="{{targ}}"></div>
         </tab>
 
 
-        <tab class="pull-right" ng-show="testStep['messageContent'] && testStep['messageContent'] !== null" active="tabs[7]" ng-click="setTestStepExecutionTab(7)">
+        <tab class="pull-right" ng-show="testStep['messageContent'] && testStep['messageContent'] !== null"
+             active="tabs[7]"
+             ng-click="setTestStepExecutionTab(7)">
             <tab-heading>
                 <i class="fa fa-list-alt"></i> Message Content
             </tab-heading>
-            <div message-content="" target="{{targ}}"></div>
+            <div message-content target="{{targ}}"></div>
         </tab>
 
-        <tab class="pull-right" ng-show="testStep['testDataSpecification'] && testStep['testDataSpecification'] !== null" active="tabs[8]" ng-click="setTestStepExecutionTab(8)">
+        <tab class="pull-right"
+             ng-show="testStep['testDataSpecification'] && testStep['testDataSpecification'] !== null"
+             active="tabs[8]"
+             ng-click="setTestStepExecutionTab(8)">
             <tab-heading>
                 <i class="fa fa-list-alt"></i>Test Data Specification
             </tab-heading>
 
-            <div test-data-specification="" target="{{targ}}"></div>
+            <div test-data-specification target="{{targ}}"></div>
         </tab>
 
-        <tab class="pull-right" active="tabs[9]" ng-click="setTestStepExecutionTab(9)" ng-show="testStep['testStory'] && testStep['testStory'] !== null">
+        <tab class="pull-right" active="tabs[9]" ng-click="setTestStepExecutionTab(9)"
+             ng-show="testStep['testStory'] && testStep['testStory'] !== null">
             <tab-heading>
                 <i class="fa fa-info"></i>Test Story
             </tab-heading>
-            <div test-story="" target="{{targ}}"></div>
+            <div test-story target="{{targ}}"></div>
         </tab>
 
     </tabset>

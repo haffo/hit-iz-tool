@@ -7,11 +7,11 @@
         top.location = self.location;
     }
 </script>
-<div ng-controller="CBReportCtrl" ng-init="init()">
+<div   ng-controller="CBReportCtrl" ng-init="init()">
     <div class="panel panel-info">
         <div class="panel-body">
     <div ng-show="cb.testCase != null">
-         <div report-viewer="" type="cbManual"></div>
+         <div report-viewer type="cbManual"></div>
     </div>
     <div ng-show="cb.testCase === null">
         No TestCase Loaded.

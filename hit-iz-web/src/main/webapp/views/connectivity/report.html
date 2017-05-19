@@ -14,7 +14,7 @@
         <div ng-show="testCase.id != null">
 
             <div class="col-md-10">
-                <br>
+                <br/>
 
                 <div ng-show="!loading">
                     <div ng-show="error == null">
@@ -45,9 +45,15 @@
                                     <i class="fa fa-download"></i>  Download As <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li> <a class="point" ng-click="downloadAs('PDF')"><img src="images/pdf.png" style="height:15px;width:15px">PDF</a></li>
-                                    <li><a class="point" ng-click="downloadAs('XML')"><img src="images/xml.jpeg" style="height:15px;width:15px">XML</a></li>
-                                    <li> <a class="point" ng-click="downloadAs('HTML')"><img src="images/html.png" style="height:15;width:15px">HTML</a></li>
+                                    <li> <a class="point" ng-click="downloadAs('PDF')"><img
+                                            src="images/pdf.png"
+                                            style="height:15px;width:15px">PDF</a></li>
+                                    <li><a  class="point" ng-click="downloadAs('XML')"><img
+                                            src="images/xml.jpeg"
+                                            style="height:15px;width:15px">XML</a></li>
+                                    <li> <a class="point" ng-click="downloadAs('HTML')"><img
+                                            src="images/html.png"
+                                            style="height:15;width:15px">HTML</a></li>
                                 </ul>
                             </div>
 
@@ -57,8 +63,8 @@
                             <!--<a style="margin-right: 10px" class="point" ng-click="downloadAs('HTML')" ><img src="images/html.png" style="height:30px;width:30px"></a>-->
 
 
-                            <br>
-                            <br>
+                            <br />
+                            <br />
                             <div ng-bind-html="toHTML(soapEnvHtmlReport)"></div>
                         </div>
 

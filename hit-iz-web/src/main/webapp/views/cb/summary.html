@@ -18,7 +18,8 @@
                                <!--<i class="fa fa-download"></i>Download Reports-->
                            <!--</button>-->
 
-             <button type="button" ng-click="resetTestCase()" title="Reset the TestCase" class="btn btn-xs btn-danger">
+             <button type="button" ng-click="resetTestCase()"
+                     title="Reset the TestCase" class="btn btn-xs btn-danger">
                  <i class="fa fa-times"></i> Reset
              </button>
                         </span>
@@ -44,8 +45,10 @@
                     <td><b>Test Result</b></td>
                     <td>
                 <span ng-show="isTestCaseCompleted()">
-                    <select class="" name="resultValue" id="resultValue" ng-model="testExecutionService.testCaseValidationResults[testCase.id]" required="">
-                        <option ng-repeat="resultOption in testExecutionService.resultOptions" value="{{resultOption.value}}">{{resultOption.title}}
+                    <select class="" name="resultValue" id="resultValue"
+                            ng-model="testExecutionService.testCaseValidationResults[testCase.id]" required>
+                        <option ng-repeat="resultOption in testExecutionService.resultOptions"
+                                value="{{resultOption.value}}">{{resultOption.title}}
                         </option>
                     </select>
                 </span>
@@ -58,12 +61,19 @@
                     <td><b>Comments</b></td>
                     <td>
                         <div ng-show="isTestCaseCompleted()" style="text-align:center">
-                            <a ng-show="testExecutionService.testCaseComments[testCase.id] === null || testExecutionService.testCaseComments[testCase.id] == undefined" ng-click="testExecutionService.testCaseComments[testCase.id] = ' '" class="point">
+                            <a
+                                    ng-show="testExecutionService.testCaseComments[testCase.id] === null || testExecutionService.testCaseComments[testCase.id] == undefined"
+                                    ng-click="testExecutionService.testCaseComments[testCase.id] = ' '" class="point">
                                 <i class="fa fa-pencil fa-fw"></i>
                             </a>
-                            <textarea style="width:100%;height:100%" class="form-control" ng-model="testExecutionService.testCaseComments[testCase.id]" ng-show="testExecutionService.testCaseComments[testCase.id] !== null && testExecutionService.testCaseComments[testCase.id] != undefined">
+                            <textarea style="width:100%;height:100%"
+                                      class="form-control"
+                                      ng-model="testExecutionService.testCaseComments[testCase.id]"
+                                      ng-show="testExecutionService.testCaseComments[testCase.id] !== null && testExecutionService.testCaseComments[testCase.id] != undefined">
                             </textarea>
-                            <a ng-show="testExecutionService.testCaseComments[testCase.id] !== null && testExecutionService.testCaseComments[testCase.id] !== undefined" ng-click="testExecutionService.testCaseComments[testCase.id] = null;" class="point">
+                            <a
+                                    ng-show="testExecutionService.testCaseComments[testCase.id] !== null && testExecutionService.testCaseComments[testCase.id] !== undefined"
+                                    ng-click="testExecutionService.testCaseComments[testCase.id] = null;" class="point">
                                 <i class="fa fa-times fa-fw"></i>
                             </a>
                         </div>
@@ -74,9 +84,13 @@
                     <td><b>Test Report</b></td>
                     <td>
                         <div class="btn-group" ng-show="isTestCaseCompleted() && testExecutionService.testCaseValidationResults[testCase.id] != null && testExecutionService.testCaseValidationResults[testCase.id]">
-                            <button type="button" class="btn btn-info btn-xs"><span><i class="fa fa-download fa-fw"></i>Download</span>
+                            <button type="button"
+                                    class="btn btn-info btn-xs"><span><i
+                                    class="fa fa-download fa-fw"></i>Download</span>
                             </button>
-                            <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <button type="button"
+                                    class="btn btn-info btn-xs dropdown-toggle"
+                                    data-toggle="dropdown" aria-expanded="false">
                                 <span class="caret"></span>
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>

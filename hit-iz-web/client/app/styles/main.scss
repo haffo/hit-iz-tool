@@ -2526,7 +2526,7 @@ span.valid {
 }
 
 .test-plan-select-container {
-  padding: 8px 15px 0px;
+  padding: 8px 15px 0px 0px;
   //margin-bottom: 20px;
   //list-style: none;
   background-color: #f5f5f5;
@@ -2535,5 +2535,6 @@ span.valid {
 
 .test-plan-select {
   background-color: white;
- }
+  max-width: 300px;
+}
 

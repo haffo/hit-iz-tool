@@ -149,7 +149,8 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             admin = false,
             id = null,
             username = '',
-            fullName= '';
+            fullName= '',
+            lastTestPlanPersistenceId = null;
 
         //console.log("USER ID=", StorageService.get('userID'));
 
@@ -161,6 +162,8 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             tester = StorageService.get('tester');
             supervisor = StorageService.get('supervisor');
             admin = StorageService.get('admin');
+          lastTestPlanPersistenceId = StorageService.get('lastTestPlanPersistenceId');
+
         };
 
         var saveToCookie = function() {
@@ -170,6 +173,8 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             StorageService.set('supervisor', supervisor);
             StorageService.set('admin', admin);
             StorageService.set('fullName', fullName);
+          StorageService.set('lastTestPlanPersistenceId', lastTestPlanPersistenceId);
+
         };
 
         var clearCookie = function() {
@@ -180,7 +185,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             StorageService.remove('admin');
             StorageService.remove('hthd');
             StorageService.remove('fullName');
-
+            StorageService.remove('lastTestPlanPersistenceId');
         };
 
         var saveHthd = function(header) {
@@ -267,7 +272,9 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
                 username = currentUser.username;
                 id = currentUser.accountId;
                 fullName = currentUser.fullName;
-                if ( angular.isArray(currentUser.authorities)) {
+              lastTestPlanPersistenceId = currentUser.lastTestPlanPersistenceId;
+
+              if ( angular.isArray(currentUser.authorities)) {
                     angular.forEach(currentUser.authorities, function(value, key){
                         switch(value.authority)
                         {
@@ -292,6 +299,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
                 username = '';
                 id = null;
                 fullName = '';
+              lastTestPlanPersistenceId = null;
                 //clearCookie();
             }
         };
@@ -304,7 +312,13 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             return fullName;
         };
 
-        return {
+      var getLastTestPlanPersistenceId = function() {
+        return lastTestPlanPersistenceId;
+      };
+
+
+
+      return {
             saveHthd: saveHthd,
             getHthd: getHthd,
             hasCookieInfo: hasCookieInfo,
@@ -319,7 +333,8 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             getCurrentUser: getCurrentUser,
             loadFromServer: loadFromServer,
             getUsername: getUsername,
-            getFullName: getFullName
+            getFullName: getFullName,
+            getLastTestPlanPersistenceId: getLastTestPlanPersistenceId
 
         };
     }

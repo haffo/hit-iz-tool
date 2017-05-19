@@ -26,16 +26,16 @@
 
     <div ng-show="error === null">
       <div ng-show="testPlans != null && testPlans.length > 1" class="row test-plan-select-container" style="margin-left:10px; margin-right: 10px; margin-top: 0px" >
-        <div class="col-md-4">
+        <div class="col-md-6" style="height:35px">
              <form class="form-horizontal">
               <div class="form-group">
-                <label class="col-md-2 control-label" style="text-align:left" for="selectedTP">Test Plans </label>
-                <div class="col-md-10">
-                  <select class="form-control input-sm test-plan-select" style="background-color: white" name="selectedTP" id="selectedTP"
+                <label class="col-md-3 col-sm-4 control-label" style="text-align:left; width:100px" for="selectedTP">Test Plans </label>
+                <div class="col-md-9 col-sm-8" style="text-align:left; margin:0; padding:0; width:500px" width="500px">
+                  <select class="form-control input-sm test-plan-select" style="background-color: white;" name="selectedTP" id="selectedTP"
                           ng-change="selectTP()"
                           ng-model="selectedTP.id">
                     <option value="">---- Select Test Plan ----</option>
-                    <option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{tp.name}}</option>
+                    <option ng-repeat="tp in testPlans" ng-selected="tp.id === selectedTP.id" value="{{tp.id}}">{{tp.name}}</option>
                   </select>
                 </div>
               </div>
@@ -56,21 +56,17 @@
             <div class="panel-heading panel-heading-collapsable">
 
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-12">
                   <i class="glyphicon glyphicon-list"></i>Test Cases
-                </div>
-                <div class="col-md-9">
                   <button title="Hide Test Cases" class="btn btn-xs btn-info pull-right"
                           ng-click="collapsed = !collapsed">
                     <i class="fa fa-caret-left"></i>
                   </button>
-
                   <button ng-show="testCases != null && testCases.length > 0" title="Collapse All"
                           class="btn btn-xs btn-info pull-right" style="margin-right:5px"
                           ng-click="collapseAll()">
                     <i class="point fa fa-compress"></i>
                   </button>
-
                   <button ng-show="testCases != null && testCases.length > 0" title="Expand All"
                           class="btn btn-xs btn-info pull-right" style="margin-right:5px"
                           ng-click="expandAll()">

@@ -16,10 +16,12 @@
         <!-- Default panel contents -->
         <div class="panel-heading"><i class="glyphicon glyphicon-list"></i>Test Cases
 
-            <button ng-show="testCases != null && testCases.length > 0" title="Collapse All" class="btn btn-xs btn-info pull-right" ng-click="collapseAll()">
+            <button  ng-show="testCases != null && testCases.length > 0" title="Collapse All" class="btn btn-xs btn-info pull-right"
+                     ng-click="collapseAll()">
                 <i class="point fa fa-compress"></i>
             </button>
-            <button ng-show="testCases != null && testCases.length > 0" title="Expand All" class="btn btn-xs btn-info pull-right" style="margin-right:5px" ng-click="expandAll()">
+            <button   ng-show="testCases != null && testCases.length > 0" title="Expand All" class="btn btn-xs btn-info pull-right" style="margin-right:5px"
+                      ng-click="expandAll()">
                 <i class="point fa fa-expand"></i>
             </button>
 
@@ -29,7 +31,9 @@
                 <div ng-show="error == null">
                     <div class="container-testcase">
                         <div ng-show="testCases != null && testCases.length > 0">
-                            <testcase-tree tree-control="tree" icon-leaf="" is-selectable="isSelectable(branch)" on-select="selectTestCase(branch)"></testcase-tree>
+                            <testcase-tree tree-control="tree" icon-leaf=""
+                                           is-selectable="isSelectable(branch)"
+                                           on-select="selectTestCase(branch)"></testcase-tree>
                         </div>
                         <div ng-show="testCases == null || testCases.length == 0">
                             No TestCase Available
@@ -52,11 +56,13 @@
         <div class="row">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                            <span ng-show="selectedTestCase.sutType != undefined">
+                            <span
+                                    ng-show="selectedTestCase.sutType != undefined">
                                 TestCase: {{selectedTestCase.parentName}} - {{selectedTestCase.label}}
                             </span>
 
-                            <span ng-show="selectedTestCase.sutType == undefined">
+                            <span
+                                    ng-show="selectedTestCase.sutType == undefined">
                                 TestCase: {{selectedTestCase.label}}
                             </span>
 
@@ -69,12 +75,16 @@
                                 <!--</button>-->
                             <!--</span>-->
 
-                            <span class="pull-right" ng-show="selectedTestCase.sutType != undefined">
-                                <button title="Download Test Package" type="button" class="btn btn-xs btn-info" ng-show="selectedTestCase != null && selectedTestCase != null && selectedTestCase.testPackagePath != null" ng-click="downloadArtifact(selectedTestCase.testPackagePath)">
+                            <span class="pull-right"
+                                  ng-show="selectedTestCase.sutType != undefined">
+                                <button title="Download Test Package" type="button" class="btn btn-xs btn-info"
+                                        ng-show="selectedTestCase != null && selectedTestCase != null && selectedTestCase.testPackagePath != null"
+                                        ng-click="downloadArtifact(selectedTestCase.testPackagePath)">
                                     <i class="fa fa-download"></i>Download Package
                                 </button>
 
-                                <button title="Load Selected Test Case" type="button" class="btn btn-xs btn-success" ng-click="loadTestCase(selectedTestCase,'/envelope_execution')">
+                                <button title="Load Selected Test Case" type="button" class="btn btn-xs btn-success"
+                                        ng-click="loadTestCase(selectedTestCase,'/envelope_execution')">
                                     <i class="fa fa-play"></i>Load Test Case
                                 </button>
                              </span>
@@ -100,52 +110,64 @@
                                             <div class="testcase-content">
                                                 <div class="panel panel-info">
                                                     <div class="panel-body">
-                                                        <div class="panel panel-info" ng-show="selectedTestCase.testStory.description != null && selectedTestCase.testStory.description != ''">
+                                                        <div class="panel panel-info"
+                                                             ng-show="selectedTestCase.testStory.description != null && selectedTestCase.testStory.description != ''">
                                                             <!-- Default panel contents -->
                                                             <div class="panel-heading">Description</div>
                                                             <div class="panel-body">
-                                                                <p class="test-details-content" compile="selectedTestCase.testStory.description"></p>
+                                                                <p class="test-details-content"
+                                                                   compile="selectedTestCase.testStory.description"></p>
                                                             </div>
                                                         </div>
 
-                                                        <div class="panel panel-info" ng-show="selectedTestCase.testStory.comment != null && selectedTestCase.testStory.comment != ''">
+                                                        <div class="panel panel-info"
+                                                             ng-show="selectedTestCase.testStory.comment != null && selectedTestCase.testStory.comment != ''">
                                                             <!-- Default panel contents -->
                                                             <div class="panel-heading">Comments</div>
                                                             <div class="panel-body">
-                                                                <p class="test-details-content" compile="selectedTestCase.testStory.comment"></p>
+                                                                <p class="test-details-content"
+                                                                   compile="selectedTestCase.testStory.comment"></p>
                                                             </div>
                                                         </div>
 
-                                                        <div class="panel panel-info" ng-show="selectedTestCase.testStory.preCondition != null && selectedTestCase.testStory.preCondition != ''">
+                                                        <div class="panel panel-info"
+                                                             ng-show="selectedTestCase.testStory.preCondition != null && selectedTestCase.testStory.preCondition != ''">
                                                             <!-- Default panel contents -->
                                                             <div class="panel-heading">Pre-Condition</div>
                                                             <div class="panel-body">
-                                                                <p class="test-details-content" compile="selectedTestCase.testStory.preCondition"></p>
+                                                                <p class="test-details-content"
+                                                                   compile="selectedTestCase.testStory.preCondition"></p>
                                                             </div>
                                                         </div>
 
-                                                        <div class="panel panel-info" ng-show="selectedTestCase.testStory.postCondition != null && selectedTestCase.testStory.postCondition != ''">
+                                                        <div class="panel panel-info"
+                                                             ng-show="selectedTestCase.testStory.postCondition != null && selectedTestCase.testStory.postCondition != ''">
                                                             <!-- Default panel contents -->
                                                             <div class="panel-heading">Post-Condition</div>
                                                             <div class="panel-body">
-                                                                <p class="test-details-content" compile="selectedTestCase.testStory.postCondition"></p>
+                                                                <p class="test-details-content"
+                                                                   compile="selectedTestCase.testStory.postCondition"></p>
                                                             </div>
                                                         </div>
 
 
-                                                        <div class="panel panel-info" ng-show="selectedTestCase.testStory.testObjectives != null && selectedTestCase.testStory.testObjectives != ''">
+                                                        <div class="panel panel-info"
+                                                             ng-show="selectedTestCase.testStory.testObjectives != null && selectedTestCase.testStory.testObjectives != ''">
                                                             <!-- Default panel contents -->
                                                             <div class="panel-heading">Test Objectives</div>
                                                             <div class="panel-body">
-                                                                <p class="test-details-content" compile="selectedTestCase.testStory.testObjectives"></p>
+                                                                <p class="test-details-content"
+                                                                   compile="selectedTestCase.testStory.testObjectives"></p>
                                                             </div>
                                                         </div>
 
-                                                        <div class="panel panel-info" ng-show="selectedTestCase.testStory.noteToTesters != null && selectedTestCase.testStory.noteToTesters != ''">
+                                                        <div class="panel panel-info"
+                                                             ng-show="selectedTestCase.testStory.noteToTesters != null && selectedTestCase.testStory.noteToTesters != ''">
                                                             <!-- Default panel contents -->
                                                             <div class="panel-heading">Note to Testers</div>
                                                             <div class="panel-body">
-                                                                <p class="test-details-content" compile="selectedTestCase.testStory.noteToTesters"></p>
+                                                                <p class="test-details-content"
+                                                                   compile="selectedTestCase.testStory.noteToTesters"></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -159,13 +181,16 @@
                                             <div class="testcase-content">
                                                 <div class="panel panel-info">
                                                     <div class="panel-body">
-                                                        <div class="test-info-container" ng-show="selectedTestCase.messageContentImage != undefined && selectedTestCase.messageContentImage != null">
-                                                            <img width="700px" height="336px" ng-src="data:image/jpeg;base64,{{selectedTestCase.messageContentImage}}">
+                                                        <div class="test-info-container"
+                                                             ng-show="selectedTestCase.messageContentImage != undefined && selectedTestCase.messageContentImage != null">
+                                                            <img width="700px" height="336px"
+                                                                 ng-src="data:image/jpeg;base64,{{selectedTestCase.messageContentImage}}"/>
                                                         </div>
                                                         <div class="test-info-container">
                                                             <h4>Content (XML)</h4>
-                                                            <hr>
-                                                    <pre class="message" ng-bind="selectedTestCase.testContext.exampleMessage.content"></pre>
+                                                            <hr/>
+                                                    <pre class="message"
+                                                         ng-bind="selectedTestCase.testContext.exampleMessage.content"></pre>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -195,12 +220,15 @@
                                                 <div class="panel panel-info">
                                                     <div class="panel-body">
                                                         <div class="test-info-container">
-                                                            <img width="400px" height="400px" ng-show="selectedTestCase.instructionsImage != undefined" ng-src="data:image/jpeg;base64,{{selectedTestCase.instructionsImage}}">
+                                                            <img width="400px" height="400px"
+                                                                 ng-show="selectedTestCase.instructionsImage != undefined"
+                                                                 ng-src="data:image/jpeg;base64,{{selectedTestCase.instructionsImage}}"/>
                                                         </div>
                                                         <div class="test-info-container">
                                                             <h4>Instructions</h4>
-                                                            <hr>
-                                                            <p class="test-details-content" compile="selectedTestCase.instructionsText"></p>
+                                                            <hr/>
+                                                            <p class="test-details-content"
+                                                               compile="selectedTestCase.instructionsText"></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -222,3 +250,6 @@
 </div>
 </div>
 </div>
+
+
+

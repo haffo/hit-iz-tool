@@ -30,7 +30,8 @@
     <div class="alert alert-danger col-sm-12" role="alert" ng-bind="error"></div>
 </div>
 <div ng-show="testCase != null">
-<div class="row" ng-show="testCase.sutType === 'SENDER' && testCase.testType === 'SENDER_CONNECTIVITY'">
+<div class="row"
+     ng-show="testCase.sutType === 'SENDER' && testCase.testType === 'SENDER_CONNECTIVITY'">
     <div class="col-sm-10">
         <p>Please collect and validate your incoming/outgoing messages in the <a href="#/soapEnv"><span class="badge">1</span>
             <i class="fa fa-envelope"></i>
@@ -40,7 +41,7 @@
             <div class="panel-heading">Configuration Information
             </div>
             <div class="panel-body">
-                <table class="table table-striped table-hover table-bordered ng-table-text">
+                <table   class="table table-striped table-hover table-bordered ng-table-text">
                     <tr>
                         <td>Field</td>
                         <td>Value</td>
@@ -68,33 +69,46 @@
 <!--<div class="panel-heading">-->
 
 <!--</div>-->
-<div class="iz-centered">
+<div class=" iz-centered">
 <div class="row">
 <div class="panel panel-info">
     <div class="panel-heading">
-        <form role="form" class="form-inline">
+        <form role="form"
+              class="form-inline">
 
-                            <span ng-show="testCase.sutType == 'RECEIVER'"><i class="fa fa-arrow-right"></i>Outgoing SOAP Envelope</span>
-            <span ng-show="testCase.sutType == 'SENDER'"><i class="fa fa-arrow-left"></i>Incoming SOAP Envelope</span>
+                            <span ng-show="testCase.sutType == 'RECEIVER'"><i
+                                    class="fa fa-arrow-right"></i>Outgoing SOAP Envelope</span>
+            <span ng-show="testCase.sutType == 'SENDER'"><i
+                    class="fa fa-arrow-left"></i>Incoming SOAP Envelope</span>
 
 
-                 <span class="row fileupload-buttonbar pull-right">
+                 <span class="row fileupload-buttonbar  pull-right">
 
-                <button title="Validate" type="button" class="btn btn-xs btn-success" ng-click="validate()">
+                <button title="Validate" type="button" class="btn btn-xs btn-success"
+                        ng-click="validate()"
+                        >
                     <i class="fa fa-check-circle"></i>Validate
                 </button>
-                <button title="Download" type="button" class="btn btn-xs btn-info" ng-disabled="!hasContent()" ng-click="saveMessage()">
+                <button title="Download" type="button" class="btn btn-xs btn-info"
+                        ng-disabled="!hasContent()"
+                        ng-click="saveMessage()">
                     <i class="fa fa-download"></i>Download
                 </button>
-                     <button title="Configure Receiver" type="button" class="btn btn-xs btn-info" ng-disabled="!hasContent()" ng-show="testCase.sutType == 'RECEIVER'" ng-click="configureReceiver()">
+                     <button title="Configure Receiver" type="button" class="btn btn-xs btn-info"
+                             ng-disabled="!hasContent()" ng-show="testCase.sutType == 'RECEIVER'"
+                             ng-click="configureReceiver()">
                          <i class="fa fa fa-cog"></i> Configure
                      </button>
 
-                      <button title="Send" type="button" class="btn btn-xs btn-info" ng-disabled="!isValidConfig()" ng-show="testCase.sutType == 'RECEIVER'" ng-click="send()">
+                      <button title="Send" type="button" class="btn btn-xs btn-info"
+                              ng-disabled="!isValidConfig()" ng-show="testCase.sutType == 'RECEIVER'"
+                              ng-click="send()">
                           <i class="fa fa fa-arrow-right"></i> Send
                       </button>
 
-                      <button title="Receive" type="button" class="btn btn-xs btn-info" ng-show="testCase.sutType === 'SENDER'" ng-click="openReceiverConfig()">
+                      <button title="Receive" type="button" class="btn btn-xs btn-info"
+                              ng-show="testCase.sutType === 'SENDER'"
+                              ng-click="openReceiverConfig()">
                           <i class="fa fa fa-arrow-left"></i> Receive
                       </button>
 
@@ -113,7 +127,9 @@
             <div class="alert alert-danger" role="alert" ng-bind="eError"></div>
         </div>
         <div id="editor_container" class="form-group">
-            <textarea class="form-control" type="connectivityReq" id="connectivityReqTextArea" wrap="off" style="overflow:auto"></textarea>
+            <textarea   class="form-control" type="connectivityReq"
+                        id="connectivityReqTextArea"
+                        wrap="off" style="overflow:auto;"></textarea>
         </div>
     </div>
 </div>
@@ -121,7 +137,7 @@
     <!-- Default panel contents -->
     <div class="panel-heading">
 
-        <span><i class="glyphicon glyphicon-ok"></i></span>
+        <span ><i class="glyphicon glyphicon-ok"></i></span>
         Validation Result
     </div>
     <div class="panel-body result-container">
@@ -133,12 +149,13 @@
 
             <div ng-show="!rError || rError == null">
                 <tabset>
-                    <tab>
+                    <tab >
                         <tab-heading>
                             <span class="badge alert-danger">{{errors.data.length}}</span> Errors
                         </tab-heading>
                         <div class="validation-result-table-container fixed-table-container">
-                            <table st-table="errorsCollection" st-safe-src="errors.data" class="table table-condensed table-bordered table-striped ng-table-text" oci-fixed-header="">
+                            <table st-table="errorsCollection" st-safe-src="errors.data"
+                                   class="table table-condensed  table-bordered table-striped ng-table-text" oci-fixed-header>
                                 <thead>
                                 <tr class="tbl-header-2">
                                     <th st-sort="path" st-ratio="30">Path</th>
@@ -149,9 +166,10 @@
                                 </thead>
                                 <tbody>
 
-                                <tr ng-repeat="row in errorsCollection">
+                                <tr  ng-repeat="row in errorsCollection" >
                                     <td st-ratio="30">
-                                        <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                        <a class="point" ng-show="row.path" ng-click="select(row)"
+                                           ng-bind="row.path"></a>
                                         <span ng-show="row.path == null">N/A</span>
                                     </td>
                                     <td st-ratio="60" compile="row.description"></td>
@@ -167,13 +185,15 @@
                             </table>
                         </div>
                     </tab>
-                    <tab>
+                    <tab >
                         <tab-heading>
-                                             <span class="badge alert-warning">{{warnings.data.length}}</span>
+                                             <span
+                                                     class="badge alert-warning">{{warnings.data.length}}</span>
                             Warnings
                         </tab-heading>
                         <div class="validation-result-table-container fixed-table-container">
-                            <table st-table="warningsCollection" st-safe-src="warnings.data" class="table table-condensed table-bordered table-striped ng-table-text" oci-fixed-header="">
+                            <table st-table="warningsCollection" st-safe-src="warnings.data"
+                                   class="table table-condensed  table-bordered table-striped ng-table-text" oci-fixed-header>
                                 <thead>
                                 <tr class="tbl-header-2">
                                     <th st-sort="path" st-ratio="30">Path</th>
@@ -184,9 +204,10 @@
                                 </thead>
                                 <tbody>
 
-                                <tr ng-repeat="row in warningsCollection">
+                                <tr  ng-repeat="row in warningsCollection">
                                     <td st-ratio="30">
-                                        <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                        <a class="point" ng-show="row.path" ng-click="select(row)"
+                                           ng-bind="row.path"></a>
                                         <span ng-show="row.path == null">N/A</span>
                                     </td>
                                     <td st-ratio="60" compile="row.description"></td>
@@ -202,13 +223,15 @@
                             </table>
                         </div>
                     </tab>
-                    <tab>
+                    <tab >
                         <tab-heading>
-                                            <span class="badge alert-danger">{{alerts.data.length}}</span> Alerts
+                                            <span
+                                                    class="badge alert-danger">{{alerts.data.length}}</span> Alerts
                         </tab-heading>
                         <!--<validation-result-viewer results="alerts"/>-->
                         <div class="validation-result-table-container fixed-table-container">
-                            <table st-table="alertsCollection" st-safe-src="alerts.data" class="table table-condensed table-bordered table-striped ng-table-text" oci-fixed-header="">
+                            <table st-table="alertsCollection" st-safe-src="alerts.data"
+                                   class="table table-condensed  table-bordered table-striped ng-table-text" oci-fixed-header>
                                 <thead>
                                 <tr class="tbl-header-2">
                                     <th st-sort="path" st-ratio="30">Path</th>
@@ -219,9 +242,10 @@
                                 </thead>
                                 <tbody>
 
-                                <tr ng-repeat="row in alertsCollection">
+                                <tr  ng-repeat="row in alertsCollection">
                                     <td st-ratio="30">
-                                        <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                        <a class="point" ng-show="row.path" ng-click="select(row)"
+                                           ng-bind="row.path"></a>
                                         <span ng-show="row.path == null">N/A</span>
                                     </td>
                                     <td st-ratio="60" compile="row.description"></td>
@@ -236,15 +260,17 @@
                             </table>
                         </div>
                     </tab>
-                    <tab>
+                    <tab >
                         <tab-heading>
-                                   <span class="badge alert-success">{{affirmatives.data.length}}</span>
+                                   <span
+                                           class="badge alert-success">{{affirmatives.data.length}}</span>
                             Affirmatives
                         </tab-heading>
 
                         <div class="validation-result-table-container fixed-table-container">
 
-                            <table st-table="affirmativesCollection" st-safe-src="affirmatives.data" class="table table-condensed table-striped table-bordered" oci-fixed-header="">
+                            <table st-table="affirmativesCollection" st-safe-src="affirmatives.data"
+                                   class="table table-condensed table-striped table-bordered" oci-fixed-header>
                                 <thead>
                                 <tr class="tbl-header-2">
                                     <th st-sort="path" st-ratio="30">Path</th>
@@ -255,9 +281,10 @@
                                 </thead>
                                 <tbody>
 
-                                <tr ng-repeat="row in affirmativesCollection">
+                                <tr  ng-repeat="row in affirmativesCollection">
                                     <td st-ratio="30">
-                                        <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                        <a class="point" ng-show="row.path" ng-click="select(row)"
+                                           ng-bind="row.path"></a>
                                         <span ng-show="row.path == null">N/A</span>
                                     </td>
                                     <td st-ratio="60" compile="row.description"></td>
@@ -293,19 +320,25 @@
 <div class="row">
 <div class="panel panel-info">
     <div class="panel-heading">
-        <form role="form" class="form-inline">
+        <form role="form"
+              class="form-inline">
 
 
-                            <span ng-show="testCase.sutType == 'SENDER'"><i class="fa fa-arrow-right"></i>Outgoing SOAP Envelope</span>
+                            <span ng-show="testCase.sutType == 'SENDER'"><i
+                                    class="fa fa-arrow-right"></i>Outgoing SOAP Envelope</span>
             <span ng-show="testCase.sutType == 'RECEIVER'"><i class="fa fa-arrow-left"></i>Incoming SOAP Envelope</span>
 
 
 
-                            <span class="row fileupload-buttonbar pull-right">
-                                <button title="Validate" type="button" class="btn btn-xs btn-success" ng-click="validate()">
+                            <span class="row fileupload-buttonbar  pull-right">
+                                <button title="Validate" type="button" class="btn btn-xs btn-success"
+                                        ng-click="validate()"
+                                        >
                                     <i class="fa fa-check-circle"></i>Validate
                                 </button>
-                                <button title="Download" type="button" class="btn btn-xs btn-info" ng-disabled="!hasContent()" ng-click="saveMessage()">
+                                <button title="Download" type="button" class="btn btn-xs btn-info"
+                                        ng-disabled="!hasContent()"
+                                        ng-click="saveMessage()">
                                     <i class="fa fa-download"></i>Download
                                 </button>
                             <span style="margin-right:10px"></span>
@@ -323,7 +356,9 @@
             <div class="alert alert-danger" role="alert" ng-bind="error"></div>
         </div>
         <div id="editor_container form-group">
-            <textarea class="form-control" readonly="true" type="connectivityResp" id="connectivityRespTextArea" wrap="off" style="overflow:auto"></textarea>
+            <textarea class="form-control" readonly="true" type="connectivityResp"
+                      id="connectivityRespTextArea"
+                      wrap="off" style="overflow:auto;"></textarea>
         </div>
     </div>
 </div>
@@ -341,12 +376,13 @@
             </div>
             <div ng-show="!rError || rError == null">
                 <tabset>
-                    <tab>
+                    <tab >
                         <tab-heading>
                             <span class="badge alert-danger">{{errors.data.length}}</span> Errors
                         </tab-heading>
                         <div class="validation-result-table-container fixed-table-container">
-                            <table st-table="errorsCollection" st-safe-src="errors.data" class="table table-striped table-condensed table-bordered" oci-fixed-header="">
+                            <table st-table="errorsCollection" st-safe-src="errors.data"
+                                   class="table table-striped table-condensed table-bordered" oci-fixed-header>
                                 <thead>
                                 <tr class="tbl-header-2">
                                     <th st-sort="path" st-ratio="30">Path</th>
@@ -357,9 +393,10 @@
                                 </thead>
                                 <tbody>
 
-                                <tr ng-repeat="row in errorsCollection">
+                                <tr  ng-repeat="row in errorsCollection" >
                                     <td st-ratio="30">
-                                        <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                        <a class="point" ng-show="row.path" ng-click="select(row)"
+                                           ng-bind="row.path"></a>
                                         <span ng-show="row.path == null">N/A</span>
                                     </td>
                                     <td st-ratio="60" compile="row.description"></td>
@@ -373,13 +410,15 @@
                             </table>
                         </div>
                     </tab>
-                    <tab>
+                    <tab >
                         <tab-heading>
-                                             <span class="badge alert-warning">{{warnings.data.length}}</span>
+                                             <span
+                                                     class="badge alert-warning">{{warnings.data.length}}</span>
                             Warnings
                         </tab-heading>
                         <div class="validation-result-table-container fixed-table-container">
-                            <table st-table="warningsCollection" st-safe-src="warnings.data" class="table table-condensed table-bordered ng-table-text" oci-fixed-header="">
+                            <table st-table="warningsCollection" st-safe-src="warnings.data"
+                                   class="table table-condensed table-bordered ng-table-text " oci-fixed-header>
                                 <thead>
                                 <tr>
                                     <th st-sort="path" st-ratio="30">Path</th>
@@ -390,9 +429,10 @@
                                 </thead>
                                 <tbody>
 
-                                <tr ng-repeat="row in warningsCollection">
+                                <tr  ng-repeat="row in warningsCollection">
                                     <td st-ratio="30">
-                                        <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                        <a class="point" ng-show="row.path" ng-click="select(row)"
+                                           ng-bind="row.path"></a>
                                         <span ng-show="row.path == null">N/A</span>
                                     </td>
                                     <td st-ratio="60" compile="row.description"></td>
@@ -408,13 +448,15 @@
                             </table>
                         </div>
                     </tab>
-                    <tab>
+                    <tab >
                         <tab-heading>
-                                            <span class="badge alert-danger">{{alerts.data.length}}</span> Alerts
+                                            <span
+                                                    class="badge alert-danger">{{alerts.data.length}}</span> Alerts
                         </tab-heading>
                         <!--<validation-result-viewer results="alerts"/>-->
                         <div class="validation-result-table-container fixed-table-container">
-                            <table st-table="alertsCollection" st-safe-src="alerts.data" class="table table-condensed table-bordered table-striped ng-table-text" oci-fixed-header="">
+                            <table st-table="alertsCollection" st-safe-src="alerts.data"
+                                   class="table table-condensed  table-bordered table-striped ng-table-text" oci-fixed-header>
                                 <thead>
                                 <tr class="tbl-header-2">
                                     <th st-sort="path" st-ratio="30">Path</th>
@@ -425,9 +467,10 @@
                                 </thead>
                                 <tbody>
 
-                                <tr ng-repeat="row in alertsCollection">
+                                <tr  ng-repeat="row in alertsCollection">
                                     <td st-ratio="30">
-                                        <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                        <a class="point" ng-show="row.path" ng-click="select(row)"
+                                           ng-bind="row.path"></a>
                                         <span ng-show="row.path == null">N/A</span>
                                     </td>
                                     <td st-ratio="60" compile="row.description"></td>
@@ -443,15 +486,17 @@
                             </table>
                         </div>
                     </tab>
-                    <tab>
+                    <tab >
                         <tab-heading>
-                                   <span class="badge alert-success">{{affirmatives.data.length}}</span>
+                                   <span
+                                           class="badge alert-success">{{affirmatives.data.length}}</span>
                             Affirmatives
                         </tab-heading>
 
                         <div class="validation-result-table-container fixed-table-container">
 
-                            <table st-table="affirmativesCollection" st-safe-src="affirmatives.data" class="table table-condensed table-bordered table-striped ng-table-text" oci-fixed-header="">
+                            <table st-table="affirmativesCollection" st-safe-src="affirmatives.data"
+                                   class="table table-condensed  table-bordered table-striped ng-table-text" oci-fixed-header>
                                 <thead>
                                 <tr class="tbl-header-2">
                                     <th st-sort="path" st-ratio="30">Path</th>
@@ -462,9 +507,10 @@
                                 </thead>
                                 <tbody>
 
-                                <tr ng-repeat="row in affirmativesCollection">
+                                <tr  ng-repeat="row in affirmativesCollection">
                                     <td st-ratio="30">
-                                        <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
+                                        <a class="point" ng-show="row.path" ng-click="select(row)"
+                                           ng-bind="row.path"></a>
                                         <span ng-show="row.path == null">N/A</span>
                                     </td>
                                     <td st-ratio="60" compile="row.description"></td>

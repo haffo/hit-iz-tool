@@ -11,7 +11,7 @@
 <div class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="brand" id="appheader">
         <a style="display: inline-block; text-shadow:none" href="#">
-            <div id="apptitle">NIST <span style="color:white">{{appInfo.name}}</span><span style="color:red; font-size:12px"> {{appInfo.version}}</span></div>
+            <div id="apptitle">NIST <span style='color:white;'>{{appInfo.name}}</span><span style='color:red; font-size:12px'> {{appInfo.version}}</span></div>
             <div ng-if="appInfo.domain != '' && appInfo.domain  != null" id="appsubtitle">{{appInfo.domain}}</div>
         </a>
     </div>
@@ -36,7 +36,9 @@
 
         <ul class="nav navbar-nav navbar-right" style="margin-right: 15px" ng-show="!transportSupported">
             <li class="dropdown clear-fix">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i>&nbsp;Preferences<span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false"><i
+                        class="fa fa-cog"></i>&nbsp;Preferences<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>
                     </li>
@@ -45,13 +47,18 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right" style="margin-right: 15px" ng-show="transportSupported">
-            <li class="dropdown clear-fix" ng-show="isAuthenticated()" ng-class="isActive('/useraccount') || isActive('/transport-settings')">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>&nbsp;Hello {{getUsername()}}<span class="caret"></span></a>
+            <li class="dropdown clear-fix" ng-show="isAuthenticated()"
+                ng-class="isActive('/useraccount') || isActive('/transport-settings')">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false"><i
+                        class="fa fa-user"></i>&nbsp;Hello {{getUsername()}}<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li ng-class="isActive('/useraccount')"><a class="point" href="#/useraccount"><i class="fa fa-user"></i>&nbsp;My Profile</a></li>
+                    <li ng-class="isActive('/useraccount')"><a class="point" href="#/useraccount"><i
+                            class="fa fa-user"></i>&nbsp;My Profile</a></li>
                     <li role="separator" class="divider"></li>
 
-                    <li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported"><a href="#/transport-settings">
+                    <li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported"><a
+                            href="#/transport-settings">
                         <i title="Transport Configuration" class="label label-danger label-icon2">T</i>
                         Transport Settings</a></li>
                     <li role="separator" class="divider"></li>
@@ -65,8 +72,11 @@
                 </ul>
             </li>
 
-            <li class="dropdown clear-fix" ng-show="!isAuthenticated()" ng-class="isActive('/useraccount') || isActive('/registration') || isActive('/forgotten') || isActive('/transport-settings')">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>&nbsp;Hello Guest <span class="caret"></span></a>
+            <li class="dropdown clear-fix" ng-show="!isAuthenticated()"
+                ng-class="isActive('/useraccount') || isActive('/registration') || isActive('/forgotten') || isActive('/transport-settings')">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false"><i
+                        class="fa fa-user"></i>&nbsp;Hello Guest <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li class="">
                         <a class="point" ng-click="loginReq()"><i class="fa fa-sign-in"></i>&nbsp; <span class="msg">Login</span></a>
@@ -84,7 +94,8 @@
                         </a>
                     </li>
                     <li role="separator" class="divider"></li>
-                    <li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported"><a href="#/transport-settings">
+                    <li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported"><a
+                            href="#/transport-settings">
                         <i title="Transport Configuration" class="label label-danger label-icon2">T</i>
                         Transport Settings</a></li>
                     <li role="separator" class="divider"></li>

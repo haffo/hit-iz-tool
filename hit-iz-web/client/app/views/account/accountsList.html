@@ -14,28 +14,38 @@
                     <div msg="" key="manage.tester.title"></div>
                 </h3>
             <div class="igl-table">
-                <table st-table="tmpAccountList" st-safe-src="accountList"
+
+              <div class="test-plan-select-container">
+                # Users: {{accountList.length}}
+              </div>
+
+              <table st-table="tmpAccountList" st-safe-src="accountList"
                        class="table table-striped table-bordered table-condensed">
                     <thead>
-                    <tr >
-                        <th st-ratio="5">{{accountList.length}} Users</th>
-                        <th colspan="5" st-ratio="95"><input st-search="" class="form-control" type="text"/></th>
+                    <tr>
+                         <th colspan="7" st-ratio="95"><input st-search="" class="form-control" type="text"/></th>
                     </tr>
                     <tr class="tbl-header">
                         <th st-ratio="5"></th>
                         <th st-sort="fullName" st-ratio="20">
                             <div msg key='account.fullName'></div>
                         </th>
-                        <th st-sort="email" st-ratio="20">
+                      <th st-sort="fullName" st-ratio="10">
+                        <div msg key='account.username'></div>
+                      </th>
+                        <th st-sort="email" st-ratio="10">
                             <div msg key='account.email'></div>
                         </th>
-                        <th st-sort="employer" st-ratio="20">
+                        <th st-sort="employer" st-ratio="10">
                             <div msg key='account.employer'></div>
                         </th>
-                        <th st-sort="title" st-ratio="20">
+                        <th st-sort="title" st-ratio="15">
                             <div msg key='account.title'></div>
                         </th>
-                        <th st-ratio="15">
+                        <th st-sort="lastLoggedInDate" st-ratio="20">
+                          <div msg key='account.lastLoggedInDate'></div>
+                        </th>
+                        <th st-ratio="10">
                             <div msg key='account.type'></div>
                         </th>
                     </tr>
@@ -51,25 +61,31 @@
                           <span ng-show="!row.username">Guest</span>
                           <span ng-show="row.username">{{::row.fullName}}</span>
                         </td>
-                        <td st-ratio="20">
+                        <td st-ratio="10">
                           <span ng-show="!row.username">N/A</span>
                           <span ng-show="row.username">{{::row.email}}</span>
 
                         </td>
+                      <td st-ratio="10">
+                        <span ng-show="!row.username">N/A</span>
+                        <span ng-show="row.username">{{::row.username}}</span>
+                      </td>
                         <!--<td ng-bind="row.phone" st-ratio="10"></td>-->
-                        <td st-ratio="20">
+                        <td st-ratio="10">
                           <span ng-show="!row.username">N/A</span>
                           <span ng-show="row.username">{{::row.employer}}</span>
                         </td>
-                        <td st-ratio="20">
+                        <td st-ratio="15">
                           <span ng-show="!row.username">N/A</span>
                           <span ng-show="row.username">{{::row.title}}</span>
                         </td>
-                        <td st-ratio="15"><span ng-show="!row.username">Guest</span>
+                        <td st-ratio="20">
+                          {{::row.lastLoggedInDate | date:'MM/dd/yyyy HH:mm:ss'}}
+                        </td>
+
+                        <td st-ratio="10"><span ng-show="!row.username">Guest</span>
                           <span ng-show="row.username">
-
                               {{row.accountType}}
-
                           </span>
                         </td>
                     </tr>

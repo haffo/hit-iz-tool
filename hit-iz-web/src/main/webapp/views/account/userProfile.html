@@ -11,95 +11,100 @@
   <div class="row">
     <div class="col-md-12">
       <!--Body content-->
-        <h3 class="page-header"><div msg="" key="account.resetMessage"></div></h3>
-        <div ng-form="" name="changePasswordForm" class="form-horizontal" novalidate="">
-            <div class="control-group form-group" ng-class="{'has-success has-feedback': changePasswordForm.inputCurrentPassword.$valid, 'igl-has-error has-feedback': !changePasswordForm.inputCurrentPassword.$valid}">
-                <label class="control-label col-sm-2" for="inputCurrentPassword"><div msg="" key="account.currentPassword"></div></label>
+        <h3 class="page-header"><div msg key="account.resetMessage"></div></h3>
+        <div ng-form name="changePasswordForm" class="form-horizontal" novalidate>
+            <div class="control-group form-group"  ng-class="{'has-success has-feedback': changePasswordForm.inputCurrentPassword.$valid, 'igl-has-error has-feedback': !changePasswordForm.inputCurrentPassword.$valid}">
+                <label class="control-label col-sm-2" for="inputCurrentPassword"><div msg key='account.currentPassword'></div></label>
                 <div class="controls col-sm-7">
-                    <input type="password" class="form-control immediate-help account-input" name="inputCurrentPassword" id="inputCurrentPassword" ng-model="accountpwd.currentPassword" ng-minlength="4" required="">
+                    <input type="password" class="form-control immediate-help account-input" name="inputCurrentPassword" id="inputCurrentPassword" ng-model='accountpwd.currentPassword' ng-minlength="4" required
+                           >
                     <div class="input-help">
-                        <h4><div msg="" key="account.currentpassword.error"></div></h4>
+                        <h4><div msg key='account.currentpassword.error'></div></h4>
                     </div>
                  </div>
             </div>
             <div class="control-group form-group" ng-class="{'has-success has-feedback': changePasswordForm.inputNewPassword.$valid, 'igl-has-error has-feedback': !changePasswordForm.inputNewPassword.$valid}">
-                <label class="control-label col-sm-2" for="inputNewPassword"><div msg="" key="account.newPassword"></div></label>
+                <label class="control-label col-sm-2" for="inputNewPassword"><div msg key='account.newPassword'></div></label>
                 <div class="controls col-sm-7">
-                    <input type="password" class="form-control immediate-help account-input" name="inputNewPassword" id="inputNewPassword" ng-model="accountpwd.newPassword" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" password-validate="" required="">
+                    <input type="password" class="form-control immediate-help account-input" name="inputNewPassword" id="inputNewPassword" ng-model='accountpwd.newPassword' ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" password-validate required
+                           >
                     <div class="input-help">
-                        <h4><div msg="" key="account.password.error"></div></h4>
+                        <h4><div msg key='account.password.error'></div></h4>
                         <ul>
-                            <li ng-class="pwdHasUpperCaseLetter"><div msg="" key="account.password.error.upperCaseletter"></div></li>
-                            <li ng-class="pwdHasLowerCaseLetter"><div msg="" key="account.password.error.lowerCaseletter"></div></li>
-                            <li ng-class="pwdHasNumber"><div msg="" key="account.password.error.number"></div></li>
-                            <li ng-class="pwdValidLength"><div msg="" key="account.password.error.length"></div></li>
+                            <li ng-class="pwdHasUpperCaseLetter"><div msg key='account.password.error.upperCaseletter'></div></li>
+                            <li ng-class="pwdHasLowerCaseLetter"><div msg key='account.password.error.lowerCaseletter'></div></li>
+                            <li ng-class="pwdHasNumber"><div msg key='account.password.error.number'></div></li>
+                            <li ng-class="pwdValidLength"><div msg key='account.password.error.length'></div></strong></li>
                         </ul>
                     </div>
                  </div>
             </div>
             <div class="control-group form-group" ng-class="{'has-success has-feedback': changePasswordForm.inputNewPasswordConfirm.$valid, 'igl-has-error has-feedback': !changePasswordForm.inputNewPasswordConfirm.$valid}">
-                <label class="control-label col-sm-2" for="inputNewPasswordConfirm"><div msg="" key="account.newPasswordConfirm"></div></label>
+                <label class="control-label col-sm-2" for="inputNewPasswordConfirm"><div msg key='account.newPasswordConfirm'></div></label>
                 <div class="controls col-sm-7">
-                    <input type="password" class="form-control immediate-help account-input" name="inputNewPasswordConfirm" id="inputNewPasswordConfirm" ng-model="accountpwd.newPasswordConfirm" check-password="inputNewPassword" required="">
+                    <input type="password" class="form-control immediate-help account-input" name="inputNewPasswordConfirm" id="inputNewPasswordConfirm" ng-model='accountpwd.newPasswordConfirm' check-password="inputNewPassword" required
+                          >
                     <div class="input-help">
-                        <h4><div msg="" key="registration.passwordConfirm.error"></div></h4>
+                        <h4><div msg key='registration.passwordConfirm.error'></div></h4>
                     </div>
                     <!--<span class="valid" ng-show="changePasswordForm.inputNewPasswordConfirm.$valid"><i class="fa fa-check success"></i></span><br>-->
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="col-md-offset-2 col-sm-7">
-                     <button class="btn btn-primary" ng-click="changePassword()" ng-disabled="!changePasswordForm.$valid"><div msg="" key="account.changePasswordButton"></div></button>
+                     <button class="btn btn-primary" ng-click='changePassword()' ng-disabled='!changePasswordForm.$valid'><div msg key="account.changePasswordButton"></div></button>
                 </div>
             </div>
         </div>
 
-        <h3 class="page-header"><div msg="" key="account.message"></div></h3>
-        <div ng-form="" name="editAccountForm" class="form-horizontal" novalidate="">
+        <h3 class="page-header"><div msg key="account.message"></div></h3>
+        <div ng-form name="editAccountForm" class="form-horizontal" novalidate>
 
             <div class="control-group form-group" ng-class="{'has-success has-feedback': editAccountForm.inputUsername.$valid, 'igl-has-error has-feedback': !editAccountForm.inputUsername.$valid}">
-                <label class="control-label col-sm-2" for="inputUsername"><div msg="" key="account.username"></div></label>
+                <label class="control-label col-sm-2" for="inputUsername"><div msg key='account.username'></div></label>
                 <div class="controls col-sm-7">
-                    <input type="text" class="form-control account-input" name="inputUsername" id="inputUsername" ng-model="account.username" ng-disabled="true" required="">
+                    <input type="text" class="form-control account-input" name="inputUsername" id="inputUsername" ng-model='account.username' ng-disabled='true' required>
                  </div>
             </div>
             <div class="control-group form-group" ng-class="{'has-success has-feedback': editAccountForm.inputFullName.$valid, 'igl-has-error has-feedback': !editAccountForm.inputFullName.$valid}">
-                <label class="control-label col-sm-2" for="inputFullName"><div msg="" key="account.fullname"></div></label>
+                <label class="control-label col-sm-2" for="inputFullName"><div msg key='account.fullname'></div></label>
                 <div class="controls col-sm-7">
-                    <input type="text" class="form-control immediate-help account-input" name="inputFullName" id="inputFullName" ng-model="account.fullName" ng-minlength="2" required="">
+                    <input type="text" class="form-control immediate-help account-input" name="inputFullName" id="inputFullName" ng-model='account.fullName' ng-minlength="2" required
+                          >
                     <div class="input-help">
-                        <h4><div msg="" key="registration.fullname.error"></div></h4>
+                        <h4><div msg key='registration.fullname.error'></div></h4>
                     </div>
                  </div>
             </div>
             <div class="control-group form-group" ng-class="{'has-success has-feedback': editAccountForm.inputEmail.$valid, 'igl-has-error has-feedback': !editAccountForm.inputEmail.$valid}">
-                <label class="control-label col-sm-2" for="inputEmail"><div msg="" key="account.email"></div></label>
+                <label class="control-label col-sm-2" for="inputEmail"><div msg key='account.email'></div></label>
                 <div class="controls col-sm-7">
-                    <input type="email" class="form-control immediate-help account-input" name="inputEmail" id="inputEmail" ng-model="account.email" required="">
+                    <input type="email" class="form-control immediate-help account-input" name="inputEmail" id="inputEmail" ng-model='account.email' required
+                           >
 
                     <div class="input-help">
-                        <h4><div msg="" key="registration.email.error"></div></h4>
+                        <h4><div msg key='registration.email.error'></div></h4>
                     </div>
                  </div>
             </div>
 
 
-            <div class="control-group form-group">
+            <div class="control-group form-group" >
                 <div class="col-md-offset-2 col-sm-7">
-                     <button class="btn btn-primary" ng-click="updateAccount()" ng-disabled="!editAccountForm.$valid || isUnchanged(account)"><div msg="" key="account.updateButton"></div></button>
-                     <button class="btn btn-warning" ng-click="resetForm()" ng-disabled="isUnchanged(account)"><div msg="" key="account.resetButton"></div></button>
+                     <button class="btn btn-primary" ng-click='updateAccount()' ng-disabled='!editAccountForm.$valid || isUnchanged(account)'><div msg key="account.updateButton"></div></button>
+                     <button class="btn btn-warning" ng-click='resetForm()' ng-disabled='isUnchanged(account)'><div msg key="account.resetButton"></div></button>
                 </div>
             </div>
         </div>
 
-        <h3><div msg="" key="account.deleteSectionTitle"></div></h3>
-        <div ng-form="" name="deleteAccountForm" class="form-horizontal" novalidate="">
+        <h3><div msg key="account.deleteSectionTitle"></div></h3>
+        <div ng-form name="deleteAccountForm" class="form-horizontal" novalidate>
             <p>
-                <div msg="" key="account.deleteMessage"></div>
+                <div msg key="account.deleteMessage"></div>
             </p>
             <div class="control-group form-group">
                 <div class="controls col-sm-10">
-                     <button class="btn btn-danger" ng-click="deleteAccount()"><div msg="" key="account.deleteButton"></div></button>
+                     <button class="btn btn-danger" ng-click='deleteAccount()'><div msg key="account.deleteButton"></div></button>
                 </div>
             </div>
         </div>

@@ -7,11 +7,13 @@
         top.location = self.location;
     }
 </script>
-<div ng-controller="CFTestingCtrl" ng-init="initTesting()" class="" style="margin-top:10px;margin-left: 10px;margin-right: 10px">
+<div ng-controller="CFTestingCtrl" ng-init="initTesting()" class=""
+     style="margin-top:10px;margin-left: 10px;margin-right: 10px">
     <div class="row" style="">
 
-        <div class="col-md-1 col-1-percent" ng-show="collapsed">
-            <button title="Show Profiles" class="btn btn-xs btn-info" ng-click="collapsed = !collapsed">
+        <div  class="col-md-1 col-1-percent" ng-show="collapsed">
+            <button  title="Show Profiles" class="btn btn-xs btn-info"
+                      ng-click="collapsed = !collapsed">
                 <i class="fa fa-caret-right"></i>
             </button>
         </div>
@@ -20,18 +22,22 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading panel-heading-collapsable">
                      <i class="fa fa-list"></i>Profiles
-                    <button title="View Profiles Information" class="btn btn-xs btn-info" ng-click="openProfileInfo()">
+                    <button title="View Profiles Information" class="btn btn-xs btn-info"
+                            ng-click="openProfileInfo()">
                         <i class="point fa fa-info-circle"></i>Help
                     </button>
 
-                    <button title="Hide Profiles" class="btn btn-xs btn-info pull-right" ng-click="collapsed = !collapsed">
+                    <button  title="Hide Profiles" class="btn btn-xs btn-info pull-right"
+                             ng-click="collapsed = !collapsed">
                         <i class="fa fa-caret-left"></i>
                     </button>
 
-                    <button ng-show="testCases != null && testCases.length > 0" title="Collapse All" class="btn btn-xs btn-info pull-right" style="margin-right:5px" ng-click="collapseAll()">
+                    <button  ng-show="testCases != null && testCases.length > 0" title="Collapse All" class="btn btn-xs btn-info pull-right" style="margin-right:5px"
+                             ng-click="collapseAll()">
                         <i class="point fa fa-compress"></i>
                     </button>
-                    <button ng-show="testCases != null && testCases.length > 0" title="Expand All" class="btn btn-xs btn-info pull-right" style="margin-right:5px" ng-click="expandAll()">
+                    <button   ng-show="testCases != null && testCases.length > 0" title="Expand All" class="btn btn-xs btn-info pull-right" style="margin-right:5px"
+                              ng-click="expandAll()">
                         <i class="point fa fa-expand"></i>
                     </button>
 
@@ -42,7 +48,9 @@
                         <div ng-show="error === null">
                             <div class="container-testcase">
                                 <div ng-show="testCases != null && testCases.length > 0">
-                                    <testcase-tree tree-control="tree" icon-leaf="" is-selectable="isSelectable(branch)" on-select="selectTestCase(branch)"></testcase-tree>
+                                    <testcase-tree tree-control="tree" icon-leaf=""
+                                                    is-selectable="isSelectable(branch)"
+                                                   on-select="selectTestCase(branch)"></testcase-tree>
                                 </div>
                                 <div ng-show="testCases == null || testCases.length == 0">
                                     No TestCase Available
@@ -138,3 +146,4 @@
     <!--</span>-->
     <!--</div>-->
 </script>
+

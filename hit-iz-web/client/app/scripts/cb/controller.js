@@ -848,7 +848,7 @@ angular.module('cb')
 
 
 angular.module('cb')
-  .controller('CBTestCaseCtrl', ['$scope', '$window', '$filter', '$rootScope', 'CB', '$timeout', 'CBTestCaseListLoader', '$sce', 'StorageService', 'TestCaseService', 'TestStepService', 'TestExecutionService', 'CBTestPlanLoader', function ($scope, $window, $filter, $rootScope, CB, $timeout, CBTestCaseListLoader, $sce, StorageService, TestCaseService, TestStepService, TestExecutionService, CBTestPlanLoader) {
+  .controller('CBTestCaseCtrl', ['$scope', '$window', '$filter', '$rootScope', 'CB', '$timeout', 'CBTestCaseListLoader', '$sce', 'StorageService', 'TestCaseService', 'TestStepService', 'TestExecutionService', 'CBTestPlanLoader', 'User', 'userInfoService', function ($scope, $window, $filter, $rootScope, CB, $timeout, CBTestCaseListLoader, $sce, StorageService, TestCaseService, TestStepService, TestExecutionService, CBTestPlanLoader,User,userInfoService) {
     $scope.selectedTestCase = CB.selectedTestCase;
     $scope.testCase = CB.testCase;
     $scope.selectedTP = {id: null};
@@ -869,21 +869,40 @@ angular.module('cb')
       $scope.error = null;
       $scope.loading = true;
       $scope.testPlans = null;
-      var previousTpId = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_ID_KEY);
-      $scope.selectedTP.id = previousTpId == undefined ? "": previousTpId;
       var tcLoader = new CBTestCaseListLoader();
       tcLoader.then(function (testPlans) {
         $scope.error = null;
         $scope.testPlans = $filter('orderBy')(testPlans, 'position');
+        var targetId = null;
         if($scope.testPlans.length === 1){
-          $scope.selectedTP.id = $scope.testPlans[0].id;
+          targetId = $scope.testPlans[0].id;
+        }else if(userInfoService.isAuthenticated()){
+            var lastTestPlanPersistenceId =  userInfoService.getLastTestPlanPersistenceId();
+            var tp = findTPByPersistenceId(lastTestPlanPersistenceId, $scope.testPlans);
+            if(tp != null){
+              targetId = tp.id.toString();
+            }
         }
+        if(targetId == null){
+          var previousTpId = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_ID_KEY);
+          targetId = previousTpId == undefined || previousTpId == null ? "": previousTpId;
+        }
+        $scope.selectedTP.id = targetId;
         $scope.selectTP();
         $scope.loading = false;
       }, function (error) {
         $scope.loading = false;
-        $scope.error = "Sorry, Cannot load the test cases. Please try again";
+        $scope.error = "Sorry, Cannot load the test plans. Please try again";
       });
+    };
+
+    var findTPByPersistenceId = function(persistentId, testPlans){
+        for(var i=0; i < testPlans.length; i++){
+          if(testPlans[i].persistentId === persistentId){
+            return testPlans[i];
+          }
+        }
+        return null;
     };
 
 
@@ -902,7 +921,7 @@ angular.module('cb')
           $scope.loadingTP = false;
         }, function (error) {
           $scope.loadingTP = false;
-          $scope.errorTP = "Sorry, Cannot load the test plan. Please try again";
+          $scope.errorTP = "Sorry, Cannot load the test cases. Please try again";
         });
       }else{
         $scope.testCases = null;

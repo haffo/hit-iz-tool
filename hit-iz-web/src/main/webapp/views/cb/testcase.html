@@ -25,15 +25,17 @@
     </div>
 
     <div ng-show="error === null">
-      <div ng-show="testPlans != null && testPlans.length > 1" class="row test-plan-select-container" style="margin-left:10px; margin-right: 10px; margin-top: 0px">
-        <div class="col-md-4">
+      <div ng-show="testPlans != null && testPlans.length > 1" class="row test-plan-select-container" style="margin-left:10px; margin-right: 10px; margin-top: 0px" >
+        <div class="col-md-6" style="height:35px">
              <form class="form-horizontal">
               <div class="form-group">
-                <label class="col-md-2 control-label" style="text-align:left" for="selectedTP">Test Plans </label>
-                <div class="col-md-10">
-                  <select class="form-control input-sm test-plan-select" style="background-color: white" name="selectedTP" id="selectedTP" ng-change="selectTP()" ng-model="selectedTP.id">
+                <label class="col-md-3 col-sm-4 control-label" style="text-align:left; width:100px" for="selectedTP">Test Plans </label>
+                <div class="col-md-9 col-sm-8" style="text-align:left; margin:0; padding:0; width:500px" width="500px">
+                  <select class="form-control input-sm test-plan-select" style="background-color: white;" name="selectedTP" id="selectedTP"
+                          ng-change="selectTP()"
+                          ng-model="selectedTP.id">
                     <option value="">---- Select Test Plan ----</option>
-                    <option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{tp.name}}</option>
+                    <option ng-repeat="tp in testPlans" ng-selected="tp.id === selectedTP.id" value="{{tp.id}}">{{tp.name}}</option>
                   </select>
                 </div>
               </div>
@@ -42,7 +44,8 @@
       </div>
        <div class="row" style="margin:10px">
         <div class="col-md-1 col-1-percent" ng-show="collapsed">
-          <button title="Show Test Cases" class="btn btn-xs btn-info" ng-click="collapsed = !collapsed">
+          <button title="Show Test Cases" class="btn btn-xs btn-info"
+                  ng-click="collapsed = !collapsed">
             <i class="fa fa-caret-right"></i>
           </button>
         </div>
@@ -53,19 +56,20 @@
             <div class="panel-heading panel-heading-collapsable">
 
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-12">
                   <i class="glyphicon glyphicon-list"></i>Test Cases
-                </div>
-                <div class="col-md-9">
-                  <button title="Hide Test Cases" class="btn btn-xs btn-info pull-right" ng-click="collapsed = !collapsed">
+                  <button title="Hide Test Cases" class="btn btn-xs btn-info pull-right"
+                          ng-click="collapsed = !collapsed">
                     <i class="fa fa-caret-left"></i>
                   </button>
-
-                  <button ng-show="testCases != null && testCases.length > 0" title="Collapse All" class="btn btn-xs btn-info pull-right" style="margin-right:5px" ng-click="collapseAll()">
+                  <button ng-show="testCases != null && testCases.length > 0" title="Collapse All"
+                          class="btn btn-xs btn-info pull-right" style="margin-right:5px"
+                          ng-click="collapseAll()">
                     <i class="point fa fa-compress"></i>
                   </button>
-
-                  <button ng-show="testCases != null && testCases.length > 0" title="Expand All" class="btn btn-xs btn-info pull-right" style="margin-right:5px" ng-click="expandAll()">
+                  <button ng-show="testCases != null && testCases.length > 0" title="Expand All"
+                          class="btn btn-xs btn-info pull-right" style="margin-right:5px"
+                          ng-click="expandAll()">
                     <i class="point fa fa-expand"></i>
                   </button>
 
@@ -95,7 +99,9 @@
 
                     <div ng-show="errorTP == null">
                       <div ng-show="testCases != null && testCases.length > 0">
-                        <testcase-tree tree-control="tree" icon-leaf="" is-selectable="isSelectable(branch)" on-select="selectTestCase(branch)"></testcase-tree>
+                        <testcase-tree tree-control="tree" icon-leaf=""
+                                       is-selectable="isSelectable(branch)"
+                                       on-select="selectTestCase(branch)"></testcase-tree>
                       </div>
                       <div ng-show="testCases == null || testCases.length == 0">
                         No Test Case Available
@@ -122,21 +128,31 @@
                                {{selectedTestCase.type}}: {{selectedTestCase.name}}
                             </span>
                   <span class="pull-right">
-                                <button title="Download Test Package" type="button" class="btn btn-xs btn-info" ng-show="selectedTestCase.testPackage && selectedTestCase.testPackage != null && selectedTestCase.testPackage.pdfPath != null" ng-click="downloadArtifact(selectedTestCase.testPackage.pdfPath)">
+                                <button title="Download Test Package" type="button" class="btn btn-xs btn-info"
+                                        ng-show="selectedTestCase.testPackage && selectedTestCase.testPackage != null && selectedTestCase.testPackage.pdfPath != null"
+                                        ng-click="downloadArtifact(selectedTestCase.testPackage.pdfPath)">
                                     <i class="fa fa-download"></i>
                                     Download Test Package
                                 </button>
 
-                                <button title="Download Test Plan Summary" type="button" class="btn btn-xs btn-info" ng-show="selectedTestCase.testPlanSummary && selectedTestCase.testPlanSummary != null && selectedTestCase.testPlanSummary.pdfPath != null" ng-click="downloadArtifact(selectedTestCase.testPlanSummary.pdfPath)">
+                                <button title="Download Test Plan Summary" type="button" class="btn btn-xs btn-info"
+                                        ng-show="selectedTestCase.testPlanSummary && selectedTestCase.testPlanSummary != null && selectedTestCase.testPlanSummary.pdfPath != null"
+                                        ng-click="downloadArtifact(selectedTestCase.testPlanSummary.pdfPath)">
                                     <i class="fa fa-download"></i>
                                     Download Test Plan Summary
                                 </button>
 
-                                <button title="Load Selected Test Step" ng-show="(selectedTestCase.type == 'TestStep')" type="button" class="btn btn-xs btn-success" ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
+                                <button title="Load Selected Test Step" ng-show="(selectedTestCase.type == 'TestStep')"
+                                        type="button"
+                                        class="btn btn-xs btn-success"
+                                        ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
                                     <i class="fa fa-play"></i>Load Test Step
                                 </button>
 
-                                <button title="Load Selected Test Case" ng-show="selectedTestCase.type === 'TestCase'" type="button" class="btn btn-xs btn-success" ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
+                                <button title="Load Selected Test Case" ng-show="selectedTestCase.type === 'TestCase'"
+                                        type="button"
+                                        class="btn btn-xs btn-success"
+                                        ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
                                     <i class="fa fa-play"></i>Load Test Case
                                 </button>
 
@@ -151,7 +167,7 @@
 
                     <div class="">
                       <div class="">
-                        <div testcase-details="" type="cb">
+                        <div testcase-details type="cb"/>
                       </div>
                     </div>
                   </div>
@@ -175,3 +191,4 @@
   </div>
 
 </div>
+
