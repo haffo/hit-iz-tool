@@ -1,0 +1,13 @@
+{
+  "id" : 754468,
+  "name" : "Error Handling - No persons found",
+  "description" : "The EMR receives a response from the registry query that no persons are found. The EMR notifies the user/clinician.<br>",
+  "type" : "SUT_INITIATOR",
+  "position" : 5,
+  "hl7v2" : {
+    "messageId" : "6a54b5a1-3d50-423e-9f84-8a721ad76342",
+    "constraintId" : "579f6f38-3440-4ff3-b859-0b29838849e2",
+    "valueSetLibraryId" : "e3996dd4-81e0-47e4-a77d-1be4213b4cba"
+  },
+  "protocols" : [ "soap" ]
+}

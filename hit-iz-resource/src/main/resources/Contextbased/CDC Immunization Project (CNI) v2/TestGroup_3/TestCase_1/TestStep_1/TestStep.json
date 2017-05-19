@@ -1,7 +1,0 @@
-{
-  "id" : 393522,
-  "name" : "Select Patient Juan Marcel Gonzales",
-  "description" : "Select patient Juan Marcel Gonzales, distinguishing the patient from other patients with similar demographics (similar names).",
-  "type" : "SUT_MANUAL",
-  "position" : 1
-}

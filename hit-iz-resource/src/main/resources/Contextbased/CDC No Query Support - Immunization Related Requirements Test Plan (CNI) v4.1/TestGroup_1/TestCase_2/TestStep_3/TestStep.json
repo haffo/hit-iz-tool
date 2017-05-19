@@ -1,7 +1,0 @@
-{
-  "id" : 472198,
-  "name" : "Enter HepB Dose1 and 2 of 3",
-  "description" : "<span style=\"font-size:11.0pt;line-height:107%;\r\nfont-family:\"Calibri\",sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:\r\nCalibri;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;\r\nmso-bidi-font-family:\"Times New Roman\";mso-bidi-theme-font:minor-bidi;\r\nmso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">Patient\r\nHistory? for HepB is entered into the EMR\r\nfor Juan Marcel</span>",
-  "type" : "SUT_MANUAL",
-  "position" : 3
-}

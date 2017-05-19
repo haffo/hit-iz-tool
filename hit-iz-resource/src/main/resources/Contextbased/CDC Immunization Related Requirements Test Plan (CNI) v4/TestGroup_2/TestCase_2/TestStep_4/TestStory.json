@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : " The provider attempts to give a Varicella dose, and is warned that it is too soon to give a live vaccine dose.",
-  "comments" : "No Comments",
-  "preCondition" : "MMR dose entered at 14 days prior to the current date. ",
-  "postCondition" : "The provider has been issued a warning that it is too soon to give another live virus dose.",
-  "testObjectives" : "Receive Dose Not Indicated Alert for Single Vaccine Order: The EHR or other clinical software system notifies the provider in instances when there are single or combination vaccine orders that are inconsistent with the expected timing intervals included in the vaccine forecast. Inconsistencies include suggestion of different date(s) for ordering the vaccine(s) or indication the vaccine(s) is/are no longer required.",
-  "evaluationCriteria" : "<span style=\"font-size: 13.3333px;\">There should be a warning that the attempt to give a new Varicella Dose is too early - should get warning that 28 days must pass between 2 live virus vaccines if not administered at the same time due to the prior MMR vaccination 14 days earlier. </span>",
-  "notes" : "No Note"
-}

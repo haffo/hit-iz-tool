@@ -1,7 +1,0 @@
-{
-  "id" : 457032,
-  "name" : "Juana Mariana Gonzales, Enter Orders and Immunizations",
-  "description" : "Orders and Immunization events, non-administrations, and alerts presented for current visit.",
-  "protocol" : "soap",
-  "position" : 1
-}

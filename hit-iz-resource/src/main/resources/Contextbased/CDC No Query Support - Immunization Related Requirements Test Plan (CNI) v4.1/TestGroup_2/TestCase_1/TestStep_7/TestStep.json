@@ -1,7 +1,0 @@
-{
-  "id" : 1015974,
-  "name" : "View the updated vaccination forecast for Juana Mariana Gonzales",
-  "description" : "Using the reconciled vaccine history information, the EMR displays the current Immunization Forecast to the user for Juana Mariana Gonzales.",
-  "type" : "SUT_MANUAL",
-  "position" : 7
-}

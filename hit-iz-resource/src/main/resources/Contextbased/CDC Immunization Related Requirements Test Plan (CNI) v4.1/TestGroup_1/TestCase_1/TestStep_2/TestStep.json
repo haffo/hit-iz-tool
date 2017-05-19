@@ -1,7 +1,0 @@
-{
-  "id" : 923950,
-  "name" : "Enter Initial Immunization Data for Juana Mariana Gonzales: Immunizations from practice",
-  "description" : "Patient History from the local practice is entered into the EMR.",
-  "type" : "SUT_MANUAL",
-  "position" : 2
-}

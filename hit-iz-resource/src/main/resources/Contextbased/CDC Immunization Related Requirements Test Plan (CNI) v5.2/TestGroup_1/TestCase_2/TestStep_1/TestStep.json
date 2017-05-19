@@ -1,7 +1,0 @@
-{
-  "id" : 1227533,
-  "name" : "Enter Initial Demographic Data for New Patient Juan Marcel Marina",
-  "description" : "Juan Marcel Marina is entered as a patient in the EMR, including all pediatric demographic information.",
-  "type" : "SUT_MANUAL",
-  "position" : 1
-}
