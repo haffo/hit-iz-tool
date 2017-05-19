@@ -1,7 +1,0 @@
-{
-  "id" : 847771,
-  "name" : "Order Influenza vaccine and view allergy alert",
-  "description" : "The provider orders inactivated influenza vaccine and is notified that the patient as allergy to egg albumin.",
-  "type" : "SUT_MANUAL",
-  "position" : 3
-}

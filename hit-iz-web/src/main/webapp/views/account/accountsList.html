@@ -19,45 +19,42 @@
                 # Users: {{accountList.length}}
               </div>
 
-              <table st-table="tmpAccountList" st-safe-src="accountList"
-                       class="table table-striped table-bordered table-condensed">
+              <table st-table="tmpAccountList" st-safe-src="accountList" class="table table-striped table-bordered table-condensed">
                     <thead>
                     <tr>
-                         <th colspan="7" st-ratio="95"><input st-search="" class="form-control" type="text"/></th>
+                         <th colspan="7" st-ratio="95"><input st-search="" class="form-control" type="text"></th>
                     </tr>
                     <tr class="tbl-header">
                         <th st-ratio="5"></th>
                         <th st-sort="fullName" st-ratio="20">
-                            <div msg key='account.fullName'></div>
+                            <div msg="" key="account.fullName"></div>
                         </th>
                       <th st-sort="fullName" st-ratio="10">
-                        <div msg key='account.username'></div>
+                        <div msg="" key="account.username"></div>
                       </th>
                         <th st-sort="email" st-ratio="10">
-                            <div msg key='account.email'></div>
+                            <div msg="" key="account.email"></div>
                         </th>
                         <th st-sort="employer" st-ratio="10">
-                            <div msg key='account.employer'></div>
+                            <div msg="" key="account.employer"></div>
                         </th>
                         <th st-sort="title" st-ratio="15">
-                            <div msg key='account.title'></div>
+                            <div msg="" key="account.title"></div>
                         </th>
                         <th st-sort="lastLoggedInDate" st-ratio="20">
-                          <div msg key='account.lastLoggedInDate'></div>
+                          <div msg="" key="account.lastLoggedInDate"></div>
                         </th>
                         <th st-ratio="10">
-                            <div msg key='account.type'></div>
+                            <div msg="" key="account.type"></div>
                         </th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="row in tmpAccountList">
                         <td st-ratio="5">
-                            <input ng-click="selectAccount(row)"
-                                   ng-checked="account != null && row == account"
-                                   type="radio">
+                            <input ng-click="selectAccount(row)" ng-checked="account != null && row == account" type="radio">
                             </td>
-                        <td  st-ratio="20">
+                        <td st-ratio="20">
                           <span ng-show="!row.username">Guest</span>
                           <span ng-show="row.username">{{::row.fullName}}</span>
                         </td>
@@ -122,8 +119,8 @@
 
 
             <!--Body content-->
-            <h4 class="page-header"><div msg key="account.resetUserMessage"></div></h4>
-            <div ng-form name="changePasswordForm" class="form-horizontal" novalidate>
+            <h4 class="page-header"><div msg="" key="account.resetUserMessage"></div></h4>
+            <div ng-form="" name="changePasswordForm" class="form-horizontal" novalidate="">
                 <!--<div class="control-group form-group">-->
                     <!--<label class="control-label col-md-2" for="inputCurrentPassword"><div msg key='account.currentPassword'></div></label>-->
                     <!--<div class="controls col-md-7">-->
@@ -135,44 +132,44 @@
                     <!--</div>-->
                 <!--</div>-->
                 <div class="control-group form-group" ng-class="{'has-success has-feedback': changePasswordForm.inputUserNewPassword.$valid, 'igl-has-error has-feedback': !changePasswordForm.inputUserNewPassword.$valid}">
-                    <label class="control-label col-md-2" for="inputUserNewPassword"><div msg key='account.newPassword'></div></label>
+                    <label class="control-label col-md-2" for="inputUserNewPassword"><div msg="" key="account.newPassword"></div></label>
                     <div class="controls col-md-7">
-                        <input type="password" class="form-control immediate-help account-input" name="inputUserNewPassword" id="inputUserNewPassword" ng-model='accountpwd.newPassword' ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" password-validate required>
+                        <input type="password" class="form-control immediate-help account-input" name="inputUserNewPassword" id="inputUserNewPassword" ng-model="accountpwd.newPassword" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" password-validate="" required="">
                         <div class="input-help">
-                            <h4><div msg key='account.password.error'></div></h4>
+                            <h4><div msg="" key="account.password.error"></div></h4>
                             <ul>
-                                <li ng-class="pwdHasUpperCaseLetter"><div msg key='account.password.error.upperCaseletter'></div></li>
-                                <li ng-class="pwdHasLowerCaseLetter"><div msg key='account.password.error.lowerCaseletter'></div></li>
-                                <li ng-class="pwdHasNumber"><div msg key='account.password.error.number'></div></li>
-                                <li ng-class="pwdValidLength"><div msg key='account.password.error.length'></div></strong></li>
+                                <li ng-class="pwdHasUpperCaseLetter"><div msg="" key="account.password.error.upperCaseletter"></div></li>
+                                <li ng-class="pwdHasLowerCaseLetter"><div msg="" key="account.password.error.lowerCaseletter"></div></li>
+                                <li ng-class="pwdHasNumber"><div msg="" key="account.password.error.number"></div></li>
+                                <li ng-class="pwdValidLength"><div msg="" key="account.password.error.length"></div></li>
                             </ul>
                         </div>
                         <!--<span class="valid" ng-show="changePasswordForm.inputUserNewPassword.$valid"><i class="fa fa-check success"></i></span><br>-->
                     </div>
                 </div>
                 <div class="control-group form-group" ng-class="{'has-success has-feedback': changePasswordForm.inputNewPasswordConfirm.$valid, 'igl-has-error has-feedback': !changePasswordForm.inputNewPasswordConfirm.$valid}">
-                    <label class="control-label col-md-2" for="inputUserNewPasswordConfirm"><div msg key='account.newPasswordConfirm'></div></label>
+                    <label class="control-label col-md-2" for="inputUserNewPasswordConfirm"><div msg="" key="account.newPasswordConfirm"></div></label>
                     <div class="controls col-md-7">
-                        <input type="password" class="form-control immediate-help account-input" name="inputUserNewPasswordConfirm" id="inputUserNewPasswordConfirm" ng-model='accountpwd.newPasswordConfirm' check-password="inputUserNewPassword" required>
+                        <input type="password" class="form-control immediate-help account-input" name="inputUserNewPasswordConfirm" id="inputUserNewPasswordConfirm" ng-model="accountpwd.newPasswordConfirm" check-password="inputUserNewPassword" required="">
                         <div class="input-help">
-                            <h4><div msg key='registration.passwordConfirm.error'></div></h4>
+                            <h4><div msg="" key="registration.passwordConfirm.error"></div></h4>
                         </div>
                         <!--<span class="valid" ng-show="changePasswordForm.inputUserNewPasswordConfirm.$valid"><i class="fa fa-check success"></i></span><br>-->
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="col-md-offset-2 col-md-7">
-                        <button class="btn btn-primary" ng-click='changePassword()' ng-disabled='!changePasswordForm.$valid'><div msg key="account.changePasswordButton"></div></button>
+                        <button class="btn btn-primary" ng-click="changePassword()" ng-disabled="!changePasswordForm.$valid"><div msg="" key="account.changePasswordButton"></div></button>
                     </div>
                 </div>
             </div>
             </div>
 
 
-          <h4 class="page-header"><div msg key="account.changeAccountTypeMessage"></div></h4>
-          <div ng-form name="changeAccountTypeForm" class="form-horizontal" novalidate>
+          <h4 class="page-header"><div msg="" key="account.changeAccountTypeMessage"></div></h4>
+          <div ng-form="" name="changeAccountTypeForm" class="form-horizontal" novalidate="">
             <div class="control-group form-group">
-              <label class="control-label col-md-2"><div msg key='account.accountType'></div></label>
+              <label class="control-label col-md-2"><div msg="" key="account.accountType"></div></label>
               <div class="controls col-md-7">
                    <label class="radio-inline">
                     <input type="radio" ng-model="account.accountType" value="tester"> Tester
@@ -187,22 +184,22 @@
              </div>
             <div class="control-group form-group">
               <div class="col-md-offset-2 col-md-7">
-                <button class="btn btn-primary" ng-click='saveAccountType()' ng-disabled='!changeAccountTypeForm.$valid'><div msg key="account.changeAccountTypeButton"></div></button>
+                <button class="btn btn-primary" ng-click="saveAccountType()" ng-disabled="!changeAccountTypeForm.$valid"><div msg="" key="account.changeAccountTypeButton"></div></button>
               </div>
             </div>
 
           </div>
 
 
-            <h4><div msg key="account.deleteUserSectionTitle"></div></h4>
-            <div ng-form name="deleteAccountForm" class="form-horizontal" novalidate>
+            <h4><div msg="" key="account.deleteUserSectionTitle"></div></h4>
+            <div ng-form="" name="deleteAccountForm" class="form-horizontal" novalidate="">
                 <p>
-                <div ng-show="account.username && account.username != null" msg key="account.deleteUserMessage"></div>
-                <div ng-show="!account.username || account.username === null" msg key="account.deleteGuestMessage"></div>
+                <div ng-show="account.username && account.username != null" msg="" key="account.deleteUserMessage"></div>
+                <div ng-show="!account.username || account.username === null" msg="" key="account.deleteGuestMessage"></div>
               </p>
                 <div class="control-group form-group">
                     <div class="controls col-md-10">
-                        <button class="btn btn-danger" ng-click='deleteAccount()'><i class="fa fa-times"></i>&nbsp;<span msg key="account.deleteButton"></span></button>
+                        <button class="btn btn-danger" ng-click="deleteAccount()"><i class="fa fa-times"></i>&nbsp;<span msg="" key="account.deleteButton"></span></button>
                     </div>
                 </div>
             </div>

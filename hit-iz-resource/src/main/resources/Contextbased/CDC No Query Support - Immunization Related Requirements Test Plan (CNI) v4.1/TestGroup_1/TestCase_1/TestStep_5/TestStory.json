@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "<p>The provider documents in the EMR the clinical history of an adverse reaction to the polio vaccine.</p>\r\n",
-  "comments" : "<p>No Comments</p>\r\n",
-  "preCondition" : "<p>The EMR has recorded all of the pediatric demographic in the record created for Juana Mariana Gonzales.</p>\r\n",
-  "postCondition" : "<p>The clinical history of the adverse reaction to the Polio vaccine is documented in the the record created for Juana Mariana Gonzales.</p>\r\n",
-  "testObjectives" : "<p>Supporting data for:<span style=\"font-weight: bold;\"><em><br></em></span></p><p><span style=\"font-weight: bold;\"><em>Identify Adverse Event: </em></span>The EHR or other clinical software system enables capture of structured data regarding adverse events.</p>\r\n",
-  "evaluationCriteria" : "<p>Evaluation Criteria: Vendor successfully records all demographic data provided with all required attributes indicated by [Y]:</p>\r\n\r\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse; width:659pt\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"height:30.0pt; width:275pt\">Adverse Reaction Substance/Agent</td>\r\n\t\t\t<td style=\"width:275pt\">inactivated polio vaccine (e.g. Poliomyelitis vaccine adverse reaction (disorder) 293117006)</td>\r\n\t\t\t<td style=\"width:109pt\">Y</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"height:60.0pt\">Reaction</td>\r\n\t\t\t<td style=\"width:275pt\">febrile seizure (e.g. Simple febrile seizure (finding) 432354000)<br />\r\n\t\t\tVXC11^convulsions (fits, seizures) within 72 hours of dose^</td>\r\n\t\t\t<td>Y</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"height:15.0pt\">Date (of the reaction)</td>\r\n\t\t\t<td>8/31/2014</td>\r\n\t\t\t<td>Y</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n",
-  "notes" : "<p>No Note</p>\r\n"
-}

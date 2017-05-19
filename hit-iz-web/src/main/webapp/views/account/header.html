@@ -10,29 +10,27 @@
 <div id="subNavBar" class="subNavBar">
 <ul class="clearfix mainSubNav">
     <li ng-show="!isAuthenticated()" ui-sref-active="current" class="jslink">
-        <a class="point" ui-sref="registration"><i class="fa fa-chevron-circle-right"></i>&nbsp;<span msg
-                                                                                                      key="navbar.registration"></span></a>
+        <a class="point" ui-sref="registration"><i class="fa fa-chevron-circle-right"></i>&nbsp;<span msg="" key="navbar.registration"></span></a>
     </li>
 
     <li ui-sref-active="current" class="jslink" ng-show="isAuthenticated()">
-        <a class="point" ui-sref="account"><i class="fa fa-user"></i>&nbsp;<span msg key="navbar.account"></span></a>
+        <a class="point" ui-sref="account"><i class="fa fa-user"></i>&nbsp;<span msg="" key="navbar.account"></span></a>
     </li>
 
     <li ui-sref-active="current" class="jslink" ng-show="!isAuthenticated()">
-        <a class="point" ui-sref="forgotten"><span msg key="navbar.forgotten"></span></a>
+        <a class="point" ui-sref="forgotten"><span msg="" key="navbar.forgotten"></span></a>
     </li>
 
-    <li ui-sref-active="current" ng-click="isManageOpen=!isManageOpen;" class="jslink"
-        ng-show="isSupervisor() || isAdmin()">
-        <a class="point" ui-sref="authors"><span msg class="msg" key="navbar.manage.authors"></span></a>
+    <li ui-sref-active="current" ng-click="isManageOpen=!isManageOpen;" class="jslink" ng-show="isSupervisor() || isAdmin()">
+        <a class="point" ui-sref="authors"><span msg="" class="msg" key="navbar.manage.authors"></span></a>
     </li>
 
     <li ui-sref-active="current" ng-click="isManageOpen=!isManageOpen;" class="jslink" ng-show="isAdmin()">
-        <a class="point" ui-sref="supervisors"><span msg class="msg" key="navbar.manage.supervisors"></span></a>
+        <a class="point" ui-sref="supervisors"><span msg="" class="msg" key="navbar.manage.supervisors"></span></a>
     </li>
 
     <li ui-sref-active="current" class="jslink" ng-show="isAdmin()">
-        <a class="point" ui-sref="admin"><span msg class="msg" key="navbar.admin"></span></a>
+        <a class="point" ui-sref="admin"><span msg="" class="msg" key="navbar.admin"></span></a>
     </li>
 </ul>
     </div>

@@ -11,8 +11,7 @@
 </script>
 
 
-<div ng-controller="TransportConfigListCtrl" style="min-height:400px; margin-left:10px;margin-top:10px;"
-     ng-init="initTransportConfigList()">
+<div ng-controller="TransportConfigListCtrl" style="min-height:400px; margin-left:10px;margin-top:10px" ng-init="initTransportConfigList()">
 <div ng-show="loading" style="text-align:center">
     <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
 </div>
@@ -29,20 +28,18 @@
             <div class="">
                 <span style="font-weight:bold">Transport:</span>
 
-                <div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px;">
-                    <label class="btn   btn-cf-outline" ng-click="toggleTransport(false)"
-                           ng-class="{'active': !transport.disabled}">
-                        <input type="radio" ng-model="transport.disabled" autocomplete="off" checked>On
+                <div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-right: 10px">
+                    <label class="btn btn-cf-outline" ng-click="toggleTransport(false)" ng-class="{'active': !transport.disabled}">
+                        <input type="radio" ng-model="transport.disabled" autocomplete="off" checked="checked">On
                     </label>
-                    <label class="btn  btn-cf-outline" ng-click="toggleTransport(true)"
-                           ng-class="{'active': transport.disabled}">
+                    <label class="btn btn-cf-outline" ng-click="toggleTransport(true)" ng-class="{'active': transport.disabled}">
                         <input type="radio" ng-model="transport.disabled" autocomplete="off">Off
                     </label>
                 </div>
 
             </div>
 
-            <hr style="margin-top:10px; margin-bottom:0px"/>
+            <hr style="margin-top:10px; margin-bottom:0px">
 
             <div style="text-align: center; color:red; font-weight: bold" ng-if="transport.disabled">
                 Transport is disabled
@@ -61,14 +58,7 @@
                         <div class="panel-body">
 
                             <div class="btn-group-vertical" role="group" aria-label="Protocols">
-                                <button type="button" class="btn btn-cf-outline btn-sm"
-                                        ng-repeat="proto in getProtocols(dom)" ng-click="selectPane(dom, proto)"
-                                        ng-class="{'active': isActivePane(dom,proto)}"
-                                        tooltip-html="getProtoDescription(dom, proto)"
-                                        tooltip-append-to-body="true"
-                                        tooltip-class="constraints-tooltip"
-                                        tooltip-trigger
-                                        tooltip-animation="false" tooltip-placement="right">{{proto | uppercase}}
+                                <button type="button" class="btn btn-cf-outline btn-sm" ng-repeat="proto in getProtocols(dom)" ng-click="selectPane(dom, proto)" ng-class="{'active': isActivePane(dom,proto)}" tooltip-html="getProtoDescription(dom, proto)" tooltip-append-to-body="true" tooltip-class="constraints-tooltip" tooltip-trigger="" tooltip-animation="false" tooltip-placement="right">{{proto | uppercase}}
                                 </button>
                             </div>
 
@@ -83,8 +73,7 @@
                         <div class="panel-body">
                             <div>
                                 <div ng-show="transport.configs[dom][proto].error && transport.configs[dom][proto].error !== null">
-                                    <div class="alert alert-danger" role="alert"
-                                         ng-bind="transport.configs[dom][proto].error"></div>
+                                    <div class="alert alert-danger" role="alert" ng-bind="transport.configs[dom][proto].error"></div>
                                 </div>
                                 <div ng-show="!transport.configs[dom][proto].error || transport.configs[dom][proto].error === null">
                                     <div ng-show="transport.configs[dom][proto].data && transport.configs[dom][proto].data !== null">
@@ -95,26 +84,19 @@
                                                 Assigned)
                                             </div>
                                             <div class="panel-body">
-                                                <div ng-controller="SutInitiatorConfigCtrl"
-                                                     ng-init="initSutInitiatorConfig(dom, proto)"
-                                                     style="padding-top: 20px">
+                                                <div ng-controller="SutInitiatorConfigCtrl" ng-init="initSutInitiatorConfig(dom, proto)" style="padding-top: 20px">
 
                                                     <div ng-show="transport.configs[dom][proto]['forms']['sutInitiatorForm'] && transport.configs[dom][proto]['forms']['sutInitiatorForm'] != null">
-                                                        <form name="sutInitiatorForm_{{dom}}_{{proto}}"
-                                                              id="sutInitiatorForm_{{dom}}_{{proto}}"
-                                                              novalidate
-                                                              class="form-horizontal">
+                                                        <form name="sutInitiatorForm_{{dom}}_{{proto}}" id="sutInitiatorForm_{{dom}}_{{proto}}" novalidate="" class="form-horizontal">
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <div compile="transport.configs[dom][proto]['forms']['sutInitiatorForm']"/>
+                                                                    <div compile="transport.configs[dom][proto]['forms']['sutInitiatorForm']">
                                                                 </div>
 
                                                                 <div class="col-md-12" ng-show="isAuthenticated()">
                                                                     <div class="form-group">
                                                                         <div class="col-md-offset-2 col-md-6">
-                                                                            <button class="btn btn-sm btn-primary"
-                                                                                    ng-click='saveSutInitiatorConfig(dom, proto)'
-                                                                                    ng-disabled='sutInitiatorForm_{{dom}}_{{proto}}.$invalid || sutInitiatorForm_{{dom}}_{{proto}}.$pristine'>
+                                                                            <button class="btn btn-sm btn-primary" ng-click="saveSutInitiatorConfig(dom, proto)" ng-disabled="sutInitiatorForm_{{dom}}_{{proto}}.$invalid || sutInitiatorForm_{{dom}}_{{proto}}.$pristine">
                                                                                 <i class="fa fa-check"></i>
                                                                                 Save
                                                                             </button>
@@ -152,31 +134,22 @@
                                                 Information)
                                             </div>
                                             <div class="panel-body">
-                                                <div ng-controller="TaInitiatorConfigCtrl"
-                                                     ng-init="initTaInitiatorConfig(dom,proto)"
-                                                     style="padding-top: 20px">
+                                                <div ng-controller="TaInitiatorConfigCtrl" ng-init="initTaInitiatorConfig(dom,proto)" style="padding-top: 20px">
 
                                                     <div ng-show="transport.configs[dom][proto]['forms']['taInitiatorForm'] && transport.configs[dom][proto]['forms']['taInitiatorForm'] != null">
-                                                        <form name="taInitiatorForm_{{dom}}_{{proto}}"
-                                                              id="taInitiatorForm_{{dom}}_{{proto}}"
-                                                              novalidate
-                                                              class="form-horizontal">
+                                                        <form name="taInitiatorForm_{{dom}}_{{proto}}" id="taInitiatorForm_{{dom}}_{{proto}}" novalidate="" class="form-horizontal">
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <div compile="transport.configs[dom][proto]['forms']['taInitiatorForm']"/>
+                                                                    <div compile="transport.configs[dom][proto]['forms']['taInitiatorForm']">
                                                                 </div>
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <div class="col-md-offset-2 col-md-6">
-                                                                            <button class="btn btn-sm btn-danger"
-                                                                                    ng-click='reset()'
-                                                                                    ng-disabled="taInitiatorForm_{{dom}}_{{proto}}.$pristine">
+                                                                            <button class="btn btn-sm btn-danger" ng-click="reset()" ng-disabled="taInitiatorForm_{{dom}}_{{proto}}.$pristine">
                                                                                 <i class="fa fa-times"></i>
                                                                                 Reset
                                                                             </button>
-                                                                            <button class="btn btn-sm btn-success"
-                                                                                    ng-click='save()'
-                                                                                    ng-disabled='taInitiatorForm_{{dom}}_{{proto}}.$invalid || taInitiatorForm_{{dom}}_{{proto}}.$pristine'>
+                                                                            <button class="btn btn-sm btn-success" ng-click="save()" ng-disabled="taInitiatorForm_{{dom}}_{{proto}}.$invalid || taInitiatorForm_{{dom}}_{{proto}}.$pristine">
                                                                                 <i class="fa fa-check"></i>
                                                                                 Save
                                                                             </button>
@@ -219,8 +192,7 @@
     </div>
 </div>
 
-<div style="text-align: center; color:red; font-weight: bold"
-     ng-show="getDomains() === null || getDomains().length === 0">
+<div style="text-align: center; color:red; font-weight: bold" ng-show="getDomains() === null || getDomains().length === 0">
     Transport is not supported.
 </div>
 

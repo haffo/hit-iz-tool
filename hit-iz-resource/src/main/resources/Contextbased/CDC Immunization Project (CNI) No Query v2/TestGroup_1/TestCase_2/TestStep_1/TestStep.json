@@ -1,7 +1,0 @@
-{
-  "id" : 915284,
-  "name" : "Enter Initial Demographic Data for New Patient Juan Marcel Gonzales",
-  "description" : "Juan Marcel Gonzales is entered as a patient in the EMR, including all pediatric demographic information.",
-  "type" : "SUT_MANUAL",
-  "position" : 1
-}

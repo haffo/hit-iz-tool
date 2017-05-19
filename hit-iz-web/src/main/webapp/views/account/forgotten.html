@@ -13,19 +13,19 @@
             <!--Body content-->
 
 
-            <form name="forgottenPasswordForm" class="form-horizontal" novalidate>
+            <form name="forgottenPasswordForm" class="form-horizontal" novalidate="">
 
                 <h3 class="page-header">
-                    <div msg key="forgotten.title"></div>
+                    <div msg="" key="forgotten.title"></div>
                 </h3>
-                <h5><div msg key="forgotten.message"></div></h5>
+                <h5><div msg="" key="forgotten.message"></div></h5>
 
                 <div class="form-group control-group" ng-class="{'has-success has-feedback': forgottenPasswordForm.inputUsername.$valid, 'igl-has-error has-feedback': !forgottenPasswordForm.inputUsername.$valid && !forgottenPasswordForm.inputUsername.$pristine}">
-                    <label class="control-label col-md-3" for="inputUsername"><div msg key='forgotten.input'></div></label>
+                    <label class="control-label col-md-3" for="inputUsername"><div msg="" key="forgotten.input"></div></label>
                     <div class="controls col-md-7">
-                        <input type="text" class="form-control immediate-help focus" name="inputUsername" id="inputUsername" ng-minlength="4" ng-model='username' required>
+                        <input type="text" class="form-control immediate-help focus" name="inputUsername" id="inputUsername" ng-minlength="4" ng-model="username" required="">
                         <div class="input-help">
-                            <h4><div msg key='forgotten.inputUsernameError'></div></h4>
+                            <h4><div msg="" key="forgotten.inputUsernameError"></div></h4>
                         </div>
                         <!--<span class="valid" ng-show="forgottenPasswpordForm.inputUsername.$valid"><img alt="check OK" src="images/check.png"/></span><br>-->
                     </div>
@@ -33,7 +33,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-3 col-md-7">
-                        <button class="btn btn-primary" ng-click='requestResetPassword()' ng-disabled='!forgottenPasswordForm.$valid'><div msg key="forgotten.submitButton"></div></button>
+                        <button class="btn btn-primary" ng-click="requestResetPassword()" ng-disabled="!forgottenPasswordForm.$valid"><div msg="" key="forgotten.submitButton"></div></button>
                     </div>
                 </div>
 

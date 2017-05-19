@@ -1,7 +1,0 @@
-{
-  "id" : 501770,
-  "name" : "Mark first MMR Dose as Invalid",
-  "description" : "Identify the first MMR dose which is given too early, as invalid. If the EHR does not already flag the first MMR as invalid, the provider updates the first MMR to indicate it is ?invalid? as it was given too early (as notified by the registry).<div><br></div><div>Enter an MMR dose at 14 days prior to the current date. As the first MMR was invalid, this should be listed as the first dose.</div>",
-  "type" : "SUT_MANUAL",
-  "position" : 4
-}
