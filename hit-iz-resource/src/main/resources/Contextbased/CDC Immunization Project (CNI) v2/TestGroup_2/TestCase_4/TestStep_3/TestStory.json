@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "<p>The adverse reaction to the MMRV of persistent, inconsolable crying lasting > 3 hours within 48 hours of dose is reported to the Immunization Registry using a Z22/VXU message.</p>\r\n",
-  "comments" : "<p>No Comments</p>\r\n",
-  "preCondition" : "<p>An adverse reaction to the MMRV of persistent, inconsolable crying lasting &gt; 3 hours within 48 hours of dose is recorded in the EMR.</p>\r\n",
-  "postCondition" : "<p>The adverse reaction has been transmitted to the IIS.</p>\r\n",
-  "testObjectives" : "<p><em><strong>Transmit Standard Patient Immunization History Report: </strong></em>The EHR or other clinical software system directly or indirectly through an intermediary creates and transmits a report of a patient&#39;s immunization history to public health immunization registries.</p>\r\n",
-  "evaluationCriteria" : "<p>The VXU/Z22 message passes validation using the NIST Immunization VXU Validation Tool (Z22) (context-free). The content of the message correctly reflects the test data (context-based) in accordance with the Test Data Specification and the Message Content.</p>\r\n",
-  "notes" : "<p>No Note</p>\r\n"
-}

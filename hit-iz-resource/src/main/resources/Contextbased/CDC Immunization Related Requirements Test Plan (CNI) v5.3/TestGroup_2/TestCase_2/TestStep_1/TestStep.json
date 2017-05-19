@@ -1,0 +1,7 @@
+{
+  "id" : 243638,
+  "name" : "Order IPV and view prior reaction",
+  "description" : "The provider selects to order IPV and views information about the prior febrile seizure post-IPV vaccine.",
+  "type" : "SUT_MANUAL",
+  "position" : 1
+}

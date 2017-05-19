@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "A child is seen at a clinic. A previously documented vaccination is updated to correct inaccurate information..",
-  "comments" : "No Comments",
-  "preCondition" : "The IZ-AD-5_Refusal test case has been successfully completed.<br>",
-  "postCondition" : "No PostCondition",
-  "testObjectives" : "This test case asses the ability of the EHR to create an update message for a previously sent administration.",
-  "evaluationCriteria" : "<br>",
-  "notes" : "No Note"
-}

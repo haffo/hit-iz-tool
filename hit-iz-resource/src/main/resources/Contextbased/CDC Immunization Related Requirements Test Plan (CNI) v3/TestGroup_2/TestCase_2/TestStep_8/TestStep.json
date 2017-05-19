@@ -1,7 +1,0 @@
-{
-  "id" : 709330,
-  "name" : "Record MMRV Vaccine administration",
-  "description" : "The provider documents in the EMR all attributes associated with the new vaccine administration.",
-  "type" : "SUT_MANUAL",
-  "position" : 8
-}
