@@ -12,6 +12,17 @@
 
 package gov.nist.hit.iz.web.controller;
 
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import gov.nist.hit.core.domain.Command;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.service.exception.MessageValidationException;
@@ -29,18 +40,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
 /**
  * @author Harold Affo (NIST)
  * 
@@ -51,51 +50,47 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "Immunization SOAP Envelope API", tags = "SOAP Envelope")
 public class SOAPEnvelopeController {
 
-  static final Logger logger = LoggerFactory.getLogger(SOAPEnvelopeController.class);
+	static final Logger logger = LoggerFactory.getLogger(SOAPEnvelopeController.class);
 
-  @Autowired
-  private SOAPMessageValidator soapValidator;
+	@Autowired
+	private SOAPMessageValidator soapValidator;
 
-  @Autowired
-  private IZEnvelopeTestPlanRepository testPlanRepository;
+	@Autowired
+	private IZEnvelopeTestPlanRepository testPlanRepository;
 
-  @Autowired
-  private IZEnvelopeTestCaseRepository testCaseRepository;
+	@Autowired
+	private IZEnvelopeTestCaseRepository testCaseRepository;
 
+	@Autowired
+	private SOAPValidationReportGenerator reportService;
 
-  @Autowired
-  private SOAPValidationReportGenerator reportService;
+	@ApiOperation(value = "Get the list of soap envelope testing test cases", nickname = "getSOAPEnvelopeTestCases")
+	// @Cacheable(value = "HitCache", key = "'env-testcases'")
+	@RequestMapping(value = "/testcases", method = RequestMethod.GET, produces = "application/json")
+	public List<IZEnvelopeTestPlan> testCases() {
+		logger.info("Fetching all testplans...");
+		return testPlanRepository.findAll();
+	}
 
-  @ApiOperation(value = "Get the list of soap envelope testing test cases",
-      nickname = "getSOAPEnvelopeTestCases")
-  @Cacheable(value = "HitCache", key = "'env-testcases'")
-  @RequestMapping(value = "/testcases", method = RequestMethod.GET, produces = "application/json")
-  public List<IZEnvelopeTestPlan> testCases() {
-    logger.info("Fetching all testplans...");
-    return testPlanRepository.findAll();
-  }
+	@ApiOperation(value = "Validate a soap envelope message", nickname = "validateSOAPEnvelope")
+	@RequestMapping(value = "/testcases/{testCaseId}/validate", method = RequestMethod.POST, produces = "application/json")
+	public ValidationResult validateSOAPEnvelope(
+			@ApiParam(value = "the id of the test case", required = true) @PathVariable final Long testCaseId,
+			@ApiParam(value = "the request of the validation", required = true) @RequestBody final Command command)
+			throws SoapValidationException {
+		try {
+			logger.info("Validating envelope message " + command);
+			IZEnvelopeTestCase testCase = testCaseRepository.findOne(testCaseId);
+			if (testCase == null)
+				throw new TestCaseException("No testcase selected");
+			IZEnvelopeTestContext context = testCase.getTestContext();
+			ValidationResult result;
+			result = soapValidator.validate(Utils.getContent(command), testCase.getName(),
+					context.getValidationPhase());
+			return result;
+		} catch (MessageValidationException e) {
+			throw new SoapValidationException(e);
+		}
 
-  @ApiOperation(value = "Validate a soap envelope message", nickname = "validateSOAPEnvelope")
-  @RequestMapping(value = "/testcases/{testCaseId}/validate", method = RequestMethod.POST,
-      produces = "application/json")
-  public ValidationResult validateSOAPEnvelope(@ApiParam(value = "the id of the test case",
-      required = true) @PathVariable final Long testCaseId, @ApiParam(
-      value = "the request of the validation", required = true) @RequestBody final Command command)
-      throws SoapValidationException {
-    try {
-      logger.info("Validating envelope message " + command);
-      IZEnvelopeTestCase testCase = testCaseRepository.findOne(testCaseId);
-      if (testCase == null)
-        throw new TestCaseException("No testcase selected");
-      IZEnvelopeTestContext context = testCase.getTestContext();
-      ValidationResult result;
-      result =
-          soapValidator.validate(Utils.getContent(command), testCase.getName(),
-              context.getValidationPhase());
-      return result;
-    } catch (MessageValidationException e) {
-      throw new SoapValidationException(e);
-    }
-
-  }
+	}
 }

@@ -46,6 +46,8 @@ angular.module('commonServices').factory('StorageService',
             APP_STATE_TOKEN: 'APP_STATE_TOKEN',
             TRANSPORT_DISABLED:'TRANSPORT_DISABLED',
             TRANSPORT_PROTOCOL:'TRANSPORT_PROTOCOL',
+          CB_SELECTED_TESTPLAN_ID_KEY: 'CB_SELECTED_TESTPLAN_ID',
+          CB_SELECTED_TESTPLAN_TYPE_KEY: 'CB_SELECTED_TESTPLAN_TYPE',
 
             remove: function (key) {
                 return localStorageService.remove(key);

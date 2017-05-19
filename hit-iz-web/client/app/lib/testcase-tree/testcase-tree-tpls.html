@@ -10,12 +10,12 @@
                 <span style="white-space: nowrap" class="indented tree-label">
                      <i ng-class="get_icon_type(row.branch)"></i>
                     <!--<span ng-show="row.branch.transport === true" class="badge">T</span>-->
-                    <span title="Transport supported" class="label label-danger label-icon" ng-show="row.branch.type === 'TestPlan' && row.branch.transport === true">T</span>
-                    {{ row.label }} </span>
+                      <span title="Transport supported" class="label label-danger label-icon" ng-show="row.branch.type === 'TestPlan' && row.branch.transport === true">T</span>
+                     <span ng-bind-html="::row.label"></span>  </span>
                 </a>
             <span ng-if="!is_node_selectable(row.branch)" class="nopointer"
                     >
-               <span style="white-space: nowrap" class="indented tree-label">{{ row.label }} </span>
+               <span style="white-space: nowrap" class="indented tree-label"><span ng-bind-html="::row.label"></span> </span>
             </span>
             </td>
         </tr>
