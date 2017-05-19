@@ -1,7 +1,0 @@
-{
-  "id" : 484692,
-  "name" : "Query the Registry for Juana Maria Gonzales Morales.",
-  "description" : "EMR Generates a Z44 query to the Immunization Registry to retrieve the Evaluated History and Forecast for Juana Maria Gonzales Morales",
-  "domain" : "iz",
-  "position" : 1
-}

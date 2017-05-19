@@ -1,7 +1,0 @@
-{
-  "id" : 747943,
-  "name" : "Enter Adverse Reaction to the Polio Vaccine",
-  "description" : "The EHR captures structured data regarding adverse events as part of the clinical history.",
-  "type" : "SUT_MANUAL",
-  "position" : 5
-}

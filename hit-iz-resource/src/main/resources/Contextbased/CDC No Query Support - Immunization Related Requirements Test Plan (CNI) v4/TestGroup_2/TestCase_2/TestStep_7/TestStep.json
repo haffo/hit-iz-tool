@@ -1,7 +1,0 @@
-{
-  "id" : 1032147,
-  "name" : "Records MMRV Vaccine administration route with data validation checking",
-  "description" : "The provider records the vaccine administration route in the EMR and is prevented from incorrectly documenting vaccine route",
-  "type" : "SUT_MANUAL",
-  "position" : 7
-}

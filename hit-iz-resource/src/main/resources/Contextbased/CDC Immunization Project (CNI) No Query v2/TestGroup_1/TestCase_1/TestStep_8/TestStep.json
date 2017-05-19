@@ -1,7 +1,0 @@
-{
-  "id" : 983788,
-  "name" : "Enter DTaP Doses 1, 2, 3 and 4 of 5",
-  "description" : "<p class=\"MsoNormal\"><span style=\"font-size:10.0pt;line-height:107%;font-family:\r\n\"Arial\",sans-serif;color:#4F4F4F;background:white\">Patient History for DTaP is\r\nentered into the EMR.</span><b><i><span style=\"font-size:14.0pt;mso-bidi-font-size:\r\n11.0pt;line-height:107%\"><o:p></o:p></span></i></b></p>",
-  "type" : "SUT_MANUAL",
-  "position" : 8
-}

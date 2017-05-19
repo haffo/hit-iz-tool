@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "<span style=\"font-size: 13.3333px;\">This test will consist of ordering vaccines for the test patients, reviewing any alerts caused by specific scenarios, and documenting vaccinations administered to the patients. </span>",
-  "comments" : "No Comments",
-  "preCondition" : "<span style=\"line-height: 107%; font-family: Arial; font-size: small;\">Mariela\r\nGonzales Morales is entered as a patient in the EMR with complete Demographic\r\ndata, Immunization History Data, and Clinical Data according to the steps in\r\nthe 'Mariela Gonzales Morales Initial Data Load'</span>",
-  "postCondition" : "<span style=\"line-height: 107%; font-family: Arial; font-size: small;\">Visit\r\norders are entered in Mariela Gonzales Morales' record.</span>",
-  "testObjectives" : "<p style=\"font-size: 13.3333px;\">Supporting data for documenting contraindications (it could also trigger an alert as a locally configured alert rule): </p><p style=\"font-size: 13.3333px;\"><em><strong>Modify Antigen Recommendations Based on Active Diagnoses: </strong></em>The system notifies the provider of any conflicts between recommended vaccines in the updated forecast and the patient's current or historical diagnoses.</p><p style=\"font-size: 13.3333px;\"><em style=\"font-size: 13.3333px;\"><strong>Record Vaccine Administration Deferral: </strong></em><span style=\"font-size: 13.3333px;\">The EHR or other clinical software system allows a user to enter a reason or reasons why a specific immunization was not given to a patient (e.g., due to contraindication, refusal, etc.). The system also stores that information in a structured way so it can be reported and analyzed as needed.</span></p>",
-  "evaluationCriteria" : "<span style=\"line-height: 107%; font-family: Arial; font-size: small;\">Evaluation criteria is defined within each test\r\nstep.</span>",
-  "notes" : "No Note"
-}

@@ -1,7 +1,0 @@
-{
-  "id" : 319043,
-  "name" : "Juana Mariela Gonzales Morales Transmit Immunization Report",
-  "description" : "Send the Immunization Report to the Immunization Registry (VXU/Z22) for Juana Mariela Gonzales Morales.",
-  "position" : 3,
-  "protocol" : "soap"
-}

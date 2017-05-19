@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "<p>The clinical history of Moderate Persistent Asthma is documented in the record created for Juan Marcel Gonzales.</p>\r\n",
-  "comments" : "<p>No Comments</p>\r\n",
-  "preCondition" : "<p>The EMR has recorded all of the pediatric demographic  in the record created for Juan Marcel Gonzales.</p>\r\n",
-  "postCondition" : "<p>The clinical history of the Moderate Persistent Asthma is documented in the record created for Juan Marcel Gonzales.</p>\r\n",
-  "testObjectives" : "<p>Supporting data for:</p><p><span style=\"font-style: italic;\"><span style=\"font-weight: bold;\">Modify Antigen Recommendations Based on Active Diagnoses:</span></span> The system notifies the provider of any conflicts between recommended vaccines in the updated forecast and the patient's current or historical diagnoses.<br><br></p>\r\n",
-  "evaluationCriteria" : "<p>Evaluation Criteria: Vendor successfully records all clinical history data provided with all required attributes indicated by [Y]:</p>\r\n\r\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse; width:799pt\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"height:15.0pt; width:275pt\">Adverse History of Asthma</td>\r\n\t\t\t<td style=\"width:275pt\"> </td>\r\n\t\t\t<td style=\"width:109pt\"> </td>\r\n\t\t\t<td style=\"width:140pt\"> </td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"height:30.0pt; width:275pt\">Problems</td>\r\n\t\t\t<td style=\"width:275pt\">Moderate Persistent Asthma (e.g. Moderate persistent asthma - SNOMED-CT 427295004)</td>\r\n\t\t\t<td>Y</td>\r\n\t\t\t<td style=\"width:140pt\">Coded value expected using SNOMED-CT or ICD</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n",
-  "notes" : "<p>No Note</p>\r\n"
-}
