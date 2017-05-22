@@ -35,7 +35,7 @@
                           ng-change="selectTP()"
                           ng-model="selectedTP.id">
                     <option value="">---- Select Test Plan ----</option>
-                    <option ng-repeat="tp in testPlans" ng-selected="tp.id === selectedTP.id" value="{{tp.id}}">{{tp.name}}</option>
+                    <option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{tp.name}}</option>
                   </select>
                 </div>
               </div>
