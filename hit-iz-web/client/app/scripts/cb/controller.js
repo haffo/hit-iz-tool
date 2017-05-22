@@ -880,14 +880,14 @@ angular.module('cb')
             var lastTestPlanPersistenceId =  userInfoService.getLastTestPlanPersistenceId();
             var tp = findTPByPersistenceId(lastTestPlanPersistenceId, $scope.testPlans);
             if(tp != null){
-              targetId = tp.id.toString();
+              targetId = tp.id;
             }
         }
         if(targetId == null){
           var previousTpId = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_ID_KEY);
           targetId = previousTpId == undefined || previousTpId == null ? "": previousTpId;
         }
-        $scope.selectedTP.id = targetId;
+        $scope.selectedTP.id = targetId.toString();
         $scope.selectTP();
         $scope.loading = false;
       }, function (error) {
