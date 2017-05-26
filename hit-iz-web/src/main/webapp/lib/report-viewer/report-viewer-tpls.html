@@ -48,8 +48,9 @@
                     <div ng-show="!report || report === null || report.html == null" style="text-align:center">
                         No report generated.
                     </div>
-
+                    <div ng-show="report != null && report.html != null">
                     <div id="{{type}}-report"></div>
+                    </div>
 
                 </div>
 

@@ -3,14 +3,14 @@
     <div ng-show="validationResult !== null">
         <tabset>
             <tab ng-click="showValidationTable(validationResult.errors.categories[0],'errors')" active="active.errors"
-                 ng-if="settings.options.validation.show.errors">
+                 ng-show="settings.options.validation.show.errors">
                 <tab-heading>
                 <span class="badge failure failure-errors"
                       ng-bind="validationResult.errors.categories[0].data.length"></span>
                     Errors
                 </tab-heading>
                  <tabset style="margin-top:5px" ng-show="validationResult.errors.categories.length > 1">
-                    <tab ng-repeat="category in validationResult.errors.categories" class="validation-result-subtab"
+                    <tab ng-repeat="category in validationResult.errors.categories track by category.title" class="validation-result-subtab"
                          active="subActive.errors[category.title]"
                          ng-if="category.data.length > 0"
                          ng-click="showValidationTable(category,'errors')">
@@ -24,14 +24,14 @@
              </tab>
 
             <tab ng-click="showValidationTable(validationResult.warnings.categories[0],'warnings')"
-                 ng-if="settings.options.validation.show.warnings"
+                 ng-show="settings.options.validation.show.warnings"
                  active="active.warnings">
                 <tab-heading>
         <span class="badge failure failure-warnings"
               ng-bind="validationResult.warnings.categories[0].data.length"></span> Warnings
                 </tab-heading>
                 <tabset style="margin-top:5px" ng-show="validationResult.warnings.categories.length > 1">
-                    <tab ng-repeat="category in validationResult.warnings.categories" class="validation-result-subtab"
+                    <tab ng-repeat="category in validationResult.warnings.categories track by category.title" class="validation-result-subtab"
                          active="subActive.warnings[category.title]"
                          ng-if="category.data.length > 0"
                          ng-click="showValidationTable(category,'warnings')">
@@ -44,14 +44,14 @@
                 </tabset>
             </tab>
             <tab ng-click="showValidationTable(validationResult.alerts.categories[0],'alerts')" active="active.alerts"
-                 ng-if="settings.options.validation.show.alerts">
+                 ng-show="settings.options.validation.show.alerts">
                 <tab-heading>
                 <span class="badge failure failure-alerts"
                       ng-bind="validationResult.alerts.categories[0].data.length"></span>
                     Alerts
                 </tab-heading>
                 <tabset style="margin-top:5px" ng-show="validationResult.alerts.categories.length > 1">
-                    <tab ng-repeat="category in validationResult.alerts.categories" class="validation-result-subtab"
+                    <tab ng-repeat="category in validationResult.alerts.categories track by category.title" class="validation-result-subtab"
                          active="subActive.alerts[category.title]"
                          ng-if="category.data.length > 0"
                          ng-click="showValidationTable(category,'alerts')">
@@ -65,14 +65,14 @@
             </tab>
 
             <tab ng-click="showValidationTable(validationResult.affirmatives.categories[0],'affirmatives')"
-                 active="active.affirmatives" ng-if="settings.options.validation.show.affirmatives">
+                 active="active.affirmatives" ng-show="settings.options.validation.show.affirmatives">
                 <tab-heading>
                 <span class="badge failure failure-affirmatives"
                       ng-bind="validationResult.affirmatives.categories[0].data.length"></span>
                     Affirmatives
                 </tab-heading>
                 <tabset style="margin-top:5px" ng-show="validationResult.affirmatives.categories.length > 1">
-                    <tab ng-repeat="category in validationResult.affirmatives.categories"
+                    <tab ng-repeat="category in validationResult.affirmatives.categories track by category.title"
                          class="validation-result-subtab"
                          active="subActive.affirmatives[category.title]"
                          ng-if="category.data.length > 0"
@@ -184,7 +184,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="row in tmpData">
+                    <tr ng-repeat="row in tmpData track by row.id">
                         <td st-ratio="30">
                             <a class="point" ng-if="row.path" ng-click="select(row)" ng-bind="::row.path"></a>
                             <span ng-if="row.path == null">N/A</span>

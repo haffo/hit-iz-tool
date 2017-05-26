@@ -165,9 +165,10 @@ angular.module('cb')
         }
       } else { // manual testing ?
         $scope.setTestStepExecutionTab(1);
-        var report = TestExecutionService.getTestStepValidationReportObject(testStep);
-        report = report != undefined ? report : null;
-        $rootScope.$emit('cbManual:initValidationReport', report, testStep);
+        var result = TestExecutionService.getTestStepValidationReport(testStep);
+        // report = report != undefined ? report : null;
+        // $rootScope.$emit('cbManual:initValidationReport', report, testStep);
+        $rootScope.$emit('cbManual:updateTestStepValidationReport', result != undefined && result != null ? result.reportId : null, testStep);
       }
 
       var exampleMsgId = $scope.targ + '-exampleMessage';
@@ -357,8 +358,8 @@ angular.module('cb')
     };
 
     $scope.executeTestStep = function (testStep) {
-      TestExecutionService.initTestStep(testStep).then(function (report) {
-        TestExecutionService.setTestStepValidationReportObject(testStep, report);
+      //TestExecutionService.initTestStep(testStep).then(function (report) {
+        TestExecutionService.setTestStepValidationReport(testStep, null);
         CB.testStep = testStep;
         $scope.warning = null;
         if ($scope.isManualStep(testStep) || testStep.testingType === 'TA_RESPONDER') {
@@ -376,9 +377,9 @@ angular.module('cb')
         var log = $scope.transport.logs[testStep.id];
         $scope.logger.content = log && log != null ? log : '';
         $scope.selectTestStep(testStep);
-      }, function (error) {
-        $scope.error = "Failed to load the test step, please try again.";
-      });
+      // }, function (error) {
+      //   $scope.error = "Failed to load the test step, please try again.";
+      // });
 
     };
 
@@ -624,7 +625,8 @@ angular.module('cb')
         TestExecutionService.updateTestStepValidationReport(testStep);
       } else {
         var reportType = testStep.testContext && testStep.testContext != null ? 'cbValidation' : 'cbManual';
-        $rootScope.$emit(reportType + ':updateTestStepValidationReport', null, testStep);
+        var result =  TestExecutionService.getTestStepValidationReport(testStep);
+         $rootScope.$emit(reportType + ':updateTestStepValidationReport', result && result != null ? result.reportId: null, testStep);
       }
     };
 
@@ -1181,8 +1183,8 @@ angular.module('cb')
 
     $scope.validateMessage = function () {
       try {
-        if ($scope.testStep != null) {
-          if ($scope.cb.message.content !== '' && $scope.testStep.testContext != null) {
+         if ($scope.testStep != null) {
+           if ($scope.cb.message.content !== '' && $scope.testStep.testContext != null) {
             $scope.vLoading = true;
             $scope.vError = null;
             TestExecutionService.deleteTestStepValidationReport($scope.testStep);
@@ -1196,7 +1198,8 @@ angular.module('cb')
               $scope.setTestStepValidationReport(null);
             });
           } else {
-            $scope.setTestStepValidationReport(TestExecutionService.getTestStepValidationReport($scope.testStep));
+            var reportId =  TestExecutionService.getTestStepValidationReport($scope.testStep);
+            $scope.setTestStepValidationReport({"reportId": reportId});
             $scope.vLoading = false;
             $scope.vError = null;
           }
@@ -1212,7 +1215,7 @@ angular.module('cb')
       if ($scope.testStep != null) {
         if (mvResult != null) {
           TestExecutionService.setTestStepExecutionStatus($scope.testStep, 'COMPLETE');
-          TestExecutionService.setTestStepValidationReport($scope.testStep, mvResult);
+          TestExecutionService.setTestStepValidationReport($scope.testStep, mvResult.reportId);
         }
         $rootScope.$emit('cb:validationResultLoaded', mvResult, $scope.testStep);
       }
@@ -1307,7 +1310,8 @@ angular.module('cb')
         $scope.validateMessage();
         $scope.parseMessage();
       } else {
-        $scope.setTestStepValidationReport(TestExecutionService.getTestStepValidationReport($scope.testStep));
+        var reportId =  TestExecutionService.getTestStepValidationReport($scope.testStep);
+        $scope.setTestStepValidationReport({"reportId": reportId});
         $scope.setTestStepMessageTree(TestExecutionService.getTestStepMessageTree($scope.testStep));
       }
     };
@@ -1491,27 +1495,27 @@ angular.module('cb')
         } : TestExecutionService.getTestStepValidationReport(testStep);
     });
 
-    $scope.save = function () {
-      $scope.saving = true;
-      $scope.saved = false;
-      $scope.error = null;
-      ManualReportService.save($scope.report.result, $scope.testStep).then(function (report) {
-        $scope.report["id"] = report.id;
-        $scope.report["xml"] = report.xml;
-        TestExecutionService.setTestStepExecutionStatus($scope.testStep, 'COMPLETE');
-        var rep = angular.copy($scope.report);
-        TestExecutionService.setTestStepValidationReport($scope.testStep, rep);
-        $timeout(function () {
-          $rootScope.$emit('cb:manualReportLoaded', rep, $scope.testStep.id);
-        });
-        $scope.saving = false;
-        $scope.saved = true;
-      }, function (error) {
-        $scope.error = error;
-        $scope.saving = false;
-        $scope.saved = false;
-      });
-    };
+    // $scope.save = function () {
+    //   $scope.saving = true;
+    //   $scope.saved = false;
+    //   $scope.error = null;
+    //   ManualReportService.save($scope.report.result, $scope.testStep).then(function (report) {
+    //     $scope.report["id"] = report.id;
+    //     $scope.report["xml"] = report.xml;
+    //     TestExecutionService.setTestStepExecutionStatus($scope.testStep, 'COMPLETE');
+    //     var rep = angular.copy($scope.report);
+    //     TestExecutionService.setTestStepValidationReport($scope.testStep, rep);
+    //     $timeout(function () {
+    //       $rootScope.$emit('cb:manualReportLoaded', rep, $scope.testStep.id);
+    //     });
+    //     $scope.saving = false;
+    //     $scope.saved = true;
+    //   }, function (error) {
+    //     $scope.error = error;
+    //     $scope.saving = false;
+    //     $scope.saved = false;
+    //   });
+    // };
 
 
   }]);

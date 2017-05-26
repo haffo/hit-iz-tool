@@ -197,13 +197,11 @@
                 }
 
                 $timeout(function () {
-                    if($scope.type === 'cb'){ // TODO: remove dependency
-                        var reportType = testStep.testContext && testStep.testContext != null ? 'cbValidation': 'cbManual';
-                        $rootScope.$emit(reportType + ':updateTestStepValidationReport', mvResult,testStep);
-                    }else{
-                        $rootScope.$emit($scope.type + ':createMessageValidationReport', mvResult,testStep);
-                        console.log("createMessageValidationReport called");
-                    }
+                  var reportType = $scope.type;
+                  if($scope.type === 'cb'){ // TODO: remove dependency
+                        reportType = testStep.testContext && testStep.testContext != null ? 'cbValidation': 'cbManual';
+                  }
+                  $rootScope.$emit(reportType + ':updateTestStepValidationReport', mvResult != null ? mvResult.reportId: null,testStep);
                 });
 
                 $scope.validationResult = validationResult;
@@ -215,31 +213,32 @@
                     $scope.checkboxConfig['affirmatives'] = {};
                     $scope.checkboxConfig['informationals'] = {};
 
-                    if(validationResult.errors && validationResult.errors.categories) {
-                        angular.forEach(validationResult.errors.categories, function (category) {
-                            $scope.checkboxConfig['errors'][category.title] = false;
-                        });
-                    }
-                    if(validationResult.alerts&& validationResult.alerts.categories) {
-                        angular.forEach(validationResult.alerts.categories, function (category) {
-                            $scope.checkboxConfig['alerts'][category.title] = false;
-                        });
-                    }
-                    if(validationResult.warnings&& validationResult.warnings.categories) {
-                        angular.forEach(validationResult.warnings.categories, function (category) {
-                            $scope.checkboxConfig['warnings'][category.title] = false;
-                        });
-                    }
-                    if(validationResult.affirmatives&& validationResult.affirmatives.categories) {
-                        angular.forEach(validationResult.affirmatives.categories, function (category) {
-                            $scope.checkboxConfig['affirmatives'][category.title] = false;
-                        });
-                    }
-                    if(validationResult.informationals && validationResult.informationals.categories) {
-                        angular.forEach(validationResult.informationals.categories, function (category) {
-                            $scope.checkboxConfig['informationals'][category.title] = false;
-                        });
-                    }
+                    // console.log("Validation ran");
+                    // if(validationResult.errors && validationResult.errors.categories) {
+                    //     angular.forEach(validationResult.errors.categories, function (category) {
+                    //         $scope.checkboxConfig['errors'][category.title] = false;
+                    //     });
+                    // }
+                    // if(validationResult.alerts&& validationResult.alerts.categories) {
+                    //     angular.forEach(validationResult.alerts.categories, function (category) {
+                    //         $scope.checkboxConfig['alerts'][category.title] = false;
+                    //     });
+                    // }
+                    // if(validationResult.warnings&& validationResult.warnings.categories) {
+                    //     angular.forEach(validationResult.warnings.categories, function (category) {
+                    //         $scope.checkboxConfig['warnings'][category.title] = false;
+                    //     });
+                    // }
+                    // if(validationResult.affirmatives&& validationResult.affirmatives.categories) {
+                    //     angular.forEach(validationResult.affirmatives.categories, function (category) {
+                    //         $scope.checkboxConfig['affirmatives'][category.title] = false;
+                    //     });
+                    // }
+                    // if(validationResult.informationals && validationResult.informationals.categories) {
+                    //     angular.forEach(validationResult.informationals.categories, function (category) {
+                    //         $scope.checkboxConfig['informationals'][category.title] = false;
+                    //     });
+                    // }
                     $scope.validResultHighlither = new ValidationResultHighlighter($scope.failuresConfig, $scope.message, $scope.validationResult, $scope.tree, $scope.editor, $scope.checkboxConfig, $scope.treeService);
                     $scope.failuresConfig.errors.checked = false;
                     $scope.failuresConfig.warnings.checked = false;
@@ -247,7 +246,7 @@
                     $scope.failuresConfig.informationals.checked = false;
                     $scope.failuresConfig.affirmatives.checked = false;
                     $scope.firstLoaded = false;
-                    $scope.hideAllFailures();
+                    //$scope.hideAllFailures();
                     $scope.active = {};
                     $scope.active["errors"] = true;
                     $scope.showValidationTable($scope.validationResult['errors'].categories[0], 'errors');
@@ -425,6 +424,7 @@
             ValidationResult.apply(this, arguments);
             this.json = null;
             this.duplicatesRemoved = false;
+            this.counter = 0;
         };
 
         var Entry = function () {
@@ -435,7 +435,7 @@
             this.value = null;
             this.details = null;
             this.instance = null;
-            this.id = new Date().getTime();
+            this.id = -1;
             this.failureType = null;
         };
 
@@ -452,14 +452,19 @@
         NewValidationResult.prototype.constructor = NewValidationResult;
 
         var guid = function () {
-            var d = new Date().getTime();
-            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                var r = (d + Math.random() * 16) % 16 | 0;
-                d = Math.floor(d / 16);
-                return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-            });
-            return uuid;
+            // var d = new Date().getTime();
+            // var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            //     var r = (d + Math.random() * 16) % 16 | 0;
+            //     d = Math.floor(d / 16);
+            //     return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+            // });
+            // return uuid;
+          return this.counter++;
         };
+
+      NewValidationResult.prototype.generateId = function () {
+        return this.counter++;
+      };
 
 
         NewValidationResult.prototype.addResult = function (entryObject, entry) {
@@ -488,13 +493,14 @@
 
             return null;
         };
-
+ 
 
 
 
         NewValidationResult.prototype.addItem = function (entry) {
             try {
-                entry['id'] = guid();
+                entry['id'] = this.generateId();
+                console.log(entry['id']);
                 if (entry['classification'] === 'Error') {
                     this.addResult(this.errors, entry);
                 } else if (entry['classification'] === 'Warning') {
@@ -552,6 +558,7 @@
         NewValidationResult.prototype.init = function (result, noDuplicates) {
             ValidationResult.prototype.clear.call(this);
             this.duplicatesRemoved = false;
+            this.counter = 0;
             if (result) {
                 this.json = angular.fromJson(result);
                 this.loadDetection(this.json.detections['Error']);

@@ -33,7 +33,7 @@
                 <div class="col-md-9 col-sm-8" style="text-align:left; margin:0; padding:0; width:500px" width="500px">
                   <select class="form-control input-sm test-plan-select" style="background-color: white" name="selectedTP" id="selectedTP" ng-change="selectTP()" ng-model="selectedTP.id">
                     <option value="">---- Select Test Plan ----</option>
-                    <option ng-repeat="tp in testPlans" ng-selected="tp.id === selectedTP.id" value="{{tp.id}}">{{tp.name}}</option>
+                    <option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{tp.name}}</option>
                   </select>
                 </div>
               </div>
