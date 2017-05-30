@@ -8,13 +8,12 @@
     }
 </script>
 <div ng-controller="UserAccountCtrl" ng-init="initAccount()">
-    <div class="container" style="margin-top: 20px"  ng-show="isAuthenticated() && !isPending()">
+    <div class="container" style="margin-top: 20px" ng-show="isAuthenticated() && !isPending()">
 
       <tabset>
         <tab>
           <tab-heading>
-            <i class="fa fa-user"></i>&nbsp;<span msg
-                                                  key="navbar.account"></span></a>
+            <i class="fa fa-user"></i>&nbsp;<span msg="" key="navbar.account"></span>
           </tab-heading>
           <div id="account" class="accountMgt">
             <div ng-include="'views/account/userProfile.html'"></div>
@@ -23,7 +22,7 @@
 
         <tab ng-show="isAdmin()">
           <tab-heading>
-            <i class="fa fa-cog"></i>&nbsp;<span msg key="navbar.manage"></span>
+            <i class="fa fa-cog"></i>&nbsp;<span msg="" key="navbar.manage"></span>
           </tab-heading>
           <div id="accounts" class="accountMgt">
             <div ng-include="'views/account/accountsList.html'"></div>
@@ -32,11 +31,11 @@
 
       </tabset>
     </div>
-    <div class="container" style="margin-top: 20px"  ng-show="isPending()">
+    <div class="container" style="margin-top: 20px" ng-show="isPending()">
         <div class="row">
             <div class="col-md-12">
                 <div ng-class="'alert alert-warning'" id="ehralert">
-                    <div msg key-expr="account.pendingSection"></div>
+                    <div msg="" key-expr="account.pendingSection"></div>
                 </div>
             </div>
         </div>

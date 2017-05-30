@@ -12,7 +12,7 @@
 <div class="panel-body">
 <div ng-show="testCase != null">
 <div class="row">
-    <div class="col-md-10" >
+    <div class="col-md-10">
         <div ng-show="uploadError != null">
         <div class="alert alert-danger" role="alert" ng-bind="uploadError"></div>
 </div>
@@ -36,12 +36,10 @@
     <div class="panel panel-info">
         <!-- Default panel contents -->
         <div class="panel-heading"><i class="glyphicon glyphicon-list"></i>SOAP Tree
-            <button  ng-show="envelopeTree != null && hasContent()" title="Collapse All" class="btn btn-xs btn-info pull-right"
-                     ng-click="collapseAll()">
+            <button ng-show="envelopeTree != null && hasContent()" title="Collapse All" class="btn btn-xs btn-info pull-right" ng-click="collapseAll()">
                 <i class="point fa fa-compress"></i>
             </button>
-            <button   ng-show="envelopeTree != null && hasContent()" title="Expand All" class="btn btn-xs btn-info pull-right" style="margin-right:5px"
-                      ng-click="expandAll()">
+            <button ng-show="envelopeTree != null && hasContent()" title="Expand All" class="btn btn-xs btn-info pull-right" style="margin-right:5px" ng-click="expandAll()">
                 <i class="point fa fa-expand"></i>
             </button>
 
@@ -50,8 +48,7 @@
             <div ng-show="!tLoading">
                 <div ng-show="tError == null">
                     <div ng-show="hasContent()">
-                        <abn-tree tree-control="envelopeTree" icon-leaf=""
-                                  on-select="onEnvelopeNodeSelect(branch)"></abn-tree>
+                        <abn-tree tree-control="envelopeTree" icon-leaf="" on-select="onEnvelopeNodeSelect(branch)"></abn-tree>
                     </div>
                 </div>
             </div>
@@ -68,20 +65,14 @@
 <div id="messagePanel" class="panel panel-info">
     <!-- Default panel contents -->
     <div class="panel-heading">
-        <form  role="form"
-              class="form-inline">
+        <form role="form" class="form-inline">
             <span><i class="glyphicon glyphicon-file"></i> SOAP Envelope</span>
-                            <span class="row fileupload-buttonbar  pull-right">
-                                 <button title="Validate" type="button" class="btn btn-xs btn-success"
-                                         ng-click="validate()"
-                                         >
+                            <span class="row fileupload-buttonbar pull-right">
+                                 <button title="Validate" type="button" class="btn btn-xs btn-success" ng-click="validate()">
                                      <i class="fa fa-check-circle"></i>Validate
                                  </button>
 
-                                 <button title="Load Example" type="button" class="btn btn-xs btn-info"
-                                         ng-click="loadExampleMessage()"
-                                         ng-show="testCase.testContext.exampleMessage!= null"
-                                         >
+                                 <button title="Load Example" type="button" class="btn btn-xs btn-info" ng-click="loadExampleMessage()" ng-show="testCase.testContext.exampleMessage!= null">
                                      <i class="fa fa-arrow-circle-down"></i>Load Example
                                  </button>
 
@@ -93,19 +84,15 @@
                          <!--</span>-->
 
 
-                            <button class="btn btn-xs btn-info" type="file" name="file" id="file" ngf-select="uploadMessage($file, $invalidFiles)"
-                                    ngf-accept="appInfo.uploadContentTypes"
-                                    ngf-pattern="appInfo.uploadContentTypes" ngf-max-size="appInfo.uploadMaxSize">
+                            <button class="btn btn-xs btn-info" type="file" name="file" id="file" ngf-select="uploadMessage($file, $invalidFiles)" ngf-accept="appInfo.uploadContentTypes" ngf-pattern="appInfo.uploadContentTypes" ngf-max-size="appInfo.uploadMaxSize">
       <i class="fa fa-folder-open"></i>Browse</button>
 
                                 <!--<span class="" ng-bind="fileName"></span>-->
-                                <button title="Download" type="button" class="btn btn-xs btn-info"
-                                        ng-click="saveMessage()">
+                                <button title="Download" type="button" class="btn btn-xs btn-info" ng-click="saveMessage()">
                                     <i class="fa fa-download"></i>Download
                                 </button>
 
-                                  <button title="Clear" type="button" class="btn btn-xs btn-warning"
-                                          ng-click="clearMessage()">
+                                  <button title="Clear" type="button" class="btn btn-xs btn-warning" ng-click="clearMessage()">
                                       <i class="fa fa-times"></i>Clear
                                   </button>
 
@@ -117,8 +104,7 @@
             <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
         </div>
         <div id="editor_container form-group">
-            <textarea class="form-control" type="envelope" id="envelopeTextArea"
-                      wrap="off" style="overflow:auto;"></textarea>
+            <textarea class="form-control" type="envelope" id="envelopeTextArea" wrap="off" style="overflow:auto"></textarea>
         </div>
     </div>
 </div>
@@ -140,8 +126,7 @@
                         <div class="panel panel-info">
                             <div class="panel-body">
                                 <div class="validation-result-table-container fixed-table-container">
-                                <table st-table="errorsCollection" st-safe-src="validationResult.errors.data"
-                                       class="table table-condensed  table-bordered table-striped ng-table-text" oci-fixed-header>
+                                <table st-table="errorsCollection" st-safe-src="validationResult.errors.data" class="table table-condensed table-bordered table-striped ng-table-text" oci-fixed-header="">
                                     <thead>
                                     <tr class="">
                                         <th st-sort="path" st-ratio="30">Path</th>
@@ -162,8 +147,7 @@
 
                                     <tr ng-repeat="row in errorsCollection">
                                         <td st-ratio="30">
-                                            <a class="point" ng-show="row.path" ng-click="select(row)"
-                                               ng-bind="row.path"></a>
+                                            <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                             <span ng-show="row.path == null">N/A</span>
                                         </td>
                                         <td st-ratio="60" compile="row.description"></td>
@@ -189,15 +173,13 @@
                     </tab>
                     <tab>
                         <tab-heading>
-                                             <span
-                                                     class="badge alert-warning">{{validationResult.warnings.data.length}}</span>
+                                             <span class="badge alert-warning">{{validationResult.warnings.data.length}}</span>
                             Warnings
                         </tab-heading>
                         <div class="panel panel-info">
                             <div class="panel-body">
                                 <div class="validation-result-table-container fixed-table-container">
-                                <table st-table="warningsCollection" st-safe-src="validationResult.warnings.data"
-                                       class="table table-condensed  table-bordered table-striped ng-table-text" oci-fixed-header>
+                                <table st-table="warningsCollection" st-safe-src="validationResult.warnings.data" class="table table-condensed table-bordered table-striped ng-table-text" oci-fixed-header="">
                                     <thead>
                                     <tr class="">
                                         <th st-sort="path" st-ratio="30">Path</th>
@@ -218,8 +200,7 @@
 
                                     <tr ng-repeat="row in warningsCollection">
                                         <td st-ratio="30">
-                                            <a class="point" ng-show="row.path" ng-click="select(row)"
-                                               ng-bind="row.path"></a>
+                                            <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                             <span ng-show="row.path == null">N/A</span>
                                         </td>
                                         <td st-ratio="60" compile="row.description"></td>
@@ -246,17 +227,14 @@
                     </tab>
                     <tab>
                         <tab-heading>
-                                            <span
-                                                    class="badge alert-danger">{{validationResult.alerts.data.length}}</span>
+                                            <span class="badge alert-danger">{{validationResult.alerts.data.length}}</span>
                             Alerts
                         </tab-heading>
                         <!--<validation-result-viewer results="validationResult.alerts"/>-->
                         <div class="panel panel-info">
                             <div class="panel-body">
                                 <div class="validation-result-table-container fixed-table-container">
-                                <table
-                                        st-table="alertsCollection" st-safe-src="validationResult.alerts.data"
-                                        class="table table-condensed  table-bordered table-striped ng-table-text" oci-fixed-header>
+                                <table st-table="alertsCollection" st-safe-src="validationResult.alerts.data" class="table table-condensed table-bordered table-striped ng-table-text" oci-fixed-header="">
                                     <thead>
                                     <tr class="">
                                         <th st-sort="path" st-ratio="30">Path</th>
@@ -268,8 +246,7 @@
 
                                     <tr ng-repeat="row in alertsCollection">
                                         <td st-ratio="30">
-                                            <a class="point" ng-show="row.path" ng-click="select(row)"
-                                               ng-bind="row.path"></a>
+                                            <a class="point" ng-show="row.path" ng-click="select(row)" ng-bind="row.path"></a>
                                             <span ng-show="row.path == null">N/A</span>
                                         </td>
                                         <td st-ratio="60" compile="row.description"></td>

@@ -1,7 +1,0 @@
-{
-  "id" : 637786,
-  "name" : "Query the Registry for Mariela Gonzales Morales",
-  "description" : "EMR Generates a Z44 query to the Immunization Registry to retrieve the Evaluated History and Forecast for Mariela Gonzales Morales.",
-  "domain" : "iz",
-  "position" : 1
-}

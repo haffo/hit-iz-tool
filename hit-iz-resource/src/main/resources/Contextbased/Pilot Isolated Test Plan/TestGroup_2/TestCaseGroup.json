@@ -1,6 +1,0 @@
-{
-  "id" : 379903,
-  "name" : "Query and Display Response",
-  "description" : "Querying the registry will consist of the vendor creating Z44 messages for each patient to be sent to the registry. The response will be processed as part of the ?Display, Reconcile, Import and Update Immunization Information? activity.",
-  "position" : 2
-}

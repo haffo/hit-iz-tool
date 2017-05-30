@@ -1,226 +1,272 @@
-
 <script type="text/ng-template" id="ValidationResult.html">
-    <div ng-show="validationResult !== null">
-        <tabset>
-            <tab ng-click="showValidationTable(validationResult.errors.categories[0],'errors')" active="active.errors"
-                 ng-if="settings.options.validation.show.errors">
-                <tab-heading>
-                <span class="badge failure failure-errors"
-                      ng-bind="validationResult.errors.categories[0].data.length"></span>
-                    Errors
-                </tab-heading>
-                 <tabset style="margin-top:5px" ng-show="validationResult.errors.categories.length > 1">
-                    <tab ng-repeat="category in validationResult.errors.categories" class="validation-result-subtab"
-                         active="subActive.errors[category.title]"
-                         ng-if="category.data.length > 0"
-                         ng-click="showValidationTable(category,'errors')">
-                        <tab-heading>
+  <div ng-show="validationResult !== null">
 
-                            <span class="badge failure failure-errors" ng-bind="category.data.length"></span>
-                           {{category.title}}
-                        </tab-heading>
-                    </tab>
-                </tabset>
-             </tab>
+    <ul class="nav nav-tabs">
+      <li role="presentation" ng-if="settings.options.validation.show.errors"
 
-            <tab ng-click="showValidationTable(validationResult.warnings.categories[0],'warnings')"
-                 ng-if="settings.options.validation.show.warnings"
-                 active="active.warnings">
-                <tab-heading>
-        <span class="badge failure failure-warnings"
-              ng-bind="validationResult.warnings.categories[0].data.length"></span> Warnings
-                </tab-heading>
-                <tabset style="margin-top:5px" ng-show="validationResult.warnings.categories.length > 1">
-                    <tab ng-repeat="category in validationResult.warnings.categories" class="validation-result-subtab"
-                         active="subActive.warnings[category.title]"
-                         ng-if="category.data.length > 0"
-                         ng-click="showValidationTable(category,'warnings')">
-                        <tab-heading>
+          ng-class="{'active': currentType === 'errors'}"><a ng-click="showValidationTable(validationResult.errors.categories[0],'errors')"><span class="badge failure failure-errors"
+                                                                 ng-bind="validationResult.errors.categories[0].data.length"></span>
+        Errors</a>
+      </li>
+      <li
+          ng-if="settings.options.validation.show.warnings" role="presentation" ng-class="{'active':currentType === 'warnings'}">
+        <a ng-click="showValidationTable(validationResult.warnings.categories[0],'warnings')">    <span class="badge failure failure-warnings"
+                              ng-bind="validationResult.warnings.categories[0].data.length"></span> Warnings</a></li>
+      <li  active="active.alerts"
+          ng-show="settings.options.validation.show.alerts" role="presentation" ng-class="{'active':currentType === 'alerts'}"><a
+        ng-click="showValidationTable(validationResult.alerts.categories[0],'alerts')"> <span class="badge failure failure-alerts"
+                        ng-bind="validationResult.alerts.categories[0].data.length"></span>
+        Alerts
+      </a>
+      </li>
+      <li
+          active="active.affirmatives" ng-if="settings.options.validation.show.affirmatives" role="presentation"
+          ng-class="{'active':currentType === 'affirmatives'}"><a ng-click="showValidationTable(validationResult.affirmatives.categories[0],'affirmatives')">      <span class="badge failure failure-affirmatives"
+                                                                      ng-bind="validationResult.affirmatives.categories[0].data.length"></span>
+        Affirmatives
+      </a>
+      </li>
+    </ul>
 
-                            <span class="badge failure failure-warnings" ng-bind="category.data.length"></span>
-                           {{category.title}}
-                        </tab-heading>
-                    </tab>
-                </tabset>
-            </tab>
-            <tab ng-click="showValidationTable(validationResult.alerts.categories[0],'alerts')" active="active.alerts"
-                 ng-if="settings.options.validation.show.alerts">
-                <tab-heading>
-                <span class="badge failure failure-alerts"
-                      ng-bind="validationResult.alerts.categories[0].data.length"></span>
-                    Alerts
-                </tab-heading>
-                <tabset style="margin-top:5px" ng-show="validationResult.alerts.categories.length > 1">
-                    <tab ng-repeat="category in validationResult.alerts.categories" class="validation-result-subtab"
-                         active="subActive.alerts[category.title]"
-                         ng-if="category.data.length > 0"
-                         ng-click="showValidationTable(category,'alerts')">
-                        <tab-heading>
+    <div ng-show="currentType != null && currentType">
+        <ul class="nav nav-tabs" ng-show="validationResult[currentType].categories.length > 1">
+          <li role="presentation"   ng-repeat="category in validationResult[currentType].categories track by category.title"
+              class="validation-result-subtab"
+              ng-show="category.data.length > 0"
+              ng-class="{'active': subActive[currentType][category.title]}"><a ng-click="showValidationTable(category,currentType)"> <span class="badge failure" ng-class="{'failure-errors': currentType === 'errors','failure-warnings': currentType === 'warnings','failure-alerts': currentType === 'alerts','failure-affirmatives': currentType === 'affirmatives'}" ng-bind="category.data.length"></span>
+            {{category.title}}</a>
+          </li>
+        </ul>
 
-                            <span class="badge failure failure-alerts" ng-bind="category.data.length"></span>
-                           {{category.title}}
-                        </tab-heading>
-                    </tab>
-                </tabset>
-            </tab>
-
-            <tab ng-click="showValidationTable(validationResult.affirmatives.categories[0],'affirmatives')"
-                 active="active.affirmatives" ng-if="settings.options.validation.show.affirmatives">
-                <tab-heading>
-                <span class="badge failure failure-affirmatives"
-                      ng-bind="validationResult.affirmatives.categories[0].data.length"></span>
-                    Affirmatives
-                </tab-heading>
-                <tabset style="margin-top:5px" ng-show="validationResult.affirmatives.categories.length > 1">
-                    <tab ng-repeat="category in validationResult.affirmatives.categories"
-                         class="validation-result-subtab"
-                         active="subActive.affirmatives[category.title]"
-                         ng-if="category.data.length > 0"
-                         ng-click="showValidationTable(category,'affirmatives')">
-                        <tab-heading>
-
-                            <span class="badge failure failure-affirmatives" ng-bind="category.data.length"></span>
-                           {{category.title}}
-                        </tab-heading>
-                    </tab>
-                </tabset>
-            </tab>
-
-            <!--<tab ng-if="validationResult.dqa && validationResult.dqa  != null" ng-click="showValidationTable(validationResult.dqa.categories[0].data)">-->
-            <!--<tab-heading>-->
-            <!--<span class="badge failure failure-dqa"-->
-            <!--ng-bind="validationResult.dqa.categories[0].data.length"></span>-->
-            <!--DQA-->
-            <!--</tab-heading>-->
-            <!--<tabset>-->
-            <!--<tab ng-repeat="category in validationResult.dqa.categories" class="validation-result-subtab" active="category.title === 'All'"-->
-            <!--ng-click="showValidationTable(category.data)">-->
-            <!--<tab-heading>-->
-            <!--<span class="badge failure failure-dqa" ng-bind="category.data.length"></span>-->
-            <!--{{category.title}}-->
-            <!--</tab-heading>-->
-            <!--</tab>-->
-            <!--</tabset>-->
-            <!--</tab>-->
-        </tabset>
-        <div class="panel panel-default" ng-show="settings.options.validation.show[currentType]">
-            <div class="panel-body container-validation-table">
-                <div class="">
-                    <div validation-result-table></div>
-                </div>
-            </div>
+      <div class="panel panel-default" ng-show="settings.options.validation.show[currentType]">
+        <div class="panel-body container-validation-table">
+          <div class="">
+            <div validation-result-table></div>
+          </div>
         </div>
+      </div>
 
     </div>
 
-    <div ng-show="validationResult === null" style="text-align:center">
-        No Validation Performed.
-    </div>
+
+
+    <!--<tabset>-->
+      <!--<tab active="active.errors"-->
+      <!--&gt;-->
+        <!--<tab-heading>-->
+                <!--<span class="badge failure failure-errors"-->
+                      <!--ng-bind="validationResult.errors.categories[0].data.length"></span>-->
+          <!--Errors-->
+        <!--</tab-heading>-->
+        <!--<tabset style="margin-top:5px" ng-show="validationResult.errors.categories.length > 1">-->
+          <!--<tab ng-repeat="category in validationResult.errors.categories track by category.title"-->
+               <!--class="validation-result-subtab"-->
+               <!--active="subActive.errors[category.title]"-->
+               <!--ng-if="category.data.length > 0"-->
+               <!--ng-click="showValidationTable(category,'errors')">-->
+            <!--<tab-heading>-->
+
+              <!--<span class="badge failure failure-errors" ng-bind="category.data.length"></span>-->
+              <!--{{category.title}}-->
+            <!--</tab-heading>-->
+          <!--</tab>-->
+        <!--</tabset>-->
+      <!--</tab>-->
+
+      <!--<tab ng-click="showValidationTable(validationResult.warnings.categories[0],'warnings')"-->
+           <!--ng-show="settings.options.validation.show.warnings"-->
+           <!--active="active.warnings">-->
+        <!--<tab-heading>-->
+        <!--<span class="badge failure failure-warnings"-->
+              <!--ng-bind="validationResult.warnings.categories[0].data.length"></span> Warnings-->
+        <!--</tab-heading>-->
+        <!--<tabset style="margin-top:5px" ng-show="validationResult.warnings.categories.length > 1">-->
+          <!--<tab ng-repeat="category in validationResult.warnings.categories track by category.title"-->
+               <!--class="validation-result-subtab"-->
+               <!--active="subActive.warnings[category.title]"-->
+               <!--ng-if="category.data.length > 0"-->
+               <!--ng-click="showValidationTable(category,'warnings')">-->
+            <!--<tab-heading>-->
+
+              <!--<span class="badge failure failure-warnings" ng-bind="category.data.length"></span>-->
+              <!--{{category.title}}-->
+            <!--</tab-heading>-->
+          <!--</tab>-->
+        <!--</tabset>-->
+      <!--</tab>-->
+      <!--<tab ng-click="showValidationTable(validationResult.alerts.categories[0],'alerts')" active="active.alerts"-->
+           <!--ng-show="settings.options.validation.show.alerts">-->
+        <!--<tab-heading>-->
+                <!--<span class="badge failure failure-alerts"-->
+                      <!--ng-bind="validationResult.alerts.categories[0].data.length"></span>-->
+          <!--Alerts-->
+        <!--</tab-heading>-->
+        <!--<tabset style="margin-top:5px" ng-show="validationResult.alerts.categories.length > 1">-->
+          <!--<tab ng-repeat="category in validationResult.alerts.categories track by category.title"-->
+               <!--class="validation-result-subtab"-->
+               <!--active="subActive.alerts[category.title]"-->
+               <!--ng-if="category.data.length > 0"-->
+               <!--ng-click="showValidationTable(category,'alerts')">-->
+            <!--<tab-heading>-->
+
+              <!--<span class="badge failure failure-alerts" ng-bind="category.data.length"></span>-->
+              <!--{{category.title}}-->
+            <!--</tab-heading>-->
+          <!--</tab>-->
+        <!--</tabset>-->
+      <!--</tab>-->
+
+      <!--<tab ng-click="showValidationTable(validationResult.affirmatives.categories[0],'affirmatives')"-->
+           <!--active="active.affirmatives" ng-show="settings.options.validation.show.affirmatives">-->
+        <!--<tab-heading>-->
+                <!--<span class="badge failure failure-affirmatives"-->
+                      <!--ng-bind="validationResult.affirmatives.categories[0].data.length"></span>-->
+          <!--Affirmatives-->
+        <!--</tab-heading>-->
+        <!--<tabset style="margin-top:5px" ng-show="validationResult.affirmatives.categories.length > 1">-->
+          <!--<tab ng-repeat="category in validationResult.affirmatives.categories track by category.title"-->
+               <!--class="validation-result-subtab"-->
+               <!--active="subActive.affirmatives[category.title]"-->
+               <!--ng-if="category.data.length > 0"-->
+               <!--ng-click="showValidationTable(category,'affirmatives')">-->
+            <!--<tab-heading>-->
+
+              <!--<span class="badge failure failure-affirmatives" ng-bind="category.data.length"></span>-->
+              <!--{{category.title}}-->
+            <!--</tab-heading>-->
+          <!--</tab>-->
+        <!--</tabset>-->
+      <!--</tab>-->
+
+      <!--&lt;!&ndash;<tab ng-if="validationResult.dqa && validationResult.dqa  != null" ng-click="showValidationTable(validationResult.dqa.categories[0].data)">&ndash;&gt;-->
+      <!--&lt;!&ndash;<tab-heading>&ndash;&gt;-->
+      <!--&lt;!&ndash;<span class="badge failure failure-dqa"&ndash;&gt;-->
+      <!--&lt;!&ndash;ng-bind="validationResult.dqa.categories[0].data.length"></span>&ndash;&gt;-->
+      <!--&lt;!&ndash;DQA&ndash;&gt;-->
+      <!--&lt;!&ndash;</tab-heading>&ndash;&gt;-->
+      <!--&lt;!&ndash;<tabset>&ndash;&gt;-->
+      <!--&lt;!&ndash;<tab ng-repeat="category in validationResult.dqa.categories" class="validation-result-subtab" active="category.title === 'All'"&ndash;&gt;-->
+      <!--&lt;!&ndash;ng-click="showValidationTable(category.data)">&ndash;&gt;-->
+      <!--&lt;!&ndash;<tab-heading>&ndash;&gt;-->
+      <!--&lt;!&ndash;<span class="badge failure failure-dqa" ng-bind="category.data.length"></span>&ndash;&gt;-->
+      <!--&lt;!&ndash;{{category.title}}&ndash;&gt;-->
+      <!--&lt;!&ndash;</tab-heading>&ndash;&gt;-->
+      <!--&lt;!&ndash;</tab>&ndash;&gt;-->
+      <!--&lt;!&ndash;</tabset>&ndash;&gt;-->
+      <!--&lt;!&ndash;</tab>&ndash;&gt;-->
+    <!--</tabset>-->
+
+
+  </div>
+
+  <div ng-show="validationResult === null" style="text-align:center">
+    No Validation Performed.
+  </div>
 </script>
 
 <script type="text/ng-template" id="ValidationResultDetailsCtrl.html">
-    <div class="modal-header modal-wide">
+  <div class="modal-header modal-wide">
           <span style="font-weight: bold; font-size: 20px">
             <span class="modal-title" ng-bind="selectedElement.path"></span>
           </span>
-         <span class="pull-right">
+    <span class="pull-right">
              <button class="btn btn-primary" ng-click="ok()">Close</button>
         </span>
-    </div>
-    <div class="modal-body">
-        <div class="row">
-            <div ng-if="selectedElement.stackTrace && selectedElement.stackTrace != null">
-                <h4>StackTrace</h4>
-            <pre>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div ng-if="selectedElement.stackTrace && selectedElement.stackTrace != null">
+        <h4>StackTrace</h4>
+        <pre>
                {{selectedElement.stackTrace | json}}
             </pre>
-                <br/>
-            </div>
-            <div ng-if="selectedElement.metaData && selectedElement.metaData != null">
-                <h4>MetaData</h4>
-            <pre>
+        <br/>
+      </div>
+      <div ng-if="selectedElement.metaData && selectedElement.metaData != null">
+        <h4>MetaData</h4>
+        <pre>
                {{selectedElement.metaData | json}}
             </pre>
-            </div>
-        </div>
+      </div>
     </div>
-    </div>
-    <div class="modal-footer">
+  </div>
+  </div>
+  <div class="modal-footer">
 
-    </div>
+  </div>
 </script>
 
 
 <script type="text/ng-template" id="ValidationResultTable.html">
-    <div ng-show="loadingCategory" style="text-align:center">
-        <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
-    </div>
-    <div ng-show="!loadingCategory">
-        <!--<div ui-grid="gridOptions" class="grid"></div>-->
-        <div ng-show="currentCategory && currentCategory !== null">
+  <div ng-show="loadingCategory" style="text-align:center">
+    <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+  </div>
+  <div ng-show="!loadingCategory">
+    <!--<div ui-grid="gridOptions" class="grid"></div>-->
+    <div ng-show="currentCategory && currentCategory !== null">
 
-            <div ng-show="currentCategory.data != null && currentCategory.data.length > 0">
-                <div class="">
-                    <input type="checkbox" title="Highlight All in editor"
-                           ng-model="checkboxConfig[currentType][currentCategory.title]"
-                           ng-click="showFailures()"
-                            > Highlight All
-                </div>
-                <div class="validation-result-table-container fixed-table-container">
-                    <table   st-table="tmpData" st-safe-src="currentCategory.data"
-                       class="table table-condensed  table-striped table-bordered" oci-fixed-header>
-                    <thead>
-                    <!--<tr>-->
-                        <!--<th colspan="3" st-ratio="100">-->
-                            <!--<input st-search placeholder="Search" class="input-sm form-control" type="search"/>-->
-                        <!--</th>-->
-                    <!--</tr>-->
-                    <tr class="">
-                        <th st-sort="path" st-ratio="30">Path</th>
-                        <th st-sort="description" st-ratio="60">Description</th>
-                        <th st-sort="line" st-ratio="10">Line #</th>
-                        <!--<th st-sort="column" st-ratio="10">Column</th>-->
-                        <!--<th st-ratio="10">Details</th>-->
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="row in tmpData">
-                        <td st-ratio="30">
-                            <a class="point" ng-if="row.path" ng-click="select(row)" ng-bind="::row.path"></a>
-                            <span ng-if="row.path == null">N/A</span>
-                        </td>
-                        <td st-ratio="60">
-                            <span ng-bind="::row.description"></span>
-                        </td>
-                        <td st-ratio="10">
-                            <span ng-if="row.line" ng-bind="::row.line"></span>
-                            <span ng-if="row.line == null">N/A</span>
-                        </td>
-                        <!--<td st-ratio="10">-->
-                            <!--<span ng-if="row.column" ng-bind="row.column"></span>-->
-                            <!--<span ng-if="row.column == null">N/A</span>-->
-                        <!--</td>-->
-                        <!--<td st-ratio="10">-->
-                            <!--<a ng-if="(row.stackTrace && row.stackTrace !== null) || (row.metaData && row.metaData !== null)"-->
-                               <!--class="point" ng-click="showDetails(row)">Details</a>-->
-                        <!--</td>-->
-                    </tr>
-                    </tbody>
-                    <!--<tfoot ng-show="currentCategory.data.length >= 100">-->
-                    <!--<tr  >-->
-                        <!--<td colspan="5" class="text-center" st-ratio="100">-->
-                            <!--<div class="validation-pagination" st-pagination="" st-items-by-page="100"-->
-                                 <!--st-displayed-pages="10"></div>-->
-                        <!--</td>-->
-                    <!--</tr>-->
-                    <!--</tfoot>-->
-                </table>
-                    </div>
-             </div>
-            <div ng-show="currentCategory.data == null || currentCategory.data.length == 0">
-                No {{currentType}} found.
-            </div>
-
+      <div ng-show="currentCategory.data != null && currentCategory.data.length > 0">
+        <div class="">
+          <input type="checkbox" title="Highlight All in editor"
+                 ng-model="checkboxConfig[currentType][currentCategory.title]"
+                 ng-click="showFailures()"
+          > Highlight All
         </div>
+        <div class="validation-result-table-container fixed-table-container">
+          <table st-table="tmpData" st-safe-src="currentCategory.data"
+                 class="table table-condensed  table-striped table-bordered" oci-fixed-header>
+            <thead>
+            <!--<tr>-->
+            <!--<th colspan="3" st-ratio="100">-->
+            <!--<input st-search placeholder="Search" class="input-sm form-control" type="search"/>-->
+            <!--</th>-->
+            <!--</tr>-->
+            <tr class="">
+              <th st-sort="path" st-ratio="30">Path</th>
+              <th st-sort="description" st-ratio="60">Description</th>
+              <th st-sort="line" st-ratio="10">Line #</th>
+              <!--<th st-sort="column" st-ratio="10">Column</th>-->
+              <!--<th st-ratio="10">Details</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in currentCategory.data track by row.id">
+              <td st-ratio="30">
+                <a class="point" ng-if="row.path" ng-click="select(row)" ng-bind="::row.path"></a>
+                <span ng-if="row.path == null">N/A</span>
+              </td>
+              <td st-ratio="60">
+                <span ng-bind="::row.description"></span>
+              </td>
+              <td st-ratio="10">
+                <span ng-if="row.line" ng-bind="::row.line"></span>
+                <span ng-if="row.line == null">N/A</span>
+              </td>
+              <!--<td st-ratio="10">-->
+              <!--<span ng-if="row.column" ng-bind="row.column"></span>-->
+              <!--<span ng-if="row.column == null">N/A</span>-->
+              <!--</td>-->
+              <!--<td st-ratio="10">-->
+              <!--<a ng-if="(row.stackTrace && row.stackTrace !== null) || (row.metaData && row.metaData !== null)"-->
+              <!--class="point" ng-click="showDetails(row)">Details</a>-->
+              <!--</td>-->
+            </tr>
+            </tbody>
+            <!--<tfoot ng-show="currentCategory.data.length >= 100">-->
+            <!--<tr  >-->
+            <!--<td colspan="5" class="text-center" st-ratio="100">-->
+            <!--<div class="validation-pagination" st-pagination="" st-items-by-page="100"-->
+            <!--st-displayed-pages="10"></div>-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--</tfoot>-->
+          </table>
+        </div>
+      </div>
+      <div ng-show="currentCategory.data == null || currentCategory.data.length == 0">
+        No {{currentType}} found.
+      </div>
+
     </div>
+  </div>
 </script>

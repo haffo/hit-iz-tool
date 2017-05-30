@@ -19,12 +19,10 @@
                         <!-- Default panel contents -->
                         <div class="panel-heading"><i class="glyphicon glyphicon-list"></i> Message Tree
 
-                            <button  ng-show="cf.tree.root != null" title="Collapse All" class="btn btn-xs btn-info pull-right"
-                                     ng-click="collapseAll()">
+                            <button ng-show="cf.tree.root != null" title="Collapse All" class="btn btn-xs btn-info pull-right" ng-click="collapseAll()">
                                 <i class="point fa fa-compress"></i>
                             </button>
-                            <button   ng-show="cf.tree.root != null" title="Expand All" class="btn btn-xs btn-info pull-right" style="margin-right:5px"
-                                      ng-click="expandAll()">
+                            <button ng-show="cf.tree.root != null" title="Expand All" class="btn btn-xs btn-info pull-right" style="margin-right:5px" ng-click="expandAll()">
                                 <i class="point fa fa-expand"></i>
                             </button>
 
@@ -32,8 +30,7 @@
                         <div class="panel-body container-message-tree">
                             <div ng-show="!tLoading">
                                 <div ng-show="tError === null" class="message-tree">
-                                    <abn-tree tree-control="cf.tree.root" icon-leaf=""
-                                              on-select="onNodeSelect(branch)"></abn-tree>
+                                    <abn-tree tree-control="cf.tree.root" icon-leaf="" on-select="onNodeSelect(branch)"></abn-tree>
                                 </div>
                                 <div ng-show="tError !== null">
                                     <div class="alert alert-danger" role="alert" ng-bind="tError"></div>
@@ -50,18 +47,14 @@
                         <div class="row">
                             <div id="messagePanel" class="panel panel-info">
                                 <div class="panel-heading">
-                                    <form id="fileupload"
-                                          role="form"
-                                          class="form-inline">
+                                    <form id="fileupload" role="form" class="form-inline">
             <span><i class="glyphicon glyphicon-file"></i> Message Content
                     <span style="margin-right:10px"></span>
 
 
 
                        <div class="btn-group">
-                           <button title="Refresh at the interval of {{loadRate/1000}} second(s)" type="button"
-                                   class="btn btn-xs btn-info"
-                                   data-toggle="dropdown">
+                           <button title="Refresh at the interval of {{loadRate/1000}} second(s)" type="button" class="btn btn-xs btn-info" data-toggle="dropdown">
                                <i class="fa fa-refresh"></i>
                                <span ng-show="loadRate != 10000000000000000">{{loadRate/1000}}s</span>
                                <span ng-show="loadRate == 10000000000000000">Disable</span>
@@ -83,30 +76,23 @@
 
             </span>
                             <span class="row pull-right">
-                                <button title="Validate" type="button" class="btn btn-xs btn-info" ng-show="cf.testCase.testContext.dqa === true"
-                                        ng-click="showDQAOptions()">
+                                <button title="Validate" type="button" class="btn btn-xs btn-info" ng-show="cf.testCase.testContext.dqa === true" ng-click="showDQAOptions()">
                                     <i class="fa fa-cog"></i>
                                     DQA
                                 </button>
 
-                                <button title="Validate" type="button" class="btn btn-xs btn-success"
-                                        ng-click="execute()">
+                                <button title="Validate" type="button" class="btn btn-xs btn-success" ng-click="execute()">
                                     <i class="fa fa-check-circle"></i>
                                     Validate
                                 </button>
 
-                                <button title="Show Message With Hexadecimal Character" type="button" class="btn btn-xs btn-primary"
-                                        ng-hide="!hasNonPrintable"
-                                        ng-click="showMessageWithHexadecimal()">
+                                <button title="Show Message With Hexadecimal Character" type="button" class="btn btn-xs btn-primary" ng-hide="!hasNonPrintable" ng-click="showMessageWithHexadecimal()">
                                     <i class="fa fa-check-circle"></i>
                                     Show Non-Printable Character
                                 </button>
 
 
-                                <button title="Load Example" type="button" class="btn btn-xs btn-info"
-                                        ng-click="loadMessage()"
-                                        ng-disabled="!testCase.testContext.message || testCase.testContext.message === null || testCase.testContext.message.content === ''"
-                                        >
+                                <button title="Load Example" type="button" class="btn btn-xs btn-info" ng-click="loadMessage()" ng-disabled="!testCase.testContext.message || testCase.testContext.message === null || testCase.testContext.message.content === ''">
                                     <i class="fa fa-arrow-circle-down"></i>Load Example
                                 </button>
 
@@ -118,21 +104,16 @@
                         <input type="file" name="file" id="file" multiple="false" ng-disabled="disabled">
                          </span>-->
 
-                           <button class="btn btn-xs btn-info" type="file" name="file" id="file" ng-disabled="disabled" ngf-select="uploadMessage($file, $invalidFiles)"
-                                   ngf-accept="appInfo.uploadContentTypes"
-            ngf-pattern="appInfo.uploadContentTypes" ngf-max-size="appInfo.uploadMaxSize">
+                           <button class="btn btn-xs btn-info" type="file" name="file" id="file" ng-disabled="disabled" ngf-select="uploadMessage($file, $invalidFiles)" ngf-accept="appInfo.uploadContentTypes" ngf-pattern="appInfo.uploadContentTypes" ngf-max-size="appInfo.uploadMaxSize">
       <i class="fa fa-folder-open"></i>Browse</button>
 
-                                <button title="Download" type="button" class="btn btn-xs btn-info"
-                                        ng-disabled="!hasContent()"
-                                        ng-click="saveMessage()">
+                                <button title="Download" type="button" class="btn btn-xs btn-info" ng-disabled="!hasContent()" ng-click="saveMessage()">
                                     <i class="fa fa-download"></i>Download
                                 </button>
 
 
 
-                                 <button title="Clear" type="button" class="btn btn-xs btn-warning"
-                                         ng-click="clearMessage()">
+                                 <button title="Clear" type="button" class="btn btn-xs btn-warning" ng-click="clearMessage()">
                                      <i class="fa fa-times"></i>Clear
                                  </button>
 
@@ -146,8 +127,7 @@
                                 </div>
                                 <div class="panel-body container-message-editor">
                                     <div class="form-group">
-                                        <textarea type="cf" class="form-control" id="cfTextArea" name="cfTextArea"
-                                                  wrap="off" style="overflow:auto;"></textarea>
+                                        <textarea type="cf" class="form-control" id="cfTextArea" name="cfTextArea" wrap="off" style="overflow:auto"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -157,21 +137,18 @@
                                     <i class="fa fa-check-square-o"></i>
                                     Message Validation Result
 
-                                    <button title="View Result Categories" class="btn btn-xs btn-info"
-                                            ng-click="openValidationResultInfo()">
+                                    <button title="View Result Categories" class="btn btn-xs btn-info" ng-click="openValidationResultInfo()">
                                         <i class="fa fa-info-circle"></i>&nbsp;Help
                                     </button>
 
 
      <span class="pull-right">
 
-          <button title="Remove Duplicates" type="button" class="btn btn-xs btn-warning"
-                  ng-click="removeDuplicates()">
+          <button title="Remove Duplicates" type="button" class="btn btn-xs btn-warning" ng-click="removeDuplicates()">
               <i class="fa fa-times"></i>
               Remove Duplicates
           </button>
-                                <button title="View Report" type="button" class="btn btn-xs btn-info"
-                                        ng-click="setActiveTab(1)">
+                                <button title="View Report" type="button" class="btn btn-xs btn-info" ng-click="setActiveTab(1)">
                                     <i class="fa fa-eye"></i>
                                     Report
                                 </button>
@@ -181,12 +158,10 @@
 
                                     <div ng-show="!vLoading">
                                         <div ng-show="!vError || vError == null">
-                                            <div validation-result type="cf" message="cf.message" editor="cf.editor" dqa="true" format="cf.testCase.testContext.format"
-                                                 tree="cf.tree" cursor="cf.cursor"></div>
+                                            <div validation-result="" type="cf" message="cf.message" editor="cf.editor" dqa="true" format="cf.testCase.testContext.format" tree="cf.tree" cursor="cf.cursor"></div>
                                         </div>
                                         <div ng-show="vError != null">
-                                            <div class="alert alert-danger" role="alert"
-                                                 ng-bind="vError"></div>
+                                            <div class="alert alert-danger" role="alert" ng-bind="vError"></div>
                                         </div>
 
                                     </div>

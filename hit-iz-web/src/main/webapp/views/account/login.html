@@ -7,67 +7,62 @@
         top.location = self.location;
     }
 </script>
-<form name="loginForm" id="loginForm" novalidate class="form-horizontal">
+<form name="loginForm" id="loginForm" novalidate="" class="form-horizontal">
     <div class="modal-header">
         <a class="close" data-dismiss="modal"></a>
         <h3 class="modal-title">
-            <i class="fa fa-sign-in"></i>&nbsp;<span msg key="login.title"></span>
+            <i class="fa fa-sign-in"></i>&nbsp;<span msg="" key="login.title"></span>
         </h3>
     </div>
     <div class="modal-body">
         <label>
-            <div msg key="login.banner"></div>
+            <div msg="" key="login.banner"></div>
         </label>
 
         <div ng-class="'alert alert-'+loginMessage().type" ng-show="loginMessage().show" id="ehrloginalert">
             <button type="button" class="close" ng-click="loginMessage().show=false">×</button>
-            <div msg key-expr="loginMessage().text"></div>
+            <div msg="" key-expr="loginMessage().text"></div>
         </div>
 
-        <div class="form-group control-group"
-             ng-class="{'has-success has-feedback': loginForm.username.$valid, 'igl-has-error has-feedback': !loginForm.username.$valid}">
+        <div class="form-group control-group" ng-class="{'has-success has-feedback': loginForm.username.$valid, 'igl-has-error has-feedback': !loginForm.username.$valid}">
             <label class="control-label col-md-2" for="username">
-                <div msg key="login.username"></div>
+                <div msg="" key="login.username"></div>
             </label>
 
             <div class="col-md-10">
-                <input type="text" class="form-control focus"  autofocus  id="username" name="username" ng-model="user.username"
-                       ng-minlength="4" required>
+                <input type="text" class="form-control focus" autofocus="" id="username" name="username" ng-model="user.username" ng-minlength="4" required="">
             </div>
         </div>
-        <div class="form-group control-group"
-             ng-class="{'has-success has-feedback': loginForm.password.$valid, 'igl-has-error has-feedback': !loginForm.password.$valid}">
+        <div class="form-group control-group" ng-class="{'has-success has-feedback': loginForm.password.$valid, 'igl-has-error has-feedback': !loginForm.password.$valid}">
         <label class="control-label col-md-2" for="password">
-                <div msg key="login.password"></div>
+                <div msg="" key="login.password"></div>
             </label>
 
             <div class="col-md-10">
-                <input type="password"   autocomplete="off" class="form-control immediate-help account-input focus"  id="password" name="password"
-                       ng-model="user.password" ng-minlength="4" required>
+                <input type="password" autocomplete="off" class="form-control immediate-help account-input focus" id="password" name="password" ng-model="user.password" ng-minlength="4" required="">
             </div>
         </div>
     </div>
     <div class="modal-footer">
         <!--<div class="form-group">-->
             <div clas="col-md-offset-2 col-md-10" style="margin-bottom: 10px">
-                <button ng-click="login()" class="btn btn-primary" type="submit"
-                        ng-disabled='!loginForm.$valid'>
-                    <i class="fa fa-sign-in"></i>   <span msg key="login.button.login"></span>
+                <button ng-click="login()" class="btn btn-primary" type="submit" ng-disabled="!loginForm.$valid">
+                    <i class="fa fa-sign-in"></i>   <span msg="" key="login.button.login"></span>
                 </button>
                 <button class="btn btn-warning" ng-click="cancel()">
-                    <i class="fa fa-times"></i>  <span msg key="login.button.cancel"></span>
+                    <i class="fa fa-times"></i>  <span msg="" key="login.button.cancel"></span>
                 </button>
             </div>
 
-        <div clas="col-md-12" >
+        <div clas="col-md-12">
             <a href="#/forgotten" ng-click="cancel()" style="text-align:center">
-                <span msg key="login.forgotPwd"></span>
+                <span msg="" key="login.forgotPwd"></span>
             </a>
         </div>
 
         <div clas="col-md-12">
             <a href="#/registration" ng-click="cancel()" style="text-align:center">
-                <span msg key="login.newAccount"></span>
+                <span msg="" key="login.newAccount"></span>
             </a>
         </div>
 

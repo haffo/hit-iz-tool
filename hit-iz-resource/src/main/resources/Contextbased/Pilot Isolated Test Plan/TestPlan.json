@@ -1,8 +1,0 @@
-{
-  "id" : 412915,
-  "name" : "Pilot Isolated Test Plan",
-  "description" : "Targeted test plan to assess Isolated System Testing Automation",
-  "type" : "Isolated",
-  "position" : 4,
-  "skip":true
-}

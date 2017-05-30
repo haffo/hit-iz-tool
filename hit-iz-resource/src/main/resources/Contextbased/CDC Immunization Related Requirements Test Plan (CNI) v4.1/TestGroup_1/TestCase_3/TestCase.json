@@ -1,7 +1,0 @@
-{
-  "id" : 101614,
-  "name" : "Mariela Gonzales Morales Initial Data Load",
-  "description" : "Demonstrates the ability to record pediatric demographic data, historical vaccinations, and clinical conditions for infant twin Mariela Gonzales Morales. There are no transactions associated with this test case.",
-  "position" : 3,
-  "protocol" : "soap"
-}
