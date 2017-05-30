@@ -117,6 +117,9 @@ angular.module('cb')
     };
 
 
+
+
+
     $scope.getTestType = function () {
       return CB.testCase.type;
     };
