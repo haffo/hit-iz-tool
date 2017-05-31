@@ -508,8 +508,7 @@
     NewValidationResult.prototype.addItem = function (entry) {
       try {
         entry['id'] = this.generateId();
-        console.log(entry['id']);
-        if (entry['classification'] === 'Error') {
+         if (entry['classification'] === 'Error') {
           this.addResult(this.errors, entry);
         } else if (entry['classification'] === 'Warning') {
           this.addResult(this.warnings, entry);
