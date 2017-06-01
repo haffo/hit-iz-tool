@@ -34,24 +34,26 @@
             <li ng-class="{'active':isActive('/about')}"><a href="#/about"><i class="fa fa-question-circle"></i>About</a></li>
          </ul>
 
-        <ul class="nav navbar-nav navbar-right" style="margin-right: 15px" ng-show="!transportSupported">
-            <li class="dropdown clear-fix">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i>&nbsp;Preferences<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        <!--<ul class="nav navbar-nav navbar-right" style="margin-right: 15px" ng-show="!transportSupported">-->
+            <!--<li class="dropdown clear-fix">-->
+                <!--<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"-->
+                   <!--aria-expanded="false"><i-->
+                        <!--class="fa fa-cog"></i>&nbsp;Preferences<span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu">-->
+                    <!--<li><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
 
-        <ul class="nav navbar-nav navbar-right" style="margin-right: 15px" ng-show="transportSupported">
-            <li class="dropdown clear-fix" ng-show="isAuthenticated()" ng-class="isActive('/useraccount') || isActive('/transport-settings')">
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 15px">
+            <li class="dropdown clear-fix" ng-if="isAuthenticated()" ng-class="isActive('/useraccount') || isActive('/transport-settings')">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>&nbsp;Hello {{getUsername()}}<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li ng-class="isActive('/useraccount')"><a class="point" href="#/useraccount"><i class="fa fa-user"></i>&nbsp;My Profile</a></li>
                     <li role="separator" class="divider"></li>
 
-                    <li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported"><a href="#/transport-settings">
+                    <li ng-class="{'active':isActive('/transport-settings')}" ng-if="transportSupported"><a href="#/transport-settings">
                         <i title="Transport Configuration" class="label label-danger label-icon2">T</i>
                         Transport Settings</a></li>
                     <li role="separator" class="divider"></li>
@@ -65,7 +67,7 @@
                 </ul>
             </li>
 
-            <li class="dropdown clear-fix" ng-show="!isAuthenticated()" ng-class="isActive('/useraccount') || isActive('/registration') || isActive('/forgotten') || isActive('/transport-settings')">
+            <li class="dropdown clear-fix" ng-if="!isAuthenticated()" ng-class="isActive('/useraccount') || isActive('/registration') || isActive('/forgotten') || isActive('/transport-settings')">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>&nbsp;Hello Guest <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li class="">
@@ -84,7 +86,7 @@
                         </a>
                     </li>
                     <li role="separator" class="divider"></li>
-                    <li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported"><a href="#/transport-settings">
+                    <li ng-class="{'active':isActive('/transport-settings')}" ng-if="transportSupported"><a href="#/transport-settings">
                         <i title="Transport Configuration" class="label label-danger label-icon2">T</i>
                         Transport Settings</a></li>
                     <li role="separator" class="divider"></li>

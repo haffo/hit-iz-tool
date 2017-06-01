@@ -637,17 +637,27 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
 
 
   TestCaseService.prototype.buildCFTestCases = function (obj) {
-    obj.label = !obj.children ? obj.position + "." + obj.name : obj.name;
+    obj.label = !obj.children && !obj.testCases ? obj.position + "." + obj.name : obj.name;
     obj['nav'] = {};
     obj['nav']['testStep'] = obj.name;
     obj['nav']['testCase'] = null;
     obj['nav']['testPlan'] = null;
     obj['nav']['testGroup'] = null;
-
     if (obj.children) {
       var that = this;
       obj.children = $filter('orderBy')(obj.children, 'position');
       angular.forEach(obj.children, function (child) {
+        child['nav'] = {};
+        child['nav']['testStep'] = child.name;
+        child['nav']['testCase'] = obj.name;
+        child['nav']['testPlan'] = obj['nav'].testPlan;
+        child['nav']['testGroup'] = null;
+        that.buildCFTestCases(child);
+      });
+    }else if (obj.testCases) {
+      var that = this;
+      obj.testCases = $filter('orderBy')(obj.testCases, 'position');
+      angular.forEach(obj.testCases, function (child) {
         child['nav'] = {};
         child['nav']['testStep'] = child.name;
         child['nav']['testCase'] = obj.name;

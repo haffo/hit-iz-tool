@@ -30,7 +30,7 @@
         <div class="col-md-12" style="height:35px">
           <form class="form-inline" style="margin:0; padding:0; ">
             <div class="form-group" ng-if="isAuthenticated()">
-              <label class="control-label" style="text-align:left;" for="selectedScope">Scope</label>
+              <label class="control-label" style="text-align:left;" for="selectedScope">Type: </label>
               <select class="form-control input-sm test-plan-select" style="width:200px;background-color: white;"
                       name="selectedScope" id="selectedScope"
                       ng-change="selectScope()"
@@ -42,7 +42,7 @@
               </select>
             </div>
             <div class="form-group" ng-if="testPlans != null && testPlans.length > 0">
-              <label class="control-label" for="selectedTP">Test Plans</label>
+              <label class="control-label" for="selectedTP">Test Plan: </label>
               <select class="form-control input-sm test-plan-select" style="width:500px;background-color: white;"
                       name="selectedTP" id="selectedTP"
 
@@ -52,8 +52,8 @@
                 <option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{::tp.name}}
                 </option>
               </select>
-              <span ng-show="testPlans == null || testPlans.length  === 0">No Test Plan Found</span>
             </div>
+            <span ng-show="testPlans == null || testPlans.length  === 0">No Test Plan Found</span>
           </form>
         </div>
       </div>

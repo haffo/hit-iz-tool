@@ -49,8 +49,12 @@ angular.module('commonServices').factory('StorageService',
           CB_SELECTED_TESTPLAN_ID_KEY: 'CB_SELECTED_TESTPLAN_ID',
           CB_SELECTED_TESTPLAN_TYPE_KEY: 'CB_SELECTED_TESTPLAN_TYPE',
           CB_SELECTED_TESTPLAN_SCOPE_KEY:'CB_SELECTED_TESTPLAN_SCOPE_KEY',
+          CF_SELECTED_TESTPLAN_SCOPE_KEY:'CF_SELECTED_TESTPLAN_SCOPE_KEY',
+          CF_SELECTED_TESTPLAN_ID_KEY: 'CF_SELECTED_TESTPLAN_ID',
+          CF_SELECTED_TESTPLAN_TYPE_KEY: 'CF_SELECTED_TESTPLAN_TYPE',
 
-            remove: function (key) {
+
+          remove: function (key) {
                 return localStorageService.remove(key);
             },
 
