@@ -25,22 +25,30 @@
     </div>
 
     <div ng-show="error === null">
-      <div ng-show="testPlans != null && testPlans.length > 1" class="row test-plan-select-container" style="margin-left:10px; margin-right: 10px; margin-top: 0px">
-        <div class="col-md-6" style="height:35px">
-             <form class="form-horizontal">
-              <div class="form-group">
-                <label class="col-md-3 col-sm-4 control-label" style="text-align:left; width:100px" for="selectedTP">Test Plans </label>
-                <div class="col-md-9 col-sm-8" style="text-align:left; margin:0; padding:0; width:500px" width="500px">
-                  <select class="form-control input-sm test-plan-select" style="background-color: white" name="selectedTP" id="selectedTP" ng-change="selectTP()" ng-model="selectedTP.id">
-                    <option value="">---- Select Test Plan ----</option>
-                    <option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{tp.name}}</option>
-                  </select>
-                </div>
-              </div>
-            </form>
-         </div>
+      <div class="row test-plan-select-container" style="margin-left:10px; margin-right: 10px; margin-top: 0px">
+        <div class="col-md-12" style="height:35px">
+          <form class="form-inline" style="margin:0; padding:0">
+            <div class="form-group" ng-if="isAuthenticated()">
+              <label class="control-label" style="text-align:left" for="selectedScope">Scope</label>
+              <select class="form-control input-sm test-plan-select" style="width:200px;background-color: white" name="selectedScope" id="selectedScope" ng-change="selectScope()" ng-model="selectedScope.key">
+                <option value="">---- Select Scope ----</option>
+                <option ng-repeat="tpScope in testPlanScopes" ng-selected="tpScope.key == selectedScope.key" value="{{tpScope.key}}">{{::tpScope.name}}
+                </option>
+              </select>
+            </div>
+            <div class="form-group" ng-if="testPlans != null && testPlans.length > 0">
+              <label class="control-label" for="selectedTP">Test Plans <span class="badge badge-default">{{testPlans.length}}</span></label>
+              <select class="form-control input-sm test-plan-select" style="width:500px;background-color: white" name="selectedTP" id="selectedTP" ng-change="selectTP()" ng-model="selectedTP.id">
+                <option value="">---- Select Test Plan ----</option>
+                <option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{::tp.name}}
+                </option>
+              </select>
+              <span ng-show="testPlans == null || testPlans.length  === 0">No Test Plan Found</span>
+            </div>
+          </form>
+        </div>
       </div>
-       <div class="row" style="margin:10px">
+      <div class="row" style="margin:10px">
         <div class="col-md-1 col-1-percent" ng-show="collapsed">
           <button title="Show Test Cases" class="btn btn-xs btn-info" ng-click="collapsed = !collapsed">
             <i class="fa fa-caret-right"></i>
@@ -54,7 +62,8 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <i class="glyphicon glyphicon-list"></i>Test Cases
+                  <i class="glyphicon glyphicon-list"></i>
+                  Test Cases
                   <button title="Hide Test Cases" class="btn btn-xs btn-info pull-right" ng-click="collapsed = !collapsed">
                     <i class="fa fa-caret-left"></i>
                   </button>

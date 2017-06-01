@@ -484,6 +484,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
         userInfoService.setCurrentUser(null);
         $http.get('j_spring_security_logout').then(function (result) {
             $rootScope.createGuestIfNotExist();
+          $rootScope.$broadcast('event:logoutConfirmed');
         });
     });
 

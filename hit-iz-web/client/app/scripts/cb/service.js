@@ -25,11 +25,11 @@ angular.module('cb').factory('CB',
         return CB;
     }]);
 
-angular.module('cb').factory('CBTestCaseListLoader', ['$q', '$http',
+angular.module('cb').factory('CBTestPlanListLoader', ['$q', '$http',
     function ($q, $http) {
-        return function () {
+        return function (scope) {
             var delay = $q.defer();
-            $http.get("api/cb/testplans", {timeout: 180000}).then(
+            $http.get("api/cb/testplans", {timeout: 180000, params: {"scope": scope}}).then(
                 function (object) {
                     delay.resolve(angular.fromJson(object.data));
                 },
