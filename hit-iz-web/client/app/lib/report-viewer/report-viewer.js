@@ -168,7 +168,7 @@
 
     ReportService.downloadTestStepValidationReport = function (testStepValidationReportId, format) {
       var form = document.createElement("form");
-      form.action = "api/testStepValidationReport/" + testStepValidationReportId + "/download";
+      form.action = "api/tsReport/" + testStepValidationReportId + "/download";
       form.method = "POST";
       form.target = "_target";
       var input = document.createElement("input");
@@ -182,7 +182,7 @@
 
     ReportService.downloadMessageValidationReport = function (testStepValidationReportId, format) {
       var form = document.createElement("form");
-      form.action = "api/messageValidationReport/" + testStepValidationReportId + "/download";
+      form.action = "api/mReport" + testStepValidationReportId + "/download";
       form.method = "POST";
       form.target = "_target";
       var input = document.createElement("input");
@@ -197,7 +197,7 @@
 
     ReportService.downloadTestCaseReports = function (testCaseId, format, result, comments) {
       var form = document.createElement("form");
-      form.action = "api/testCaseValidationReport/download";
+      form.action = "api/tcReport/download";
       form.method = "POST";
       form.target = "_target";
 
@@ -231,7 +231,7 @@
     ReportService.createMessageValidationReport = function (testStepId) {
       var delay = $q.defer();
       var data = angular.fromJson({"testStepId": testStepId});
-      $http.post("api/testStepValidationReport/create", data).then(
+      $http.post("api/tsReport/create", data).then(
         function (object) {
           var res = object.data != null && object.data != "" ? angular.fromJson(object.data) : null;
           delay.resolve(res);
@@ -253,7 +253,7 @@
           'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
         }
       };
-      $http.post("api/testStepValidationReport/init", data, config).then(
+      $http.post("api/tsReport/init", data, config).then(
         function (object) {
           var res = object.data != null && object.data != "" ? angular.fromJson(object.data) : null;
           delay.resolve(res);
@@ -285,7 +285,7 @@
         "result": result,
         "comments": comments
       });
-      $http.post("api/testStepValidationReport/save", data).then(
+      $http.post("api/tsReport/save", data).then(
         function (object) {
           var res = object.data != null && object.data != "" ? angular.fromJson(object.data) : null;
           delay.resolve(res);
@@ -305,7 +305,7 @@
 ////            };
 //
 //            console.log(angular.toJson(data));
-//            $http.post("api/testStepValidationReport/update", data).then(
+//            $http.post("api/tsReport/update", data).then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
 //                },
@@ -334,7 +334,7 @@
 //        ReportService.updateTestStepValidationReport = function (testStep, result, comments) {
 //            var delay = $q.defer();
 //            var data = {xml: xmlMessageValidationReport, testStep: testStep:{id:testStep.id}, result: result, comments: comments};
-//            $http.post("api/testStepValidationReport/update", data, config).then(
+//            $http.post("api/tsReport/update", data, config).then(
 //                function (object) {
 //                    delay.resolve(angular.fromJson(object.data));
 //                },
@@ -347,7 +347,7 @@
 
 //        ReportService.generateHtml= function (testStepValidationReportId) {
 //            var delay = $q.defer();
-////            $http.post("api/testStepValidationReport/"+ testStepValidationReportId + "/generateHtml").then(
+////            $http.post("api/tsReport/"+ testStepValidationReportId + "/generateHtml").then(
 ////                function (object) {
 ////                    delay.resolve(angular.fromJson(object.data));
 ////                },
@@ -376,7 +376,7 @@
 //        ReportService.generate = function (content) {
 //            var delay = $q.defer();
 //            $http({
-//                url: "api/testStepValidationReport/generate",
+//                url: "api/tsReport/generate",
 //                data: $.param({'content': json}),
 //                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
 //                method: 'POST',
