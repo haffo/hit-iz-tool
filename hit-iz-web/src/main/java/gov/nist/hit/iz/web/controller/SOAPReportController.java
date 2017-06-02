@@ -12,12 +12,6 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
-import gov.nist.hit.iz.service.exception.SoapValidationReportException;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -36,6 +30,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
+import gov.nist.hit.iz.service.exception.SoapValidationReportException;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 /**
  * @author Harold Affo (NIST)
  * 
@@ -45,76 +45,70 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "Immunization SOAP Validation Report API", tags = "SOAP Validation Report")
 public class SOAPReportController {
 
-  static final Logger logger = LoggerFactory.getLogger(SOAPReportController.class);
+	static final Logger logger = LoggerFactory.getLogger(SOAPReportController.class);
 
+	@Autowired
+	private SOAPValidationReportGenerator reportService;
 
-  @Autowired
-  private SOAPValidationReportGenerator reportService;
+	private String createHtml(String xmlReport) {
+		String htmlReport = reportService.toHTML(xmlReport);
+		return htmlReport;
+	}
 
+	// @ApiOperation(value = "Download a SOAP validation report", nickname =
+	// "downloadReport",
+	// produces =
+	// "application/msword,text/html,application/xml,application/pdf")
+	@RequestMapping(value = "/download", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded; charset=UTF-8")
+	public String downloadReport(
+			@ApiParam(value = "the targeted format of the report", required = true) @RequestParam("format") String format,
+			@ApiParam(value = "the title of the downloaded report", required = true) @RequestParam("title") String title,
+			@ApiParam(value = "the xml validation report", required = true) @RequestParam("content") String xmlReport,
+			HttpServletRequest request, HttpServletResponse response) {
+		try {
+			logger.info("Downloading validation report in " + format);
+			if (format == null)
+				throw new SoapValidationReportException("No format specified");
+			if (xmlReport == null) {
+				throw new SoapValidationReportException("No xml report found in the request");
+			}
+			InputStream content = null;
+			String ext = format.toLowerCase();
+			if ("HTML".equalsIgnoreCase(format)) {
+				content = IOUtils.toInputStream(createHtml(xmlReport), "UTF-8");
+				response.setContentType("text/html");
+			} else if ("DOC".equalsIgnoreCase(format)) {
+				content = IOUtils.toInputStream(createHtml(xmlReport), "UTF-8");
+				response.setContentType("application/msword");
+			} else if ("XML".equalsIgnoreCase(format)) {
+				content = IOUtils.toInputStream(xmlReport, "UTF-8");
+				response.setContentType("application/xml");
+			} else if ("PDF".equalsIgnoreCase(format)) {
+				content = reportService.toPDF(xmlReport);
+				response.setContentType("application/pdf");
+			} else {
+				throw new SoapValidationReportException("Unsupported Message Validation Report format " + format);
+			}
+			response.setHeader("Content-disposition", "attachment;filename=" + title + "-ValidationReport." + ext);
+			FileCopyUtils.copy(content, response.getOutputStream());
+		} catch (SoapValidationReportException | IOException e) {
+			logger.debug("Failed to download the validation report ");
+			throw new SoapValidationReportException("Cannot download the validation report");
+		}
+		return null;
+	}
 
-  private String createHtml(String xmlReport) {
-    String htmlReport = reportService.toHTML(xmlReport);
-    return htmlReport;
-  }
-
-  @ApiOperation(value = "Download a SOAP validation report", nickname = "downloadReport",
-      produces = "application/msword,text/html,application/xml,application/pdf")
-  @RequestMapping(value = "/download", method = RequestMethod.POST,
-      consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-  public String downloadReport(
-      @ApiParam(value = "the targeted format of the report", required = true) @RequestParam("format") String format,
-      @ApiParam(value = "the title of the downloaded report", required = true) @RequestParam("title") String title,
-      @ApiParam(value = "the xml validation report", required = true) @RequestParam("content") String xmlReport,
-      HttpServletRequest request, HttpServletResponse response) {
-    try {
-      logger.info("Downloading validation report in " + format);
-      if (format == null)
-        throw new SoapValidationReportException("No format specified");
-      if (xmlReport == null) {
-        throw new SoapValidationReportException("No xml report found in the request");
-      }
-      InputStream content = null;
-      String ext = format.toLowerCase();
-      if ("HTML".equalsIgnoreCase(format)) {
-        content = IOUtils.toInputStream(createHtml(xmlReport), "UTF-8");
-        response.setContentType("text/html");
-      } else if ("DOC".equalsIgnoreCase(format)) {
-        content = IOUtils.toInputStream(createHtml(xmlReport), "UTF-8");
-        response.setContentType("application/msword");
-      } else if ("XML".equalsIgnoreCase(format)) {
-        content = IOUtils.toInputStream(xmlReport, "UTF-8");
-        response.setContentType("application/xml");
-      } else if ("PDF".equalsIgnoreCase(format)) {
-        content = reportService.toPDF(xmlReport);
-        response.setContentType("application/pdf");
-      } else {
-        throw new SoapValidationReportException("Unsupported Message Validation Report format "
-            + format);
-      }
-      response.setHeader("Content-disposition", "attachment;filename=" + title
-          + "-ValidationReport." + ext);
-      FileCopyUtils.copy(content, response.getOutputStream());
-    } catch (SoapValidationReportException | IOException e) {
-      logger.debug("Failed to download the validation report ");
-      throw new SoapValidationReportException("Cannot download the validation report");
-    }
-    return null;
-  }
-
-  @ApiOperation(value = "Generate an html SOAP validation report", nickname = "generateHTML")
-  @RequestMapping(value = "/generate", method = RequestMethod.POST,
-      consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-  public Map<String, String> generateHTML(@ApiParam(value = "the xml validation report",
-      required = true) @RequestParam("content") final String xmlReport) {
-    logger.info("Generating HTML Validation report");
-    if (xmlReport == null) {
-      throw new SoapValidationReportException("No xml report found in the request");
-    }
-    HashMap<String, String> map = new HashMap<String, String>();
-    map.put("htmlReport", createHtml(xmlReport));
-    return map;
-  }
-
-
+	@ApiOperation(value = "Generate an html SOAP validation report", nickname = "generateHTML")
+	@RequestMapping(value = "/generate", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded; charset=UTF-8")
+	public Map<String, String> generateHTML(
+			@ApiParam(value = "the xml validation report", required = true) @RequestParam("content") final String xmlReport) {
+		logger.info("Generating HTML Validation report");
+		if (xmlReport == null) {
+			throw new SoapValidationReportException("No xml report found in the request");
+		}
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("htmlReport", createHtml(xmlReport));
+		return map;
+	}
 
 }

@@ -60,8 +60,6 @@ import gov.nist.hit.iz.web.config.IZConstants;
 import gov.nist.hit.iz.web.utils.Utils;
 import gov.nist.hit.iz.ws.IZWSConstant;
 import gov.nist.hit.iz.ws.client.IZSOAPWebServiceClient;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 /**
@@ -71,7 +69,7 @@ import io.swagger.annotations.ApiParam;
 
 @RestController
 @RequestMapping("/transport/iz/soap")
-@Api(value = "Immunization SOAP Transport API", tags = "SOAP Transport")
+// @Api(value = "Immunization SOAP Transport API", tags = "SOAP Transport")
 public class SOAPTransportController {
 
 	static final Logger logger = LoggerFactory.getLogger(SOAPTransportController.class);
@@ -110,7 +108,8 @@ public class SOAPTransportController {
 				.toString(SOAPTransportController.class.getResourceAsStream("/templates/SubmitSingleMessage.xml"));
 	}
 
-	@ApiOperation(value = "Start the listener of an incoming transaction", nickname = "startListener", notes = "A user session is required")
+	// @ApiOperation(value = "Start the listener of an incoming transaction",
+	// nickname = "startListener", notes = "A user session is required")
 	@RequestMapping(value = "/startListener", method = RequestMethod.POST, produces = "application/json")
 	public boolean startListener(
 			@ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request,
@@ -135,7 +134,8 @@ public class SOAPTransportController {
 		return true;
 	}
 
-	@ApiOperation(value = "Stop the listener of an incoming transaction", nickname = "stopListener", notes = "A user session is required")
+	// @ApiOperation(value = "Stop the listener of an incoming transaction",
+	// nickname = "stopListener", notes = "A user session is required")
 	@RequestMapping(value = "/stopListener", method = RequestMethod.POST, produces = "application/json")
 	public boolean stopListener(@ApiParam(value = "the request", required = true) @RequestBody TransportRequest request,
 			@ApiParam(value = "The user session", required = true) HttpSession session) throws UserNotFoundException {
@@ -182,7 +182,8 @@ public class SOAPTransportController {
 		return sutInitiator;
 	}
 
-	@ApiOperation(value = "Search a transaction of user", nickname = "searchTransaction")
+	// @ApiOperation(value = "Search a transaction of user", nickname =
+	// "searchTransaction")
 	@RequestMapping(value = "/searchTransaction", method = RequestMethod.POST, produces = "application/json")
 	public Transaction searchTransaction(
 			@ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request) {
@@ -195,7 +196,8 @@ public class SOAPTransportController {
 		return transaction;
 	}
 
-	@ApiOperation(value = "Send a message", nickname = "searchTransaction", notes = "A user session is required")
+	// @ApiOperation(value = "Send a message", nickname = "searchTransaction",
+	// notes = "A user session is required")
 	@RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json")
 	public Transaction send(
 			@ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request,
@@ -238,7 +240,8 @@ public class SOAPTransportController {
 		}
 	}
 
-	@ApiOperation(value = "Get the configuration information of user", nickname = "searchTransaction", notes = "A user session is required")
+	// @ApiOperation(value = "Get the configuration information of user",
+	// nickname = "searchTransaction", notes = "A user session is required")
 	@RequestMapping(value = "/configs", method = RequestMethod.POST, produces = "application/json")
 	public TransportConfig configs(@ApiParam(value = "The user session", required = true) HttpSession session,
 			HttpServletRequest request) throws UserNotFoundException {
@@ -289,7 +292,8 @@ public class SOAPTransportController {
 		return config;
 	}
 
-	@ApiOperation(value = "", nickname = "", notes = "A user session is required", hidden = true)
+	// @ApiOperation(value = "", nickname = "", notes = "A user session is
+	// required", hidden = true)
 	@RequestMapping(value = "/populateMessage", method = RequestMethod.POST, produces = "application/json")
 	public TransportResponse populateMessage(@ApiParam(value = "The user session", required = true) HttpSession session,
 			@ApiParam(value = "The transport request", required = true) @RequestBody TransportRequest transportRequest)
