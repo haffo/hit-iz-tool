@@ -162,7 +162,7 @@ public class SOAPConnectivityController {
 		}
 	}
 
-	@ApiOperation(value = "Send a connectivity message", nickname = "sendSOAPConnectivityMessage")
+	@ApiOperation(value = "Send a connectivity message", nickname = "sendSOAPConnectivityMessage", hidden = true)
 	@RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json")
 	public Transaction sendSOAPConnectivityMessage(
 			@ApiParam(value = "the request of the transaction", required = true) @RequestBody TransportRequest requ,
