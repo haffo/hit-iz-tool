@@ -123,12 +123,12 @@
 <distributionManagement>
 		<repository>
 			<id>releases</id>
-			<url>http://vm-070.nist.gov:8081/nexus/content/repositories/releases</url>
+			<url>https://hit-dev.nist.gov:9001/repository/releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshots</id>
 			<name>Internal Snapshots</name>
-			<url>http://vm-070.nist.gov:8081/nexus/content/repositories/snapshots</url>
+			<url>https://hit-dev.nist.gov:9001/repository/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<scm>
