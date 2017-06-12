@@ -463,7 +463,7 @@ angular.module('format').factory('TestStepService', function ($filter, $q, $http
 
   TestStepService.clearRecords = function (id) {
     var delay = $q.defer();
-    $http.post('api/testStepValidationReport/' + id + '/clearRecords').then(
+    $http.post('api/tsReport/' + id + '/delete').then(
       function (object) {
         delay.resolve(angular.fromJson(object.data));
       },
@@ -485,7 +485,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
   TestCaseService.clearRecords = function (id) {
     var delay = $q.defer();
     if (id != null && id != undefined) {
-      $http.post('api/testCaseValidationReport/' + id + '/clearRecords').then(
+      $http.post('api/tcReport/' + id + '/delete').then(
         function (object) {
           delay.resolve(angular.fromJson(object.data));
         },

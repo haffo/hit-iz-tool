@@ -584,7 +584,7 @@
       if (result) {
         var that = this;
         if (!result.json) {
-          $http.get('api/testStepValidationReport/json', {params: { testStepId: testStepId, testReportId: result.reportId}}).then(function (response) {
+          $http.get('api/tsReport/json', {params: { testStepId: testStepId, testReportId: result.reportId}}).then(function (response) {
             that.processJson(response.data);
             delay.resolve(true);
           }, function(error){
