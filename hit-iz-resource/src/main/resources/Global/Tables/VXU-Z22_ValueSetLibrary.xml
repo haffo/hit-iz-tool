@@ -1180,6 +1180,7 @@
 			<ValueElement Value="121" DisplayName="zoster" CodeSystem="CVX"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="NDC_Sale" Name="NDC Unit of Sale">
+			<ValueElement Value="58160-0818-11" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
 			<ValueElement Value="00005-0100-02" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
 			<ValueElement Value="00005-0100-05" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
 			<ValueElement Value="00005-0100-10" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
@@ -1429,9 +1430,11 @@
 			<ValueElement Value="70461-0119-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0200-01" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0614-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
-				
 		</ValueSetDefinition>
+		
+		
 		<ValueSetDefinition BindingIdentifier="NDC_Use" Name="NDC Unit of Use">
+			<ValueElement Value="58160-0816-05" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
 			<ValueElement Value="00005-0100-01" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
 			<ValueElement Value="00005-1970-49" DisplayName="pneumococcal conjugate PCV 7" CodeSystem="NDC"/>
 			<ValueElement Value="00005-1971-01" DisplayName="Pneumococcal conjugate PCV 13" CodeSystem="NDC"/>
@@ -1660,35 +1663,9 @@
 			<ValueElement Value="70461-0200-11" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0614-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="76420-0482-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		</ValueSetDefinition>
+		
+		
 		<ValueSetDefinition BindingIdentifier="PHVS_ImmunizationFundingSource_IIS" Name="Immunization Funding Source (IIS)">
 			<ValueElement Value="PHC70" CodeSystem="CDCPHINVS" DisplayName="Private funds "/>
 			<ValueElement Value="VXC50" CodeSystem="CDCPHINVS" DisplayName="Public"/>
