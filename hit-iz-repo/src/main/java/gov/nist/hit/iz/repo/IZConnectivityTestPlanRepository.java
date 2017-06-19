@@ -12,15 +12,19 @@
 
 package gov.nist.hit.iz.repo;
 
-import gov.nist.hit.iz.domain.IZConnectivityTestPlan;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface IZConnectivityTestPlanRepository extends
-    JpaRepository<IZConnectivityTestPlan, Long> {
+import gov.nist.hit.iz.domain.IZConnectivityTestPlan;
 
-  @Query("select testPlan.testProcedurePath from IZConnectivityTestPlan testPlan where testPlan.id = :testPlanId")
-  String getTestProcedurePathByTestPlanId(@Param("testPlanId") Long testPlanId);
+public interface IZConnectivityTestPlanRepository extends JpaRepository<IZConnectivityTestPlan, Long> {
+
+	@Query("select testPlan.testProcedurePath from IZConnectivityTestPlan testPlan where testPlan.id = :testPlanId")
+	String getTestProcedurePathByTestPlanId(@Param("testPlanId") Long testPlanId);
+
+	@Query("select testPlan from IZConnectivityTestPlan testPlan")
+	List<IZConnectivityTestPlan> getAll();
 }

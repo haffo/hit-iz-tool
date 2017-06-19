@@ -7,27 +7,30 @@ import org.springframework.ws.client.support.interceptor.ClientInterceptor;
 import org.springframework.ws.context.MessageContext;
 
 public class ConnectivityTestClientInterceptor implements ClientInterceptor {
-  final Logger logger = LoggerFactory.getLogger(ConnectivityTestClientInterceptor.class);
+	final Logger logger = LoggerFactory.getLogger(ConnectivityTestClientInterceptor.class);
 
+	@Override
+	public boolean handleRequest(MessageContext messageContext) throws WebServiceClientException {
+		logger.info("connectivityTest request received");
+		return true;
 
-  @Override
-  public boolean handleRequest(MessageContext messageContext) throws WebServiceClientException {
-    return true;
-  }
+	}
 
-  @Override
-  public boolean handleResponse(MessageContext messageContext) throws WebServiceClientException {
-    return true;
-  }
+	@Override
+	public boolean handleResponse(MessageContext messageContext) throws WebServiceClientException {
+		logger.info("connectivityTest response sent");
 
-  @Override
-  public boolean handleFault(MessageContext messageContext) throws WebServiceClientException {
-    return true;
-  }
+		return true;
+	}
 
-  @Override
-  public void afterCompletion(MessageContext messageContext, Exception ex)
-      throws WebServiceClientException {}
+	@Override
+	public boolean handleFault(MessageContext messageContext) throws WebServiceClientException {
+		logger.info("connectivityTest fault sent");
+		return true;
+	}
 
+	@Override
+	public void afterCompletion(MessageContext messageContext, Exception ex) throws WebServiceClientException {
+	}
 
 }

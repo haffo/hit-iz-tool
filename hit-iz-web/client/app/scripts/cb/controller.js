@@ -48,7 +48,7 @@ angular.module('cb')
     $scope.sent = null;
     $scope.received = null;
     $scope.configCollapsed = true;
-    $scope.counterMax = 120; // 2min
+    $scope.counterMax = $scope.transport.getTimeout();
     $scope.counter = 0;
     $scope.listenerReady = false;
     $scope.testStepListCollapsed = false;
@@ -590,7 +590,7 @@ angular.module('cb')
         templateUrl: 'CurrentTestStepConsole.html',
         controller: 'CurrentTestStepConsoleCtrl',
         windowClass: 'console-modal',
-        size: 'sm',
+        size: 'lg',
         animation: true,
         keyboard: true,
         backdrop: true,
@@ -641,6 +641,11 @@ angular.module('cb')
     };
 
 
+    $scope.setTimeout = function (value) {
+      $scope.transport.setTimeout(value);
+      $scope.counterMax = value;
+    };
+
     $scope.startListener = function () {
       $scope.openConsole($scope.testStep);
       var nextStep = $scope.findNextStep($scope.testStep.position);
@@ -658,8 +663,11 @@ angular.module('cb')
             if (started) {
               $scope.logger.log("Listener started.");
               var execute = function () {
+                var remaining = parseInt($scope.counterMax) - parseInt($scope.counter);
+                if( remaining % 20 === 0) {
+                  $scope.logger.log("Waiting for Inbound Message....Remaining time:" + (remaining) + "s");
+                }
                 ++$scope.counter;
-                $scope.logger.log("Waiting for Inbound Message....Elapsed time(second):" + $scope.counter + "s");
                 var sutInitiator = null;
                 try {
                   sutInitiator = $scope.transport.configs[$scope.domain][$scope.protocol].data.sutInitiator;

@@ -12,14 +12,20 @@
 
 package gov.nist.hit.iz.repo;
 
-import gov.nist.hit.iz.domain.IZEnvelopeTestPlan;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import gov.nist.hit.iz.domain.IZEnvelopeTestPlan;
+
 public interface IZEnvelopeTestPlanRepository extends JpaRepository<IZEnvelopeTestPlan, Long> {
 
-  @Query("select testPlan.testProcedurePath from IZEnvelopeTestPlan testPlan where testPlan.id = :testPlanId")
-  String getTestProcedurePathByTestPlanId(@Param("testPlanId") Long testPlanId);
+	@Query("select testPlan.testProcedurePath from IZEnvelopeTestPlan testPlan where testPlan.id = :testPlanId")
+	String getTestProcedurePathByTestPlanId(@Param("testPlanId") Long testPlanId);
+
+	@Query("select testPlan from IZEnvelopeTestPlan testPlan")
+	List<IZEnvelopeTestPlan> getAll();
+
 }

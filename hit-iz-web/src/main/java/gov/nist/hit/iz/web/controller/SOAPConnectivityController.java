@@ -12,8 +12,10 @@
 
 package gov.nist.hit.iz.web.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -36,6 +38,7 @@ import gov.nist.hit.core.domain.TransportRequest;
 import gov.nist.hit.core.domain.ValidationResult;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.service.AccountService;
+import gov.nist.hit.core.service.Streamer;
 import gov.nist.hit.core.service.TransportConfigService;
 import gov.nist.hit.core.service.exception.DuplicateTokenIdException;
 import gov.nist.hit.core.service.exception.MessageValidationException;
@@ -49,9 +52,7 @@ import gov.nist.hit.iz.domain.IZConnectivityTestContext;
 import gov.nist.hit.iz.domain.IZConnectivityTestPlan;
 import gov.nist.hit.iz.domain.IZTestType;
 import gov.nist.hit.iz.repo.IZConnectivityTestCaseRepository;
-import gov.nist.hit.iz.repo.IZConnectivityTestContextRepository;
 import gov.nist.hit.iz.repo.IZConnectivityTestPlanRepository;
-import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.exception.SoapValidationException;
 import gov.nist.hit.iz.service.soap.SOAPMessageParser;
 import gov.nist.hit.iz.service.soap.SOAPMessageValidator;
@@ -82,9 +83,6 @@ public class SOAPConnectivityController {
 	private IZSOAPWebServiceClient webServiceClient;
 
 	@Autowired
-	private IZConnectivityTestContextRepository testContextRepository;
-
-	@Autowired
 	private IZConnectivityTestPlanRepository testPlanRepository;
 
 	@Autowired
@@ -94,13 +92,13 @@ public class SOAPConnectivityController {
 	private SOAPMessageParser soapMessageParser;
 
 	@Autowired
-	private SOAPValidationReportGenerator reportService;
-
-	@Autowired
 	protected TransportConfigService transportConfigService;
 
 	@Autowired
 	protected AccountService accountService;
+
+	@Autowired
+	private Streamer streamer;
 
 	public SOAPMessageParser getSoapParser() {
 		return soapMessageParser;
@@ -115,7 +113,7 @@ public class SOAPConnectivityController {
 	@RequestMapping(value = "/testcases", method = RequestMethod.GET, produces = "application/json")
 	public List<IZConnectivityTestPlan> getSOAPConnectivityTestCases() {
 		logger.info("Fetching all testPlans...");
-		return testPlanRepository.findAll();
+		return testPlanRepository.getAll();
 
 	}
 
@@ -131,10 +129,11 @@ public class SOAPConnectivityController {
 
 	@ApiOperation(value = "Validate a soap connectivity message", nickname = "validateSOAPConnectivity")
 	@RequestMapping(value = "/validate", method = RequestMethod.POST, produces = "application/json")
-	public ValidationResult validateSOAPConnectivity(
+	public void validateSOAPConnectivity(HttpServletResponse response,
 			@ApiParam(value = "the request of the validation", required = true) @RequestBody final Command command)
-			throws SoapValidationException {
+			throws SoapValidationException, IOException {
 		try {
+			ValidationResult result = null;
 			logger.info("Validating connectivity response message " + command);
 			String type = command.getType();
 			Long testCaseId = command.getTestCaseId();
@@ -146,17 +145,17 @@ public class SOAPConnectivityController {
 				if (testCase.getTestType().equals(IZTestType.RECEIVER_UNSUPPORTED_OPERATION.toString())
 						|| testCase.getTestType().equals(IZTestType.SENDER_UNSUPPORTED_OPERATION.toString())) {
 					// skip validation for this
-					return new ValidationResult();
+					result = new ValidationResult();
 				} else {
-					return soapValidator.validate(Utils.getContent(command), testCase.getName(),
+					result = soapValidator.validate(Utils.getContent(command), testCase.getName(),
 							context.getRequestValidationPhase());
 
 				}
 			} else if ("resp".equals(type)) {
-				return soapValidator.validate(Utils.getContent(command), testCase.getName(),
+				result = soapValidator.validate(Utils.getContent(command), testCase.getName(),
 						context.getResponseValidationPhase(), command.getRequestMessage());
 			}
-			return null;
+			streamer.stream(response.getOutputStream(), result);
 		} catch (MessageValidationException e) {
 			throw new SoapValidationException(e);
 		}
@@ -164,7 +163,7 @@ public class SOAPConnectivityController {
 
 	@ApiOperation(value = "Send a connectivity message", nickname = "sendSOAPConnectivityMessage", hidden = true)
 	@RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json")
-	public Transaction sendSOAPConnectivityMessage(
+	public void sendSOAPConnectivityMessage(HttpServletResponse response,
 			@ApiParam(value = "the request of the transaction", required = true) @RequestBody TransportRequest requ,
 			HttpSession session) throws TransportClientException {
 		logger.info("Sending message ");
@@ -205,7 +204,8 @@ public class SOAPConnectivityController {
 			transaction.setOutgoing(outgoingMessage);
 			transaction.setIncoming(incomingMessage);
 
-			return transaction;
+			streamer.stream(response.getOutputStream(), transaction);
+
 		} catch (Exception e1) {
 			throw new TransportException("Failed to send the message." + e1.getMessage());
 		}

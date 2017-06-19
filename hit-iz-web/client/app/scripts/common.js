@@ -52,6 +52,7 @@ angular.module('commonServices').factory('StorageService',
           CF_SELECTED_TESTPLAN_SCOPE_KEY:'CF_SELECTED_TESTPLAN_SCOPE_KEY',
           CF_SELECTED_TESTPLAN_ID_KEY: 'CF_SELECTED_TESTPLAN_ID',
           CF_SELECTED_TESTPLAN_TYPE_KEY: 'CF_SELECTED_TESTPLAN_TYPE',
+          TRANSPORT_TIMEOUT:'TRANSPORT_TIMEOUT',
 
 
           remove: function (key) {

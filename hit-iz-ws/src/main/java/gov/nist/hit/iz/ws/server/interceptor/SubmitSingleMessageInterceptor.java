@@ -29,6 +29,7 @@ import org.xml.sax.SAXException;
 import gov.nist.hit.core.domain.Transaction;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.service.TransactionService;
+import gov.nist.hit.core.service.util.GCUtil;
 
 public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
 
@@ -41,18 +42,21 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
 	public boolean handleRequest(MessageContext messageContext, Object endpoint) throws Exception {
 		// SoapMessage message = (SoapMessage) messageContext.getRequest();
 		// message.setSoapAction(IZWSConstant.SUBMITSINGLEMESSAGE_SOAP_ACTION);
+		logger.info("submitSingleMessage request received");
 		return true;
 	}
 
 	@Override
 	public boolean handleResponse(MessageContext messageContext, Object endpoint) throws Exception {
 		addMessages(messageContext);
+		logger.info("submitSingleMessage response sent");
 		return true;
 	}
 
 	@Override
 	public boolean handleFault(MessageContext messageContext, Object endpoint) throws Exception {
 		addMessages(messageContext);
+		logger.info("submitSingleMessage fault sent");
 		return true;
 	}
 
@@ -71,6 +75,7 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
 			transaction.setIncoming(XmlUtil.prettyPrint(request));
 			transaction.setOutgoing(XmlUtil.prettyPrint(response));
 			transactionService.save(transaction);
+			GCUtil.performGC();
 		} catch (Exception e) {
 			logger.error("Failed to persist messages for username= " + username);
 		}

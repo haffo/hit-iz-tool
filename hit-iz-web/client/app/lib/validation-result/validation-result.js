@@ -178,6 +178,9 @@
               if(done) {
                 mvResult['result'] = validationResult;
                 $scope.processValidationResult(mvResult,testStep);
+              }else{
+                mvResult['result'] = null;
+                $scope.processValidationResult(mvResult,testStep);
               }
             });
           } else {
@@ -235,12 +238,12 @@
           $scope.showValidationTable($scope.validationResult['errors'].categories[0], 'errors');
         }
 
-        if (testStep.testingType != 'TA_RESPONDER') {
-          var rs = TestExecutionService.getTestStepValidationResult(testStep);
-          if (rs === undefined) { // set default
-            TestExecutionService.setTestStepValidationResult(testStep, TestExecutionService.getTestStepMessageValidationResultDesc(testStep));
-          }
-        }
+        // if (testStep.testingType != 'TA_RESPONDER') {
+        //   var rs = TestExecutionService.getTestStepValidationResult(testStep);
+        //   if (rs === undefined) { // set default
+        //     TestExecutionService.setTestStepValidationResult(testStep, TestExecutionService.getTestStepMessageValidationResultDesc(testStep));
+        //   }
+        // }
 
         $timeout(function () {
           var reportType = $scope.type;
@@ -429,7 +432,7 @@
   });
 
 
-  mod.factory('NewValidationResult', function (ValidationResult, ValidationResultItem, $http, $q) {
+  mod.factory('NewValidationResult', function (ValidationResult, ValidationResultItem, $http, $q, ReportService) {
     var NewValidationResult = function (key) {
       ValidationResult.apply(this, arguments);
       this.json = null;
@@ -584,12 +587,12 @@
       if (result) {
         var that = this;
         if (!result.json) {
-          $http.get('api/tsReport/json', {params: { testStepId: testStepId, testReportId: result.reportId}}).then(function (response) {
+          ReportService.getJson(testStepId, result.reportId).then(function(response){
             that.processJson(response.data);
             delay.resolve(true);
           }, function(error){
-             that.processJson(null);
-             delay.resolve(false);
+            that.processJson(null);
+            delay.resolve(false);
           });
         } else {
            that.processJson(result.json);

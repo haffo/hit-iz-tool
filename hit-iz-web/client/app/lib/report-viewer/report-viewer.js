@@ -99,13 +99,13 @@
               $scope.report = response;
               TestExecutionService.setTestStepValidationReport(testStep, $scope.report.id);
               $scope.compile();
-//                    $scope.loading = false;
             }, function (error) {
               $scope.report = null;
-//                    $scope.loading = false;
               $scope.compile();
-              //Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 30000});
-            });
+             });
+          }else {
+            $scope.report = null;
+            $scope.compile();
           }
         }
       });
@@ -273,6 +273,23 @@
 //                }
 //            );
 
+      return delay.promise;
+    };
+
+    ReportService.getJson = function(testStepId, reportId) {
+      var delay = $q.defer();
+      $http.get('api/tsReport/json', {
+        params: {
+          testStepId: testStepId,
+          testReportId: reportId
+        }
+      }).then(function (response) {
+          delay.resolve(response);
+        },
+        function (error) {
+          delay.reject(error.data);
+        }
+      );
       return delay.promise;
     };
 

@@ -12,14 +12,9 @@
 
 package gov.nist.hit.iz.web.controller;
 
-import gov.nist.hit.core.domain.Command;
-import gov.nist.hit.core.domain.MessageElement;
-import gov.nist.hit.core.domain.util.XmlUtil;
-import gov.nist.hit.core.service.exception.XmlFormatterException;
-import gov.nist.hit.core.service.exception.XmlParserException;
-import gov.nist.hit.iz.service.soap.SOAPMessageParser;
+import java.io.IOException;
 
-import java.util.List;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +24,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import gov.nist.hit.core.domain.Command;
+import gov.nist.hit.core.domain.util.XmlUtil;
+import gov.nist.hit.core.service.Streamer;
+import gov.nist.hit.core.service.exception.XmlFormatterException;
+import gov.nist.hit.core.service.exception.XmlParserException;
+import gov.nist.hit.iz.service.soap.SOAPMessageParser;
+
 /**
  * @author Harold Affo (NIST)
  * 
@@ -37,42 +39,45 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class XMLMessageController {
 
-  static final Logger logger = LoggerFactory.getLogger(XMLMessageController.class);
+	static final Logger logger = LoggerFactory.getLogger(XMLMessageController.class);
 
-  @Autowired
-  private SOAPMessageParser messageParser;
+	@Autowired
+	private SOAPMessageParser messageParser;
 
+	@Autowired
+	private Streamer streamer;
 
+	public SOAPMessageParser getMessageParser() {
+		return messageParser;
+	}
 
-  public SOAPMessageParser getMessageParser() {
-    return messageParser;
-  }
+	public void setMessageParser(SOAPMessageParser messageParser) {
+		this.messageParser = messageParser;
+	}
 
-  public void setMessageParser(SOAPMessageParser messageParser) {
-    this.messageParser = messageParser;
-  }
+	@RequestMapping(value = "/parse", method = RequestMethod.POST, consumes = "application/json")
+	public void parse(HttpServletResponse response, @RequestBody Command soapCommand)
+			throws XmlParserException, IOException {
+		logger.info("Parsing soap" + soapCommand.getContent());
+		try {
+			streamer.streamElements(response.getOutputStream(),
+					messageParser.parse(soapCommand.getContent()).getElements());
+		} catch (gov.nist.hit.core.service.exception.MessageParserException e) {
+			throw new XmlParserException(e);
+		}
+	}
 
-  @RequestMapping(value = "/parse", method = RequestMethod.POST, consumes = "application/json")
-  public List<MessageElement> parse(@RequestBody Command soapCommand) throws XmlParserException {
-    logger.info("Parsing soap" + soapCommand.getContent());
-    try {
-      return messageParser.parse(soapCommand.getContent()).getElements();
-    } catch (gov.nist.hit.core.service.exception.MessageParserException e) {
-      throw new XmlParserException(e);
-    }
-  }
-
-  @RequestMapping(value = "/format", method = RequestMethod.POST, consumes = "application/json")
-  public Command format(@RequestBody Command soapCommand) throws XmlFormatterException {
-    logger.info("Formatting xml " + soapCommand.getContent());
-    try {
-      Command res = new Command(XmlUtil.prettyFormat(soapCommand.getContent(), 4));
-      return res;
-    } catch (RuntimeException e) {
-      throw new XmlFormatterException("Malformed Xml Content");
-    } catch (Exception e) {
-      throw new XmlFormatterException("Malformed Xml Content");
-    }
-  }
+	@RequestMapping(value = "/format", method = RequestMethod.POST, consumes = "application/json")
+	public Command format(@RequestBody Command soapCommand) throws XmlFormatterException {
+		logger.info("Formatting xml " + soapCommand.getContent());
+		try {
+			Command res = new Command(XmlUtil.prettyFormat(soapCommand.getContent(), 4));
+			return res;
+		} catch (RuntimeException e) {
+			throw new XmlFormatterException("Malformed Xml Content");
+		} catch (Exception e) {
+			throw new XmlFormatterException("Malformed Xml Content");
+		}
+	}
 
 }

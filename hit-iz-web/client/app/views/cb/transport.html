@@ -61,13 +61,54 @@
                                 <td>
                              <span ng-show="testStep.testingType === 'SUT_INITIATOR'">
                                 <span ng-show="transport.configs[domain][protocol].data.sutInitiator && transport.configs[domain][protocol].data.sutInitiator != null">
+
+                                  <!--<div class="btn-group">-->
+                           <!--<button title="Timeout is {{counterMax/60}} mn" type="button"-->
+                                   <!--class="btn btn-xs btn-info"-->
+                                   <!--data-toggle="dropdown">-->
+                               <!--<i class="fa fa-cog"></i>-->
+                               <!--<span>{{counterMax/60}}mn</span>-->
+                                <!--<span class="caret"></span>-->
+                           <!--</button>-->
+                           <!--<ul class="dropdown-menu point" role="menu">-->
+                               <!--<li><a class="point" ng-click="setTimeout(120)">2mn</a></li>-->
+                               <!--<li><a class="point" ng-click="setTimeout(240)">4mn</a></li>-->
+                               <!--<li><a class="point" ng-click="setTimeout(360)">6mn</a></li>-->
+                               <!--<li><a class="point" ng-click="setTimeout(600)">10mn</a></li>-->
+                           <!--</ul>-->
+                       <!--</div> -->
+
+
+                                  <div class="btn-group" role="group" aria-label="Listener">
+
+                                     <div class="btn-group" role="group" >
+    <button  ng-disabled="isTestCaseCompleted() || connecting || !transportButtonForm.protocolSelect.$valid" type="button" class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <i class="fa fa-cog"></i>
+      <span>{{counterMax/60}}mn</span>
+    </button>
+    <ul class="dropdown-menu point">
+      <li><a class="point" ng-click="setTimeout(120)">2mn</a></li>
+                               <li><a class="point" ng-click="setTimeout(240)">4mn</a></li>
+                               <li><a class="point" ng-click="setTimeout(360)">6mn</a></li>
+                               <li><a class="point" ng-click="setTimeout(600)">10mn</a></li>
+    </ul>
+  </div>
+
                                     <button type="button" title="Start Listening"
-                                            ng-click="startListener()"
-                                            ng-disabled="isTestCaseCompleted() || connecting || !transportButtonForm.protocolSelect.$valid"
-                                            title="Start listening"
-                                            class="btn btn-xs btn-success">
+        ng-disabled="isTestCaseCompleted() || connecting || !transportButtonForm.protocolSelect.$valid"
+        ng-click="startListener()"
+         title="Start listening"
+        class="btn btn-xs btn-success">
                                         <i class="fa fa-play fa-fw"></i>Listen
                                     </button>
+
+
+</div>
+
+
+
+
+
                                     <button type="button" title="Stop Listening"
                                             ng-disabled="isTestCaseCompleted() || !connecting || !transportButtonForm.protocolSelect.$valid"
                                             ng-click="abortListening()"

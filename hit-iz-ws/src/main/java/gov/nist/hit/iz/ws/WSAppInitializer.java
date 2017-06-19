@@ -23,19 +23,19 @@ public class WSAppInitializer implements WebApplicationInitializer
 
 {
 
-  @Override
-  public void onStartup(final ServletContext servletContext) throws ServletException {
+	@Override
+	public void onStartup(final ServletContext servletContext) throws ServletException {
 
-    final AnnotationConfigWebApplicationContext root = new AnnotationConfigWebApplicationContext();
-    root.setServletContext(servletContext);
-    root.scan("gov.nist.hit.iz.ws");
-    // web service servlet
-    MessageDispatcherServlet dispatcher = new MessageDispatcherServlet(root);
-    dispatcher.setTransformWsdlLocations(true);
-    final Dynamic webservices = servletContext.addServlet("iztool-webservice", dispatcher);
-    webservices.setLoadOnStartup(2);
-    webservices.addMapping("/ws/*");
-    webservices.addMapping("*.wsdl");
-  }
+		final AnnotationConfigWebApplicationContext root = new AnnotationConfigWebApplicationContext();
+		root.setServletContext(servletContext);
+		root.scan("gov.nist.hit.iz.ws");
+		// web service servlet
+		MessageDispatcherServlet dispatcher = new MessageDispatcherServlet(root);
+		dispatcher.setTransformWsdlLocations(true);
+		final Dynamic webservices = servletContext.addServlet("iztool-webservice", dispatcher);
+		webservices.setLoadOnStartup(2);
+		webservices.addMapping("/ws/*");
+		webservices.addMapping("*.wsdl");
+	}
 
 }

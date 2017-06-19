@@ -15,7 +15,6 @@ package gov.nist.hit.iz.web.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,12 +23,12 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import gov.nist.hit.core.service.Streamer;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
 import gov.nist.hit.iz.service.exception.SoapValidationReportException;
 import io.swagger.annotations.Api;
@@ -50,6 +49,9 @@ public class SOAPReportController {
 	@Autowired
 	private SOAPValidationReportGenerator reportService;
 
+	@Autowired
+	private Streamer streamer;
+
 	private String createHtml(String xmlReport) {
 		String htmlReport = reportService.toHTML(xmlReport);
 		return htmlReport;
@@ -60,7 +62,7 @@ public class SOAPReportController {
 	// produces =
 	// "application/msword,text/html,application/xml,application/pdf")
 	@RequestMapping(value = "/download", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-	public String downloadReport(
+	public void downloadReport(
 			@ApiParam(value = "the targeted format of the report", required = true) @RequestParam("format") String format,
 			@ApiParam(value = "the title of the downloaded report", required = true) @RequestParam("title") String title,
 			@ApiParam(value = "the xml validation report", required = true) @RequestParam("content") String xmlReport,
@@ -90,25 +92,26 @@ public class SOAPReportController {
 				throw new SoapValidationReportException("Unsupported Message Validation Report format " + format);
 			}
 			response.setHeader("Content-disposition", "attachment;filename=" + title + "-ValidationReport." + ext);
-			FileCopyUtils.copy(content, response.getOutputStream());
+			streamer.stream(response.getOutputStream(), content);
 		} catch (SoapValidationReportException | IOException e) {
 			logger.debug("Failed to download the validation report ");
 			throw new SoapValidationReportException("Cannot download the validation report");
 		}
-		return null;
 	}
 
 	@ApiOperation(value = "Generate an html SOAP validation report", nickname = "generateHTML")
 	@RequestMapping(value = "/generate", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded; charset=UTF-8")
-	public Map<String, String> generateHTML(
-			@ApiParam(value = "the xml validation report", required = true) @RequestParam("content") final String xmlReport) {
+	public void generateHTML(HttpServletResponse response,
+			@ApiParam(value = "the xml validation report", required = true) @RequestParam("content") final String xmlReport)
+			throws IOException {
 		logger.info("Generating HTML Validation report");
 		if (xmlReport == null) {
 			throw new SoapValidationReportException("No xml report found in the request");
 		}
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("htmlReport", createHtml(xmlReport));
-		return map;
+		streamer.streamMap(response.getOutputStream(), map);
+
 	}
 
 }

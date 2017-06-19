@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
@@ -45,6 +46,7 @@ import gov.nist.hit.core.domain.TransportResponse;
 import gov.nist.hit.core.domain.util.XmlUtil;
 import gov.nist.hit.core.service.AccountService;
 import gov.nist.hit.core.service.PasswordService;
+import gov.nist.hit.core.service.Streamer;
 import gov.nist.hit.core.service.TestStepService;
 import gov.nist.hit.core.service.TransactionService;
 import gov.nist.hit.core.service.TransportConfigService;
@@ -54,6 +56,7 @@ import gov.nist.hit.core.service.exception.TestCaseException;
 import gov.nist.hit.core.service.exception.TransportException;
 import gov.nist.hit.core.service.exception.UserNotFoundException;
 import gov.nist.hit.core.service.exception.UserTokenIdNotFoundException;
+import gov.nist.hit.core.service.util.GCUtil;
 import gov.nist.hit.core.transport.exception.TransportClientException;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 import gov.nist.hit.iz.web.config.IZConstants;
@@ -95,6 +98,9 @@ public class SOAPTransportController {
 	@Autowired
 	private PasswordService passwordService;
 
+	@Autowired
+	private Streamer streamer;
+
 	private final static String PROTOCOL = "soap";
 	private final static String DOMAIN = "iz";
 	private final static String USERNAME = "username";
@@ -131,6 +137,8 @@ public class SOAPTransportController {
 		config.put(IZWSConstant.LISTENER_STATUS, IZWSConstant.LISTENER_STARTED);
 		transportMessage.setProperties(config);
 		transportMessageService.save(transportMessage);
+
+		GCUtil.performGC();
 		return true;
 	}
 
@@ -145,6 +153,7 @@ public class SOAPTransportController {
 			throw new UserNotFoundException();
 		}
 		clearExchanges(userId);
+		GCUtil.performGC();
 		return true;
 	}
 
@@ -185,21 +194,22 @@ public class SOAPTransportController {
 	// @ApiOperation(value = "Search a transaction of user", nickname =
 	// "searchTransaction")
 	@RequestMapping(value = "/searchTransaction", method = RequestMethod.POST, produces = "application/json")
-	public Transaction searchTransaction(
-			@ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request) {
+	public void searchTransaction(HttpServletResponse response,
+			@ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request)
+			throws IOException {
 		logger.info("Searching transaction...");
 		Map<String, String> criteria = new HashMap<String, String>();
 		criteria.put(USERNAME, request.getConfig().get(USERNAME));
 		criteria.put(PASSWORD, request.getConfig().get(PASSWORD));
 		criteria.put(FACILITYID, request.getConfig().get(FACILITYID));
-		Transaction transaction = transactionService.findOneByProperties(criteria);
-		return transaction;
+		streamer.stream(response.getOutputStream(), transactionService.findOneByProperties(criteria));
+
 	}
 
 	// @ApiOperation(value = "Send a message", nickname = "searchTransaction",
 	// notes = "A user session is required")
 	@RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json")
-	public Transaction send(
+	public void send(HttpServletResponse response,
 			@ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request,
 			@ApiParam(value = "The user session", required = true) HttpSession session)
 			throws TransportClientException {
@@ -233,8 +243,7 @@ public class SOAPTransportController {
 			Transaction transaction = new Transaction();
 			transaction.setOutgoing(outgoingMessage);
 			transaction.setIncoming(incomingMessage);
-
-			return transaction;
+			streamer.stream(response.getOutputStream(), transaction);
 		} catch (Exception e1) {
 			throw new TransportException("Failed to send the message." + e1.getMessage());
 		}
@@ -262,6 +271,7 @@ public class SOAPTransportController {
 		Map<String, String> sutInitiatorConfig = sutInitiatorConfig(user, request);
 		transportConfig.setSutInitiator(sutInitiatorConfig);
 		transportConfigService.save(transportConfig);
+		GCUtil.performGC();
 		return transportConfig;
 	}
 
@@ -303,6 +313,7 @@ public class SOAPTransportController {
 		if (userId == null || (accountService.findOne(userId)) == null) {
 			throw new UserNotFoundException();
 		}
+		GCUtil.performGC();
 		return new TransportResponse(transportRequest.getTestStepId(), transportRequest.getMessage(), null);
 	}
 
