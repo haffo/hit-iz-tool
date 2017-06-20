@@ -18,7 +18,6 @@ import javax.xml.xpath.XPathFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ws.WebServiceMessage;
 import org.springframework.ws.context.MessageContext;
 import org.springframework.ws.server.EndpointInterceptor;
@@ -60,7 +59,6 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
 		return true;
 	}
 
-	@Transactional()
 	private void addMessages(String request, String response) {
 		String username = getUsername(request);
 		String password = getPassword(request);
