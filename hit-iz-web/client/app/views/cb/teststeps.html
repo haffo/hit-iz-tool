@@ -146,8 +146,9 @@
 
           <td style="width:15%">
 
-            <div ng-show="isTestStepCompleted(row) && testStep != null && row.id === testStep.id">
-              <select class="" name="resultValue"
+            <div ng-show="isTestStepCompleted(row)">
+               <select class="" name="resultValue"
+                      ng-disabled="testStep != null && row.id !== testStep.id"
                       ng-change="updateTestStepValidationReport(row)"
                       ng-model="testExecutionService.testStepValidationResults[row.id]" required
               >
@@ -155,12 +156,12 @@
                         value="{{resultOption.value}}">{{resultOption.title}}
                 </option>
               </select>
-            </div>
+             </div>
 
             <div ng-show="!isTestStepCompleted(row)">
               <div ng-show="row.id !== testStep.id">Not started</div>
               <div ng-show="row.id === testStep.id">
-                In Progress
+                In Progress...
               </div>
             </div>
 
