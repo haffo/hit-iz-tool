@@ -238,8 +238,7 @@ app.factory('interceptor3', function ($q, $rootScope, $location, StorageService,
 
 app.factory('interceptor4', function ($q, $rootScope, $location, StorageService, $window) {
     var setMessage = function (response) {
-        console.log("interceptor4");
-        //if the response has a text and a type property, it is a message to be shown
+         //if the response has a text and a type property, it is a message to be shown
         if (response.data && response.data.text && response.data.type) {
             if (response.status === 401) {
 //                        console.log("setting login message");
@@ -410,11 +409,8 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     };
 
     $rootScope.createGuestIfNotExist = function () {
-        console.log("creating guest user");
-        User.createGuestIfNotExist().then(function (guest) {
+         User.createGuestIfNotExist().then(function (guest) {
             initUser(guest);
-            console.log("guest user created");
-
         }, function (error) {
             $rootScope.openCriticalErrorDlg("ERROR: Sorry, Failed to initialize the session. Please refresh the page and try again.");
         });
@@ -575,8 +571,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
 
     //loadAppInfo();
     userInfoService.loadFromServer().then(function (currentUser) {
-        console.log("currentUser=" + angular.toJson(currentUser));
-        if (currentUser !== null && currentUser.accountId != null && currentUser.accountId != undefined) {
+         if (currentUser !== null && currentUser.accountId != null && currentUser.accountId != undefined) {
             initUser(currentUser);
         } else {
             $rootScope.createGuestIfNotExist();

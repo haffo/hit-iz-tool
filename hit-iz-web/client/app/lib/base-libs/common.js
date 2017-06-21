@@ -1766,8 +1766,9 @@ angular.module('format').factory('TestExecutionService',
       testStepComments: StorageService.get("testStepComments") != null ? angular.fromJson(StorageService.get("testStepComments")) : {},
       testStepValidationReports: StorageService.get("testStepValidationReports") != null ? angular.fromJson(StorageService.get("testStepValidationReports")) : {},
       testStepExecutionMessages: StorageService.get("testStepExecutionMessages") != null ? angular.fromJson(StorageService.get("testStepExecutionMessages")) : {},
-      testStepMessageTrees: StorageService.get("testStepMessageTrees") != null ? angular.fromJson(StorageService.get("testStepMessageTrees")) : {}
-     };
+      testStepMessageTrees: StorageService.get("testStepMessageTrees") != null ? angular.fromJson(StorageService.get("testStepMessageTrees")) : {},
+      testStepCommentsChanged: {}
+    };
 
 
     TestExecutionService.init = function () {
@@ -1802,6 +1803,7 @@ angular.module('format').factory('TestExecutionService',
       TestExecutionService.testStepExecutionMessages = {};
       TestExecutionService.testStepMessageTrees = {};
       TestExecutionService.testStepValidationReportObjects = {};
+      TestExecutionService.testStepCommentsChanged = {};
       return TestCaseService.clearRecords(testCaseId);
     };
 
