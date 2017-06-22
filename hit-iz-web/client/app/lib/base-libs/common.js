@@ -1886,6 +1886,7 @@ angular.module('format').factory('TestExecutionService',
     TestExecutionService.setTestStepValidationResult = function (step, value) {
       TestExecutionService.testStepValidationResults[step.id] = value;
       StorageService.set("testStepValidationResults", angular.toJson(TestExecutionService.testStepValidationResults));
+
       return TestExecutionService.updateTestStepValidationReport(step);
     };
 

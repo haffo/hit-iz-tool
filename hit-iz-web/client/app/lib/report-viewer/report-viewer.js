@@ -67,6 +67,7 @@
               $scope.report = null;
               $scope.compile();
               $scope.loading = false;
+
               //Notification.error({message: error.data, templateUrl: "NotificationErrorTemplate.html", scope: $rootScope, delay: 30000});
             });
           } else {

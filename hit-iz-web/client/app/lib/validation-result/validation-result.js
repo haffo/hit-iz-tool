@@ -38,7 +38,7 @@
   ]);
 
   mod
-    .controller('ValidationResultCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'ValidationResultHighlighter', '$sce', 'NewValidationResult', '$timeout', 'ServiceDelegator', 'Settings', 'TestExecutionService', function ($scope, $filter, $modal, $rootScope, ValidationResultHighlighter, $sce, NewValidationResult, $timeout, ServiceDelegator, Settings, TestExecutionService) {
+    .controller('ValidationResultCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'ValidationResultHighlighter', '$sce', 'NewValidationResult', '$timeout', 'ServiceDelegator', 'Settings', 'TestExecutionService', 'StorageService', function ($scope, $filter, $modal, $rootScope, ValidationResultHighlighter, $sce, NewValidationResult, $timeout, ServiceDelegator, Settings, TestExecutionService,StorageService) {
       $scope.validationTabs = new Array();
       $scope.currentType = null;
       $scope.settings = Settings;
@@ -189,6 +189,16 @@
         }
       });
 
+      var getTestStepMessageValidationResultDesc = function (resultObj) {
+        var result = -1;
+        try {
+          result = resultObj.errors.categories[0].data.length;
+        } catch (errr) {
+
+        }
+        return result > 0 ? 'FAILED' : result === 0 ? 'PASSED' : undefined;
+      };
+
       $scope.processValidationResult = function (mvResult, testStep) {
         $scope.validationResult = mvResult.result;
         if ($scope.validationResult && $scope.validationResult != null) {
@@ -238,12 +248,14 @@
           $scope.showValidationTable($scope.validationResult['errors'].categories[0], 'errors');
         }
 
-        // if (testStep.testingType != 'TA_RESPONDER') {
-        //   var rs = TestExecutionService.getTestStepValidationResult(testStep);
-        //   if (rs === undefined) { // set default
-        //     TestExecutionService.setTestStepValidationResult(testStep, TestExecutionService.getTestStepMessageValidationResultDesc(testStep));
-        //   }
-        // }
+        if (testStep.testingType != 'TA_RESPONDER' && testStep.testingType !== 'TA_MANUAL' && testStep.testingType !== 'SUT_MANUAL') {
+          var rs = TestExecutionService.getTestStepValidationResult(testStep);
+          if (rs === undefined) { // set default
+             var resString = getTestStepMessageValidationResultDesc($scope.validationResult);
+             TestExecutionService.testStepValidationResults[testStep.id] = resString;
+             StorageService.set("testStepValidationResults", angular.toJson(TestExecutionService.testStepValidationResults));
+          }
+        }
 
         $timeout(function () {
           var reportType = $scope.type;
@@ -566,7 +578,7 @@
     };
 
     NewValidationResult.prototype.processJson = function (json) {
-      if(json && json != null) {
+      if(json && json != null && json != "null") {
         this.json = angular.fromJson(json);
         this.loadDetection(this.json.detections['Error']);
         this.loadDetection(this.json.detections['Alert']);
