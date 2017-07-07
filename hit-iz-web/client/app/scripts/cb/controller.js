@@ -958,8 +958,7 @@ angular.module('cb')
       $scope.testCases = null;
       $scope.errorTP = null;
       $scope.loadingTP = false;
-
-      console.log("$scope.selectedScope.id=" + $scope.selectedScope.key);
+      StorageService.set(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY, $scope.selectedScope.key);
       if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
         $scope.loadingTP = true;
         var tcLoader = new CBTestPlanListLoader($scope.selectedScope.key);

@@ -67,7 +67,7 @@ angular.module('cf')
       $scope.testCase = null;
       $scope.loadingTC = false;
       $scope.loading = false;
-      console.log("$scope.selectedScope.id=" + $scope.selectedScope.key);
+      StorageService.set(StorageService.CF_SELECTED_TESTPLAN_SCOPE_KEY, $scope.selectedScope.key);
       if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
         $scope.loading = true;
         var tcLoader = new CFTestPlanListLoader($scope.selectedScope.key);
