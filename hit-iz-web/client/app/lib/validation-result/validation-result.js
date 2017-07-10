@@ -209,32 +209,31 @@
           $scope.checkboxConfig['affirmatives'] = {};
           $scope.checkboxConfig['informationals'] = {};
 
-          // console.log("Validation ran");
-          // if(validationResult.errors && validationResult.errors.categories) {
-          //     angular.forEach(validationResult.errors.categories, function (category) {
-          //         $scope.checkboxConfig['errors'][category.title] = false;
-          //     });
-          // }
-          // if(validationResult.alerts&& validationResult.alerts.categories) {
-          //     angular.forEach(validationResult.alerts.categories, function (category) {
-          //         $scope.checkboxConfig['alerts'][category.title] = false;
-          //     });
-          // }
-          // if(validationResult.warnings&& validationResult.warnings.categories) {
-          //     angular.forEach(validationResult.warnings.categories, function (category) {
-          //         $scope.checkboxConfig['warnings'][category.title] = false;
-          //     });
-          // }
-          // if(validationResult.affirmatives&& validationResult.affirmatives.categories) {
-          //     angular.forEach(validationResult.affirmatives.categories, function (category) {
-          //         $scope.checkboxConfig['affirmatives'][category.title] = false;
-          //     });
-          // }
-          // if(validationResult.informationals && validationResult.informationals.categories) {
-          //     angular.forEach(validationResult.informationals.categories, function (category) {
-          //         $scope.checkboxConfig['informationals'][category.title] = false;
-          //     });
-          // }
+          if(validationResult.errors && validationResult.errors.categories) {
+              angular.forEach(validationResult.errors.categories, function (category) {
+                  $scope.checkboxConfig['errors'][category.title] = false;
+              });
+          }
+          if(validationResult.alerts&& validationResult.alerts.categories) {
+              angular.forEach(validationResult.alerts.categories, function (category) {
+                  $scope.checkboxConfig['alerts'][category.title] = false;
+              });
+          }
+          if(validationResult.warnings&& validationResult.warnings.categories) {
+              angular.forEach(validationResult.warnings.categories, function (category) {
+                  $scope.checkboxConfig['warnings'][category.title] = false;
+              });
+          }
+          if(validationResult.affirmatives&& validationResult.affirmatives.categories) {
+              angular.forEach(validationResult.affirmatives.categories, function (category) {
+                  $scope.checkboxConfig['affirmatives'][category.title] = false;
+              });
+          }
+          if(validationResult.informationals && validationResult.informationals.categories) {
+              angular.forEach(validationResult.informationals.categories, function (category) {
+                  $scope.checkboxConfig['informationals'][category.title] = false;
+              });
+          }
           $scope.validResultHighlither = new ValidationResultHighlighter($scope.failuresConfig, $scope.message, $scope.validationResult, $scope.tree, $scope.editor, $scope.checkboxConfig, $scope.treeService);
           $scope.failuresConfig.errors.checked = false;
           $scope.failuresConfig.warnings.checked = false;
@@ -450,6 +449,7 @@
       this.json = null;
       this.duplicatesRemoved = false;
       this.counter = 0;
+      this.timeStamp  = new Date().getTime();
     };
 
     var Entry = function () {
@@ -488,7 +488,7 @@
     };
 
     NewValidationResult.prototype.generateId = function () {
-      return this.counter++;
+      return this.timeStamp + this.counter++;
     };
 
 
