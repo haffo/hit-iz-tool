@@ -1315,6 +1315,7 @@
 			<ValueElement Value="341112003" CodeSystem="SCT" DisplayName="Mumps (finding)"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_VISBarcodes_IIS" Name="PHVS_VISBarcodes_IIS">
+			<ValueElement Value="253088698300031811170706" CodeSystem="cdcgs1vis" DisplayName="Cholera Vaccine VIS"/>
 			<ValueElement Value="253088698300001111110714" CodeSystem="cdcgs1vis" DisplayName="Adenovirus VIS"/>
 			<ValueElement Value="253088698300001111140611" CodeSystem="cdcgs1vis" DisplayName="Adenovirus VIS"/>
 			<ValueElement Value="253088698300002811100310" CodeSystem="cdcgs1vis" DisplayName="Anthrax VIS"/>
