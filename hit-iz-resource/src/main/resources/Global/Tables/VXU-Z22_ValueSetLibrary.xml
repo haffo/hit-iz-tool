@@ -1810,7 +1810,7 @@
 			<ValueElement Value="253088698300027111150224" CodeSystem="cdcgs1vis" DisplayName="Tetanus/Diphtheria/Pertussis (Tdap) VIS"/>
 			<ValueElement Value="253088698300028811140204" CodeSystem="cdcgs1vis" DisplayName="Tetanus/Diphtheria (Td) VIS"/>
 			<ValueElement Value="253088698300028811150224" CodeSystem="cdcgs1vis" DisplayName="Tetanus/Diphtheria (Td) VIS"/>
-			<ValueElement Value="253088698300028811170411" CodeSystem="cdcgs1vis" DisplayName="Tetanus/Diphtheria (Td) VIS"/>
+			<ValueElement Value="253088698300028811170411" CodeSystem="cdcgs1vis" DisplayName="Tetanus/Diphtheria (Td) Vaccine VIS"/>
 			<ValueElement Value="253088698300029511150415" CodeSystem="cdcgs1vis" DisplayName="Human papillomavirus Vaccine, 9-valent (Gardasil 9) VIS"/>
 			<ValueElement Value="253088698300029511160331" CodeSystem="cdcgs1vis" DisplayName="HPV Vaccine (Gardasil-9) VIS"/>
 			<ValueElement Value="253088698300029511161202" CodeSystem="cdcgs1vis" DisplayName="HPV Vaccine VIS"/>
