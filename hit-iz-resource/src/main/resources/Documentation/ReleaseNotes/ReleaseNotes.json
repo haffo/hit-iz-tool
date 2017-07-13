@@ -1,7 +1,7 @@
 [
 	{
 		"version": "1.0.0",
-		"date": "2016/04/02",
+		"date": "2016/02/04",
 		"name": "IZ_Release_Notes.1.0.0.docx",
 		"title": "Release notes 1.0.0"
 	},
@@ -52,5 +52,11 @@
 		"date": "2017/03/17",
 		"name": "IZ_Release_Notes.1.5.1.docx",
 		"title": "Release notes 1.5.1"
+	},
+	{
+		"version": "1.6.0",
+		"date": "2017/07/13",
+		"name": "IZ_Release_Notes.1.6.0.docx",
+		"title": "Release notes 1.6.0"
 	}
 ]

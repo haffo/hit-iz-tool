@@ -2,13 +2,13 @@
 	"installationGuide": {
 		"title": "Installation Guide - NIST HL7v2 Validation Tools.docx",
 		"name": "Installation Guide - NIST HL7v2 Validation Tools.docx",
-		"date": "2016/12/09"
+		"date": "2017/07/12"
 	},
 	"downloads": [
 		{
 			"title": "iztool-1.6.0",
 			"link": "http://hit-2015.nist.gov/wars/iztool-1.6.0.zip",
-			"date": "2017/07/11",
+			"date": "2017/07/13",
 			"customizable": true
 		},
 		{
@@ -47,12 +47,12 @@
 			"date": "2016/03/14"
 		},
 		{
-			"title": "iztool-1.1-0",
+			"title": "iztool-1.1.0",
 			"link": "http://hit-2015.nist.gov/wars/iztool-1.1.0.zip",
 			"date": "2016/02/26"
 		},
 		{
-			"title": "iztool-1.0-0",
+			"title": "iztool-1.0.0",
 			"link": "http://hit-2015.nist.gov/wars/iztool-1.0.0.zip",
 			"date": "2016/02/04"
 		}
