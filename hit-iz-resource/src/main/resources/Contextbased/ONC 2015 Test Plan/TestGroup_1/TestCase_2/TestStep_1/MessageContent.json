@@ -838,6 +838,12 @@ Source", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "PHC70", "categorization"
+: "Value-Test Case Fixed"},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Private", "categorization"
+: "Presence-Test Case Proper"},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -880,6 +886,12 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V01", "categorization"
+: "Value-Test Case Fixed"},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Not VFC Eligible",
+"categorization" : "Presence-Test Case Proper"},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"HL70064", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -922,6 +934,12 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300028811170411",
+"categorization" : "Value-Test Case Fixed"},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Tetanus/Diphtheria
+(Td) Vaccine VIS", "categorization" : "Presence-Test Case Proper"},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"cdcgs1vis", "categorization" : "Value-Profile Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
