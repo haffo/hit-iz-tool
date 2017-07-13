@@ -1,5 +1,5 @@
 {
-  "id" : 44128,
+  "id" : 884486,
   "name" : "IZ-AD-7.1_Send_V04_Z22",
   "description" : "Tests the ability to create a valid VXU^V04 message",
   "type" : "SUT_INITIATOR",
