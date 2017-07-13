@@ -1,7 +1,0 @@
-{
-  "id" : 432720,
-  "name" : "Produce Overdue Immunizations Cohort Report",
-  "description" : "The provider uses the EMR to create a report for all patient vaccinations overdue with the contact information.",
-  "type" : "SUT_MANUAL",
-  "position" : 1
-}
