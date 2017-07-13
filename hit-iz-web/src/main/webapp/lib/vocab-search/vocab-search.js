@@ -59,8 +59,11 @@
 //            });
 
             $rootScope.$on($scope.type + ':showValueSetDefinition', function (event, tableId) {
-                if($scope.valueSetDefinitionDlg && $scope.valueSetDefinitionDlg != null && $scope.valueSetDefinitionDlg.opened){
+                if($scope.valueSetDefinitionDlg && $scope.valueSetDefinitionDlg != null){
                     $scope.valueSetDefinitionDlg.dismiss('cancel');
+                    if($scope.valueSetDefinitionDlg.opened){
+                      $scope.valueSetDefinitionDlg.close('cancel');
+                    }
                 }
                 $scope.valueSetDefinitionDlg = $scope.vocabularyService.showValueSetDefinition(tableId);
             });
@@ -338,9 +341,7 @@
         VocabularyService.prototype.showValueSetDefinition = function (tableId) {
             var tables = this.searchTableById(tableId, this.valueSetDefinitionGroups);
             var t = tables.length > 0 ? tables[0] : null;
-            var modalInstance = null;
-//            if (t != null) {
-                 modalInstance = $modal.open({
+            return $modal.open({
                     templateUrl: 'TableFoundCtrl.html',
                     controller: 'ValueSetDetailsCtrl',
                     windowClass: 'valueset-modal',
@@ -353,8 +354,6 @@
                         }
                     }
                 });
-//            }
-            return modalInstance;
         };
 
         VocabularyService.prototype.getJson = function (id) {
