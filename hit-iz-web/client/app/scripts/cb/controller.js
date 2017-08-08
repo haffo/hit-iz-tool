@@ -1242,9 +1242,8 @@ angular.module('cb')
         $timeout(function () {
           var coordinate = ServiceDelegator.getCursorService($scope.testStep.testContext.format).getCoordinate($scope.editor, $scope.cb.tree);
           if (coordinate && coordinate != null) {
-            coordinate.lineNumber = coordinate.line;
-            coordinate.startIndex = coordinate.startIndex + 1;
-            coordinate.endIndex = coordinate.endIndex + 1;
+            coordinate.start.index = coordinate.start.index + 1;
+            coordinate.end.index = coordinate.end.index + 1;
             $scope.cb.cursor.init(coordinate, true);
             ServiceDelegator.getTreeService($scope.testStep.testContext.format).selectNodeByIndex($scope.cb.tree.root, CB.cursor, CB.message.content);
           }

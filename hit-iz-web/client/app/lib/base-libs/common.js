@@ -13,7 +13,7 @@ angular.module('format').factory('CursorService',
      * @param editor
      */
     CursorService.prototype.getCoordinate = function (editor) {
-      angular.fromJson({line: -1, startIndex: -1, endIndex: -1, index: -1, triggerTree: {}});
+       return angular.fromJson({start: {line : -1, index: -1}, end: {line: -1, index: -1}, triggerTree: {}});
     };
 
     /**
@@ -27,7 +27,7 @@ angular.module('format').factory('CursorService',
      */
     CursorService.prototype.createCoordinate = function (line, startIndex, endIndex, index, triggerTree) {
       try {
-        return angular.fromJson({line: -1, startIndex: -1, endIndex: -1, index: -1, triggerTree: {}});
+        return angular.fromJson({start: {line : line, index: startIndex}, end: {line: line, index: endIndex}, triggerTree: triggerTree});
       } catch (e) {
       }
     };

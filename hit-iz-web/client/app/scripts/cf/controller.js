@@ -373,9 +373,9 @@ angular.module('cf')
       $scope.editor.on("dblclick", function (editor) {
         $timeout(function () {
           var coordinate = ServiceDelegator.getCursorService($scope.testCase.testContext.format).getCoordinate($scope.editor, $scope.cf.tree);
-          coordinate.lineNumber = coordinate.line;
-          coordinate.startIndex = coordinate.startIndex + 1;
-          coordinate.endIndex = coordinate.endIndex + 1;
+          // coordinate.lineNumber = coordinate.start.line;
+          coordinate.start.index = coordinate.start.index + 1;
+          coordinate.end.index = coordinate.end.index + 1;
           $scope.cf.cursor.init(coordinate, true);
           ServiceDelegator.getTreeService($scope.testCase.testContext.format).selectNodeByIndex($scope.cf.tree.root, CF.cursor, CF.message.content);
         });
@@ -423,8 +423,9 @@ angular.module('cf')
     $scope.select = function (element) {
       if (element != undefined && element.path != null && element.line != -1) {
         var node = ServiceDelegator.getTreeService($scope.testCase.testContext.format).selectNodeByPath($scope.cf.tree.root, element.line, element.path);
-        var data = node != null ? node.data : null;
-        $scope.cf.cursor.init(data != null ? data.lineNumber : element.line, data != null ? data.startIndex - 1 : element.column - 1, data != null ? data.endIndex - 1 : element.column - 1, data != null ? data.startIndex - 1 : element.column - 1, false);
+        //var data = node != null ? node.data : null;
+        // $scope.cf.cursor.init(data != null && data.start != null ? data.start.line : element.line, data != null && data.start != null  ? data.start.index - 1 : element.column - 1, data != null && data.end != null  ? data.end.index - 1 : element.column - 1, data != null && data.start != null  ? data.start.index - 1 : element.column - 1, false);
+        $scope.cf.cursor.init(node.data, false);
         ServiceDelegator.getEditorService($scope.testCase.testContext.format).select($scope.editor, $scope.cf.cursor);
       }
     };
@@ -521,7 +522,7 @@ angular.module('cf')
           $scope.cf.editor.instance = $scope.editor;
           $scope.cf.cursor = ServiceDelegator.getCursor($scope.testCase.testContext.format);
           TestStepService.clearRecords($scope.testCase.id);
-          if ($scope.editor) {
+          if ($scope   .editor) {
             $scope.editor.doc.setValue(content);
             $scope.execute();
           }
