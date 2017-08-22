@@ -953,6 +953,7 @@
 		
 		
 		<ValueSetDefinition BindingIdentifier="CVX" Name="Codes for Vaccines administered">
+			<ValueElement Value="186" DisplayName="Influenza, injectable, Madin Darby Canine Kidney, quadrivalent" CodeSystem="CVX"/>
 			<ValueElement Value="185" DisplayName="influenza, recombinant, quadrIvalent,injectable, preservative free" CodeSystem="CVX"/>
 			<ValueElement Value="183" DisplayName="Yellow fever vaccine - alt" CodeSystem="CVX"/>
 			<ValueElement Value="184" DisplayName="Yellow fever, unspecified formulation" CodeSystem="CVX"/>

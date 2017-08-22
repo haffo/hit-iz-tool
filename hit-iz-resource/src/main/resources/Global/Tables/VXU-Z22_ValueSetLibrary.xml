@@ -992,6 +992,7 @@
 			<ValueElement Value="2131-1" CodeSystem="CDCREC" DisplayName="Other Race"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="CVX" Name="Codes for Vaccines administered">
+			<ValueElement Value="186" DisplayName="Influenza, injectable, Madin Darby Canine Kidney, quadrivalent" CodeSystem="CVX"/>
 			<ValueElement Value="185" DisplayName="influenza, recombinant, quadrIvalent,injectable, preservative free" CodeSystem="CVX"/>
 			<ValueElement Value="183" DisplayName="Yellow fever vaccine - alt" CodeSystem="CVX"/>
 			<ValueElement Value="184" DisplayName="Yellow fever, unspecified formulation" CodeSystem="CVX"/>
@@ -1179,7 +1180,9 @@
 			<ValueElement Value="37" DisplayName="yellow fever" CodeSystem="CVX"/>
 			<ValueElement Value="121" DisplayName="zoster" CodeSystem="CVX"/>
 		</ValueSetDefinition>
+				
 		<ValueSetDefinition BindingIdentifier="NDC_Sale" Name="NDC Unit of Sale">
+			<ValueElement Value="58160-0964-12" DisplayName="Rabies - IM fibroblast culture" CodeSystem="NDC"/>
 			<ValueElement Value="58160-0818-11" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
 			<ValueElement Value="00005-0100-02" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
 			<ValueElement Value="00005-0100-05" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
@@ -1431,9 +1434,11 @@
 			<ValueElement Value="70461-0200-01" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0614-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
 		</ValueSetDefinition>
-		
-		
 		<ValueSetDefinition BindingIdentifier="NDC_Use" Name="NDC Unit of Use">
+			<ValueElement Value="58160-0816-01" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0966-12" DisplayName="Rabies - IM fibroblast culture" CodeSystem="NDC"/>
+			<ValueElement Value="58160-0966-01" DisplayName="Rabies - IM fibroblast culture" CodeSystem="NDC"/>
+			<ValueElement Value="63851-0511-11" DisplayName="Rabies - IM fibroblast culture" CodeSystem="NDC"/>
 			<ValueElement Value="58160-0816-05" DisplayName="Hib (PRP-T)" CodeSystem="NDC"/>
 			<ValueElement Value="00005-0100-01" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
 			<ValueElement Value="00005-1970-49" DisplayName="pneumococcal conjugate PCV 7" CodeSystem="NDC"/>
