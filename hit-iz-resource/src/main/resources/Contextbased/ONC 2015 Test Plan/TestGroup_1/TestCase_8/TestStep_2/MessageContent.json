@@ -127,9 +127,9 @@
 : ""},
 							{"location" : "ERR.2.1", "dataelement" : "Segment ID", "data" : "RXR", "categorization"
 : ""},
-							{"location" : "ERR.2.2", "dataelement" : "Segment Sequence", "data" : "2",
+							{"location" : "ERR.2.2", "dataelement" : "Segment Sequence", "data" : "1",
 "categorization" : ""},
-							{"location" : "ERR.2.3", "dataelement" : "Field Position", "data" : "1", "categorization"
+							{"location" : "ERR.2.3", "dataelement" : "Field Position", "data" : "2", "categorization"
 : ""},
 							{"location" : "ERR.2.4", "dataelement" : "Field Repetition", "data" : "1",
 "categorization" : ""},

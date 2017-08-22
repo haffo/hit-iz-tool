@@ -127,14 +127,14 @@
 : ""},
 							{"location" : "ERR.2.1", "dataelement" : "Segment ID", "data" : "MSH", "categorization"
 : ""},
-							{"location" : "ERR.2.2", "dataelement" : "Segment Sequence", "data" : "12",
+							{"location" : "ERR.2.2", "dataelement" : "Segment Sequence", "data" : "1",
 "categorization" : ""},
-							{"location" : "ERR.2.3", "dataelement" : "Field Position", "data" : "1", "categorization"
+							{"location" : "ERR.2.3", "dataelement" : "Field Position", "data" : "12", "categorization"
 : ""},
 							{"location" : "ERR.2.4", "dataelement" : "Field Repetition", "data" : "1",
 "categorization" : ""},
-							{"location" : "ERR.2.5", "dataelement" : "Component Number", "data" : "", "categorization"
-: ""},
+							{"location" : "ERR.2.5", "dataelement" : "Component Number", "data" : "1",
+"categorization" : ""},
 							{"location" : "ERR.2.6", "dataelement" : "Sub-Component Number", "data" : "",
 "categorization" : ""},
 				{"location" : "ERR.3", "dataelement" : "HL7 Error Code", "data" : "", "categorization"
