@@ -1,5 +1,5 @@
 {
-  "id" : 737378,
+  "id" : 1039732,
   "name" : "Transmit the Immunization Report for Juana Maria Gonzales Morales - Fatal Error Handling",
   "description" : "The EMR sends the Immunization Report to the Immunization Registry (VXU/Z22) for updated vaccination information from the visit. This will result in a fatal error from the IIS to assess the EMR ability to receive and display the error.<br>",
   "type" : "SUT_INITIATOR",
