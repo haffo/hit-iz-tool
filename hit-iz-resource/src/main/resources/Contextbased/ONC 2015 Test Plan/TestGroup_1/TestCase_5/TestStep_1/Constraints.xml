@@ -1067,11 +1067,11 @@
     <Context List="9[*]">
       <Pattern>
         <Trigger>
-          <ErrorMessage>Invalid content (based on test case fixed data). The value at ORDER.RXA-5.1 (Identifier) does not match one of the expected values: '58160-0806-01','58160-0806-05'</ErrorMessage>
+          <ErrorMessage>Invalid content (based on test case fixed data). The value at ORDER.RXA-5.1 (Identifier) does not match one of the expected values: '58160-0806-01','58160-0806-05','58160-0816-05','58160-0818-11','58160-0816-01'</ErrorMessage>
           <Assertion>
             <AND>
               <Presence Path="3[1].5[1].1[1]"/>
-              <StringList CSV="58160-0806-01,58160-0806-05" IgnoreCase="false" Path="3[1].5[1].1[1]"/>
+              <StringList CSV="58160-0806-01,58160-0806-05,58160-0816-05,58160-0818-11,58160-0816-01" IgnoreCase="false" Path="3[1].5[1].1[1]"/>
             </AND>
           </Assertion>
         </Trigger>
