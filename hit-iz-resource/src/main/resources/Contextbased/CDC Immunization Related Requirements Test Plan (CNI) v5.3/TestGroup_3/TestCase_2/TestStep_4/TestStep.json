@@ -1,5 +1,5 @@
 {
-  "id" : 1216675,
+  "id" : 1049764,
   "name" : "Attempt to record HepB Vaccine administration route with data validation checking",
   "description" : "The provider records the vaccine administration route in the EMR and is prevented from incorrectly documenting vaccine route",
   "type" : "SUT_MANUAL",

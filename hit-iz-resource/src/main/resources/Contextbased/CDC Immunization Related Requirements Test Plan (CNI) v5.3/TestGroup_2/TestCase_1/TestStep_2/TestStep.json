@@ -1,5 +1,5 @@
 {
-  "id" : 507322,
+  "id" : 1126231,
   "name" : "Query Registry for vaccination history and forecast for Juana Mariana Vazquez",
   "description" : "The EMR generates a Z44 query for immunization history and forecast correctly and without omission according to supplied test data.",
   "type" : "SUT_INITIATOR",

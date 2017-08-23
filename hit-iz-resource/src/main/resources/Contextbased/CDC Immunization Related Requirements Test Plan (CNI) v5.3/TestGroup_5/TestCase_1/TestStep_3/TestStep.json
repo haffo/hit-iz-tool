@@ -1,8 +1,8 @@
 {
-  "id" : 306201,
+  "id" : 996100,
   "name" : "Error Handling - Too many matches found",
   "description" : "The EMR receives a response from the registry query that too many persons are found. The EMR notifies the user/clinician.<br>",
-  "type" : "SUT_INITIATOR",
+  "type" : "TA_RESPONDER",
   "position" : 3,
   "hl7v2" : {
     "messageId" : "6a54b5a1-3d50-423e-9f84-8a721ad76342",

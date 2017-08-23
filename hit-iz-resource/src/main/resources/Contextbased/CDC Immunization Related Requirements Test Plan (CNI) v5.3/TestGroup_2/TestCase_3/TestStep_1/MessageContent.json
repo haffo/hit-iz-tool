@@ -7351,6 +7351,12 @@ Dohme Corp", "categorization" : "Presence-Content Indifferent"},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC12", "categorization"
+: "Indifferent"},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "fever of &amp;gt;40.5C
+(105F) within 48 hours of dose", "categorization" : "Presence-Content Indifferent"},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -7481,6 +7487,12 @@ elig cat", "categorization" : "Presence-Content Indifferent"},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V02", "categorization"
+: "Value-Test Case Fixed"},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "VFC eligible-Medicaid/Medicaid
+Managed Care", "categorization" : "Presence-Content Indifferent"},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"HL70064", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -7523,6 +7535,12 @@ source", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC50", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Public", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -7565,6 +7583,12 @@ elig cat", "categorization" : "Presence-Content Indifferent"},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "V02", "categorization"
+: "Value-Test Case Fixed"},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "VFC eligible-Medicaid/Medicaid
+Managed Care", "categorization" : "Presence-Content Indifferent"},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"HL70064", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -7607,6 +7631,12 @@ elig cat", "categorization" : "Presence-Content Indifferent"},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "21", "categorization"
+: "Value-Test Case Fixed"},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "varicella", "categorization"
+: "Presence-Content Indifferent"},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CVX", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -7737,6 +7767,12 @@ source", "categorization" : ""},
 : ""},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "VXC50", "categorization"
+: ""},
+							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Public", "categorization"
+: ""},
+							{"location" : "OBX.5.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
 				{"location" : "OBX.6", "dataelement" : "Units", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.6.1", "dataelement" : "Identifier", "data" : "", "categorization"
