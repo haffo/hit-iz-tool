@@ -103,23 +103,71 @@
             <td style="width:35%;">
               <div ng-if="isTestStepCompleted(testStep) || testStep.testingType === 'TA_RESPONDER'"
                    style="text-align:center">
-                <a
-                  ng-show="testExecutionService.testStepComments[testStep.id] === null || testExecutionService.testStepComments[testStep.id] == undefined"
-                  ng-click="testExecutionService.testStepComments[testStep.id] = ' '" class="point">
-                  <i class="fa fa-pencil fa-fw"></i>
-                </a>
-                <textarea style="width:100%;height:100%"
+                <!--<a-->
+                  <!--ng-show="testExecutionService.testStepComments[testStep.id] === null || testExecutionService.testStepComments[testStep.id] == undefined"-->
+                  <!--ng-click="testExecutionService.testStepComments[testStep.id] = ' '" class="point">-->
+                  <!--<i class="fa fa-pencil fa-fw"></i>-->
+                <!--</a>-->
+                <!--<textarea style="width:100%;height:100%"-->
+                          <!--class="form-control"-->
+                          <!--ng-blur="updateTestStepValidationReport(testStep)"-->
+                          <!--ng-model="testExecutionService.testStepComments[testStep.id]"-->
+                          <!--ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] != undefined">-->
+                        <!--</textarea>-->
+                <!--<a-->
+                  <!--ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] !== undefined"-->
+                  <!--ng-click="testExecutionService.testStepComments[testStep.id] = null;updateTestStepValidationReport(testStep)"-->
+                  <!--class="point">-->
+                  <!--<i class="fa fa-times fa-fw"></i>-->
+                <!--</a>-->
+                <!---->
+                <!---->
+                <!---->
+
+
+                <textarea style="width:100%;height:100%; margin-bottom:5px"
                           class="form-control"
-                          ng-blur="updateTestStepValidationReport(testStep)"
-                          ng-model="testExecutionService.testStepComments[testStep.id]"
-                          ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] != undefined">
-                        </textarea>
-                <a
-                  ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] !== undefined"
-                  ng-click="testExecutionService.testStepComments[testStep.id] = null;updateTestStepValidationReport(testStep)"
-                  class="point">
+                          ng-model="testExecutionService.testStepCommentsChanges[testStep.id]"
+                          ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] != undefined && testExecutionService.testStepCommentsChanged[testStep.id] == true">
+        </textarea>
+                <p
+                  ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] != undefined && (testExecutionService.testStepCommentsChanged[testStep.id] == false || !testExecutionService.testStepCommentsChanged[testStep.id] || testExecutionService.testStepCommentsChanged[testStep.id] == undefined)">
+                  {{testExecutionService.testStepComments[testStep.id]}}
+                </p>
+
+                <button class="btn btn-xs btn-primary" title="Edit Comment"
+                        ng-show="testExecutionService.testStepComments[testStep.id] != '' && testExecutionService.testStepComments[testStep.id] != null && testExecutionService.testStepComments[testStep.id] !=  undefined && (testExecutionService.testStepCommentsChanged[testStep.id] === false || !testExecutionService.testStepCommentsChanged[testStep.id] || testExecutionService.testStepCommentsChanged[testStep.id] == undefined)"
+                        ng-click="editTestStepComment(testStep)" class="point">
+                  <i class="fa fa-pencil fa-fw"></i>
+                </button>
+
+                <button class="btn btn-xs btn-danger"  title="Delete Comment"
+                        ng-show="testExecutionService.testStepComments[testStep.id] != '' &&  testExecutionService.testStepComments[testStep.id] != null && testExecutionService.testStepComments[testStep.id] !=  undefined && (testExecutionService.testStepCommentsChanged[testStep.id] === false || !testExecutionService.testStepCommentsChanged[testStep.id] || testExecutionService.testStepCommentsChanged[testStep.id] == undefined)"
+                        ng-click="deleteTestStepComment(testStep)" class="point">
+                  <i class="fa fa-trash fa-fw"></i>
+                </button>
+
+
+                <button class="btn btn-xs btn-primary"  title="Add Comment"
+                        ng-show="(testExecutionService.testStepComments[testStep.id] == '' || testExecutionService.testStepComments[testStep.id] == null || testExecutionService.testStepComments[testStep.id] == undefined) && (testExecutionService.testStepCommentsChanged[testStep.id] === false || !testExecutionService.testStepCommentsChanged[testStep.id] || testExecutionService.testStepCommentsChanged[testStep.id] == undefined)"
+                        ng-click="editTestStepComment(testStep)" class="point">
+                  <i class="fa fa-plus fa-fw"></i>
+                </button>
+
+
+
+                <button class="btn btn-xs btn-success"  ng-disabled="testExecutionService.testStepCommentsChanges[testStep.id] == '' || testExecutionService.testStepCommentsChanges[testStep.id] == null" title="Save Comment" ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] !== undefined &&  testExecutionService.testStepCommentsChanged[testStep.id] == true"
+                        ng-click="saveTestStepComment(testStep);"
+                        class="point">
+                  <i class="fa fa-check fa-fw"></i>
+                </button>
+
+                <button class="btn btn-xs btn-danger"  title="Reset Comment" ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] !== undefined &&  testExecutionService.testStepCommentsChanged[testStep.id] == true"
+                        ng-click="resetTestStepComment(testStep);"
+                        class="point">
                   <i class="fa fa-times fa-fw"></i>
-                </a>
+                </button>
+
               </div>
             </td>
           </tr>
