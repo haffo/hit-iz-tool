@@ -107,7 +107,7 @@ angular.module('hl7v2-edi').factory('HL7V2EDICursorServiceClass',
          */
         HL7V2EDICursorServiceClass.prototype.createCoordinate = function (line, startIndex, endIndex, index, triggerTree) {
             try {
-                return  angular.fromJson({line: line, startIndex: startIndex, endIndex: endIndex, index: index, triggerTree: triggerTree, lineNumber:line});
+                return  angular.fromJson( { "start": {"line": line, "index": startIndex},  "end":{ "line": line, "index": endIndex}, "index": index, "triggerTree": triggerTree});
             } catch (e) {
 
             }
@@ -204,10 +204,10 @@ angular.module('hl7v2-edi').factory('HL7V2EDICursorClass',
         HL7V2EDICursorClass.prototype.constructor = HL7V2EDICursorClass;
 
         HL7V2EDICursorClass.prototype.init = function (coordinate, triggerTree) {
-            this.line = coordinate.lineNumber;
-            this.startIndex = coordinate.startIndex - 1;
-            this.endIndex = coordinate.endIndex - 1;
-            this.index = coordinate.startIndex - 1;
+            this.line = coordinate.start.line;
+            this.startIndex = coordinate.start.index - 1;
+            this.endIndex = coordinate.end.index - 1;
+            this.index = coordinate.start.index - 1;
             this.triggerTree = triggerTree;
             this.notify();
         };
@@ -394,9 +394,9 @@ angular.module('hl7v2-edi').factory('HL7V2EDITreeServiceClass',
          * @returns {*}
          */
         HL7V2EDITreeServiceClass.prototype.findNodeByIndex = function (tree, node, lineNumber, startIndex, endIndex, message) {
-            if (node.data.lineNumber <= lineNumber) {
+            if (node.data.start.line <= lineNumber) {
                 var endInd = this.getEndIndex(node, message);
-                if (angular.equals(node.data.startIndex, startIndex) && angular.equals(endInd, endIndex)) {
+                if (angular.equals(node.data.start.index, startIndex) && angular.equals(endInd, endIndex)) {
                     return this.findLastChild(tree, node);
                 }
                 var children = tree.get_children(node);
@@ -453,11 +453,11 @@ angular.module('hl7v2-edi').factory('HL7V2EDITreeServiceClass',
         HL7V2EDITreeServiceClass.prototype.getEndIndex = function (node, message) {
             try {
                 var data = node.data;
-                if (data.endIndex != undefined && data.endIndex != -1) {
-                    return data.endIndex;
+                if (data.end.index != undefined && data.end.index != -1) {
+                    return data.end.index;
                 }
-                data.endIndex =  this.getEndColumn(data.lineNumber, data.startIndex, data.type, data.path, message);
-                return data.endIndex;
+                data.end.index =  this.getEndColumn(data.start.line, data.start.index, data.type, data.path, message);
+                return data.end.index;
             } catch (error) {
                 return -1;
             }
