@@ -171,10 +171,9 @@
             <div ng-show="isTestStepCompleted(row)" style="text-align:center">
 
               <div ng-show="testStep != null && row.id === testStep.id">
-        <textarea style="width:100%;height:100%"
+        <textarea style="width:100%;height:100%; margin-bottom:5px"
                   class="form-control"
-                  ng-blur="editTestStepComment(row)"
-                  ng-model="testExecutionService.testStepComments[row.id]"
+                  ng-model="testExecutionService.testStepCommentsChanges[row.id]"
                   ng-show="testExecutionService.testStepComments[row.id] !== null && testExecutionService.testStepComments[row.id] != undefined && testExecutionService.testStepCommentsChanged[row.id] == true">
         </textarea>
                 <p
@@ -182,30 +181,39 @@
                   {{testExecutionService.testStepComments[row.id]}}
                 </p>
 
-                <a
-                  ng-show="testExecutionService.testStepComments[row.id] != null && testExecutionService.testStepComments[row.id] !=  undefined && (testExecutionService.testStepCommentsChanged[row.id] === false || !testExecutionService.testStepCommentsChanged[row.id] || testExecutionService.testStepCommentsChanged[row.id] == undefined)"
+                <button class="btn btn-xs btn-primary"  title="Edit Comment"
+                  ng-show="testExecutionService.testStepComments[row.id] != '' && testExecutionService.testStepComments[row.id] != null && testExecutionService.testStepComments[row.id] !=  undefined && (testExecutionService.testStepCommentsChanged[row.id] === false || !testExecutionService.testStepCommentsChanged[row.id] || testExecutionService.testStepCommentsChanged[row.id] == undefined)"
                   ng-click="editTestStepComment(row)" class="point">
                   <i class="fa fa-pencil fa-fw"></i>
-                </a>
+                </button>
 
-                <a
-                  ng-show="(testExecutionService.testStepComments[row.id] == null || testExecutionService.testStepComments[row.id] == undefined) && (testExecutionService.testStepCommentsChanged[row.id] === false || !testExecutionService.testStepCommentsChanged[row.id] || testExecutionService.testStepCommentsChanged[row.id] == undefined)"
+                <button class="btn btn-xs btn-danger"  title="Delete Comment"
+                        ng-show="testExecutionService.testStepComments[row.id] != '' &&  testExecutionService.testStepComments[row.id] != null && testExecutionService.testStepComments[row.id] !=  undefined && (testExecutionService.testStepCommentsChanged[row.id] === false || !testExecutionService.testStepCommentsChanged[row.id] || testExecutionService.testStepCommentsChanged[row.id] == undefined)"
+                        ng-click="deleteTestStepComment(row)" class="point">
+                  <i class="fa fa-trash fa-fw"></i>
+                </button>
+
+
+                <button class="btn btn-xs btn-primary"  title="Add Comment"
+                        ng-show="(testExecutionService.testStepComments[row.id] == '' ||  testExecutionService.testStepComments[row.id] == null || testExecutionService.testStepComments[row.id] == undefined) && (testExecutionService.testStepCommentsChanged[row.id] === false || !testExecutionService.testStepCommentsChanged[row.id] || testExecutionService.testStepCommentsChanged[row.id] == undefined)"
                   ng-click="editTestStepComment(row)" class="point">
                   <i class="fa fa-plus fa-fw"></i>
-                </a>
+                </button>
 
-                <a
-                  ng-show="testExecutionService.testStepComments[row.id] !== null && testExecutionService.testStepComments[row.id] !== undefined"
-                  ng-click="deleteTestStepComment(row);"
-                  class="point">
-                  <i class="fa fa-times fa-fw"></i>
-                </a>
-                <a
-                  ng-show="testExecutionService.testStepComments[row.id] !== null && testExecutionService.testStepComments[row.id] !== undefined &&  testExecutionService.testStepCommentsChanged[row.id] == true"
+
+
+                <button class="btn btn-xs btn-success"  title="Save Comment" ng-disabled="testExecutionService.testStepCommentsChanges[row.id] == '' || testExecutionService.testStepCommentsChanges[row.id] == null" ng-show="testExecutionService.testStepComments[row.id] !== null && testExecutionService.testStepComments[row.id] !== undefined &&  testExecutionService.testStepCommentsChanged[row.id] == true"
                   ng-click="saveTestStepComment(row);"
                   class="point">
                   <i class="fa fa-check fa-fw"></i>
-                </a>
+                 </button>
+
+                <button class="btn btn-xs btn-danger"  title="Reset Comment" ng-show="testExecutionService.testStepComments[row.id] !== null && testExecutionService.testStepComments[row.id] !== undefined &&  testExecutionService.testStepCommentsChanged[row.id] == true"
+                        ng-click="resetTestStepComment(row);"
+                        class="point">
+                  <i class="fa fa-times fa-fw"></i>
+                </button>
+
 
               </div>
 

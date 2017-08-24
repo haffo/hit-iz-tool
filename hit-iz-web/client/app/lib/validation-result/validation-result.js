@@ -580,11 +580,14 @@
     NewValidationResult.prototype.processJson = function (json) {
       if(json && json != null && json != "null") {
         this.json = angular.fromJson(json);
-        this.loadDetection(this.json.detections['Error']);
-        this.loadDetection(this.json.detections['Alert']);
-        this.loadDetection(this.json.detections['Warning']);
-        this.loadDetection(this.json.detections['Informational']);
-        this.loadDetection(this.json.detections['Affirmative']);
+        console.log(this.json);
+        if(this.json.detections) {
+          this.loadDetection(this.json.detections['Error']);
+          this.loadDetection(this.json.detections['Alert']);
+          this.loadDetection(this.json.detections['Warning']);
+          this.loadDetection(this.json.detections['Informational']);
+          this.loadDetection(this.json.detections['Affirmative']);
+        }
       }else{
         this.json = null;
       }

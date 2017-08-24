@@ -865,17 +865,57 @@ angular.module('cb')
         $scope.testExecutionService.testStepComments[testStep.id] = '';
       }
       $scope.testExecutionService.testStepCommentsChanged[testStep.id] = true;
+      $scope.testExecutionService.testStepCommentsChanges[testStep.id] = $scope.testExecutionService.testStepComments[testStep.id];
     };
 
     $scope.deleteTestStepComment = function (testStep) {
       $scope.testExecutionService.testStepComments[testStep.id] = null;
+      $scope.testExecutionService.testStepCommentsChanges[testStep.id] = null;
+      $scope.testExecutionService.testStepCommentsChanged[testStep.id] = false;
       $scope.saveTestStepComment(testStep);
+    };;
+
+    $scope.resetTestStepComment = function (testStep) {
+      $scope.testExecutionService.testStepCommentsChanged[testStep.id] = false;
+      $scope.testExecutionService.testStepCommentsChanges[testStep.id] = null;
     };
+
 
     $scope.saveTestStepComment = function (testStep) {
       $scope.testExecutionService.testStepCommentsChanged[testStep.id] = false;
+      $scope.testExecutionService.testStepComments[testStep.id] = $scope.testExecutionService.testStepCommentsChanges[testStep.id];
       $scope.updateTestStepValidationReport(testStep);
+      $scope.testExecutionService.testStepCommentsChanges[testStep.id] = null;
     };
+
+
+    $scope.editTestCaseComment = function (testCase) {
+      if(!$scope.testExecutionService.testCaseComments[testCase.id]) {
+        $scope.testExecutionService.testCaseComments[testCase.id] = '';
+      }
+      $scope.testExecutionService.testCaseCommentsChanged[testCase.id] = true;
+      $scope.testExecutionService.testCaseCommentsChanges[testCase.id] = $scope.testExecutionService.testCaseComments[testCase.id];
+    };
+
+    $scope.deleteTestCaseComment = function (testCase) {
+      $scope.testExecutionService.testCaseComments[testCase.id] = null;
+      $scope.testExecutionService.testCaseCommentsChanges[testCase.id] = null;
+      $scope.testExecutionService.testCaseCommentsChanged[testCase.id] = false;
+      $scope.saveTestCaseComment(testCase);
+    };
+
+    $scope.resetTestCaseComment = function (testCase) {
+      $scope.testExecutionService.testCaseCommentsChanged[testCase.id] = false;
+      $scope.testExecutionService.testCaseCommentsChanges[testCase.id] = null;
+    };
+
+    $scope.saveTestCaseComment = function (testCase) {
+      $scope.testExecutionService.testCaseCommentsChanged[testCase.id] = false;
+      $scope.testExecutionService.testCaseComments[testCase.id] = $scope.testExecutionService.testCaseCommentsChanges[testCase.id];
+      $scope.testExecutionService.testCaseCommentsChanges[testCase.id] = null;
+    };
+
+
 
 
 
@@ -1068,16 +1108,34 @@ angular.module('cb')
     };
 
     $scope.loadTestCase = function (testCase, tab, clear) {
-      var id = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
-      var type = StorageService.get(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
-      StorageService.set(StorageService.CB_LOADED_TESTCASE_ID_KEY, testCase.id);
-      StorageService.set(StorageService.CB_LOADED_TESTCASE_TYPE_KEY, testCase.type);
+
       if (clear === undefined || clear === true) {
         StorageService.remove(StorageService.CB_EDITOR_CONTENT_KEY);
-        var previousId = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
-        TestExecutionService.clear(previousId);
-        StorageService.remove(StorageService.CB_LOADED_TESTSTEP_ID_KEY);
+        var id = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
+        var type = StorageService.get(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
+        if(id != null && id != undefined) {
+          if(type == 'TestCase') { // a test case was loaded
+            TestExecutionService.clearTestCase(id);
+          }else if(type == 'TestStep'){ // a test step was loaded
+            TestExecutionService.clearTestStep(id);
+          }
+          StorageService.remove(StorageService.CB_LOADED_TESTCASE_ID_KEY);
+          StorageService.remove(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
+        }
+
+        id = StorageService.get(StorageService.CB_LOADED_TESTSTEP_ID_KEY);
+        type = StorageService.get(StorageService.CB_LOADED_TESTSTEP_TYPE_KEY);
+
+        if(id != null && id != undefined) { // a test step was executed independent of weither it was part of a test case or test step execution
+          TestExecutionService.clearTestStep(id);
+          StorageService.remove(StorageService.CB_LOADED_TESTCASE_ID_KEY);
+          StorageService.remove(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
+        }
       }
+
+      StorageService.set(StorageService.CB_LOADED_TESTCASE_ID_KEY, testCase.id);
+      StorageService.set(StorageService.CB_LOADED_TESTCASE_TYPE_KEY, testCase.type);
+
       $timeout(function () {
         $rootScope.$broadcast('cb:testCaseLoaded', testCase, tab);
       });
