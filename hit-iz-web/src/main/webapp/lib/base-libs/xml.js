@@ -433,8 +433,8 @@ angular.module('xml').factory('XMLCursor',
 
 
         XMLCursorClass.prototype.init = function (coordinate) {
-            this.start = coordinate.start;
-            this.end = coordinate.end;
+            this.start = coordinate.startIndex;
+            this.end = coordinate.endIndex;
             this.notify();
         };
 
