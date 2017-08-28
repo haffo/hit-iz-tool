@@ -1,9 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ConformanceContext UUID="1d408a41-c09d-4a7b-b290-dc13907eeb35">
-  <Constraints>
-    <Message>
-      <ByID ID="e13dfbab-8832-4c3f-bfa5-0e9c18e644c4"/>
-    </Message>
-  </Constraints>
-</ConformanceContext>
+<ConformanceContext UUID="59a0f1af8350d578bf863848" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Jungyubw/NIST_healthcare_hl7_v2_profile_schema/master/Schema/NIST%20Validation%20Schema/ConformanceContext.xsd"><MetaData Name="No Name" OrgName="NIST" Version="No Version Info" Date="No date" Status="Draft"/><Constraints><Message><ByID ID="57a9116984ae90ce12424ead1234"/></Message></Constraints></ConformanceContext>
