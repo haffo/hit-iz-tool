@@ -39,23 +39,19 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
 
 	@Override
 	public boolean handleRequest(MessageContext messageContext, Object endpoint) throws Exception {
-		// SoapMessage message = (SoapMessage) messageContext.getRequest();
-		// message.setSoapAction(IZWSConstant.SUBMITSINGLEMESSAGE_SOAP_ACTION);
-		logger.info("submitSingleMessage request received");
 		return true;
 	}
 
 	@Override
 	public boolean handleResponse(MessageContext messageContext, Object endpoint) throws Exception {
 		addMessages(messageContext);
-		logger.info("submitSingleMessage response sent");
+
 		return true;
 	}
 
 	@Override
 	public boolean handleFault(MessageContext messageContext, Object endpoint) throws Exception {
 		addMessages(messageContext);
-		logger.info("submitSingleMessage fault sent");
 		return true;
 	}
 
@@ -72,6 +68,10 @@ public class SubmitSingleMessageInterceptor implements EndpointInterceptor {
 			}
 			transaction.setIncoming(XmlUtil.prettyPrint(request));
 			transaction.setOutgoing(XmlUtil.prettyPrint(response));
+			logger.info("submitSingleMessage request received: from username=" + username + "\n");
+			logger.info(transaction.getIncoming() + "\n");
+			logger.info("submitSingleMessage response sent to username=" + username + "\n");
+			logger.info(transaction.getOutgoing() + "\n");
 			transactionService.save(transaction);
 			GCUtil.performGC();
 		} catch (Exception e) {
