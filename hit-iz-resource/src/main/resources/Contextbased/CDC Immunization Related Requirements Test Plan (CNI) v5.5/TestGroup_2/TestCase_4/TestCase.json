@@ -1,0 +1,6 @@
+{
+  "id" : 633987,
+  "name" : "Juana Mariana Vazquez Display Immunization Report",
+  "description" : "Produce an immunization report for the patient including all history (the report can be provided in various formats - e.g., print, send to patient portal, etc.)",
+  "position" : 4
+}
