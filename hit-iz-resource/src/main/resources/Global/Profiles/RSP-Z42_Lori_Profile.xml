@@ -256,7 +256,7 @@
 					<Case Value="CE" SecondValue="64994-7" Datatype="CE_IZ"/>
 					<Case Value="CE" SecondValue="69764-9" Datatype="CE_IZ"/>
 					<Case Value="CE" SecondValue="30956-7" Datatype="CE_IZ"/>
-					<Case Value="CE" Datatype="CE"/>
+					<Case Value="CE" Datatype="CE_IZ"/>
 					<Case Value="DT" Datatype="DT"/>
 					<Case Value="TS" Datatype="TS"/>
 					<Case Value="ST" Datatype="ST"/>
