@@ -627,7 +627,7 @@
 			<ValueElement Value="30982-3" CodeSystem="LN" DisplayName="30982-3 Reason applied by forecast logic to project this vaccine"/>
 			<ValueElement Value="59779-9" CodeSystem="LN" DisplayName="Immunization Schedule used"/>
 			<ValueElement Value="59777-3" CodeSystem="LN" DisplayName="Latest date next dose may be given"/>
-			<ValueElement Value="59778-1" CodeSystem="LN" DisplayName="Reason Code"/>
+			<ValueElement Value="59778-1" CodeSystem="LN" DisplayName="Date Dose is Overdue"/>
 			<ValueElement Value="59780-7" CodeSystem="LN" DisplayName="Immunization Series name"/>
 			<ValueElement Value="59782-3" CodeSystem="LN" DisplayName="Number of doses in primary series"/>
 			<ValueElement Value="59781-5" CodeSystem="LN" DisplayName="Dose validity"/>
