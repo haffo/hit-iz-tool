@@ -492,34 +492,7 @@
                     </Assertion>
                 </Constraint>
             </ByID>
-            <ByID ID="OBX_IZ 1_5">
-                <!-- Lori's CoConstraint Constraints START -->
-                <Constraint ID="IZ-Lori-CE_Mapping" Target="2[1]">
-                    <Description>If The value of OBX-3.1 (Identifier) is one of values: "30982-3, 64994-7, 69764-9, 30956-7, 30945-0, 30963-3, 30979-9, 31044-1, 38890-0, 59779-9, 59780-7, 59781-5, 59783-1, 59784-9, 59785-6, and 75505-8", the value of OBX-2 should be 'CE'.</Description>
-                    <Assertion>
-                        <IMPLY><AND><Presence Path="3[1].1[1]"/><StringList Path="3[1].1[1]" CSV="30982-3,64994-7,69764-9,30956-7,30945-0,30963-3,30979-9,31044-1,38890-0,59779-9,59780-7,59781-5,59783-1,59784-9,59785-6,75505-8"/></AND><PlainText Path="2[1]" Text="CE" IgnoreCase="false"/></IMPLY>
-                    </Assertion>
-                </Constraint>
-                <Constraint ID="IZ-Lori-DT_Mapping" Target="2[1]">
-                    <Description>If The value of OBX-3.1 (Identifier) is one of values: "30946-8,30944-3,29768-9,29769-7,30980-7,59777-3,59778-1,46250-7, and 30981-5", the value of OBX-2 should be 'DT'.</Description>
-                    <Assertion>
-                        <IMPLY><AND><Presence Path="3[1].1[1]"/><StringList Path="3[1].1[1]" CSV="30946-8,30944-3,29768-9,29769-7,30980-7,59777-3,59778-1,46250-7,30981-5"/></AND><PlainText Path="2[1]" Text="DT" IgnoreCase="false"/></IMPLY>
-                    </Assertion>
-                </Constraint>
-                <Constraint ID="IZ-Lori-NM_Mapping" Target="2[1]">
-                    <Description>If The value of OBX-3.1 (Identifier) is one of values: 30973-2 and 59782-3, the value of OBX-2 should be 'NM'.</Description>
-                    <Assertion>
-                        <IMPLY><AND><Presence Path="3[1].1[1]"/><StringList Path="3[1].1[1]" CSV="30973-2,59782-3"/></AND><PlainText Path="2[1]" Text="NM" IgnoreCase="false"/></IMPLY>
-                    </Assertion>
-                </Constraint>
-                <Constraint ID="IZ-Lori-ST_Mapping" Target="2[1]">
-                    <Description>If The value of OBX-3.1 (Identifier) is 46249-9, the value of OBX-2 should be 'ST'.</Description>
-                    <Assertion>
-                        <IMPLY><AND><Presence Path="3[1].1[1]"/><PlainText Path="3[1].1[1]" Text="46249-9" IgnoreCase="false"/></AND><PlainText Path="2[1]" Text="NM" IgnoreCase="false"/></IMPLY>
-                    </Assertion>
-                </Constraint>
-                <!-- Lori's CoConstraint Constraints END -->
-                
+            <ByID ID="OBX_IZ 1_5">                
                 <Constraint ID="IZ-36" Target="5[1]">
                     <Description>If The value of OBX-3.1 (Identifier) is '69764-9' and the value of OBX-2 (Value Type) is 'CE' then the value of OBX-5.1 (Observation Value) SHALL be one of codes listed in the Value Set: PHVS_VISBarcodes_IIS.</Description>
                     <Assertion>
