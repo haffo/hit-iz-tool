@@ -56,7 +56,7 @@ public class ConnectivityUtilTest {
 		String content = IOUtils.toString(ConnectivityUtilTest.class.getResourceAsStream("/1_connectivityTest.xml"));
 		assertNotNull(content);
 		content = ConnectivityUtil.updateConnectivityRequest(content);
-		assertFalse(content.contains("Hello world!"));
+		assertFalse(content.equals("Hello world!"));
 	}
 
 	@Test
@@ -64,6 +64,23 @@ public class ConnectivityUtilTest {
 		String content = IOUtils.toString(ConnectivityUtilTest.class.getResourceAsStream("/2_submitSingleMessage.xml"));
 		String hl7message = ConnectivityUtil.getRequestHl7Message(content);
 		assertNotNull(hl7message);
+	}
+
+	@Test
+	public void testGetConnectivityEchoBack() throws Exception {
+		String content = IOUtils.toString(ConnectivityUtilTest.class.getResourceAsStream("/1_connectivityTest.xml"));
+		assertNotNull(content);
+		content = ConnectivityUtil.getConnectivityEchoBack(content);
+		assertTrue(content.equals("Hello world!"));
+	}
+
+	@Test
+	public void testGetConnectivityReturn() throws Exception {
+		String content = IOUtils
+				.toString(ConnectivityUtilTest.class.getResourceAsStream("/1_connectivityTestResponse.xml"));
+		assertNotNull(content);
+		content = ConnectivityUtil.getConnectivityReturn(content);
+		assertTrue(content.equals("You sent: Hello world!"));
 	}
 
 }
