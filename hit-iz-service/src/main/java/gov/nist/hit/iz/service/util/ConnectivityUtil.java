@@ -27,125 +27,90 @@ public class ConnectivityUtil {
 
 	public static String updateSubmitSingleMessageRequest(String soapEnvelope, String hl7Message, String username,
 			String password, String facilityId) throws Exception {
-		if (soapEnvelope == null)
-			throw new Exception("No message found.");
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setNamespaceAware(true);
-		DocumentBuilder builder = factory.newDocumentBuilder();
-		Document doc = builder.parse(new InputSource(new ByteArrayInputStream(soapEnvelope.getBytes("utf-8"))));
-
+		Document doc = createDoc(soapEnvelope);
+		Node node = null;
 		if (hl7Message != null) {
-			Node hl7MessageNode = findNode(doc,
+			node = findNode(doc,
 					"//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessage']/*[local-name()='hl7Message']");
-			if (hl7MessageNode != null) {
-				hl7MessageNode.setNodeValue(hl7Message);
-			}
+			if (node != null)
+				node.setTextContent(hl7Message);
 		}
 
 		if (username != null) {
-			Node usernameNode = findNode(doc,
+			node = findNode(doc,
 					"//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessage']/*[local-name()='username']");
-			if (usernameNode != null) {
-				usernameNode.setNodeValue(username);
-			}
-
+			if (node != null)
+				node.setTextContent(username);
 		}
 		if (password != null) {
-			Node passwordNode = findNode(doc,
+			node = findNode(doc,
 					"//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessage']/*[local-name()='password']");
-			if (passwordNode != null) {
-				passwordNode.setNodeValue(password);
-			}
+			if (node != null)
+				node.setTextContent(password);
 		}
 
 		if (facilityId != null) {
-			Node facilityIdNode = findNode(doc,
+			node = findNode(doc,
 					"//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessage']/*[local-name()='facilityID']");
-			if (facilityIdNode != null) {
-				facilityIdNode.setNodeValue(facilityId);
-			}
-
+			if (node != null)
+				node.setTextContent(facilityId);
 		}
-		DOMSource domSource = new DOMSource(doc);
-		StringWriter writer = new StringWriter();
-		StreamResult result = new StreamResult(writer);
-		TransformerFactory tf = TransformerFactory.newInstance();
-		Transformer transformer = tf.newTransformer();
-		transformer.transform(domSource, result);
-		return writer.toString();
+		return toString(doc);
+	}
 
+	public static String getConnectivityEchoBack(String soapEnvelope) throws Exception {
+		Document doc = createDoc(soapEnvelope);
+		Node eckoBackNode = ConnectivityUtil.findNode(doc,
+				"//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='connectivityTest']/*[local-name()='echoBack']");
+		return getNodeContent(eckoBackNode);
+	}
+
+	public static String getConnectivityReturn(String soapEnvelope) throws Exception {
+		Document doc = createDoc(soapEnvelope);
+		Node node = ConnectivityUtil.findNode(doc,
+				"//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='connectivityTestResponse']/*[local-name()='return']");
+		return getNodeContent(node);
 	}
 
 	public static String getRequestHl7Message(String soapEnvelope) throws Exception {
-		if (soapEnvelope == null)
-			throw new Exception("No message found.");
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setNamespaceAware(true);
-		DocumentBuilder builder = factory.newDocumentBuilder();
-		Document doc = builder.parse(new InputSource(new ByteArrayInputStream(soapEnvelope.getBytes("utf-8"))));
-
+		Document doc = createDoc(soapEnvelope);
 		Node hl7MessageNode = findNode(doc,
 				"//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessage']/*[local-name()='hl7Message']");
-		if (hl7MessageNode != null) {
-			return hl7MessageNode.getNodeValue();
-		}
-		return null;
+		return getNodeContent(hl7MessageNode);
 	}
 
 	public static String getResponseHl7Message(String soapEnvelope) throws Exception {
-		if (soapEnvelope == null)
-			throw new Exception("No message found.");
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setNamespaceAware(true);
-		DocumentBuilder builder = factory.newDocumentBuilder();
-		Document doc = builder.parse(new InputSource(new ByteArrayInputStream(soapEnvelope.getBytes("utf-8"))));
-
+		Document doc = createDoc(soapEnvelope);
 		Node hl7MessageNode = findNode(doc,
 				"//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessageResponse']/*[local-name()='return']");
-		if (hl7MessageNode != null) {
-			return hl7MessageNode.getNodeValue();
-		}
-		return null;
+		return getNodeContent(hl7MessageNode);
 	}
 
 	public static String updateConnectivityRequest(String content) throws Exception {
 		if (content == null)
 			throw new Exception("No message found.");
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setNamespaceAware(true);
-		DocumentBuilder builder = factory.newDocumentBuilder();
-		Document doc = builder.parse(new InputSource(new ByteArrayInputStream(content.getBytes("utf-8"))));
-
+		Document doc = createDoc(content);
 		Node echoBack = findNode(doc,
 				"//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='connectivityTest']/*[local-name()='echoBack']");
 		if (echoBack != null) {
 			int i = new Random().nextInt(1000);
 			int j = new Random().nextInt(1000);
-			echoBack.setNodeValue(String.format("%d+%d=%d", i, j, i + j));
+			echoBack.setTextContent(String.format("%d+%d=%d", i, j, i + j));
 		}
-
-		DOMSource domSource = new DOMSource(doc);
-		StringWriter writer = new StringWriter();
-		StreamResult result = new StreamResult(writer);
-		TransformerFactory tf = TransformerFactory.newInstance();
-		Transformer transformer = tf.newTransformer();
-		transformer.transform(domSource, result);
-		return writer.toString();
-
+		return toString(doc);
 	}
 
 	public static Node findNode(String requestContent, String query) {
 		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setNamespaceAware(true);
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(new InputSource(new ByteArrayInputStream(requestContent.getBytes("utf-8"))));
-			return findNode(doc, query);
+			return findNode(createDoc(requestContent), query);
 		} catch (SAXException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -161,6 +126,31 @@ public class ConnectivityUtil {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public static Document createDoc(String content) throws Exception {
+		if (content == null)
+			throw new Exception("No content found.");
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		factory.setNamespaceAware(true);
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		return builder.parse(new InputSource(new ByteArrayInputStream(content.getBytes("utf-8"))));
+	}
+
+	public static String toString(Document doc) throws Exception {
+		if (doc == null)
+			throw new Exception("No document found.");
+		DOMSource domSource = new DOMSource(doc);
+		StringWriter writer = new StringWriter();
+		StreamResult result = new StreamResult(writer);
+		TransformerFactory tf = TransformerFactory.newInstance();
+		Transformer transformer = tf.newTransformer();
+		transformer.transform(domSource, result);
+		return writer.toString();
+	}
+
+	private static String getNodeContent(Node node) {
+		return node != null ? node.getTextContent() : null;
 	}
 
 }

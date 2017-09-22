@@ -19,7 +19,6 @@ import org.jdom2.located.LocatedElement;
 import org.jdom2.located.LocatedJDOMFactory;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
-import org.w3c.dom.Node;
 
 import gov.nist.healthcare.core.MalformedMessageException;
 import gov.nist.healthcare.core.message.v2.er7.Er7Message;
@@ -39,13 +38,9 @@ public class CDCSoapValidation {
 	private ArrayList<MessageFailureV3> verifySubmitSingleMessageRequest(String soapMessage, String phase) {
 		ArrayList<MessageFailureV3> soapFailures = new ArrayList<MessageFailureV3>();
 		try {
-
-			String hl7Path = "//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessage']/*[local-name()='hl7Message']";
-
-			Node content = ConnectivityUtil.findNode(soapMessage, hl7Path);
-			if (content != null && !"".equals(content)) {
+			String hl7Message = ConnectivityUtil.getRequestHl7Message(soapMessage);
+			if (hl7Message != null && !"".equals(hl7Message)) {
 				String path = "/Envelope[1]/Body[1]/submitSingleMessage[1]/hl7Message[1]";
-				String hl7Message = content.getNodeValue();
 				String cdataStart = "<![CDATA[";
 				String cdataEnd = "]]>";
 				if (hl7Message.startsWith("<![CDATA[")) {
@@ -86,13 +81,9 @@ public class CDCSoapValidation {
 		ArrayList<MessageFailureV3> soapFailures = new ArrayList<MessageFailureV3>();
 		try {
 			if (requestMessage != null) {
-				Node eckoBackNode = ConnectivityUtil.findNode(requestMessage,
-						"//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='connectivityTest']/*[local-name()='echoBack']");
-				String echoBack = eckoBackNode != null ? eckoBackNode.getNodeValue() : null;
-				Node returnNode = ConnectivityUtil.findNode(soapMessage,
-						"//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='connectivityTestResponse']/*[local-name()='return']");
-				String returnedValue = returnNode != null ? returnNode.getNodeValue() : null;
-				if (returnNode == null || returnedValue == null) {
+				String echoBack = ConnectivityUtil.getConnectivityEchoBack(requestMessage);
+				String returnedValue = ConnectivityUtil.getConnectivityReturn(soapMessage);
+				if (returnedValue == null) {
 					MessageFailureV3 mf = new MessageFailureV3();
 					mf.setFailureType(AssertionTypeV3Constants.SOAP);
 					mf.setFailureSeverity(ErrorSeverityConstants.NORMAL);
@@ -123,12 +114,9 @@ public class CDCSoapValidation {
 	private ArrayList<MessageFailureV3> verifySubmitSingleMessageResponse(String soapMessage) {
 		ArrayList<MessageFailureV3> soapFailures = new ArrayList<MessageFailureV3>();
 		try {
-			String hl7Path = "//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='submitSingleMessageResponse']/*[local-name()='return']";
-
-			Node content = ConnectivityUtil.findNode(soapMessage, hl7Path);
-			if (content != null && !"".equals(content)) {
+			String returnContent = ConnectivityUtil.getResponseHl7Message(soapMessage);
+			if (returnContent != null && !"".equals(returnContent)) {
 				String path = "/Envelope[1]/Body[1]/submitSingleMessageResponse[1]/return[1]";
-				String returnContent = content.getNodeValue();
 				String cdataStart = "<![CDATA[";
 				String cdataEnd = "]]>";
 				if (returnContent.startsWith("<![CDATA[")) {
