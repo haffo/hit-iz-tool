@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ConformanceContext UUID="be32dab7-da86-421b-b234-56ca05fb3689">
-  <Constraints>
-    <Message>
-      <ByID ID="e13dfbab-8832-4c3f-bfa5-0e9c18e644c4"/>
-    </Message>
-  </Constraints>
-</ConformanceContext>

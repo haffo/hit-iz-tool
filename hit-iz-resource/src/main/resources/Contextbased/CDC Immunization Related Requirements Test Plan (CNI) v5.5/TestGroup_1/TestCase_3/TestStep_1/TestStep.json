@@ -1,7 +1,0 @@
-{
-  "id" : 62028,
-  "name" : "Enter Initial Demographic Data for Juana Mariela Gonzales",
-  "description" : "Juana Mariela Gonzales, infant twin, is entered as a new patient in the EMR, including all pediatric demographic information.",
-  "type" : "SUT_MANUAL",
-  "position" : 1
-}
