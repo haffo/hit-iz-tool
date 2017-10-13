@@ -1746,16 +1746,6 @@
                         />
                     </Assertion>
                 </Constraint>
-                <Constraint ID="Content" Target="9[3].5[1].1[1].5[1].2[1]">
-                    <Reference Source="testcase"
-                        GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
-                        ReferencePath="ORDER[3].OBSERVATION[1].OBX[1].5[1].2[1]"
-                        TestDataCategorization="Presence-Content Indifferent"/>
-                    <Description>Expected content is missing. The empty value at ORDER[3].OBSERVATION.OBX-5.2 (Observation Value) is expected to be present.</Description>
-                    <Assertion>
-                        <Presence Path="9[3].5[1].1[1].5[1].2[1]"/>
-                    </Assertion>
-                </Constraint>
                 <Constraint ID="Content" Target="9[3].5[2].1[1].3[1].1[1]">
                     <Reference Source="testcase"
                         GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"

@@ -344,42 +344,6 @@
                         <PlainText Path="3[1].9[1].7[1]" Text="5551214" IgnoreCase="true"/>
                     </Assertion>
                 </Constraint>
-                <Constraint ID="Content" Target="3[1].10[1]">
-                    <Reference Source="testcase"
-                        GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
-                        ReferencePath="QPD[1].10[1]" TestDataCategorization="Value-Test Case Fixed"/>
-                    <Description>Expected content is missing. The empty value at QPD-10 (Multiple birth indicator) is expected to be present.</Description>
-                    <Assertion>
-                        <Presence Path="3[1].10[1]"/>
-                    </Assertion>
-                </Constraint>
-                <Constraint ID="Content" Target="3[1].10[1]">
-                    <Reference Source="testcase"
-                        GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
-                        ReferencePath="QPD[1].10[1]" TestDataCategorization="Value-Test Case Fixed"/>
-                    <Description>Invalid content (based on test case fixed data). The value at QPD-10 (Multiple birth indicator) does not match the expected value: ''.</Description>
-                    <Assertion>
-                        <PlainText Path="3[1].10[1]" Text="" IgnoreCase="true"/>
-                    </Assertion>
-                </Constraint>
-                <Constraint ID="Content" Target="3[1].11[1]">
-                    <Reference Source="testcase"
-                        GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
-                        ReferencePath="QPD[1].11[1]" TestDataCategorization="Value-Test Case Fixed"/>
-                    <Description>Expected content is missing. The empty value at QPD-11 (Birth order) is expected to be present.</Description>
-                    <Assertion>
-                        <Presence Path="3[1].11[1]"/>
-                    </Assertion>
-                </Constraint>
-                <Constraint ID="Content" Target="3[1].11[1]">
-                    <Reference Source="testcase"
-                        GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
-                        ReferencePath="QPD[1].11[1]" TestDataCategorization="Value-Test Case Fixed"/>
-                    <Description>Invalid content (based on test case fixed data). The value at QPD-11 (Birth order) does not match the expected value: ''.</Description>
-                    <Assertion>
-                        <PlainText Path="3[1].11[1]" Text="" IgnoreCase="true"/>
-                    </Assertion>
-                </Constraint>
             </ByID>
         </Message>
     </Constraints>
