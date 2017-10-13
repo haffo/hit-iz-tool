@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "<p>Following the vaccine administration, the mother reports that the patient had a rash within 14 days of dose.</p>\r\n",
-  "comments" : "<p>No Comments</p>\r\n",
-  "preCondition" : "<p>The vaccinations for the visit have been administered.</p>\r\n",
-  "postCondition" : "<p>The adverse reaction to the Influenza vaccination of rash within 14 days of dose is recorded in the EMR.</p>\r\n",
-  "testObjectives" : "<p><em><strong>Identify Adverse Event:</strong></em> The EHR or other clinical software system enables capture of structured data regarding adverse events.</p><p>Support for:</p><p><span style=\"font-style: italic;\"><span style=\"font-weight: bold;\">Notify Public Health Immunization Registry (IIS) of Update from Adverse Event: </span></span>The\r\n EHR or other clinical software system notifies the public health \r\nimmunization registry (IIS) of an update due to an adverse event. </p>\r\n",
-  "evaluationCriteria" : "<p>Verify that vendor can record the adverse reaction to the Influenza vaccination of rash within 14 days of dose correctly and without omission (VXC14). The coded value is not expected to be displayed to the user, but it is expected that the value selected has the identified meaning,  and it is expected that the system will use the coded value when the attribute is conveyed in later transactions.<br></p>\r\n",
-  "notes" : "<p>Adverse Reactions may be documented with SNOMED-CT or as a narrative note. <br></p>\r\n"
-}
