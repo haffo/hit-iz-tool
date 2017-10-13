@@ -1,0 +1,10 @@
+<ConformanceContext UUID="59df9d454ede243a807f7d1e"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Jungyubw/NIST_healthcare_hl7_v2_profile_schema/master/Schema/NIST%20Validation%20Schema/ConformanceContext.xsd">
+    <MetaData Name="No Name" OrgName="NIST" Version="No Version Info" Date="No date" Status="Draft"/>
+    <Constraints>
+        <Message>
+            <ByID ID="6a54b5a1-3d50-423e-9f84-8a721ad76342-Lori"/>
+        </Message>
+    </Constraints>
+</ConformanceContext>
