@@ -50,8 +50,8 @@ public class HL7MessageUtil {
 			if (index > -1 && fields_2.length >= 9) {
 				String msa_1 = segments_1[index];
 				String[] msa_1_fields = msa_1.split(Pattern.quote("|"));
-				if (msa_1_fields.length >= 2) {
-					msa_1_fields[1] = fields_2[9];
+				if (msa_1_fields.length >= 3) {
+					msa_1_fields[2] = fields_2[9];
 				}
 
 				buff = new StringBuffer();
