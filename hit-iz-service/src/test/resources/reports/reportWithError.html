@@ -1,0 +1,240 @@
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>Message Validation Report</title>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<style>
+.row4 a, .row3 a {
+	color: #003399;
+	text-decoration: underline;
+}
+
+.row4 a:hover, .row3 a:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+
+.headerReport {
+	width: 250px;
+}
+
+.row1 {
+	vertical-align: top;
+	background-color: #EFEFEF;
+	width: 100px;
+}
+
+.row2 {
+	background-color: #DEE3E7;
+	width: 100px;
+}
+
+.row3 {
+	background-color: #D1D7DC;
+	vertical-align: top;
+}
+
+.row4 {
+	background-color: #EFEFEF;
+	vertical-align: top;
+}
+
+.row5 {
+	background-color: #FFEC9D;
+	vertical-align: top;
+}
+
+.forumline {
+	background-color: #FFFFFF;
+	border: 2px #006699 solid;
+	width: 700px;
+}
+
+.maintitle {
+	font-weight: bold;
+	font-size: 22px;
+	font-family: Georgia, Verdana;
+	text-decoration: none;
+	line-height: 120%;
+	color: #000000;
+}
+</style>
+</head>
+<body>
+	<div
+		xmlns:report="http://www.nist.gov/healthcare/validation/message/hl7/v3/report"
+		xmlns:message="http://www.nist.gov/healthcare/generation/message"
+		xmlns:context="http://www.nist.gov/healthcare/validation/message/hl7/v3/context"
+		xmlns:profile="http://www.nist.gov/healthcare/profile" id="mvrTitle"
+		style="display: block;">
+		<table width="100%" cellpadding="2" cellspacing="1" border="0"
+			class="forumline">
+			<tr>
+				<td><font class="maintitle">Message Validation Report</font></td>
+				<td align="right">Date: 10 12 2017, 23:03:16.096-04:00</td>
+			</tr>
+		</table>
+	</div>
+	<div
+		xmlns:report="http://www.nist.gov/healthcare/validation/message/hl7/v3/report"
+		xmlns:message="http://www.nist.gov/healthcare/generation/message"
+		xmlns:context="http://www.nist.gov/healthcare/validation/message/hl7/v3/context"
+		xmlns:profile="http://www.nist.gov/healthcare/profile" id="mvrSummary"
+		style="display: block;">
+		<br>
+		<table width="100%" cellpadding="2" cellspacing="1" border="0"
+			class="forumline">
+			<tr>
+				<th colspan="3">Summary</th>
+			</tr>
+			<tr>
+				<td class="row1">Errors</td>
+				<td class="row2">5</td>
+			</tr>
+			<tr>
+				<td class="row1">Affirmatives</td>
+				<td class="row2">0</td>
+			</tr>
+			<tr>
+				<td class="row1">Warnings</td>
+				<td class="row2">0</td>
+			</tr>
+			<tr>
+				<td class="row1">Ignored</td>
+				<td class="row2">0</td>
+			</tr>
+			<tr>
+				<td class="row1">Alerts</td>
+				<td class="row2">0</td>
+			</tr>
+		</table>
+	</div>
+	<div
+		xmlns:report="http://www.nist.gov/healthcare/validation/message/hl7/v3/report"
+		xmlns:message="http://www.nist.gov/healthcare/generation/message"
+		xmlns:context="http://www.nist.gov/healthcare/validation/message/hl7/v3/context"
+		xmlns:profile="http://www.nist.gov/healthcare/profile"
+		id="mvrMessageContentBox" style="display: block;">
+		<br>
+		<table width="100%" cellpadding="2" cellspacing="1" border="0"
+			class="forumline">
+			<tr>
+				<th class="headerReport">Message Content</th>
+			</tr>
+			<tr>
+				<td class="row4">
+					<div style="text-align: left">
+						<textarea rows="15" cols="110" readonly="true" wrap="off">&lt;![CDATA[&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;Envelope xmlns="http://www.w3.org/2003/05/soap-envelope"&gt;
+   &lt;Header /&gt;
+   &lt;Body&gt;
+      &lt;submitSingleMessage xmlns="urn:cdc:iisb:2011"&gt;
+         &lt;usernameX&gt;&lt;/usernameX&gt;
+         &lt;passwordX&gt;&lt;/passwordX&gt;
+         &lt;facilityIDX&gt;&lt;/facilityIDX&gt;
+         &lt;hl7MessageX&gt;&lt;/hl7MessageX&gt;
+      &lt;/submitSingleMessage&gt;
+   &lt;/Body&gt;
+&lt;/Envelope&gt;
+]]&gt;</textarea>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div
+		xmlns:report="http://www.nist.gov/healthcare/validation/message/hl7/v3/report"
+		xmlns:message="http://www.nist.gov/healthcare/generation/message"
+		xmlns:context="http://www.nist.gov/healthcare/validation/message/hl7/v3/context"
+		xmlns:profile="http://www.nist.gov/healthcare/profile" id="mvrErrors"
+		style="display: block">
+		<br>
+		<table width="100%" cellpadding="2" cellspacing="1" border="0"
+			class="forumline">
+			<tr>
+				<th colspan="3">Validation Errors</th>
+			</tr>
+			<tr>
+				<td colspan="4" class="row5">Error Details</td>
+			</tr>
+			<tr>
+				<td class="row3" rowspan="2" style="width: 10px;">1</td>
+				<td class="row3">Type:</td>
+				<td class="row3" colspan="2">SOAP Wrapper</td>
+			</tr>
+			<tr>
+				<td class="row3">Description:</td>
+				<td class="row3" colspan="2">ERROR: CDC_WSDL1.0: The
+					'submitSingleMessage' element must contain one 'hl7Message' element</td>
+			</tr>
+			<tr>
+				<td class="row4" rowspan="2" style="width: 10px;">2</td>
+				<td class="row4">Type:</td>
+				<td class="row4" colspan="2">SOAP Wrapper</td>
+			</tr>
+			<tr>
+				<td class="row4">Description:</td>
+				<td class="row4" colspan="2">WARNING: CDC_WSDL1.0: an optional
+					'username' element is not contained within 'submitSingleMessage'
+					Note that most IIS will require a username/password.</td>
+			</tr>
+			<tr>
+				<td class="row3" rowspan="2" style="width: 10px;">3</td>
+				<td class="row3">Type:</td>
+				<td class="row3" colspan="2">SOAP Wrapper</td>
+			</tr>
+			<tr>
+				<td class="row3">Description:</td>
+				<td class="row3" colspan="2">WARNING: CDC_WSDL1.0: an optional
+					'password' element is not contained within 'submitSingleMessage'
+					Note that most IIS will require a username/password.</td>
+			</tr>
+			<tr>
+				<td class="row4" rowspan="2" style="width: 10px;">4</td>
+				<td class="row4">Type:</td>
+				<td class="row4" colspan="2">SOAP Wrapper</td>
+			</tr>
+			<tr>
+				<td class="row4">Description:</td>
+				<td class="row4" colspan="2">WARNING: CDC_WSDL1.0: an optional
+					'facilityID' element is not contained within 'submitSingleMessage'
+					Note that most IIS will require a facilityID</td>
+			</tr>
+			<tr>
+				<td class="row3" rowspan="2" style="width: 10px;">5</td>
+				<td class="row3">Type:</td>
+				<td class="row3" colspan="2">SOAP Wrapper</td>
+			</tr>
+			<tr>
+				<td class="row3">Description:</td>
+				<td class="row3" colspan="2">The only valid child elements of
+					submitSingleMessage are username, password, facilityID, and
+					hl7Message</td>
+			</tr>
+		</table>
+	</div>
+	<div
+		xmlns:report="http://www.nist.gov/healthcare/validation/message/hl7/v3/report"
+		xmlns:message="http://www.nist.gov/healthcare/generation/message"
+		xmlns:context="http://www.nist.gov/healthcare/validation/message/hl7/v3/context"
+		xmlns:profile="http://www.nist.gov/healthcare/profile"
+		id="mvrWarnings" style="display: block"></div>
+	<div
+		xmlns:report="http://www.nist.gov/healthcare/validation/message/hl7/v3/report"
+		xmlns:message="http://www.nist.gov/healthcare/generation/message"
+		xmlns:context="http://www.nist.gov/healthcare/validation/message/hl7/v3/context"
+		xmlns:profile="http://www.nist.gov/healthcare/profile"
+		id="mvrAffirmatives" style="display: block"></div>
+	<div
+		xmlns:report="http://www.nist.gov/healthcare/validation/message/hl7/v3/report"
+		xmlns:message="http://www.nist.gov/healthcare/generation/message"
+		xmlns:context="http://www.nist.gov/healthcare/validation/message/hl7/v3/context"
+		xmlns:profile="http://www.nist.gov/healthcare/profile" id="mvrIgnored"
+		style="display: none"></div>
+	<div
+		xmlns:report="http://www.nist.gov/healthcare/validation/message/hl7/v3/report"
+		xmlns:message="http://www.nist.gov/healthcare/generation/message"
+		xmlns:context="http://www.nist.gov/healthcare/validation/message/hl7/v3/context"
+		xmlns:profile="http://www.nist.gov/healthcare/profile" id="mvrAlerts"
+		style="display: block"></div>
+</body>
+</html>

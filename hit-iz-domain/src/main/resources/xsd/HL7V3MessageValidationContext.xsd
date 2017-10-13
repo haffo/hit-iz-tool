@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 sp1 (http://www.altova.com) by Sydney (NIST) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.nist.gov/healthcare/validation/message/hl7/v3/context" xmlns:message="http://www.nist.gov/healthcare/message" xmlns:validation="http://www.nist.gov/healthcare/validation" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://www.nist.gov/healthcare/validation/message/hl7/v3/context" elementFormDefault="qualified" attributeFormDefault="unqualified" xml:validation="http://www.nist.gov/healthcare/validation/message/hl7">
+	<xs:import namespace="http://www.nist.gov/healthcare/message" schemaLocation="Message.xsd"/>
+	<xs:import namespace="http://www.nist.gov/healthcare/validation" schemaLocation="Validation.xsd"/>
+	<xs:complexType name="MessageFailureInterpretationV3">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="MessageFailure" type="MessageFailureV3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DataValueLocationItemV3">
+		<xs:sequence>
+			<xs:element name="XPath">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="CheckAll" type="xs:boolean"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Value" type="validation:Value" maxOccurs="unbounded"/>
+			<xs:element name="Comment" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageInstanceSpecificValuesV3">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="DataValueLocationItem" type="DataValueLocationItemV3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageFailureV3">
+		<xs:attribute name="Result" type="validation:AssertionResultConstants" use="required"/>
+		<xs:attribute name="Type" type="validation:AssertionTypeV3Constants" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="HL7V3MessageValidationContextDefinition">
+		<xs:sequence>
+			<xs:element name="FailureInterpretation" type="MessageFailureInterpretationV3"/>
+			<xs:element name="MessageInstanceSpecificValues" type="MessageInstanceSpecificValuesV3" minOccurs="0"/>
+			<xs:element name="IfThenElse" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="If" type="DataValueLocationItemV3"/>
+						<xs:element name="Then" type="DataValueLocationItemV3"/>
+						<xs:element name="Else" type="DataValueLocationItemV3" minOccurs="0"/>
+					</xs:sequence>
+					<xs:attribute name="MatchingSegmentInstanceNumber" type="xs:boolean"/>
+					<xs:attribute name="MatchingFieldInstanceNumber" type="xs:boolean"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PluginCheck" type="validation:PluginCheckType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="HL7V3MessageValidationContextDefinition" type="HL7V3MessageValidationContextDefinition"/>
+</xs:schema>

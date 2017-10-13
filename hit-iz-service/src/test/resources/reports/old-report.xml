@@ -1,0 +1,60 @@
+<HL7V3MessageValidationReport xmlns="http://www.nist.gov/healthcare/validation/message/hl7/v3/report" xmlns:mes="http://www.nist.gov/healthcare/validation/message" xmlns:con="http://www.nist.gov/healthcare/validation/message/hl7/v3/context">
+  <HeaderReport>
+    <mes:ValidationStatus>Complete</mes:ValidationStatus>
+    <mes:ServiceName>NIST SOAP Message Validation</mes:ServiceName>
+    <mes:ServiceProvider>NIST SOAP Validation tool</mes:ServiceProvider>
+    <mes:ServiceVersion>1.0</mes:ServiceVersion>
+    <mes:StandardType>HL7 V3</mes:StandardType>
+    <mes:ValidationType>Automated</mes:ValidationType>
+    <mes:DateOfTest>2017-10-12-04:00</mes:DateOfTest>
+    <mes:TimeOfTest>22:24:47.561-04:00</mes:TimeOfTest>
+    <mes:TestObjectReferenceList>
+      <mes:TestObjectReference Type="Filename"/>
+    </mes:TestObjectReferenceList>
+    <mes:PositiveAssertionIndicator>true</mes:PositiveAssertionIndicator>
+    <mes:AffirmCount>0</mes:AffirmCount>
+    <mes:ErrorCount>1</mes:ErrorCount>
+    <mes:WarningCount>0</mes:WarningCount>
+    <mes:IgnoreCount>0</mes:IgnoreCount>
+    <mes:AlertCount>0</mes:AlertCount>
+    <mes:TestObject><![CDATA[<Envelope xmlns="http://www.w3.org/2003/05/soap-envelope">
+  <Header/>
+  <Body>
+    <submitSingleMessage xmlns="urn:cdc:iisb:2011">
+      <username/>
+      <password>Spartans300!</password>
+      <facilityID>EHR1234</facilityID>
+      <hl7Message>MSH|^~\&amp;|Test EHR Application|X68||NIST Test Iz Reg|201207010822||VXU^V04^VXU_V04|NIST-IZ-007.00|P|2.5.1|||AL|ER
+PID|1||MR-99922^^^NIST MPI^MR||Montgomery^Lewis^^^^^L||20010821|M
+ORC|RE||IZ-783276^NDA
+RXA|0|1|20110215||118^HPV^CVX|999|||01^Historical information - source unspecified^NIP001</hl7Message>
+    </submitSingleMessage>
+  </Body>
+</Envelope>]]></mes:TestObject>
+  </HeaderReport>
+  <SpecificReport>
+    <MetaData>
+      <Message Filename=""/>
+      <Context>
+        <con:FailureInterpretation>
+          <con:MessageFailure Type="HUMAN_CHECK" Result="WARNING"/>
+          <con:MessageFailure Type="MESSAGE_VALIDATION_CONTEXT" Result="ALERT"/>
+          <con:MessageFailure Type="DATA" Result="ERROR"/>
+          <con:MessageFailure Type="STRUCTURE" Result="ERROR"/>
+          <con:MessageFailure Type="SOAP" Result="ERROR"/>
+          <con:MessageFailure Type="WSA" Result="ERROR"/>
+          <con:MessageFailure Type="HTTP" Result="ERROR"/>
+          <con:MessageFailure Type="DATA_PASSED" Result="IGNORE"/>
+        </con:FailureInterpretation>
+      </Context>
+    </MetaData>
+    <AssertionList>
+      <Assertion Type="SOAP" Result="ERROR" Severity="NORMAL">
+        <Location>
+          <XPath>/Envelope[1]/Body[1]/submitSingleMessage[1]/username[1]</XPath>
+        </Location>
+        <Description>WARNING: CDC_WSDL1.0: the optional element 'username' doesn't contain any data. Note that most IIS will require a non-empty username.</Description>
+      </Assertion>
+    </AssertionList>
+  </SpecificReport>
+</HL7V3MessageValidationReport>

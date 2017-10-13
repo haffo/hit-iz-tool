@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Sydney Henrard (NIST) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.nist.gov/healthcare/validation/message" targetNamespace="http://www.nist.gov/healthcare/validation/message" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="ReportHeader">
+		<xs:sequence>
+			<xs:element name="ValidationStatus" type="ValidationStatusType"/>
+			<xs:element name="ValidationStatusInfo" type="xs:string" minOccurs="0"/>
+			<xs:element name="ServiceName" type="xs:string"/>
+			<xs:element name="ServiceProvider" type="xs:string"/>
+			<xs:element name="ServiceVersion" type="xs:string" minOccurs="0"/>
+			<xs:element name="StandardType" type="StandardTypeType"/>
+			<xs:element name="StandardVersion" type="xs:string"/>
+			<xs:element name="ValidationType" type="ValidationType"/>
+			<xs:element name="TestIdentifier" type="xs:string"/>
+			<xs:element name="ServiceTestIdentifier" type="xs:string" minOccurs="0"/>
+			<xs:element name="ResultsID" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExtendedResultsID" type="xs:string" minOccurs="0"/>
+			<xs:element name="DateOfTest" type="xs:date"/>
+			<xs:element name="TimeOfTest" type="xs:time"/>
+			<xs:element name="ValidationObjectReferenceList">
+				<xs:complexType>
+					<xs:sequence maxOccurs="unbounded">
+						<xs:element name="ValidationObjectReference">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="Type" type="ValidationObjectReferenceType" use="required"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TestObjectReferenceList" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="TestObjectReference">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="Type" type="TestObjectReferenceType" use="required"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PositiveAssertionIndicator" type="xs:boolean"/>
+			<xs:element name="ResultOfTest" type="ResultOfTestType"/>
+			<xs:element name="TotalAssertionsMade" type="xs:int" minOccurs="0"/>
+			<xs:element name="AffirmCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="ErrorCount" type="xs:int"/>
+			<xs:element name="WarningCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="IgnoreCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="NoteCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="AlertCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="InformationalCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="ReportIntegrityIndicator" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ReportIntegrityObject" type="xs:string" minOccurs="0"/>
+			<xs:element name="TestObject" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ValidationStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Complete"/>
+			<xs:enumeration value="Incomplete"/>
+			<xs:enumeration value="Results ID not found"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StandardTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HL7 V2"/>
+			<xs:enumeration value="HL7 V3"/>
+			<xs:enumeration value="CDA"/>
+			<xs:enumeration value="DICOM"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ValidationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Automated"/>
+			<xs:enumeration value="Human Inspection"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResultOfTestType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Passed"/>
+			<xs:enumeration value="Failed"/>
+			<xs:enumeration value="Inconclusive"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ValidationObjectReferenceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Profile"/>
+			<xs:enumeration value="Validation Context"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TestObjectReferenceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Filename"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

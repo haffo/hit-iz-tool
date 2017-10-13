@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by Sydney (NIST) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.nist.gov/healthcare/validation" xmlns:message="http://www.nist.gov/healthcare/message" targetNamespace="http://www.nist.gov/healthcare/validation" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.nist.gov/healthcare/message" schemaLocation="Message.xsd"/>
+	<xs:simpleType name="AssertionTypeProfileConstants">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="VERSION"/>
+			<xs:enumeration value="MESSAGE_STRUCTURE_ID"/>
+			<xs:enumeration value="PROFILE_TYPE"/>
+			<xs:enumeration value="PROFILE_STRUCTURE"/>
+			<xs:enumeration value="SEGMENT_NAME"/>
+			<xs:enumeration value="USAGE"/>
+			<xs:enumeration value="CARDINALITY"/>
+			<xs:enumeration value="LENGTH"/>
+			<xs:enumeration value="USAGE_CARDINALITY"/>
+			<xs:enumeration value="STANDARD_DEVIATION"/>
+			<xs:enumeration value="RULE_DEVIATION"/>
+			<xs:enumeration value="PROFILE_VALIDATION_CONTEXT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AssertionTypeV2Constants">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HUMAN_CHECK"/>
+			<xs:enumeration value="VERSION"/>
+			<xs:enumeration value="MESSAGE_STRUCTURE_ID"/>
+			<xs:enumeration value="MESSAGE_STRUCTURE"/>
+			<xs:enumeration value="USAGE"/>
+			<xs:enumeration value="CARDINALITY"/>
+			<xs:enumeration value="LENGTH"/>
+			<xs:enumeration value="DATATYPE"/>
+			<xs:enumeration value="DATA"/>
+			<xs:enumeration value="DATA_PASSED"/>
+			<xs:enumeration value="MESSAGE_VALIDATION_CONTEXT"/>
+			<xs:enumeration value="TABLE_NOT_FOUND"/>
+			<xs:enumeration value="TABLE_EMPTY"/>
+			<xs:enumeration value="AMBIGUOUS_PROFILE"/>
+			<xs:enumeration value="CHECKED"/>
+			<xs:enumeration value="X-USAGE"/>
+			<xs:enumeration value="RE-USAGE"/>
+			<xs:enumeration value="XTRA"/>
+			<xs:enumeration value="VALIDATION_CONFIGURATION"/>
+			<xs:enumeration value="VALUE_NOT_IN_TABLE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AssertionTypeV3Constants">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HUMAN_CHECK"/>
+			<xs:enumeration value="DATA"/>
+			<xs:enumeration value="DATA_PASSED"/>
+			<xs:enumeration value="MESSAGE_VALIDATION_CONTEXT"/>
+			<xs:enumeration value="STRUCTURE"/>
+			<xs:enumeration value="SOAP"/>
+			<xs:enumeration value="WSA"/>
+			<xs:enumeration value="HTTP"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AssertionResultConstants">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AFFIRMATIVE"/>
+			<xs:enumeration value="ERROR"/>
+			<xs:enumeration value="WARNING"/>
+			<xs:enumeration value="ALERT"/>
+			<xs:enumeration value="IGNORE"/>
+			<xs:enumeration value="NOTE"/>
+			<xs:enumeration value="INFORMATIONAL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ErrorSeverityConstants">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NORMAL"/>
+			<xs:enumeration value="FATAL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Value">
+		<xs:choice>
+			<xs:element name="PlainText">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="ignoreCase" type="xs:boolean" default="true"/>
+							<xs:attribute name="interpretAsNumber" type="xs:boolean" default="false"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Regex" type="xs:string"/>
+			<xs:element name="Empty"/>
+			<xs:element name="Present"/>
+			<xs:element name="Location" type="message:MessageElement"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="CommentType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="PluginCheckType">
+		<xs:sequence>
+			<xs:element name="Params" type="xs:string"/>
+			<xs:element name="Comment" type="CommentType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="AssertionResult" type="AssertionResultConstants"/>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+	</xs:complexType>
+</xs:schema>

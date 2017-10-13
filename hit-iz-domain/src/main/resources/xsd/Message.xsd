@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Sydney Henrard (NIST) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.nist.gov/healthcare/message" xmlns:profile="http://www.nist.gov/healthcare/profile" targetNamespace="http://www.nist.gov/healthcare/message" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:simpleType name="Name">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="Position">
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:simpleType name="InstanceNumber">
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:complexType name="SegmentGroup">
+		<xs:choice>
+			<xs:element name="SegmentGroup" type="SegmentGroup" minOccurs="0"/>
+			<xs:element name="Segment" type="Segment" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="Name" type="Name" use="required"/>
+		<xs:attribute name="InstanceNumber" type="InstanceNumber"/>
+	</xs:complexType>
+	<xs:complexType name="Segment">
+		<xs:sequence>
+			<xs:element name="Field" type="Field" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="Name" type="Name" use="required"/>
+		<xs:attribute name="InstanceNumber" type="InstanceNumber"/>
+		<xs:attribute name="AnyInstanceNumber" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="Field">
+		<xs:sequence>
+			<xs:element name="Component" type="Component" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="Position" type="Position" use="required"/>
+		<xs:attribute name="InstanceNumber" type="InstanceNumber"/>
+		<xs:attribute name="AnyInstanceNumber" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="Component">
+		<xs:sequence>
+			<xs:element name="SubComponent" type="SubComponent" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="Position" type="Position" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="SubComponent">
+		<xs:attribute name="Position" type="Position" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="EncodingConstants">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ER7"/>
+			<xs:enumeration value="XML"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MessageElement">
+		<xs:choice minOccurs="0">
+			<xs:element name="SegmentGroup" minOccurs="0">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="SegmentGroup"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Segment" type="Segment" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

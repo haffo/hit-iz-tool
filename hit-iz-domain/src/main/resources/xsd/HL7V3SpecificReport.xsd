@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Sydney Henrard (NIST) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.nist.gov/healthcare/validation/message/hl7/v3/report" xmlns:context="http://www.nist.gov/healthcare/validation/message/hl7/v3/context" xmlns:validation="http://www.nist.gov/healthcare/validation" targetNamespace="http://www.nist.gov/healthcare/validation/message/hl7/v3/report" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.nist.gov/healthcare/validation/message/hl7/v3/context" schemaLocation="HL7V3MessageValidationContext.xsd"/>
+	<xs:import namespace="http://www.nist.gov/healthcare/validation" schemaLocation="Validation.xsd"/>
+	<xs:complexType name="HL7V3MessageReport">
+		<xs:sequence>
+			<xs:element name="MetaData">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Message">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Content" type="xs:anyType" minOccurs="0"/>
+								</xs:sequence>
+								<xs:attribute name="Id" type="xs:string"/>
+								<xs:attribute name="Filename" type="xs:string"/>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Context" type="context:HL7V3MessageValidationContextDefinition"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AssertionList" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence maxOccurs="unbounded">
+						<xs:element name="Assertion">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Location">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Line" type="xs:int" minOccurs="0"/>
+												<xs:element name="Column" type="xs:int" minOccurs="0"/>
+												<xs:element name="XPath" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Content" type="xs:string" minOccurs="0"/>
+									<xs:element name="Description" type="xs:string"/>
+									<xs:element name="AssertionDeclaration" type="xs:string" minOccurs="0"/>
+									<xs:element name="Reference" type="xs:string" minOccurs="0"/>
+								</xs:sequence>
+								<xs:attribute name="Type" type="validation:AssertionTypeV3Constants" use="required"/>
+								<xs:attribute name="Result" type="validation:AssertionResultConstants" use="required"/>
+								<xs:attribute name="Severity" type="validation:ErrorSeverityConstants" use="required"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

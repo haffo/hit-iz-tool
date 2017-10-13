@@ -11,40 +11,36 @@
  */
 package gov.nist.hit.iz.service.soap;
 
-import gov.nist.healthcare.core.validation.soap.SoapMessage;
-import gov.nist.hit.core.domain.ValidationResult;
-import gov.nist.hit.iz.service.exception.SoapValidationException;
-
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
+
+import gov.nist.hit.core.domain.ValidationResult;
+import gov.nist.hit.iz.domain.soap.SoapValidationResult;
+import gov.nist.hit.iz.service.exception.SoapValidationException;
 
 @Service
 public class SOAPMessageValidatorImpl implements SOAPMessageValidator {
 
-  private final String schematronPath = "/soap/schema/soap_rules.sch";
+	private CDCSoapValidation validator = null;
 
-  private final static Logger logger = Logger.getLogger(SOAPMessageValidatorImpl.class);
+	private final static Logger logger = Logger.getLogger(SOAPMessageValidatorImpl.class);
 
-  public SOAPMessageValidatorImpl() {}
+	public SOAPMessageValidatorImpl() {
+		validator = new CDCSoapValidation();
+	}
 
+	@Override
+	public ValidationResult validate(String soap, String title, String... options) throws SoapValidationException {
+		try {
+			SoapValidationResult tmp = validator.validate(soap, options);
+			return new SOAPValidationResult(tmp);
+		} catch (RuntimeException e) {
+			logger.error(e.getMessage());
+			throw new SoapValidationException(e);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			throw new SoapValidationException(e);
+		}
 
-  @Override
-  public ValidationResult validate(String soap, String title, String... options)
-      throws SoapValidationException {
-    try {
-      if (schematronPath == null)
-        throw new SoapValidationException("No schematron found");
-      gov.nist.healthcare.core.validation.soap.SoapValidationResult tmp =
-          new CDCSoapValidation().validate(new SoapMessage(soap),
-              SOAPMessageValidatorImpl.class.getResourceAsStream(schematronPath), options);
-      return new SOAPValidationResult(tmp, title);
-    } catch (RuntimeException e) {
-      logger.error(e.getMessage());
-      throw new SoapValidationException(e);
-    } catch (Exception e) {
-      logger.error(e.getMessage());
-      throw new SoapValidationException(e);
-    }
-
-  }
+	}
 }

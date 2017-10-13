@@ -1,14 +1,13 @@
 package gov.nist.hit.iz.service.soap;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.regex.Pattern;
 
+import javax.xml.soap.SOAPException;
+
 import org.apache.commons.io.IOUtils;
-import org.apache.xmlbeans.XmlException;
-import org.apache.xmlbeans.XmlObject;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -19,20 +18,22 @@ import org.jdom2.located.LocatedElement;
 import org.jdom2.located.LocatedJDOMFactory;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
+import org.xml.sax.SAXException;
 
-import gov.nist.healthcare.core.MalformedMessageException;
-import gov.nist.healthcare.core.message.v2.er7.Er7Message;
-import gov.nist.healthcare.core.validation.message.v3.MessageFailureV3;
-import gov.nist.healthcare.core.validation.soap.SoapMessage;
-import gov.nist.healthcare.validation.AssertionResultConstants;
-import gov.nist.healthcare.validation.AssertionTypeV3Constants;
-import gov.nist.healthcare.validation.ErrorSeverityConstants;
+import gov.nist.healthcare.unified.validation.AssertionResultConstants;
+import gov.nist.healthcare.unified.validation.AssertionTypeV3Constants;
+import gov.nist.healthcare.unified.validation.ErrorSeverityConstants;
+import gov.nist.hit.iz.domain.MessageFailureV3;
+import gov.nist.hit.iz.domain.soap.SoapMessage;
+import gov.nist.hit.iz.domain.soap.SoapValidationResult;
 import gov.nist.hit.iz.service.util.ConnectivityUtil;
 
 public class CDCSoapValidation {
 
-	public CDCSoapValidation() {
+	String schematronPath = null;
 
+	public CDCSoapValidation() {
+		schematronPath = "/soap/schema/soap_rules.sch";
 	}
 
 	private ArrayList<MessageFailureV3> verifySubmitSingleMessageRequest(String soapMessage, String phase) {
@@ -47,25 +48,14 @@ public class CDCSoapValidation {
 					hl7Message = hl7Message.substring(cdataStart.length());
 					hl7Message = hl7Message.substring(0, hl7Message.lastIndexOf(cdataEnd));
 				}
-				try {
-					// check for welformed content
-					new Er7Message(hl7Message);
-					String[] tabs = hl7Message.split(Pattern.quote("MSH|"));
-					if (tabs != null && tabs.length > 2) {
-						MessageFailureV3 mf = new MessageFailureV3();
-						mf.setFailureType(AssertionTypeV3Constants.SOAP);
-						mf.setFailureSeverity(ErrorSeverityConstants.NORMAL);
-						mf.setAssertionResult(AssertionResultConstants.ERROR);
-						mf.setDescription("hl7Message element must contain only one HL7 V2 message");
-						mf.setPath(path);
-						soapFailures.add(mf);
-					}
-				} catch (MalformedMessageException e) {
+				// check for welformed content
+				String[] tabs = hl7Message.split(Pattern.quote("MSH|"));
+				if (tabs != null && tabs.length > 2) {
 					MessageFailureV3 mf = new MessageFailureV3();
-					mf.setFailureType(AssertionTypeV3Constants.SOAP);
-					mf.setFailureSeverity(ErrorSeverityConstants.NORMAL);
-					mf.setAssertionResult(AssertionResultConstants.ERROR);
-					mf.setDescription("hl7Message element is not a welformed HL7 V2 message");
+					mf.setFailureType(AssertionTypeV3Constants.SOAP.toString());
+					mf.setFailureSeverity(ErrorSeverityConstants.NORMAL.toString());
+					mf.setAssertionResult(AssertionResultConstants.ERROR.toString());
+					mf.setDescription("hl7Message element must contain only one HL7 V2 message");
 					mf.setPath(path);
 					soapFailures.add(mf);
 				}
@@ -85,18 +75,18 @@ public class CDCSoapValidation {
 				String returnedValue = ConnectivityUtil.getConnectivityReturn(soapMessage);
 				if (returnedValue == null) {
 					MessageFailureV3 mf = new MessageFailureV3();
-					mf.setFailureType(AssertionTypeV3Constants.SOAP);
-					mf.setFailureSeverity(ErrorSeverityConstants.NORMAL);
-					mf.setAssertionResult(AssertionResultConstants.ERROR);
+					mf.setFailureType(AssertionTypeV3Constants.SOAP.toString());
+					mf.setFailureSeverity(ErrorSeverityConstants.NORMAL.toString());
+					mf.setAssertionResult(AssertionResultConstants.ERROR.toString());
 					mf.setDescription("No retun element found");
 					String path = "/Envelope[1]/Body[1]/connectivityTestResponse[1]";
 					mf.setPath(path);
 					soapFailures.add(mf);
 				} else if (echoBack != null && !returnedValue.contains(echoBack)) {
 					MessageFailureV3 mf = new MessageFailureV3();
-					mf.setFailureType(AssertionTypeV3Constants.SOAP);
-					mf.setFailureSeverity(ErrorSeverityConstants.NORMAL);
-					mf.setAssertionResult(AssertionResultConstants.ERROR);
+					mf.setFailureType(AssertionTypeV3Constants.SOAP.toString());
+					mf.setFailureSeverity(ErrorSeverityConstants.NORMAL.toString());
+					mf.setAssertionResult(AssertionResultConstants.ERROR.toString());
 					mf.setDescription("The returned value '" + returnedValue + "' does not contain '" + echoBack + "'");
 					String path = "/Envelope[1]/Body[1]/connectivityTestResponse[1]/return[1]";
 					mf.setPath(path);
@@ -123,28 +113,18 @@ public class CDCSoapValidation {
 					returnContent = returnContent.substring(cdataStart.length());
 					returnContent = returnContent.substring(0, returnContent.lastIndexOf(cdataEnd));
 				}
-				try {
-					// check for welformed content
-					new Er7Message(returnContent);
-					String[] tabs = returnContent.split(Pattern.quote("MSH|"));
-					if (tabs != null && tabs.length > 2) {
-						MessageFailureV3 mf = new MessageFailureV3();
-						mf.setFailureType(AssertionTypeV3Constants.SOAP);
-						mf.setFailureSeverity(ErrorSeverityConstants.NORMAL);
-						mf.setAssertionResult(AssertionResultConstants.ERROR);
-						mf.setDescription("return element must contain only one HL7 V2 message");
-						mf.setPath(path);
-						soapFailures.add(mf);
-					}
-				} catch (MalformedMessageException e) {
+				// check for welformed content
+				String[] tabs = returnContent.split(Pattern.quote("MSH|"));
+				if (tabs != null && tabs.length > 2) {
 					MessageFailureV3 mf = new MessageFailureV3();
-					mf.setFailureType(AssertionTypeV3Constants.SOAP);
-					mf.setFailureSeverity(ErrorSeverityConstants.NORMAL);
-					mf.setAssertionResult(AssertionResultConstants.ERROR);
-					mf.setDescription("return element is not a welformed HL7 V2 message");
+					mf.setFailureType(AssertionTypeV3Constants.SOAP.toString());
+					mf.setFailureSeverity(ErrorSeverityConstants.NORMAL.toString());
+					mf.setAssertionResult(AssertionResultConstants.ERROR.toString());
+					mf.setDescription("return element must contain only one HL7 V2 message");
 					mf.setPath(path);
 					soapFailures.add(mf);
 				}
+
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -159,25 +139,28 @@ public class CDCSoapValidation {
 	 * @param schematron
 	 * @param phase
 	 * @return
+	 * @throws IOException
+	 * @throws SOAPException
+	 * @throws SAXException
 	 * @throws XmlException
 	 */
-	public gov.nist.healthcare.core.validation.soap.SoapValidationResult validate(SoapMessage soapMessage,
-			InputStream schematron, String... options) throws XmlException {
+	public SoapValidationResult validate(String soapMessage, String... options)
+			throws SOAPException, IOException, SAXException {
 		String phase = options[0];
 		ArrayList<MessageFailureV3> soapFailures = new ArrayList<MessageFailureV3>();
 		// schematron validation
-		XmlObject soapXml = soapMessage.getMessageDoc();
-		soapFailures.addAll(new SOAPValidator().validate(soapXml, schematron, phase));
+		soapFailures.addAll(SOAPValidator.validate(soapMessage,
+				CDCSoapValidation.class.getResourceAsStream(schematronPath), phase));
 		if (phase.equals("submitSingleMessage_Request")) {
-			soapFailures.addAll(verifySubmitSingleMessageRequest(soapXml.toString(), phase));
+			soapFailures.addAll(verifySubmitSingleMessageRequest(soapMessage, phase));
 		} else if (phase.equals("connectivityTest_Response")) {
 			String requestMessage = options.length >= 2 ? options[1] : null;
-			soapFailures.addAll(verifyConnectivityResponse(soapXml.toString(), requestMessage));
+			soapFailures.addAll(verifyConnectivityResponse(soapMessage, requestMessage));
 		} else if (phase.equals("submitSingleMessage_Response")) {
-			soapFailures.addAll(verifySubmitSingleMessageResponse(soapXml.toString()));
+			soapFailures.addAll(verifySubmitSingleMessageResponse(soapMessage));
 		}
-		this.setErrLineNumbers(soapXml.toString(), soapFailures);
-		return new gov.nist.healthcare.core.validation.soap.SoapValidationResult(soapMessage, soapFailures);
+		setErrLineNumbers(soapMessage, soapFailures);
+		return new SoapValidationResult(new SoapMessage(soapMessage), soapFailures);
 	}
 
 	private String normalizeErrPath(String targetPath) {
@@ -414,13 +397,13 @@ public class CDCSoapValidation {
 		return tp1;
 	}
 
-	private void setErrLineNumbers(String soapXml, ArrayList<MessageFailureV3> soapFailures) {
+	private void setErrLineNumbers(String soapXml, ArrayList<gov.nist.hit.iz.domain.MessageFailureV3> soapFailures) {
 		// the SAXBuilder is the easiest way to create the JDOM2 objects.
 		SAXBuilder jdomBuilder = new SAXBuilder();
 		jdomBuilder.setJDOMFactory(new LocatedJDOMFactory());
-		Iterator<MessageFailureV3> iterator = soapFailures.iterator();
+		Iterator<gov.nist.hit.iz.domain.MessageFailureV3> iterator = soapFailures.iterator();
 		while (iterator.hasNext()) {
-			MessageFailureV3 failure = iterator.next();
+			gov.nist.hit.iz.domain.MessageFailureV3 failure = iterator.next();
 			String targetPath = failure.getPath();
 			if (targetPath == null) {
 				continue;

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<HL7V3MessageValidationReport xmlns="http://www.nist.gov/healthcare/validation/message/hl7/v3/report" xmlns:val="http://www.nist.gov/healthcare/validation" xmlns:gen="http://www.nist.gov/healthcare/generation/message" xmlns:con="http://www.nist.gov/healthcare/validation/message/hl7/v3/context" xmlns:mes="http://www.nist.gov/healthcare/validation/message">
+    <HeaderReport>
+        <gen:ValidationStatus>Complete</gen:ValidationStatus>
+        <gen:ServiceName>NIST SOAP Message Validation</gen:ServiceName>
+        <gen:ServiceProvider>NIST SOAP Validation tool</gen:ServiceProvider>
+        <gen:ServiceVersion>Soap Validation Version 1.0</gen:ServiceVersion>
+        <gen:StandardType>CDC_WSDL</gen:StandardType>
+        <gen:ValidationType>Automated</gen:ValidationType>
+        <gen:DateOfTest>2017-10-12-04:00</gen:DateOfTest>
+        <gen:TimeOfTest>22:15:39.321-04:00</gen:TimeOfTest>
+        <gen:TestObjectReferenceList>
+            <gen:TestObjectReference Type="Filename"></gen:TestObjectReference>
+        </gen:TestObjectReferenceList>
+        <gen:PositiveAssertionIndicator>true</gen:PositiveAssertionIndicator>
+        <gen:AffirmCount>0</gen:AffirmCount>
+        <gen:ErrorCount>0</gen:ErrorCount>
+        <gen:WarningCount>0</gen:WarningCount>
+        <gen:IgnoreCount>0</gen:IgnoreCount>
+        <gen:AlertCount>0</gen:AlertCount>
+        <gen:TestObject>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;Envelope xmlns="http://www.w3.org/2003/05/soap-envelope"&gt;
+   &lt;Header /&gt;
+   &lt;Body&gt;
+      &lt;submitSingleMessage xmlns="urn:cdc:iisb:2011"&gt;
+         &lt;username&gt;X&lt;/username&gt;
+         &lt;password&gt;Y&lt;/password&gt;
+         &lt;facilityID&gt;Z&lt;/facilityID&gt;
+         &lt;hl7Message&gt;W&lt;/hl7Message&gt;
+      &lt;/submitSingleMessage&gt;
+   &lt;/Body&gt;
+&lt;/Envelope&gt;
+</gen:TestObject>
+    </HeaderReport>
+    <SpecificReport>
+        <MetaData>
+            <Message Filename=""/>
+        </MetaData>
+        <AssertionList/>
+    </SpecificReport>
+</HL7V3MessageValidationReport>
+

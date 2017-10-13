@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:HL7V3MessageValidationReport xmlns="http://www.nist.gov/healthcare/generation/message" xmlns:ns2="http://www.nist.gov/healthcare/validation/message/hl7/v3/report" xmlns:ns4="http://www.nist.gov/healthcare/validation" xmlns:ns3="http://www.nist.gov/healthcare/validation/message/hl7/v3/context">
+    <ns2:HeaderReport>
+        <ValidationStatus>Complete</ValidationStatus>
+        <ServiceName>NIST SOAP Message Validation</ServiceName>
+        <ServiceProvider>NIST SOAP Validation tool</ServiceProvider>
+        <ServiceVersion>Soap Validation Version 1.0</ServiceVersion>
+        <StandardType>CDC_WSDL</StandardType>
+        <ValidationType>Automated</ValidationType>
+        <DateOfTest>2017-10-12-04:00</DateOfTest>
+        <TimeOfTest>23:03:16.096-04:00</TimeOfTest>
+        <TestObjectReferenceList>
+            <TestObjectReference Type="Filename"></TestObjectReference>
+        </TestObjectReferenceList>
+        <PositiveAssertionIndicator>true</PositiveAssertionIndicator>
+        <AffirmCount>0</AffirmCount>
+        <ErrorCount>5</ErrorCount>
+        <WarningCount>0</WarningCount>
+        <IgnoreCount>0</IgnoreCount>
+        <AlertCount>0</AlertCount>
+        <TestObject>&lt;![CDATA[&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;Envelope xmlns="http://www.w3.org/2003/05/soap-envelope"&gt;
+   &lt;Header /&gt;
+   &lt;Body&gt;
+      &lt;submitSingleMessage xmlns="urn:cdc:iisb:2011"&gt;
+         &lt;usernameX&gt;&lt;/usernameX&gt;
+         &lt;passwordX&gt;&lt;/passwordX&gt;
+         &lt;facilityIDX&gt;&lt;/facilityIDX&gt;
+         &lt;hl7MessageX&gt;&lt;/hl7MessageX&gt;
+      &lt;/submitSingleMessage&gt;
+   &lt;/Body&gt;
+&lt;/Envelope&gt;
+]]&gt;</TestObject>
+    </ns2:HeaderReport>
+    <ns2:SpecificReport>
+        <ns2:MetaData>
+            <ns2:Message Filename=""/>
+        </ns2:MetaData>
+        <ns2:AssertionList>
+            <ns2:Assertion Type="SOAP" Result="ERROR" Severity="NORMAL">
+                <ns2:Location>
+                    <ns2:XPath>/Envelope[1]/Body[1]/submitSingleMessage[1]</ns2:XPath>
+                </ns2:Location>
+                <ns2:Description>ERROR: CDC_WSDL1.0: The 'submitSingleMessage' element must contain one 'hl7Message' element</ns2:Description>
+            </ns2:Assertion>
+            <ns2:Assertion Type="SOAP" Result="ERROR" Severity="NORMAL">
+                <ns2:Location>
+                    <ns2:XPath>/Envelope[1]/Body[1]/submitSingleMessage[1]</ns2:XPath>
+                </ns2:Location>
+                <ns2:Description>WARNING: CDC_WSDL1.0: an optional 'username' element is not contained within 'submitSingleMessage' Note that most IIS will require a username/password.</ns2:Description>
+            </ns2:Assertion>
+            <ns2:Assertion Type="SOAP" Result="ERROR" Severity="NORMAL">
+                <ns2:Location>
+                    <ns2:XPath>/Envelope[1]/Body[1]/submitSingleMessage[1]</ns2:XPath>
+                </ns2:Location>
+                <ns2:Description>WARNING: CDC_WSDL1.0: an optional 'password' element is not contained within 'submitSingleMessage' Note that most IIS will require a username/password.</ns2:Description>
+            </ns2:Assertion>
+            <ns2:Assertion Type="SOAP" Result="ERROR" Severity="NORMAL">
+                <ns2:Location>
+                    <ns2:XPath>/Envelope[1]/Body[1]/submitSingleMessage[1]</ns2:XPath>
+                </ns2:Location>
+                <ns2:Description>WARNING: CDC_WSDL1.0: an optional 'facilityID' element is not contained within 'submitSingleMessage' Note that most IIS will require a facilityID</ns2:Description>
+            </ns2:Assertion>
+            <ns2:Assertion Type="SOAP" Result="ERROR" Severity="NORMAL">
+                <ns2:Location>
+                    <ns2:XPath>/Envelope[1]/Body[1]/submitSingleMessage[1]</ns2:XPath>
+                </ns2:Location>
+                <ns2:Description>The only valid child elements of submitSingleMessage are username, password, facilityID, and hl7Message</ns2:Description>
+            </ns2:Assertion>
+        </ns2:AssertionList>
+    </ns2:SpecificReport>
+</ns2:HL7V3MessageValidationReport>
+

@@ -1,0 +1,8 @@
+<Envelope xmlns="http://www.w3.org/2003/05/soap-envelope">
+  <Header />
+  <Body>
+    <connectivityTest xmlns="urn:cdc:iisb:2011">
+      <XX>Hello world!</XX>   
+    </connectivityTest>
+  </Body>
+</Envelope>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Sydney Henrard (NIST) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.nist.gov/healthcare/validation/message/hl7/v3/report" xmlns:message="http://www.nist.gov/healthcare/validation/message" targetNamespace="http://www.nist.gov/healthcare/validation/message/hl7/v3/report" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.nist.gov/healthcare/validation/message" schemaLocation="ValidationHeaderReport.xsd"/>
+	<xs:include schemaLocation="HL7V3SpecificReport.xsd"/>
+	<xs:element name="HL7V3MessageValidationReport">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="HeaderReport" type="message:ReportHeader"/>
+				<xs:element name="SpecificReport" type="HL7V3MessageReport"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
