@@ -16,13 +16,37 @@ public class HL7MessageUtil {
 	 */
 	public static String updateOutgoing(String m1, String m2) {
 		if (m1 != null && m2 != null) {
-			String[] segments_1 = m1.split(Pattern.quote("\n"));
-			segments_1 = segments_1.length == 1 ? m1.split(Pattern.quote("\t")) : segments_1;
+			String carriageReturn = "\r";
+			String[] segments_1 = m1.split(Pattern.quote(carriageReturn));
+			if (segments_1.length == 1) {
+				carriageReturn = "\n";
+				segments_1 = m1.split(Pattern.quote(carriageReturn));
+			}
+			if (segments_1.length == 1) {
+				carriageReturn = "\t";
+				segments_1 = m1.split(Pattern.quote(carriageReturn));
+			}
+
+			if (segments_1.length == 1) {
+				carriageReturn = System.getProperty("line.separator");
+				segments_1 = m1.split(Pattern.quote(carriageReturn));
+			}
+
 			String _1msh = segments_1[0];
 			String[] fields_1 = _1msh.split(Pattern.quote("|"));
 
-			String[] segment_2 = m2.split(Pattern.quote("\n"));
-			segment_2 = segment_2.length == 1 ? m1.split(Pattern.quote("\t")) : segment_2;
+			String[] segment_2 = m2.split(carriageReturn);
+			if (segment_2.length == 1) {
+				segment_2 = m2.split(Pattern.quote(carriageReturn));
+			}
+			if (segment_2.length == 1) {
+				segment_2 = m2.split(Pattern.quote(carriageReturn));
+			}
+
+			if (segment_2.length == 1) {
+				segment_2 = m2.split(Pattern.quote(carriageReturn));
+			}
+
 			String msh_2 = segment_2[0];
 			String[] fields_2 = msh_2.split(Pattern.quote("|"));
 
@@ -67,7 +91,7 @@ public class HL7MessageUtil {
 			buff = new StringBuffer();
 			for (int i = 0; i < segments_1.length; i++) {
 				buff.append(segments_1[i]);
-				buff.append("\n");
+				buff.append("\r");
 			}
 
 			String output = buff.toString(); // build message
