@@ -1,8 +1,51 @@
 package gov.nist.hit.iz.ws.utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class HL7MessageUtil {
+
+	private static List<String> getSegments(String message) {
+		List<String> segments = new ArrayList<String>();
+		BufferedReader er7 = new BufferedReader(new StringReader(message));
+		String tmp;
+		try {
+			while (((tmp = er7.readLine()) != null)) {
+				segments.add(tmp);
+			}
+		} catch (IOException e) {
+			throw new IllegalArgumentException(e.getMessage());
+		}
+		return segments;
+	}
+
+	private static String getMessage(List<String> segments) {
+		StringBuffer buff = new StringBuffer();
+		for (int i = 0; i < segments.size(); i++) {
+			buff.append(segments.get(i));
+			buff.append("\r");
+		}
+		return buff.toString();
+	}
+
+	private static String getSegment(String[] fields) {
+		StringBuffer buff = new StringBuffer();
+		for (int i = 0; i < fields.length; i++) {
+			buff.append(fields[i]);
+			if (i != fields.length - 1) {
+				buff.append("|");
+			}
+		}
+		return buff.toString();
+	}
+
+	private static String[] getFields(String segment) {
+		return segment.split(Pattern.quote("|"));
+	}
 
 	/**
 	 * Replace MSH.3 in m1 by MSH.5in m2, MSH.4 in m1 by MSH.6 in m2, MSA.2 in
@@ -16,39 +59,9 @@ public class HL7MessageUtil {
 	 */
 	public static String updateOutgoing(String m1, String m2) {
 		if (m1 != null && m2 != null) {
-			String carriageReturn = "\r";
-			String[] segments_1 = m1.split(Pattern.quote(carriageReturn));
-			if (segments_1.length == 1) {
-				carriageReturn = "\n";
-				segments_1 = m1.split(Pattern.quote(carriageReturn));
-			}
-			if (segments_1.length == 1) {
-				carriageReturn = "\t";
-				segments_1 = m1.split(Pattern.quote(carriageReturn));
-			}
-
-			if (segments_1.length == 1) {
-				carriageReturn = System.getProperty("line.separator");
-				segments_1 = m1.split(Pattern.quote(carriageReturn));
-			}
-
-			String _1msh = segments_1[0];
-			String[] fields_1 = _1msh.split(Pattern.quote("|"));
-
-			String[] segment_2 = m2.split(carriageReturn);
-			if (segment_2.length == 1) {
-				segment_2 = m2.split(Pattern.quote(carriageReturn));
-			}
-			if (segment_2.length == 1) {
-				segment_2 = m2.split(Pattern.quote(carriageReturn));
-			}
-
-			if (segment_2.length == 1) {
-				segment_2 = m2.split(Pattern.quote(carriageReturn));
-			}
-
-			String msh_2 = segment_2[0];
-			String[] fields_2 = msh_2.split(Pattern.quote("|"));
+			List<String> segments_1 = getSegments(m1);
+			String[] fields_1 = getFields(segments_1.get(0));
+			String[] fields_2 = getFields(getSegments(m2).get(0));
 
 			String val_1 = getValue(fields_1, 4); // MSH.5
 			String val_2 = getValue(fields_2, 2); // MSH.3
@@ -61,48 +74,27 @@ public class HL7MessageUtil {
 				fields_1[5] = val_2;
 			}
 
-			StringBuffer buff = new StringBuffer();
-			for (int i = 0; i < fields_1.length; i++) {
-				buff.append(fields_1[i]);
-				if (i != fields_1.length - 1) {
-					buff.append("|");
-				}
-			}
-			segments_1[0] = buff.toString(); // build MSH
+			segments_1.set(0, getSegment(fields_1)); // build MSH
 
 			int index = getSegmentIndex(segments_1, "MSA");
 			if (index > -1 && fields_2.length >= 9) {
-				String msa_1 = segments_1[index];
+				String msa_1 = segments_1.get(index);
 				String[] msa_1_fields = msa_1.split(Pattern.quote("|"));
 				if (msa_1_fields.length >= 3) {
 					msa_1_fields[2] = fields_2[9];
 				}
-
-				buff = new StringBuffer();
-				for (int i = 0; i < msa_1_fields.length; i++) {
-					buff.append(msa_1_fields[i]);
-					if (i != msa_1_fields.length - 1) {
-						buff.append("|");
-					}
-				}
-				segments_1[index] = buff.toString(); // build MSA
+				segments_1.set(index, getSegment(msa_1_fields)); // build MSA
 			}
 
-			buff = new StringBuffer();
-			for (int i = 0; i < segments_1.length; i++) {
-				buff.append(segments_1[i]);
-				buff.append("\r");
-			}
-
-			String output = buff.toString(); // build message
+			String output = getMessage(segments_1);
 			return output;
 		}
 		return m1;
 	}
 
-	private static int getSegmentIndex(String[] segments, String segmentName) {
-		for (int i = 0; i < segments.length; i++) {
-			if (segments[i].startsWith(segmentName)) {
+	private static int getSegmentIndex(List<String> segments, String segmentName) {
+		for (int i = 0; i < segments.size(); i++) {
+			if (segments.get(i).startsWith(segmentName)) {
 				return i;
 			}
 		}
