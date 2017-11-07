@@ -286,6 +286,9 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
                             case 'tester':
                                 tester = true;
                                 break;
+                            case 'supervisor':
+                              supervisor = true;
+                              break;
                             default:
                         }
                     });

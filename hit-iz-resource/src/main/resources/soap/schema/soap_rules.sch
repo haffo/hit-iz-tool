@@ -84,6 +84,14 @@
             </assert>
         </rule>
         
+        <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="ws:connectivityTest/ws:echoBack">           
+            <assert test="count(*) = 0">
+                ERROR" The 'echoBack' element may not contain additional elements. Only text.
+            </assert>
+        </rule>
+        
+        
         <rule context="ws:connectivityTest/ws:echoBack">      
             <assert test="normalize-space(.)">
                 ERROR: CDC_WSDL1.0: the required element 'echoBack' doesn't contain any data.  Data is required.
@@ -111,6 +119,15 @@
                 ERROR: CDC_WSDL1.0: The Body element must contain one 'connectivityTestResponse' element
             </assert>
         </rule>
+        
+     
+        <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="ws:connectivityTestResponse/ws:return">           
+            <assert test="count(*) = 0">
+                ERROR" The 'return' element may not contain additional elements. Only text.
+            </assert>
+        </rule>
+        
         
         <rule context="ws:connectivityTestResponse">
             <assert test="count(ws:return) = 1">
@@ -162,6 +179,37 @@
                 The only valid child elements of <name/> are username, password, facilityID, and hl7Message
             </assert>
         </rule>
+        
+        
+        <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="ws:submitSingleMessage/ws:hl7Message">           
+            <assert test="count(*) = 0">
+                ERROR" The 'hl7Message' element may not contain additional elements. Only HL7 V2 messages are permitted 
+            </assert>
+        </rule>
+        
+        <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="ws:submitSingleMessage/ws:username">           
+            <assert test="count(*) = 0">
+                ERROR" The 'username' element may not contain additional elements. On a username is permitted
+            </assert>
+        </rule>
+        
+        <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="ws:submitSingleMessage/ws:password">           
+            <assert test="count(*) = 0">
+                ERROR" The 'password' element may not contain additional elements. On a password is permitted
+            </assert>
+        </rule>
+        
+        <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="ws:submitSingleMessage/ws:facilityID">           
+            <assert test="count(*) = 0">
+                ERROR" The 'facilityID' element may not contain additional elements. On a facility ID is permitted
+            </assert>
+        </rule>
+        
+        
         
         <rule context="ws:submitSingleMessage/ws:hl7Message">      
             <assert test="normalize-space(.)">
@@ -222,7 +270,15 @@
             </assert>
         </rule>
         
+
+    <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="ws:submitSingleMessageResponse/ws:return">           
+            <assert test="count(*) = 0">
+                 ERROR" The 'return' element may not contain additional elements.  Only HL7 V2 messages are permitted 
+            </assert>
+        </rule>
         
+       
         <rule context="ws:submitSingleMessageResponse/ws:return">      
             <assert test="normalize-space(.)">
                 ERROR: CDC_WSDL1.0: the required element 'return' doesn't contain any data.  An HL7 V2 message is required
@@ -334,7 +390,21 @@
             <assert test="string(number(.)) != 'NaN'">
                 ERROR: CDC_WSDL1.0: the MessageTooLargeFault/Code element value is not an integer.  An integer vaue is required.
             </assert>
+            
+            <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+            <assert test="count(*) = 0">
+                ERROR" The 'Code' element may not contain additional elements.  Only a code value is permitted
+            </assert>
         </rule>
+        
+        
+        <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="soap:Body/soap:Fault/soap:Detail/ws:MessageTooLargeFault/ws:Detail">           
+            <assert test="count(*) = 0">
+                ERROR" The 'Detail' element may not contain additional elements.  Only Detail text is permitted
+            </assert>
+        </rule>
+        
         
         <rule context="soap:Body/soap:Fault/soap:Detail/ws:MessageTooLargeFault/ws:Reason">
             <assert test="normalize-space(.)">
@@ -344,6 +414,8 @@
                 WARNING: CDC_WSDL1.0: the MessageTooLargeFault/Reason element must contain a fixed value of 'MessageTooLarge' 
             </assert>   
         </rule>
+        
+
              
     </pattern>
     
@@ -430,6 +502,20 @@
             
             <assert test="count(*) = count(ws:Code|ws:Reason|ws:Detail)">
                 The only valid child elements of <name/> are Code, Reason, Detail
+            </assert>
+        </rule>
+        
+        
+        <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="soap:Body/soap:Fault/soap:Detail/ws:SecurityFault/ws:Code">           
+            <assert test="count(*) = 0">
+                ERROR" The 'Code' element may not contain additional elements.  Only a code value is permitted
+            </assert>
+        </rule>
+        <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="soap:Body/soap:Fault/soap:Detail/ws:SecurityFault/ws:Detail">           
+            <assert test="count(*) = 0">
+                ERROR" The 'Detail' element may not contain additional elements.  Only Detail text is permitted
             </assert>
         </rule>
         
@@ -563,6 +649,18 @@
             <assert test="string(number(.)) != 'NaN'">
                 ERROR: CDC_WSDL1.0: the UnsupportedOperationFault/Code element value is not an integer.  An integer vaue is required.
             </assert>
+            
+            <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+            <assert test="count(*) = 0">
+                ERROR" The 'Code' element may not contain additional elements.  Only a code value is permitted
+            </assert>
+        </rule>
+        
+        <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="soap:Body/soap:Fault/soap:Detail/ws:UnsupportedOperationFault/ws:Detail">           
+            <assert test="count(*) = 0">
+                ERROR" The 'Detail' element may not contain additional elements.  Only Detail text is permitted
+            </assert>
         </rule>
         
         <rule context="soap:Body/soap:Fault/soap:Detail/ws:UnsupportedOperationFault/ws:Reason">
@@ -660,6 +758,35 @@
                 The only valid child elements of <name/> are Code, Reason, Detail
             </assert>
         </rule>
+        
+        
+        <rule context="soap:Body/soap:Fault/soap:Detail/ws:fault/ws:Code">
+            <!--
+            <assert test="normalize-space(.)">
+                ERROR: CDC_WSDL1.0: the UnsupportedOperationFault/Code element doesn't contain any data.  An integer value is required.
+            </assert>
+            <assert test="number(.) = .">
+                ERROR: CDC_WSDL1.0: the UnsupportedOperationFault/Code element value is not an integer.  An integer vaue is required.
+            </assert>
+            -->
+            
+            <assert test="string(number(.)) != 'NaN'">
+                ERROR: CDC_WSDL1.0: the fault/Code element value is not an integer.  An integer vaue is required.
+            </assert>
+            
+            <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+            <assert test="count(*) = 0">
+                ERROR" The 'Code' element may not contain additional elements.  Only a code value is permitted
+            </assert>
+        </rule>
+        
+        <!-- MDI: checks here for any child elements of an innermost element which arent defined by the spec -->
+        <rule context="soap:Body/soap:Fault/soap:Detail/ws:fault/ws:Detail">           
+            <assert test="count(*) = 0">
+                ERROR" The 'Detail' element may not contain additional elements.  Only Detail text is permitted
+            </assert>
+        </rule>
+        
         
     </pattern>
      
