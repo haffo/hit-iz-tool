@@ -9,21 +9,29 @@
 
 module.exports = function (grunt) {
 
-    // Load grunt tasks automatically
+  var apiMocker = require('connect-api-mocker');
+
+  // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
-    // Define the configuration for all the tasks
+  // Configurable paths for the application
+  var appConfig = {
+    // configurable paths
+    app: require('./bower.json').appPath || 'app',
+    dist: '../src/main/webapp'
+  };
+
+
+
+
+  // Define the configuration for all the tasks
     grunt.initConfig({
 
         // Project settings
-        yeoman: {
-            // configurable paths
-            app: require('./bower.json').appPath || 'app',
-            dist: '../src/main/webapp'
-        },
+        yeoman: appConfig,
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
@@ -71,7 +79,26 @@ module.exports = function (grunt) {
                     base: [
                         '.tmp',
                         '<%= yeoman.app %>'
-                    ]
+                    ],
+                  middleware: function (connect) {
+
+                    return [
+                      connect.static('.tmp'),
+                      connect().use(
+                        '/bower_components',
+                        connect.static('./bower_components')
+                      ),
+                      connect().use(
+                        '/app/styles',
+                        connect.static('./app/styles')
+                      ),
+                      connect.static(appConfig.app),
+                      apiMocker(
+                        '/api',
+                        'mocks/api'
+                      )
+                    ];
+                  }
                 }
             },
             test: {
@@ -81,7 +108,18 @@ module.exports = function (grunt) {
                         '.tmp',
                         'test',
                         '<%= yeoman.app %>'
-                    ]
+                    ],
+                  middleware: function (connect) {
+                    return [
+                      connect.static('.tmp'),
+                      connect.static('test'),
+                      connect().use(
+                        '/bower_components',
+                        connect.static('./bower_components')
+                      ),
+                      connect.static(appConfig.app)
+                    ];
+                  }
                 }
             },
             dist: {

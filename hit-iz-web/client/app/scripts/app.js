@@ -55,7 +55,8 @@ var app = angular.module('hit-app', [
     'documentation',
     'hit-manual-report-viewer',
     'ui-notification',
-     'ociFixedHeader',
+  'angularFileUpload',
+  'ociFixedHeader',
      'ngFileUpload'
 ]);
 
@@ -74,7 +75,7 @@ var httpHeaders,
 //the message to be shown to the user
 var msg = {};
 
-app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider, KeepaliveProvider, IdleProvider, NotificationProvider) {
+app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider, KeepaliveProvider, IdleProvider, NotificationProvider,$provide) {
 
     localStorageServiceProvider
         .setPrefix("hit-app")
@@ -164,6 +165,25 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
     });
 
     httpHeaders = $httpProvider.defaults.headers;
+
+  //file upload file over bug fix
+  $provide.decorator('nvFileOverDirective',['$delegate', function ($delegate) {
+    var directive = $delegate[0],
+      link = directive.link;
+
+    directive.compile = function () {
+      return function (scope, element, attrs) {
+        var overClass = attrs.overClass || 'nv-file-over';
+        link.apply(this, arguments);
+        element.on('dragleave', function () {
+          element.removeClass(overClass);
+        });
+      };
+    };
+
+    return $delegate;
+  }]);
+
 
 });
 
@@ -392,7 +412,8 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     };
 
 
-    //make current message accessible to root scope and therefore all scopes
+
+  //make current message accessible to root scope and therefore all scopes
     $rootScope.msg = function () {
         return msg;
     };
