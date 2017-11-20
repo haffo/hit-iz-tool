@@ -615,7 +615,7 @@ angular.module('cf')
 
 
 angular.module('cf')
-  .controller('CFUploadCtrl', ['$scope', '$http', '$window', '$modal', '$filter', '$rootScope', '$timeout', 'StorageService', 'TestCaseService', 'TestStepService', 'FileUploader', 'Notification', '$modalInstance', 'userInfoService','ProfileGroupListLoader', function ($scope, $http, $window, $modal, $filter, $rootScope, $timeout, StorageService, TestCaseService, TestStepService, FileUploader, Notification, $modalInstance, userInfoService,ProfileGroupListLoader) {
+  .controller('CFUploadCtrl', ['$scope', '$http', '$window', '$modal', '$filter', '$rootScope', '$timeout', 'StorageService', 'TestCaseService', 'TestStepService', 'FileUploader', 'Notification', 'userInfoService','ProfileGroupListLoader', function ($scope, $http, $window, $modal, $filter, $rootScope, $timeout, StorageService, TestCaseService, TestStepService, FileUploader, Notification, userInfoService,ProfileGroupListLoader) {
 
     FileUploader.FileSelect.prototype.isEmptyAfterSelection = function () {
       return true;
@@ -1383,12 +1383,43 @@ angular.module('cf')
         }
         var groupLoader = new ProfileGroupListLoader($scope.selectedScope.key);
         groupLoader.then(function (testPlans) {
-          $scope.existingTestPlans = $filter('orderBy')(testPlans, 'position')
+          $scope.existingTestPlans = $filter('orderBy')(testPlans, 'position');
+
+
+
+
         }, function (error) {
           $scope.error = "Sorry, Cannot load the profile groups. Please try again";
         });
       }
     };
+
+    $scope.generateTreeNodes = function(profileGroups){
+
+      $scope.treeNodes = [];
+
+      angular.forEach(profileGroups, function (profileGroup) {
+
+        var treeNode = {};
+        treeNode['id'] = profileGroup.id;
+        treeNode['title'] = profileGroup.id;
+        treeNode['id'] = profileGroup.id;
+        treeNode['id'] = profileGroup.id;
+        treeNode['id'] = profileGroup.id;
+        treeNode['id'] = profileGroup.id;
+        treeNode['id'] = profileGroup.id;
+
+
+        angular.forEach(valueSetDefinitionsGroup.valueSetDefinitions, function (valueSetDefinition) {
+          if (valueSetDefinition.bindingIdentifier && valueSetDefinition.bindingIdentifier.indexOf(searchString) !== -1) {
+            searchResults.push(valueSetDefinition);
+          }
+        });
+      });
+
+
+    };
+
 
     $scope.initManagement = function () {
       $scope.step = 0;
@@ -1401,12 +1432,6 @@ angular.module('cf')
       $scope.testcase = null;
       $scope.selectScope();
     };
-
-
-
-
-
-
 
 
 

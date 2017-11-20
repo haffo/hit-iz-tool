@@ -57,7 +57,8 @@ var app = angular.module('hit-app', [
     'ui-notification',
   'angularFileUpload',
   'ociFixedHeader',
-     'ngFileUpload'
+     'ngFileUpload',
+  'ui.tree'
 ]);
 
 
