@@ -963,6 +963,7 @@
 			<ValueElement Value="AB" CodeSystem="MVX" DisplayName="Abbott Laboratories"/>
 			<ValueElement Value="ACA" CodeSystem="MVX" DisplayName="Acambis, Inc"/>
 			<ValueElement Value="AD" CodeSystem="MVX" DisplayName="Adams Laboratories, Inc."/>
+			<ValueElement Value="AKR" CodeSystem="MVX" DisplayName="Akorn, Inc"/>
 			<ValueElement Value="ALP" CodeSystem="MVX" DisplayName="Alpha Therapeutic Corporation"/>
 			<ValueElement Value="AR" CodeSystem="MVX" DisplayName="Armour"/>
 			<ValueElement Value="AVB" CodeSystem="MVX" DisplayName="Aventis Behring L.L.C."/>
@@ -972,256 +973,258 @@
 			<ValueElement Value="BAY" CodeSystem="MVX" DisplayName="Bayer Corporation"/>
 			<ValueElement Value="BP" CodeSystem="MVX" DisplayName="Berna Products"/>
 			<ValueElement Value="BPC" CodeSystem="MVX" DisplayName="Berna Products Corporation"/>
+			<ValueElement Value="BRR" CodeSystem="MVX" DisplayName="Barr Laboratories"/>
 			<ValueElement Value="BTP" CodeSystem="MVX" DisplayName="Biotest Pharmaceuticals Corporation"/>
-			<ValueElement Value="MIP" CodeSystem="MVX" DisplayName="Emergent BioDefense Operations Lansing"/>
-			<ValueElement Value="CSL" CodeSystem="MVX" DisplayName="bioCSL"/>
-			<ValueElement Value="CNJ" CodeSystem="MVX" DisplayName="Cangene Corporation"/>
-			<ValueElement Value="CMP" CodeSystem="MVX" DisplayName="Celltech Medeva Pharmaceuticals"/>
 			<ValueElement Value="CEN" CodeSystem="MVX" DisplayName="Centeon L.L.C."/>
 			<ValueElement Value="CHI" CodeSystem="MVX" DisplayName="Chiron Corporation"/>
+			<ValueElement Value="CMP" CodeSystem="MVX" DisplayName="Celltech Medeva Pharmaceuticals"/>
+			<ValueElement Value="CNJ" CodeSystem="MVX" DisplayName="Cangene Corporation"/>
 			<ValueElement Value="CON" CodeSystem="MVX" DisplayName="Connaught"/>
+			<ValueElement Value="CRU" CodeSystem="MVX" DisplayName="Crucell"/>
+			<ValueElement Value="CSL" CodeSystem="MVX" DisplayName="bioCSL"/>
 			<ValueElement Value="DVC" CodeSystem="MVX" DisplayName="DynPort Vaccine Company, LLC"/>
+			<ValueElement Value="DVX" CodeSystem="MVX" DisplayName="Dynavax, Inc."/>
+			<ValueElement Value="DYN" CodeSystem="MVX" DisplayName="Dynaport"/>
 			<ValueElement Value="EVN" CodeSystem="MVX" DisplayName="Evans Medical Limited"/>
 			<ValueElement Value="GEO" CodeSystem="MVX" DisplayName="GeoVax Labs, Inc."/>
-			<ValueElement Value="SKB" CodeSystem="MVX" DisplayName="GlaxoSmithKline"/>
 			<ValueElement Value="GRE" CodeSystem="MVX" DisplayName="Greer Laboratories, Inc."/>
+			<ValueElement Value="GRF" CodeSystem="MVX" DisplayName="Grifols"/>
 			<ValueElement Value="IAG" CodeSystem="MVX" DisplayName="Immuno International AG"/>
-			<ValueElement Value="IUS" CodeSystem="MVX" DisplayName="Immuno-U.S., Inc."/>
+			<ValueElement Value="IDB" CodeSystem="MVX" DisplayName="ID Biomedical"/>
+			<ValueElement Value="IM" CodeSystem="MVX" DisplayName="Merieux"/>
 			<ValueElement Value="INT" CodeSystem="MVX" DisplayName="Intercell Biomedical"/>
+			<ValueElement Value="IUS" CodeSystem="MVX" DisplayName="Immuno-U.S., Inc."/>
+			<ValueElement Value="JNJ" CodeSystem="MVX" DisplayName="Johnson and Johnson"/>
+			<ValueElement Value="JPN" CodeSystem="MVX" DisplayName="The Research Foundation for Microbial Diseases of Osaka University (BIKEN)"/>
+			<ValueElement Value="KED" CodeSystem="MVX" DisplayName="Kedrion Biopharma"/>
 			<ValueElement Value="KGC" CodeSystem="MVX" DisplayName="Korea Green Cross Corporation"/>
 			<ValueElement Value="LED" CodeSystem="MVX" DisplayName="Lederle"/>
-			<ValueElement Value="MBL" CodeSystem="MVX" DisplayName="Massachusetts Biologic Laboratories"/>
 			<ValueElement Value="MA" CodeSystem="MVX" DisplayName="Massachusetts Public Health Biologic Laboratories"/>
+			<ValueElement Value="MBL" CodeSystem="MVX" DisplayName="Massachusetts Biologic Laboratories"/>
+			<ValueElement Value="MCM" CodeSystem="MVX" DisplayName="MCM Vaccine Company"/>
 			<ValueElement Value="MED" CodeSystem="MVX" DisplayName="MedImmune, Inc."/>
-			<ValueElement Value="MSD" CodeSystem="MVX" DisplayName="Merck and Co., Inc."/>
-			<ValueElement Value="IM" CodeSystem="MVX" DisplayName="Merieux"/>
 			<ValueElement Value="MIL" CodeSystem="MVX" DisplayName="Miles"/>
+			<ValueElement Value="MIP" CodeSystem="MVX" DisplayName="Emergent BioDefense Operations Lansing"/>
+			<ValueElement Value="MSD" CodeSystem="MVX" DisplayName="Merck and Co., Inc."/>
 			<ValueElement Value="NAB" CodeSystem="MVX" DisplayName="NABI"/>
-			<ValueElement Value="NYB" CodeSystem="MVX" DisplayName="New York Blood Center"/>
 			<ValueElement Value="NAV" CodeSystem="MVX" DisplayName="North American Vaccine, Inc."/>
 			<ValueElement Value="NOV" CodeSystem="MVX" DisplayName="Novartis Pharmaceutical Corporation"/>
 			<ValueElement Value="NVX" CodeSystem="MVX" DisplayName="Novavax, Inc."/>
-			<ValueElement Value="OTC" CodeSystem="MVX" DisplayName="Organon Teknika Corporation"/>
+			<ValueElement Value="NYB" CodeSystem="MVX" DisplayName="New York Blood Center"/>
 			<ValueElement Value="ORT" CodeSystem="MVX" DisplayName="Ortho-clinical Diagnostics"/>
+			<ValueElement Value="OTC" CodeSystem="MVX" DisplayName="Organon Teknika Corporation"/>
+			<ValueElement Value="OTH" CodeSystem="MVX" DisplayName="Other manufacturer"/>
+			<ValueElement Value="PAX" CodeSystem="MVX" DisplayName="PaxVax"/>
 			<ValueElement Value="PD" CodeSystem="MVX" DisplayName="Parkedale Pharmaceuticals"/>
-			<ValueElement Value="PWJ" CodeSystem="MVX" DisplayName="PowderJect Pharmaceuticals"/>
-			<ValueElement Value="PRX" CodeSystem="MVX" DisplayName="Praxis Biologics"/>
-			<ValueElement Value="JPN" CodeSystem="MVX" DisplayName="The Research Foundation for Microbial Diseases of Osaka University (BIKEN)"/>
+			<ValueElement Value="PFR" CodeSystem="MVX" DisplayName="Pfizer, Inc"/>
 			<ValueElement Value="PMC" CodeSystem="MVX" DisplayName="sanofi pasteur"/>
+			<ValueElement Value="PRX" CodeSystem="MVX" DisplayName="Praxis Biologics"/>
+			<ValueElement Value="PSC" CodeSystem="MVX" DisplayName="Protein Sciences"/>
+			<ValueElement Value="PWJ" CodeSystem="MVX" DisplayName="PowderJect Pharmaceuticals"/>
 			<ValueElement Value="SCL" CodeSystem="MVX" DisplayName="Sclavo, Inc."/>
-			<ValueElement Value="SOL" CodeSystem="MVX" DisplayName="Solvay Pharmaceuticals"/>
+			<ValueElement Value="SEQ" CodeSystem="MVX" DisplayName="Seqirus"/>
 			<ValueElement Value="SI" CodeSystem="MVX" DisplayName="Swiss Serum and Vaccine Inst."/>
+			<ValueElement Value="SKB" CodeSystem="MVX" DisplayName="GlaxoSmithKline"/>
+			<ValueElement Value="SOL" CodeSystem="MVX" DisplayName="Solvay Pharmaceuticals"/>
 			<ValueElement Value="TAL" CodeSystem="MVX" DisplayName="Talecris Biotherapeutics"/>
+			<ValueElement Value="UNK" CodeSystem="MVX" DisplayName="Unknown manufacturer"/>
 			<ValueElement Value="USA" CodeSystem="MVX" DisplayName="United States Army Medical Research and Material Command"/>
+			<ValueElement Value="VAL" CodeSystem="MVX" DisplayName="Valneva"/>
 			<ValueElement Value="VXG" CodeSystem="MVX" DisplayName="VaxGen"/>
 			<ValueElement Value="WA" CodeSystem="MVX" DisplayName="Wyeth-Ayerst"/>
 			<ValueElement Value="WAL" CodeSystem="MVX" DisplayName="Wyeth"/>
 			<ValueElement Value="ZLB" CodeSystem="MVX" DisplayName="ZLB Behring"/>
-			<ValueElement Value="OTH" CodeSystem="MVX" DisplayName="Other manufacturer"/>
-			<ValueElement Value="UNK" CodeSystem="MVX" DisplayName="Unknown manufacturer"/>
-			<ValueElement Value="AKR" CodeSystem="MVX" DisplayName="Akorn, Inc"/>
-			<ValueElement Value="PFR" CodeSystem="MVX" DisplayName="Pfizer, Inc"/>
-			<ValueElement Value="BRR" CodeSystem="MVX" DisplayName="Barr Laboratories"/>
-			<ValueElement Value="JNJ" CodeSystem="MVX" DisplayName="Johnson and Johnson"/>
-			<ValueElement Value="PSC" CodeSystem="MVX" DisplayName="Protein Sciences"/>
-			<ValueElement Value="IDB" CodeSystem="MVX" DisplayName="ID Biomedical"/>
-			<ValueElement Value="GRF" CodeSystem="MVX" DisplayName="Grifols"/>
-			<ValueElement Value="CRU" CodeSystem="MVX" DisplayName="Crucell"/>
-			<ValueElement Value="KED" CodeSystem="MVX" DisplayName="Kedrion Biopharma"/>
-			<ValueElement Value="PAX" CodeSystem="MVX" DisplayName="PaxVax"/>
-			<ValueElement Value="MCM" CodeSystem="MVX" DisplayName="MCM Vaccine Company"/>
-			<ValueElement Value="SEQ" CodeSystem="MVX" DisplayName="Seqirus"/>
-			<ValueElement Value="VAL" CodeSystem="MVX" DisplayName="Valneva"/>
-			<ValueElement Value="DYN" CodeSystem="MVX" DisplayName="Dynaport"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="CVX" Name="Codes for Vaccines administered">
-			<ValueElement Value="186" DisplayName="Influenza, injectable, Madin Darby Canine Kidney, quadrivalent" CodeSystem="CVX"/>
-			<ValueElement Value="185" DisplayName="influenza, recombinant, quadrIvalent,injectable, preservative free" CodeSystem="CVX"/>
-			<ValueElement Value="183" DisplayName="Yellow fever vaccine - alt" CodeSystem="CVX"/>
-			<ValueElement Value="184" DisplayName="Yellow fever, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="998" DisplayName="no vaccine administered" CodeSystem="CVX"/>
-			<ValueElement Value="999" DisplayName="unknown" CodeSystem="CVX"/>
-			<ValueElement Value="143" DisplayName="Adenovirus types 4 and 7" CodeSystem="CVX"/>
-			<ValueElement Value="54" DisplayName="adenovirus, type 4" CodeSystem="CVX"/>
-			<ValueElement Value="55" DisplayName="adenovirus, type 7" CodeSystem="CVX"/>
-			<ValueElement Value="82" DisplayName="adenovirus, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="24" DisplayName="anthrax" CodeSystem="CVX"/>
-			<ValueElement Value="181" DisplayName="anthrax immune globulin" CodeSystem="CVX"/>
-			<ValueElement Value="801" DisplayName="AS03 Adjuvant" CodeSystem="CVX"/>
-			<ValueElement Value="19" DisplayName="BCG" CodeSystem="CVX"/>
-			<ValueElement Value="27" DisplayName="botulinum antitoxin" CodeSystem="CVX"/>
-			<ValueElement Value="173" DisplayName="cholera, BivWC" CodeSystem="CVX"/>
-			<ValueElement Value="174" DisplayName="cholera, live attenuated" CodeSystem="CVX"/>
-			<ValueElement Value="26" DisplayName="cholera, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="172" DisplayName="cholera, WC-rBS" CodeSystem="CVX"/>
-			<ValueElement Value="29" DisplayName="CMVIG" CodeSystem="CVX"/>
-			<ValueElement Value="56" DisplayName="dengue fever" CodeSystem="CVX"/>
-			<ValueElement Value="12" DisplayName="diphtheria antitoxin" CodeSystem="CVX"/>
-			<ValueElement Value="28" DisplayName="DT (pediatric)" CodeSystem="CVX"/>
-			<ValueElement Value="20" DisplayName="DTaP" CodeSystem="CVX"/>
-			<ValueElement Value="106" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="CVX"/>
-			<ValueElement Value="107" DisplayName="DTaP, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="146" DisplayName="DTaP,IPV,Hib,HepB" CodeSystem="CVX"/>
-			<ValueElement Value="170" DisplayName="DTAP/IPV/HIB - non-US" CodeSystem="CVX"/>
-			<ValueElement Value="110" DisplayName="DTaP-Hep B-IPV" CodeSystem="CVX"/>
-			<ValueElement Value="50" DisplayName="DTaP-Hib" CodeSystem="CVX"/>
-			<ValueElement Value="120" DisplayName="DTaP-Hib-IPV" CodeSystem="CVX"/>
-			<ValueElement Value="130" DisplayName="DTaP-IPV" CodeSystem="CVX"/>
-			<ValueElement Value="132" DisplayName="DTaP-IPV-HIB-HEP B, historical" CodeSystem="CVX"/>
 			<ValueElement Value="01" DisplayName="DTP" CodeSystem="CVX"/>
-			<ValueElement Value="22" DisplayName="DTP-Hib" CodeSystem="CVX"/>
-			<ValueElement Value="102" DisplayName="DTP-Hib-Hep B" CodeSystem="CVX"/>
-			<ValueElement Value="57" DisplayName="hantavirus" CodeSystem="CVX"/>
-			<ValueElement Value="30" DisplayName="HBIG" CodeSystem="CVX"/>
-			<ValueElement Value="52" DisplayName="Hep A, adult" CodeSystem="CVX"/>
-			<ValueElement Value="154" DisplayName="Hep A, IG" CodeSystem="CVX"/>
-			<ValueElement Value="169" DisplayName="Hep A, live attenuated" CodeSystem="CVX"/>
-			<ValueElement Value="83" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="CVX"/>
-			<ValueElement Value="84" DisplayName="Hep A, ped/adol, 3 dose" CodeSystem="CVX"/>
-			<ValueElement Value="31" DisplayName="Hep A, pediatric, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="85" DisplayName="Hep A, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="104" DisplayName="Hep A-Hep B" CodeSystem="CVX"/>
+			<ValueElement Value="02" DisplayName="OPV" CodeSystem="CVX"/>
+			<ValueElement Value="03" DisplayName="MMR" CodeSystem="CVX"/>
+			<ValueElement Value="04" DisplayName="M/R" CodeSystem="CVX"/>
+			<ValueElement Value="05" DisplayName="measles" CodeSystem="CVX"/>
+			<ValueElement Value="06" DisplayName="rubella" CodeSystem="CVX"/>
+			<ValueElement Value="07" DisplayName="mumps" CodeSystem="CVX"/>
 			<ValueElement Value="08" DisplayName="Hep B, adolescent or pediatric" CodeSystem="CVX"/>
+			<ValueElement Value="09" DisplayName="Td (adult), 2 Lf tetanus toxoid, preservative free, adsorbed" CodeSystem="CVX"/>
+			<ValueElement Value="10" DisplayName="IPV" CodeSystem="CVX"/>
+			<ValueElement Value="11" DisplayName="pertussis" CodeSystem="CVX"/>
+			<ValueElement Value="12" DisplayName="diphtheria antitoxin" CodeSystem="CVX"/>
+			<ValueElement Value="13" DisplayName="TIG" CodeSystem="CVX"/>
+			<ValueElement Value="14" DisplayName="IG, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="15" DisplayName="influenza, split (incl. purified surface antigen)" CodeSystem="CVX"/>
+			<ValueElement Value="16" DisplayName="influenza, whole" CodeSystem="CVX"/>
+			<ValueElement Value="17" DisplayName="Hib, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="18" DisplayName="rabies, intramuscular injection" CodeSystem="CVX"/>
+			<ValueElement Value="19" DisplayName="BCG" CodeSystem="CVX"/>
+			<ValueElement Value="20" DisplayName="DTaP" CodeSystem="CVX"/>
+			<ValueElement Value="21" DisplayName="varicella" CodeSystem="CVX"/>
+			<ValueElement Value="22" DisplayName="DTP-Hib" CodeSystem="CVX"/>
+			<ValueElement Value="23" DisplayName="plague" CodeSystem="CVX"/>
+			<ValueElement Value="24" DisplayName="anthrax" CodeSystem="CVX"/>
+			<ValueElement Value="25" DisplayName="typhoid, oral" CodeSystem="CVX"/>
+			<ValueElement Value="26" DisplayName="cholera, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="27" DisplayName="botulinum antitoxin" CodeSystem="CVX"/>
+			<ValueElement Value="28" DisplayName="DT (pediatric)" CodeSystem="CVX"/>
+			<ValueElement Value="29" DisplayName="CMVIG" CodeSystem="CVX"/>
+			<ValueElement Value="30" DisplayName="HBIG" CodeSystem="CVX"/>
+			<ValueElement Value="31" DisplayName="Hep A, pediatric, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="32" DisplayName="meningococcal MPSV4" CodeSystem="CVX"/>
+			<ValueElement Value="33" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="CVX"/>
+			<ValueElement Value="34" DisplayName="RIG" CodeSystem="CVX"/>
+			<ValueElement Value="35" DisplayName="tetanus toxoid, adsorbed" CodeSystem="CVX"/>
+			<ValueElement Value="36" DisplayName="VZIG" CodeSystem="CVX"/>
+			<ValueElement Value="37" DisplayName="yellow fever" CodeSystem="CVX"/>
+			<ValueElement Value="38" DisplayName="rubella/mumps" CodeSystem="CVX"/>
+			<ValueElement Value="39" DisplayName="Japanese encephalitis SC" CodeSystem="CVX"/>
+			<ValueElement Value="40" DisplayName="rabies, intradermal injection" CodeSystem="CVX"/>
+			<ValueElement Value="41" DisplayName="typhoid, parenteral" CodeSystem="CVX"/>
 			<ValueElement Value="42" DisplayName="Hep B, adolescent/high risk infant" CodeSystem="CVX"/>
 			<ValueElement Value="43" DisplayName="Hep B, adult" CodeSystem="CVX"/>
 			<ValueElement Value="44" DisplayName="Hep B, dialysis" CodeSystem="CVX"/>
 			<ValueElement Value="45" DisplayName="Hep B, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="46" DisplayName="Hib (PRP-D)" CodeSystem="CVX"/>
+			<ValueElement Value="47" DisplayName="Hib (HbOC)" CodeSystem="CVX"/>
+			<ValueElement Value="48" DisplayName="Hib (PRP-T)" CodeSystem="CVX"/>
+			<ValueElement Value="49" DisplayName="Hib (PRP-OMP)" CodeSystem="CVX"/>
+			<ValueElement Value="50" DisplayName="DTaP-Hib" CodeSystem="CVX"/>
+			<ValueElement Value="51" DisplayName="Hib-Hep B" CodeSystem="CVX"/>
+			<ValueElement Value="52" DisplayName="Hep A, adult" CodeSystem="CVX"/>
+			<ValueElement Value="53" DisplayName="typhoid, parenteral, AKD (U.S. military)" CodeSystem="CVX"/>
+			<ValueElement Value="54" DisplayName="adenovirus, type 4" CodeSystem="CVX"/>
+			<ValueElement Value="55" DisplayName="adenovirus, type 7" CodeSystem="CVX"/>
+			<ValueElement Value="56" DisplayName="dengue fever" CodeSystem="CVX"/>
+			<ValueElement Value="57" DisplayName="hantavirus" CodeSystem="CVX"/>
 			<ValueElement Value="58" DisplayName="Hep C" CodeSystem="CVX"/>
 			<ValueElement Value="59" DisplayName="Hep E" CodeSystem="CVX"/>
 			<ValueElement Value="60" DisplayName="herpes simplex 2" CodeSystem="CVX"/>
-			<ValueElement Value="47" DisplayName="Hib (HbOC)" CodeSystem="CVX"/>
-			<ValueElement Value="46" DisplayName="Hib (PRP-D)" CodeSystem="CVX"/>
-			<ValueElement Value="49" DisplayName="Hib (PRP-OMP)" CodeSystem="CVX"/>
-			<ValueElement Value="48" DisplayName="Hib (PRP-T)" CodeSystem="CVX"/>
-			<ValueElement Value="17" DisplayName="Hib, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="51" DisplayName="Hib-Hep B" CodeSystem="CVX"/>
 			<ValueElement Value="61" DisplayName="HIV" CodeSystem="CVX"/>
-			<ValueElement Value="118" DisplayName="HPV, bivalent" CodeSystem="CVX"/>
 			<ValueElement Value="62" DisplayName="HPV, quadrivalent" CodeSystem="CVX"/>
-			<ValueElement Value="137" DisplayName="HPV, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="165" DisplayName="HPV9" CodeSystem="CVX"/>
-			<ValueElement Value="86" DisplayName="IG" CodeSystem="CVX"/>
-			<ValueElement Value="14" DisplayName="IG, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="87" DisplayName="IGIV" CodeSystem="CVX"/>
-			<ValueElement Value="160" DisplayName="Influenza A monovalent (H5N1), ADJUVANTED-2013" CodeSystem="CVX"/>
-			<ValueElement Value="151" DisplayName="influenza nasal, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="123" DisplayName="influenza, H5N1-1203" CodeSystem="CVX"/>
-			<ValueElement Value="135" DisplayName="Influenza, high dose seasonal" CodeSystem="CVX"/>
-			<ValueElement Value="153" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="CVX"/>
-			<ValueElement Value="171" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="CVX"/>
-			<ValueElement Value="158" DisplayName="influenza, injectable, quadrivalent" CodeSystem="CVX"/>
-			<ValueElement Value="150" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="CVX"/>
-			<ValueElement Value="161" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="CVX"/>
-			<ValueElement Value="166" DisplayName="influenza, intradermal, quadrivalent, preservative free" CodeSystem="CVX"/>
-			<ValueElement Value="111" DisplayName="influenza, live, intranasal" CodeSystem="CVX"/>
-			<ValueElement Value="149" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="CVX"/>
-			<ValueElement Value="155" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="CVX"/>
-			<ValueElement Value="141" DisplayName="Influenza, seasonal, injectable" CodeSystem="CVX"/>
-			<ValueElement Value="140" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="CVX"/>
-			<ValueElement Value="144" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="CVX"/>
-			<ValueElement Value="15" DisplayName="influenza, split (incl. purified surface antigen)" CodeSystem="CVX"/>
-			<ValueElement Value="168" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="CVX"/>
-			<ValueElement Value="88" DisplayName="influenza, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="16" DisplayName="influenza, whole" CodeSystem="CVX"/>
-			<ValueElement Value="10" DisplayName="IPV" CodeSystem="CVX"/>
-			<ValueElement Value="134" DisplayName="Japanese Encephalitis IM" CodeSystem="CVX"/>
-			<ValueElement Value="39" DisplayName="Japanese encephalitis SC" CodeSystem="CVX"/>
-			<ValueElement Value="129" DisplayName="Japanese Encephalitis, unspecified formulation" CodeSystem="CVX"/>
 			<ValueElement Value="63" DisplayName="Junin virus" CodeSystem="CVX"/>
 			<ValueElement Value="64" DisplayName="leishmaniasis" CodeSystem="CVX"/>
 			<ValueElement Value="65" DisplayName="leprosy" CodeSystem="CVX"/>
 			<ValueElement Value="66" DisplayName="Lyme disease" CodeSystem="CVX"/>
-			<ValueElement Value="04" DisplayName="M/R" CodeSystem="CVX"/>
 			<ValueElement Value="67" DisplayName="malaria" CodeSystem="CVX"/>
-			<ValueElement Value="05" DisplayName="measles" CodeSystem="CVX"/>
 			<ValueElement Value="68" DisplayName="melanoma" CodeSystem="CVX"/>
-			<ValueElement Value="108" DisplayName="meningococcal ACWY, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="163" DisplayName="meningococcal B, OMV" CodeSystem="CVX"/>
-			<ValueElement Value="162" DisplayName="meningococcal B, recombinant" CodeSystem="CVX"/>
-			<ValueElement Value="164" DisplayName="meningococcal B, unspecified" CodeSystem="CVX"/>
-			<ValueElement Value="103" DisplayName="meningococcal C conjugate" CodeSystem="CVX"/>
-			<ValueElement Value="148" DisplayName="Meningococcal C/Y-HIB PRP" CodeSystem="CVX"/>
-			<ValueElement Value="147" DisplayName="meningococcal MCV4, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="136" DisplayName="Meningococcal MCV4O" CodeSystem="CVX"/>
-			<ValueElement Value="114" DisplayName="meningococcal MCV4P" CodeSystem="CVX"/>
-			<ValueElement Value="32" DisplayName="meningococcal MPSV4" CodeSystem="CVX"/>
-			<ValueElement Value="167" DisplayName="meningococcal, unknown serogroups" CodeSystem="CVX"/>
-			<ValueElement Value="03" DisplayName="MMR" CodeSystem="CVX"/>
-			<ValueElement Value="94" DisplayName="MMRV" CodeSystem="CVX"/>
-			<ValueElement Value="07" DisplayName="mumps" CodeSystem="CVX"/>
-			<ValueElement Value="127" DisplayName="Novel influenza-H1N1-09" CodeSystem="CVX"/>
-			<ValueElement Value="128" DisplayName="Novel Influenza-H1N1-09, all formulations" CodeSystem="CVX"/>
-			<ValueElement Value="125" DisplayName="Novel Influenza-H1N1-09, nasal" CodeSystem="CVX"/>
-			<ValueElement Value="126" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="CVX"/>
-			<ValueElement Value="02" DisplayName="OPV" CodeSystem="CVX"/>
-			<ValueElement Value="179" DisplayName="OPV ,monovalent, unspecified" CodeSystem="CVX"/>
-			<ValueElement Value="178" DisplayName="OPV bivalent" CodeSystem="CVX"/>
-			<ValueElement Value="182" DisplayName="OPV, Unspecified" CodeSystem="CVX"/>
 			<ValueElement Value="69" DisplayName="parainfluenza-3" CodeSystem="CVX"/>
-			<ValueElement Value="177" DisplayName="PCV10" CodeSystem="CVX"/>
-			<ValueElement Value="11" DisplayName="pertussis" CodeSystem="CVX"/>
-			<ValueElement Value="23" DisplayName="plague" CodeSystem="CVX"/>
-			<ValueElement Value="133" DisplayName="Pneumococcal conjugate PCV 13" CodeSystem="CVX"/>
-			<ValueElement Value="100" DisplayName="pneumococcal conjugate PCV 7" CodeSystem="CVX"/>
-			<ValueElement Value="152" DisplayName="Pneumococcal Conjugate, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="33" DisplayName="pneumococcal polysaccharide PPV23" CodeSystem="CVX"/>
-			<ValueElement Value="109" DisplayName="pneumococcal, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="89" DisplayName="polio, unspecified formulation" CodeSystem="CVX"/>
 			<ValueElement Value="70" DisplayName="Q fever" CodeSystem="CVX"/>
-			<ValueElement Value="175" DisplayName="Rabies - IM Diploid cell culture" CodeSystem="CVX"/>
-			<ValueElement Value="176" DisplayName="Rabies - IM fibroblast culture" CodeSystem="CVX"/>
-			<ValueElement Value="40" DisplayName="rabies, intradermal injection" CodeSystem="CVX"/>
-			<ValueElement Value="18" DisplayName="rabies, intramuscular injection" CodeSystem="CVX"/>
-			<ValueElement Value="90" DisplayName="rabies, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="72" DisplayName="rheumatic fever" CodeSystem="CVX"/>
-			<ValueElement Value="159" DisplayName="Rho(D) - Unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="157" DisplayName="Rho(D) -IG IM" CodeSystem="CVX"/>
-			<ValueElement Value="156" DisplayName="Rho(D)-IG" CodeSystem="CVX"/>
-			<ValueElement Value="73" DisplayName="Rift Valley fever" CodeSystem="CVX"/>
-			<ValueElement Value="34" DisplayName="RIG" CodeSystem="CVX"/>
-			<ValueElement Value="119" DisplayName="rotavirus, monovalent" CodeSystem="CVX"/>
-			<ValueElement Value="116" DisplayName="rotavirus, pentavalent" CodeSystem="CVX"/>
-			<ValueElement Value="74" DisplayName="rotavirus, tetravalent" CodeSystem="CVX"/>
-			<ValueElement Value="122" DisplayName="rotavirus, unspecified formulation" CodeSystem="CVX"/>
 			<ValueElement Value="71" DisplayName="RSV-IGIV" CodeSystem="CVX"/>
-			<ValueElement Value="93" DisplayName="RSV-MAb" CodeSystem="CVX"/>
-			<ValueElement Value="145" DisplayName="RSV-MAb (new)" CodeSystem="CVX"/>
-			<ValueElement Value="06" DisplayName="rubella" CodeSystem="CVX"/>
-			<ValueElement Value="38" DisplayName="rubella/mumps" CodeSystem="CVX"/>
+			<ValueElement Value="72" DisplayName="rheumatic fever" CodeSystem="CVX"/>
+			<ValueElement Value="73" DisplayName="Rift Valley fever" CodeSystem="CVX"/>
+			<ValueElement Value="74" DisplayName="rotavirus, tetravalent" CodeSystem="CVX"/>
+			<ValueElement Value="75" DisplayName="vaccinia (smallpox)" CodeSystem="CVX"/>
 			<ValueElement Value="76" DisplayName="Staphylococcus bacterio lysate" CodeSystem="CVX"/>
-			<ValueElement Value="138" DisplayName="Td (adult)" CodeSystem="CVX"/>
-			<ValueElement Value="113" DisplayName="Td (adult) preservative free" CodeSystem="CVX"/>
-			<ValueElement Value="09" DisplayName="Td (adult), adsorbed" CodeSystem="CVX"/>
-			<ValueElement Value="139" DisplayName="Td(adult) unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="115" DisplayName="Tdap" CodeSystem="CVX"/>
-			<ValueElement Value="180" DisplayName="tetanus immune globulin" CodeSystem="CVX"/>
-			<ValueElement Value="35" DisplayName="tetanus toxoid, adsorbed" CodeSystem="CVX"/>
-			<ValueElement Value="142" DisplayName="tetanus toxoid, not adsorbed" CodeSystem="CVX"/>
-			<ValueElement Value="112" DisplayName="tetanus toxoid, unspecified formulation" CodeSystem="CVX"/>
 			<ValueElement Value="77" DisplayName="tick-borne encephalitis" CodeSystem="CVX"/>
-			<ValueElement Value="13" DisplayName="TIG" CodeSystem="CVX"/>
-			<ValueElement Value="98" DisplayName="TST, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="78" DisplayName="tularemia vaccine" CodeSystem="CVX"/>
+			<ValueElement Value="79" DisplayName="vaccinia immune globulin" CodeSystem="CVX"/>
+			<ValueElement Value="80" DisplayName="VEE, live" CodeSystem="CVX"/>
+			<ValueElement Value="81" DisplayName="VEE, inactivated" CodeSystem="CVX"/>
+			<ValueElement Value="82" DisplayName="adenovirus, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="83" DisplayName="Hep A, ped/adol, 2 dose" CodeSystem="CVX"/>
+			<ValueElement Value="84" DisplayName="Hep A, ped/adol, 3 dose" CodeSystem="CVX"/>
+			<ValueElement Value="85" DisplayName="Hep A, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="86" DisplayName="IG" CodeSystem="CVX"/>
+			<ValueElement Value="87" DisplayName="IGIV" CodeSystem="CVX"/>
+			<ValueElement Value="88" DisplayName="influenza, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="89" DisplayName="polio, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="90" DisplayName="rabies, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="91" DisplayName="typhoid, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="92" DisplayName="VEE, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="93" DisplayName="RSV-MAb" CodeSystem="CVX"/>
+			<ValueElement Value="94" DisplayName="MMRV" CodeSystem="CVX"/>
 			<ValueElement Value="95" DisplayName="TST-OT tine test" CodeSystem="CVX"/>
 			<ValueElement Value="96" DisplayName="TST-PPD intradermal" CodeSystem="CVX"/>
 			<ValueElement Value="97" DisplayName="TST-PPD tine test" CodeSystem="CVX"/>
-			<ValueElement Value="78" DisplayName="tularemia vaccine" CodeSystem="CVX"/>
-			<ValueElement Value="25" DisplayName="typhoid, oral" CodeSystem="CVX"/>
-			<ValueElement Value="41" DisplayName="typhoid, parenteral" CodeSystem="CVX"/>
-			<ValueElement Value="53" DisplayName="typhoid, parenteral, AKD (U.S. military)" CodeSystem="CVX"/>
-			<ValueElement Value="91" DisplayName="typhoid, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="98" DisplayName="TST, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="100" DisplayName="pneumococcal conjugate PCV 7" CodeSystem="CVX"/>
 			<ValueElement Value="101" DisplayName="typhoid, ViCPs" CodeSystem="CVX"/>
-			<ValueElement Value="131" DisplayName="typhus, historical" CodeSystem="CVX"/>
-			<ValueElement Value="75" DisplayName="vaccinia (smallpox)" CodeSystem="CVX"/>
+			<ValueElement Value="102" DisplayName="DTP-Hib-Hep B" CodeSystem="CVX"/>
+			<ValueElement Value="103" DisplayName="meningococcal C conjugate" CodeSystem="CVX"/>
+			<ValueElement Value="104" DisplayName="Hep A-Hep B" CodeSystem="CVX"/>
 			<ValueElement Value="105" DisplayName="vaccinia (smallpox) diluted" CodeSystem="CVX"/>
-			<ValueElement Value="79" DisplayName="vaccinia immune globulin" CodeSystem="CVX"/>
-			<ValueElement Value="21" DisplayName="varicella" CodeSystem="CVX"/>
-			<ValueElement Value="81" DisplayName="VEE, inactivated" CodeSystem="CVX"/>
-			<ValueElement Value="80" DisplayName="VEE, live" CodeSystem="CVX"/>
-			<ValueElement Value="92" DisplayName="VEE, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="36" DisplayName="VZIG" CodeSystem="CVX"/>
+			<ValueElement Value="106" DisplayName="DTaP, 5 pertussis antigens" CodeSystem="CVX"/>
+			<ValueElement Value="107" DisplayName="DTaP, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="108" DisplayName="meningococcal ACWY, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="109" DisplayName="pneumococcal, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="110" DisplayName="DTaP-Hep B-IPV" CodeSystem="CVX"/>
+			<ValueElement Value="111" DisplayName="influenza, live, intranasal" CodeSystem="CVX"/>
+			<ValueElement Value="112" DisplayName="tetanus toxoid, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="113" DisplayName="Td (adult), preservative free” to “Td (adult), 5 Lf tetanus toxoid, preservative free, adsorbed" CodeSystem="CVX"/>
+			<ValueElement Value="114" DisplayName="meningococcal MCV4P" CodeSystem="CVX"/>
+			<ValueElement Value="115" DisplayName="Tdap" CodeSystem="CVX"/>
+			<ValueElement Value="116" DisplayName="rotavirus, pentavalent" CodeSystem="CVX"/>
 			<ValueElement Value="117" DisplayName="VZIG (IND)" CodeSystem="CVX"/>
-			<ValueElement Value="37" DisplayName="yellow fever" CodeSystem="CVX"/>
-			<ValueElement Value="121" DisplayName="zoster" CodeSystem="CVX"/>
+			<ValueElement Value="118" DisplayName="HPV, bivalent" CodeSystem="CVX"/>
+			<ValueElement Value="119" DisplayName="rotavirus, monovalent" CodeSystem="CVX"/>
+			<ValueElement Value="120" DisplayName="DTaP-Hib-IPV" CodeSystem="CVX"/>
+			<ValueElement Value="121" DisplayName="zoster live" CodeSystem="CVX"/>
+			<ValueElement Value="122" DisplayName="rotavirus, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="123" DisplayName="influenza, H5N1-1203" CodeSystem="CVX"/>
+			<ValueElement Value="125" DisplayName="Novel Influenza-H1N1-09, nasal" CodeSystem="CVX"/>
+			<ValueElement Value="126" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="CVX"/>
+			<ValueElement Value="127" DisplayName="Novel influenza-H1N1-09" CodeSystem="CVX"/>
+			<ValueElement Value="128" DisplayName="Novel Influenza-H1N1-09, all formulations" CodeSystem="CVX"/>
+			<ValueElement Value="129" DisplayName="Japanese Encephalitis, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="130" DisplayName="DTaP-IPV" CodeSystem="CVX"/>
+			<ValueElement Value="131" DisplayName="typhus, historical" CodeSystem="CVX"/>
+			<ValueElement Value="132" DisplayName="DTaP-IPV-HIB-HEP B, historical" CodeSystem="CVX"/>
+			<ValueElement Value="133" DisplayName="Pneumococcal conjugate PCV 13" CodeSystem="CVX"/>
+			<ValueElement Value="134" DisplayName="Japanese Encephalitis IM" CodeSystem="CVX"/>
+			<ValueElement Value="135" DisplayName="Influenza, high dose seasonal" CodeSystem="CVX"/>
+			<ValueElement Value="136" DisplayName="Meningococcal MCV4O" CodeSystem="CVX"/>
+			<ValueElement Value="137" DisplayName="HPV, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="138" DisplayName="Td (adult)" CodeSystem="CVX"/>
+			<ValueElement Value="139" DisplayName="Td(adult) unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="140" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="CVX"/>
+			<ValueElement Value="141" DisplayName="Influenza, seasonal, injectable" CodeSystem="CVX"/>
+			<ValueElement Value="142" DisplayName="tetanus toxoid, not adsorbed" CodeSystem="CVX"/>
+			<ValueElement Value="143" DisplayName="Adenovirus types 4 and 7" CodeSystem="CVX"/>
+			<ValueElement Value="144" DisplayName="influenza, seasonal, intradermal, preservative free" CodeSystem="CVX"/>
+			<ValueElement Value="146" DisplayName="DTaP,IPV,Hib,HepB" CodeSystem="CVX"/>
+			<ValueElement Value="147" DisplayName="meningococcal MCV4, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="148" DisplayName="Meningococcal C/Y-HIB PRP" CodeSystem="CVX"/>
+			<ValueElement Value="149" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="CVX"/>
+			<ValueElement Value="150" DisplayName="influenza, injectable, quadrivalent, preservative free" CodeSystem="CVX"/>
+			<ValueElement Value="151" DisplayName="influenza nasal, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="152" DisplayName="Pneumococcal Conjugate, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="153" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="CVX"/>
+			<ValueElement Value="154" DisplayName="Hep A, IG" CodeSystem="CVX"/>
+			<ValueElement Value="155" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="CVX"/>
+			<ValueElement Value="156" DisplayName="Rho(D)-IG" CodeSystem="CVX"/>
+			<ValueElement Value="157" DisplayName="Rho(D) -IG IM" CodeSystem="CVX"/>
+			<ValueElement Value="158" DisplayName="influenza, injectable, quadrivalent" CodeSystem="CVX"/>
+			<ValueElement Value="159" DisplayName="Rho(D) - Unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="160" DisplayName="Influenza A monovalent (H5N1), ADJUVANTED-2013" CodeSystem="CVX"/>
+			<ValueElement Value="161" DisplayName="Influenza, injectable,quadrivalent, preservative free, pediatric" CodeSystem="CVX"/>
+			<ValueElement Value="162" DisplayName="meningococcal B, recombinant" CodeSystem="CVX"/>
+			<ValueElement Value="163" DisplayName="meningococcal B, OMV" CodeSystem="CVX"/>
+			<ValueElement Value="164" DisplayName="meningococcal B, unspecified" CodeSystem="CVX"/>
+			<ValueElement Value="165" DisplayName="HPV9" CodeSystem="CVX"/>
+			<ValueElement Value="166" DisplayName="influenza, intradermal, quadrivalent, preservative free" CodeSystem="CVX"/>
+			<ValueElement Value="167" DisplayName="meningococcal, unknown serogroups" CodeSystem="CVX"/>
+			<ValueElement Value="168" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="CVX"/>
+			<ValueElement Value="169" DisplayName="Hep A, live attenuated" CodeSystem="CVX"/>
+			<ValueElement Value="170" DisplayName="DTAP/IPV/HIB - non-US" CodeSystem="CVX"/>
+			<ValueElement Value="171" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="CVX"/>
+			<ValueElement Value="172" DisplayName="cholera, WC-rBS" CodeSystem="CVX"/>
+			<ValueElement Value="173" DisplayName="cholera, BivWC" CodeSystem="CVX"/>
+			<ValueElement Value="174" DisplayName="cholera, live attenuated" CodeSystem="CVX"/>
+			<ValueElement Value="175" DisplayName="Rabies - IM Diploid cell culture" CodeSystem="CVX"/>
+			<ValueElement Value="176" DisplayName="Rabies - IM fibroblast culture" CodeSystem="CVX"/>
+			<ValueElement Value="177" DisplayName="PCV10" CodeSystem="CVX"/>
+			<ValueElement Value="178" DisplayName="OPV bivalent" CodeSystem="CVX"/>
+			<ValueElement Value="179" DisplayName="OPV ,monovalent, unspecified" CodeSystem="CVX"/>
+			<ValueElement Value="180" DisplayName="tetanus immune globulin" CodeSystem="CVX"/>
+			<ValueElement Value="181" DisplayName="anthrax immune globulin" CodeSystem="CVX"/>
+			<ValueElement Value="182" DisplayName="OPV, Unspecified" CodeSystem="CVX"/>
+			<ValueElement Value="183" DisplayName="Yellow fever vaccine - alt" CodeSystem="CVX"/>
+			<ValueElement Value="184" DisplayName="Yellow fever, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="185" DisplayName="influenza, recombinant, quadrIvalent,injectable, preservative free" CodeSystem="CVX"/>
+			<ValueElement Value="186" DisplayName="Influenza, injectable, Madin Darby Canine Kidney, quadrivalent" CodeSystem="CVX"/>
+			<ValueElement Value="187" DisplayName="zoster vaccine subunit" CodeSystem="CVX"/>
+			<ValueElement Value="188" DisplayName="zoster vaccine, unspecified formulation" CodeSystem="CVX"/>
+			<ValueElement Value="189" DisplayName="Hepatitis B vaccine (recombinant), adjuvanted" CodeSystem="CVX"/>
+			<ValueElement Value="801" DisplayName="AS03 Adjuvant" CodeSystem="CVX"/>
+			<ValueElement Value="998" DisplayName="no vaccine administered" CodeSystem="CVX"/>
+			<ValueElement Value="999" DisplayName="unknown" CodeSystem="CVX"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_ImmunizationFundingSource_IIS" Name="Immunization Funding Source (IIS)">
 			<ValueElement Value="PHC70" CodeSystem="CDCPHINVS" DisplayName="Private funds "/>
