@@ -1,25 +1,25 @@
 <style id="antiClickjack">body {
-    display: none !important;
+  display: none !important;
 }</style>
 <script type="text/javascript">
-    if (self === top) {
-        var antiClickjack = document.getElementById("antiClickjack");
-        antiClickjack.parentNode.removeChild(antiClickjack);
-    } else {
-        top.location = self.location;
-    }
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
 </script>
 <script type="text/ng-template" id="SOAPConnectivityConsole.html">
-    <div class="modal-header">
+  <div class="modal-header">
             <span style="font-weight: bold; font-size: 20px">
            Console
         </span>
-        <span class="pull-right">
+    <span class="pull-right">
             <!--<button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"-->
-                    <!--title="Send" class="btn btn-xs btn-success">-->
-                <!--<i class="fa fa-arrow-right"></i>-->
-                <!--Send-->
-            <!--</button>-->
+      <!--title="Send" class="btn btn-xs btn-success">-->
+      <!--<i class="fa fa-arrow-right"></i>-->
+      <!--Send-->
+      <!--</button>-->
 
         <button title="Close" type="button" class="btn btn-xs btn-primary"
                 ng-click="close()">
@@ -27,70 +27,70 @@
         </button>
 
             </span>
-    </div>
-    <div class="modal-body">
+  </div>
+  <div class="modal-body">
         <textarea class="well" wrap="off"
                   style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%"
                   rows="14" disabled
                   ng-model="logger.content"></textarea>
-    </div>
-    <!--<div class="modal-footer">-->
-    <!--<button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"-->
-    <!--title="Send" class="btn btn-sm btn-success">-->
-    <!--<i class="fa fa-arrow-right"></i>-->
-    <!--Send <span ng-show="connecting"><i class="fa fa-spinner"></i> Remaining: {{counter}}s </span>-->
-    <!--</button>-->
+  </div>
+  <!--<div class="modal-footer">-->
+  <!--<button type="button" ng-click="send()" ng-disabled="!isValidConfig() || connecting"-->
+  <!--title="Send" class="btn btn-sm btn-success">-->
+  <!--<i class="fa fa-arrow-right"></i>-->
+  <!--Send <span ng-show="connecting"><i class="fa fa-spinner"></i> Remaining: {{counter}}s </span>-->
+  <!--</button>-->
 
-    <!--<button title="Close" type="button" class="pull-right btn btn-sm btn-primary"-->
-    <!--ng-click="close()">-->
-    <!--<i class="fa fa-times"></i>Close-->
-    <!--</button>-->
-    <!--</div>-->
+  <!--<button title="Close" type="button" class="pull-right btn btn-sm btn-primary"-->
+  <!--ng-click="close()">-->
+  <!--<i class="fa fa-times"></i>Close-->
+  <!--</button>-->
+  <!--</div>-->
 </script>
 
 
 <script type="text/ng-template" id="TransactionConfigureReceiver.html">
-    <div class="modal-header">
+  <div class="modal-header">
         <span style="font-weight: bold; font-size: 20px">
             Receiver Configuration Panel
         </span>
 
-    </div>
-    <div class="modal-body">
-        <div class="row">
-            <div class="cols-md-10">
-                <form name="receiverForm1" novalidate>
-                    <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
-                        <label>Username</label>
-                        <input type="text" class="form-control" ng-model="config.username"
-                               placeholder="Username">
-                    </div>
-                    <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
-                        <label>Password</label>
-                        <input type="text" class="form-control"
-                               placeholder="Password"
-                               ng-model="config.password">
-                    </div>
-                    <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
-                        <label>FacilityID</label>
-                        <input type="text" class="form-control" placeholder="Facility Id"
-                               ng-model="config.facilityID">
-                    </div>
-                    <div class="form-group"
-                         ng-class="{ 'has-error' : receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine }">
-                        <label>Endpoint</label>
-                        <input type="url" name="endpoint" class="form-control" ng-model="config.endpoint"
-                               placeholder="SUT Endpoint" required>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="cols-md-10">
+        <form name="receiverForm1" novalidate>
+          <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+            <label>Username</label>
+            <input type="text" class="form-control" ng-model="config.username"
+                   placeholder="Username">
+          </div>
+          <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+            <label>Password</label>
+            <input type="text" class="form-control"
+                   placeholder="Password"
+                   ng-model="config.password">
+          </div>
+          <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+            <label>FacilityID</label>
+            <input type="text" class="form-control" placeholder="Facility Id"
+                   ng-model="config.facilityID">
+          </div>
+          <div class="form-group"
+               ng-class="{ 'has-error' : receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine }">
+            <label>Endpoint</label>
+            <input type="url" name="endpoint" class="form-control" ng-model="config.endpoint"
+                   placeholder="SUT Endpoint" required>
 
-                        <p ng-show="receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine"
-                           class="help-block">
-                            Invalid url. Expected format is {{appInfo.url}}</p>
-                    </div>
-                </form>
-            </div>
-        </div>
+            <p ng-show="receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine"
+               class="help-block">
+              Invalid url. Expected format is {{appInfo.url}}</p>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="modal-footer">
+  </div>
+  <div class="modal-footer">
     <span class="pull-right">
        <button ng-click="save()" type="button" ng-disabled="receiverForm1.$invalid"
                title="Send" class="btn btn-xs btn-primary">
@@ -102,308 +102,363 @@
             Cancel
         </button>
           </span>
-    </div>
+  </div>
 </script>
 
 
 <script type="text/ng-template" id="TransactionReceiver.html">
-    <div class="modal-header">
+  <div class="modal-header">
 
         <span style="font-weight: bold; font-size: 20px">
             Receiver Configuration Panel
         </span>
-        <span class="pull-right">
+    <span class="pull-right">
                  <button title="Close" type="button" class="pull-right btn btn-xs btn-primary"
                          ng-click="close()">
                      <i class="fa fa-times"></i>Close
                  </button>
         </span>
-    </div>
-    <div class="modal-body">
-        <div class="row">
-            <div class="col-md-12">
-                <button type="button" ng-click="startListener()" ng-disabled="senderForm.$invalid || connecting"
-                        title="Start listening"
-                        class="btn btn-xs btn-success">
-                    <i class="fa fa-play"></i>
-                    Start
-                </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <button type="button" ng-click="startListener()" ng-disabled="senderForm.$invalid || connecting"
+                title="Start listening"
+                class="btn btn-xs btn-success">
+          <i class="fa fa-play"></i>
+          Start
+        </button>
 
-                <button type="button" ng-disabled="!connecting" ng-click="stopListener()"
-                        class="btn btn-xs btn-warning"><i class="fa fa-stop"></i>
-                    Stop
-                </button>
-                <div>
-                    <small><em>Time elapsed (seconds)</em></small>
-                    <progressbar type="warning" max="counterMax" value="counter"><span
-                            style="color:white; white-space:nowrap;">{{counter}} / {{counterMax}}</span>
-                    </progressbar>
-                </div>
-            </div>
-            <div class="col-md-12" ng-show="warning != null">
-                <div class="alert alert-warning" role="alert" compile="warning"></div>
-            </div>
+        <button type="button" ng-disabled="!connecting" ng-click="stopListener()"
+                class="btn btn-xs btn-warning"><i class="fa fa-stop"></i>
+          Stop
+        </button>
+        <div>
+          <small><em>Time elapsed (seconds)</em></small>
+          <progressbar type="warning" max="counterMax" value="counter"><span
+            style="color:white; white-space:nowrap;">{{counter}} / {{counterMax}}</span>
+          </progressbar>
         </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="page-header"><h3>Assigned Sender Information</h3></div>
-                <form name="senderForm" novalidate>
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" disabled name="u" class="form-control" ng-model="config.username">
-
-                        <p class="help-block">This is the username assigned to you to use in your message</p>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="text" class="form-control" name="p"
-                               ng-model="config.password" disabled>
-
-                        <p class="help-block">This is the password assigned to you to use in your message</p>
-                    </div>
-
-                    <div class="form-group">
-                        <label>FacilityID</label>
-                        <input type="text" class="form-control" name="facilityId"
-                               ng-model="config.facilityID" disabled>
-
-                        <p class="help-block">This is the facilityID assigned to you to use in your message</p>
-                    </div>
-
-                    <div class="form-group"
-                            >
-                        <label>Endpoint</label>
-                        <!--<input type="url" name="endpoint" class="form-control" ng-model="endpoint.value"-->
-                        <!--placeholder="SUT Endpoint" required disabled>-->
-                        <span name="endpoint" class="form-control">{{config.endpoint}}</span>
-                        <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">-->
-                        <!--Sorry, an-->
-                        <!--error occured. Please refresh your page</p>-->
-                    </div>
-
-                    <div class="form-group"
-                            >
-                        <label>WSDL</label>
-                        <a ng-href="{{endpoint.value}}.wsdl" class="form-control" target="_blank">{{config.endpoint}}.wsdl</a>
-                        <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">-->
-                        <!--Sorry, an-->
-                        <!--error occured. Please refresh your page</p>-->
-                    </div>
-
-
-                </form>
-            </div>
-            <div class="col-md-6">
-                <div class="page-header">
-                    <h3>Log
-                        <!--<button title="Clear" type="button" class="pull-right btn btn-xs btn-default"-->
-                        <!--ng-click="logger.clear()">-->
-                        <!--<span class="glyphicon glyphicon-remove"></span>-->
-                        <!--</button>-->
-                    </h3>
-                </div>
-                <textarea class="well" wrap="off"
-                          style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%" rows="18"
-                          disabled
-                          ng-model="logger.content"></textarea>
-                <br/>
-
-
-            </div>
-        </div>
+      </div>
+      <div class="col-md-12" ng-show="warning != null">
+        <div class="alert alert-warning" role="alert" compile="warning"></div>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="page-header"><h3>Assigned Sender Information</h3></div>
+        <form name="senderForm" novalidate>
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" disabled name="u" class="form-control" ng-model="config.username">
+
+            <p class="help-block">This is the username assigned to you to use in your message</p>
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input type="text" class="form-control" name="p"
+                   ng-model="config.password" disabled>
+
+            <p class="help-block">This is the password assigned to you to use in your message</p>
+          </div>
+
+          <div class="form-group">
+            <label>FacilityID</label>
+            <input type="text" class="form-control" name="facilityId"
+                   ng-model="config.facilityID" disabled>
+
+            <p class="help-block">This is the facilityID assigned to you to use in your message</p>
+          </div>
+
+          <div class="form-group"
+          >
+            <label>Endpoint</label>
+            <!--<input type="url" name="endpoint" class="form-control" ng-model="endpoint.value"-->
+            <!--placeholder="SUT Endpoint" required disabled>-->
+            <span name="endpoint" class="form-control">{{config.endpoint}}</span>
+            <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">-->
+            <!--Sorry, an-->
+            <!--error occured. Please refresh your page</p>-->
+          </div>
+
+          <div class="form-group"
+          >
+            <label>WSDL</label>
+            <a ng-href="{{endpoint.value}}.wsdl" class="form-control" target="_blank">{{config.endpoint}}.wsdl</a>
+            <!--<p ng-show="senderForm.endpoint.$invalid && !senderForm.endpoint.$pristine" class="help-block">-->
+            <!--Sorry, an-->
+            <!--error occured. Please refresh your page</p>-->
+          </div>
+
+
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div class="page-header">
+          <h3>Log
+            <!--<button title="Clear" type="button" class="pull-right btn btn-xs btn-default"-->
+            <!--ng-click="logger.clear()">-->
+            <!--<span class="glyphicon glyphicon-remove"></span>-->
+            <!--</button>-->
+          </h3>
+        </div>
+        <textarea class="well" wrap="off"
+                  style="overflow: auto; margin-top:23px;font-size: 11px; width: 100%; height: 100%" rows="18"
+                  disabled
+                  ng-model="logger.content"></textarea>
+        <br/>
+
+
+      </div>
+    </div>
+  </div>
 </script>
 
 <script type="text/ng-template" id="ValidationResultInfoCtrl.html">
-    <div class="modal-header">
+  <div class="modal-header">
                 <span style="font-weight: bold; font-size: 20px">
                     Validation Result Information
                 </span>
-                <span class="pull-right">
+    <span class="pull-right">
                      <button class="btn btn-xs btn-primary" ng-click="close()"><i class="fa fa-times"></i>Close</button>
                 </span>
+  </div>
+  <div class="modal-body">
+    <div class="validation-result-info-content">
+      <div ng-if="appInfo.validationResultInfo != null" ng-bind-html="toHTML(appInfo.validationResultInfo)">
+      </div>
+      <div ng-if="appInfo.validationResultInfo == null">
+        No information available.
+      </div>
     </div>
-    <div class="modal-body">
-        <div class="validation-result-info-content">
-            <div ng-if="appInfo.validationResultInfo != null" ng-bind-html="toHTML(appInfo.validationResultInfo)">
-            </div>
-            <div ng-if="appInfo.validationResultInfo == null">
-                No information available.
-            </div>
-        </div>
-    </div>
+  </div>
 </script>
 
 
 <script type="text/ng-template" id="VersionChanged.html">
-    <div class="modal-body error-dlg">
-        <div ng-include="'InvalidAppState.html'"></div>
-        <br/>
+  <div class="modal-body error-dlg">
+    <div ng-include="'InvalidAppState.html'"></div>
+    <br/>
 
-        <div style="text-align:center">
-            <p>Please click
-                <button class="btn btn-sm btn-primary" ng-click="close()" type="button"
-                        title="Cancel" class="point">
-                    <i class="fa fa-refresh"></i>
-                    reset
-                </button>
-                to reinitialize your browser.
-            </p>
-        </div>
-
+    <div style="text-align:center">
+      <p>Please click
+        <button class="btn btn-sm btn-primary" ng-click="close()" type="button"
+                title="Cancel" class="point">
+          <i class="fa fa-refresh"></i>
+          reset
+        </button>
+        to reinitialize your browser.
+      </p>
     </div>
+
+  </div>
 </script>
 
 
 <script type="text/ng-template" id="InvalidReqCtrl.html">
-    <div class="modal-body error-dlg">
-        <div ng-include="'InvalidRequest.html'"></div>
+  <div class="modal-body error-dlg">
+    <div ng-include="'InvalidRequest.html'"></div>
+  </div>
+  <div class="modal-footer error-dlg">
+    <div class="pull-right">
+      <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
+              title="Cancel" class="point">
+        <i class="fa fa-times"></i>
+        Close
+      </button>
     </div>
-    <div class="modal-footer error-dlg">
-        <div class="pull-right">
-            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
-                    title="Cancel" class="point">
-                <i class="fa fa-times"></i>
-                Close
-            </button>
-        </div>
-    </div>
+  </div>
 </script>
 
 <script type="text/ng-template" id="ErrorCtrl.html">
-    <div class="modal-body error-dlg">
-        <div ng-include="'Error.html'"></div>
+  <div class="modal-body error-dlg">
+    <div ng-include="'Error.html'"></div>
+  </div>
+  <div class="modal-footer error-dlg">
+    <div class="pull-right">
+      <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
+              title="Cancel" class="point">
+        <i class="fa fa-times"></i>
+        Close
+      </button>
     </div>
-    <div class="modal-footer error-dlg">
-        <div class="pull-right">
-            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
-                    title="Cancel" class="point">
-                <i class="fa fa-times"></i>
-                Close
-            </button>
-        </div>
-    </div>
+  </div>
 </script>
 
 <script type="text/ng-template" id="NotFoundCtrl.html">
-    <div class="modal-body info-dlg">
-        <div ng-include="'NotFound.html'"></div>
+  <div class="modal-body info-dlg">
+    <div ng-include="'NotFound.html'"></div>
+  </div>
+  <div class="modal-footer info-dlg">
+    <div class="pull-right">
+      <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
+              title="Cancel" class="point">
+        <i class="fa fa-times"></i>
+        Close
+      </button>
     </div>
-    <div class="modal-footer info-dlg">
-        <div class="pull-right">
-            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
-                    title="Cancel" class="point">
-                <i class="fa fa-times"></i>
-                Close
-            </button>
-        </div>
-    </div>
+  </div>
 </script>
 
 <script type="text/ng-template" id="warning-dialog.html">
-    <div class="modal-header">
-        <h3>Your session will expire soon!</h3>
-    </div>
-    <div idle-countdown="countdown" ng-init="countdown=30" class="modal-body info-dlg">
-        <progressbar type="warning" max="30" value="30" animate="false" class="progress-striped active">Your
-            session
-            will expire in {{countdown}} second(s).
-        </progressbar>
-    </div>
+  <div class="modal-header">
+    <h3>Your session will expire soon!</h3>
+  </div>
+  <div idle-countdown="countdown" ng-init="countdown=30" class="modal-body info-dlg">
+    <progressbar type="warning" max="30" value="30" animate="false" class="progress-striped active">Your
+      session
+      will expire in {{countdown}} second(s).
+    </progressbar>
+  </div>
 </script>
 
 <script type="text/ng-template" id="timedout-dialog.html">
-    <div class="modal-body info-dlg">
-        <p>
-            Your session has expired.
-        </p>
+  <div class="modal-body info-dlg">
+    <p>
+      Your session has expired.
+    </p>
+  </div>
+  <div class="modal-footer info-dlg">
+    <div class="pull-right">
+      <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
+              title="Cancel" class="point">
+        <i class="fa fa-refresh"></i>
+        Refresh
+      </button>
     </div>
-    <div class="modal-footer info-dlg">
-        <div class="pull-right">
-            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
-                    title="Cancel" class="point">
-                <i class="fa fa-refresh"></i>
-                Refresh
-            </button>
-        </div>
-    </div>
+  </div>
 </script>
 
 <script type="text/ng-template" id="CriticalError.html">
-    <div class="modal-body error-dlg">
-        <p ng-bind="error">
-        </p>
+  <div class="modal-body error-dlg">
+    <p ng-bind="error">
+    </p>
+  </div>
+  <div class="modal-footer error-dlg">
+    <div class="pull-right">
+      <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
+              title="Cancel" class="point">
+        <i class="fa fa-times"></i>
+        Close
+      </button>
     </div>
-    <div class="modal-footer error-dlg">
-        <div class="pull-right">
-            <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
-                    title="Cancel" class="point">
-                <i class="fa fa-times"></i>
-                Close
-            </button>
-        </div>
-    </div>
+  </div>
 </script>
 
 
 <script type="text/ng-template" id="NotificationSuccessTemplate.html">
-    <div class="ui-notification custom-template">
-        <div class="message">
-            <i class="fa fa-check" aria-hidden="true"></i>
-            <span ng-bind-html="message"></span>
-        </div>
+  <div class="ui-notification custom-template">
+    <div class="message">
+      <i class="fa fa-check" aria-hidden="true"></i>
+      <span ng-bind-html="message"></span>
     </div>
+  </div>
 </script>
 
 <script type="text/ng-template" id="NotificationErrorTemplate.html">
-    <div class="ui-notification custom-template">
-        <div class="message">
-            <i class="fa fa-times" aria-hidden="true"></i>
-            <span ng-bind-html="message"></span>
-        </div>
+  <div class="ui-notification custom-template">
+    <div class="message">
+      <i class="fa fa-times" aria-hidden="true"></i>
+      <span ng-bind-html="message"></span>
     </div>
+  </div>
 </script>
 
 <script type="text/ng-template" id="NotificationWarningTemplate.html">
-    <div class="ui-notification custom-template">
-        <div class="message">
-            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-            <span ng-bind-html="message"></span>
-        </div>
+  <div class="ui-notification custom-template">
+    <div class="message">
+      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+      <span ng-bind-html="message"></span>
     </div>
+  </div>
 </script>
 
 
 <script type="text/ng-template" id="MessageWithHexadecimal.html">
-    <div class="modal-header">
+  <div class="modal-header">
                 <span style="font-weight: bold; font-size: 20px">
                     Message Content
                 </span>
-                <span class="pull-right">
+    <span class="pull-right">
                     <button class="btn btn-xs btn-primary" ng-click="close()" type="button"
                             title="Close Dialog" class="point">
                         <i class="fa fa-times"></i>
                         Close
                     </button>
                 </span>
-    </div>
+  </div>
 
 
-    <div class="modal-body">
-        <div class="pull-right" style="margin-bottom: 20px">
-            <button title="View Message" type="button" class="btn btn-sm btn-info"
-                    ng-click="toggleHexadecimal()">
-                <i class="fa fa-eye"></i>
-                <span ng-show="showHex">Show Original</span>
-                <span ng-show="!showHex">Show Non-Printable Characters</span>
-            </button>
-        </div>
-        <textarea class="form-control" id="message"
-                  ng-bind="message"
-                  rows="15"
-                  name="message"
-                  wrap="off" style="overflow:auto;" disabled></textarea>
+  <div class="modal-body">
+    <div class="pull-right" style="margin-bottom: 20px">
+      <button title="View Message" type="button" class="btn btn-sm btn-info"
+              ng-click="toggleHexadecimal()">
+        <i class="fa fa-eye"></i>
+        <span ng-show="showHex">Show Original</span>
+        <span ng-show="!showHex">Show Non-Printable Characters</span>
+      </button>
     </div>
+    <textarea class="form-control" id="message"
+              ng-bind="message"
+              rows="15"
+              name="message"
+              wrap="off" style="overflow:auto;" disabled></textarea>
+  </div>
 </script>
+
+<script type="text/ng-template" id="cf_profile_categories_render.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)" class="fa"
+           ng-class="{
+          'fa-caret-right': collapsed,
+          'fa-caret-down': !collapsed
+        }"></i>
+
+        <span ng-if="node.edit">
+      <input id="catNemo" required name="name" data-nodrag ng-model="node.name" style="width:50%"
+      >
+      <a class="btn btn-primary btn-xs" data-nodrag ng-click="saveCategory(node)"><span
+        class="fa fa-check"></span></a>
+    </span>
+
+        <span ng-if="!node.edit">
+     {{node.name}}
+
+    <span style="margin-left:5px">
+      <a class="point btn btn-primary btn-xs" data-nodrag ng-click="node.edit = true"><span
+        class="fa fa-pencil"></span></a>
+          <a class="point btn btn-danger btn-xs" data-nodrag ng-click="deleteCategory(node)"><span
+            class="fa fa-trash"></span></a>
+
+    </span>
+    </span>
+
+                <a class="point pull-right btn btn-success btn-xs" style="margin-right:10px" data-nodrag
+                   ng-click="addNewGroup(node)"><span
+                  class="fa fa-plus"></span></a>
+      </div>
+      <div class="panel-body"  ng-class="{hidden: collapsed}">
+
+       <ol ui-tree-nodes ng-model="node.nodes">
+        <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'cf_profile_group_render.html'">
+        </li>
+      </ol>
+       </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="cf_profile_group_render.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+    <a ng-class="{'selected': selectedTP != null && selectedTP.id === node.id}" data-nodrag ng-click="selectGroup(node)" class="point">{{node.name}}</a>
+    <a class="point pull-right btn btn-danger btn-xs" data-nodrag ng-click="deleteGroup(node.id)"><span
+      class="fa fa-trash"></span></a>
+    <!--<a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span-->
+    <!--class="glyphicon glyphicon-plus"></span></a>-->
+  </div>
+</script>
+

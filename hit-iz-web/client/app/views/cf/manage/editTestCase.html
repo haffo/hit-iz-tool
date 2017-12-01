@@ -1,0 +1,97 @@
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
+<script type="text/javascript">
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
+</script>
+  <div class="row" >
+    <div class="col-md-12">
+      <form class="form-inline" style="margin:0; padding:0; ">
+        <div class="form-group">
+          <label class="control-label" style="text-align:left;"
+                 for="selectedScope">Type: </label>
+          <select class="form-control input-sm test-plan-select"
+                  style="width:200px;background-color: white;"
+                  name="selectedScope" id="selectedScope"
+                  ng-change="selectScope()"
+                  ng-model="selectedScope.key">
+            <option value="">---- Select Type ----</option>
+            <option ng-repeat="tpScope in groupScopes"
+                    ng-selected="tpScope.key == selectedScope.key"
+                    value="{{tpScope.key}}">{{::tpScope.name}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group" ng-if="selectedScope.key != null">
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <i class="fa fa-list"></i>Profile Groups
+          <button class="btn btn-primary btn-xs" type="button" ng-click="addNewGroup()"><i
+            class="fa fa-plus"></i>Create New Group
+          </button>
+        </div>
+        <div class="panel-body">
+
+          <div class="form-group">
+            <!--<div ui-tree id="tree-root">-->
+              <!--<ol ui-tree-nodes ng-model="data">-->
+                <!--<li ng-repeat="node in categoryNodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>-->
+              <!--</ol>-->
+            <!--</div>-->
+          </div>
+
+          <!--<div class="form-group"-->
+               <!--ng-if="selectedScope.key != null && existingTestPlans.length > 0">-->
+            <!--<label class="control-label" for="selectedTP">Profile Group:</label>-->
+            <!--<select class="form-control input-sm test-plan-select"-->
+                    <!--style="width:500px;background-color: white;"-->
+                    <!--name="selectedTP" id="selectedTP"-->
+                    <!--ng-change="selectTP()"-->
+                    <!--ng-model="selectedTP.id">-->
+              <!--<option value="">&#45;&#45;&#45;&#45; Select Profile Group &#45;&#45;&#45;&#45;</option>-->
+              <!--<option ng-repeat="tp in existingTestPlans" ng-selected="tp.id == selectedTP.id"-->
+                      <!--value="{{tp.id}}">-->
+                <!--{{::tp.name}}-->
+              <!--</option>-->
+            <!--</select>-->
+          <!--</div>-->
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <i class="fa fa-list"></i>Select Profile Group
+        </div>
+        <div class="panel-body">
+          <!--<div ng-include="'views/cf/upload/upload.html'"></div>-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+

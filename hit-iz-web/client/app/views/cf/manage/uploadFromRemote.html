@@ -9,18 +9,23 @@
         top.location = self.location;
     }
 </script>
+
+<div ng-controller="UploadTokenCtrl">
 <loading-testcases></loading-testcases>
 <div style="margin:10px">
-    <div class="modal-header">
-		<span style="font-weight: bold; font-size: 20px">
-			Add Context-free Profiles
-	    </span>
-        <span class="pull-right">
-			<button class="btn btn-xs btn-primary" ng-click="dismissModal()"><i class="fa fa-times"></i></button>
+    <h3>
+      Add Profiles
+      <span class="pull-right">
+			<button class="btn btn-md btn-warning" ng-click="dismissModal()"><i class="fa fa-times"></i>Cancel</button>
 	  	</span>
-    </div>
+    </h3>
+  <hr />
 
-    <div class="modal-body " style="padding:10px 0px 0px 0px;">
+  <div class="row" ng-show="error != null && error != ''">
+    <div class="col-md-12">
+       <div class="alert alert-danger">{{error}}</div>
+    </div>
+  </div>
 
         <div class="row">
             <div class="col-md-12">
@@ -66,6 +71,8 @@
                     </table>
                 </div>
 
+            </div>
+          <div class="col-md-12">
                 <!-- Value Set Errors -->
                 <div class="panel panel-danger" ng-show="valueSetValidationErrors.length">
                     <div class="panel-heading bold"><i style="font-size: 20px" class="fa fa-exclamation-triangle"
@@ -107,7 +114,8 @@
                         </tbody>
                     </table>
                 </div>
-
+          </div>
+          <div class="col-md-12">
 
                 <!-- Constraint Errors -->
                 <div class="panel panel-danger" ng-show="constraintValidationErrors.length">
@@ -151,46 +159,67 @@
                     </table>
                 </div>
 
+          </div>
+          <div class="col-md-12">
                 <!-- No Errors found in resource validation -->
                 <div
                      ng-show="profileMessages.length  && constraintValidationErrors.length == 0 && valueSetValidationErrors.length == 0 ">
-                     <div class="">
-                        <form class="form-inline" style="margin:0; padding:0; ">
-                            <div class="form-group" >
-                                <label class="control-label" style="text-align:left;" for="selectedScope">Type: </label>
-                                <select class="form-control input-sm test-plan-select" style="width:200px;background-color: white;"
-                                        name="selectedScope" id="selectedScope"
-                                        ng-change="selectScope()"
-                                        ng-model="selectedScope.key">
-                                    <option value="">---- Select Type ----</option>
-                                    <option ng-repeat="tpScope in groupScopes" ng-selected="tpScope.key == selectedScope.key"
-                                            value="{{tpScope.key}}">{{::tpScope.name}}
-                                    </option>
-                                </select>
-                            </div>
-                            <div class="form-group" ng-if="selectedScope.key != null && existingTestPlans.length > 0">
-                                <label class="control-label" for="selectedTP">Profile Group:</label>
-                                <select class="form-control input-sm test-plan-select" style="width:500px;background-color: white;"
-                                        name="selectedTP" id="selectedTP"
-                                        ng-change="selectTP()"
-                                        ng-model="selectedTP.id">
-                                    <option value="">---- Select Profile Group ----</option>
-                                    <option ng-repeat="tp in existingTestPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">
-                                         {{::tp.name}}
-                                    </option>
-                                </select>
-                            </div>
-                            <div class="form-group" ng-if="selectedScope.key != null">
-                                <button class="btn btn-primary btn-sm" type="button" ng-click="addNewGroup()"><i class="fa fa-plus"></i>Create New Group</button>
-                            </div>
 
-                        </form>
-                         <form name="tsForm" style="margin:0; padding:0; ">
+                  <div class="row">
+                    <div class="col-md-12" style="margin-bottom: 10px">
+                      <form class="form-inline">
+                        <div class="form-group" >
+                          <label class="control-label" style="text-align:left;" for="selectedScope">Type: </label>
+                          <select class="form-control input-sm test-plan-select" style="width:200px;background-color: white;"
+                                  name="selectedScope" id="selectedScope"
+                                  ng-change="selectScope()"
+                                  ng-model="selectedScope.key">
+                            <option value="">---- Select Type ----</option>
+                            <option ng-repeat="tpScope in groupScopes" ng-selected="tpScope.key == selectedScope.key"
+                                    value="{{tpScope.key}}">{{::tpScope.name}}
+                            </option>
+                          </select>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">Profile Groups</div>
+                        <div class="panel-body" >
+                          <div ui-tree="treeOptions" id="tree-root">
+                          <ol ui-tree-nodes ng-model="data">
+                          <li ng-repeat="node in categoryNodes" ui-tree-node ng-include="'cf_profile_categories_render.html'"></li>
+                          </ol>
+                          </div>
+
+
+                        <!--<form class="form-inline" style="margin:0; padding:0; ">-->
+                            <!--<div class="form-group" ng-if="selectedScope.key != null && existingTestPlans.length > 0">-->
+                                <!--<label class="control-label" for="selectedTP">Profile Group:</label>-->
+                                <!--<select class="form-control input-sm test-plan-select" style="width:500px;background-color: white;"-->
+                                        <!--name="selectedTP" id="selectedTP"-->
+                                        <!--ng-change="selectTP()"-->
+                                        <!--ng-model="selectedTP.id">-->
+                                    <!--<option value="">&#45;&#45;&#45;&#45; Select Profile Group &#45;&#45;&#45;&#45;</option>-->
+                                    <!--<option ng-repeat="tp in existingTestPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">-->
+                                         <!--{{::tp.name}}-->
+                                    <!--</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                            <!--<div class="form-group" ng-if="selectedScope.key != null">-->
+                                <!--<button class="btn btn-primary btn-sm" type="button" ng-click="addNewGroup()"><i class="fa fa-plus"></i>Create New Group</button>-->
+                            <!--</div>-->
+                        <!--</form>-->
+                        </div>
+                     </div>
+                    </div>
+                    <div class="col-md-9">
+                    <form name="tsForm" style="margin:0; padding:0; ">
                             <div class="row" style="margin-top:10px">
-                                <div class="col-md-6">
-
-
-                                    <div class="panel panel-info">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
                                         <div class="panel-heading">Profile Group</div>
                                         <div class="panel-body" >
                                             <div ng-show="testcase == null">
@@ -203,8 +232,7 @@
                                             <label for="testcasename">Name: <span class="red"
                                                                                   title="required field">*</span></label>
                                             <input id="testcasename" required name="name" ng-model="testcase.name"
-                                                   ng-disabled="testcase.groupId != null"
-                                                   class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched"><br>
+                                                    class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched"><br>
                                         </div>
                                     </div>
                                             <div class="row">
@@ -215,7 +243,6 @@
                                             <textarea id="testcasedescription" required name="description"
                                                       style="resize: vertical;"
                                                       ng-model="testcase.description"
-                                                      ng-disabled="testcase.groupId != null"
                                                       class="form-control ng-pristine ng-valid ng-empty ng-touched"></textarea><br>
                                         </div>
 
@@ -225,41 +252,43 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="panel panel-info">
-                                        <div class="panel-heading">Profile List</div>
+                                <div class="col-md-12">
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading">New Profiles</div>
                                         <div class="panel-body">
                                      <table class="table table-striped table-condensed table-bordered">
-                                        <thead class="tbl-header">
-                                        <th width="30px">
-                                            <input ng-click="profileCheckToggle()" ng-model="profileCheckToggleStatus"
-                                                   ng-checked="{{profileCheckToggleStatus}}" type="checkbox">
-                                        </th>
+                                        <thead class="">
+                                        <!--<th width="30px">-->
+                                            <!--<input ng-click="profileCheckToggle()" ng-model="profileCheckToggleStatus"-->
+                                                   <!--ng-checked="{{profileCheckToggleStatus}}" type="checkbox">-->
+                                        <!--</th>-->
                                         <th>Name</th>
                                         <th>Identifier</th>
                                         <th>Description</th>
                                         <th>Type</th>
                                         <th>Event</th>
                                         <th>StructID</th>
+                                        <th>Action</th>
                                         </thead>
                                         <tbody>
-                                        <tr ng-repeat="item in profileMessages">
+                                        <tr ng-repeat="item in profileMessages | filter:{removed : '!true'}">
+                                            <!--<td>-->
+                                                <!--<input ng-disabled="false" ng-show="!item.used" type="checkbox"-->
+                                                       <!--ng-model="item.activated" ng-checked="{{item.activated}}">-->
+                                                <!--<i ng-show="item.used" class="fa fa-exclamation-triangle red"-->
+                                                   <!--aria-hidden="true" title="Message already in system"></i>-->
+                                            <!--</td>-->
                                             <td>
-                                                <input ng-disabled="false" ng-show="!item.used" type="checkbox"
-                                                       ng-model="item.activated" ng-checked="{{item.activated}}">
-                                                <i ng-show="item.used" class="fa fa-exclamation-triangle red"
-                                                   aria-hidden="true" title="Message already in system"></i>
-                                            </td>
-                                            <td>
-                                                <input ng-disabled="item.used" ng- ng-model="item.name"
-                                                       ng-required="item.activated" style="width: 100%;">
+                                                <input  class="form-control" ng-model="item.name"
+                                                       ng-required="true" style="width: 100%;">
                                             </td>
                                             <td>
                                                 {{item.identifier}}
                                             </td>
                                             <td>
-                                                {{item.description}}
-                                            </td>
+                                              <textarea  style="resize: none;" class="form-control" ng-model="item.description" rows="2"
+                                                         ng-required="true" style="width: 100%;"></textarea>
+                                             </td>
                                             <td>
                                                 {{item.type}}
                                             </td>
@@ -269,25 +298,77 @@
                                             <td>
                                                 {{item.structID}}
                                             </td>
+                                          <td>
+                                             <button class="btn btn-sm btn-danger" ng-click="deleteNewProfile(item)"><i class="fa fa-times"></i>Delete</button>
+                                          </td>
                                         </tr>
                                         </tbody>
                                     </table>
                                         </div>
                                     </div>
                                 </div>
+
+                              <div class="col-md-12" ng-if="oldProfileMessages != null">
+                                <div class="panel panel-warning">
+                                  <div class="panel-heading">Existing Profiles</div>
+                                  <div class="panel-body">
+                                    <div ng-if="oldProfileMessages.length > 0">
+                                    <table class="table table-striped table-condensed table-bordered">
+                                      <thead class="">
+                                      <!--<th width="30px">-->
+                                        <!--<input ng-click="profileCheckToggle()" ng-model="profileCheckToggleStatus"-->
+                                               <!--ng-checked="{{profileCheckToggleStatus}}" type="checkbox">-->
+                                      <!--</th>-->
+                                      <th>Name</th>
+                                      <th>Description</th>
+                                      <th>Actions</th>
+                                      </thead>
+                                      <tbody>
+                                      <tr ng-repeat="item in oldProfileMessages | filter:{removed : '!true'}">
+                                        <!--<td>-->
+                                          <!--<input ng-disabled="false" ng-show="!item.used" type="checkbox"-->
+                                                 <!--ng-model="item.activated" ng-checked="{{item.activated}}">-->
+                                          <!--<i ng-show="item.used" class="fa fa-exclamation-triangle red"-->
+                                             <!--aria-hidden="true" title="Message already in system"></i>-->
+                                        <!--</td>-->
+                                        <td>
+                                          <input  ng-model="item.name" class="form-control"
+                                                 ng-required="true" style="width: 100%;">
+                                        </td>
+                                        <td>
+                                           <textarea   style="resize: none;"  class="form-control" ng-model="item.description" rows="2"
+                                                      ng-required="true" style="width: 100%;"></textarea>
+                                        </td>
+                                        <td>
+                                          <button class="btn btn-sm btn-danger" ng-click="deleteOldProfile(item)"><i class="fa fa-times"></i>Delete</button>
+                                        </td>
+                                      </tr>
+                                      </tbody>
+                                    </table>
+                                    </div>
+                                    <div ng-if="oldProfileMessages.length == 0">
+                                      No Existing Profile.
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                            <br>
+                             <br>
                             <div style="text-align:right">
-                                <button type="button" class="btn btn-success" ng-click="addSelectedTestCases()"
+                                <button type="button" class="btn btn-md btn-success" ng-click="saveGroup()"
                                         ng-show="profileMessages.length"
-                                        ng-disabled="!getSelectedTestcases().length || !tsForm.$valid">
-                                    <i class="fa fa-check"></i> SUBMIT
+                                        ng-disabled="getAddedProfiles().length == 0 || tsForm.$invalid">
+                                    <i class="fa fa-check"></i> SAVE
                                 </button>
+
+                              {{getAddedProfiles().length}}
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        </div>
+</div>
 </div>
