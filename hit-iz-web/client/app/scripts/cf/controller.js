@@ -16,7 +16,7 @@ angular.module('cf')
     $scope.collapsed = false;
     $scope.selectedTP = {id: null};
     $scope.selectedScope = {key: null};
-    $scope.testPlanScopes = [{key: 'USER', name: 'My Profiles'}, {key: 'GLOBAL', name: 'Global Profiles'}];
+    $scope.testPlanScopes = [{key: 'USER', name: 'Private'}, {key: 'GLOBAL', name: 'Public'}];
 
     var testCaseService = new TestCaseService();
 

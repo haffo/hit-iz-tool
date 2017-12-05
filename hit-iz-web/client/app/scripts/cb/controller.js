@@ -929,7 +929,7 @@ angular.module('cb')
     $scope.testCase = CB.testCase;
     $scope.selectedTP = {id: null};
     $scope.selectedScope = {key: null};
-    $scope.testPlanScopes = [{key: 'USER', name: 'My Test Plans'}, {key: 'GLOBAL', name: 'Global Test Plans'}];
+    $scope.testPlanScopes = [{key: 'USER', name: 'Private'}, {key: 'GLOBAL', name: 'Public'}];
     $scope.testCases = [];
     $scope.testPlans = [];
     $scope.tree = {};
