@@ -1063,7 +1063,7 @@
 			<ValueElement Value="110" DisplayName="DTaP-Hep B-IPV" CodeSystem="CVX"/>
 			<ValueElement Value="111" DisplayName="influenza, live, intranasal" CodeSystem="CVX"/>
 			<ValueElement Value="112" DisplayName="tetanus toxoid, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="113" DisplayName="Td (adult), preservative free” to “Td (adult), 5 Lf tetanus toxoid, preservative free, adsorbed" CodeSystem="CVX"/>
+			<ValueElement Value="113" DisplayName="Td (adult), preservative free to Td (adult), 5 Lf tetanus toxoid, preservative free, adsorbed" CodeSystem="CVX"/>
 			<ValueElement Value="114" DisplayName="meningococcal MCV4P" CodeSystem="CVX"/>
 			<ValueElement Value="115" DisplayName="Tdap" CodeSystem="CVX"/>
 			<ValueElement Value="116" DisplayName="rotavirus, pentavalent" CodeSystem="CVX"/>
