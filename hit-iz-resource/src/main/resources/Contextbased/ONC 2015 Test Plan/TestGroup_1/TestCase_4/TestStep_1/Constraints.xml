@@ -346,26 +346,6 @@
             <PlainText IgnoreCase="true" Path="3[1].30[1]" Text="N"/>
           </Assertion>
         </Constraint>
-        <Constraint ID="Content" Target="3[1].3[1].4[1].1[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
-            ReferencePath="PID[1].3[1].4[1].1[1]" Source="TestCase"
-            TestDataCategorization="Presence-Content Indifferent"/>
-          <Description>Expected content is missing. The empty value at PID-3.4.1 (Namespace ID) is
-            expected to be present.</Description>
-          <Assertion>
-            <Presence Path="3[1].3[1].4[1].1[1]"/>
-          </Assertion>
-        </Constraint>
-        <Constraint ID="Content" Target="3[1].3[1].5[1]">
-          <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
-            ReferencePath="PID[1].3[1].5[1]" Source="TestCase"
-            TestDataCategorization="Value-Test Case Fixed"/>
-          <Description>Invalid content (based on test case fixed data). The value at PID-3.5
-            (Identifier Type Code) does not match the expected value: 'MR'.</Description>
-          <Assertion>
-            <PlainText IgnoreCase="true" Path="3[1].3[1].5[1]" Text="MR"/>
-          </Assertion>
-        </Constraint>
         <Constraint ID="Content" Target="3[1].5[1].3[1]">
           <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
             ReferencePath="PID[1].5[1].3[1]" Source="TestCase"
@@ -2327,6 +2307,34 @@
         </Contexts>
       </Pattern>
     </Context>
-
+    <Context List="3[1].3[*]">
+      <Pattern>
+        <Trigger>
+          <ErrorMessage>ERROR AN repeatable Field (PID-3) WITH PID-3.5 = MR is expected</ErrorMessage>
+          <Assertion>
+            <AND>
+              <Presence Path="5[1]"/>
+              <PlainText IgnoreCase="true" Path="5[1]" Text="MR"/>
+            </AND>
+          </Assertion>
+        </Trigger>
+        <Constraints>
+          <Constraint ID="Content" Target="4[1].1[1]">
+            <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].3[*].4[1].1[1]" Source="TestCase" TestDataCategorization="Presence-Content Indifferent"/>
+            <Description>Expected content is missing. The empty value at PID-3.4.1 (Namespace ID) is expected to be present.</Description>
+            <Assertion>
+              <Presence Path="4[1].1[1]"/>
+            </Assertion>
+          </Constraint>
+          <Constraint ID="Content" Target="5[1]">
+            <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="PID[1].3[*].5[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+            <Description>Invalid content (based on test case fixed data). The value at PID-3.5 (Identifier Type Code) does not match the expected value: 'MR'.</Description>
+            <Assertion>
+              <PlainText IgnoreCase="true" Path="5[1]" Text="MR"/>
+            </Assertion>
+          </Constraint>
+        </Constraints>
+      </Pattern>
+    </Context>
   </OrderIndifferent>
 </ConformanceContext>
