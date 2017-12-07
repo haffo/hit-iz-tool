@@ -16,60 +16,40 @@ angular.module('cf').factory('CF',
 }]);
 
 
-angular.module('cf').factory('CFTestPlanListLoader', ['$q', '$http',
-    function ($q, $http) {
-        return function (scope) {
-            var delay = $q.defer();
-                $http.get("api/cf/testplans", {timeout: 180000, params: {"scope": scope}}).then(
-                    function (object) {
-                         delay.resolve(angular.fromJson(object.data));
-                    },
-                    function (response) {
-                        delay.reject(response.data);
-                    }
-                );
-//                $http.get('../../resources/cf/testCases.json').then(
-//                    function (object) {
-//                         delay.resolve(angular.fromJson(object.data));
-//                    },
-//                    function (response) {
-//                        delay.reject(response.data);
-//                    }
-//                );
 
-            return delay.promise;
-        };
-    }
-]);
-
-
-angular.module('cf').factory('CFTestPlanLoader', ['$q', '$http',
+angular.module('cf').factory('CFTestPlanExecutioner', ['$q', '$http',
   function ($q, $http) {
-    return function (id) {
-      var delay = $q.defer();
-      $http.get("api/cf/testplans/" + id, {timeout: 180000}).then(
-        function (object) {
-          delay.resolve(angular.fromJson(object.data));
-        },
-        function (response) {
-          delay.reject(response.data);
-        }
-      );
+    var manager = {
+      getTestPlan:  function (id) {
+        var delay = $q.defer();
+        $http.get("api/cf/testplans/" + id, {timeout: 180000}).then(
+          function (object) {
+            delay.resolve(angular.fromJson(object.data));
+          },
+          function (response) {
+            delay.reject(response.data);
+          }
+        );
 
+        return delay.promise;
+      },
 
-//            $http.get("../../resources/cb/testPlans.json").then(
-//                function (object) {
-//                    delay.resolve(angular.fromJson(object.data));
-//                },
-//                function (response) {
-//                    delay.reject(response.data);
-//                }
-//            );
-      return delay.promise;
+      getTestPlans: function (scope) {
+        var delay = $q.defer();
+        $http.get("api/cf/testplans", {timeout: 180000, params: {"scope": scope}}).then(
+          function (object) {
+            delay.resolve(angular.fromJson(object.data));
+          },
+          function (response) {
+            delay.reject(response.data);
+          }
+        );
+        return delay.promise;
+      }
     };
+    return manager;
   }
 ]);
-
 
 
 angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
@@ -77,7 +57,7 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
     var manager = {
       getProfiles: function(groupId){
         var delay = $q.defer();
-        $http.get("api/cf/groups/"+ groupId + "/profiles", {timeout: 180000}).then(
+        $http.get("api/cf/management/groups/"+ groupId + "/profiles", {timeout: 180000}).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -88,9 +68,9 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
         return delay.promise;
       },
 
-      getTokenProfiles: function(token){
+      getTokenProfiles: function(domain, token){
         var delay = $q.defer();
-        $http.get("api/cf/hl7v2/resources/tokens/"+ token + "/profiles", {timeout: 180000}).then(
+        $http.get("api/cf/" + domain + "/management/tokens/"+ token + "/profiles", {timeout: 180000}).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -117,7 +97,7 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
 
       getTestPlans: function (scope) {
         var delay = $q.defer();
-        $http.get("api/cf/groups", {timeout: 180000, params: {"scope": scope}}).then(
+        $http.get("api/cf/management/groups", {timeout: 180000, params: {"scope": scope}}).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -130,7 +110,13 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
 
       create : function (catego, scop, pos) {
         var delay = $q.defer();
-        $http.post('api/cf/groups/create', {params : {category: catego, scope: scop, position: pos}}).then(
+        var params = $.param({category: catego, scope: scop, position: pos});
+        var config = {
+          headers : {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+          }
+        };
+        $http.post('api/cf/management/groups/create', params,config).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -141,9 +127,9 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
         return delay.promise;
       },
 
-      delete : function (groupId) {
+      deleteProfile : function (domain, profileId) {
         var delay = $q.defer();
-        $http.post('api/cf/groups/' + groupId + '/delete').then(
+        $http.post('api/cf/'+ domain+ '/management/profiles/' + profileId + '/delete').then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -153,9 +139,22 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
         );
         return delay.promise;
       },
-      deleteAll : function (groupIds) {
+
+      deleteGroup : function (groupId) {
         var delay = $q.defer();
-        $http.post('api/cf/groups/delete', {params: {groupIds: groupIds}}).then(
+        $http.post('api/cf/management/groups/' + groupId + '/delete').then(
+          function (object) {
+            delay.resolve(angular.fromJson(object.data));
+          },
+          function (response) {
+            delay.reject(response.data);
+          }
+        );
+        return delay.promise;
+      },
+      deleteGroups : function (groupIds) {
+        var delay = $q.defer();
+        $http.post('api/cf/management/groups/delete', groupIds).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -167,7 +166,7 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
       },
       saveGroupInfo : function (groupInfo) {
         var delay = $q.defer();
-        $http.post('api/cf/groups/info', groupInfo).then(
+        $http.post('api/cf/management/groups/info', groupInfo).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -179,7 +178,7 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
       },
       deleteToken : function (tok) {
         var delay = $q.defer();
-        $http.post('api/cf/tokens/'+ tok + "/delete").then(function (object) {
+        $http.post('api/cf/management/tokens/'+ tok + "/delete").then(function (object) {
           delay.resolve(angular.fromJson(object.data));
         }, function (error) {
           delay.reject(response.data);
@@ -188,7 +187,40 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
       },
       updateCategory:  function (category, groups) {
         var delay = $q.defer();
-        $http.post("api/cf/categories", {params: {category: category, groups: groups}}).then(
+        $http.post("api/cf/management/categories/" +category , groups).then(
+          function (object) {
+            delay.resolve(angular.fromJson(object.data));
+          },
+          function (response) {
+            delay.reject(response.data);
+          }
+        );
+        return delay.promise;
+      },
+      saveGroup:  function (domain, scope, token, updated, removed, added, metadata) {
+        var delay = $q.defer();
+        $http.post('api/cf/'+ domain + '/management/groups/' +metadata.groupId, {
+          groupId: metadata.groupId,
+          testcasename:metadata.name,
+          testcasedescription: metadata.description,
+          added: added,
+          removed: removed,
+          updated: updated,
+          token: token,
+          scope: scope
+        }).then(
+          function (object) {
+            delay.resolve(angular.fromJson(object.data));
+          },
+          function (response) {
+            delay.reject(response.data);
+          }
+        );
+        return delay.promise;
+      },
+      publishGroup:  function (groupId) {
+        var delay = $q.defer();
+        $http.post('api/cf/management/groups/'+ groupId + '/publish').then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -198,6 +230,7 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
         );
         return delay.promise;
       }
+
     };
     return manager;
   }

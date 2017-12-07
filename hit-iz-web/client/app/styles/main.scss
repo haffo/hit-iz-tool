@@ -2698,3 +2698,9 @@ tr.angular-ui-tree-empty {
   background:white;
 }
 
+
+div.upload-error-table div.fixed-table-container-inner {
+  /* the maximum height of the table: */
+  max-height: 500px;
+  width: 100%;
+}

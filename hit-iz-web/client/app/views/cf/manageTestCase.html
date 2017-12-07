@@ -171,16 +171,27 @@
             <div class="col-md-12" style="margin-bottom: 10px">
               <form class="form-inline">
                 <div class="form-group">
-                  <label class="control-label" style="text-align:left;" for="selectedScope">Type: </label>
-                  <select class="form-control input-sm test-plan-select" style="width:200px;background-color: white;"
-                          name="selectedScope" id="selectedScope"
-                          ng-change="selectScope()"
-                          ng-model="selectedScope.key">
-                    <option value="">---- Select Type ----</option>
-                    <option ng-repeat="tpScope in groupScopes" ng-selected="tpScope.key == selectedScope.key"
-                            value="{{tpScope.key}}">{{::tpScope.name}}
-                    </option>
-                  </select>
+                  <label class="control-label" style="text-align:left;" for="selectedScope">Profile Group Type: </label>
+
+                  <div class="btn-group btn-group-md" id="selectedScope" role="group" aria-label="..." style="margin-right: 10px;">
+
+                    <button  class="btn btn-cf-outline"   ng-repeat="tpScope in groupScopes" ng-click="selectedScope.key = tpScope.key; selectScope();"  ng-class="{'active':tpScope.key == selectedScope.key}"
+                           >{{::tpScope.name}}
+                    </button>
+
+                  </div>
+
+
+
+                  <!--<select class="form-control input-sm test-plan-select" style="width:200px;background-color: white;"-->
+                          <!--name="selectedScope" id="selectedScope"-->
+                          <!--ng-change="selectScope()"-->
+                          <!--ng-model="selectedScope.key">-->
+                    <!--<option value="">&#45;&#45;&#45;&#45; Select Type &#45;&#45;&#45;&#45;</option>-->
+                    <!--<option ng-repeat="tpScope in groupScopes" ng-selected="tpScope.key == selectedScope.key"-->
+                            <!--value="{{tpScope.key}}">{{::tpScope.name}}-->
+                    <!--</option>-->
+                  <!--</select>-->
                 </div>
               </form>
             </div>
@@ -200,15 +211,17 @@
                           <i ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)" class="fa"
                              ng-class="{ 'fa-caret-right': collapsed,'fa-caret-down': !collapsed}"></i>
                           <span ng-if="node.edit">
-                              <input id="catNemo" required name="name" data-nodrag ng-model="node.name" style="width:50%">
-                              <a class="btn btn-primary btn-xs" data-nodrag ng-click="saveCategory(node)"><span
+                            <input id="catNemo" required name="name" data-nodrag ng-model="node.name" style="width:50%" ng-class="{'error': !isValidCategory(node)}">
+                            <a title="Reset" class="btn btn-warning btn-xs" data-nodrag ng-click="resetCategory(node)"><span
+                              class="fa fa-times"></span></a>
+                            <a title="Save" class="btn btn-primary btn-xs" data-nodrag ng-click="saveCategory(node)"><span
                                 class="fa fa-check"></span></a>
                           </span>
 
                           <span ng-if="!node.edit">
                              {{node.name}}
                             <span style="margin-left:5px">
-                              <a class="point btn btn-primary btn-xs" data-nodrag ng-click="node.edit = true"><span
+                              <a class="point btn btn-primary btn-xs" data-nodrag ng-click="editCategory(node)"><span
                                 class="fa fa-pencil"></span></a>
                                   <a class="point btn btn-danger btn-xs" data-nodrag
                                      ng-click="deleteCategory(node)"><span
@@ -232,7 +245,7 @@
               </div>
             </div>
             <div class="col-md-9">
-                <form name="tsForm" style="margin:0; padding:0; ">
+                <form name="tsForm" style="margin:0; padding:0; " ng-show="testcase != null || token != null">
                   <div class="row" style="margin-top:10px">
                     <div class="col-md-12">
                       <div class="panel panel-default">
@@ -334,7 +347,7 @@
                     </div>
 
                     <div class="col-md-12" ng-if="oldProfileMessages != null">
-                      <div class="panel panel-info">
+                      <div class="panel panel-default">
                         <div class="panel-heading">Existing Profiles
                         </div>
                         <div class="panel-body">
@@ -373,15 +386,20 @@
                     </div>
                   </div>
                   <br>
-                  <div style="text-align:right" ng-if="token && token != null">
+                  <div style="text-align:right" ng-if="testcase != null">
                     <button class="btn btn-md btn-danger" ng-click="reset()"><i class="fa fa-times"></i>Reset</button>
-                    <button type="button" class="btn btn-md btn-success" ng-click="saveGroup()"
-                            ng-disabled="profileMessages.length == 0 || tsForm.$invalid">
+
+                    <button type="button" class="btn btn-md btn-primary" ng-click="saveGroup()"
+                            ng-disabled="tsForm.$invalid">
                       <i class="fa fa-check"></i> Save
                     </button>
+
+                    <button ng-show="testcase.scope === 'USER'" type="button" class="btn btn-md btn-warning" ng-click="publishGroup()"
+                            ng-disabled="tsForm.$invalid">
+                      <i class="fa fa-paper-plane"></i> Publish
+                    </button>
+
                   </div>
-
-
                 </form>
               </div>
             </div>
