@@ -1040,11 +1040,14 @@ angular.module('cb')
       $timeout(function () {
         if ($scope.testCases != null) {
           if (typeof $scope.tree.build_all == 'function') {
+
             $scope.tree.build_all($scope.testCases);
             var b = $scope.tree.get_first_branch();
             if (b != null && b) {
               $scope.tree.expand_branch(b);
             }
+
+
             var testCase = null;
             var id = StorageService.get(StorageService.CB_SELECTED_TESTCASE_ID_KEY);
             var type = StorageService.get(StorageService.CB_SELECTED_TESTCASE_TYPE_KEY);
@@ -1652,3 +1655,274 @@ angular.module('cb')
   .controller('CBManualReportCtrl', ['$scope', '$sce', '$http', 'CB', function ($scope, $sce, $http, CB) {
     $scope.cb = CB;
   }]);
+
+
+
+
+
+
+angular.module('cb')
+  .controller('CBTestManagementCtrl', function ($scope, $window, $filter, $rootScope, CB, $timeout, $sce, StorageService, TestCaseService, TestStepService, CBTestPlanManager, User, userInfoService) {
+    $scope.selectedTestCase = CB.selectedTestCase;
+    $scope.testCase = CB.testCase;
+    $scope.selectedTP = {id: null};
+    $scope.selectedScope = {key: null};
+    $scope.testPlanScopes = [{key: 'USER', name: 'Private'}, {key: 'GLOBAL', name: 'Public'}];
+    $scope.testCases = [];
+    $scope.testPlans = [];
+    $scope.tree = {};
+    $scope.loading = true;
+    $scope.loadingTP = false;
+    $scope.loadingTC = false;
+    $scope.loadingTPs = false;
+
+    $scope.error = null;
+    $scope.collapsed = false;
+
+    var testCaseService = new TestCaseService();
+
+    $scope.initTestCase = function () {
+      $scope.error = null;
+      $scope.loading = true;
+      $scope.testPlans = null;
+      if (!userInfoService.isAuthenticated()) {
+        $scope.selectedScope.key = $scope.testPlanScopes[1].key; // GLOBAL
+      }
+      else {
+        var tmp = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY);
+        $scope.selectedScope.key = tmp && tmp != null ? tmp : $scope.testPlanScopes[1].key;
+      }
+      $scope.selectScope();
+    };
+
+    var findTPByPersistenceId = function (persistentId, testPlans) {
+      for (var i = 0; i < testPlans.length; i++) {
+        if (testPlans[i].persistentId === persistentId) {
+          return testPlans[i];
+        }
+      }
+      return null;
+    };
+
+
+    $scope.get_icon_type = function (node) {
+      if (node.type === 'TestObject' || node.type === 'TestStep') {
+        var connType = node['testingType'];
+        return  connType === 'TA_MANUAL' || connType === 'SUT_MANUAL' ? 'fa fa-wrench' : connType === 'SUT_RESPONDER' || connType === 'SUT_INITIATOR' ? 'fa fa-arrow-right' : connType === 'TA_RESPONDER' || connType === 'TA_INITIATOR' ? 'fa fa-arrow-left' : 'fa fa-check-square-o';
+      } else{
+        return '';
+      }
+    };
+
+
+    $scope.selectTP = function () {
+      $scope.loadingTP = true;
+      $scope.errorTP = null;
+      $scope.selectedTestCase = null;
+      console.log("$scope.selectedTP.id=" + $scope.selectedTP.id);
+      if ($scope.selectedTP.id && $scope.selectedTP.id !== null && $scope.selectedTP.id !== "") {
+        CBTestPlanManager.getTestPlan($scope.selectedTP.id).then(function (testPlan) {
+          $scope.testCases = [testPlan];
+          testCaseService.buildTree(testPlan);
+          //$scope.refreshTree();
+          StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_ID_KEY, $scope.selectedTP.id);
+          $scope.loadingTP = false;
+        }, function (error) {
+          $scope.loadingTP = false;
+          $scope.errorTP = "Sorry, Cannot load the test cases. Please try again";
+        });
+      } else {
+        $scope.testCases = null;
+        StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_ID_KEY, "");
+        $scope.loadingTP = false;
+      }
+    };
+
+    $scope.selectScope = function () {
+      $scope.errorTP = null;
+      $scope.selectedTestCase = null;
+      $scope.testPlans = null;
+      $scope.testCases = null;
+      $scope.errorTP = null;
+      $scope.loadingTP = false;
+      StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_SCOPE_KEY, $scope.selectedScope.key);
+      if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
+        $scope.loadingTP = true;
+        CBTestPlanManager.getTestPlans($scope.selectedScope.key).then(function (testPlans) {
+          $scope.error = null;
+          $scope.testPlans = $filter('orderBy')(testPlans, 'position');
+          var targetId = null;
+          if ($scope.testPlans.length > 0) {
+            if ($scope.testPlans.length === 1) {
+              targetId = $scope.testPlans[0].id;
+            }
+            if (targetId == null) {
+              var previousTpId = StorageService.get(StorageService.CB_MANAGE_SELECTED_TESTPLAN_ID_KEY);
+              targetId = previousTpId == undefined || previousTpId == null ? "" : previousTpId;
+            }
+            $scope.selectedTP.id = targetId.toString();
+            $scope.selectTP();
+          }else {
+            $scope.loadingTP = false;
+          }
+          $scope.loading = false;
+        }, function (error) {
+          $scope.loadingTP = false;
+          $scope.loading = false;
+          $scope.error = "Sorry, Cannot load the test plans. Please try again";
+        });
+      } else {
+        StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_ID_KEY, "");
+      }
+    };
+
+    $scope.refreshTree = function () {
+      $timeout(function () {
+        if ($scope.testCases != null) {
+          if (typeof $scope.tree.build_all == 'function') {
+            $scope.tree.build_all($scope.testCases);
+            var b = $scope.tree.get_first_branch();
+            if (b != null && b) {
+              $scope.tree.expand_branch(b);
+            }
+            var testCase = null;
+            var id = StorageService.get(StorageService.CB_MANAGE_SELECTED_TESTCASE_ID_KEY);
+            var type = StorageService.get(StorageService.CB_MANAGE_SELECTED_TESTCASE_TYPE_KEY);
+            if (id != null && type != null) {
+              for (var i = 0; i < $scope.testCases.length; i++) {
+                var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
+                if (found != null) {
+                  testCase = found;
+                  break;
+                }
+              }
+              if (testCase != null) {
+                $scope.selectNode(id, type);
+              }
+            }
+
+            testCase = null;
+            id = StorageService.get(StorageService.CB_MANAGE_LOADED_TESTCASE_ID_KEY);
+            type = StorageService.get(StorageService.CB_MANAGE_LOADED_TESTCASE_TYPE_KEY);
+            if (id != null && type != null) {
+              for (var i = 0; i < $scope.testCases.length; i++) {
+                var found = testCaseService.findOneByIdAndType(id, type, $scope.testCases[i]);
+                if (found != null) {
+                  testCase = found;
+                  break;
+                }
+              }
+              if (testCase != null) {
+                var tab = StorageService.get(StorageService.ACTIVE_SUB_TAB_KEY);
+                $scope.loadTestCase(testCase, tab, false);
+              }
+            }
+          } else {
+            $scope.error = "Something went wrong. Please refresh your page again.";
+          }
+        }
+        $scope.loading = false;
+      }, 1000);
+    };
+
+
+    $scope.isSelectable = function (node) {
+      return true;
+    };
+
+    $scope.selectTestNode = function (node) {
+      $scope.loadingTC = true;
+      $scope.selectedTestCase = node;
+      StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTCASE_ID_KEY, node.id);
+      StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTCASE_TYPE_KEY, node.type);
+      $timeout(function () {
+        $scope.$broadcast('cb-manage:testCaseSelected', $scope.selectedTestCase);
+        $scope.loadingTC = false;
+      });
+    };
+
+    $scope.selectNode = function (id, type) {
+      $timeout(function () {
+        testCaseService.selectNodeByIdAndType($scope.tree, id, type);
+      }, 0);
+    };
+
+
+    $scope.deleteTestStep = function (testStep) {
+      var modalInstance = $modal.open({
+        templateUrl: 'views/cb/manage/confirm-delete-teststep.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            CBTestPlanManager.deleteTestStep(testStep.id).then(function (result) {
+              if (result.status === "SUCCESS") {
+                var group = $scope.findGroup(groupId);
+                var index = $scope.existingTestPlans.indexOf(group);
+                if (index > -1) {
+                  $scope.existingTestPlans.splice(index, 1);
+                }
+                for (var i = 0; i < $scope.categoryNodes.length; i++) {
+                  var groupNodes = $scope.categoryNodes[i].nodes;
+                  if (groupNodes && groupNodes.length > 0) {
+                    var ind = -1;
+                    for (var j = 0; j < groupNodes.length; j++) {
+                      var node = groupNodes[j];
+                      if (node.id == groupId) {
+                        ind = j;
+                        break;
+                      }
+                    }
+                    if (ind > -1) {
+                      groupNodes.splice(ind, 1);
+                      break;
+                    }
+                  }
+                }
+                Notification.success({
+                  message: "Profile group deleted successfully !",
+                  templateUrl: "NotificationSuccessTemplate.html",
+                  scope: $rootScope,
+                  delay: 5000
+                });
+                if ($scope.testcase != null && groupId === $scope.testcase.groupId) {
+                  $scope.selectGroup(null);
+                }
+              } else {
+                $scope.error = result.message;
+              }
+            }, function (error) {
+              $scope.error = "Sorry, Cannot create a delete the profile group. Please try again";
+            });
+          }
+        }, function(result){
+
+        });
+
+    };
+
+
+    $scope.expandAll = function () {
+      if ($scope.tree != null)
+        $scope.tree.expand_all();
+    };
+
+    $scope.collapseAll = function () {
+      if ($scope.tree != null)
+        $scope.tree.collapse_all();
+    };
+
+    $rootScope.$on('event:logoutConfirmed', function () {
+      $scope.initTestCase();
+    });
+
+    $rootScope.$on('event:loginConfirmed', function () {
+      $scope.initTestCase();
+    });
+
+
+  });

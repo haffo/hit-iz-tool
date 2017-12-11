@@ -164,9 +164,9 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
         );
         return delay.promise;
       },
-      saveGroupInfo : function (groupInfo) {
+      updateCategory : function (category, groupId) {
         var delay = $q.defer();
-        $http.post('api/cf/management/groups/info', groupInfo).then(
+        $http.post('api/cf/management/categories/'+ category + "/addGroup", groupId).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -185,7 +185,7 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
         });
         return delay.promise;
       },
-      updateCategory:  function (category, groups) {
+      updateCategories:  function (category, groups) {
         var delay = $q.defer();
         $http.post("api/cf/management/categories/" +category , groups).then(
           function (object) {

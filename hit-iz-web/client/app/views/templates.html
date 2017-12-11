@@ -462,3 +462,37 @@
   </div>
 </script>
 
+
+<!--<script type="text/ng-template" id="cb_testcase_node_render.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+    <a ng-class="{'selected': selectedTP != null && selectedTP.id === node.id}" data-nodrag ng-click="selectGroup(node)" class="point">{{node.name}}</a>
+    <a class="point pull-right btn btn-danger btn-xs" data-nodrag ng-click="deleteTestNode(node)"><span
+      class="fa fa-trash"></span></a>
+    &lt;!&ndash;<a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span&ndash;&gt;
+    &lt;!&ndash;class="glyphicon glyphicon-plus"></span></a>&ndash;&gt;
+  </div>
+</script>-->
+
+
+
+<script type="text/ng-template" id="cb_testcase_node_render.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+    <i ng-if="node.children && node.children.length > 0" data-nodrag ng-click="toggle(this)"><span
+      class="fa"
+      ng-class="{
+          'fa-caret-right': collapsed,
+          'fa-caret-down': !collapsed
+        }"></span></i>
+    <i data-nodrag  ng-class="get_icon_type(node)"></i>
+    <!--<span ng-show="row.branch.transport === true" class="badge">T</span>-->
+    <span data-nodrag  title="Transport supported" class="label label-danger label-icon" ng-show="node.type === 'TestPlan' && node.transport === true">T</span>
+    <a data-nodrag ng-click="selectTestNode(node)" class="point">{{node.label}}</a>
+    <a class="point pull-right btn btn-danger btn-xs" data-nodrag ng-click="deleteTestNode(node)"><span
+      class="fa fa-trash"></span></a>
+  </div>
+  <ol ui-tree-nodes="" ng-model="node.children" ng-class="{hidden: collapsed}">
+    <li ng-repeat="node in node.children" ui-tree-node ng-include="'cb_testcase_node_render.html'">
+    </li>
+  </ol>
+</script>
+

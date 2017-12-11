@@ -13,6 +13,7 @@ angular.module('cf')
     $scope.setSubActive = function (tab) {
       $rootScope.setSubActive(tab);
       if (tab === '/cf_execution') {
+        $rootScope.$broadcast('event:cf:initExecution');
         $scope.$broadcast('cf:refreshEditor');
       }
     };
@@ -115,6 +116,7 @@ angular.module('cf')
       $scope.testCase = null;
       $scope.loadingTC = false;
       $scope.loading = false;
+      $scope.selectedTP.id = "";
       StorageService.set(StorageService.CF_SELECTED_TESTPLAN_SCOPE_KEY, $scope.selectedScope.key);
       if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
         $scope.loading = true;
@@ -285,6 +287,11 @@ angular.module('cf')
       }
       $scope.selectScope();
     });
+
+    $rootScope.$on('event:cf:initExecution', function () {
+      $scope.initTesting();
+    });
+
 
 
   }]);
@@ -682,6 +689,15 @@ angular.module('cf')
     });
 
 
+    $rootScope.$on('event:logoutConfirmed', function () {
+      $scope.initManagement();
+    });
+
+    $rootScope.$on('event:loginConfirmed', function () {
+      $scope.initManagement();
+    });
+
+
     $scope.initManagement = function () {
       if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
         $scope.groupScopes = $scope.allGroupScopes;
@@ -696,27 +712,27 @@ angular.module('cf')
         if (userInfoService.isAuthenticated()) {
           CFTestPlanManager.getTokenProfiles("hl7v2", $scope.token).then(
             function (response) {
-              if (response.data.success == false) {
-                if (response.data.debugError === undefined) {
+              if (response.success == false) {
+                if (response.debugError === undefined) {
                   Notification.error({
                     message: "The zip file you uploaded is not valid, please check and correct the error(s)",
                     templateUrl: "NotificationErrorTemplate.html",
                     scope: $rootScope,
                     delay: 10000
                   });
-                  $scope.profileValidationErrors = angular.fromJson(response.data.profileErrors);
-                  $scope.valueSetValidationErrors = angular.fromJson(response.data.constraintsErrors);
-                  $scope.constraintValidationErrors = angular.fromJson(response.data.vsErrors);
+                  $scope.profileValidationErrors = angular.fromJson(response.profileErrors);
+                  $scope.valueSetValidationErrors = angular.fromJson(response.constraintsErrors);
+                  $scope.constraintValidationErrors = angular.fromJson(response.vsErrors);
                 } else {
                   Notification.error({
-                    message: "  " + response.data.message + '<br>' + response.data.debugError,
+                    message: "  " + response.message + '<br>' + response.debugError,
                     templateUrl: "NotificationErrorTemplate.html",
                     scope: $rootScope,
                     delay: 10000
                   });
                 }
               } else {
-                $scope.profileMessages = response.data.profiles;
+                $scope.profileMessages = response.profiles;
                 $scope.originalProfileMessages = angular.copy($scope.profileMessages);
 
               }
@@ -773,12 +789,14 @@ angular.module('cf')
      */
     $scope.categorize = function (profileGroups) {
       var categoryMap = {};
-      angular.forEach(profileGroups, function (profileGroup) {
-        if (categoryMap[profileGroup.category] == undefined) {
-          categoryMap[profileGroup.category] = [];
-        }
-        categoryMap[profileGroup.category].push(profileGroup);
-      });
+      if(profileGroups != null && profileGroups.length > 0) {
+        angular.forEach(profileGroups, function (profileGroup) {
+          if (categoryMap[profileGroup.category] == undefined) {
+            categoryMap[profileGroup.category] = [];
+          }
+          categoryMap[profileGroup.category].push(profileGroup);
+        });
+      }
       return categoryMap;
     };
 
@@ -789,54 +807,32 @@ angular.module('cf')
      * @returns {Array}
      */
     $scope.generateTreeNodes = function (profileGroups) {
-      profileGroups = $filter('orderBy')(profileGroups, 'position');
-      var categoryMap = $scope.categorize(profileGroups);
       var categoryNodes = [];
-      for (var key in categoryMap) {
-        var groups = categoryMap[key];
-        var treeNode = {};
-        treeNode['id'] = key;
-        treeNode['name'] = key;
-        treeNode['nodes'] = [];
-        if (groups && groups.length > 0) {
-          angular.forEach(groups, function (group) {
-            var groupNode = {};
-            groupNode['id'] = group.id;
-            groupNode['description'] = group.description;
-            groupNode['scope'] = group.scope;
-            groupNode['name'] = group.name;
-            groupNode['persistentId'] = group.persistentId;
-            groupNode['category'] = key;
-            treeNode['nodes'].push(groupNode);
-          });
+      if(profileGroups != null) {
+        profileGroups = $filter('orderBy')(profileGroups, 'position');
+        var categoryMap = $scope.categorize(profileGroups);
+        for (var key in categoryMap) {
+          var groups = categoryMap[key];
+          var treeNode = {};
+          treeNode['id'] = key;
+          treeNode['name'] = key;
+          treeNode['nodes'] = [];
+          if (groups && groups.length > 0) {
+            angular.forEach(groups, function (group) {
+              var groupNode = {};
+              groupNode['id'] = group.id;
+              groupNode['description'] = group.description;
+              groupNode['scope'] = group.scope;
+              groupNode['name'] = group.name;
+              groupNode['persistentId'] = group.persistentId;
+              groupNode['category'] = key;
+              treeNode['nodes'].push(groupNode);
+            });
+          }
+          categoryNodes.push(treeNode);
         }
-        categoryNodes.push(treeNode);
       }
       return categoryNodes;
-    };
-
-
-    $scope.findGroupNode = function (groupId) {
-
-      var group = scope.findGroup(groupId);
-      var index = $scope.existingTestPlans.indexOf(group);
-      if (index > -1) {
-        $scope.existingTestPlans.splice(index, 1);
-      }
-
-      for (var i = 0; i < $scope.categoryNodes.length; i++) {
-        var nodes = $scope.categoryNodes[i].nodes;
-        if (nodes && nodes.length > 0) {
-
-          for (var j = 0; j < nodes.length; i++) {
-            var node = nodes[i];
-            if (node.id == groupId) {
-
-            }
-          }
-
-        }
-      }
     };
 
 
@@ -848,7 +844,7 @@ angular.module('cf')
 
       var modalInstance = $modal.open({
         templateUrl: 'views/cf/manage/confirm-delete-group.html',
-        controller: 'CFConfirmDialogCtrl',
+        controller: 'ConfirmDialogCtrl',
         size: 'md',
         backdrop: 'static',
         keyboard: false
@@ -1009,7 +1005,7 @@ angular.module('cf')
     $scope.deleteCategory = function (categoryNode) {
       var modalInstance = $modal.open({
         templateUrl: 'views/cf/manage/confirm-delete-category.html',
-        controller: 'CFConfirmDialogCtrl',
+        controller: 'ConfirmDialogCtrl',
         size: 'md',
         backdrop: 'static',
         keyboard: false
@@ -1125,7 +1121,7 @@ angular.module('cf')
             for (var j = 0; j < node.nodes.length; j++) {
               groups.push(node.nodes[j].id);
             }
-            CFTestPlanManager.updateCategory(node.name, groups).then(function () {
+            CFTestPlanManager.updateCategories(node.name, groups).then(function () {
               if ($scope.existingTestPlans != null) {
                 for (var j = 0; j < $scope.existingTestPlans.length; j++) {
                   if (groups.indexOf($scope.existingTestPlans[j].id) > -1) {
@@ -1176,7 +1172,7 @@ angular.module('cf')
     $scope.publishGroup = function () {
       var modalInstance = $modal.open({
         templateUrl: 'views/cf/manage/confirm-publish-group.html',
-        controller: 'CFConfirmDialogCtrl',
+        controller: 'ConfirmDialogCtrl',
         size: 'md',
         backdrop: 'static',
         keyboard: false
@@ -1189,6 +1185,7 @@ angular.module('cf')
               if (result.status === "SUCCESS") {
                 $scope.selectedNode['name'] = $scope.testcase['name'];
                 $scope.selectedNode['description'] = $scope.testcase['description'];
+                $scope.selectedNode['scope'] = 'GLOBAL';
                 $scope.uploaded = false;
                 $scope.profileMessages = [];
                 $scope.oldProfileMessages = [];
@@ -1205,6 +1202,7 @@ angular.module('cf')
                       group['scope'] =  $scope.selectedNode.scope;
                       group['category'] =  $scope.selectedNode.category;
                     }
+                    $scope.selectedScope.key = 'GLOBAL';
                     $scope.selectScope();
                     $scope.selectGroup($scope.selectedNode);
                     Notification.success({
@@ -1283,8 +1281,7 @@ angular.module('cf')
           $scope.oldProfileMessages = [];
           $scope.token = null;
           $scope.selectGroup($scope.selectedNode);
-
-          // if($scope.uploaded == true){
+           // if($scope.uploaded == true){
           //   $scope.uploaded = false;
           //   $scope.profileMessages = [];
           //   $scope.oldProfileMessages = [];
@@ -1318,7 +1315,7 @@ angular.module('cf')
 
       var modalInstance = $modal.open({
         templateUrl: 'views/cf/manage/confirm-reset-group.html',
-        controller: 'CFConfirmDialogCtrl',
+        controller: 'ConfirmDialogCtrl',
         size: 'md',
         backdrop: 'static',
         keyboard: false
@@ -1418,18 +1415,8 @@ angular.module('cf')
         var destNode = e.dest.nodesScope.node;
         // display modal if the node is being dropped into a smaller container
         if (sourceNode != null && destNode != null && sourceNode.category != destNode.name) {
-          var groupInfo = {
-            groupId: sourceNode.id,
-            category: destNode.id
-          };
-          return CFTestPlanManager.saveGroupInfo(groupInfo).then(function (result) {
+          return CFTestPlanManager.updateCategory(destNode.id,sourceNode.id).then(function (result) {
             if (result.status == 'SUCCESS') {
-              Notification.success({
-                message: sourceNode.name + "'s category changed to '" + destNode.id + "'",
-                templateUrl: "NotificationSuccessTemplate.html",
-                scope: $rootScope,
-                delay: 5000
-              });
               return true;
             } else {
               $scope.error = "Failed to change " + sourceNode.name + "'s category.";
@@ -1850,15 +1837,3 @@ angular.module('cf').controller('UploadTokenCheckCtrl', ['$scope', '$http', 'CF'
 
 
 }]);
-
-
-angular.module('cf').controller('CFConfirmDialogCtrl', function ($scope, $modalInstance) {
-  $scope.confirm = function () {
-    $modalInstance.close(true);
-  };
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-});
-
-

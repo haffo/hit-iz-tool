@@ -58,7 +58,9 @@ var app = angular.module('hit-app', [
   'angularFileUpload',
   'ociFixedHeader',
   'ngFileUpload',
-  'ui.tree'
+  'ui.tree',
+  'ui.select',
+  'hit-edit-testcase-details'
 ]);
 
 

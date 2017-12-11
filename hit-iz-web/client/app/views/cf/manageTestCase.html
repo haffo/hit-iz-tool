@@ -11,27 +11,13 @@
 </script>
 <div class="container" ng-controller="CFTestManagementCtrl" ng-init="initManagement()">
 
-  <loading-testcases></loading-testcases>
   <div style="margin:10px">
-    <div ng-if="token != undefined && token != null">
-      <h3>
-        Add Profiles
-        <span class="pull-right">
-      <button class="btn btn-md btn-warning" ng-click="cancelToken()"><i class="fa fa-times"></i>Cancel</button>
-      </span>
-      </h3>
-      <hr/>
-    </div>
-
     <div>
-
-
       <div class="row" ng-show="error != null && error != ''">
         <div class="col-md-12">
           <div class="alert alert-danger">{{error}}</div>
         </div>
       </div>
-
       <div class="row">
         <div class="col-md-12">
           <!-- Profile Errors -->
@@ -386,20 +372,36 @@
                     </div>
                   </div>
                   <br>
-                  <div style="text-align:right" ng-if="testcase != null">
-                    <button class="btn btn-md btn-danger" ng-click="reset()"><i class="fa fa-times"></i>Reset</button>
+                  <div  ng-if="testcase != null">
 
-                    <button type="button" class="btn btn-md btn-primary" ng-click="saveGroup()"
-                            ng-disabled="tsForm.$invalid">
+
+                  <div style="text-align:right">
+
+
+                    <button class="btn btn-md btn-warning" ng-disabled="loading" ng-click="reset()"><i class="fa fa-times"></i>Reset</button>
+
+                    <button type="button" class="btn btn-md btn-success" ng-click="saveGroup()"
+
+                            ng-disabled="tsForm.$invalid || loading">
                       <i class="fa fa-check"></i> Save
                     </button>
 
-                    <button ng-show="testcase.scope === 'USER'" type="button" class="btn btn-md btn-warning" ng-click="publishGroup()"
-                            ng-disabled="tsForm.$invalid">
+                    <button ng-show="testcase.scope === 'USER'" type="button" class="btn btn-md btn-primary" ng-click="publishGroup()"
+                            ng-disabled="tsForm.$invalid || loading">
                       <i class="fa fa-paper-plane"></i> Publish
                     </button>
 
+                    <button class="btn btn-md btn-danger"  ng-disabled="loading" ng-click="deleteGroup(testcase.groupId)"><i class="fa fa-trash"></i>Delete</button>
+
+
                   </div>
+
+                  <div ng-show="loading" style="text-align:center">
+                    <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+                  </div>
+
+                  </div>
+
                 </form>
               </div>
             </div>
