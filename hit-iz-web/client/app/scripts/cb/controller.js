@@ -2143,7 +2143,7 @@ angular.module('cb')
         });
     };
 
-    $scope.openUploadModal = function () {
+    $scope.openUploadTestPlanModal = function () {
       $modalStack.dismissAll('close');
       var modalInstance = $modal.open({
         templateUrl: 'views/cb/manage/upload.html',

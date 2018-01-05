@@ -45,7 +45,9 @@ public class Utils {
 		if (host.contains("psapps01.nist.gov")) {
 			host = "www-s.nist.gov";
 		} else {
-			host = host.replaceAll("hit-2015.nist.gov:", "hl7v2-iz-r1.5-testing.nist.gov:");
+			// Yeah I know, I have no other choice
+			host = host.replaceAll("hit-2015.nist.gov:8098", "hl7v2-iz-r1.5-testing.nist.gov:8098");
+			host = host.replaceAll("hit-2015.nist.gov:19070", "hl7v2-iz-cdc-testing.nist.gov");
 		}
 		return scheme + "://" + host + request.getContextPath();
 	}
