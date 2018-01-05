@@ -13,38 +13,45 @@
 
 
   <div class="row test-plan-select-container"
-       style="margin-left:10px; margin-right: 10px; margin-top: 0px">
-
-    <div class="col-md-12" style="height:35px">
-      <form class="form-inline" style="margin:0; padding:0; ">
+       style="margin:10px">
+    <div class="col-md-12" >
+      <form class="form-inline">
         <div class="form-group" ng-if="isAuthenticated()">
-          <label class="control-label" style="text-align:left;" for="selectedScope">Type: </label>
-          <select class="form-control input-sm test-plan-select" style="width:200px;background-color: white;"
-                  name="selectedScope" id="selectedScope"
-                  ng-change="selectScope()"
-                  ng-model="selectedScope.key">
-            <option value="">---- Select Type ----</option>
-            <option ng-repeat="tpScope in testPlanScopes" ng-selected="tpScope.key == selectedScope.key"
-                    value="{{tpScope.key}}">{{::tpScope.name}}
-            </option>
-          </select>
-        </div>
+           <label class="control-label" style="text-align:left;" for="selectedScope">Profile Group Type: </label>
+             <div class="btn-group btn-group-md" id="selectedScope" role="group" aria-label="..." style="margin-right: 10px;">
+            <button  class="btn btn-cf-outline"   ng-repeat="tpScope in testPlanScopes" ng-click="selectedScope.key = tpScope.key; selectScope();"  ng-class="{'active':tpScope.key == selectedScope.key}"
+            >{{::tpScope.name}}
+            </button>
+         </div>
         <div class="form-group" ng-if="testPlans != null && testPlans.length > 0">
           <label class="control-label" for="selectedTP">Profile Groups:</label>
+          <!--<div class="input-group">-->
+          <!--<ui-select search-enabled="false" style="display:inline-block; vertical-align:middle;" id="selectedTP" ng-model="selected.tp" theme="bootstrap" on-select="onSelectTestPlan($item)">-->
+            <!--<ui-select-match placeholder="Select a profile group...">{{$select.selected.name}}</ui-select-match>-->
+            <!--<ui-select-choices group-by="'category'" repeat="tp in testPlans">-->
+              <!--<span ng-bind-html="tp.name"></span>-->
+              <!--<br />-->
+              <!--<small ng-bind-html="tp.description"></small>-->
+            <!--</ui-select-choices>-->
+          <!--</ui-select>-->
+          <!--</div>-->
+
+
           <select class="form-control input-sm test-plan-select" style="width:500px;background-color: white;"
                   name="selectedTP" id="selectedTP"
-
                   ng-change="selectTP()"
-                  ng-model="selectedTP.id">
+                  ng-model="selectedTP.id"
+                  ng-options="tp.id.toString() as tp.name group by tp.category for tp in testPlans">
             <option value="">---- Select Profile Group ----</option>
-            <option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{::tp.name}}
-            </option>
+            <!--<option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{::tp.name}}-->
+            <!--</option>-->
           </select>
         </div>
+        </div>
       </form>
-    </div>
   </div>
 
+  </div>
 
   <div class="row" style="margin:10px;">
 
@@ -79,7 +86,6 @@
                   ng-click="expandAll()">
             <i class="point fa fa-expand"></i>
           </button>
-
         </div>
 
         <div class="panel-body">

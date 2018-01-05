@@ -10,15 +10,15 @@
 <div id="subNavBar" class="subNavBar" ng-controller="CFEnvCtrl" ng-init="initEnv()">
   <ul class="clearfix mainSubNav">
     <li ng-click="setSubActive('/cf_execution')" class="jslink" ><a ng-class="{'current':isSubActive('/cf_execution')}"> <i class="fa fa-th-list"></i> Test Execution</a></li>
-    <li ng-click="setSubActive('/cf_management')" class="jslink" ><a ng-class="{'current':isSubActive('/cf_management')}"> <i class="fa fa-cogs"></i> Test Management </a></li>
+    <li ng-click="setSubActive('/cf_management')" class="jslink" ng-show="isAuthenticated()"><a ng-class="{'current':isSubActive('/cf_management')}"> <i class="fa fa-cogs"></i> Test Management </a></li>
   </ul>
 
   <div ng-show="isSubActive('/cf_execution')">
     <div ng-include="'views/cf/executeTestCase.html'"></div>
   </div>
 
-  <div ng-show="isSubActive('/cf_management')">
-    <div ng-include="'views/cf/manageTestCase.html'"></div>
+  <div ng-show="isSubActive('/cf_management') && isAuthenticated()">
+     <div ng-include="'views/cf/manageTestCase.html'"></div>
   </div>
 
 </div>
