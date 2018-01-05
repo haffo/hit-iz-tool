@@ -358,29 +358,30 @@ angular.module('cb')
     };
 
     $scope.executeTestStep = function (testStep) {
-      $scope.testExecutionService.testStepCommentsChanged[testStep.id] = false;
-      TestExecutionService.setTestStepValidationReport(testStep, null);
-      CB.testStep = testStep;
-      $scope.warning = null;
-      if ($scope.isManualStep(testStep) || testStep.testingType === 'TA_RESPONDER') {
-        $scope.testExecutionService.setTestStepExecutionStatus(testStep, 'COMPLETE');
+      if(testStep != null && testStep != undefined) {
+        $scope.testExecutionService.testStepCommentsChanged[testStep.id] = false;
+        TestExecutionService.setTestStepValidationReport(testStep, null);
+        CB.testStep = testStep;
+        $scope.warning = null;
+        if ($scope.isManualStep(testStep) || testStep.testingType === 'TA_RESPONDER') {
+          $scope.testExecutionService.setTestStepExecutionStatus(testStep, 'COMPLETE');
+        }
+        testStep.protocol = null;
+        $scope.protocol = null;
+        if (testStep.protocols != null && testStep.protocols && testStep.protocols.length > 0) {
+          var protocol = StorageService.get(StorageService.TRANSPORT_PROTOCOL) != null && StorageService.get(StorageService.TRANSPORT_PROTOCOL) != undefined ? StorageService.get(StorageService.TRANSPORT_PROTOCOL) : null;
+          protocol = protocol != null && testStep.protocols.indexOf(protocol) > 0 ? protocol : null;
+          protocol = protocol != null ? protocol : $scope.getDefaultProtocol(testStep);
+          testStep['protocol'] = protocol;
+          $scope.selectProtocol(testStep);
+        }
+        var log = $scope.transport.logs[testStep.id];
+        $scope.logger.content = log && log != null ? log : '';
+        $scope.selectTestStep(testStep);
+        // }, function (error) {
+        //   $scope.error = "Failed to load the test step, please try again.";
+        // });
       }
-      testStep.protocol = null;
-      $scope.protocol = null;
-      if (testStep.protocols != null && testStep.protocols && testStep.protocols.length > 0) {
-        var protocol = StorageService.get(StorageService.TRANSPORT_PROTOCOL) != null && StorageService.get(StorageService.TRANSPORT_PROTOCOL) != undefined ? StorageService.get(StorageService.TRANSPORT_PROTOCOL) : null;
-        protocol = protocol != null && testStep.protocols.indexOf(protocol) > 0 ? protocol : null;
-        protocol = protocol != null ? protocol : $scope.getDefaultProtocol(testStep);
-        testStep['protocol'] = protocol;
-        $scope.selectProtocol(testStep);
-      }
-      var log = $scope.transport.logs[testStep.id];
-      $scope.logger.content = log && log != null ? log : '';
-      $scope.selectTestStep(testStep);
-      // }, function (error) {
-      //   $scope.error = "Failed to load the test step, please try again.";
-      // });
-
     };
 
     $scope.getDefaultProtocol = function (testStep) {
@@ -667,7 +668,7 @@ angular.module('cb')
               $scope.logger.log("Listener started.");
               var execute = function () {
                 var remaining = parseInt($scope.counterMax) - parseInt($scope.counter);
-                if( remaining % 20 === 0) {
+                if (remaining % 20 === 0) {
                   $scope.logger.log("Waiting for Inbound Message....Remaining time:" + (remaining) + "s");
                 }
                 ++$scope.counter;
@@ -861,7 +862,7 @@ angular.module('cb')
     };
 
     $scope.editTestStepComment = function (testStep) {
-      if(!$scope.testExecutionService.testStepComments[testStep.id]) {
+      if (!$scope.testExecutionService.testStepComments[testStep.id]) {
         $scope.testExecutionService.testStepComments[testStep.id] = '';
       }
       $scope.testExecutionService.testStepCommentsChanged[testStep.id] = true;
@@ -873,7 +874,8 @@ angular.module('cb')
       $scope.testExecutionService.testStepCommentsChanges[testStep.id] = null;
       $scope.testExecutionService.testStepCommentsChanged[testStep.id] = false;
       $scope.saveTestStepComment(testStep);
-    };;
+    };
+    ;
 
     $scope.resetTestStepComment = function (testStep) {
       $scope.testExecutionService.testStepCommentsChanged[testStep.id] = false;
@@ -890,7 +892,7 @@ angular.module('cb')
 
 
     $scope.editTestCaseComment = function (testCase) {
-      if(!$scope.testExecutionService.testCaseComments[testCase.id]) {
+      if (!$scope.testExecutionService.testCaseComments[testCase.id]) {
         $scope.testExecutionService.testCaseComments[testCase.id] = '';
       }
       $scope.testExecutionService.testCaseCommentsChanged[testCase.id] = true;
@@ -916,10 +918,6 @@ angular.module('cb')
     };
 
 
-
-
-
-
   }]);
 
 
@@ -929,7 +927,7 @@ angular.module('cb')
     $scope.testCase = CB.testCase;
     $scope.selectedTP = {id: null};
     $scope.selectedScope = {key: null};
-    $scope.testPlanScopes = [{key: 'USER', name: 'My Test Plans'}, {key: 'GLOBAL', name: 'Global Test Plans'}];
+    $scope.testPlanScopes = [{key: 'USER', name: 'Private'}, {key: 'GLOBAL', name: 'Public'}];
     $scope.testCases = [];
     $scope.testPlans = [];
     $scope.tree = {};
@@ -1022,7 +1020,7 @@ angular.module('cb')
             }
             $scope.selectedTP.id = targetId.toString();
             $scope.selectTP();
-          }else {
+          } else {
             $scope.loadingTP = false;
           }
           $scope.loading = false;
@@ -1033,7 +1031,7 @@ angular.module('cb')
         });
       } else {
         StorageService.set(StorageService.CB_SELECTED_TESTPLAN_ID_KEY, "");
-       }
+      }
     };
 
     $scope.refreshTree = function () {
@@ -1116,10 +1114,10 @@ angular.module('cb')
         StorageService.remove(StorageService.CB_EDITOR_CONTENT_KEY);
         var id = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
         var type = StorageService.get(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
-        if(id != null && id != undefined) {
-          if(type == 'TestCase') { // a test case was loaded
+        if (id != null && id != undefined) {
+          if (type == 'TestCase') { // a test case was loaded
             TestExecutionService.clearTestCase(id);
-          }else if(type == 'TestStep'){ // a test step was loaded
+          } else if (type == 'TestStep') { // a test step was loaded
             TestExecutionService.clearTestStep(id);
           }
           StorageService.remove(StorageService.CB_LOADED_TESTCASE_ID_KEY);
@@ -1129,7 +1127,7 @@ angular.module('cb')
         id = StorageService.get(StorageService.CB_LOADED_TESTSTEP_ID_KEY);
         type = StorageService.get(StorageService.CB_LOADED_TESTSTEP_TYPE_KEY);
 
-        if(id != null && id != undefined) { // a test step was executed independent of weither it was part of a test case or test step execution
+        if (id != null && id != undefined) { // a test step was executed independent of weither it was part of a test case or test step execution
           TestExecutionService.clearTestStep(id);
           StorageService.remove(StorageService.CB_LOADED_TESTCASE_ID_KEY);
           StorageService.remove(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
@@ -1619,11 +1617,11 @@ angular.module('cb')
       $scope.error = null;
       $scope.testStep = testStep;
       $scope.report = TestExecutionService.getTestStepValidationReport(testStep) === undefined || TestExecutionService.getTestStepValidationReport(testStep) === null ? {
-          "result": {
-            "value": "",
-            "comments": ""
-          }, "html": null
-        } : TestExecutionService.getTestStepValidationReport(testStep);
+        "result": {
+          "value": "",
+          "comments": ""
+        }, "html": null
+      } : TestExecutionService.getTestStepValidationReport(testStep);
     });
 
     // $scope.save = function () {
@@ -1657,12 +1655,8 @@ angular.module('cb')
   }]);
 
 
-
-
-
-
 angular.module('cb')
-  .controller('CBTestManagementCtrl', function ($scope, $window, $filter, $rootScope, CB, $timeout, $sce, StorageService, TestCaseService, TestStepService, CBTestPlanManager, User, userInfoService) {
+  .controller('CBTestManagementCtrl', function ($scope, $window, $filter, $rootScope, CB, $timeout, $sce, StorageService, TestCaseService, TestStepService, CBTestPlanManager, User, userInfoService, $modal,Notification,$modalStack) {
     $scope.selectedTestCase = CB.selectedTestCase;
     $scope.testCase = CB.testCase;
     $scope.selectedTP = {id: null};
@@ -1708,8 +1702,8 @@ angular.module('cb')
     $scope.get_icon_type = function (node) {
       if (node.type === 'TestObject' || node.type === 'TestStep') {
         var connType = node['testingType'];
-        return  connType === 'TA_MANUAL' || connType === 'SUT_MANUAL' ? 'fa fa-wrench' : connType === 'SUT_RESPONDER' || connType === 'SUT_INITIATOR' ? 'fa fa-arrow-right' : connType === 'TA_RESPONDER' || connType === 'TA_INITIATOR' ? 'fa fa-arrow-left' : 'fa fa-check-square-o';
-      } else{
+        return connType === 'TA_MANUAL' || connType === 'SUT_MANUAL' ? 'fa fa-wrench' : connType === 'SUT_RESPONDER' || connType === 'SUT_INITIATOR' ? 'fa fa-arrow-right' : connType === 'TA_RESPONDER' || connType === 'TA_INITIATOR' ? 'fa fa-arrow-left' : 'fa fa-check-square-o';
+      } else {
         return '';
       }
     };
@@ -1724,7 +1718,6 @@ angular.module('cb')
         CBTestPlanManager.getTestPlan($scope.selectedTP.id).then(function (testPlan) {
           $scope.testCases = [testPlan];
           testCaseService.buildTree(testPlan);
-          //$scope.refreshTree();
           StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_ID_KEY, $scope.selectedTP.id);
           $scope.loadingTP = false;
         }, function (error) {
@@ -1762,7 +1755,7 @@ angular.module('cb')
             }
             $scope.selectedTP.id = targetId.toString();
             $scope.selectTP();
-          }else {
+          } else {
             $scope.loadingTP = false;
           }
           $scope.loading = false;
@@ -1825,13 +1818,13 @@ angular.module('cb')
       }, 1000);
     };
 
-
     $scope.isSelectable = function (node) {
       return true;
     };
 
     $scope.selectTestNode = function (node) {
       $scope.loadingTC = true;
+      $scope.error = null;
       $scope.selectedTestCase = node;
       StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTCASE_ID_KEY, node.id);
       StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTCASE_TYPE_KEY, node.type);
@@ -1848,7 +1841,39 @@ angular.module('cb')
     };
 
 
+    $scope.deleteTreeNode = function (node, potentialParent) {
+      if (potentialParent.children && potentialParent.children.length > 0) {
+        for (var i = 0; i < potentialParent.children.length; i++) {
+          var child = potentialParent.children[i];
+          if (child  == node) {
+            potentialParent.children.splice(i, 1);
+            return true;
+          } else {
+            var done = $scope.deleteTreeNode(node, child);
+            if (done) {
+              return true;
+            }
+          }
+        }
+      }
+      return false;
+    };
+
+
+
+    $scope.afterDelete = function(node){
+      for (var i = 0; i < $scope.testCases.length; i++) {
+        if ($scope.deleteTreeNode(node, $scope.testCases[i]) == true) {
+          if(node === $scope.selectedTestCase) {
+            $scope.selectedTestCase = null;
+          }
+          break;
+        }
+      }
+    };
+
     $scope.deleteTestStep = function (testStep) {
+      $scope.error = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/cb/manage/confirm-delete-teststep.html',
         controller: 'ConfirmDialogCtrl',
@@ -1859,50 +1884,286 @@ angular.module('cb')
       modalInstance.result.then(
         function (result) {
           if (result) {
-            CBTestPlanManager.deleteTestStep(testStep.id).then(function (result) {
+            CBTestPlanManager.deleteTestStep(testStep).then(function (result) {
               if (result.status === "SUCCESS") {
-                var group = $scope.findGroup(groupId);
-                var index = $scope.existingTestPlans.indexOf(group);
-                if (index > -1) {
-                  $scope.existingTestPlans.splice(index, 1);
-                }
-                for (var i = 0; i < $scope.categoryNodes.length; i++) {
-                  var groupNodes = $scope.categoryNodes[i].nodes;
-                  if (groupNodes && groupNodes.length > 0) {
-                    var ind = -1;
-                    for (var j = 0; j < groupNodes.length; j++) {
-                      var node = groupNodes[j];
-                      if (node.id == groupId) {
-                        ind = j;
-                        break;
-                      }
-                    }
-                    if (ind > -1) {
-                      groupNodes.splice(ind, 1);
-                      break;
-                    }
-                  }
-                }
+                $scope.afterDelete(testStep);
                 Notification.success({
-                  message: "Profile group deleted successfully !",
+                  message: "Test Step deleted successfully !",
                   templateUrl: "NotificationSuccessTemplate.html",
                   scope: $rootScope,
                   delay: 5000
                 });
-                if ($scope.testcase != null && groupId === $scope.testcase.groupId) {
-                  $scope.selectGroup(null);
-                }
               } else {
                 $scope.error = result.message;
               }
             }, function (error) {
-              $scope.error = "Sorry, Cannot create a delete the profile group. Please try again";
+              $scope.error = "Sorry, Cannot delete the test step. Please try again. \n DEBUG:" + error;
             });
           }
-        }, function(result){
+        }, function (result) {
 
         });
 
+    };
+
+
+    $scope.deleteTestCase = function (testCase) {
+      $scope.error = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/cb/manage/confirm-delete-testcase.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            CBTestPlanManager.deleteTestCase(testCase).then(function (result) {
+              if (result.status === "SUCCESS") {
+                $scope.afterDelete(testCase);
+                Notification.success({
+                  message: "Test Case deleted successfully !",
+                  templateUrl: "NotificationSuccessTemplate.html",
+                  scope: $rootScope,
+                  delay: 5000
+                });
+              } else {
+                $scope.error = result.message;
+              }
+            }, function (error) {
+              $scope.error = "Sorry, Cannot delete the test case. Please try again. \n DEBUG:" + error;
+            });
+          }
+        }, function (result) {
+
+        });
+
+    };
+
+    $scope.deleteTestCaseGroup = function (testCaseGroup) {
+      $scope.error = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/cb/manage/confirm-delete-testgroup.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            CBTestPlanManager.deleteTestCaseGroup(testCaseGroup).then(function (result) {
+              if (result.status === "SUCCESS") {
+                $scope.afterDelete(testCaseGroup);
+                Notification.success({
+                  message: "Test Case Group deleted successfully !",
+                  templateUrl: "NotificationSuccessTemplate.html",
+                  scope: $rootScope,
+                  delay: 5000
+                });
+              } else {
+                $scope.error = result.message;
+              }
+            }, function (error) {
+              $scope.error = "Sorry, Cannot delete the test case group. Please try again. \n DEBUG:" + error;
+            });
+          }
+        }, function (result) {
+
+        });
+
+    };
+
+    $scope.deleteTestPlan = function (testPlan) {
+      $scope.error = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/cb/manage/confirm-delete-testplan.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            CBTestPlanManager.deleteTestPlan(testPlan).then(function (result) {
+              if (result.status === "SUCCESS") {
+
+                if($scope.testPlans != null) {
+                  var ind = -1;
+                  for (var i = 0; i < $scope.testPlans.length; i++) {
+                    if($scope.testPlans[i].id == $scope.testCases[0].id){
+                      ind = i;
+                      break;
+                    }
+                  }
+                  if(ind > -1){
+                    $scope.testPlans.splice(ind, 1);
+                  }
+                  $scope.testCases = [];
+                  $scope.selectedTestCase = null;
+                }
+
+                Notification.success({
+                  message: "Test Plan deleted successfully !",
+                  templateUrl: "NotificationSuccessTemplate.html",
+                  scope: $rootScope,
+                  delay: 5000
+                });
+              } else {
+                $scope.error = result.message;
+              }
+            }, function (error) {
+              $scope.error = "Sorry, Cannot delete the test plan. Please try again. \n DEBUG:" + error;
+            });
+          }
+        }, function (result) {
+
+        });
+
+    };
+
+
+
+    $scope.editNodeName = function (node) {
+      node.editName = node.name;
+      node.edit = true
+    };
+
+    $scope.resetNodeName = function (node) {
+      node.editName = null;
+      node.edit = false;
+    };
+
+
+
+    $scope.deleteTestNode = function (node) {
+      if (node.editName != node.name) {
+        if (node.type === 'TestPlan') {
+          $scope.deleteTestPlan(node);
+        } else if (node.type === 'TestCaseGroup') {
+          $scope.deleteTestCaseGroup(node);
+        } else if (node.type === 'TestCase') {
+          $scope.deleteTestCase(node);
+        } else if (node.type === 'TestStep') {
+          $scope.deleteTestStep(node);
+        }
+      }
+    };
+
+
+
+    $scope.saveNodeName = function (node) {
+      if (node.editName != node.name) {
+        if (node.type === 'TestPlan') {
+          CBTestPlanManager.updateTestPlanName(node).then(function () {
+            node.name = node.editName;
+            node.label = node.name;
+            node.edit = false;
+            node.editName = null;
+          }, function (error) {
+            $scope.error = "Could not saved the name, please try again"
+          });
+        } else if (node.type === 'TestCaseGroup') {
+          CBTestPlanManager.updateTestCaseGroupName(node).then(function () {
+            node.name = node.editName;
+            node.label = node.name;
+            node.edit = false;
+            node.editName = null;
+          }, function (error) {
+            $scope.error = "Could not saved the name, please try again"
+          });
+        } else if (node.type === 'TestCase') {
+          CBTestPlanManager.updateTestCaseName(node).then(function () {
+            node.name = node.editName;
+            node.label = node.name;
+            node.edit = false;
+            node.editName = null;
+          }, function (error) {
+            $scope.error = "Could not saved the name, please try again"
+          });
+        } else if (node.type === 'TestStep') {
+          CBTestPlanManager.updateTestStepName(node).then(function () {
+            node.name = node.editName;
+            node.label = node.position + "." + node.name;
+            node.editName = null;
+            node.edit = false;
+          }, function (error) {
+            $scope.error = "Could not saved the name, please try again"
+          });
+        }
+      }
+    };
+
+
+    $scope.publishTestPlan = function () {
+      var modalInstance = $modal.open({
+        templateUrl: 'views/cb/manage/confirm-publish-testplan.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            $scope.loading = true;
+            CBTestPlanManager.publishTestPlan($scope.selectedTestCase.id).then(function (result) {
+              if (result.status === "SUCCESS") {
+                $scope.selectedScope.key = 'GLOBAL';
+                Notification.success({
+                  message: "Test Plan successfully published !",
+                  templateUrl: "NotificationSuccessTemplate.html",
+                  scope: $rootScope,
+                  delay: 5000
+                });
+                $scope.selectScope();
+                $scope.selectedTP.id = $scope.selectedTestCase.id;
+                $scope.selectTP();
+              } else {
+                Notification.error({
+                  message: result.message,
+                  templateUrl: "NotificationErrorTemplate.html",
+                  scope: $rootScope,
+                  delay: 10000
+                });
+              }
+              $scope.loading = false;
+            }, function (error) {
+              $scope.loading = false;
+              Notification.error({
+                message: error.data,
+                templateUrl: "NotificationErrorTemplate.html",
+                scope: $rootScope,
+                delay: 10000
+              });
+            });
+          }
+        });
+    };
+
+    $scope.openUploadModal = function () {
+      $modalStack.dismissAll('close');
+      var modalInstance = $modal.open({
+        templateUrl: 'views/cb/manage/upload.html',
+        controller: 'CBUploadCtrl',
+        controllerAs: 'ctrl',
+        windowClass: 'upload-modal',
+        backdrop: 'static',
+        keyboard: false
+      });
+
+      modalInstance.result.then(
+        function (result) {
+          if (result.id != null) {
+            $scope.selectedScope.key = 'USER';
+            $scope.selectScope();
+            $scope.selectedTP.id = result.id;
+            $scope.selectTP();
+          }
+        }
+      );
     };
 
 
@@ -1926,3 +2187,76 @@ angular.module('cb')
 
 
   });
+
+
+angular.module('cb')
+  .controller('CBUploadCtrl', ['$scope', '$http', '$window', '$modal', '$filter', '$rootScope', '$timeout', 'StorageService', 'TestCaseService', 'TestStepService', 'FileUploader', 'Notification', '$modalInstance', 'userInfoService', 'CFTestPlanManager', function ($scope, $http, $window, $modal, $filter, $rootScope, $timeout, StorageService, TestCaseService, TestStepService, FileUploader, Notification, $modalInstance, userInfoService, CFTestPlanManager) {
+
+    FileUploader.FileSelect.prototype.isEmptyAfterSelection = function () {
+      return true;
+    };
+    $scope.step = 0;
+
+
+    var zipUploader = $scope.zipUploader = new FileUploader({
+      url: 'api/cb/management/uploadZip',
+      autoUpload: true,
+      filters: [{
+        name: 'zipFilter',
+        fn: function (item) {
+          return /\/(zip)$/.test(item.type);
+        }
+      }]
+    });
+
+    zipUploader.onBeforeUploadItem = function (fileItem) {
+      $scope.error = null;
+      $scope.loading = true;
+    };
+
+    zipUploader.onCompleteItem = function (fileItem, response, status, headers) {
+      $scope.loading = false;
+      $scope.error = null;
+      if (response.status == "FAILURE") {
+        $scope.error ="Could not upload and process your file.<br>" + response.message;
+       } else {
+        if (response.action === "ADD") {
+          Notification.success({
+            message: "Test Plan Added Successfully !",
+            templateUrl: "NotificationSuccessTemplate.html",
+            scope: $rootScope,
+            delay: 5000
+          });
+        }
+        if (response.action === "UPDATE") {
+          Notification.success({
+            message: "Test Plan Updated Successfully !",
+            templateUrl: "NotificationSuccessTemplate.html",
+            scope: $rootScope,
+            delay: 5000
+          });
+        }
+        $modalInstance.close({id: response.id});
+      }
+    };
+
+    $scope.gotStep = function (step) {
+      $scope.step = step;
+    };
+
+
+    $scope.dismissModal = function () {
+      $modalInstance.dismiss();
+    };
+
+    $scope.generateUUID = function () {
+      var d = new Date().getTime();
+      var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+      });
+      return uuid;
+    };
+
+  }]);

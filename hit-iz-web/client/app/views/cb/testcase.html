@@ -31,15 +31,26 @@
           <form class="form-inline" style="margin:0; padding:0; ">
             <div class="form-group" ng-if="isAuthenticated()">
               <label class="control-label" style="text-align:left;" for="selectedScope">Type: </label>
-              <select class="form-control input-sm test-plan-select" style="width:200px;background-color: white;"
-                      name="selectedScope" id="selectedScope"
-                      ng-change="selectScope()"
-                      ng-model="selectedScope.key">
-                <option value="">---- Select Scope ----</option>
-                <option ng-repeat="tpScope in testPlanScopes" ng-selected="tpScope.key == selectedScope.key"
-                        value="{{tpScope.key}}">{{::tpScope.name}}
-                </option>
-              </select>
+
+              <div class="btn-group btn-group-md" id="selectedScope" role="group" aria-label="..." style="margin-right: 10px;">
+
+                <button  class="btn btn-cf-outline"   ng-repeat="tpScope in testPlanScopes" ng-click="selectedScope.key = tpScope.key; selectScope();"  ng-class="{'active':tpScope.key == selectedScope.key}"
+                >{{::tpScope.name}}
+                </button>
+
+              </div>
+
+
+
+              <!--<select class="form-control input-sm test-plan-select" style="width:200px;background-color: white;"-->
+                      <!--name="selectedScope" id="selectedScope"-->
+                      <!--ng-change="selectScope()"-->
+                      <!--ng-model="selectedScope.key">-->
+                <!--<option value="">&#45;&#45;&#45;&#45; Select Scope &#45;&#45;&#45;&#45;</option>-->
+                <!--<option ng-repeat="tpScope in testPlanScopes" ng-selected="tpScope.key == selectedScope.key"-->
+                        <!--value="{{tpScope.key}}">{{::tpScope.name}}-->
+                <!--</option>-->
+              <!--</select>-->
             </div>
             <div class="form-group" ng-if="testPlans != null && testPlans.length > 0">
               <label class="control-label" for="selectedTP">Test Plan: </label>
@@ -158,14 +169,14 @@
                                     Download Test Plan Summary
                                 </button>
 
-                                <button title="Load Selected Test Step" ng-show="(selectedTestCase.type == 'TestStep')"
+                                <button title="Load Test Step" ng-show="(selectedTestCase.type == 'TestStep')"
                                         type="button"
                                         class="btn btn-xs btn-success"
                                         ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
                                     <i class="fa fa-play"></i>Load Test Step
                                 </button>
 
-                                <button title="Load Selected Test Case" ng-show="selectedTestCase.type === 'TestCase'"
+                                <button title="Load Test Case" ng-show="selectedTestCase.type === 'TestCase' && selectedTestCase.children != null && selectedTestCase.children.length > 0"
                                         type="button"
                                         class="btn btn-xs btn-success"
                                         ng-click="loadTestCase(selectedTestCase,'/cb_execution')">

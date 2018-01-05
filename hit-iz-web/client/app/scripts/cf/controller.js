@@ -1089,13 +1089,13 @@ angular.module('cf')
     };
 
     $scope.editCategory = function (node) {
-      $scope.originalCategoryName = node.name;
+      node.originalCategoryName = node.name;
       node.edit = true
     };
 
     $scope.resetCategory = function (node) {
-      node.name = $scope.originalCategoryName;
-      $scope.originalCategoryName = null;
+      node.name = node.originalCategoryName;
+      node.originalCategoryName = null;
       node.edit = false;
     };
 
@@ -1113,7 +1113,7 @@ angular.module('cf')
 
 
     $scope.saveCategory = function (node) {
-      if ($scope.originalCategoryName != node.name) {
+      if (node.originalCategoryName != node.name) {
         if ($scope.isValidCategory(node)) {
           node.id = node.name;
           if (node.nodes != null && node.nodes.length > 0) {

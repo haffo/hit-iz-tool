@@ -11,7 +11,7 @@
     <ul class="clearfix mainSubNav">
         <li ng-click="setSubActive('/cb_testcase')" class="jslink" ><a ng-class="{'current':isSubActive('/cb_testcase')}"> <i class="fa fa-th-list"></i> Test Selection</a></li>
         <li ng-click="setSubActive('/cb_execution')" class="jslink" ><a ng-class="{'current':isSubActive('/cb_execution')}"> <i class="fa fa-cogs"></i> Test Execution <span title="Current Test" class="badge current-test" ng-show="testCase != null">Current {{pettyPrintType(testCase.type)}}: {{testCase.name}}</span></a></li>
-        <li ng-click="setSubActive('/cb_management')" class="jslink" ><a ng-class="{'current':isSubActive('/cb_management')}"> <i class="fa fa-cog"></i> Test Management</a></li>
+        <li ng-click="setSubActive('/cb_management')" ng-show="isAuthenticated()" class="jslink" ><a ng-class="{'current':isSubActive('/cb_management')}"> <i class="fa fa-cog"></i> Test Management</a></li>
 
     </ul>
 
@@ -23,7 +23,7 @@
         <div ng-include="'views/cb/executeTestCase.html'"></div>
     </div>
 
-  <div ng-show="isSubActive('/cb_management')">
+  <div ng-show="isSubActive('/cb_management') && isAuthenticated()">
     <div ng-include="'views/cb/manageTestCase.html'"></div>
   </div>
 

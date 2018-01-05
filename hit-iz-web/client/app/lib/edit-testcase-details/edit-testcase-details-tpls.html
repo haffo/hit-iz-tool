@@ -8,7 +8,7 @@
       <div class="alert alert-danger" role="alert" ng-bind="error"></div>
     </div>
 
-    <div ng-show="error == null">
+    <div>
 
       <tabset>
         <tab active="tabs[0]" select="loadTestInfo()">
@@ -245,7 +245,7 @@
                 ng-click="cancel()">
           <i class="fa fa-times"></i>&nbsp;Cancel
         </button>
-  
+
         <button ng-show="editMode" title="Save" type="button"
                 class="btn btn-sm btn-success"
                 ng-click="save()">
