@@ -289,6 +289,7 @@
                             <th>Type</th>
                             <th>Event</th>
                             <th>StructID</th>
+                            <th>Example Message</th>
                             <th>Action</th>
                             </thead>
                             <tbody>
@@ -320,9 +321,25 @@
                               <td>
                                 {{item.structID}}
                               </td>
+
                               <td>
-                                <button class="btn btn-xs btn-danger" ng-click="deleteNewProfile(item)"><i
-                                  class="fa fa-times"></i>Delete
+                                <span  ng-show="item.exampleMessage != undefined && item.exampleMessage != null && item.exampleMessage != ''" >
+                                  <a class="point" ng-click="editExampleMessage(item)">Example Message
+                                  </a>
+                                  <button class="btn btn-xs btn-warning"  class="point" ng-click="item.exampleMessage = ''">
+                                     <i class="fa fa-times"></i>
+                                  </button>
+                                </span>
+
+                                <button ng-show="item.exampleMessage == null || item.exampleMessage == undefined ||  item.exampleMessage == ''" class="btn btn-xs btn-info" ng-click="editExampleMessage(item)"><i
+                                  class="fa fa-plus"></i>
+                                </button>
+                              </td>
+
+
+                              <td>
+                                <button class="btn btn-sm btn-danger" ng-click="deleteNewProfile(item)"><i
+                                  class="fa fa-trash"></i>
                                 </button>
                               </td>
                             </tr>
@@ -342,6 +359,7 @@
                               <thead class="">
                               <th>Name</th>
                               <th>Description</th>
+                              <th>Example Message</th>
                               <th>Actions</th>
                               </thead>
                               <tbody>
@@ -356,8 +374,21 @@
                                                      ng-required="true" style="width: 100%;"></textarea>
                                 </td>
                                 <td>
-                                  <button class="btn btn-xs btn-danger" ng-click="deleteOldProfile(item)"><i
-                                    class="fa fa-times"></i>Delete
+                                 <span  ng-show="item.exampleMessage != undefined && item.exampleMessage != null && item.exampleMessage != ''" >
+                                  <a class="point" ng-click="editExampleMessage(item)">Example Message
+                                  </a>
+                                  <button class="btn btn-xs btn-warning"  class="point" ng-click="item.exampleMessage = ''">
+                                     <i class="fa fa-times"></i>
+                                  </button>
+                                </span>
+
+                                  <button ng-show="item.exampleMessage == null || item.exampleMessage == undefined ||  item.exampleMessage == ''" class="btn btn-xs btn-info" ng-click="editExampleMessage(item)"><i
+                                    class="fa fa-plus"></i>
+                                  </button>
+                                </td>
+                                <td>
+                                  <button class="btn btn-sm btn-danger" ng-click="deleteOldProfile(item)"><i
+                                    class="fa fa-trash"></i>
                                   </button>
                                 </td>
                               </tr>

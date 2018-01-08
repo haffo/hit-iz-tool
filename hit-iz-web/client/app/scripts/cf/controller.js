@@ -1464,7 +1464,53 @@ angular.module('cf')
     };
 
 
+
+    $scope.editExampleMessage = function (item) {
+      $modalStack.dismissAll('close');
+      var modalInstance = $modal.open({
+        templateUrl: 'views/cf/manage/message.html',
+        controller: 'CFManageExampleMessageCtrl',
+        controllerAs: 'ctrl',
+        windowClass: 'upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        resolve: {
+          exampleMessage: function () {
+            return item.exampleMessage;
+          }
+        }
+      });
+
+      modalInstance.result.then(
+        function (exampleMessage) {
+          item.exampleMessage = exampleMessage;
+        },
+        function (result) {
+        }
+      );
+    };
+
+
+
+
   }]);
+
+
+
+angular.module('cf')
+  .controller('CFManageExampleMessageCtrl', function ($scope, $http, $window, $modal, $filter, $rootScope, $timeout, StorageService, FileUploader, Notification, $modalInstance, exampleMessage) {
+
+    $scope.exampleMessage  = exampleMessage;
+
+    $scope.save = function () {
+      $modalInstance.close($scope.exampleMessage);
+    };
+
+    $scope.cancel = function () {
+      $modalInstance.dismiss();
+    };
+
+  });
 
 
 angular.module('cf')
