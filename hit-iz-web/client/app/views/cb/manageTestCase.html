@@ -173,7 +173,7 @@
                                  <!--</button>-->
 
                                    <button title="Publish Test Plan"
-                                           ng-show="selectedTestCase.scope === 'USER'"
+                                           ng-show="selectedTestCase.scope === 'USER'&& (isAdmin() || isSupervisor())"
                                            type="button"
                                            class="btn btn-xs btn-success"
                                            ng-click="publishTestPlan(selectedTestCase)">

@@ -386,7 +386,7 @@
                       <i class="fa fa-check"></i> Save
                     </button>
 
-                    <button ng-show="testcase.scope === 'USER'" type="button" class="btn btn-md btn-primary" ng-click="publishGroup()"
+                    <button ng-show="testcase.scope === 'USER' && (isAdmin() || isSupervisor())" type="button" class="btn btn-md btn-primary" ng-click="publishGroup()"
                             ng-disabled="tsForm.$invalid || loading">
                       <i class="fa fa-paper-plane"></i> Publish
                     </button>

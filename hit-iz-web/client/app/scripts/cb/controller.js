@@ -942,18 +942,27 @@ angular.module('cb')
     var testCaseService = new TestCaseService();
 
     $scope.initTestCase = function () {
-      console.log("initTestCase called");
       $scope.error = null;
       $scope.loading = true;
-      $scope.testPlans = null;
-      if (!userInfoService.isAuthenticated()) {
-        $scope.selectedScope.key = $scope.testPlanScopes[1].key; // GLOBAL
+      $scope.testCases = null;
+      if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
+        $scope.testPlanScopes = $scope.allTestPlanScopes;
       } else {
-        var tmp = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY);
-        $scope.selectedScope.key = tmp && tmp != null ? tmp : $scope.testPlanScopes[1].key;
+        $scope.testPlanScopes = [$scope.allTestPlanScopes[0]];
       }
+      $scope.selectedScope.key = $scope.testPlanScopes[0].key;
       $scope.selectScope();
     };
+
+
+    $rootScope.$on('event:logoutConfirmed', function () {
+      $scope.initTestCase();
+    });
+
+    $rootScope.$on('event:loginConfirmed', function () {
+      $scope.initTestCase();
+    });
+
 
     var findTPByPersistenceId = function (persistentId, testPlans) {
       for (var i = 0; i < testPlans.length; i++) {
