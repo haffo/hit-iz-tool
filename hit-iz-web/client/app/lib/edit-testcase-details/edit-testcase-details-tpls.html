@@ -1,0 +1,483 @@
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
+<script type="text/javascript">
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
+</script>
+<script type="text/ng-template" id="EditTestCaseDetails.html">
+  <div ng-show="loading" style="text-align:center">
+    <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+  </div>
+  <div id="tcReady" ng-show="!loading">
+
+    <div ng-show="error != null">
+      <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+    </div>
+
+    <div>
+
+      <tabset>
+        <tab active="tabs[0]" select="loadTestInfo()">
+          <tab-heading>
+            <i class="fa fa-list-alt"></i>
+            <span ng-show="testCase['testStory']  && testCase['testStory']  !== null">Test Story</span>
+            <span ng-show="!testCase['testStory']  || testCase['testStory']  === null">Description</span>
+          </tab-heading>
+          <div ng-show="testCase['testStory']  && testCase['testStory']  !== null">
+            <div edit-test-story target="{{target}}"></div>
+          </div>
+          <div ng-show="!testCase['testStory']  || testCase['testStory']  === null">
+            <div edit-test-description target="{{target}}"></div>
+          </div>
+        </tab>
+
+        <tab active="tabs[1]"
+             ng-show="testCase['testDataSpecification'] && testCase['testDataSpecification'] !== null"
+             ng-click="tabs[1] = true; loadArtifactHtml('testDataSpecification')">
+          <tab-heading>
+            <i class="fa fa-list-alt"></i>Test Data Specification
+          </tab-heading>
+        </tab>
+
+        <tab ng-show="testCase['messageContent'] && testCase['messageContent'] !== null"
+             active="tabs[2]" ng-click="tabs[2] = true; loadArtifactHtml('messageContent')">
+          <tab-heading>
+            <i class="fa fa-list-alt"></i>Message Content
+          </tab-heading>
+        </tab>
+
+
+        <tab ng-show="testCase['jurorDocument']  && testCase['jurorDocument'] !== null"
+             active="tabs[3]" ng-click="tabs[3] = true; loadArtifactHtml('jurorDocument')">
+          <tab-heading>
+            <i class="fa fa-list-alt"></i>Juror Document
+          </tab-heading>
+        </tab>
+
+        <tab active="tabs[4]" ng-click="tabs[4] = true; buildExampleMessageEditor()"
+             ng-show="testCase.testContext && testCase.testContext.message && testCase.testContext.message!== null && testCase.testContext.message.content != null">
+          <tab-heading>
+            <i class="fa fa-file-text-o"></i>Example Message
+          </tab-heading>
+          <div edit-example-message target="{{target}}"></div>
+        </tab>
+        <tab active="tabs[5]"
+             ng-show="testCase['supplements'] && testCase['supplements'] !== null && testCase['supplements'].length > 0"
+             ng-click="tabs[5] = true;">
+          <tab-heading>
+            <i class="fa fa-list-alt"></i>Supplements
+          </tab-heading>
+        </tab>
+      </tabset>
+
+      <div ng-show="tabs[1] && testCase['testDataSpecification']  && testCase['testDataSpecification'] !== null">
+        <div edit-test-data-specification target="{{target}}"></div>
+      </div>
+
+      <div ng-show="tabs[2] && testCase['messageContent']  && testCase['messageContent'] !== null">
+        <div edit-message-content target="{{target}}"></div>
+      </div>
+
+      <div ng-show="tabs[3] && testCase['jurorDocument']  && testCase['jurorDocument'] !== null">
+        <div edit-juror-document target="{{target}}"></div>
+      </div>
+      <div
+        ng-show="tabs[5] && testCase['supplements'] && testCase['supplements'] !== null && testCase['supplements'].length > 0">
+        <div edit-supplement-documents target="{{target}}"></div>
+      </div>
+
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="EditMessageContentInfo.html">
+  <div class="modal-header">
+                <span style="font-weight: bold; font-size: 20px">
+                    Message Content Information
+                </span>
+    <span class="pull-right">
+                   <button class="btn btn-xs btn-primary" ng-click="close()"><i class="fa fa-times"></i>Close</button>
+                </span>
+  </div>
+  <div class="modal-body">
+    <div class="message-content-info-content">
+      <div ng-if="mcHelpInfo != null" ng-bind-html="toHTML(mcHelpInfo)">
+      </div>
+      <div ng-if="mcHelpInfo === null">
+        No information available.
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="EditTestDataSpecification.html">
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="pull-right">
+        <!--<button ng-show="!editMode" title="Edit" type="button"-->
+                <!--class="btn btn-sm btn-primary"-->
+                <!--ng-click="edit()">-->
+          <!--<i class="fa fa-pencil"></i>&nbsp;Edit-->
+        <!--</button>-->
+
+        <!--<button ng-show="!editMode" title="Edit" type="button"-->
+                <!--class="btn btn-sm btn-danger"-->
+                <!--ng-click="delete()">-->
+          <!--<i class="fa fa-trash"></i>&nbsp;Delete-->
+        <!--</button>-->
+
+        <!--<button ng-show="editMode" title="Reset" type="button"-->
+                <!--class="btn btn-sm btn-danger"-->
+                <!--ng-click="reset()">-->
+          <!--<i class="fa fa-refresh"></i>&nbsp;Reset-->
+        <!--</button>-->
+
+
+        <!--<button ng-show="editMode" title="Cancel" type="button"-->
+                <!--class="btn btn-sm btn-warning"-->
+                <!--ng-click="cancel()">-->
+          <!--<i class="fa fa-times"></i>&nbsp;Cancel-->
+        <!--</button>-->
+
+        <!--<button ng-show="editMode" title="Save" type="button"-->
+                <!--class="btn btn-sm btn-success"-->
+                <!--ng-click="save()">-->
+          <!--<i class="fa fa-check"></i>&nbsp;Save-->
+        <!--</button>-->
+
+      </div>
+
+      <br/>
+      <br/>
+          <div class="testcase-content">
+            <div id="{{target}}-testDataSpecification" ng-show="!editMode"></div>
+            <textarea class="form-control" ng-show="editMode" rows="30" cols="10" ng-model="value"></textarea>
+           </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="EditMessageContent.html">
+  <div class="panel panel-default">
+    <div class="panel-body">
+                            <span class="pull-left">
+                                <button title="Message Content Help Info" type="button"
+                                        class="btn btn-xs btn-primary"
+                                        ng-click="openMcInfo()">
+                                    <i class="fa fa-info-circle"></i>&nbsp;Help
+                                </button>
+                            </span>
+      <span class="pull-right">
+
+
+        <!--<button ng-show="!editMode" title="Edit" type="button"-->
+                <!--class="btn btn-sm btn-primary"-->
+                <!--ng-click="edit()">-->
+          <!--<i class="fa fa-pencil"></i>&nbsp;Edit-->
+        <!--</button>-->
+
+        <!--<button ng-show="!editMode" title="Edit" type="button"-->
+                <!--class="btn btn-sm btn-danger"-->
+                <!--ng-click="delete()">-->
+          <!--<i class="fa fa-trash"></i>&nbsp;Delete-->
+        <!--</button>-->
+
+        <!--<button ng-show="editMode" title="Reset" type="button"-->
+                <!--class="btn btn-sm btn-danger"-->
+                <!--ng-click="reset()">-->
+          <!--<i class="fa fa-refresh"></i>&nbsp;Reset-->
+        <!--</button>-->
+
+
+        <!--<button ng-show="editMode" title="Cancel" type="button"-->
+                <!--class="btn btn-sm btn-warning"-->
+                <!--ng-click="cancel()">-->
+          <!--<i class="fa fa-times"></i>&nbsp;Cancel-->
+        <!--</button>-->
+
+        <!--<button ng-show="editMode" title="Save" type="button"-->
+                <!--class="btn btn-sm btn-success"-->
+                <!--ng-click="save()">-->
+          <!--<i class="fa fa-check"></i>&nbsp;Save-->
+        <!--</button>-->
+
+
+
+                            </span>
+      <br/>
+      <br/>
+          <div class="testcase-content">
+
+            <div ng-show="editMode && error != null && error != ''">
+              <div class="col-md-12">
+                <div class="alert alert-danger">{{error}}</div>
+              </div>
+            </div>
+
+
+            <div id="{{target}}-messageContent" ng-show="!editMode"></div>
+            <textarea class="form-control" ng-show="editMode" rows="30" cols="10" ng-model="value"></textarea>
+          </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="EditExampleMessage.html">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="pull-right">
+        <!--<button ng-show="!editMode" title="Edit" type="button"-->
+                <!--class="btn btn-sm btn-primary"-->
+                <!--ng-click="edit()">-->
+          <!--<i class="fa fa-pencil"></i>&nbsp;Edit-->
+        <!--</button>-->
+
+        <!--<button ng-show="!editMode" title="Edit" type="button"-->
+                <!--class="btn btn-sm btn-danger"-->
+                <!--ng-click="delete()">-->
+          <!--<i class="fa fa-trash"></i>&nbsp;Delete-->
+        <!--</button>-->
+
+        <!--<button ng-show="editMode" title="Reset" type="button"-->
+                <!--class="btn btn-sm btn-danger"-->
+                <!--ng-click="reset()">-->
+          <!--<i class="fa fa-refresh"></i>&nbsp;Reset-->
+        <!--</button>-->
+
+
+        <!--<button ng-show="editMode" title="Cancel" type="button"-->
+                <!--class="btn btn-sm btn-warning"-->
+                <!--ng-click="cancel()">-->
+          <!--<i class="fa fa-times"></i>&nbsp;Cancel-->
+        <!--</button>-->
+
+        <!--<button ng-show="editMode" title="Save" type="button"-->
+                <!--class="btn btn-sm btn-success"-->
+                <!--ng-click="save()">-->
+          <!--<i class="fa fa-check"></i>&nbsp;Save-->
+        <!--</button>-->
+
+      </div>
+      </div>
+      <br/>
+      <br/>
+          <div ng-show="editMode && error != null && error != ''">
+            <div class="col-md-12">
+              <div class="alert alert-danger">{{error}}</div>
+            </div>
+          </div>
+
+          <div id="{{target}}-exampleMessage" class="testcase-content"
+               ng-show="!editMode"></div>
+          <textarea class="form-control" ng-show="editMode" rows="30" cols="10" ng-model="value"></textarea>
+     </div>
+  </div>
+</script>
+
+
+<script type="text/ng-template" id="EditTestStory.html">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div>
+        <div class="pull-right">
+          <!--<button ng-show="!editMode" title="Edit" type="button"-->
+                  <!--class="btn btn-sm btn-primary"-->
+                  <!--ng-click="edit()">-->
+            <!--<i class="fa fa-pencil"></i>&nbsp;Edit-->
+          <!--</button>-->
+
+          <!--<button ng-show="!editMode" title="Edit" type="button"-->
+                  <!--class="btn btn-sm btn-danger"-->
+                  <!--ng-click="delete()">-->
+            <!--<i class="fa fa-trash"></i>&nbsp;Delete-->
+          <!--</button>-->
+
+          <!--<button ng-show="editMode" title="Reset" type="button"-->
+                  <!--class="btn btn-sm btn-danger"-->
+                  <!--ng-click="reset()">-->
+            <!--<i class="fa fa-refresh"></i>&nbsp;Reset-->
+          <!--</button>-->
+
+
+          <!--<button ng-show="editMode" title="Cancel" type="button"-->
+                  <!--class="btn btn-sm btn-warning"-->
+                  <!--ng-click="cancel()">-->
+            <!--<i class="fa fa-times"></i>&nbsp;Cancel-->
+          <!--</button>-->
+
+          <!--<button ng-show="editMode" title="Save" type="button"-->
+                  <!--class="btn btn-sm btn-success"-->
+                  <!--ng-click="save()">-->
+            <!--<i class="fa fa-check"></i>&nbsp;Save-->
+          <!--</button>-->
+        </div>
+        </div>
+
+        <br/>
+        <br/>
+            <div class="testcase-content">
+
+              <div ng-show="editMode && error != null && error != ''">
+                <div class="col-md-12">
+                  <div class="alert alert-danger">{{error}}</div>
+                </div>
+              </div>
+
+              <div id="{{target}}-testStory" ng-show="!editMode"></div>
+              <textarea class="form-control" ng-show="editMode" rows="30" cols="10" ng-model="value"></textarea>
+            </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="EditJurorDocument.html">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="pull-right">
+        <!--<button ng-show="!editMode" title="Edit" type="button"-->
+                <!--class="btn btn-sm btn-primary"-->
+                <!--ng-click="edit()">-->
+          <!--<i class="fa fa-pencil"></i>&nbsp;Edit-->
+        <!--</button>-->
+
+        <!--<button ng-show="!editMode" title="Edit" type="button"-->
+                <!--class="btn btn-sm btn-danger"-->
+                <!--ng-click="delete()">-->
+          <!--<i class="fa fa-trash"></i>&nbsp;Delete-->
+        <!--</button>-->
+
+        <!--<button ng-show="editMode" title="Reset" type="button"-->
+                <!--class="btn btn-sm btn-danger"-->
+                <!--ng-click="reset()">-->
+          <!--<i class="fa fa-refresh"></i>&nbsp;Reset-->
+        <!--</button>-->
+
+
+        <!--<button ng-show="editMode" title="Cancel" type="button"-->
+                <!--class="btn btn-sm btn-warning"-->
+                <!--ng-click="cancel()">-->
+          <!--<i class="fa fa-times"></i>&nbsp;Cancel-->
+        <!--</button>-->
+
+        <!--<button ng-show="editMode" title="Save" type="button"-->
+                <!--class="btn btn-sm btn-success"-->
+                <!--ng-click="save()">-->
+          <!--<i class="fa fa-check"></i>&nbsp;Save-->
+        <!--</button>-->
+
+      </div>
+      </div>
+
+      <br/>
+      <br/>
+          <div class="testcase-content">
+
+            <div ng-show="editMode && error != null && error != ''">
+              <div class="col-md-12">
+                <div class="alert alert-danger">{{error}}</div>
+              </div>
+            </div>
+
+            <div id="{{target}}-jurorDocument" ng-show="!editMode"></div>
+            <textarea class="form-control" ng-show="editMode" rows="30" cols="10" ng-model="value"></textarea>
+          </div>
+        </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="EditSupplementDocuments.html">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="">
+        <table class="table table-striped table-bordered table-condensed">
+          <thead>
+          <tr class="tbl-header">
+            <th st-ratio="40">Document Title</th>
+            <th st-ratio="35">File Name/Link</th>
+            <th st-ratio="25">Date Posted</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="doc in supplements | orderBy:'position'">
+            <td st-ratio="40">{{::doc.title}}</td>
+            <td st-ratio="35">
+              <span ng-if="doc.path == null">-</span>
+              <span ng-if="doc.path != null">
+                    <a class="point" ng-if="isLink(doc.path)" target="_blank"
+                       ng-href="{{::doc.path}}">{{::doc.title}}</a>
+                    <a class="point" ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
+                    </span>
+            </td>
+            <td st-ratio="25">
+              <span ng-if="doc.date == null">-</span>
+              <span ng-if="doc.date != null">{{::doc.date}}</span>
+            </td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</script>
+
+
+<script type="text/ng-template" id="EditTestDescription.html">
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="pull-right">
+      <!--<button ng-show="!editMode" title="Edit" type="button"-->
+              <!--class="btn btn-sm btn-primary"-->
+              <!--ng-click="edit()">-->
+        <!--<i class="fa fa-pencil"></i>&nbsp;Edit-->
+      <!--</button>-->
+
+      <!--<button ng-show="!editMode" title="Edit" type="button"-->
+              <!--class="btn btn-sm btn-danger"-->
+              <!--ng-click="delete()">-->
+        <!--<i class="fa fa-trash"></i>&nbsp;Delete-->
+      <!--</button>-->
+
+      <!--<button ng-show="editMode" title="Reset" type="button"-->
+              <!--class="btn btn-sm btn-danger"-->
+              <!--ng-click="reset()">-->
+        <!--<i class="fa fa-refresh"></i>&nbsp;Reset-->
+      <!--</button>-->
+
+
+      <!--<button ng-show="editMode" title="Cancel" type="button"-->
+              <!--class="btn btn-sm btn-warning"-->
+              <!--ng-click="cancel()">-->
+        <!--<i class="fa fa-times"></i>&nbsp;Cancel-->
+      <!--</button>-->
+
+      <!--<button ng-show="editMode" title="Save" type="button"-->
+              <!--class="btn btn-sm btn-success"-->
+              <!--ng-click="save()">-->
+        <!--<i class="fa fa-check"></i>&nbsp;Save-->
+      <!--</button>-->
+
+      </div>
+      <div class="testcase-content">
+        <div ng-show="editMode && error != null && error != ''">
+          <div class="col-md-12">
+            <div class="alert alert-danger">{{error}}</div>
+          </div>
+        </div>
+
+        <div id="{{target}}-testDescription" ng-show="!editMode"></div>
+        <textarea class="form-control" ng-show="editMode" rows="30" cols="10" ng-model="value"></textarea>
+      </div>
+    </div>
+  </div>
+</script>

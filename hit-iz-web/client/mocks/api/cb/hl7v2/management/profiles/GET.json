@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "profiles": [
+    {
+      "name": "New-ADT^A01^ADT_A01",
+      "id": "59ce551684ae3adc43b5b1db",
+      "type": "ADT",
+      "description": "ADT message",
+      "identifier": "Default A01 Identifier",
+      "event": "A01",
+      "structID": "ADT_A01",
+      "used": false,
+      "activated": false
+    }
+  ]
+}

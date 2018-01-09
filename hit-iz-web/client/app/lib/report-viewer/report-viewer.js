@@ -53,6 +53,7 @@
 
       destroyEvent2 = $rootScope.$on($scope.type + ':initValidationReport', function (event, report, testStep) {
         $scope.loading = true;
+        $scope.error = null;
         $scope.testStepId = testStep.id;
         if (report != null && report != undefined) {
           if (report.html == null) {
@@ -90,6 +91,7 @@
         //$scope.loading = true;
         if (testStep != null) {
           $scope.report = null;
+          $scope.error = null;
           $scope.testStepId = testStep.id;
           var result = TestExecutionService.getTestStepValidationResult(testStep);
           result = result != undefined ? result : null;

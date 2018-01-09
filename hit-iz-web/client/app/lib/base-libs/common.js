@@ -551,6 +551,10 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
         angular.forEach(node.children, function (testCase) {
           testCase['transport'] = node['transport'];
           testCase['domain'] = node['domain'];
+          testCase['parent'] = {
+            id: node.id,
+            type: node.type
+          };
           testCase['nav'] = {};
           testCase['nav']['testStep'] = null;
           testCase['nav'] = {};
@@ -565,6 +569,10 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
           testCase['domain'] = node['domain'];
           node["children"].push(testCase);
           testCase['nav'] = {};
+          testCase['parent'] = {
+            id: node.id,
+            type: node.type
+          };
           testCase['nav']['testStep'] = null;
           testCase['nav']['testCase'] = testCase.name;
           testCase['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
@@ -583,6 +591,10 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
           testCaseGroup['transport'] = node['transport'];
           testCaseGroup['domain'] = node['domain'];
           testCaseGroup['nav'] = {};
+          testCaseGroup['parent'] = {
+            id: node.id,
+            type: node.type
+          };
           //node["children"].push(testCaseGroup);
           testCaseGroup['nav']['testCase'] = null;
           testCaseGroup['nav']['testStep'] = null;
@@ -596,6 +608,10 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
           testCaseGroup['domain'] = node['domain'];
           node["children"].push(testCaseGroup);
           testCaseGroup['nav'] = {};
+          testCaseGroup['parent'] = {
+            id: node.id,
+            type: node.type
+          };
           testCaseGroup['nav']['testCase'] = null;
           testCaseGroup['nav']['testStep'] = null;
           testCaseGroup['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
@@ -612,6 +628,10 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
         node["children"] = node.testSteps;
         angular.forEach(node.children, function (testStep) {
           testStep['nav'] = {};
+          testStep['parent'] = {
+            id: node.id,
+            type: node.type
+          };
           //node["children"].push(testStep);
           testStep['nav']['testCase'] = node.name;
           testStep['nav']['testStep'] = testStep.name;
@@ -623,6 +643,10 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
         angular.forEach(node.testSteps, function (testStep) {
           node["children"].push(testStep);
           testStep['nav'] = {};
+          testStep['parent'] = {
+            id: node.id,
+            type: node.type
+          };
           testStep['nav']['testCase'] = node.name;
           testStep['nav']['testStep'] = testStep.name;
           testStep['nav']['testPlan'] = node['nav'].testPlan;

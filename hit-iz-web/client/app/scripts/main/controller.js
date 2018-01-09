@@ -744,3 +744,20 @@ angular.module('main').controller('ValidationResultDetailsCtrl', function ($scop
     };
 });
 
+
+
+
+
+angular.module('main').controller('ConfirmDialogCtrl', function ($scope, $modalInstance) {
+  $scope.confirm = function () {
+    $modalInstance.close(true);
+  };
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+});
+
+
+
+
+

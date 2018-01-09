@@ -18,7 +18,7 @@
         }
     ]);
     mod
-        .controller('VocabSearchCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'VocabularyService', function ($scope, $filter, $modal, $rootScope, VocabularyService) {
+        .controller('VocabSearchCtrl', ['$scope', '$filter', '$modal', '$rootScope', 'VocabularyService','$modalStack', function ($scope, $filter, $modal, $rootScope, VocabularyService,$modalStack) {
             $scope.selectedValueSetDefinition = null;
             $scope.tmpTableElements = [];
             $scope.sourceData = [];
@@ -35,7 +35,6 @@
             $scope.vocabularyLibrary = null;
             $scope.vocabularyService = new VocabularyService();
             $scope.loading = false;
-            $scope.valueSetDefinitionDlg = null;
             $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
 
 
@@ -59,13 +58,21 @@
 //            });
 
             $rootScope.$on($scope.type + ':showValueSetDefinition', function (event, tableId) {
-                if($scope.valueSetDefinitionDlg && $scope.valueSetDefinitionDlg != null){
-                    $scope.valueSetDefinitionDlg.dismiss('cancel');
-                    if($scope.valueSetDefinitionDlg.opened){
-                      $scope.valueSetDefinitionDlg.close('cancel');
-                    }
+              $modalStack.dismissAll('close');
+              var t = $scope.vocabularyService.findValueSetDefinition(tableId);
+              $modal.open({
+                templateUrl: 'TableFoundCtrl.html',
+                controller: 'ValueSetDetailsCtrl',
+                windowClass: 'valueset-modal',
+                animation:false,
+                keyboard:true,
+                backdrop:true,
+                resolve: {
+                  table: function () {
+                    return t;
+                  }
                 }
-                $scope.valueSetDefinitionDlg = $scope.vocabularyService.showValueSetDefinition(tableId);
+              });
             });
 
 //            $scope.init = function (valueSetIds, vocabularyLibrary) {
@@ -84,6 +91,7 @@
 //            };
 
             $scope.init = function (vocabularyLibrary) {
+                $scope.error = null;
                 if (vocabularyLibrary != null) {
                     $scope.loading = true;
                     $scope.vocabularyService.getJson(vocabularyLibrary.id).then(function (obj) {
@@ -165,7 +173,8 @@
 
 
             $scope.openCopyrightDlg = function () {
-                var modalInstance = $modal.open({
+              $modalStack.dismissAll('close');
+              var modalInstance = $modal.open({
                     templateUrl: 'ValueSetCopyrightCtrl.html',
                     windowClass: 'valueset-modal',
                     animation:false,
@@ -185,7 +194,7 @@
     });
 
     angular.module('hit-vocab-search')
-        .controller('VocabGroupCtrl', ['$scope', '$timeout', '$rootScope', '$filter',function ($scope, $timeout,$rootScope,$filter) {
+        .controller('VocabGroupCtrl', ['$scope', '$timeout', '$rootScope', '$filter','$modalStack', function ($scope, $timeout,$rootScope,$filter,$modalStack) {
             $scope.tableList = [];
             $scope.tmpList = [].concat($scope.tableList);
             $scope.error = null;
@@ -338,25 +347,16 @@
 //            return classifier.indexOf(":") != -1 ? classifier.split(":")[0] : 1;
 //        };
 
-        VocabularyService.prototype.showValueSetDefinition = function (tableId) {
-            var tables = this.searchTableById(tableId, this.valueSetDefinitionGroups);
-            var t = tables.length > 0 ? tables[0] : null;
-            return $modal.open({
-                    templateUrl: 'TableFoundCtrl.html',
-                    controller: 'ValueSetDetailsCtrl',
-                    windowClass: 'valueset-modal',
-                    animation:false,
-                    keyboard:true,
-                    backdrop:true,
-                    resolve: {
-                        table: function () {
-                            return t;
-                        }
-                    }
-                });
-        };
 
-        VocabularyService.prototype.getJson = function (id) {
+      VocabularyService.prototype.findValueSetDefinition = function (tableId) {
+        var tables = this.searchTableById(tableId, this.valueSetDefinitionGroups);
+        var t = tables.length > 0 ? tables[0] : null;
+        return t;
+      };
+
+
+
+      VocabularyService.prototype.getJson = function (id) {
             var delay = $q.defer();
             $http.get('api/valueSetLibrary/' + id).then(
                 function (object) {

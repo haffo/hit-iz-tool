@@ -20,11 +20,11 @@ import org.springframework.context.annotation.Configuration;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import gov.nist.hit.core.hl7v2.service.HL7V2MessageParser;
-import gov.nist.hit.core.hl7v2.service.HL7V2MessageParserImpl;
 import gov.nist.hit.core.hl7v2.service.HL7V2MessageValidator;
-import gov.nist.hit.core.hl7v2.service.HL7V2ResourceLoaderImpl;
 import gov.nist.hit.core.hl7v2.service.HL7V2ValidationReportConverter;
-import gov.nist.hit.core.hl7v2.service.HL7V2ValidationReportConverterImpl;
+import gov.nist.hit.core.hl7v2.service.impl.HL7V2MessageParserImpl;
+import gov.nist.hit.core.hl7v2.service.impl.HL7V2ResourceLoaderImpl;
+import gov.nist.hit.core.hl7v2.service.impl.HL7V2ValidationReportConverterImpl;
 import gov.nist.hit.core.service.ResourceLoader;
 import gov.nist.hit.core.service.exception.ProfileParserException;
 import gov.nist.hit.iz.service.IZHL7V2MessageValidatorImpl;

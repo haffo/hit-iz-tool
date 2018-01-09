@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "profiles": [
+    {
+      "name": "Uploaded-ADT^A01^ADT_A01",
+      "id": "59ce551684ae3adc43b5b1dbccc",
+      "type": "ADT",
+      "description": "ADT message",
+      "identifier": "Default A01 Identifier",
+      "event": "A01",
+      "structID": "ADT_A01",
+      "used": false,
+      "activated": false
+    },
+    {
+      "name": "Uploaded-ACK^A01^ACK",
+      "id": "59ce551684ae3adc43b5b1dbccc",
+      "type": "ADT",
+      "description": "ACK message",
+      "identifier": "Default A01 Identifier",
+      "event": "ACK",
+      "structID": "ACK",
+      "used": false,
+      "activated": false
+    }
+  ]
+}
