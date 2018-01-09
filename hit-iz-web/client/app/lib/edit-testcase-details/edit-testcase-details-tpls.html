@@ -1,3 +1,14 @@
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
+<script type="text/javascript">
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
+</script>
 <script type="text/ng-template" id="EditTestCaseDetails.html">
   <div ng-show="loading" style="text-align:center">
     <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
@@ -18,10 +29,10 @@
             <span ng-show="!testCase['testStory']  || testCase['testStory']  === null">Description</span>
           </tab-heading>
           <div ng-show="testCase['testStory']  && testCase['testStory']  !== null">
-            <div test-story target="{{target}}"></div>
+            <div edit-test-story target="{{target}}"></div>
           </div>
           <div ng-show="!testCase['testStory']  || testCase['testStory']  === null">
-            <div test-description target="{{target}}"></div>
+            <div edit-test-description target="{{target}}"></div>
           </div>
         </tab>
 
@@ -64,19 +75,19 @@
         </tab>
       </tabset>
 
-      <div ng-if="tabs[1] && testCase['testDataSpecification']  && testCase['testDataSpecification'] !== null">
+      <div ng-show="tabs[1] && testCase['testDataSpecification']  && testCase['testDataSpecification'] !== null">
         <div edit-test-data-specification target="{{target}}"></div>
       </div>
 
-      <div ng-if="tabs[2] && testCase['messageContent']  && testCase['messageContent'] !== null">
+      <div ng-show="tabs[2] && testCase['messageContent']  && testCase['messageContent'] !== null">
         <div edit-message-content target="{{target}}"></div>
       </div>
 
-      <div ng-if="tabs[3] && testCase['jurorDocument']  && testCase['jurorDocument'] !== null">
+      <div ng-show="tabs[3] && testCase['jurorDocument']  && testCase['jurorDocument'] !== null">
         <div edit-juror-document target="{{target}}"></div>
       </div>
       <div
-        ng-if="tabs[5] && testCase['supplements'] && testCase['supplements'] !== null && testCase['supplements'].length > 0">
+        ng-show="tabs[5] && testCase['supplements'] && testCase['supplements'] !== null && testCase['supplements'].length > 0">
         <div edit-supplement-documents target="{{target}}"></div>
       </div>
 

@@ -479,6 +479,7 @@
             $scope.$on($scope.type + ':profileLoaded', function (event, profile) {
                 $scope.model = null;
                 $scope.loading = true;
+                $scope.error = null;
                 $scope.options.collapse = true;
                 $scope.nodeData = [];
                 $scope.loadingTabContent = false;

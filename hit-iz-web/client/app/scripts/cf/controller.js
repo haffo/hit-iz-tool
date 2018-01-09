@@ -1870,7 +1870,7 @@ angular.module('cf').controller('UploadTokenCheckCtrl', ['$scope', '$http', 'CF'
   $scope.auth = decodeURIComponent($routeParams.y);
 
 
-  if ($scope.token !== undefined & $scope.auth !== undefined) {
+  if ($scope.token !== undefined && $scope.auth !== undefined) {
 
 
     //check if logged in
