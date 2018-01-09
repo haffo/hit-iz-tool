@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "A 66 year old female, Helen Barrett, comes to a clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. She indicates that reminders and recalls may be sent by any method. The patient reports that she received a Zoster vaccination at a local pharmacy on her 65th birthday. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.",
-  "comments" : "No Comments",
-  "preCondition" : "No PreCondition",
-  "postCondition" : "No PostCondition",
-  "testObjectives" : "Support for Sending Responsible Organization (MSH-22) and Receiving Responsible Organization (MSH-23) to include:<br>1. Identifier<br>2. Identifier Type Code<br>3. Assigning Authority for the Identifier<br><br>Support for both phone number and e-mail.<br>",
-  "evaluationCriteria" : "Message Validation Report.<br>",
-  "notes" : "<br>"
-}
