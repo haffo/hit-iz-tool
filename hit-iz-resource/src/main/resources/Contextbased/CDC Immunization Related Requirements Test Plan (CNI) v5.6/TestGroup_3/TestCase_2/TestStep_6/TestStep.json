@@ -1,0 +1,7 @@
+{
+  "id" : 126321,
+  "name" : "Record Hepatitis B Vaccine administration",
+  "description" : "The EMR is able to document all attributes associated with the new vaccine administration.",
+  "type" : "SUT_MANUAL",
+  "position" : 6
+}
