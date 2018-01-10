@@ -16,7 +16,7 @@
        style="margin:10px">
     <div class="col-md-12" >
       <form class="form-inline">
-        <div class="form-group" ng-if="isAuthenticated()">
+        <div class="form-group">
            <label class="control-label" style="text-align:left;" for="selectedScope">Profile Group Type: </label>
              <div class="btn-group btn-group-md" id="selectedScope" role="group" aria-label="..." style="margin-right: 10px;">
             <button  class="btn btn-cf-outline"   ng-repeat="tpScope in testPlanScopes" ng-click="selectedScope.key = tpScope.key; selectScope();"  ng-class="{'active':tpScope.key == selectedScope.key}"

@@ -27,7 +27,7 @@
           <th style="width:5%">#</th>
           <th style="width:20%">Name</th>
           <th style="width:20%">Description</th>
-          <th style="width:10%">Execution Status</th>
+          <th ng-if="transportSupported && testCase.transport === true && user.info != null" style="width:10%">Transaction Status</th>
           <th style="width:15%">Validation Result</th>
           <th style="width:30%">Comments</th>
         </tr>
@@ -61,7 +61,7 @@
           <td style="width:20%" ng-bind-html="row.description"></td>
 
 
-          <td style="width:10%">
+          <td ng-if="transportSupported && testCase.transport === true && user.info != null" style="width:10%">
 
             <div ng-show="testExecutionService.getTestStepExecutionStatus(row) === undefined">
               <div ng-show="row.id !== testStep.id">Not started</div>
