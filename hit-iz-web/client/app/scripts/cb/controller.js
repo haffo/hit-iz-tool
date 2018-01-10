@@ -950,12 +950,14 @@ angular.module('cb')
       $scope.error = null;
       $scope.loading = true;
       $scope.testCases = null;
-      if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
+      if (userInfoService.isAuthenticated()) {
         $scope.testPlanScopes = $scope.allTestPlanScopes;
+        var tmp = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY);
+        $scope.selectedScope.key = tmp && tmp != null ? tmp : $scope.allTestPlanScopes[1].key;
       } else {
-        $scope.testPlanScopes = [$scope.allTestPlanScopes[0]];
+        $scope.testPlanScopes = [$scope.allTestPlanScopes[1]];
+        $scope.selectedScope.key = $scope.allTestPlanScopes[1].key;
       }
-      $scope.selectedScope.key = $scope.testPlanScopes[0].key;
       $scope.selectScope();
     };
 
@@ -983,7 +985,6 @@ angular.module('cb')
       $scope.loadingTP = true;
       $scope.errorTP = null;
       $scope.selectedTestCase = null;
-      console.log("$scope.selectedTP.id=" + $scope.selectedTP.id);
       if ($scope.selectedTP.id && $scope.selectedTP.id !== null && $scope.selectedTP.id !== "") {
         var tcLoader = new CBTestPlanLoader($scope.selectedTP.id);
         tcLoader.then(function (testPlan) {
@@ -1075,7 +1076,6 @@ angular.module('cb')
                 $scope.selectNode(id, type);
               }
             }
-
             testCase = null;
             id = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
             type = StorageService.get(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);

@@ -15,6 +15,7 @@
   <!--<li><a href="#/cb_execution">Test Execution</a></li>-->
   <!--</ul>-->
 
+  <div ng-show="isAuthenticated()">
   <div ng-show="!loading">
 
     <div ng-show="error !== null" style="margin:10px" class="row test-plan-select-container">
@@ -289,6 +290,8 @@
 
   <div ng-show="loading" style="text-align:center">
     <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+  </div>
+
   </div>
 
 </div>
