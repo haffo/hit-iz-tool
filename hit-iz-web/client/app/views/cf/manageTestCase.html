@@ -282,7 +282,7 @@
                               <th>Actions</th>
                               </thead>
                               <tbody>
-                              <tr ng-repeat="item in tmpOldMessages | orderBy :'position'">
+                              <tr ng-repeat="item in tmpOldMessages">
                                 <td>
                                   <select ng-change="syncOldProfilesPositions(item)"
                                           ng-model="item.position" required ng-options="position for position in positions(tmpOldMessages)">
@@ -354,7 +354,7 @@
                             <th>Action</th>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="item in tmpNewMessages | orderBy :'position'">
+                            <tr ng-repeat="item in tmpNewMessages">
                               <td>
                                 <select ng-change="syncNewProfilesPositions(item)"
                                         ng-model="item.position" required ng-options="position for position in positions(tmpNewMessages)">

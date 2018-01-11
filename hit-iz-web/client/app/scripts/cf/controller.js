@@ -716,16 +716,16 @@ angular.module('cf')
       return array;
     };
 
-    Array.prototype.move = function (old_index, new_index) {
-      if (new_index >= this.length) {
-        var k = new_index - this.length;
-        while ((k--) + 1) {
-          this.push(undefined);
-        }
-      }
-      this.splice(new_index, 0, this.splice(old_index, 1)[0]);
-      return this; // for testing purposes
-    };
+    // Array.prototype.move = function (old_index, new_index) {
+    //   if (new_index >= this.length) {
+    //     var k = new_index - this.length;
+    //     while ((k--) + 1) {
+    //       this.push(undefined);
+    //     }
+    //   }
+    //   this.splice(new_index, 0, this.splice(old_index, 1)[0]);
+    //   return this; // for testing purposes
+    // };
 
 
     // $scope.setPositions = function(array){
@@ -740,47 +740,47 @@ angular.module('cf')
     //   }
     //   return array;
     // };
-
-    $scope.sortAndFilters = function (item, array) {
-      var old_index = array.indexOf(item);
-      var newPosition = item.position;
-      var new_index = newPosition - 1;
-
-      if (new_index >= array.length) {
-        var k = new_index - array.length;
-        while ((k--) + 1) {
-          array.push(undefined);
-        }
-      }
-      array.splice(new_index, 0, array.splice(old_index, 1)[0]);
-      for (var index = 0; index < array.length; index++) {
-        array[index].position = index + 1;
-      }
-
-      return array;
-    };
+    //
+    // $scope.sortAndFilters = function (item, array) {
+    //   var old_index = array.indexOf(item);
+    //   var newPosition = item.position;
+    //   var new_index = newPosition - 1;
+    //
+    //   if (new_index >= array.length) {
+    //     var k = new_index - array.length;
+    //     while ((k--) + 1) {
+    //       array.push(undefined);
+    //     }
+    //   }
+    //   array.splice(new_index, 0, array.splice(old_index, 1)[0]);
+    //   for (var index = 0; index < array.length; index++) {
+    //     array[index].position = index + 1;
+    //   }
+    //
+    //   return array;
+    // };
 
     $scope.filterMessages = function (array) {
       array = _.reject(array, function (item) {
         return item.removed == true;
       });
-      array = $filter('orderBy')(array, 'position');
-      for (var index = 0; index < array.length; index++) {
-        array[index].position = index + 1;
-      }
+      // array = $filter('orderBy')(array, 'position');
+      // for (var index = 0; index < array.length; index++) {
+      //   array[index]["position"] = index + 1;
+      // }
       array = $filter('orderBy')(array, 'position');
       return array;
     };
 
-
-    $scope.syncNewProfilesPositions = function (item) {
-      $scope.tmpNewMessages = $scope.sortAndFilters(item, $scope.tmpNewMessages);
-    };
-
-    $scope.syncOldProfilesPositions = function (item) {
-      $scope.tmpOldMessages = $scope.sortAndFilters(item, $scope.tmpOldMessages);
-    };
-
+    //
+    // $scope.syncNewProfilesPositions = function (item) {
+    //   $scope.tmpNewMessages = $scope.sortAndFilters(item, $scope.tmpNewMessages);
+    // };
+    //
+    // $scope.syncOldProfilesPositions = function (item) {
+    //   $scope.tmpOldMessages = $scope.sortAndFilters(item, $scope.tmpOldMessages);
+    // };
+    //
 
     $scope.$on('event:cf:manage', function (event, targetScope) {
       $scope.testcase = null;
