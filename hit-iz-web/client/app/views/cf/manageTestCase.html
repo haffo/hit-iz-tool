@@ -284,7 +284,7 @@
                               <tbody>
                               <tr ng-repeat="item in tmpOldMessages">
                                 <td>
-                                  <select ng-change="syncOldProfilesPositions(item)"
+                                  <select
                                           ng-model="item.position" required ng-options="position for position in positions(tmpOldMessages)">
                                   </select>
                                 </td>
@@ -337,7 +337,7 @@
                           </button>
                         </span>
                           <table class="table table-striped table-condensed table-bordered"
-                                 ng-show="tmpNewMessages != null && tmpNewMessages.length">
+                                 ng-show="tmpNewMessages != null && tmpNewMessages.length > 0">
                             <thead class="">
                             <!--<th width="30px">-->
                             <!--<input ng-click="profileCheckToggle()" ng-model="profileCheckToggleStatus"-->
@@ -356,7 +356,7 @@
                             <tbody>
                             <tr ng-repeat="item in tmpNewMessages">
                               <td>
-                                <select ng-change="syncNewProfilesPositions(item)"
+                                <select
                                         ng-model="item.position" required ng-options="position for position in positions(tmpNewMessages)">
                                 </select>
                               </td>
