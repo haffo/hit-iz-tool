@@ -266,6 +266,66 @@
                         </div>
                       </div>
                     </div>
+
+                    <div class="col-md-12" ng-if="tmpOldMessages != null">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">Existing Profiles
+                        </div>
+                        <div class="panel-body">
+                          <div ng-if="tmpOldMessages.length > 0">
+                            <table class="table table-striped table-condensed table-bordered">
+                              <thead class="">
+                              <th>Position</th>
+                              <th>Name</th>
+                              <th>Description</th>
+                              <th>Example Message</th>
+                              <th>Actions</th>
+                              </thead>
+                              <tbody>
+                              <tr ng-repeat="item in tmpOldMessages | orderBy :'position'">
+                                <td>
+                                  <select ng-change="syncOldProfilesPositions(item)"
+                                          ng-model="item.position" required ng-options="position for position in positions(tmpOldMessages)">
+                                  </select>
+                                </td>
+                                <td>
+                                  <input ng-model="item.name" class="form-control"
+                                         ng-required="true" style="width: 100%;">
+                                </td>
+                                <td>
+                                           <textarea style="resize: none;" class="form-control"
+                                                     ng-model="item.description" rows="1"
+                                                     ng-required="true" style="width: 100%;resize: vertical;"></textarea>
+                                </td>
+                                <td>
+                                 <span  ng-show="item.exampleMessage != undefined && item.exampleMessage != null && item.exampleMessage != ''" >
+                                  <a class="point" ng-click="editExampleMessage(item)">Example Message
+                                  </a>
+                                  <button class="btn btn-xs btn-warning"  class="point" ng-click="item.exampleMessage = ''">
+                                     <i class="fa fa-times"></i>
+                                  </button>
+                                </span>
+
+                                  <button ng-show="item.exampleMessage == null || item.exampleMessage == undefined ||  item.exampleMessage == ''" class="btn btn-xs btn-info" ng-click="editExampleMessage(item)"><i
+                                    class="fa fa-plus"></i>
+                                  </button>
+                                </td>
+                                <td>
+                                  <button class="btn btn-sm btn-danger" ng-click="deleteOldProfile(item)"><i
+                                    class="fa fa-trash"></i>
+                                  </button>
+                                </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div ng-if="oldProfileMessages == null || oldProfileMessages.length == 0">
+                            No existing profiles.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <div class="col-md-12">
                       <div class="panel panel-success">
                         <div class="panel-heading">New Profiles</div>
@@ -294,7 +354,7 @@
                             <th>Action</th>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="item in tmpNewMessages | orderBy :'position'}">
+                            <tr ng-repeat="item in tmpNewMessages | orderBy :'position'">
                               <td>
                                 <select ng-change="syncNewProfilesPositions(item)"
                                         ng-model="item.position" required ng-options="position for position in positions(tmpNewMessages)">
@@ -310,7 +370,7 @@
                               <td>
                                               <textarea style="resize: none;" class="form-control"
                                                         ng-model="item.description" rows="1"
-                                                        ng-required="true" style="width: 100%;"></textarea>
+                                                        ng-required="true" style="width: 100%;resize: vertical;"></textarea>
                               </td>
                               <td>
                                 {{item.type}}
@@ -349,64 +409,6 @@
                       </div>
                     </div>
 
-                    <div class="col-md-12" ng-if="tmpOldMessages != null">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">Existing Profiles
-                        </div>
-                        <div class="panel-body">
-                          <div ng-if="tmpOldMessages.length > 0">
-                            <table class="table table-striped table-condensed table-bordered">
-                              <thead class="">
-                              <th>Position</th>
-                              <th>Name</th>
-                              <th>Description</th>
-                              <th>Example Message</th>
-                              <th>Actions</th>
-                              </thead>
-                              <tbody>
-                              <tr ng-repeat="item in tmpOldMessages | orderBy :'position'">
-                                <td>
-                                  <select ng-change="syncOldProfilesPositions(item)"
-                                    ng-model="item.position" required ng-options="position for position in positions(tmpOldMessages)">
-                                  </select>
-                                </td>
-                                <td>
-                                  <input ng-model="item.name" class="form-control"
-                                         ng-required="true" style="width: 100%;">
-                                </td>
-                                <td>
-                                           <textarea style="resize: none;" class="form-control"
-                                                     ng-model="item.description" rows="1"
-                                                     ng-required="true" style="width: 100%;"></textarea>
-                                </td>
-                                <td>
-                                 <span  ng-show="item.exampleMessage != undefined && item.exampleMessage != null && item.exampleMessage != ''" >
-                                  <a class="point" ng-click="editExampleMessage(item)">Example Message
-                                  </a>
-                                  <button class="btn btn-xs btn-warning"  class="point" ng-click="item.exampleMessage = ''">
-                                     <i class="fa fa-times"></i>
-                                  </button>
-                                </span>
-
-                                  <button ng-show="item.exampleMessage == null || item.exampleMessage == undefined ||  item.exampleMessage == ''" class="btn btn-xs btn-info" ng-click="editExampleMessage(item)"><i
-                                    class="fa fa-plus"></i>
-                                  </button>
-                                </td>
-                                <td>
-                                  <button class="btn btn-sm btn-danger" ng-click="deleteOldProfile(item)"><i
-                                    class="fa fa-trash"></i>
-                                  </button>
-                                </td>
-                              </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                          <div ng-if="oldProfileMessages == null || oldProfileMessages.length == 0">
-                            No existing profiles.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <br>
                   <div  ng-if="testcase != null">
