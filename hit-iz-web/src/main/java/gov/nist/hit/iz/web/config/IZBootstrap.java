@@ -67,7 +67,7 @@ public class IZBootstrap {
 			logger.info("loading iz connectivity testcases...");
 			loadConnectivityTestCases();
 		}
-		resourceLoader.load();
+		resourceLoader.load("");
 		logger.info("...Bootstrapping completed");
 	}
 

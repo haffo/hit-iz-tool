@@ -408,6 +408,7 @@
   </div>
 </script>
 
+
 <script type="text/ng-template" id="cf_profile_categories_render.html">
   <div ui-tree-handle class="tree-node tree-node-content">
     <div class="panel panel-default">
@@ -429,17 +430,17 @@
      {{node.name}}
 
     <span style="margin-left:5px">
-      <a class="point btn btn-primary btn-xs" data-nodrag ng-click="node.edit = true"><span
+      <a title="Edit Category" class="point btn btn-primary btn-xs" data-nodrag ng-click="node.edit = true"><span
         class="fa fa-pencil"></span></a>
-          <a class="point btn btn-danger btn-xs" data-nodrag ng-click="deleteCategory(node)"><span
+          <a title="Delete Category" class="point btn btn-danger btn-xs" data-nodrag ng-click="deleteCategory(node)"><span
             class="fa fa-trash"></span></a>
 
     </span>
     </span>
 
-        <a class="point pull-right btn btn-success btn-xs" style="margin-right:10px" data-nodrag
+        <a title="Add New Group" class="point pull-right btn btn-success btn-xs" style="margin-right:10px" data-nodrag
            ng-click="addNewGroup(node)"><span
-          class="fa fa-plus"></span></a>
+          class="fa fa-plus"></span>Group</a>
       </div>
       <div class="panel-body" ng-class="{hidden: collapsed}">
 
@@ -456,12 +457,13 @@
   <div ui-tree-handle class="tree-node tree-node-content">
     <a ng-class="{'selected': selectedTP != null && selectedTP.id === node.id}" data-nodrag ng-click="selectGroup(node)"
        class="point">{{node.name}}</a>
-    <a class="point pull-right btn btn-danger btn-xs" data-nodrag ng-click="deleteGroup(node.id)"><span
+    <a title="Delete Group" class="point pull-right btn btn-danger btn-xs" data-nodrag ng-click="deleteGroup(node.id)"><span
       class="fa fa-trash"></span></a>
     <!--<a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span-->
     <!--class="glyphicon glyphicon-plus"></span></a>-->
   </div>
 </script>
+
 
 
 <!--<script type="text/ng-template" id="cb_testcase_node_render.html">

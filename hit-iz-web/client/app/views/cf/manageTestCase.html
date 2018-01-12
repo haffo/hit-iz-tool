@@ -183,13 +183,15 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3">
-              <div class="panel panel-default">
-                <div class="panel-heading">Profile Groups
-                  <button style="margin-right: 5px" class="pull-right btn btn-xs btn-success" ng-click="addNewCategory()"><i
-                    class="fa fa-plus"></i></button>
-                </div>
-                <div class="panel-body">
+            <div class="col-md-4">
+
+              <div style="margin-bottom: 10px">
+              <button title="Add New Category" class="btn btn-xs btn-primary" ng-click="addNewCategory()"><i
+                class="fa fa-plus"></i>Category</button>
+              </div>
+              <div class="">
+
+                <div>
                   <div ui-tree="treeOptions" id="tree-root">
                     <div ui-tree-nodes ng-model="categoryNodes">
                       <div class="panel panel-default" ng-repeat="node in categoryNodes" ui-tree-node>
@@ -214,9 +216,9 @@
                                     class="fa fa-trash"></span></a>
                             </span>
                             </span>
-                          <a class="point pull-right btn btn-success btn-xs" data-nodrag
+                          <a class="point pull-right btn btn-primary btn-xs" data-nodrag
                              ng-click="addNewGroup(node)"><span
-                            class="fa fa-plus"></span></a>
+                            class="fa fa-plus"></span>Group</a>
                         </div>
                         <div  class="panel-body" ng-class="{hidden: collapsed}">
                           <ol ui-tree-nodes  ng-model="node.nodes">
@@ -230,7 +232,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <form name="tsForm" style="margin:0; padding:0; " ng-show="testcase != null || token != null">
                   <div class="row" style="margin-top:10px">
                     <div class="col-md-12">
@@ -238,7 +240,7 @@
                         <div class="panel-heading">Profile Group</div>
                         <div class="panel-body">
                           <div ng-show="testcase == null">
-                            No Group Selected
+                            <div class="alert alert-danger"> No Profile Group selected. Please select a profile group to continue</div>
                           </div>
                           <div ng-show="testcase != null">
 
@@ -337,7 +339,7 @@
                           </button>
                         </span>
                           <table class="table table-striped table-condensed table-bordered"
-                                 ng-show="tmpNewMessages != null && tmpNewMessages.length > 0">
+                                 ng-show="tmpNewMessages != null && tmpNewMessages.length">
                             <thead class="">
                             <!--<th width="30px">-->
                             <!--<input ng-click="profileCheckToggle()" ng-model="profileCheckToggleStatus"-->
@@ -427,7 +429,7 @@
 
                     <button ng-show="testcase.scope === 'USER' && (isAdmin() || isSupervisor())" type="button" class="btn btn-md btn-primary" ng-click="publishGroup()"
                             ng-disabled="tsForm.$invalid || loading">
-                      <i class="fa fa-paper-plane"></i> Publish
+                      <i class="fa fa-paper-plane"></i> Make Public
                     </button>
 
                     <button class="btn btn-md btn-danger"  ng-disabled="loading" ng-click="deleteGroup(testcase.groupId)"><i class="fa fa-trash"></i>Delete</button>
