@@ -249,6 +249,7 @@
                                 <label for="testcasename">Name: <span class="red"
                                                                       title="required field">*</span></label>
                                 <input id="testcasename" required name="name" ng-model="testcase.name"
+                                       ng-class="{'input-error': testcase.name === '' || testcase.name === null}"
                                        class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched"><br>
                               </div>
                             </div>
@@ -259,6 +260,7 @@
                                                                                     title="required field">*</span></label>
                                 <textarea id="testcasedescription" required name="description"
                                           style="resize: vertical;"
+                                          ng-class="{'input-error': testcase.description === '' || testcase.description === null}"
                                           ng-model="testcase.description"
                                           class="form-control ng-pristine ng-valid ng-empty ng-touched"></textarea><br>
                               </div>
@@ -286,8 +288,8 @@
                               <tbody>
                               <tr ng-repeat="item in tmpOldMessages">
                                 <td>
-                                  <select
-                                          ng-model="item.position" required ng-options="position for position in positions(tmpOldMessages)">
+                                  <select ng-class="{'input-error': item.position <= 0}" select-min ng-min="1"
+                                          ng-model="item.position"  required ng-options="position for position in positions(tmpOldMessages)">
                                   </select>
                                 </td>
                                 <td>
@@ -295,8 +297,9 @@
                                          ng-required="true" style="width: 100%;">
                                 </td>
                                 <td>
-                                           <textarea style="resize: none;" class="form-control"
+                                           <textarea style="resize: none;" class="form-control  ng-pristine ng-valid ng-empty ng-touched"
                                                      ng-model="item.description" rows="1"
+                                                     ng-class="{'input-error': item.description === '' || item.description === null}"
                                                      ng-required="true" style="width: 100%;resize: vertical;"></textarea>
                                 </td>
                                 <td>
@@ -358,7 +361,7 @@
                             <tbody>
                             <tr ng-repeat="item in tmpNewMessages">
                               <td>
-                                <select
+                                <select ng-class="{'input-error': item.position <= 0}" select-min ng-min="1"
                                         ng-model="item.position" required ng-options="position for position in positions(tmpNewMessages)">
                                 </select>
                               </td>
@@ -370,7 +373,8 @@
                                 {{item.identifier}}
                               </td>
                               <td>
-                                              <textarea style="resize: none;" class="form-control"
+                                              <textarea style="resize: none;" class="form-control ng-pristine ng-valid ng-empty ng-touched"
+                                                        ng-class="{'input-error': item.description === '' || item.description === null}"
                                                         ng-model="item.description" rows="1"
                                                         ng-required="true" style="width: 100%;resize: vertical;"></textarea>
                               </td>
