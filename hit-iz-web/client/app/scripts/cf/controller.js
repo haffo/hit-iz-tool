@@ -788,19 +788,21 @@ angular.module('cf')
     //
 
     $scope.$on('event:cf:manage', function (event, targetScope) {
-      $scope.testcase = null;
-      if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
-        $scope.groupScopes = $scope.allGroupScopes;
-      } else {
-        $scope.groupScopes = [$scope.allGroupScopes[0]];
-      }
+      if(userInfoService.isAuthenticated()){
+        $scope.testcase = null;
+        if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
+          $scope.groupScopes = $scope.allGroupScopes;
+        } else {
+          $scope.groupScopes = [$scope.allGroupScopes[0]];
+        }
 
-      if (targetScope === $scope.allGroupScopes[1].key && !userInfoService.isAdmin() && !userInfoService.isSupervisor()) {
-        targetScope = $scope.allGroupScopes[0]; // make private
+        if (targetScope === $scope.allGroupScopes[1].key && !userInfoService.isAdmin() && !userInfoService.isSupervisor()) {
+          targetScope = $scope.allGroupScopes[0]; // make private
+        }
+        $scope.selectedScope = {key: targetScope};
+        $scope.testcase = null;
+        $scope.selectScope();
       }
-      $scope.selectedScope = {key: targetScope};
-      $scope.testcase = null;
-      $scope.selectScope();
     });
 
 
@@ -814,49 +816,51 @@ angular.module('cf')
 
 
     $scope.initManagement = function () {
-      if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
-        $scope.groupScopes = $scope.allGroupScopes;
-      } else {
-        $scope.groupScopes = [$scope.allGroupScopes[0]];
-      }
-      $scope.selectedScope.key = $scope.groupScopes[0].key;
-      $scope.testcase = null;
-      $scope.selectScope();
+      if(userInfoService.isAuthenticated()){
+        if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
+          $scope.groupScopes = $scope.allGroupScopes;
+        } else {
+          $scope.groupScopes = [$scope.allGroupScopes[0]];
+        }
+        $scope.selectedScope.key = $scope.groupScopes[0].key;
+        $scope.testcase = null;
+        $scope.selectScope();
 
-      if ($scope.token !== undefined && $scope.token !== null) {
-        if (userInfoService.isAuthenticated()) {
-          CFTestPlanManager.getTokenProfiles("hl7v2", $scope.token).then(
-            function (response) {
-              if (response.success == false) {
-                if (response.debugError === undefined) {
-                  Notification.error({
-                    message: "The zip file you uploaded is not valid, please check and correct the error(s)",
-                    templateUrl: "NotificationErrorTemplate.html",
-                    scope: $rootScope,
-                    delay: 10000
-                  });
-                  $scope.profileValidationErrors = angular.fromJson(response.profileErrors);
-                  $scope.valueSetValidationErrors = angular.fromJson(response.constraintsErrors);
-                  $scope.constraintValidationErrors = angular.fromJson(response.vsErrors);
+        if ($scope.token !== undefined && $scope.token !== null) {
+          if (userInfoService.isAuthenticated()) {
+            CFTestPlanManager.getTokenProfiles("hl7v2", $scope.token).then(
+              function (response) {
+                if (response.success == false) {
+                  if (response.debugError === undefined) {
+                    Notification.error({
+                      message: "The zip file you uploaded is not valid, please check and correct the error(s)",
+                      templateUrl: "NotificationErrorTemplate.html",
+                      scope: $rootScope,
+                      delay: 10000
+                    });
+                    $scope.profileValidationErrors = angular.fromJson(response.profileErrors);
+                    $scope.valueSetValidationErrors = angular.fromJson(response.constraintsErrors);
+                    $scope.constraintValidationErrors = angular.fromJson(response.vsErrors);
+                  } else {
+                    Notification.error({
+                      message: "  " + response.message + '<br>' + response.debugError,
+                      templateUrl: "NotificationErrorTemplate.html",
+                      scope: $rootScope,
+                      delay: 10000
+                    });
+                  }
                 } else {
-                  Notification.error({
-                    message: "  " + response.message + '<br>' + response.debugError,
-                    templateUrl: "NotificationErrorTemplate.html",
-                    scope: $rootScope,
-                    delay: 10000
-                  });
+                  $scope.profileMessages = response.profiles;
+                  $scope.tmpNewMessages = $scope.filterMessages($scope.profileMessages);
+                  $scope.originalProfileMessages = angular.copy($scope.profileMessages);
+
                 }
-              } else {
-                $scope.profileMessages = response.profiles;
-                $scope.tmpNewMessages = $scope.filterMessages($scope.profileMessages);
-                $scope.originalProfileMessages = angular.copy($scope.profileMessages);
+              },
+              function (response) {
 
               }
-            },
-            function (response) {
-
-            }
-          );
+            );
+          }
         }
       }
     };
