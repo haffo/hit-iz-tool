@@ -1,34 +1,52 @@
-<style id="antiClickjack">body{display:none !important;}</style>
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
 <script type="text/javascript">
-    if (self === top) {
-        var antiClickjack = document.getElementById("antiClickjack");
-        antiClickjack.parentNode.removeChild(antiClickjack);
-    } else {
-        top.location = self.location;
-    }
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
 </script>
 <div id="subNavBar" class="subNavBar" ng-controller="CBTestingCtrl" ng-init="initTesting()">
+
+
+  <div class="login-required-page" ng-show="isAuthenticationRequired() && !isAuthenticated()">
+    <p>Please <a href="" ng-click="loginReq()"><i class="fa fa-sign-in"></i>&nbsp;login</a> to access this page. You can
+      also
+      <a href="#/registration"><i class="fa fa-chevron-circle-right"></i>&nbsp;register</a></p>
+  </div>
+
+
+  <div ng-show="isAuthenticated() || !isAuthenticationRequired()">
+
     <ul class="clearfix mainSubNav">
-        <li ng-click="setSubActive('/cb_testcase')" class="jslink" ><a ng-class="{'current':isSubActive('/cb_testcase')}"> <i class="fa fa-th-list"></i> Test Selection</a></li>
-        <li ng-click="setSubActive('/cb_execution')" class="jslink" ><a ng-class="{'current':isSubActive('/cb_execution')}"> <i class="fa fa-cogs"></i> Test Execution <span title="Current Test" class="badge current-test" ng-show="testCase != null">Current {{pettyPrintType(testCase.type)}}: {{testCase.name}}</span></a></li>
-        <li ng-click="setSubActive('/cb_management')" ng-show="isAuthenticated()" class="jslink" ><a ng-class="{'current':isSubActive('/cb_management')}"> <i class="fa fa-cog"></i> Test Management</a></li>
+      <li ng-click="setSubActive('/cb_testcase')" class="jslink"><a ng-class="{'current':isSubActive('/cb_testcase')}">
+        <i class="fa fa-th-list"></i> Test Selection</a></li>
+      <li ng-click="setSubActive('/cb_execution')" class="jslink"><a
+        ng-class="{'current':isSubActive('/cb_execution')}"> <i class="fa fa-cogs"></i> Test Execution <span
+        title="Current Test" class="badge current-test" ng-show="testCase != null">Current {{pettyPrintType(testCase.type)}}: {{testCase.name}}</span></a>
+      </li>
+      <li ng-click="setSubActive('/cb_management')" ng-show="isCbManagementSupported() && isAuthenticated()" class="jslink"><a
+        ng-class="{'current':isSubActive('/cb_management')}"> <i class="fa fa-cog"></i> Test Management</a></li>
 
     </ul>
 
     <div ng-show="isSubActive('/cb_testcase')">
-        <div ng-include="'views/cb/testcase.html'"></div>
+      <div ng-include="'views/cb/testcase.html'"></div>
     </div>
 
     <div ng-show="isSubActive('/cb_execution')">
-        <div ng-include="'views/cb/executeTestCase.html'"></div>
+      <div ng-include="'views/cb/executeTestCase.html'"></div>
     </div>
 
-  <div ng-show="isSubActive('/cb_management') && isAuthenticated()">
-    <div ng-include="'views/cb/manageTestCase.html'"></div>
-  </div>
-
-
+    <div ng-show=" isSubActive('/cb_management') && isCbManagementSupported() && isAuthenticated()">
+      <div ng-include="'views/cb/manageTestCase.html'"></div>
+    </div>
 
     <div ng-include="'views/cb/transport-tpls.html'"></div>
+
+  </div>
 
 </div>

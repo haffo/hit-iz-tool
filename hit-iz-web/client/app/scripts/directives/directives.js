@@ -116,3 +116,21 @@ angular.module('hit-tool-directives')
     }]);
 
 
+
+angular.module('hit-tool-directives').directive('selectMin', function () {
+  return {
+    restrict: 'A',
+    require: 'ngModel',
+    scope: {
+      ngMin: '='
+    },
+    link: function ($scope, $element, $attrs, ngModelController) {
+      ngModelController.$validators.min = function (value) {
+        if (value) {
+          return value >= $scope.ngMin;
+        }
+        return true;
+      };
+    }
+  };
+});

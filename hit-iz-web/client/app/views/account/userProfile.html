@@ -88,6 +88,19 @@
                  </div>
             </div>
 
+          <div ng-if="isEmployerRequired()" class="control-group form-group" ng-class="{'has-success has-feedback': editAccountForm.inputEmployer.$valid, 'igl-has-error has-feedback': !editAccountForm.inputEmployer.$valid}">
+            <label class="control-label col-sm-2" for="inputEmployer"><div msg key='account.employer'></div></label>
+            <div class="controls col-sm-7">
+              <input type="text" class="form-control immediate-help account-input" name="inputEmployer" id="inputEmployer" ng-model='account.employer' required
+              >
+
+              <div class="input-help">
+                <h4><div msg key='registration.employer.error'></div></h4>
+              </div>
+            </div>
+          </div>
+
+
 
             <div class="control-group form-group" >
                 <div class="col-md-offset-2 col-sm-7">
