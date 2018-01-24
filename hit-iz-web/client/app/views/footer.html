@@ -1,54 +1,53 @@
 <style id="antiClickjack">body{display:none !important;}</style>
 <script type="text/javascript">
-    if (self === top) {
-        var antiClickjack = document.getElementById("antiClickjack");
-        antiClickjack.parentNode.removeChild(antiClickjack);
-    } else {
-        top.location = self.location;
-    }
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
 </script>
-
 <div id="footer">
+  <table>
+    <tbody>
+    <tr>
+      <td class="box" ng-if="appInfo.options.ORGANIZATION_WEBSITE !== 'NA'">
+        <a ng-href="{{appInfo.options.ORGANIZATION_WEBSITE != null ? appInfo.options.ORGANIZATION_WEBSITE : 'http://www.nist.gov'}}" target="_blank"><img class="footerImage" ng-src="{{appInfo.options.ORGANIZATION_WEBSITE != null ? appInfo.options.ORGANIZATION_WEBSITE : 'images/nist_logo.gif'}}" alt="{{appInfo.organization != null ?  appInfo.options.organization: 'NIST'}} Logo" title="{{appInfo.organization != null ?  appInfo.organization: 'NIST'}} Logo" /></a>
+        <!--<a href="http://www.nist.gov" target="_blank"><img class="footerImage" src="images/nist_logo.gif" alt="The NIST Logo" title="The NIST Logo" /></a>-->
+      </td>
 
-        <table>
-        <tbody>
-        <tr>
-            <td class="box">
-                     <a href="http://www.nist.gov" target="_blank"><img class="footerImage" src="images/nist_logo.gif" alt="The NIST Logo" title="The NIST Logo" /></a>
-            </td>
+      <td class="box">
+        <div>
+          <h5>Application Information</h5>
+          <span>Date: {{appInfo.date |  date: 'MM/dd/yyyy HH:mm:ss'}}, </span>
+          <span>Application Version: {{appInfo.version}}</span>
+          <span>Resource Bundle Version:{{appInfo.rsbVersion}}</span>
+        </div>
+      </td>
 
-            <td class="box">
-                <div>
-                    <h5>Application Information</h5>
-                    <span>Date: {{appInfo.date |  date: 'MM/dd/yyyy HH:mm:ss'}}, </span>
-                    <span>Application Version: {{appInfo.version}}</span>
-                    <span>Resource Bundle Version:{{appInfo.rsbVersion}}</span>
-                </div>
-            </td>
-
-            <td class="box">
-                <div>
-                    <h5>Supported Browsers</h5>
-                    <span><i class="fa fa-firefox"></i> Firefox, <i class="fa fa-chrome"></i> Chrome, <i class="fa fa-safari"></i>
+      <td class="box">
+        <div>
+          <h5>Supported Browsers</h5>
+          <span><i class="fa fa-firefox"></i> Firefox, <i class="fa fa-chrome"></i> Chrome, <i class="fa fa-safari"></i>
 Safari, <i class="fa fa-internet-explorer"></i> IE 9+</span>
-                </div>
-            </td>
+        </div>
+      </td>
 
-            <td class="box">
-                <div>
-                    <h5>External Links</h5>
-                    <a class="footer-link" href="http://www.nist.gov/public_affairs/disclaimer.cfm" target="_blank" title="View Disclaimer">Disclaimer</a> |
-                        <a  class="footer-link" href="http://www.nist.gov/public_affairs/privacy.cfm#privpolicy" target="_blank" title="View Privacy Policy">Privacy/Policy</a>|
-                         <a class="footer-link" ng-href="mailto:{{appInfo.adminEmail}}" title="Email Website Administrator @: {{appInfo.adminEmail}}">Website Administrator</a>
-                 </div>
-            </td>
+      <td class="box">
+        <div>
+          <h5>External Links</h5>
+          <a ng-if="appInfo.options.DISCLAIMER_LINK !== 'NA'" class="footer-link" ng-href="{{appInfo.options.DISCLAIMER_LINK != null ? appInfo.options.DISCLAIMER_LINK : 'http://www.nist.gov/public_affairs/disclaimer.cfm'}}" target="_blank" title="View Disclaimer">Disclaimer</a> |
+          <a ng-if="appInfo.options.PRIVACY_LINK !== 'NA'" class="footer-link" ng-href="{{appInfo.options.PRIVACY_LINK != null ? appInfo.options.PRIVACY_LINK : 'http://www.nist.gov/public_affairs/privacy.cfm#privpolicy'}}" target="_blank" title="View Privacy Policy">Privacy/Policy</a>|
+          <a class="footer-link" ng-href="mailto:{{appInfo.adminEmail}}" title="Email Website Administrator @: {{appInfo.adminEmail}}">Website Administrator</a>
+        </div>
+      </td>
 
-            <td class="box" >
-                <a href="http://www.itl.nist.gov" target="_blank"><img class="footerImage" src="images/itl-logo.jpg" alt="ITL Logo" title="ITL Logo" /></a>
-            </td>
+      <td class="box" ng-if="appInfo.options.DIVISION_WEBSITE !== 'NA'">
+        <a ng-href="{{appInfo.options.DIVISION_WEBSITE != null ? appInfo.options.DIVISION_WEBSITE : 'http://www.itl.nist.gov'}}" target="_blank"><img class="footerImage" ng-src="{{appInfo.options.DIVISION_WEBSITE != null ? appInfo.options.DIVISION_WEBSITE : 'images/itl-logo.jpg'}}" alt="{{appInfo.options.DIVISION_NAME != null ?  appInfo.options.DIVISION_NAME: 'ITL'}} Logo" title="{{appInfo.options.DIVISION_NAME != null ?  appInfo.options.DIVISION_NAME: 'ITL'}} Logo" /></a>
+      </td>
 
-        </tr>
-        </tbody>
+    </tr>
+    </tbody>
 
-</table>
- </div>
+  </table>
+</div>
