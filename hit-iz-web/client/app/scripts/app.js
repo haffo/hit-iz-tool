@@ -688,20 +688,22 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
   };
 
 
+
   $rootScope.isAuthenticationRequired = function () {
-    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['AUTHENTICATION_REQUIRED'] === true);
+    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['AUTHENTICATION_REQUIRED'] === "true");
   };
 
   $rootScope.isEmployerRequired= function () {
-    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['EMPLOYER_REQUIRED'] === true);
+    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['EMPLOYER_REQUIRED'] === "true");
   };
 
+
   $rootScope.isCbManagementSupported= function () {
-    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['CB_MANAGEMENT_SUPPORTED'] === true);
+    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['CB_MANAGEMENT_SUPPORTED'] === "true");
   };
 
   $rootScope.isCfManagementSupported= function () {
-    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['CF_MANAGEMENT_SUPPORTED'] === true);
+    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['CF_MANAGEMENT_SUPPORTED'] === "true");
   };
 
 

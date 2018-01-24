@@ -1,4 +1,6 @@
-<style id="antiClickjack">body{display:none !important;}</style>
+<style id="antiClickjack">body {
+    display: none !important;
+}</style>
 <script type="text/javascript">
     if (self === top) {
         var antiClickjack = document.getElementById("antiClickjack");
@@ -11,43 +13,45 @@
 <div class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="brand" id="appheader">
         <a style="display: inline-block; text-shadow:none" href="#">
-          <div id="apptitle">{{appInfo.options.ORGANIZATION_NAME != null && appInfo.options.ORGANIZATION_NAME != undefined ? appInfo.options.ORGANIZATION_NAME: 'NIST'}} <span style='color:white;'>{{appInfo.name}}</span><span
-            <div ng-if="appInfo.domain != '' && appInfo.domain  != null" id="appsubtitle">{{appInfo.domain}}</div>
+            <div id="apptitle">{{appInfo.options.ORGANIZATION_NAME != null && appInfo.options.ORGANIZATION_NAME != undefined ? appInfo.options.ORGANIZATION_NAME: 'NIST'}} <span style='color:white;'>{{appInfo.name}}</span><span
+                    style='color:red; font-size:12px'> {{appInfo.version}}</span></div>
+            <div id="appsubtitle">{{appInfo.domain}}</div>
         </a>
     </div>
     <div class="navbar-collapse collapse" id="appnavi">
         <ul class="nav navbar-nav">
             <li ng-class="{'active':isActive('/home')}"><a href="#/home"><i class="fa fa-home"></i> Home</a></li>
-            <li ng-class="{'active':isActive('/soapEnv')}"><a href="#/soapEnv"><span class="badge">1</span>
-                <i class="fa fa-envelope"></i>
-                SOAP Envelope</a></li>
-            <li ng-class="{'active':isActive('/soapConn')}"><a href="#/soapConn"> <span class="badge">2</span>
-                <i class="fa fa-exchange"></i>
-                SOAP Connectivity</a></li>
-            <li ng-class="{'active':isActive('/cf')}"><a href="#/cf"> <span class="badge">3</span>
+            <!--<li ng-class="{'active':isActive('/testing')}"><a href="#/testing"><i class="fa fa-cog"></i>Testing</a></li>-->
+            <li ng-class="{'active':isActive('/cf')}"><a href="#/cf">
                 <i class="fa fa-check-square-o"></i>
-                HL7 Context-free</a></li>
-            <li ng-class="{'active':isActive('/cb')}"><a href="#/cb"><span class="badge">4</span>
-                <i class="fa fa-th-list"></i>
-                HL7 Context-based</a></li>
+                Context-free</a></li>
+            <li ng-class="{'active':isActive('/cb')}"><a href="#/cb">
+                <i class="fa fa-check-square-o"></i>
+                Context-based</a></li>
+            <!--<li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported"><a href="#/transport-settings">-->
+            <!--<span title="Transport Configuration" class="label label-danger label-icon">T</span>-->
+            <!--<i class="fa fa-exchange"></i>-->
+            <!--Transport Settings</a></li>-->
             <li ng-class="{'active':isActive('/doc')}"><a href="#/doc"><i class="fa fa-book"></i>Documentation</a></li>
-            <li ng-class="{'active':isActive('/about')}"><a href="#/about"><i class="fa fa-question-circle"></i>About</a></li>
-         </ul>
+            <li ng-class="{'active':isActive('/about')}"><a href="#/about"><i
+                    class="fa fa-question-circle"></i>About</a></li>
+            <!--<li ng-class="{'active':isActive('/contact')}"><a href="#/contact"><i class="fa fa-phone-square"></i>Contact Us</a></li>-->
+        </ul>
 
-        <!--<ul class="nav navbar-nav navbar-right" style="margin-right: 15px" ng-show="!transportSupported">-->
-            <!--<li class="dropdown clear-fix">-->
-                <!--<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"-->
-                   <!--aria-expanded="false"><i-->
-                        <!--class="fa fa-cog"></i>&nbsp;Preferences<span class="caret"></span></a>-->
-                <!--<ul class="dropdown-menu">-->
-                    <!--<li><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</li>-->
-        <!--</ul>-->
-
+  <!--      <ul class="nav navbar-nav navbar-right" style="margin-right: 15px" ng-show="!transportSupported">
+            <li class="dropdown clear-fix">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false"><i
+                        class="fa fa-cog"></i>&nbsp;Preferences<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+-->
         <ul class="nav navbar-nav navbar-right" style="margin-right: 15px">
-            <li class="dropdown clear-fix" ng-if="isAuthenticated()"
+            <li class="dropdown clear-fix" ng-show="isAuthenticated()"
                 ng-class="isActive('/useraccount') || isActive('/transport-settings')">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false"><i
@@ -57,7 +61,7 @@
                             class="fa fa-user"></i>&nbsp;My Profile</a></li>
                     <li role="separator" class="divider"></li>
 
-                    <li ng-class="{'active':isActive('/transport-settings')}" ng-if="transportSupported"><a
+                    <li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported"><a
                             href="#/transport-settings">
                         <i title="Transport Configuration" class="label label-danger label-icon2">T</i>
                         Transport Settings</a></li>
@@ -72,7 +76,7 @@
                 </ul>
             </li>
 
-            <li class="dropdown clear-fix" ng-if="!isAuthenticated()"
+            <li class="dropdown clear-fix" ng-show="!isAuthenticated()"
                 ng-class="isActive('/useraccount') || isActive('/registration') || isActive('/forgotten') || isActive('/transport-settings')">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false"><i
@@ -94,17 +98,16 @@
                         </a>
                     </li>
                     <li ng-if="!isAuthenticationRequired()" role="separator" class="divider"></li>
-                    <li ng-class="{'active':isActive('/transport-settings')}" ng-if="transportSupported && !isAuthenticationRequired()"><a
+                    <li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported && !isAuthenticationRequired()"><a
                             href="#/transport-settings">
                         <i title="Transport Configuration" class="label label-danger label-icon2">T</i>
                         Transport Settings</a></li>
-                    <li role="separator" class="divider" ng-if="!isAuthenticationRequired()"></li>
-                    <li ng-if="!isAuthenticationRequired()"> <a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>
+                    <li ng-if="!isAuthenticationRequired()" role="separator" class="divider"></li>
+                    <li ng-if="!isAuthenticationRequired()"><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>
                     </li>
                 </ul>
             </li>
 
         </ul>
-
     </div>
 </div>
