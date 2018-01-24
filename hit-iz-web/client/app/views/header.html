@@ -11,7 +11,7 @@
 <div class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="brand" id="appheader">
         <a style="display: inline-block; text-shadow:none" href="#">
-          <div id="apptitle">{{appInfo.organization != null && appInfo.organization != undefined ? appInfo.organization: 'NIST'}} <span style='color:white;'>{{appInfo.name}}</span><span
+          <div id="apptitle">{{appInfo.options.ORGANIZATION_NAME != null && appInfo.options.ORGANIZATION_NAME != undefined ? appInfo.options.ORGANIZATION_NAME: 'NIST'}} <span style='color:white;'>{{appInfo.name}}</span><span
             <div ng-if="appInfo.domain != '' && appInfo.domain  != null" id="appsubtitle">{{appInfo.domain}}</div>
         </a>
     </div>
