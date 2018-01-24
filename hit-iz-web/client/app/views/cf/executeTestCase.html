@@ -66,23 +66,24 @@
         <!-- Default panel contents -->
         <div class="panel-heading panel-heading-collapsable">
           <i class="fa fa-list"></i>Profiles
+
           <button title="View Profiles Information" class="btn btn-xs btn-info"
                   ng-click="openProfileInfo()">
-            <i class="point fa fa-info-circle"></i>Help
+            <i class="point fa fa-info-circle"></i>
           </button>
 
-          <button title="Hide Profiles" class="btn btn-xs btn-info pull-right"
+          <button title="Hide Profiles" class="btn btn-xs btn-info"
                   ng-click="collapsed = !collapsed">
             <i class="fa fa-caret-left"></i>
           </button>
 
           <button ng-show="testCases != null && testCases.length > 0" title="Collapse All"
-                  class="btn btn-xs btn-info pull-right" style="margin-right:5px"
+                  class="btn btn-xs btn-info" style="margin-right:5px"
                   ng-click="collapseAll()">
             <i class="point fa fa-compress"></i>
           </button>
           <button ng-show="testCases != null && testCases.length > 0" title="Expand All"
-                  class="btn btn-xs btn-info pull-right" style="margin-right:5px"
+                  class="btn btn-xs btn-info" style="margin-right:5px"
                   ng-click="expandAll()">
             <i class="point fa fa-expand"></i>
           </button>

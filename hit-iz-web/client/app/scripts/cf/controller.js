@@ -788,7 +788,7 @@ angular.module('cf')
     //
 
     $scope.$on('event:cf:manage', function (event, targetScope) {
-      if(userInfoService.isAuthenticated()){
+      if($rootScope.isCfManagementSupported() && userInfoService.isAuthenticated()){
         $scope.testcase = null;
         if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
           $scope.groupScopes = $scope.allGroupScopes;
@@ -816,7 +816,7 @@ angular.module('cf')
 
 
     $scope.initManagement = function () {
-      if(userInfoService.isAuthenticated()){
+      if($rootScope.isCfManagementSupported() && userInfoService.isAuthenticated()){
         if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
           $scope.groupScopes = $scope.allGroupScopes;
         } else {

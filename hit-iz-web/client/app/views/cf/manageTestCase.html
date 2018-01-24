@@ -11,7 +11,7 @@
 </script>
 <div class="container" ng-controller="CFTestManagementCtrl" ng-init="initManagement()">
 
-  <div style="margin:10px" ng-show="isAuthenticated()">
+  <div style="margin:10px" ng-show="isCfManagementSupported() && isAuthenticated()">
     <div>
       <div class="row" ng-show="error != null && error != ''">
         <div class="col-md-12">

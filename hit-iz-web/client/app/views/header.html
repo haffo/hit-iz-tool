@@ -93,13 +93,13 @@
                             <i class="fa fa-repeat"></i>&nbsp;Reset Password
                         </a>
                     </li>
-                    <li role="separator" class="divider"></li>
-                    <li ng-class="{'active':isActive('/transport-settings')}" ng-if="transportSupported"><a
+                    <li ng-if="!isAuthenticationRequired()" role="separator" class="divider"></li>
+                    <li ng-class="{'active':isActive('/transport-settings')}" ng-if="transportSupported && !isAuthenticationRequired()"><a
                             href="#/transport-settings">
                         <i title="Transport Configuration" class="label label-danger label-icon2">T</i>
                         Transport Settings</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>
+                    <li role="separator" class="divider" ng-if="!isAuthenticationRequired()"></li>
+                    <li ng-if="!isAuthenticationRequired()"> <a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>
                     </li>
                 </ul>
             </li>

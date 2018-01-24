@@ -150,7 +150,8 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             id = null,
             username = '',
             fullName= '',
-            lastTestPlanPersistenceId = null;
+            lastTestPlanPersistenceId = null,
+          employer = null;
 
         //console.log("USER ID=", StorageService.get('userID'));
 
@@ -163,6 +164,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             supervisor = StorageService.get('supervisor');
             admin = StorageService.get('admin');
           lastTestPlanPersistenceId = StorageService.get('lastTestPlanPersistenceId');
+          employer = StorageService.get('employer');
 
         };
 
@@ -174,6 +176,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             StorageService.set('admin', admin);
             StorageService.set('fullName', fullName);
           StorageService.set('lastTestPlanPersistenceId', lastTestPlanPersistenceId);
+          StorageService.set('employer', employer);
 
         };
 
@@ -186,6 +189,8 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             StorageService.remove('hthd');
             StorageService.remove('fullName');
             StorageService.remove('lastTestPlanPersistenceId');
+          StorageService.remove('employer');
+
         };
 
         var saveHthd = function(header) {
@@ -273,6 +278,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
                 id = currentUser.accountId;
                 fullName = currentUser.fullName;
               lastTestPlanPersistenceId = currentUser.lastTestPlanPersistenceId;
+              employer = currentUser.employer;
 
               if ( angular.isArray(currentUser.authorities)) {
                     angular.forEach(currentUser.authorities, function(value, key){
@@ -303,7 +309,9 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
                 id = null;
                 fullName = '';
               lastTestPlanPersistenceId = null;
-                //clearCookie();
+              employer = '';
+
+              //clearCookie();
             }
         };
 
@@ -318,6 +326,11 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
       var getLastTestPlanPersistenceId = function() {
         return lastTestPlanPersistenceId;
       };
+
+      var getEmployer = function() {
+        return employer;
+      };
+
 
 
 
@@ -337,7 +350,8 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             loadFromServer: loadFromServer,
             getUsername: getUsername,
             getFullName: getFullName,
-            getLastTestPlanPersistenceId: getLastTestPlanPersistenceId
+            getLastTestPlanPersistenceId: getLastTestPlanPersistenceId,
+            getEmployer: getEmployer
 
         };
     }

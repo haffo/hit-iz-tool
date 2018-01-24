@@ -1690,7 +1690,7 @@ angular.module('cb')
     var testCaseService = new TestCaseService();
 
     $scope.initTestCase = function () {
-      if(userInfoService.isAuthenticated()){
+      if($rootScope.isCbManagementSupported() && userInfoService.isAuthenticated()){
       $scope.error = null;
       $scope.loading = true;
       $scope.testPlans = null;
