@@ -504,8 +504,7 @@
             return delay.promise;
         };
 
-
-        TestCaseDetailsService.loadArtifactHtml = function (eId, artifact) {
+      TestCaseDetailsService.loadArtifactHtml = function (eId, artifact) {
             if (artifact && artifact !== null) {
                 var cont = null;
                 var element = $('#' + eId);

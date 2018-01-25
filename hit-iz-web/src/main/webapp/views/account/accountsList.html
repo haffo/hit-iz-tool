@@ -22,7 +22,8 @@
               <table st-table="tmpAccountList" st-safe-src="accountList" class="table table-striped table-bordered table-condensed">
                     <thead>
                     <tr>
-                         <th colspan="7" st-ratio="95"><input st-search="" class="form-control" type="text"></th>
+                      <th colspan="8" ng-if="isEmployerRequired()" st-ratio="95"><input st-search="" class="form-control" type="text"></th>
+                      <th colspan="7" ng-if="!isEmployerRequired()" st-ratio="95"><input st-search="" class="form-control" type="text"></th>
                     </tr>
                     <tr class="tbl-header">
                         <th st-ratio="5"></th>
@@ -45,6 +46,10 @@
                         <th st-sort="lastLoggedInDate" st-ratio="20">
                           <div msg="" key="account.lastLoggedInDate"></div>
                         </th>
+                      <th st-sort="employer" st-ratio="20" ng-if="isEmployerRequired()">
+                        <div msg="" key="account.employer"></div>
+                      </th>
+
                         <th st-ratio="10">
                             <div msg="" key="account.type"></div>
                         </th>
@@ -81,7 +86,11 @@
                           {{::row.lastLoggedInDate | date:'MM/dd/yyyy HH:mm:ss'}}
                         </td>
 
-                        <td st-ratio="10"><span ng-show="!row.username">Guest</span>
+                      <td st-ratio="20" ng-if="isEmployerRequired()">
+                        {{::row.employer}}
+                      </td>
+
+                      <td st-ratio="10"><span ng-show="!row.username">Guest</span>
                           <span ng-show="row.username">
                               {{row.accountType}}
                           </span>
@@ -97,11 +106,6 @@
                     </tfoot>
                 </table>
             </div>
-
-
-
-
-
 
 
         </div>
