@@ -27,7 +27,7 @@
           <tr class="">
             <th style="width:5%">#</th>
             <th style="width:20%">Description</th>
-            <th style="width:20%">Execution Status</th>
+            <th ng-if="false" style="width:20%">Transaction Status</th>
             <th style="width:20%">Validation Result</th>
             <th style="width:35%">Comments</th>
           </tr>
@@ -51,7 +51,7 @@
               </label>
             </td>
             <td style="width:20%" ng-bind-html="testStep.description"></td>
-            <td style="width:10%">
+            <td ng-if="false" style="width:10%">
               <div ng-show="testExecutionService.getTestStepExecutionStatus(testStep) === undefined">
                                          <span ng-show="testStep.testingType === 'TA_MANUAL' || testStep.testingType === 'SUT_MANUAL'">
                                             Waiting for user's input...

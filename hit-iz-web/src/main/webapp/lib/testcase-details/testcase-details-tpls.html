@@ -64,19 +64,19 @@
         </tab>
       </tabset>
 
-      <div ng-if="tabs[1] && testCase['testDataSpecification']  && testCase['testDataSpecification'] !== null">
+      <div ng-show="tabs[1] && testCase['testDataSpecification']  && testCase['testDataSpecification'] !== null">
         <div test-data-specification target="{{target}}"></div>
       </div>
 
-      <div ng-if="tabs[2] && testCase['messageContent']  && testCase['messageContent'] !== null">
+      <div ng-show="tabs[2] && testCase['messageContent']  && testCase['messageContent'] !== null">
         <div message-content target="{{target}}"></div>
       </div>
 
-      <div ng-if="tabs[3] && testCase['jurorDocument']  && testCase['jurorDocument'] !== null">
+      <div ng-show="tabs[3] && testCase['jurorDocument']  && testCase['jurorDocument'] !== null">
         <div juror-document target="{{target}}"></div>
       </div>
       <div
-        ng-if="tabs[5] && testCase['supplements'] && testCase['supplements'] !== null && testCase['supplements'].length > 0">
+        ng-show="tabs[5] && testCase['supplements'] && testCase['supplements'] !== null && testCase['supplements'].length > 0">
         <div supplement-documents target="{{target}}"></div>
       </div>
 
