@@ -31,7 +31,7 @@
           <tr class="">
             <th style="width:5%">#</th>
             <th style="width:20%">Description</th>
-            <th ng-if="false" style="width:20%">Transaction Status</th>
+            <th ng-if="false" style="width:20%">Transport Status</th>
             <th style="width:20%">Validation Result</th>
             <th style="width:35%">Comments</th>
           </tr>
@@ -104,21 +104,21 @@
               <div ng-if="isTestStepCompleted(testStep) || testStep.testingType === 'TA_RESPONDER'"
                    style="text-align:center">
                 <!--<a-->
-                  <!--ng-show="testExecutionService.testStepComments[testStep.id] === null || testExecutionService.testStepComments[testStep.id] == undefined"-->
-                  <!--ng-click="testExecutionService.testStepComments[testStep.id] = ' '" class="point">-->
-                  <!--<i class="fa fa-pencil fa-fw"></i>-->
+                <!--ng-show="testExecutionService.testStepComments[testStep.id] === null || testExecutionService.testStepComments[testStep.id] == undefined"-->
+                <!--ng-click="testExecutionService.testStepComments[testStep.id] = ' '" class="point">-->
+                <!--<i class="fa fa-pencil fa-fw"></i>-->
                 <!--</a>-->
                 <!--<textarea style="width:100%;height:100%"-->
-                          <!--class="form-control"-->
-                          <!--ng-blur="updateTestStepValidationReport(testStep)"-->
-                          <!--ng-model="testExecutionService.testStepComments[testStep.id]"-->
-                          <!--ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] != undefined">-->
-                        <!--</textarea>-->
+                <!--class="form-control"-->
+                <!--ng-blur="updateTestStepValidationReport(testStep)"-->
+                <!--ng-model="testExecutionService.testStepComments[testStep.id]"-->
+                <!--ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] != undefined">-->
+                <!--</textarea>-->
                 <!--<a-->
-                  <!--ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] !== undefined"-->
-                  <!--ng-click="testExecutionService.testStepComments[testStep.id] = null;updateTestStepValidationReport(testStep)"-->
-                  <!--class="point">-->
-                  <!--<i class="fa fa-times fa-fw"></i>-->
+                <!--ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] !== undefined"-->
+                <!--ng-click="testExecutionService.testStepComments[testStep.id] = null;updateTestStepValidationReport(testStep)"-->
+                <!--class="point">-->
+                <!--<i class="fa fa-times fa-fw"></i>-->
                 <!--</a>-->
                 <!---->
                 <!---->
@@ -216,19 +216,19 @@
         </tab>
 
         <tab disabled="disabled()" select="setTestStepExecutionTab(2)" active="tabs[2]"
-        ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.profile && testStep.testContext.profile!= null">
-        <tab-heading>
-        <i class="fa fa-th-list"></i>Profile Viewer
-        </tab-heading>
-        <div ng-include="'views/cb/auto/profileViewer.html'"></div>
+             ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.profile && testStep.testContext.profile!= null">
+          <tab-heading>
+            <i class="fa fa-th-list"></i>Profile Viewer
+          </tab-heading>
+          <div ng-include="'views/cb/auto/profileViewer.html'"></div>
         </tab>
 
         <tab disabled="disabled()" select="setTestStepExecutionTab(3)" active="tabs[3]"
-        ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.vocabularyLibrary && testStep.testContext.vocabularyLibrary!= null">
-        <tab-heading>
-        <i class="fa fa-book"></i>ValueSets
-        </tab-heading>
-        <div ng-include="'views/cb/auto/vocabulary.html'"></div>
+             ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.vocabularyLibrary && testStep.testContext.vocabularyLibrary!= null">
+          <tab-heading>
+            <i class="fa fa-book"></i>ValueSets
+          </tab-heading>
+          <div ng-include="'views/cb/auto/vocabulary.html'"></div>
         </tab>
 
         <!--<tab active="tabs[10]" select="setTestStepExecutionTab(10)"-->
@@ -295,16 +295,16 @@
       </tabset>
 
 
-      <div ng-if="tabs[6] && testStep['jurorDocument']  && testStep['jurorDocument'] !== null">
+      <div ng-show="tabs[6] && testStep['jurorDocument']  && testStep['jurorDocument'] !== null">
         <div juror-document target="{{targ}}"></div>
       </div>
-      <div ng-if="tabs[7] && testStep['messageContent'] && testStep['messageContent'] !== null">
+      <div ng-show="tabs[7] && testStep['messageContent'] && testStep['messageContent'] !== null">
         <div message-content target="{{targ}}"></div>
       </div>
-      <div ng-if="tabs[8] && testStep['testDataSpecification'] && testStep['testDataSpecification'] !== null">
+      <div ng-show="tabs[8] && testStep['testDataSpecification'] && testStep['testDataSpecification'] !== null">
         <div test-data-specification target="{{targ}}"></div>
       </div>
-      <div ng-if="tabs[9] && testStep['testStory'] && testStep['testStory'] !== null">
+      <div ng-show="tabs[9] && testStep['testStory'] && testStep['testStory'] !== null">
         <div test-story target="{{targ}}"></div>
       </div>
 
