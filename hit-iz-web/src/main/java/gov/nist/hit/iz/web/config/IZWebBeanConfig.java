@@ -14,8 +14,10 @@ package gov.nist.hit.iz.web.config;
 
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -37,11 +39,17 @@ import gov.nist.hit.iz.service.soap.SOAPValidationReportGeneratorImpl;
  */
 
 @Configuration
+@PropertySource(value = { "classpath:app-config.properties" })
 public class IZWebBeanConfig {
+
+	@Value("${app.organization.name:'NIST'}")
+	private String organizationName;
 
 	@Bean
 	public HL7V2MessageValidator hl7v2MessageValidator() {
-		return new IZHL7V2MessageValidatorImpl();
+		IZHL7V2MessageValidatorImpl validator = new IZHL7V2MessageValidatorImpl();
+		validator.setOrganizationName(organizationName);
+		return validator;
 	}
 
 	@Bean
