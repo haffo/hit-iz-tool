@@ -46,7 +46,7 @@
       </accordion-group>
 
 
-      <accordion-group panel-class="panel-info" is-open="status.downloads" ng-if="appInfo.options.DOWNLOAD_WAR_DISABLED !== 'true'"">
+      <accordion-group panel-class="panel-info" is-open="status.downloads" ng-show="appInfo.options.DOWNLOAD_WAR_DISABLED !== 'true'"">
       <accordion-heading>
         <i class="fa"
            ng-class="{'fa-caret-down': status.downloads, 'fa-caret-right': !status.downloads}"></i>
