@@ -119,6 +119,11 @@
                                     No configuration Information Available
                                 </span>
                             </span>
+
+                                  <span ng-show="testStep.testingType === 'SUT_RESPONDER' || testStep.testingType === 'TA_RESPONDER'">
+                                          No Action required
+                                  </span>
+
                             <span ng-show="testStep.testingType === 'TA_INITIATOR'">
                                 <span class=""
                                       ng-show="transport.configs[domain][protocol].data.taInitiator && transport.configs[domain][protocol].data.taInitiator != null">
