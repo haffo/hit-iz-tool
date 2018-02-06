@@ -160,6 +160,7 @@
 			<ValueElement Value="SI" CodeSystem="HL70125" DisplayName="Sequence ID"/>
 			<ValueElement Value="ST" CodeSystem="HL70125" DisplayName="String"/>
 			<ValueElement Value="TS" CodeSystem="HL70125" DisplayName="Time Stamp"/>
+			<ValueElement Value="TX" CodeSystem="HL70125" DisplayName="Text data"/>
 			<ValueElement Value="VID" CodeSystem="HL70125" DisplayName="Version Identifier"/>
 			<ValueElement Value="XAD" CodeSystem="HL70125" DisplayName="Extended Address"/>
 			<ValueElement Value="XCN" CodeSystem="HL70125" DisplayName="Extended Composite ID Number and Name for Persons"/>
@@ -543,8 +544,9 @@
 			<ValueElement Value="59782-3" CodeSystem="LN" DisplayName="Number of doses in primary series"/>
 			<ValueElement Value="59781-5" CodeSystem="LN" DisplayName="Dose validity"/>
 			<ValueElement Value="59783-1" CodeSystem="LN" DisplayName="Status in immunization series"/>
-			<ValueElement Value="46249-9" CodeSystem="LN" DisplayName="VACCINATION TAKE-RESPONSE TYPE "/>
-			<ValueElement Value="46250-7" CodeSystem="LN" DisplayName="VACCINATION TAKE-RESPONSE DATE "/>
+			<ValueElement Value="46249-9" CodeSystem="LN" DisplayName="VACCINATION TAKE-RESPONSE TYPE"/>
+			<ValueElement Value="46250-7" CodeSystem="LN" DisplayName="VACCINATION TAKE-RESPONSE DATE"/>
+			<ValueElement Value="48767-8" CodeSystem="LN" DisplayName="Annotation comment [Interpretation] Narrative"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="NCIT" Name="Route of administration">
 			<ValueElement Value="C38238" CodeSystem="NCIT" DisplayName="Intradermal"/>
