@@ -28,7 +28,7 @@
           <th style="width:20%">Name</th>
           <th style="width:20%">Description</th>
           <th ng-if="transportSupported && testCase.transport === true && user.info != null && !transport.disabled" style="width:10%">Transport Status</th>
-          <th style="width:15%">Validation Result</th>
+          <th style="width:15%">Test step outcome</th>
           <th style="width:30%">Comments</th>
         </tr>
         </thead>
@@ -66,35 +66,35 @@
             <div ng-show="testExecutionService.getTestStepExecutionStatus(row) === undefined">
               <div ng-show="row.id !== testStep.id">Not started</div>
               <div ng-show="row.id === testStep.id">
-                <div ng-show="testCase.transport === true && user.info != null && !transport.disabled">
-                                    <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
+                                     <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
                                         Waiting for input...
                                     </span>
                   <span ng-show="row.testingType === 'TA_INITIATOR'">
-                                        Waiting to send...
+                                        Click Send
                                     </span>
                   <span ng-show="row.testingType === 'TA_RESPONDER'">
-                                        Sending ...
+                                        Sending response...
                                     </span>
                   <span ng-show="row.testingType === 'SUT_INITIATOR'">
-                                       Waiting to listen...
+                                       Click listen
                                     </span>
                   <span ng-show="row.testingType === 'SUT_RESPONDER'">
                                        Waiting to receive...
                                     </span>
                 </div>
-                <div ng-show="testCase.transport === false || user.info == null || transport.disabled">
-                                        <span
-                                          ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
-                                            Waiting for user's input...
-                                        </span>
-                  <span
-                    ng-show="row.testingType === 'TA_INITIATOR' || row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER' || row.testingType === 'TA_RESPONDER'">
-                                            Waiting for message...
-                                        </span>
-                </div>
-              </div>
-            </div>
+
+                <!--<div ng-show="testCase.transport === false || user.info == null || transport.disabled">-->
+                                        <!--<span-->
+                                          <!--ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">-->
+                                            <!--Waiting for user's input...-->
+                                        <!--</span>-->
+                  <!--<span-->
+                    <!--ng-show="row.testingType === 'TA_INITIATOR' || row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER' || row.testingType === 'TA_RESPONDER'">-->
+                                            <!--Waiting for message...-->
+                                        <!--</span>-->
+                <!--</div>-->
+
+             </div>
             <div ng-show="testExecutionService.getTestStepExecutionStatus(row) === 'IN_PROGRESS'">
               <div ng-show="testCase.transport === true && user.info != null && !transport.disabled">
 
