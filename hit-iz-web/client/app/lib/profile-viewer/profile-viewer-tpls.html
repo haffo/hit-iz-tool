@@ -99,11 +99,11 @@
                         <li
                                 ng-class="{'active':nodeData != null && nodeData.name === 'Datatypes' && !confStatementsActive}">
                             <a
-                                    ng-click="getDatatypesNodesContent()">Datatypes</a></li>
+                              ng-click="getDatatypesNodesContent()">Data types</a></li>
 
                         <li
                                 ng-class="{'active':confStatementsActive}"><a
-                                ng-click="showConfStatements()">Conformance Statements</a></li>
+                                ng-click="showConfStatements()">Conf. Statements</a></li>
 
                     </ul>
                     <div class="panel panel-info">
@@ -115,6 +115,13 @@
 
                                 <!--<div style="margin-top:5px" id="profile-tab-content" class="profile-table-container">-->
 
+
+                              <div style="margin-bottom: 10px" ng-show="nodeData.type === 'DATATYPE'">
+                                <i># Data types: </i><span class="badge">{{getNumberOfVisibleDatatypes()}}</span>
+                              </div>
+
+
+
                                 <table pv-table pv-params="params"
                                        class="table  table-condensed table-bordered table-line-break"
                                        ng-if="nodeData.type === 'SEGMENT' ? isSegmentVisible(nodeData) : true">
@@ -125,10 +132,10 @@
                                         <th class="col-xs-1 col-fixed-80">Usage</th>
                                         <th class="col-xs-1 col-fixed-80">Cardinality</th>
                                         <th class="col-xs-1 col-fixed-100">Length</th>
-                                        <th class="col-xs-1 col-fixed-80">Datatype</th>
+                                        <th class="col-xs-1 col-fixed-80">Data type</th>
                                         <th class="col-xs-1 col-fixed-150">ValueSet</th>
                                         <th class="col-xs-2" ng-style="predWidth">Predicate</th>
-                                        <th class="col-xs-4" ng-style="csWidth">Conformance Statement</th>
+                                        <th class="col-xs-4" ng-style="csWidth">Conf. Statement</th>
                                     </tr>
 
                                     <tr class="tbl-header"
@@ -136,10 +143,10 @@
                                         <th class="col-xs-2 col-fixed-350">Name</th>
                                         <th class="col-xs-1 col-fixed-80">Usage</th>
                                         <th class="col-xs-1 col-fixed-100">Length</th>
-                                        <th class="col-xs-1 col-fixed-80">Datatype</th>
+                                        <th class="col-xs-1 col-fixed-80">Data type</th>
                                         <th class="col-xs-1 col-fixed-150">ValueSet</th>
                                         <th class="col-xs-2" ng-style="predWidth">Predicate</th>
-                                        <th class="col-xs-4" ng-style="csWidth">Conformance Statement</th>
+                                        <th class="col-xs-4" ng-style="csWidth">Conf. Statement</th>
                                     </tr>
 
                                     <!--<tr class="tbl-header" style="margin-right:{{scrollbarWidth}}px"-->
@@ -156,29 +163,22 @@
                             </div>
 
                         <div ng-if="confStatementsActive" class="confstatement-table-container fixed-table-container">
-                            <table st-table="model.tmpConfStatementList" st-safe-src="model.confStatementList"
+
+                          <div style="margin-bottom: 10px"><i># Conf. Statements : </i><span class="badge">{{model.tmpConfStatementList.length}}</span></div>
+
+
+                          <table st-table="model.tmpConfStatementList" st-safe-src="model.confStatementList"
                                    class="table table-striped table-bordered table-condensed table-line-break"
                                    oci-fixed-header>
                                 <thead>
-                                <!--<tr>-->
-                                <!--<th colspan="2" class="text-center">-->
-                                <!--<div  st-items-by-page="25" st-pagination=""></div>-->
-                                <!--</th>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                <!--<th colspan="2" st-ratio="100">-->
-                                <!--<input st-search placeholder="" class="input-sm form-control"-->
-                                <!--type="search"/>-->
-                                <!--</th>-->
-                                <!--</tr>-->
-                                <tr class="">
+                                 <tr class="">
                                     <th st-sort="constraintId" st-ratio="20">ID</th>
                                     <th st-sort="description" st-ratio="80">Description</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="row in model.tmpConfStatementList">
-                                    <td st-ratio="20" ng-bind="::row.constraintId"></td>
+                                    <td st-ratio="20"><b>{{::row.constraintId}}</b></td>
                                     <td st-ratio="80" ng-bind="::row.description"></td>
                                 </tr>
                                 </tbody>
@@ -586,7 +586,9 @@
                       tooltip-class="constraints-tooltip"
                       tooltip-trigger tooltip-animation="false" tooltip-placement="left">
                                   <span class="label label-datatype label-icon">D</span>
-<span>{{::getDatatypeNodeName3(node)}}</span>
+                <span><b>{{::getDatatypeNodeName2(node)}}</b></span>
+                                <span>: {{::getDatatypeNodeDescription3(node)}}</span>
+
                   </span>
 
 
