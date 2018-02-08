@@ -150,6 +150,7 @@ angular.module('cb')
     };
 
     $scope.loadTestStepExecutionPanel = function (testStep) {
+
       $scope.exampleMessageEditor = null;
       $scope.detailsError = null;
       var testContext = testStep['testContext'];
@@ -166,8 +167,6 @@ angular.module('cb')
       } else { // manual testing ?
         $scope.setTestStepExecutionTab(1);
         var result = TestExecutionService.getTestStepValidationReport(testStep);
-        // report = report != undefined ? report : null;
-        // $rootScope.$emit('cbManual:initValidationReport', report, testStep);
         $rootScope.$emit('cbManual:updateTestStepValidationReport', result != undefined && result != null ? result.reportId : null, testStep);
       }
 
@@ -364,7 +363,7 @@ angular.module('cb')
         CB.testStep = testStep;
         $scope.warning = null;
         if ($scope.isManualStep(testStep) || testStep.testingType === 'TA_RESPONDER') {
-          $scope.testExecutionService.setTestStepExecutionStatus(testStep, 'COMPLETE');
+          $scope.completeStep(testStep);
         }
         testStep.protocol = null;
         $scope.protocol = null;
@@ -378,7 +377,8 @@ angular.module('cb')
         var log = $scope.transport.logs[testStep.id];
         $scope.logger.content = log && log != null ? log : '';
         $scope.selectTestStep(testStep);
-        // }, function (error) {
+
+         // }, function (error) {
         //   $scope.error = "Failed to load the test step, please try again.";
         // });
       }
@@ -640,7 +640,7 @@ angular.module('cb')
     };
 
     $scope.completeListening = function () {
-      $scope.testExecutionService.setTestStepExecutionStatus($scope.testStep, "COMPLETE");
+      $scope.completeStep($scope.testStep);
       $scope.stopListener();
     };
 
@@ -1129,9 +1129,9 @@ angular.module('cb')
         var id = StorageService.get(StorageService.CB_LOADED_TESTCASE_ID_KEY);
         var type = StorageService.get(StorageService.CB_LOADED_TESTCASE_TYPE_KEY);
         if (id != null && id != undefined) {
-          if (type == 'TestCase') { // a test case was loaded
+          if (type === 'TestCase') { // a test case was loaded
             TestExecutionService.clearTestCase(id);
-          } else if (type == 'TestStep') { // a test step was loaded
+          } else if (type === 'TestStep') { // a test step was loaded
             TestExecutionService.clearTestStep(id);
           }
           StorageService.remove(StorageService.CB_LOADED_TESTCASE_ID_KEY);
@@ -1356,13 +1356,14 @@ angular.module('cb')
 
     $scope.setTestStepValidationReport = function (mvResult) {
       if ($scope.testStep != null) {
-        if (mvResult != null) {
-          TestExecutionService.setTestStepExecutionStatus($scope.testStep, 'COMPLETE');
+        if (mvResult != null && mvResult != undefined && mvResult.reportId != null) {
+          $scope.completeStep($scope.testStep);
           TestExecutionService.setTestStepValidationReport($scope.testStep, mvResult.reportId);
         }
         $rootScope.$emit('cb:validationResultLoaded', mvResult, $scope.testStep);
       }
     };
+
 
     $scope.setTestStepMessageTree = function (messageObject) {
       $scope.buildMessageTree(messageObject);
