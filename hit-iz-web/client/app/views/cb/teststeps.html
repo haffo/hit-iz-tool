@@ -70,13 +70,13 @@
                                         Waiting for input...
                                     </span>
                   <span ng-show="row.testingType === 'TA_INITIATOR'">
-                                        Click Send
+                                         Waiting to send...
                                     </span>
                   <span ng-show="row.testingType === 'TA_RESPONDER'">
                                         Sending response...
                                     </span>
                   <span ng-show="row.testingType === 'SUT_INITIATOR'">
-                                       Click listen
+                                       Waiting for message...
                                     </span>
                   <span ng-show="row.testingType === 'SUT_RESPONDER'">
                                        Waiting to receive...
@@ -161,7 +161,7 @@
             <div ng-show="!isTestStepCompleted(row)">
               <div ng-show="row.id !== testStep.id">Not started</div>
               <div ng-show="row.id === testStep.id">
-                In Progress...
+
               </div>
             </div>
 
