@@ -11,8 +11,8 @@
 </script>
 <script type="text/ng-template" id="DocumentationViewer.html">
   <div style="margin:10px">
-  
-  <div ng-if="appInfo.options.DOWNLOAD_WAR_DISABLED !== 'true'"">
+
+  <div ng-if="appInfo.options.DOWNLOAD_WAR_DISABLED !== 'true'">
   <accordion close-others="false">
       <accordion-group panel-class="panel-info" is-open="status.userDoc">
         <accordion-heading>
@@ -91,11 +91,11 @@
 
 
     </accordion>
-  
+
   </div>
-  
+
   <div ng-if="appInfo.options.DOWNLOAD_WAR_DISABLED === 'true'">
- 
+
     <accordion close-others="false">
       <accordion-group panel-class="panel-info" is-open="status.userDoc">
         <accordion-heading>
