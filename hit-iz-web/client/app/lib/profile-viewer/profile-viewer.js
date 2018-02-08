@@ -20,7 +20,7 @@
   ]);
 
   mod
-    .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'PvTreetableParams', 'ProfileService', '$http', '$filter', '$cookies', '$sce', '$timeout', function ($scope, $rootScope, PvTreetableParams, ProfileService, $http, $filter, $cookies, $sce, $timeout) {
+    .controller('ProfileViewerCtrl', ['$scope', '$rootScope', 'PvTreetableParams', 'ProfileService', '$http', '$filter', '$cookies', '$sce', '$timeout', '$modalStack', 'VocabularyService','$modal', function ($scope, $rootScope, PvTreetableParams, ProfileService, $http, $filter, $cookies, $sce, $timeout,$modalStack,VocabularyService,$modal) {
       $scope.testCase = null;
       $scope.elements = [];
       $scope.confStatementsActive = false;
@@ -185,7 +185,24 @@
        * @param tableId
        */
       $scope.showValueSetDefinition = function (tableId) {
-        $rootScope.$emit($scope.type + ':showValueSetDefinition', tableId);
+        // $rootScope.$emit($scope.type + ':showValueSetDefinition', tableId);
+        $modalStack.dismissAll('close');
+        var t = VocabularyService.findValueSetDefinition(tableId);
+        $modal.open({
+          templateUrl: 'TableFoundCtrl.html',
+          controller: 'ProfileViewerValueSetDetailsCtrl',
+          windowClass: 'valueset-modal',
+          animation: false,
+          keyboard: true,
+          backdrop: true,
+          resolve: {
+            table: function () {
+              return t;
+            }
+          }
+        });
+
+
       };
 
       /**
@@ -934,14 +951,17 @@
       };
 
       $scope.getNumberOfVisibleDatatypes = function () {
-        if($scope.options.relevance){
-          var list = _.filter($scope.model.datatypeList, function(item, index) {
-            return item.visible === true;
-          })
-          return list.length;
-        }else {
-          return $scope.model.datatypeList.length;
+        if($scope.model != null && $scope.model.datatypeList != null) {
+          if ($scope.options.relevance) {
+            var list = _.filter($scope.model.datatypeList, function (item, index) {
+              return item.visible === true;
+            })
+            return list.length;
+          } else {
+            return $scope.model.datatypeList.length;
+          }
         }
+        return 0;
       };
 
 
@@ -1930,6 +1950,21 @@
       }
     }
   }]);
+
+  mod.controller('ProfileViewerValueSetDetailsCtrl', function ($scope, $modalInstance, table, $rootScope, $filter) {
+    $scope.valueSet = table;
+    $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+    //table.valueSetElements=  $filter('orderBy')(table != null ? table.valueSetElements: [], 'bindingIdentifier');
+    $scope.tmpValueSetElements = [].concat(table != null ? table.valueSetElements : []);
+    $scope.cancel = function () {
+      $modalInstance.close();
+    };
+    $scope.close = function () {
+      $modalInstance.close();
+    };
+
+  });
+
 
 
 })

@@ -254,16 +254,16 @@
       </tabset>
 
 
-      <div ng-if="tabs[6] && testStep['jurorDocument']  && testStep['jurorDocument'] !== null">
+      <div ng-show="tabs[6] && testStep['jurorDocument']  && testStep['jurorDocument'] !== null">
         <div juror-document="" target="{{targ}}"></div>
       </div>
-      <div ng-if="tabs[7] && testStep['messageContent'] && testStep['messageContent'] !== null">
+      <div ng-show="tabs[7] && testStep['messageContent'] && testStep['messageContent'] !== null">
         <div message-content="" target="{{targ}}"></div>
       </div>
-      <div ng-if="tabs[8] && testStep['testDataSpecification'] && testStep['testDataSpecification'] !== null">
+      <div ng-show="tabs[8] && testStep['testDataSpecification'] && testStep['testDataSpecification'] !== null">
         <div test-data-specification="" target="{{targ}}"></div>
       </div>
-      <div ng-if="tabs[9] && testStep['testStory'] && testStep['testStory'] !== null">
+      <div ng-show="tabs[9] && testStep['testStory'] && testStep['testStory'] !== null">
         <div test-story="" target="{{targ}}"></div>
       </div>
 
