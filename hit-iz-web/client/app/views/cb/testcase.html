@@ -172,14 +172,14 @@
                                 <button title="Load Test Step" ng-show="(selectedTestCase.type == 'TestStep')"
                                         type="button"
                                         class="btn btn-xs btn-success"
-                                        ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
+                                        ng-click="loadTestCase(selectedTestCase,'/cb_execution',true)">
                                     <i class="fa fa-play"></i>Load Test Step
                                 </button>
 
                                 <button title="Load Test Case" ng-show="selectedTestCase.type === 'TestCase' && selectedTestCase.children != null && selectedTestCase.children.length > 0"
                                         type="button"
                                         class="btn btn-xs btn-success"
-                                        ng-click="loadTestCase(selectedTestCase,'/cb_execution')">
+                                        ng-click="loadTestCase(selectedTestCase,'/cb_execution', true)">
                                     <i class="fa fa-play"></i>Load Test Case
                                 </button>
 
