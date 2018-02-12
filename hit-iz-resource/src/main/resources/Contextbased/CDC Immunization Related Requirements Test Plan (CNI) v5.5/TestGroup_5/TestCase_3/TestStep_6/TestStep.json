@@ -5,8 +5,8 @@
   "type" : "TA_RESPONDER",
   "position" : 6,
   "hl7v2" : {
-    "messageId" : "8da46a56-9f9a-4897-b7f1-08862c73d66a-Lori",
-    "constraintId" : "e99ce380-6861-4848-a0b3-a85a67674532-Lori",
+    "messageId" : "8da46a56-9f9a-4897-b7f1-08862c73d66a",
+    "constraintId" : "e99ce380-6861-4848-a0b3-a85a67674532",
     "valueSetLibraryId" : "752481af-53be-4bcb-909d-d71d6fa49d1a"
   },
   "protocols" : [ "soap" ]
