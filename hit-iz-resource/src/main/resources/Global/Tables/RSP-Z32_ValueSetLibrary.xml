@@ -68,7 +68,7 @@
 			<ValueElement Value="D" CodeSystem="HL70323" DisplayName="Delete"/>
 			<ValueElement Value="U" CodeSystem="HL70323" DisplayName="Update"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="HL70533_IZ" Name="Application Error Code">
+		<ValueSetDefinition BindingIdentifier="HL70533_IZ" Name="Application Error Code" Extensibility="Open">
 			<ValueElement Value="1" CodeSystem="HL70533" DisplayName="Illogical Date error"/>
 			<ValueElement Value="2" CodeSystem="HL70533" DisplayName="Invalid Date"/>
 			<ValueElement Value="3" CodeSystem="HL70533" DisplayName="Illogical Value error"/>
