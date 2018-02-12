@@ -72,7 +72,7 @@
                             {{testExecutionService.testCaseComments[testCase.id]}}
                           </p>
 
-                          <button class="btn btn-xs btn-primary"
+                          <button class="btn btn-xs btn-info"
                                   ng-show="testExecutionService.testCaseComments[testCase.id] != '' && testExecutionService.testCaseComments[testCase.id] != null && testExecutionService.testCaseComments[testCase.id] !=  undefined && (testExecutionService.testCaseCommentsChanged[testCase.id] === false || !testExecutionService.testCaseCommentsChanged[testCase.id] || testExecutionService.testCaseCommentsChanged[testCase.id] == undefined)"
                                   ng-click="editTestCaseComment(testCase)" class="point">
                             <i class="fa fa-pencil fa-fw"></i>
@@ -85,7 +85,7 @@
                           </button>
 
 
-                          <button class="btn btn-xs btn-primary"
+                          <button class="btn btn-xs btn-info"
                                   ng-show="(testExecutionService.testCaseComments[testCase.id] == '' || testExecutionService.testCaseComments[testCase.id] == null || testExecutionService.testCaseComments[testCase.id] == undefined) && (testExecutionService.testCaseCommentsChanged[testCase.id] === false || !testExecutionService.testCaseCommentsChanged[testCase.id] || testExecutionService.testCaseCommentsChanged[testCase.id] == undefined)"
                                   ng-click="editTestCaseComment(testCase)" class="point">
                             <i class="fa fa-plus fa-fw"></i>
@@ -112,7 +112,7 @@
                 </tr>
 
                 <tr>
-                    <td><b>Test Report</b></td>
+                    <td><b>Test Case Report</b></td>
                     <td>
                         <div class="btn-group" ng-show="isTestCaseCompleted() && testExecutionService.testCaseValidationResults[testCase.id] != null && testExecutionService.testCaseValidationResults[testCase.id]">
                             <button type="button"
