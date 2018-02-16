@@ -30,7 +30,7 @@
 				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
 : ""},
 							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NISTIISAPP",
-"categorization" : "Presence-Configuration"},
+"categorization" : "Indifferent"},
 							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
@@ -82,7 +82,7 @@
 				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
 : "", "categorization" : ""},
 							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
-"categorization" : "Presence-Configuration"},
+"categorization" : "Indifferent"},
 							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "",
@@ -98,7 +98,7 @@
 				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
 "data" : "", "categorization" : ""},
 							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
-"categorization" : "Presence-Configuration"},
+"categorization" : "Indifferent"},
 							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "",
@@ -204,7 +204,7 @@ Latino", "categorization" : "Presence-Test Case Proper"},
 							{"location" : "PID.22.3", "dataelement" : "Name of Coding System", "data" :
 "CDCREC", "categorization" : "Value-Profile Fixed"},
 				{"location" : "PID.24", "dataelement" : "Multiple Birth Indicator", "data" : "N",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Indifferent"},
 				{"location" : "PID.25", "dataelement" : "Birth Order", "data" : "1", "categorization"
 : "Indifferent"},
 				{"location" : "PID.29", "dataelement" : "Patient Death Date and Time", "data"
@@ -212,7 +212,7 @@ Latino", "categorization" : "Presence-Test Case Proper"},
 							{"location" : "PID.29.1", "dataelement" : "Time", "data" : "", "categorization"
 : "NonPresence"},
 				{"location" : "PID.30", "dataelement" : "Patient Death Indicator", "data" : "N",
-"categorization" : "Value-Test Case Fixed"},		]
+"categorization" : "Indifferent"},		]
 		{
 			"title":"PD1 : Patient Additional Demographic",
 			"elements" : 
@@ -226,9 +226,9 @@ Latino", "categorization" : "Presence-Test Case Proper"},
 							{"location" : "PD1.11.3", "dataelement" : "Name of Coding System", "data" :
 "HL70215", "categorization" : "Value-Profile Fixed"},
 				{"location" : "PD1.12", "dataelement" : "Protection Indicator", "data" : "N",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Indifferent"},
 				{"location" : "PD1.13", "dataelement" : "Protection Indicator Effective Date",
-"data" : "20150625", "categorization" : "Presence-Content Indifferent"},
+"data" : "20150625", "categorization" : "Indifferent"},
 				{"location" : "PD1.16", "dataelement" : "Immunization Registry Status", "data"
 : "A", "categorization" : "Value-Test Case Fixed"},
 				{"location" : "PD1.17", "dataelement" : "Immunization Registry Status Effective
@@ -303,9 +303,9 @@ Initials Thereof", "data" : "", "categorization" : "Indifferent"},
 				{"location" : "ORC.2", "dataelement" : "Placer Order Number", "data" : "", "categorization"
 : ""},
 							{"location" : "ORC.2.1", "dataelement" : "Entity Identifier", "data" : "657",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 							{"location" : "ORC.2.2", "dataelement" : "Namespace ID", "data" : "NIST-AA-IZ-2",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 							{"location" : "ORC.2.3", "dataelement" : "Universal ID", "data" : "", "categorization"
 : "Indifferent"},
 							{"location" : "ORC.2.4", "dataelement" : "Universal ID Type", "data" : "",
@@ -341,7 +341,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 									{"location" : "ORC.10.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "ORC.10.10", "dataelement" : "Name Type Code", "data" : "L",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Indifferent"},
 							{"location" : "ORC.10.13", "dataelement" : "Identifier Type Code", "data" :
 "PRN", "categorization" : "Value-Test Case Fixed List"},
 				{"location" : "ORC.12", "dataelement" : "Ordering Provider", "data" : "", "categorization"
@@ -355,7 +355,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 							{"location" : "ORC.12.3", "dataelement" : "Given Name", "data" : "Wilma", "categorization"
 : "Presence-Content Indifferent"},
 							{"location" : "ORC.12.4", "dataelement" : "Second and Further Given Names or
-Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content Indifferent"},
+Initials Thereof", "data" : "Elizabeth", "categorization" : "Indifferent"},
 							{"location" : "ORC.12.9", "dataelement" : "Assigning Authority", "data" : "",
 "categorization" : ""},
 									{"location" : "ORC.12.9.1", "dataelement" : "Namespace ID", "data" : "NIST-PI-1",
@@ -371,11 +371,11 @@ Initials Thereof", "data" : "Elizabeth", "categorization" : "Presence-Content In
 				{"location" : "ORC.17", "dataelement" : "Entering Organization", "data" : "",
 "categorization" : ""},
 							{"location" : "ORC.17.1", "dataelement" : "Identifier", "data" : "NISTEHRFAC",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 							{"location" : "ORC.17.2", "dataelement" : "Text", "data" : "NISTEHRFacility",
-"categorization" : "Presence-Content Indifferent"},
+"categorization" : "Indifferent"},
 							{"location" : "ORC.17.3", "dataelement" : "Name of Coding System", "data" :
-"HL70362", "categorization" : "Value-Profile Fixed"},		]
+"HL70362", "categorization" : "Indifferent"},		]
 		{
 			"title":"ORC : Common Order",
 			"elements" : 
@@ -521,7 +521,7 @@ Initials Thereof", "data" : "Suzanne", "categorization" : "Presence-Content Indi
 									{"location" : "RXA.10.9.3", "dataelement" : "Universal ID Type", "data" :
 "", "categorization" : "Indifferent"},
 							{"location" : "RXA.10.10", "dataelement" : "Name Type Code", "data" : "L",
-"categorization" : "Value-Test Case Fixed"},
+"categorization" : "Indifferent"},
 							{"location" : "RXA.10.13", "dataelement" : "Identifier Type Code", "data" :
 "PRN", "categorization" : "Value-Test Case Fixed List"},
 				{"location" : "RXA.11", "dataelement" : "Administered-at Location", "data" : "",
@@ -793,15 +793,15 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "VXC40", "categorization"
-: "Value-Test Case Fixed"},
+: "Indifferent"},
 							{"location" : "OBX.17.2", "dataelement" : "Text", "data" : "per immunization",
-"categorization" : "Presence-Test Case Proper"},
+"categorization" : "Indifferent"},
 							{"location" : "OBX.17.3", "dataelement" : "Name of Coding System", "data" :
-"CDCPHINVS", "categorization" : "Value-Profile Fixed"},		]
+"CDCPHINVS", "categorization" : "Indifferent"},		]
 		{
 			"title":"OBX : Observation/Result",
 			"elements" : 
@@ -822,7 +822,7 @@ Program Eligibility", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300013411100521",
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300013411180212",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Measles/Mumps/Rubella/Varicella
 VIS", "categorization" : "Presence-Test Case Proper"},
@@ -841,7 +841,7 @@ VIS", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
@@ -883,7 +883,7 @@ VIS", "categorization" : "Presence-Test Case Proper"},
 				{"location" : "OBX.14", "dataelement" : "Date/Time of the Observation", "data"
 : "", "categorization" : ""},
 							{"location" : "OBX.14.1", "dataelement" : "Time", "data" : "20150625", "categorization"
-: "Presence-Content Indifferent"},
+: "Indifferent"},
 				{"location" : "OBX.17", "dataelement" : "Observation Method", "data" : "", "categorization"
 : ""},
 							{"location" : "OBX.17.1", "dataelement" : "Identifier", "data" : "", "categorization"
