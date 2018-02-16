@@ -1889,6 +1889,14 @@
 			<ValueElement Value="253088698300029511161202" CodeSystem="cdcgs1vis" DisplayName="HPV Vaccine VIS"/>
 			<ValueElement Value="253088698300030111150814" CodeSystem="cdcgs1vis" DisplayName="Meningococcal B VIS"/>
 			<ValueElement Value="253088698300030111160809" CodeSystem="cdcgs1vis" DisplayName="Serogroup B Meningococcal Vaccine VIS"/>
+			
+			<ValueElement Value="253088698300032511180212" CodeSystem="cdcgs1vis" DisplayName="Recombinant Zoster Vaccine"/>
+			<ValueElement Value="253088698300012711180212" CodeSystem="cdcgs1vis" DisplayName="MMR Vaccine"/>
+			<ValueElement Value="253088698300013411180212" CodeSystem="cdcgs1vis" DisplayName="MMRV Vaccine"/>
+			<ValueElement Value="253088698300024011180212" CodeSystem="cdcgs1vis" DisplayName="Varicella Vaccine"/>
+			<ValueElement Value="253088698300020211180212" CodeSystem="cdcgs1vis" DisplayName="Live Zoster Vaccine"/>
+			
+			
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_FundingEligibilityObsMethod_IIS" Name="Funding Eligibility Observation Method (IIS)">
 			<ValueElement Value="VXC40" CodeSystem="CDCPHINVS" DisplayName="Eligibility captured at the immunization level"/>
@@ -1934,6 +1942,9 @@
 			<ValueElement Value="09" CodeSystem="CVX" DisplayName="Td (adult), adsorbed"/>
 			<ValueElement Value="115" CodeSystem="CVX" DisplayName="Tdap"/>
 			<ValueElement Value="21" CodeSystem="CVX" DisplayName="varicella"/>
+			
+			<ValueElement Value="187" CodeSystem="CVX" DisplayName="zoster vaccine recombinant"/>
+			<ValueElement Value="121" CodeSystem="CVX" DisplayName="zoster live"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
 	<ValueSetDefinitions Group="HL7" Order="3">

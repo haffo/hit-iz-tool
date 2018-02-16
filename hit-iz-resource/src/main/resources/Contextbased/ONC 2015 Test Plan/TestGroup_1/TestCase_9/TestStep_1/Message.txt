@@ -7,7 +7,7 @@ RXA|0|1|20150625||00006-4171-01^ProQuad^NDC|0.5|mL^mL^UCUM||00^New Record^NIP001
 RXR|C38299^Subcutaneous^NCIT|RD^Right Deltoid^HL70163
 OBX|1|CE|30963-3^Vaccine Funding Source^LN|1|PHC70^Private^CDCPHINVS||||||F|||20150625
 OBX|2|CE|64994-7^Vaccine Funding Program Eligibility^LN|2|V01^Not VFC Eligible^HL70064||||||F|||20150625|||VXC40^per immunization^CDCPHINVS
-OBX|3|CE|69764-9^Document Type^LN|3|253088698300013411100521^Measles/Mumps/Rubella/Varicella VIS^cdcgs1vis||||||F|||20150625
+OBX|3|CE|69764-9^Document Type^LN|3|253088698300013411180212^Measles/Mumps/Rubella/Varicella VIS^cdcgs1vis||||||F|||20150625
 OBX|4|DT|29769-7^Date Vis Presented^LN|3|20150625||||||F|||20150625
 ORC|RE|7553^NIST-AA-IZ-2|8671^NIST-AA-IZ-2|||||||7824^Jackson^Lily^Suzanne^^^^^NIST-PI-1^L^^^PRN||654^Thomas^Wilma^Elizabeth^^^^^NIST-PI-1^L^^^MD|||||NISTEHRFAC^NISTEHRFacility^HL70362|
 RXA|0|1|20150625||58160-0812-01^KINRIX^NDC|0.5|mL^mL^UCUM||00^New Record^NIP001|7824^Jackson^Lily^Suzanne^^^^^NIST-PI-1^L^^^PRN|^^^NIST-Clinic-1||||88402|20150730|SKB^GlaxoSmithKline^MVX|||CP|A
