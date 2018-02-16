@@ -25,31 +25,31 @@
         <table style="margin-bottom: 0px" class="table table-bordered table-condensed stTable execution-table">
           <thead>
           <tr class="">
-            <th style="width:5%">#</th>
+            <th style="width:20%">Name</th>
             <th style="width:20%">Description</th>
-            <th ng-if="false" style="width:20%">Transaction Status</th>
-            <th style="width:20%">Validation Result</th>
+            <th ng-if="false" style="width:20%">Transport Status</th>
+            <th style="width:20%">Test Step Outcome</th>
             <th style="width:35%">Comments</th>
+            <th style="width:20%">Report</th>
           </tr>
           </thead>
           <tbody>
           <tr ng-class="{'current': testStep != null}">
-            <td style="width:5%">
-              <label>
-                                    <span ng-show="testStep.testingType === 'TA_MANUAL' || testStep.testingType === 'SUT_MANUAL'">
+             <td style="width:20%">
+                              <span ng-show="testStep.testingType === 'TA_MANUAL' || testStep.testingType === 'SUT_MANUAL'">
                        <i class="fa fa-wrench"></i>
                     </span>
 
-                <span ng-show="testStep.testingType === 'TA_INITIATOR' || testStep.testingType === 'TA_RESPONDER'">
-                        <i class="fa fa-artestStep-left"></i>
+              <span ng-show="testStep.testingType === 'TA_INITIATOR' || testStep.testingType === 'TA_RESPONDER'">
+                        <i class="fa fa-arrow-left"></i>
                     </span>
 
-                <span ng-show="testStep.testingType === 'SUT_INITIATOR' || testStep.testingType === 'SUT_RESPONDER'">
-                        <i class="fa fa-artestStep-right"></i>
+              <span ng-show="testStep.testingType === 'SUT_INITIATOR' || testStep.testingType === 'SUT_RESPONDER'">
+                        <i class="fa fa-arrow-right"></i>
                     </span>
-                {{testStep.position}}.
-              </label>
-            </td>
+
+              {{testStep.position}}. {{testStep.name}}
+             </td>
             <td style="width:20%" ng-bind-html="testStep.description"></td>
             <td ng-if="false" style="width:10%">
               <div ng-show="testExecutionService.getTestStepExecutionStatus(testStep) === undefined">
@@ -89,21 +89,21 @@
             <td style="width:35%">
               <div ng-if="isTestStepCompleted(testStep) || testStep.testingType === 'TA_RESPONDER'" style="text-align:center">
                 <!--<a-->
-                  <!--ng-show="testExecutionService.testStepComments[testStep.id] === null || testExecutionService.testStepComments[testStep.id] == undefined"-->
-                  <!--ng-click="testExecutionService.testStepComments[testStep.id] = ' '" class="point">-->
-                  <!--<i class="fa fa-pencil fa-fw"></i>-->
+                <!--ng-show="testExecutionService.testStepComments[testStep.id] === null || testExecutionService.testStepComments[testStep.id] == undefined"-->
+                <!--ng-click="testExecutionService.testStepComments[testStep.id] = ' '" class="point">-->
+                <!--<i class="fa fa-pencil fa-fw"></i>-->
                 <!--</a>-->
                 <!--<textarea style="width:100%;height:100%"-->
-                          <!--class="form-control"-->
-                          <!--ng-blur="updateTestStepValidationReport(testStep)"-->
-                          <!--ng-model="testExecutionService.testStepComments[testStep.id]"-->
-                          <!--ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] != undefined">-->
-                        <!--</textarea>-->
+                <!--class="form-control"-->
+                <!--ng-blur="updateTestStepValidationReport(testStep)"-->
+                <!--ng-model="testExecutionService.testStepComments[testStep.id]"-->
+                <!--ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] != undefined">-->
+                <!--</textarea>-->
                 <!--<a-->
-                  <!--ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] !== undefined"-->
-                  <!--ng-click="testExecutionService.testStepComments[testStep.id] = null;updateTestStepValidationReport(testStep)"-->
-                  <!--class="point">-->
-                  <!--<i class="fa fa-times fa-fw"></i>-->
+                <!--ng-show="testExecutionService.testStepComments[testStep.id] !== null && testExecutionService.testStepComments[testStep.id] !== undefined"-->
+                <!--ng-click="testExecutionService.testStepComments[testStep.id] = null;updateTestStepValidationReport(testStep)"-->
+                <!--class="point">-->
+                <!--<i class="fa fa-times fa-fw"></i>-->
                 <!--</a>-->
                 <!---->
                 <!---->
@@ -116,7 +116,7 @@
                   {{testExecutionService.testStepComments[testStep.id]}}
                 </p>
 
-                <button class="btn btn-xs btn-primary" title="Edit Comment" ng-show="testExecutionService.testStepComments[testStep.id] != '' && testExecutionService.testStepComments[testStep.id] != null && testExecutionService.testStepComments[testStep.id] !=  undefined && (testExecutionService.testStepCommentsChanged[testStep.id] === false || !testExecutionService.testStepCommentsChanged[testStep.id] || testExecutionService.testStepCommentsChanged[testStep.id] == undefined)" ng-click="editTestStepComment(testStep)" class="point">
+                <button class="btn btn-xs btn-info" title="Edit Comment" ng-show="testExecutionService.testStepComments[testStep.id] != '' && testExecutionService.testStepComments[testStep.id] != null && testExecutionService.testStepComments[testStep.id] !=  undefined && (testExecutionService.testStepCommentsChanged[testStep.id] === false || !testExecutionService.testStepCommentsChanged[testStep.id] || testExecutionService.testStepCommentsChanged[testStep.id] == undefined)" ng-click="editTestStepComment(testStep)" class="point">
                   <i class="fa fa-pencil fa-fw"></i>
                 </button>
 
@@ -125,7 +125,7 @@
                 </button>
 
 
-                <button class="btn btn-xs btn-primary" title="Add Comment" ng-show="(testExecutionService.testStepComments[testStep.id] == '' || testExecutionService.testStepComments[testStep.id] == null || testExecutionService.testStepComments[testStep.id] == undefined) && (testExecutionService.testStepCommentsChanged[testStep.id] === false || !testExecutionService.testStepCommentsChanged[testStep.id] || testExecutionService.testStepCommentsChanged[testStep.id] == undefined)" ng-click="editTestStepComment(testStep)" class="point">
+                <button class="btn btn-xs btn-info" title="Add Comment" ng-show="(testExecutionService.testStepComments[testStep.id] == '' || testExecutionService.testStepComments[testStep.id] == null || testExecutionService.testStepComments[testStep.id] == undefined) && (testExecutionService.testStepCommentsChanged[testStep.id] === false || !testExecutionService.testStepCommentsChanged[testStep.id] || testExecutionService.testStepCommentsChanged[testStep.id] == undefined)" ng-click="editTestStepComment(testStep)" class="point">
                   <i class="fa fa-plus fa-fw"></i>
                 </button>
 
@@ -141,6 +141,21 @@
 
               </div>
             </td>
+            <td style="width:20%">
+              <div ng-show="isTestStepCompleted(testStep)">
+              <div class="btn-group" ng-show="getTestStepValidationReport(testStep) && getTestStepValidationReport(testStep) !== null">
+                <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-download"></i>Download<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="point" ng-click="downloadReportAs('PDF', testStep)"><img src="images/pdf.png" style="height:15px;width:15px">PDF</a></li>
+                  <li><a class="point" ng-click="downloadReportAs('XML',testStep)"><img src="images/xml.jpeg" style="height:15px;width:15px">XML</a></li>
+                  <li><a class="point" ng-click="downloadReportAs('HTML',testStep)"><img src="images/html.png" style="height:15;width:15px">HTML</a></li>
+                </ul>
+              </div>
+            </div>
+            </td>
+
           </tr>
           </tbody>
         </table>
@@ -186,17 +201,17 @@
         </tab>
 
         <tab disabled="disabled()" select="setTestStepExecutionTab(2)" active="tabs[2]" ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.profile && testStep.testContext.profile!= null">
-        <tab-heading>
-        <i class="fa fa-th-list"></i>Profile Viewer
-        </tab-heading>
-        <div ng-include="'views/cb/auto/profileViewer.html'"></div>
+          <tab-heading>
+            <i class="fa fa-th-list"></i>Profile Viewer
+          </tab-heading>
+          <div ng-include="'views/cb/auto/profileViewer.html'"></div>
         </tab>
 
         <tab disabled="disabled()" select="setTestStepExecutionTab(3)" active="tabs[3]" ng-show="testStep.testContext && testStep.testContext != null && testStep.testContext.vocabularyLibrary && testStep.testContext.vocabularyLibrary!= null">
-        <tab-heading>
-        <i class="fa fa-book"></i>ValueSets
-        </tab-heading>
-        <div ng-include="'views/cb/auto/vocabulary.html'"></div>
+          <tab-heading>
+            <i class="fa fa-book"></i>ValueSets
+          </tab-heading>
+          <div ng-include="'views/cb/auto/vocabulary.html'"></div>
         </tab>
 
         <!--<tab active="tabs[10]" select="setTestStepExecutionTab(10)"-->
