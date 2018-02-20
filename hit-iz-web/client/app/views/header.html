@@ -19,24 +19,23 @@
         </a>
     </div>
     <div class="navbar-collapse collapse" id="appnavi">
-        <ul class="nav navbar-nav">
+         <ul class="nav navbar-nav">
             <li ng-class="{'active':isActive('/home')}"><a href="#/home"><i class="fa fa-home"></i> Home</a></li>
-            <!--<li ng-class="{'active':isActive('/testing')}"><a href="#/testing"><i class="fa fa-cog"></i>Testing</a></li>-->
-            <li ng-class="{'active':isActive('/cf')}"><a href="#/cf">
+            <li ng-class="{'active':isActive('/soapEnv')}"><a href="#/soapEnv"><span class="badge">1</span>
+                <i class="fa fa-envelope"></i>
+                SOAP Envelope</a></li>
+            <li ng-class="{'active':isActive('/soapConn')}"><a href="#/soapConn"> <span class="badge">2</span>
+                <i class="fa fa-exchange"></i>
+                SOAP Connectivity</a></li>
+            <li ng-class="{'active':isActive('/cf')}"><a href="#/cf"> <span class="badge">3</span>
                 <i class="fa fa-check-square-o"></i>
-                Context-free</a></li>
-            <li ng-class="{'active':isActive('/cb')}"><a href="#/cb">
-                <i class="fa fa-check-square-o"></i>
-                Context-based</a></li>
-            <!--<li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported"><a href="#/transport-settings">-->
-            <!--<span title="Transport Configuration" class="label label-danger label-icon">T</span>-->
-            <!--<i class="fa fa-exchange"></i>-->
-            <!--Transport Settings</a></li>-->
+                HL7 Context-free</a></li>
+            <li ng-class="{'active':isActive('/cb')}"><a href="#/cb"><span class="badge">4</span>
+                <i class="fa fa-th-list"></i>
+                HL7 Context-based</a></li>
             <li ng-class="{'active':isActive('/doc')}"><a href="#/doc"><i class="fa fa-book"></i>Documentation</a></li>
-            <li ng-class="{'active':isActive('/about')}"><a href="#/about"><i
-                    class="fa fa-question-circle"></i>About</a></li>
-            <!--<li ng-class="{'active':isActive('/contact')}"><a href="#/contact"><i class="fa fa-phone-square"></i>Contact Us</a></li>-->
-        </ul>
+            <li ng-class="{'active':isActive('/about')}"><a href="#/about"><i class="fa fa-question-circle"></i>About</a></li>
+         </ul>
 
   <!--      <ul class="nav navbar-nav navbar-right" style="margin-right: 15px" ng-show="!transportSupported">
             <li class="dropdown clear-fix">
