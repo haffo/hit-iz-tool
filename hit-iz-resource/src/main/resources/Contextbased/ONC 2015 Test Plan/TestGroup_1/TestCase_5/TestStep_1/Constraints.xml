@@ -4474,6 +4474,35 @@
                     </NOT>
                   </Assertion>
                 </Constraint>
+                <Constraint ID="Content" Target="5[1].1[1]">
+                  <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="OBX[1].5[1].1[1]" Source="TestCase" TestDataCategorization="Value-Test Case Fixed"/>
+                  <Description>Invalid content (based on test case fixed data). The value at
+                    OBX-5.1 (Observation Value) does not match the expected
+                    value: '253088698300012711180212'.</Description>
+                  <Assertion>
+                    <PlainText IgnoreCase="true" Path="5[1].1[1]" Text="253088698300012711180212"/>
+                  </Assertion>
+                </Constraint>
+                <Constraint ID="Content" Target="5[1].2[1]">
+                  <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="OBX[1].5[1].2[1]" Source="TestCase" TestDataCategorization="Presence-Test Case Proper"/>
+                  <Description>Expected content is missing. The empty value at
+                    OBX-5.2 (Observation Value) is expected to be
+                    present.</Description>
+                  <Assertion>
+                    <Presence Path="5[1].2[1]"/>
+                  </Assertion>
+                </Constraint>
+                <Constraint ID="Content" Target="5[1].3[1]">
+                  <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)" ReferencePath="OBX[1].5[1].3[1]" Source="TestCase" TestDataCategorization="Value-Profile Fixed"/>
+                  <Description>Expected content is missing. The empty value at
+                    OBX-5.3 (Observation Value) is expected to be
+                    present.</Description>
+                  <Assertion>
+                    <Presence Path="5[1].3[1]"/>
+                  </Assertion>
+                </Constraint>
+                
+                
               </Constraints>
             </Pattern>
             <Pattern>
