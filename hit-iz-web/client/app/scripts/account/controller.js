@@ -255,7 +255,6 @@ angular.module('account')
             //     });
             // };
 
-
         }
     ]);
 
