@@ -13,7 +13,7 @@ angular.module('format').factory('CursorService',
      * @param editor
      */
     CursorService.prototype.getCoordinate = function (editor) {
-       return angular.fromJson({start: {line : -1, index: -1}, end: {line: -1, index: -1}, triggerTree: {}});
+      return angular.fromJson({start: {line : -1, index: -1}, end: {line: -1, index: -1}, triggerTree: {}});
     };
 
     /**
@@ -660,36 +660,84 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
   };
 
 
-  TestCaseService.prototype.buildCFTestCases = function (obj) {
-    obj.label = !obj.children && !obj.testCases ? obj.position + "." + obj.name : obj.name;
-    obj['nav'] = {};
-    obj['nav']['testStep'] = obj.name;
-    obj['nav']['testCase'] = null;
-    obj['nav']['testPlan'] = null;
-    obj['nav']['testGroup'] = null;
-    if (obj.children) {
-      var that = this;
-      obj.children = $filter('orderBy')(obj.children, 'position');
-      angular.forEach(obj.children, function (child) {
-        child['nav'] = {};
-        child['nav']['testStep'] = child.name;
-        child['nav']['testCase'] = obj.name;
-        child['nav']['testPlan'] = obj['nav'].testPlan;
-        child['nav']['testGroup'] = null;
-        that.buildCFTestCases(child);
-      });
-    }else if (obj.testCases) {
-      var that = this;
-      obj.testCases = $filter('orderBy')(obj.testCases, 'position');
-      angular.forEach(obj.testCases, function (child) {
-        child['nav'] = {};
-        child['nav']['testStep'] = child.name;
-        child['nav']['testCase'] = obj.name;
-        child['nav']['testPlan'] = obj['nav'].testPlan;
-        child['nav']['testGroup'] = null;
-        that.buildCFTestCases(child);
-      });
+  TestCaseService.prototype.buildCFTestCases = function (node) {
+
+    if (node.type === 'TestObject' || node.type === 'TestStepGroup') {
+      node.label = node.position + "." + node.name;
+    } else {
+      node.label = node.name;
     }
+
+    if (!node['nav']) node['nav'] = {};
+    var that = this;
+
+    if (node.testSteps) {
+      if (!node["children"]) {
+        node["children"] = node.testSteps;
+        angular.forEach(node.children, function (testStep) {
+          testStep['parent'] = {
+            id: node.id,
+            type: node.type
+          };
+          testStep['nav'] = {};
+          testStep['nav']['testStep'] = testStep.name;
+          testStep['nav']['testGroup'] =  node.type === 'TestStepGroup' ? node.name : node['nav'].testGroup;
+          testStep['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+          that.buildCFTestCases(testStep);
+        });
+      } else {
+        angular.forEach(node.testSteps, function (testStep) {
+          node["children"].push(testStep);
+          testStep['nav'] = {};
+          testStep['parent'] = {
+            id: node.id,
+            type: node.type
+          };
+          testStep['nav'] = {};
+          testStep['nav']['testStep'] = testStep.name;
+          testStep['nav']['testGroup'] =  node.type === 'TestStepGroup' ? node.name : node['nav'].testGroup;
+          testStep['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+          that.buildCFTestCases(testStep);
+        });
+      }
+      node["children"] = $filter('orderBy')(node["children"], 'position');
+      delete node.testSteps;
+    }
+
+
+    if (node.testStepGroups) {
+      if (!node["children"]) {
+        node["children"] = node.testStepGroups;
+        angular.forEach(node.children, function (testStepGroup) {
+          testStepGroup['nav'] = {};
+          testStepGroup['parent'] = {
+            id: node.id,
+            type: node.type
+          };
+          testStepGroup['nav']['testStep'] = null;
+          testStepGroup['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+          testStepGroup['nav']['testGroup'] = node.type === 'TestStepGroup' ? node.name : node['nav'].testGroup;
+          that.buildCFTestCases(testStepGroup);
+        });
+      } else {
+        angular.forEach(node.testStepGroups, function (testStepGroup) {
+          node["children"].push(testStepGroup);
+          testStepGroup['nav'] = {};
+          testStepGroup['parent'] = {
+            id: node.id,
+            type: node.type
+          };
+          testStepGroup['nav']['testCase'] = null;
+          testStepGroup['nav']['testStep'] = null;
+          testStepGroup['nav']['testPlan'] = node.type === 'TestPlan' ? node.name : node['nav'].testPlan;
+          testStepGroup['nav']['testGroup'] = node.type === 'TestStepGroup' ? node.name : node['nav'].testGroup;
+          that.buildCFTestCases(testStepGroup);
+        });
+      }
+      node["children"] = $filter('orderBy')(node["children"], 'position');
+      delete node.testStepGroups;
+    }
+
   };
 
 
@@ -1218,17 +1266,17 @@ angular.module('format').factory('Transport', function ($q, $http, StorageServic
       },
 
 
-  setTimeout: function (timeout) {
-    this.timeout = timeout;
-    StorageService.set(StorageService.TRANSPORT_TIMEOUT, timeout)
-  },
+      setTimeout: function (timeout) {
+        this.timeout = timeout;
+        StorageService.set(StorageService.TRANSPORT_TIMEOUT, timeout)
+      },
 
-  getTimeout: function () {
-    return this.timeout;
-  },
+      getTimeout: function () {
+        return this.timeout;
+      },
 
 
-  getAllConfigForms: function () {
+      getAllConfigForms: function () {
         var delay = $q.defer();
         $http.get('api/transport/config/forms').then(
           function (response) {
@@ -1840,7 +1888,7 @@ angular.module('format').factory('TestExecutionService',
       TestExecutionService.testStepCommentsChanges = {};
       TestExecutionService.testCaseCommentsChanged = {};
       TestExecutionService.testCaseCommentsChanges = {};
-     };
+    };
 
 
     TestExecutionService.clearTestCase = function (testCaseId) {
