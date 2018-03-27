@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
+<ConformanceProfile ID="f5545482-8dda-4495-930b-7383117cdf31" Type="Constrainable" HL7Version="2.5.1" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Jungyubw/NIST_healthcare_hl7_v2_profile_schema/master/Schema/NIST%20Validation%20Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<MetaData Name="Z23 Message profile" OrgName="NIST" Version="1.0.1" Date="20160328" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
+	<Encodings>
+		<Encoding>ER7</Encoding>
+		<Encoding>XML</Encoding>
+	</Encodings>
+	<Messages>
+		<Message ID="8da46a56-9f9a-4897-b7f1-08862c73d66a" Type="ACK" Event="ACK" StructID="ACK" Description="Z23: Return an Acknowledgement" Identifier="Z23" Name="Return an Acknowledgement">
+			<Segment Ref="MSH_IZ 1_5_Z23" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MSA_IZ1_5" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="ERR_IZ_1_5" Usage="RE" Min="0" Max="*"/>
+		</Message>
+	</Messages>
+	<Segments>
+		<Segment ID="MSH_IZ 1_5_Z23" Label="MSH_IZ 1_5_Z23" Name="MSH" Description="Message Header">
+			<Field Name="Field Separator" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="1" ItemNo="00001"/>
+			<Field Name="Encoding Characters" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="4" MaxLength="4" ItemNo="00002"/>
+			<Field Name="Sending Application" Usage="RE" Min="0" Max="1" Datatype="HD_IZ" MinLength="1" MaxLength="227" Binding="HL70363_IZ" BindingStrength="R" BindingLocation="1" ItemNo="00003"/>
+			<Field Name="Sending Facility" Usage="RE" Min="0" Max="1" Datatype="HD_IZ" MinLength="1" MaxLength="227" Binding="HL70362_IZ" BindingStrength="R" BindingLocation="1" ItemNo="00004"/>
+			<Field Name="Receiving Application" Usage="RE" Min="0" Max="1" Datatype="HD_IZ" MinLength="1" MaxLength="227" Binding="HL70361_IZ" BindingStrength="R" BindingLocation="1" ItemNo="00005"/>
+			<Field Name="Receiving Facility" Usage="RE" Min="0" Max="1" Datatype="HD_IZ" MinLength="1" MaxLength="227" Binding="HL70362_IZ" BindingStrength="R" BindingLocation="1" ItemNo="00006"/>
+			<Field Name="Date/Time Of Message" Usage="R" Min="1" Max="1" Datatype="TS_Z" MinLength="1" MaxLength="26" ItemNo="00007"/>
+			<Field Name="Security" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="40" ItemNo="00008"/>
+			<Field Name="Message Type" Usage="R" Min="1" Max="1" Datatype="MSG_IZ_ACK_1_5" MinLength="1" MaxLength="15" ItemNo="00009"/>
+			<Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="199" ItemNo="00010"/>
+			<Field Name="Processing ID" Usage="R" Min="1" Max="1" Datatype="PT_IZ" MinLength="1" MaxLength="3" ItemNo="00011"/>
+			<Field Name="Version ID" Usage="R" Min="1" Max="1" Datatype="VID_IZ" MinLength="1" MaxLength="60" ItemNo="00012"/>
+			<Field Name="Sequence Number" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="15" ItemNo="00013"/>
+			<Field Name="Continuation Pointer" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="180" ItemNo="00014"/>
+			<Field Name="Accept Acknowledgment Type" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70155_IZ" BindingStrength="R" ItemNo="00015"/>
+			<Field Name="Application Acknowledgment Type" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70155_IZ" BindingStrength="R" ItemNo="00016"/>
+			<Field Name="Country Code" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70399" BindingStrength="R" ItemNo="00017"/>
+			<Field Name="Character Set" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="16" Binding="HL70211" BindingStrength="R" ItemNo="00692"/>
+			<Field Name="Principal Language Of Message" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00693"/>
+			<Field Name="Alternate Character Set Handling Scheme" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70356" BindingStrength="R" ItemNo="01317"/>
+			<Field Name="Message Profile Identifier" Usage="R" Min="1" Max="*" Datatype="EI_IZ_ACK_1_5" MinLength="1" MaxLength="427" Binding="PHVS_ImmunizationProfileIdentifier_IIS" BindingStrength="R" BindingLocation="1" ItemNo="01598"/>
+			<Field Name="Sending Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" BindingStrength="R" BindingLocation="1"/>
+			<Field Name="Receiving Responsible Organization" Usage="RE" Min="0" Max="1" Datatype="XON_IZ" MinLength="1" MaxLength="*" BindingStrength="R" BindingLocation="1"/>
+			<Field Name="Sending Network Address" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="*"/>
+			<Field Name="Receiving Network Address" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="*"/>
+		</Segment>
+		<Segment ID="SFT" Label="SFT" Name="SFT" Description="Software Segment">
+			<Field Name="Software Vendor Organization" Usage="R" Min="1" Max="1" Datatype="XON" MinLength="1" MaxLength="567" ItemNo="01834"/>
+			<Field Name="Software Certified Version or Release Number" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="15" ItemNo="01835"/>
+			<Field Name="Software Product Name" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="01836"/>
+			<Field Name="Software Binary ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="01837"/>
+			<Field Name="Software Product Information" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="1024" ItemNo="01838"/>
+			<Field Name="Software Install Date" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="01839"/>
+		</Segment>
+		<Segment ID="MSA_IZ1_5" Label="MSA_IZ1_5" Name="MSA" Description="Message Acknowledgment">
+			<Field Name="Acknowledgment Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="2" MaxLength="2" Binding="HL70008_IZ" BindingStrength="R" ItemNo="00018"/>
+			<Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="199" ItemNo="00010"/>
+			<Field Name="Text Message" Usage="X" Min="0" Max="0" Datatype="ST" MinLength="1" MaxLength="80" ItemNo="00020"/>
+			<Field Name="Expected Sequence Number" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="15" ItemNo="00021"/>
+			<Field Name="Delayed Acknowledgment Type" Usage="X" Min="0" Max="0" Datatype="NUL" MinLength="1" MaxLength="1" ItemNo="00022"/>
+			<Field Name="Error Condition" Usage="X" Min="0" Max="0" Datatype="CE" MinLength="1" MaxLength="250" Binding="HL70357" BindingStrength="R" BindingLocation="1" ItemNo="00023"/>
+		</Segment>
+		<Segment ID="ERR_IZ_1_5" Label="ERR_IZ_1_5" Name="ERR" Description="Error">
+			<Field Name="Error Code and Location" Usage="X" Min="0" Max="0" Datatype="ELD" MinLength="1" MaxLength="493" ItemNo="00024"/>
+			<Field Name="Error Location" Usage="RE" Min="0" Max="1" Datatype="ERL_IZ" MinLength="1" MaxLength="18" ItemNo="01812"/>
+			<Field Name="HL7 Error Code" Usage="R" Min="1" Max="1" Datatype="CWE_IZ" MinLength="1" MaxLength="705" Binding="HL70357_IZ" BindingStrength="R" BindingLocation="1" ItemNo="01813"/>
+			<Field Name="Severity" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70516_IZ" BindingStrength="R" ItemNo="01814"/>
+			<Field Name="Application Error Code" Usage="RE" Min="0" Max="1" Datatype="CWE_IZ" MinLength="1" MaxLength="705" Binding="HL70533_IZ" BindingStrength="R" BindingLocation="1" ItemNo="01815"/>
+			<Field Name="Application Error Parameter" Usage="O" Min="0" Max="10" Datatype="ST" MinLength="1" MaxLength="80" ItemNo="01816"/>
+			<Field Name="Diagnostic Information" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="2048" ItemNo="01817"/>
+			<Field Name="User Message" Usage="RE" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="250" ItemNo="01818"/>
+			<Field Name="Inform Person Indicator" Usage="O" Min="0" Max="*" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70517" BindingStrength="R" ItemNo="01819"/>
+			<Field Name="Override Type" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="705" Binding="HL70518" BindingStrength="R" BindingLocation="1" ItemNo="01820"/>
+			<Field Name="Override Reason Code" Usage="O" Min="0" Max="*" Datatype="CWE" MinLength="1" MaxLength="705" Binding="HL70519" BindingStrength="R" BindingLocation="1" ItemNo="01821"/>
+			<Field Name="Help Desk Contact Point" Usage="O" Min="0" Max="*" Datatype="XTN" MinLength="1" MaxLength="652" ItemNo="01822"/>
+		</Segment>
+	</Segments>
+	<Datatypes>
+		<Datatype ID="PT_IZ" Label="PT_IZ" Name="PT" Description="Processing Type">
+			<Component Name="Processing ID" Usage="R" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70103_IZ" BindingStrength="R"/>
+			<Component Name="Processing Mode" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70207" BindingStrength="R"/>
+		</Datatype>
+		<Datatype ID="VID_IZ" Label="VID_IZ" Name="VID" Description="Version Identifier">
+			<Component Name="Version ID" Usage="R" Datatype="ID" MinLength="5" MaxLength="5" Binding="HL70104_IZ" BindingStrength="R"/>
+			<Component Name="Internationalization Code" Usage="O" Datatype="CE" MinLength="1" MaxLength="483" Binding="HL70399" BindingStrength="R" BindingLocation="1"/>
+			<Component Name="International Version ID" Usage="O" Datatype="CE" MinLength="1" MaxLength="483"/>
+		</Datatype>
+		<Datatype ID="CWE_IZ" Label="CWE_IZ" Name="CWE" Description="Coded with Exceptions">
+			<Component Name="Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="999"/>
+			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
+			<Component Name="Name of Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
+			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="999"/>
+			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999" Hide="true"/>
+			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R" Hide="true"/>
+			<Component Name="Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
+			<Component Name="Alternate Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
+			<Component Name="Original Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+		</Datatype>
+		<Datatype ID="XON_IZ" Label="XON_IZ" Name="XON" Description="Extended Composite Name and Identification Number for Organizations">
+			<Component Name="Organization Name" Usage="RE" Datatype="ST" MinLength="1" MaxLength="50"/>
+			<Component Name="Organization Name Type Code" Usage="O" Datatype="IS" MinLength="1" MaxLength="20"/>
+			<Component Name="ID Number" Usage="X" Datatype="NM" MinLength="1" MaxLength="4"/>
+			<Component Name="Check Digit" Usage="O" Datatype="NM" MinLength="1" MaxLength="1"/>
+			<Component Name="Check Digit Scheme" Usage="O" Datatype="ID" MinLength="1" MaxLength="3"/>
+			<Component Name="Assigning Authority" Usage="C" Datatype="HD_IZ" MinLength="1" MaxLength="227"/>
+			<Component Name="Identifier Type Code" Usage="C" Datatype="ID" MinLength="2" MaxLength="5" Binding="HL70203_IZ" BindingStrength="R"/>
+			<Component Name="Assigning Facility" Usage="O" Datatype="HD" MinLength="1" MaxLength="227"/>
+			<Component Name="Name Representation Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="1"/>
+			<Component Name="Organization Identifier" Usage="C" Datatype="ST" MinLength="1" MaxLength="20"/>
+		</Datatype>
+		<Datatype ID="HD_IZ" Label="HD_IZ" Name="HD" Description="Hierarchic Designator">
+			<Component Name="Namespace ID" Usage="C" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70363_IZ" BindingStrength="R"/>
+			<Component Name="Universal ID" Usage="C" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Universal ID Type" Usage="C" Datatype="ID" MinLength="1" MaxLength="6" Binding="HL70301_IZ" BindingStrength="R"/>
+		</Datatype>
+		<Datatype ID="EI_IZ_ACK_1_5" Label="EI_IZ_ACK_1_5" Name="EI" Description="Entity Identifier">
+			<Component Name="Entity Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Namespace ID" Usage="C" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70363_IZ" BindingStrength="R"/>
+			<Component Name="Universal ID" Usage="C" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Universal ID Type" Usage="C" Datatype="ID" MinLength="1" MaxLength="6" Binding="HL70301_IZ" BindingStrength="R"/>
+		</Datatype>
+		<Datatype ID="MSG_IZ_ACK_1_5" Label="MSG_IZ_ACK_1_5" Name="MSG" Description="Message Type">
+			<Component Name="Message Code" Usage="R" Datatype="ID" MinLength="3" MaxLength="3" Binding="HL70076_IZ" BindingStrength="R"/>
+			<Component Name="Trigger Event" Usage="R" Datatype="ID" MinLength="3" MaxLength="3" Binding="HL70003_IZ" BindingStrength="R"/>
+			<Component Name="Message Structure" Usage="R" Datatype="ID" MinLength="3" MaxLength="7" Binding="HL70354_IZ" BindingStrength="R"/>
+		</Datatype>
+		<Datatype ID="ERL_IZ" Label="ERL_IZ" Name="ERL" Description="Error Location">
+			<Component Name="Segment ID" Usage="R" Datatype="ST" MinLength="3" MaxLength="3"/>
+			<Component Name="Segment Sequence" Usage="R" Datatype="NM" MinLength="1" MaxLength="2"/>
+			<Component Name="Field Position" Usage="C" Datatype="NM" MinLength="1" MaxLength="2"/>
+			<Component Name="Field Repetition" Usage="C" Datatype="NM" MinLength="1" MaxLength="2"/>
+			<Component Name="Component Number" Usage="C" Datatype="NM" MinLength="1" MaxLength="2"/>
+			<Component Name="Sub-Component Number" Usage="RE" Datatype="NM" MinLength="1" MaxLength="2"/>
+		</Datatype>
+		<Datatype ID="TS_Z" Label="TS_Z" Name="TS" Description="Time Stamp">
+			<Component Name="Time" Usage="R" Datatype="DTM" MinLength="1" MaxLength="24"/>
+			<Component Name="Degree of Precision" Usage="X" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70529" BindingStrength="R"/>
+		</Datatype>
+		<Datatype ID="XTN" Label="XTN" Name="XTN" Description="Extended Telecommunication Number">
+			<Component Name="Telephone Number" Usage="B" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Telecommunication Use Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70201" BindingStrength="R"/>
+			<Component Name="Telecommunication Equipment Type" Usage="O" Datatype="ID" MinLength="1" MaxLength="8" Binding="HL70202" BindingStrength="R"/>
+			<Component Name="Email Address" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Country Code" Usage="O" Datatype="NM" MinLength="1" MaxLength="3"/>
+			<Component Name="Area/City Code" Usage="O" Datatype="NM" MinLength="1" MaxLength="5"/>
+			<Component Name="Local Number" Usage="O" Datatype="NM" MinLength="1" MaxLength="9"/>
+			<Component Name="Extension" Usage="O" Datatype="NM" MinLength="1" MaxLength="5"/>
+			<Component Name="Any Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Extension Prefix" Usage="O" Datatype="ST" MinLength="1" MaxLength="4"/>
+			<Component Name="Speed Dial Code" Usage="O" Datatype="ST" MinLength="1" MaxLength="6"/>
+			<Component Name="Unformatted Telephone number" Usage="C" Datatype="ST" MinLength="1" MaxLength="199"/>
+		</Datatype>
+		<Datatype ID="HD" Label="HD" Name="HD" Description="Hierarchic Designator">
+			<Component Name="Namespace ID" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70300" BindingStrength="R"/>
+			<Component Name="Universal ID" Usage="C" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Universal ID Type" Usage="C" Datatype="ID" MinLength="1" MaxLength="6" Binding="HL70301" BindingStrength="R"/>
+		</Datatype>
+		<Datatype ID="DTM" Label="DTM" Name="DTM" Description="Date/Time"/>
+		<Datatype ID="XON" Label="XON" Name="XON" Description="Extended Composite Name and Identification Number for Organizations">
+			<Component Name="Organization Name" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
+			<Component Name="Organization Name Type Code" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="HL70204" BindingStrength="R"/>
+			<Component Name="ID Number" Usage="B" Datatype="NM" MinLength="1" MaxLength="4"/>
+			<Component Name="Check Digit" Usage="O" Datatype="NM" MinLength="1" MaxLength="1"/>
+			<Component Name="Check Digit Scheme" Usage="O" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70061" BindingStrength="R"/>
+			<Component Name="Assigning Authority" Usage="O" Datatype="HD" MinLength="1" MaxLength="227" Binding="HL70363" BindingStrength="R" BindingLocation="1"/>
+			<Component Name="Identifier Type Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="5" Binding="HL70203" BindingStrength="R"/>
+			<Component Name="Assigning Facility" Usage="O" Datatype="HD" MinLength="1" MaxLength="227"/>
+			<Component Name="Name Representation Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70465" BindingStrength="R"/>
+			<Component Name="Organization Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
+		</Datatype>
+		<Datatype ID="CWE" Label="CWE" Name="CWE" Description="Coded with Exceptions">
+			<Component Name="Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
+			<Component Name="Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Name of Coding System" Usage="O" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
+			<Component Name="Alternate Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Name of Alternate Coding System" Usage="O" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Coding System Version ID" Usage="C" Datatype="ST" MinLength="1" MaxLength="10"/>
+			<Component Name="Alternate Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
+			<Component Name="Original Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+		</Datatype>
+		<Datatype ID="IS" Label="IS" Name="IS" Description="String Data"/>
+		<Datatype ID="TS" Label="TS" Name="TS" Description="Time Stamp">
+			<Component Name="Time" Usage="R" Datatype="DTM" MinLength="1" MaxLength="24"/>
+			<Component Name="Degree of Precision" Usage="B" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70529" BindingStrength="R"/>
+		</Datatype>
+		<Datatype ID="ELD" Label="ELD" Name="ELD" Description="Error Location and Description">
+			<Component Name="Segment ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="3"/>
+			<Component Name="Segment Sequence" Usage="O" Datatype="NM" MinLength="1" MaxLength="2"/>
+			<Component Name="Field Position" Usage="O" Datatype="NM" MinLength="1" MaxLength="2"/>
+			<Component Name="Code Identifying Error" Usage="O" Datatype="CE" MinLength="1" MaxLength="483" Binding="HL70357" BindingStrength="R" BindingLocation="1"/>
+		</Datatype>
+		<Datatype ID="ST" Label="ST" Name="ST" Description="String Data"/>
+		<Datatype ID="CE" Label="CE" Name="CE" Description="Coded Element">
+			<Component Name="Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
+			<Component Name="Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Name of Coding System" Usage="O" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
+			<Component Name="Alternate Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Name of Alternate Coding System" Usage="O" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+		</Datatype>
+		<Datatype ID="NM" Label="NM" Name="NM" Description="Numeric"/>
+		<Datatype ID="ID" Label="ID" Name="ID" Description="String Data"/>
+		<Datatype ID="TX" Label="TX" Name="TX" Description="Text Data"/>
+		<Datatype ID="NUL" Label="NUL" Name="NUL" Description="#FIXME#"/>
+	</Datatypes>
+</ConformanceProfile>

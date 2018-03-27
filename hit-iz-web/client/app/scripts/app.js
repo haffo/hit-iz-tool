@@ -49,7 +49,6 @@ var app = angular.module('hit-app', [
   'hit-report-viewer',
   'hit-testcase-details',
   'hit-testcase-tree',
-  'hit-doc',
   'hit-dqa',
   'hit-settings',
   'documentation',
@@ -92,7 +91,7 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
       templateUrl: 'views/home.html'
     })
     .when('/doc', {
-      templateUrl: 'views/doc.html'
+      templateUrl: 'views/documentation/documentation.html'
     })
     .when('/setting', {
       templateUrl: 'views/setting.html'
@@ -335,7 +334,7 @@ app.factory('interceptor4', function ($q, $rootScope, $location, StorageService,
 });
 
 
-app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle, Transport, IdleService, userInfoService, base64, Notification) {
+app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle, Transport, IdleService, userInfoService, base64, Notification,$filter) {
 
 
   $rootScope.appInfo = {};
@@ -359,19 +358,94 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
 
 
   AppInfo.get().then(function (appInfo) {
-    $rootScope.appInfo = appInfo;
+      $rootScope.loadingDomain = true;
+      $rootScope.appInfo = appInfo;
 //        $rootScope.apiLink = $window.location.protocol + "//" + $window.location.host + getContextPath() + $rootScope.appInfo.apiDocsPath;
-    $rootScope.apiLink = $rootScope.appInfo.url + $rootScope.appInfo.apiDocsPath;
-    httpHeaders.common['rsbVersion'] = appInfo.rsbVersion;
-    var previousToken = StorageService.get(StorageService.APP_STATE_TOKEN);
-    if (previousToken != null && previousToken !== appInfo.rsbVersion) {
-      $rootScope.openVersionChangeDlg();
+      $rootScope.apiLink = $rootScope.appInfo.url + $rootScope.appInfo.apiDocsPath;
+      httpHeaders.common['rsbVersion'] = appInfo.rsbVersion;
+      var previousToken = StorageService.get(StorageService.APP_STATE_TOKEN);
+      if (previousToken != null && previousToken !== appInfo.rsbVersion) {
+        $rootScope.openVersionChangeDlg();
+      }
+      StorageService.set(StorageService.APP_STATE_TOKEN, appInfo.rsbVersion);
+
+      var storedDomain = StorageService.get(StorageService.APP_SELECTED_DOMAIN);
+      var domainFound = null;
+      $rootScope.domain = null;
+      $rootScope.appInfo.selectedDomain = null;
+
+      if ($rootScope.appInfo.domains != null) {
+        if (storedDomain != null) {
+          $rootScope.appInfo.domains = $filter('orderBy')($rootScope.appInfo.domains, 'position');
+          $rootScope.domain = null;
+          for (var i = 0; i < $rootScope.appInfo.domains.length; i++) {
+            if ($rootScope.appInfo.domains[i].value === storedDomain) {
+              domainFound = $rootScope.appInfo.domains[i].value;
+              break;
+            }
+          }
+        } else {
+          domainFound = $rootScope.appInfo.domains[0].value;
+        }
+        if (domainFound == null) {
+          $rootScope.openCriticalErrorDlg("Cannot find the domain selected. Please refresh the page or select a different domain");
+        } else {
+          $rootScope.clearDomainSession();
+          AppInfo.getDomain(domainFound).then(function (result) {
+            $rootScope.appInfo.selectedDomain = result.value;
+            StorageService.set(StorageService.APP_SELECTED_DOMAIN, result.value);
+            $rootScope.domain = result;
+            $rootScope.loadingDomain = false;
+          }, function (error) {
+            $rootScope.loadingDomain = true;
+            StorageService.set(StorageService.APP_SELECTED_DOMAIN, $rootScope.appInfo.domains[0].value);
+            $rootScope.openCriticalErrorDlg("Failed to load the domain selected. Default domain will be selected");
+          });
+        }
+      } else {
+        $rootScope.openCriticalErrorDlg("No domain found. Please contact the administrator");
+      }
     }
-    StorageService.set(StorageService.APP_STATE_TOKEN, appInfo.rsbVersion);
-  }, function (error) {
+  , function (error) {
+    $rootScope.loadingDomain = true;
     $rootScope.appInfo = {};
-    $rootScope.openCriticalErrorDlg("Sorry we could not communicate with the server. Please try again");
+    $rootScope.openCriticalErrorDlg("Failed to fetch the server. Please try again");
   });
+
+  $rootScope.clearDomainSession = function(){
+    StorageService.set(StorageService.CF_SELECTED_TESTPLAN_ID_KEY, null);
+    StorageService.set(StorageService.CF_EDITOR_CONTENT_KEY, null);
+    StorageService.set(StorageService.CF_LOADED_TESTCASE_ID_KEY, null);
+    StorageService.set(StorageService.CB_EDITOR_CONTENT_KEY, null);
+    StorageService.set(StorageService.CB_SELECTED_TESTCASE_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_LOADED_TESTCASE_ID_KEY, null);
+    StorageService.set(StorageService.CB_LOADED_TESTCASE_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_LOADED_TESTSTEP_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_LOADED_TESTSTEP_ID_KEY, null);
+    StorageService.set(StorageService.ISOLATED_EDITOR_CONTENT_KEY, null);
+    StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_SELECTED_TESTPLAN_ID_KEY, null);
+    StorageService.set(StorageService.CB_SELECTED_TESTPLAN_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY, null);
+    StorageService.set(StorageService.CF_SELECTED_TESTPLAN_SCOPE_KEY, null);
+    StorageService.set(StorageService.CF_SELECTED_TESTPLAN_ID_KEY, null);
+    StorageService.set(StorageService.CF_SELECTED_TESTPLAN_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTCASE_ID_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTCASE_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_LOADED_TESTCASE_ID_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_LOADED_TESTCASE_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_LOADED_TESTSTEP_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_LOADED_TESTSTEP_ID_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_ID_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_SCOPE_KEY, null);
+    StorageService.set(StorageService.APP_SELECTED_DOMAIN, null);
+  };
+
+  $rootScope.reloadPage = function () {
+    $window.location.reload();
+  };
+
 
 
   $rootScope.$watch(function () {
@@ -939,7 +1013,8 @@ app.factory('Resource', ['$resource', function ($resource) {
 
     return resource;
   };
-}]);
+}])
+
 
 
 

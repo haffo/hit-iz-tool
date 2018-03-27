@@ -1,0 +1,1357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
+<ValueSetLibrary xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Jungyubw/NIST_healthcare_hl7_v2_profile_schema/master/Schema/NIST%20Validation%20Schema/ValueSets.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ValueSetLibraryIdentifier="cb7de766-81af-4728-9cc4-06521f93396f">
+	<MetaData Name="Z31 Message ValueSets" OrgName="NIST" Version="1.0.0" Date="20160219" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
+	<NoValidation>
+		<BindingIdentifier>HL70361_IZ</BindingIdentifier>
+		<BindingIdentifier>HL70362_IZ</BindingIdentifier>
+		<BindingIdentifier>HL70363_IZ</BindingIdentifier>
+		<BindingIdentifier>HL70295</BindingIdentifier>
+		<BindingIdentifier>HL70296</BindingIdentifier>
+		<BindingIdentifier>HL70333</BindingIdentifier>
+		<BindingIdentifier>HL70099</BindingIdentifier>
+		<BindingIdentifier>HL70289</BindingIdentifier>
+		<BindingIdentifier>HL70288</BindingIdentifier>
+		<BindingIdentifier>HL70328</BindingIdentifier>
+		<BindingIdentifier>HL70327</BindingIdentifier>
+		<BindingIdentifier>HL70222</BindingIdentifier>
+		<BindingIdentifier>HL70471</BindingIdentifier>
+		<BindingIdentifier>HL70399</BindingIdentifier>
+		<BindingIdentifier>HL70363</BindingIdentifier>
+		<BindingIdentifier>HL70297</BindingIdentifier>
+		<BindingIdentifier>HL70519</BindingIdentifier>
+		<BindingIdentifier>HL70212</BindingIdentifier>
+		<BindingIdentifier>HL70172</BindingIdentifier>
+		<BindingIdentifier>HL70171</BindingIdentifier>
+		<BindingIdentifier>HL70300</BindingIdentifier>
+		<BindingIdentifier>HL70447</BindingIdentifier>
+		<BindingIdentifier>HL70446</BindingIdentifier>
+		<BindingIdentifier>HL70448</BindingIdentifier>
+	</NoValidation>
+	<ValueSetDefinitions Group="CDC-HL7-IZ" Order="1">
+		<ValueSetDefinition BindingIdentifier="HL70003_IZ" Name="Event type">
+			<ValueElement Value="V04" CodeSystem="HL70003" DisplayName="V04"/>
+			<ValueElement Value="K11" CodeSystem="HL70003" DisplayName="K11"/>
+			<ValueElement Value="Q11" CodeSystem="HL70003" DisplayName="Q11"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70533_IZ" Name="Application Error Code" Extensibility="Open">
+			<ValueElement Value="1" CodeSystem="HL70533" DisplayName="Illogical Date error"/>
+			<ValueElement Value="2" CodeSystem="HL70533" DisplayName="Invalid Date"/>
+			<ValueElement Value="3" CodeSystem="HL70533" DisplayName="Illogical Value error"/>
+			<ValueElement Value="4" CodeSystem="HL70533" DisplayName="Invalid value"/>
+			<ValueElement Value="5" CodeSystem="HL70533" DisplayName="Table value not found"/>
+			<ValueElement Value="6" CodeSystem="HL70533" DisplayName="Required observation missing"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70301_IZ" Name="Universal ID type">
+			<ValueElement Value="ISO" CodeSystem="HL70301" DisplayName="ISO"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70001_IZ" Name="Sex">
+			<ValueElement Value="F" CodeSystem="HL70001" DisplayName="Female"/>
+			<ValueElement Value="M" CodeSystem="HL70001" DisplayName="Male"/>
+			<ValueElement Value="U" CodeSystem="HL70001" DisplayName="Unknown/undifferentiated"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70441_IZ" Name="Immunization registry status">
+			<ValueElement Value="A" CodeSystem="HL70441" DisplayName="Active"/>
+			<ValueElement Value="I" CodeSystem="HL70441" DisplayName="Inactive--Unspecified"/>
+			<ValueElement Value="L" CodeSystem="HL70441" DisplayName="Inactive-Lost to follow-up (cannot contact)"/>
+			<ValueElement Value="M" CodeSystem="HL70441" DisplayName="Inactive-Moved or gone elsewhere (transferred)"/>
+			<ValueElement Value="P" CodeSystem="HL70441" DisplayName="Inactive-Permanently inactive (do not re-activate or add new entries to this record)"/>
+			<ValueElement Value="U" CodeSystem="HL70441" DisplayName="Unknown"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70357_IZ" Name="Message error status codes">
+			<ValueElement Value="0" CodeSystem="HL70357" DisplayName="Message accepted"/>
+			<ValueElement Value="100" CodeSystem="HL70357" DisplayName="Segment sequence error"/>
+			<ValueElement Value="101" CodeSystem="HL70357" DisplayName="Required field missing"/>
+			<ValueElement Value="102" CodeSystem="HL70357" DisplayName="Data type error"/>
+			<ValueElement Value="103" CodeSystem="HL70357" DisplayName="Table value not found"/>
+			<ValueElement Value="200" CodeSystem="HL70357" DisplayName="Unsupported message type"/>
+			<ValueElement Value="201" CodeSystem="HL70357" DisplayName="Unsupported event code"/>
+			<ValueElement Value="202" CodeSystem="HL70357" DisplayName="Unsupported processing ID"/>
+			<ValueElement Value="203" CodeSystem="HL70357" DisplayName="Unsupported version ID"/>
+			<ValueElement Value="204" CodeSystem="HL70357" DisplayName="Unknown key identifier"/>
+			<ValueElement Value="205" CodeSystem="HL70357" DisplayName="Duplicate key identifier"/>
+			<ValueElement Value="206" CodeSystem="HL70357" DisplayName="Application record locked"/>
+			<ValueElement Value="207" CodeSystem="HL70357" DisplayName="Application internal error"/>
+			<ValueElement Value="999" CodeSystem="HL70357" DisplayName="Application error"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70103_IZ" Name="Processing ID">
+			<ValueElement Value="D" CodeSystem="HL70103" DisplayName="Debugging"/>
+			<ValueElement Value="P" CodeSystem="HL70103" DisplayName="Production"/>
+			<ValueElement Value="T" CodeSystem="HL70103" DisplayName="Training"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70361_IZ" Name="Application"/>
+		<ValueSetDefinition BindingIdentifier="HL70363_IZ" Name="Assigning Authority" Extensibility="Open" NoCodeDisplayText="Table (value set) identified in the implementation guide specifies codes that are not meaningful for all uses of this value set. Therefore, the validation tool will consider the value set as Empty and will issue an Alert since the element cannot be checked for content."/>
+		<ValueSetDefinition BindingIdentifier="HL70155_IZ" Name="Accept/Application acknowledgment conditions">
+			<ValueElement Value="AL" CodeSystem="HL70155" DisplayName="Always"/>
+			<ValueElement Value="NE" CodeSystem="HL70155" DisplayName="Never"/>
+			<ValueElement Value="ER" CodeSystem="HL70155" DisplayName="Error/Reject conditions only"/>
+			<ValueElement Value="SU" CodeSystem="HL70155" DisplayName="Successful completion only"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70354_IZ" Name="Message structure">
+			<ValueElement Value="ACK" CodeSystem="HL70354" DisplayName="ACK"/>
+			<ValueElement Value="QBP_Q11" CodeSystem="HL70354" DisplayName="QBP"/>
+			<ValueElement Value="RSP_K11" CodeSystem="HL70354" DisplayName="RSP"/>
+			<ValueElement Value="VXU_V04" CodeSystem="HL70354" DisplayName="VXU"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70076_IZ" Name="Message type">
+			<ValueElement Value="ACK" CodeSystem="HL70076" DisplayName="General acknowledgment"/>
+			<ValueElement Value="ADT" CodeSystem="HL70076" DisplayName="ADT message"/>
+			<ValueElement Value="QBP" CodeSystem="HL70076" DisplayName="Query by Parameter"/>
+			<ValueElement Value="RSP" CodeSystem="HL70076" DisplayName="Response to Query by parameter"/>
+			<ValueElement Value="VXU" CodeSystem="HL70076" DisplayName="Unsolicited vaccination record update"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70201_IZ" Name="Telecommunication use code ">
+			<ValueElement Value="PRN" CodeSystem="HL70201" DisplayName="Primary residence number"/>
+			<ValueElement Value="ORN" CodeSystem="HL70201" DisplayName="Other residence number"/>
+			<ValueElement Value="WPN" CodeSystem="HL70201" DisplayName="Work number"/>
+			<ValueElement Value="VHN" CodeSystem="HL70201" DisplayName="Vacation home number"/>
+			<ValueElement Value="ASN" CodeSystem="HL70201" DisplayName="Answering service number"/>
+			<ValueElement Value="EMR" CodeSystem="HL70201" DisplayName="Emergency number"/>
+			<ValueElement Value="NET" CodeSystem="HL70201" DisplayName="Network (email) address"/>
+			<ValueElement Value="BPN" CodeSystem="HL70201" DisplayName="Beeper number"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70202_IZ" Name="Telecommunication equipment type">
+			<ValueElement Value="PH" CodeSystem="HL70202" DisplayName="Telephone"/>
+			<ValueElement Value="FX" CodeSystem="HL70202" DisplayName="Fax"/>
+			<ValueElement Value="MD" CodeSystem="HL70202" DisplayName="Modem"/>
+			<ValueElement Value="CP" CodeSystem="HL70202" DisplayName="Cellular phone"/>
+			<ValueElement Value="BP" CodeSystem="HL70202" DisplayName="Beeper"/>
+			<ValueElement Value="Internet" CodeSystem="HL70202" DisplayName="Internet address: Use only if telecommunication use code is NET"/>
+			<ValueElement Value="X.400" CodeSystem="HL70202" DisplayName="X.400 email address: Use only if telecommunication use code is NET"/>
+			<ValueElement Value="TDD" CodeSystem="HL70202" DisplayName="Telecommunications Device for the Deaf"/>
+			<ValueElement Value="TTY" CodeSystem="HL70202" DisplayName="Teletypewriter"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70061_IZ" Name="Check digit scheme">
+			<ValueElement Value="M10" CodeSystem="HL70061" DisplayName="Mod 10 algorithm"/>
+			<ValueElement Value="M11" CodeSystem="HL70061" DisplayName="Mod 11 algorithm"/>
+			<ValueElement Value="ISO" CodeSystem="HL70061" DisplayName="ISO 7064: 1983"/>
+			<ValueElement Value="NPI" CodeSystem="HL70061" DisplayName="Check digit algorithm in the US National Provider Identifier"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70362_IZ" Name="Facility"/>
+		<ValueSetDefinition BindingIdentifier="HL70136_IZ" Name="Yes/No indicator">
+			<ValueElement Value="Y" CodeSystem="HL70136" DisplayName="Yes"/>
+			<ValueElement Value="N" CodeSystem="HL70136" DisplayName="No"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70516_IZ" Name="Error Severity">
+			<ValueElement Value="I" CodeSystem="HL70516" DisplayName="Information"/>
+			<ValueElement Value="W" CodeSystem="HL70516" DisplayName="Warning"/>
+			<ValueElement Value="E" CodeSystem="HL70516" DisplayName="Error"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70190_IZ" Name="Address type">
+			<ValueElement Value="C" CodeSystem="HL70190" DisplayName="Current or temporary"/>
+			<ValueElement Value="P" CodeSystem="HL70190" DisplayName="Permanent"/>
+			<ValueElement Value="M" CodeSystem="HL70190" DisplayName="Mailing"/>
+			<ValueElement Value="B" CodeSystem="HL70190" DisplayName="Firm/Business"/>
+			<ValueElement Value="O" CodeSystem="HL70190" DisplayName="Office"/>
+			<ValueElement Value="H" CodeSystem="HL70190" DisplayName="Home"/>
+			<ValueElement Value="N" CodeSystem="HL70190" DisplayName="Birth (nee)"/>
+			<ValueElement Value="F" CodeSystem="HL70190" DisplayName="Country of origin"/>
+			<ValueElement Value="L" CodeSystem="HL70190" DisplayName="Legal address"/>
+			<ValueElement Value="BDL" CodeSystem="HL70190" DisplayName="Birth delivery location [use for birth facility]"/>
+			<ValueElement Value="BR" CodeSystem="HL70190" DisplayName="Residence at birth [use for residence at birth]"/>
+			<ValueElement Value="RH" CodeSystem="HL70190" DisplayName="Registry home"/>
+			<ValueElement Value="BA" CodeSystem="HL70190" DisplayName="Bad address"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70063_IZ" Name="Relationship">
+			<ValueElement Value="BRO" CodeSystem="HL70063" DisplayName="Brother"/>
+			<ValueElement Value="CGV" CodeSystem="HL70063" DisplayName="Care giver"/>
+			<ValueElement Value="CHD" CodeSystem="HL70063" DisplayName="Child"/>
+			<ValueElement Value="FCH" CodeSystem="HL70063" DisplayName="Foster child"/>
+			<ValueElement Value="FTH" CodeSystem="HL70063" DisplayName="Father"/>
+			<ValueElement Value="GRD" CodeSystem="HL70063" DisplayName="Guardian"/>
+			<ValueElement Value="GRP" CodeSystem="HL70063" DisplayName="Grandparent"/>
+			<ValueElement Value="MTH" CodeSystem="HL70063" DisplayName="Mother"/>
+			<ValueElement Value="OTH" CodeSystem="HL70063" DisplayName="Other"/>
+			<ValueElement Value="PAR" CodeSystem="HL70063" DisplayName="Parent"/>
+			<ValueElement Value="SCH" CodeSystem="HL70063" DisplayName="Stepchild"/>
+			<ValueElement Value="SEL" CodeSystem="HL70063" DisplayName="Self"/>
+			<ValueElement Value="SIB" CodeSystem="HL70063" DisplayName="Sibling"/>
+			<ValueElement Value="SIS" CodeSystem="HL70063" DisplayName="Sister"/>
+			<ValueElement Value="SPO" CodeSystem="HL70063" DisplayName="Spouse"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70396_IZ" Name="Coding system">
+			<ValueElement Value="99zzz" CodeSystem="HL70396" DisplayName="Local general code (where z is an alphanumeric character)"/>
+			<ValueElement Value="L" CodeSystem="HL70396" DisplayName="Local code"/>
+			<ValueElement Value="ACR" CodeSystem="HL70396" DisplayName="American College of Radiology finding codes"/>
+			<ValueElement Value="ACTCODE" CodeSystem="HL70396" DisplayName="Table of HL7 Version 3 ActCode values"/>
+			<ValueElement Value="ACTRELSS" CodeSystem="HL70396" DisplayName="'Used to indicate that the target of the relationship will be a filtered subset of the total related set of targets.' Used when there is a need to limit the number of components to the first, the last, the next, the total, the average or some other filtered or calculated subset."/>
+			<ValueElement Value="ALPHAID2006" CodeSystem="HL70396" DisplayName=""/>
+			<ValueElement Value="ALPHAID2007" CodeSystem="HL70396" DisplayName="German Alpha-ID v2006"/>
+			<ValueElement Value="ALPHAID2008" CodeSystem="HL70396" DisplayName="German Alpha-ID v2007"/>
+			<ValueElement Value="ALPHAID2009" CodeSystem="HL70396" DisplayName="German Alpha-ID v2008"/>
+			<ValueElement Value="AMTv2" CodeSystem="HL70396" DisplayName="German Alpha-ID v2009"/>
+			<ValueElement Value="ANS+" CodeSystem="HL70396" DisplayName="Australian Medicines Terminology (v2)"/>
+			<ValueElement Value="ART" CodeSystem="HL70396" DisplayName="HL7 set of units of measure"/>
+			<ValueElement Value="AS4" CodeSystem="HL70396" DisplayName="WHO Adverse Reaction Terms"/>
+			<ValueElement Value="AS4E" CodeSystem="HL70396" DisplayName="ASTM E1238/ E1467 Universal"/>
+			<ValueElement Value="ATC" CodeSystem="HL70396" DisplayName="AS4 Neurophysiology Codes"/>
+			<ValueElement Value="C4" CodeSystem="HL70396" DisplayName="American Type Culture Collection"/>
+			<ValueElement Value="CAPECC" CodeSystem="HL70396" DisplayName="CPT-4"/>
+			<ValueElement Value="CAS" CodeSystem="HL70396" DisplayName="College of American Pathologists Electronic Cancer Checklist"/>
+			<ValueElement Value="CCC" CodeSystem="HL70396" DisplayName="Chemical abstract codes"/>
+			<ValueElement Value="CD2" CodeSystem="HL70396" DisplayName="Clinical Care Classification system"/>
+			<ValueElement Value="CDCA" CodeSystem="HL70396" DisplayName="CDT-2 Codes"/>
+			<ValueElement Value="CDCEDACUITY" CodeSystem="HL70396" DisplayName="CDC Analyte Codes"/>
+			<ValueElement Value="CDCM" CodeSystem="HL70396" DisplayName="CDC Emergency Department Acuity"/>
+			<ValueElement Value="CDCNHSN" CodeSystem="HL70396" DisplayName="CDC Methods/Instruments Codes"/>
+			<ValueElement Value="CDCOBS" CodeSystem="HL70396" DisplayName="CDC National Healthcare Safety Network Codes"/>
+			<ValueElement Value="CDCPHINVS" CodeSystem="HL70396" DisplayName="CDC BioSense RT observations (Census) - CDC"/>
+			<ValueElement Value="CDCREC" CodeSystem="HL70396" DisplayName="CDC PHIN Vocabulary Coding System"/>
+			<ValueElement Value="CDS" CodeSystem="HL70396" DisplayName="Race &amp; Ethnicity - CDC"/>
+			<ValueElement Value="CLP" CodeSystem="HL70396" DisplayName="CDC Surveillance"/>
+			<ValueElement Value="CPTM" CodeSystem="HL70396" DisplayName="CLIP"/>
+			<ValueElement Value="CST" CodeSystem="HL70396" DisplayName="CPT Modifier Code"/>
+			<ValueElement Value="CVX" CodeSystem="HL70396" DisplayName="COSTART"/>
+			<ValueElement Value="DCM" CodeSystem="HL70396" DisplayName="CDC Vaccine Codes"/>
+			<ValueElement Value="E" CodeSystem="HL70396" DisplayName="DICOM Controlled Terminology"/>
+			<ValueElement Value="E5" CodeSystem="HL70396" DisplayName="EUCLIDES"/>
+			<ValueElement Value="E6" CodeSystem="HL70396" DisplayName="Euclides  quantity codes"/>
+			<ValueElement Value="E7" CodeSystem="HL70396" DisplayName="Euclides Lab method codes"/>
+			<ValueElement Value="EDLEVEL" CodeSystem="HL70396" DisplayName="Euclides Lab equipment codes"/>
+			<ValueElement Value="ENTITYCODE" CodeSystem="HL70396" DisplayName="Education Level"/>
+			<ValueElement Value="ENTITYHDLG" CodeSystem="HL70396" DisplayName="Entity Code"/>
+			<ValueElement Value="ENZC" CodeSystem="HL70396" DisplayName="Entity Handling Code"/>
+			<ValueElement Value="EPASRS" CodeSystem="HL70396" DisplayName="Enzyme Codes"/>
+			<ValueElement Value="FDAUNII" CodeSystem="HL70396" DisplayName="EPA SRS"/>
+			<ValueElement Value="FDDC" CodeSystem="HL70396" DisplayName="Unique Ingredient Identifier (UNII)"/>
+			<ValueElement Value="FDDX" CodeSystem="HL70396" DisplayName="First DataBank Drug Codes"/>
+			<ValueElement Value="FDK" CodeSystem="HL70396" DisplayName="First DataBank Diagnostic Codes"/>
+			<ValueElement Value="FIPS5_2" CodeSystem="HL70396" DisplayName="FDA K10"/>
+			<ValueElement Value="FIPS6_4" CodeSystem="HL70396" DisplayName="FIPS 5-2 (State)"/>
+			<ValueElement Value="GDRG2006" CodeSystem="HL70396" DisplayName="FIPS 6-4 (County)"/>
+			<ValueElement Value="GDRG2007" CodeSystem="HL70396" DisplayName="G-DRG German DRG Codes v 2006"/>
+			<ValueElement Value="GDRG2008" CodeSystem="HL70396" DisplayName="G-DRG German DRG Codes v2007"/>
+			<ValueElement Value="GDRG2009" CodeSystem="HL70396" DisplayName="G-DRG German DRG Codes v2008"/>
+			<ValueElement Value="GMDC2006" CodeSystem="HL70396" DisplayName="G-DRG German DRG Codes v2008"/>
+			<ValueElement Value="GMDC2007" CodeSystem="HL70396" DisplayName="German Major v2006 Diagnostic Codes"/>
+			<ValueElement Value="GMDC2008" CodeSystem="HL70396" DisplayName="German Major Diagnostic Codes v2007"/>
+			<ValueElement Value="HB" CodeSystem="HL70396" DisplayName="German Major Diagnostic Codes v2008"/>
+			<ValueElement Value="HCPCS" CodeSystem="HL70396" DisplayName="HIBCC"/>
+			<ValueElement Value="HCPT" CodeSystem="HL70396" DisplayName="CMS (formerly HCFA)  Common Procedure Coding System"/>
+			<ValueElement Value="HHC" CodeSystem="HL70396" DisplayName="Health Care Provider Taxonomy"/>
+			<ValueElement Value="HI" CodeSystem="HL70396" DisplayName="Home Health Care"/>
+			<ValueElement Value="HOT" CodeSystem="HL70396" DisplayName="Health Outcomes"/>
+			<ValueElement Value="HPC" CodeSystem="HL70396" DisplayName="Japanese Nationwide Medicine Code"/>
+			<ValueElement Value="HSLOC" CodeSystem="HL70396" DisplayName="CMS (formerly HCFA )Procedure Codes (HCPCS)"/>
+			<ValueElement Value="I10" CodeSystem="HL70396" DisplayName="Healthcare Service Location"/>
+			<ValueElement Value="I10C" CodeSystem="HL70396" DisplayName="ICD-10"/>
+			<ValueElement Value="I10G2006" CodeSystem="HL70396" DisplayName="International Classification of Diseases, 10th  Revision, Clinical Modification (ICD-10-CM)"/>
+			<ValueElement Value="I10P" CodeSystem="HL70396" DisplayName="ICD 10 Germany 2006"/>
+			<ValueElement Value="I9" CodeSystem="HL70396" DisplayName="International Classification of Diseases, 10th  Revision, Procedure Coding System (ICD-10-PCS)"/>
+			<ValueElement Value="I9C" CodeSystem="HL70396" DisplayName="ICD9"/>
+			<ValueElement Value="I9CDX" CodeSystem="HL70396" DisplayName="International Classification of Diseases, 9th  Revision, Clinical Modification (ICD-9-CM)"/>
+			<ValueElement Value="I9CP" CodeSystem="HL70396" DisplayName="ICD-9CM Diagnosis codes"/>
+			<ValueElement Value="IBT0001" CodeSystem="HL70396" DisplayName="ICD-9CM Procedure codes"/>
+			<ValueElement Value="IC2" CodeSystem="HL70396" DisplayName="ISBT 128 Standard transfusion/transplantation data items"/>
+			<ValueElement Value="ICD10AM" CodeSystem="HL70396" DisplayName="ICHPPC-2"/>
+			<ValueElement Value="ICD10CA" CodeSystem="HL70396" DisplayName="ICD-10 Australian modification"/>
+			<ValueElement Value="ICD10GM2007" CodeSystem="HL70396" DisplayName="ICD-10 Canada"/>
+			<ValueElement Value="ICD10GM2008" CodeSystem="HL70396" DisplayName="ICD 10 Germany v2007"/>
+			<ValueElement Value="ICD10GM2009" CodeSystem="HL70396" DisplayName="ICD 10 Germany v2008"/>
+			<ValueElement Value="ICDO" CodeSystem="HL70396" DisplayName="ICD 10 Germany v2009"/>
+			<ValueElement Value="ICDO2" CodeSystem="HL70396" DisplayName="International Classification of Diseases for Oncology"/>
+			<ValueElement Value="ICDO3" CodeSystem="HL70396" DisplayName="International Classification of Disease for Oncology Second Edition"/>
+			<ValueElement Value="ICF" CodeSystem="HL70396" DisplayName="International Classification of Disease for Oncology Third Edition"/>
+			<ValueElement Value="ICS" CodeSystem="HL70396" DisplayName="International Classification of Functioning, Disability and Health (ICF)"/>
+			<ValueElement Value="ICSD" CodeSystem="HL70396" DisplayName="ICCS"/>
+			<ValueElement Value="IHELAW" CodeSystem="HL70396" DisplayName="International Classification of Sleep Disorders"/>
+			<ValueElement Value="ISO+" CodeSystem="HL70396" DisplayName="IHE Laboratory Analytical Workflow (LAW) Profile Codes."/>
+			<ValueElement Value="ISO3166_1" CodeSystem="HL70396" DisplayName="ISO 2955.83 (units of measure) with HL7 extensions"/>
+			<ValueElement Value="ISO3166_2" CodeSystem="HL70396" DisplayName="ISO 3166-1 Country Codes"/>
+			<ValueElement Value="ISO4217" CodeSystem="HL70396" DisplayName="ISO 3166-2 Country subdivisions"/>
+			<ValueElement Value="ISO639" CodeSystem="HL70396" DisplayName="ISO4217 Currency Codes"/>
+			<ValueElement Value="ITIS" CodeSystem="HL70396" DisplayName="ISO 639 Language"/>
+			<ValueElement Value="IUPC" CodeSystem="HL70396" DisplayName="Integrated Taxonomic Information System"/>
+			<ValueElement Value="IUPP" CodeSystem="HL70396" DisplayName="IUPAC/IFCC Component Codes"/>
+			<ValueElement Value="JC10" CodeSystem="HL70396" DisplayName="IUPAC/IFCC Property Codes"/>
+			<ValueElement Value="JC8" CodeSystem="HL70396" DisplayName="JLAC/JSLM, nationwide laboratory code"/>
+			<ValueElement Value="JJ1017" CodeSystem="HL70396" DisplayName="Japanese Chemistry"/>
+			<ValueElement Value="LANGUAL" CodeSystem="HL70396" DisplayName="Japanese Image Examination Cache"/>
+			<ValueElement Value="LB" CodeSystem="HL70396" DisplayName="LanguaL"/>
+			<ValueElement Value="LN" CodeSystem="HL70396" DisplayName="Local billing code"/>
+			<ValueElement Value="MCD" CodeSystem="HL70396" DisplayName="Logical Observation Identifier Names and Codes (LOINC®)"/>
+			<ValueElement Value="MCR" CodeSystem="HL70396" DisplayName="Medicaid"/>
+			<ValueElement Value="MDC" CodeSystem="HL70396" DisplayName="Medicare"/>
+			<ValueElement Value="MDDX" CodeSystem="HL70396" DisplayName="Medical Device Communication"/>
+			<ValueElement Value="MEDC" CodeSystem="HL70396" DisplayName="Medispan Diagnostic Codes"/>
+			<ValueElement Value="MEDIATYPE" CodeSystem="HL70396" DisplayName="Medical Economics Drug Codes"/>
+			<ValueElement Value="MEDR" CodeSystem="HL70396" DisplayName="MIME Media Type IANA"/>
+			<ValueElement Value="MEDX" CodeSystem="HL70396" DisplayName="Medical Dictionary for Drug Regulatory Affairs (MEDDRA)"/>
+			<ValueElement Value="MGPI" CodeSystem="HL70396" DisplayName="Medical Economics Diagnostic Codes"/>
+			<ValueElement Value="MVX" CodeSystem="HL70396" DisplayName="Medispan GPI"/>
+			<ValueElement Value="NAICS" CodeSystem="HL70396" DisplayName="CDC Vaccine Manufacturer Codes"/>
+			<ValueElement Value="NCPDPnnnnsss" CodeSystem="HL70396" DisplayName="Industry (NAICS)"/>
+			<ValueElement Value="NDA" CodeSystem="HL70396" DisplayName="NCPDP code list for data element nnnn [as used in segment sss]"/>
+			<ValueElement Value="NDC" CodeSystem="HL70396" DisplayName="NANDA"/>
+			<ValueElement Value="NDFRT" CodeSystem="HL70396" DisplayName="National drug codes"/>
+			<ValueElement Value="NIC" CodeSystem="HL70396" DisplayName="NDF-RT (Drug Classification)"/>
+			<ValueElement Value="NIP001" CodeSystem="HL70396" DisplayName="Nursing Interventions Classification"/>
+			<ValueElement Value="NIP002" CodeSystem="HL70396" DisplayName="Source of Information (Immunization)"/>
+			<ValueElement Value="NIP004" CodeSystem="HL70396" DisplayName="Substance refusal reason"/>
+			<ValueElement Value="NIP007" CodeSystem="HL70396" DisplayName="Vaccination - Contraindications, Precautions, and Immunities"/>
+			<ValueElement Value="NIP008" CodeSystem="HL70396" DisplayName="Vaccinated at location (facility)"/>
+			<ValueElement Value="NIP009" CodeSystem="HL70396" DisplayName="Vaccine purchased with (Type of funding)"/>
+			<ValueElement Value="NIP010" CodeSystem="HL70396" DisplayName="Reported adverse event previously"/>
+			<ValueElement Value="NND" CodeSystem="HL70396" DisplayName="VAERS Report type"/>
+			<ValueElement Value="NPI" CodeSystem="HL70396" DisplayName="Notifiable Event (Disease/Condition) Code List"/>
+			<ValueElement Value="NUBC" CodeSystem="HL70396" DisplayName="National Provider Identifier"/>
+			<ValueElement Value="NULLFL" CodeSystem="HL70396" DisplayName="National Uniform Billing Committee Code"/>
+			<ValueElement Value="O3012006" CodeSystem="HL70396" DisplayName="Flavors of NULL"/>
+			<ValueElement Value="OBSMETHOD" CodeSystem="HL70396" DisplayName="Ops Germany 2006"/>
+			<ValueElement Value="OHA" CodeSystem="HL70396" DisplayName="Observation Method Code"/>
+			<ValueElement Value="OPS2007" CodeSystem="HL70396" DisplayName="Omaha System"/>
+			<ValueElement Value="OPS2008" CodeSystem="HL70396" DisplayName="OPS Germany v2007"/>
+			<ValueElement Value="OPS2009" CodeSystem="HL70396" DisplayName="OPS Germany v2008"/>
+			<ValueElement Value="PHDSCSOPT" CodeSystem="HL70396" DisplayName="OPS Germany v2008"/>
+			<ValueElement Value="PHINQUESTION" CodeSystem="HL70396" DisplayName="Source of Payment Typology"/>
+			<ValueElement Value="PLR" CodeSystem="HL70396" DisplayName="CDC Public Health Information Network (PHIN) Question"/>
+			<ValueElement Value="PLT" CodeSystem="HL70396" DisplayName="CDC PHLIP Lab result codes that are not covered in SNOMED at the time of this implementation"/>
+			<ValueElement Value="POS" CodeSystem="HL70396" DisplayName="CDC PHLIP Lab test codes, where LOINC concept is too broad or not yet available, especially as needed for ordering and or lab to lab reporting )"/>
+			<ValueElement Value="PRTCPTNMODE" CodeSystem="HL70396" DisplayName="POS Codes"/>
+			<ValueElement Value="RC" CodeSystem="HL70396" DisplayName="Paticipation Mode Code"/>
+			<ValueElement Value="ROLECLASS" CodeSystem="HL70396" DisplayName="Read Classification"/>
+			<ValueElement Value="ROLECODE" CodeSystem="HL70396" DisplayName="Used initially for contact roles."/>
+			<ValueElement Value="RSPMODE" CodeSystem="HL70396" DisplayName="Participation Mode"/>
+			<ValueElement Value="RXNORM" CodeSystem="HL70396" DisplayName="Specifies the mode, immediate versus deferred or queued, by which a receiver should communicate its receiver responsibilities."/>
+			<ValueElement Value="SCT" CodeSystem="HL70396" DisplayName="RxNorm"/>
+			<ValueElement Value="SCT2" CodeSystem="HL70396" DisplayName="SNOMED Clinical Terms"/>
+			<ValueElement Value="SDM" CodeSystem="HL70396" DisplayName="SNOMED Clinical Terms alphanumeric codes"/>
+			<ValueElement Value="SIC" CodeSystem="HL70396" DisplayName="SNOMED- DICOM Microglossary"/>
+			<ValueElement Value="SNM" CodeSystem="HL70396" DisplayName="Industry (SIC)"/>
+			<ValueElement Value="SNM3" CodeSystem="HL70396" DisplayName="Systemized Nomenclature of Medicine (SNOMED)"/>
+			<ValueElement Value="SNT" CodeSystem="HL70396" DisplayName="SNOMED International"/>
+			<ValueElement Value="SOC" CodeSystem="HL70396" DisplayName="SNOMED topology codes (anatomic sites)"/>
+			<ValueElement Value="UB04FL14" CodeSystem="HL70396" DisplayName="Occupation (SOC 2000)"/>
+			<ValueElement Value="UB04FL15" CodeSystem="HL70396" DisplayName="Priority (Type) of Visit"/>
+			<ValueElement Value="UB04FL17" CodeSystem="HL70396" DisplayName="Point of Origin "/>
+			<ValueElement Value="UB04FL31" CodeSystem="HL70396" DisplayName="Patient Discharge Status"/>
+			<ValueElement Value="UB04FL35" CodeSystem="HL70396" DisplayName="Occurrence Code"/>
+			<ValueElement Value="UB04FL39" CodeSystem="HL70396" DisplayName="Occurrence Span"/>
+			<ValueElement Value="UC" CodeSystem="HL70396" DisplayName="Value Code"/>
+			<ValueElement Value="UCUM" CodeSystem="HL70396" DisplayName="UCDS"/>
+			<ValueElement Value="UMD" CodeSystem="HL70396" DisplayName="UCUM code set for units of measure(from Regenstrief)"/>
+			<ValueElement Value="UML" CodeSystem="HL70396" DisplayName="MDNS"/>
+			<ValueElement Value="UPC" CodeSystem="HL70396" DisplayName="Unified Medical Language"/>
+			<ValueElement Value="UPIN" CodeSystem="HL70396" DisplayName="Universal Product Code"/>
+			<ValueElement Value="USGSGNIS" CodeSystem="HL70396" DisplayName="UPIN"/>
+			<ValueElement Value="USPS" CodeSystem="HL70396" DisplayName="U.S. Board on Geographic Names (USGS - GNIS)"/>
+			<ValueElement Value="VIS" CodeSystem="HL70396" DisplayName="United States Postal Service"/>
+			<ValueElement Value="W1" CodeSystem="HL70396" DisplayName="Clinicians are required to track the Vaccine Information Sheet (VIS) that was shared with the recipient of a vaccination.  This code system contains codes that  identify the document type and the owner of the document."/>
+			<ValueElement Value="W2" CodeSystem="HL70396" DisplayName="WHO record # drug codes (6 digit)"/>
+			<ValueElement Value="W4" CodeSystem="HL70396" DisplayName="WHO record # drug codes (8 digit)"/>
+			<ValueElement Value="WC" CodeSystem="HL70396" DisplayName="WHO record # code with ASTM extension"/>
+			<ValueElement Value="X12DEnnnn" CodeSystem="HL70396" DisplayName="WHO ATC"/>
+			<ValueElement Value="NCIT" CodeSystem="HL70396" DisplayName="NCI Thesaurus"/>
+			<ValueElement Value="cdcgs1vis" CodeSystem="HL70396" DisplayName="CDC GS1 VIS BarCodes"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70208_IZ" Name="Query response status">
+			<ValueElement Value="OK" CodeSystem="HL70208" DisplayName="Data found, no errors (this is the default)"/>
+			<ValueElement Value="NF" CodeSystem="HL70208" DisplayName="No data found, no errors"/>
+			<ValueElement Value="AE" CodeSystem="HL70208" DisplayName="Application error"/>
+			<ValueElement Value="AR" CodeSystem="HL70208" DisplayName="Application reject"/>
+			<ValueElement Value="TM" CodeSystem="HL70208" DisplayName="Too many candidates found"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70203_IZ" Name="Identifier type">
+			<ValueElement Value="AN" CodeSystem="HL70203" DisplayName="Account number "/>
+			<ValueElement Value="ANON" CodeSystem="HL70203" DisplayName="Anonymous identifier"/>
+			<ValueElement Value="ANC" CodeSystem="HL70203" DisplayName="Account number Creditor"/>
+			<ValueElement Value="AND" CodeSystem="HL70203" DisplayName="Account number debitor"/>
+			<ValueElement Value="ANT" CodeSystem="HL70203" DisplayName="Temporary Account Number"/>
+			<ValueElement Value="APRN" CodeSystem="HL70203" DisplayName="Advanced Practice Registered Nurse number"/>
+			<ValueElement Value="BA" CodeSystem="HL70203" DisplayName="Bank Account Number"/>
+			<ValueElement Value="BC" CodeSystem="HL70203" DisplayName="Bank Card Number"/>
+			<ValueElement Value="BR" CodeSystem="HL70203" DisplayName="Birth registry number"/>
+			<ValueElement Value="CC" CodeSystem="HL70203" DisplayName="Cost Center number"/>
+			<ValueElement Value="CY" CodeSystem="HL70203" DisplayName="County number"/>
+			<ValueElement Value="DDS" CodeSystem="HL70203" DisplayName="Dentist license number"/>
+			<ValueElement Value="DEA" CodeSystem="HL70203" DisplayName="Drug Enforcement Administration registration number"/>
+			<ValueElement Value="DFN" CodeSystem="HL70203" DisplayName="Drug Furnishing or prescriptive authority Number"/>
+			<ValueElement Value="DL" CodeSystem="HL70203" DisplayName="Driver's license number"/>
+			<ValueElement Value="DN" CodeSystem="HL70203" DisplayName="Doctor number"/>
+			<ValueElement Value="DPM" CodeSystem="HL70203" DisplayName="Podiatrist license number"/>
+			<ValueElement Value="DO" CodeSystem="HL70203" DisplayName="Osteopathic License number"/>
+			<ValueElement Value="DR" CodeSystem="HL70203" DisplayName="Donor Registration Number"/>
+			<ValueElement Value="EI" CodeSystem="HL70203" DisplayName="Employee number"/>
+			<ValueElement Value="EN" CodeSystem="HL70203" DisplayName="Employer number"/>
+			<ValueElement Value="FI" CodeSystem="HL70203" DisplayName="Facility ID"/>
+			<ValueElement Value="GI" CodeSystem="HL70203" DisplayName="Guarantor internal identifier"/>
+			<ValueElement Value="GL" CodeSystem="HL70203" DisplayName="General ledger number"/>
+			<ValueElement Value="GN" CodeSystem="HL70203" DisplayName="Guarantor external  identifier"/>
+			<ValueElement Value="HC" CodeSystem="HL70203" DisplayName="Health Card Number"/>
+			<ValueElement Value="JHN" CodeSystem="HL70203" DisplayName="Jurisdictional health number (Canada)"/>
+			<ValueElement Value="IND" CodeSystem="HL70203" DisplayName="Indigenous/Aboriginal "/>
+			<ValueElement Value="LI" CodeSystem="HL70203" DisplayName="Labor and industries number"/>
+			<ValueElement Value="LN" CodeSystem="HL70203" DisplayName="License number"/>
+			<ValueElement Value="LR" CodeSystem="HL70203" DisplayName="Local Registry ID"/>
+			<ValueElement Value="MA" CodeSystem="HL70203" DisplayName="Patient Medicaid number"/>
+			<ValueElement Value="MB" CodeSystem="HL70203" DisplayName="Member Number"/>
+			<ValueElement Value="MC" CodeSystem="HL70203" DisplayName="Patient's Medicare number"/>
+			<ValueElement Value="MCD" CodeSystem="HL70203" DisplayName="Practitioner Medicaid number"/>
+			<ValueElement Value="MCN" CodeSystem="HL70203" DisplayName="Microchip Number"/>
+			<ValueElement Value="MCR" CodeSystem="HL70203" DisplayName="Practitioner Medicare number"/>
+			<ValueElement Value="MD" CodeSystem="HL70203" DisplayName="Medical License number"/>
+			<ValueElement Value="MI" CodeSystem="HL70203" DisplayName="Military ID number"/>
+			<ValueElement Value="MR" CodeSystem="HL70203" DisplayName="Medical record number"/>
+			<ValueElement Value="MRT" CodeSystem="HL70203" DisplayName="Temporary Medical Record Number"/>
+			<ValueElement Value="NE" CodeSystem="HL70203" DisplayName="National employer identifier"/>
+			<ValueElement Value="NH" CodeSystem="HL70203" DisplayName="National Health Plan Identifier"/>
+			<ValueElement Value="NI" CodeSystem="HL70203" DisplayName="National unique individual identifier"/>
+			<ValueElement Value="NII" CodeSystem="HL70203" DisplayName="National Insurance Organization Identifier"/>
+			<ValueElement Value="NIIP" CodeSystem="HL70203" DisplayName="National Insurance Payor Identifier (Payor)"/>
+			<ValueElement Value="NNxxx" CodeSystem="HL70203" DisplayName="National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code"/>
+			<ValueElement Value="NP" CodeSystem="HL70203" DisplayName="Nurse practitioner number"/>
+			<ValueElement Value="NPI" CodeSystem="HL70203" DisplayName="National provider identifier"/>
+			<ValueElement Value="OD" CodeSystem="HL70203" DisplayName="Optometrist license number"/>
+			<ValueElement Value="PA" CodeSystem="HL70203" DisplayName="Physician Assistant number"/>
+			<ValueElement Value="PCN" CodeSystem="HL70203" DisplayName="Penitentiary/correctional institution Number"/>
+			<ValueElement Value="PE" CodeSystem="HL70203" DisplayName="Living Subject Enterprise Number"/>
+			<ValueElement Value="PEN" CodeSystem="HL70203" DisplayName="Pension Number"/>
+			<ValueElement Value="PI" CodeSystem="HL70203" DisplayName="Patient internal identifier"/>
+			<ValueElement Value="PN" CodeSystem="HL70203" DisplayName="Person number"/>
+			<ValueElement Value="PNT" CodeSystem="HL70203" DisplayName="Temporary Living Subject Number"/>
+			<ValueElement Value="PPN" CodeSystem="HL70203" DisplayName="Passport number"/>
+			<ValueElement Value="PRC" CodeSystem="HL70203" DisplayName="Permanent Resident Card Number"/>
+			<ValueElement Value="PRN" CodeSystem="HL70203" DisplayName="Provider number"/>
+			<ValueElement Value="PT" CodeSystem="HL70203" DisplayName="Patient external identifier"/>
+			<ValueElement Value="QA" CodeSystem="HL70203" DisplayName="QA number"/>
+			<ValueElement Value="RI" CodeSystem="HL70203" DisplayName="Resource identifier"/>
+			<ValueElement Value="RPH" CodeSystem="HL70203" DisplayName="Pharmacist license number"/>
+			<ValueElement Value="RN" CodeSystem="HL70203" DisplayName="Registered Nurse Number"/>
+			<ValueElement Value="RR" CodeSystem="HL70203" DisplayName="Railroad Retirement number"/>
+			<ValueElement Value="RRI" CodeSystem="HL70203" DisplayName="Regional registry ID"/>
+			<ValueElement Value="SL" CodeSystem="HL70203" DisplayName="State license"/>
+			<ValueElement Value="SN" CodeSystem="HL70203" DisplayName="Subscriber Number"/>
+			<ValueElement Value="SR" CodeSystem="HL70203" DisplayName="State registry ID"/>
+			<ValueElement Value="SS" CodeSystem="HL70203" DisplayName="Social Security number "/>
+			<ValueElement Value="TAX" CodeSystem="HL70203" DisplayName="Tax ID number"/>
+			<ValueElement Value="U" CodeSystem="HL70203" DisplayName="Unspecified identifier"/>
+			<ValueElement Value="UPIN" CodeSystem="HL70203" DisplayName="Medicare/CMS (formerly HCFA) Universal Physician Identification numbers"/>
+			<ValueElement Value="VN" CodeSystem="HL70203" DisplayName="Visit number"/>
+			<ValueElement Value="WC" CodeSystem="HL70203" DisplayName="WIC identifier"/>
+			<ValueElement Value="WCN" CodeSystem="HL70203" DisplayName="Workers Comp Number"/>
+			<ValueElement Value="XX" CodeSystem="HL70203" DisplayName="Organization identifier"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70008_IZ" Name="Acknowledgment code">
+			<ValueElement Value="AA" CodeSystem="HL70008" DisplayName="Original mode: Application Accept, Enhanced mode: Application acknowledgment: Accept"/>
+			<ValueElement Value="AE" CodeSystem="HL70008" DisplayName="Original mode: Application Error, Enhanced mode: Application acknowledgment: Error"/>
+			<ValueElement Value="AR" CodeSystem="HL70008" DisplayName="Original mode: Application Reject, Enhanced mode: Application acknowledgment: Reject"/>
+			<ValueElement Value="CA" CodeSystem="HL70008" DisplayName="Enhanced mode: Accept acknowledgment: Commit Accept"/>
+			<ValueElement Value="CE" CodeSystem="HL70008" DisplayName="Enhanced mode: Accept acknowledgment: Commit Error"/>
+			<ValueElement Value="CR" CodeSystem="HL70008" DisplayName="Enhanced mode: Accept acknowledgment: Commit Reject"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70471_IZ" Name="Query Name">
+			<ValueElement Value="Z34" CodeSystem="CDCPHINVS" DisplayName="Request Immunization History"/>
+			<ValueElement Value="Z44" CodeSystem="CDCPHINVS" DisplayName="Request Evaluated History and Forecast"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70200_IZ" Name="Name type">
+			<ValueElement Value="A" CodeSystem="HL70200" DisplayName="Alias name"/>
+			<ValueElement Value="L" CodeSystem="HL70200" DisplayName="Legal name"/>
+			<ValueElement Value="D" CodeSystem="HL70200" DisplayName="Display name"/>
+			<ValueElement Value="M" CodeSystem="HL70200" DisplayName="Maiden name"/>
+			<ValueElement Value="C" CodeSystem="HL70200" DisplayName="Adopted name"/>
+			<ValueElement Value="B" CodeSystem="HL70200" DisplayName="Name at birth"/>
+			<ValueElement Value="P" CodeSystem="HL70200" DisplayName="Name of partner/spouse"/>
+			<ValueElement Value="U" CodeSystem="HL70200" DisplayName="Unspecified"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70104_IZ" Name="Version ID">
+			<ValueElement Value="2.5.1" CodeSystem="0104" DisplayName="Release 2.5.1  April 2007"/>
+		</ValueSetDefinition>
+	</ValueSetDefinitions>
+	<ValueSetDefinitions Group="CDC-IZ" Order="2">
+		<ValueSetDefinition BindingIdentifier="CDCREC_E_IZ" Name="Ethnic Group">
+			<ValueElement Value="2135-2" CodeSystem="CDCREC" DisplayName="Hispanic or Latino"/>
+			<ValueElement Value="2186-5" CodeSystem="CDCREC" DisplayName="not Hispanic or Latino"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="CDCREC_R_IZ" Name="Race">
+			<ValueElement Value="1002-5" CodeSystem="CDCREC" DisplayName="American Indian or Alaska Native"/>
+			<ValueElement Value="2028-9" CodeSystem="CDCREC" DisplayName="Asian "/>
+			<ValueElement Value="2076-8" CodeSystem="CDCREC" DisplayName="Native Hawaiian or Other Pacific Islander"/>
+			<ValueElement Value="2054-5" CodeSystem="CDCREC" DisplayName="Black or African-American"/>
+			<ValueElement Value="2106-3" CodeSystem="CDCREC" DisplayName="White"/>
+			<ValueElement Value="2131-1" CodeSystem="CDCREC" DisplayName="Other Race"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="PHVS_ImmunizationProfileIdentifier_IIS" Name="Immunization Profile Identifier (IIS)">
+			<ValueElement Value="Z44" CodeSystem="CDCPHINVS" DisplayName="Request Evaluated History and Forecast"/>
+			<ValueElement Value="Z34" CodeSystem="CDCPHINVS" DisplayName="Request Immunization History"/>
+			<ValueElement Value="Z23" CodeSystem="CDCPHINVS" DisplayName="Return Acknowledgement"/>
+			<ValueElement Value="Z31" CodeSystem="CDCPHINVS" DisplayName="Return Candidate Clients"/>
+			<ValueElement Value="Z42" CodeSystem="CDCPHINVS" DisplayName="Return Evaluated History and Forecast"/>
+			<ValueElement Value="Z32" CodeSystem="CDCPHINVS" DisplayName="Return Immunization History"/>
+			<ValueElement Value="Z22" CodeSystem="CDCPHINVS" DisplayName="Send Immunization History"/>
+			<ValueElement Value="Z33" CodeSystem="CDCPHINVS" DisplayName="Return an acknowledgement with no person records"/>
+		</ValueSetDefinition>
+	</ValueSetDefinitions>
+	<ValueSetDefinitions Group="HL7" Order="3">
+		<ValueSetDefinition BindingIdentifier="HL70295" Name="Handicap">
+			<ValueElement Value="..." CodeSystem="HL70295" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70296" Name="Primary Language">
+			<ValueElement Value="..." CodeSystem="HL70296" DisplayName="no suggested values"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70231" Name="Student Status">
+			<ValueElement Value="F" CodeSystem="HL70231" DisplayName="Full-time student"/>
+			<ValueElement Value="N" CodeSystem="HL70231" DisplayName="Not a student"/>
+			<ValueElement Value="P" CodeSystem="HL70231" DisplayName="Part-time student"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70333" Name="Driver's license issuing authority">
+			<ValueElement Value="..." CodeSystem="HL70333" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70189" Name="Ethnic Group">
+			<ValueElement Value="H" CodeSystem="HL70189" DisplayName="Hispanic or Latino"/>
+			<ValueElement Value="N" CodeSystem="HL70189" DisplayName="Not Hispanic or Latino"/>
+			<ValueElement Value="U" CodeSystem="HL70189" DisplayName="Unknown"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70061" Name="Check digit scheme">
+			<ValueElement Value="ISO" CodeSystem="HL70061" DisplayName="ISO 7064: 1983"/>
+			<ValueElement Value="M10" CodeSystem="HL70061" DisplayName="Mod 10 algorithm"/>
+			<ValueElement Value="M11" CodeSystem="HL70061" DisplayName="Mod 11 algorithm"/>
+			<ValueElement Value="NPI" CodeSystem="HL70061" DisplayName="Check digit algorithm in the US National Provider Identifier"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70099" Name="VIP Indicator">
+			<ValueElement Value="..." CodeSystem="HL70099" DisplayName="no suggested values"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70435" Name="Advance Directive Code">
+			<ValueElement Value="DNR" CodeSystem="HL70435" DisplayName="Do not resuscitate"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70289" Name="County/parish">
+			<ValueElement Value="..." CodeSystem="HL70289" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70288" Name="Census tract">
+			<ValueElement Value="..." CodeSystem="HL70288" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70005" Name="Race">
+			<ValueElement Value="1002-5" CodeSystem="HL70005" DisplayName="American Indian or Alaska Native"/>
+			<ValueElement Value="2028-9" CodeSystem="HL70005" DisplayName="Asian"/>
+			<ValueElement Value="2054-5" CodeSystem="HL70005" DisplayName="Black or African American"/>
+			<ValueElement Value="2076-8" CodeSystem="HL70005" DisplayName="Native Hawaiian or Other Pacific Islander"/>
+			<ValueElement Value="2106-3" CodeSystem="HL70005" DisplayName="White"/>
+			<ValueElement Value="2131-1" CodeSystem="HL70005" DisplayName="Other Race"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70328" Name="Employee classification">
+			<ValueElement Value="..." CodeSystem="HL70328" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70327" Name="Job code">
+			<ValueElement Value="..." CodeSystem="HL70327" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70006" Name="Religion">
+			<ValueElement Value="ABC" CodeSystem="HL70006" DisplayName="Christian: American Baptist Church"/>
+			<ValueElement Value="AGN" CodeSystem="HL70006" DisplayName="Agnostic"/>
+			<ValueElement Value="AME" CodeSystem="HL70006" DisplayName="Christian: African Methodist Episcopal Zion"/>
+			<ValueElement Value="AMT" CodeSystem="HL70006" DisplayName="Christian: African Methodist Episcopal"/>
+			<ValueElement Value="ANG" CodeSystem="HL70006" DisplayName="Christian: Anglican"/>
+			<ValueElement Value="AOG" CodeSystem="HL70006" DisplayName="Christian: Assembly of God"/>
+			<ValueElement Value="ATH" CodeSystem="HL70006" DisplayName="Atheist"/>
+			<ValueElement Value="BAH" CodeSystem="HL70006" DisplayName="Baha'i"/>
+			<ValueElement Value="BAP" CodeSystem="HL70006" DisplayName="Christian: Baptist"/>
+			<ValueElement Value="BMA" CodeSystem="HL70006" DisplayName="Buddhist: Mahayana"/>
+			<ValueElement Value="BOT" CodeSystem="HL70006" DisplayName="Buddhist: Other"/>
+			<ValueElement Value="BTA" CodeSystem="HL70006" DisplayName="Buddhist: Tantrayana"/>
+			<ValueElement Value="BTH" CodeSystem="HL70006" DisplayName="Buddhist: Theravada"/>
+			<ValueElement Value="BUD" CodeSystem="HL70006" DisplayName="Buddhist"/>
+			<ValueElement Value="CAT" CodeSystem="HL70006" DisplayName="Christian: Roman Catholic"/>
+			<ValueElement Value="CFR" CodeSystem="HL70006" DisplayName="Chinese Folk Religionist"/>
+			<ValueElement Value="CHR" CodeSystem="HL70006" DisplayName="Christian"/>
+			<ValueElement Value="CHS" CodeSystem="HL70006" DisplayName="Christian: Christian Science"/>
+			<ValueElement Value="CMA" CodeSystem="HL70006" DisplayName="Christian: Christian Missionary Alliance"/>
+			<ValueElement Value="CNF" CodeSystem="HL70006" DisplayName="Confucian"/>
+			<ValueElement Value="COC" CodeSystem="HL70006" DisplayName="Christian: Church of Christ"/>
+			<ValueElement Value="COG" CodeSystem="HL70006" DisplayName="Christian: Church of God"/>
+			<ValueElement Value="COI" CodeSystem="HL70006" DisplayName="Christian: Church of God in Christ"/>
+			<ValueElement Value="COL" CodeSystem="HL70006" DisplayName="Christian: Congregational"/>
+			<ValueElement Value="COM" CodeSystem="HL70006" DisplayName="Christian: Community"/>
+			<ValueElement Value="COP" CodeSystem="HL70006" DisplayName="Christian: Other Pentecostal"/>
+			<ValueElement Value="COT" CodeSystem="HL70006" DisplayName="Christian: Other"/>
+			<ValueElement Value="CRR" CodeSystem="HL70006" DisplayName="Christian: Christian Reformed"/>
+			<ValueElement Value="EOT" CodeSystem="HL70006" DisplayName="Christian: Eastern Orthodox"/>
+			<ValueElement Value="EPI" CodeSystem="HL70006" DisplayName="Christian: Episcopalian"/>
+			<ValueElement Value="ERL" CodeSystem="HL70006" DisplayName="Ethnic Religionist"/>
+			<ValueElement Value="EVC" CodeSystem="HL70006" DisplayName="Christian: Evangelical Church"/>
+			<ValueElement Value="FRQ" CodeSystem="HL70006" DisplayName="Christian: Friends"/>
+			<ValueElement Value="FWB" CodeSystem="HL70006" DisplayName="Christian: Free Will Baptist"/>
+			<ValueElement Value="GRE" CodeSystem="HL70006" DisplayName="Christian: Greek Orthodox"/>
+			<ValueElement Value="HIN" CodeSystem="HL70006" DisplayName="Hindu"/>
+			<ValueElement Value="HOT" CodeSystem="HL70006" DisplayName="Hindu: Other"/>
+			<ValueElement Value="HSH" CodeSystem="HL70006" DisplayName="Hindu: Shaivites"/>
+			<ValueElement Value="HVA" CodeSystem="HL70006" DisplayName="Hindu: Vaishnavites"/>
+			<ValueElement Value="JAI" CodeSystem="HL70006" DisplayName="Jain"/>
+			<ValueElement Value="JCO" CodeSystem="HL70006" DisplayName="Jewish: Conservative"/>
+			<ValueElement Value="JEW" CodeSystem="HL70006" DisplayName="Jewish"/>
+			<ValueElement Value="JOR" CodeSystem="HL70006" DisplayName="Jewish: Orthodox"/>
+			<ValueElement Value="JOT" CodeSystem="HL70006" DisplayName="Jewish: Other"/>
+			<ValueElement Value="JRC" CodeSystem="HL70006" DisplayName="Jewish: Reconstructionist"/>
+			<ValueElement Value="JRF" CodeSystem="HL70006" DisplayName="Jewish: Reform"/>
+			<ValueElement Value="JRN" CodeSystem="HL70006" DisplayName="Jewish: Renewal"/>
+			<ValueElement Value="JWN" CodeSystem="HL70006" DisplayName="Christian: Jehovah's Witness"/>
+			<ValueElement Value="LMS" CodeSystem="HL70006" DisplayName="Christian: Lutheran Missouri Synod"/>
+			<ValueElement Value="LUT" CodeSystem="HL70006" DisplayName="Christian: Lutheran"/>
+			<ValueElement Value="MEN" CodeSystem="HL70006" DisplayName="Christian: Mennonite"/>
+			<ValueElement Value="MET" CodeSystem="HL70006" DisplayName="Christian: Methodist"/>
+			<ValueElement Value="MOM" CodeSystem="HL70006" DisplayName="Christian: Latter-day Saints"/>
+			<ValueElement Value="MOS" CodeSystem="HL70006" DisplayName="Muslim"/>
+			<ValueElement Value="MOT" CodeSystem="HL70006" DisplayName="Muslim: Other"/>
+			<ValueElement Value="MSH" CodeSystem="HL70006" DisplayName="Muslim: Shiite"/>
+			<ValueElement Value="MSU" CodeSystem="HL70006" DisplayName="Muslim: Sunni"/>
+			<ValueElement Value="NAM" CodeSystem="HL70006" DisplayName="Native American"/>
+			<ValueElement Value="NAZ" CodeSystem="HL70006" DisplayName="Christian: Church of the Nazarene"/>
+			<ValueElement Value="NOE" CodeSystem="HL70006" DisplayName="Nonreligious"/>
+			<ValueElement Value="NRL" CodeSystem="HL70006" DisplayName="New Religionist"/>
+			<ValueElement Value="ORT" CodeSystem="HL70006" DisplayName="Christian: Orthodox"/>
+			<ValueElement Value="OTH" CodeSystem="HL70006" DisplayName="Other"/>
+			<ValueElement Value="PEN" CodeSystem="HL70006" DisplayName="Christian: Pentecostal"/>
+			<ValueElement Value="PRC" CodeSystem="HL70006" DisplayName="Christian: Other Protestant"/>
+			<ValueElement Value="PRE" CodeSystem="HL70006" DisplayName="Christian: Presbyterian"/>
+			<ValueElement Value="PRO" CodeSystem="HL70006" DisplayName="Christian: Protestant"/>
+			<ValueElement Value="QUA" CodeSystem="HL70006" DisplayName="Christian: Friends"/>
+			<ValueElement Value="REC" CodeSystem="HL70006" DisplayName="Christian: Reformed Church"/>
+			<ValueElement Value="REO" CodeSystem="HL70006" DisplayName="Christian: Reorganized Church of Jesus Christ-LDS"/>
+			<ValueElement Value="SAA" CodeSystem="HL70006" DisplayName="Christian: Salvation Army"/>
+			<ValueElement Value="SEV" CodeSystem="HL70006" DisplayName="Christian: Seventh Day Adventist"/>
+			<ValueElement Value="SHN" CodeSystem="HL70006" DisplayName="Shintoist"/>
+			<ValueElement Value="SIK" CodeSystem="HL70006" DisplayName="Sikh"/>
+			<ValueElement Value="SOU" CodeSystem="HL70006" DisplayName="Christian: Southern Baptist"/>
+			<ValueElement Value="SPI" CodeSystem="HL70006" DisplayName="Spiritist"/>
+			<ValueElement Value="UCC" CodeSystem="HL70006" DisplayName="Christian: United Church of Christ"/>
+			<ValueElement Value="UMD" CodeSystem="HL70006" DisplayName="Christian: United Methodist"/>
+			<ValueElement Value="UNI" CodeSystem="HL70006" DisplayName="Christian: Unitarian"/>
+			<ValueElement Value="UNU" CodeSystem="HL70006" DisplayName="Christian: Unitarian Universalist"/>
+			<ValueElement Value="VAR" CodeSystem="HL70006" DisplayName="Unknown"/>
+			<ValueElement Value="WES" CodeSystem="HL70006" DisplayName="Christian: Wesleyan"/>
+			<ValueElement Value="WMC" CodeSystem="HL70006" DisplayName="Christian: Wesleyan Methodist"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70001" Name="Administrative Sex">
+			<ValueElement Value="A" CodeSystem="HL70001" DisplayName="Ambiguous"/>
+			<ValueElement Value="F" CodeSystem="HL70001" DisplayName="Female"/>
+			<ValueElement Value="M" CodeSystem="HL70001" DisplayName="Male"/>
+			<ValueElement Value="N" CodeSystem="HL70001" DisplayName="Not applicable"/>
+			<ValueElement Value="O" CodeSystem="HL70001" DisplayName="Other"/>
+			<ValueElement Value="U" CodeSystem="HL70001" DisplayName="Unknown"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70223" Name="Living Dependency">
+			<ValueElement Value="C" CodeSystem="HL70223" DisplayName="Small Children Dependent"/>
+			<ValueElement Value="M" CodeSystem="HL70223" DisplayName="Medical Supervision Required"/>
+			<ValueElement Value="O" CodeSystem="HL70223" DisplayName="Other"/>
+			<ValueElement Value="S" CodeSystem="HL70223" DisplayName="Spouse Dependent"/>
+			<ValueElement Value="U" CodeSystem="HL70223" DisplayName="Unknown"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70222" Name="Contact Reason">
+			<ValueElement Value="..." CodeSystem="HL70222" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70002" Name="Marital Status">
+			<ValueElement Value="A" CodeSystem="HL70002" DisplayName="Separated"/>
+			<ValueElement Value="B" CodeSystem="HL70002" DisplayName="Unmarried"/>
+			<ValueElement Value="C" CodeSystem="HL70002" DisplayName="Common law"/>
+			<ValueElement Value="D" CodeSystem="HL70002" DisplayName="Divorced"/>
+			<ValueElement Value="E" CodeSystem="HL70002" DisplayName="Legally Separated"/>
+			<ValueElement Value="G" CodeSystem="HL70002" DisplayName="Living together"/>
+			<ValueElement Value="I" CodeSystem="HL70002" DisplayName="Interlocutory"/>
+			<ValueElement Value="M" CodeSystem="HL70002" DisplayName="Married"/>
+			<ValueElement Value="N" CodeSystem="HL70002" DisplayName="Annulled"/>
+			<ValueElement Value="O" CodeSystem="HL70002" DisplayName="Other"/>
+			<ValueElement Value="P" CodeSystem="HL70002" DisplayName="Domestic partner"/>
+			<ValueElement Value="R" CodeSystem="HL70002" DisplayName="Registered domestic partner"/>
+			<ValueElement Value="S" CodeSystem="HL70002" DisplayName="Single"/>
+			<ValueElement Value="T" CodeSystem="HL70002" DisplayName="Unreported"/>
+			<ValueElement Value="U" CodeSystem="HL70002" DisplayName="Unknown"/>
+			<ValueElement Value="W" CodeSystem="HL70002" DisplayName="Widowed"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70220" Name="Living Arrangement">
+			<ValueElement Value="A" CodeSystem="HL70220" DisplayName="Alone"/>
+			<ValueElement Value="F" CodeSystem="HL70220" DisplayName="Family"/>
+			<ValueElement Value="I" CodeSystem="HL70220" DisplayName="Institution"/>
+			<ValueElement Value="R" CodeSystem="HL70220" DisplayName="Relative"/>
+			<ValueElement Value="S" CodeSystem="HL70220" DisplayName="Spouse Only"/>
+			<ValueElement Value="U" CodeSystem="HL70220" DisplayName="Unknown"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70471" Name="Query name">
+			<ValueElement Value="..." CodeSystem="HL70471" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70398" Name="Continuation style code">
+			<ValueElement Value="F" CodeSystem="HL70398" DisplayName="Fragmentation"/>
+			<ValueElement Value="I" CodeSystem="HL70398" DisplayName="Interactive Continuation"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70399" Name="Country code">
+			<ValueElement Value="..." CodeSystem="HL70399" DisplayName="use 3-character (alphabetic) form of ISO 3166"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70396" Name="Coding system">
+			<ValueElement Value="99zzz or L" CodeSystem="HL70396" DisplayName="Local general code (where z is an alphanumeric character)"/>
+			<ValueElement Value="ACR" CodeSystem="HL70396" DisplayName="American College of Radiology finding codes"/>
+			<ValueElement Value="ACTCODE" CodeSystem="HL70396" DisplayName="Table of HL7 Version 3 ActCode values"/>
+			<ValueElement Value="ACTRELSS" CodeSystem="HL70396" DisplayName="'Used to indicate that the target of the relationship will be a filtered subset of the total related set of targets.' Used when there is a need to limit the number of components to the first, the last, the next, the total, the average or some other filtered or calculated subset."/>
+			<ValueElement Value="ALPHAID2006" CodeSystem="HL70396" DisplayName=""/>
+			<ValueElement Value="ALPHAID2007" CodeSystem="HL70396" DisplayName="German Alpha-ID v2006"/>
+			<ValueElement Value="ALPHAID2008" CodeSystem="HL70396" DisplayName="German Alpha-ID v2007"/>
+			<ValueElement Value="ALPHAID2009" CodeSystem="HL70396" DisplayName="German Alpha-ID v2008"/>
+			<ValueElement Value="AMTv2" CodeSystem="HL70396" DisplayName="German Alpha-ID v2009"/>
+			<ValueElement Value="ANS+" CodeSystem="HL70396" DisplayName="Australian Medicines Terminology (v2)"/>
+			<ValueElement Value="ART" CodeSystem="HL70396" DisplayName="HL7 set of units of measure"/>
+			<ValueElement Value="AS4" CodeSystem="HL70396" DisplayName="WHO Adverse Reaction Terms"/>
+			<ValueElement Value="AS4E" CodeSystem="HL70396" DisplayName="ASTM E1238/ E1467 Universal"/>
+			<ValueElement Value="ATC" CodeSystem="HL70396" DisplayName="AS4 Neurophysiology Codes"/>
+			<ValueElement Value="C4" CodeSystem="HL70396" DisplayName="American Type Culture Collection"/>
+			<ValueElement Value="CAPECC" CodeSystem="HL70396" DisplayName="CPT-4"/>
+			<ValueElement Value="CAS" CodeSystem="HL70396" DisplayName="College of American Pathologists Electronic Cancer Checklist"/>
+			<ValueElement Value="CCC" CodeSystem="HL70396" DisplayName="Chemical abstract codes"/>
+			<ValueElement Value="CD2" CodeSystem="HL70396" DisplayName="Clinical Care Classification system"/>
+			<ValueElement Value="CDCA" CodeSystem="HL70396" DisplayName="CDT-2 Codes"/>
+			<ValueElement Value="CDCEDACUITY" CodeSystem="HL70396" DisplayName="CDC Analyte Codes"/>
+			<ValueElement Value="CDCM" CodeSystem="HL70396" DisplayName="CDC Emergency Department Acuity"/>
+			<ValueElement Value="CDCNHSN" CodeSystem="HL70396" DisplayName="CDC Methods/Instruments Codes"/>
+			<ValueElement Value="CDCOBS" CodeSystem="HL70396" DisplayName="CDC National Healthcare Safety Network Codes"/>
+			<ValueElement Value="CDCPHINVS" CodeSystem="HL70396" DisplayName="CDC BioSense RT observations (Census) - CDC"/>
+			<ValueElement Value="CDCREC" CodeSystem="HL70396" DisplayName="CDC PHIN Vocabulary Coding System"/>
+			<ValueElement Value="CDS" CodeSystem="HL70396" DisplayName="Race &amp; Ethnicity - CDC"/>
+			<ValueElement Value="CLP" CodeSystem="HL70396" DisplayName="CDC Surveillance"/>
+			<ValueElement Value="CPTM" CodeSystem="HL70396" DisplayName="CLIP"/>
+			<ValueElement Value="CST" CodeSystem="HL70396" DisplayName="CPT Modifier Code"/>
+			<ValueElement Value="CVX" CodeSystem="HL70396" DisplayName="COSTART"/>
+			<ValueElement Value="DCM" CodeSystem="HL70396" DisplayName="CDC Vaccine Codes"/>
+			<ValueElement Value="E" CodeSystem="HL70396" DisplayName="DICOM Controlled Terminology"/>
+			<ValueElement Value="E5" CodeSystem="HL70396" DisplayName="EUCLIDES"/>
+			<ValueElement Value="E6" CodeSystem="HL70396" DisplayName="Euclides  quantity codes"/>
+			<ValueElement Value="E7" CodeSystem="HL70396" DisplayName="Euclides Lab method codes"/>
+			<ValueElement Value="EDLEVEL" CodeSystem="HL70396" DisplayName="Euclides Lab equipment codes"/>
+			<ValueElement Value="ENTITYCODE" CodeSystem="HL70396" DisplayName="Education Level"/>
+			<ValueElement Value="ENTITYHDLG" CodeSystem="HL70396" DisplayName="Entity Code"/>
+			<ValueElement Value="ENZC" CodeSystem="HL70396" DisplayName="Entity Handling Code"/>
+			<ValueElement Value="EPASRS" CodeSystem="HL70396" DisplayName="Enzyme Codes"/>
+			<ValueElement Value="FDAUNII" CodeSystem="HL70396" DisplayName="EPA SRS"/>
+			<ValueElement Value="FDDC" CodeSystem="HL70396" DisplayName="Unique Ingredient Identifier (UNII)"/>
+			<ValueElement Value="FDDX" CodeSystem="HL70396" DisplayName="First DataBank Drug Codes"/>
+			<ValueElement Value="FDK" CodeSystem="HL70396" DisplayName="First DataBank Diagnostic Codes"/>
+			<ValueElement Value="FIPS5_2" CodeSystem="HL70396" DisplayName="FDA K10"/>
+			<ValueElement Value="FIPS6_4" CodeSystem="HL70396" DisplayName="FIPS 5-2 (State)"/>
+			<ValueElement Value="GDRG2006" CodeSystem="HL70396" DisplayName="FIPS 6-4 (County)"/>
+			<ValueElement Value="GDRG2007" CodeSystem="HL70396" DisplayName="G-DRG German DRG Codes v 2006"/>
+			<ValueElement Value="GDRG2008" CodeSystem="HL70396" DisplayName="G-DRG German DRG Codes v2007"/>
+			<ValueElement Value="GDRG2009" CodeSystem="HL70396" DisplayName="G-DRG German DRG Codes v2008"/>
+			<ValueElement Value="GMDC2006" CodeSystem="HL70396" DisplayName="G-DRG German DRG Codes v2008"/>
+			<ValueElement Value="GMDC2007" CodeSystem="HL70396" DisplayName="German Major v2006 Diagnostic Codes"/>
+			<ValueElement Value="GMDC2008" CodeSystem="HL70396" DisplayName="German Major Diagnostic Codes v2007"/>
+			<ValueElement Value="HB" CodeSystem="HL70396" DisplayName="German Major Diagnostic Codes v2008"/>
+			<ValueElement Value="HCPCS" CodeSystem="HL70396" DisplayName="HIBCC"/>
+			<ValueElement Value="HCPT" CodeSystem="HL70396" DisplayName="CMS (formerly HCFA)  Common Procedure Coding System"/>
+			<ValueElement Value="HHC" CodeSystem="HL70396" DisplayName="Health Care Provider Taxonomy"/>
+			<ValueElement Value="HI" CodeSystem="HL70396" DisplayName="Home Health Care"/>
+			<ValueElement Value="HOT" CodeSystem="HL70396" DisplayName="Health Outcomes"/>
+			<ValueElement Value="HPC" CodeSystem="HL70396" DisplayName="Japanese Nationwide Medicine Code"/>
+			<ValueElement Value="HSLOC" CodeSystem="HL70396" DisplayName="CMS (formerly HCFA )Procedure Codes (HCPCS)"/>
+			<ValueElement Value="I10" CodeSystem="HL70396" DisplayName="Healthcare Service Location"/>
+			<ValueElement Value="I10C" CodeSystem="HL70396" DisplayName="ICD-10"/>
+			<ValueElement Value="I10G2006" CodeSystem="HL70396" DisplayName="International Classification of Diseases, 10th  Revision, Clinical Modification (ICD-10-CM)"/>
+			<ValueElement Value="I10P" CodeSystem="HL70396" DisplayName="ICD 10 Germany 2006"/>
+			<ValueElement Value="I9" CodeSystem="HL70396" DisplayName="International Classification of Diseases, 10th  Revision, Procedure Coding System (ICD-10-PCS)"/>
+			<ValueElement Value="I9C" CodeSystem="HL70396" DisplayName="ICD9"/>
+			<ValueElement Value="I9CDX" CodeSystem="HL70396" DisplayName="International Classification of Diseases, 9th  Revision, Clinical Modification (ICD-9-CM)"/>
+			<ValueElement Value="I9CP" CodeSystem="HL70396" DisplayName="ICD-9CM Diagnosis codes"/>
+			<ValueElement Value="IBT0001" CodeSystem="HL70396" DisplayName="ICD-9CM Procedure codes"/>
+			<ValueElement Value="IC2" CodeSystem="HL70396" DisplayName="ISBT 128 Standard transfusion/transplantation data items"/>
+			<ValueElement Value="ICD10AM" CodeSystem="HL70396" DisplayName="ICHPPC-2"/>
+			<ValueElement Value="ICD10CA" CodeSystem="HL70396" DisplayName="ICD-10 Australian modification"/>
+			<ValueElement Value="ICD10GM2007" CodeSystem="HL70396" DisplayName="ICD-10 Canada"/>
+			<ValueElement Value="ICD10GM2008" CodeSystem="HL70396" DisplayName="ICD 10 Germany v2007"/>
+			<ValueElement Value="ICD10GM2009" CodeSystem="HL70396" DisplayName="ICD 10 Germany v2008"/>
+			<ValueElement Value="ICDO" CodeSystem="HL70396" DisplayName="ICD 10 Germany v2009"/>
+			<ValueElement Value="ICDO2" CodeSystem="HL70396" DisplayName="International Classification of Diseases for Oncology"/>
+			<ValueElement Value="ICDO3" CodeSystem="HL70396" DisplayName="International Classification of Disease for Oncology Second Edition"/>
+			<ValueElement Value="ICF" CodeSystem="HL70396" DisplayName="International Classification of Disease for Oncology Third Edition"/>
+			<ValueElement Value="ICS" CodeSystem="HL70396" DisplayName="International Classification of Functioning, Disability and Health (ICF)"/>
+			<ValueElement Value="ICSD" CodeSystem="HL70396" DisplayName="ICCS"/>
+			<ValueElement Value="IHELAW" CodeSystem="HL70396" DisplayName="International Classification of Sleep Disorders"/>
+			<ValueElement Value="ISO+" CodeSystem="HL70396" DisplayName="IHE Laboratory Analytical Workflow (LAW) Profile Codes."/>
+			<ValueElement Value="ISO3166_1" CodeSystem="HL70396" DisplayName="ISO 2955.83 (units of measure) with HL7 extensions"/>
+			<ValueElement Value="ISO3166_2" CodeSystem="HL70396" DisplayName="ISO 3166-1 Country Codes"/>
+			<ValueElement Value="ISO4217" CodeSystem="HL70396" DisplayName="ISO 3166-2 Country subdivisions"/>
+			<ValueElement Value="ISO639" CodeSystem="HL70396" DisplayName="ISO4217 Currency Codes"/>
+			<ValueElement Value="ITIS" CodeSystem="HL70396" DisplayName="ISO 639 Language"/>
+			<ValueElement Value="IUPC" CodeSystem="HL70396" DisplayName="Integrated Taxonomic Information System"/>
+			<ValueElement Value="IUPP" CodeSystem="HL70396" DisplayName="IUPAC/IFCC Component Codes"/>
+			<ValueElement Value="JC10" CodeSystem="HL70396" DisplayName="IUPAC/IFCC Property Codes"/>
+			<ValueElement Value="JC8" CodeSystem="HL70396" DisplayName="JLAC/JSLM, nationwide laboratory code"/>
+			<ValueElement Value="JJ1017" CodeSystem="HL70396" DisplayName="Japanese Chemistry"/>
+			<ValueElement Value="LANGUAL" CodeSystem="HL70396" DisplayName="Japanese Image Examination Cache"/>
+			<ValueElement Value="LB" CodeSystem="HL70396" DisplayName="LanguaL"/>
+			<ValueElement Value="LN" CodeSystem="HL70396" DisplayName="Local billing code"/>
+			<ValueElement Value="MCD" CodeSystem="HL70396" DisplayName="Logical Observation Identifier Names and Codes (LOINC®)"/>
+			<ValueElement Value="MCR" CodeSystem="HL70396" DisplayName="Medicaid"/>
+			<ValueElement Value="MDC" CodeSystem="HL70396" DisplayName="Medicare"/>
+			<ValueElement Value="MDDX" CodeSystem="HL70396" DisplayName="Medical Device Communication"/>
+			<ValueElement Value="MEDC" CodeSystem="HL70396" DisplayName="Medispan Diagnostic Codes"/>
+			<ValueElement Value="MEDIATYPE" CodeSystem="HL70396" DisplayName="Medical Economics Drug Codes"/>
+			<ValueElement Value="MEDR" CodeSystem="HL70396" DisplayName="MIME Media Type IANA"/>
+			<ValueElement Value="MEDX" CodeSystem="HL70396" DisplayName="Medical Dictionary for Drug Regulatory Affairs (MEDDRA)"/>
+			<ValueElement Value="MGPI" CodeSystem="HL70396" DisplayName="Medical Economics Diagnostic Codes"/>
+			<ValueElement Value="MVX" CodeSystem="HL70396" DisplayName="Medispan GPI"/>
+			<ValueElement Value="NAICS" CodeSystem="HL70396" DisplayName="CDC Vaccine Manufacturer Codes"/>
+			<ValueElement Value="NCPDPnnnnsss" CodeSystem="HL70396" DisplayName="Industry (NAICS)"/>
+			<ValueElement Value="NDA" CodeSystem="HL70396" DisplayName="NCPDP code list for data element nnnn [as used in segment sss]"/>
+			<ValueElement Value="NDC" CodeSystem="HL70396" DisplayName="NANDA"/>
+			<ValueElement Value="NDFRT" CodeSystem="HL70396" DisplayName="National drug codes"/>
+			<ValueElement Value="NIC" CodeSystem="HL70396" DisplayName="NDF-RT (Drug Classification)"/>
+			<ValueElement Value="NIP001" CodeSystem="HL70396" DisplayName="Nursing Interventions Classification"/>
+			<ValueElement Value="NIP002" CodeSystem="HL70396" DisplayName="Source of Information (Immunization)"/>
+			<ValueElement Value="NIP004" CodeSystem="HL70396" DisplayName="Substance refusal reason"/>
+			<ValueElement Value="NIP007" CodeSystem="HL70396" DisplayName="Vaccination - Contraindications, Precautions, and Immunities"/>
+			<ValueElement Value="NIP008" CodeSystem="HL70396" DisplayName="Vaccinated at location (facility)"/>
+			<ValueElement Value="NIP009" CodeSystem="HL70396" DisplayName="Vaccine purchased with (Type of funding)"/>
+			<ValueElement Value="NIP010" CodeSystem="HL70396" DisplayName="Reported adverse event previously"/>
+			<ValueElement Value="NND" CodeSystem="HL70396" DisplayName="VAERS Report type"/>
+			<ValueElement Value="NPI" CodeSystem="HL70396" DisplayName="Notifiable Event (Disease/Condition) Code List"/>
+			<ValueElement Value="NUBC" CodeSystem="HL70396" DisplayName="National Provider Identifier"/>
+			<ValueElement Value="NULLFL" CodeSystem="HL70396" DisplayName="National Uniform Billing Committee Code"/>
+			<ValueElement Value="O3012006" CodeSystem="HL70396" DisplayName="Flavors of NULL"/>
+			<ValueElement Value="OBSMETHOD" CodeSystem="HL70396" DisplayName="Ops Germany 2006"/>
+			<ValueElement Value="OHA" CodeSystem="HL70396" DisplayName="Observation Method Code"/>
+			<ValueElement Value="OPS2007" CodeSystem="HL70396" DisplayName="Omaha System"/>
+			<ValueElement Value="OPS2008" CodeSystem="HL70396" DisplayName="OPS Germany v2007"/>
+			<ValueElement Value="OPS2009" CodeSystem="HL70396" DisplayName="OPS Germany v2008"/>
+			<ValueElement Value="PHDSCSOPT" CodeSystem="HL70396" DisplayName="OPS Germany v2008"/>
+			<ValueElement Value="PHINQUESTION" CodeSystem="HL70396" DisplayName="Source of Payment Typology"/>
+			<ValueElement Value="PLR" CodeSystem="HL70396" DisplayName="CDC Public Health Information Network (PHIN) Question"/>
+			<ValueElement Value="PLT" CodeSystem="HL70396" DisplayName="CDC PHLIP Lab result codes that are not covered in SNOMED at the time of this implementation"/>
+			<ValueElement Value="POS" CodeSystem="HL70396" DisplayName="CDC PHLIP Lab test codes, where LOINC concept is too broad or not yet available, especially as needed for ordering and or lab to lab reporting )"/>
+			<ValueElement Value="PRTCPTNMODE" CodeSystem="HL70396" DisplayName="POS Codes"/>
+			<ValueElement Value="RC" CodeSystem="HL70396" DisplayName="Paticipation Mode Code"/>
+			<ValueElement Value="ROLECLASS" CodeSystem="HL70396" DisplayName="Read Classification"/>
+			<ValueElement Value="ROLECODE" CodeSystem="HL70396" DisplayName="Used initially for contact roles."/>
+			<ValueElement Value="RSPMODE" CodeSystem="HL70396" DisplayName="Participation Mode"/>
+			<ValueElement Value="RXNORM" CodeSystem="HL70396" DisplayName="Specifies the mode, immediate versus deferred or queued, by which a receiver should communicate its receiver responsibilities."/>
+			<ValueElement Value="SCT" CodeSystem="HL70396" DisplayName="RxNorm"/>
+			<ValueElement Value="SCT2" CodeSystem="HL70396" DisplayName="SNOMED Clinical Terms"/>
+			<ValueElement Value="SDM" CodeSystem="HL70396" DisplayName="SNOMED Clinical Terms alphanumeric codes"/>
+			<ValueElement Value="SIC" CodeSystem="HL70396" DisplayName="SNOMED- DICOM Microglossary"/>
+			<ValueElement Value="SNM" CodeSystem="HL70396" DisplayName="Industry (SIC)"/>
+			<ValueElement Value="SNM3" CodeSystem="HL70396" DisplayName="Systemized Nomenclature of Medicine (SNOMED)"/>
+			<ValueElement Value="SNT" CodeSystem="HL70396" DisplayName="SNOMED International"/>
+			<ValueElement Value="SOC" CodeSystem="HL70396" DisplayName="SNOMED topology codes (anatomic sites)"/>
+			<ValueElement Value="UB04FL14" CodeSystem="HL70396" DisplayName="Occupation (SOC 2000)"/>
+			<ValueElement Value="UB04FL15" CodeSystem="HL70396" DisplayName="Priority (Type) of Visit"/>
+			<ValueElement Value="UB04FL17" CodeSystem="HL70396" DisplayName="Point of Origin "/>
+			<ValueElement Value="UB04FL31" CodeSystem="HL70396" DisplayName="Patient Discharge Status"/>
+			<ValueElement Value="UB04FL35" CodeSystem="HL70396" DisplayName="Occurrence Code"/>
+			<ValueElement Value="UB04FL39" CodeSystem="HL70396" DisplayName="Occurrence Span"/>
+			<ValueElement Value="UC" CodeSystem="HL70396" DisplayName="Value Code"/>
+			<ValueElement Value="UCUM" CodeSystem="HL70396" DisplayName="UCDS"/>
+			<ValueElement Value="UMD" CodeSystem="HL70396" DisplayName="UCUM code set for units of measure(from Regenstrief)"/>
+			<ValueElement Value="UML" CodeSystem="HL70396" DisplayName="MDNS"/>
+			<ValueElement Value="UPC" CodeSystem="HL70396" DisplayName="Unified Medical Language"/>
+			<ValueElement Value="UPIN" CodeSystem="HL70396" DisplayName="Universal Product Code"/>
+			<ValueElement Value="USGSGNIS" CodeSystem="HL70396" DisplayName="UPIN"/>
+			<ValueElement Value="USPS" CodeSystem="HL70396" DisplayName="U.S. Board on Geographic Names (USGS - GNIS)"/>
+			<ValueElement Value="VIS" CodeSystem="HL70396" DisplayName="United States Postal Service"/>
+			<ValueElement Value="W1" CodeSystem="HL70396" DisplayName="Clinicians are required to track the Vaccine Information Sheet (VIS) that was shared with the recipient of a vaccination.  This code system contains codes that  identify the document type and the owner of the document."/>
+			<ValueElement Value="W2" CodeSystem="HL70396" DisplayName="WHO record # drug codes (6 digit)"/>
+			<ValueElement Value="W4" CodeSystem="HL70396" DisplayName="WHO record # drug codes (8 digit)"/>
+			<ValueElement Value="WC" CodeSystem="HL70396" DisplayName="WHO record # code with ASTM extension"/>
+			<ValueElement Value="X12DEnnnn" CodeSystem="HL70396" DisplayName="WHO ATC"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70009" Name="Ambulatory Status">
+			<ValueElement Value="A0" CodeSystem="HL70009" DisplayName="No functional limitations"/>
+			<ValueElement Value="A1" CodeSystem="HL70009" DisplayName="Ambulates with assistive device"/>
+			<ValueElement Value="A2" CodeSystem="HL70009" DisplayName="Wheelchair/stretcher bound"/>
+			<ValueElement Value="A3" CodeSystem="HL70009" DisplayName="Comatose; non-responsive"/>
+			<ValueElement Value="A4" CodeSystem="HL70009" DisplayName="Disoriented"/>
+			<ValueElement Value="A5" CodeSystem="HL70009" DisplayName="Vision impaired"/>
+			<ValueElement Value="A6" CodeSystem="HL70009" DisplayName="Hearing impaired"/>
+			<ValueElement Value="A7" CodeSystem="HL70009" DisplayName="Speech impaired"/>
+			<ValueElement Value="A8" CodeSystem="HL70009" DisplayName="Non-English speaking"/>
+			<ValueElement Value="A9" CodeSystem="HL70009" DisplayName="Functional level unknown"/>
+			<ValueElement Value="B1" CodeSystem="HL70009" DisplayName="Oxygen therapy"/>
+			<ValueElement Value="B2" CodeSystem="HL70009" DisplayName="Special equipment (tubes, IVs, catheters)"/>
+			<ValueElement Value="B3" CodeSystem="HL70009" DisplayName="Amputee"/>
+			<ValueElement Value="B4" CodeSystem="HL70009" DisplayName="Mastectomy"/>
+			<ValueElement Value="B5" CodeSystem="HL70009" DisplayName="Paraplegic"/>
+			<ValueElement Value="B6" CodeSystem="HL70009" DisplayName="Pregnant"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70465" Name="Name/address representation">
+			<ValueElement Value="A" CodeSystem="HL70465" DisplayName="Alphabetic (i.e., Default or some single-byte)"/>
+			<ValueElement Value="I" CodeSystem="HL70465" DisplayName="Ideographic (i.e., Kanji)"/>
+			<ValueElement Value="P" CodeSystem="HL70465" DisplayName="Phonetic (i.e., ASCII, Katakana, Hiragana, etc.)"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70429" Name="Production Class Code">
+			<ValueElement Value="BR" CodeSystem="HL70429" DisplayName="Breeding/genetic stock"/>
+			<ValueElement Value="DA" CodeSystem="HL70429" DisplayName="Dairy"/>
+			<ValueElement Value="DR" CodeSystem="HL70429" DisplayName="Draft"/>
+			<ValueElement Value="DU" CodeSystem="HL70429" DisplayName="Dual Purpose"/>
+			<ValueElement Value="LY" CodeSystem="HL70429" DisplayName="Layer, Includes Multiplier flocks"/>
+			<ValueElement Value="MT" CodeSystem="HL70429" DisplayName="Meat"/>
+			<ValueElement Value="NA" CodeSystem="HL70429" DisplayName="Not Applicable"/>
+			<ValueElement Value="OT" CodeSystem="HL70429" DisplayName="Other"/>
+			<ValueElement Value="PL" CodeSystem="HL70429" DisplayName="Pleasure"/>
+			<ValueElement Value="RA" CodeSystem="HL70429" DisplayName="Racing"/>
+			<ValueElement Value="SH" CodeSystem="HL70429" DisplayName="Show"/>
+			<ValueElement Value="U" CodeSystem="HL70429" DisplayName="Unknown"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70529" Name="Precision">
+			<ValueElement Value="D" CodeSystem="HL70529" DisplayName="day"/>
+			<ValueElement Value="H" CodeSystem="HL70529" DisplayName="hour"/>
+			<ValueElement Value="L" CodeSystem="HL70529" DisplayName="month"/>
+			<ValueElement Value="M" CodeSystem="HL70529" DisplayName="minute"/>
+			<ValueElement Value="S" CodeSystem="HL70529" DisplayName="second"/>
+			<ValueElement Value="Y" CodeSystem="HL70529" DisplayName="year"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70297" Name="CN ID source">
+			<ValueElement Value="..." CodeSystem="HL70297" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70131" Name="Contact Role">
+			<ValueElement Value="C" CodeSystem="HL70131" DisplayName="Emergency Contact"/>
+			<ValueElement Value="E" CodeSystem="HL70131" DisplayName="Employer"/>
+			<ValueElement Value="F" CodeSystem="HL70131" DisplayName="Federal Agency"/>
+			<ValueElement Value="I" CodeSystem="HL70131" DisplayName="Insurance Company"/>
+			<ValueElement Value="N" CodeSystem="HL70131" DisplayName="Next-of-Kin"/>
+			<ValueElement Value="O" CodeSystem="HL70131" DisplayName="Other"/>
+			<ValueElement Value="S" CodeSystem="HL70131" DisplayName="State Agency"/>
+			<ValueElement Value="U" CodeSystem="HL70131" DisplayName="Unknown"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70519" Name="Override reason">
+			<ValueElement Value="..." CodeSystem="HL70519" DisplayName="No suggested values"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70212" Name="Nationality">
+			<ValueElement Value="..." CodeSystem="HL70212" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70518" Name="Override type">
+			<ValueElement Value="EQV" CodeSystem="HL70518" DisplayName="Equivalence Override"/>
+			<ValueElement Value="EXTN" CodeSystem="HL70518" DisplayName="Extension Override"/>
+			<ValueElement Value="INLV" CodeSystem="HL70518" DisplayName="Interval Override"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70211" Name="Alternate character sets">
+			<ValueElement Value="8859/1" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/1 Character set"/>
+			<ValueElement Value="8859/2" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/2 Character set"/>
+			<ValueElement Value="8859/3" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/3 Character set"/>
+			<ValueElement Value="8859/4" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/4 Character set"/>
+			<ValueElement Value="8859/5" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/5 Character set"/>
+			<ValueElement Value="8859/6" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/6 Character set"/>
+			<ValueElement Value="8859/7" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/7 Character set"/>
+			<ValueElement Value="8859/8" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/8 Character set"/>
+			<ValueElement Value="8859/9" CodeSystem="HL70211" DisplayName="The printable characters from the ISO 8859/9 Character set"/>
+			<ValueElement Value="ASCII" CodeSystem="HL70211" DisplayName="The printable 7-bit ASCII character set."/>
+			<ValueElement Value="BIG-5" CodeSystem="HL70211" DisplayName="Code for Taiwanese Character Set (BIG-5)"/>
+			<ValueElement Value="CNS 11643-1992" CodeSystem="HL70211" DisplayName="Code for Taiwanese Character Set (CNS 11643-1992)"/>
+			<ValueElement Value="GB 18030-2000" CodeSystem="HL70211" DisplayName="Code for Chinese Character Set (GB 18030-2000)"/>
+			<ValueElement Value="ISO IR14" CodeSystem="HL70211" DisplayName="Code for Information Exchange (one byte)(JIS X 0201-1976)."/>
+			<ValueElement Value="ISO IR159" CodeSystem="HL70211" DisplayName="Code of the supplementary Japanese Graphic Character set for information interchange (JIS X 0212-1990)."/>
+			<ValueElement Value="ISO IR87" CodeSystem="HL70211" DisplayName="Code for the Japanese Graphic Character set for information interchange (JIS X 0208-1990),"/>
+			<ValueElement Value="KS X 1001" CodeSystem="HL70211" DisplayName="Code for Korean Character Set (KS X 1001)"/>
+			<ValueElement Value="UNICODE" CodeSystem="HL70211" DisplayName="The world wide character standard from ISO/IEC 10646-1-1993"/>
+			<ValueElement Value="UNICODE UTF-16" CodeSystem="HL70211" DisplayName="UCS Transformation Format, 16-bit form"/>
+			<ValueElement Value="UNICODE UTF-32" CodeSystem="HL70211" DisplayName="UCS Transformation Format, 32-bit form"/>
+			<ValueElement Value="UNICODE UTF-8" CodeSystem="HL70211" DisplayName="UCS Transformation Format, 8-bit form"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70315" Name="Living Will Code">
+			<ValueElement Value="F" CodeSystem="HL70315" DisplayName="Yes, patient has a living will but it is not on file"/>
+			<ValueElement Value="I" CodeSystem="HL70315" DisplayName="No, patient does not have a living will but information was provided"/>
+			<ValueElement Value="N" CodeSystem="HL70315" DisplayName="No, patient does not have a living will and no information was provided"/>
+			<ValueElement Value="U" CodeSystem="HL70315" DisplayName="Unknown"/>
+			<ValueElement Value="Y" CodeSystem="HL70315" DisplayName="Yes, patient has a living will"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70517" Name="Inform person code">
+			<ValueElement Value="HD" CodeSystem="HL70517" DisplayName="Inform help desk"/>
+			<ValueElement Value="NPAT" CodeSystem="HL70517" DisplayName="Do NOT inform patient"/>
+			<ValueElement Value="PAT" CodeSystem="HL70517" DisplayName="Inform patient"/>
+			<ValueElement Value="USR" CodeSystem="HL70517" DisplayName="Inform User"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70311" Name="Job Status">
+			<ValueElement Value="O" CodeSystem="HL70311" DisplayName="Other"/>
+			<ValueElement Value="P" CodeSystem="HL70311" DisplayName="Permanent"/>
+			<ValueElement Value="T" CodeSystem="HL70311" DisplayName="Temporary"/>
+			<ValueElement Value="U" CodeSystem="HL70311" DisplayName="Unknown"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70215" Name="Publicity Code">
+			<ValueElement Value="F" CodeSystem="HL70215" DisplayName="Family only"/>
+			<ValueElement Value="N" CodeSystem="HL70215" DisplayName="No Publicity"/>
+			<ValueElement Value="O" CodeSystem="HL70215" DisplayName="Other"/>
+			<ValueElement Value="U" CodeSystem="HL70215" DisplayName="Unknown"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70357" Name="Message error condition codes">
+			<ValueElement Value="0" CodeSystem="HL70357" DisplayName="Message accepted"/>
+			<ValueElement Value="100" CodeSystem="HL70357" DisplayName="Segment sequence error"/>
+			<ValueElement Value="101" CodeSystem="HL70357" DisplayName="Required field missing"/>
+			<ValueElement Value="102" CodeSystem="HL70357" DisplayName="Data type error"/>
+			<ValueElement Value="103" CodeSystem="HL70357" DisplayName="Table value not found"/>
+			<ValueElement Value="200" CodeSystem="HL70357" DisplayName="Unsupported message type"/>
+			<ValueElement Value="201" CodeSystem="HL70357" DisplayName="Unsupported event code"/>
+			<ValueElement Value="202" CodeSystem="HL70357" DisplayName="Unsupported processing id"/>
+			<ValueElement Value="203" CodeSystem="HL70357" DisplayName="Unsupported version id"/>
+			<ValueElement Value="204" CodeSystem="HL70357" DisplayName="Unknown key identifier"/>
+			<ValueElement Value="205" CodeSystem="HL70357" DisplayName="Duplicate key identifier"/>
+			<ValueElement Value="206" CodeSystem="HL70357" DisplayName="Application record locked"/>
+			<ValueElement Value="207" CodeSystem="HL70357" DisplayName="Application internal error"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70172" Name="Veterans Military Status">
+			<ValueElement Value="..." CodeSystem="HL70172" DisplayName="no suggested values"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70356" Name="Alternate character set handling scheme">
+			<ValueElement Value="&lt;null&gt;" CodeSystem="HL70356" DisplayName="This is the default, indicating that there is no character set switching occurring in this message."/>
+			<ValueElement Value="2.3" CodeSystem="HL70356" DisplayName="The character set switching mode specified in HL7 2.5, section 2.7.2, 창??Escape sequences supporting multiple character sets창?? and section 2.A.46, &quot;XPN - extended person name&quot;."/>
+			<ValueElement Value="ISO 2022-1994" CodeSystem="HL70356" DisplayName="This standard is titled &quot;Information Technology - Character Code Structure and Extension Technique&quot;. ."/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70363" Name="Assigning authority" Extensibility="Open">
+			<ValueElement Value="..." CodeSystem="HL70363" DisplayName="No suggested values"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70316" Name="Organ Donor Code">
+			<ValueElement Value="F" CodeSystem="HL70316" DisplayName="Yes, patient is a documented donor, but documentation is not on file"/>
+			<ValueElement Value="I" CodeSystem="HL70316" DisplayName="No, patient is not a documented donor, but information was provided"/>
+			<ValueElement Value="N" CodeSystem="HL70316" DisplayName="No, patient has not agreed to be a donor"/>
+			<ValueElement Value="P" CodeSystem="HL70316" DisplayName="Patient leaves organ donation decision to a specific person"/>
+			<ValueElement Value="R" CodeSystem="HL70316" DisplayName="Patient leaves organ donation decision to relatives"/>
+			<ValueElement Value="U" CodeSystem="HL70316" DisplayName="Unknown"/>
+			<ValueElement Value="Y" CodeSystem="HL70316" DisplayName="Yes, patient is a documented donor and documentation is on file"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70171" Name="Citizenship">
+			<ValueElement Value="..." CodeSystem="HL70171" DisplayName="no suggested values"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70360" Name="Degree/license/certificate">
+			<ValueElement Value="AA" CodeSystem="HL70360" DisplayName="Associate of Arts"/>
+			<ValueElement Value="AAS" CodeSystem="HL70360" DisplayName="Associate of Applied Science"/>
+			<ValueElement Value="ABA" CodeSystem="HL70360" DisplayName="Associate of Business Administration"/>
+			<ValueElement Value="AE" CodeSystem="HL70360" DisplayName="Associate of Engineering"/>
+			<ValueElement Value="AS" CodeSystem="HL70360" DisplayName="Associate of Science"/>
+			<ValueElement Value="BA" CodeSystem="HL70360" DisplayName="Bachelor of Arts"/>
+			<ValueElement Value="BBA" CodeSystem="HL70360" DisplayName="Bachelor of Business Administration"/>
+			<ValueElement Value="BE" CodeSystem="HL70360" DisplayName="Bachelor or Engineering"/>
+			<ValueElement Value="BFA" CodeSystem="HL70360" DisplayName="Bachelor of Fine Arts"/>
+			<ValueElement Value="BN" CodeSystem="HL70360" DisplayName="Bachelor of Nursing"/>
+			<ValueElement Value="BS" CodeSystem="HL70360" DisplayName="Bachelor of Science"/>
+			<ValueElement Value="BSL" CodeSystem="HL70360" DisplayName="Bachelor of Science - Law"/>
+			<ValueElement Value="BSN" CodeSystem="HL70360" DisplayName="Bachelor on Science - Nursing"/>
+			<ValueElement Value="BT" CodeSystem="HL70360" DisplayName="Bachelor of Theology"/>
+			<ValueElement Value="CANP" CodeSystem="HL70360" DisplayName="Certified Adult Nurse Practitioner"/>
+			<ValueElement Value="CER" CodeSystem="HL70360" DisplayName="Certificate"/>
+			<ValueElement Value="CMA" CodeSystem="HL70360" DisplayName="Certified Medical Assistant"/>
+			<ValueElement Value="CNM" CodeSystem="HL70360" DisplayName="Certified Nurse Midwife"/>
+			<ValueElement Value="CNP" CodeSystem="HL70360" DisplayName="Certified Nurse Practitioner"/>
+			<ValueElement Value="CNS" CodeSystem="HL70360" DisplayName="Certified Nurse Specialist"/>
+			<ValueElement Value="CPNP" CodeSystem="HL70360" DisplayName="Certified Pediatric Nurse Practitioner"/>
+			<ValueElement Value="CRN" CodeSystem="HL70360" DisplayName="Certified Registered Nurse"/>
+			<ValueElement Value="DBA" CodeSystem="HL70360" DisplayName="Doctor of Business Administration"/>
+			<ValueElement Value="DED" CodeSystem="HL70360" DisplayName="Doctor of Education"/>
+			<ValueElement Value="DIP" CodeSystem="HL70360" DisplayName="Diploma"/>
+			<ValueElement Value="DO" CodeSystem="HL70360" DisplayName="Doctor of Osteopathy"/>
+			<ValueElement Value="EMT" CodeSystem="HL70360" DisplayName="Emergency Medical Technician"/>
+			<ValueElement Value="EMTP" CodeSystem="HL70360" DisplayName="Emergency Medical Technician - Paramedic"/>
+			<ValueElement Value="FPNP" CodeSystem="HL70360" DisplayName="Family Practice Nurse Practitioner"/>
+			<ValueElement Value="HS" CodeSystem="HL70360" DisplayName="High School Graduate"/>
+			<ValueElement Value="JD" CodeSystem="HL70360" DisplayName="Juris Doctor"/>
+			<ValueElement Value="MA" CodeSystem="HL70360" DisplayName="Master of Arts"/>
+			<ValueElement Value="MBA" CodeSystem="HL70360" DisplayName="Master of Business Administration"/>
+			<ValueElement Value="MCE" CodeSystem="HL70360" DisplayName="Master of Civil Engineering"/>
+			<ValueElement Value="MD" CodeSystem="HL70360" DisplayName="Doctor of Medicine"/>
+			<ValueElement Value="MDA" CodeSystem="HL70360" DisplayName="Medical Assistant"/>
+			<ValueElement Value="MDI" CodeSystem="HL70360" DisplayName="Master of Divinity"/>
+			<ValueElement Value="ME" CodeSystem="HL70360" DisplayName="Master of Engineering"/>
+			<ValueElement Value="MED" CodeSystem="HL70360" DisplayName="Master of Education"/>
+			<ValueElement Value="MEE" CodeSystem="HL70360" DisplayName="Master of Electrical Engineering"/>
+			<ValueElement Value="MFA" CodeSystem="HL70360" DisplayName="Master of Fine Arts"/>
+			<ValueElement Value="MME" CodeSystem="HL70360" DisplayName="Master of Mechanical Engineering"/>
+			<ValueElement Value="MS" CodeSystem="HL70360" DisplayName="Master of Science"/>
+			<ValueElement Value="MSL" CodeSystem="HL70360" DisplayName="Master of Science - Law"/>
+			<ValueElement Value="MSN" CodeSystem="HL70360" DisplayName="Master of Science - Nursing"/>
+			<ValueElement Value="MT" CodeSystem="HL70360" DisplayName="Master of Theology"/>
+			<ValueElement Value="NG" CodeSystem="HL70360" DisplayName="Non-Graduate"/>
+			<ValueElement Value="NP" CodeSystem="HL70360" DisplayName="Nurse Practitioner"/>
+			<ValueElement Value="PA" CodeSystem="HL70360" DisplayName="Physician Assistant"/>
+			<ValueElement Value="PharmD" CodeSystem="HL70360" DisplayName="Doctor of Pharmacy"/>
+			<ValueElement Value="PHD" CodeSystem="HL70360" DisplayName="Doctor of Philosophy"/>
+			<ValueElement Value="PHE" CodeSystem="HL70360" DisplayName="Doctor of Engineering"/>
+			<ValueElement Value="PHS" CodeSystem="HL70360" DisplayName="Doctor of Science"/>
+			<ValueElement Value="PN" CodeSystem="HL70360" DisplayName="Advanced Practice Nurse"/>
+			<ValueElement Value="RMA" CodeSystem="HL70360" DisplayName="Registered Medical Assistant"/>
+			<ValueElement Value="RPH" CodeSystem="HL70360" DisplayName="Registered Pharmacist"/>
+			<ValueElement Value="SEC" CodeSystem="HL70360" DisplayName="Secretarial Certificate"/>
+			<ValueElement Value="TS" CodeSystem="HL70360" DisplayName="Trade School Graduate"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70142" Name="Military Status">
+			<ValueElement Value="ACT" CodeSystem="HL70142" DisplayName="Active duty"/>
+			<ValueElement Value="DEC" CodeSystem="HL70142" DisplayName="Deceased"/>
+			<ValueElement Value="RET" CodeSystem="HL70142" DisplayName="Retired"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70201" Name="Telecommunication use code">
+			<ValueElement Value="ASN" CodeSystem="HL70201" DisplayName="Answering Service Number"/>
+			<ValueElement Value="BPN" CodeSystem="HL70201" DisplayName="Beeper Number"/>
+			<ValueElement Value="EMR" CodeSystem="HL70201" DisplayName="Emergency Number"/>
+			<ValueElement Value="NET" CodeSystem="HL70201" DisplayName="Network (email) Address"/>
+			<ValueElement Value="ORN" CodeSystem="HL70201" DisplayName="Other Residence Number"/>
+			<ValueElement Value="PRN" CodeSystem="HL70201" DisplayName="Primary Residence Number"/>
+			<ValueElement Value="VHN" CodeSystem="HL70201" DisplayName="Vacation Home Number"/>
+			<ValueElement Value="WPN" CodeSystem="HL70201" DisplayName="Work Number"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70141" Name="Military Rank/Grade">
+			<ValueElement Value="E1... E9" CodeSystem="HL70141" DisplayName="Enlisted"/>
+			<ValueElement Value="O1 ... O9" CodeSystem="HL70141" DisplayName="Officers"/>
+			<ValueElement Value="W1 ... W4" CodeSystem="HL70141" DisplayName="Warrant Officers"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70200" Name="Name type">
+			<ValueElement Value="A" CodeSystem="HL70200" DisplayName="Alias Name"/>
+			<ValueElement Value="B" CodeSystem="HL70200" DisplayName="Name at Birth"/>
+			<ValueElement Value="C" CodeSystem="HL70200" DisplayName="Adopted Name"/>
+			<ValueElement Value="D" CodeSystem="HL70200" DisplayName="Display Name"/>
+			<ValueElement Value="I" CodeSystem="HL70200" DisplayName="Licensing Name"/>
+			<ValueElement Value="L" CodeSystem="HL70200" DisplayName="Legal Name"/>
+			<ValueElement Value="M" CodeSystem="HL70200" DisplayName="Maiden Name"/>
+			<ValueElement Value="N" CodeSystem="HL70200" DisplayName="Nickname /&quot;Call me&quot; Name/Street Name"/>
+			<ValueElement Value="P" CodeSystem="HL70200" DisplayName="Name of Partner/Spouse (retained for backward compatibility only)"/>
+			<ValueElement Value="R" CodeSystem="HL70200" DisplayName="Registered Name (animals only)"/>
+			<ValueElement Value="S" CodeSystem="HL70200" DisplayName="Coded Pseudo-Name to ensure anonymity"/>
+			<ValueElement Value="T" CodeSystem="HL70200" DisplayName="Indigenous/Tribal/Community Name"/>
+			<ValueElement Value="U" CodeSystem="HL70200" DisplayName="Unspecified"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70140" Name="Military Service">
+			<ValueElement Value="AUSA" CodeSystem="HL70140" DisplayName="Australian Army"/>
+			<ValueElement Value="AUSAF" CodeSystem="HL70140" DisplayName="Australian Air Force"/>
+			<ValueElement Value="AUSN" CodeSystem="HL70140" DisplayName="Australian Navy"/>
+			<ValueElement Value="NATO" CodeSystem="HL70140" DisplayName="North Atlantic Treaty Organization"/>
+			<ValueElement Value="NOAA" CodeSystem="HL70140" DisplayName="National Oceanic and Atmospheric Administration"/>
+			<ValueElement Value="USA" CodeSystem="HL70140" DisplayName="US Army"/>
+			<ValueElement Value="USAF" CodeSystem="HL70140" DisplayName="US Air Force"/>
+			<ValueElement Value="USCG" CodeSystem="HL70140" DisplayName="US Coast Guard"/>
+			<ValueElement Value="USMC" CodeSystem="HL70140" DisplayName="US Marine Corps"/>
+			<ValueElement Value="USN" CodeSystem="HL70140" DisplayName="US Navy"/>
+			<ValueElement Value="USPHS" CodeSystem="HL70140" DisplayName="US Public Health Service"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70301" Name="Universal ID type">
+			<ValueElement Value="DNS" CodeSystem="HL70301" DisplayName="An Internet dotted name. Either in ASCII or as integers"/>
+			<ValueElement Value="GUID" CodeSystem="HL70301" DisplayName="Same as UUID."/>
+			<ValueElement Value="HCD" CodeSystem="HL70301" DisplayName="The CEN Healthcare Coding Scheme Designator. (Identifiers used in DICOM follow this assignment scheme.)"/>
+			<ValueElement Value="HL7" CodeSystem="HL70301" DisplayName="Reserved for future HL7 registration schemes"/>
+			<ValueElement Value="ISO" CodeSystem="HL70301" DisplayName="An International Standards Organization Object Identifier"/>
+			<ValueElement Value="L,M,N" CodeSystem="HL70301" DisplayName="These are reserved for locally defined coding schemes."/>
+			<ValueElement Value="Random" CodeSystem="HL70301" DisplayName="Usually a base64 encoded string of random bits.&lt;p&gt;The uniqueness depends on the length of the bits. Mail systems often generate ASCII string 창??unique names,&quot; from a combination of random bits and system names. Obviously, such identifiers will not be cons"/>
+			<ValueElement Value="URI" CodeSystem="HL70301" DisplayName="Uniform Resource Identifier"/>
+			<ValueElement Value="UUID" CodeSystem="HL70301" DisplayName="The DCE Universal Unique Identifier"/>
+			<ValueElement Value="x400" CodeSystem="HL70301" DisplayName="An X.400 MHS format identifier"/>
+			<ValueElement Value="x500" CodeSystem="HL70301" DisplayName="An X.500 directory name"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70204" Name="Organizational name type">
+			<ValueElement Value="A" CodeSystem="HL70204" DisplayName="Alias name"/>
+			<ValueElement Value="D" CodeSystem="HL70204" DisplayName="Display name"/>
+			<ValueElement Value="L" CodeSystem="HL70204" DisplayName="Legal name"/>
+			<ValueElement Value="SL" CodeSystem="HL70204" DisplayName="Stock exchange listing name"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70300" Name="Namespace ID">
+			<ValueElement Value="..." CodeSystem="HL70300" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70203" Name="Identifier type">
+			<ValueElement Value="AM" CodeSystem="HL70203" DisplayName="American Express"/>
+			<ValueElement Value="AN" CodeSystem="HL70203" DisplayName="Account number"/>
+			<ValueElement Value="ANC" CodeSystem="HL70203" DisplayName="Account number Creditor"/>
+			<ValueElement Value="AND" CodeSystem="HL70203" DisplayName="Account number debitor"/>
+			<ValueElement Value="ANON" CodeSystem="HL70203" DisplayName="Anonymous identifier"/>
+			<ValueElement Value="ANT" CodeSystem="HL70203" DisplayName="Temporary Account Number"/>
+			<ValueElement Value="APRN" CodeSystem="HL70203" DisplayName="Advanced Practice Registered Nurse number"/>
+			<ValueElement Value="BA" CodeSystem="HL70203" DisplayName="Bank Account Number"/>
+			<ValueElement Value="BC" CodeSystem="HL70203" DisplayName="Bank Card Number"/>
+			<ValueElement Value="BR" CodeSystem="HL70203" DisplayName="Birth registry number"/>
+			<ValueElement Value="BRN" CodeSystem="HL70203" DisplayName="Breed Registry Number"/>
+			<ValueElement Value="CC" CodeSystem="HL70203" DisplayName="Cost Center number"/>
+			<ValueElement Value="CY" CodeSystem="HL70203" DisplayName="County number"/>
+			<ValueElement Value="DDS" CodeSystem="HL70203" DisplayName="Dentist license number"/>
+			<ValueElement Value="DEA" CodeSystem="HL70203" DisplayName="Drug Enforcement Administration registration number"/>
+			<ValueElement Value="DFN" CodeSystem="HL70203" DisplayName="Drug Furnishing or prescriptive authority Number"/>
+			<ValueElement Value="DI" CodeSystem="HL70203" DisplayName="Diner's Club card"/>
+			<ValueElement Value="DL" CodeSystem="HL70203" DisplayName="Driver's license number"/>
+			<ValueElement Value="DN" CodeSystem="HL70203" DisplayName="Doctor number"/>
+			<ValueElement Value="DO" CodeSystem="HL70203" DisplayName="Osteopathic License number"/>
+			<ValueElement Value="DPM" CodeSystem="HL70203" DisplayName="Podiatrist license number"/>
+			<ValueElement Value="DR" CodeSystem="HL70203" DisplayName="Donor Registration Number"/>
+			<ValueElement Value="DS" CodeSystem="HL70203" DisplayName="Discover Card"/>
+			<ValueElement Value="EI" CodeSystem="HL70203" DisplayName="Employee number"/>
+			<ValueElement Value="EN" CodeSystem="HL70203" DisplayName="Employer number"/>
+			<ValueElement Value="FI" CodeSystem="HL70203" DisplayName="Facility ID"/>
+			<ValueElement Value="GI" CodeSystem="HL70203" DisplayName="Guarantor internal identifier"/>
+			<ValueElement Value="GL" CodeSystem="HL70203" DisplayName="General ledger number"/>
+			<ValueElement Value="GN" CodeSystem="HL70203" DisplayName="Guarantor external  identifier"/>
+			<ValueElement Value="HC" CodeSystem="HL70203" DisplayName="Health Card Number"/>
+			<ValueElement Value="IND" CodeSystem="HL70203" DisplayName="Indigenous/Aboriginal"/>
+			<ValueElement Value="JHN" CodeSystem="HL70203" DisplayName="Jurisdictional health number (Canada)"/>
+			<ValueElement Value="LI" CodeSystem="HL70203" DisplayName="Labor and industries number"/>
+			<ValueElement Value="LN" CodeSystem="HL70203" DisplayName="License number"/>
+			<ValueElement Value="LR" CodeSystem="HL70203" DisplayName="Local Registry ID"/>
+			<ValueElement Value="MA" CodeSystem="HL70203" DisplayName="Patient Medicaid number"/>
+			<ValueElement Value="MB" CodeSystem="HL70203" DisplayName="Member Number"/>
+			<ValueElement Value="MC" CodeSystem="HL70203" DisplayName="Patient's Medicare number"/>
+			<ValueElement Value="MCD" CodeSystem="HL70203" DisplayName="Practitioner Medicaid number"/>
+			<ValueElement Value="MCN" CodeSystem="HL70203" DisplayName="Microchip Number"/>
+			<ValueElement Value="MCR" CodeSystem="HL70203" DisplayName="Practitioner Medicare number"/>
+			<ValueElement Value="MD" CodeSystem="HL70203" DisplayName="Medical License number"/>
+			<ValueElement Value="MI" CodeSystem="HL70203" DisplayName="Military ID number"/>
+			<ValueElement Value="MR" CodeSystem="HL70203" DisplayName="Medical record number"/>
+			<ValueElement Value="MRT" CodeSystem="HL70203" DisplayName="Temporary Medical Record Number"/>
+			<ValueElement Value="MS" CodeSystem="HL70203" DisplayName="MasterCard"/>
+			<ValueElement Value="NE" CodeSystem="HL70203" DisplayName="National employer identifier"/>
+			<ValueElement Value="NH" CodeSystem="HL70203" DisplayName="National Health Plan Identifier"/>
+			<ValueElement Value="NI" CodeSystem="HL70203" DisplayName="National unique individual identifier"/>
+			<ValueElement Value="NII" CodeSystem="HL70203" DisplayName="National Insurance Organization Identifier"/>
+			<ValueElement Value="NIIP" CodeSystem="HL70203" DisplayName="National Insurance Payor Identifier (Payor)"/>
+			<ValueElement Value="NNxxx" CodeSystem="HL70203" DisplayName="National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code"/>
+			<ValueElement Value="NP" CodeSystem="HL70203" DisplayName="Nurse practitioner number"/>
+			<ValueElement Value="NPI" CodeSystem="HL70203" DisplayName="National provider identifier"/>
+			<ValueElement Value="OD" CodeSystem="HL70203" DisplayName="Optometrist license number"/>
+			<ValueElement Value="PA" CodeSystem="HL70203" DisplayName="Physician Assistant number"/>
+			<ValueElement Value="PCN" CodeSystem="HL70203" DisplayName="Penitentiary/correctional institution Number"/>
+			<ValueElement Value="PE" CodeSystem="HL70203" DisplayName="Living Subject Enterprise Number"/>
+			<ValueElement Value="PEN" CodeSystem="HL70203" DisplayName="Pension Number"/>
+			<ValueElement Value="PI" CodeSystem="HL70203" DisplayName="Patient internal identifier"/>
+			<ValueElement Value="PN" CodeSystem="HL70203" DisplayName="Person number"/>
+			<ValueElement Value="PNT" CodeSystem="HL70203" DisplayName="Temporary Living Subject Number"/>
+			<ValueElement Value="PPN" CodeSystem="HL70203" DisplayName="Passport number"/>
+			<ValueElement Value="PRC" CodeSystem="HL70203" DisplayName="Permanent Resident Card Number"/>
+			<ValueElement Value="PRN" CodeSystem="HL70203" DisplayName="Provider number"/>
+			<ValueElement Value="PT" CodeSystem="HL70203" DisplayName="Patient external identifier"/>
+			<ValueElement Value="QA" CodeSystem="HL70203" DisplayName="QA number"/>
+			<ValueElement Value="RI" CodeSystem="HL70203" DisplayName="Resource identifier"/>
+			<ValueElement Value="RN" CodeSystem="HL70203" DisplayName="Registered Nurse Number"/>
+			<ValueElement Value="RPH" CodeSystem="HL70203" DisplayName="Pharmacist license number"/>
+			<ValueElement Value="RR" CodeSystem="HL70203" DisplayName="Railroad Retirement number"/>
+			<ValueElement Value="RRI" CodeSystem="HL70203" DisplayName="Regional registry ID"/>
+			<ValueElement Value="SL" CodeSystem="HL70203" DisplayName="State license"/>
+			<ValueElement Value="SN" CodeSystem="HL70203" DisplayName="Subscriber Number"/>
+			<ValueElement Value="SR" CodeSystem="HL70203" DisplayName="State registry ID"/>
+			<ValueElement Value="SS" CodeSystem="HL70203" DisplayName="Social Security number"/>
+			<ValueElement Value="TAX" CodeSystem="HL70203" DisplayName="Tax ID number"/>
+			<ValueElement Value="TN" CodeSystem="HL70203" DisplayName="Treaty Number/ (Canada)"/>
+			<ValueElement Value="U" CodeSystem="HL70203" DisplayName="Unspecified identifier"/>
+			<ValueElement Value="UPIN" CodeSystem="HL70203" DisplayName="Medicare/CMS (formerly HCFA)'s Universal Physician Identification numbers"/>
+			<ValueElement Value="VN" CodeSystem="HL70203" DisplayName="Visit number"/>
+			<ValueElement Value="VS" CodeSystem="HL70203" DisplayName="VISA"/>
+			<ValueElement Value="WC" CodeSystem="HL70203" DisplayName="WIC identifier"/>
+			<ValueElement Value="WCN" CodeSystem="HL70203" DisplayName="Workers' Comp Number"/>
+			<ValueElement Value="XX" CodeSystem="HL70203" DisplayName="Organization identifier"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70202" Name="Telecommunication equipment type">
+			<ValueElement Value="BP" CodeSystem="HL70202" DisplayName="Beeper"/>
+			<ValueElement Value="CP" CodeSystem="HL70202" DisplayName="Cellular Phone"/>
+			<ValueElement Value="FX" CodeSystem="HL70202" DisplayName="Fax"/>
+			<ValueElement Value="Internet" CodeSystem="HL70202" DisplayName="Internet Address: Use Only If Telecommunication Use Code Is NET"/>
+			<ValueElement Value="MD" CodeSystem="HL70202" DisplayName="Modem"/>
+			<ValueElement Value="PH" CodeSystem="HL70202" DisplayName="Telephone"/>
+			<ValueElement Value="TDD" CodeSystem="HL70202" DisplayName="Telecommunications Device for the Deaf"/>
+			<ValueElement Value="TTY" CodeSystem="HL70202" DisplayName="Teletypewriter"/>
+			<ValueElement Value="X.400" CodeSystem="HL70202" DisplayName="X.400 email address: Use Only If Telecommunication Use Code Is NET"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70207" Name="Processing mode">
+			<ValueElement Value="A" CodeSystem="HL70207" DisplayName="Archive"/>
+			<ValueElement Value="I" CodeSystem="HL70207" DisplayName="Initial load"/>
+			<ValueElement Value="Not present" CodeSystem="HL70207" DisplayName="Not present (the default, meaning current  processing)"/>
+			<ValueElement Value="R" CodeSystem="HL70207" DisplayName="Restore from archive"/>
+			<ValueElement Value="T" CodeSystem="HL70207" DisplayName="Current processing, transmitted at intervals (scheduled or on demand)"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70440" Name="Data types">
+			<ValueElement Value="AD" CodeSystem="HL70440" DisplayName="Address"/>
+			<ValueElement Value="AUI" CodeSystem="HL70440" DisplayName="Authorization information"/>
+			<ValueElement Value="CCD" CodeSystem="HL70440" DisplayName="Charge code and date"/>
+			<ValueElement Value="CCP" CodeSystem="HL70440" DisplayName="Channel calibration parameters"/>
+			<ValueElement Value="CD" CodeSystem="HL70440" DisplayName="Channel definition"/>
+			<ValueElement Value="CE" CodeSystem="HL70440" DisplayName="Coded element"/>
+			<ValueElement Value="CF" CodeSystem="HL70440" DisplayName="Coded element with formatted values"/>
+			<ValueElement Value="CK" CodeSystem="HL70440" DisplayName="Composite ID with check digit"/>
+			<ValueElement Value="CM" CodeSystem="HL70440" DisplayName="Composite"/>
+			<ValueElement Value="CN" CodeSystem="HL70440" DisplayName="Composite ID number and name"/>
+			<ValueElement Value="CNE" CodeSystem="HL70440" DisplayName="Coded with no exceptions"/>
+			<ValueElement Value="CNS" CodeSystem="HL70440" DisplayName="Composite ID number and name simplified"/>
+			<ValueElement Value="CP" CodeSystem="HL70440" DisplayName="Composite price"/>
+			<ValueElement Value="CQ" CodeSystem="HL70440" DisplayName="Composite quantity with units"/>
+			<ValueElement Value="CSU" CodeSystem="HL70440" DisplayName="Channel sensitivity"/>
+			<ValueElement Value="CWE" CodeSystem="HL70440" DisplayName="Coded with exceptions"/>
+			<ValueElement Value="CX" CodeSystem="HL70440" DisplayName="Extended composite ID with check digit"/>
+			<ValueElement Value="DDI" CodeSystem="HL70440" DisplayName="Daily deductible information"/>
+			<ValueElement Value="DIN" CodeSystem="HL70440" DisplayName="Date and institution name"/>
+			<ValueElement Value="DLD" CodeSystem="HL70440" DisplayName="Discharge to location and date"/>
+			<ValueElement Value="DLN" CodeSystem="HL70440" DisplayName="Driver's license number"/>
+			<ValueElement Value="DLT" CodeSystem="HL70440" DisplayName="Delta"/>
+			<ValueElement Value="DR" CodeSystem="HL70440" DisplayName="Date/time range"/>
+			<ValueElement Value="DT" CodeSystem="HL70440" DisplayName="Date"/>
+			<ValueElement Value="DTM" CodeSystem="HL70440" DisplayName="Date/time"/>
+			<ValueElement Value="DTN" CodeSystem="HL70440" DisplayName="Day type and number"/>
+			<ValueElement Value="ED" CodeSystem="HL70440" DisplayName="Encapsulated data"/>
+			<ValueElement Value="EI" CodeSystem="HL70440" DisplayName="Entity identifier"/>
+			<ValueElement Value="EIP" CodeSystem="HL70440" DisplayName="Entity identifier pair"/>
+			<ValueElement Value="ERL" CodeSystem="HL70440" DisplayName="Error location"/>
+			<ValueElement Value="FC" CodeSystem="HL70440" DisplayName="Financial class"/>
+			<ValueElement Value="FN" CodeSystem="HL70440" DisplayName="Family name"/>
+			<ValueElement Value="FT" CodeSystem="HL70440" DisplayName="Formatted text"/>
+			<ValueElement Value="GTS" CodeSystem="HL70440" DisplayName="General timing specification"/>
+			<ValueElement Value="HD" CodeSystem="HL70440" DisplayName="Hierarchic designator"/>
+			<ValueElement Value="ICD" CodeSystem="HL70440" DisplayName="Insurance certification definition"/>
+			<ValueElement Value="ID" CodeSystem="HL70440" DisplayName="Coded values for HL7 tables"/>
+			<ValueElement Value="IS" CodeSystem="HL70440" DisplayName="Coded value for user-defined tables"/>
+			<ValueElement Value="JCC" CodeSystem="HL70440" DisplayName="Job code/class"/>
+			<ValueElement Value="LA1" CodeSystem="HL70440" DisplayName="Location with address variation 1"/>
+			<ValueElement Value="LA2" CodeSystem="HL70440" DisplayName="Location with address variation 2"/>
+			<ValueElement Value="LD" CodeSystem="HL70440" DisplayName="Error location and description"/>
+			<ValueElement Value="MA" CodeSystem="HL70440" DisplayName="Multiplexed array"/>
+			<ValueElement Value="MO" CodeSystem="HL70440" DisplayName="Money"/>
+			<ValueElement Value="MOC" CodeSystem="HL70440" DisplayName="Money and charge code"/>
+			<ValueElement Value="MOP" CodeSystem="HL70440" DisplayName="Money or percentage"/>
+			<ValueElement Value="MSG" CodeSystem="HL70440" DisplayName="Message type"/>
+			<ValueElement Value="NA" CodeSystem="HL70440" DisplayName="Numeric array"/>
+			<ValueElement Value="NDL" CodeSystem="HL70440" DisplayName="Name with location and date"/>
+			<ValueElement Value="NM" CodeSystem="HL70440" DisplayName="Numeric"/>
+			<ValueElement Value="NR" CodeSystem="HL70440" DisplayName="Numeric range"/>
+			<ValueElement Value="OCD" CodeSystem="HL70440" DisplayName="Occurrence code and date"/>
+			<ValueElement Value="OSD" CodeSystem="HL70440" DisplayName="Order sequence definition"/>
+			<ValueElement Value="OSP" CodeSystem="HL70440" DisplayName="Occurrence span code and date"/>
+			<ValueElement Value="PIP" CodeSystem="HL70440" DisplayName="Practitioner institutional privileges"/>
+			<ValueElement Value="PL" CodeSystem="HL70440" DisplayName="Person location"/>
+			<ValueElement Value="PLN" CodeSystem="HL70440" DisplayName="Practitioner license or other ID number"/>
+			<ValueElement Value="PN" CodeSystem="HL70440" DisplayName="Person name"/>
+			<ValueElement Value="PPN" CodeSystem="HL70440" DisplayName="Performing person time stamp"/>
+			<ValueElement Value="PRL" CodeSystem="HL70440" DisplayName="Parent result link"/>
+			<ValueElement Value="PT" CodeSystem="HL70440" DisplayName="Processing type"/>
+			<ValueElement Value="PTA" CodeSystem="HL70440" DisplayName="Policy type and amount"/>
+			<ValueElement Value="QIP" CodeSystem="HL70440" DisplayName="Query input parameter list"/>
+			<ValueElement Value="QSC" CodeSystem="HL70440" DisplayName="Query selection criteria"/>
+			<ValueElement Value="RCD" CodeSystem="HL70440" DisplayName="Row column definition"/>
+			<ValueElement Value="RFR" CodeSystem="HL70440" DisplayName="Reference range"/>
+			<ValueElement Value="RI" CodeSystem="HL70440" DisplayName="Repeat interval"/>
+			<ValueElement Value="RMC" CodeSystem="HL70440" DisplayName="Room coverage"/>
+			<ValueElement Value="RP" CodeSystem="HL70440" DisplayName="Reference pointer"/>
+			<ValueElement Value="RPT" CodeSystem="HL70440" DisplayName="Repeat pattern"/>
+			<ValueElement Value="SAD" CodeSystem="HL70440" DisplayName="Street Address"/>
+			<ValueElement Value="SCV" CodeSystem="HL70440" DisplayName="Scheduling class value pair"/>
+			<ValueElement Value="SI" CodeSystem="HL70440" DisplayName="Sequence ID"/>
+			<ValueElement Value="SN" CodeSystem="HL70440" DisplayName="Structured numeric"/>
+			<ValueElement Value="SPD" CodeSystem="HL70440" DisplayName="Specialty description"/>
+			<ValueElement Value="SPS" CodeSystem="HL70440" DisplayName="Specimen source"/>
+			<ValueElement Value="SRT" CodeSystem="HL70440" DisplayName="Sort order"/>
+			<ValueElement Value="ST" CodeSystem="HL70440" DisplayName="String"/>
+			<ValueElement Value="TM" CodeSystem="HL70440" DisplayName="Time"/>
+			<ValueElement Value="TN" CodeSystem="HL70440" DisplayName="Telephone number"/>
+			<ValueElement Value="TQ" CodeSystem="HL70440" DisplayName="Timing/quantity"/>
+			<ValueElement Value="TS" CodeSystem="HL70440" DisplayName="Time stamp"/>
+			<ValueElement Value="TX" CodeSystem="HL70440" DisplayName="Text data"/>
+			<ValueElement Value="UVC" CodeSystem="HL70440" DisplayName="UB value code and amount"/>
+			<ValueElement Value="VH" CodeSystem="HL70440" DisplayName="Visiting hours"/>
+			<ValueElement Value="VID" CodeSystem="HL70440" DisplayName="Version identifier"/>
+			<ValueElement Value="VR" CodeSystem="HL70440" DisplayName="Value range"/>
+			<ValueElement Value="WVI" CodeSystem="HL70440" DisplayName="Channel Identifier"/>
+			<ValueElement Value="WVS" CodeSystem="HL70440" DisplayName="Waveform source"/>
+			<ValueElement Value="XAD" CodeSystem="HL70440" DisplayName="Extended address"/>
+			<ValueElement Value="XCN" CodeSystem="HL70440" DisplayName="Extended composite ID number and name"/>
+			<ValueElement Value="XON" CodeSystem="HL70440" DisplayName="Extended composite name and ID number for organizations"/>
+			<ValueElement Value="XPN" CodeSystem="HL70440" DisplayName="Extended person name"/>
+			<ValueElement Value="XTN" CodeSystem="HL70440" DisplayName="Extended telecommunications number"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70447" Name="Breed Code">
+			<ValueElement Value="..." CodeSystem="HL70447" DisplayName="no suggested values"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70446" Name="Species Code">
+			<ValueElement Value="..." CodeSystem="HL70446" DisplayName="no suggested values"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70445" Name="Identity Reliability Code">
+			<ValueElement Value="AL" CodeSystem="HL70445" DisplayName="Patient/Person Name is an Alias"/>
+			<ValueElement Value="UA" CodeSystem="HL70445" DisplayName="Unknown/Default Address"/>
+			<ValueElement Value="UD" CodeSystem="HL70445" DisplayName="Unknown/Default Date of Birth"/>
+			<ValueElement Value="US" CodeSystem="HL70445" DisplayName="Unknown/Default Social Security Number"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70444" Name="Name assembly order">
+			<ValueElement Value="F" CodeSystem="HL70444" DisplayName="Prefix Family Middle Given Suffix"/>
+			<ValueElement Value="G" CodeSystem="HL70444" DisplayName="Prefix Given Middle Family Suffix"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70136" Name="Yes/no indicator">
+			<ValueElement Value="N" CodeSystem="HL70136" DisplayName="No"/>
+			<ValueElement Value="Y" CodeSystem="HL70136" DisplayName="Yes"/>
+		</ValueSetDefinition>
+		<ValueSetDefinition BindingIdentifier="HL70448" Name="Name context">
+			<ValueElement Value="..." CodeSystem="HL70448" DisplayName="No suggested values defined"/>
+		</ValueSetDefinition>
+	</ValueSetDefinitions>
+</ValueSetLibrary>

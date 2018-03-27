@@ -1,0 +1,45 @@
+MSH|^~\&|NISTIISAPP|NISTIISFAC|NISTEHRAPP|NISTEHRFAC|20141031145233-0500||RSP^K11^RSP_K11|NIST-IZ-QR-2.2_Response_K11_Z42|P|2.5.1|||NE|NE|||||Z42^CDCPHINVS|NISTIISFAC^^^^^NIST-AA-1^XX^^^100-3322|NISTEHRFAC^^^^^NIST-AA-1^XX^^^100-6482
+MSA|AA|NIST-IZ-QR-2.1_Query_Q11_Z44
+QAK|IZ-2.1-2015|OK|Z44^Request Evaluated History and Forecast^CDCPHINVS
+QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS|IZ-2.1-2015|648286^^^NIST-MPI-1^MR|Stanley^Clement^S^^^^L|Bell^^^^^^M|19500214|M|1642 Bear Run^^Bozeman^MT^59715^USA^P|^PRN^PH^^1^406^5552020
+PID|1||648286^^^NIST-MPI-1^MR^MR~34500907^^^NIST-IIS-MPI^SR||Stanley^Clement^S^^^^L||19500214|M|||1642 Bear Run^^Bozeman^MT^59715^USA^P
+ORC|RE||193337027^NIST-AA-IZ-2||||||||||||||
+RXA|0|1|20151029||140^seasonal flu^CVX|0.5|mL^^UCUM||00^new immunization record^NIP001|5111^Sticker^Nurse^^^^^^NIST-PI-1^L^^^PRN|^^^NIST-Clinic-1||||||CSL^bioCSL^MVX|||CP
+RXR|C28161^IM^NCIT
+OBX|1|CE|30956-7^vaccine type^LN|1|88^influenza NOS^CVX||||||F
+OBX|2|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F|||20151029
+OBX|3|ID|59781-5^dose validity^LN|1|Y||||||F|||20151029
+ORC|RE||9999^NIST-AA-IZ-2||||||||||||||NISTEHRFAC^NISTEHRFacility^HL70362
+RXA|0|1|20151029||998^no vaccine admin^CVX|999||||||||||||||NA
+OBX|4|CE|30956-7^vaccine type^LN|1|152^pcv NOS^CVX||||||F
+OBX|5|CE|59779-9^Immunization Schedule used^LN|1|VXC16^ACIP^CDCPHINVS||||||F
+OBX|6|DT|30980-7^Date vaccination due^LN|1|20600101||||||F
+OBX|7|DT|30981-5^Earliest Date to give^LN|1|20600101||||||F
+OBX|8|CE|30956-7^vaccine type^LN|2|88^influenza NOS^CVX||||||F
+OBX|9|CE|59779-9^Immunization Schedule used^LN|2|VXC16^ACIP^CDCPHINVS||||||F
+OBX|10|DT|30980-7^Date vaccination due^LN|2|20160901||||||F
+OBX|11|DT|30981-5^Earliest Date to give^LN|2|20160901||||||F
+OBX|12|CE|30956-7^vaccine type^LN|3|03^MMR^CVX||||||F
+OBX|13|CE|59779-9^Immunization Schedule used^LN|3|VXC16^ACIP^CDCPHINVS||||||F
+OBX|14|DT|30980-7^Date vaccination due^LN|3|19960101||||||F
+OBX|15|DT|30981-5^Earliest Date to give^LN|3|19960101||||||F
+OBX|16|CE|30956-7^vaccine type^LN|4|85^Hep A^CVX||||||F
+OBX|17|CE|59779-9^Immunization Schedule used^LN|4|VXC16^ACIP^CDCPHINVS||||||F
+OBX|18|DT|30980-7^Date vaccination due^LN|4|19960101||||||F
+OBX|19|DT|30981-5^Earliest Date to give^LN|4|19960101||||||F
+OBX|20|CE|30956-7^vaccine type^LN|5|45^Hep B^CVX||||||F
+OBX|21|CE|59779-9^Immunization Schedule used^LN|5|VXC16^ACIP^CDCPHINVS||||||F
+OBX|22|DT|30980-7^Date vaccination due^LN|5|19950101||||||F
+OBX|23|DT|30981-5^Earliest Date to give^LN|5|19950101||||||F
+OBX|24|CE|30956-7^vaccine type^LN|6|108^MCV^CVX||||||F
+OBX|25|CE|59779-9^Immunization Schedule used^LN|6|VXC16^ACIP^CDCPHINVS||||||F
+OBX|26|DT|30980-7^Date vaccination due^LN|6|20110101||||||F
+OBX|27|DT|30981-5^Earliest Date to give^LN|6|20110101||||||F
+OBX|28|CE|30956-7^vaccine type^LN|7|21^varicella^CVX||||||F
+OBX|29|CE|59779-9^Immunization Schedule used^LN|7|VXC16^ACIP^CDCPHINVS||||||F
+OBX|30|DT|30980-7^Date vaccination due^LN|7|19960101||||||F
+OBX|31|DT|30981-5^Earliest Date to give^LN|7|19960101||||||F
+OBX|32|CE|30956-7^vaccine type^LN|8|115^TDAP^CVX||||||F
+OBX|33|CE|59779-9^Immunization Schedule used^LN|8|VXC16^ACIP^CDCPHINVS||||||F
+OBX|34|DT|30980-7^Date vaccination due^LN|8|20020101||||||F
+OBX|35|DT|30981-5^Earliest Date to give^LN|8|20020101||||||F

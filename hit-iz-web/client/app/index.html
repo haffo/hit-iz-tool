@@ -8,216 +8,221 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="NIST Immunization Tool">
-    <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
-    <meta name="author" content="NIST">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
-    <style>
-        [ng\: cloak
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="NIST Immunization Tool">
+  <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+  <meta name="author" content="NIST">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="shortcut icon" href="assets/ico/favicon.ico">
+  <style>
+    [ng\: cloak
 
-        ]
-        ,
-        [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
-            display: none !important;
-        }
-    </style>
-    <meta name="viewport" content="width=device-width">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    ]
+    ,
+    [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+      display: none !important;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css" />
-    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/angular-ui-notification/dist/angular-ui-notification.css" />
-    <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.css" />
-    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- For project CSS files -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css" />
+  <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/angular-ui-notification/dist/angular-ui-notification.css" />
+  <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.css" />
+  <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- For project CSS files -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/documentation.css">
 
-    <!-- Custom styles for this template -->
-    <link href="styles/carousel.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  <!-- endbuild -->
 
-    <script src="lib/codemirror/lib/codemirror.js"></script>
-    <script src="lib/codemirror/lib/formating.js"></script>
-    <script src="lib/codemirror/mode/edi.js"></script>
-    <script src="lib/codemirror/mode/xml.js"></script>
-    <script src="lib/codemirror/mode/hl7v2.js"></script>
-    <link rel="stylesheet" type="text/css" href="lib/angular-treetable/style/jquery.treetable.css"/>
-    <link rel="stylesheet" type="text/css" href="lib/angular-treetable/style/jquery.treetable.theme.default.css"/>
-    <noscript>
-    </noscript>
-    <link rel="stylesheet" href="lib/angular-bootstrap-nav-tree/abn_tree.css">
-    <link rel="stylesheet" href="lib/testcase-tree/testcase-tree.css"/>
-    <link rel="stylesheet" href="lib/documentation-viewer/documentation-viewer.css"/>
-    <link rel="stylesheet" href="lib/FixedHeader/dist/fixed-header.css"/>
+  <!-- Custom styles for this template -->
+  <link href="styles/carousel.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
 
-    <!--<link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">-->
-    <!--<style>-->
-        <!--* {-->
-            <!--font-family: 'Cairo', sans-serif;-->
-        <!--}-->
-    <!--</style>-->
-    <link rel="stylesheet" href="lib/codemirror/lib/codemirror.css">
-    <link rel="stylesheet" href="lib/codemirror/theme/elegant.css">
-    <style id="antiClickjack">body {
-        display: none !important;
-    }</style>
-    <script type="text/javascript">
-        if (self === top) {
-            var antiClickjack = document.getElementById("antiClickjack");
-            antiClickjack.parentNode.removeChild(antiClickjack);
-        } else {
-            top.location = self.location;
-        }
-    </script>
-    <!--<link rel="stylesheet" href="lib/tree-grid/treeGrid.css">-->
+  <script src="lib/codemirror/lib/codemirror.js"></script>
+  <script src="lib/codemirror/lib/formating.js"></script>
+  <script src="lib/codemirror/mode/edi.js"></script>
+  <script src="lib/codemirror/mode/xml.js"></script>
+  <script src="lib/codemirror/mode/hl7v2.js"></script>
+  <link rel="stylesheet" type="text/css" href="lib/angular-treetable/style/jquery.treetable.css"/>
+  <link rel="stylesheet" type="text/css" href="lib/angular-treetable/style/jquery.treetable.theme.default.css"/>
+  <noscript>
+  </noscript>
+  <link rel="stylesheet" href="lib/angular-bootstrap-nav-tree/abn_tree.css">
+  <link rel="stylesheet" href="lib/testcase-tree/testcase-tree.css"/>
+  <link rel="stylesheet" href="lib/documentation-viewer/documentation-viewer.css"/>
+  <link rel="stylesheet" href="lib/FixedHeader/dist/fixed-header.css"/>
+
+  <!--<link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">-->
+  <!--<style>-->
+  <!--* {-->
+  <!--font-family: 'Cairo', sans-serif;-->
+  <!--}-->
+  <!--</style>-->
+  <link rel="stylesheet" href="lib/codemirror/lib/codemirror.css">
+  <link rel="stylesheet" href="lib/codemirror/theme/elegant.css">
+  <style id="antiClickjack">body {
+    display: none !important;
+  }</style>
+  <script type="text/javascript">
+    if (self === top) {
+      var antiClickjack = document.getElementById("antiClickjack");
+      antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+      top.location = self.location;
+    }
+  </script>
+  <!--<link rel="stylesheet" href="lib/tree-grid/treeGrid.css">-->
 </head>
-<body  ng-controller="MainCtrl" ng-app="hit-app" window-exit>
+<body ng-controller="MainCtrl" ng-app="hit-app" window-exit>
 <div id="wrapper">
-    <!--[if lt IE 7]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-        your browser</a> to improve your experience.</p>
-    <![endif]-->
+  <!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+  <![endif]-->
 
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
+  <!--[if lt IE 9]>
+  <script src="bower_components/es5-shim/es5-shim.js"></script>
+  <script src="bower_components/json3/lib/json3.min.js"></script>
+  <![endif]-->
 
-    <div ng-include="'views/header.html'"></div>
-    <!-- Add your site or application content here -->
-    <div id="appcontainer">
-        <div ng-view=""></div>
-    </div>
+  <div ng-include="'views/header.html'"></div>
+  <!-- Add your site or application content here -->
+  <div id="appcontainer">
+    <div ng-view=""></div>
+  </div>
 
-    <div ng-include="'views/footer.html'"></div>
+  <div ng-include="'views/footer.html'"></div>
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
-    <script src="bower_components/quick-ngrepeat/quick-ng-repeat.js"></script>
-    <script src="bower_components/ng-idle/angular-idle.js"></script>
-    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+  <script src="bower_components/quick-ngrepeat/quick-ng-repeat.js"></script>
+  <script src="bower_components/ng-idle/angular-idle.js"></script>
+  <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
 
   <script src="bower_components/angular-file-upload/dist/angular-file-upload.js"></script>
-     <script src="bower_components/angular-ui-notification/dist/angular-ui-notification.js"></script>
-     <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script>
-     <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
-     <script src="bower_components/angular-loading-overlay/dist/angular-loading-overlay.js"></script>
+  <script src="bower_components/angular-ui-notification/dist/angular-ui-notification.js"></script>
+  <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script>
+  <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+  <script src="bower_components/angular-loading-overlay/dist/angular-loading-overlay.js"></script>
 
-  <script   src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+  <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
   <script src="bower_components/angular-ui-select/dist/select.js"></script>
 
 
   <!-- endbuild -->
 
-    <!-- blueimp -->
-    <script src="lib/i18n/jquery.i18n.properties-1.0.9.js"></script>
-     <!--<script src="lib/blueimp/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>-->
-    <!--<script src="lib/blueimp/blueimp-load-image/js/load-image.js"></script>-->
-    <!--<script src="lib/blueimp/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-    <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload.js"></script>
-    <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
-    <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
-    <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-audio.js"></script>
-    <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-video.js"></script>
-    <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
-    <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-angular.js"></script>-->
-    <script src="lib/vkbeautify/vkbeautify.js"></script>
-    <script src="lib/angular-bootstrap-nav-tree/abn_tree_directive.js"></script>
-    <!--<script src="lib/tree-grid/tree-grid-directive.js"></script>-->
-    <script src="lib/angular-treetable/js/jquery.treetable.js"></script>
-    <script src="lib/angular-treetable/js/angular-treetable-custom.js"></script>
+  <!-- blueimp -->
+  <script src="lib/i18n/jquery.i18n.properties-1.0.9.js"></script>
+  <!--<script src="lib/blueimp/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>-->
+  <!--<script src="lib/blueimp/blueimp-load-image/js/load-image.js"></script>-->
+  <!--<script src="lib/blueimp/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+  <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload.js"></script>
+  <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+  <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+  <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-audio.js"></script>
+  <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-video.js"></script>
+  <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
+  <script src="lib/blueimp/blueimp-file-upload/js/jquery.fileupload-angular.js"></script>-->
+  <script src="lib/vkbeautify/vkbeautify.js"></script>
+  <script src="lib/angular-bootstrap-nav-tree/abn_tree_directive.js"></script>
+  <!--<script src="lib/tree-grid/tree-grid-directive.js"></script>-->
+  <script src="lib/angular-treetable/js/jquery.treetable.js"></script>
+  <script src="lib/angular-treetable/js/angular-treetable-custom.js"></script>
 
-    <script src="lib/x2js/xml2json.min.js"></script>
-    <script src="lib/FixedHeader/dist/fixed-header.js"></script>
-    <script src="lib/utils.js"></script>
-    <script src="lib/vocab-search/vocab-search.js"></script>
-    <script src="lib/profile-viewer/profile-viewer.js"></script>
-    <script src="lib/dqa/dqa.js"></script>
-    <script src="lib/validation-result/validation-result.js"></script>
-    <script src="lib/report-viewer/report-viewer.js"></script>
-    <script src="lib/manual-report-viewer/manual-report-viewer.js"></script>
-    <script src="lib/testcase-details/testcase-details.js"></script>
+  <script src="lib/x2js/xml2json.min.js"></script>
+  <script src="lib/FixedHeader/dist/fixed-header.js"></script>
+  <script src="lib/utils.js"></script>
+  <script src="lib/vocab-search/vocab-search.js"></script>
+  <script src="lib/profile-viewer/profile-viewer.js"></script>
+  <script src="lib/dqa/dqa.js"></script>
+  <script src="lib/validation-result/validation-result.js"></script>
+  <script src="lib/report-viewer/report-viewer.js"></script>
+  <script src="lib/manual-report-viewer/manual-report-viewer.js"></script>
+  <script src="lib/testcase-details/testcase-details.js"></script>
   <script src="lib/edit-testcase-details/edit-testcase-details.js"></script>
   <script src="lib/testcase-tree/testcase-tree.js"></script>
-    <script src="lib/documentation-viewer/documentation-viewer.js"></script>
-    <script src="lib/base-libs/common.js"></script>
-    <script src="lib/base-libs/default.js"></script>
-    <script src="lib/base-libs/hl7v2-edi.js"></script>
-    <script src="lib/base-libs/hl7v2.js"></script>
-    <script src="lib/base-libs/xml.js"></script>
-    <script src="lib/base-libs/edi.js"></script>
-    <script src="lib/base-libs/soap.js"></script>
-    <script src="lib/settings/settings.js"></script>
+  <!--<script src="lib/documentation-viewer/documentation-viewer.js"></script>-->
+  <script src="lib/base-libs/common.js"></script>
+  <script src="lib/base-libs/default.js"></script>
+  <script src="lib/base-libs/hl7v2-edi.js"></script>
+  <script src="lib/base-libs/hl7v2.js"></script>
+  <script src="lib/base-libs/xml.js"></script>
+  <script src="lib/base-libs/edi.js"></script>
+  <script src="lib/base-libs/soap.js"></script>
+  <script src="lib/settings/settings.js"></script>
 
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <!-- Services-->
-    <script src="scripts/common.js"></script>
-    <script src="scripts/main/service.js"></script>
-    <script src="scripts/account/service.js"></script>
-    <script src="scripts/envelope/service.js"></script>
-    <script src="scripts/cf/service.js"></script>
-    <script src="scripts/cb/service.js"></script>
-    <script src="scripts/connectivity/service.js"></script>
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <!-- Services-->
+  <script src="scripts/common.js"></script>
+  <script src="scripts/main/service.js"></script>
+  <script src="scripts/account/service.js"></script>
+  <script src="scripts/envelope/service.js"></script>
+  <script src="scripts/cf/service.js"></script>
+  <script src="scripts/cb/service.js"></script>
+  <script src="scripts/connectivity/service.js"></script>
+  <script src="scripts/documentation/service.js"></script>
 
-    <!-- Controllers-->
-    <script src="scripts/main/controller.js"></script>
-    <script src="scripts/account/controller.js"></script>
-    <script src="scripts/directives/directives.js"></script>
-    <script src="scripts/account/directive.js"></script>
-    <script src="scripts/cf/controller.js"></script>
-    <script src="scripts/cb/controller.js"></script>
-    <script src="scripts/envelope/controller.js"></script>
-    <script src="scripts/connectivity/controller.js"></script>
 
-    <!-- endbuild -->
+  <!-- Controllers-->
+  <script src="scripts/main/controller.js"></script>
+  <script src="scripts/account/controller.js"></script>
+  <script src="scripts/directives/directives.js"></script>
+  <script src="scripts/account/directive.js"></script>
+  <script src="scripts/documentation/directive.js"></script>
+  <script src="scripts/documentation/controller.js"></script>
+  <script src="scripts/cf/controller.js"></script>
+  <script src="scripts/cb/controller.js"></script>
+  <script src="scripts/envelope/controller.js"></script>
+  <script src="scripts/connectivity/controller.js"></script>
 
-    <div ng-include="'views/error.html'"></div>
-    <div ng-include="'lib/dqa/dqa-tpls.html'"></div>
-    <div ng-include="'lib/angular-bootstrap-nav-tree/abn_tree_template.html'"></div>
-    <div ng-include="'lib/vocab-search/vocab-search-tpls.html'"></div>
-    <div ng-include="'lib/settings/settings-tpls.html'"></div>
-    <div ng-include="'lib/profile-viewer/profile-viewer-tpls.html'"></div>
-    <div ng-include="'lib/validation-result/validation-result-tpls.html'"></div>
-    <div ng-include="'lib/testcase-details/testcase-details-tpls.html'"></div>
+  <!-- endbuild -->
+
+  <div ng-include="'views/error.html'"></div>
+  <div ng-include="'lib/dqa/dqa-tpls.html'"></div>
+  <div ng-include="'lib/angular-bootstrap-nav-tree/abn_tree_template.html'"></div>
+  <div ng-include="'lib/vocab-search/vocab-search-tpls.html'"></div>
+  <div ng-include="'lib/settings/settings-tpls.html'"></div>
+  <div ng-include="'lib/profile-viewer/profile-viewer-tpls.html'"></div>
+  <div ng-include="'lib/validation-result/validation-result-tpls.html'"></div>
+  <div ng-include="'lib/testcase-details/testcase-details-tpls.html'"></div>
   <div ng-include="'lib/edit-testcase-details/edit-testcase-details-tpls.html'"></div>
   <div ng-include="'lib/report-viewer/report-viewer-tpls.html'"></div>
-    <div ng-include="'lib/testcase-tree/testcase-tree-tpls.html'"></div>
-    <div ng-include="'lib/documentation-viewer/documentation-viewer-tpls.html'"></div>
-    <div ng-include="'lib/manual-report-viewer/manual-report-viewer-tpls.html'"></div>
-    <div ng-include="'views/templates.html'"></div>
+  <div ng-include="'lib/testcase-tree/testcase-tree-tpls.html'"></div>
+  <!--<div ng-include="'lib/documentation-viewer/documentation-viewer-tpls.html'"></div>-->
+  <div ng-include="'lib/manual-report-viewer/manual-report-viewer-tpls.html'"></div>
+  <div ng-include="'views/templates.html'"></div>
 
 
-    <!--<input style="display:none" name="_csrf" ng-value="{{appInfo.csrfValue}}"/>-->
-    <!--<input style="display:none" name="_csrf_header" ng-value="{{appInfo.csrfHeaderName}}"/>-->
-    <!--<input style="display:none" name="_csrf_header" ng-value="{{appInfo.csrfHeaderName}}"/>-->
-
+  <!--<input style="display:none" name="_csrf" ng-value="{{appInfo.csrfValue}}"/>-->
+  <!--<input style="display:none" name="_csrf_header" ng-value="{{appInfo.csrfHeaderName}}"/>-->
+  <!--<input style="display:none" name="_csrf_header" ng-value="{{appInfo.csrfHeaderName}}"/>-->
 
 
 </div>

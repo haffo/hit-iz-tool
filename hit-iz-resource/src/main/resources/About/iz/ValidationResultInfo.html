@@ -1,0 +1,170 @@
+<div style="margin-bottom: 20px">
+	<h4>Classification of Validation Detections</h4>
+	<hr />
+	<table class="table table-striped table-bordered table-condensed">
+		<thead style="background-color:#436BEC">
+			<tr>
+				<th>Category</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Errors</td>
+				<td>
+					Indicates non-conformance to a requirement. Errors do constitute a failed validation. An EHR Product will fail certification if any of the validation reports indicate an Error (unless the Error can be proved to be a false negative; NIST can be consulted to remediate).
+				</td>
+			</tr>
+			
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Warnings</td>
+				<td>
+					Provides information about potential missing support for a requirement or recommendation. Warnings do not constitute a failed validation.
+				</td>
+			</tr>
+			
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Alerts</td>
+				<td>
+					Provides information about how the validation verifies or does not verify requirements. For example, the specification may provide a value set binding to an element but the value set is empty. Therefore, the user is alerted to the fact that no meaningful validation can be performed. Alerts do not constitute a failed validation.
+ 				</td>
+			</tr>
+			
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Affirmatives</td>
+				<td>
+					Provides an indication of a positive outcome to a validation assertion. Affirmatives display only as user preference, not by default.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<div style="margin-bottom: 20px">
+	<h4>Detection Categories: Structure Validation</h4>
+	<hr />
+	<table class="table table-striped table-bordered table-condensed">
+		<thead style="background-color:#436BEC">
+			<tr>
+				<th>Category</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">R-Usage</td>
+				<td>Issued when "Required" element is missing.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">X-Usage</td>
+				<td>Issued when a "Not Supported" element is present.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">W-Usage</td>
+				<td>Issued when a HL7 withdrawn element is present.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">RE-Usage
+				</td>
+				<td>Issued when a "Required or Empty" element is missing.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Cardinality</td>
+				<td>Issued when either the minimal or the maximal cardinality is violated.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Length</td>
+				<td>Issued when the specified data element length is violated.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Format</td>
+				<td>Issued when the data element format is violated. Format is derived from the data type.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Extra</td>
+				<td>Issued when a complex element has extra children.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">UnescapedSeparator</td>
+				<td>Issued when a primitive element contains un-escaped separators.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Unexpected</td>
+				<td>Issued for an unexpected segment at a specific position in the message.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">InvalidContent</td>
+				<td>Issued for every line in the message instance which doesn't represent a valid segment definition.</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<div style="margin-bottom: 20px">
+	<h4>Detection Categories: Content Validation</h4>
+	<hr />
+	<table class="table table-striped table-bordered table-condensed">
+		<thead style="background-color:#436BEC">
+			<tr>
+				<th>Category</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Constraint Failure</td>
+				<td>Issued for a failed constraint verification (associated with conformance statements).</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Content Failure</td>
+				<td>Issued when content does not conform to test case specific data content constraints. <span style="color:red">See Test Data Categories for sub-categories and details.</span></td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Predicate Failure</td>
+				<td>Issued for a failed predicate constraint verification. In essence is a Usage (R, X, W, RE) constraint failure where usage is determined by a conditional..</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<div style="margin-bottom: 20px">
+	<h4>Detection Categories: Value Set Validation</h4>
+	<hr />
+	<table class="table table-striped table-bordered table-condensed">
+		<thead style="background-color:#436BEC">
+			<tr>
+				<th>Category</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">EVS</td>
+				<td>Issued when the code is in the value set but the usage is "E" (Excluded).</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">PVS</td>
+				<td>Issued when the code is in the value set but the usage is "P" (Permitted).</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Code Not Found</td>
+				<td>Issued when the code cannot be found in the value set.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">VS Not Found</td>
+				<td>Issued when the value set cannot be found in the value set library.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">Empty VS</td>
+				<td>Issued when the value set is empty.</td>
+			</tr>
+			<tr>
+				<td style="background-color:rgb(198, 222, 255)">VS No Validation</td>
+				<td>Issued when an excluded value set is encountered, i.e., the entire value set has been excluded from validation for one reason or another.</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

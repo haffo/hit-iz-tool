@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "A child (infant) is seen at a clinic. Historical vaccinations are recorded and new vaccines are administered and documented.",
+  "comments" : "No Comments",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "This test case assesses the ability of the EHR to create an administration message containing historical and new administrations for a child including next of kin, patient consent, VIS, funding source and VFC data.",
+  "evaluationCriteria" : "<br>",
+  "notes" : "No Note"
+}

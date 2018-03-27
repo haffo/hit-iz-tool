@@ -968,6 +968,7 @@ angular.module('cb')
         $scope.selectedScope.key = $scope.allTestPlanScopes[1].key;
       }
       $scope.selectScope();
+
     };
 
 
@@ -1023,7 +1024,7 @@ angular.module('cb')
       StorageService.set(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY, $scope.selectedScope.key);
       if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
         $scope.loadingTP = true;
-        var tcLoader = new CBTestPlanListLoader($scope.selectedScope.key);
+        var tcLoader = new CBTestPlanListLoader($scope.selectedScope.key, $rootScope.domain.value);
         tcLoader.then(function (testPlans) {
           $scope.error = null;
           $scope.testPlans = $filter('orderBy')(testPlans, 'position');
@@ -1695,6 +1696,7 @@ angular.module('cb')
     $scope.loadingTP = false;
     $scope.loadingTC = false;
     $scope.loadingTPs = false;
+    $scope.targetDomain = {value:null};
 
     $scope.error = null;
     $scope.collapsed = false;
@@ -1712,7 +1714,8 @@ angular.module('cb')
         var tmp = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY);
         $scope.selectedScope.key = tmp && tmp != null ? tmp : $scope.testPlanScopes[1].key;
       }
-      $scope.selectScope();
+         $scope.selectTargetDomain($rootScope.domain.value);
+
       }
     };
 
@@ -1758,6 +1761,16 @@ angular.module('cb')
       }
     };
 
+    $scope.selectTargetDomain = function (domainValue) {
+      AppInfo.getDomain(domainValue).then(function (result) {
+        $scope.targetDomain = result;
+        $scope.selectScope();
+      }, function (error) {
+        $scope.error = "Sorry, Failed to load the domain selected. Please try again";
+      });
+    };
+
+
     $scope.selectScope = function () {
       $scope.errorTP = null;
       $scope.selectedTestCase = null;
@@ -1766,9 +1779,9 @@ angular.module('cb')
       $scope.errorTP = null;
       $scope.loadingTP = false;
       StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_SCOPE_KEY, $scope.selectedScope.key);
-      if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
+      if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "" &&  $scope.targetDomain != null && $scope.targetDomain.value != null) {
         $scope.loadingTP = true;
-        CBTestPlanManager.getTestPlans($scope.selectedScope.key).then(function (testPlans) {
+        CBTestPlanManager.getTestPlans($scope.selectedScope.key,$scope.targetDomain.value).then(function (testPlans) {
           $scope.error = null;
           $scope.testPlans = $filter('orderBy')(testPlans, 'position');
           var targetId = null;
@@ -2239,6 +2252,7 @@ angular.module('cb')
     zipUploader.onBeforeUploadItem = function (fileItem) {
       $scope.error = null;
       $scope.loading = true;
+      fileItem.formData.push({domain: $rootScope.domain.value});
     };
 
     zipUploader.onCompleteItem = function (fileItem, response, status, headers) {

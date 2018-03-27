@@ -107,6 +107,23 @@ angular.module('main').controller('MainCtrl',
             return '';
         };
 
+        $scope.selectDomain = function (domain) {
+          if(domain != null){
+            var domainObject = null;
+            for(var i=0; i < $rootScope.appInfo.domains .length; i++){
+              if($rootScope.appInfo.domains[i].value === domain){
+                domainObject = $rootScope.appInfo.domains[i];
+              }
+            }
+            if(domainObject != null){
+                StorageService.set(StorageService.APP_SELECTED_DOMAIN, domainObject.value);
+                $scope.reloadPage();
+            }else {
+              alert("Selected domain not found");
+            }
+          }
+        };
+
         $rootScope.showLoginDialog = function (username, password) {
 
             if ($rootScope.loginDialog && $rootScope.loginDialog != null && $rootScope.loginDialog.opened) {
@@ -587,11 +604,6 @@ angular.module('main').controller('MainCtrl',
             return type === 'TestStep' ? 'Test Step' : type === 'TestCase' ? 'Test Case' : type;
         };
 
-
-        $rootScope.reloadPage = function () {
-            $window.location.reload();
-        };
-
         $rootScope.openInvalidReqDlg = function () {
             if (!$rootScope.errorModalInstance || $rootScope.errorModalInstance === null || !$rootScope.errorModalInstance.opened) {
                 $rootScope.errorModalInstance = $modal.open({
@@ -652,6 +664,7 @@ angular.module('main').controller('MainCtrl',
         };
 
         $scope.init = function () {
+
         };
 
         $scope.getFullName = function () {

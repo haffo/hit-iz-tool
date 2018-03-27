@@ -1,0 +1,12 @@
+[
+			 {
+			 	"protocol":"soap",
+			 	 "description":"SOAP Protocol following CDC WSDL",
+ 			 	 "forms":{
+			 	 		"TA_INITIATOR":"TA_INITIATOR_SOAP_FORM.html",
+			 	 		"SUT_INITIATOR":"SUT_INITIATOR_SOAP_FORM.html"
+			 	 }
+			 }
+]
+
+			

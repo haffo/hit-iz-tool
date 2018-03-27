@@ -68,9 +68,9 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
         return delay.promise;
       },
 
-      getTokenProfiles: function(domain, token){
+      getTokenProfiles: function(format, token){
         var delay = $q.defer();
-        $http.get("api/cf/" + domain + "/management/tokens/"+ token + "/profiles", {timeout: 180000}).then(
+        $http.get("api/cf/" + format + "/management/tokens/"+ token + "/profiles", {timeout: 180000}).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -95,9 +95,9 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
         return delay.promise;
       },
 
-      getTestPlans: function (scope) {
+      getTestPlans: function (scope,domain) {
         var delay = $q.defer();
-        $http.get("api/cf/management/groups", {timeout: 180000, params: {"scope": scope}}).then(
+        $http.get("api/cf/management/groups", {timeout: 180000, params: {"scope": scope,"domain":domain}}).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -108,9 +108,9 @@ angular.module('cf').factory('CFTestPlanManager', ['$q', '$http',
         return delay.promise;
       },
 
-      create : function (catego, scop, pos) {
+      create : function (catego, scop, pos,dom) {
         var delay = $q.defer();
-        var params = $.param({category: catego, scope: scop, position: pos});
+        var params = $.param({category: catego, scope: scop, position: pos, domain: dom});
         var config = {
           headers : {
             'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'

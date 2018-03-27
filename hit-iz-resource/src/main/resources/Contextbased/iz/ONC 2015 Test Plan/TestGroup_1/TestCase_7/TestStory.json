@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "A patient is seen at a clinic. A historical vaccination is recorded but the IIS is unable to process the administration message, rejects it and returns a fatal error in the acknowledgement message.",
+  "comments" : "The test case simulates the IIS issuing an acknowledgement error due to an internal error even though the message is valid.",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "The returned error must be visible in the EHR.",
+  "testObjectives" : "This test case assesses the ability of the EHR to accept an acknowledgement message with a fatal error being returned by the IIS.",
+  "evaluationCriteria" : "Administered Message: Validation Report with no Errors\r\n<br>\r\nAcknowledgement Message: An indication of a error (See Juror Document)",
+  "notes" : "No Note"
+}

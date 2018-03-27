@@ -1,0 +1,229 @@
+{
+"version" : "1.8.3",
+"profile" : "MessageContent",
+"tables":
+[
+		{
+			"title":"MSH : Message Header",
+			"elements" : 
+			[
+				{"location" : "MSH.1", "dataelement" : "Field Separator", "data" : "|", "categorization"
+: ""},
+				{"location" : "MSH.2", "dataelement" : "Encoding Characters", "data" : "^~\&amp;",
+"categorization" : ""},
+				{"location" : "MSH.3", "dataelement" : "Sending Application", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.3.1", "dataelement" : "Namespace ID", "data" : "NISTIISAPP",
+"categorization" : ""},
+							{"location" : "MSH.3.2", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.3.3", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "MSH.4", "dataelement" : "Sending Facility", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.4.1", "dataelement" : "Namespace ID", "data" : "NISTIISFAC",
+"categorization" : ""},
+							{"location" : "MSH.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.4.3", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "MSH.5", "dataelement" : "Receiving Application", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.5.1", "dataelement" : "Namespace ID", "data" : "NISTEHRAPP",
+"categorization" : ""},
+							{"location" : "MSH.5.2", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.5.3", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "MSH.6", "dataelement" : "Receiving Facility", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.6.1", "dataelement" : "Namespace ID", "data" : "NISTEHRFAC",
+"categorization" : ""},
+							{"location" : "MSH.6.2", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.6.3", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "MSH.7", "dataelement" : "Date/Time Of Message", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.7.1", "dataelement" : "Time", "data" : "20141031145233-0500",
+"categorization" : ""},
+				{"location" : "MSH.9", "dataelement" : "Message Type", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.9.1", "dataelement" : "Message Code", "data" : "RSP", "categorization"
+: ""},
+							{"location" : "MSH.9.2", "dataelement" : "Trigger Event", "data" : "K11", "categorization"
+: ""},
+							{"location" : "MSH.9.3", "dataelement" : "Message Structure", "data" : "RSP_K11",
+"categorization" : ""},
+				{"location" : "MSH.10", "dataelement" : "Message Control ID", "data" : "NIST-IZ-QR-4.2_Response_TM_K11_Z33",
+"categorization" : ""},
+				{"location" : "MSH.11", "dataelement" : "Processing ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.11.1", "dataelement" : "Processing ID", "data" : "P", "categorization"
+: ""},
+				{"location" : "MSH.12", "dataelement" : "Version ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.12.1", "dataelement" : "Version ID", "data" : "2.5.1", "categorization"
+: ""},
+				{"location" : "MSH.15", "dataelement" : "Accept Acknowledgment Type", "data" :
+"NE", "categorization" : ""},
+				{"location" : "MSH.16", "dataelement" : "Application Acknowledgment Type", "data"
+: "NE", "categorization" : ""},
+				{"location" : "MSH.21", "dataelement" : "Message Profile Identifier", "data" :
+"", "categorization" : ""},
+							{"location" : "MSH.21.1", "dataelement" : "Entity Identifier", "data" : "Z33",
+"categorization" : ""},
+							{"location" : "MSH.21.2", "dataelement" : "Namespace ID", "data" : "CDCPHINVS",
+"categorization" : ""},
+							{"location" : "MSH.21.3", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+							{"location" : "MSH.21.4", "dataelement" : "Universal ID Type", "data" : "",
+"categorization" : ""},
+				{"location" : "MSH.22", "dataelement" : "Sending Responsible Organization", "data"
+: "", "categorization" : ""},
+							{"location" : "MSH.22.1", "dataelement" : "Organization Name", "data" : "NISTIISFAC",
+"categorization" : ""},
+							{"location" : "MSH.22.6", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "MSH.22.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
+"categorization" : ""},
+									{"location" : "MSH.22.6.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "MSH.22.6.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "MSH.22.7", "dataelement" : "Identifier Type Code", "data" :
+"XX", "categorization" : ""},
+							{"location" : "MSH.22.10", "dataelement" : "Organization Identifier", "data"
+: "100-3322", "categorization" : ""},
+				{"location" : "MSH.23", "dataelement" : "Receiving Responsible Organization",
+"data" : "", "categorization" : ""},
+							{"location" : "MSH.23.1", "dataelement" : "Organization Name", "data" : "NISTEHRFAC",
+"categorization" : ""},
+							{"location" : "MSH.23.6", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "MSH.23.6.1", "dataelement" : "Namespace ID", "data" : "NIST-AA-1",
+"categorization" : ""},
+									{"location" : "MSH.23.6.2", "dataelement" : "Universal ID", "data" : "",
+"categorization" : ""},
+									{"location" : "MSH.23.6.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "MSH.23.7", "dataelement" : "Identifier Type Code", "data" :
+"XX", "categorization" : ""},
+							{"location" : "MSH.23.10", "dataelement" : "Organization Identifier", "data"
+: "100-6482", "categorization" : ""},		]
+		{
+			"title":"MSA : Message Acknowledgment",
+			"elements" : 
+			[
+				{"location" : "MSA.1", "dataelement" : "Acknowledgment Code", "data" : "AA", "categorization"
+: ""},
+				{"location" : "MSA.2", "dataelement" : "Message Control ID", "data" : "NIST-IZ-QR-4.1_Query_Q11_Z44",
+"categorization" : ""},		]
+		{
+			"title":"QAK : Query Acknowledgment",
+			"elements" : 
+			[
+				{"location" : "QAK.1", "dataelement" : "Query Tag", "data" : "IZ-4.1-2015", "categorization"
+: ""},
+				{"location" : "QAK.2", "dataelement" : "Query Response Status", "data" : "TM",
+"categorization" : ""},
+				{"location" : "QAK.3", "dataelement" : "Message Query Name", "data" : "", "categorization"
+: ""},
+							{"location" : "QAK.3.1", "dataelement" : "Identifier", "data" : "Z44", "categorization"
+: ""},
+							{"location" : "QAK.3.2", "dataelement" : "Text", "data" : "Request Evaluated
+History and Forecast", "categorization" : ""},
+							{"location" : "QAK.3.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},		]
+		{
+			"title":"QPD : Query Parameter Definition",
+			"elements" : 
+			[
+				{"location" : "QPD.1", "dataelement" : "Message Query Name", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.1.1", "dataelement" : "Identifier", "data" : "Z44", "categorization"
+: ""},
+							{"location" : "QPD.1.2", "dataelement" : "Text", "data" : "Request Evaluated
+History and Forecast", "categorization" : ""},
+							{"location" : "QPD.1.3", "dataelement" : "Name of Coding System", "data" :
+"CDCPHINVS", "categorization" : ""},
+				{"location" : "QPD.2", "dataelement" : "Query Tag", "data" : "IZ-4.1-2015", "categorization"
+: ""},
+				{"location" : "QPD.3", "dataelement" : "PatientList", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.3.1", "dataelement" : "ID Number", "data" : "412299", "categorization"
+: ""},
+							{"location" : "QPD.3.4", "dataelement" : "Assigning Authority", "data" : "",
+"categorization" : ""},
+									{"location" : "QPD.3.4.1", "dataelement" : "Namespace ID", "data" : "NIST-MPI-1",
+"categorization" : ""},
+									{"location" : "QPD.3.4.2", "dataelement" : "Universal ID", "data" : "", "categorization"
+: ""},
+									{"location" : "QPD.3.4.3", "dataelement" : "Universal ID Type", "data" :
+"", "categorization" : ""},
+							{"location" : "QPD.3.5", "dataelement" : "Identifier Type Code", "data" : "MR",
+"categorization" : ""},
+				{"location" : "QPD.4", "dataelement" : "PatientName", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.4.1", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "QPD.4.1.1", "dataelement" : "Surname", "data" : "Smith", "categorization"
+: ""},
+							{"location" : "QPD.4.2", "dataelement" : "Given Name", "data" : "James", "categorization"
+: ""},
+							{"location" : "QPD.4.3", "dataelement" : "Second and Further Given Names or
+Initials Thereof", "data" : "", "categorization" : ""},
+							{"location" : "QPD.4.7", "dataelement" : "Name Type Code", "data" : "L", "categorization"
+: ""},
+				{"location" : "QPD.5", "dataelement" : "PatientMotherMaidenName", "data" : "",
+"categorization" : ""},
+							{"location" : "QPD.5.1", "dataelement" : "Family Name", "data" : "", "categorization"
+: ""},
+									{"location" : "QPD.5.1.1", "dataelement" : "Surname", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.5.7", "dataelement" : "Name Type Code", "data" : "", "categorization"
+: ""},
+				{"location" : "QPD.6", "dataelement" : "PatientDateOfBirth", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.6.1", "dataelement" : "Time", "data" : "20110905", "categorization"
+: ""},
+				{"location" : "QPD.7", "dataelement" : "Patient Sex", "data" : "M", "categorization"
+: ""},
+				{"location" : "QPD.8", "dataelement" : "Patient Address", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.8.1", "dataelement" : "Street Address", "data" : "", "categorization"
+: ""},
+									{"location" : "QPD.8.1.1", "dataelement" : "Street or Mailing Address", "data"
+: "22 East Branch Way", "categorization" : ""},
+							{"location" : "QPD.8.2", "dataelement" : "Other Designation", "data" : "",
+"categorization" : ""},
+							{"location" : "QPD.8.3", "dataelement" : "City", "data" : "Livingston", "categorization"
+: ""},
+							{"location" : "QPD.8.4", "dataelement" : "State or Province", "data" : "MT",
+"categorization" : ""},
+							{"location" : "QPD.8.5", "dataelement" : "Zip or Postal Code", "data" : "59047",
+"categorization" : ""},
+							{"location" : "QPD.8.6", "dataelement" : "Country", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.8.7", "dataelement" : "Address Type", "data" : "P", "categorization"
+: ""},
+				{"location" : "QPD.9", "dataelement" : "Phone", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.9.2", "dataelement" : "Telecommunication Use Code", "data"
+: "PRN", "categorization" : ""},
+							{"location" : "QPD.9.3", "dataelement" : "Telecommunication Equipment Type",
+"data" : "PH", "categorization" : ""},
+							{"location" : "QPD.9.4", "dataelement" : "Email Address", "data" : "", "categorization"
+: ""},
+							{"location" : "QPD.9.6", "dataelement" : "Area/City Code", "data" : "406",
+"categorization" : ""},
+							{"location" : "QPD.9.7", "dataelement" : "Local Number", "data" : "5556285",
+"categorization" : ""},
+				{"location" : "QPD.10", "dataelement" : "Multiple birth indicator", "data" : "",
+"categorization" : ""},
+				{"location" : "QPD.11", "dataelement" : "Birth order", "data" : "", "categorization"
+: ""},		]
+
+		}
+]
+}

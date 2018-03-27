@@ -131,7 +131,7 @@ angular.module('cf')
 
       if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
         $scope.loading = true;
-        CFTestPlanExecutioner.getTestPlans($scope.selectedScope.key).then(function (testPlans) {
+        CFTestPlanExecutioner.getTestPlans($scope.selectedScope.key, $rootScope.domain).then(function (testPlans) {
           $scope.error = null;
           $scope.testPlans = $filter('orderBy')(testPlans, 'position');
           var targetId = null;
@@ -801,8 +801,8 @@ angular.module('cf')
         }
         $scope.selectedScope = {key: targetScope};
         $scope.testcase = null;
-        $scope.selectScope();
-      }
+        $scope.selectTargetDomain($rootScope.domain.value);
+       }
     });
 
 
@@ -824,8 +824,7 @@ angular.module('cf')
         }
         $scope.selectedScope.key = $scope.groupScopes[0].key;
         $scope.testcase = null;
-        $scope.selectScope();
-
+        $scope.selectTargetDomain($rootScope.domain);
         if ($scope.token !== undefined && $scope.token !== null) {
           if (userInfoService.isAuthenticated()) {
             CFTestPlanManager.getTokenProfiles("hl7v2", $scope.token).then(
@@ -875,11 +874,11 @@ angular.module('cf')
       $scope.testcase = null;
       $scope.existingTP.selected = null;
       $scope.oldProfileMessages = null;
-      if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
+      if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "" && $rootScope.domain != null && $rootScope.domain.value != null) {
         // if ($scope.testcase != null && $scope.testcase.group == null) {
         //   $scope.testcase.scope = $scope.selectedScope.key;
         // }
-        CFTestPlanManager.getTestPlans($scope.selectedScope.key).then(function (testPlans) {
+        CFTestPlanManager.getTestPlans($scope.selectedScope.key,$rootScope.domain.value).then(function (testPlans) {
           $scope.existingTestPlans = testPlans;
           $scope.categoryNodes = $scope.generateTreeNodes(testPlans);
         }, function (error) {
@@ -888,13 +887,13 @@ angular.module('cf')
       }
     };
 
+
     /**
      *
      * @param groupId
      */
     $scope.loadOldProfileMessages = function (groupId) {
       CFTestPlanManager.getProfiles(groupId).then(function (profiles) {
-
         $scope.oldProfileMessages = profiles;
         $scope.tmpOldMessages = $scope.filterMessages($scope.oldProfileMessages);
         $scope.originalOldProfileMessages = angular.copy($scope.oldProfileMessages);
@@ -1102,7 +1101,7 @@ angular.module('cf')
 
     $scope.addNewGroup = function (categoryNode) {
       var position = categoryNode.nodes ? categoryNode.nodes.length + 1 : 1;
-      CFTestPlanManager.create(categoryNode.id, $scope.selectedScope.key, position).then(function (group) {
+      CFTestPlanManager.create(categoryNode.id, $scope.selectedScope.key, position, $rootScope.domain.value).then(function (group) {
         if (!$scope.existingTestPlans || $scope.existingTestPlans == null)
           $scope.existingTestPlans = [];
         $scope.existingTestPlans.push(group);
@@ -1797,6 +1796,8 @@ angular.module('cf')
         $scope.token = $scope.generateUUID();
       }
       fileItem.formData.push({token: $scope.token});
+      fileItem.formData.push({domain: $rootScope.domain.value});
+
     };
     constraintsUploader.onBeforeUploadItem = function (fileItem) {
       $scope.constraintValidationErrors = [];
@@ -1804,6 +1805,8 @@ angular.module('cf')
         $scope.token = $scope.generateUUID();
       }
       fileItem.formData.push({token: $scope.token});
+      fileItem.formData.push({domain: $rootScope.domain.value});
+
     };
     vsUploader.onBeforeUploadItem = function (fileItem) {
       $scope.valueSetValidationErrors = [];
@@ -1811,6 +1814,8 @@ angular.module('cf')
         $scope.token = $scope.generateUUID();
       }
       fileItem.formData.push({token: $scope.token});
+      fileItem.formData.push({domain: $rootScope.domain.value});
+
     };
     zipUploader.onBeforeUploadItem = function (fileItem) {
 
@@ -1818,6 +1823,8 @@ angular.module('cf')
       $scope.valueSetValidationErrors = [];
       $scope.constraintValidationErrors = [];
       fileItem.formData.push({token: $scope.token});
+      fileItem.formData.push({domain: $rootScope.domain.value});
+
     };
 
     zipUploader.onCompleteItem = function (fileItem, response, status, headers) {

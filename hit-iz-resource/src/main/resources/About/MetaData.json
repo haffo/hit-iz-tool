@@ -1,0 +1,16 @@
+{
+	"domains": [
+		{
+			"key": "ss",
+			"position": 2,
+			"name": "Syndromic Surveillance",
+			"homeTitle": "NIST Sydromic Surveillance"
+		},
+		{
+			"key": "iz",
+			"position": 1,
+			"name": "Immunization",
+			"homeTitle": "NIST Immunization"
+ 		}
+	]
+ }

@@ -278,7 +278,7 @@
             $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
             if ($scope.type != null && $scope.type != "" && $scope.name != null && $scope.name != "") {
                 $scope.loading = true;
-                var listLoader = new ResourceDocListLoader($scope.type);
+                var listLoader = new ResourceDocListLoader($scope.type, $rootScope.domain.value);
                 listLoader.then(function (result) {
                     $scope.error = null;
                     $scope.data = result;
@@ -413,7 +413,7 @@
             $scope.tree = {};
             if ($scope.stage != null && $scope.stage != '') {
                 $scope.loading = true;
-                var tcLoader = testCaseLoader.getOneByStage($scope.stage);
+                var tcLoader = testCaseLoader.getOneByStageAndDomain($scope.stage, $rootScope.domain.value);
                 tcLoader.then(function (data) {
                     $scope.error = null;
                     if (data != null) {
@@ -573,7 +573,7 @@
             };
 
 
-            TestCaseDocumentationLoader.prototype.getOneByStage = function (stage) {
+            TestCaseDocumentationLoader.prototype.getOneByStageAndDomain = function (stage, domain) {
                 var delay = $q.defer();
 //
 //                $http.get('../../resources/documentation/cb.json').then(
@@ -585,7 +585,7 @@
 //                    }
 //                );
 
-                $http.get('api/documentation/testcases', {timeout: 60000}).then(
+                $http.get('api/documentation/testcases', {timeout: 60000,  params: {"domain": domain}}).then(
                     function (object) {
                         if (object.data != null && object.data != "") {
                             delay.resolve(angular.fromJson(object.data));
@@ -1204,9 +1204,9 @@
 
     mod.factory('ResourceDocListLoader', ['$q', '$http', 'StorageService', '$timeout',
         function ($q, $http, StorageService, $timeout) {
-            return function (type) {
+            return function (type,domain) {
                 var delay = $q.defer();
-                $http.get('api/documentation/resourcedocs', {params: {"type": type}, timeout: 60000}).then(
+                $http.get('api/documentation/resourcedocs', {params: {"type": type, "domain":domain}, timeout: 60000}).then(
                     function (object) {
                         delay.resolve(angular.fromJson(object.data));
                     },

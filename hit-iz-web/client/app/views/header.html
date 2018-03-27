@@ -15,8 +15,23 @@
         <a style="display: inline-block; text-shadow:none" href="#">
             <div id="apptitle">{{appInfo.options.ORGANIZATION_NAME != null && appInfo.options.ORGANIZATION_NAME != undefined ? appInfo.options.ORGANIZATION_NAME: 'NIST'}} <span style='color:white;'>{{appInfo.name}}</span><span
                     style='color:red; font-size:12px'> {{appInfo.version}}</span></div>
-            <div id="appsubtitle">{{appInfo.domain}}</div>
+            <div id="appsubtitle">{{appInfo.appSubTitle}}</div>
         </a>
+
+      <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length > 0">
+        <label style="color:white">Domain:</label>
+        <select class="" name="selectedDomain"
+                ng-change="selectDomain(appInfo.selectedDomain)"
+                ng-model="appInfo.selectedDomain" required
+        >
+          <option ng-repeat="dom in appInfo.domains"
+                  value="{{dom.value}}">{{dom.name}}
+          </option>
+        </select>
+      </span>
+
+
+
     </div>
     <div class="navbar-collapse collapse" id="appnavi">
          <ul class="nav navbar-nav">

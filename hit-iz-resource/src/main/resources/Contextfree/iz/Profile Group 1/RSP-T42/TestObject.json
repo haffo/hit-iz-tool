@@ -1,0 +1,12 @@
+{
+  "id" : 238515,
+  "name" : "RSP-T42",
+  "hl7v2" : {
+    "messageId" : "T42-Message",
+    "constraintId" : "T42-Constraints",
+    "valueSetLibraryId" : "T42-ValueSets"
+  },
+  "position" : 10,
+  "description" : "No Description",
+  "skip":true
+}

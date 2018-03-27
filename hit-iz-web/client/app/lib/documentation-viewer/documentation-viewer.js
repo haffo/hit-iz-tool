@@ -2,19 +2,19 @@
 
     var mod = angular.module('hit-doc', []);
 
-    mod.directive('documentationViewer', [
-        function () {
-            return {
-                restrict: 'A',
-                scope: {
-                    stage: '@'
-                },
-                templateUrl: 'DocumentationViewer.html',
-                replace: false,
-                controller: 'DocumentationCtrl'
-            };
-        }
-    ]);
+    // mod.directive('documentationViewer', [
+    //     function () {
+    //         return {
+    //             restrict: 'A',
+    //             scope: {
+    //                 stage: '@'
+    //             },
+    //             templateUrl: 'DocumentationViewer.html',
+    //             replace: false,
+    //             controller: 'DocumentationCtrl'
+    //         };
+    //     }
+    // ]);
 
     mod.directive('apiDocs', [
         function () {
@@ -137,7 +137,12 @@
                     document.body.appendChild(form);
                     form.submit();
                 }
-            }
+            };
+
+          $scope.initDocumentation = function () {
+
+          };
+
 
         }]);
 
@@ -413,7 +418,7 @@
             $scope.tree = {};
             if ($scope.stage != null && $scope.stage != '') {
                 $scope.loading = true;
-                var tcLoader = testCaseLoader.getOneByStage($scope.stage);
+                var tcLoader = testCaseLoader.getOneByStageAndDomain($scope.stage, $rootScope.domain.value);
                 tcLoader.then(function (data) {
                     $scope.error = null;
                     if (data != null) {
@@ -567,13 +572,13 @@
 
 
     mod.factory('TestCaseDocumentationLoader',
-        ['$q', '$http', function ($q, $http) {
+        ['$q', '$http', '$rootScope', function ($q, $http,$rootScope) {
 
             var TestCaseDocumentationLoader = function () {
             };
 
 
-            TestCaseDocumentationLoader.prototype.getOneByStage = function (stage) {
+            TestCaseDocumentationLoader.prototype.getOneByStageAndDomain = function (stage) {
                 var delay = $q.defer();
 //
 //                $http.get('../../resources/documentation/cb.json').then(
@@ -585,7 +590,7 @@
 //                    }
 //                );
 
-                $http.get('api/documentation/testcases', {timeout: 60000}).then(
+                $http.get('api/documentation/testcases', {timeout: 60000,  params: {"domain": $rootScope.domain.value}}).then(
                     function (object) {
                         if (object.data != null && object.data != "") {
                             delay.resolve(angular.fromJson(object.data));
@@ -1174,11 +1179,11 @@
         }
     ]);
 
-    mod.factory('UserDocListLoader', ['$q', '$http', 'StorageService', '$timeout',
-        function ($q, $http, StorageService, $timeout) {
+    mod.factory('UserDocListLoader', ['$q', '$http', 'StorageService', '$timeout','$rootScope',
+        function ($q, $http, StorageService, $timeout,$rootScope) {
             return function () {
                 var delay = $q.defer();
-                $http.get("api/documentation/userdocs").then(
+                $http.get("api/documentation/userdocs", {params: {"domain":$rootScope.domain.value}}).then(
                     function (object) {
                         delay.resolve(angular.fromJson(object.data));
                     },
@@ -1202,11 +1207,11 @@
     ]);
 
 
-    mod.factory('ResourceDocListLoader', ['$q', '$http', 'StorageService', '$timeout',
-        function ($q, $http, StorageService, $timeout) {
+    mod.factory('ResourceDocListLoader', ['$q', '$http', 'StorageService', '$timeout','$rootScope',
+        function ($q, $http, StorageService, $timeout,$rootScope) {
             return function (type) {
                 var delay = $q.defer();
-                $http.get('api/documentation/resourcedocs', {params: {"type": type}, timeout: 60000}).then(
+                $http.get('api/documentation/resourcedocs', {params: {"type": type, "domain":$rootScope.domain.value}, timeout: 60000}).then(
                     function (object) {
                         delay.resolve(angular.fromJson(object.data));
                     },

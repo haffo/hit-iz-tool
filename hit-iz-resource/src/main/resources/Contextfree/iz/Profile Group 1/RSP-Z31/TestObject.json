@@ -1,0 +1,11 @@
+{
+  "id" : 890060,
+  "name" : "RSP-Z31",
+  "hl7v2" : {
+    "messageId" : "2c1dc85c-4d4f-48ea-948a-835c1dc6436a",
+    "constraintId" : "4796a6c8-ae36-454a-a8a1-64d535960f3b",
+    "valueSetLibraryId" : "cb7de766-81af-4728-9cc4-06521f93396f"
+  },
+  "position" : 5,
+  "description" : "No Description"
+}
