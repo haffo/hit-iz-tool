@@ -801,7 +801,7 @@ angular.module('cf')
         }
         $scope.selectedScope = {key: targetScope};
         $scope.testcase = null;
-        $scope.selectTargetDomain($rootScope.domain.value);
+        $scope.selectScope();
        }
     });
 
@@ -824,7 +824,7 @@ angular.module('cf')
         }
         $scope.selectedScope.key = $scope.groupScopes[0].key;
         $scope.testcase = null;
-        $scope.selectTargetDomain($rootScope.domain);
+        $scope.selectScope();
         if ($scope.token !== undefined && $scope.token !== null) {
           if (userInfoService.isAuthenticated()) {
             CFTestPlanManager.getTokenProfiles("hl7v2", $scope.token).then(
@@ -2042,6 +2042,7 @@ angular.module('cf').controller('UploadTokenCheckCtrl', ['$scope', '$http', 'CF'
 
   $scope.token = decodeURIComponent($routeParams.x);
   $scope.auth = decodeURIComponent($routeParams.y);
+  $scope.domain = decodeURIComponent($routeParams.d);
 
 
   if ($scope.token !== undefined && $scope.auth !== undefined) {
@@ -2049,9 +2050,9 @@ angular.module('cf').controller('UploadTokenCheckCtrl', ['$scope', '$http', 'CF'
 
     //check if logged in
     if (!userInfoService.isAuthenticated()) {
-      $scope.$emit('event:loginRequestWithAuth', $scope.auth, '/addprofiles?x=' + $scope.token);
+      $scope.$emit('event:loginRequestWithAuth', $scope.auth, '/addprofiles?x=' + $scope.token+ 'd='+ $scope.domain);
     } else {
-      $location.url('/addprofiles?x=' + $scope.token);
+      $location.url('/addprofiles?x=' + $scope.token+ 'd='+ $scope.domain);
     }
   }
 

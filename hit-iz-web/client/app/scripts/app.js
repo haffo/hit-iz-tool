@@ -334,8 +334,10 @@ app.factory('interceptor4', function ($q, $rootScope, $location, StorageService,
 });
 
 
-app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle, Transport, IdleService, userInfoService, base64, Notification,$filter) {
+app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle, Transport, IdleService, userInfoService, base64, Notification,$filter,$routeParams) {
 
+
+  var domainParam = $routeParams.d;
 
   $rootScope.appInfo = {};
 
@@ -369,7 +371,11 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
       }
       StorageService.set(StorageService.APP_STATE_TOKEN, appInfo.rsbVersion);
 
+      if(domainParam != undefined && domainParam != null){
+        StorageService.set(StorageService.APP_SELECTED_DOMAIN, domainParam);
+      }
       var storedDomain = StorageService.get(StorageService.APP_SELECTED_DOMAIN);
+
       var domainFound = null;
       $rootScope.domain = null;
       $rootScope.appInfo.selectedDomain = null;
@@ -388,7 +394,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
           domainFound = $rootScope.appInfo.domains[0].value;
         }
         if (domainFound == null) {
-          $rootScope.openCriticalErrorDlg("Cannot find the domain selected. Please refresh the page or select a different domain");
+          $rootScope.openCriticalErrorDlg("Unknown domain selected. Please refresh the page or select a different domain");
         } else {
           $rootScope.clearDomainSession();
           AppInfo.getDomain(domainFound).then(function (result) {
@@ -441,6 +447,25 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_SCOPE_KEY, null);
     StorageService.set(StorageService.APP_SELECTED_DOMAIN, null);
   };
+
+  $rootScope.selectDomain = function (domain) {
+    if(domain != null){
+      var domainObject = null;
+      for(var i=0; i < $rootScope.appInfo.domains .length; i++){
+        if($rootScope.appInfo.domains[i].value === domain){
+          domainObject = $rootScope.appInfo.domains[i];
+        }
+      }
+      if(domainObject != null){
+        StorageService.set(StorageService.APP_SELECTED_DOMAIN, domainObject.value);
+        $rootScope.reloadPage();
+      }else {
+        alert("Selected domain not found");
+      }
+    }
+  };
+
+
 
   $rootScope.reloadPage = function () {
     $window.location.reload();
@@ -529,6 +554,11 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
 //            console.log("in loginRequired event");
     $rootScope.showLoginDialog();
   });
+
+  $rootScope.$on('event:loginRequiredWithRedirect', function (event,path) {
+    $rootScope.showLoginDialog(path);
+  });
+
 
   /**
    * On 'event:loginConfirmed', resend all the 401 requests.
