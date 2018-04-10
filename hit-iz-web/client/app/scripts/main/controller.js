@@ -670,7 +670,7 @@ angular.module('main').controller('MainCtrl',
 
   });
 
-angular.module('main').controller('LoginCtrl', ['$scope', '$modalInstance', 'user', '$modalInstance', function ($scope, $modalInstance, user, $modalInstance) {
+angular.module('main').controller('LoginCtrl', ['$scope', '$modalInstance', 'user', function ($scope, $modalInstance, user) {
   $scope.user = user;
 
   $scope.cancel = function () {

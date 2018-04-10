@@ -1,0 +1,9 @@
+{
+  "name" : "MFK_M08_NG",
+  "description" : "Context free test case for MFK^M08^MFK_M01 message (NG profile component)",
+  "messageId" : "MFK_M08_NG",
+  "valueSetLibraryId" : "eDOS",
+  "constraintId" : "eDOS_default",
+  "position" : 1,
+  "id" : 1256310050041048905
+}

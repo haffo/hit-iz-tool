@@ -1,8 +1,8 @@
 {
-  "id": 1980,
+  "id": 1808,
   "url": "http://localhost:8080/iztool",
   "version": "1.8.0",
-  "date": "1522073626080",
+  "date": "1522947458600",
   "name": "Immunization Test Suite",
   "organization": "NIST",
   "header": "IZ Tool @ NIST",
@@ -15,7 +15,7 @@
   "confidentiality": "<div class=\"panel panel-info\"> <div class=\"panel-heading\">HIPAA Patient Confidentiality Notice</div> <div class=\"panel-body\"> <p style=\"text-align: left;\">In compliance with HIPAA Requirements, parties using the NIST HL7 V2 Validation Tools via this NIST Web site shall not use real data about living, identifiable individuals. Parties shall adhere to all Federal Regulations including, but not limited to the Health Insurance Portability and Accountability Act of 1996 (HIPAA). Due to patient confidentiality issues (e.g., HIPAA requirements regarding PHI), this software should not be used via the NIST Web site for validation of messages containing real patient information. With proper precautions in place to maintain patient confidentiality, if an organization downloads the Validation Tool and uses it locally the Tool can validate messages with real patient information.</p> </div> </div>",
   "confidentialityLink": null,
   "acknowledgment": "<div class=\"panel panel-info\"> <div class=\"panel-heading\">Acknowledgment</div> <div class=\"panel-body\"> <p style=\"text-align: left;\">This Test Suite, the test data, and associated artifacts were developed by the National Institute of Standards and Technology (NIST) in collaboration with the Center for Disease Control and Prevention (CDC) and American Immunization Registries Association (AIRA).</p> </div> </div>",
-  "subTitle": null,
+  "subTitle": "",
   "privacy": "",
   "csrfToken": null,
   "rsbVersion": "1.2.30",
@@ -35,6 +35,7 @@
     "DIVISION_LINK": "",
     "ORGANIZATION_LOGO": "",
     "EMPLOYER_REQUIRED": "false",
+    "DOC_MANAGEMENT_SUPPORTED": "true",
     "DOWNLOAD_WAR_DISABLED": "false",
     "PRIVACY_LINK": "NA",
     "DIVISION_LOGO": "",
@@ -45,15 +46,15 @@
   },
   "domains": [
     {
-      "value": "ss",
-      "name": "Syndromic Surveillance",
-      "homeTitle": "NIST Sydromic Surveillance",
+      "value": "iz",
+      "name": "Immunization",
+      "homeTitle": "Welcome to the NIST Immunization",
       "disabled": false
     },
     {
-      "value": "iz",
-      "name": "Immunization",
-      "homeTitle": "NIST Immunization",
+      "value": "edos",
+      "name": "EDos",
+      "homeTitle": "Welcome to the NIST Labs Validation Suite",
       "disabled": false
     }
   ]

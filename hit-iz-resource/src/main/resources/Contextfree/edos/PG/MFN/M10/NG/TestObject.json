@@ -1,0 +1,9 @@
+{
+  "name" : "MFN_M10_NG",
+  "description" : "Context free test case for MFN^M10^MFN_M10 message (NG profile component)",
+  "messageId" : "MFN_M10_NG",
+  "valueSetLibraryId" : "eDOS",
+  "constraintId" : "eDOS_default",
+  "position" : 1,
+  "id" : 7137661326295884082
+}

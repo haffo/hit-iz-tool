@@ -17,7 +17,7 @@
             <div id="appsubtitle">{{appInfo.appSubTitle}}</div>
         </a>
 
-      <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length > 0">
+      <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length > 1">
         <label style="color:white">Domain:</label>
         <select class="" name="selectedDomain" ng-change="selectDomain(appInfo.selectedDomain)" ng-model="appInfo.selectedDomain" required="">
           <option ng-repeat="dom in appInfo.domains" value="{{dom.value}}">{{dom.name}}
@@ -25,7 +25,10 @@
         </select>
       </span>
 
-
+      <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length  == 1">
+        <label style="color:white">Domain:</label>
+        <span>{{domain.name}}</span>
+      </span>
 
     </div>
     <div class="navbar-collapse collapse" id="appnavi">

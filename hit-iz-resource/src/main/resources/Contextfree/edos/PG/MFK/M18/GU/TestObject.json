@@ -1,0 +1,9 @@
+{
+  "name" : "MFK_M18_GU",
+  "description" : "Context free test case for MFK^M18^MFK_M01 message (GU profile component)",
+  "messageId" : "MFK_M18_GU",
+  "valueSetLibraryId" : "eDOS",
+  "constraintId" : "eDOS_default",
+  "position" : 2,
+  "id" : -8307247749910144424
+}

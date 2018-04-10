@@ -1,0 +1,16 @@
+{
+     	"rsbVersion"	:"${project.version}-${ts}",
+    	"version"		: "${metadata.version}",
+    	"igVersion"		:"",
+    	"name"			:"Labs Suite",
+		"domain"		:"NIST HL7 V2 Validation tool - Labs Suite testing tool",
+		"adminEmail"	:"robert.snelick@nist.gov",
+		"description"	:"(eDOS, LOI, LRI R2)",
+		"header" 		:"Labs Testing Suite @ NIST",
+		"homeTitle"		:"Welcome to the NIST Labs Validation Suite",
+		"homeContent"	:"TODO",
+		"fileUpload"	:{
+		  					"contentTypes" : "application/xml,text/xml,text/plain",
+		  					"maxSize": "10MB"
+						}
+}

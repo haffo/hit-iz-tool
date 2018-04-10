@@ -34,9 +34,9 @@ angular.module('cf').factory('CFTestPlanExecutioner', ['$q', '$http',
         return delay.promise;
       },
 
-      getTestPlans: function (scope) {
+      getTestPlans: function (scope,domain) {
         var delay = $q.defer();
-        $http.get("api/cf/testplans", {timeout: 180000, params: {"scope": scope}}).then(
+        $http.get("api/cf/testplans", {timeout: 180000, params: {"scope": scope, "domain":domain}}).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },

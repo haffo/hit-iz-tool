@@ -1,0 +1,11 @@
+{
+  "id" : 1514689953239526742,
+  "name" : "EDOS_0.0_1.1-M08_GU",
+  "position" : 1,
+  "description" : "EDOS_0.0_1.1-M08_GU",
+  "hl7v2" : {
+    "messageId" : "MFN_M08_GU",
+    "valueSetLibraryId" : "eDOS",
+    "constraintId" : "eDOS_default"
+  }
+}

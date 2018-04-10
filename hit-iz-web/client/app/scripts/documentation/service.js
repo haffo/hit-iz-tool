@@ -5,19 +5,9 @@ angular.module('doc').factory('TestCaseDocumentationLoader',
     };
 
 
-    TestCaseDocumentationLoader.prototype.getOneByStageAndDomain = function (stage) {
+    TestCaseDocumentationLoader.prototype.getOneByDomainAndScope = function (domain, scope) {
       var delay = $q.defer();
-//
-//                $http.get('../../resources/documentation/cb.json').then(
-//                    function (object) {
-//                        delay.resolve(angular.fromJson(object.data));
-//                    },
-//                    function (response) {
-//                        delay.reject(response.data);
-//                    }
-//                );
-
-      $http.get('api/documentation/testcases', {timeout: 60000,  params: {"domain": $rootScope.domain.value}}).then(
+      $http.get('api/documentation/testcases', {timeout: 60000,  params: {"domain": domain,"scope":scope}}).then(
         function (object) {
           if (object.data != null && object.data != "") {
             delay.resolve(angular.fromJson(object.data));
@@ -32,14 +22,13 @@ angular.module('doc').factory('TestCaseDocumentationLoader',
       return delay.promise;
     };
 
-
     return TestCaseDocumentationLoader;
   }
   ]);
 
 
-angular.module('doc').factory('KnownIssueListLoader', ['$q', '$http', 'StorageService', '$timeout',
-  function ($q, $http, StorageService, $timeout) {
+angular.module('doc').factory('KnownIssueListLoader', ['$q', '$http',
+  function ($q, $http) {
     return function () {
       var delay = $q.defer();
       $http.get("api/documentation/knownissues").then(
@@ -50,23 +39,14 @@ angular.module('doc').factory('KnownIssueListLoader', ['$q', '$http', 'StorageSe
           delay.reject(response.data);
         }
       );
-//                $http.get('../../resources/documentation/docs.json').then(
-//                    function (object) {
-//                        delay.resolve(angular.fromJson(object.data));
-//                    },
-//                    function (response) {
-//                        delay.reject(response.data);
-//                    }
-//                );
-
       return delay.promise;
     };
   }
 ]);
 
 
-angular.module('doc').factory('ReleaseNoteListLoader', ['$q', '$http', 'StorageService', '$timeout',
-  function ($q, $http, StorageService, $timeout) {
+angular.module('doc').factory('ReleaseNoteListLoader', ['$q', '$http',
+  function ($q, $http) {
     return function () {
       var delay = $q.defer();
       $http.get("api/documentation/releasenotes").then(
@@ -77,54 +57,16 @@ angular.module('doc').factory('ReleaseNoteListLoader', ['$q', '$http', 'StorageS
           delay.reject(response.data);
         }
       );
-//
-//                $http.get('../../resources/documentation/docs.json').then(
-//                    function (object) {
-//                        delay.resolve(angular.fromJson(object.data));
-//                    },
-//                    function (response) {
-//                        delay.reject(response.data);
-//                    }
-//                );
-
       return delay.promise;
     };
   }
 ]);
 
-angular.module('doc').factory('UserDocListLoader', ['$q', '$http', 'StorageService', '$timeout','$rootScope',
-  function ($q, $http, StorageService, $timeout,$rootScope) {
-    return function () {
+angular.module('doc').factory('UserDocListLoader', ['$q', '$http',
+  function ($q, $http) {
+    return function (domain, scope) {
       var delay = $q.defer();
-      $http.get("api/documentation/userdocs", {params: {"domain":$rootScope.domain.value}}).then(
-        function (object) {
-          delay.resolve(angular.fromJson(object.data));
-        },
-        function (response) {
-          delay.reject(response.data);
-        }
-      );
-//
-//                $http.get('../../resources/documentation/docs.json').then(
-//                    function (object) {
-//                        delay.resolve(angular.fromJson(object.data));
-//                    },
-//                    function (response) {
-//                        delay.reject(response.data);
-//                    }
-//                );
-
-      return delay.promise;
-    };
-  }
-]);
-
-
-angular.module('doc').factory('ResourceDocListLoader', ['$q', '$http', 'StorageService', '$timeout','$rootScope',
-  function ($q, $http, StorageService, $timeout,$rootScope) {
-    return function (type) {
-      var delay = $q.defer();
-      $http.get('api/documentation/resourcedocs', {params: {"type": type, "domain":$rootScope.domain.value}, timeout: 60000}).then(
+      $http.get("api/documentation/userdocs", {params: {"domain":domain, "scope":scope}}).then(
         function (object) {
           delay.resolve(angular.fromJson(object.data));
         },
@@ -138,8 +80,26 @@ angular.module('doc').factory('ResourceDocListLoader', ['$q', '$http', 'StorageS
 ]);
 
 
-angular.module('doc').factory('DeliverableListLoader', ['$q', '$http', 'StorageService', '$timeout',
-  function ($q, $http, StorageService, $timeout, $rootScope) {
+angular.module('doc').factory('ResourceDocListLoader', ['$q', '$http',
+  function ($q, $http) {
+    return function (type, scope, domain) {
+      var delay = $q.defer();
+      $http.get('api/documentation/resourcedocs', {params: {"type": type, "domain":domain, "scope":scope}, timeout: 60000}).then(
+        function (object) {
+          delay.resolve(angular.fromJson(object.data));
+        },
+        function (response) {
+          delay.reject(response.data);
+        }
+      );
+      return delay.promise;
+    };
+  }
+]);
+
+
+angular.module('doc').factory('DeliverableListLoader', ['$q', '$http',
+  function ($q, $http) {
     return function () {
       var delay = $q.defer();
       $http.get('api/documentation/deliverables', {timeout: 60000}).then(
@@ -155,8 +115,8 @@ angular.module('doc').factory('DeliverableListLoader', ['$q', '$http', 'StorageS
   }
 ]);
 
-angular.module('doc').factory('InstallationGuideLoader', ['$q', '$http', '$timeout',
-  function ($q, $http, $timeout, $rootScope) {
+angular.module('doc').factory('InstallationGuideLoader', ['$q', '$http',
+  function ($q, $http) {
     return function () {
       var delay = $q.defer();
       $http.get('api/documentation/installationguide', {timeout: 60000}).then(

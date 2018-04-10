@@ -1,16 +1,18 @@
 {
 	"domains": [
 		{
-			"key": "ss",
+			"key": "edos",
 			"position": 2,
-			"name": "Syndromic Surveillance",
-			"homeTitle": "NIST Sydromic Surveillance"
+			"name": "EDos",
+			"homeTitle"		:"Welcome to the NIST Labs Validation Suite",
+			"adminEmails":["affoharold@yahoo.fr"]
 		},
 		{
 			"key": "iz",
 			"position": 1,
 			"name": "Immunization",
-			"homeTitle": "NIST Immunization"
+			"homeTitle": "Welcome to the NIST Immunization",
+			"adminEmails":["haffo@nist.gov"]
  		}
 	]
  }

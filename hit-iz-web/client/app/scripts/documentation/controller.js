@@ -1,7 +1,14 @@
 angular.module('doc')
-  .controller('DocumentationCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout) {
+  .controller('DocumentationCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, userInfoService,StorageService) {
     $scope.status = {userDoc: true};
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+
+    $scope.selectedScope = {key: 'USER'};
+    $scope.documentsScopes = [];
+    $scope.allDocumentsScopes = [{key: 'USER', name: 'Private'}, {
+      key: 'GLOBAL',
+      name: 'Public'
+    }];
 
     $scope.downloadDocument = function (path) {
       if (path != null) {
@@ -20,32 +27,58 @@ angular.module('doc')
     };
 
     $scope.initDocumentation = function () {
+      if ($rootScope.isDocumentationManagementSupported() && userInfoService.isAuthenticated()) {
+        if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
+          $scope.documentsScopes = $scope.allDocumentsScopes;
+        } else {
+          $scope.documentsScopes = [$scope.allDocumentsScopes[1]];
+        }
+      }else{
+        $scope.documentsScopes = [$scope.allDocumentsScopes[1]];
+      }
+      $scope.selectedScope.key = $scope.documentsScopes[0].key;
+      $scope.selectScope();
+    };
 
+    $scope.selectScope = function () {
+      $scope.error = null;
+      if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "" && $rootScope.domain != null && $rootScope.domain.value != null) {
+        StorageService.set("DOC_MANAGE_SELECTED_SCOPE_KEY", $scope.selectedScope.key);
+        $scope.$broadcast('event:doc:scopeChangedEvent', $scope.selectedScope.key);
+      }
     };
 
 
-  }]);
+  });
 
 
 angular.module('doc')
-  .controller('UserDocsCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'UserDocListLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, UserDocListLoader) {
+  .controller('UserDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, UserDocListLoader,StorageService) {
     $scope.docs = [];
     $scope.loading = true;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
 
-    $timeout(function () {
-      var loader = new UserDocListLoader();
-      loader.then(function (result) {
-        $scope.loading = false;
-        $scope.docs = result;
-      }, function (error) {
-        $scope.loading = false;
-        $scope.error = null;
-        $scope.docs = [];
-      });
 
-    }, 5000);
+    $scope.initUserDocs = function (scope, wait) {
+      $scope.loading = true;
+      $timeout(function () {
+        if (scope === null || scope === undefined) {
+          scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+          scope = scope && scope != null ? scope : 'GLOBAL';
+        }
+        var loader = new UserDocListLoader($rootScope.domain.value, scope);
+        loader.then(function (result) {
+          $scope.loading = false;
+          $scope.docs = result;
+        }, function (error) {
+          $scope.loading = false;
+          $scope.error = null;
+          $scope.docs = [];
+        });
+      }, wait);
+    };
+
 
     $scope.isLink = function (path) {
       return path && path != null && path.startsWith("http");
@@ -81,34 +114,42 @@ angular.module('doc')
         document.body.appendChild(form);
         form.submit();
       }
-    }
+    };
 
-  }]);
+    $scope.initUserDocs(null, 3000);
+
+    $scope.$on('event:doc:scopeChangedEvent', function (scope) {
+      $scope.initUserDocs(scope, 500);
+    });
+
+
+  });
 
 
 angular.module('doc')
-  .controller('ReleaseNotesCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'ReleaseNoteListLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, ReleaseNoteListLoader) {
+  .controller('ReleaseNotesCtrl',function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, ReleaseNoteListLoader,StorageService) {
     $scope.docs = [];
     $scope.loading = false;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
 
 
+    $scope.initReleaseNotes = function (wait) {
+      $scope.loading = true;
+      $timeout(function () {
+        var loader = new ReleaseNoteListLoader();
+        loader.then(function (result) {
+          $scope.loading = false;
+          $scope.docs = result;
+        }, function (error) {
+          $scope.loading = false;
+          $scope.error = null;
+          $scope.docs = [];
+        });
 
-    $timeout(function () {
-      var loader = new ReleaseNoteListLoader();
-      loader.then(function (result) {
-        $scope.loading = false;
-        $scope.docs = result;
-      }, function (error) {
-        $scope.loading = false;
-        $scope.error = null;
-        $scope.docs = [];
-      });
+      }, wait);
 
-    }, 5000);
-
-
+    };
 
 
     $scope.downloadDocument = function (path) {
@@ -125,35 +166,20 @@ angular.module('doc')
         document.body.appendChild(form);
         form.submit();
       }
-    }
+    };
 
 
-  }]);
+    $scope.initReleaseNotes(3000);
+
+  });
 
 
 angular.module('doc')
-  .controller('KnownIssuesCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'KnownIssueListLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, KnownIssueListLoader) {
+  .controller('KnownIssuesCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, KnownIssueListLoader,StorageService) {
     $scope.docs = [];
     $scope.loading = false;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
-
-
-    $timeout(function () {
-
-      var loader = new KnownIssueListLoader();
-      loader.then(function (result) {
-        $scope.loading = false;
-        $scope.docs = result;
-      }, function (error) {
-        $scope.loading = false;
-        $scope.error = null;
-        $scope.docs = [];
-      });
-
-    }, 5000);
-
-
 
 
     $scope.downloadDocument = function (path) {
@@ -170,38 +196,63 @@ angular.module('doc')
         document.body.appendChild(form);
         form.submit();
       }
-    }
+    };
 
-  }]);
+    $scope.initKnownIssues = function (wait) {
+      $scope.loading = true;
+      $timeout(function () {
+        var loader = new KnownIssueListLoader();
+        loader.then(function (result) {
+          $scope.loading = false;
+          $scope.docs = result;
+        }, function (error) {
+          $scope.loading = false;
+          $scope.error = null;
+          $scope.docs = [];
+        });
+
+      }, wait);
+
+    };
+
+    $scope.initKnownIssues(3000);
+
+    // $scope.$on('event:doc:scopeChangedEvent', function (scope) {
+    //   $scope.initKnownIssues(scope, 500);
+    // });
+
+
+  });
 
 angular.module('doc')
-  .controller('ResourceDocsCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'ResourceDocListLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, ResourceDocListLoader) {
+  .controller('ResourceDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, ResourceDocListLoader,StorageService) {
     $scope.data = null;
     $scope.loading = false;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
-    if ($scope.type != null && $scope.type != "" && $scope.name != null && $scope.name != "") {
-      $scope.loading = true;
 
 
-      $timeout(function () {
+    $scope.initResourceDocs = function (scope, wait) {
+      if ($scope.type != null && $scope.type != "" && $scope.name != null && $scope.name != "") {
+        $scope.loading = true;
+        $timeout(function () {
+          if (scope === null || scope === undefined) {
+            scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+            scope = scope && scope != null ? scope : 'GLOBAL';
+          }
+          var listLoader = new ResourceDocListLoader($scope.type, scope, $rootScope.domain.value);
+          listLoader.then(function (result) {
+            $scope.error = null;
+            $scope.data = result;
+            $scope.loading = false;
+          }, function (error) {
+            $scope.loading = false;
+            $scope.error = "Sorry, failed to load the " + $scope.name;
+          });
+        }, wait);
+      }
+    };
 
-        var listLoader = new ResourceDocListLoader($scope.type);
-        listLoader.then(function (result) {
-          $scope.error = null;
-          $scope.data = result;
-          $scope.loading = false;
-        }, function (error) {
-          $scope.loading = false;
-          $scope.error = "Sorry, failed to load the " + $scope.name;
-        });
-
-
-      }, 5000);
-
-
-
-    }
 
     $scope.downloadResourceDocs = function () {
       if ($scope.type != null) {
@@ -233,62 +284,61 @@ angular.module('doc')
         document.body.appendChild(form);
         form.submit();
       }
-    }
+    };
 
-  }]);
+
+    $scope.initResourceDocs(null, 3000);
+
+    $scope.$on('event:doc:scopeChangedEvent', function (scope) {
+      $scope.initResourceDocs(scope, 500);
+    });
+
+
+  });
 
 angular.module('doc')
-  .controller('ToolDownloadListCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'DeliverableListLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DeliverableListLoader) {
+  .controller('ToolDownloadListCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DeliverableListLoader,StorageService) {
     $scope.data = [];
     $scope.loading = false;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
     $scope.loading = true;
 
-    $timeout(function () {
+    $scope.initToolDownloadList = function (wait) {
+      $scope.loading = true;
+      $timeout(function () {
+        var listLoader = new DeliverableListLoader();
+        listLoader.then(function (result) {
+          $scope.error = null;
+          $scope.data = result;
+          $scope.loading = false;
+        }, function (error) {
+          $scope.loading = false;
+          $scope.error = "Sorry, failed to load the files";
+          $scope.data = [];
+        });
+      }, wait);
+    };
 
-      var listLoader = new DeliverableListLoader();
-      listLoader.then(function (result) {
-        $scope.error = null;
-        $scope.data = result;
-        $scope.loading = false;
-      }, function (error) {
-        $scope.loading = false;
-        $scope.error = "Sorry, failed to load the files";
-        $scope.data = [];
-      });
+    $scope.initToolDownloadList(3000);
 
-
-    }, 5000);
-
-
-  }]);
+  });
 
 angular.module('doc')
-  .controller('ApiDocsCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout','$window', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout,$window) {
+  .controller('ApiDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, $window,StorageService) {
     $scope.data = [];
     $scope.loading = false;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
 
-    $scope.apiLink = function(){
+    $scope.apiLink = function () {
       return $rootScope.apiLink;
     };
-//            var listLoader = new DeliverableListLoader();
-//            listLoader.then(function (result) {
-//                $scope.error = null;
-//                $scope.data = result;
-//                $scope.loading = false;
-//            }, function (error) {
-//                $scope.loading = false;
-//                $scope.error = "Sorry, failed to load the files";
-//                $scope.data = [];
-//            });
-  }]);
+  });
 
 
 angular.module('doc')
-  .controller('InstallationGuideCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'InstallationGuideLoader', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, InstallationGuideLoader) {
+  .controller('InstallationGuideCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, InstallationGuideLoader,StorageService) {
     $scope.doc = null;
     $scope.loading = false;
     $scope.error = null;
@@ -296,9 +346,7 @@ angular.module('doc')
     $scope.loading = true;
 
 
-
     $timeout(function () {
-
       var listLoader = new InstallationGuideLoader();
       listLoader.then(function (result) {
         $scope.error = null;
@@ -311,7 +359,6 @@ angular.module('doc')
       });
 
     }, 5000);
-
 
 
     $scope.downloadDocument = function (path) {
@@ -329,11 +376,11 @@ angular.module('doc')
         form.submit();
       }
     }
-  }]);
+  });
 
 
 angular.module('doc')
-  .controller('TestCaseDocumentationCtrl', ['$scope', '$rootScope', '$http', '$filter', '$cookies', '$sce', '$timeout', 'TestCaseDocumentationLoader', 'ngTreetableParams', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, TestCaseDocumentationLoader, ngTreetableParams) {
+  .controller('TestCaseDocumentationCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, TestCaseDocumentationLoader, ngTreetableParams,StorageService) {
     $scope.context = null;
     $scope.data = null;
     $scope.loading = false;
@@ -342,30 +389,39 @@ angular.module('doc')
     var testCaseLoader = new TestCaseDocumentationLoader();
     $scope.error = null;
     $scope.tree = {};
-    if ($scope.stage != null && $scope.stage != '') {
-      $scope.loading = true;
 
 
-      $timeout(function () {
-
-        var tcLoader = testCaseLoader.getOneByStageAndDomain($scope.stage, $rootScope.domain.value);
-        tcLoader.then(function (data) {
-          $scope.error = null;
-          if (data != null) {
-            $scope.context = data;
-            $scope.data = angular.fromJson($scope.context.json);
-            $scope.params.refresh();
+    $scope.initTestCaseDocumentation = function (scope, wait) {
+      if ($scope.stage != null && $scope.stage != '') {
+        $scope.loading = true;
+        $timeout(function () {
+          if (scope === null || scope === undefined) {
+            scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+            scope = scope && scope != null ? scope : 'GLOBAL';
           }
-          $scope.loading = false;
-        }, function (error) {
-          $scope.loading = false;
-          $scope.error = "Sorry, failed to load the documents";
-        });
+          var tcLoader = testCaseLoader.getOneByDomainAndScope($rootScope.domain.value, scope);
+          tcLoader.then(function (data) {
+            $scope.error = null;
+            if (data != null) {
+              $scope.context = data;
+              $scope.data = angular.fromJson($scope.context.json);
+              $scope.params.refresh();
+            }
+            $scope.loading = false;
+          }, function (error) {
+            $scope.loading = false;
+            $scope.error = "Sorry, failed to load the documents";
+          });
 
-      }, 5000);
+        }, wait);
+      }
+    };
 
+    $scope.initTestCaseDocumentation(null, 3000);
 
-    }
+    $scope.$on('event:doc:scopeChangedEvent', function (scope) {
+      $scope.initTestCaseDocumentation(scope, 500);
+    });
 
 
     $scope.params = new ngTreetableParams({
@@ -455,7 +511,6 @@ angular.module('doc')
     };
 
 
-
     $scope.downloadContextFile = function (targetId, targetType, targetUrl, targetTitle) {
       if (targetId != null && targetType != null && targetUrl != null) {
         var form = document.createElement("form");
@@ -501,5 +556,4 @@ angular.module('doc')
       }
     }
 
-
-  }]);
+  });

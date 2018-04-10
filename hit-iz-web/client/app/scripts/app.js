@@ -384,11 +384,15 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
         if (storedDomain != null) {
           $rootScope.appInfo.domains = $filter('orderBy')($rootScope.appInfo.domains, 'position');
           $rootScope.domain = null;
-          for (var i = 0; i < $rootScope.appInfo.domains.length; i++) {
-            if ($rootScope.appInfo.domains[i].value === storedDomain) {
-              domainFound = $rootScope.appInfo.domains[i].value;
-              break;
+          if($rootScope.appInfo.domains.length > 1) {
+            for (var i = 0; i < $rootScope.appInfo.domains.length; i++) {
+              if ($rootScope.appInfo.domains[i].value === storedDomain) {
+                domainFound = $rootScope.appInfo.domains[i].value;
+                break;
+              }
             }
+          }else {
+            domainFound = $rootScope.appInfo.domains[0].value;
           }
         } else {
           domainFound = $rootScope.appInfo.domains[0].value;
@@ -808,6 +812,15 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
 
   $rootScope.isCfManagementSupported= function () {
     return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['CF_MANAGEMENT_SUPPORTED'] === "true");
+  };
+
+
+  $rootScope.isDocumentationManagementSupported= function () {
+    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['DOC_MANAGEMENT_SUPPORTED'] === "true");
+  };
+
+  $rootScope.isDomainOwner= function (email) {
+    return  $rootScope.domain != null && $rootScope.domain.ownerEmails != null && $rootScope.domain.ownerEmails.length() > 0 && $rootScope.domain.ownerEmails.indexOf(email) !=  -1;
   };
 
 

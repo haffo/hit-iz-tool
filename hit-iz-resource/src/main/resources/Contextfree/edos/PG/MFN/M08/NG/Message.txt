@@ -1,0 +1,6 @@
+MSH|^~\&|NIST Test Lab APP|NIST Lab Facility||NIST EHR Facility|20130421113601-0700||MFN^M08^MFN_M08|EDOS_0.0_1.1-M08-NG|D|2.5.1|||||||||EDOS_NG_Profile^^2.16.840.1.113883.9.71^ISO
+MFI|OMM^^HL70175||REP|||NE
+MFE|MAD||20131219145310|11^Prothrombin Time, PT^99USL|CWE
+OM1|1|11^Prothrombin Time, PT^99USL||Y|^Century Hospital Clinical Laboratory||||||Prothrombin Time|N||||||A
+MFE|MAD||20131219145310|12^INR^99USL|CWE
+OM1|2|12^INR^99USL||N|^Century Hospital Clinical Laboratory||||||International Normalized Ratio|N||||||C

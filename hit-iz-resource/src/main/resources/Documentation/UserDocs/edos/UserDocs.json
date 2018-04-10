@@ -1,0 +1,127 @@
+[
+{
+		        "title":"HL7 Version 2.5.1 Implementation Guide: S&I Framework Laboratory Test Compendium Framework R2, DSTU Release 2 - US Realm",
+		        "link":"http://www.hl7.org/documentcenter/public/standards/dstu/V2_IG_LTCF_R2_DSTU_R2_2015SEP.pdf",
+		        "date":"${edos-release-date-1.0.0}",
+	            "order":1
+                },               
+                {
+		        "title":"HL7 Version 2 Implementation Guide: Laboratory Value Set Companion Guide, Release 1- US Realm",
+		        "link":"http://www.hl7.org/implement/standards/product_brief.cfm?product_id=413",
+		        "date":"${edos-release-date-1.0.0}",
+	            "order":2
+                },  
+                {
+                "title":"NIST eDOS EHR_Normative Test Process Document",
+                "name":"eDOS/NIST_eDOS-EHR_Normative_Test_Process_Document_NA V1.2.docx",
+                "date":"${edos-release-date-1.0.0}",
+	            "order":3
+                },
+                {
+                "title":"NIST eDOS LIS Normative Test Process Document",
+                "name":"eDOS/NIST_eDOS-LIS_Normative_Test_Process_Document_NA V1.2.docx",
+                "date":"${edos-release-date-1.0.0}",
+	            "order":4
+                },
+                {
+                "title":"Understanding eDOS-EHR ConformanceTesting",
+                "name":"eDOS/Understanding-eDOS-EHR_ConformanceTesting V1.0.pptx",
+                "date":"${edos-release-date-1.0.0}",
+	            "order":5
+                },
+                {
+                "title":"Understanding eDOS-LIS ConformanceTesting",
+                "name":"eDOS/Understanding-eDOS-LIS_ConformanceTesting V2.0.pptx",
+                "date":"${edos-release-date-1.0.0}",
+	            "order":6
+                },                
+                {
+                "title":"NIST eDOS Clarifications and Validation Guidelines",
+                "name":"eDOS/NIST-EDOS-Clarifications-and-Validation-Guidelines-V1.0.docx",
+                "date":"${edos-release-date-1.0.0}",
+	            "order":7
+                },
+                {
+	                "title":"S&I Framework Laboratory Orders (LOI) from EHR, Release 1, DSTU Release 2 - US Realm",
+	                "link":"http://www.hl7.org/implement/standards/product_brief.cfm?product_id=152",
+	                "date":"${loi-release-date-1.0.0}",
+	                "order":8
+                },
+                {
+	                "title":"Cardinality Segment Field Management V23",
+	                "name":"LOI/Cardinality Segment Field Management V23 October 2015.xlsx",
+	                "date":"${loi-release-date-1.1.0}",
+	                "order":9
+                },
+                {
+	                "title":"NIST Normative Test Process Document: LOI-EHR Test Tool for Transmission of Laboratory Orders",
+	                "name":"LOI/NIST_LOI_Normative_Test_Process_Document_NA_V1.0.docx",
+	                "date":"${loi-release-date-1.0.0}",
+	                "order":10
+                },
+                {
+	                "title":"Understanding Conformance Testing: Using the NIST HL7 v2 LOI Validation Tool",
+	                "name":"LOI/UnderstandingLOI-EHR_ConformanceTesting V3.0.pdf",
+	                "date":"${loi-release-date-1.0.0}",
+	                "order":11
+                },                
+                {
+	                "title":"NIST LOI Clarifications and Validation Guidelines",
+	                "name":"LOI/NIST-LOI-Clarifications-and-Validation-Guidelines-V1.0.docx",
+	                "date":"${loi-release-date-1.0.0}",
+	                "order":12
+                },
+                {
+	                "title":"NIST Normative Test Process Document: LRI-EHR Test Tool for Incorporate Laboratory Values/Results",
+	                "name":"LRI/NIST_LRI-EHR_Normative_Test_Process_Document_NA-V1.4.docx",
+	                "date":"${lri-release-date-1.0.0}",
+	                "order":18
+                },                
+                {
+	                "title":"NIST Normative Test Process Document: LRI-LIS Test Tool for Transmission of Laboratory Values/Results",
+	                "name":"LRI/NIST_LRI-LIS_Normative_Test_Process_Document_NA-V1.3.docx",
+	                "date":"${lri-release-date-1.0.0}",
+	                "order":19
+                },   
+                {
+	                "title":"Understanding LRI-EHR Conformance Testing",
+	                "name":"LRI/UnderstandingLRI-EHR_ConformanceTesting V1.2.pptx",
+	                "date":"${lri-release-date-1.0.0}",
+	                "order":20
+                },                  
+				{
+	                "title":"Understanding LRI-LIS Conformance Testing",
+	                "name":"LRI/UnderstandingLRI-LIS_ConformanceTesting V1.2.pptx",
+	                "date":"${lri-release-date-1.0.0}",
+	                "order":21
+                },                  
+				{   "title":"NIST LRI Clarifications and Validation Guidelines",
+	                "name":"LRI/NIST-LRI-Clarifications-and-Validation-Guidelines-V1.0.docx",
+	                "date":"${lri-release-date-1.0.0}",
+	                "order":22
+                },
+                {
+		            "title":"HL7 Version 2.5.1 Implementation Guide: S&I Framework Lab Results Interface, Release 1,  DSTU  Release 2 - US Realm, Sep 2015",
+		            "link":"http://www.hl7.org/implement/standards/product_brief.cfm?product_id=279",
+		            "date":"${lri-release-date-1.0.0}",
+					"order":13
+		        },
+		        {
+		            "title":"HL7 Version 2 Implementation Guide: Laboratory Value Set Companion Guide, Release 1",
+		            "link":"http://www.hl7.org/implement/standards/product_brief.cfm?product_id=413",
+		            "date":"${lri-release-date-1.0.0}",
+					"order":16
+		        },
+		        {
+		            "title":"Errata publication for HL7 Version 2 Implementation Guide: Laboratory Value Set Companion Guide, Release 1",
+		            "link":"http://www.hl7.org/implement/standards/product_brief.cfm?product_id=427",
+		            "date":"${lri-release-date-1.0.0}",
+					"order":14
+		        },	
+				{
+					"title":"HL7 EHR-S Functional Requirements: Lab Results Messages, Release 1, STU May 2016",
+		            "link":"http://www.hl7.org/implement/standards/product_brief.cfm?product_id=433",
+		            "date":"${lri-release-date-1.0.0}",
+					"order":15
+		        }
+]

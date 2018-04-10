@@ -94,7 +94,7 @@ angular.module('cf')
       StorageService.set(StorageService.CF_SELECTED_TESTPLAN_ID_KEY, "");
       if ($scope.selectedTP.id && $scope.selectedTP.id !== null && $scope.selectedTP.id !== "") {
         $scope.loadingTC = true;
-        CFTestPlanExecutioner.getTestPlan($scope.selectedTP.id).then(function (testPlan) {
+        CFTestPlanExecutioner.getTestPlan($scope.selectedTP.id, $rootScope.domain.value).then(function (testPlan) {
           if(testPlan.scope === $scope.selectedScope.key) {
             $scope.testCases = [testPlan];
             testCaseService.buildCFTestCases(testPlan);
@@ -107,7 +107,6 @@ angular.module('cf')
             $scope.loadingTC = false;
           }
         }, function (error) {
-          $scope.loadingTC = false;
           $scope.errorTP = "Sorry, Cannot load the test cases. Please try again";
         });
       } else {
@@ -131,7 +130,7 @@ angular.module('cf')
 
       if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
         $scope.loading = true;
-        CFTestPlanExecutioner.getTestPlans($scope.selectedScope.key, $rootScope.domain).then(function (testPlans) {
+        CFTestPlanExecutioner.getTestPlans($scope.selectedScope.key, $rootScope.domain.value).then(function (testPlans) {
           $scope.error = null;
           $scope.testPlans = $filter('orderBy')(testPlans, 'position');
           var targetId = null;
