@@ -41,7 +41,7 @@
 			<ValueElement Value="D" CodeSystem="HL70323" DisplayName="Delete"/>
 			<ValueElement Value="U" CodeSystem="HL70323" DisplayName="Update"/>
 		</ValueSetDefinition>
-		<ValueSetDefinition BindingIdentifier="HL70533_IZ" Name="Application Error Code">
+		<ValueSetDefinition BindingIdentifier="HL70533_IZ" Name="Application Error Code" Extensibility="Open">
 			<ValueElement Value="1" CodeSystem="HL70533" DisplayName="Illogical Date error"/>
 			<ValueElement Value="2" CodeSystem="HL70533" DisplayName="Invalid Date"/>
 			<ValueElement Value="3" CodeSystem="HL70533" DisplayName="Illogical Value error"/>
@@ -160,6 +160,7 @@
 			<ValueElement Value="SI" CodeSystem="HL70125" DisplayName="Sequence ID"/>
 			<ValueElement Value="ST" CodeSystem="HL70125" DisplayName="String"/>
 			<ValueElement Value="TS" CodeSystem="HL70125" DisplayName="Time Stamp"/>
+			<ValueElement Value="TX" CodeSystem="HL70125" DisplayName="Text data"/>
 			<ValueElement Value="VID" CodeSystem="HL70125" DisplayName="Version Identifier"/>
 			<ValueElement Value="XAD" CodeSystem="HL70125" DisplayName="Extended Address"/>
 			<ValueElement Value="XCN" CodeSystem="HL70125" DisplayName="Extended Composite ID Number and Name for Persons"/>
@@ -543,8 +544,9 @@
 			<ValueElement Value="59782-3" CodeSystem="LN" DisplayName="Number of doses in primary series"/>
 			<ValueElement Value="59781-5" CodeSystem="LN" DisplayName="Dose validity"/>
 			<ValueElement Value="59783-1" CodeSystem="LN" DisplayName="Status in immunization series"/>
-			<ValueElement Value="46249-9" CodeSystem="LN" DisplayName="VACCINATION TAKE-RESPONSE TYPE "/>
-			<ValueElement Value="46250-7" CodeSystem="LN" DisplayName="VACCINATION TAKE-RESPONSE DATE "/>
+			<ValueElement Value="46249-9" CodeSystem="LN" DisplayName="VACCINATION TAKE-RESPONSE TYPE"/>
+			<ValueElement Value="46250-7" CodeSystem="LN" DisplayName="VACCINATION TAKE-RESPONSE DATE"/>
+			<ValueElement Value="48767-8" CodeSystem="LN" DisplayName="Annotation comment [Interpretation] Narrative"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="NCIT" Name="Route of administration">
 			<ValueElement Value="C38238" CodeSystem="NCIT" DisplayName="Intradermal"/>
@@ -908,7 +910,7 @@
 			<ValueElement Value="MCM" CodeSystem="MVX" DisplayName="MCM Vaccine Company"/>
 			<ValueElement Value="MED" CodeSystem="MVX" DisplayName="MedImmune, Inc."/>
 			<ValueElement Value="MIL" CodeSystem="MVX" DisplayName="Miles"/>
-			<ValueElement Value="MIP" CodeSystem="MVX" DisplayName="Emergent BioDefense Operations Lansing"/>
+			<ValueElement Value="MIP" CodeSystem="MVX" DisplayName="Emergent BioSolutions"/>
 			<ValueElement Value="MSD" CodeSystem="MVX" DisplayName="Merck and Co., Inc."/>
 			<ValueElement Value="NAB" CodeSystem="MVX" DisplayName="NABI"/>
 			<ValueElement Value="NAV" CodeSystem="MVX" DisplayName="North American Vaccine, Inc."/>
@@ -938,6 +940,10 @@
 			<ValueElement Value="WA" CodeSystem="MVX" DisplayName="Wyeth-Ayerst"/>
 			<ValueElement Value="WAL" CodeSystem="MVX" DisplayName="Wyeth"/>
 			<ValueElement Value="ZLB" CodeSystem="MVX" DisplayName="ZLB Behring"/>
+			
+			<ValueElement Value="DSI" CodeSystem="MVX" DisplayName="Dispensing Solutions"/>
+			<ValueElement Value="REB" CodeSystem="MVX" DisplayName="Rebel Distributors"/>
+			<ValueElement Value="VET" CodeSystem="MVX" DisplayName="Vetter Pharma Fertigung GmbH &amp; Co. KG"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="CDCREC_E_IZ" Name="Ethnic Group">
 			<ValueElement Value="2135-2" CodeSystem="CDCREC" DisplayName="Hispanic or Latino"/>
@@ -1063,7 +1069,7 @@
 			<ValueElement Value="110" DisplayName="DTaP-Hep B-IPV" CodeSystem="CVX"/>
 			<ValueElement Value="111" DisplayName="influenza, live, intranasal" CodeSystem="CVX"/>
 			<ValueElement Value="112" DisplayName="tetanus toxoid, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="113" DisplayName="Td (adult), preservative free to Td (adult), 5 Lf tetanus toxoid, preservative free, adsorbed" CodeSystem="CVX"/>
+			<ValueElement Value="113" DisplayName="Td (adult), 5 Lf tetanus toxoid, preservative free, adsorbed" CodeSystem="CVX"/>
 			<ValueElement Value="114" DisplayName="meningococcal MCV4P" CodeSystem="CVX"/>
 			<ValueElement Value="115" DisplayName="Tdap" CodeSystem="CVX"/>
 			<ValueElement Value="116" DisplayName="rotavirus, pentavalent" CodeSystem="CVX"/>
@@ -1135,7 +1141,7 @@
 			<ValueElement Value="184" DisplayName="Yellow fever, unspecified formulation" CodeSystem="CVX"/>
 			<ValueElement Value="185" DisplayName="influenza, recombinant, quadrIvalent,injectable, preservative free" CodeSystem="CVX"/>
 			<ValueElement Value="186" DisplayName="Influenza, injectable, Madin Darby Canine Kidney, quadrivalent" CodeSystem="CVX"/>
-			<ValueElement Value="187" DisplayName="zoster vaccine subunit" CodeSystem="CVX"/>
+			<ValueElement Value="187" DisplayName="zoster vaccine recombinant" CodeSystem="CVX"/>
 			<ValueElement Value="188" DisplayName="zoster vaccine, unspecified formulation" CodeSystem="CVX"/>
 			<ValueElement Value="189" DisplayName="Hepatitis B vaccine (recombinant), adjuvanted" CodeSystem="CVX"/>
 			<ValueElement Value="801" DisplayName="AS03 Adjuvant" CodeSystem="CVX"/>
@@ -1293,6 +1299,12 @@
 			<ValueElement Value="253088698300029511161202" CodeSystem="cdcgs1vis" DisplayName="HPV Vaccine VIS"/>
 			<ValueElement Value="253088698300030111150814" CodeSystem="cdcgs1vis" DisplayName="Meningococcal B VIS"/>
 			<ValueElement Value="253088698300030111160809" CodeSystem="cdcgs1vis" DisplayName="Serogroup B Meningococcal Vaccine VIS"/>
+			
+			<ValueElement Value="253088698300032511180212" CodeSystem="cdcgs1vis" DisplayName="Recombinant Zoster Vaccine"/>
+			<ValueElement Value="253088698300012711180212" CodeSystem="cdcgs1vis" DisplayName="MMR Vaccine"/>
+			<ValueElement Value="253088698300013411180212" CodeSystem="cdcgs1vis" DisplayName="MMRV Vaccine"/>
+			<ValueElement Value="253088698300024011180212" CodeSystem="cdcgs1vis" DisplayName="Varicella Vaccine"/>
+			<ValueElement Value="253088698300020211180212" CodeSystem="cdcgs1vis" DisplayName="Live Zoster Vaccine"/>
 		</ValueSetDefinition>
 		
 		<ValueSetDefinition BindingIdentifier="PHVS_FundingEligibilityObsMethod_IIS" Name="Funding Eligibility Observation Method (IIS)">
@@ -1339,6 +1351,9 @@
 			<ValueElement Value="09" CodeSystem="CVX" DisplayName="Td (adult), adsorbed"/>
 			<ValueElement Value="115" CodeSystem="CVX" DisplayName="Tdap"/>
 			<ValueElement Value="21" CodeSystem="CVX" DisplayName="varicella"/>
+			
+			<ValueElement Value="187" CodeSystem="CVX" DisplayName="zoster vaccine recombinant"/>
+			<ValueElement Value="121" CodeSystem="CVX" DisplayName="zoster live"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
 	<ValueSetDefinitions Group="HL7" Order="3">
