@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "A 68 year old male, Manuel Diego Vasquez, comes to a clinic for a physical. A clinic staff member collects basic patient demographic information including name, date of birth and sex. He declines further recall and reminder notifications. The patient reports that he received a pneumococcal vaccination at a local pharmacy on October 21, 2014. The clinic staff determine that no further vaccinations are required. A clinician, Lily Jackson (ID 7824) enters the historical data into the EHR and transmits it to the IIS.",
+  "comments" : "No Comments",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "<br>",
+  "evaluationCriteria" : "Message Validation Report.<br>",
+  "notes" : "No Note"
+}

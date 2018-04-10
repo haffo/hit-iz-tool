@@ -1,0 +1,9 @@
+{
+  "id" : 849729,
+  "name" : "ONC 2015 Test Plan",
+  "description" : "This test plan is to be used for the ONC 2015 Edition Certification Testing of HealthIT modules. All test cases are required to be executed. The test plan includes a set of Administered Immunization test cases (Administration Group) and a set of Query and Response test cases (Evaluated History and Forecast Group).<br>",
+  "type" : "Isolated",
+  "transport" : true,
+  "position" : 4,
+  "domain" : "iz"
+}
