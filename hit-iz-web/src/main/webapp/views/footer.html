@@ -12,7 +12,7 @@
     <tbody>
     <tr>
       <td class="box" ng-if="appInfo.options.ORGANIZATION_LINK !== 'NA' && appInfo.options.ORGANIZATION_LOGO !== 'NA'">
-        <a ng-href="{{appInfo.options.ORGANIZATION_LINK != null ? appInfo.options.ORGANIZATION_LINK : 'http://www.nist.gov'}}" target="_blank"><img class="footerImage" ng-src="{{appInfo.options.ORGANIZATION_LOGO != null ? appInfo.options.ORGANIZATION_LOGO : 'images/nist_logo.gif'}}" alt="{{appInfo.options.ORGANIZATION_NAME != null ?  appInfo.options.ORGANIZATION_NAME: 'NIST'}} Logo" title="{{appInfo.options.ORGANIZATION_NAME != null ? appInfo.options.ORGANIZATION_NAME: 'NIST'}} Logo"></a>
+        <a ng-href="{{appInfo.options.ORGANIZATION_LINK != null && appInfo.options.ORGANIZATION_LINK != ''  ? appInfo.options.ORGANIZATION_LINK : 'http://www.nist.gov'}}" target="_blank"><img class="footerImage" ng-src="{{appInfo.options.ORGANIZATION_LOGO != null && appInfo.options.ORGANIZATION_LOGO != ''? appInfo.options.ORGANIZATION_LOGO : 'images/nist_logo.gif'}}" alt="{{appInfo.options.ORGANIZATION_NAME != null && appInfo.options.ORGANIZATION_NAME != ''  ?  appInfo.options.ORGANIZATION_NAME: 'NIST'}} Logo" title="{{appInfo.options.ORGANIZATION_NAME != null && appInfo.options.ORGANIZATION_NAME != ''  ? appInfo.options.ORGANIZATION_NAME: 'NIST'}} Logo"></a>
         <!--<a href="http://www.nist.gov" target="_blank"><img class="footerImage" src="images/nist_logo.gif" alt="The NIST Logo" title="The NIST Logo" /></a>-->
       </td>
 
@@ -20,7 +20,7 @@
         <div>
           <h5>Application Information</h5>
           <ul>
-            <li>Date: {{appInfo.date |  date: 'MM/dd/yyyy HH:mm:ss'}}, </li>
+            <li>Date: {{appInfo.date |  date: 'MM/dd/yyyy HH:mm:ss'}} </li>
             <li>Application Version: {{appInfo.version}}</li>
             <li>Resource Bundle Version:{{appInfo.rsbVersion}}</li>
           </ul>
@@ -43,15 +43,15 @@
         <div>
           <h5>External Links</h5>
           <ul>
-            <li ng-if="appInfo.options.DISCLAIMER_LINK !== 'NA'"><a class="footer-link" ng-href="{{appInfo.options.DISCLAIMER_LINK != null ? appInfo.options.DISCLAIMER_LINK : 'http://www.nist.gov/public_affairs/disclaimer.cfm'}}" target="_blank" title="View Disclaimer">Disclaimer</a>
-            </li><li ng-if="appInfo.options.PRIVACY_LINK !== 'NA'"><a class="footer-link" ng-href="{{appInfo.options.PRIVACY_LINK != null ? appInfo.options.PRIVACY_LINK : 'http://www.nist.gov/public_affairs/privacy.cfm#privpolicy'}}" target="_blank" title="View Privacy Policy">Privacy/Policy</a>
-          </li><li ng-if="appInfo.contactEmail != null"><a class="footer-link" ng-href="mailto:{{appInfo.contactEmail}}" title="Email Website Administrator @: {{appInfo.contactEmail}}">Website Administrator</a>
+            <li ng-if="appInfo.options.DISCLAIMER_LINK !== 'NA'"><a class="footer-link" ng-href="{{appInfo.options.DISCLAIMER_LINK != null && appInfo.options.DISCLAIMER_LINK !== ''? appInfo.options.DISCLAIMER_LINK : 'http://www.nist.gov/public_affairs/disclaimer.cfm'}}" target="_blank" title="View Disclaimer">Disclaimer</a>
+            </li><li ng-if="appInfo.options.PRIVACY_LINK !== 'NA'"><a class="footer-link" ng-href="{{appInfo.options.PRIVACY_LINK != null && appInfo.options.PRIVACY_LINK != ''  ? appInfo.options.PRIVACY_LINK : 'http://www.nist.gov/public_affairs/privacy.cfm#privpolicy'}}" target="_blank" title="View Privacy Policy">Privacy/Policy</a>
+          </li><li ng-if="appInfo.contactEmail != null && appInfo.contactEmail != ''"><a class="footer-link" ng-href="mailto:{{appInfo.contactEmail}}" title="Email Website Administrator @: {{appInfo.contactEmail}}">Website Administrator</a>
           </li></ul>
         </div>
       </td>
 
-      <td class="box" ng-if="appInfo.options.DIVISION_LINK !== 'NA' && appInfo.options.DIVISION_LOGO !== 'NA'">
-        <a ng-href="{{appInfo.options.DIVISION_LINK != null ? appInfo.options.DIVISION_LINK : 'http://www.itl.nist.gov'}}" target="_blank"><img class="footerImage" ng-src="{{appInfo.options.DIVISION_LOGO != null ? appInfo.options.DIVISION_LOGO : 'images/itl-logo.jpg'}}" alt="{{appInfo.options.DIVISION_NAME != null ?  appInfo.options.DIVISION_NAME: 'ITL'}} Logo" title="{{appInfo.options.DIVISION_NAME != null ?  appInfo.options.DIVISION_NAME: 'ITL'}} Logo"></a>
+      <td class="box" ng-if="appInfo.options.DIVISION_LINK !== 'NA' && appInfo.options.DIVISION_LOGO !== 'NA' ">
+        <a ng-href="{{appInfo.options.DIVISION_LINK != null && appInfo.options.DIVISION_LINK != '' ? appInfo.options.DIVISION_LINK : 'http://www.itl.nist.gov'}}" target="_blank"><img class="footerImage" ng-src="{{appInfo.options.DIVISION_LOGO != null && appInfo.options.DIVISION_LOGO != '' ? appInfo.options.DIVISION_LOGO : 'images/itl-logo.jpg'}}" alt="{{appInfo.options.DIVISION_NAME != null && appInfo.options.DIVISION_NAME != '' ?  appInfo.options.DIVISION_NAME: 'ITL'}} Logo" title="{{appInfo.options.DIVISION_NAME != null && appInfo.options.DIVISION_NAME != ''  ?  appInfo.options.DIVISION_NAME: 'ITL'}} Logo"></a>
       </td>
 
     </tr>

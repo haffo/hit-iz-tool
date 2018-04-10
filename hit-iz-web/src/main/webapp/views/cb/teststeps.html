@@ -23,70 +23,72 @@
       <table st-table="testCase.children" style="margin-bottom: 0px" class="table table-bordered table-condensed stTable execution-table">
         <thead>
         <tr class="">
-          <th style="width:5%">#</th>
+          <th ng-if="isTestCaseCompleted()"> </th>
           <th style="width:20%">Name</th>
           <th style="width:20%">Description</th>
-          <th ng-if="transportSupported && testCase.transport === true && user.info != null" style="width:10%">Transaction Status</th>
-          <th style="width:15%">Validation Result</th>
+          <th ng-if="transportSupported && testCase.transport === true && user.info != null && !transport.disabled" style="width:10%">Transport Status
+          </th>
+          <th style="width:15%">Test Step Outcome</th>
           <th style="width:30%">Comments</th>
+          <th style="width:20%">Report</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-class="{'current': testStep != null && row.id === testStep.id}" ng-repeat="row in testCase.children | orderBy:'position'">
-          <td style="width:5%">
-            <label>
-                                    <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
+          <td ng-if="isTestCaseCompleted()">
+            <input type="radio" ng-click="viewTestStepResult(row)" ng-checked="testStep != null && testStep.id === row.id">
+          </td>
+          <td style="width:20%">
+                              <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
                        <i class="fa fa-wrench"></i>
                     </span>
 
-              <span ng-show="row.testingType === 'TA_INITIATOR' || row.testingType === 'TA_RESPONDER'">
+            <span ng-show="row.testingType === 'TA_INITIATOR' || row.testingType === 'TA_RESPONDER'">
                         <i class="fa fa-arrow-left"></i>
                     </span>
 
-              <span ng-show="row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER'">
+            <span ng-show="row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER'">
                         <i class="fa fa-arrow-right"></i>
                     </span>
-              <input ng-disabled="!isTestCaseCompleted()" type="radio" ng-click="viewTestStepResult(row)" ng-checked="testStep != null && testStep.id === row.id">
-              {{row.position}}.
-            </label>
-          </td>
-          <td style="width:20%">
-            {{row.name}}
+
+            {{row.position}}. {{row.name}}
           </td>
           <td style="width:20%" ng-bind-html="row.description"></td>
 
 
-          <td ng-if="transportSupported && testCase.transport === true && user.info != null" style="width:10%">
+          <td ng-if="transportSupported && testCase.transport === true && user.info != null && !transport.disabled" style="width:10%">
 
             <div ng-show="testExecutionService.getTestStepExecutionStatus(row) === undefined">
               <div ng-show="row.id !== testStep.id">Not started</div>
               <div ng-show="row.id === testStep.id">
-                <div ng-show="testCase.transport === true && user.info != null && !transport.disabled">
-                                    <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
+                                     <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
                                         Waiting for input...
                                     </span>
-                  <span ng-show="row.testingType === 'TA_INITIATOR'">
-                                        Waiting to send...
+                <span ng-show="row.testingType === 'TA_INITIATOR'">
+                                         Waiting to send...
                                     </span>
-                  <span ng-show="row.testingType === 'TA_RESPONDER'">
-                                        Sending ...
+                <span ng-show="row.testingType === 'TA_RESPONDER'">
+                                        Sending response...
                                     </span>
-                  <span ng-show="row.testingType === 'SUT_INITIATOR'">
-                                       Waiting to listen...
+                <span ng-show="row.testingType === 'SUT_INITIATOR'">
+                                       Waiting for message...
                                     </span>
-                  <span ng-show="row.testingType === 'SUT_RESPONDER'">
+                <span ng-show="row.testingType === 'SUT_RESPONDER'">
                                        Waiting to receive...
                                     </span>
-                </div>
-                <div ng-show="testCase.transport === false || user.info == null || transport.disabled">
-                                        <span ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">
-                                            Waiting for user's input...
-                                        </span>
-                  <span ng-show="row.testingType === 'TA_INITIATOR' || row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER' || row.testingType === 'TA_RESPONDER'">
-                                            Waiting for message...
-                                        </span>
-                </div>
               </div>
+
+              <!--<div ng-show="testCase.transport === false || user.info == null || transport.disabled">-->
+              <!--<span-->
+              <!--ng-show="row.testingType === 'TA_MANUAL' || row.testingType === 'SUT_MANUAL'">-->
+              <!--Waiting for user's input...-->
+              <!--</span>-->
+              <!--<span-->
+              <!--ng-show="row.testingType === 'TA_INITIATOR' || row.testingType === 'SUT_INITIATOR' || row.testingType === 'SUT_RESPONDER' || row.testingType === 'TA_RESPONDER'">-->
+              <!--Waiting for message...-->
+              <!--</span>-->
+              <!--</div>-->
+
             </div>
             <div ng-show="testExecutionService.getTestStepExecutionStatus(row) === 'IN_PROGRESS'">
               <div ng-show="testCase.transport === true && user.info != null && !transport.disabled">
@@ -137,16 +139,16 @@
           <td style="width:15%">
 
             <div ng-show="isTestStepCompleted(row)">
-               <select class="" name="resultValue" ng-disabled="testStep != null && row.id !== testStep.id" ng-change="updateTestStepValidationReport(row)" ng-model="testExecutionService.testStepValidationResults[row.id]" required="">
+              <select class="" name="resultValue" ng-disabled="testStep != null && row.id !== testStep.id" ng-change="updateTestStepValidationReport(row)" ng-model="testExecutionService.testStepValidationResults[row.id]" required="">
                 <option ng-repeat="resultOption in testExecutionService.resultOptions" value="{{resultOption.value}}">{{resultOption.title}}
                 </option>
               </select>
-             </div>
+            </div>
 
             <div ng-show="!isTestStepCompleted(row)">
               <div ng-show="row.id !== testStep.id">Not started</div>
               <div ng-show="row.id === testStep.id">
-                In Progress...
+
               </div>
             </div>
 
@@ -162,7 +164,7 @@
                   {{testExecutionService.testStepComments[row.id]}}
                 </p>
 
-                <button class="btn btn-xs btn-primary" title="Edit Comment" ng-show="testExecutionService.testStepComments[row.id] != '' && testExecutionService.testStepComments[row.id] != null && testExecutionService.testStepComments[row.id] !=  undefined && (testExecutionService.testStepCommentsChanged[row.id] === false || !testExecutionService.testStepCommentsChanged[row.id] || testExecutionService.testStepCommentsChanged[row.id] == undefined)" ng-click="editTestStepComment(row)" class="point">
+                <button class="btn btn-xs btn-info" title="Edit Comment" ng-show="testExecutionService.testStepComments[row.id] != '' && testExecutionService.testStepComments[row.id] != null && testExecutionService.testStepComments[row.id] !=  undefined && (testExecutionService.testStepCommentsChanged[row.id] === false || !testExecutionService.testStepCommentsChanged[row.id] || testExecutionService.testStepCommentsChanged[row.id] == undefined)" ng-click="editTestStepComment(row)" class="point">
                   <i class="fa fa-pencil fa-fw"></i>
                 </button>
 
@@ -171,15 +173,14 @@
                 </button>
 
 
-                <button class="btn btn-xs btn-primary" title="Add Comment" ng-show="(testExecutionService.testStepComments[row.id] == '' ||  testExecutionService.testStepComments[row.id] == null || testExecutionService.testStepComments[row.id] == undefined) && (testExecutionService.testStepCommentsChanged[row.id] === false || !testExecutionService.testStepCommentsChanged[row.id] || testExecutionService.testStepCommentsChanged[row.id] == undefined)" ng-click="editTestStepComment(row)" class="point">
+                <button class="btn btn-xs btn-info" title="Add Comment" ng-show="(testExecutionService.testStepComments[row.id] == '' ||  testExecutionService.testStepComments[row.id] == null || testExecutionService.testStepComments[row.id] == undefined) && (testExecutionService.testStepCommentsChanged[row.id] === false || !testExecutionService.testStepCommentsChanged[row.id] || testExecutionService.testStepCommentsChanged[row.id] == undefined)" ng-click="editTestStepComment(row)" class="point">
                   <i class="fa fa-plus fa-fw"></i>
                 </button>
 
 
-
                 <button class="btn btn-xs btn-success" title="Save Comment" ng-disabled="testExecutionService.testStepCommentsChanges[row.id] == '' || testExecutionService.testStepCommentsChanges[row.id] == null" ng-show="testExecutionService.testStepComments[row.id] !== null && testExecutionService.testStepComments[row.id] !== undefined &&  testExecutionService.testStepCommentsChanged[row.id] == true" ng-click="saveTestStepComment(row);" class="point">
                   <i class="fa fa-check fa-fw"></i>
-                 </button>
+                </button>
 
                 <button class="btn btn-xs btn-danger" title="Reset Comment" ng-show="testExecutionService.testStepComments[row.id] !== null && testExecutionService.testStepComments[row.id] !== undefined &&  testExecutionService.testStepCommentsChanged[row.id] == true" ng-click="resetTestStepComment(row);" class="point">
                   <i class="fa fa-times fa-fw"></i>
@@ -234,6 +235,23 @@
             <!--</a>-->
             <!--</div>-->
           </td>
+
+          <td style="width:20%">
+            <div ng-show="isTestStepCompleted(row)">
+              <div class="btn-group" ng-show="getTestStepValidationReport(row) && getTestStepValidationReport(row) !== null">
+                   <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-download"></i>Download<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="point" ng-click="downloadReportAs('PDF', row)"><img src="images/pdf.png" style="height:15px;width:15px">PDF</a></li>
+                    <li><a class="point" ng-click="downloadReportAs('XML',row)"><img src="images/xml.jpeg" style="height:15px;width:15px">XML</a></li>
+                    <li><a class="point" ng-click="downloadReportAs('HTML',row)"><img src="images/html.png" style="height:15;width:15px">HTML</a></li>
+                  </ul>
+               </div>
+            </div>
+          </td>
+
+
         </tr>
         </tbody>
 

@@ -1,40 +1,44 @@
 <style id="antiClickjack">body{display:none !important;}</style>
 <script type="text/javascript">
-    if (self === top) {
-        var antiClickjack = document.getElementById("antiClickjack");
-        antiClickjack.parentNode.removeChild(antiClickjack);
-    } else {
-        top.location = self.location;
-    }
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
 </script>
 <div style="margin:10px">
 
-    <div style="margin-bottom: 20px">
-        <div class="panel panel-info">
-            <div class="panel-heading">About</div>
-            <div class="panel-body">
-                <p>
-                    Tool Version:{{appInfo.version}}
-                </p>
+  <div style="margin-bottom: 20px">
+    <div class="panel panel-info">
+      <div class="panel-heading">About</div>
+      <div class="panel-body">
+        <p>
+          Tool Version:{{appInfo.version}}
+        </p>
 
-                <p>
-                    Deployment Date: {{appInfo.date |  date: 'MM/dd/yyyy HH:mm:ss'}}
-                </p>
-            </div>
-        </div>
+        <p>
+          Deployment Date: {{appInfo.date |  date: 'MM/dd/yyyy HH:mm:ss'}}
+        </p>
+      </div>
     </div>
+  </div>
 
-    <div ng-if="appInfo.acknowledgment != null" style="margin-bottom: 20px" ng-bind-html="appInfo.acknowledgment">
-    </div>
+  <div ng-if="appInfo.acknowledgment != null" style="margin-bottom: 20px">
+    <div ng-bind-html="appInfo.acknowledgment"></div>
+  </div>
 
 
-    <div style="margin-bottom: 20px" ng-if="appInfo.disclaimer != null" ng-bind-html="appInfo.disclaimer">
-    </div>
+  <div style="margin-bottom: 20px" ng-if="appInfo.disclaimer != null">
+    <div ng-bind-html="appInfo.disclaimer"></div>
+  </div>
 
-    <div style="margin-bottom: 20px" ng-if="appInfo.confidentiality != null" ng-bind-html="appInfo.confidentiality">
-    </div>
+  <div style="margin-bottom: 20px" ng-if="appInfo.confidentiality != null">
+    <div ng-bind-html="appInfo.confidentiality"></div>
+  </div>
 
-  <div style="margin-bottom: 20px" ng-if="appInfo.privacy != null" ng-bind-html="appInfo.privacy">
+  <div style="margin-bottom: 20px" ng-if="appInfo.privacy != null">
+    <div ng-bind-html="appInfo.privacy"></div>
   </div>
 
 
