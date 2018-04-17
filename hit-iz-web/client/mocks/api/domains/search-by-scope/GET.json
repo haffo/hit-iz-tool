@@ -1,0 +1,28 @@
+[
+  {
+    "value": "edos",
+    "id":1,
+    "name": "EDos",
+    "homeTitle": "Welcome sfsdsdsdsd",
+    "disabled": false,
+    "messageContentInfo": "messageContentInfo messageContentInfo",
+    "homeContent": "homeContent homeContent homeContent",
+    "profileInfo": "profileInfo",
+    "valueSetCopyright": "valueSetCopyright valueSetCopyright",
+    "validationResultInfo": "validationResultInfo validationResultInfo",
+    "scope":"USER"
+  },
+  {
+    "value": "iz",
+    "name": "Immunization",
+    "id":2,
+    "homeTitle": null,
+    "disabled": false,
+    "messageContentInfo": "messageContentInfo messageContentInfo",
+    "homeContent": "homeContent homeContent homeContent",
+    "profileInfo": "profileInfo",
+    "valueSetCopyright": "valueSetCopyright valueSetCopyright",
+    "validationResultInfo": "validationResultInfo validationResultInfo",
+    "scope":"GLOBAL"
+  }
+]

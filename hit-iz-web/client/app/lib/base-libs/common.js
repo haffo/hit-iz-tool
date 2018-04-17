@@ -1098,18 +1098,6 @@ angular.module('format').factory('AppInfo', ['$http', '$q', function ($http, $q)
 
       return delay.promise;
 
-    },
-    getDomain: function (key) {
-      var delay = $q.defer();
-      $http.get('api/domains/' + key).then(
-        function (object) {
-          delay.resolve(angular.fromJson(object.data));
-        },
-        function (response) {
-          delay.reject(response.data);
-        }
-      );
-      return delay.promise;
     }
   };
 }]);

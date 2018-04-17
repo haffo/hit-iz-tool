@@ -1,0 +1,31 @@
+<div class="modal-header" style="background: lightgray">
+   <h3 class="modal-title"  id="modal-title">Create Domain</h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <form novalidate id="createDomainForm" name="createDomainForm" class="form-horizontal">
+      <div class='form-group control-group'>
+        <label for='newDomainName' class='col-md-2 control-label'>Key</label>
+        <div class='controls col-md-6'>
+          <input  required
+            class='form-control' name='newDomainKey'
+            id='newDomainKey' type='text'
+            ng-model='newDomain.key'>
+        </div>
+      </div>
+      <div class='form-group control-group'>
+        <label for='newDomainName' class='col-md-2 control-label'>Name</label>
+        <div class='controls col-md-6'>
+          <input required
+            class='form-control' name='newDomainName'
+            id='newDomainName' type='text'
+            ng-model='newDomain.name'>
+        </div>
+      </div>
+    </form>
+   </div>
+</div>
+<div class="modal-footer">
+  <button ng-click="cancel()"  class="btn btn-default btn-md"><i class="fa fa-times"></i>Cancel</button>
+  <button ng-click="submit()" ng-disabled="createDomainForm.$invalid"  class="btn btn-info btn-md"><i class="fa fa-check"></i>Create</button>
+</div>

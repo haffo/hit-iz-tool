@@ -53,12 +53,13 @@ angular.module('doc')
 
 
 angular.module('doc')
-  .controller('UserDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, UserDocListLoader,StorageService) {
+  .controller('UserDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager,StorageService, $modal,Notification) {
     $scope.docs = [];
     $scope.loading = true;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
-
+    $scope.scope = null;
+    $scope.actionError = null;
 
     $scope.initUserDocs = function (scope, wait) {
       $scope.loading = true;
@@ -67,8 +68,8 @@ angular.module('doc')
           scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
           scope = scope && scope != null ? scope : 'GLOBAL';
         }
-        var loader = new UserDocListLoader($rootScope.domain.value, scope);
-        loader.then(function (result) {
+        $scope.scope = scope;
+        DocumentationManager.getDocuments($rootScope.domain.value, scope, "USERDOC").then(function (result) {
           $scope.loading = false;
           $scope.docs = result;
         }, function (error) {
@@ -123,22 +124,249 @@ angular.module('doc')
     });
 
 
+    $scope.addDocument = function(){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+         backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return null;
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document added successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initUserDocs($scope.scope, 100);
+          }
+        });
+    };
+
+    $scope.editDocument = function(document){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return angular.copy(document);
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document saved successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initUserDocs($scope.scope, 100);
+          }
+        });
+    };
+
+
+    $scope.deleteDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-delete.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.deleteDocument(document.id).then(function (result) {
+                Notification.success({
+                  message: "Document deleted successfully !",
+                  templateUrl: "NotificationSuccessTemplate.html",
+                  scope: $rootScope,
+                  delay: 5000
+                });
+                $scope.initUserDocs($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
+
+    $scope.publishDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-publish.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.publishDocument(document.id).then(function (result) {
+              Notification.success({
+                message: "Document published successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initUserDocs($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
+
+
   });
 
 
+angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $modalInstance, scope,DocumentationManager,FileUploader,domain, totalNumber,document) {
+
+
+  $scope.error = null;
+  $scope.loading = false;
+  $scope.hasUrl = false;
+  $scope.domain = domain;
+  $scope.scope = scope;
+  $scope.totalNumber = totalNumber;
+  $scope.document = document;
+
+  if($scope.document != null) {
+    if ($scope.document.path && $scope.document.path.startsWith("http")) {
+      $scope.hasUrl = true;
+    } else {
+      $scope.document.path = "";
+    }
+  }
+
+  $scope.positions = function () {
+    var array = new Array($scope.totalNumber);
+    for (var index = 0; index < array.length; index++) {
+      array[index] = index + 1;
+    }
+    return array;
+  };
+
+
+
+  FileUploader.FileSelect.prototype.isEmptyAfterSelection = function () {
+    return true;
+  };
+
+  var uploader = $scope.uploader = new FileUploader({
+    url: 'api/documentation/uploadDocument',
+    autoUpload: true,
+    filters: [{
+      name: 'zipFilter',
+      fn: function (item) {
+        return /\/(pdf|html|doc|docx|pptx|ppt)$/.test(item.type);
+      }
+    }]
+  });
+
+
+  uploader.onBeforeUploadItem = function (fileItem) {
+    $scope.error = null;
+    $scope.loading = true;
+    fileItem.formData.push({domain: $scope.domain});
+  };
+
+  uploader.onCompleteItem = function (fileItem, response, status, headers) {
+    $scope.loading = false;
+    $scope.error = null;
+    if (response.status == "FAILURE") {
+      $scope.error = "Could not upload and process your file.<br>" + response.message;
+    }else{
+      $scope.document.path = response.path;
+    }
+  };
+
+
+  $scope.submit = function () {
+    if($scope.document.title != null && $scope.document.title != "") {
+      $scope.document.scope = $scope.scope;
+      $scope.error = null;
+      $scope.loading = true;
+      DocumentationManager.saveDocument($scope.document).then(function (result) {
+        $scope.loading = false;
+        $modalInstance.close(result);
+      }, function (error) {
+        $scope.loading = false;
+        $scope.error = error;
+      });
+    }
+  };
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+});
+
+
+
+
+
+
 angular.module('doc')
-  .controller('ReleaseNotesCtrl',function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, ReleaseNoteListLoader,StorageService) {
+  .controller('ReleaseNotesCtrl',function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager,StorageService,$modal) {
     $scope.docs = [];
     $scope.loading = false;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
 
 
-    $scope.initReleaseNotes = function (wait) {
+    $scope.initReleaseNotes = function (scope, wait) {
       $scope.loading = true;
       $timeout(function () {
-        var loader = new ReleaseNoteListLoader();
-        loader.then(function (result) {
+        if (scope === null || scope === undefined) {
+          scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+          scope = scope && scope != null ? scope : 'GLOBAL';
+        }
+        DocumentationManager.getDocuments($rootScope.domain.value, scope, "RELEASENOTE").then(function (result) {
           $scope.loading = false;
           $scope.docs = result;
         }, function (error) {
@@ -169,13 +397,155 @@ angular.module('doc')
     };
 
 
-    $scope.initReleaseNotes(3000);
+    $scope.initReleaseNotes(null, 3000);
+
+    $scope.$on('event:doc:scopeChangedEvent', function (scope) {
+      $scope.initReleaseNotes(scope, 500);
+    });
+
+
+    $scope.addDocument = function(){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return null;
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document added successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initReleaseNotes($scope.scope, 100);
+          }
+        });
+    };
+
+    $scope.editDocument = function(document){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return angular.copy(document);
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document saved successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initReleaseNotes($scope.scope, 100);
+          }
+        });
+    };
+
+
+    $scope.deleteDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-delete.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.deleteDocument(document.id).then(function (result) {
+              Notification.success({
+                message: "Document deleted successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initReleaseNotes($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
+
+    $scope.publishDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-publish.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.publishDocument(document.id).then(function (result) {
+              Notification.success({
+                message: "Document published successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initReleaseNotes($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
 
   });
 
 
 angular.module('doc')
-  .controller('KnownIssuesCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, KnownIssueListLoader,StorageService) {
+  .controller('KnownIssuesCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager,StorageService,$modal) {
     $scope.docs = [];
     $scope.loading = false;
     $scope.error = null;
@@ -198,11 +568,14 @@ angular.module('doc')
       }
     };
 
-    $scope.initKnownIssues = function (wait) {
+    $scope.initKnownIssues = function (scope, wait) {
       $scope.loading = true;
       $timeout(function () {
-        var loader = new KnownIssueListLoader();
-        loader.then(function (result) {
+        if (scope === null || scope === undefined) {
+          scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+          scope = scope && scope != null ? scope : 'GLOBAL';
+        }
+        DocumentationManager.getDocuments($rootScope.domain.value, scope, "KNOWNISSUE").then(function (result) {
           $scope.loading = false;
           $scope.docs = result;
         }, function (error) {
@@ -221,11 +594,152 @@ angular.module('doc')
     //   $scope.initKnownIssues(scope, 500);
     // });
 
+    $scope.$on('event:doc:scopeChangedEvent', function (scope) {
+      $scope.initKnownIssues(scope, 500);
+    });
+
+
+    $scope.addDocument = function(){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return null;
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document added successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initKnownIssues($scope.scope, 100);
+          }
+        });
+    };
+
+    $scope.editDocument = function(document){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return angular.copy(document);
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document saved successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initKnownIssues($scope.scope, 100);
+          }
+        });
+    };
+
+
+    $scope.deleteDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-delete.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.deleteDocument(document.id).then(function (result) {
+              Notification.success({
+                message: "Document deleted successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initKnownIssues($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
+
+    $scope.publishDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-publish.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.publishDocument(document.id).then(function (result) {
+              Notification.success({
+                message: "Document published successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initKnownIssues($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
 
   });
 
 angular.module('doc')
-  .controller('ResourceDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, ResourceDocListLoader,StorageService) {
+  .controller('ResourceDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout,DocumentationManager,StorageService,$modal) {
     $scope.data = null;
     $scope.loading = false;
     $scope.error = null;
@@ -240,8 +754,7 @@ angular.module('doc')
             scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
             scope = scope && scope != null ? scope : 'GLOBAL';
           }
-          var listLoader = new ResourceDocListLoader($scope.type, scope, $rootScope.domain.value);
-          listLoader.then(function (result) {
+          DocumentationManager.getDocuments($rootScope.domain.value,scope,$scope.type).then(function (result) {
             $scope.error = null;
             $scope.data = result;
             $scope.loading = false;
@@ -294,21 +807,163 @@ angular.module('doc')
     });
 
 
+    $scope.addDocument = function(){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return null;
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document added successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initResourceDocs($scope.scope, 100);
+          }
+        });
+    };
+
+    $scope.editDocument = function(document){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return angular.copy(document);
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document saved successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initResourceDocs($scope.scope, 100);
+          }
+        });
+    };
+
+
+    $scope.deleteDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-delete.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.deleteDocument(document.id).then(function (result) {
+              Notification.success({
+                message: "Document deleted successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initResourceDocs($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
+
+    $scope.publishDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-publish.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.publishDocument(document.id).then(function (result) {
+              Notification.success({
+                message: "Document published successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initResourceDocs($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
+
+
   });
 
 angular.module('doc')
-  .controller('ToolDownloadListCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DeliverableListLoader,StorageService) {
+  .controller('ToolDownloadListCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager,StorageService,$modal) {
     $scope.data = [];
     $scope.loading = false;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
     $scope.loading = true;
 
-    $scope.initToolDownloadList = function (wait) {
+    $scope.initToolDownloadList = function (scope, wait) {
       $scope.loading = true;
       $timeout(function () {
-        var listLoader = new DeliverableListLoader();
-        listLoader.then(function (result) {
+        if (scope === null || scope === undefined) {
+          scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+          scope = scope && scope != null ? scope : 'GLOBAL';
+        }
+        $scope.scope = scope;
+        DocumentationManager.getDocuments($rootScope.domain.value,scope,"DELIVERABLE").then(function (result) {
           $scope.error = null;
           $scope.data = result;
           $scope.loading = false;
@@ -320,7 +975,150 @@ angular.module('doc')
       }, wait);
     };
 
-    $scope.initToolDownloadList(3000);
+    $scope.$on('event:doc:scopeChangedEvent', function (scope) {
+      $scope.initToolDownloadList(scope, 500);
+    });
+
+
+
+    $scope.initToolDownloadList(null, 3000);
+
+    $scope.addDocument = function(){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return null;
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document added successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initToolDownloadList($scope.scope, 100);
+          }
+        });
+    };
+
+    $scope.editDocument = function(document){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return angular.copy(document);
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document saved successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initToolDownloadList($scope.scope, 100);
+          }
+        });
+    };
+
+
+    $scope.deleteDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-delete.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.deleteDocument(document.id).then(function (result) {
+              Notification.success({
+                message: "Document deleted successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initToolDownloadList($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
+
+    $scope.publishDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-publish.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.publishDocument(document.id).then(function (result) {
+              Notification.success({
+                message: "Document published successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initToolDownloadList($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
 
   });
 
@@ -338,7 +1136,7 @@ angular.module('doc')
 
 
 angular.module('doc')
-  .controller('InstallationGuideCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, InstallationGuideLoader,StorageService) {
+  .controller('InstallationGuideCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager,StorageService,$modal) {
     $scope.doc = null;
     $scope.loading = false;
     $scope.error = null;
@@ -346,20 +1144,25 @@ angular.module('doc')
     $scope.loading = true;
 
 
-    $timeout(function () {
-      var listLoader = new InstallationGuideLoader();
-      listLoader.then(function (result) {
-        $scope.error = null;
-        $scope.doc = result;
-        $scope.loading = false;
-      }, function (error) {
-        $scope.loading = false;
-        $scope.error = "Sorry, failed to load the installation guide";
-        $scope.doc = null;
-      });
-
-    }, 5000);
-
+    $scope.initInstallationGuideList = function (scope, wait) {
+      $scope.loading = true;
+      $timeout(function () {
+        if (scope === null || scope === undefined) {
+          scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+          scope = scope && scope != null ? scope : 'GLOBAL';
+        }
+        $scope.scope = scope;
+        DocumentationManager.getDocuments($rootScope.domain.value,scope,"INSTALLATION").then(function (result) {
+          $scope.error = null;
+          $scope.data = result;
+          $scope.loading = false;
+        }, function (error) {
+          $scope.loading = false;
+          $scope.error = "Sorry, failed to load the files";
+          $scope.data = [];
+        });
+      }, wait);
+    };
 
     $scope.downloadDocument = function (path) {
       if (path != null) {
@@ -375,18 +1178,166 @@ angular.module('doc')
         document.body.appendChild(form);
         form.submit();
       }
-    }
+    };
+
+
+    $scope.$on('event:doc:scopeChangedEvent', function (scope) {
+      $scope.initInstallationGuideList(scope, 500);
+    });
+
+
+
+    $scope.initInstallationGuideList(null, 3000);
+
+
+    $scope.addDocument = function(){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return null;
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document added successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initInstallationGuideList($scope.scope, 100);
+          }
+        });
+    };
+
+    $scope.editDocument = function(document){
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/edit-document.html',
+        controller: 'CreateOrEditDocumentCtrl',
+        windowClass:'documentation-upload-modal',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return $scope.scope;
+          },
+          domain: function () {
+            return $rootScope.domain.value;
+          },
+          totalNumber: function () {
+            return $scope.docs.length + 1;
+          },
+          document: function () {
+            return angular.copy(document);
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (document) {
+          if (document && document != null) {
+            Notification.success({
+              message: "Document saved successfully !",
+              templateUrl: "NotificationSuccessTemplate.html",
+              scope: $rootScope,
+              delay: 5000
+            });
+            $scope.initInstallationGuideList($scope.scope, 100);
+          }
+        });
+    };
+
+
+    $scope.deleteDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-delete.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.deleteDocument(document.id).then(function (result) {
+              Notification.success({
+                message: "Document deleted successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initInstallationGuideList($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
+
+    $scope.publishDocument = function(document){
+
+      $scope.actionError = null;
+      var modalInstance = $modal.open({
+        templateUrl: 'views/documentation/confirm-publish.html',
+        controller: 'ConfirmDialogCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false
+      });
+      modalInstance.result.then(
+        function (result) {
+          if (result) {
+            DocumentationManager.publishDocument(document.id).then(function (result) {
+              Notification.success({
+                message: "Document published successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initInstallationGuideList($scope.scope, 100);
+            }, function (error) {
+              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+            });
+          }
+        });
+    };
+
+
+
+
   });
 
 
 angular.module('doc')
-  .controller('TestCaseDocumentationCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, TestCaseDocumentationLoader, ngTreetableParams,StorageService) {
+  .controller('TestCaseDocumentationCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager, ngTreetableParams,StorageService) {
     $scope.context = null;
     $scope.data = null;
     $scope.loading = false;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
     $scope.error = null;
-    var testCaseLoader = new TestCaseDocumentationLoader();
     $scope.error = null;
     $scope.tree = {};
 
@@ -399,8 +1350,7 @@ angular.module('doc')
             scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
             scope = scope && scope != null ? scope : 'GLOBAL';
           }
-          var tcLoader = testCaseLoader.getOneByDomainAndScope($rootScope.domain.value, scope);
-          tcLoader.then(function (data) {
+          DocumentationManager.getTestCaseDocument($rootScope.domain.value, scope).then(function (data) {
             $scope.error = null;
             if (data != null) {
               $scope.context = data;

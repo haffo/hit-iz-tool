@@ -42,20 +42,24 @@
     "ORGANIZATION_LINK": "",
     "DIVISION_NAME": "",
     "DISCLAIMER_LINK": "NA",
-    "AUTHENTICATION_REQUIRED": "false"
+    "AUTHENTICATION_REQUIRED": "false",
+    "DOMAIN_MANAGEMENT_SUPPORTED": "true"
   },
   "domains": [
     {
       "value": "iz",
       "name": "Immunization",
       "homeTitle": "Welcome to the NIST Immunization",
-      "disabled": false
+      "disabled": false,
+      "ownerEmails":["haffo@nist.gov"]
+
     },
     {
       "value": "edos",
       "name": "EDos",
       "homeTitle": "Welcome to the NIST Labs Validation Suite",
-      "disabled": false
+      "disabled": false,
+      "ownerEmails":["haffo@nist.gov"]
     }
   ]
 }

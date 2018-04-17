@@ -10,6 +10,7 @@ angular.module('connectivity', ['soap']);
 angular.module('hit-tool-directives', []);
 angular.module('hit-tool-services', ['common']);
 angular.module('documentation', []);
+angular.module('domains', []);
 var app = angular.module('hit-app', [
   'ngRoute',
   'ui.bootstrap',
@@ -59,7 +60,8 @@ var app = angular.module('hit-app', [
   'ngFileUpload',
   'ui.tree',
   'ui.select',
-  'hit-edit-testcase-details'
+  'hit-edit-testcase-details',
+  'domains'
 ]);
 
 
@@ -153,6 +155,9 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
     })
     .when('/addprofiles', {
       redirectTo: '/cf'
+    })
+    .when('/domains', {
+      templateUrl: 'views/domains/domains.html'
     })
     .otherwise({
       redirectTo: '/'
@@ -334,7 +339,7 @@ app.factory('interceptor4', function ($q, $rootScope, $location, StorageService,
 });
 
 
-app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle, Transport, IdleService, userInfoService, base64, Notification,$filter,$routeParams) {
+app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle, Transport, IdleService, userInfoService, base64, Notification,$filter,$routeParams,DomainsManager) {
 
 
   var domainParam = $routeParams.d;
@@ -401,7 +406,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
           $rootScope.openCriticalErrorDlg("Unknown domain selected. Please refresh the page or select a different domain");
         } else {
           $rootScope.clearDomainSession();
-          AppInfo.getDomain(domainFound).then(function (result) {
+          DomainsManager.getDomainByKey(domainFound).then(function (result) {
             $rootScope.appInfo.selectedDomain = result.value;
             StorageService.set(StorageService.APP_SELECTED_DOMAIN, result.value);
             $rootScope.domain = result;
@@ -822,6 +827,12 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
   $rootScope.isDomainOwner= function (email) {
     return  $rootScope.domain != null && $rootScope.domain.ownerEmails != null && $rootScope.domain.ownerEmails.length() > 0 && $rootScope.domain.ownerEmails.indexOf(email) !=  -1;
   };
+
+
+  $rootScope.isDomainsManagementSupported= function () {
+    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['DOMAIN_MANAGEMENT_SUPPORTED'] === "true");
+  };
+
 
 
 
