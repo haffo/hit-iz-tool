@@ -384,42 +384,46 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
       var domainFound = null;
       $rootScope.domain = null;
       $rootScope.appInfo.selectedDomain = null;
-
-      if ($rootScope.appInfo.domains != null) {
-        if (storedDomain != null) {
-          $rootScope.appInfo.domains = $filter('orderBy')($rootScope.appInfo.domains, 'position');
-          $rootScope.domain = null;
-          if($rootScope.appInfo.domains.length > 1) {
-            for (var i = 0; i < $rootScope.appInfo.domains.length; i++) {
-              if ($rootScope.appInfo.domains[i].value === storedDomain) {
-                domainFound = $rootScope.appInfo.domains[i].value;
-                break;
+      DomainsManager.getDomains().then(function(domains){
+        $rootScope.appInfo.domains = domains;
+        if ($rootScope.appInfo.domains != null) {
+          if (storedDomain != null) {
+            $rootScope.appInfo.domains = $filter('orderBy')($rootScope.appInfo.domains, 'position');
+            $rootScope.domain = null;
+            if($rootScope.appInfo.domains.length > 1) {
+              for (var i = 0; i < $rootScope.appInfo.domains.length; i++) {
+                if ($rootScope.appInfo.domains[i].domain === storedDomain) {
+                  domainFound = $rootScope.appInfo.domains[i].domain;
+                  break;
+                }
               }
+            }else {
+              domainFound = $rootScope.appInfo.domains[0].domain;
             }
-          }else {
-            domainFound = $rootScope.appInfo.domains[0].value;
+          } else {
+            domainFound = $rootScope.appInfo.domains[0].domain;
+          }
+          if (domainFound == null) {
+            $rootScope.openCriticalErrorDlg("Unknown domain selected. Please refresh the page or select a different domain");
+          } else {
+            $rootScope.clearDomainSession();
+            DomainsManager.getDomainByKey(domainFound).then(function (result) {
+              $rootScope.appInfo.selectedDomain = result.domain;
+              StorageService.set(StorageService.APP_SELECTED_DOMAIN, result.domain);
+              $rootScope.domain = result;
+              $rootScope.loadingDomain = false;
+            }, function (error) {
+              $rootScope.loadingDomain = true;
+              StorageService.set(StorageService.APP_SELECTED_DOMAIN, $rootScope.appInfo.domains[0].domain);
+              $rootScope.openCriticalErrorDlg("Failed to load the domain selected. Default domain will be selected");
+            });
           }
         } else {
-          domainFound = $rootScope.appInfo.domains[0].value;
+          $rootScope.openCriticalErrorDlg("No domain found. Please contact the administrator");
         }
-        if (domainFound == null) {
-          $rootScope.openCriticalErrorDlg("Unknown domain selected. Please refresh the page or select a different domain");
-        } else {
-          $rootScope.clearDomainSession();
-          DomainsManager.getDomainByKey(domainFound).then(function (result) {
-            $rootScope.appInfo.selectedDomain = result.value;
-            StorageService.set(StorageService.APP_SELECTED_DOMAIN, result.value);
-            $rootScope.domain = result;
-            $rootScope.loadingDomain = false;
-          }, function (error) {
-            $rootScope.loadingDomain = true;
-            StorageService.set(StorageService.APP_SELECTED_DOMAIN, $rootScope.appInfo.domains[0].value);
-            $rootScope.openCriticalErrorDlg("Failed to load the domain selected. Default domain will be selected");
-          });
-        }
-      } else {
+      }, function(error){
         $rootScope.openCriticalErrorDlg("No domain found. Please contact the administrator");
-      }
+      });
     }
   , function (error) {
     $rootScope.loadingDomain = true;
@@ -461,12 +465,12 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     if(domain != null){
       var domainObject = null;
       for(var i=0; i < $rootScope.appInfo.domains .length; i++){
-        if($rootScope.appInfo.domains[i].value === domain){
+        if($rootScope.appInfo.domains[i].domain === domain){
           domainObject = $rootScope.appInfo.domains[i];
         }
       }
       if(domainObject != null){
-        StorageService.set(StorageService.APP_SELECTED_DOMAIN, domainObject.value);
+        StorageService.set(StorageService.APP_SELECTED_DOMAIN, domainObject.domain);
         $rootScope.reloadPage();
       }else {
         alert("Selected domain not found");
@@ -574,7 +578,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
    */
   $rootScope.$on('event:loginConfirmed', function () {
     initUser(userInfoService.getCurrentUser());
-    var i,
+     var i,
       requests = $rootScope.requests401,
       retry = function (req) {
         $http(req.config).then(function (response) {
@@ -585,7 +589,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
       retry(requests[i]);
     }
     $rootScope.requests401 = [];
-//        $window.location.reload();
+    $window.location.reload();
   });
 
   /*jshint sub: true */

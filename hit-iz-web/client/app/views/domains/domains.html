@@ -10,7 +10,9 @@
   }
 </script>
 
+<div ng-if="isDomainsManagementSupported()">
 <div style="margin:10px; min-height: 300px" ng-controller="DomainsCtrl" ng-init="initDomains()">
+
   <div class="login-required-page" ng-show="!isAuthenticated()">
     <p>Please <a href="" ng-click="loginReq()"><i class="fa fa-sign-in"></i>&nbsp;login</a> to access this page. You can
       also
@@ -125,7 +127,7 @@
                       <input required disabled
                              class='form-control' name='domainKey'
                              id='domainKey' type='text'
-                             ng-model='userDomain.value'>
+                             ng-model='userDomain.domain'>
                     </div>
                   </div>
 
@@ -274,5 +276,9 @@
     </div>
   </div>
 </div>
+</div>
 
+<div ng-if="!isDomainsManagementSupported()" style="margin:10px; min-height: 300px" >
+  <div ng-include="'NotFound.html'"></div>
 
+</div>

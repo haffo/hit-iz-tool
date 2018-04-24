@@ -20,15 +20,15 @@
       <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length > 1">
         <label style="color:white">Domain:</label>
         <select class="" name="selectedDomain" ng-change="selectDomain(appInfo.selectedDomain)" ng-model="appInfo.selectedDomain" required="">
-          <option ng-repeat="dom in appInfo.domains" value="{{dom.value}}">{{dom.name}}
+          <option ng-repeat="dom in appInfo.domains" value="{{dom.domain}}">{{dom.name}}
           </option>
         </select>
       </span>
 
-      <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length  == 1">
-        <label style="color:white">Domain:</label>
-        <span>{{domain.name}}</span>
-      </span>
+      <!--<span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length  == 1">-->
+        <!--<label style="color:white">Domain:</label>-->
+        <!--<span style="color:white">{{domain.name}}</span>-->
+      <!--</span>-->
 
     </div>
     <div class="navbar-collapse collapse" id="appnavi">
@@ -77,7 +77,7 @@
                     </li>
                   <li role="separator" class="divider"></li>
 
-                  <li ng-class="isActive('/domains')"><a class="point" href="#/domains"><i class="fa fa-cogs"></i>&nbsp; Domain</a></li>
+                  <li ng-if="isDomainsManagementSupported()" ng-class="isActive('/domains')"><a class="point" href="#/domains"><i class="fa fa-cogs"></i>&nbsp; Domain</a></li>
                     <li role="separator" class="divider"></li>
                     <li class="">
                         <a class="point" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;<span class="msg">Logout</span></a>

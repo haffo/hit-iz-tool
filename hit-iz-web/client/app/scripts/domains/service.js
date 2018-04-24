@@ -2,9 +2,22 @@ angular.module('domains').factory('DomainsManager', ['$q', '$http',
   function ($q, $http) {
     var manager = {
 
+      getDomains:  function () {
+        var delay = $q.defer();
+        $http.get('api/domains', {timeout: 60000}).then(
+          function (object) {
+            delay.resolve(angular.fromJson(object.data));
+          },
+          function (response) {
+            delay.reject(response.data);
+          }
+        );
+        return delay.promise;
+      },
+
       getDomainsByScope:  function (scope) {
         var delay = $q.defer();
-        $http.get('api/domains/search-by-scope', {timeout: 60000,  params: {"scope":scope}}).then(
+        $http.get('api/domains/searchByScope'+ {params:{"scope":scope}}).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -28,9 +41,23 @@ angular.module('domains').factory('DomainsManager', ['$q', '$http',
         return delay.promise;
       },
 
+      canModify:  function (id) {
+        var delay = $q.defer();
+        $http.get('api/domains/' + id + '/canModify', {timeout: 60000}).then(
+          function (object) {
+            delay.resolve(angular.fromJson(object.data));
+          },
+          function (response) {
+            delay.reject(response.data);
+          }
+        );
+        return delay.promise;
+      },
+
+
       getDomainByKey: function (key) {
         var delay = $q.defer();
-        $http.get('api/domains/search-by-key',{timeout: 60000,  params: {"key":key}}).then(
+        $http.get('api/domains/searchByKey', {params:{'key':key}}).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },
@@ -81,7 +108,8 @@ angular.module('domains').factory('DomainsManager', ['$q', '$http',
       },
       create: function (name, key,scope) {
         var delay = $q.defer();
-        $http.post('api/domains/create', {params: {"key": key,"name": name, "scope":scope}}).then(
+        var data = angular.fromJson({'domain': key, 'name': name, 'scope': scope});
+        $http.post('api/domains/create', data).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },

@@ -42,7 +42,7 @@ angular.module('doc')
 
     $scope.selectScope = function () {
       $scope.error = null;
-      if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "" && $rootScope.domain != null && $rootScope.domain.value != null) {
+      if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "" && $rootScope.domain != null && $rootScope.domain.domain != null) {
         StorageService.set("DOC_MANAGE_SELECTED_SCOPE_KEY", $scope.selectedScope.key);
         $scope.$broadcast('event:doc:scopeChangedEvent', $scope.selectedScope.key);
       }
@@ -69,7 +69,7 @@ angular.module('doc')
           scope = scope && scope != null ? scope : 'GLOBAL';
         }
         $scope.scope = scope;
-        DocumentationManager.getDocuments($rootScope.domain.value, scope, "USERDOC").then(function (result) {
+        DocumentationManager.getDocuments($rootScope.domain.domain, scope, "USERDOC").then(function (result) {
           $scope.loading = false;
           $scope.docs = result;
         }, function (error) {
@@ -138,7 +138,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -176,7 +176,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -366,7 +366,7 @@ angular.module('doc')
           scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
           scope = scope && scope != null ? scope : 'GLOBAL';
         }
-        DocumentationManager.getDocuments($rootScope.domain.value, scope, "RELEASENOTE").then(function (result) {
+        DocumentationManager.getDocuments($rootScope.domain.domain, scope, "RELEASENOTE").then(function (result) {
           $scope.loading = false;
           $scope.docs = result;
         }, function (error) {
@@ -418,7 +418,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -456,7 +456,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -575,7 +575,7 @@ angular.module('doc')
           scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
           scope = scope && scope != null ? scope : 'GLOBAL';
         }
-        DocumentationManager.getDocuments($rootScope.domain.value, scope, "KNOWNISSUE").then(function (result) {
+        DocumentationManager.getDocuments($rootScope.domain.domain, scope, "KNOWNISSUE").then(function (result) {
           $scope.loading = false;
           $scope.docs = result;
         }, function (error) {
@@ -613,7 +613,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -651,7 +651,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -754,7 +754,7 @@ angular.module('doc')
             scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
             scope = scope && scope != null ? scope : 'GLOBAL';
           }
-          DocumentationManager.getDocuments($rootScope.domain.value,scope,$scope.type).then(function (result) {
+          DocumentationManager.getDocuments($rootScope.domain.domain,scope,$scope.type).then(function (result) {
             $scope.error = null;
             $scope.data = result;
             $scope.loading = false;
@@ -821,7 +821,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -859,7 +859,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -963,7 +963,7 @@ angular.module('doc')
           scope = scope && scope != null ? scope : 'GLOBAL';
         }
         $scope.scope = scope;
-        DocumentationManager.getDocuments($rootScope.domain.value,scope,"DELIVERABLE").then(function (result) {
+        DocumentationManager.getDocuments($rootScope.domain.domain,scope,"DELIVERABLE").then(function (result) {
           $scope.error = null;
           $scope.data = result;
           $scope.loading = false;
@@ -997,7 +997,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -1035,7 +1035,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -1152,7 +1152,7 @@ angular.module('doc')
           scope = scope && scope != null ? scope : 'GLOBAL';
         }
         $scope.scope = scope;
-        DocumentationManager.getDocuments($rootScope.domain.value,scope,"INSTALLATION").then(function (result) {
+        DocumentationManager.getDocuments($rootScope.domain.domain,scope,"INSTALLATION").then(function (result) {
           $scope.error = null;
           $scope.data = result;
           $scope.loading = false;
@@ -1204,7 +1204,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -1242,7 +1242,7 @@ angular.module('doc')
             return $scope.scope;
           },
           domain: function () {
-            return $rootScope.domain.value;
+            return $rootScope.domain.domain;
           },
           totalNumber: function () {
             return $scope.docs.length + 1;
@@ -1350,7 +1350,7 @@ angular.module('doc')
             scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
             scope = scope && scope != null ? scope : 'GLOBAL';
           }
-          DocumentationManager.getTestCaseDocument($rootScope.domain.value, scope).then(function (data) {
+          DocumentationManager.getTestCaseDocument($rootScope.domain.domain, scope).then(function (data) {
             $scope.error = null;
             if (data != null) {
               $scope.context = data;

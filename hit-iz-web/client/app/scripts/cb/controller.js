@@ -1024,7 +1024,7 @@ angular.module('cb')
       StorageService.set(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY, $scope.selectedScope.key);
       if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
         $scope.loadingTP = true;
-        var tcLoader = new CBTestPlanListLoader($scope.selectedScope.key, $rootScope.domain.value);
+        var tcLoader = new CBTestPlanListLoader($scope.selectedScope.key, $rootScope.domain.domain);
         tcLoader.then(function (testPlans) {
           $scope.error = null;
           $scope.testPlans = $filter('orderBy')(testPlans, 'position');
@@ -2238,7 +2238,7 @@ angular.module('cb')
     zipUploader.onBeforeUploadItem = function (fileItem) {
       $scope.error = null;
       $scope.loading = true;
-      fileItem.formData.push({domain: $rootScope.domain.value});
+      fileItem.formData.push({domain: $rootScope.domain.domain});
     };
 
     zipUploader.onCompleteItem = function (fileItem, response, status, headers) {

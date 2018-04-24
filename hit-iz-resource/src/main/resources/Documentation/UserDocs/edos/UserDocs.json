@@ -1,30 +1,30 @@
 [
 {
-		        "title":"HL7 Version 2.5.1 Implementation Guide: S&I Framework Laboratory Test Compendium Framework R2, DSTU Release 2 - US Realm",
+		        "title":"EDOS HL7 Version 2.5.1 Implementation Guide: S&I Framework Laboratory Test Compendium Framework R2, DSTU Release 2 - US Realm",
 		        "link":"http://www.hl7.org/documentcenter/public/standards/dstu/V2_IG_LTCF_R2_DSTU_R2_2015SEP.pdf",
 		        "date":"${edos-release-date-1.0.0}",
 	            "order":1
                 },               
                 {
-		        "title":"HL7 Version 2 Implementation Guide: Laboratory Value Set Companion Guide, Release 1- US Realm",
+		        "title":"EDOS HL7 Version 2 Implementation Guide: Laboratory Value Set Companion Guide, Release 1- US Realm",
 		        "link":"http://www.hl7.org/implement/standards/product_brief.cfm?product_id=413",
 		        "date":"${edos-release-date-1.0.0}",
 	            "order":2
                 },  
                 {
-                "title":"NIST eDOS EHR_Normative Test Process Document",
+                "title":"EDOS NIST eDOS EHR_Normative Test Process Document",
                 "name":"eDOS/NIST_eDOS-EHR_Normative_Test_Process_Document_NA V1.2.docx",
                 "date":"${edos-release-date-1.0.0}",
 	            "order":3
                 },
                 {
-                "title":"NIST eDOS LIS Normative Test Process Document",
+                "title":"EDOS NIST eDOS LIS Normative Test Process Document",
                 "name":"eDOS/NIST_eDOS-LIS_Normative_Test_Process_Document_NA V1.2.docx",
                 "date":"${edos-release-date-1.0.0}",
 	            "order":4
                 },
                 {
-                "title":"Understanding eDOS-EHR ConformanceTesting",
+                "title":"EDOS Understanding eDOS-EHR ConformanceTesting",
                 "name":"eDOS/Understanding-eDOS-EHR_ConformanceTesting V1.0.pptx",
                 "date":"${edos-release-date-1.0.0}",
 	            "order":5

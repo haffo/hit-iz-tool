@@ -94,7 +94,7 @@ angular.module('cf')
       StorageService.set(StorageService.CF_SELECTED_TESTPLAN_ID_KEY, "");
       if ($scope.selectedTP.id && $scope.selectedTP.id !== null && $scope.selectedTP.id !== "") {
         $scope.loadingTC = true;
-        CFTestPlanExecutioner.getTestPlan($scope.selectedTP.id, $rootScope.domain.value).then(function (testPlan) {
+        CFTestPlanExecutioner.getTestPlan($scope.selectedTP.id, $rootScope.domain.domain).then(function (testPlan) {
           if(testPlan.scope === $scope.selectedScope.key) {
             $scope.testCases = [testPlan];
             testCaseService.buildCFTestCases(testPlan);
@@ -130,7 +130,7 @@ angular.module('cf')
 
       if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
         $scope.loading = true;
-        CFTestPlanExecutioner.getTestPlans($scope.selectedScope.key, $rootScope.domain.value).then(function (testPlans) {
+        CFTestPlanExecutioner.getTestPlans($scope.selectedScope.key, $rootScope.domain.domain).then(function (testPlans) {
           $scope.error = null;
           $scope.testPlans = $filter('orderBy')(testPlans, 'position');
           var targetId = null;
@@ -873,11 +873,11 @@ angular.module('cf')
       $scope.testcase = null;
       $scope.existingTP.selected = null;
       $scope.oldProfileMessages = null;
-      if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "" && $rootScope.domain != null && $rootScope.domain.value != null) {
+      if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "" && $rootScope.domain != null && $rootScope.domain.domain != null) {
         // if ($scope.testcase != null && $scope.testcase.group == null) {
         //   $scope.testcase.scope = $scope.selectedScope.key;
         // }
-        CFTestPlanManager.getTestPlans($scope.selectedScope.key,$rootScope.domain.value).then(function (testPlans) {
+        CFTestPlanManager.getTestPlans($scope.selectedScope.key,$rootScope.domain.domain).then(function (testPlans) {
           $scope.existingTestPlans = testPlans;
           $scope.categoryNodes = $scope.generateTreeNodes(testPlans);
         }, function (error) {
@@ -1100,7 +1100,7 @@ angular.module('cf')
 
     $scope.addNewGroup = function (categoryNode) {
       var position = categoryNode.nodes ? categoryNode.nodes.length + 1 : 1;
-      CFTestPlanManager.create(categoryNode.id, $scope.selectedScope.key, position, $rootScope.domain.value).then(function (group) {
+      CFTestPlanManager.create(categoryNode.id, $scope.selectedScope.key, position, $rootScope.domain.domain).then(function (group) {
         if (!$scope.existingTestPlans || $scope.existingTestPlans == null)
           $scope.existingTestPlans = [];
         $scope.existingTestPlans.push(group);
@@ -1795,7 +1795,7 @@ angular.module('cf')
         $scope.token = $scope.generateUUID();
       }
       fileItem.formData.push({token: $scope.token});
-      fileItem.formData.push({domain: $rootScope.domain.value});
+      fileItem.formData.push({domain: $rootScope.domain.domain});
 
     };
     constraintsUploader.onBeforeUploadItem = function (fileItem) {
@@ -1804,7 +1804,7 @@ angular.module('cf')
         $scope.token = $scope.generateUUID();
       }
       fileItem.formData.push({token: $scope.token});
-      fileItem.formData.push({domain: $rootScope.domain.value});
+      fileItem.formData.push({domain: $rootScope.domain.domain});
 
     };
     vsUploader.onBeforeUploadItem = function (fileItem) {
@@ -1813,7 +1813,7 @@ angular.module('cf')
         $scope.token = $scope.generateUUID();
       }
       fileItem.formData.push({token: $scope.token});
-      fileItem.formData.push({domain: $rootScope.domain.value});
+      fileItem.formData.push({domain: $rootScope.domain.domain});
 
     };
     zipUploader.onBeforeUploadItem = function (fileItem) {
@@ -1822,7 +1822,7 @@ angular.module('cf')
       $scope.valueSetValidationErrors = [];
       $scope.constraintValidationErrors = [];
       fileItem.formData.push({token: $scope.token});
-      fileItem.formData.push({domain: $rootScope.domain.value});
+      fileItem.formData.push({domain: $rootScope.domain.domain});
 
     };
 

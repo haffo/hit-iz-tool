@@ -3,16 +3,23 @@
 		{
 			"key": "edos",
 			"position": 2,
+			"rsbVersion"	:"${project.version}-${ts}",
+    		"igVersion"		:"",
 			"name": "EDos",
 			"homeTitle"		:"Welcome to the NIST Labs Validation Suite",
-			"adminEmails":["affoharold@yahoo.fr"]
+			"participantEmails":["affoharold@yahoo.fr"],
+			"authorUsername":"haffo"
 		},
 		{
 			"key": "iz",
 			"position": 1,
+			"rsbVersion"	:"${project.version}-${ts}",
+    		"version"		: "${metadata.version}",
+    		"igVersion"		:"",
+    		"scope": "GLOBAL",
 			"name": "Immunization",
 			"homeTitle": "Welcome to the NIST Immunization",
-			"adminEmails":["haffo@nist.gov"]
+			"authorUsername":"haffo2"
  		}
 	]
- }
+}

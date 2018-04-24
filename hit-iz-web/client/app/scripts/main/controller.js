@@ -65,6 +65,7 @@ angular.module('main').controller('MainCtrl',
       $scope.username = $scope.password = null;
       $scope.$emit('event:logoutRequest');
       $location.url('/home');
+      $window.location.reload();
     };
 
     $scope.cancel = function () {
