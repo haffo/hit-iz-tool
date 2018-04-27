@@ -560,6 +560,27 @@ angular.module('main').controller('MainCtrl',
       }
     };
 
+    $rootScope.openUnknownDomainDlg = function (domain) {
+      StorageService.clearAll();
+      $modal.open({
+          templateUrl: 'UnknownDomain.html',
+          size: 'lg',
+          backdrop: false,
+          keyboard: 'false',
+          controller: 'UnknownDomainCtrl',
+        resolve: {
+          domain: function () {
+            return domain;
+          }
+        }
+        }).result.then(function (newDomain) {
+        $rootScope.selectDomain(newDomain);
+        }, function () {
+
+        });
+     };
+
+
     $rootScope.openSessionExpiredDlg = function () {
       StorageService.clearAll();
       if (!$rootScope.sessionExpiredModalInstance || $rootScope.sessionExpiredModalInstance === null || !$rootScope.sessionExpiredModalInstance.opened) {
@@ -643,6 +664,10 @@ angular.module('main').controller('MainCtrl',
       }
     };
 
+    $rootScope.getDomain = function(){
+      return $rootScope.domain;
+    };
+
 
     $rootScope.nav = function (target) {
       $location.path(target);
@@ -667,6 +692,12 @@ angular.module('main').controller('MainCtrl',
       }
       return '';
     };
+
+
+    $rootScope.isEditable = function(){
+      return (userInfoService.isAuthenticated() && (userInfoService.isAdmin() || userInfoService.isSupervisor()) && $rootScope.domain != null && $rootScope.domain.owner === userInfoService.getUsername());
+    };
+
 
 
   });

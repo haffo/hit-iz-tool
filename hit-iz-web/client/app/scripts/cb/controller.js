@@ -1015,48 +1015,50 @@ angular.module('cb')
     };
 
     $scope.selectScope = function () {
-      $scope.errorTP = null;
-      $scope.selectedTestCase = null;
-      $scope.testPlans = null;
-      $scope.testCases = null;
-      $scope.errorTP = null;
-      $scope.loadingTP = false;
-      StorageService.set(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY, $scope.selectedScope.key);
-      if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
-        $scope.loadingTP = true;
-        var tcLoader = new CBTestPlanListLoader($scope.selectedScope.key, $rootScope.domain.domain);
-        tcLoader.then(function (testPlans) {
-          $scope.error = null;
-          $scope.testPlans = $filter('orderBy')(testPlans, 'position');
-          var targetId = null;
-          if ($scope.testPlans.length > 0) {
-            if ($scope.testPlans.length === 1) {
-              targetId = $scope.testPlans[0].id;
-            } else if (userInfoService.isAuthenticated()) {
-              var lastTestPlanPersistenceId = userInfoService.getLastTestPlanPersistenceId();
-              var tp = findTPByPersistenceId(lastTestPlanPersistenceId, $scope.testPlans);
-              if (tp != null) {
-                targetId = tp.id;
+      $timeout(function () {
+        $scope.errorTP = null;
+        $scope.selectedTestCase = null;
+        $scope.testPlans = null;
+        $scope.testCases = null;
+        $scope.errorTP = null;
+        $scope.loadingTP = false;
+        StorageService.set(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY, $scope.selectedScope.key);
+        if ($scope.selectedScope.key && $scope.selectedScope.key !== null && $scope.selectedScope.key !== "") {
+          $scope.loadingTP = true;
+          var tcLoader = new CBTestPlanListLoader($scope.selectedScope.key, $rootScope.domain.domain);
+          tcLoader.then(function (testPlans) {
+            $scope.error = null;
+            $scope.testPlans = $filter('orderBy')(testPlans, 'position');
+            var targetId = null;
+            if ($scope.testPlans.length > 0) {
+              if ($scope.testPlans.length === 1) {
+                targetId = $scope.testPlans[0].id;
+              } else if (userInfoService.isAuthenticated()) {
+                var lastTestPlanPersistenceId = userInfoService.getLastTestPlanPersistenceId();
+                var tp = findTPByPersistenceId(lastTestPlanPersistenceId, $scope.testPlans);
+                if (tp != null) {
+                  targetId = tp.id;
+                }
               }
+              if (targetId == null) {
+                var previousTpId = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_ID_KEY);
+                targetId = previousTpId == undefined || previousTpId == null ? "" : previousTpId;
+              }
+              $scope.selectedTP.id = targetId.toString();
+              $scope.selectTP();
+            } else {
+              $scope.loadingTP = false;
             }
-            if (targetId == null) {
-              var previousTpId = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_ID_KEY);
-              targetId = previousTpId == undefined || previousTpId == null ? "" : previousTpId;
-            }
-            $scope.selectedTP.id = targetId.toString();
-            $scope.selectTP();
-          } else {
+            $scope.loading = false;
+          }, function (error) {
             $scope.loadingTP = false;
-          }
-          $scope.loading = false;
-        }, function (error) {
-          $scope.loadingTP = false;
-          $scope.loading = false;
-          $scope.error = "Sorry, Cannot load the test plans. Please try again";
-        });
-      } else {
-        StorageService.set(StorageService.CB_SELECTED_TESTPLAN_ID_KEY, "");
-      }
+            $scope.loading = false;
+            $scope.error = "Sorry, Cannot load the test plans. Please try again";
+          });
+        } else {
+          StorageService.set(StorageService.CB_SELECTED_TESTPLAN_ID_KEY, "");
+        }
+      },500);
     };
 
     $scope.refreshTree = function () {
@@ -1704,18 +1706,20 @@ angular.module('cb')
     var testCaseService = new TestCaseService();
 
     $scope.initTestCase = function () {
-      if ($rootScope.isCbManagementSupported() && userInfoService.isAuthenticated()) {
-        $scope.error = null;
-        $scope.loading = true;
-        $scope.testPlans = null;
-        if (!userInfoService.isAdmin() && !userInfoService.isSupervisor()) {
-          $scope.selectedScope.key = $scope.testPlanScopes[1].key; // GLOBAL
-        } else {
-          var tmp = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY);
-          $scope.selectedScope.key = tmp && tmp != null ? tmp : $scope.testPlanScopes[1].key;
+      $timeout(function () {
+        if ($rootScope.isCbManagementSupported() && userInfoService.isAuthenticated()) {
+          $scope.error = null;
+          $scope.loading = true;
+          $scope.testPlans = null;
+          if (!userInfoService.isAdmin() && !userInfoService.isSupervisor()) {
+            $scope.selectedScope.key = $scope.testPlanScopes[1].key; // GLOBAL
+          } else {
+            var tmp = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY);
+            $scope.selectedScope.key = tmp && tmp != null ? tmp : $scope.testPlanScopes[1].key;
+          }
+          $scope.selectScope();
         }
-        $scope.selectScope();
-      }
+      },1000);
     };
 
     var findTPByPersistenceId = function (persistentId, testPlans) {

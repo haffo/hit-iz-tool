@@ -154,7 +154,7 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="isEditable()">
       <span class="pull-right">
         <button ng-click="addDocument()" class="btn btn-info"><i class="fa fa-plus"></i>Add Document</button>
       </span>
@@ -165,16 +165,16 @@
           <table class="table table-striped table-bordered table-condensed">
             <thead>
             <tr class="tbl-header">
-              <th st-ratio="5">#</th>
+
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20">Action</th>
+              <th st-ratio="20" ng-if="isEditable()">Action</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="doc in docs | orderBy:'-date'">
-              <td st-ratio="5">{{::doc.position}}</td>
+
               <td st-ratio="40">{{::doc.title}}</td>
               <td st-ratio="25">
                 <span ng-if="doc.path == null">-</span>
@@ -188,10 +188,10 @@
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20">
+              <td st-ratio="20" ng-if="isEditable()">
                 <button class="btn btn-primary btn-sm" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-sm" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+                <button ng-show="doc.scope === 'USER'" class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -215,7 +215,7 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="isEditable()">
       <span class="pull-right">
         <button ng-click="addDocument()" class="btn btn-info"><i class="fa fa-plus"></i>Add Document</button>
       </span>
@@ -226,16 +226,16 @@
           <table class="table table-striped table-bordered table-condensed">
             <thead>
             <tr class="tbl-header">
-              <th st-ratio="5">#</th>
+
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20">Action</th>
+              <th st-ratio="20" ng-if="isEditable()">Action</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="doc in docs | orderBy:'-date'">
-              <td st-ratio="5">{{::doc.position}}</td>
+
               <td st-ratio="40">{{::doc.title}}</td>
               <td st-ratio="25">
                 <span ng-if="doc.path == null">-</span>
@@ -249,10 +249,10 @@
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20">
+              <td st-ratio="20" ng-if="isEditable()">
                 <button class="btn btn-primary btn-sm" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-sm" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+                <button ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -274,7 +274,7 @@
 
 <script type="text/ng-template" id="ResourceDoc.html">
   <div ng-if="error === null">
-    <div ng-if="data != null" class="" style="margin:10px">
+    <div ng-if="docs != null" class="" style="margin:10px">
       <accordion close-others="true">
         <accordion-group panel-class="panel-info" is-open="status[data.stage]">
           <accordion-heading>
@@ -301,7 +301,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="doc in data | orderBy:'position'">
+              <tr ng-repeat="doc in docs | orderBy:'position'">
                 <td st-ratio="50">{{::doc.title}}</td>
                 <td st-ratio="50">
                   <span ng-if="doc.name == null">-</span>
@@ -457,7 +457,7 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="isEditable()">
       <span class="pull-right">
         <button ng-click="addDocument()" class="btn btn-info"><i class="fa fa-plus"></i>Add Document</button>
       </span>
@@ -468,16 +468,16 @@
           <table class="table table-striped table-bordered table-condensed">
             <thead>
             <tr class="tbl-header">
-              <th st-ratio="5">#</th>
+
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20">Action</th>
+              <th st-ratio="20" ng-if="isEditable()">Action</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="doc in docs | orderBy:'position'">
-              <td st-ratio="5">{{::doc.position}}</td>
+
               <td st-ratio="40">{{::doc.title}}</td>
               <td st-ratio="25">
                 <span ng-if="doc.path == null">-</span>
@@ -491,10 +491,10 @@
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20">
+              <td st-ratio="20" ng-if="isEditable()">
                 <button class="btn btn-primary btn-sm" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-sm" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -502,7 +502,7 @@
         </div>
       </div>
       <div ng-if="docs.length <= 0" class="" style="margin:10px">
-        No User Document Available
+        No User document available
       </div>
     </div>
 
@@ -519,29 +519,55 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div ng-if="doc !== null" class="" style="margin:10px">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="isEditable()">
+      <span class="pull-right">
+        <button ng-click="addDocument()" class="btn btn-info"><i class="fa fa-plus"></i>Add Document</button>
+      </span>
+      </div>
+
+      <div ng-if="docs.length > 0" class="" style="margin:10px">
         <div class="">
           <table class="table table-striped table-bordered table-condensed">
             <thead>
             <tr class="tbl-header">
-              <th st-ratio="70">Document</th>
-              <th st-ratio="30">Date Posted</th>
+
+              <th st-ratio="40">Document Title</th>
+              <th st-ratio="25">File Name/Link</th>
+              <th st-ratio="15">Date Posted</th>
+              <th st-ratio="20" ng-if="isEditable()">Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td st-ratio="70">
-                <a class="point" ng-click="downloadDocument(doc.path)">{{::doc.title}}</a>
+            <tr ng-repeat="doc in docs | orderBy:'position'">
+
+              <td st-ratio="40">{{::doc.title}}</td>
+              <td st-ratio="25">
+                <span ng-if="doc.path == null">-</span>
+                <span ng-if="doc.path != null">
+                    <a class="point" ng-if="isLink(doc.path)" target="_blank"
+                       ng-href="{{::doc.path}}">{{::doc.title}}</a>
+                    <a class="point" ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
+                    </span>
               </td>
-              <td st-ratio="30">
-                <span>{{::doc.date}}</span>
+              <td st-ratio="15">
+                <span ng-if="doc.date == null">-</span>
+                <span ng-if="doc.date != null">{{::doc.date}}</span>
+              </td>
+              <td st-ratio="20" ng-if="isEditable()">
+                <button class="btn btn-primary btn-sm" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger btn-sm" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
+                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
           </table>
         </div>
       </div>
+      <div ng-if="docs.length <= 0" class="" style="margin:10px">
+        No Installation guide available
+      </div>
     </div>
+
     <div ng-if="error !== null">
       <div class="alert alert-danger" role="alert" ng-bind="error"></div>
     </div>
@@ -555,7 +581,7 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="isEditable()">
       <span class="pull-right">
         <button ng-click="addDocument()" class="btn btn-info"><i class="fa fa-plus"></i>Add Document</button>
       </span>
@@ -566,24 +592,33 @@
           <table class="table table-striped table-bordered table-condensed">
             <thead>
             <tr class="tbl-header">
-              <th st-ratio="5">#</th>
+
               <th st-ratio="40">Document Title</th>
+              <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20">Action</th>
+              <th st-ratio="20" ng-if="isEditable()">Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="doc in docs | orderBy:'-date'">
-              <td st-ratio="5">{{::doc.position}}</td>
+            <tr ng-repeat="doc in docs | orderBy:'position'">
+
               <td st-ratio="40">{{::doc.title}}</td>
+              <td st-ratio="25">
+                <span ng-if="doc.path == null">-</span>
+                <span ng-if="doc.path != null">
+                    <a class="point" ng-if="isLink(doc.path)" target="_blank"
+                       ng-href="{{::doc.path}}">{{::doc.title}}</a>
+                    <a class="point" ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
+                    </span>
+              </td>
               <td st-ratio="15">
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20">
+              <td st-ratio="20" ng-if="isEditable()">
                 <button class="btn btn-primary btn-sm" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-sm" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -591,7 +626,7 @@
         </div>
       </div>
       <div ng-if="docs.length <= 0" class="" style="margin:10px">
-        No User Document Available
+        No Downloaded war file Available
       </div>
     </div>
 

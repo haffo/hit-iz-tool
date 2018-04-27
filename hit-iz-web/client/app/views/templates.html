@@ -260,6 +260,26 @@
 </script>
 
 
+<script type="text/ng-template" id="UnknownDomain.html">
+  <div class="modal-header">
+    Domain Not Found
+  </div>
+  <div class="modal-body error-dlg">
+    <div style="text-align:center">
+      <label>The selected domain {{domain}} is unknown. Please select a new  domain:</label>
+      <select class="" name="selectedDomain"
+              ng-change="selectDomain()"
+              ng-model="selectedDomain.domain" required
+      >
+        <option ng-repeat="dom in appInfo.domains"
+                value="{{dom.domain}}">{{dom.name}}
+        </option>
+      </select>
+    </div>
+  </div>
+</script>
+
+
 <script type="text/ng-template" id="InvalidReqCtrl.html">
     <div class="modal-body error-dlg">
         <div ng-include="'InvalidRequest.html'"></div>

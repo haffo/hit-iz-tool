@@ -1,5 +1,5 @@
 angular.module('doc')
-  .controller('DocumentationCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, userInfoService,StorageService) {
+  .controller('DocumentationCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, userInfoService, StorageService) {
     $scope.status = {userDoc: true};
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
 
@@ -9,6 +9,7 @@ angular.module('doc')
       key: 'GLOBAL',
       name: 'Public'
     }];
+
 
     $scope.downloadDocument = function (path) {
       if (path != null) {
@@ -33,7 +34,7 @@ angular.module('doc')
         } else {
           $scope.documentsScopes = [$scope.allDocumentsScopes[1]];
         }
-      }else{
+      } else {
         $scope.documentsScopes = [$scope.allDocumentsScopes[1]];
       }
       $scope.selectedScope.key = $scope.documentsScopes[0].key;
@@ -53,32 +54,39 @@ angular.module('doc')
 
 
 angular.module('doc')
-  .controller('UserDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager,StorageService, $modal,Notification) {
+  .controller('UserDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager, StorageService, $modal, Notification,userInfoService) {
     $scope.docs = [];
     $scope.loading = true;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
     $scope.scope = null;
     $scope.actionError = null;
+    $scope.type = "USERDOC";
+
+    $scope.canEdit = false;
+
+
 
     $scope.initUserDocs = function (scope, wait) {
-      $scope.loading = true;
-      $timeout(function () {
-        if (scope === null || scope === undefined) {
-          scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
-          scope = scope && scope != null ? scope : 'GLOBAL';
-        }
-        $scope.scope = scope;
-        DocumentationManager.getDocuments($rootScope.domain.domain, scope, "USERDOC").then(function (result) {
-          $scope.loading = false;
-          $scope.docs = result;
-        }, function (error) {
-          $scope.loading = false;
-          $scope.error = null;
-          $scope.docs = [];
-        });
-      }, wait);
-    };
+        $scope.loading = true;
+        $timeout(function () {
+          if($rootScope.domain != null) {
+            if (scope === null || scope === undefined) {
+              scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+              scope = scope && scope != null ? scope : 'GLOBAL';
+            }
+            $scope.scope = scope;
+            DocumentationManager.getDocuments($rootScope.domain.domain, scope, $scope.type).then(function (result) {
+              $scope.loading = false;
+              $scope.docs = result;
+            }, function (error) {
+              $scope.loading = false;
+              $scope.error = null;
+              $scope.docs = [];
+            });
+          }
+        }, wait);
+     };
 
 
     $scope.isLink = function (path) {
@@ -119,32 +127,32 @@ angular.module('doc')
 
     $scope.initUserDocs(null, 3000);
 
-    $scope.$on('event:doc:scopeChangedEvent', function (scope) {
+    $scope.$on('event:doc:scopeChangedEvent', function (scope){
+      $scope.canEdit = canEdit;
       $scope.initUserDocs(scope, 500);
     });
 
 
-    $scope.addDocument = function(){
+    $scope.addDocument = function () {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
-         backdrop: 'static',
+        windowClass: 'documentation-upload-modal',
+        backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
             return $scope.docs.length + 1;
           },
           document: function () {
-            return null;
+            var document = {};
+            document.position = $scope.docs.length + 1;
+            document.type = $scope.type;
+            document.scope = $scope.scope;
+            document.domain = $rootScope.domain.domain;
+            return document;
           }
         }
       });
@@ -162,22 +170,16 @@ angular.module('doc')
         });
     };
 
-    $scope.editDocument = function(document){
+    $scope.editDocument = function (document) {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
+        windowClass: 'documentation-upload-modal',
         backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
             return $scope.docs.length + 1;
           },
@@ -201,7 +203,7 @@ angular.module('doc')
     };
 
 
-    $scope.deleteDocument = function(document){
+    $scope.deleteDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -215,13 +217,13 @@ angular.module('doc')
         function (result) {
           if (result) {
             DocumentationManager.deleteDocument(document.id).then(function (result) {
-                Notification.success({
-                  message: "Document deleted successfully !",
-                  templateUrl: "NotificationSuccessTemplate.html",
-                  scope: $rootScope,
-                  delay: 5000
-                });
-                $scope.initUserDocs($scope.scope, 100);
+              Notification.success({
+                message: "Document deleted successfully !",
+                templateUrl: "NotificationSuccessTemplate.html",
+                scope: $rootScope,
+                delay: 5000
+              });
+              $scope.initUserDocs($scope.scope, 100);
             }, function (error) {
               $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
             });
@@ -230,8 +232,7 @@ angular.module('doc')
     };
 
 
-
-    $scope.publishDocument = function(document){
+    $scope.publishDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -260,28 +261,25 @@ angular.module('doc')
     };
 
 
-
-
   });
 
 
-angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $modalInstance, scope,DocumentationManager,FileUploader,domain, totalNumber,document) {
+angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $modalInstance, DocumentationManager, FileUploader, totalNumber, document) {
 
 
   $scope.error = null;
   $scope.loading = false;
   $scope.hasUrl = false;
-  $scope.domain = domain;
-  $scope.scope = scope;
   $scope.totalNumber = totalNumber;
   $scope.document = document;
+  $scope.uploadedPath = null;
 
-  if($scope.document != null) {
-    if ($scope.document.path && $scope.document.path.startsWith("http")) {
-      $scope.hasUrl = true;
-    } else {
-      $scope.document.path = "";
-    }
+
+  if ($scope.document.path && $scope.document.path.startsWith("http")) {
+    $scope.hasUrl = true;
+  } else {
+    $scope.uploadedPath = $scope.document.path;
+    $scope.document.path = "";
   }
 
   $scope.positions = function () {
@@ -293,45 +291,60 @@ angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $
   };
 
 
-
   FileUploader.FileSelect.prototype.isEmptyAfterSelection = function () {
     return true;
   };
 
-  var uploader = $scope.uploader = new FileUploader({
+  var documentUploader = $scope.documentUploader = new FileUploader({
     url: 'api/documentation/uploadDocument',
     autoUpload: true,
     filters: [{
-      name: 'zipFilter',
+      name: 'fileFilter',
       fn: function (item) {
-        return /\/(pdf|html|doc|docx|pptx|ppt)$/.test(item.type);
+        // return /\/(pdf,html,doc,docx,pptx,ppt)$/.test(item.type);
+        return /\/(pdf)$/.test(item.type)
+          || /\/(html)$/.test(item.type)
+          || /\/(doc)$/.test(item.type)
+          || /\/(docx)$/.test(item.type)
+          || /\/(ppt)$/.test(item.type)
+          || /\/(pptx)$/.test(item.type);
       }
     }]
   });
 
 
-  uploader.onBeforeUploadItem = function (fileItem) {
+  documentUploader.onBeforeUploadItem = function (fileItem) {
     $scope.error = null;
+    $scope.uploadedUrl = null;
     $scope.loading = true;
-    fileItem.formData.push({domain: $scope.domain});
+    fileItem.formData.push({domain: $scope.document.domain, type: $scope.document.type});
   };
 
-  uploader.onCompleteItem = function (fileItem, response, status, headers) {
+  documentUploader.onCompleteItem = function (fileItem, response, status, headers) {
     $scope.loading = false;
     $scope.error = null;
-    if (response.status == "FAILURE") {
+    if (response.success == false) {
       $scope.error = "Could not upload and process your file.<br>" + response.message;
-    }else{
-      $scope.document.path = response.path;
+    } else {
+      $scope.uploadedPath = response.path;
     }
   };
 
 
+  $scope.noFileFound = function(){
+    return !$scope.hasUrl && ($scope.uploadedPath === null || $scope.uploadedPath == '');
+  };
+
+
+
   $scope.submit = function () {
-    if($scope.document.title != null && $scope.document.title != "") {
-      $scope.document.scope = $scope.scope;
+    if ($scope.document.title != null && $scope.document.title != "") {
       $scope.error = null;
       $scope.loading = true;
+      if(!$scope.hasUrl && $scope.uploadedPath !== null && $scope.uploadedPath !== ''){
+        $scope.document.path = $scope.uploadedPath;
+        $scope.document.name = $scope.uploadedPath.split('\\').pop().split('/').pop();
+      }
       DocumentationManager.saveDocument($scope.document).then(function (result) {
         $scope.loading = false;
         $modalInstance.close(result);
@@ -347,37 +360,37 @@ angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $
 });
 
 
-
-
-
-
 angular.module('doc')
-  .controller('ReleaseNotesCtrl',function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager,StorageService,$modal) {
+  .controller('ReleaseNotesCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager, StorageService, $modal,Notification) {
     $scope.docs = [];
     $scope.loading = false;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
+    $scope.type = "RELEASENOTE";
 
+    $scope.scope = null;
 
     $scope.initReleaseNotes = function (scope, wait) {
-      $scope.loading = true;
-      $timeout(function () {
-        if (scope === null || scope === undefined) {
-          scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
-          scope = scope && scope != null ? scope : 'GLOBAL';
-        }
-        DocumentationManager.getDocuments($rootScope.domain.domain, scope, "RELEASENOTE").then(function (result) {
-          $scope.loading = false;
-          $scope.docs = result;
-        }, function (error) {
-          $scope.loading = false;
-          $scope.error = null;
-          $scope.docs = [];
-        });
+        $scope.loading = true;
+        $timeout(function () {
+          if($rootScope.domain != null) {
+            if (scope === null || scope === undefined) {
+              scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+              scope = scope && scope != null ? scope : 'GLOBAL';
+            }
+            $scope.scope = scope;
+            DocumentationManager.getDocuments($rootScope.domain.domain, scope, $scope.type).then(function (result) {
+              $scope.loading = false;
+              $scope.docs = result;
+            }, function (error) {
+              $scope.loading = false;
+              $scope.error = null;
+              $scope.docs = [];
+            });
+          }
+        }, wait);
 
-      }, wait);
-
-    };
+     };
 
 
     $scope.downloadDocument = function (path) {
@@ -404,27 +417,26 @@ angular.module('doc')
     });
 
 
-    $scope.addDocument = function(){
+    $scope.addDocument = function () {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
+        windowClass: 'documentation-upload-modal',
         backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
             return $scope.docs.length + 1;
           },
           document: function () {
-            return null;
+            var document = {};
+            document.position = $scope.docs.length + 1;
+            document.type = $scope.type;
+            document.scope = $scope.scope;
+            document.domain = $rootScope.domain.domain;
+            return document;
           }
         }
       });
@@ -442,22 +454,16 @@ angular.module('doc')
         });
     };
 
-    $scope.editDocument = function(document){
+    $scope.editDocument = function (document) {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
+        windowClass: 'documentation-upload-modal',
         backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
             return $scope.docs.length + 1;
           },
@@ -481,7 +487,7 @@ angular.module('doc')
     };
 
 
-    $scope.deleteDocument = function(document){
+    $scope.deleteDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -510,8 +516,7 @@ angular.module('doc')
     };
 
 
-
-    $scope.publishDocument = function(document){
+    $scope.publishDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -540,17 +545,16 @@ angular.module('doc')
     };
 
 
-
   });
 
 
 angular.module('doc')
-  .controller('KnownIssuesCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager,StorageService,$modal) {
+  .controller('KnownIssuesCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager, StorageService, $modal,Notification) {
     $scope.docs = [];
     $scope.loading = false;
     $scope.error = null;
-    $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
-
+    $scope.type = 'KNOWNISSUE';
+    $scope.scope = null;
 
     $scope.downloadDocument = function (path) {
       if (path != null) {
@@ -569,57 +573,53 @@ angular.module('doc')
     };
 
     $scope.initKnownIssues = function (scope, wait) {
-      $scope.loading = true;
-      $timeout(function () {
-        if (scope === null || scope === undefined) {
-          scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
-          scope = scope && scope != null ? scope : 'GLOBAL';
-        }
-        DocumentationManager.getDocuments($rootScope.domain.domain, scope, "KNOWNISSUE").then(function (result) {
-          $scope.loading = false;
-          $scope.docs = result;
-        }, function (error) {
-          $scope.loading = false;
-          $scope.error = null;
-          $scope.docs = [];
-        });
-
-      }, wait);
-
+        $scope.loading = true;
+        $timeout(function () {
+          if($rootScope.domain != null) {
+            if (scope === null || scope === undefined) {
+              scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+              scope = scope && scope != null ? scope : 'GLOBAL';
+            }
+            $scope.scope = scope;
+            DocumentationManager.getDocuments($rootScope.domain.domain, scope, $scope.type).then(function (result) {
+              $scope.loading = false;
+              $scope.docs = result;
+            }, function (error) {
+              $scope.loading = false;
+              $scope.error = null;
+              $scope.docs = [];
+            });
+          }
+        }, wait);
     };
 
-    $scope.initKnownIssues(3000);
-
-    // $scope.$on('event:doc:scopeChangedEvent', function (scope) {
-    //   $scope.initKnownIssues(scope, 500);
-    // });
+    $scope.initKnownIssues(null, 3000);
 
     $scope.$on('event:doc:scopeChangedEvent', function (scope) {
       $scope.initKnownIssues(scope, 500);
     });
 
 
-    $scope.addDocument = function(){
+    $scope.addDocument = function () {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
+        windowClass: 'documentation-upload-modal',
         backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
             return $scope.docs.length + 1;
           },
           document: function () {
-            return null;
+            var document = {};
+            document.position = $scope.docs.length + 1;
+            document.type = $scope.type;
+            document.scope = $scope.scope;
+            document.domain = $rootScope.domain.domain;
+            return document;
           }
         }
       });
@@ -637,22 +637,16 @@ angular.module('doc')
         });
     };
 
-    $scope.editDocument = function(document){
+    $scope.editDocument = function (document) {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
+        windowClass: 'documentation-upload-modal',
         backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
             return $scope.docs.length + 1;
           },
@@ -676,7 +670,7 @@ angular.module('doc')
     };
 
 
-    $scope.deleteDocument = function(document){
+    $scope.deleteDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -705,8 +699,7 @@ angular.module('doc')
     };
 
 
-
-    $scope.publishDocument = function(document){
+    $scope.publishDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -735,33 +728,35 @@ angular.module('doc')
     };
 
 
-
   });
 
 angular.module('doc')
-  .controller('ResourceDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout,DocumentationManager,StorageService,$modal) {
-    $scope.data = null;
+  .controller('ResourceDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager, StorageService, $modal,Notification) {
+    $scope.docs = [];
     $scope.loading = false;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
-
+    $scope.scope = null;
 
     $scope.initResourceDocs = function (scope, wait) {
       if ($scope.type != null && $scope.type != "" && $scope.name != null && $scope.name != "") {
         $scope.loading = true;
         $timeout(function () {
-          if (scope === null || scope === undefined) {
-            scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
-            scope = scope && scope != null ? scope : 'GLOBAL';
+          if($rootScope.domain != null) {
+            if (scope === null || scope === undefined) {
+              scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+              scope = scope && scope != null ? scope : 'GLOBAL';
+            }
+            $scope.scope = scope;
+            DocumentationManager.getDocuments($rootScope.domain.domain, scope, $scope.type).then(function (result) {
+              $scope.error = null;
+              $scope.docs = result;
+              $scope.loading = false;
+            }, function (error) {
+              $scope.loading = false;
+              $scope.error = "Sorry, failed to load the " + $scope.name;
+            });
           }
-          DocumentationManager.getDocuments($rootScope.domain.domain,scope,$scope.type).then(function (result) {
-            $scope.error = null;
-            $scope.data = result;
-            $scope.loading = false;
-          }, function (error) {
-            $scope.loading = false;
-            $scope.error = "Sorry, failed to load the " + $scope.name;
-          });
         }, wait);
       }
     };
@@ -807,27 +802,26 @@ angular.module('doc')
     });
 
 
-    $scope.addDocument = function(){
+    $scope.addDocument = function () {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
+        windowClass: 'documentation-upload-modal',
         backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
             return $scope.docs.length + 1;
           },
           document: function () {
-            return null;
+            var document = {};
+            document.position = $scope.docs.length + 1;
+            document.type = $scope.type;
+            document.scope = $scope.scope;
+            document.domain = $rootScope.domain.domain;
+            return document;
           }
         }
       });
@@ -845,24 +839,18 @@ angular.module('doc')
         });
     };
 
-    $scope.editDocument = function(document){
+    $scope.editDocument = function (document) {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
+        windowClass: 'documentation-upload-modal',
         backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
-            return $scope.docs.length + 1;
+            return $scope.data.length + 1;
           },
           document: function () {
             return angular.copy(document);
@@ -884,7 +872,7 @@ angular.module('doc')
     };
 
 
-    $scope.deleteDocument = function(document){
+    $scope.deleteDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -913,8 +901,7 @@ angular.module('doc')
     };
 
 
-
-    $scope.publishDocument = function(document){
+    $scope.publishDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -943,35 +930,40 @@ angular.module('doc')
     };
 
 
-
-
   });
 
 angular.module('doc')
-  .controller('ToolDownloadListCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager,StorageService,$modal) {
-    $scope.data = [];
+  .controller('ToolDownloadListCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager, StorageService, $modal,Notification) {
     $scope.loading = false;
     $scope.error = null;
     $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
     $scope.loading = true;
+    $scope.type = "DELIVERABLE";
+    $scope.scope = null;
+    $scope.actionError = null;
+    $scope.docs = [];
+    $scope.canEdit = false;
+
 
     $scope.initToolDownloadList = function (scope, wait) {
       $scope.loading = true;
       $timeout(function () {
-        if (scope === null || scope === undefined) {
-          scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
-          scope = scope && scope != null ? scope : 'GLOBAL';
+        if($rootScope.domain != null) {
+          if (scope === null || scope === undefined) {
+            scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+            scope = scope && scope != null ? scope : 'GLOBAL';
+          }
+          $scope.scope = scope;
+          DocumentationManager.getDocuments($rootScope.domain.domain, scope, $scope.type).then(function (result) {
+            $scope.error = null;
+            $scope.docs = result;
+            $scope.loading = false;
+          }, function (error) {
+            $scope.loading = false;
+            $scope.error = "Sorry, failed to load the files";
+            $scope.data = [];
+          });
         }
-        $scope.scope = scope;
-        DocumentationManager.getDocuments($rootScope.domain.domain,scope,"DELIVERABLE").then(function (result) {
-          $scope.error = null;
-          $scope.data = result;
-          $scope.loading = false;
-        }, function (error) {
-          $scope.loading = false;
-          $scope.error = "Sorry, failed to load the files";
-          $scope.data = [];
-        });
       }, wait);
     };
 
@@ -980,30 +972,28 @@ angular.module('doc')
     });
 
 
-
     $scope.initToolDownloadList(null, 3000);
 
-    $scope.addDocument = function(){
+    $scope.addDocument = function () {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
+        windowClass: 'documentation-upload-modal',
         backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
             return $scope.docs.length + 1;
           },
           document: function () {
-            return null;
+            var document = {};
+            document.position = $scope.docs.length + 1;
+            document.type = $scope.type;
+            document.scope = $scope.scope;
+            document.domain = $rootScope.domain.domain;
+            return document;
           }
         }
       });
@@ -1021,22 +1011,16 @@ angular.module('doc')
         });
     };
 
-    $scope.editDocument = function(document){
+    $scope.editDocument = function (document) {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
+        windowClass: 'documentation-upload-modal',
         backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
             return $scope.docs.length + 1;
           },
@@ -1060,7 +1044,7 @@ angular.module('doc')
     };
 
 
-    $scope.deleteDocument = function(document){
+    $scope.deleteDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -1089,8 +1073,7 @@ angular.module('doc')
     };
 
 
-
-    $scope.publishDocument = function(document){
+    $scope.publishDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -1119,11 +1102,10 @@ angular.module('doc')
     };
 
 
-
   });
 
 angular.module('doc')
-  .controller('ApiDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, $window,StorageService) {
+  .controller('ApiDocsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, $window, StorageService) {
     $scope.data = [];
     $scope.loading = false;
     $scope.error = null;
@@ -1136,31 +1118,35 @@ angular.module('doc')
 
 
 angular.module('doc')
-  .controller('InstallationGuideCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager,StorageService,$modal) {
-    $scope.doc = null;
+  .controller('InstallationGuideCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager, StorageService, $modal,Notification) {
+    $scope.docs = [];
     $scope.loading = false;
     $scope.error = null;
-    $scope.scrollbarWidth = $rootScope.getScrollbarWidth();
-    $scope.loading = true;
+    $scope.scope = null;
+    $scope.loading = false;
+    $scope.scope = null;
+    $scope.type = "INSTALLATION";
 
 
     $scope.initInstallationGuideList = function (scope, wait) {
       $scope.loading = true;
       $timeout(function () {
-        if (scope === null || scope === undefined) {
-          scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
-          scope = scope && scope != null ? scope : 'GLOBAL';
+        if($rootScope.domain != null) {
+          if (scope === null || scope === undefined) {
+            scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+            scope = scope && scope != null ? scope : 'GLOBAL';
+          }
+          $scope.scope = scope;
+          DocumentationManager.getDocuments($rootScope.domain.domain, scope, $scope.type).then(function (result) {
+            $scope.error = null;
+            $scope.docs = result;
+            $scope.loading = false;
+          }, function (error) {
+            $scope.loading = false;
+            $scope.error = "Sorry, failed to load the files";
+            $scope.data = [];
+          });
         }
-        $scope.scope = scope;
-        DocumentationManager.getDocuments($rootScope.domain.domain,scope,"INSTALLATION").then(function (result) {
-          $scope.error = null;
-          $scope.data = result;
-          $scope.loading = false;
-        }, function (error) {
-          $scope.loading = false;
-          $scope.error = "Sorry, failed to load the files";
-          $scope.data = [];
-        });
       }, wait);
     };
 
@@ -1186,31 +1172,29 @@ angular.module('doc')
     });
 
 
-
     $scope.initInstallationGuideList(null, 3000);
 
 
-    $scope.addDocument = function(){
+    $scope.addDocument = function () {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
+        windowClass: 'documentation-upload-modal',
         backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
             return $scope.docs.length + 1;
           },
           document: function () {
-            return null;
+            var document = {};
+            document.position = $scope.docs.length + 1;
+            document.type = $scope.type;
+            document.scope = $scope.scope;
+            document.domain = $rootScope.domain.domain;
+            return document;
           }
         }
       });
@@ -1228,22 +1212,16 @@ angular.module('doc')
         });
     };
 
-    $scope.editDocument = function(document){
+    $scope.editDocument = function (document) {
       $scope.actionError = null;
       var modalInstance = $modal.open({
         templateUrl: 'views/documentation/edit-document.html',
         controller: 'CreateOrEditDocumentCtrl',
-        windowClass:'documentation-upload-modal',
+        windowClass: 'documentation-upload-modal',
         backdrop: 'static',
         keyboard: false,
         backdropClick: false,
         resolve: {
-          scope: function () {
-            return $scope.scope;
-          },
-          domain: function () {
-            return $rootScope.domain.domain;
-          },
           totalNumber: function () {
             return $scope.docs.length + 1;
           },
@@ -1267,7 +1245,7 @@ angular.module('doc')
     };
 
 
-    $scope.deleteDocument = function(document){
+    $scope.deleteDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -1296,8 +1274,7 @@ angular.module('doc')
     };
 
 
-
-    $scope.publishDocument = function(document){
+    $scope.publishDocument = function (document) {
 
       $scope.actionError = null;
       var modalInstance = $modal.open({
@@ -1319,20 +1296,18 @@ angular.module('doc')
               });
               $scope.initInstallationGuideList($scope.scope, 100);
             }, function (error) {
-              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+              $scope.actionError = "Sorry, Cannot public the document. Please try again. \n DEBUG:" + error;
             });
           }
         });
     };
 
 
-
-
   });
 
 
 angular.module('doc')
-  .controller('TestCaseDocumentationCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager, ngTreetableParams,StorageService) {
+  .controller('TestCaseDocumentationCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, DocumentationManager, ngTreetableParams, StorageService,Notification) {
     $scope.context = null;
     $scope.data = null;
     $scope.loading = false;

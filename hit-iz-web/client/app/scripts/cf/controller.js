@@ -253,15 +253,17 @@ angular.module('cf')
     };
 
     $scope.initTesting = function () {
-      if (userInfoService.isAuthenticated()) {
-        $scope.testPlanScopes = $scope.allTestPlanScopes;
-        var tmp = StorageService.get(StorageService.CF_SELECTED_TESTPLAN_SCOPE_KEY);
-        $scope.selectedScope.key = tmp && tmp != null ? tmp : $scope.testPlanScopes[1].key;
-      } else {
-        $scope.testPlanScopes = [$scope.allTestPlanScopes[1]];
-        $scope.selectedScope.key = $scope.allTestPlanScopes[1].key; // GLOBAL
-      }
-      $scope.selectScope();
+      $timeout(function () {
+        if (userInfoService.isAuthenticated()) {
+          $scope.testPlanScopes = $scope.allTestPlanScopes;
+          var tmp = StorageService.get(StorageService.CF_SELECTED_TESTPLAN_SCOPE_KEY);
+          $scope.selectedScope.key = tmp && tmp != null ? tmp : $scope.testPlanScopes[1].key;
+        } else {
+          $scope.testPlanScopes = [$scope.allTestPlanScopes[1]];
+          $scope.selectedScope.key = $scope.allTestPlanScopes[1].key; // GLOBAL
+        }
+        $scope.selectScope();
+      },1000);
     };
 
 
@@ -867,6 +869,7 @@ angular.module('cf')
      *
      */
     $scope.selectScope = function () {
+      $timeout(function () {
       $scope.existingTestPlans = null;
       $scope.selectedTP.id = "";
       $scope.error = null;
@@ -883,7 +886,7 @@ angular.module('cf')
         }, function (error) {
           $scope.error = "Sorry, Failed to load the profile groups. Please try again";
         });
-      }
+      }},500);
     };
 
 

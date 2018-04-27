@@ -4,24 +4,41 @@ angular.module('domains')
     $scope.selectedDomain =  {id:null};
     $scope.userDomains = null;
     $scope.userDomain = null;
-
     $scope.alertMessage = null;
+    $scope.loading = false;
+    $scope.loadingDomain = false;
+    $scope.loadingAction = false;
 
-    $scope.initDomains = function () {
-      // if ($rootScope.isDomainsManagementSupported() && userInfoService.isAuthenticated()) {
-      //   if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
-      //     $scope.domainsScopes = $scope.allDomainsScopes;
-      //   } else {
-      //     $scope.domainsScopes = [$scope.allDomainsScopes[1]];
-      //   }
-      // }else{
-      //   $scope.domainsScopes = [$scope.allDomainsScopes[1]];
-      // }
-      // $scope.selectedScope.key = $scope.domainsScopes[0].key;
-      if ($rootScope.isDomainsManagementSupported() && userInfoService.isAuthenticated()) {
-        $scope.selectDomain();
-      }
+    $scope.initDomain = function () {
+      $scope.loadingDomain = true;
+      $timeout(function() {
+        if ($rootScope.isDomainsManagementSupported() && userInfoService.isAuthenticated()) {
+          if ($rootScope.getDomain() != null) {
+            console.log("Domain i==" + $rootScope.getDomain());
+            $scope.userDomain = null;
+            $scope.errorDomain = null;
+            var dom = $rootScope.getDomain();
+            DomainsManager.canModify(dom.id).then(function (result) {
+              if (result === true) {
+                $scope.userDomain = angular.copy(dom);
+                $scope.originalUserDomain = angular.copy($scope.userDomain);
+              }
+              $scope.loadingDomain = false;
+            }, function (error) {
+              $scope.loadingDomain = false;
+              $scope.setErrorAlert("Sorry, Cannot load the domain. Please try again");
+            });
+          }else{
+            $scope.loadingDomain = false;
+          }
+        }else {
+          $scope.loadingDomain = false;
+        }
+      },3000);
     };
+
+
+
 
 
     // $scope.selectScope = function () {
@@ -56,24 +73,7 @@ angular.module('domains')
     //   }
     // };
 
-    $scope.selectDomain = function () {
-      if($rootScope.domain != null) {
-        $scope.loadingDomain = true;
-        $scope.userDomain = null;
-        $scope.errorDomain = null;
-        DomainsManager.canModify($rootScope.domain.id).then(function (result) {
-          if (result === true) {
-            $scope.userDomain = angular.copy($rootScope.domain);
-            StorageService.set(StorageService.DOMAIN_MANAGE_SELECTED_ID, $rootScope.domain.id);
-            $scope.originalUserDomain = angular.copy($scope.userDomain);
-          }
-          $scope.loadingDomain = false;
-        }, function (error) {
-          $scope.loadingDomain = false;
-          $scope.setErrorAlert("Sorry, Cannot load the domain. Please try again");
-        });
-      }
-    };
+
 
     $scope.setErrorAlert = function (message) {
       $scope.alertMessage = {};
@@ -110,13 +110,12 @@ angular.module('domains')
             DomainsManager.delete($scope.userDomain.id).then(function (response) {
               $scope.userDomain = null;
               $scope.originalUserDomain = null;
-              StorageService.set(StorageService.DOMAIN_MANAGE_SELECTED_ID, null);
-              $scope.loadingDomain = false;
+              $scope.loadingAction = false;
               $scope.setSuccessAlert("Domain deleted successfully!");
-              $rootScope.reload();
+              $rootScope.domain = null;
+              $rootScope.reloadPage();
             }, function (error) {
-              $scope.loadingDomain = false;
-              $scope.errorDomain = error;
+              $scope.loadingAction = false;
               $scope.setErrorAlert(error);
             });
           }
@@ -125,14 +124,15 @@ angular.module('domains')
 
 
     $scope.saveDomain = function () {
+      $scope.loadingAction = true;
       DomainsManager.save($scope.userDomain).then(function (result) {
         $scope.userDomain = result;
         $scope.originalUserDomain = angular.copy(result);
-        $scope.loadingDomain = false;
+        $scope.loadingAction = false;
         $scope.setSuccessAlert("Domain saved successfully!");
-        $rootScope.reload();
+        $rootScope.domain = angular.copy(result);
       }, function (error) {
-        $scope.loadingDomain = false;
+        $scope.loadingAction = false;
         $scope.setErrorAlert(error);
 
       });
@@ -160,7 +160,7 @@ angular.module('domains')
 
     $scope.publishDomain = function () {
       var modalInstance = $modal.open({
-        templateUrl: 'views/domains/confirm-reset.html',
+        templateUrl: 'views/domains/confirm-publish.html',
         controller: 'ConfirmDialogCtrl',
         size: 'md',
         backdrop: 'static',
@@ -169,13 +169,15 @@ angular.module('domains')
       modalInstance.result.then(
         function (result) {
           if (result) {
+            $scope.loadingAction = true;
             DomainsManager.publish($scope.userDomain).then(function (result) {
               $scope.userDomain = result;
               $scope.originalUserDomain = angular.copy(result);
-              $scope.loadingDomain = false;
-              $scope.setSuccessAlert("Domain published successfully!");
+              $scope.loadingAction = false;
+              $scope.setSuccessAlert("Your  domain is now public. Please note only public test plans will be visible to users!");
+              $rootScope.domain = angular.copy(result);
             }, function (error) {
-              $scope.loadingDomain = false;
+              $scope.loadingAction = false;
               $scope.setErrorAlert(error);
 
             });
@@ -201,7 +203,7 @@ angular.module('domains')
       modalInstance.result.then(
         function (newDomain) {
           if (newDomain) {
-            $location.path("/domains?d="+ newDomain.domain);
+            $rootScope.selectDomain(newDomain.domain);
            }
         });
     };
@@ -210,7 +212,7 @@ angular.module('domains')
       DomainsManager.getDefaultHomeContent().then(function (result) {
         $scope.userDomain.homeContent = result;
       }, function (error) {
-        $scope.loadingDomain = false;
+        $scope.loadingAction = false;
         $scope.setErrorAlert(error);
       });
     };
