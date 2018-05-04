@@ -1305,6 +1305,11 @@
 			<ValueElement Value="253088698300013411180212" CodeSystem="cdcgs1vis" DisplayName="MMRV Vaccine"/>
 			<ValueElement Value="253088698300024011180212" CodeSystem="cdcgs1vis" DisplayName="Varicella Vaccine"/>
 			<ValueElement Value="253088698300020211180212" CodeSystem="cdcgs1vis" DisplayName="Live Zoster Vaccine"/>
+			
+			
+			<ValueElement Value="253088698300019611180223" CodeSystem="cdcgs1vis" DisplayName="Rotavirus Vaccine"/>
+			<ValueElement Value="253088698300002811180321" CodeSystem="cdcgs1vis" DisplayName="Anthrax Vaccine VIS"/>
+			
 		</ValueSetDefinition>
 		
 		<ValueSetDefinition BindingIdentifier="PHVS_FundingEligibilityObsMethod_IIS" Name="Funding Eligibility Observation Method (IIS)">
@@ -1354,6 +1359,10 @@
 			
 			<ValueElement Value="187" CodeSystem="CVX" DisplayName="zoster vaccine recombinant"/>
 			<ValueElement Value="121" CodeSystem="CVX" DisplayName="zoster live"/>
+			
+			
+			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax Vaccine VIS"/>
+			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax VIS"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
 	<ValueSetDefinitions Group="HL7" Order="3">
