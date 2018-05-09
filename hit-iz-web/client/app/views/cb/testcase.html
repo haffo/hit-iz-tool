@@ -9,7 +9,7 @@
     top.location = self.location;
   }
 </script>
-<div ng-controller="CBTestCaseCtrl" ng-init="initTestCase()">
+<div ng-controller="CBTestCaseCtrl" ng-init="initTestCase(3000)">
   <!--<ul class="clearfix mainSubNav">-->
   <!--<li class="current"><a href="#/cb_testcase">Test Selection</a></li>-->
   <!--<li><a href="#/cb_execution">Test Execution</a></li>-->
@@ -64,7 +64,7 @@
                 </option>
               </select>
             </div>
-            <span ng-show="testPlans == null || testPlans.length  === 0">No Test Plan Found</span>
+            <!--<span ng-show="testPlans == null || testPlans.length  === 0">No Test Plan Found</span>-->
           </form>
         </div>
       </div>

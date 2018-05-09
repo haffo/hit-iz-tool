@@ -68,6 +68,7 @@ angular.module('commonServices').factory('StorageService',
           APP_SELECTED_DOMAIN: 'APP_SELECTED_DOMAIN',
           DOMAIN_MANAGE_SELECTED_SCOPE_KEY:'DOMAIN_MANAGE_SELECTED_SCOPE_KEY',
           DOMAIN_MANAGE_SELECTED_ID:'DOMAIN_MANAGE_SELECTED_ID',
+          CF_MANAGE_SELECTED_TESTPLAN_ID_KEY:'CF_MANAGE_SELECTED_TESTPLAN_ID_KEY',
 
           remove: function (key) {
                 return localStorageService.remove(key);

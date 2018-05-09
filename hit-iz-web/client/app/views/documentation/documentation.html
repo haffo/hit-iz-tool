@@ -9,18 +9,27 @@
     top.location = self.location;
   }
 </script>
-<div style="margin:10px" ng-controller="DocumentationCtrl" ng-init="initDocumentation()">
+<div id="subNavBar" class="subNavBar"  ng-controller="DocumentationCtrl" ng-init="initDocumentation()">
+
   <div class="login-required-page" ng-show="isAuthenticationRequired() && !isAuthenticated()">
-    <p>Please <a href="" ng-click="loginReq()"><i class="fa fa-sign-in"></i>&nbsp;login</a> to access this page. You can
+    <p>Please <a  class="point" href="" ng-click="loginReq()"><i class="fa fa-sign-in"></i>&nbsp;login</a> to access this page. You can
       also
-      <a href="#/registration"><i class="fa fa-chevron-circle-right"></i>&nbsp;register</a></p>
+      <a  class="point" href="#/registration"><i class="fa fa-chevron-circle-right"></i>&nbsp;register</a></p>
   </div>
 
 
   <div ng-show="isAuthenticated() || !isAuthenticationRequired()">
-    <div style="margin:10px">
+
+    <ul class="clearfix mainSubNav">
+      <li ng-click="selectSectionType('app')" class="jslink" ><a
+        ng-class="{'current':sectionType.key === 'app'}"> <i class="fa fa-book"></i> General Documents </a></li>
+      <li ng-click="selectSectionType(domain.name)" class="jslink"><a
+        ng-class="{'current':sectionType.key !== 'app'}"> <i class="fa fa-book"></i> Tool's Documents</a></li>
+    </ul>
+
+    <div>
       <!--<div documentation-viewer></div>-->
-      <div class="row test-plan-select-container" style="margin-bottom: 10px">
+      <div class="row test-plan-select-container" style="margin:10px;">
         <div class="col-md-12">
           <form class="form-inline">
             <div class="form-group">
@@ -33,105 +42,19 @@
                 >{{::tpScope.name}}
                 </button>
               </div>
-              <!---->
-              <!--<select class="form-control input-sm test-plan-select" style="width:200px;background-color: white;"-->
-              <!--name="selectedScope" id="selectedScope"-->
-              <!--ng-change="selectScope()"-->
-              <!--ng-model="selectedScope.key">-->
-              <!--<option value="">&#45;&#45;&#45;&#45; Select Scope &#45;&#45;&#45;&#45;</option>-->
-              <!--<option ng-repeat="tpScope in testPlanScopes" ng-selected="tpScope.key == selectedScope.key"-->
-              <!--value="{{tpScope.key}}">{{::tpScope.name}}-->
-              <!--</option>-->
-              <!--</select>-->
             </div>
-
           </form>
-
         </div>
-
       </div>
 
-      <div>
-        <accordion close-others="false">
-          <accordion-group panel-class="panel-info" is-open="status.userDoc">
-            <accordion-heading>
-              <i class="fa" ng-class="{'fa-caret-down': status.userDoc, 'fa-caret-right': !status.userDoc}"></i>
-              User Documentation
-            </accordion-heading>
-            <div user-docs></div>
-          </accordion-group>
-
-
-          <accordion-group panel-class="panel-info" is-open="status.tcDoc">
-            <accordion-heading>
-              <i class="fa" ng-class="{'fa-caret-down': status.tcDoc, 'fa-caret-right': !status.tcDoc}"></i> Test
-              Case Documentation
-            </accordion-heading>
-            <!--<div testcase-doc stage="CF"></div>-->
-            <div testcase-doc stage="CB"></div>
-            <!--<div testcase-doc stage="ISOLATED"></div>-->
-          </accordion-group>
-
-
-          <accordion-group panel-class="panel-info" is-open="status.resourceDocs">
-            <accordion-heading>
-              <i class="fa"
-                 ng-class="{'fa-caret-down': status.resourceDocs, 'fa-caret-right': !status.resourceDocs}"></i>
-              Resource Documentation
-            </accordion-heading>
-
-            <div resource-doc type="PROFILE" name="Profiles"></div>
-            <div resource-doc type="TABLE" name="Value Sets"></div>
-            <div resource-doc type="CONSTRAINT" name="Constraints"></div>
-
-          </accordion-group>
-
-
-          <accordion-group panel-class="panel-info" is-open="status.downloads">
-            <accordion-heading>
-              <i class="fa"
-                 ng-class="{'fa-caret-down': status.downloads, 'fa-caret-right': !status.downloads}"></i>
-              Validation Tool Downloads
-            </accordion-heading>
-
-            <div installation-guide></div>
-
-            <div tool-downloads></div>
-          </accordion-group>
-
-
-          <accordion-group heading="Release Notes" panel-class="panel-info" is-open="status.releaseNotes">
-            <accordion-heading>
-              <i class="fa"
-                 ng-class="{'fa-caret-down': status.releaseNotes, 'fa-caret-right': !status.releaseNotes}"></i>
-              Release Notes
-            </accordion-heading>
-            <div release-notes></div>
-          </accordion-group>
-
-
-          <accordion-group heading="Known Issues" panel-class="panel-info" is-open="status.knownIssues">
-            <accordion-heading>
-              <i class="fa"
-                 ng-class="{'fa-caret-down': status.knownIssues, 'fa-caret-right': !status.knownIssues}"></i>
-              Known Issues
-            </accordion-heading>
-            <div known-issues></div>
-          </accordion-group>
-
-
-          <accordion-group heading="API Documentation" panel-class="panel-info" is-open="status.apiDocs">
-            <accordion-heading>
-              <i class="fa" ng-class="{'fa-caret-down': status.apiDocs, 'fa-caret-right': !status.apiDocs}"></i>
-              API Documentation
-            </accordion-heading>
-            <div api-docs></div>
-          </accordion-group>
-
-
-        </accordion>
-
+      <div ng-show="sectionType.key === 'app'">
+        <div ng-include="'views/documentation/app_docs.html'"></div>
       </div>
+
+      <div ng-show="sectionType.key !== 'app'">
+        <div ng-include="'views/documentation/domain_docs.html'"></div>
+      </div>
+
 
 
     </div>
@@ -143,7 +66,7 @@
 <script type="text/ng-template" id="ApiDocs.html">
   <div class="" style="margin:10px">
     <div class="container-doc-testcase-tree ">
-      <a class="point" target="_blank" ng-href="{{apiLink()}}">Access REST APIs</a>
+      <a class="point"  target="_blank" ng-href="{{apiLink()}}">Access REST APIs</a>
     </div>
   </div>
 </script>
@@ -154,22 +77,22 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px" ng-if="isEditable()">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="hasWriteAccess()">
       <span class="pull-right">
-        <button ng-click="addDocument()" class="btn btn-info"><i class="fa fa-plus"></i>Add Document</button>
+        <button ng-click="addDocument()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Document</button>
       </span>
       </div>
 
-      <div ng-if="docs.length > 0" class="" style="margin:10px">
-        <div class="">
+      <div ng-if="docs.length > 0" class="">
+        <div class="col-md-12">
           <table class="table table-striped table-bordered table-condensed">
             <thead>
-            <tr class="tbl-header">
+            <tr class="tbl-header-1">
 
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20" ng-if="isEditable()">Action</th>
+              <th st-ratio="20" ng-if="hasWriteAccess()">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -179,19 +102,19 @@
               <td st-ratio="25">
                 <span ng-if="doc.path == null">-</span>
                 <span ng-if="doc.path != null">
-                    <a class="point" ng-if="isLink(doc.path)" target="_blank"
+                    <a class="point"  ng-if="isLink(doc.path)" target="_blank"
                        ng-href="{{::doc.path}}">{{::doc.title}}</a>
-                    <a class="point" ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
+                    <a class="point"  ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
                     </span>
               </td>
               <td st-ratio="15">
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20" ng-if="isEditable()">
-                <button class="btn btn-primary btn-sm" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
-                <button class="btn btn-danger btn-sm" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button ng-show="doc.scope === 'USER'" class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+              <td st-ratio="20" ng-if="hasWriteAccess()">
+                <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
+                <button ng-show="doc.scope === 'USER'" class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -199,7 +122,7 @@
         </div>
       </div>
       <div ng-if="docs.length <= 0" class="" style="margin:10px">
-        No User Document Available
+        No known issue document available
       </div>
     </div>
 
@@ -215,22 +138,22 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px" ng-if="isEditable()">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="hasWriteAccess()">
       <span class="pull-right">
-        <button ng-click="addDocument()" class="btn btn-info"><i class="fa fa-plus"></i>Add Document</button>
+        <button ng-click="addDocument()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Document</button>
       </span>
       </div>
 
-      <div ng-if="docs.length > 0" class="" style="margin:10px">
-        <div class="">
+      <div ng-if="docs.length > 0" class="">
+        <div class="col-md-12">
           <table class="table table-striped table-bordered table-condensed">
             <thead>
-            <tr class="tbl-header">
+            <tr class="tbl-header-1">
 
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20" ng-if="isEditable()">Action</th>
+              <th st-ratio="20" ng-if="hasWriteAccess()">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -240,19 +163,19 @@
               <td st-ratio="25">
                 <span ng-if="doc.path == null">-</span>
                 <span ng-if="doc.path != null">
-                    <a class="point" ng-if="isLink(doc.path)" target="_blank"
+                    <a class="point"  ng-if="isLink(doc.path)" target="_blank"
                        ng-href="{{::doc.path}}">{{::doc.title}}</a>
-                    <a class="point" ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
+                    <a class="point"  ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
                     </span>
               </td>
               <td st-ratio="15">
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20" ng-if="isEditable()">
-                <button class="btn btn-primary btn-sm" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
-                <button class="btn btn-danger btn-sm" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+              <td st-ratio="20" ng-if="hasWriteAccess()">
+                <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
+                <button ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -260,7 +183,7 @@
         </div>
       </div>
       <div ng-if="docs.length <= 0" class="" style="margin:10px">
-        No User Document Available
+        No release note Available
       </div>
     </div>
 
@@ -268,65 +191,64 @@
       <div class="alert alert-danger" role="alert" ng-bind="error"></div>
     </div>
   </div>
-  </div>
 
 </script>
 
-<script type="text/ng-template" id="ResourceDoc.html">
-  <div ng-if="error === null">
-    <div ng-if="docs != null" class="" style="margin:10px">
-      <accordion close-others="true">
-        <accordion-group panel-class="panel-info" is-open="status[data.stage]">
-          <accordion-heading>
-            <i class="fa"
-               ng-class="{'fa-caret-down': status[type], 'fa-caret-right': !status[type]}"></i>
-            {{::name}}
-          </accordion-heading>
+<!--<script type="text/ng-template" id="ResourceDoc.html">-->
+  <!--<div ng-if="error === null">-->
+    <!--<div ng-if="docs != null" class="">-->
+      <!--<accordion close-others="true">-->
+        <!--<accordion-group panel-class="panel-info" is-open="status[data.stage]">-->
+          <!--<accordion-heading>-->
+            <!--<i class="fa"-->
+               <!--ng-class="{'fa-caret-down': status[type], 'fa-caret-right': !status[type]}"></i>-->
+            <!--{{::name}}-->
+          <!--</accordion-heading>-->
 
-          <button title="Download All" type="button" class="btn btn-sm btn-info"
-                  ng-click="downloadResourceDocs()">
-            <i class="fa fa-download"></i>
-            Download All {{::name}} (.zip)
-          </button>
+          <!--<button title="Download All" type="button" class="btn btn-sm btn-info"-->
+                  <!--ng-click="downloadResourceDocs()">-->
+            <!--<i class="fa fa-download"></i>-->
+            <!--Download All {{::name}} (.zip)-->
+          <!--</button>-->
 
-          <br/>
-          <br/>
+          <!--<br/>-->
+          <!--<br/>-->
 
-          <div class="">
-            <table class="table table-striped table-bordered table-condensed">
-              <thead>
-              <tr class="tbl-header">
-                <th st-ratio="50">Document Title</th>
-                <th st-ratio="50">File (XML Format)</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr ng-repeat="doc in docs | orderBy:'position'">
-                <td st-ratio="50">{{::doc.title}}</td>
-                <td st-ratio="50">
-                  <span ng-if="doc.name == null">-</span>
-                  <span ng-if="doc.name != null">
-                     <a class="point" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
-                    </span>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-        </accordion-group>
-      </accordion>
-    </div>
-  </div>
-  <div ng-if="error !== null">
-    <div class="alert alert-danger" role="alert" ng-bind="error"></div>
-  </div>
+          <!--<div class="col-md-12">-->
+            <!--<table class="table table-striped table-bordered table-condensed">-->
+              <!--<thead>-->
+              <!--<tr class="tbl-header-1">-->
+                <!--<th st-ratio="50">Document Title</th>-->
+                <!--<th st-ratio="50">File (XML Format)</th>-->
+              <!--</tr>-->
+              <!--</thead>-->
+              <!--<tbody>-->
+              <!--<tr ng-repeat="doc in docs | orderBy:'position'">-->
+                <!--<td st-ratio="50">{{::doc.title}}</td>-->
+                <!--<td st-ratio="50">-->
+                  <!--<span ng-if="doc.name == null">-</span>-->
+                  <!--<span ng-if="doc.name != null">-->
+                     <!--<a class="point"  ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>-->
+                    <!--</span>-->
+                <!--</td>-->
+              <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
+          <!--</div>-->
+        <!--</accordion-group>-->
+      <!--</accordion>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div ng-if="error !== null">-->
+    <!--<div class="alert alert-danger" role="alert" ng-bind="error"></div>-->
+  <!--</div>-->
 
 
-</script>
+<!--</script>-->
 
 <script type="text/ng-template" id="TestCaseDoc.html">
   <div ng-if="error === null">
-    <div ng-if="data != null" class="" style="margin:10px">
+    <div ng-if="data != null" class="">
       <!--<accordion close-others="true">-->
       <!--<accordion-group panel-class="panel-info" is-open="status[data.stage]">-->
       <!--<accordion-heading>-->
@@ -336,27 +258,27 @@
       <!--</accordion-heading>-->
 
 
-      <button ng-if="data.stage != 'CF'" title="Download Complete TestCase" type="button"
-              class="btn btn-sm btn-info"
-              ng-click="downloadCompleteTestPackage('CB')">
-        <i class="fa fa-download"></i>
-        Download Complete TestPackage (.zip)
-      </button>
+      <!--<button ng-if="data.stage != 'CF'" title="Download Complete TestCase" type="button"-->
+              <!--class="btn btn-sm btn-info"-->
+              <!--ng-click="downloadCompleteTestPackage('CB')">-->
+        <!--<i class="fa fa-download"></i>-->
+        <!--Download Complete TestPackage (.zip)-->
+      <!--</button>-->
 
-      <button title="Download Example Messages" type="button" class="btn btn-sm btn-info"
-              ng-click="downloadExampleMessages('CB')">
-        <i class="fa fa-download"></i>
-        Download Example Messages (.zip)
-      </button>
+      <!--<button title="Download Example Messages" type="button" class="btn btn-sm btn-info"-->
+              <!--ng-click="downloadExampleMessages('CB')">-->
+        <!--<i class="fa fa-download"></i>-->
+        <!--Download Example Messages (.zip)-->
+      <!--</button>-->
 
-      <br/>
-      <br/>
+      <!--<br/>-->
+      <!--<br/>-->
 
-      <div class="">
+      <div class="col-md-12">
         <table tt-table tt-params="params"
                class="table table-striped table-bordered table-condensed">
           <thead>
-          <tr class="tbl-header">
+          <tr class="tbl-header-1">
             <th>Test Case Name</th>
             <th>Test Story</th>
             <th>Message Content</th>
@@ -391,59 +313,68 @@
     </td>
     <td>
       <span ng-if="!node.tsPath ||node.tsPath === null">-</span>
-      <a class="point" ng-if="node.tsPath != null" ng-click="downloadArtifact(node.tsPath,node.title)">Test
-        Story.pdf</a>
+      <a class="point"  ng-if="node.tsPath != null" ng-click="downloadArtifact(node.tsPath,node.title)"><i class="fa fa-download fa-fw"></i></a>
     </td>
 
     <td>
       <span ng-if="!node.mcPath || node.mcPath === null">-</span>
-      <a ng-if="node.mcPath != null" class="point" ng-click="downloadArtifact(node.mcPath,node.title)">Message
-        Content.pdf</a>
+      <a ng-if="node.mcPath != null" class="point"  ng-click="downloadArtifact(node.mcPath,node.title)"><i class="fa fa-download fa-fw"></i></a>
     </td>
     <td>
       <span ng-if="!node.tdsPath ||node.tdsPath === null">-</span>
-      <a ng-if="node.tdsPath != null" class="point" ng-click="downloadArtifact(node.tdsPath,node.title)">Test Data
-        Specification.pdf</a>
+      <a ng-if="node.tdsPath != null" class="point"  ng-click="downloadArtifact(node.tdsPath,node.title)"><i class="fa fa-download fa-fw"></i></a>
     </td>
     <td>
       <span ng-if="!node.jdPath ||node.jdPath === null">-</span>
-      <a ng-if="node.jdPath != null" class="point" ng-click="downloadArtifact(node.jdPath,node.title)">Juror
-        Document.pdf</a>
+      <a ng-if="node.jdPath != null" class="point"  ng-click="downloadArtifact(node.jdPath,node.title)"><i class="fa fa-download fa-fw"></i></a>
     </td>
 
     <td>
+      <div ng-if="node.title === 'Context-based'">
+        <a  class="point"  class="point"  title="Download Complete TestCase (.zip)"
+                 ng-click="downloadCompleteTestPackage(node.stage)">
+          <i class="fa fa-download fa-fw"></i>
+        </a>
+      </div>
+      <div ng-if="node.title !== 'Context-based'">
       <span ng-if="!node.tpPath || node.tpPath === null">-</span>
-      <a ng-if="node.tpPath != null" class="point" ng-click="downloadArtifact(node.tpPath,node.title)">Test
-        Package.pdf</a>
+      <a  class="point" ng-if="node.tpPath != null" class="point"  ng-click="downloadArtifact(node.tpPath,node.title)"><i class="fa fa-download fa-fw"></i></a>
+      </div>
     </td>
-
     <td>
       <span ng-if="!node.tpsPath || node.tpsPath === null">-</span>
-      <a ng-if="node.tpsPath != null" class="point" ng-click="downloadArtifact(node.tpsPath,node.title)">Test Plan
-        Summary.pdf</a>
+      <a  class="point" ng-if="node.tpsPath != null" class="point"  ng-click="downloadArtifact(node.tpsPath,node.title)"><i class="fa fa-download fa-fw"></i></a>
     </td>
 
     <td>
+      <div ng-if="node.title === 'Context-free' || node.title === 'Context-based'">
+        <a  class="point" title="Download Complete Example messages (.zip)"
+                 ng-click="downloadExampleMessages(node.stage)">
+          <i class="fa fa-download fa-fw"></i>
+        </a>
+      </div>
+      <div ng-if="node.title !== 'Context-free' && node.title !== 'Context-based'">
       <span ng-if="!node.exMsgPresent">-</span>
-      <a ng-if="node.exMsgPresent" class="point" ng-click="downloadMessage(node)">Message.txt</a>
+        <a  class="point" ng-if="node.exMsgPresent" class="point"  ng-click="downloadMessage(node)"><i class="fa fa-download fa-fw"></i></a>
+      </div>
     </td>
 
     <td>
       <span ng-if="!node.xmlConfProfilePresent">-</span>
-      <a ng-if="node.xmlConfProfilePresent" class="point"
-         ng-click="downloadProfile(node)">Profile.json</a>
+      <a  class="point" ng-if="node.xmlConfProfilePresent" class="point"
+         ng-click="downloadProfile(node)"><i class="fa fa-download fa-fw"></i></a>
     </td>
 
     <td>
-      <span ng-if="!node.xmlConstraintPresent">-</span>
-      <a ng-if="node.xmlConstraintPresent"
-         class="point" ng-click="downloadConstraints(node)">Constraints.xml</a>
+      <span ng-if="!node.xmlConstraintsPresent">-</span>
+      <a  class="point" ng-if="node.xmlConstraintsPresent"
+         class="point"  ng-click="downloadConstraints(node)"><i class="fa fa-download fa-fw"></i></a>
     </td>
 
     <td>
       <span ng-if="!node.xmlValueSetLibraryPresent">-</span>
-      <a ng-if="node.xmlValueSetLibraryPresent"
-         class="point" ng-click="downloadValueSetLib(node)">ValueSetLibrary.json</a>
+      <a  class="point" ng-if="node.xmlValueSetLibraryPresent"
+         class="point"  ng-click="downloadValueSetLib(node)"><i class="fa fa-download fa-fw"></i></a>
     </td>
 
 
@@ -457,22 +388,22 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px" ng-if="isEditable()">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="hasWriteAccess()">
       <span class="pull-right">
-        <button ng-click="addDocument()" class="btn btn-info"><i class="fa fa-plus"></i>Add Document</button>
+        <button ng-click="addDocument()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Document</button>
       </span>
       </div>
 
-      <div ng-if="docs.length > 0" class="" style="margin:10px">
-        <div class="">
+      <div ng-if="docs.length > 0" class="">
+        <div class="col-md-12">
           <table class="table table-striped table-bordered table-condensed">
             <thead>
-            <tr class="tbl-header">
+            <tr class="tbl-header-1">
 
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20" ng-if="isEditable()">Action</th>
+              <th st-ratio="20" ng-if="hasWriteAccess()">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -482,19 +413,19 @@
               <td st-ratio="25">
                 <span ng-if="doc.path == null">-</span>
                 <span ng-if="doc.path != null">
-                    <a class="point" ng-if="isLink(doc.path)" target="_blank"
+                    <a class="point"  ng-if="isLink(doc.path)" target="_blank"
                        ng-href="{{::doc.path}}">{{::doc.title}}</a>
-                    <a class="point" ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
+                    <a class="point"  ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
                     </span>
               </td>
               <td st-ratio="15">
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20" ng-if="isEditable()">
-                <button class="btn btn-primary btn-sm" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
-                <button class="btn btn-danger btn-sm" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+              <td st-ratio="20" ng-if="hasWriteAccess()">
+                <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
+                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -519,22 +450,22 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px" ng-if="isEditable()">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="hasWriteAccess()">
       <span class="pull-right">
-        <button ng-click="addDocument()" class="btn btn-info"><i class="fa fa-plus"></i>Add Document</button>
+        <button ng-click="addDocument()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Document</button>
       </span>
       </div>
 
-      <div ng-if="docs.length > 0" class="" style="margin:10px">
-        <div class="">
+      <div ng-if="docs.length > 0" class="">
+        <div class="col-md-12">
           <table class="table table-striped table-bordered table-condensed">
             <thead>
-            <tr class="tbl-header">
+            <tr class="tbl-header-1">
 
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20" ng-if="isEditable()">Action</th>
+              <th st-ratio="20" ng-if="hasWriteAccess()">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -544,19 +475,19 @@
               <td st-ratio="25">
                 <span ng-if="doc.path == null">-</span>
                 <span ng-if="doc.path != null">
-                    <a class="point" ng-if="isLink(doc.path)" target="_blank"
+                    <a class="point"  ng-if="isLink(doc.path)" target="_blank"
                        ng-href="{{::doc.path}}">{{::doc.title}}</a>
-                    <a class="point" ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
+                    <a class="point"  ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
                     </span>
               </td>
               <td st-ratio="15">
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20" ng-if="isEditable()">
-                <button class="btn btn-primary btn-sm" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
-                <button class="btn btn-danger btn-sm" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+              <td st-ratio="20" ng-if="hasWriteAccess()">
+                <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
+                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -581,22 +512,22 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px" ng-if="isEditable()">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="hasWriteAccess()">
       <span class="pull-right">
-        <button ng-click="addDocument()" class="btn btn-info"><i class="fa fa-plus"></i>Add Document</button>
+        <button ng-click="addDocument()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Document</button>
       </span>
       </div>
 
-      <div ng-if="docs.length > 0" class="" style="margin:10px">
-        <div class="">
+      <div ng-if="docs.length > 0">
+        <div class="col-md-12">
           <table class="table table-striped table-bordered table-condensed">
             <thead>
-            <tr class="tbl-header">
+            <tr class="tbl-header-1">
 
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20" ng-if="isEditable()">Action</th>
+              <th st-ratio="20" ng-if="hasWriteAccess()">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -606,19 +537,19 @@
               <td st-ratio="25">
                 <span ng-if="doc.path == null">-</span>
                 <span ng-if="doc.path != null">
-                    <a class="point" ng-if="isLink(doc.path)" target="_blank"
+                    <a class="point"  ng-if="isLink(doc.path)" target="_blank"
                        ng-href="{{::doc.path}}">{{::doc.title}}</a>
-                    <a class="point" ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
+                    <a class="point"  ng-if="!isLink(doc.path)" ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>
                     </span>
               </td>
               <td st-ratio="15">
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20" ng-if="isEditable()">
-                <button class="btn btn-primary btn-sm" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
-                <button class="btn btn-danger btn-sm" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-sm" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+              <td st-ratio="20" ng-if="hasWriteAccess()">
+                <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
+                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>

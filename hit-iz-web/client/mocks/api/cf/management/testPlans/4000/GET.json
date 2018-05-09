@@ -1,0 +1,13 @@
+{
+  "name": "New Test Plan created",
+  "persistentId": 1233843000,
+  "description": "No Description",
+  "type": "TestPlan",
+  "stage": "CF",
+  "position": 1,
+  "version": 1.0,
+  "supplements": [],
+  "scope": "GLOBAL",
+  "preloaded": true,
+  "id": 4000
+}

@@ -36,12 +36,11 @@
             <!--</ui-select>-->
             <!--</div>-->
 
-
             <select class="form-control input-sm test-plan-select" style="width:500px;background-color: white;"
                     name="selectedTP" id="selectedTP"
                     ng-change="selectTP()"
                     ng-model="selectedTP.id"
-                    ng-options="tp.id.toString() as tp.name group by tp.category for tp in testPlans">
+                    ng-options="tp.id.toString() as tp.name for tp in testPlans">
               <option value="">---- Select Profile Group ----</option>
               <!--<option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{::tp.name}}-->
               <!--</option>-->

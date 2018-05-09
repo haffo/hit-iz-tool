@@ -415,10 +415,10 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
             });
           }
         } else {
-          $rootScope.openCriticalErrorDlg("No domain found. Please contact the administrator");
+          $rootScope.openCriticalErrorDlg("No Tool scope found. Please contact the administrator");
         }
       }, function (error) {
-        $rootScope.openCriticalErrorDlg("No domain found. Please contact the administrator");
+        $rootScope.openCriticalErrorDlg("No Tool scope found. Please contact the administrator");
       });
     }
     , function (error) {
@@ -819,6 +819,8 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
   $rootScope.isDomainsManagementSupported = function () {
     return $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['DOMAIN_MANAGEMENT_SUPPORTED'] === "true");
   };
+
+
 
 
 });

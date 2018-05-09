@@ -698,6 +698,14 @@ angular.module('main').controller('MainCtrl',
       return (userInfoService.isAuthenticated() && (userInfoService.isAdmin() || userInfoService.isSupervisor()) && $rootScope.domain != null && $rootScope.domain.owner === userInfoService.getUsername());
     };
 
+    $rootScope.hasWriteAccess = function(){
+      return userInfoService.isAuthenticated() && (userInfoService.isAdmin() || ($rootScope.domain != null && $rootScope.domain.owner === userInfoService.getUsername()));
+    };
+
+
+    $rootScope.canPublish = function(){
+      return userInfoService.isAuthenticated() && (userInfoService.isAdmin() || (userInfoService.isSupervisor() && $rootScope.domain != null && $rootScope.domain.owner === userInfoService.getUsername()));
+    };
 
 
   });

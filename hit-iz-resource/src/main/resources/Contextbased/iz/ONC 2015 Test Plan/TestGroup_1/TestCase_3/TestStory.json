@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "A child is seen at a clinic. A new vaccine is administered and documented but the information is not to shared by the IIS.",
-  "comments" : "No Comments",
-  "preCondition" : "No PreCondition",
-  "postCondition" : "No PostCondition",
-  "testObjectives" : "This test case assesses the ability of the EHR to create an administration message for a child containing a new administration but an indication that the data should not be shared. Also test the ability of the EHR to support full first and middle names.",
-  "evaluationCriteria" : "<br>",
-  "notes" : "No Note"
-}

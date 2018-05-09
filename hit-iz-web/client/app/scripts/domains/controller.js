@@ -1,7 +1,7 @@
 angular.module('domains')
-  .controller('DomainsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, userInfoService,StorageService,DomainsManager,$modal,$location) {
+  .controller('DomainsCtrl', function ($scope, $rootScope, $http, $filter, $cookies, $sce, $timeout, userInfoService, StorageService, DomainsManager, $modal, $location) {
     $scope.status = {userDoc: true};
-    $scope.selectedDomain =  {id:null};
+    $scope.selectedDomain = {id: null};
     $scope.userDomains = null;
     $scope.userDomain = null;
     $scope.alertMessage = null;
@@ -11,34 +11,25 @@ angular.module('domains')
 
     $scope.initDomain = function () {
       $scope.loadingDomain = true;
-      $timeout(function() {
+      $scope.errorDomain = null;
+      $scope.originalUserDomain = null;
+      $scope.userDomain = null;
+      $timeout(function () {
         if ($rootScope.isDomainsManagementSupported() && userInfoService.isAuthenticated()) {
-          if ($rootScope.getDomain() != null) {
-            console.log("Domain i==" + $rootScope.getDomain());
+          if ($rootScope.domain != null && $rootScope.hasWriteAccess()) {
             $scope.userDomain = null;
             $scope.errorDomain = null;
-            var dom = $rootScope.getDomain();
-            DomainsManager.canModify(dom.id).then(function (result) {
-              if (result === true) {
-                $scope.userDomain = angular.copy(dom);
-                $scope.originalUserDomain = angular.copy($scope.userDomain);
-              }
-              $scope.loadingDomain = false;
-            }, function (error) {
-              $scope.loadingDomain = false;
-              $scope.setErrorAlert("Sorry, Cannot load the domain. Please try again");
-            });
-          }else{
+            $scope.userDomain = angular.copy($rootScope.domain);
+            $scope.originalUserDomain = angular.copy($scope.userDomain);
+            $scope.loadingDomain = false;
+          } else {
             $scope.loadingDomain = false;
           }
-        }else {
+        } else {
           $scope.loadingDomain = false;
         }
-      },3000);
+      }, 3000);
     };
-
-
-
 
 
     // $scope.selectScope = function () {
@@ -74,7 +65,6 @@ angular.module('domains')
     // };
 
 
-
     $scope.setErrorAlert = function (message) {
       $scope.alertMessage = {};
       $scope.alertMessage.type = "danger";
@@ -95,7 +85,6 @@ angular.module('domains')
     };
 
 
-
     $scope.deleteDomain = function () {
       var modalInstance = $modal.open({
         templateUrl: 'views/domains/confirm-delete.html',
@@ -111,7 +100,7 @@ angular.module('domains')
               $scope.userDomain = null;
               $scope.originalUserDomain = null;
               $scope.loadingAction = false;
-              $scope.setSuccessAlert("Domain deleted successfully!");
+              $scope.setSuccessAlert("Tool scope deleted successfully!");
               $rootScope.domain = null;
               $rootScope.reloadPage();
             }, function (error) {
@@ -129,7 +118,7 @@ angular.module('domains')
         $scope.userDomain = result;
         $scope.originalUserDomain = angular.copy(result);
         $scope.loadingAction = false;
-        $scope.setSuccessAlert("Domain saved successfully!");
+        $scope.setSuccessAlert("Tool scope saved successfully!");
         $rootScope.domain = angular.copy(result);
       }, function (error) {
         $scope.loadingAction = false;
@@ -151,7 +140,7 @@ angular.module('domains')
           if (result) {
             $scope.userDomain = $scope.originalUserDomain;
             $scope.originalUserDomain = angular.copy($scope.userDomain);
-            $scope.setSuccessAlert("Domain reset successfully!");
+            $scope.setSuccessAlert("Tool scope reset successfully!");
           }
         });
 
@@ -159,30 +148,32 @@ angular.module('domains')
 
 
     $scope.publishDomain = function () {
-      var modalInstance = $modal.open({
-        templateUrl: 'views/domains/confirm-publish.html',
-        controller: 'ConfirmDialogCtrl',
-        size: 'md',
-        backdrop: 'static',
-        keyboard: false
-      });
-      modalInstance.result.then(
-        function (result) {
-          if (result) {
-            $scope.loadingAction = true;
-            DomainsManager.publish($scope.userDomain).then(function (result) {
-              $scope.userDomain = result;
-              $scope.originalUserDomain = angular.copy(result);
-              $scope.loadingAction = false;
-              $scope.setSuccessAlert("Your  domain is now public. Please note only public test plans will be visible to users!");
-              $rootScope.domain = angular.copy(result);
-            }, function (error) {
-              $scope.loadingAction = false;
-              $scope.setErrorAlert(error);
-
-            });
-          }
+      if($rootScope.canPublish()) {
+        var modalInstance = $modal.open({
+          templateUrl: 'views/domains/confirm-publish.html',
+          controller: 'ConfirmDialogCtrl',
+          size: 'md',
+          backdrop: 'static',
+          keyboard: false
         });
+        modalInstance.result.then(
+          function (result) {
+            if (result) {
+              $scope.loadingAction = true;
+              DomainsManager.publish($scope.userDomain).then(function (result) {
+                $scope.userDomain = result;
+                $scope.originalUserDomain = angular.copy(result);
+                $scope.loadingAction = false;
+                $scope.setSuccessAlert("Your  tool scope is now public. Please note only public test plans will be visible to users!");
+                $rootScope.domain = angular.copy(result);
+              }, function (error) {
+                $scope.loadingAction = false;
+                $scope.setErrorAlert(error);
+
+              });
+            }
+          });
+      }
     };
 
 
@@ -196,19 +187,19 @@ angular.module('domains')
         backdropClick: false,
         resolve: {
           scope: function () {
-               return 'USER'
-           }
+            return 'USER'
+          }
         }
       });
       modalInstance.result.then(
         function (newDomain) {
           if (newDomain) {
             $rootScope.selectDomain(newDomain.domain);
-           }
+          }
         });
     };
 
-    $scope.loadDefaultHomeContent = function(){
+    $scope.loadDefaultHomeContent = function () {
       DomainsManager.getDefaultHomeContent().then(function (result) {
         $scope.userDomain.homeContent = result;
       }, function (error) {
@@ -217,7 +208,7 @@ angular.module('domains')
       });
     };
 
-    $scope.loadDefaultProfileInfo = function(){
+    $scope.loadDefaultProfileInfo = function () {
       DomainsManager.getDefaultProfileInfo().then(function (result) {
         $scope.userDomain.profileInfo = result;
       }, function (error) {
@@ -225,7 +216,7 @@ angular.module('domains')
       });
     };
 
-    $scope.loadDefaultValueSetCopyright = function(){
+    $scope.loadDefaultValueSetCopyright = function () {
       DomainsManager.getDefaultValueSetCopyright().then(function (result) {
         $scope.userDomain.valueSetCopyright = result;
       }, function (error) {
@@ -234,8 +225,7 @@ angular.module('domains')
     };
 
 
-
-    $scope.loadDefaultMessageContent = function(){
+    $scope.loadDefaultMessageContent = function () {
       DomainsManager.getDefaultMessageContent().then(function (result) {
         $scope.userDomain.messageContent = result;
       }, function (error) {
@@ -244,7 +234,7 @@ angular.module('domains')
     };
 
 
-    $scope.loadDefaultValidationResultInfo = function(){
+    $scope.loadDefaultValidationResultInfo = function () {
       DomainsManager.getDefaultValidationResultInfo().then(function (result) {
         $scope.userDomain.validationResultInfo = result;
       }, function (error) {
@@ -253,28 +243,17 @@ angular.module('domains')
     };
 
 
-
-
-
-
-
-
-
-
-
-
-
   });
 
 
-angular.module('domains').controller('CreateDomainCtrl', function ($scope, $modalInstance, scope,DomainsManager) {
+angular.module('domains').controller('CreateDomainCtrl', function ($scope, $modalInstance, scope, DomainsManager) {
 
-  $scope.newDomain = {name: null, domain:null};
+  $scope.newDomain = {name: null, domain: null};
   $scope.error = null;
   $scope.loading = false;
 
   $scope.submit = function () {
-    if($scope.newDomain.name != null && $scope.newDomain.name != "" && $scope.newDomain.domain != null && $scope.newDomain.domain != "") {
+    if ($scope.newDomain.name != null && $scope.newDomain.name != "" && $scope.newDomain.domain != null && $scope.newDomain.domain != "" && $scope.newDomain.domain.toLowerCase() != "app") {
       $scope.error = null;
       $scope.loading = true;
       DomainsManager.create($scope.newDomain.name, $scope.newDomain.domain, scope).then(function (result) {

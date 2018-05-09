@@ -49,7 +49,7 @@ angular.module('doc').factory('DocumentationManager', ['$q', '$http',
         return delay.promise;
       },
 
-      getTestCaseDocument: function (domain, scope) {
+      getTestCaseDocuments: function (domain, scope) {
         var delay = $q.defer();
         $http.get('api/documentation/testcases', {timeout: 60000,  params: {"domain": domain,"scope":scope}}).then(
           function (object) {

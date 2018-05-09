@@ -1,7 +1,0 @@
-MSH|^~\&|SOME_SYSTEM|A_Clinic |MYIIS|MyStateIIS|20091105100020-0500||RSP^K11^RSP_K11|37374859|P|2.5.1|||NE|NE|||||Z31^CDCPHINVS|A_Clinic^SOME_SYSTEM^^^^X68&&^AN^^^A_Clinic1234^
-MSA|AA|793543
-QAK|37374859|OK|Z34^Request Immunization History^CDCPHINVS
-QPD|Z34^Request Immunization History^CDCPHINVS|37374859|123456^^^MYEHR^MR|Child^Bobbie^Q^^^^L|Que^Suzy^^^^^M|20050512|M|10 East Main St^^Myfaircity^GA^^^L
-PID|1||99445566^^^MYStateIIS^SR||Child^Robert^^^^^L||20050512|M
-NK1|1|Child^Susan^^^^^L|MTH^Mother^HL70063|32 Prescott Street Ave^^Warwick^MA^02452^USA^L
-PID|2||123456^^^MYStateIIS^SR||Child^Robert^^^^^L||20050512|M

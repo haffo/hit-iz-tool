@@ -98,6 +98,7 @@
   <script src="bower_components/json3/lib/json3.min.js"></script>
   <![endif]-->
 
+  <div ng-if="domain != null">
   <div ng-include="'views/header.html'"></div>
   <!-- Add your site or application content here -->
   <div id="appcontainer">
@@ -105,6 +106,7 @@
   </div>
 
   <div ng-include="'views/footer.html'"></div>
+  </div>
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
