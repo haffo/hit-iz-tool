@@ -177,7 +177,10 @@ angular.module('doc')
             document.scope = $scope.scope;
             document.domain = $scope.sectionType !== 'app' ? $rootScope.domain.domain : $scope.sectionType;
             return document;
-          }
+          },
+        accept:function(){
+          return ".pdf,.html,.doc,.docx,.pptx,.ppt";
+        }
         }
       });
       modalInstance.result.then(
@@ -209,6 +212,9 @@ angular.module('doc')
           },
           document: function () {
             return angular.copy(document);
+          },
+          accept:function(){
+            return ".pdf,.html,.doc,.docx,.pptx,.ppt";
           }
         }
       });
@@ -289,7 +295,7 @@ angular.module('doc')
 ;
 
 
-angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $modalInstance, DocumentationManager, FileUploader, totalNumber, document) {
+angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $modalInstance, DocumentationManager, FileUploader, totalNumber, document, accept) {
 
 
   $scope.error = null;
@@ -298,6 +304,7 @@ angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $
   $scope.totalNumber = totalNumber;
   $scope.document = document;
   $scope.uploadedPath = null;
+  $scope.accept = accept;
 
 
   if ($scope.document.path && $scope.document.path.startsWith("http")) {
@@ -322,19 +329,7 @@ angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $
 
   var documentUploader = $scope.documentUploader = new FileUploader({
     url: 'api/documentation/uploadDocument',
-    autoUpload: true,
-    filters: [{
-      name: 'fileFilter',
-      fn: function (item) {
-        // return /\/(pdf,html,doc,docx,pptx,ppt)$/.test(item.type);
-        return /\/(pdf)$/.test(item.type)
-          || /\/(html)$/.test(item.type)
-          || /\/(doc)$/.test(item.type)
-          || /\/(docx)$/.test(item.type)
-          || /\/(ppt)$/.test(item.type)
-          || /\/(pptx)$/.test(item.type);
-      }
-    }]
+    autoUpload: true
   });
 
 
@@ -484,6 +479,9 @@ angular.module('doc')
             document.scope = $scope.scope;
             document.domain = $scope.sectionType !== 'app' ? $rootScope.domain.domain : $scope.sectionType;
             return document;
+          },
+          accept:function(){
+            return ".pdf,.doc,.docx";
           }
         }
       });
@@ -516,6 +514,9 @@ angular.module('doc')
           },
           document: function () {
             return angular.copy(document);
+          },
+          accept:function(){
+            return ".pdf,.doc,.docx";
           }
         }
       });
@@ -694,6 +695,9 @@ angular.module('doc')
             document.scope = $scope.scope;
             document.domain = $scope.sectionType !== 'app' ? $rootScope.domain.domain : $scope.sectionType;
             return document;
+          },
+          accept:function(){
+            return ".pdf,.doc,.docx";
           }
         }
       });
@@ -726,6 +730,9 @@ angular.module('doc')
           },
           document: function () {
             return angular.copy(document);
+          },
+          accept:function(){
+            return ".pdf,.doc,.docx";
           }
         }
       });
@@ -1118,6 +1125,9 @@ angular.module('doc')
             document.scope = $scope.scope;
             document.domain = $scope.sectionType !== 'app' ? $rootScope.domain.domain : $scope.sectionType;
             return document;
+          },
+          accept:function(){
+            return ".zip";
           }
         }
       });
@@ -1150,6 +1160,9 @@ angular.module('doc')
           },
           document: function () {
             return angular.copy(document);
+          },
+          accept:function(){
+            return ".zip";
           }
         }
       });
@@ -1344,6 +1357,9 @@ angular.module('doc')
             document.scope = $scope.scope;
             document.domain = $scope.sectionType !== 'app' ? $rootScope.domain.domain : $scope.sectionType;
             return document;
+          },
+          accept:function(){
+            return ".pdf,.doc,.docx,.pptx,.ppt";
           }
         }
       });
@@ -1376,6 +1392,9 @@ angular.module('doc')
           },
           document: function () {
             return angular.copy(document);
+          },
+          accept:function(){
+            return ".pdf,.doc,.docx,.pptx,.ppt";
           }
         }
       });
@@ -1468,32 +1487,32 @@ angular.module('doc')
     $scope.sectionType = 'app';
 
     $scope.loadDocs = function (scope, domain) {
-        $scope.loading = true;
-        if (scope === null || scope === undefined) {
-          scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
-          scope = scope && scope != null ? scope : 'GLOBAL';
-        }
+      $scope.loading = true;
+      if (scope === null || scope === undefined) {
+        scope = StorageService.get('DOC_MANAGE_SELECTED_SCOPE_KEY');
+        scope = scope && scope != null ? scope : 'GLOBAL';
+      }
 
-        $scope.scope = scope;
-        $scope.domain = domain;
+      $scope.scope = scope;
+      $scope.domain = domain;
 
-        DocumentationManager.getTestCaseDocuments(domain, scope).then(function (data) {
-          $scope.error = null;
-          if (data != null) {
-            $scope.context = data;
-            $scope.data = [];
-            for (var index = 0; index < data.length; index++) {
-              $scope.data.push(angular.fromJson($scope.context[index].json));
-            }
-            // $scope.data = angular.fromJson($scope.context.json);
-            $scope.params.refresh();
+      DocumentationManager.getTestCaseDocuments(domain, scope).then(function (data) {
+        $scope.error = null;
+        $scope.context = data;
+        $scope.data = [];
+        if (data != null) {
+          for (var index = 0; index < data.length; index++) {
+            $scope.data.push(angular.fromJson($scope.context[index].json));
           }
-          $scope.loading = false;
-        }, function (error) {
-          $scope.loading = false;
-          $scope.error = "Sorry, failed to load the documents";
-        });
-     };
+          // $scope.data = angular.fromJson($scope.context.json);
+        }
+        $scope.params.refresh();
+        $scope.loading = false;
+      }, function (error) {
+        $scope.loading = false;
+        $scope.error = "Sorry, failed to load the documents";
+      });
+    };
 
 
     $scope.initDocs = function (scope, wait) {
@@ -1544,7 +1563,7 @@ angular.module('doc')
 
     $scope.downloadCompleteTestPackage = function (stage) {
 
-      if (stage != null && $scope.scope  != null && $scope.domain != null) {
+      if (stage != null && $scope.scope != null && $scope.domain != null) {
         var form = document.createElement("form");
         form.action = "api/documentation/testPackages";
         form.method = "POST";
@@ -1557,7 +1576,7 @@ angular.module('doc')
 
         input = document.createElement("input");
         input.name = "domain";
-        input.value =  $scope.domain ;
+        input.value = $scope.domain;
         form.appendChild(input);
 
         input = document.createElement("input");
@@ -1573,7 +1592,7 @@ angular.module('doc')
     };
 
     $scope.downloadExampleMessages = function (stage) {
-      if (stage != null && $scope.scope  != null && $scope.domain != null) {
+      if (stage != null && $scope.scope != null && $scope.domain != null) {
         var form = document.createElement("form");
         form.action = "api/documentation/exampleMessages";
         form.method = "POST";
@@ -1585,7 +1604,7 @@ angular.module('doc')
 
         input = document.createElement("input");
         input.name = "domain";
-        input.value =  $scope.domain ;
+        input.value = $scope.domain;
         form.appendChild(input);
 
         input = document.createElement("input");
@@ -1641,7 +1660,6 @@ angular.module('doc')
     $scope.downloadConstraints = function (row) {
       $scope.downloadContextFile(row.id, row.type, $scope.formatUrl(row.format) + "constraints.zip", row.title);
     };
-
 
     $scope.downloadContextFile = function (targetId, targetType, targetUrl, targetTitle) {
       if (targetId != null && targetType != null && targetUrl != null) {

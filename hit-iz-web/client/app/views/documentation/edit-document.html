@@ -48,10 +48,10 @@
 
           <div class="" ng-show="!hasUrl">
                 <div class="upload-drop-box" nv-file-over nv-file-drop
-                     over-class="upload-drop-box-file-over" uploader="documentUploader">
+                      over-class="upload-drop-box-file-over" uploader="documentUploader">
                   <label class="btn btn-default btn-success" style="width:270px; text-align:left">
                     <i class="fa fa-file" aria-hidden="true"></i> Browse/DragAndDrop
-                    <input type="file" accept=".pdf,.html,.doc,.docx,.pptx,.ppt" nv-file-select
+                    <input type="file" accept="{{accept}}" nv-file-select
                            uploader="documentUploader" style="display: none;">
                   </label>
                   <br/>

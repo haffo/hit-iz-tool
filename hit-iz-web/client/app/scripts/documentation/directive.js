@@ -15,9 +15,6 @@ angular.module('doc').directive('testcaseDoc', [
   function () {
     return {
       restrict: 'A',
-      scope: {
-        stage: '@'
-      },
       templateUrl: 'TestCaseDoc.html',
       replace: false,
       controller: 'TestCaseDocumentationCtrl'
@@ -61,20 +58,20 @@ angular.module('doc').directive('userDocs', [
 ]);
 
 
-angular.module('doc').directive('resourceDoc', [
-  function () {
-    return {
-      restrict: 'A',
-      scope: {
-        type: '@',
-        name: '@'
-      },
-      templateUrl: 'ResourceDoc.html',
-      replace: false,
-      controller: 'ResourceDocsCtrl'
-    };
-  }
-]);
+// angular.module('doc').directive('resourceDoc', [
+//   function () {
+//     return {
+//       restrict: 'A',
+//       scope: {
+//         type: '@',
+//         name: '@'
+//       },
+//       templateUrl: 'ResourceDoc.html',
+//       replace: false,
+//       controller: 'ResourceDocsCtrl'
+//     };
+//   }
+// ]);
 
 angular.module('doc').directive('installationGuide', [
   function () {
