@@ -113,9 +113,6 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
     .when('/cf', {
       templateUrl: 'views/cf/cf.html'
     })
-    //        .when('/is', {
-    //            templateUrl: 'views/isolated/isolated.html'
-    //        })
     .when('/cb', {
       templateUrl: 'views/cb/cb.html'
     })
@@ -612,15 +609,13 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     httpHeaders.common['Authorization'] = 'Basic ' + auth;
     console.log("logging in...");
     $http.get('api/accounts/login').success(function () {
-      console.log("logging success...");
-      httpHeaders.common['Authorization'] = null;
+       httpHeaders.common['Authorization'] = null;
       $http.get('api/accounts/cuser').then(function (result) {
         if (result.data && result.data != null) {
           var rs = angular.fromJson(result.data);
           initUser(rs);
           $rootScope.$broadcast('event:loginConfirmed');
-          console.log("redirect after login");
-          $location.url(path);
+           $location.url(path);
         } else {
           userInfoService.setCurrentUser(null);
         }
