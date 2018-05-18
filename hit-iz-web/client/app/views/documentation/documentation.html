@@ -114,7 +114,7 @@
               <td st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
                 <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button ng-show="doc.scope === 'USER'" class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+                <button ng-show="doc.scope === 'USER' && ((sectionType === 'app' && isAdmin()) || (sectionType !== 'app' && canPublish()))" class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -175,7 +175,7 @@
               <td st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
                 <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+                <button ng-show="doc.scope === 'USER' && ((sectionType === 'app' && isAdmin()) || (sectionType !== 'app' && canPublish()))"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -195,53 +195,53 @@
 </script>
 
 <!--<script type="text/ng-template" id="ResourceDoc.html">-->
-  <!--<div ng-if="error === null">-->
-    <!--<div ng-if="docs != null" class="">-->
-      <!--<accordion close-others="true">-->
-        <!--<accordion-group panel-class="panel-info" is-open="status[data.stage]">-->
-          <!--<accordion-heading>-->
-            <!--<i class="fa"-->
-               <!--ng-class="{'fa-caret-down': status[type], 'fa-caret-right': !status[type]}"></i>-->
-            <!--{{::name}}-->
-          <!--</accordion-heading>-->
+<!--<div ng-if="error === null">-->
+<!--<div ng-if="docs != null" class="">-->
+<!--<accordion close-others="true">-->
+<!--<accordion-group panel-class="panel-info" is-open="status[data.stage]">-->
+<!--<accordion-heading>-->
+<!--<i class="fa"-->
+<!--ng-class="{'fa-caret-down': status[type], 'fa-caret-right': !status[type]}"></i>-->
+<!--{{::name}}-->
+<!--</accordion-heading>-->
 
-          <!--<button title="Download All" type="button" class="btn btn-sm btn-info"-->
-                  <!--ng-click="downloadResourceDocs()">-->
-            <!--<i class="fa fa-download"></i>-->
-            <!--Download All {{::name}} (.zip)-->
-          <!--</button>-->
+<!--<button title="Download All" type="button" class="btn btn-sm btn-info"-->
+<!--ng-click="downloadResourceDocs()">-->
+<!--<i class="fa fa-download"></i>-->
+<!--Download All {{::name}} (.zip)-->
+<!--</button>-->
 
-          <!--<br/>-->
-          <!--<br/>-->
+<!--<br/>-->
+<!--<br/>-->
 
-          <!--<div class="col-md-12">-->
-            <!--<table class="table table-striped table-bordered table-condensed">-->
-              <!--<thead>-->
-              <!--<tr class="tbl-header-1">-->
-                <!--<th st-ratio="50">Document Title</th>-->
-                <!--<th st-ratio="50">File (XML Format)</th>-->
-              <!--</tr>-->
-              <!--</thead>-->
-              <!--<tbody>-->
-              <!--<tr ng-repeat="doc in docs | orderBy:'position'">-->
-                <!--<td st-ratio="50">{{::doc.title}}</td>-->
-                <!--<td st-ratio="50">-->
-                  <!--<span ng-if="doc.name == null">-</span>-->
-                  <!--<span ng-if="doc.name != null">-->
-                     <!--<a class="point"  ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>-->
-                    <!--</span>-->
-                <!--</td>-->
-              <!--</tr>-->
-              <!--</tbody>-->
-            <!--</table>-->
-          <!--</div>-->
-        <!--</accordion-group>-->
-      <!--</accordion>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div ng-if="error !== null">-->
-    <!--<div class="alert alert-danger" role="alert" ng-bind="error"></div>-->
-  <!--</div>-->
+<!--<div class="col-md-12">-->
+<!--<table class="table table-striped table-bordered table-condensed">-->
+<!--<thead>-->
+<!--<tr class="tbl-header-1">-->
+<!--<th st-ratio="50">Document Title</th>-->
+<!--<th st-ratio="50">File (XML Format)</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--<tr ng-repeat="doc in docs | orderBy:'position'">-->
+<!--<td st-ratio="50">{{::doc.title}}</td>-->
+<!--<td st-ratio="50">-->
+<!--<span ng-if="doc.name == null">-</span>-->
+<!--<span ng-if="doc.name != null">-->
+<!--<a class="point"  ng-click="downloadDocument(doc.path)">{{::doc.name}}</a>-->
+<!--</span>-->
+<!--</td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--</div>-->
+<!--</accordion-group>-->
+<!--</accordion>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div ng-if="error !== null">-->
+<!--<div class="alert alert-danger" role="alert" ng-bind="error"></div>-->
+<!--</div>-->
 
 
 <!--</script>-->
@@ -259,16 +259,16 @@
 
 
       <!--<button ng-if="data.stage != 'CF'" title="Download Complete TestCase" type="button"-->
-              <!--class="btn btn-sm btn-info"-->
-              <!--ng-click="downloadCompleteTestPackage('CB')">-->
-        <!--<i class="fa fa-download"></i>-->
-        <!--Download Complete TestPackage (.zip)-->
+      <!--class="btn btn-sm btn-info"-->
+      <!--ng-click="downloadCompleteTestPackage('CB')">-->
+      <!--<i class="fa fa-download"></i>-->
+      <!--Download Complete TestPackage (.zip)-->
       <!--</button>-->
 
       <!--<button title="Download Example Messages" type="button" class="btn btn-sm btn-info"-->
-              <!--ng-click="downloadExampleMessages('CB')">-->
-        <!--<i class="fa fa-download"></i>-->
-        <!--Download Example Messages (.zip)-->
+      <!--ng-click="downloadExampleMessages('CB')">-->
+      <!--<i class="fa fa-download"></i>-->
+      <!--Download Example Messages (.zip)-->
       <!--</button>-->
 
       <!--<br/>-->
@@ -332,13 +332,13 @@
     <td>
       <div ng-if="node.title === 'Context-based'">
         <a  class="point"  class="point"  title="Download Complete TestCase (.zip)"
-                 ng-click="downloadCompleteTestPackage(node.stage)">
+            ng-click="downloadCompleteTestPackage(node.stage)">
           <i class="fa fa-download fa-fw"></i>
         </a>
       </div>
       <div ng-if="node.title !== 'Context-based'">
-      <span ng-if="!node.tpPath || node.tpPath === null">-</span>
-      <a  class="point" ng-if="node.tpPath != null" class="point"  ng-click="downloadArtifact(node.tpPath,node.title)"><i class="fa fa-download fa-fw"></i></a>
+        <span ng-if="!node.tpPath || node.tpPath === null">-</span>
+        <a  class="point" ng-if="node.tpPath != null" class="point"  ng-click="downloadArtifact(node.tpPath,node.title)"><i class="fa fa-download fa-fw"></i></a>
       </div>
     </td>
     <td>
@@ -349,12 +349,12 @@
     <td>
       <div ng-if="node.title === 'Context-free' || node.title === 'Context-based'">
         <a  class="point" title="Download Complete Example messages (.zip)"
-                 ng-click="downloadExampleMessages(node.stage)">
+            ng-click="downloadExampleMessages(node.stage)">
           <i class="fa fa-download fa-fw"></i>
         </a>
       </div>
       <div ng-if="node.title !== 'Context-free' && node.title !== 'Context-based'">
-      <span ng-if="!node.exMsgPresent">-</span>
+        <span ng-if="!node.exMsgPresent">-</span>
         <a  class="point" ng-if="node.exMsgPresent" class="point"  ng-click="downloadMessage(node)"><i class="fa fa-download fa-fw"></i></a>
       </div>
     </td>
@@ -362,19 +362,19 @@
     <td>
       <span ng-if="!node.xmlConfProfilePresent">-</span>
       <a  class="point" ng-if="node.xmlConfProfilePresent" class="point"
-         ng-click="downloadProfile(node)"><i class="fa fa-download fa-fw"></i></a>
+          ng-click="downloadProfile(node)"><i class="fa fa-download fa-fw"></i></a>
     </td>
 
     <td>
       <span ng-if="!node.xmlConstraintsPresent">-</span>
       <a  class="point" ng-if="node.xmlConstraintsPresent"
-         class="point"  ng-click="downloadConstraints(node)"><i class="fa fa-download fa-fw"></i></a>
+          class="point"  ng-click="downloadConstraints(node)"><i class="fa fa-download fa-fw"></i></a>
     </td>
 
     <td>
       <span ng-if="!node.xmlValueSetLibraryPresent">-</span>
       <a  class="point" ng-if="node.xmlValueSetLibraryPresent"
-         class="point"  ng-click="downloadValueSetLib(node)"><i class="fa fa-download fa-fw"></i></a>
+          class="point"  ng-click="downloadValueSetLib(node)"><i class="fa fa-download fa-fw"></i></a>
     </td>
 
 
@@ -425,7 +425,7 @@
               <td st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
                 <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+                <button  ng-show="doc.scope === 'USER' && ((sectionType === 'app' && isAdmin()) || (sectionType !== 'app' && canPublish()))"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -487,7 +487,7 @@
               <td st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
                 <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+                <button  ng-show="doc.scope === 'USER' && ((sectionType === 'app' && isAdmin()) || (sectionType !== 'app' && canPublish()))"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
@@ -549,7 +549,7 @@
               <td st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
                 <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
-                <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
+                <button  ng-show="doc.scope === 'USER' && ((sectionType === 'app' && isAdmin()) || (sectionType !== 'app' && canPublish()))"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
               </td>
             </tr>
             </tbody>
