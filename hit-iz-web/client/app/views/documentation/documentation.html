@@ -24,7 +24,7 @@
       <li ng-click="selectSectionType('app')" class="jslink" ><a
         ng-class="{'current':sectionType.key === 'app'}"> <i class="fa fa-book"></i> General Documents </a></li>
       <li ng-click="selectSectionType(domain.name)" class="jslink"><a
-        ng-class="{'current':sectionType.key !== 'app'}"> <i class="fa fa-book"></i> Tool's Documents</a></li>
+        ng-class="{'current':sectionType.key !== 'app'}"> <i class="fa fa-book"></i> {{domain.name}}'s Documents</a></li>
     </ul>
 
     <div>
@@ -77,7 +77,7 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px" ng-if="hasWriteAccess()">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
       <span class="pull-right">
         <button ng-click="addDocument()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Document</button>
       </span>
@@ -92,7 +92,7 @@
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20" ng-if="hasWriteAccess()">Action</th>
+              <th st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -111,7 +111,7 @@
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20" ng-if="hasWriteAccess()">
+              <td st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
                 <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
                 <button ng-show="doc.scope === 'USER'" class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
@@ -138,7 +138,7 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px" ng-if="hasWriteAccess()">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
       <span class="pull-right">
         <button ng-click="addDocument()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Document</button>
       </span>
@@ -153,7 +153,7 @@
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20" ng-if="hasWriteAccess()">Action</th>
+              <th st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -172,7 +172,7 @@
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20" ng-if="hasWriteAccess()">
+              <td st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
                 <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
                 <button ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
@@ -388,7 +388,7 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px" ng-if="hasWriteAccess()">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
       <span class="pull-right">
         <button ng-click="addDocument()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Document</button>
       </span>
@@ -403,7 +403,7 @@
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20" ng-if="hasWriteAccess()">Action</th>
+              <th st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -422,7 +422,7 @@
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20" ng-if="hasWriteAccess()">
+              <td st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
                 <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
                 <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
@@ -450,7 +450,7 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px" ng-if="hasWriteAccess()">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
       <span class="pull-right">
         <button ng-click="addDocument()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Document</button>
       </span>
@@ -465,7 +465,7 @@
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20" ng-if="hasWriteAccess()">Action</th>
+              <th st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -484,7 +484,7 @@
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20" ng-if="hasWriteAccess()">
+              <td st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
                 <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
                 <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>
@@ -512,7 +512,7 @@
   </div>
   <div ng-if="!loading">
     <div ng-if="error === null">
-      <div class="col-md-12" style="margin-bottom:10px" ng-if="hasWriteAccess()">
+      <div class="col-md-12" style="margin-bottom:10px" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
       <span class="pull-right">
         <button ng-click="addDocument()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Document</button>
       </span>
@@ -527,7 +527,7 @@
               <th st-ratio="40">Document Title</th>
               <th st-ratio="25">File Name/Link</th>
               <th st-ratio="15">Date Posted</th>
-              <th st-ratio="20" ng-if="hasWriteAccess()">Action</th>
+              <th st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -546,7 +546,7 @@
                 <span ng-if="doc.date == null">-</span>
                 <span ng-if="doc.date != null">{{::doc.date}}</span>
               </td>
-              <td st-ratio="20" ng-if="hasWriteAccess()">
+              <td st-ratio="20" ng-if="(sectionType !== 'app' && hasWriteAccess()) || (sectionType === 'app' && isAdmin())">
                 <button class="btn btn-primary btn-xs" ng-click="editDocument(doc)"><i class="fa fa-pencil"></i></button>
                 <button class="btn btn-danger btn-xs" ng-click="deleteDocument(doc)"><i class="fa fa-trash"></i></button>
                 <button  ng-show="doc.scope === 'USER'"  class="btn btn-warning btn-xs" ng-click="publishDocument(doc)"><i class="fa fa-share-square"></i></button>

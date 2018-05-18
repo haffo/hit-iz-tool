@@ -1,6 +1,6 @@
 <div class="modal-header" style="background: lightgray">
   <h3 class="modal-title" id="modal-title">
-      <span ng-if="document.type == 'USERDOC'">User Guide</span>
+      <span ng-if="document.type == 'USERDOC'">User Document</span>
     <span ng-if="document.type == 'RELEASENOTE'">Release Note</span>
     <span ng-if="document.type == 'KNOWNISSUE'">Known Issue</span>
     <span ng-if="document.type == 'DELIVERABLE'">War file</span>
@@ -51,13 +51,13 @@
                       over-class="upload-drop-box-file-over" uploader="documentUploader">
                   <label class="btn btn-default btn-success" style="width:270px; text-align:left">
                     <i class="fa fa-file" aria-hidden="true"></i> Browse/DragAndDrop
+                    <i>({{accept}})</i>
                     <input type="file" accept="{{accept}}" nv-file-select
                            uploader="documentUploader" style="display: none;">
                   </label>
                   <br/>
                   <i ng-show="documentUploader.queue.length">
-                        <span ng-show="documentUploader.queue[0].isSuccess"><i
-                          class="fa fa-check"></i></span>
+                        <span ng-show="documentUploader.queue[0].isSuccess"><i class="fa fa-check"></i></span>
 
                     {{documentUploader.queue[0].file.name}},
                     {{

@@ -177,27 +177,27 @@ angular.module('domains')
     };
 
 
-    $scope.createDomain = function () {
-      var modalInstance = $modal.open({
-        templateUrl: 'views/domains/create.html',
-        controller: 'CreateDomainCtrl',
-        size: 'md',
-        backdrop: 'static',
-        keyboard: false,
-        backdropClick: false,
-        resolve: {
-          scope: function () {
-            return 'USER'
-          }
-        }
-      });
-      modalInstance.result.then(
-        function (newDomain) {
-          if (newDomain) {
-            $rootScope.selectDomain(newDomain.domain);
-          }
-        });
-    };
+    // $scope.createDomain = function () {
+    //   var modalInstance = $modal.open({
+    //     templateUrl: 'views/domains/create.html',
+    //     controller: 'CreateDomainCtrl',
+    //     size: 'md',
+    //     backdrop: 'static',
+    //     keyboard: false,
+    //     backdropClick: false,
+    //     resolve: {
+    //       scope: function () {
+    //         return 'USER'
+    //       }
+    //     }
+    //   });
+    //   modalInstance.result.then(
+    //     function (newDomain) {
+    //       if (newDomain) {
+    //         $rootScope.selectDomain(newDomain.domain);
+    //       }
+    //     });
+    // };
 
     $scope.loadDefaultHomeContent = function () {
       DomainsManager.getDefaultHomeContent().then(function (result) {
@@ -248,15 +248,16 @@ angular.module('domains')
 
 angular.module('domains').controller('CreateDomainCtrl', function ($scope, $modalInstance, scope, DomainsManager) {
 
-  $scope.newDomain = {name: null, domain: null};
+  $scope.newDomain = {name: null, domain: null, homeTitle:null};
   $scope.error = null;
   $scope.loading = false;
 
   $scope.submit = function () {
-    if ($scope.newDomain.name != null && $scope.newDomain.name != "" && $scope.newDomain.domain != null && $scope.newDomain.domain != "" && $scope.newDomain.domain.toLowerCase() != "app") {
+    if ($scope.newDomain.name != null && $scope.newDomain.name != ""  && $scope.newDomain.homeTitle != null && $scope.newDomain.homeTitle != "" && $scope.newDomain.name.toLowerCase() != "app") {
       $scope.error = null;
       $scope.loading = true;
-      DomainsManager.create($scope.newDomain.name, $scope.newDomain.domain, scope).then(function (result) {
+      $scope.newDomain.domain = $scope.newDomain.name.replace(/\s+/g, '-').toLowerCase();
+      DomainsManager.create($scope.newDomain.name, $scope.newDomain.domain, scope,$scope.newDomain.title).then(function (result) {
         $scope.loading = false;
         $modalInstance.close(result);
       }, function (error) {

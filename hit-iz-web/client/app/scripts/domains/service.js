@@ -106,9 +106,9 @@ angular.module('domains').factory('DomainsManager', ['$q', '$http',
         );
         return delay.promise;
       },
-      create: function (name, key,scope) {
+      create: function (name, key,scope, homeTitle) {
         var delay = $q.defer();
-        var data = angular.fromJson({'domain': key, 'name': name, 'scope': scope});
+        var data = angular.fromJson({'domain': key, 'name': name, 'scope': scope, 'homeTitle':homeTitle});
         $http.post('api/domains/create', data).then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));

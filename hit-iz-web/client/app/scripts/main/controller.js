@@ -707,6 +707,29 @@ angular.module('main').controller('MainCtrl',
       return userInfoService.isAuthenticated() && (userInfoService.isAdmin() || (userInfoService.isSupervisor() && $rootScope.domain != null && $rootScope.domain.owner === userInfoService.getUsername()));
     };
 
+    $rootScope.createDomain = function () {
+      var modalInstance = $modal.open({
+        templateUrl: 'views/domains/create.html',
+        controller: 'CreateDomainCtrl',
+        size: 'md',
+        backdrop: 'static',
+        keyboard: false,
+        backdropClick: false,
+        resolve: {
+          scope: function () {
+            return 'USER'
+          }
+        }
+      });
+      modalInstance.result.then(
+        function (newDomain) {
+          if (newDomain) {
+            $rootScope.selectDomain(newDomain.domain);
+          }
+        });
+    };
+
+
 
   });
 

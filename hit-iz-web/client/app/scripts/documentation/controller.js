@@ -30,17 +30,7 @@ angular.module('doc')
     };
 
     $scope.initDocumentation = function () {
-      if ($rootScope.isDocumentationManagementSupported() && userInfoService.isAuthenticated()) {
-        // if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
-        // } else {
-        //   $scope.documentsScopes = [$scope.allDocumentsScopes[0]];
-        // }
-        $scope.documentsScopes = $scope.allDocumentsScopes;
-      } else {
-        $scope.documentsScopes = [$scope.allDocumentsScopes[1]];
-      }
-      $scope.selectedScope.key = $scope.documentsScopes[0].key;
-      $scope.selectScope();
+      $scope.selectSectionType('app');
     };
 
     $scope.selectScope = function () {
@@ -53,6 +43,21 @@ angular.module('doc')
 
     $scope.selectSectionType = function (sectionType) {
       $scope.sectionType.key = sectionType;
+      $scope.documentsScopes = [$scope.allDocumentsScopes[1]];
+      if ($rootScope.isDocumentationManagementSupported() && userInfoService.isAuthenticated()) {
+        if ($scope.sectionType.key == 'app') {
+          if (userInfoService.isAdmin()) {
+            $scope.documentsScopes = $scope.allDocumentsScopes;
+          }
+        } else {
+          if ($rootScope.hasWriteAccess()) {
+            $scope.documentsScopes = $scope.allDocumentsScopes;
+          }
+        }
+      }else{
+        $scope.documentsScopes = [$scope.allDocumentsScopes[1]];
+      }
+      $scope.selectedScope.key = $scope.documentsScopes[0].key;
       $scope.selectScope();
     };
 
@@ -335,7 +340,7 @@ angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $
 
   documentUploader.onBeforeUploadItem = function (fileItem) {
     $scope.error = null;
-    $scope.uploadedUrl = null;
+    $scope.uploadedPath = null;
     $scope.loading = true;
     fileItem.formData.push({domain: $scope.document.domain, type: $scope.document.type});
   };
@@ -343,6 +348,7 @@ angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $
   documentUploader.onCompleteItem = function (fileItem, response, status, headers) {
     $scope.loading = false;
     $scope.error = null;
+    $scope.uploadedPath = null;
     if (response.success == false) {
       $scope.error = "Could not upload and process your file.<br>" + response.message;
     } else {
@@ -352,7 +358,7 @@ angular.module('doc').controller('CreateOrEditDocumentCtrl', function ($scope, $
 
 
   $scope.noFileFound = function () {
-    return !$scope.hasUrl && ($scope.uploadedPath === null || $scope.uploadedPath == '');
+    return !$scope.hasUrl && ($scope.uploadedPath === null || $scope.uploadedPath === '');
   };
 
 
@@ -586,7 +592,7 @@ angular.module('doc')
               });
               $scope.initDocs($scope.scope, 100);
             }, function (error) {
-              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+              $scope.actionError = "Sorry, Cannot publish the document. Please try again. \n DEBUG:" + error;
             });
           }
         });
@@ -802,7 +808,7 @@ angular.module('doc')
               });
               $scope.initDocs($scope.scope, 100);
             }, function (error) {
-              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+              $scope.actionError = "Sorry, Cannot publish the document. Please try again. \n DEBUG:" + error;
             });
           }
         });
@@ -1232,7 +1238,7 @@ angular.module('doc')
               });
               $scope.initDocs($scope.scope, 100);
             }, function (error) {
-              $scope.actionError = "Sorry, Cannot delete the document. Please try again. \n DEBUG:" + error;
+              $scope.actionError = "Sorry, Cannot publish the document. Please try again. \n DEBUG:" + error;
             });
           }
         });
@@ -1464,7 +1470,7 @@ angular.module('doc')
               });
               $scope.initDocs($scope.scope, 100);
             }, function (error) {
-              $scope.actionError = "Sorry, Cannot public the document. Please try again. \n DEBUG:" + error;
+              $scope.actionError = "Sorry, Cannot publish the document. Please try again. \n DEBUG:" + error;
             });
           }
         });

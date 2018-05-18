@@ -1724,15 +1724,17 @@ angular.module('cb')
 
 
     $scope.initTestCase = function () {
-      if ($rootScope.isCbManagementSupported() && userInfoService.isAuthenticated()) {
+      if ($rootScope.isCbManagementSupported() && userInfoService.isAuthenticated()  && $rootScope.hasWriteAccess()) {
         $scope.error = null;
         $scope.loading = true;
         $scope.testPlans = null;
-        if (!userInfoService.isAdmin() && !userInfoService.isSupervisor()) {
-          $scope.selectedScope.key = $scope.testPlanScopes[1].key; // GLOBAL
-        } else {
+        if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
+          $scope.testPlanScopes = $scope.allTestPlanScopes;
           var tmp = StorageService.get(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY);
           $scope.selectedScope.key = tmp && tmp != null ? tmp : $scope.testPlanScopes[1].key;
+        } else {
+          $scope.testPlanScopes = [$scope.allTestPlanScopes[0]];
+          $scope.selectedScope.key = $scope.testPlanScopes[0].key; // GLOBAL
         }
         $scope.selectScope();
       }

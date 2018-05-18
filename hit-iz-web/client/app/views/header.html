@@ -18,7 +18,7 @@
             <div id="appsubtitle">{{appInfo.appSubTitle}}</div>
         </a>
 
-      <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length > 1">
+      <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length > 0">
         <label style="color:white">Tool Scope:</label>
         <select class="" name="selectedDomain"
                 ng-change="selectDomain(appInfo.selectedDomain)"
@@ -28,6 +28,9 @@
                   value="{{dom.domain}}">{{dom.name}}
           </option>
         </select>
+
+        <button ng-click="createDomain()" class="btn btn-success btn-xs" title="Create New Tool Scope"><i class="fa fa-plus"></i>Create</button>
+
       </span>
     </div>
     <div class="navbar-collapse collapse" id="appnavi">

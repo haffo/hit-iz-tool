@@ -15,7 +15,7 @@
   <!--<li><a href="#/cb_execution">Test Execution</a></li>-->
   <!--</ul>-->
 
-  <div ng-show="isCbManagementSupported() && isAuthenticated()">
+  <div ng-show="isCbManagementSupported() && isAuthenticated() && hasWriteAccess()">
   <div ng-show="!loading">
 
     <div ng-show="error !== null" style="margin:10px" class="row test-plan-select-container">

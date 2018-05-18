@@ -829,7 +829,7 @@ angular.module('cf')
 
     $scope.initManagement = function () {
       $timeout(function () {
-        if ($rootScope.isCfManagementSupported() && userInfoService.isAuthenticated()) {
+        if ($rootScope.isCfManagementSupported() && userInfoService.isAuthenticated() && $rootScope.hasWriteAccess()) {
           if (userInfoService.isAdmin() || userInfoService.isSupervisor()) {
             $scope.groupScopes = $scope.allGroupScopes;
           } else {
