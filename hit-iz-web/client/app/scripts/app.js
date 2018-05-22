@@ -939,6 +939,11 @@ app.controller('UnknownDomainCtrl', ['$scope', '$modalInstance', 'StorageService
       StorageService.set(StorageService.APP_SELECTED_DOMAIN, $scope.selectedDomain.domain);
       $modalInstance.close($scope.selectedDomain.domain);
     };
+
+    $scope.createNewDomain = function () {
+      $modalInstance.close('New');
+    };
+
   }
 ]);
 

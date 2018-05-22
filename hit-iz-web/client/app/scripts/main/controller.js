@@ -725,8 +725,13 @@ angular.module('main').controller('MainCtrl',
         function (newDomain) {
           if (newDomain) {
             $rootScope.selectDomain(newDomain.domain);
+          }else if($rootScope.domain === null || $rootScope.domain === undefined){
+            $rootScope.reloadPage();
           }
+        }, function(){
+          $rootScope.reloadPage();
         });
+
     };
 
 

@@ -275,7 +275,7 @@
 
             <div class="col-md-8">
 
-              <form name="tsForm" style="margin:0; padding:0; " ng-show="testcase != null || token != null">
+              <form name="tsForm" id="tsForm" style="margin:0; padding:0; " ng-show="testcase != null || token != null">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="panel panel-default">
@@ -403,7 +403,7 @@
                           <!--<input ng-click="profileCheckToggle()" ng-model="profileCheckToggleStatus"-->
                           <!--ng-checked="{{profileCheckToggleStatus}}" type="checkbox">-->
                           <!--</th>-->
-                          <th>Position</th>
+                          <!--<th>Position</th>-->
                           <th>Name</th>
                           <th>Identifier</th>
                           <th>Description</th>
@@ -415,12 +415,12 @@
                           </thead>
                           <tbody>
                           <tr ng-repeat="item in tmpNewMessages">
-                            <td>
-                              <select ng-class="{'input-error': item.position <= 0}" select-min ng-min="1"
-                                      ng-model="item.position" required
-                                      ng-options="position for position in positions(tmpNewMessages)">
-                              </select>
-                            </td>
+                            <!--<td>-->
+                              <!--<select ng-class="{'input-error': item.position <= 0}" select-min ng-min="1"-->
+                                      <!--ng-model="item.position" required-->
+                                      <!--ng-options="position for position in positions(tmpNewMessages)">-->
+                              <!--</select>-->
+                            <!--</td>-->
                             <td>
                               <input class="form-control" ng-model="item.name"
                                      ng-required="true" style="width: 100%;">
@@ -483,6 +483,14 @@
                           <button class="btn btn-md btn-danger" ng-disabled="loading"
                                   ng-click="deleteGroup(selectedNode)"><i class="fa fa-trash"></i>Delete</button>
 
+                           <button
+                             ng-show="testcase.scope === 'USER' && testcase.type =='TestPlan' && (isAdmin() || isSupervisor())"
+                             type="button" class="btn btn-md btn-primary" ng-click="publishTestPlan()"
+                             ng-disabled="tsForm.$invalid || loading">
+                        <i class="fa fa-paper-plane"></i> Make Public
+                      </button>
+
+
                     </span>
 
                     <span class="pull-right">
@@ -496,12 +504,7 @@
                         <i class="fa fa-check"></i> Save
                       </button>
 
-                      <button
-                        ng-show="testcase.scope === 'USER' && testcase.type =='TestPlan' && (isAdmin() || isSupervisor())"
-                        type="button" class="btn btn-md btn-primary" ng-click="publishTestPlan()"
-                        ng-disabled="tsForm.$invalid || loading">
-                        <i class="fa fa-paper-plane"></i> Make Public
-                      </button>
+
 
                     </span>
                   </div>

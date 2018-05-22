@@ -570,8 +570,10 @@
     Tool Scope Not Found
   </div>
   <div class="modal-body error-dlg">
-    <div style="text-align:center">
-      <label>The selected tool scope {{domain}} is unknown. Please select a new tool scope:</label>
+    <div style="margin-bottom: 20px">
+      <p style="color:red;text-align:center">No Tool Scope selected</p>
+      <hr />
+      <span style="">Select Tool Scope:</span>
       <select class="" name="selectedDomain"
               ng-change="selectDomain()"
               ng-model="selectedDomain.domain" required
@@ -580,7 +582,10 @@
                 value="{{dom.domain}}">{{dom.name}}
         </option>
       </select>
+      <button ng-show="isAuthenticated()"  ng-click="createNewDomain()" class="btn btn-primary btn-md" title="Create New Tool Scope"><i class="fa fa-plus"></i>Create</button>
+
     </div>
   </div>
 </script>
+
 

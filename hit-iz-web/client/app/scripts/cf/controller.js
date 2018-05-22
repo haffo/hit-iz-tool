@@ -1,7 +1,5 @@
 'use strict';
 
-'use strict';
-
 angular.module('cf')
   .controller('CFEnvCtrl', ['$scope', '$window', '$rootScope', 'CF', 'StorageService', '$timeout', 'TestCaseService', 'TestStepService', '$routeParams', '$location', 'userInfoService', '$modalStack', '$modal', function ($scope, $window, $rootScope, CB, StorageService, $timeout, TestCaseService, TestStepService, $routeParams, $location, userInfoService, $modalStack, $modal) {
 
@@ -864,6 +862,11 @@ angular.module('cf')
                   } else {
                     $scope.profileMessages = response.profiles;
                     $scope.tmpNewMessages = $scope.filterMessages($scope.profileMessages);
+                    if($scope.tmpNewMessages.length > 0) {
+                      for (var i = 0; i < $scope.tmpNewMessages.length; i++) {
+                        $scope.tmpNewMessages[i]['position'] = i + 1;
+                      }
+                    }
                     $scope.originalProfileMessages = angular.copy($scope.profileMessages);
 
                   }
@@ -1357,9 +1360,9 @@ angular.module('cf')
     };
 
 
-    $scope.publishTestPlan = function () {
-      $scope.error = null;
-      $scope.executionError = null;
+    $scope.publishGroup = function () {
+      $scope.error =null;
+      $scope.executionError =[];
       var modalInstance = $modal.open({
         templateUrl: 'views/cf/manage/confirm-publish-group.html',
         controller: 'ConfirmDialogCtrl',
@@ -1374,7 +1377,8 @@ angular.module('cf')
             $scope.executionError = null;
             $scope.loading = true;
             $scope.error = null;
-            $scope.executionError = null;
+            $scope.executionError = [];
+
             CFTestPlanManager.saveTestPlan("hl7v2", $scope.testcase.scope, $scope.token, $scope.getUpdatedProfiles(), $scope.getRemovedProfiles(), $scope.getAddedProfiles(), $scope.testcase).then(function (result) {
               if (result.status === "SUCCESS") {
                 CFTestPlanManager.publishTestPlan($scope.testcase.groupId).then(function (result) {
@@ -1395,6 +1399,7 @@ angular.module('cf')
 
                       $scope.uploaded = false;
                       $scope.profileMessages = [];
+                      $scope.profileMessagesTmp = [];
                       $scope.oldProfileMessages = [];
                       $scope.tmpNewMessages = [];
                       $scope.tmpOldMessages = [];
@@ -1413,17 +1418,17 @@ angular.module('cf')
                       });
                     }
                   } else {
-                     $scope.executionError = result.message;
+                     $scope.executionError.push(response.debugError);
                   }
                   $scope.loading = false;
                 }, function (error) {
                   $scope.loading = false;
-                  $scope.executionError = error.data;
+                  $scope.executionError.push(error.data);
                 });
               }
             }, function (error) {
               $scope.loading = false;
-              $scope.executionError = error.data;
+              $scope.executionError.push(error.data);
             });
           }
         });
@@ -1442,7 +1447,7 @@ angular.module('cf')
     $scope.saveTestPlan = function () {
       $scope.loading = true;
       $scope.error = null;
-      $scope.executionError = null;
+      $scope.executionError =[];
       CFTestPlanManager.saveTestPlan("hl7v2", $scope.testcase.scope, $scope.token, $scope.getUpdatedProfiles(), $scope.getRemovedProfiles(), $scope.getAddedProfiles(), $scope.testcase).then(function (result) {
         if (result.status === "SUCCESS") {
           $scope.selectedNode = $scope.testCases[0];
@@ -1501,6 +1506,7 @@ angular.module('cf')
 
             $scope.uploaded = false;
             $scope.profileMessages = [];
+            $scope.profileMessagesTmp = [];
             $scope.oldProfileMessages = [];
             $scope.tmpNewMessages = [];
             $scope.tmpOldMessages = [];
@@ -1529,8 +1535,7 @@ angular.module('cf')
           //   delay: 10000
           // });
 
-          $scope.executionError = result.message;
-
+          $scope.executionError.push(response.debugError);
         }
         $scope.loading = false;
       }, function (error) {
@@ -1542,8 +1547,7 @@ angular.module('cf')
         //   delay: 10000
         // });
 
-        $scope.executionError = error.data;
-
+        $scope.executionError.push(error.data);
 
       });
     };
@@ -1614,7 +1618,7 @@ angular.module('cf')
 
     $scope.reset = function () {
       $scope.error = null;
-      $scope.executionError = null;
+      $scope.executionError =[];
       var modalInstance = $modal.open({
         templateUrl: 'views/cf/manage/confirm-reset-group.html',
         controller: 'ConfirmDialogCtrl',
@@ -1633,6 +1637,11 @@ angular.module('cf')
 
             $scope.profileMessages = angular.copy($scope.originalProfileMessages);
             $scope.tmpNewMessages = $scope.filterMessages($scope.profileMessages);
+            if($scope.tmpNewMessages.length > 0) {
+              for (var i = 0; i < $scope.tmpNewMessages.length; i++) {
+                $scope.tmpNewMessages[i]['position'] = i + 1;
+              }
+            }
             $scope.oldProfileMessages = angular.copy($scope.originalOldProfileMessages);
             $scope.tmpOldMessages = $scope.filterMessages($scope.oldProfileMessages);
 
@@ -1649,8 +1658,9 @@ angular.module('cf')
     };
 
     $scope.cancelToken = function () {
-      $scope.error = null;
-      $scope.executionError = null;
+      $scope.error =null;
+      $scope.executionError =[];
+
       if ($scope.token != null) {
         CFTestPlanManager.deleteToken($scope.token).then(function (result) {
           $scope.token = null;
@@ -1664,6 +1674,7 @@ angular.module('cf')
           $scope.profileValidationErrors = [];
           $scope.valueSetValidationErrors = [];
           $scope.constraintValidationErrors = [];
+          $scope.executionError = [];
           Notification.success({
             message: "Changes removed successfully!",
             templateUrl: "NotificationSuccessTemplate.html",
@@ -1682,7 +1693,7 @@ angular.module('cf')
           // });
 
           $scope.executionError = error.data;
-
+          $scope.executionError.push(error.data);
 
         });
       }
@@ -1691,6 +1702,11 @@ angular.module('cf')
     $scope.deleteNewProfile = function (profile) {
       profile['removed'] = true;
       $scope.tmpNewMessages = $scope.filterMessages($scope.profileMessages);
+      if($scope.tmpNewMessages.length > 0) {
+        for (var i = 0; i < $scope.tmpNewMessages.length; i++) {
+          $scope.tmpNewMessages[i]['position'] = i + 1;
+        }
+      }
 
     };
 
@@ -1758,11 +1774,25 @@ angular.module('cf')
       var modalInstance = $modal.open({
         templateUrl: 'views/cf/manage/upload.html',
         controller: 'UploadCtrl',
+        resolve: {
+            isValidationOnly: function () {
+                return false;
+            }
+        },
+        scope: $scope,
         controllerAs: 'ctrl',
         windowClass: 'upload-modal',
         backdrop: 'static',
         keyboard: false
       });
+
+      $scope.close = function(params) {
+          modalInstance.close(params);
+      };
+
+      $scope.dismissModal = function() {
+          modalInstance.dismiss('cancel');
+      };
 
       modalInstance.result.then(
         function (result, profiles) {
@@ -1776,6 +1806,11 @@ angular.module('cf')
               $scope.profileMessages.push(profile);
             }
             $scope.tmpNewMessages = $scope.filterMessages($scope.profileMessages);
+            if($scope.tmpNewMessages.length > 0) {
+              for (var i = 0; i < $scope.tmpNewMessages.length; i++) {
+                $scope.tmpNewMessages[i]['position'] = i + 1;
+              }
+            }
           }
         },
         function (result) {
@@ -1833,21 +1868,29 @@ angular.module('cf')
 
 
 angular.module('cf')
-  .controller('UploadCtrl', ['$scope', '$http', '$window', '$modal', '$filter', '$rootScope', '$timeout', 'StorageService', 'TestCaseService', 'TestStepService', 'FileUploader', 'Notification', '$modalInstance', 'userInfoService', 'CFTestPlanManager', function ($scope, $http, $window, $modal, $filter, $rootScope, $timeout, StorageService, TestCaseService, TestStepService, FileUploader, Notification, $modalInstance, userInfoService, CFTestPlanManager) {
+  .controller('UploadCtrl', ['$scope', '$http', '$window', '$modal', '$filter', '$rootScope', '$timeout', 'StorageService', 'TestCaseService', 'TestStepService', 'FileUploader', 'Notification', 'userInfoService', 'CFTestPlanManager','isValidationOnly', function ($scope, $http, $window, $modal, $filter, $rootScope, $timeout, StorageService, TestCaseService, TestStepService, FileUploader, Notification, userInfoService, CFTestPlanManager,isValidationOnly) {
+
 
     FileUploader.FileSelect.prototype.isEmptyAfterSelection = function () {
       return true;
     };
     $scope.step = 0;
-
+    $scope.isValidationOnly = isValidationOnly;
     $scope.profileValidationErrors = [];
     $scope.valueSetValidationErrors = [];
     $scope.constraintValidationErrors = [];
 
+    $scope.profileUploadDone = false;
+    $scope.vsUploadDone = false;
+    $scope.constraintsUploadDone = false;
+
+    $scope.validationReport = "";
+    $scope.executionError = [];
+
 
     var profileUploader = $scope.profileUploader = new FileUploader({
       url: 'api/cf/hl7v2/management/uploadProfiles',
-      autoUpload: true,
+      autoUpload: false,
       filters: [{
         name: 'xmlFilter',
         fn: function (item) {
@@ -1858,7 +1901,7 @@ angular.module('cf')
 
     var vsUploader = $scope.vsUploader = new FileUploader({
       url: 'api/cf/hl7v2/management/uploadValueSets',
-      autoUpload: true,
+      autoUpload: false,
       filters: [{
         name: 'xmlFilter',
         fn: function (item) {
@@ -1867,9 +1910,12 @@ angular.module('cf')
       }]
     });
 
+
+
+
     var constraintsUploader = $scope.constraintsUploader = new FileUploader({
       url: 'api/cf/hl7v2/management/uploadConstraints',
-      autoUpload: true,
+      autoUpload: false,
       filters: [{
         name: 'xmlFilter',
         fn: function (item) {
@@ -1903,43 +1949,40 @@ angular.module('cf')
 
     vsUploader.onCompleteItem = function (fileItem, response, status, headers) {
       if (response.success == false) {
-        Notification.error({
-          message: "The value set file you uploaded is not valid, please check and correct the error(s) and try again",
-          templateUrl: "NotificationErrorTemplate.html",
-          scope: $rootScope,
-          delay: 10000
-        });
+
         $scope.step = 1;
-        $scope.valueSetValidationErrors = angular.fromJson(response.errors);
+        $scope.executionError.push(response.debugError);
+      }else{
+    	  	$scope.vsUploadDone = true;
+    	  	if ($scope.vsUploadDone === true && $scope.profileUploadDone === true && $scope.constraintsUploadDone === true){
+    	  		$scope.validatefiles($scope.token);
+    	  	}
       }
     };
 
     constraintsUploader.onCompleteItem = function (fileItem, response, status, headers) {
       if (response.success == false) {
-        Notification.error({
-          message: "The constraint file you uploaded is not valid, please check and correct the error(s) and try again",
-          templateUrl: "NotificationErrorTemplate.html",
-          scope: $rootScope,
-          delay: 10000
-        });
         $scope.step = 1;
-        $scope.constraintValidationErrors = angular.fromJson(response.errors);
+        $scope.executionError.push(response.debugError);
+      }else{
+    	    $scope.constraintsUploadDone = true;
+    	    if ($scope.vsUploadDone === true && $scope.profileUploadDone === true && $scope.constraintsUploadDone === true){
+    	  		$scope.validatefiles($scope.token);
+    	  	}
       }
     };
 
     profileUploader.onCompleteItem = function (fileItem, response, status, headers) {
 
       if (response.success == false) {
-        Notification.error({
-          message: "The profile file you uploaded is not valid, please check and correct the error(s) and try again",
-          templateUrl: "NotificationErrorTemplate.html",
-          scope: $rootScope,
-          delay: 10000
-        });
         $scope.step = 1;
-        $scope.profileValidationErrors = angular.fromJson(response.errors);
+        $scope.executionError.push(response.debugError);
       } else {
-        $scope.profileMessages = response.profiles;
+    	  	$scope.profileUploadDone = true;
+    	  	if ($scope.vsUploadDone === true && $scope.profileUploadDone === true && $scope.constraintsUploadDone === true){
+    	  		$scope.validatefiles($scope.token);
+    	  	}
+        $scope.profileMessagesTmp = response.profiles;
 
       }
 
@@ -1977,6 +2020,8 @@ angular.module('cf')
       $scope.profileValidationErrors = [];
       $scope.valueSetValidationErrors = [];
       $scope.constraintValidationErrors = [];
+      $scope.validationReport = "";
+      $scope.executionError = [];
       fileItem.formData.push({token: $scope.token});
       fileItem.formData.push({domain: $rootScope.domain.domain});
 
@@ -1984,62 +2029,60 @@ angular.module('cf')
 
     zipUploader.onCompleteItem = function (fileItem, response, status, headers) {
 
-      if (response.success == false) {
-        if (response.debugError === undefined) {
-          Notification.error({
-            message: "The zip file you uploaded is not valid, please check and correct the error(s) and try again",
-            templateUrl: "NotificationErrorTemplate.html",
-            scope: $rootScope,
-            delay: 10000
-          });
-          $scope.profileValidationErrors = angular.fromJson(response.profileErrors);
-          $scope.valueSetValidationErrors = angular.fromJson(response.constraintsErrors);
-          $scope.constraintValidationErrors = angular.fromJson(response.vsErrors);
-          $scope.step = 1;
-        } else {
-          Notification.error({
-            message: "The tool could not upload and process your file.<br>" + response.message + '<br>' + response.debugError,
-            templateUrl: "NotificationErrorTemplate.html",
-            scope: $rootScope,
-            delay: 10000
-          });
-          $scope.step = 1;
-        }
+    		if($scope.isValidationOnly){
+    			if (response.report !== undefined){
+    				$scope.validationReport = response.report;
+    		        $scope.step = 1;
+    			}else if (response.debugError !== undefined){
+    				$scope.executionError.push(response.debugError);
+    		        $scope.step = 1;
+    			}
+    		}else if (response.success == false ) {
+	        if (response.debugError === undefined) {
+	          Notification.error({
+	            message: "The zip file you uploaded is not valid, please check and correct the error(s) and try again",
+	            templateUrl: "NotificationErrorTemplate.html",
+	            scope: $rootScope,
+	            delay: 10000
+	          });
+	          $scope.validationReport = response.report;
+	          $scope.step = 1;
+	        } else {
+	        	$scope.executionError.push(response.debugError);
+	          $scope.step = 1;
+	        }
       } else {
         $scope.token = response.token;
-        CFTestPlanManager.getTokenProfiles("hl7v2", $scope.token).then(
-          function (response) {
-            if (response.success == false) {
-              if (response.debugError === undefined) {
-                Notification.error({
-                  message: "The zip file you uploaded is not valid, please check and correct the error(s)",
-                  templateUrl: "NotificationErrorTemplate.html",
-                  scope: $rootScope,
-                  delay: 10000
-                });
-                $scope.step = 1;
-                $scope.profileValidationErrors = angular.fromJson(response.profileErrors);
-                $scope.valueSetValidationErrors = angular.fromJson(response.constraintsErrors);
-                $scope.constraintValidationErrors = angular.fromJson(response.vsErrors);
-              } else {
-                Notification.error({
-                  message: "  " + response.message + '<br>' + response.debugError,
-                  templateUrl: "NotificationErrorTemplate.html",
-                  scope: $rootScope,
-                  delay: 10000
-                });
-                $scope.step = 1;
-              }
-            } else {
-              $scope.profileMessages = response.profiles;
+        	CFTestPlanManager.getTokenProfiles("hl7v2", $scope.token).then(
+        	          function (response) {
+        	            if (response.success == false) {
+        	              if (response.debugError === undefined) {
+        	                Notification.error({
+        	                  message: "The zip file you uploaded is not valid, please check and correct the error(s)",
+        	                  templateUrl: "NotificationErrorTemplate.html",
+        	                  scope: $rootScope,
+        	                  delay: 10000
+        	                });
+        	                $scope.step = 1;
+        	                $scope.validationReport = response.report;
+        	              } else {
+        	                Notification.error({
+        	                  message: "  " + response.message + '<br>' + response.debugError,
+        	                  templateUrl: "NotificationErrorTemplate.html",
+        	                  scope: $rootScope,
+        	                  delay: 10000
+        	                });
+        	                $scope.step = 1;
+        	              }
+        	            } else {
+        	              $scope.profileMessages = response.profiles;
+        	              $scope.addSelectedTestCases();
+        	            }
+        	          },
+        	          function (response) {
 
-              $scope.addSelectedTestCases();
-            }
-          },
-          function (response) {
-
-          }
-        );
+        	          }
+        	        );
       }
     };
 
@@ -2070,22 +2113,59 @@ angular.module('cf')
       return $scope.profileMessages;
     };
 
+
+    $scope.validatefiles = function(token){
+    		$scope.loading = true;
+    		$http.get("api/cf/hl7v2/management/validate", {params:{token: token}}).then(
+                function (response) {
+                	 if (response.data.success == true) {
+                		 $scope.profileMessages = $scope.profileMessagesTmp;
+                    	 $scope.profileMessagesTmp = [];
+                    	 $scope.addSelectedTestCases();
+                	 }else{
+                		 $scope.profileMessagesTmp = [];
+                		 $scope.step = 1;
+                		 if( response.data.report){
+                			 $scope.validationReport = response.data.report;
+                		 }
+                		 if(response.data.debugError){
+                			 $scope.executionError.push(response.data.debugError);
+                		 }
+
+                	 }
+                	 $scope.loading = false;
+                },
+                function (response) {
+                		$scope.profileMessagesTmp = [];
+                		$scope.step = 1;
+                		$scope.executionError.push(response.data.debugError);
+                		$scope.loading = false;
+                }
+          );
+    };
+
+
     // $scope.profileCheckToggle = function () {
     //   $scope.profileMessages.forEach(function (p) {
     //     p.activated = $scope.profileCheckToggleStatus;
     //   });
     // };
 
-    // $scope.upload = function (value) {
-    //   $scope.step = 0;
-    //   $scope.token = $scope.generateUUID();
-    //   $scope.profileValidationErrors = [];
-    //   $scope.valueSetValidationErrors = [];
-    //   $scope.constraintValidationErrors = [];
-    //   vsUploader.uploadAll();
-    //   constraintsUploader.uploadAll();
-    //   profileUploader.uploadAll();
-    // };
+     $scope.upload = function (value) {
+       $scope.step = 0;
+       $scope.token = $scope.generateUUID();
+       $scope.profileValidationErrors = [];
+       $scope.valueSetValidationErrors = [];
+       $scope.constraintValidationErrors = [];
+       $scope.validationReport = "";
+       $scope.executionError = [];
+       $scope.profileUploadDone = false;
+       $scope.vsUploadDone = false;
+       $scope.constraintsUploadDone = false;
+       vsUploader.uploadAll();
+       constraintsUploader.uploadAll();
+       profileUploader.uploadAll();
+     };
 
     // zipUploader.onBeforeUploadItem = function (fileItem) {
     //   $scope.profileValidationErrors = [];
@@ -2094,18 +2174,24 @@ angular.module('cf')
     //   $scope.token = null;
     // };
 
-    // $scope.remove = function (value) {
-    //   $scope.profileValidationErrors = [];
-    //   $scope.valueSetValidationErrors = [];
-    //   $scope.constraintValidationErrors = [];
-    //   profileUploader.clearQueue();
-    //   vsUploader.clearQueue();
-    //   constraintsUploader.clearQueue();
-    // };
+     $scope.clear = function (value) {
+       $scope.profileValidationErrors = [];
+       $scope.valueSetValidationErrors = [];
+       $scope.constraintValidationErrors = [];
+       $scope.validationReport = "";
+       $scope.executionError = [];
+       $scope.profileUploadDone = false;
+       $scope.vsUploadDone = false;
+       $scope.constraintsUploadDone = false;
+       profileUploader.clearQueue();
+       vsUploader.clearQueue();
+       constraintsUploader.clearQueue();
+     };
 
-    $scope.dismissModal = function () {
-      $modalInstance.dismiss();
-    };
+//    $scope.dismissModal = function () {
+//    		console.log($scope);
+//    		$scope.$modalInstance.dismiss('cancel');
+//    };
 
     $scope.addSelectedTestCases = function () {
       $scope.loading = true;
@@ -2115,44 +2201,9 @@ angular.module('cf')
         scope: $rootScope,
         delay: 5000
       });
-      $modalInstance.close({token: $scope.token, profiles: $scope.getSelectedTestcases()});
+      $scope.close({token: $scope.token, profiles: $scope.getSelectedTestcases()});
 
-      // $http.post('api/cf/hl7v2/management/profiles/add', {
-      //   groupId: $scope.testcase.groupId,
-      //   testcasename: $scope.testcase.name,
-      //   testcasedescription: $scope.testcase.description,
-      //   testcases: $scope.getSelectedTestcases(),
-      //   scope: $scope.testcase.scope,
-      //   token: $scope.token
-      // }).then(function (result) {
-      //
-      //   if (result.status === "SUCCESS") {
-      //     Notification.success({
-      //       message: "Profile Added !",
-      //       templateUrl: "NotificationSuccessTemplate.html",
-      //       scope: $rootScope,
-      //       delay: 5000
-      //     });
-      //     $modalInstance.close({testPlanId: result.testPlanId, scope: $scope.testcase.scope});
-      //   } else {
-      //     Notification.error({
-      //       message: result.message + '<br><br>Debug message:<br>' + result.debugError,
-      //       templateUrl: "NotificationErrorTemplate.html",
-      //       scope: $rootScope,
-      //       delay: 20000
-      //     });
-      //   }
-      //   $scope.loading = false;
-      // }, function (error) {
-      //   $scope.loading = false;
-      //   Notification.error({
-      //     message: error.data,
-      //     templateUrl: "NotificationErrorTemplate.html",
-      //     scope: $rootScope,
-      //     delay: 10000
-      //   });
-      // });
-    }
+    };
 
     $scope.getTotalProgress = function () {
       var numberOfactiveQueue = 0;
@@ -2171,7 +2222,7 @@ angular.module('cf')
         progress += constraintsUploader.progress;
       }
       return (progress) / numberOfactiveQueue;
-    }
+    };
 
     $scope.generateUUID = function () {
       var d = new Date().getTime();
@@ -2262,6 +2313,3 @@ angular.module('cf').controller('CreateTestStepGroupCtrl', function ($scope, $mo
     $modalInstance.dismiss('cancel');
   };
 });
-
-
-
