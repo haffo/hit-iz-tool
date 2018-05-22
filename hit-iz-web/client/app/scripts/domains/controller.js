@@ -257,7 +257,7 @@ angular.module('domains').controller('CreateDomainCtrl', function ($scope, $moda
       $scope.error = null;
       $scope.loading = true;
       $scope.newDomain.domain = $scope.newDomain.name.replace(/\s+/g, '-').toLowerCase();
-      DomainsManager.create($scope.newDomain.name, $scope.newDomain.domain, scope,$scope.newDomain.title).then(function (result) {
+      DomainsManager.create($scope.newDomain.name, $scope.newDomain.domain, scope,$scope.newDomain.homeTitle).then(function (result) {
         $scope.loading = false;
         $modalInstance.close(result);
       }, function (error) {
