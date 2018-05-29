@@ -120,6 +120,7 @@ angular.module('domains')
         $scope.loadingAction = false;
         $scope.setSuccessAlert("Tool scope saved successfully!");
         $rootScope.domain = angular.copy(result);
+        $rootScope.reloadPage();
       }, function (error) {
         $scope.loadingAction = false;
         $scope.setErrorAlert(error);
@@ -166,6 +167,7 @@ angular.module('domains')
                 $scope.loadingAction = false;
                 $scope.setSuccessAlert("Your  tool scope is now public. Please note only public test plans will be visible to users!");
                 $rootScope.domain = angular.copy(result);
+                $rootScope.reloadPage();
               }, function (error) {
                 $scope.loadingAction = false;
                 $scope.setErrorAlert(error);
