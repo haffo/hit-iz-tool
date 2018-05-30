@@ -1391,7 +1391,7 @@ angular.module('cf')
                       testPlan.name = $scope.testcase['name'];
                       testPlan.description = $scope.testcase['description'];
                       Notification.success({
-                        message: "Profile GroupX saved successfully!",
+                        message: "Profile Group saved successfully!",
                         templateUrl: "NotificationSuccessTemplate.html",
                         scope: $rootScope,
                         delay: 5000
@@ -1415,6 +1415,9 @@ angular.module('cf')
                         templateUrl: "NotificationSuccessTemplate.html",
                         scope: $rootScope,
                         delay: 5000
+                      });
+                      $timeout(function () {
+                        $location.url("/cf?nav=manage&&scope=" + $scope.selectedScope.key);
                       });
                     }
                   } else {
@@ -1474,6 +1477,9 @@ angular.module('cf')
 
             $scope.token = null;
             $scope.selectGroup($scope.selectedNode);
+            $timeout(function () {
+              $location.url("/cf?nav=manage&&scope=" + $scope.selectedScope.key);
+            });
           }
         } else {
           $scope.executionError = result.message;
@@ -1515,6 +1521,10 @@ angular.module('cf')
 
             $scope.token = null;
             $scope.selectGroup($scope.selectedNode);
+            $timeout(function () {
+              $location.url("/cf?nav=manage&&scope=" + $scope.selectedScope.key);
+            });
+
             // if($scope.uploaded == true){
             //   $scope.uploaded = false;
             //   $scope.profileMessages = [];
