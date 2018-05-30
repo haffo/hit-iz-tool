@@ -2256,9 +2256,9 @@ angular.module('cf').controller('UploadTokenCheckCtrl', ['$scope', '$http', 'CF'
 
     //check if logged in
     if (!userInfoService.isAuthenticated()) {
-      $scope.$emit('event:loginRequestWithAuth', $scope.auth, '/addprofiles?x=' + $scope.token + 'd=' + $scope.domain);
+      $scope.$emit('event:loginRequestWithAuth', $scope.auth, '/addprofiles?x=' + $scope.token + '&d=' + $scope.domain);
     } else {
-      $location.url('/addprofiles?x=' + $scope.token + 'd=' + $scope.domain);
+      $location.url('/addprofiles?x=' + $scope.token + '&d=' + $scope.domain);
     }
   }
 

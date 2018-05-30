@@ -24,9 +24,9 @@
       <div style="margin:10px">
         <div class="row test-plan-select-container" style="margin-bottom: 10px">
           <!--<div class="col-md-12">-->
-            <!--<div class="pull-right">-->
-              <!--<button ng-click="createDomain()" class="btn btn-info"><i class="fa fa-plus"></i>Create Tool Scope</button>-->
-            <!--</div>-->
+          <!--<div class="pull-right">-->
+          <!--<button ng-click="createDomain()" class="btn btn-info"><i class="fa fa-plus"></i>Create Tool Scope</button>-->
+          <!--</div>-->
           <!--</div>-->
           <div class="col-md-12" ng-if="alertMessage != null && alertMessage.message != null"
                style="margin-top:10px">
@@ -55,6 +55,8 @@
           <div class="col-md-12" style="margin-bottom: 10px" ng-show="userDomain != null">
             <h3>
               <span>Tool Scope: {{userDomain.name}}</span>
+
+
               <span class="pull-right">
               <button title="Reset"
                       type="button"
@@ -69,6 +71,17 @@
                        ng-click="saveDomain()">
                                     <i class="fa fa-check"></i>Save
                                 </button>
+
+
+              <button title="Make Public" ng-if="userDomain.scope === 'USER' && canPublish()"
+                      type="button"
+                      ng-disabled="domainForm.$invalid"
+                      class="btn btn-md btn-info"
+                      ng-click="publishDomain()">
+                                    <i class="fa fa-check"></i>Make Public
+              </button>
+
+
             </span>
             </h3>
             <hr/>
@@ -91,30 +104,30 @@
                     </div>
 
                     <!--<div class='form-group control-group'>-->
-                      <!--<label class='col-md-2 control-label'>Show</label>-->
-                      <!--<div class='controls col-md-6'>-->
-                        <!--<div class="btn-group btn-group-md" role="group" aria-label="...">-->
-                          <!--<button class="btn btn-cf-outline"-->
-                                  <!--ng-click="userDomain.disabled = false; "-->
-                                  <!--ng-class="{'active':userDomain.disabled === false}"-->
-                          <!--&gt;Yes-->
-                          <!--</button>-->
-                          <!--<button class="btn btn-cf-outline"-->
-                                  <!--ng-click="userDomain.disabled = true; "-->
-                                  <!--ng-class="{'active':userDomain.disabled === true}"-->
-                          <!--&gt;No-->
-                          <!--</button>-->
-                        <!--</div>-->
-                      <!--</div>-->
+                    <!--<label class='col-md-2 control-label'>Show</label>-->
+                    <!--<div class='controls col-md-6'>-->
+                    <!--<div class="btn-group btn-group-md" role="group" aria-label="...">-->
+                    <!--<button class="btn btn-cf-outline"-->
+                    <!--ng-click="userDomain.disabled = false; "-->
+                    <!--ng-class="{'active':userDomain.disabled === false}"-->
+                    <!--&gt;Yes-->
+                    <!--</button>-->
+                    <!--<button class="btn btn-cf-outline"-->
+                    <!--ng-click="userDomain.disabled = true; "-->
+                    <!--ng-class="{'active':userDomain.disabled === true}"-->
+                    <!--&gt;No-->
+                    <!--</button>-->
+                    <!--</div>-->
+                    <!--</div>-->
                     <!--</div>-->
                     <!--<div class='form-group control-group'>-->
-                      <!--<label for='domainKey' class='col-md-2 control-label'>Key</label>-->
-                      <!--<div class='controls col-md-6'>-->
-                        <!--<input required disabled-->
-                               <!--class='form-control' name='domainKey'-->
-                               <!--id='domainKey' type='text'-->
-                               <!--ng-model='userDomain.domain'>-->
-                      <!--</div>-->
+                    <!--<label for='domainKey' class='col-md-2 control-label'>Key</label>-->
+                    <!--<div class='controls col-md-6'>-->
+                    <!--<input required disabled-->
+                    <!--class='form-control' name='domainKey'-->
+                    <!--id='domainKey' type='text'-->
+                    <!--ng-model='userDomain.domain'>-->
+                    <!--</div>-->
                     <!--</div>-->
 
                     <div class='form-group control-group'>
@@ -141,8 +154,8 @@
                       <label for='domainHomeContent' class='col-md-2 control-label'>Home Content</label>
                       <div class='controls col-md-6'>
                         <!--<div class="pull-right" style="margin-bottom:5px">-->
-                          <!--<button class="btn btn-default btn-md" ng-click="loadDefaultHomeContent()">Load Example-->
-                          <!--</button>-->
+                        <!--<button class="btn btn-default btn-md" ng-click="loadDefaultHomeContent()">Load Example-->
+                        <!--</button>-->
                         <!--</div>-->
                         <textarea
                           class='form-control' name='domainHomeContent'
@@ -245,15 +258,7 @@
                                     <i class="fa fa-check"></i>Delete
                                 </button>
             </span>
-                <span class="pull-right">
-              <button title="Make Public" ng-if="userDomain.scope === 'USER' && canPublish()"
-                      type="button"
-                      ng-disabled="domainForm.$invalid"
-                      class="btn btn-md btn-info"
-                      ng-click="publishDomain()">
-                                    <i class="fa fa-check"></i>Make Public
-                                </button>
-            </span>
+
               </div>
 
               <div>

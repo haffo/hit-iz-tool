@@ -485,7 +485,7 @@
 
                            <button
                              ng-show="testcase.scope === 'USER' && testcase.type =='TestPlan' && (isAdmin() || isSupervisor())"
-                             type="button" class="btn btn-md btn-primary" ng-click="publishTestPlan()"
+                             type="button" class="btn btn-md btn-primary" ng-click="publishGroup()"
                              ng-disabled="tsForm.$invalid || loading">
                         <i class="fa fa-paper-plane"></i> Make Public
                       </button>
