@@ -45,16 +45,10 @@ angular.module('doc')
       $scope.sectionType.key = sectionType;
       $scope.documentsScopes = [$scope.allDocumentsScopes[1]];
       if ($rootScope.isDocumentationManagementSupported() && userInfoService.isAuthenticated()) {
-        if ($scope.sectionType.key == 'app') {
-          if (userInfoService.isAdmin()) {
-            $scope.documentsScopes = $scope.allDocumentsScopes;
-          }
-        } else {
-          if ($rootScope.hasWriteAccess()) {
-            $scope.documentsScopes = $scope.allDocumentsScopes;
-          }
+        if (($scope.sectionType.key == 'app' && userInfoService.isAdmin()) || $rootScope.hasWriteAccess()) {
+          $scope.documentsScopes = $scope.allDocumentsScopes;
         }
-      }else{
+       }else{
         $scope.documentsScopes = [$scope.allDocumentsScopes[1]];
       }
       $scope.selectedScope.key = $scope.documentsScopes[0].key;

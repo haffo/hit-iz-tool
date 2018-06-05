@@ -662,8 +662,9 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
 
   TestCaseService.prototype.buildCFTestCases = function (node) {
 
-    if (node.type === 'TestObject' || node.type === 'TestStepGroup') {
-      node.label = node.position + "." + node.name;
+    // if (node.type === 'TestObject' || node.type === 'TestStepGroup') {
+    if (node.type === 'TestObject') {
+        node.label = node.position + "." + node.name;
     } else {
       node.label = node.name;
     }

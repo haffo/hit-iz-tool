@@ -930,6 +930,7 @@ angular.module('cf')
         $scope.loadingTP = true;
         CFTestPlanManager.getTestPlan($scope.selectedTP.id).then(function (testPlan) {
           $scope.testCases = [testPlan];
+          $scope.testcase = null;
           $scope.generateTreeNodes(testPlan);
           StorageService.set(StorageService.CF_MANAGE_SELECTED_TESTPLAN_ID_KEY, $scope.selectedTP.id);
           $scope.loadingTP = false;
