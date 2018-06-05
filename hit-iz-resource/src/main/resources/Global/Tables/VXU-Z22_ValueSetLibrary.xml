@@ -1964,13 +1964,11 @@
 			<ValueElement Value="09" CodeSystem="CVX" DisplayName="Td (adult), adsorbed"/>
 			<ValueElement Value="115" CodeSystem="CVX" DisplayName="Tdap"/>
 			<ValueElement Value="21" CodeSystem="CVX" DisplayName="varicella"/>
-			
 			<ValueElement Value="187" CodeSystem="CVX" DisplayName="zoster vaccine recombinant"/>
 			<ValueElement Value="121" CodeSystem="CVX" DisplayName="zoster live"/>
-			
-			
 			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax Vaccine VIS"/>
 			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax VIS"/>
+			<ValueElement Value="189" CodeSystem="CVX" DisplayName="HepB-CpG"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
 	<ValueSetDefinitions Group="HL7" Order="3">
