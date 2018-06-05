@@ -1412,7 +1412,7 @@ angular.module('cf')
                       $scope.selectScope();
                       $scope.selectGroup($scope.selectedNode);
                       Notification.success({
-                        message: "Test Plan has been successfully published !",
+                        message: "Profile Group has been successfully published !",
                         templateUrl: "NotificationSuccessTemplate.html",
                         scope: $rootScope,
                         delay: 5000
@@ -1462,7 +1462,7 @@ angular.module('cf')
             testPlan.name = $scope.testcase['name'];
             testPlan.description = $scope.testcase['description'];
             Notification.success({
-              message: "Profile GroupX saved successfully!",
+              message: "Profile Group saved successfully!",
               templateUrl: "NotificationSuccessTemplate.html",
               scope: $rootScope,
               delay: 5000
