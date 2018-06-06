@@ -1361,6 +1361,17 @@ angular.module('cf')
     };
 
 
+    $scope.afterSave =function(token) {
+      $timeout(function () {
+        if(token != null && token) {
+          $location.url("/cf?nav=execution&scope=" + $scope.selectedScope.key);
+        }
+      });
+    };
+
+
+
+
     $scope.publishGroup = function () {
       $scope.error =null;
       $scope.executionError =[];
@@ -1417,9 +1428,7 @@ angular.module('cf')
                         scope: $rootScope,
                         delay: 5000
                       });
-                      $timeout(function () {
-                        $location.url("/cf?nav=manage&&scope=" + $scope.selectedScope.key);
-                      });
+                       $scope.afterSave($scope.token);
                     }
                   } else {
                      $scope.executionError.push(response.debugError);
@@ -1475,12 +1484,11 @@ angular.module('cf')
             $scope.tmpOldMessages = [];
             $scope.originalOldProfileMessages = [];
             $scope.originalProfileMessages = [];
-
-            $scope.token = null;
             $scope.selectGroup($scope.selectedNode);
-            $timeout(function () {
-              $location.url("/cf?nav=manage&&scope=" + $scope.selectedScope.key);
-            });
+            $scope.afterSave($scope.token);
+            $scope.token = null;
+
+
           }
         } else {
           $scope.executionError = result.message;
@@ -1522,20 +1530,7 @@ angular.module('cf')
 
             $scope.token = null;
             $scope.selectGroup($scope.selectedNode);
-            $timeout(function () {
-              $location.url("/cf?nav=manage&&scope=" + $scope.selectedScope.key);
-            });
-
-            // if($scope.uploaded == true){
-            //   $scope.uploaded = false;
-            //   $scope.profileMessages = [];
-            //   $scope.oldProfileMessages = [];
-            //   $scope.token = null;
-            //   $scope.selectGroup($scope.selectedNode);
-            // }else {
-            //   $location.url('/cf?nav=execution&&group=' + $scope.testcase.groupId + "&scope=" + $scope.testcase.scope + "&cat=" + $scope.testcase.category);
-            // }
-
+            $scope.afterSave($scope.token);
           }
 
         } else {
@@ -1692,9 +1687,9 @@ angular.module('cf')
             scope: $rootScope,
             delay: 5000
           });
-          $timeout(function () {
-            $location.url("/cf?nav=manage&&scope=" + $scope.selectedScope.key);
-          });
+          $scope.afterSave($scope.token);
+          $scope.token = null;
+
         }, function (error) {
           // Notification.error({
           //   message: error.data,
