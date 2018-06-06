@@ -708,7 +708,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
 
     if (node.testStepGroups) {
       if (!node["children"]) {
-        node["children"] = node.testStepGroups;
+        node["children"] = $filter('orderBy')(node["testStepGroups"], 'position');
         angular.forEach(node.children, function (testStepGroup) {
           testStepGroup['nav'] = {};
           testStepGroup['parent'] = {
@@ -721,7 +721,9 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
           that.buildCFTestCases(testStepGroup);
         });
       } else {
+        node["testStepGroups"] = $filter('orderBy')(node["testStepGroups"], 'position');
         angular.forEach(node.testStepGroups, function (testStepGroup) {
+          testStepGroup.position = node["children"].length + 1;
           node["children"].push(testStepGroup);
           testStepGroup['nav'] = {};
           testStepGroup['parent'] = {
