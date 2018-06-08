@@ -1457,8 +1457,6 @@
 			<ValueElement Value="69401-0000-01" DisplayName="typhoid, oral" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0001-01" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0002-01" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0119-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0119-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0120-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0120-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0200-01" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
@@ -1732,7 +1730,6 @@
 			<ValueElement Value="70460-0002-02" DisplayName="cholera, live attenuated" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0001-11" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0002-11" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0119-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0120-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0120-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0200-11" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
