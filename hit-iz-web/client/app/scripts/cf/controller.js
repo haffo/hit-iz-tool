@@ -44,8 +44,10 @@ angular.module('cf')
           $scope.$broadcast('event:cf:manage', decodeURIComponent($routeParams.scope));
         });
       } else {
+        $timeout(function () {
         $scope.setSubActive("/cf_execution");
         $scope.$broadcast('event:cf:execute', decodeURIComponent($routeParams.scope), decodeURIComponent($routeParams.cat), decodeURIComponent($routeParams.group));
+        });
       }
     }
 

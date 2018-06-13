@@ -535,6 +535,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
   };
 
 
+
   TestCaseService.prototype.buildTree = function (node) {
     if (node.type === 'TestStep') {
       node.label = node.position + "." + node.name;
@@ -664,7 +665,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
 
     // if (node.type === 'TestObject' || node.type === 'TestStepGroup') {
     if (node.type === 'TestObject') {
-        node.label = node.position + "." + node.name;
+      node.label = node.position + "." + node.name;
     } else {
       node.label = node.name;
     }
@@ -742,6 +743,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
     }
 
   };
+
 
 
   TestCaseService.prototype.findNode = function (tree, node, id, type) {
