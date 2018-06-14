@@ -15,7 +15,7 @@
   <!--<li><a href="#/cb_execution">Test Execution</a></li>-->
   <!--</ul>-->
 
-  <div ng-show="isCbManagementSupported() && isAuthenticated()">
+  <div ng-show="isCbManagementSupported() && isAuthenticated() && hasWriteAccess()">
   <div ng-show="!loading">
 
     <div ng-show="error !== null" style="margin:10px" class="row test-plan-select-container">
@@ -27,12 +27,13 @@
          style="margin-left:10px; margin-right: 10px; margin-top: 0px">
       <div class="col-md-12" style="height:35px">
         <form class="form-inline" style="margin:0; padding:0; ">
+
+
           <div class="form-group">
             <label class="control-label" style="text-align:left;" for="selectedScope">Test Plan Type: </label>
 
             <div class="btn-group btn-group-md" id="selectedScope" role="group" aria-label="..."
                  style="margin-right: 10px;">
-
               <button class="btn btn-cf-outline" ng-repeat="tpScope in testPlanScopes"
                       ng-click="selectedScope.key = tpScope.key; selectScope();"
                       ng-class="{'active':tpScope.key == selectedScope.key}"
@@ -134,7 +135,6 @@
                             ng-include="'cb_testcase_node_render.html'"></li>
                       </ol>
                     </div>
-
                   </div>
                 </div>
                 <div ng-show="testCases == null || testCases.length == 0">
@@ -201,12 +201,12 @@
                                                      <!--</button>-->
 
 
-                                                     <button title="Delete Selected Test Category"
-                                                             type="button"
-                                                             class="btn btn-xs btn-danger"
-                                                             ng-click="deleteTestCaseGroup(selectedTestCase)">
-                                    <i class="fa fa-trash"></i>Delete Test Group
-                                </button>
+                                                     <!--<button title="Delete Selected Test Category"-->
+                                                             <!--type="button"-->
+                                                             <!--class="btn btn-xs btn-danger"-->
+                                                             <!--ng-click="deleteTestCaseGroup(selectedTestCase)">-->
+                                    <!--<i class="fa fa-trash"></i>Delete Test Group-->
+                                <!--</button>-->
 
 
 
@@ -226,14 +226,14 @@
                                                                                      <!--<i class="fa fa-upload"></i>Upload Test Case Group (.Zip)-->
                                                                                      <!--</button>-->
 
-                                                                                       <button
-                                                                                         title="Delete Selected Test Step"
-                                                                                         ng-show="(selectedTestCase.type == 'TestStep')"
-                                                                                         type="button"
-                                                                                         class="btn btn-xs btn-danger"
-                                                                                         ng-click="deleteTestStep(selectedTestCase)">
-                                    <i class="fa fa-trash"></i>Delete Test Step
-                                </button>
+                                                                                       <!--<button-->
+                                                                                         <!--title="Delete Selected Test Step"-->
+                                                                                         <!--ng-show="(selectedTestCase.type == 'TestStep')"-->
+                                                                                         <!--type="button"-->
+                                                                                         <!--class="btn btn-xs btn-danger"-->
+                                                                                         <!--ng-click="deleteTestStep(selectedTestCase)">-->
+                                    <!--<i class="fa fa-trash"></i>Delete Test Step-->
+                                <!--</button>-->
 
 
                                                                                    </span>
@@ -254,12 +254,12 @@
                                                                                                                    <!--<i class="fa fa-upload"></i>Upload Test Case (.Zip)-->
                                                                                                                    <!--</button>-->
 
-                                <button title="Delete Test Case" ng-show="selectedTestCase.type === 'TestCase'"
-                                        type="button"
-                                        class="btn btn-xs btn-danger"
-                                        ng-click="deleteTestCase(selectedTestCase)">
-                                    <i class="fa fa-trash"></i>Delete Test Case
-                                </button>
+                                <!--<button title="Delete Test Case" ng-show="selectedTestCase.type === 'TestCase'"-->
+                                        <!--type="button"-->
+                                        <!--class="btn btn-xs btn-danger"-->
+                                        <!--ng-click="deleteTestCase(selectedTestCase)">-->
+                                    <!--<i class="fa fa-trash"></i>Delete Test Case-->
+                                <!--</button>-->
                                                                                                                  </span>
                              </span>
               </div>

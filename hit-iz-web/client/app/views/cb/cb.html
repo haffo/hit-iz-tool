@@ -28,7 +28,7 @@
         ng-class="{'current':isSubActive('/cb_execution')}"> <i class="fa fa-cogs"></i> Test Execution <span
         title="Current Test" class="badge current-test" ng-show="testCase != null">Current {{pettyPrintType(testCase.type)}}: {{testCase.name}}</span></a>
       </li>
-      <li ng-click="setSubActive('/cb_management')" ng-show="isCbManagementSupported() && isAuthenticated()" class="jslink"><a
+      <li ng-click="setSubActive('/cb_management');" ng-show="isCbManagementSupported() && isAuthenticated() && hasWriteAccess()" class="jslink"><a
         ng-class="{'current':isSubActive('/cb_management')}"> <i class="fa fa-cog"></i> Test Management</a></li>
 
     </ul>
@@ -41,7 +41,7 @@
       <div ng-include="'views/cb/executeTestCase.html'"></div>
     </div>
 
-    <div ng-show=" isSubActive('/cb_management') && isCbManagementSupported() && isAuthenticated()">
+    <div ng-show=" isSubActive('/cb_management') && isCbManagementSupported() && isAuthenticated() && hasWriteAccess()">
       <div ng-include="'views/cb/manageTestCase.html'"></div>
     </div>
 

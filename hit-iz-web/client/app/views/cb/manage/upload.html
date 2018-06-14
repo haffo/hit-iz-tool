@@ -1,65 +1,96 @@
-<style id="antiClickjack">body {
-  display: none !important;
-}</style>
+<style id="antiClickjack">
+body {
+	display: none !important;
+}
+</style>
 <script type="text/javascript">
-  if (self === top) {
-    var antiClickjack = document.getElementById("antiClickjack");
-    antiClickjack.parentNode.removeChild(antiClickjack);
-  } else {
-    top.location = self.location;
-  }
+	if (self === top) {
+		var antiClickjack = document.getElementById("antiClickjack");
+		antiClickjack.parentNode.removeChild(antiClickjack);
+	} else {
+		top.location = self.location;
+	}
 </script>
 <loading-testcases></loading-testcases>
-<div style="margin:10px">
-  <div class="modal-header" class="upload-dlg-header">
-	<span style="font-weight: bold; font-size: 20px">
-    Upload Profiles
-    </span>
-    <span class="pull-right">
-		<button class="btn btn-xs btn-primary" ng-click="dismissModal()"><i class="fa fa-times"></i></button>
-  	</span>
-  </div>
-  <div class="modal-body" style="padding:10px 0px 0px 0px;">
-    <div class="row">
-      <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-12">
-                <div class="upload-drop-box" nv-file-over nv-file-drop
-                     over-class="upload-drop-box-file-over" uploader="zipUploader">
-                  <label class="btn btn-default btn-success" style="width:270px; text-align:left">
-                    <i class="fa fa-file" aria-hidden="true"></i> Browse/Drag Test Plan (.zip)
-                    <input type="file" accept="application/zip" nv-file-select
-                           uploader="zipUploader" style="display: none;">
-                  </label>
-                  <br />
-                  <i ng-show="zipUploader.queue.length">
-                        <span ng-show="zipUploader.queue[0].isSuccess"><i
-                          class="fa fa-check"></i></span>
+<div style="margin: 10px">
+	<div class="modal-header" class="upload-dlg-header">
+		<span style="font-weight: bold; font-size: 20px"> Upload
+			Profiles </span> <span class="pull-right">
+			<button class="btn btn-xs btn-primary" ng-click="dismissModal()">
+				<i class="fa fa-times"></i>
+			</button>
+		</span>
+	</div>
+	<div class="modal-body" style="padding: 10px 0px 0px 0px">
+		<div class="row">
+			<div class="col-md-12" ng-show="step == 0">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="upload-drop-box" nv-file-over="" nv-file-drop=""
+							over-class="upload-drop-box-file-over" uploader="zipUploader">
+							<label class="btn btn-default btn-success"
+								style="width: 270px; text-align: left"> <i
+								class="fa fa-file" aria-hidden="true"></i> Browse Test Plan
+								(.zip) <input type="file" accept="application/zip"
+								nv-file-select="" uploader="zipUploader" style="display: none">
+							</label> <br> <i ng-show="zipUploader.queue.length"> <span
+								ng-show="zipUploader.queue[0].isSuccess"><i
+									class="fa fa-check"></i></span> {{zipUploader.queue[0].file.name}}, {{
+								zipUploader.queue[0].file.size/1024/1024|number:2 }} MB
+							</i>
 
-                    {{zipUploader.queue[0].file.name}},
-                    {{
-                    zipUploader.queue[0].file.size/1024/1024|number:2 }} MB
-                  </i>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="progress" style="">
+						<div class="progress-bar" role="progressbar"
+							ng-style="{ 'width': zipUploader.progress + '%' }"></div>
+					</div>
+				</div>
+				<div ng-show="loading" style="text-align: center">
+					<i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+				</div>
+			</div>
 
-                </div>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="progress" style="">
-                    <div class="progress-bar" role="progressbar"
-                         ng-style="{ 'width': zipUploader.progress + '%' }"></div>
-                  </div>
-                </div>
-      </div>
-      <div class="col-md-12" ng-show="error && error !== null">
-           <div class="alert alert-danger" role="alert" ng-bind="error"></div>
-       </div>
 
-      <div ng-show="loading" style="text-align:center">
-        <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
-      </div>
+			<div class="col-md-12" ng-show="step == 1">
+				<div class="row" style="padding-bottom: 10px;">
+					<div class="col-md-12">
+						<div class="pull-left">
+							<button type="button" class="btn btn-primary btn-md"
+								ng-click="step = 0">
+								<i class="fa fa-arrow-left"></i> Back
+							</button>
+						</div>
+					</div>
+				</div>
 
-    </div>
-  </div>
+				<div class="row">
+					<div class="col-md-12">
+
+						<accordion close-others="true"
+							ng-show="error != null && error != ''"> <accordion-group
+							is-open="true" panel-class="panel-danger"> <accordion-heading>
+						<i style="font-size: 20px" class="fa fa-exclamation-triangle"
+							aria-hidden="true"></i> Upload and processing error</accordion-heading>
+						<div>{{error}}</div>
+						</accordion-group> </accordion>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="pull-left">
+							<button type="button" class="btn btn-primary btn-md"
+								ng-click="step = 0">
+								<i class="fa fa-arrow-left"></i> Back
+							</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-

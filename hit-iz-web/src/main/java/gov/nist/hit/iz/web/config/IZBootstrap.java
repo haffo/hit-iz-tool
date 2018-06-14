@@ -57,7 +57,7 @@ public class IZBootstrap {
 		System.setProperty("javax.xml.parsers.SAXParserFactory",
 				"com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl");
 		logger.info("Bootstrapping data...");
-		if (resourceLoader.isNewResourcebundle()) {
+		if (resourceLoader.reloadDb()) {
 			logger.info("clearing iz envelope testcases...");
 			deleteEnvelopeTestCases();
 			logger.info("clearing iz connectivity testcases...");
@@ -67,7 +67,7 @@ public class IZBootstrap {
 			logger.info("loading iz connectivity testcases...");
 			loadConnectivityTestCases();
 		}
-		resourceLoader.load("");
+		resourceLoader.init();
 		logger.info("...Bootstrapping completed");
 	}
 

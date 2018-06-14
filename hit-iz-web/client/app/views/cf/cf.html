@@ -22,7 +22,7 @@
     <ul class="clearfix mainSubNav">
       <li ng-click="setSubActive('/cf_execution')" class="jslink"><a
         ng-class="{'current':isSubActive('/cf_execution')}"> <i class="fa fa-th-list"></i> Test Execution</a></li>
-      <li ng-click="setSubActive('/cf_management')" class="jslink" ng-show="isCfManagementSupported() && isAuthenticated()"><a
+      <li ng-click="setSubActive('/cf_management')" class="jslink" ng-show="isCfManagementSupported() && isAuthenticated() && hasWriteAccess()"><a
         ng-class="{'current':isSubActive('/cf_management')}"> <i class="fa fa-cogs"></i> Test Management </a></li>
     </ul>
 
@@ -30,7 +30,7 @@
       <div ng-include="'views/cf/executeTestCase.html'"></div>
     </div>
 
-    <div ng-show="isSubActive('/cf_management') && isCfManagementSupported() &&  isAuthenticated()">
+    <div ng-show="isSubActive('/cf_management') && isCfManagementSupported() &&  isAuthenticated()&& hasWriteAccess()">
       <div ng-include="'views/cf/manageTestCase.html'"></div>
     </div>
 
@@ -50,7 +50,7 @@
                 </span>
   </div>
   <div class="modal-body">
-    <div ng-bind-html="toHTML(appInfo.profileInfo)"/>
+    <div ng-bind-html="toHTML(domain.profileInfo)"/>
   </div>
   <!--<div class="modal-footer">-->
   <!--<span class="pull-right">-->

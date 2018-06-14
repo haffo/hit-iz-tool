@@ -1,0 +1,57 @@
+[
+  {
+    "id": null,
+    "title": "Context-free",
+    "stage": "CF",
+    "json": "{\"domain\":\"iz\",\"scope\":\"GLOBAL\",\"preloaded\":false,\"title\":\"Context-free\",\"stage\":\"CF\",\"children\":[{\"id\":134,\"type\":\"TestPlan\",\"title\":\"Immunization 2.5.1 IG Release 1.5\",\"children\":[{\"id\":135,\"type\":\"TestObject\",\"title\":\"ACK-Z23\",\"format\":\"hl7v2\",\"children\":[],\"exMsgPresent\":true,\"xmlConfProfilePresent\":true,\"xmlValueSetLibraryPresent\":true,\"xmlConstraintsPresent\":false}]},{\"id\":216,\"type\":\"TestPlan\",\"title\":\"sssa\",\"children\":[{\"id\":221,\"type\":\"TestObject\",\"title\":\"VXU^V04^VXU_V04\",\"format\":\"hl7v2\",\"children\":[],\"exMsgPresent\":false,\"xmlConfProfilePresent\":true,\"xmlValueSetLibraryPresent\":true,\"xmlConstraintsPresent\":false}]}]}",
+    "children": [
+      {
+        "id": 134,
+        "title": "Immunization 2.5.1 IG Release 1.5",
+        "type": "TestPlan",
+        "mcPath": null,
+        "tdsPath": null,
+        "tpPath": null,
+        "tpsPath": null,
+        "jdPath": null,
+        "tsPath": null,
+        "csPath": null,
+        "format": null
+      },
+      {
+        "id": 216,
+        "title": "sssa",
+        "type": "TestPlan",
+        "mcPath": null,
+        "tdsPath": null,
+        "tpPath": null,
+        "tpsPath": null,
+        "jdPath": null,
+        "tsPath": null,
+        "csPath": null,
+        "format": null
+      }
+    ]
+  },
+  {
+    "id": null,
+    "title": "Context-based",
+    "stage": "CB",
+    "json": "{\"domain\":\"iz\",\"scope\":\"GLOBAL\",\"preloaded\":false,\"title\":\"Context-based\",\"stage\":\"CB\",\"children\":[{\"id\":138,\"type\":\"TestPlan\",\"title\":\"ONC 2015 Test Plan\",\"tpPath\":\"Contextbased/iz/ONC 2015 Test Plan/TestPackage.pdf\",\"tpsPath\":\"Contextbased/iz/ONC 2015 Test Plan/TestPlanSummary.pdf\",\"children\":[{\"id\":141,\"type\":\"TestCaseGroup\",\"title\":\"Administration Group\",\"children\":[{\"id\":142,\"type\":\"TestCase\",\"title\":\"IZ-AD-1_Admin_Child\",\"tsPath\":\"Contextbased/iz/ONC 2015 Test Plan/TestGroup_1/TestCase_1/TestStory.pdf\",\"children\":[{\"id\":32,\"type\":\"TestStep\",\"title\":\"IZ-AD-1.1_Send_V04_Z22\",\"mcPath\":\"Contextbased/iz/ONC 2015 Test Plan/TestGroup_1/TestCase_1/TestStep_1/MessageContent.pdf\",\"tdsPath\":\"Contextbased/iz/ONC 2015 Test Plan/TestGroup_1/TestCase_1/TestStep_1/TestDataSpecification.pdf\",\"tsPath\":\"Contextbased/iz/ONC 2015 Test Plan/TestGroup_1/TestCase_1/TestStep_1/TestStory.pdf\",\"format\":\"hl7v2\",\"children\":[],\"exMsgPresent\":true,\"xmlConfProfilePresent\":true,\"xmlValueSetLibraryPresent\":true,\"xmlConstraintsPresent\":true}]}]}]}]}",
+    "children": [
+      {
+        "id": 138,
+        "title": "ONC 2015 Test Plan",
+        "type": "TestPlan",
+        "mcPath": null,
+        "tdsPath": null,
+        "tpPath": "Contextbased/iz/ONC 2015 Test Plan/TestPackage.pdf",
+        "tpsPath": "Contextbased/iz/ONC 2015 Test Plan/TestPlanSummary.pdf",
+        "jdPath": null,
+        "tsPath": null,
+        "csPath": null,
+        "format": null
+      }
+    ]
+  }
+]

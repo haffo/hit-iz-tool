@@ -19,7 +19,7 @@
 <form name="addAccountForm" class="form-horizontal" novalidate="">
 <div class="form-group control-group" ng-class="{'has-success has-feedback': addAccountForm.inputFullName.$valid, 'igl-has-error has-feedback': !addAccountForm.inputFullName.$valid}">
     <label class="control-label col-md-3" for="inputFullName">
-        <div msg="" key="registration.fullname"></div>
+        <span msg="" key="registration.fullname"></span> *
     </label>
 
     <div class="col-md-5">
@@ -35,7 +35,7 @@
 
 <div class="form-group control-group" ng-class="{'has-success has-feedback': addAccountForm.inputEmail.$valid, 'igl-has-error has-feedback': !addAccountForm.inputEmail.$valid}">
     <label class="control-label col-md-3" for="inputEmail">
-        <div msg="" key="registration.email"></div>
+        <span msg="" key="registration.email"></span> *
     </label>
 
     <div class="controls col-md-5">
@@ -97,18 +97,20 @@
     <!--</div>-->
 <!--</div>-->
 
-<!--<div class="form-group control-group"-->
-     <!--ng-class="{'has-success has-feedback': addAccountForm.inputEmployer.$valid, 'igl-has-error has-feedback': !addAccountForm.inputEmployer.$valid}">-->
-    <!--<label class="control-label col-md-3" for="inputEmployer">-->
-        <!--<div msg key='registration.employer'></div>-->
-    <!--</label>-->
+<div class="form-group control-group" ng-if="isEmployerRequired()" ng-class="{'has-success has-feedback': addAccountForm.inputEmployer.$valid, 'igl-has-error has-feedback': !addAccountForm.inputEmployer.$valid}">
+    <label class="control-label col-md-3" for="inputEmployer">
+        <span msg="" key="registration.employer"></span> *
+    </label>
 
-    <!--<div class="controls col-md-5">-->
-        <!--<input type="text" class="form-control immediate-help account-input" name="inputEmployer"-->
-               <!--id="inputEmployer" ng-model='account.employer'>-->
-
-    <!--</div>-->
-<!--</div>-->
+    <div class="controls col-md-5">
+        <input type="text" class="form-control immediate-help account-input" name="inputEmployer" ng-required="true" id="inputEmployer" ng-model="account.employer">
+      <div class="input-help">
+        <h4>
+          <div msg="" key="registration.employer.error"></div>
+        </h4>
+      </div>
+    </div>
+</div>
 
 <!--<div class="form-group control-group"-->
      <!--ng-class="{'has-success has-feedback': addAccountForm.inputJuridiction.$valid, 'igl-has-error has-feedback': !addAccountForm.inputJuridiction.$valid}">-->
@@ -125,7 +127,7 @@
 <!--</div>-->
 <div class="form-group control-group" ng-class="{'has-success has-feedback': addAccountForm.inputUsername.$valid, 'igl-has-error has-feedback': !addAccountForm.inputUsername.$valid}">
     <label class="control-label col-md-3" for="inputUsername">
-        <div msg="" key="registration.username"></div>
+        <span msg="" key="registration.username"></span> *
     </label>
 
     <div class="controls col-md-5">
@@ -150,7 +152,7 @@
 </div>
 <div class="form-group control-group" ng-class="{'has-success has-feedback': addAccountForm.inputPassword.$valid, 'igl-has-error has-feedback': !addAccountForm.inputPassword.$valid}">
     <label class="control-label col-md-3" for="inputPassword">
-        <div msg="" key="registration.password"></div>
+        <span msg="" key="registration.password"></span> *
     </label>
 
     <div class="controls col-md-5">
@@ -182,7 +184,7 @@
 </div>
 <div class="form-group control-group" ng-class="{'has-success has-feedback': addAccountForm.inputPasswordConfirm.$valid, 'igl-has-error has-feedback': !addAccountForm.inputPasswordConfirm.$valid}">
     <label class="control-label col-md-3" for="inputPasswordConfirm">
-        <div msg="" key="registration.passwordConfirm"></div>
+        <span msg="" key="registration.passwordConfirm"></span> *
     </label>
 
     <div class="controls col-md-5">
@@ -198,14 +200,14 @@
 </div>
 
 <div class="form-group control-group">
-    <div class="col-md-offset-3 col-md-5">
+    <div class="col-md-offset-3 col-md-7">
         <label class="control-label">
             <div>{{getAppInfo().registrationTitle}}</div>
         </label>
 
         <div class="controls">
             <div>
-                <textarea disabled="disabled" rows="9" style="text-align:left;width:700px;border:1px; border-color: black">{{getAppInfo().registrationAgreement}}
+                <textarea disabled="disabled" rows="9" style="text-align:left;width:700px;border:2px black; background-color: #d6d6d6">{{getAppInfo().registrationAgreement}}
                 </textarea>
                 <br>
                 <br>

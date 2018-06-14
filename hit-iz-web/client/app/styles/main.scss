@@ -1924,7 +1924,6 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
   font-size: 20px;
   line-height: 1.4;
   color: #737373;
-  background: #f2aaaa;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   margin: 0 auto;
@@ -1935,23 +1934,6 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
   font-size: 24px;
   text-align: center;
 }
-
-#exception > h1 span {
-  color: #bbb;
-}
-
-
-#exception > p {
-  margin: 1em 0;
-  text-align: center;
-
-}
-
-#exception  > ul {
-  padding: 0 0 0 40px;
-  margin: 1em 0;
-}
-
 
 .info-dlg {
   font-size: 20px;
@@ -1967,8 +1949,8 @@ hr.home-page-divider{ background-color: #d9edf7; height: 1px; border: 0; }
 .error-dlg {
   font-size: 20px;
   line-height: 1.4;
-  color: #737373;
-  background: #f2aaaa;
+  //color: #737373;
+  //background: #f2aaaa;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   margin: 0 auto;
@@ -2729,4 +2711,27 @@ div.upload-error-table div.fixed-table-container-inner {
   width: 90%;
   height: 500px;
 
+}
+
+
+.domain-content {
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+
+
+.documentation-upload-modal .modal-dialog {
+  width: 40%;
+  height: 60%;
+}
+
+.tbl-header-1 {
+  //background-color: #d0d0d0;
+  //color: #3f3f3f;
+  font-weight:600;
+}
+
+.root-node {
+  background-color:#0e90d2;
 }

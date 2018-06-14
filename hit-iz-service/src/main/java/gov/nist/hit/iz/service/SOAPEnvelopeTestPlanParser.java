@@ -7,6 +7,7 @@ import java.util.List;
 
 import gov.nist.hit.core.domain.Message;
 import gov.nist.hit.core.domain.SutType;
+import gov.nist.hit.core.domain.TestScope;
 import gov.nist.hit.core.service.exception.ProfileParserException;
 import gov.nist.hit.core.service.util.FileUtil;
 import gov.nist.hit.iz.domain.IZEnvelopeTestCase;
@@ -45,8 +46,12 @@ public class SOAPEnvelopeTestPlanParser {
 		testCase.setMessageContentImage(FileUtil.getByteArray(testCasePath + "/content.png"));
 		testCase.setInstructionsImage(FileUtil.getByteArray(testCasePath + "/instructions.png"));
 		testCase.setInstructionsText(FileUtil.getContent(testCasePath + "/instructions.txt"));
-		testContext.setExampleMessage(
-				new Message("SOAPENV_1_Min_Test", "", FileUtil.getContent(testCasePath + "/Message.xml")));
+
+		Message msg = new Message("SOAPENV_1_Min_Test", "", FileUtil.getContent(testCasePath + "/Message.xml"), "IZ_");
+		msg.setDomain(this.domain);
+		msg.setScope(TestScope.GLOBAL);
+		testContext.setExampleMessage(msg);
+
 		IZTestStory testStory = testCase.getTestStory();
 		testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
 		testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
@@ -74,8 +79,12 @@ public class SOAPEnvelopeTestPlanParser {
 		testCase.setSutType(SutType.SENDER);
 
 		testContext.setValidationPhase(IZValidationPhase.connectivityTest_Request.toString());
-		testContext.setExampleMessage(new Message("SOAPENV_1_ConnectivityMessage_Request", "",
-				FileUtil.getContent(testCasePath + "/Message.xml")));
+
+		msg = new Message("SOAPENV_1_ConnectivityMessage_Request", FileUtil.getContent(testCasePath + "/Message.xml"));
+		msg.setDomain(this.domain);
+		msg.setScope(TestScope.GLOBAL);
+		testContext.setExampleMessage(msg);
+
 		testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
 		testPlan.addTestCase(testCase);
 
@@ -95,8 +104,13 @@ public class SOAPEnvelopeTestPlanParser {
 		testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
 		testCase.setSutType(SutType.SENDER);
 		testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
-		testContext.setExampleMessage(new Message("SOAPENV_2_SubmitSingleMessage_Request", "",
-				FileUtil.getContent(testCasePath + "/Message.xml")));
+		msg = new Message("SOAPENV_2_SubmitSingleMessage_Request", FileUtil.getContent(testCasePath + "/Message.xml"));
+		msg.setDomain(this.domain);
+		msg.setScope(TestScope.GLOBAL);
+		msg.setPreloaded(true);
+
+		testContext.setExampleMessage(msg);
+
 		testPlan.addTestCase(testCase);
 		testPlans.add(testPlan);
 
@@ -118,8 +132,14 @@ public class SOAPEnvelopeTestPlanParser {
 		testCase.setTestContext(testContext);
 		testContext.setValidationPhase(IZValidationPhase.connectivityTest_Response.toString());
 		testCase.setSutType(SutType.RECEIVER);
-		testContext.setExampleMessage(new Message("SOAPENV_1_ConnectivityMessage_Response", "",
-				FileUtil.getContent(testCasePath + "/Message.xml")));
+
+		msg = new Message("SOAPENV_1_ConnectivityMessage_Response", FileUtil.getContent(testCasePath + "/Message.xml"));
+		msg.setDomain(this.domain);
+		msg.setScope(TestScope.GLOBAL);
+		msg.setPreloaded(true);
+
+		testContext.setExampleMessage(msg);
+
 		testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
 		testPlan.addTestCase(testCase);
 
@@ -136,8 +156,15 @@ public class SOAPEnvelopeTestPlanParser {
 		testContext = new IZEnvelopeTestContext();
 		testCase.setTestContext(testContext);
 		testContext.setValidationPhase(IZValidationPhase.submitSingleMessage_Response.toString());
-		testContext.setExampleMessage(new Message("SOAPENV_2_SubmitSingleMessage_Response", "",
-				FileUtil.getContent(testCasePath + "/Message.xml")));
+
+		msg = new Message("SOAPENV_2_SubmitSingleMessage_Response", FileUtil.getContent(testCasePath + "/Message.xml"));
+		msg.setDomain(this.domain);
+		msg.setScope(TestScope.GLOBAL);
+
+		msg.setPreloaded(true);
+
+		testContext.setExampleMessage(msg);
+
 		testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
 		testCase.setSutType(SutType.RECEIVER);
 		testPlan.addTestCase(testCase);
@@ -156,8 +183,14 @@ public class SOAPEnvelopeTestPlanParser {
 		testContext = new IZEnvelopeTestContext();
 		testCase.setTestContext(testContext);
 		testContext.setValidationPhase(IZValidationPhase.MessageTooLargeFault.toString());
-		testContext.setExampleMessage(
-				new Message("SOAPENV_3_MessageTooLarge_Fault", "", FileUtil.getContent(testCasePath + "/Message.xml")));
+
+		msg = new Message("SOAPENV_3_MessageTooLarge_Fault", FileUtil.getContent(testCasePath + "/Message.xml"));
+		msg.setDomain(this.domain);
+		msg.setScope(TestScope.GLOBAL);
+		msg.setPreloaded(true);
+
+		testContext.setExampleMessage(msg);
+
 		testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
 		testCase.setSutType(SutType.RECEIVER);
 		testPlan.addTestCase(testCase);
@@ -175,8 +208,14 @@ public class SOAPEnvelopeTestPlanParser {
 		testContext = new IZEnvelopeTestContext();
 		testContext.setValidationPhase(IZValidationPhase.SecurityFault.toString());
 		testCase.setTestContext(testContext);
-		testContext.setExampleMessage(
-				new Message("SOAPENV_4_Security_Fault", "", FileUtil.getContent(testCasePath + "/Message.xml")));
+
+		msg = new Message("SOAPENV_4_Security_Fault", FileUtil.getContent(testCasePath + "/Message.xml"));
+		msg.setDomain(this.domain);
+		msg.setScope(TestScope.GLOBAL);
+		msg.setPreloaded(true);
+
+		testContext.setExampleMessage(msg);
+
 		testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
 		testCase.setSutType(SutType.RECEIVER);
 		testPlan.addTestCase(testCase);
@@ -194,8 +233,14 @@ public class SOAPEnvelopeTestPlanParser {
 		testStory = testCase.getTestStory();
 		testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
 		testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
-		testContext.setExampleMessage(new Message("SOAPENV_5_UnsupportedOperation_Fault", "",
-				FileUtil.getContent(testCasePath + "/Message.xml")));
+
+		msg = new Message("SOAPENV_5_UnsupportedOperation_Fault", FileUtil.getContent(testCasePath + "/Message.xml"));
+		msg.setDomain(this.domain);
+		msg.setScope(TestScope.GLOBAL);
+		msg.setPreloaded(true);
+
+		testContext.setExampleMessage(msg);
+
 		testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
 		testCase.setSutType(SutType.RECEIVER);
 		testPlan.addTestCase(testCase);
@@ -214,8 +259,14 @@ public class SOAPEnvelopeTestPlanParser {
 		testStory = testCase.getTestStory();
 		testStory.setDescription(FileUtil.getContent(testCasePath + "/description.txt"));
 		testStory.setTestObjectives(FileUtil.getContent(testCasePath + "/testObjectives.txt"));
-		testContext.setExampleMessage(
-				new Message("SOAPENV_6_Unknown_Fault", "", FileUtil.getContent(testCasePath + "/Message.xml")));
+
+		msg = new Message("SOAPENV_6_Unknown_Fault", FileUtil.getContent(testCasePath + "/Message.xml"));
+		msg.setDomain(this.domain);
+		msg.setScope(TestScope.GLOBAL);
+		msg.setPreloaded(true);
+
+		testContext.setExampleMessage(msg);
+
 		testCase.setTestPackagePath(testCasePath + "/TestPackage.docx");
 		testCase.setSutType(SutType.RECEIVER);
 		testPlan.addTestCase(testCase);

@@ -19,7 +19,7 @@ public class SOAPMessageValidatorImplTest {
 	@Test
 	public void testValid() throws IOException, SoapValidationException {
 		String content = IOUtils
-				.toString(SOAPValidatorTest.class.getResourceAsStream("/soap/validSubmitSingleMessage.xml"));
+				.toString(SOAPMessageValidatorImplTest.class.getResourceAsStream("/soap/validSubmitSingleMessage.xml"));
 		SOAPValidationResult result = (SOAPValidationResult) validator.validate(content, "Testing",
 				IZValidationPhase.submitSingleMessage_Request.toString());
 		assertNotNull(result.getXml());
@@ -27,8 +27,8 @@ public class SOAPMessageValidatorImplTest {
 
 	@Test
 	public void testInValid() throws IOException, SoapValidationException {
-		String content = IOUtils
-				.toString(SOAPValidatorTest.class.getResourceAsStream("/soap/invalidSubmitSingleMessage.xml"));
+		String content = IOUtils.toString(
+				SOAPMessageValidatorImplTest.class.getResourceAsStream("/soap/invalidSubmitSingleMessage.xml"));
 		SOAPValidationResult result = (SOAPValidationResult) validator.validate(content, "Testing",
 				IZValidationPhase.submitSingleMessage_Request.toString());
 		assertNotNull(result.getXml());

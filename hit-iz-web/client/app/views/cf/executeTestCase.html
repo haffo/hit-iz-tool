@@ -18,11 +18,12 @@
       <form class="form-inline">
         <div class="form-group">
           <label class="control-label" style="text-align:left;" for="selectedScope">Profile Group Type: </label>
-          <div class="btn-group btn-group-md" id="selectedScope" role="group" aria-label="..." style="margin-right: 10px;">
+          <div class="btn-group btn-group-md" id="selectedScope" role="group" aria-label="..." style="margin-right: 10px;" ng-show="testPlanScopes.length > 1">
             <button  class="btn btn-cf-outline"   ng-repeat="tpScope in testPlanScopes" ng-click="selectedScope.key = tpScope.key; selectScope();"  ng-class="{'active':tpScope.key == selectedScope.key}"
             >{{::tpScope.name}}
             </button>
           </div>
+
           <div class="form-group" ng-if="testPlans != null && testPlans.length > 0">
             <label class="control-label" for="selectedTP">Profile Groups:</label>
             <!--<div class="input-group">-->
@@ -36,12 +37,11 @@
             <!--</ui-select>-->
             <!--</div>-->
 
-
             <select class="form-control input-sm test-plan-select" style="width:500px;background-color: white;"
                     name="selectedTP" id="selectedTP"
                     ng-change="selectTP()"
                     ng-model="selectedTP.id"
-                    ng-options="tp.id.toString() as tp.name group by tp.category for tp in testPlans">
+                    ng-options="tp.id.toString() as tp.name for tp in testPlans">
               <option value="">---- Select Profile Group ----</option>
               <!--<option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{::tp.name}}-->
               <!--</option>-->

@@ -535,6 +535,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
   };
 
 
+
   TestCaseService.prototype.buildTree = function (node) {
     if (node.type === 'TestStep') {
       node.label = node.position + "." + node.name;
@@ -662,7 +663,8 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
 
   TestCaseService.prototype.buildCFTestCases = function (node) {
 
-    if (node.type === 'TestObject' || node.type === 'TestStepGroup') {
+    // if (node.type === 'TestObject' || node.type === 'TestStepGroup') {
+    if (node.type === 'TestObject') {
       node.label = node.position + "." + node.name;
     } else {
       node.label = node.name;
@@ -707,7 +709,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
 
     if (node.testStepGroups) {
       if (!node["children"]) {
-        node["children"] = node.testStepGroups;
+        node["children"] = $filter('orderBy')(node["testStepGroups"], 'position');
         angular.forEach(node.children, function (testStepGroup) {
           testStepGroup['nav'] = {};
           testStepGroup['parent'] = {
@@ -720,7 +722,9 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
           that.buildCFTestCases(testStepGroup);
         });
       } else {
+        node["testStepGroups"] = $filter('orderBy')(node["testStepGroups"], 'position');
         angular.forEach(node.testStepGroups, function (testStepGroup) {
+          testStepGroup.position = node["children"].length + 1;
           node["children"].push(testStepGroup);
           testStepGroup['nav'] = {};
           testStepGroup['parent'] = {
@@ -739,6 +743,7 @@ angular.module('format').factory('TestCaseService', function ($filter, $q, $http
     }
 
   };
+
 
 
   TestCaseService.prototype.findNode = function (tree, node, id, type) {

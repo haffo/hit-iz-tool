@@ -1,0 +1,15 @@
+{
+			 "name":"Profiles",
+			  "skip": ["T22_Profile.xml","T42_Profile.xml","T44_Profile.xml"],
+			  "orders":{
+			  	"VXU-Z22_Profile.xml":1,
+			  	"ACK-Z23_Profile.xml":2,
+			  	"QBP-Z34_Profile.xml":3,
+			  	"QBP-Z44_Profile.xml":4,
+			  	"RSP-Z31_Profile.xml":5,
+			  	"RSP-Z32_Profile.xml":6,
+			  	"RSP-Z33_Profile.xml":7,
+			  	"RSP-Z42_Profile.xml":8
+			  }
+}
+			

@@ -10,6 +10,7 @@ angular.module('connectivity', ['soap']);
 angular.module('hit-tool-directives', []);
 angular.module('hit-tool-services', ['common']);
 angular.module('documentation', []);
+angular.module('domains', []);
 var app = angular.module('hit-app', [
   'ngRoute',
   'ui.bootstrap',
@@ -49,7 +50,6 @@ var app = angular.module('hit-app', [
   'hit-report-viewer',
   'hit-testcase-details',
   'hit-testcase-tree',
-  'hit-doc',
   'hit-dqa',
   'hit-settings',
   'documentation',
@@ -60,7 +60,8 @@ var app = angular.module('hit-app', [
   'ngFileUpload',
   'ui.tree',
   'ui.select',
-  'hit-edit-testcase-details'
+  'hit-edit-testcase-details',
+  'domains'
 ]);
 
 
@@ -92,7 +93,7 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
       templateUrl: 'views/home.html'
     })
     .when('/doc', {
-      templateUrl: 'views/doc.html'
+      templateUrl: 'views/documentation/documentation.html'
     })
     .when('/setting', {
       templateUrl: 'views/setting.html'
@@ -112,9 +113,6 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
     .when('/cf', {
       templateUrl: 'views/cf/cf.html'
     })
-    //        .when('/is', {
-    //            templateUrl: 'views/isolated/isolated.html'
-    //        })
     .when('/cb', {
       templateUrl: 'views/cb/cb.html'
     })
@@ -155,6 +153,9 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
     .when('/addprofiles', {
       redirectTo: '/cf'
     })
+    .when('/domains', {
+      templateUrl: 'views/domains/domains.html'
+     })
     .otherwise({
       redirectTo: '/'
     });
@@ -335,10 +336,14 @@ app.factory('interceptor4', function ($q, $rootScope, $location, StorageService,
 });
 
 
-app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle, Transport, IdleService, userInfoService, base64, Notification) {
+app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppInfo, $q, $sce, $templateCache, $compile, StorageService, $window, $route, $timeout, $http, User, Idle, Transport, IdleService, userInfoService, base64, Notification, $filter, $routeParams, DomainsManager) {
+
+
+  var domainParam = $location.search()['d'] ? decodeURIComponent($location.search()['d']) : null;
 
 
   $rootScope.appInfo = {};
+
 
   $rootScope.stackPosition = 0;
   $rootScope.transportSupported = false;
@@ -359,19 +364,108 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
 
 
   AppInfo.get().then(function (appInfo) {
-    $rootScope.appInfo = appInfo;
+      $rootScope.loadingDomain = true;
+      $rootScope.appInfo = appInfo;
 //        $rootScope.apiLink = $window.location.protocol + "//" + $window.location.host + getContextPath() + $rootScope.appInfo.apiDocsPath;
-    $rootScope.apiLink = $rootScope.appInfo.url + $rootScope.appInfo.apiDocsPath;
-    httpHeaders.common['rsbVersion'] = appInfo.rsbVersion;
-    var previousToken = StorageService.get(StorageService.APP_STATE_TOKEN);
-    if (previousToken != null && previousToken !== appInfo.rsbVersion) {
-      $rootScope.openVersionChangeDlg();
+      $rootScope.apiLink = $rootScope.appInfo.url + $rootScope.appInfo.apiDocsPath;
+      httpHeaders.common['rsbVersion'] = appInfo.rsbVersion;
+      var previousToken = StorageService.get(StorageService.APP_STATE_TOKEN);
+      if (previousToken != null && previousToken !== appInfo.rsbVersion) {
+        $rootScope.openVersionChangeDlg();
+      }
+      StorageService.set(StorageService.APP_STATE_TOKEN, appInfo.rsbVersion);
+
+      if (domainParam != undefined && domainParam != null) {
+        StorageService.set(StorageService.APP_SELECTED_DOMAIN, domainParam);
+      }
+      var storedDomain = StorageService.get(StorageService.APP_SELECTED_DOMAIN);
+
+      var domainFound = null;
+      $rootScope.domain = null;
+      $rootScope.appInfo.selectedDomain = null;
+      DomainsManager.getDomains().then(function (domains) {
+        $rootScope.appInfo.domains = domains;
+        if ($rootScope.appInfo.domains != null) {
+          if ($rootScope.appInfo.domains.length === 1) {
+            domainFound = $rootScope.appInfo.domains[0].domain;
+          } else if (storedDomain != null) {
+            $rootScope.appInfo.domains = $filter('orderBy')($rootScope.appInfo.domains, 'position');
+            for (var i = 0; i < $rootScope.appInfo.domains.length; i++) {
+              if ($rootScope.appInfo.domains[i].domain === storedDomain) {
+                domainFound = $rootScope.appInfo.domains[i].domain;
+                break;
+              }
+            }
+          }
+          if (domainFound == null) {
+            $rootScope.openUnknownDomainDlg();
+          } else {
+            $rootScope.clearDomainSession();
+            DomainsManager.getDomainByKey(domainFound).then(function (result) {
+              $rootScope.appInfo.selectedDomain = result.domain;
+              StorageService.set(StorageService.APP_SELECTED_DOMAIN, result.domain);
+              $rootScope.domain = result;
+              $rootScope.loadingDomain = false;
+            }, function (error) {
+              $rootScope.loadingDomain = true;
+              $rootScope.openUnknownDomainDlg();
+            });
+          }
+        } else {
+          $rootScope.openCriticalErrorDlg("No Tool scope found. Please contact the administrator");
+        }
+      }, function (error) {
+        $rootScope.openCriticalErrorDlg("No Tool scope found. Please contact the administrator");
+      });
     }
-    StorageService.set(StorageService.APP_STATE_TOKEN, appInfo.rsbVersion);
-  }, function (error) {
-    $rootScope.appInfo = {};
-    $rootScope.openCriticalErrorDlg("Sorry we could not communicate with the server. Please try again");
-  });
+    , function (error) {
+      $rootScope.loadingDomain = true;
+      $rootScope.appInfo = {};
+      $rootScope.openCriticalErrorDlg("Failed to fetch the server. Please try again");
+    });
+
+  $rootScope.clearDomainSession = function () {
+    StorageService.set(StorageService.CF_SELECTED_TESTPLAN_ID_KEY, null);
+    StorageService.set(StorageService.CF_EDITOR_CONTENT_KEY, null);
+    StorageService.set(StorageService.CF_LOADED_TESTCASE_ID_KEY, null);
+    StorageService.set(StorageService.CB_EDITOR_CONTENT_KEY, null);
+    StorageService.set(StorageService.CB_SELECTED_TESTCASE_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_LOADED_TESTCASE_ID_KEY, null);
+    StorageService.set(StorageService.CB_LOADED_TESTCASE_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_LOADED_TESTSTEP_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_LOADED_TESTSTEP_ID_KEY, null);
+    StorageService.set(StorageService.ISOLATED_EDITOR_CONTENT_KEY, null);
+    StorageService.set(StorageService.ISOLATED_SELECTED_TESTCASE_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_SELECTED_TESTPLAN_ID_KEY, null);
+    StorageService.set(StorageService.CB_SELECTED_TESTPLAN_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_SELECTED_TESTPLAN_SCOPE_KEY, null);
+    StorageService.set(StorageService.CF_SELECTED_TESTPLAN_SCOPE_KEY, null);
+    StorageService.set(StorageService.CF_SELECTED_TESTPLAN_ID_KEY, null);
+    StorageService.set(StorageService.CF_SELECTED_TESTPLAN_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTCASE_ID_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTCASE_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_LOADED_TESTCASE_ID_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_LOADED_TESTCASE_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_LOADED_TESTSTEP_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_LOADED_TESTSTEP_ID_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_ID_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_TYPE_KEY, null);
+    StorageService.set(StorageService.CB_MANAGE_SELECTED_TESTPLAN_SCOPE_KEY, null);
+    StorageService.set(StorageService.APP_SELECTED_DOMAIN, null);
+  };
+
+  $rootScope.selectDomain = function (domain) {
+    if (domain != null) {
+      StorageService.set(StorageService.APP_SELECTED_DOMAIN, domain);
+      $location.search('d', domain);
+      $rootScope.reloadPage();
+    }
+  };
+
+
+  $rootScope.reloadPage = function () {
+    $window.location.reload();
+  };
 
 
   $rootScope.$watch(function () {
@@ -456,6 +550,11 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
     $rootScope.showLoginDialog();
   });
 
+  $rootScope.$on('event:loginRequiredWithRedirect', function (event, path) {
+    $rootScope.showLoginDialog(path);
+  });
+
+
   /**
    * On 'event:loginConfirmed', resend all the 401 requests.
    */
@@ -472,7 +571,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
       retry(requests[i]);
     }
     $rootScope.requests401 = [];
-//        $window.location.reload();
+    $window.location.reload();
   });
 
   /*jshint sub: true */
@@ -505,20 +604,18 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
   /**
    * On 'event:loginRequest' send credentials to the server.
    */
-  $rootScope.$on('event:loginRequestWithAuth', function (event, auth,path) {
+  $rootScope.$on('event:loginRequestWithAuth', function (event, auth, path) {
     httpHeaders.common['Accept'] = 'application/json';
     httpHeaders.common['Authorization'] = 'Basic ' + auth;
     console.log("logging in...");
     $http.get('api/accounts/login').success(function () {
-      console.log("logging success...");
-      httpHeaders.common['Authorization'] = null;
+       httpHeaders.common['Authorization'] = null;
       $http.get('api/accounts/cuser').then(function (result) {
         if (result.data && result.data != null) {
           var rs = angular.fromJson(result.data);
           initUser(rs);
           $rootScope.$broadcast('event:loginConfirmed');
-          console.log("redirect after login");
-          $location.url(path);
+           $location.url(path);
         } else {
           userInfoService.setCurrentUser(null);
         }
@@ -529,12 +626,11 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
   });
 
 
-
   /*jshint sub: true */
   /**
    * On 'event:loginRequest' send credentials to the server.
    */
-  $rootScope.$on('event:loginRedirectRequest', function (event, username, password,path) {
+  $rootScope.$on('event:loginRedirectRequest', function (event, username, password, path) {
     httpHeaders.common['Accept'] = 'application/json';
     httpHeaders.common['Authorization'] = 'Basic ' + base64.encode(username + ':' + password);
 //        httpHeaders.common['withCredentials']=true;
@@ -688,23 +784,37 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
   };
 
 
-
   $rootScope.isAuthenticationRequired = function () {
-    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['AUTHENTICATION_REQUIRED'] === "true");
+    return $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['AUTHENTICATION_REQUIRED'] === "true");
   };
 
-  $rootScope.isEmployerRequired= function () {
-    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['EMPLOYER_REQUIRED'] === "true");
+  $rootScope.isEmployerRequired = function () {
+    return $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['EMPLOYER_REQUIRED'] === "true");
   };
 
 
-  $rootScope.isCbManagementSupported= function () {
-    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['CB_MANAGEMENT_SUPPORTED'] === "true");
+  $rootScope.isCbManagementSupported = function () {
+    return $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['CB_MANAGEMENT_SUPPORTED'] === "true");
   };
 
-  $rootScope.isCfManagementSupported= function () {
-    return  $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['CF_MANAGEMENT_SUPPORTED'] === "true");
+  $rootScope.isCfManagementSupported = function () {
+    return $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['CF_MANAGEMENT_SUPPORTED'] === "true");
   };
+
+
+  $rootScope.isDocumentationManagementSupported = function () {
+    return $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['DOC_MANAGEMENT_SUPPORTED'] === "true");
+  };
+
+  $rootScope.isDomainOwner = function (email) {
+    return $rootScope.domain != null && $rootScope.domain.ownerEmails != null && $rootScope.domain.ownerEmails.length() > 0 && $rootScope.domain.ownerEmails.indexOf(email) != -1;
+  };
+
+
+  $rootScope.isDomainsManagementSupported = function () {
+    return $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['DOMAIN_MANAGEMENT_SUPPORTED'] === "true");
+  };
+
 
 
 
@@ -817,6 +927,23 @@ app.controller('FailureCtrl', ['$scope', '$modalInstance', 'StorageService', '$w
     $scope.close = function () {
       $modalInstance.close();
     };
+  }
+]);
+
+app.controller('UnknownDomainCtrl', ['$scope', '$modalInstance', 'StorageService', '$window','domain',
+  function ($scope, $modalInstance, StorageService, $window, error,domain) {
+    $scope.error = error;
+    $scope.domain = domain;
+    $scope.selectedDomain = {domain: null};
+    $scope.selectDomain = function () {
+      StorageService.set(StorageService.APP_SELECTED_DOMAIN, $scope.selectedDomain.domain);
+      $modalInstance.close($scope.selectedDomain.domain);
+    };
+
+    $scope.createNewDomain = function () {
+      $modalInstance.close('New');
+    };
+
   }
 ]);
 
@@ -939,7 +1066,8 @@ app.factory('Resource', ['$resource', function ($resource) {
 
     return resource;
   };
-}]);
+}])
+
 
 
 
