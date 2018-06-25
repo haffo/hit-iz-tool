@@ -1,25 +1,15 @@
 {
 	"domains": [
 		{
-			"key": "edos",
-			"position": 2,
-			"rsbVersion"	:"${project.version}-${ts}",
-    		"igVersion"		:"",
-			"name": "EDos",
-			"homeTitle"		:"Welcome to the NIST Labs Validation Suite",
-			"participantEmails":["affoharold@yahoo.fr"],
-			"authorUsername":"haffo"
-		},
-		{
 			"key": "iz",
 			"position": 1,
-			"rsbVersion"	:"${project.version}-${ts}",
-    		"version"		: "${metadata.version}",
+			"rsbVersion"	:"1.2.30",
+    		"version"		: "1.7.3",
     		"igVersion"		:"",
     		"scope": "GLOBAL",
 			"name": "Immunization",
-			"homeTitle": "Welcome to the NIST Immunization",
-			"authorUsername":"haffo2"
+			"homeTitle": "Welcome to the NIST/CNI Immunization Test Suite!",
+			"authorUsername":"haffo"
  		}
 	]
 }

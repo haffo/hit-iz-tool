@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "A child is seen at a clinic. A previously documented vaccination is deleted due to user error.",
+  "comments" : "No Comments",
+  "preCondition" : "The IZ-AD-3_No_Consent test case has been successfully completed.<br>",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "This test case assesses the ability of the EHR to create a delete message for a previously sent administration.",
+  "evaluationCriteria" : "<br>",
+  "notes" : "No Note"
+}

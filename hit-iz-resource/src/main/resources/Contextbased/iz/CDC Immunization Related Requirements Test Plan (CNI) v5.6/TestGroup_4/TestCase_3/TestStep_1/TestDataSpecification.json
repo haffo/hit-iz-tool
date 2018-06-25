@@ -1,0 +1,255 @@
+{
+"version" : "2.9.11",
+"profile" : "VXU_V04",
+"tables":
+[
+		{
+			"title":"Patient Information",
+			"elements" : 
+			[
+				{"element" : "Patient Name", "data" : "Juana Mariela Gonzales"},
+				{"element" : "Mother's Maiden Name", "data" : "Joanna Morales"},
+				{"element" : "ID Number", "data" : "123456 987633 "},
+				{"element" : "Date/Time of Birth", "data" : "10/01/2016 11:00 "},
+				{"element" : "Administrative Sex", "data" : "Female"},
+				{"element" : "Patient Address ", "data" : "3321 Standish Way Stamford CT 06903
+USA "},
+				{"element" : "Local Number", "data" : "(203)555-1212"},
+				{"element" : "Race", "data" : "White"},
+				{"element" : "Ethnic Group", "data" : "Hispanic or Latino"},
+				{"element" : "Multiple Birth Indicator", "data" : "Yes"},
+				{"element" : "Birth Order", "data" : "1"}
+			]
+		{
+			"title":"Vaccine Administration Information[*]",
+
+<accordion>		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Vaccine", "data" : "Hepatitis B"},
+				{"element" : "Date/Time Start of Administration", "data" : "10/01/2016"},
+				{"element" : "Administered Amount", "data" : "0.5"},
+				{"element" : "Administered Units", "data" : ""},
+				{"element" : "Administration Notes", "data" : ""},
+				{"element" : "Administering Provider", "data" : "Susan Pike"},
+				{"element" : "Substance Lot Number", "data" : "6332FL432"},
+				{"element" : "Substance Expiration Date", "data" : "12/14/2016"},
+				{"element" : "Substance Manufacturer Name", "data" : "GlaxoSmithKline Biologicals
+SA"},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "Complete"},
+				{"element" : "Action Code", "data" : "Add"},
+				{"element" : "Route", "data" : "Intramuscular"},
+				{"element" : "Administration Site", "data" : "Left Thigh"},
+				{"element" : "Entering Organization", "data" : "Shoreline Hospital"},
+				{"element" : "Entered By", "data" : "Lisa Sirtis"},
+				{"element" : "Ordered By", "data" : "Jane Carter"},		]
+		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Vaccine", "data" : "hepatitis B vaccine, unspecified
+formulation"},
+				{"element" : "Date/Time Start of Administration", "data" : "10/31/2016"},
+				{"element" : "Administered Amount", "data" : "999"},
+				{"element" : "Administered Units", "data" : ""},
+				{"element" : "Administration Notes", "data" : ""},
+				{"element" : "Administering Provider", "data" : ""},
+				{"element" : "Substance Lot Number", "data" : ""},
+				{"element" : "Substance Expiration Date", "data" : ""},
+				{"element" : "Substance Manufacturer Name", "data" : ""},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "Not Administered"},
+				{"element" : "Action Code", "data" : "Add"},
+				{"element" : "Route", "data" : ""},
+				{"element" : "Administration Site", "data" : ""},
+				{"element" : "Entering Organization", "data" : "Shoreline Pediatrics"},
+				{"element" : "Entered By", "data" : "Sandra Molina"},
+				{"element" : "Ordered By", "data" : "Frank Smith"},
+					{"element" : "obx", "data" : 
+					{
+						"title":"",
+						"elements" : 
+						[
+							{"element" : "Vaccination contraindication", "data" : "current fever with moderate-to-severe
+illness"},
+							{"element" : "Vaccination contraindication/precaution effective date", "data"
+: "12/01/2016"},
+							{"element" : "Vaccination temporary contraindication/precaution expiration
+date", "data" : "01/01/2017"},
+	
+	]					}
+					}
+		]
+					}
+					}
+		]
+		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Vaccine", "data" : "DTaP, unspecified formulation"},
+				{"element" : "Date/Time Start of Administration", "data" : "10/31/2016"},
+				{"element" : "Administered Amount", "data" : "999"},
+				{"element" : "Administered Units", "data" : ""},
+				{"element" : "Administration Notes", "data" : ""},
+				{"element" : "Administering Provider", "data" : ""},
+				{"element" : "Substance Lot Number", "data" : ""},
+				{"element" : "Substance Expiration Date", "data" : ""},
+				{"element" : "Substance Manufacturer Name", "data" : ""},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "Not Administered"},
+				{"element" : "Action Code", "data" : "Add"},
+				{"element" : "Route", "data" : ""},
+				{"element" : "Administration Site", "data" : ""},
+				{"element" : "Entering Organization", "data" : "Shoreline Pediatrics"},
+				{"element" : "Entered By", "data" : "Sandra Molina"},
+				{"element" : "Ordered By", "data" : "Frank Smith"},
+					{"element" : "obx", "data" : 
+					{
+						"title":"",
+						"elements" : 
+						[
+							{"element" : "Vaccination contraindication", "data" : "current fever with moderate-to-severe
+illness"},
+							{"element" : "Vaccination contraindication/precaution effective date", "data"
+: "12/01/2016"},
+							{"element" : "Vaccination temporary contraindication/precaution expiration
+date", "data" : "01/01/2017"},
+	
+	]					}
+					}
+		]
+					}
+					}
+		]
+		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Vaccine", "data" : "Hib"},
+				{"element" : "Date/Time Start of Administration", "data" : "10/31/2016"},
+				{"element" : "Administered Amount", "data" : "999"},
+				{"element" : "Administered Units", "data" : ""},
+				{"element" : "Administration Notes", "data" : ""},
+				{"element" : "Administering Provider", "data" : ""},
+				{"element" : "Substance Lot Number", "data" : ""},
+				{"element" : "Substance Expiration Date", "data" : ""},
+				{"element" : "Substance Manufacturer Name", "data" : ""},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "Not Administered"},
+				{"element" : "Action Code", "data" : "Add"},
+				{"element" : "Route", "data" : ""},
+				{"element" : "Administration Site", "data" : ""},
+				{"element" : "Entering Organization", "data" : "Shoreline Pediatrics"},
+				{"element" : "Entered By", "data" : "Sandra Molina"},
+				{"element" : "Ordered By", "data" : "Frank Smith"},
+					{"element" : "obx", "data" : 
+					{
+						"title":"",
+						"elements" : 
+						[
+							{"element" : "Vaccination contraindication", "data" : "current fever with moderate-to-severe
+illness"},
+							{"element" : "Vaccination contraindication/precaution effective date", "data"
+: "12/01/2016"},
+							{"element" : "Vaccination temporary contraindication/precaution expiration
+date", "data" : "01/01/2017"},
+	
+	]					}
+					}
+		]
+					}
+					}
+		]
+		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Vaccine", "data" : "Pneumococcal Conjugate, unspecified
+formulation"},
+				{"element" : "Date/Time Start of Administration", "data" : "10/31/2016"},
+				{"element" : "Administered Amount", "data" : "999"},
+				{"element" : "Administered Units", "data" : ""},
+				{"element" : "Administration Notes", "data" : ""},
+				{"element" : "Administering Provider", "data" : ""},
+				{"element" : "Substance Lot Number", "data" : ""},
+				{"element" : "Substance Expiration Date", "data" : ""},
+				{"element" : "Substance Manufacturer Name", "data" : ""},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "Not Administered"},
+				{"element" : "Action Code", "data" : "Add"},
+				{"element" : "Route", "data" : ""},
+				{"element" : "Administration Site", "data" : ""},
+				{"element" : "Entering Organization", "data" : "Shoreline Pediatrics"},
+				{"element" : "Entered By", "data" : "Sandra Molina"},
+				{"element" : "Ordered By", "data" : "Frank Smith"},
+					{"element" : "obx", "data" : 
+					{
+						"title":"",
+						"elements" : 
+						[
+							{"element" : "Vaccination contraindication", "data" : "current fever with moderate-to-severe
+illness"},
+							{"element" : "Vaccination contraindication/precaution effective date", "data"
+: "12/01/2016"},
+							{"element" : "Vaccination temporary contraindication/precaution expiration
+date", "data" : "01/01/2017"},
+	
+	]					}
+					}
+		]
+					}
+					}
+		]
+		},
+		{
+			"title":"Vaccine Administration Information",
+			"elements" : 
+			[
+				{"element" : "Administered Vaccine", "data" : "rotavirus, unspecified formulation"},
+				{"element" : "Date/Time Start of Administration", "data" : "10/31/2016"},
+				{"element" : "Administered Amount", "data" : "999"},
+				{"element" : "Administered Units", "data" : ""},
+				{"element" : "Administration Notes", "data" : ""},
+				{"element" : "Administering Provider", "data" : ""},
+				{"element" : "Substance Lot Number", "data" : ""},
+				{"element" : "Substance Expiration Date", "data" : ""},
+				{"element" : "Substance Manufacturer Name", "data" : ""},
+				{"element" : "Substance/Treatment Refusal Reason", "data" : ""},
+				{"element" : "Completion Status", "data" : "Not Administered"},
+				{"element" : "Action Code", "data" : "Add"},
+				{"element" : "Route", "data" : ""},
+				{"element" : "Administration Site", "data" : ""},
+				{"element" : "Entering Organization", "data" : "Shoreline Pediatrics"},
+				{"element" : "Entered By", "data" : "Sandra Molina"},
+				{"element" : "Ordered By", "data" : "Frank Smith"},
+					{"element" : "obx", "data" : 
+					{
+						"title":"",
+						"elements" : 
+						[
+							{"element" : "Vaccination contraindication", "data" : "current fever with moderate-to-severe
+illness"},
+							{"element" : "Vaccination contraindication/precaution effective date", "data"
+: "12/01/2016"},
+							{"element" : "Vaccination temporary contraindication/precaution expiration
+date", "data" : "01/01/2017"},
+	
+	]					}
+					}
+		]
+					}
+					}
+		]
+
+</accordion>
+		}
+]
+}

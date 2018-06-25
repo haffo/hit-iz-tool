@@ -1,0 +1,7 @@
+{
+  "id" : 982484,
+  "name" : "View Inventory",
+  "description" : "<span style=\"font-size: 13.3333px;\">Demonstrates the ability to view inventory supply.</span>",
+  "type" : "SUT_MANUAL",
+  "position" : 2
+}

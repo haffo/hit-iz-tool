@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "<p>The provider periodically uses the EMR to identify the cohort of patients that are due or overdue for immunizations along with their contact information in order to send reminder notifications to the patients/parents.</p>\r\n",
+  "comments" : "<p>No Comments</p>\r\n",
+  "preCondition" : "<p>Initial Data Load completed with demographic data, vaccination history, and clinical history. Historical Vaccination reconciled and loaded into the EMR. The vaccine forecast is available to the EMR.</p>\r\n",
+  "postCondition" : "<p>The Cohort report for all patients that are due or overdue for immunizations is available to the provider through the EMR.</p>\r\n",
+  "testObjectives" : "<p><em><span style=\"font-weight: bold;\">Produce Population-Level Report:</span> </em>The EHR or other clinical system generates aggregate, population-level reports based on known patient immunization data.</p>\r\n",
+  "evaluationCriteria" : "<!--[if gte mso 9]><xml>\r\n <o:OfficeDocumentSettings>\r\n  <o:RelyOnVML></o:RelyOnVML>\r\n  <o:AllowPNG></o:AllowPNG>\r\n </o:OfficeDocumentSettings>\r\n</xml><![endif]--><font size=\"3\"><span style=\"font-size:8.0pt;mso-bidi-font-size:11.0pt;\r\nline-height:107%;font-family:\"Arial\",sans-serif;mso-fareast-font-family:Calibri;\r\nmso-fareast-theme-font:minor-latin;mso-ansi-language:EN-US;mso-fareast-language:\r\nEN-US;mso-bidi-language:AR-SA\"></span></font><div>Evaluation criteria is defined within each test step.<br></div>\r\n",
+  "notes" : "<p>No Note</p>\r\n"
+}

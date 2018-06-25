@@ -1,0 +1,3 @@
+MSH|^~\&|||||20140515001020-0500||QBP^Q11^QBP_Q11|793543|P|2.5.1|||ER|AL|||||Z34^CDCPHINVS
+QPD|Z34^Request Immunization History^CDCPHINVS|37374859|123456^^^MYEHR^MR|Child^Bobbie^Q^^^^L|Que^Suzy^^^^^M|20050512|M|10 East Main St^^Myfaircity^GA^^^L
+RCP|I|5^RD&records&HL70126
