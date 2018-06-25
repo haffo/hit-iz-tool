@@ -7,7 +7,7 @@
           <span class="label label-primary">{{numberOfValidationLogs}}</span>
 
         </a>
-        <a class="list-group-item" ng-click="selectType('TRANSPORT')">
+        <a ng-if="transportSupported" class="list-group-item" ng-click="selectType('TRANSPORT')">
           Transport Logs
           <span class="label label-primary">{{numberOfTransportLogs}}</span>
         </a>
@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div class="col-md-9" ng-if="selectedType === 'TRANSPORT'">
+    <div class="col-md-9" ng-if="transportSupported && selectedType === 'TRANSPORT'">
       <div class="panel panel-default">
         <div class="panel-heading">
           Transport Logs
