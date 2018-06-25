@@ -1,126 +1,103 @@
-<style id="antiClickjack">body{display:none !important;}</style>
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
 <script type="text/javascript">
-    if (self === top) {
-        var antiClickjack = document.getElementById("antiClickjack");
-        antiClickjack.parentNode.removeChild(antiClickjack);
-    } else {
-        top.location = self.location;
-    }
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
 </script>
-<div class="container" ng-controller="UserProfileCtrl" ng-init="init()">
-  <div class="row">
-    <div class="col-md-12">
-      <!--Body content-->
-        <h3 class="page-header"><div msg key="account.resetMessage"></div></h3>
-        <div ng-form name="changePasswordForm" class="form-horizontal" novalidate>
-            <div class="control-group form-group"  ng-class="{'has-success has-feedback': changePasswordForm.inputCurrentPassword.$valid, 'igl-has-error has-feedback': !changePasswordForm.inputCurrentPassword.$valid}">
-                <label class="control-label col-sm-2" for="inputCurrentPassword"><div msg key='account.currentPassword'></div></label>
-                <div class="controls col-sm-7">
-                    <input type="password" class="form-control immediate-help account-input" name="inputCurrentPassword" id="inputCurrentPassword" ng-model='accountpwd.currentPassword' ng-minlength="4" required
-                           >
-                    <div class="input-help">
-                        <h4><div msg key='account.currentpassword.error'></div></h4>
-                    </div>
-                 </div>
-            </div>
-            <div class="control-group form-group" ng-class="{'has-success has-feedback': changePasswordForm.inputNewPassword.$valid, 'igl-has-error has-feedback': !changePasswordForm.inputNewPassword.$valid}">
-                <label class="control-label col-sm-2" for="inputNewPassword"><div msg key='account.newPassword'></div></label>
-                <div class="controls col-sm-7">
-                    <input type="password" class="form-control immediate-help account-input" name="inputNewPassword" id="inputNewPassword" ng-model='accountpwd.newPassword' ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" password-validate required
-                           >
-                    <div class="input-help">
-                        <h4><div msg key='account.password.error'></div></h4>
-                        <ul>
-                            <li ng-class="pwdHasUpperCaseLetter"><div msg key='account.password.error.upperCaseletter'></div></li>
-                            <li ng-class="pwdHasLowerCaseLetter"><div msg key='account.password.error.lowerCaseletter'></div></li>
-                            <li ng-class="pwdHasNumber"><div msg key='account.password.error.number'></div></li>
-                            <li ng-class="pwdValidLength"><div msg key='account.password.error.length'></div></strong></li>
-                        </ul>
-                    </div>
-                 </div>
-            </div>
-            <div class="control-group form-group" ng-class="{'has-success has-feedback': changePasswordForm.inputNewPasswordConfirm.$valid, 'igl-has-error has-feedback': !changePasswordForm.inputNewPasswordConfirm.$valid}">
-                <label class="control-label col-sm-2" for="inputNewPasswordConfirm"><div msg key='account.newPasswordConfirm'></div></label>
-                <div class="controls col-sm-7">
-                    <input type="password" class="form-control immediate-help account-input" name="inputNewPasswordConfirm" id="inputNewPasswordConfirm" ng-model='accountpwd.newPasswordConfirm' check-password="inputNewPassword" required
-                          >
-                    <div class="input-help">
-                        <h4><div msg key='registration.passwordConfirm.error'></div></h4>
-                    </div>
-                    <!--<span class="valid" ng-show="changePasswordForm.inputNewPasswordConfirm.$valid"><i class="fa fa-check success"></i></span><br>-->
-                </div>
-            </div>
-            <div class="control-group form-group">
-                <div class="col-md-offset-2 col-sm-7">
-                     <button class="btn btn-primary" ng-click='changePassword()' ng-disabled='!changePasswordForm.$valid'><div msg key="account.changePasswordButton"></div></button>
-                </div>
-            </div>
-        </div>
-
-        <h3 class="page-header"><div msg key="account.message"></div></h3>
-        <div ng-form name="editAccountForm" class="form-horizontal" novalidate>
-
-            <div class="control-group form-group" ng-class="{'has-success has-feedback': editAccountForm.inputUsername.$valid, 'igl-has-error has-feedback': !editAccountForm.inputUsername.$valid}">
-                <label class="control-label col-sm-2" for="inputUsername"><div msg key='account.username'></div></label>
-                <div class="controls col-sm-7">
-                    <input type="text" class="form-control account-input" name="inputUsername" id="inputUsername" ng-model='account.username' ng-disabled='true' required>
-                 </div>
-            </div>
-            <div class="control-group form-group" ng-class="{'has-success has-feedback': editAccountForm.inputFullName.$valid, 'igl-has-error has-feedback': !editAccountForm.inputFullName.$valid}">
-                <label class="control-label col-sm-2" for="inputFullName"><div msg key='account.fullname'></div></label>
-                <div class="controls col-sm-7">
-                    <input type="text" class="form-control immediate-help account-input" name="inputFullName" id="inputFullName" ng-model='account.fullName' ng-minlength="2" required
-                          >
-                    <div class="input-help">
-                        <h4><div msg key='registration.fullname.error'></div></h4>
-                    </div>
-                 </div>
-            </div>
-            <div class="control-group form-group" ng-class="{'has-success has-feedback': editAccountForm.inputEmail.$valid, 'igl-has-error has-feedback': !editAccountForm.inputEmail.$valid}">
-                <label class="control-label col-sm-2" for="inputEmail"><div msg key='account.email'></div></label>
-                <div class="controls col-sm-7">
-                    <input type="email" class="form-control immediate-help account-input" name="inputEmail" id="inputEmail" ng-model='account.email' required
-                           >
-
-                    <div class="input-help">
-                        <h4><div msg key='registration.email.error'></div></h4>
-                    </div>
-                 </div>
-            </div>
-
-          <div ng-if="isEmployerRequired()" class="control-group form-group" ng-class="{'has-success has-feedback': editAccountForm.inputEmployer.$valid, 'igl-has-error has-feedback': !editAccountForm.inputEmployer.$valid}">
-            <label class="control-label col-sm-2" for="inputEmployer"><div msg key='account.employer'></div></label>
-            <div class="controls col-sm-7">
-              <input type="text" class="form-control immediate-help account-input" name="inputEmployer" id="inputEmployer" ng-model='account.employer' required
-              >
-
-              <div class="input-help">
-                <h4><div msg key='registration.employer.error'></div></h4>
-              </div>
-            </div>
-          </div>
+<div ng-controller="TransportLogCtrl" ng-init="initTransportLogs()">
 
 
+  <div class="row" style="margin-bottom: 20px">
+    <div class="col-md-4">
+      <label>Protocol</label>
+      <div class="btn-group" role="group" aria-label="label1">
+        <button type="button" ng-class="{'active': selected.protocol === '*'}" class="btn btn-primary btn-sm" ng-click="selected.protocol = '*'; filterBy()">All</button>
+        <button ng-repeat="p in protocols " type="button" ng-class="{'active': selected.protocol === p}" class="btn btn-primary btn-sm" ng-click="selected.protocol = p; filterBy()">{{p}}</button>
+      </div>
+    </div>
 
-            <div class="control-group form-group" >
-                <div class="col-md-offset-2 col-sm-7">
-                     <button class="btn btn-primary" ng-click='updateAccount()' ng-disabled='!editAccountForm.$valid || isUnchanged(account)'><div msg key="account.updateButton"></div></button>
-                     <button class="btn btn-warning" ng-click='resetForm()' ng-disabled='isUnchanged(account)'><div msg key="account.resetButton"></div></button>
-                </div>
-            </div>
-        </div>
+    <div class="col-md-4">
+      <label>User Type</label>
+      <div class="btn-group" role="group" aria-label="label2">
+        <button type="button" ng-class="{'active': userType === '*'}" class="btn btn-primary btn-sm" ng-click="userType = '*'; filterBy()">All</button>
+        <button type="button" ng-class="{'active': userType === 'AUTH'}" class="btn btn-primary btn-sm" ng-click="userType = 'AUTH'; filterBy()">Authenticated</button>
+        <button type="button" ng-class="{'active': userType === 'NOT_AUTH'}" class="btn btn-primary btn-sm" ng-click="userType = 'NOT_AUTH'; filterBy()">Not Authenticated</button>
+      </div>
+    </div>
 
-        <h3><div msg key="account.deleteSectionTitle"></div></h3>
-        <div ng-form name="deleteAccountForm" class="form-horizontal" novalidate>
-            <p>
-                <div msg key="account.deleteMessage"></div>
-            </p>
-            <div class="control-group form-group">
-                <div class="controls col-sm-10">
-                     <button class="btn btn-danger" ng-click='deleteAccount()'><div msg key="account.deleteButton"></div></button>
-                </div>
-            </div>
-        </div>
+    <div class="col-md-4">
+      <label>Transport Type</label>
+      <div class="btn-group" role="group" aria-label="label3">
+        <button type="button" ng-class="{'active': selected.transportType === '*'}" class="btn btn-primary btn-sm" ng-click="selected.transportType = '*'; filterBy()">All</button>
+        <button ng-repeat="tr in transportTypes" type="button" ng-class="{'active': selected.transportType === tr}" class="btn btn-primary btn-sm" ng-click="selected.transportType = tr; filterBy()"><i ng-class="getTransportTypeIcon(tr)"></i></button>
+      </div>
     </div>
   </div>
+
+
+
+  <table st-table="tmpLogs" st-safe-src="logs" st-set-filter="logCustomFilter"
+         class="table table-condensed table-bordered validation-log">
+    <thead>
+    <tr>
+      <th colspan="3" st-ratio="40">
+        <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+      </th>
+      <th>
+      <th colspan="5" st-ratio="60">
+        Date Filter
+        <!--<input  st-search="lastLoggedInDate" placeholder="" class="input-sm form-control" type="search"/>-->
+        <st-log-date-range predicate="date" before="logTransportDateQuery.before" after="logTransportDateQuery.after"></st-log-date-range>
+      </th>
+      </th>
+    </tr>
+    <tr class="">
+      <th st-sort="testingType">Transport Type</th>
+      <th st-sort="testStepName">Test Step</th>
+      <th st-sort="protocol">Protocol</th>
+      <th st-sort="userFullname">User's Fullname</th>
+      <th st-sort="companyName">User's Employer</th>
+      <th st-sort="date">Date</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in tmpLogs">
+      <td>
+        <i ng-class="getTransportTypeIcon(row.testingType)"></i>
+      </td>
+      <td>
+        {{::row.testStepName}}
+      </td>
+      <td>
+        {{::row.protocol}}
+      </td>
+      <td>
+        {{::row.userFullname}}
+      </td>
+      <td>
+        {{::row.companyName}}
+      </td>
+      <td>
+        {{::row.date | date:'MM/dd/yyyy HH:mm:ss'}}
+      </td>
+      <td>
+        <a class="point" ng-click="openLogDetails(row)">Log content</a>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot ng-show="tmpLogs.length >=100">
+    <tr>
+      <th colspan="8" class="text-center" st-ratio="100">
+        <div class="" st-pagination="" st-items-by-page="100"
+             st-displayed-pages="10"></div>
+      </th>
+    </tr>
+    </tfoot>
+  </table>
 </div>

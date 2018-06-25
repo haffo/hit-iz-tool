@@ -2735,3 +2735,29 @@ div.upload-error-table div.fixed-table-container-inner {
 .root-node {
   background-color:#0e90d2;
 }
+
+
+.validation-log {
+  // background-color: #cccccc;
+  color: #cccccc;
+  font-family: monospace;
+}
+
+.validation-segment-count {
+  background-color: #cccccc;
+  color: black;
+  font-family: monospace;
+}
+
+
+.log-content {
+  background-color: #cccccc;
+  color: black;
+  font-family: monospace;
+  margin: 0 auto;
+  border-color:#000000;
+  border: 0px;
+  overflow: auto;width: 100%; height: 100%;
+}
+
+
