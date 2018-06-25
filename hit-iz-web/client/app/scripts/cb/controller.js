@@ -512,6 +512,13 @@ angular.module('cb')
       return $scope.outboundMessage() != null && $scope.outboundMessage() != '';
     };
 
+
+    $scope.saveTransportLog = function () {
+      $timeout(function(){
+        $scope.transport.saveTransportLog($scope.testStep.id, $scope.logger.content, $scope.domain, $scope.protocol);
+      });
+    };
+
     $scope.send = function () {
       $scope.connecting = true;
       $scope.openConsole($scope.testStep);
@@ -550,6 +557,7 @@ angular.module('cb')
           $scope.connecting = false;
           $scope.transport.logs[$scope.testStep.id] = $scope.logger.content;
           $scope.logger.log("Transaction completed");
+          $scope.saveTransportLog();
         }, function (error) {
           $scope.connecting = false;
           $scope.error = error.data;
@@ -558,13 +566,14 @@ angular.module('cb')
           $scope.completeStep($scope.testStep);
           $scope.transport.logs[$scope.testStep.id] = $scope.logger.content;
           $scope.logger.log("Transaction stopped");
+          $scope.saveTransportLog();
         });
       } else {
         $scope.error = "No message to send";
         $scope.connecting = false;
         $scope.transport.logs[$scope.testStep.id] = $scope.logger.content;
         $scope.logger.log("Transaction completed");
-
+        $scope.saveTransportLog();
       }
     };
 
@@ -625,7 +634,9 @@ angular.module('cb')
       $scope.transport.stopListener($scope.testStep.id, $scope.domain, $scope.protocol).then(function (response) {
         $scope.logger.log("Listener stopped.");
         $scope.transport.logs[$scope.testStep.id] = $scope.logger.content;
+        $scope.saveTransportLog();
       }, function (error) {
+        $scope.saveTransportLog();
       });
     };
 

@@ -1,0 +1,113 @@
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
+<script type="text/javascript">
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
+</script>
+<div ng-controller="ValidationLogCtrl" ng-init="initValidationLogs()">
+
+  <div class="row" style="margin-bottom: 20px">
+    <div class="col-md-4">
+      <label>Context Type</label>
+      <div class="btn-group" role="group" aria-label="label1">
+        <button type="button" ng-class="{'active': contextType === '*'}" class="btn btn-primary btn-sm" ng-click="contextType = '*'; filterBy()">All</button>
+        <button type="button" ng-class="{'active': contextType === 'CB'}" class="btn btn-primary btn-sm" ng-click="contextType = 'CB'; filterBy()">Context-based</button>
+        <button type="button" ng-class="{'active': contextType === 'CF'}" class="btn btn-primary btn-sm" ng-click="contextType = 'CF'; filterBy()">Context-free</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label>User Type</label>
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" ng-class="{'active': userType === '*'}" class="btn btn-primary btn-sm" ng-click="userType = '*'; filterBy()">All</button>
+        <button type="button" ng-class="{'active': userType === 'AUTH'}" class="btn btn-primary btn-sm" ng-click="userType = 'AUTH'; filterBy()">Authenticated</button>
+        <button type="button" ng-class="{'active': userType === 'NOT_AUTH'}" class="btn btn-primary btn-sm" ng-click="userType = 'NOT_AUTH'; filterBy()">Not Authenticated</button>
+      </div>
+   </div>
+
+    <div class="col-md-4">
+      <label>Result Type</label>
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" ng-class="{'active': resultType === '*'}" class="btn btn-primary btn-sm" ng-click="resultType = '*'; filterBy()">All</button>
+        <button type="button" ng-class="{'active': resultType === 'SUCCESS'}" class="btn btn-primary btn-sm" ng-click="resultType = 'SUCCESS'; filterBy()">Success</button>
+        <button type="button" ng-class="{'active': resultType === 'FAILED'}" class="btn btn-primary btn-sm" ng-click="resultType = 'FAILED'; filterBy()">Failure</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <table st-table="tmpLogs" st-safe-src="logs" st-set-filter="logCustomFilter"
+         class="table table-condensed table-bordered validation-log">
+    <thead>
+    <tr>
+      <th colspan="4" st-ratio="50">
+        <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+      </th>
+      <th>
+      <th colspan="4" st-ratio="50">
+        Date Filter
+        <!--<input  st-search="lastLoggedInDate" placeholder="" class="input-sm form-control" type="search"/>-->
+        <st-log-date-range predicate="date" before="logValidationDateQuery.before" after="logValidationDateQuery.after"></st-log-date-range>
+      </th>
+      </th>
+    </tr>
+    <tr class="">
+      <th st-sort="validationResult">Validation Result</th>
+      <th st-sort="testStepName">Test Step</th>
+      <th st-sort="userFullname">User' Fullname</th>
+      <th st-sort="companyName">User's Employer</th>
+      <th st-sort="errorCount">#Error</th>
+      <th st-sort="warningCount">#Warning</th>
+      <th st-sort="testingStage">Testing Context</th>
+      <th st-sort="date">Date</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in tmpLogs">
+      <td>
+        <span class="label label-success" ng-show="row.validationResult"><i class="fa fa-check"></i>Success</span>
+        <span class="label label-danger" ng-show="!row.validationResult"><i class="fa fa-times"></i>Failed</span>
+      </td>
+      <td>
+        {{::row.testStepName}}
+      </td>
+      <td>
+        {{::row.userFullname}}
+      </td>
+      <td>
+        {{::row.companyName}}
+      </td>
+      <td>
+        {{::row.errorCount}}
+      </td>
+      <td>
+        {{::row.warningCount}}
+      </td>
+      <td>
+        {{::row.testingStage === 'CF' ? "Context-free": "Context-based"}}
+      </td>
+      <td>
+        {{::row.date | date:'MM/dd/yyyy HH:mm:ss'}}
+      </td>
+      <td>
+         <a class="point" ng-click="openLogDetails(row)">Details</a>
+      </td>
+
+    </tr>
+    </tbody>
+    <tfoot ng-show="tmpLogs.length >=100">
+    <tr>
+      <th colspan="8" class="text-center" st-ratio="100">
+        <div class="" st-pagination="" st-items-by-page="100"
+             st-displayed-pages="10"></div>
+      </th>
+    </tr>
+    </tfoot>
+  </table>
+</div>
