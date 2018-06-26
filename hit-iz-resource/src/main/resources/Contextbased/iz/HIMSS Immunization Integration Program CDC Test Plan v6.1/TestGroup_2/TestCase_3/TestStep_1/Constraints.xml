@@ -5410,112 +5410,112 @@
           </Assertion>
         </Trigger>
         <Constraints>
-          <Constraint ID="Content" Target="9[30].3[1].3[1].1[1]">
+          <Constraint ID="Content" Target="3[1].3[1].1[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].3[1].1[1]" Source="testcase"
               TestDataCategorization="Value-Test Case Fixed"/>
             <Description>Expected content is missing. The empty value at ORDER[30].RXA-3.1 (Time) is expected to be present.</Description>
             <Assertion>
-              <Presence Path="9[30].3[1].3[1].1[1]"/>
+              <Presence Path="3[1].3[1].1[1]"/>
             </Assertion>
           </Constraint>
-          <Constraint ID="Content" Target="9[30].3[1].3[1].1[1]">
+          <Constraint ID="Content" Target="3[1].3[1].1[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].3[1].1[1]" Source="testcase"
               TestDataCategorization="Value-Test Case Fixed"/>
             <Description>Invalid content (based on test case fixed data). The value at ORDER[30].RXA-3.1 (Time) does not match the expected value: '20140523'.</Description>
             <Assertion>
-              <PlainText IgnoreCase="true" Path="9[30].3[1].3[1].1[1]" Text="20140523"/>
+              <PlainText IgnoreCase="true" Path="3[1].3[1].1[1]" Text="20140523"/>
             </Assertion>
           </Constraint>
-          <Constraint ID="Content" Target="9[30].3[1].5[1].1[1]">
+          <Constraint ID="Content" Target="3[1].5[1].1[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].5[1].1[1]" Source="testcase"
               TestDataCategorization="Value-Test Case Fixed"/>
             <Description>Expected content is missing. The empty value at ORDER[30].RXA-5.1 (Identifier) is expected to be present.</Description>
             <Assertion>
-              <Presence Path="9[30].3[1].5[1].1[1]"/>
+              <Presence Path="3[1].5[1].1[1]"/>
             </Assertion>
           </Constraint>
-          <Constraint ID="Content" Target="9[30].3[1].5[1].1[1]">
+          <Constraint ID="Content" Target="3[1].5[1].1[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].5[1].1[1]" Source="testcase"
               TestDataCategorization="Value-Test Case Fixed"/>
             <Description>Invalid content (based on test case fixed data). The value at ORDER[30].RXA-5.1 (Identifier) does not match the expected value: '83'.</Description>
             <Assertion>
-              <PlainText IgnoreCase="true" Path="9[30].3[1].5[1].1[1]" Text="83"/>
+              <PlainText IgnoreCase="true" Path="3[1].5[1].1[1]" Text="83"/>
             </Assertion>
           </Constraint>
-          <Constraint ID="Content" Target="9[30].3[1].5[1].2[1]">
+          <Constraint ID="Content" Target="3[1].5[1].2[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].5[1].2[1]" Source="testcase"
               TestDataCategorization="Presence-Content Indifferent"/>
             <Description>Expected content is missing. The empty value at ORDER[30].RXA-5.2 (Text) is expected to be present.</Description>
             <Assertion>
-              <Presence Path="9[30].3[1].5[1].2[1]"/>
+              <Presence Path="3[1].5[1].2[1]"/>
             </Assertion>
           </Constraint>
-          <Constraint ID="Content" Target="9[30].3[1].5[1].3[1]">
+          <Constraint ID="Content" Target="3[1].5[1].3[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].5[1].3[1]" Source="testcase"
               TestDataCategorization="Value-Test Case Fixed"/>
             <Description>Expected content is missing. The empty value at ORDER[30].RXA-5.3 (Name of Coding System) is expected to be present.</Description>
             <Assertion>
-              <Presence Path="9[30].3[1].5[1].3[1]"/>
+              <Presence Path="3[1].5[1].3[1]"/>
             </Assertion>
           </Constraint>
-          <Constraint ID="Content" Target="9[30].3[1].5[1].3[1]">
+          <Constraint ID="Content" Target="3[1].5[1].3[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].5[1].3[1]" Source="testcase"
               TestDataCategorization="Value-Test Case Fixed"/>
             <Description>Invalid content (based on test case fixed data). The value at ORDER[30].RXA-5.3 (Name of Coding System) does not match the expected value: 'CVX'.</Description>
             <Assertion>
-              <PlainText IgnoreCase="true" Path="9[30].3[1].5[1].3[1]" Text="CVX"/>
+              <PlainText IgnoreCase="true" Path="3[1].5[1].3[1]" Text="CVX"/>
             </Assertion>
           </Constraint>
-          <Constraint ID="Content" Target="9[30].3[1].9[1].1[1]">
+          <Constraint ID="Content" Target="3[1].9[1].1[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].9[1].1[1]" Source="testcase"
               TestDataCategorization="Value-Test Case Fixed"/>
             <Description>Expected content is missing. The empty value at ORDER[30].RXA-9.1 (Identifier) is expected to be present.</Description>
             <Assertion>
-              <Presence Path="9[30].3[1].9[1].1[1]"/>
+              <Presence Path="3[1].9[1].1[1]"/>
             </Assertion>
           </Constraint>
-          <Constraint ID="Content" Target="9[30].3[1].9[1].1[1]">
+          <Constraint ID="Content" Target="3[1].9[1].1[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].9[1].1[1]" Source="testcase"
               TestDataCategorization="Value-Test Case Fixed"/>
             <Description>Invalid content (based on test case fixed data). The value at ORDER[30].RXA-9.1 (Identifier) does not match the expected value: '08'.</Description>
             <Assertion>
-              <PlainText IgnoreCase="true" Path="9[30].3[1].9[1].1[1]" Text="08"/>
+              <PlainText IgnoreCase="true" Path="3[1].9[1].1[1]" Text="08"/>
             </Assertion>
           </Constraint>
-          <Constraint ID="Content" Target="9[30].3[1].9[1].2[1]">
+          <Constraint ID="Content" Target="3[1].9[1].2[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].9[1].2[1]" Source="testcase"
               TestDataCategorization="Presence-Content Indifferent"/>
             <Description>Expected content is missing. The empty value at ORDER[30].RXA-9.2 (Text) is expected to be present.</Description>
             <Assertion>
-              <Presence Path="9[30].3[1].9[1].2[1]"/>
+              <Presence Path="3[1].9[1].2[1]"/>
             </Assertion>
           </Constraint>
-          <Constraint ID="Content" Target="9[30].3[1].9[1].3[1]">
+          <Constraint ID="Content" Target="3[1].9[1].3[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].9[1].3[1]" Source="testcase"
               TestDataCategorization="Value-Test Case Fixed"/>
             <Description>Expected content is missing. The empty value at ORDER[30].RXA-9.3 (Name of Coding System) is expected to be present.</Description>
             <Assertion>
-              <Presence Path="9[30].3[1].9[1].3[1]"/>
+              <Presence Path="3[1].9[1].3[1]"/>
             </Assertion>
           </Constraint>
-          <Constraint ID="Content" Target="9[30].3[1].9[1].3[1]">
+          <Constraint ID="Content" Target="3[1].9[1].3[1]">
             <Reference GeneratedBy="Test Case Authoring &amp; Management Tool(TCAMT)"
               ReferencePath="ORDER[30].RXA[1].9[1].3[1]" Source="testcase"
               TestDataCategorization="Value-Test Case Fixed"/>
             <Description>Invalid content (based on test case fixed data). The value at ORDER[30].RXA-9.3 (Name of Coding System) does not match the expected value: 'NIP001'.</Description>
             <Assertion>
-              <PlainText IgnoreCase="true" Path="9[30].3[1].9[1].3[1]" Text="NIP001"/>
+              <PlainText IgnoreCase="true" Path="3[1].9[1].3[1]" Text="NIP001"/>
             </Assertion>
           </Constraint>
         </Constraints>
