@@ -7,7 +7,6 @@ angular.module('cf')
     $scope.token = $routeParams.x;
     $scope.nav = $routeParams.nav;
 
-
     $scope.setSubActive = function (tab) {
       $rootScope.setSubActive(tab);
       if (tab === '/cf_execution') {
@@ -156,6 +155,9 @@ angular.module('cf')
                 }
               }
             }
+
+
+
             if (targetId != null) {
               $scope.selectedTP.id = targetId.toString();
             }
@@ -317,10 +319,8 @@ angular.module('cf')
       if (group && group != null) {
         $scope.selectedTP.id = group;
         StorageService.set(StorageService.CF_SELECTED_TESTPLAN_ID_KEY, group);
-        $scope.selectedTP.id = group;
         $scope.selectedScope.key = scope ? scope : $scope.testPlanScopes[0].key;
-        $scope.selectTP();
-      }
+       }
       $scope.selectScope();
     });
 
@@ -1366,7 +1366,8 @@ angular.module('cf')
     $scope.afterSave =function(token) {
       $timeout(function () {
         if(token != null && token) {
-          $location.url("/cf?nav=execution&scope=" + $scope.selectedScope.key);
+            var group = StorageService.get(StorageService.CF_MANAGE_SELECTED_TESTPLAN_ID_KEY);
+            $location.url("/cf?nav=execution&scope=" + $scope.selectedScope.key + "&group="+ group);
         }
       });
     };

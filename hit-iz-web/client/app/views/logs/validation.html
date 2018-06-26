@@ -71,8 +71,8 @@
     <tbody>
     <tr ng-repeat="row in tmpLogs">
       <td>
-        <span class="label label-success" ng-show="row.validationResult"><i class="fa fa-check"></i>Success</span>
-        <span class="label label-danger" ng-show="!row.validationResult"><i class="fa fa-times"></i>Failed</span>
+        <span ng-show="row.validationResult"><span class="label label-success" ><i class="fa fa-check"></i></span>&nbsp;Succeeded</span>
+        <span ng-show="!row.validationResult"><span class="label label-danger" ><i class="fa fa-times"></i></span>&nbsp;Failed</span>
       </td>
       <td>
         {{::row.testStepName}}
