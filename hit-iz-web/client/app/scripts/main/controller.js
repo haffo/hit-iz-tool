@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('main').controller('MainCtrl',
-  function ($scope, $rootScope, i18n, $location, userInfoService, $modal, $filter, base64, $http, Idle, Notification, IdleService, StorageService, TestingSettings, Session, AppInfo, User, $templateCache, $window, $sce) {
+  function ($scope, $rootScope, i18n, $location, userInfoService, $modal, $filter, base64, $http, Idle, Notification, IdleService, StorageService, TestingSettings, Session, AppInfo, User, $templateCache, $window, $sce,DomainsManager) {
     //This line fetches the info from the server if the user is currently logged in.
     //If success, the app is updated according to the role.
     $rootScope.loginDialog = null;
     $rootScope.started = false;
 
+    var domainParam = $location.search()['d'] ? decodeURIComponent($location.search()['d']) : null;
 
     $scope.language = function () {
       return i18n.language;
@@ -735,8 +736,75 @@ angular.module('main').controller('MainCtrl',
     };
 
 
+      AppInfo.get().then(function (appInfo) {
+              $rootScope.loadingDomain = true;
+              $rootScope.appInfo = appInfo;
+//        $rootScope.apiLink = $window.location.protocol + "//" + $window.location.host + getContextPath() + $rootScope.appInfo.apiDocsPath;
+              $rootScope.apiLink = $rootScope.appInfo.url + $rootScope.appInfo.apiDocsPath;
+              httpHeaders.common['rsbVersion'] = appInfo.rsbVersion;
+              var previousToken = StorageService.get(StorageService.APP_STATE_TOKEN);
+              if (previousToken != null && previousToken !== appInfo.rsbVersion) {
+                  $rootScope.openVersionChangeDlg();
+              }
+              StorageService.set(StorageService.APP_STATE_TOKEN, appInfo.rsbVersion);
+
+              if (domainParam != undefined && domainParam != null) {
+                  StorageService.set(StorageService.APP_SELECTED_DOMAIN, domainParam);
+              }
+              var storedDomain = StorageService.get(StorageService.APP_SELECTED_DOMAIN);
+
+              var domainFound = null;
+              $rootScope.domain = null;
+              $rootScope.appInfo.selectedDomain = null;
+              DomainsManager.getDomains().then(function (domains) {
+                  $rootScope.appInfo.domains = domains;
+                  if ($rootScope.appInfo.domains != null) {
+                      if ($rootScope.appInfo.domains.length === 1) {
+                          domainFound = $rootScope.appInfo.domains[0].domain;
+                      } else if (storedDomain != null) {
+                          $rootScope.appInfo.domains = $filter('orderBy')($rootScope.appInfo.domains, 'position');
+                          for (var i = 0; i < $rootScope.appInfo.domains.length; i++) {
+                              if ($rootScope.appInfo.domains[i].domain === storedDomain) {
+                                  domainFound = $rootScope.appInfo.domains[i].domain;
+                                  break;
+                              }
+                          }
+                      }
+                      if (domainFound == null) {
+                          $rootScope.openUnknownDomainDlg();
+                      } else {
+                          $rootScope.clearDomainSession();
+                          DomainsManager.getDomainByKey(domainFound).then(function (result) {
+                              $rootScope.appInfo.selectedDomain = result.domain;
+                              StorageService.set(StorageService.APP_SELECTED_DOMAIN, result.domain);
+                              $rootScope.domain = result;
+                              $rootScope.loadingDomain = false;
+                          }, function (error) {
+                              $rootScope.loadingDomain = true;
+                              $rootScope.openUnknownDomainDlg();
+                          });
+                      }
+                  } else {
+                      $rootScope.openCriticalErrorDlg("No Tool scope found. Please contact the administrator");
+                  }
+              }, function (error) {
+                  $rootScope.openCriticalErrorDlg("No Tool scope found. Please contact the administrator");
+              });
+          }
+          , function (error) {
+              $rootScope.loadingDomain = true;
+              $rootScope.appInfo = {};
+              $rootScope.openCriticalErrorDlg("Failed to fetch the server. Please try again");
+          });
+
+
+
 
   });
+
+
+
+
 
 angular.module('main').controller('LoginCtrl', ['$scope', '$modalInstance', 'user', function ($scope, $modalInstance, user) {
   $scope.user = user;
@@ -771,6 +839,27 @@ angular.module('main').controller('LoginCtrl', ['$scope', '$modalInstance', 'use
 
 }]);
 
+
+angular.module('main').controller('UnknownDomainCtrl', ['$scope', '$modalInstance', 'StorageService', '$window', 'domain', 'userInfoService', '$rootScope',
+    function ($scope, $modalInstance, StorageService, $window, error, domain, userInfoService, $rootScope) {
+        $scope.error = error;
+        $scope.domain = domain;
+        $scope.selectedDomain = {domain: null};
+        $scope.selectDomain = function () {
+            StorageService.set(StorageService.APP_SELECTED_DOMAIN, $scope.selectedDomain.domain);
+            $modalInstance.close($scope.selectedDomain.domain);
+        };
+
+        $scope.createNewDomain = function () {
+            $modalInstance.close('New');
+        };
+
+        $scope.loginReq = function () {
+            $scope.$emit('event:loginRequired');
+        };
+
+    }
+]);
 
 angular.module('main').controller('RichTextCtrl', ['$scope', '$modalInstance', 'editorTarget', function ($scope, $modalInstance, editorTarget) {
   $scope.editorTarget = editorTarget;
