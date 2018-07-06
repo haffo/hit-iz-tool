@@ -1143,10 +1143,16 @@
 			<ValueElement Value="186" DisplayName="Influenza, injectable, Madin Darby Canine Kidney, quadrivalent" CodeSystem="CVX"/>
 			<ValueElement Value="187" DisplayName="zoster vaccine recombinant" CodeSystem="CVX"/>
 			<ValueElement Value="188" DisplayName="zoster vaccine, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="189" DisplayName="Hepatitis B vaccine (recombinant), adjuvanted" CodeSystem="CVX"/>
+			<ValueElement Value="189" DisplayName="Hepatitis B vaccine (recombinant), CpG adjuvanted" CodeSystem="CVX"/>
 			<ValueElement Value="801" DisplayName="AS03 Adjuvant" CodeSystem="CVX"/>
 			<ValueElement Value="998" DisplayName="no vaccine administered" CodeSystem="CVX"/>
 			<ValueElement Value="999" DisplayName="unknown" CodeSystem="CVX"/>
+			
+			
+			
+			<ValueElement Value="190" DisplayName="Typhoid conjugate vaccine (non-US)" CodeSystem="CVX"/>
+			<ValueElement Value="191" DisplayName="meningococcal A polysaccharide vaccine (non-US)" CodeSystem="CVX"/>
+			<ValueElement Value="192" DisplayName="meningococcal AC polysaccharide vaccine (non-US)" CodeSystem="CVX"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_ImmunizationFundingSource_IIS" Name="Immunization Funding Source (IIS)">
 			<ValueElement Value="PHC70" CodeSystem="CDCPHINVS" DisplayName="Private funds "/>
@@ -1360,6 +1366,7 @@
 			<ValueElement Value="121" CodeSystem="CVX" DisplayName="zoster live"/>
 			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax Vaccine VIS"/>
 			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax VIS"/>
+			
 			<ValueElement Value="189" CodeSystem="CVX" DisplayName="HepB-CpG"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>

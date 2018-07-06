@@ -1184,10 +1184,16 @@
 			<ValueElement Value="186" DisplayName="Influenza, injectable, Madin Darby Canine Kidney, quadrivalent" CodeSystem="CVX"/>
 			<ValueElement Value="187" DisplayName="zoster vaccine recombinant" CodeSystem="CVX"/>
 			<ValueElement Value="188" DisplayName="zoster vaccine, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="189" DisplayName="Hepatitis B vaccine (recombinant), adjuvanted" CodeSystem="CVX"/>
+			<ValueElement Value="189" DisplayName="Hepatitis B vaccine (recombinant), CpG adjuvanted" CodeSystem="CVX"/>
 			<ValueElement Value="801" DisplayName="AS03 Adjuvant" CodeSystem="CVX"/>
 			<ValueElement Value="998" DisplayName="no vaccine administered" CodeSystem="CVX"/>
 			<ValueElement Value="999" DisplayName="unknown" CodeSystem="CVX"/>
+			
+			
+			
+			<ValueElement Value="190" DisplayName="Typhoid conjugate vaccine (non-US)" CodeSystem="CVX"/>
+			<ValueElement Value="191" DisplayName="meningococcal A polysaccharide vaccine (non-US)" CodeSystem="CVX"/>
+			<ValueElement Value="192" DisplayName="meningococcal AC polysaccharide vaccine (non-US)" CodeSystem="CVX"/>
 		</ValueSetDefinition>
 				
 		<ValueSetDefinition BindingIdentifier="NDC_Sale" Name="NDC Unit of Sale">
@@ -1480,6 +1486,9 @@
 			<ValueElement Value="54868-6180-00" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="54868-2219-01" DisplayName="Hep B, adult" CodeSystem="NDC"/>
 			<ValueElement Value="54868-6177-00" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			
+			<ValueElement Value="49281-718-10" DisplayName="Flublok Quadrivalent" CodeSystem="NDC"/>
+			
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="NDC_Use" Name="NDC Unit of Use">
 			<ValueElement Value="00005-0100-01" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
@@ -1751,6 +1760,8 @@
 			<ValueElement Value="54868-6177-00" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
 			<ValueElement Value="76420-0470-10" DisplayName="INFLUENZA A VIRUS A/CHRISTCHURCH/16/2010 NIB-74 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZ" CodeSystem="NDC"/>
 			<ValueElement Value="76420-0471-01" DisplayName="INFLUENZA A VIRUS A/CHRISTCHURCH/16/2010 NIB-74 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZ" CodeSystem="NDC"/>
+			
+			<ValueElement Value="49281-718-88" DisplayName="Flublok Quadrivalent" CodeSystem="NDC"/>
 		</ValueSetDefinition>
 		
 		
@@ -1965,6 +1976,7 @@
 			<ValueElement Value="121" CodeSystem="CVX" DisplayName="zoster live"/>
 			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax Vaccine VIS"/>
 			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax VIS"/>
+			
 			<ValueElement Value="189" CodeSystem="CVX" DisplayName="HepB-CpG"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
