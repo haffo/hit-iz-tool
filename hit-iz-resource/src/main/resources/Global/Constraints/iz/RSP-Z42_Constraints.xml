@@ -492,7 +492,7 @@
                     </Assertion>
                 </Constraint>
             </ByID>
-            <ByID ID="OBX_IZ 1_5">                
+            <ByID ID="OBX_IZ 1_5">
                 <Constraint ID="IZ-36" Target="5[1]">
                     <Description>If The value of OBX-3.1 (Identifier) is '69764-9' and the value of OBX-2 (Value Type) is 'CE' then the value of OBX-5.1 (Observation Value) SHALL be one of codes listed in the Value Set: PHVS_VISBarcodes_IIS.</Description>
                     <Assertion>

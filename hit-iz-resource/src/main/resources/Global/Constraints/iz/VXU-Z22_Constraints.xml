@@ -718,13 +718,19 @@
 						<IMPLY>
 							<AND>
 								<AND>
-									<OR>
-										<PlainText Path="3[1].20[1]" Text="CP" IgnoreCase="false" />
-										<PlainText Path="3[1].20[1]" Text="PA" IgnoreCase="false" />
-									</OR>
-									<PlainText Path="3[1].9[1].1[1]" Text="00" IgnoreCase="false" />
+									<AND>
+										<Presence Path="3[1].20[1]"/>
+										<StringList Path="3[1].20[1]" CSV="CP,PA"/>
+									</AND>
+									<AND>
+										<Presence Path="3[1].9[1].1[1]"/>
+										<PlainText Path="3[1].9[1].1[1]" Text="00" IgnoreCase="false" />
+									</AND>
 								</AND>
-								<ValueSet ValueSetID="PHVS_VISVaccines_IIS" Path="3[1].5[1].1[1]" BindingLocation="1" BindingStrength="R" />
+								<AND>
+									<Presence Path="3[1].5[1].1[1]"/>
+									<ValueSet ValueSetID="PHVS_VISVaccines_IIS" Path="3[1].5[1].1[1]" BindingLocation="1" BindingStrength="R" />
+								</AND>
 							</AND>
 							<Plugin QualifiedClassName="gov.nist.healthcare.hl7.v2.iz.plugins.IZ24Constraint"/>
 						</IMPLY>
@@ -749,8 +755,14 @@
 					<Assertion>
 						<IMPLY>
 							<AND>
-								<PlainText Path="3[1].9[1].1[1]" Text="00" IgnoreCase="false"/>
-								<StringList Path="3[1].20[1]" CSV="CP,PA"/>
+								<AND>
+									<Presence Path="3[1].9[1].1[1]"/>
+									<PlainText Path="3[1].9[1].1[1]" Text="00" IgnoreCase="false"/>
+								</AND>
+								<AND>
+									<Presence Path="3[1].20[1]"/>
+									<StringList Path="3[1].20[1]" CSV="CP,PA"/>
+								</AND>
 							</AND>
 							<AND>
 								<Presence Path="5[1]"/>
