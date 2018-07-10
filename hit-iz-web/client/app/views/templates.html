@@ -566,6 +566,7 @@
 </script>
 
 
+
 <script type="text/ng-template" id="UnknownDomain.html">
   <div class="modal-header">
     Tool Scope Selection
@@ -583,10 +584,14 @@
                 value="{{dom.domain}}">{{dom.name}}
         </option>
       </select>
-      <button ng-show="isAuthenticated()"  ng-click="createNewDomain()" class="btn btn-primary btn-md" title="Create New Tool Scope"><i class="fa fa-plus"></i>Create</button>
-
+      Or
+      <button ng-if="isLoggedIn()" ng-click="createNewDomain()" class="btn btn-primary btn-md"
+              title="Create New Tool Scope"><i class="fa fa-plus"></i>Create
+      </button>
+      <a  ng-if="!isLoggedIn()" class="point" ng-click="loginReq()"> Sign In</a>
     </div>
+
+
   </div>
 </script>
-
 
