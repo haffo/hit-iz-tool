@@ -12,13 +12,13 @@
 
 package gov.nist.hit.iz.ws;
 
-import gov.nist.hit.iz.service.IISReceiver;
-import gov.nist.hit.iz.service.Receiver;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
+
+import gov.nist.hit.iz.service.IISReceiver;
+import gov.nist.hit.iz.service.Receiver;
 
 /**
  * @author Harold Affo (NIST)
@@ -29,13 +29,13 @@ import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
 @ImportResource("classpath:/app-ws-context.xml")
 public class WSBeanConfig {
 
-  @Bean
-  public SimpleJaxWsServiceExporter simpleJaxWsServiceExporter() {
-    return new SimpleJaxWsServiceExporter();
-  }
+	@Bean
+	public SimpleJaxWsServiceExporter simpleJaxWsServiceExporter() {
+		return new SimpleJaxWsServiceExporter();
+	}
 
-  @Bean
-  public Receiver receiver() {
-    return new IISReceiver();
-  }
+	@Bean
+	public Receiver receiver() {
+		return new IISReceiver();
+	}
 }
