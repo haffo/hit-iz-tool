@@ -867,7 +867,8 @@ angular.module('cb')
         result = result != undefined ? result : null;
         var comments = TestExecutionService.getTestCaseComments($scope.testCase);
         comments = comments != undefined ? comments : null;
-        ReportService.downloadTestCaseReports($scope.testCase.id, format, result, comments);
+        ReportService.downloadTestCaseReports($scope.testCase.id, format, result, comments, $scope.testCase.nav['testPlan'],$scope.testCase.nav['testGroup']);
+
       }
     };
 

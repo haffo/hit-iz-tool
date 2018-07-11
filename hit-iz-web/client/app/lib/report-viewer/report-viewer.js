@@ -198,7 +198,7 @@
     };
 
 
-    ReportService.downloadTestCaseReports = function (testCaseId, format, result, comments) {
+    ReportService.downloadTestCaseReports = function (testCaseId, format, result, comments, testPlanName, testGroupName) {
       var form = document.createElement("form");
       form.action = "api/tcReport/download";
       form.method = "POST";
@@ -224,6 +224,15 @@
       input.value = comments;
       form.appendChild(input);
 
+      input = document.createElement("input");
+      input.name = "testPlan";
+      input.value = testPlanName;
+      form.appendChild(input);
+
+      input = document.createElement("input");
+      input.name = "testGroup";
+      input.value = testGroupName;
+      form.appendChild(input);
 
       form.style.display = 'none';
       document.body.appendChild(form);
