@@ -46,7 +46,21 @@ angular.module('logs').factory('ValidationLogService', ['$q', '$http',
           }
         );
         return delay.promise;
+      },
+
+      deleteLog: function (logId) {
+        var delay = $q.defer();
+        $http.post("api/logs/validation/" + logId + "/delete").then(
+          function (object) {
+            delay.resolve(angular.fromJson(object.data));
+          },
+          function (response) {
+            delay.reject(response.data);
+          }
+        );
+        return delay.promise;
       }
+
     };
     return service;
   }
@@ -89,6 +103,18 @@ angular.module('logs').factory('TransportLogService', ['$q', '$http',
       getById: function (logId) {
         var delay = $q.defer();
         $http.get("api/logs/transport/" + logId, {timeout: 180000}).then(
+          function (object) {
+            delay.resolve(angular.fromJson(object.data));
+          },
+          function (response) {
+            delay.reject(response.data);
+          }
+        );
+        return delay.promise;
+      },
+      deleteLog: function (logId) {
+        var delay = $q.defer();
+        $http.post("api/logs/transport/" + logId + "/delete").then(
           function (object) {
             delay.resolve(angular.fromJson(object.data));
           },

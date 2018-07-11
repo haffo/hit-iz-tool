@@ -1,5 +1,6 @@
 [
   {
+    "id":1206,
     "userId": 1176,
     "testStepId": 559934,
     "testingStage": "CF",
@@ -17,10 +18,11 @@
     "validationResult": true
   },
   {
+    "id":1207,
     "userId": 1176,
     "testStepId": 559934,
     "testingStage": "CF",
-        "message": "message content goes here", 
+        "message": "message content goes here",
     "date": 1529691796000,
     "testingType": null,
     "userFullname": "Guest-1176",
@@ -34,6 +36,7 @@
     "validationResult": true
   },
   {
+    "id":1208,
     "userId": 1176,
     "testStepId": 559934,
     "testingStage": "CF",
