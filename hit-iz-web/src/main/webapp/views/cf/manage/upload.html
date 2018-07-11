@@ -9,7 +9,7 @@
     top.location = self.location;
   }
 </script>
-<loading-testcases></loading-testcases>
+<validating-files></validating-files>
 <div style="margin:10px">
   <div class="modal-header">
 	<span style="font-weight: bold; font-size: 20px">
@@ -34,7 +34,7 @@
                   <div class="col-md-12">
                 <div class="upload-drop-box" nv-file-over="" nv-file-drop="" over-class="upload-drop-box-file-over" uploader="zipUploader">
                   <label class="btn btn-success" style="width:270px; text-align:left">
-                    <i class="fa fa-file" aria-hidden="true"></i> Browse/Drag Package (.zip)
+                    <i class="fa fa-file" aria-hidden="true"></i> Browse Package (.zip)
                     <input type="file" accept="application/zip" nv-file-select="" uploader="zipUploader" style="display: none">
                   </label>
                   <br>
@@ -68,7 +68,7 @@
                   <div class="col-md-12">
                      <div class="upload-drop-box" nv-file-over="" nv-file-drop="" over-class="upload-drop-box-file-over" uploader="profileUploader">
                       <label class="btn btn-success" style="width:270px; text-align:left">
-                        <i class="fa fa-file" aria-hidden="true"></i> Browse/Drag Profile File (.xml)
+                        <i class="fa fa-file" aria-hidden="true"></i> Browse Profile File (.xml)
                         <input type="file" accept="text/xml" nv-file-select="" uploader="profileUploader" style="display: none">
                       </label>
                       <br>
@@ -91,8 +91,8 @@
                   <div class="col-md-12">
                      <div class="upload-drop-box" nv-file-over="" nv-file-drop="" over-class="upload-drop-box-file-over" uploader="vsUploader">
                       <label class="btn btn-success" style="width:270px; text-align:left">
-                        <i class="fa fa-file" aria-hidden="true"></i> Browse/Drag Value Set File (.xml)
-                        box <input type="file" accept="text/xml" nv-file-select="" uploader="vsUploader" multiple="multiple" style="display: none">
+                        <i class="fa fa-file" aria-hidden="true"></i> Browse Value Set File (.xml)
+                        <input type="file" accept="text/xml" nv-file-select="" uploader="vsUploader" multiple="multiple" style="display: none">
                       </label>
                       <br>
                       <i ng-show="vsUploader.queue.length">
@@ -112,8 +112,8 @@
 
                   <div class="col-md-12">
                    <div class="upload-drop-box" nv-file-over="" nv-file-drop="" over-class="upload-drop-box-file-over" uploader="constraintsUploader">
-                      <label class="btn btn-default btn-info" style="width:270px; text-align:left">
-                        <i class="fa fa-file" aria-hidden="true"></i> Browse/Drag  Constraint file(.xml)
+                      <label class="btn btn-success" style="width:270px; text-align:left">
+                        <i class="fa fa-file" aria-hidden="true"></i> Browse Constraint file(.xml)
                         <input type="file" accept="text/xml" nv-file-select="" uploader="constraintsUploader" multiple="multiple" style="display: none">
                       </label><br>
 
@@ -134,21 +134,29 @@
                 </div>
               </div>
             </div>
+            <div class="pull-right">
+	          	<button type="button" class="btn btn-primary btn-s" ng-click="upload()" ng-disabled="profileUploader.queue.length === 0 || constraintsUploader.queue.length === 0 || vsUploader.queue.length === 0">
+	            <i class="fa fa-check"></i>Upload
+	          </button>
+	          <!-- <button type="button" class="btn btn-primary btn-s"
+	                  ng-click="addSelectedTestCases()"
+	                  ng-disabled="!getSelectedTestcases().length">
+	            <i class="fa fa-check"></i>DONE
+	          </button> -->
+	        </div>
            </tab>
         </tabset>
-        <div class="pull-right" ng-show="profileMessages.length  && constraintValidationErrors.length == 0 && valueSetValidationErrors.length == 0 ">
-          <button type="button" class="btn btn-primary btn-s" ng-click="addSelectedTestCases()" ng-disabled="!getSelectedTestcases().length">
-            <i class="fa fa-check"></i>DONE
-          </button>
-        </div>
+
+
       </div>
 
       <div ng-show="step == 1">
-        <div ng-show="profileValidationErrors.length  || constraintValidationErrors.length || valueSetValidationErrors.length ">
+        <div ng-show="(executionError != null && executionError.length) ||  (validationReport != null && validationReport != '')   ">
           <!-- Profile Errors -->
+
           <div class="col-md-12" style="margin-bottom: 10px">
             <div class="pull-left">
-              <button type="button" class="btn btn-primary btn-md" ng-click="step = 0">
+              <button type="button" class="btn btn-primary btn-md" ng-click="step = 0;clear();">
                 <i class="fa fa-arrow-left"></i> Back
               </button>
             </div>
@@ -156,116 +164,22 @@
 
           <div class="col-md-12">
 
-            <accordion close-others="true">
-              <accordion-group panel-class="panel-danger" ng-if="profileValidationErrors.length > 1">
-                <accordion-heading>
-                  <i style="font-size: 20px" class="fa fa-exclamation-triangle" aria-hidden="true"></i> Profile error(s) <span class="badge">{{profileValidationErrors.length}}</span>
+            <accordion close-others="true" ng-show="executionError != null && executionError.length ">
+             <accordion-group is-open="true" panel-class="panel-danger" ng-repeat="error in executionError">
+             <accordion-heading>
+                  <i style="font-size: 20px" class="fa fa-exclamation-triangle" aria-hidden="true"></i> Processing error
                 </accordion-heading>
-
-              <div class="upload-error-table fixed-table-container">
-                <table st-table="profileValidationErrors" class="table table-condensed table-striped table-bordered" oci-fixed-header="">
-                  <thead>
-                </thead><thead>
-                <th st-ratio="5" style="text-align: center">#</th>
-                <th st-ratio="5">Row</th>
-                <th st-ratio="10">Column</th>
-                <th st-ratio="80">Error</th>
-                </thead>
-                <tbody>
-                <tr ng-repeat="error in profileValidationErrors track by $index">
-                  <td st-ratio="5" style="text-align: center">
-                    {{$index +1}}
-                  </td>
-                  <td st-ratio="5">
-                    {{error.line}}
-                  </td>
-                  <td st-ratio="10">
-                    {{error.column}}
-                  </td>
-                  <td st-ratio="80" class="bold">
-                    {{error.message}}
-                  </td>
-                </tr>
-                </tbody>
-                </table>
-              </div>
-              </accordion-group>
-
-
-              <accordion-group panel-class="panel-danger" ng-if="valueSetValidationErrors.length > 1">
-                <accordion-heading>
-                  <i style="font-size: 20px" class="fa fa-exclamation-triangle" aria-hidden="true"></i> ValueSet error(s) <span class="badge">{{valueSetValidationErrors.length}}</span>
-                </accordion-heading>
-
-                    <div class="upload-error-table fixed-table-container">
-                      <table st-table="valueSetValidationErrors" class="table table-condensed table-striped table-bordered" oci-fixed-header="">
-                        <thead>
-                        </thead><thead class="">
-                        <th st-ratio="5" style="text-align: center">#</th>
-                        <th st-ratio="5">Row</th>
-                        <th st-ratio="10">Column</th>
-                        <th st-ratio="80">Error</th>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="error in valueSetValidationErrors track by $index">
-                          <td st-ratio="5" style="text-align: center">
-                            {{$index +1}}
-                          </td>
-                          <td st-ratio="5">
-                            {{error.line}}
-                          </td>
-                          <td st-ratio="10">
-                            {{error.column}}
-                          </td>
-                          <td st-ratio="80" class="bold">
-                            {{error.message}}
-                          </td>
-                        </tr>
-                        </tbody>
-                      </table>
-                    </div>
-              </accordion-group>
-
-
-
-              <accordion-group panel-class="panel-danger" ng-if="constraintValidationErrors.length > 1">
-                <accordion-heading>
-                  <i style="font-size: 20px" class="fa fa-exclamation-triangle" aria-hidden="true"></i> Constraint error(s) <span class="badge">{{constraintValidationErrors.length}}</span>
-                </accordion-heading>
-                    <div class="upload-error-table fixed-table-container">
-                      <table st-table="constraintValidationErrors" class="table table-condensed table-striped table-bordered" oci-fixed-header="">
-                        <thead>
-                        </thead><thead class="">
-                        <th st-ratio="5" style="text-align: center">#</th>
-                        <th st-ratio="5">Row</th>
-                        <th st-ratio="10">Column</th>
-                        <th st-ratio="80">Error</th>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="error in constraintValidationErrors track by $index">
-                          <td st-ratio="5" style="text-align: center">
-                            {{$index +1}}
-                          </td>
-                          <td st-ratio="5">
-                            {{error.line}}
-                          </td>
-                          <td st-ratio="10">
-                            {{error.column}}
-                          </td>
-                          <td st-ratio="80" class="bold">
-                            {{error.message}}
-                          </td>
-                        </tr>
-                        </tbody>
-                      </table>
-                    </div>
-              </accordion-group>
+            		<div>{{error}}</div>
+             </accordion-group>
             </accordion>
 
+            <ng-bind-html ng-show="validationReport != null && validationReport != ''" ng-bind-html="validationReport">
+			</ng-bind-html>
+
           </div>
-          <div class="col-md-12">
+          <div class="col-md-12" style="margin-top: 10px">
           <div class="pull-left">
-            <button type="button" class="btn btn-primary btn-md" ng-click="step = 0">
+            <button type="button" class="btn btn-primary btn-md" ng-click="step = 0;clear();">
               <i class="fa fa-arrow-left"></i> Back
             </button>
           </div>

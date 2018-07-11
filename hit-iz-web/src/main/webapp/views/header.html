@@ -63,6 +63,10 @@
                   <li ng-if="isDomainsManagementSupported()" role="separator" class="divider"></li>
                   <li ng-if="isDomainsManagementSupported()" ng-class="isActive('/domains')"><a class="point" href="#/domains"><i class="fa fa-cogs"></i>&nbsp; Tool Scope Settings</a></li>
                     <li role="separator" class="divider"></li>
+
+                  <li ng-show="isAdmin()" ng-class="isActive('/logs')"><a class="point" href="#/logs"><i class="fa fa-cog"></i>&nbsp;Admin Logs</a></li>
+                  <li ng-show="isAdmin()" role="separator" class="divider"></li>
+
                     <li class="">
                         <a class="point" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;<span class="msg">Logout</span></a>
                     </li>
