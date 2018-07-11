@@ -87,8 +87,10 @@
         {{::row.date | date:'MM/dd/yyyy HH:mm:ss'}}
       </td>
       <td>
-        <a class="point" ng-click="openLogDetails(row)">Log content</a>
+        <button title="Log content"  class="btn btn-xs btn-default" ng-click="openLogDetails(row)"><i class="fa fa-external-link"></i></button>
+        <button  title="remove log" class="btn btn-xs btn-danger" ng-click="deleteLog(row)"><i class="fa fa-trash"></i></button>
       </td>
+
     </tr>
     </tbody>
     <tfoot ng-show="tmpLogs.length >=100">
