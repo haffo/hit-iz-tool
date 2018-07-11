@@ -1,0 +1,101 @@
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
+<script type="text/javascript">
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
+</script>
+<div ng-controller="TransportLogCtrl" ng-init="initTransportLogs()">
+
+
+  <div class="row" style="margin-bottom: 20px">
+    <div class="col-md-4">
+      <label>Protocol</label>
+      <div class="btn-group" role="group" aria-label="label1">
+        <button type="button" ng-class="{'active': selected.protocol === '*'}" class="btn btn-primary btn-sm" ng-click="selected.protocol = '*'; filterBy()">All</button>
+        <button ng-repeat="p in protocols " type="button" ng-class="{'active': selected.protocol === p}" class="btn btn-primary btn-sm" ng-click="selected.protocol = p; filterBy()">{{p}}</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label>User Type</label>
+      <div class="btn-group" role="group" aria-label="label2">
+        <button type="button" ng-class="{'active': userType === '*'}" class="btn btn-primary btn-sm" ng-click="userType = '*'; filterBy()">All</button>
+        <button type="button" ng-class="{'active': userType === 'AUTH'}" class="btn btn-primary btn-sm" ng-click="userType = 'AUTH'; filterBy()">Authenticated</button>
+        <button type="button" ng-class="{'active': userType === 'NOT_AUTH'}" class="btn btn-primary btn-sm" ng-click="userType = 'NOT_AUTH'; filterBy()">Not Authenticated</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label>Transport Type</label>
+      <div class="btn-group" role="group" aria-label="label3">
+        <button type="button" ng-class="{'active': selected.transportType === '*'}" class="btn btn-primary btn-sm" ng-click="selected.transportType = '*'; filterBy()">All</button>
+        <button ng-repeat="tr in transportTypes" type="button" ng-class="{'active': selected.transportType === tr}" class="btn btn-primary btn-sm" ng-click="selected.transportType = tr; filterBy()"><i ng-class="getTransportTypeIcon(tr)"></i></button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <table st-table="tmpLogs" st-safe-src="logs" st-set-filter="logCustomFilter" class="table table-condensed table-bordered validation-log">
+    <thead>
+    <tr>
+      <th colspan="3" st-ratio="40">
+        <input st-search="" placeholder="Search" class="input-sm form-control" type="search">
+      </th>
+      <th>
+      </th><th colspan="5" st-ratio="60">
+        Date Filter
+        <!--<input  st-search="lastLoggedInDate" placeholder="" class="input-sm form-control" type="search"/>-->
+        <st-log-date-range predicate="date" before="logTransportDateQuery.before" after="logTransportDateQuery.after"></st-log-date-range>
+      </th>
+      
+    </tr>
+    <tr class="">
+      <th st-sort="testingType">Transport Type</th>
+      <th st-sort="testStepName">Test Step</th>
+      <th st-sort="protocol">Protocol</th>
+      <th st-sort="userFullname">User's Fullname</th>
+      <th st-sort="companyName">User's Employer</th>
+      <th st-sort="date">Date</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in tmpLogs">
+      <td>
+        <i ng-class="getTransportTypeIcon(row.testingType)"></i>
+      </td>
+      <td>
+        {{::row.testStepName}}
+      </td>
+      <td>
+        {{::row.protocol}}
+      </td>
+      <td>
+        {{::row.userFullname}}
+      </td>
+      <td>
+        {{::row.companyName}}
+      </td>
+      <td>
+        {{::row.date | date:'MM/dd/yyyy HH:mm:ss'}}
+      </td>
+      <td>
+        <a class="point" ng-click="openLogDetails(row)">Log content</a>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot ng-show="tmpLogs.length >=100">
+    <tr>
+      <th colspan="8" class="text-center" st-ratio="100">
+        <div class="" st-pagination="" st-items-by-page="100" st-displayed-pages="10"></div>
+      </th>
+    </tr>
+    </tfoot>
+  </table>
+</div>

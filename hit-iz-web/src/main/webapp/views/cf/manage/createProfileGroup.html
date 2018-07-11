@@ -1,0 +1,31 @@
+<div class="modal-header" style="background: lightgray">
+   <h3 class="modal-title" id="modal-title">Create Profile Group</h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <form novalidate="" id="createGroupForm" name="createGroupForm" class="form-horizontal">
+      <div class="form-group control-group">
+        <label for="newGroupName" class="col-md-4 control-label">Name *</label>
+        <div class="controls col-md-8">
+          <input required="" class="form-control" name="newGroupName" id="newGroupName" type="text" ng-model="newGroup.name">
+        </div>
+      </div>
+      <div class="form-group control-group">
+        <label for="newGroupDesc" class="col-md-4 control-label">Description</label>
+        <div class="controls col-md-8">
+          <textarea class="form-control" name="newGroupDesc" id="newGroupDesc" rows="3" col="5" ng-model="newGroup.description"></textarea>
+        </div>
+      </div>
+
+    </form>
+   </div>
+  <div class="row">
+    <div class="alert alert-danger" ng-if="error != null" role="alert">
+      <span><i class="fa fa-times" ng-click="error = null"></i> {{error}}</span>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button ng-click="cancel()" type="button" class="btn btn-default btn-md"><i class="fa fa-times"></i>Cancel</button>
+  <button ng-click="submit()" type="submit" ng-disabled="createGroupForm.$invalid" class="btn btn-info btn-md"><i class="fa fa-check"></i>Create</button>
+</div>

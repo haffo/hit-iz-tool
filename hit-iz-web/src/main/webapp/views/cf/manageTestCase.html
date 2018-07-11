@@ -1,0 +1,468 @@
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
+<script type="text/javascript">
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
+</script>
+<div class="container" ng-controller="CFTestManagementCtrl" ng-init="initManagement()">
+
+  <div style="margin:10px" ng-show="isCfManagementSupported() && isAuthenticated() && hasWriteAccess()">
+    <div>
+      <div class="row" ng-show="error != null && error != ''">
+        <div class="col-md-12">
+          <div class="alert alert-danger">{{error}}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Profile Errors -->
+          <div class="panel panel-danger" ng-show="profileValidationErrors.length">
+            <div class="panel-heading bold"><i style="font-size: 20px" class="fa fa-exclamation-triangle" aria-hidden="true"></i> Profile file error<span ng-show="profileValidationErrors.length >1">s</span></div>
+            <table class="table table-condensed table-bordered">
+              <thead class="tbl-header-danger">
+              <th style="width:50px;text-align: center">#</th>
+              <th colspan="2">Error</th>
+              </thead>
+              <tbody ng-repeat="error in profileValidationErrors track by $index">
+              <tr>
+                <td rowspan="3" style="text-align: center">
+                  {{$index +1}}
+                </td>
+                <td style="width:75px">
+                  Row:
+                </td>
+                <td>
+                  {{error.line}}
+                </td>
+              </tr>
+              <tr>
+                <td style="width:75px">
+                  Column
+                </td>
+                <td>
+                  {{error.column}}
+                </td>
+              </tr>
+              <tr>
+                <td style="width:75px">
+                  Message
+                </td>
+                <td class="bold">
+                  {{error.message}}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <div class="col-md-12">
+          <!-- Value Set Errors -->
+          <div class="panel panel-danger" ng-show="valueSetValidationErrors.length">
+            <div class="panel-heading bold"><i style="font-size: 20px" class="fa fa-exclamation-triangle" aria-hidden="true"></i> Value set file error<span ng-show="valueSetValidationErrors.length >1">s</span></div>
+            <table class="table table-condensed table-bordered">
+              <thead class="tbl-header-danger">
+              <th style="width:50px;text-align: center">#</th>
+              <th colspan="2">Error</th>
+              </thead>
+              <tbody ng-repeat="error in valueSetValidationErrors track by $index">
+              <tr>
+                <td rowspan="3" style="text-align: center">
+                  {{$index +1}}
+                </td>
+                <td style="width:75px">
+                  Row:
+                </td>
+                <td>
+                  {{error.line}}
+                </td>
+              </tr>
+              <tr>
+                <td style="width:75px">
+                  Column
+                </td>
+                <td>
+                  {{error.column}}
+                </td>
+              </tr>
+              <tr>
+                <td style="width:75px">
+                  Message
+                </td>
+                <td class="bold">
+                  {{error.message}}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-12">
+
+          <!-- Constraint Errors -->
+          <div class="panel panel-danger" ng-show="constraintValidationErrors.length">
+            <div class="panel-heading bold"><i style="font-size: 20px" class="fa fa-exclamation-triangle" aria-hidden="true"></i> Contraints file error<span ng-show="constraintValidationErrors.length >1">s</span></div>
+            <table class="table table-condensed table-bordered">
+              <thead class="tbl-header-danger">
+              <th style="width:50px;text-align: center">#</th>
+              <th colspan="2">Error</th>
+              </thead>
+              <tbody ng-repeat="error in constraintValidationErrors track by $index">
+              <tr>
+                <td rowspan="3" style="text-align: center">
+                  {{$index +1}}
+                </td>
+                <td style="width:75px">
+                  Row:
+                </td>
+                <td>
+                  {{error.line}}
+                </td>
+              </tr>
+              <tr>
+                <td style="width:75px">
+                  Column
+                </td>
+                <td>
+                  {{error.column}}
+                </td>
+              </tr>
+              <tr>
+                <td style="width:75px">
+                  Message
+                </td>
+                <td class="bold">
+                  {{error.message}}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <div class="col-md-12">
+          <!-- No Errors found in resource validation -->
+          <div class="row">
+            <div class="col-md-12" style="margin-bottom: 10px">
+              <form class="form-inline">
+
+
+                <div class="form-group">
+                  <label class="control-label" style="text-align:left" for="selectedScope">Profile Groups
+                    Type: </label>
+                  <div class="btn-group btn-group-md" id="selectedScope" role="group" aria-label="..." style="margin-right: 10px">
+                    <button class="btn btn-cf-outline" ng-repeat="tpScope in groupScopes" ng-click="selectedScope.key = tpScope.key; selectScope();" ng-class="{'active':tpScope.key == selectedScope.key}">{{::tpScope.name}}
+                    </button>
+
+                  </div>
+
+                </div>
+
+                <div class="form-group" ng-if="existingTestPlans != null && existingTestPlans.length > 0">
+                  <label class="control-label" for="selectedTP">Profile Groups:</label>
+                  <!--<div class="input-group">-->
+                  <!--<ui-select search-enabled="false" style="display:inline-block; vertical-align:middle;" id="selectedTP" ng-model="selected.tp" theme="bootstrap" on-select="onSelectTestPlan($item)">-->
+                  <!--<ui-select-match placeholder="Select a profile group...">{{$select.selected.name}}</ui-select-match>-->
+                  <!--<ui-select-choices group-by="'category'" repeat="tp in testPlans">-->
+                  <!--<span ng-bind-html="tp.name"></span>-->
+                  <!--<br />-->
+                  <!--<small ng-bind-html="tp.description"></small>-->
+                  <!--</ui-select-choices>-->
+                  <!--</ui-select>-->
+                  <!--</div>-->
+                  <select class="form-control input-sm test-plan-select" style="width:500px;background-color: white" name="selectedTP" id="selectedTP" ng-change="selectTestPlan()" ng-model="selectedTP.id" ng-options="tp.id.toString() as tp.name for tp in existingTestPlans">
+                    <option value="">---- Select Profile Group ----</option>
+                    <!--<option ng-repeat="tp in testPlans" ng-selected="tp.id == selectedTP.id" value="{{tp.id}}">{{::tp.name}}-->
+                    <!--</option>-->
+                  </select>
+                </div>
+
+                <button title="Create Profile Group" type="button" class="btn btn-sm btn-success" ng-click="createTestPlan()">
+                                    <i class="fa fa-plus"></i>Create Profile Group
+                                </button>
+
+              </form>
+            </div>
+
+            <hr>
+          </div>
+          <div class="row">
+
+            <div class="col-md-1 col-1-percent" ng-show="collapsed">
+              <button title="Show Profiles" class="btn btn-xs btn-info" ng-click="collapsed = !collapsed">
+                <i class="fa fa-caret-right"></i>
+              </button>
+            </div>
+            <div ng-show="!collapsed" class="col-md-4">
+              <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading panel-heading-collapsable" style="height:50px">
+                  <i class="fa fa-list"></i>Profile Group
+                  <button ng-show="testCases != null && testCases.length > 0" title="Collapse All" class="btn btn-xs btn-info" ng-click="collapseAll()">
+                    <i class="point fa fa-compress"></i>
+                  </button>
+                  <button ng-show="testCases != null && testCases.length > 0" title="Expand All" class="btn btn-xs btn-info" ng-click="expandAll()">
+                    <i class="point fa fa-expand"></i>
+                  </button>
+                  <button title="Hide Profiles" class="btn btn-xs btn-info" ng-click="collapsed = !collapsed">
+                    <i class="fa fa-caret-left"></i>
+                  </button>
+
+                </div>
+
+                <div class="panel-body">
+                  <div ng-show="!loadingTC">
+                    <div>
+                      <div class="container-testcase">
+                        <div ng-show="testCases != null && testCases.length > 0">
+                          <!--<testcase-tree tree-control="tree" icon-leaf=""-->
+                          <!--is-selectable="isSelectable(branch)"-->
+                          <!--on-select="selectTestCase(branch)"></testcase-tree>-->
+
+                          <div ui-tree="treeOptions" id="tree-root" data-drag-enabled="true" style="height: 500px; overflow:auto" class="wrapper">
+                            <ol ui-tree-nodes="" ng-model="testCases">
+                              <li ng-repeat="node in testCases" ui-tree-node="" ng-include="'cf_testcase_node_render.html'"></li>
+                            </ol>
+                          </div>
+
+                        </div>
+                        <div ng-show="testCases == null || testCases.length == 0">
+                          No test profile group selected
+                        </div>
+
+                      </div>
+                    </div>
+                    <!--<div ng-show="error != null">-->
+                    <!--<div class="alert alert-danger" role="alert" ng-bind="error"></div>-->
+                    <!--</div>-->
+                  </div>
+                  <div ng-show="loadingTC" style="text-align:center">
+                    <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-8">
+
+              <form name="tsForm" id="tsForm" style="margin:0; padding:0" ng-show="testcase != null || token != null">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="panel panel-default">
+                      <div class="panel-heading" style="height:50px"> Profile Group
+
+                      </div>
+                      <div class="panel-body">
+                        <div ng-show="testcase == null">
+                          <div class="alert alert-danger"> No profile group selected. Please select a profile
+                            group to continue
+                          </div>
+                        </div>
+                        <div ng-show="testcase != null">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <label for="testcasename">Name: <span class="red" title="required field">*</span></label>
+                              <input id="testcasename" required="" name="name" ng-model="testcase.name" ng-class="{'input-error': testcase.name === '' || testcase.name === null}" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched"><br>
+                            </div>
+                          </div>
+                          <div class="row">
+
+                            <div class="col-md-12">
+                              <label for="testcasedescription">Description:</label>
+                              <textarea id="testcasedescription" name="description" style="resize: vertical" ng-model="testcase.description" class="form-control ng-pristine ng-valid ng-empty ng-touched"></textarea><br>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12" ng-show="OldMessagesErrors != null">
+                    <div class="alert alert-danger">{{OldMessagesErrors}}</div>
+                  </div>
+
+                  <div class="col-md-12" ng-show="tmpOldMessages != null">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Existing Profiles
+                      </div>
+                      <div class="panel-body">
+                        <div ng-show="tmpOldMessages.length > 0">
+                          <table class="table table-striped table-condensed table-bordered">
+                            <thead class="">
+                            <th>Position</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Example Message</th>
+                            <th>Actions</th>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in tmpOldMessages">
+                              <td>
+                                <select ng-class="{'input-error': item.position <= 0}" select-min="" ng-min="1" ng-model="item.position" required="" ng-options="position for position in positions(tmpOldMessages)">
+                                </select>
+                              </td>
+                              <td>
+                                <input ng-model="item.name" class="form-control" ng-required="true" style="width: 100%">
+                              </td>
+                              <td>
+                                           <textarea style="resize: none" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="item.description" rows="1" ng-class="{'input-error': item.description === '' || item.description === null}" ng-required="true" style="width: 100%;resize: vertical"></textarea>
+                              </td>
+                              <td>
+                                 <span ng-show="item.exampleMessage != undefined && item.exampleMessage != null && item.exampleMessage != ''">
+                                  <a class="point" ng-click="editExampleMessage(item)">Example Message
+                                  </a>
+                                  <button class="btn btn-xs btn-warning" class="point" ng-click="item.exampleMessage = ''">
+                                     <i class="fa fa-times"></i>
+                                  </button>
+                                </span>
+
+                                <button ng-show="item.exampleMessage == null || item.exampleMessage == undefined ||  item.exampleMessage == ''" class="btn btn-xs btn-info" ng-click="editExampleMessage(item)"><i class="fa fa-plus"></i>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="btn btn-sm btn-danger" ng-click="deleteOldProfile(item)"><i class="fa fa-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div ng-if="oldProfileMessages == null || oldProfileMessages.length == 0">
+                          No existing profiles.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="panel panel-success">
+                      <div class="panel-heading">New Profiles (Will be added to {{testcase.name}})</div>
+                      <div class="panel-body">
+                        <span class="pull-right" style="margin-bottom:10px">
+                        <button ng-show="getAddedProfiles() == null || getAddedProfiles().length == 0" title="Upload Profiles" class="btn btn-sm btn-success" ng-click="openUploadModal()">
+                            <i class="point fa fa-upload"></i> Upload Profiles
+                          </button>
+                        </span>
+                        <table class="table table-striped table-condensed table-bordered" ng-show="tmpNewMessages != null && tmpNewMessages.length">
+                          <thead class="">
+                          <!--<th width="30px">-->
+                          <!--<input ng-click="profileCheckToggle()" ng-model="profileCheckToggleStatus"-->
+                          <!--ng-checked="{{profileCheckToggleStatus}}" type="checkbox">-->
+                          <!--</th>-->
+                          <!--<th>Position</th>-->
+                          <th>Name</th>
+                          <th>Identifier</th>
+                          <th>Description</th>
+                          <th>Type</th>
+                          <th>Event</th>
+                          <th>StructID</th>
+                          <th>Example Message</th>
+                          <th>Action</th>
+                          </thead>
+                          <tbody>
+                          <tr ng-repeat="item in tmpNewMessages">
+                            <!--<td>-->
+                              <!--<select ng-class="{'input-error': item.position <= 0}" select-min ng-min="1"-->
+                                      <!--ng-model="item.position" required-->
+                                      <!--ng-options="position for position in positions(tmpNewMessages)">-->
+                              <!--</select>-->
+                            <!--</td>-->
+                            <td>
+                              <input class="form-control" ng-model="item.name" ng-required="true" style="width: 100%">
+                            </td>
+                            <td>
+                              {{item.identifier}}
+                            </td>
+                            <td>
+                                              <textarea style="resize: none" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-class="{'input-error': item.description === '' || item.description === null}" ng-model="item.description" rows="1" ng-required="true" style="width: 100%;resize: vertical"></textarea>
+                            </td>
+                            <td>
+                              {{item.type}}
+                            </td>
+                            <td>
+                              {{item.event}}
+                            </td>
+                            <td>
+                              {{item.structID}}
+                            </td>
+                            <td>
+                                <span ng-show="item.exampleMessage != undefined && item.exampleMessage != null && item.exampleMessage != ''">
+                                  <a class="point" ng-click="editExampleMessage(item)">Example Message
+                                  </a>
+                                  <button class="btn btn-xs btn-warning" class="point" ng-click="item.exampleMessage = ''">
+                                     <i class="fa fa-times"></i>
+                                  </button>
+                                </span>
+
+                              <button ng-show="item.exampleMessage == null || item.exampleMessage == undefined ||  item.exampleMessage == ''" class="btn btn-xs btn-info" ng-click="editExampleMessage(item)"><i class="fa fa-plus"></i>
+                              </button>
+                            </td>
+                            <td>
+                              <button class="btn btn-sm btn-danger" ng-click="deleteNewProfile(item)"><i class="fa fa-trash"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <br>
+                <div ng-if="testcase != null">
+
+                  <div class="" style="margin-bottom: 20px">
+                    <span class="pull-left">
+                          <button class="btn btn-md btn-danger" ng-disabled="loading" type="button" ng-click="deleteGroup(selectedNode)"><i class="fa fa-trash"></i>Delete</button>
+
+                           <button ng-show="testcase.scope === 'USER' && testcase.type =='TestPlan' && (isAdmin() || isSupervisor())" type="button" class="btn btn-md btn-primary" ng-click="publishGroup()" ng-disabled="tsForm.$invalid || loading">
+                        <i class="fa fa-paper-plane"></i> Make Public
+                      </button>
+
+
+                    </span>
+
+                    <span class="pull-right">
+
+                      <button type="button" class="btn btn-md btn-warning" ng-disabled="loading" ng-click="reset()"><i class="fa fa-times"></i>Reset
+                      </button>
+
+                      <button type="button" class="btn btn-md btn-success" ng-click="saveGroup(selectedNode)" ng-disabled="tsForm.$invalid || loading">
+                        <i class="fa fa-check"></i> Save
+                      </button>
+
+
+
+                    </span>
+                  </div>
+
+
+                  <div ng-show="loading" style="text-align:center">
+                    <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+                  </div>
+
+
+                  <div ng-show="executionError != null && executionError != ''" style="margin-top:10px">
+                    <div class="alert alert-danger">{{executionError}}</div>
+                  </div>
+
+
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

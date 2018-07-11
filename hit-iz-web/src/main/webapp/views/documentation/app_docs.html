@@ -1,0 +1,69 @@
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
+<script type="text/javascript">
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
+</script>
+
+<div style="margin:10px">
+<accordion close-others="false">
+  <accordion-group panel-class="panel-info" is-open="status.userDoc">
+    <accordion-heading>
+      <i class="fa" ng-class="{'fa-caret-down': status.userDoc, 'fa-caret-right': !status.userDoc}"></i>
+      User Documentation
+    </accordion-heading>
+    <div user-docs=""></div>
+  </accordion-group>
+
+
+  <accordion-group panel-class="panel-info" is-open="status.installGuide">
+    <accordion-heading>
+      <i class="fa" ng-class="{'fa-caret-down': status.installGuide, 'fa-caret-right': !status.installGuide}"></i>
+      Installation Guide
+    </accordion-heading>
+    <div installation-guide=""></div>
+  </accordion-group>
+
+
+  <accordion-group panel-class="panel-info" is-open="status.downloads">
+    <accordion-heading>
+      <i class="fa" ng-class="{'fa-caret-down': status.downloads, 'fa-caret-right': !status.downloads}"></i>
+      Validation Tool Downloads
+    </accordion-heading>
+    <div tool-downloads=""></div>
+  </accordion-group>
+
+
+  <accordion-group heading="Release Notes" panel-class="panel-info" is-open="status.releaseNotes">
+    <accordion-heading>
+      <i class="fa" ng-class="{'fa-caret-down': status.releaseNotes, 'fa-caret-right': !status.releaseNotes}"></i>
+      Release Notes
+    </accordion-heading>
+    <div release-notes=""></div>
+  </accordion-group>
+
+
+  <accordion-group heading="Known Issues" panel-class="panel-info" is-open="status.knownIssues">
+    <accordion-heading>
+      <i class="fa" ng-class="{'fa-caret-down': status.knownIssues, 'fa-caret-right': !status.knownIssues}"></i>
+      Known Issues
+    </accordion-heading>
+    <div known-issues=""></div>
+  </accordion-group>
+
+
+  <accordion-group heading="API Documentation" panel-class="panel-info" is-open="status.apiDocs">
+    <accordion-heading>
+      <i class="fa" ng-class="{'fa-caret-down': status.apiDocs, 'fa-caret-right': !status.apiDocs}"></i>
+      API Documentation
+    </accordion-heading>
+    <div api-docs=""></div>
+  </accordion-group>
+
+</accordion>
+</div>

@@ -8,7 +8,7 @@
     		"igVersion"		:"",
     		"scope": "GLOBAL",
 			"name": "Immunization",
-			"homeTitle": "Welcome to the NIST/CNI Immunization Test Suite!",
+			"homeTitle": "Welcome to the HIMSS Immunization Integration Test Suite!",
 			"authorUsername":"haffo"
  		}
 	]
