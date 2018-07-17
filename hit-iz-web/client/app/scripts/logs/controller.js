@@ -13,6 +13,8 @@ angular.module('logs')
       $scope.loadingAll = false;
       $scope.loadingOne = false;
 
+      $scope.currentDate = new Date();
+
       $scope.selectedType = null;
 
       $scope.initLogs = function () {
