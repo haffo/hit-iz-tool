@@ -1,0 +1,95 @@
+<div class="modal-header" style="background: lightgray">
+  <h3 class="modal-title" id="modal-title">
+      <span ng-if="document.type == 'USERDOC'">User Document</span>
+    <span ng-if="document.type == 'RELEASENOTE'">Release Note</span>
+    <span ng-if="document.type == 'KNOWNISSUE'">Known Issue</span>
+    <span ng-if="document.type == 'DELIVERABLE'">War file</span>
+    <span ng-if="document.type == 'INSTALLATION'">Installation Guide</span>
+  </h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <form novalidate="" id="editDocumentForm" name="editDocumentForm" class="form-horizontal">
+      <div class="form-group control-group">
+        <label for="newDocumentTitle" class="col-md-2 control-label">Title*</label>
+        <div class="controls col-md-8">
+          <input required="" class="form-control" name="newDocumentTitle" id="newDocumentTitle" type="text" ng-model="document.title">
+        </div>
+      </div>
+      <div class="form-group control-group">
+        <label class="col-md-2 control-label">File*</label>
+
+        <div class="controls col-md-8">
+
+          <div class="pull-right" style="margin-bottom:5px">
+            <button class="btn btn-cf-outline" ng-click="hasUrl = true; " ng-class="{'active':hasUrl === true}">Url
+            </button>
+            <button class="btn btn-cf-outline" ng-click="hasUrl = false; " ng-class="{'active':hasUrl === false}">Upload
+            </button>
+          </div>
+          <br>
+          <br>
+
+          <div ng-if="hasUrl">
+            <input required="" class="form-control" name="newDomainPath" id="newDomainPath" type="url" ng-model="document.path">
+          </div>
+
+          <div class="" ng-show="!hasUrl">
+                <div class="upload-drop-box" nv-file-over="" nv-file-drop="" over-class="upload-drop-box-file-over" uploader="documentUploader">
+                  <label class="btn btn-default btn-success" style="width:270px; text-align:left">
+                    <i class="fa fa-file" aria-hidden="true"></i> Browse/DragAndDrop
+                    <i>({{accept}})</i>
+                    <input type="file" accept="{{accept}}" nv-file-select="" uploader="documentUploader" style="display: none">
+                  </label>
+                  <br>
+                  <i ng-show="documentUploader.queue.length">
+                        <span ng-show="documentUploader.queue[0].isSuccess"><i class="fa fa-check"></i></span>
+
+                    {{documentUploader.queue[0].file.name}},
+                    {{
+                    documentUploader.queue[0].file.size/1024/1024|number:2 }} MB
+                  </i>
+
+                </div>
+              <div class="" ng-show="documentUploader.progress">
+                <div class="progress" style="">
+                  <div class="progress-bar" role="progressbar" ng-style="{ 'width': documentUploader.progress + '%' }"></div>
+                </div>
+              </div>
+           </div>
+        </div>
+      </div>
+
+      <div class="form-group control-group">
+        <label for="newDocumentPosition" class="col-md-2 control-label">Position*</label>
+        <div class="controls col-md-8">
+          <select id="newDocumentPosition" ng-class="{'input-error': document.position <= 0}" select-min="" ng-min="1" ng-model="document.position" required="" ng-options="position for position in positions()">
+          </select>
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <div class="row">
+  <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+    <div ng-show="loading" style="text-align:center">
+      <i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
+    </div>
+
+    <div class="alert alert-danger" ng-show="error != null" role="alert">
+      <span> {{error}}</span>
+      <span class="pull-right"><i class="fa fa-times" ng-click="error = null"></i></span>
+    </div>
+
+    </div>
+
+  </div>
+</div>
+<div class="modal-footer">
+  <button ng-click="cancel()" class="btn btn-default btn-md"><i class="fa fa-times"></i>Cancel</button>
+  <button ng-disabled="editDocumentForm.$invalid || noFileFound()" ng-click="submit()" class="btn btn-info btn-md"><i class="fa fa-check"></i>Save
+  </button>
+</div>

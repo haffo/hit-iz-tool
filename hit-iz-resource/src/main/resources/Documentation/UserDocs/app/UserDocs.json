@@ -1,26 +1,68 @@
 [
-{
-		        "title":"APP HL7 Version 2.5.1 Implementation Guide: S&I Framework Laboratory Test Compendium Framework R2, DSTU Release 2 - US Realm",
-		        "link":"http://www.hl7.org/documentcenter/public/standards/dstu/V2_IG_LTCF_R2_DSTU_R2_2015SEP.pdf",
-		        "date":"${edos-release-date-1.0.0}",
-	            "order":1
-                },               
-                {
-		        "title":"APP HL7 Version 2 Implementation Guide: Laboratory Value Set Companion Guide, Release 1- US Realm",
-		        "link":"http://www.hl7.org/implement/standards/product_brief.cfm?product_id=413",
-		        "date":"${edos-release-date-1.0.0}",
-	            "order":2
-                },  
-                {
-                "title":"APP NIST eDOS EHR_Normative Test Process Document",
-                "name":"eDOS/NIST_eDOS-EHR_Normative_Test_Process_Document_NA V1.2.docx",
-                "date":"${edos-release-date-1.0.0}",
-	            "order":3
-                },
-                {
-                "title":"APP NIST eDOS LIS Normative Test Process Document",
-                "name":"eDOS/NIST_eDOS-LIS_Normative_Test_Process_Document_NA V1.2.docx",
-                "date":"${edos-release-date-1.0.0}",
-	            "order":4
-                }
+			{
+			 "title":"ONC 2015 Edition Immunization Test Procedure",
+			 "link":"https://www.healthit.gov/policy-researchers-implementers/2015-edition-test-method",
+			 "date":"2017/02/07",
+			 "order":1
+			},
+			{
+			 "title":"Implementation Guide for Immunization Messaging",
+			 "name":"hl7guide-1-5-*",
+			 "date":"2014/10/1",
+			 "order":3
+			},
+			{
+			 "title":"Immunization Clarification Addendum",
+			 "name":"hl7guide-addendum-7-2015.pdf",
+			 "date":"2015/07/01",
+			 "order":4
+			},
+			{
+			 "title":"Immunization Tool Quick Reference Guide",
+			 "name":"NIST-IZ_QuickReferenceGuide.ppt",
+			 "date":"2016/03/14",
+			 "order":6
+ 			},
+ 			{
+			 "title":"Tutorial: Immunization Tool for HL7v2 Validation",
+			 "name":"Immunization Tool for HL7v2 Validation Tutorial.ppt",
+			 "date":"2015/05/03",
+			 "order":7
+ 			},
+			{
+			 "title":"NIST Immunization Normative Test Process Document for ONC 2015 Certification",
+			 "name": "NIST_IZ_Normative_Test_Process_Document.pdf",
+			 "date":"2016/05/05",
+			 "order":2
+ 			},
+			{
+			  "title":"NIST Clarifications and Validation Guidelines",
+			 "name":"NIST-Clarifications-and-Validation-Guidelines.docx",
+			 "date":"2016/01/22",
+			 "order":5
+			},
+			{
+			 "title":"Understanding Immunization Meaningful Use Certification Testing",
+			 "name":"UnderstandingImmunizationMsg_ONCCertificationTesting-2015-Edition-V6.1.pptx",
+			 "date":"2017/08/24",
+			 "order":8
+			},
+			{
+			 "title":"NIST Immunization ATL Training",
+			 "name":"NIST-IZ-Tool-ATL-Training.pptx",
+			 "date":"2016/02/03",
+			 "order":9
+			},
+			{
+			 "title":"Understanding NIST HL7 v2 Validation",
+			 "name":"NIST-HL7v2-Understanding-Validation.pptx",
+			 "date":"2016/02/03",
+			 "order":10
+			},
+			{
+			 "title":"NIST Immunization Tool SOAP Tutorial",
+			 "name":"NIST_IZ_Tool_SOAP_Tutorial.pdf",
+			 "date":"2016/08/31",
+			 "order":11
+			}
 ]

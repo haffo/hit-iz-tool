@@ -84,7 +84,7 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
   		<constructor-arg name="webServiceTemplate" ref="webServiceTemplate" />
   	</bean>
   	
-  		<bean id="izwsMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+  	<bean id="izwsMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
 		<property name="contextPath" value="gov.nist.hit.iz.ws.jaxb" />
 	</bean>
   	

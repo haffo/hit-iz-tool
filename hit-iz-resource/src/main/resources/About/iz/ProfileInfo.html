@@ -1,1 +1,40 @@
-Message content info
+<div style="font-size: 14px"> 
+  <h4 class="">Standard</h4> 
+  <ul> 
+    <li>CDC HL7 Version 2.5.1 Implementation Guide for Immunization 
+      Messaging - Release 1.5 (10/01/2014)</li> 
+    <li>Immunization Clarification Addendum - 07/2015</li> 
+  </ul> 
+</div> 
+<div style="font-size: 14px"> 
+  <h4 class="">Profiles</h4> 
+  <ul> 
+    <li>Z22(VXU)- Send Immunization</li> 
+    <li>Z23(ACK)- Acknowledgement</li> 
+    <li>Z34(QBP)- Query: Complete Immunization History</li> 
+    <li>Z44(QBP)- Query: Evaluated Immunization History And Forecast 
+    </li> 
+    <li>Z31(RSP)- Response: List Of Candidates Profile</li> 
+    <li>Z32(RSP)- Response: Complete Immunization History</li> 
+    <li>Z33(RSP)- Response: Acknowledgement With No Person Records</li> 
+    <li>Z42(RSP)- Response: Evaluated History AND Forecast</li> 
+  </ul> 
+</div> 
+<div style="font-size: 14px"> 
+  <h4 class="">Pairs</h4> 
+  <ul> 
+    <li>Z22:Z23 - Send Immunization/ACK</li> 
+    <li>Z34:Z31 - Query History/Respond Candidates</li> 
+    <li>Z34:Z32 - Query History/Respond History</li> 
+    <li>Z34:Z33 - Query History/Respond Person Not Found</li> 
+    <li>Z34:Z33 - Query History/Respond Too many matches Found</li> 
+    <li>Z34:Z23 - Query History/Respond ACK error</li> 
+    <li>Z34:Z33 - Query History/Respond Not well formed/fatal errors Found</li> 
+    <li>Z44:Z42 - Query History & Forecast/Respond History & Forecast</li> 
+    <li>Z44:Z33 - Query History & Forecast/Respond Person Not Found</li> 
+    <li>Z44:Z33 - Query History & Forecast/ Respond Too many matches Found</li> 
+    <li>Z44:Z33 - Query History & Forecast/ No Immunization history is returned</li> 
+    <li>Z44:Z33 - Query History & Forecast/Respond Not well formed/fatal errors Found</li> 
+    <li>Z44:Z23 - Query History & Forecast/ Respond ACK error</li> 
+  </ul> 
+</div>

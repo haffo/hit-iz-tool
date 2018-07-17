@@ -1,0 +1,58 @@
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
+<script type="text/javascript">
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
+</script>
+<div id="subNavBar" class="subNavBar" ng-controller="CFEnvCtrl" ng-init="initEnv()">
+
+  <div class="login-required-page" ng-show="isAuthenticationRequired() && !isAuthenticated()">
+    <p>Please <a href="" ng-click="loginReq()"><i class="fa fa-sign-in"></i>&nbsp;login</a> to access this page. You can also
+      <a href="#/registration"><i class="fa fa-chevron-circle-right"></i>&nbsp;register</a></p>
+  </div>
+
+
+  <div ng-show="isAuthenticated() || !isAuthenticationRequired()">
+
+    <ul class="clearfix mainSubNav">
+      <li ng-click="setSubActive('/cf_execution')" class="jslink"><a ng-class="{'current':isSubActive('/cf_execution')}"> <i class="fa fa-th-list"></i> Test Execution</a></li>
+      <li ng-click="setSubActive('/cf_management')" class="jslink" ng-show="isCfManagementSupported() && isAuthenticated() && hasWriteAccess()"><a ng-class="{'current':isSubActive('/cf_management')}"> <i class="fa fa-cogs"></i> Test Management </a></li>
+    </ul>
+
+    <div ng-show="isSubActive('/cf_execution')">
+      <div ng-include="'views/cf/executeTestCase.html'"></div>
+    </div>
+
+    <div ng-show="isSubActive('/cf_management') && isCfManagementSupported() &&  isAuthenticated()&& hasWriteAccess()">
+      <div ng-include="'views/cf/manageTestCase.html'"></div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<script type="text/ng-template" id="CFProfileInfoCtrl.html">
+  <div class="modal-header">
+                <span style="font-weight: bold; font-size: 20px">
+                    Profile Information
+                </span>
+    <span class="pull-right">
+                    <button class="btn btn-xs btn-primary" ng-click="close()"><i class="fa fa-times"></i>Close</button>
+                </span>
+  </div>
+  <div class="modal-body">
+    <div ng-bind-html="toHTML(domain.profileInfo)"/>
+  </div>
+  <!--<div class="modal-footer">-->
+  <!--<span class="pull-right">-->
+  <!--<button class="btn btn-primary btn-sm" ng-click="close()"> <i class="fa fa-times"></i> Close</button>-->
+  <!--</span>-->
+  <!--</div>-->
+</script>

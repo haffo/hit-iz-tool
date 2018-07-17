@@ -17,19 +17,16 @@
             <div id="appsubtitle">{{appInfo.appSubTitle}}</div>
         </a>
 
-      <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length > 1">
+      <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length > 0">
         <label style="color:white">Tool Scope:</label>
         <select class="" name="selectedDomain" ng-change="selectDomain(appInfo.selectedDomain)" ng-model="appInfo.selectedDomain" required="">
           <option ng-repeat="dom in appInfo.domains" value="{{dom.domain}}">{{dom.name}}
           </option>
         </select>
+
+        <button ng-show="isAuthenticated()" ng-click="createDomain()" class="btn btn-primary btn-xs" title="Create New Tool Scope"><i class="fa fa-plus"></i>Create</button>
+
       </span>
-
-      <!--<span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length  == 1">-->
-        <!--<label style="color:white">Domain:</label>-->
-        <!--<span style="color:white">{{domain.name}}</span>-->
-      <!--</span>-->
-
     </div>
     <div class="navbar-collapse collapse" id="appnavi">
          <ul class="nav navbar-nav">
@@ -50,18 +47,6 @@
             <li ng-class="{'active':isActive('/about')}"><a href="#/about"><i class="fa fa-question-circle"></i>About</a></li>
          </ul>
 
-  <!--      <ul class="nav navbar-nav navbar-right" style="margin-right: 15px" ng-show="!transportSupported">
-            <li class="dropdown clear-fix">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false"><i
-                        class="fa fa-cog"></i>&nbsp;Preferences<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
--->
         <ul class="nav navbar-nav navbar-right" style="margin-right: 15px">
             <li class="dropdown clear-fix" ng-show="isAuthenticated()" ng-class="isActive('/useraccount') || isActive('/transport-settings')">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>&nbsp;Hello {{getUsername()}}<span class="caret"></span></a>
@@ -75,10 +60,13 @@
                     <li role="separator" class="divider"></li>
                     <li><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>
                     </li>
-                  <li role="separator" class="divider"></li>
-
-                  <li ng-if="isDomainsManagementSupported() && hasWriteAccess()" ng-class="isActive('/domains')"><a class="point" href="#/domains"><i class="fa fa-cogs"></i>&nbsp; Tool Scope Settings</a></li>
+                  <li ng-if="isDomainsManagementSupported()" role="separator" class="divider"></li>
+                  <li ng-if="isDomainsManagementSupported()" ng-class="isActive('/domains')"><a class="point" href="#/domains"><i class="fa fa-cogs"></i>&nbsp; Tool Scope Settings</a></li>
                     <li role="separator" class="divider"></li>
+
+                  <li ng-show="isAdmin()" ng-class="isActive('/logs')"><a class="point" href="#/logs"><i class="fa fa-cog"></i>&nbsp;Admin Logs</a></li>
+                  <li ng-show="isAdmin()" role="separator" class="divider"></li>
+
                     <li class="">
                         <a class="point" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;<span class="msg">Logout</span></a>
                     </li>

@@ -1,0 +1,39 @@
+<div class="modal-header" style="background: lightgray">
+   <h3 class="modal-title" id="modal-title">Create Tool Scope</h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <form novalidate="" id="createDomainForm" name="createDomainForm" class="form-horizontal">
+      <!--<div class='form-group control-group'>-->
+        <!--<label for='newDomainKey' class='col-md-3 control-label'>Key *</label>-->
+        <!--<div class='controls col-md-7'>-->
+          <!--<input  required-->
+            <!--class='form-control' name='newDomainKey'-->
+            <!--id='newDomainKey' type='text'-->
+            <!--ng-model='newDomain.domain'>-->
+        <!--</div>-->
+      <!--</div>-->
+      <div class="form-group control-group">
+        <label for="newDomainName" class="col-md-3 control-label">Name *</label>
+        <div class="controls col-md-7">
+          <input required="" class="form-control" name="newDomainName" id="newDomainName" type="text" ng-model="newDomain.name">
+        </div>
+      </div>
+      <div class="form-group control-group">
+        <label for="newDomainTitle" class="col-md-3 control-label">Home Title *</label>
+        <div class="controls col-md-7">
+          <input required="" class="form-control" name="newDomainTitle" id="newDomainTitle" type="text" ng-model="newDomain.homeTitle">
+        </div>
+      </div>
+    </form>
+   </div>
+  <div class="row">
+    <div class="alert alert-danger" ng-if="error != null" role="alert">
+      <span><i class="fa fa-times" ng-click="error = null"></i> {{error}}</span>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button ng-click="cancel()" class="btn btn-default btn-md"><i class="fa fa-times"></i>Cancel</button>
+  <button ng-click="submit()" ng-disabled="createDomainForm.$invalid || newDomain.domain.toLowerCase() === 'app'" class="btn btn-info btn-md"><i class="fa fa-check"></i>Create</button>
+</div>

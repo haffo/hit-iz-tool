@@ -10,5 +10,83 @@
 		"date": "2016/02/25",
 		"name": "IZ_Release_Notes.1.1.0.docx",
 		"title": "Release notes 1.1.0"
+	},
+	{
+		"version": "1.1.1",
+		"date": "2016/03/14",
+		"name": "IZ_Release_Notes.1.1.1.docx",
+		"title": "Release notes 1.1.1"
+	},
+	{
+		"version": "1.2.0",
+		"date": "2016/03/31",
+		"name": "IZ_Release_Notes.1.2.0.docx",
+		"title": "Release notes 1.2.0"
+	},
+	{
+		"version": "1.3.0",
+		"date": "2016/05/05",
+		"name": "IZ_Release_Notes.1.3.0.docx",
+		"title": "Release notes 1.3.0"
+	},
+	{
+		"version": "1.4.0",
+		"date": "2016/09/01",
+		"name": "IZ_Release_Notes.1.4.0.docx",
+		"title": "Release notes 1.4.0"
+	},
+	{
+		"version": "1.4.1",
+		"date": "2016/10/12",
+		"name": "IZ_Release_Notes.1.4.1.docx",
+		"title": "Release notes 1.4.1"
+	},
+	{
+		"version": "1.5.0",
+		"date": "2017/02/09",
+		"name": "IZ_Release_Notes.1.5.0.docx",
+		"title": "Release notes 1.5.0"
+	},
+	{
+		"version": "1.5.1",
+		"date": "2017/03/17",
+		"name": "IZ_Release_Notes.1.5.1.docx",
+		"title": "Release notes 1.5.1"
+	},
+	{
+		"version": "1.6.0",
+		"date": "2017/07/13",
+		"name": "IZ_Release_Notes.1.6.0.docx",
+		"title": "Release notes 1.6.0"
+	},
+	{
+		"version": "1.6.1",
+		"date": "2017/08/03",
+		"name": "IZ_Release_Notes.1.6.1.docx",
+		"title": "Release notes 1.6.1"
+	},
+	{
+		"version": "1.7.0",
+		"date": "2017/08/24",
+		"name": "IZ_Release_Notes.1.7.0.docx",
+		"title": "Release notes 1.7.0"
+	},
+	{
+		"version": "1.7.1",
+		"date": "2017/09/26",
+		"name": "IZ_Release_Notes.1.7.1.docx",
+		"title": "Release notes 1.7.1"
+	},
+	{
+		"version": "1.7.2",
+		"date": "2017/10/13",
+		"name": "IZ_Release_Notes.1.7.2.docx",
+		"title": "Release notes 1.7.2"
+	},
+	{
+		"version": "1.7.3",
+		"date": "2017/12/06",
+		"name": "IZ_Release_Notes.1.7.3.docx",
+		"title": "Release notes 1.7.3"
 	}
 ]

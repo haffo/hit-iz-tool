@@ -1,0 +1,102 @@
+MSH|^~\&|Test EHR Application|X68||NIST Test Iz Reg|20120701082240-0500||VXU^V04^VXU_V04|NIST-IZ-001.00|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|IIPEHRFAC^^^^^IIP-AA-IZ-1^XX^^^100-1|IIPIISFAC^^^^^IIP-AA-IZ-1^XX^^^100-2
+PID|1||123456^^^MYEHR^MR~987633^^^MYIIS^SR||Marina^Juan^Marcel^^^^L|Morales^Anita^Francesca^^^^M|201503041100|M||2106-3^White^CDCREC|4623 Standish Way^^Stamford^CT^06903^USA^L||^PRN^PH^^1^203^5551213||eng^English^ISO639|||||||2135-2^Hispanic or Latino^CDCREC|||||||||||||||||
+PD1|||||||||||03^Reminder/recall - no calls^HL70215|N||||A|20150304|20150304
+NK1|1|Gonzales^Manuel^Marcel^^^^L|FTH^Father^HL70063|4623 Standish Way^^Stamford^CT^06903^^L|^PRN^PH^^1^203^5551213
+ORC|RE||197027^DCS|||||||^Sirtis^Lisa||^Carter^Jane^^^^^^^L^^^^^^^^^^^MD|||||SH^Shoreline Hospital^HL70362||||||||||||||
+RXA|0|1|20150304|20150304|08^Hepatitis B^CVX^58160-0820-11^ENGERIX-B^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^325 Shorline Drive^^Stamford^CT^06901||||6332FK34|20151214|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150415|20150415|08^Hepatitis B^CVX^58160-0820-11^ENGERIX-B^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||6352FK2|20151001|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20161031|20161031|58160-0820-11^ENGERIX-B^NDC|0.5|mL^^UCUM||00^^NIP001|^Molina^Sandra|^^^DCS_DC^^^^^400 Shoreline Drive^^Stamford^CT^06901||||6332FK26|20171031|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+OBX|1|TS|29768-9^Date vaccine information statement published^LN|2|20150715||||||F
+OBX|2|TS|29769-7^Date vaccine information statement presented^LN|2|20150715||||||F
+OBX|3|CE|64994-7^vaccine fund pgm elig cat^LN|1|V01^Not VFC elig ^HL70064||||||F|||20150715
+OBX|4|CE|30963-3^Vaccine funding source^LN|1|PHC70^Private^CDCPHINVS||||||F|||20161031
+OBX|5|CE|30956-7^vaccine type^LN|2|08^Hepatitis B^CVX||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150515|20150515|106^DTaP^CVX^49281-0286-01^DAPTACEL^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||D409QS2342|20161130|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150713|20150713|106^DTaP^CVX^49281-0286-01^DAPTACEL^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||D409QS2434|20150904|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150916|20150916|106^DTaP^CVX^49281-0286-01^DAPTACEL^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||D409QS250|20151201|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20160820|20160820|106^DTaP^CVX^49281-0286-01^DAPTACEL^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||D409QS250|20170301|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150514|20150514|49^Hib^CVX^00006-4897-00^PedvaxHIB^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||7M54K9255|20160324|MSD^Merck Sharp and Dohme Corp.^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150721|20150721|49^Hib^CVX^00006-4897-00^PedvaxHIB^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||7M55K3343|20141030|MSD^Merck Sharp and Dohme Corp.^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150927|20150927|49^Hib^CVX^00006-4897-00^PedvaxHIB^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||7M75K4577|20160523|MSD^Merck Sharp and Dohme Corp.^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20160504|20160504|49^Hib^CVX^00006-4897-00^PedvaxHIB^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||7M53K5535|20161014|MSD^Merck Sharp and Dohme Corp.^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150514|20150514|10^Polio (IPV)^CVX^49281-0860-55^IPOL^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||D333PV2444|2015100304|PMC^MSanofi Pasteur Inc.^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150721|20150721|10^Polio (IPV)^CVX^49281-0860-55^IPOL^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||D333PV4343|20160323|PMC^MSanofi Pasteur Inc.^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20151015|20151015|10^Polio (IPV)^CVX^49281-0860-55^IPOL^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||D333PV4343|20160222|PMC^MSanofi Pasteur Inc.^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150518|20150518|133^Pneumococcal conjugate (PCV13)^CVX^00005-1971-05^PREVNAR 13^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||P243V3321|20160130|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150721|20150721|133^Pneumococcal conjugate (PCV13)^CVX^00005-1971-05^PREVNAR 13^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||P343V8445|20160330|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150927|20150927|133^Pneumococcal conjugate (PCV13)^CVX^00005-1971-05^PREVNAR 13^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||P853V2175|20160830|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20160504|20160504|133^Pneumococcal conjugate (PCV13)^CVX^00005-1971-05^PREVNAR 13^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||P853V58544|20160118|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150518|20150518|119^Rotavirus^CVX^58160-0854-52^ROTARIX^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||6359RV543|20151029|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150921|20150921|119^Rotavirus^CVX^58160-0854-52^ROTARIX^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||6359RV933|20160510|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Thigh Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150927|20150927|161^Influenza^CVX^49281-0514-25^FLUZONE QUADRIVALENT^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||D8043IN8738|20160312|PMC^Sanofi Pasteur^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20151020|20151020|161^Influenza^CVX^49281-0514-25^FLUZONE QUADRIVALENT^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||D8043IN8798|20160522|PMC^Sanofi Pasteur^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20161031|20161031|49281-0514-25^FLUZONE QUADRIVALENT^NDC|0.25|mL^^UCUM||00^^NIP001|^Molina^Sandra|^^^DCS_DC^^^^^400 Shoreline Drive^^Stamford^CT^06901||||D8043IN8855|20171031|PMC^Sanofi Pasteur^MVX|||CP|A
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+OBX|1|TS|29768-9^VIS Publication Date^LN|1|20140819||||||F|||20150715
+OBX|2|TS|29769-7^VIS Presentation Date^LN|1|20150715||||||F|||20150715
+OBX|3|CE|64994-7^vaccine fund pgm elig cat^LN|1|V01^Not VFC elig ^HL70064||||||F|||20150715
+OBX|4|CE|30963-3^Vaccine funding source^LN|1|PHC70^Private^CDCPHINVS||||||F|||20161031
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20160515|20160515|83^Hepatitis A^CVX^58160-0825-52^HAVRIX^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||6359RT35|20170104|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RD^Right Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20160921|20160921|83^Hepatitis A^CVX^58160-0825-52^HAVRIX^NDC|999|||08^^NIP001|^Molina^Sandra|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||6359RT47|20161111|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20161020|20161020|94^MMR and Varicella^CVX^00006-4999-00^ProQuad^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||7W27V7632|20171215|MSD^Merck Sharp and Dohme Corp.^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20161031|20161031|46028-0208-01^Menveo^NDC|0.5|mL^^UCUM||00^^NIP001|^Molina^Sandra|^^^DCS_DC^^^^^400 Shoreline Drive^^Stamford^CT^06901||||6333FK87|20161031|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+OBX|1|TS|29768-9^VIS Publication Date^LN|1|20160331||||||F|||20160715
+OBX|2|TS|29769-7^VIS Presentation Date^LN|1|20150715||||||F|||20160715
+OBX|3|CE|64994-7^vaccine fund pgm elig cat^LN|1|V01^Not VFC elig ^HL70064||||||F|||20160715
+OBX|4|CE|30963-3^Vaccine funding source^LN|1|PHC70^Private^CDCPHINVS||||||F|||20161031
+OBX|5|CE|30956-7^vaccine type^LN|2|08^Hepatitis B^CVX||||||F
+ORC|RE||197027^DCS|||||||^Martinez^J.||^Rodriguez^J.^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20161020|20161020|94^MMR and Varicella^CVX^00006-4999-00^ProQuad^NDC|999|||08^^NIP001|^Martinez^J.|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||7W27V7632|20161215|MSD^Merck Sharp and Dohme Corp.^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LT^Left Thigh^HL70163||||

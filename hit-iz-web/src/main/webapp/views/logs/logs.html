@@ -1,0 +1,179 @@
+<div ng-controller="LogCtrl" ng-init="initLogs()" class="container" style="margin-top:20px">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <a class="list-group-item" ng-click="selectType('VALIDATION')">
+          Validation Logs
+          <span class="label label-primary">{{numberOfValidationLogs}}</span>
+
+        </a>
+        <a ng-if="transportSupported" class="list-group-item" ng-click="selectType('TRANSPORT')">
+          Transport Logs
+          <span class="label label-primary">{{numberOfTransportLogs}}</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-9" ng-if="selectedType === 'VALIDATION'">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Validation Logs
+        </div>
+        <div class="panel-body">
+          <div ng-include="'views/logs/validation.html'"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9" ng-if="transportSupported && selectedType === 'TRANSPORT'">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Transport Logs
+        </div>
+        <div class="panel-body">
+          <div ng-include="'views/logs/transport.html'"></div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+<script type="text/ng-template" id="stLogDateRange.html">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">From</span>
+        <input type="text" class="form-control" datepicker-popup="MM/dd/yyyy" ng-model="after" is-open="isAfterOpen"
+               close-text="Close"/>
+        <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="openAfter($event)"><i
+                  class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon2">To</span>
+
+        <input type="text" class="form-control" datepicker-popup="MM/dd/yyyy" ng-model="before" is-open="isBeforeOpen"
+               close-text="Close"/>
+        <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="openBefore($event)"><i
+                  class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+      </div>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/ng-template" id="ValidationLogDetails.html">
+  <div class="modal-header">
+                <span>
+                    Validation Log
+                </span>
+    <span class="pull-right">
+                    <button class="btn btn-xs btn-default" ng-click="close()" type="button"
+                            title="Close Dialog" class="point">
+                        <i class="fa fa-times"></i>
+                        Close
+                    </button>
+                </span>
+  </div>
+
+
+  <div class="modal-body">
+    <tabset>
+      <tab>
+        <tab-heading>
+          <i class="fa fa-list-alt"></i>
+          <span>Segment Errors</span>
+        </tab-heading>
+
+        <table st-table="tmpSegmentErrors" st-safe-src="segmentErrors"
+               class="table table-condensed table-bordered">
+          <thead>
+          <tr>
+            <th colspan="2" st-ratio="100">
+              <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+            </th>
+          </tr>
+          <tr class="">
+            <th st-sort="segment">Segment/Element</th>
+            <th st-sort="errorCount">#Error</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="row in tmpSegmentErrors">
+            <td>
+              {{::row.segment}}
+            </td>
+            <td>
+              {{::row.errorCount}}
+            </td>
+          </tr>
+          </tbody>
+          <tfoot ng-show="tmpSegmentErrors.length >=100">
+          <tr>
+            <th colspan="2" class="text-center" st-ratio="100">
+              <div class="" st-pagination="" st-items-by-page="100"
+                   st-displayed-pages="10"></div>
+            </th>
+          </tr>
+          </tfoot>
+        </table>
+      </tab>
+
+      <tab ng-show="validationLogItem.message && validationLogItem.message != null">
+        <tab-heading>
+          <i class="fa fa-t"></i>
+          <span>Message</span>
+        </tab-heading>
+        <textarea class="well log-content" wrap="off"
+                  rows="10"
+                  disabled
+                  ng-model="validationLogItem.message"></textarea>
+      </tab>
+
+    </tabset>
+
+  </div>
+</script>
+
+
+<script type="text/ng-template" id="TransportLogDetails.html">
+  <div class="modal-header">
+                <span>
+                    Transport Log
+                </span>
+    <span class="pull-right">
+                    <button class="btn btn-xs btn-default" ng-click="close()" type="button"
+                            title="Close Dialog" class="point">
+                        <i class="fa fa-times"></i>
+                        Close
+                    </button>
+                </span>
+  </div>
+
+  <div class="modal-body">
+    <tabset>
+      <tab ng-show="transportLogItem.content && transportLogItem.content != null">
+        <tab-heading>
+          <i class="fa fa-t"></i>
+          <span>Log Content</span>
+        </tab-heading>
+        <textarea class="well console-dlg console-content" wrap="off"
+                  rows="10"
+                  disabled
+                  ng-model="transportLogItem.content"></textarea>
+      </tab>
+
+    </tabset>
+
+  </div>
+</script>

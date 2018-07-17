@@ -1,0 +1,243 @@
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
+<script type="text/javascript">
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
+</script>
+
+<div style="margin:10px; min-height: 300px" ng-controller="DomainsCtrl" ng-init="initDomain()">
+  <div ng-show="isDomainsManagementSupported()">
+
+    <div class="login-required-page" ng-show="!isAuthenticated()">
+      <p>Please <a href="" ng-click="loginReq()"><i class="fa fa-sign-in"></i>&nbsp;login</a> to access this page. You
+        can
+        also
+        <a href="#/registration"><i class="fa fa-chevron-circle-right"></i>&nbsp;register</a></p>
+    </div>
+
+    <div ng-show="isAuthenticated()">
+      <div style="margin:10px">
+        <div class="row test-plan-select-container" style="margin-bottom: 10px">
+          <!--<div class="col-md-12">-->
+            <!--<div class="pull-right">-->
+              <!--<button ng-click="createDomain()" class="btn btn-info"><i class="fa fa-plus"></i>Create Tool Scope</button>-->
+            <!--</div>-->
+          <!--</div>-->
+          <div class="col-md-12" ng-if="alertMessage != null && alertMessage.message != null" style="margin-top:10px">
+            <div class="alert alert-danger" ng-if="alertMessage.type === 'danger'" role="alert">
+              <span> {{alertMessage.message}}</span>
+              <span class="pull-right"><i class="fa fa-times" ng-click="alertMessage = null"></i></span>
+            </div>
+            <div class="alert alert-success" ng-if="alertMessage.type === 'success'" role="alert">
+              <span> {{alertMessage.message}}</span>
+              <span class="pull-right"><i class="fa fa-times" ng-click="alertMessage = null"></i></span>
+            </div>
+            <div class="alert alert-info" ng-if="alertMessage.type === 'info'" role="alert">
+              <span> {{alertMessage.message}}</span>
+              <span class="pull-right"><i class="fa fa-times" ng-click="alertMessage = null"></i></span>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div ng-show="loadingDomain" style="text-align:center">
+          <i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
+        </div>
+
+        <div ng-show="!loadingDomain">
+          <div class="col-md-12" style="margin-bottom: 10px" ng-show="userDomain != null">
+            <h3>
+              <span>Tool Scope: {{userDomain.name}}</span>
+
+
+              <span class="pull-right">
+              <button title="Reset" type="button" class="btn btn-md btn-warning" ng-click="resetDomain()">
+                                    <i class="fa fa-check"></i>Reset
+                                </button>
+               <button title="Save" type="button" ng-disabled="domainForm.$invalid" class="btn btn-md btn-success" ng-click="saveDomain()">
+                                    <i class="fa fa-check"></i>Save
+                                </button>
+
+
+              <button title="Make Public" ng-if="userDomain.scope === 'USER' && canPublish()" type="button" ng-disabled="domainForm.$invalid" class="btn btn-md btn-info" ng-click="publishDomain()">
+                                    <i class="fa fa-check"></i>Make Public
+              </button>
+
+
+            </span>
+            </h3>
+            <hr>
+
+            <form novalidate="" id="domainForm" name="domainForm" class="form-horizontal">
+              <tabset>
+                <tab active="tabs[0]">
+                  <tab-heading>
+                    <i class="fa fa-list-alt"></i>
+                    <span>Meta Data</span>
+                  </tab-heading>
+
+                  <div class="domain-content">
+
+                    <div class="form-group control-group">
+                      <label class="col-md-2 control-label">Type</label>
+                      <div class="controls col-md-6">
+                        {{userDomain.scope === 'USER' ? 'Private': 'Public'}}
+                      </div>
+                    </div>
+
+                    <!--<div class='form-group control-group'>-->
+                      <!--<label class='col-md-2 control-label'>Show</label>-->
+                      <!--<div class='controls col-md-6'>-->
+                        <!--<div class="btn-group btn-group-md" role="group" aria-label="...">-->
+                          <!--<button class="btn btn-cf-outline"-->
+                                  <!--ng-click="userDomain.disabled = false; "-->
+                                  <!--ng-class="{'active':userDomain.disabled === false}"-->
+                          <!--&gt;Yes-->
+                          <!--</button>-->
+                          <!--<button class="btn btn-cf-outline"-->
+                                  <!--ng-click="userDomain.disabled = true; "-->
+                                  <!--ng-class="{'active':userDomain.disabled === true}"-->
+                          <!--&gt;No-->
+                          <!--</button>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class='form-group control-group'>-->
+                      <!--<label for='domainKey' class='col-md-2 control-label'>Key</label>-->
+                      <!--<div class='controls col-md-6'>-->
+                        <!--<input required disabled-->
+                               <!--class='form-control' name='domainKey'-->
+                               <!--id='domainKey' type='text'-->
+                               <!--ng-model='userDomain.domain'>-->
+                      <!--</div>-->
+                    <!--</div>-->
+
+                    <div class="form-group control-group">
+                      <label for="domainName" class="col-md-2 control-label">Name *</label>
+                      <div class="controls col-md-6">
+                        <input required="" class="form-control" name="domainName" id="domainName" type="text" ng-model="userDomain.name">
+                      </div>
+                    </div>
+
+                    <div class="form-group control-group">
+                      <label for="domainHomeContent" class="col-md-2 control-label">Home Title * </label>
+                      <div class="controls col-md-6">
+                        <input required="" class="form-control" name="domainHomeTitle" id="domainHomeTitle" type="text" ng-model="userDomain.homeTitle">
+                      </div>
+                    </div>
+
+                    <div class="form-group control-group">
+                      <label for="domainHomeContent" class="col-md-2 control-label">Home Content</label>
+                      <div class="controls col-md-6">
+                        <!--<div class="pull-right" style="margin-bottom:5px">-->
+                          <!--<button class="btn btn-default btn-md" ng-click="loadDefaultHomeContent()">Load Example-->
+                          <!--</button>-->
+                        <!--</div>-->
+                        <textarea class="form-control" name="domainHomeContent" id="domainHomeContent" rows="15" cols="5" ng-model="userDomain.homeContent"></textarea>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </tab>
+
+                <tab active="tabs[1]">
+                  <tab-heading>
+                    <i class="fa fa-list-alt"></i>Context-based Message Content Info
+                  </tab-heading>
+
+                  <div class="domain-content">
+
+                    <!--<div class="pull-right" style="margin-bottom:5px">-->
+                    <!--<button class="btn btn-default btn-md" ng-click="loadDefaultMessageContent()">Load Example</button>-->
+                    <!--</div>-->
+                    <div class="form-group control-group">
+                      <div class="controls col-md-12">
+                    <textarea class="form-control" name="domainHomeContent" id="domainMessageContentInfo" rows="15" cols="15" ng-model="userDomain.messageContentInfo"></textarea>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </tab>
+
+
+                <tab active="tabs[3]">
+                  <tab-heading>
+                    <i class="fa fa-list-alt"></i>Context-free Profile Info
+                  </tab-heading>
+                  <div class="domain-content">
+                    <!--<div class="pull-right" style="margin-bottom:5px">-->
+                    <!--<button class="btn btn-default btn-md" ng-click="loadDefaultProfileInfo()">Load Example</button>-->
+                    <!--</div>-->
+                    <div class="form-group control-group">
+                      <div class="controls col-md-12">
+                    <textarea class="form-control" name="domainProfileInfo" id="domainProfileInfo" rows="15" cols="15" ng-model="userDomain.profileInfo"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </tab>
+
+                <tab active="tabs[4]">
+                  <tab-heading>
+                    <i class="fa fa-file-text-o"></i>ValueSet copyright
+                  </tab-heading>
+                  <div class="domain-content">
+                    <!--<div class="pull-right" style="margin-bottom:5px">-->
+                    <!--<button class="btn btn-default btn-md" ng-click="loadDefaultValueSetCopyright()">Load Example</button>-->
+                    <!--</div>-->
+                    <div class="form-group control-group">
+                      <div class="controls col-md-12">
+                    <textarea class="form-control" name="domainValueSetCopyright" id="domainValueSetCopyright" rows="15" cols="15" ng-model="userDomain.valueSetCopyright"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </tab>
+                <tab active="tabs[5]">
+                  <tab-heading>
+                    <i class="fa fa-list-alt"></i>Validation Result Info
+                  </tab-heading>
+                  <div class="domain-content">
+                    <div class="form-group control-group">
+                      <div class="controls col-md-12">
+                    <textarea class="form-control" name="domainValidationResultInfo" id="domainValidationResultInfo" rows="15" cols="15" ng-model="userDomain.validationResultInfo"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </tab>
+              </tabset>
+
+              <hr>
+
+              <div style="margin-top:30px;margin-bottom:30px">
+            <span class="pull-left" style="">
+              <button title="Reset" type="button" class="btn btn-md btn-danger" ng-click="deleteDomain()">
+                                    <i class="fa fa-check"></i>Delete
+                                </button>
+            </span>
+
+              </div>
+
+              <div>
+                <div ng-show="loadingAction" style="text-align:center">
+                  <i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-show="!isDomainsManagementSupported()" style="margin:10px; min-height: 300px">
+    <div ng-include="'NotFound.html'"></div>
+
+  </div>
+
+</div>

@@ -11,40 +11,39 @@
  */
 package gov.nist.healthcare.hl7.v2.iz.tool.web.unit;
 
-
 /**
  * @author Harold Affo
  * 
  */
 public class SOAPConnectivityUtilTest {
 
-  // @Rule
-  // public ExpectedException thrown = ExpectedException.none();
-  //
-  // @Test
-  // public void testUpdateSubmitSingleMessageRequest() throws Exception {
-  // String content =
-  // IOUtils.toString(ConnectivityUtilTest.class
-  // .getResourceAsStream("/soapMessages/SubmitSingleMessage_Request1.xml"));
-  //
-  // String username = "u1";
-  // String password = "p1";
-  // String facilityId = "fac1";
-  // String updated =
-  // ConnectivityUtil.updateSubmitSingleMessageRequest(content, username, password, facilityId);
-  //
-  // System.out.print(updated);
-  //
-  // }
-  //
-  // @Test
-  // public void testUpdateConnectivityRequest() throws Exception {
-  // String content =
-  // IOUtils.toString(ConnectivityUtilTest.class
-  // .getResourceAsStream("/soapMessages/ConnectivityTest_Request.xml"));
-  // String updated = ConnectivityUtil.updateConnectivityRequest(content);
-  // System.out.print(updated);
-  //
-  // }
+	// @Rule
+	// public ExpectedException thrown = ExpectedException.none();
+	//
+	// @Test
+	// public void testUpdateSubmitSingleMessageRequest() throws Exception {
+	// String content = IOUtils.toString(
+	// ConnectivityUtilTest.class.getResourceAsStream("/soapMessages/SubmitSingleMessage_Request1.xml"));
+	//
+	// String username = "u1";
+	// String password = "p1";
+	// String facilityId = "fac1";
+	// String updated =
+	// ConnectivityUtil.updateSubmitSingleMessageRequest(content, "HL7MESSAGE",
+	// username, password,
+	// facilityId);
+	//
+	// System.out.print(updated);
+	//
+	// }
+	//
+	// @Test
+	// public void testUpdateConnectivityRequest() throws Exception {
+	// String content = IOUtils
+	// .toString(ConnectivityUtilTest.class.getResourceAsStream("/soapMessages/ConnectivityTest_Request.xml"));
+	// String updated = ConnectivityUtil.updateConnectivityRequest(content);
+	// System.out.print(updated);
+	//
+	// }
 
 }
