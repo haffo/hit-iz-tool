@@ -1,0 +1,8 @@
+{
+  "content": "<Envelope xmlns=\"http://www.w3.org/2003/05/soap-envelope\">\r\n   <Header />\r\n   <Body>\r\n      <submitSingleMessage xmlns=\"urn:cdc:iisb:2011\">\r\n         <username>a</username>\r\n         <password>b</password>\r\n         <facilityID>c</facilityID>\r\n         <hl7Message>MSH|^~\\&amp;|XXTest EHR Application|X68||NIST Test Iz Reg|201207010822||VXU^V04^VXU_V04|NIST-IZ-007.00|P|2.5.1|||AL|ER&#xD;PID|1||MR-99922^^^NIST MPI^MR||Montgomery^Lewis^^^^^L||20010821|M&#xD;ORC|RE||IZ-783276^NDA&#xD;RXA|0|1|20110215||118^HPV^CVX|999|||01^Historical information - source unspecified^NIP001</hl7Message>\r\n      </submitSingleMessage>\r\n   </Body>\r\n</Envelope>",
+  "endpoint": null,
+  "testCaseId": null,
+  "userId": null,
+  "type": null,
+  "requestMessage": null
+}
