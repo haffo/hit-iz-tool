@@ -56,7 +56,7 @@
       </th>
       </th>
     </tr>
-    <tr class="">
+    <tr style="background-color: #3276B2;color: white;">
       <th st-sort="validationResult">Validation Result</th>
       <th st-sort="testStepName">Test Step</th>
       <th st-sort="userFullname">User' Fullname</th>
@@ -102,13 +102,11 @@
 
     </tr>
     </tbody>
-    <tfoot ng-show="tmpLogs.length >=100">
-    <tr>
-      <th colspan="8" class="text-center" st-ratio="100">
-        <div class="" st-pagination="" st-items-by-page="100"
+     <tr ng-show="logs.length >=20">
+      <th colspan="9" class="text-center" st-ratio="100">
+        <div class="" st-pagination="" st-items-by-page="20"
              st-displayed-pages="10"></div>
       </th>
     </tr>
-    </tfoot>
-  </table>
+   </table>
 </div>
