@@ -589,9 +589,15 @@ angular.module('connectivity')
     $scope.config = angular.copy(config.taInitiator);
     $scope.config['hl7Message'] = getHl7Message(Connectivity.request.getContent());
 
+
+
+
+
     $scope.save = function () {
+      var copyConfig = angular.copy($scope.config);
+      delete copyConfig.hl7Message;
       var data = angular.fromJson({
-        "config": $scope.config,
+        "config": copyConfig,
         "userId": User.info.id,
         "type": "TA_INITIATOR",
         "protocol": SOAPConnectivityTransport.protocol,
