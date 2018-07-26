@@ -183,9 +183,9 @@ public class SOAPConnectivityController {
 			// String outgoingMessage = requ.getMessage();
 			String outgoingMessage = testCase.getTestContext().getMessage();
 			if (!IZTestType.RECEIVER_CONNECTIVITY.toString().equals(testCase.getTestType())) {
-				outgoingMessage = ConnectivityUtil.updateSubmitSingleMessageRequest(outgoingMessage, null,
-						requ.getConfig().get("username"), requ.getConfig().get("password"),
-						requ.getConfig().get("facilityID"));
+				outgoingMessage = ConnectivityUtil.updateSubmitSingleMessageRequest(outgoingMessage,
+						requ.getConfig().get("hl7Message"), requ.getConfig().get("username"),
+						requ.getConfig().get("password"), requ.getConfig().get("facilityID"));
 				soapAction = IZConstants.SUBMITSINGLEMESSAGE_SOAP_ACTION;
 			} else if (IZTestType.RECEIVER_CONNECTIVITY.toString().equals(testCase.getTestType())) {
 				outgoingMessage = ConnectivityUtil.updateConnectivityRequest(outgoingMessage);
