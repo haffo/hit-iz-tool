@@ -6,7 +6,7 @@
          <username>???</username>
          <password>???</password>
          <facilityID>???</facilityID>
-         <hl7Message>MSH|^~\&amp;|Test EHR Application|X68||NIST Test Iz Reg|201207010822||VXU^V04^VXU_V04|NIST-IZ-007.00|P|2.5.1|||AL|ER&#xD;PID|1||MR-99922^^^NIST MPI^MR||Montgomery^Lewis^^^^^L||20010821|M&#xD;ORC|RE||IZ-783276^NDA&#xD;RXA|0|1|20110215||118^HPV^CVX|999|||01^Historical information - source unspecified^NIP001</hl7Message>
+      	 <hl7Message>MSH|^~\&amp;|||||20180726102500-0600||VXU^V04^VXU_V04|1cuT-A.01.01.3n|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS&#xD;PID|1||L05M820^^^AIRA^MR||Northumberland^Kaja^Hetal^^^^L|Iversen^Trinidad^^^^^M|20020715|F||2106-3^White^CDCREC|93 Scott Cir^^Fountain^MI^49410^USA^P||^PRN^PH^^^231^6541667|||||||||2186-5^not Hispanic or Latino^CDCREC||N||||||N&#xD;PD1|||||||||||02^Reminder/Recall - any method^HL70215|N|20180726|||A|20180726|20180726&#xD;NK1|1|Northumberland^Iversen^Marion^^^^L|MTH^Mother^HL70063|93 Scott Cir^^Fountain^MI^49410^USA^P|^PRN^PH^^^231^6541667&#xD;ORC|RE||BL05M820.1^AIRA&#xD;RXA|0|1|20060726||03^MMR^CVX|999|||01^Historical^NIP001|||||||||||CP|A</hl7Message>
       </submitSingleMessage>
    </Body>
 </Envelope>
