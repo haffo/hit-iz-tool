@@ -11,6 +11,11 @@
 </script>
 <div ng-controller="TransportLogCtrl" ng-init="initTransportLogs()">
 
+  <div ng-show="loadingAll" style="text-align:center">
+    <i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
+  </div>
+
+  <div ng-show="!loadingAll">
 
   <div class="row" style="margin-bottom: 20px">
     <div class="col-md-4">
@@ -102,4 +107,5 @@
     </tbody>
 
    </table>
+  </div>
 </div>

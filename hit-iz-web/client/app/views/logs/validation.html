@@ -11,6 +11,12 @@
 </script>
 <div ng-controller="ValidationLogCtrl" ng-init="initValidationLogs()">
 
+
+  <div ng-show="loadingAll" style="text-align:center">
+    <i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
+  </div>
+
+  <div ng-show="!loadingAll">
   <div class="row" style="margin-bottom: 20px">
     <div class="col-md-4">
       <label>Context Type</label>
@@ -38,7 +44,6 @@
       </div>
     </div>
   </div>
-
 
 
   <table st-table="tmpLogs" st-safe-src="logs" st-set-filter="logCustomFilter"
@@ -109,4 +114,6 @@
       </th>
     </tr>
    </table>
+  </div>
+
 </div>

@@ -1,1 +1,19 @@
-{"id":32358,"protocol":"soap","domain":"iz","userId":32357,"sutInitiator":{"faultPassword":"fault_vendor_32357_225","password":"vendor_32357_225","endpoint":"https://hl7v2-iz-r1.5-testing.nist.gov:8098/iztool/ws/iisService","facilityID":"vendor_32357_225","faultUsername":"fault_vendor_32357_225","username":"vendor_32357_225"},"taInitiator":{"password":"","facilityID":"","username":""}}
+{
+  "id": 32358,
+  "protocol": "soap",
+  "domain": "iz",
+  "userId": 32357,
+  "sutInitiator": {
+    "faultPassword": "fault_vendor_32357_225",
+    "password": "vendor_32357_225",
+    "endpoint": "https://hl7v2-iz-r1.5-testing.nist.gov:8098/iztool/ws/iisService",
+    "facilityID": "vendor_32357_225",
+    "faultUsername": "fault_vendor_32357_225",
+    "username": "vendor_32357_225"
+  },
+  "taInitiator": {
+    "password": "",
+    "facilityID": "",
+    "username": ""
+  }
+}

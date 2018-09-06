@@ -4,8 +4,8 @@
 
 
 angular.module('logs')
-  .controller('LogCtrl', ['$scope', 'ValidationLogService', 'TransportLogService','$rootScope',
-    function ($scope, ValidationLogService, TransportLogService,$rootScope) {
+  .controller('LogCtrl', ['$scope', 'ValidationLogService', 'TransportLogService','$rootScope','$timeout',
+    function ($scope, ValidationLogService, TransportLogService,$rootScope,$timeout) {
 
       $scope.numberOfValidationLogs = 0;
       $scope.numberOfTransportLogs = 0;
@@ -19,21 +19,24 @@ angular.module('logs')
 
       $scope.initLogs = function () {
         $scope.loadingAll = true;
-        ValidationLogService.getTotalCount().then(function (numberOfValidationLogs) {
-          $scope.numberOfValidationLogs = numberOfValidationLogs;
-          $scope.loadingAll = false;
-        }, function (error) {
-          $scope.loadingAll = false;
-          $scope.error = "Sorry, Cannot load the logs. Please try again. \n DEBUG:" + error;
-        });
-
-        TransportLogService.getTotalCount().then(function (numberOfTransportLogs) {
-          $scope.numberOfTransportLogs = numberOfTransportLogs;
-          $scope.loadingAll = false;
-        }, function (error) {
-          $scope.loadingAll = false;
-          $scope.error = "Sorry, Cannot load the logs. Please try again. \n DEBUG:" + error;
-        });
+        $scope.numberOfValidationLogs = 0;
+        $timeout(function() {
+            ValidationLogService.getTotalCount($rootScope.domain.domain).then(function (numberOfValidationLogs) {
+                $scope.numberOfValidationLogs = numberOfValidationLogs;
+                $scope.loadingAll = false;
+            }, function (error) {
+                $scope.loadingAll = false;
+                $scope.error = "Sorry, Cannot load the logs. Please try again. \n DEBUG:" + error;
+            });
+            $scope.numberOfTransportLogs = 0;
+            TransportLogService.getTotalCount($rootScope.domain.domain).then(function (numberOfTransportLogs) {
+                $scope.numberOfTransportLogs = numberOfTransportLogs;
+                $scope.loadingAll = false;
+            }, function (error) {
+                $scope.loadingAll = false;
+                $scope.error = "Sorry, Cannot load the logs. Please try again. \n DEBUG:" + error;
+            });
+        }, 1000);
 
 
         $rootScope.$on('logs:decreaseValidationCount', function (event) {
@@ -58,8 +61,8 @@ angular.module('logs')
 
 
 angular.module('logs')
-  .controller('ValidationLogCtrl', ['$scope', 'ValidationLogService', 'Notification', '$modal','$rootScope',
-    function ($scope, ValidationLogService, Notification, $modal,$rootScope) {
+  .controller('ValidationLogCtrl', ['$scope', 'ValidationLogService', 'Notification', '$modal','$rootScope','$timeout',
+    function ($scope, ValidationLogService, Notification, $modal,$rootScope,$timeout) {
 
       $scope.logs = null;
       $scope.tmpLogs = null;
@@ -75,18 +78,20 @@ angular.module('logs')
 
 
       $scope.initValidationLogs = function () {
-        $scope.loadingAll = true;
-        ValidationLogService.getAll().then(function (logs) {
-          $scope.allLogs = logs;
-          $scope.contextType = "*";
-          $scope.userType = "*";
-          $scope.resultType = "*";
-          $scope.filterBy();
-          $scope.loadingAll = false;
-        }, function (error) {
-          $scope.loadingAll = false;
-          $scope.error = "Sorry, Cannot load the logs. Please try again. \n DEBUG:" + error;
-        });
+          $scope.loadingAll = true;
+          $timeout(function() {
+              ValidationLogService.getAll($rootScope.domain.domain).then(function (logs) {
+                  $scope.allLogs = logs;
+                  $scope.contextType = "*";
+                  $scope.userType = "*";
+                  $scope.resultType = "*";
+                  $scope.filterBy();
+                  $scope.loadingAll = false;
+              }, function (error) {
+                  $scope.loadingAll = false;
+                  $scope.error = "Sorry, Cannot load the logs. Please try again. \n DEBUG:" + error;
+              });
+          },1000);
       };
 
       $scope.openLogDetails = function (validationLogItem) {
@@ -147,8 +152,8 @@ angular.module('logs')
 
 
 angular.module('logs')
-  .controller('TransportLogCtrl', ['$scope', 'TransportLogService', 'Notification', '$modal','$rootScope',
-    function ($scope, TransportLogService, Notification, $modal,$rootScope) {
+  .controller('TransportLogCtrl', ['$scope', 'TransportLogService', 'Notification', '$modal','$rootScope','$timeout',
+    function ($scope, TransportLogService, Notification, $modal,$rootScope,$timeout) {
 
       $scope.logs = null;
       $scope.tmpLogs = null;
@@ -166,20 +171,22 @@ angular.module('logs')
       $scope.protocols = [];
 
       $scope.initTransportLogs = function () {
-        $scope.loadingAll = true;
-        TransportLogService.getAll().then(function (logs) {
-          $scope.allLogs = logs;
-          $scope.selected.transportType = "*";
-          $scope.selected.protocol = "*";
-          $scope.userType = "*";
-          $scope.protocols = _(logs).chain().flatten().pluck('protocol').unique().value();
-          $scope.transportTypes = _(logs).chain().flatten().pluck('testingType').unique().value();
-          $scope.filterBy();
-          $scope.loadingAll = false;
-        }, function (error) {
-          $scope.loadingAll = false;
-          $scope.error = "Sorry, Cannot load the logs. Please try again. \n DEBUG:" + error;
-        });
+          $scope.loadingAll = true;
+          $timeout(function() {
+              TransportLogService.getAll($rootScope.domain.domain).then(function (logs) {
+                  $scope.allLogs = logs;
+                  $scope.selected.transportType = "*";
+                  $scope.selected.protocol = "*";
+                  $scope.userType = "*";
+                  $scope.protocols = _(logs).chain().flatten().pluck('protocol').unique().value();
+                  $scope.transportTypes = _(logs).chain().flatten().pluck('testingType').unique().value();
+                  $scope.filterBy();
+                  $scope.loadingAll = false;
+              }, function (error) {
+                  $scope.loadingAll = false;
+                  $scope.error = "Sorry, Cannot load the logs. Please try again. \n DEBUG:" + error;
+              });
+          },1000);
       };
 
       $scope.openLogDetails = function (transportLogItem) {
