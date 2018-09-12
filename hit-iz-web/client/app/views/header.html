@@ -54,7 +54,7 @@
 
         <ul class="nav navbar-nav navbar-right" style="margin-right: 15px">
             <li class="dropdown clear-fix" ng-show="isAuthenticated()"
-                ng-class="isActive('/useraccount') || isActive('/transport-settings')">
+                ng-class="isActive('/useraccount') || isActive('/transport')">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false"><i
                         class="fa fa-user"></i>&nbsp;Hello {{getUsername()}}<span class="caret"></span></a>
@@ -63,8 +63,8 @@
                             class="fa fa-user"></i>&nbsp;My Profile</a></li>
                     <li role="separator" class="divider"></li>
 
-                    <li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported"><a
-                            href="#/transport-settings">
+                    <li ng-class="{'active':isActive('/transport')}" ng-show="transportSupported"><a
+                            href="#/transport">
                         <i title="Transport Configuration" class="label label-danger label-icon2">T</i>
                         Transport Settings</a></li>
                     <li role="separator" class="divider"></li>
@@ -87,7 +87,7 @@
             </li>
 
             <li class="dropdown clear-fix" ng-show="!isAuthenticated()"
-                ng-class="isActive('/useraccount') || isActive('/registration') || isActive('/forgotten') || isActive('/transport-settings')">
+                ng-class="isActive('/useraccount') || isActive('/registration') || isActive('/forgotten') || isActive('/transport')">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false"><i
                         class="fa fa-user"></i>&nbsp;Hello Guest <span class="caret"></span></a>
@@ -108,8 +108,8 @@
                         </a>
                     </li>
                     <li ng-if="!isAuthenticationRequired()" role="separator" class="divider"></li>
-                    <li ng-class="{'active':isActive('/transport-settings')}" ng-show="transportSupported && !isAuthenticationRequired()"><a
-                            href="#/transport-settings">
+                    <li ng-class="{'active':isActive('/transport')}" ng-show="transportSupported && !isAuthenticationRequired()"><a
+                            href="#/transport">
                         <i title="Transport Configuration" class="label label-danger label-icon2">T</i>
                         Transport Settings</a></li>
                     <li ng-if="!isAuthenticationRequired()" role="separator" class="divider"></li>

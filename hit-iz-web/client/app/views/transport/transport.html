@@ -12,7 +12,7 @@
 
 
 <div ng-controller="TransportConfigListCtrl" style="min-height:400px; margin-left:10px;margin-top:10px;"
-     ng-init="initTransportConfigList()">
+     ng-init="initTransportConfigList()" ng-if="transportSupported">
 
   <div class="login-required-page" ng-show="isAuthenticationRequired() && !isAuthenticated()">
     <p>Please <a href="" ng-click="loginReq()"><i class="fa fa-sign-in"></i>&nbsp;login</a> to access this page. You can
@@ -103,7 +103,7 @@
                                           <div class="form-group">
                                             <div class="col-md-offset-2 col-md-6">
                                               <button class="btn btn-md btn-primary"
-                                                      ng-click='saveSutInitiatorConfig(selectedProtocol.key)'
+                                                      ng-click='save()'
                                                       ng-disabled='sutInitiatorForm_{{domain.domain}}_{{selectedProtocol.key}}.$invalid || sutInitiatorForm_{{domain.domain}}_{{selectedProtocol.key}}.$pristine'>
                                                 <i class="fa fa-check"></i>
                                                 Save
@@ -207,4 +207,9 @@
 
     </div>
   </div>
+</div>
+
+
+<div  ng-if="!transportSupported">
+  Transport is not supported.
 </div>

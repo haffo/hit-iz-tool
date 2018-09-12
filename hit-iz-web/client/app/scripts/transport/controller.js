@@ -120,15 +120,15 @@ angular.module('transport').controller('TaInitiatorConfigCtrl', function ($scope
     $scope.prevConfig = null;
     $scope.loading = false;
     $scope.error = null;
-    $scope.protocol = null;
+    $scope.proto = null;
     $scope.saved = true;
-    $scope.domain = null;
+    $scope.dom = null;
     $scope.message = null;
 
     $scope.initTaInitiatorConfig = function (domain, protocol) {
         if (protocol && protocol != null && domain && domain != null) {
-            $scope.protocol = protocol;
-            $scope.domain = domain;
+            $scope.proto = protocol;
+            $scope.dom = domain;
             $scope.message = null;
             $scope.loadData();
             $rootScope.$on(domain + "-" + protocol + "-data-loaded", function (event) {
@@ -157,7 +157,7 @@ angular.module('transport').controller('TaInitiatorConfigCtrl', function ($scope
     };
 
     $scope.loadData = function () {
-        $scope.config = angular.copy($scope.transport.configs[$scope.protocol]['data']['taInitiator']);
+        $scope.config = angular.copy($scope.transport.configs[$scope.proto]['data']['taInitiator']);
         $scope.prevConfig = angular.copy($scope.config);
         $scope.message = null;
     };
@@ -169,11 +169,11 @@ angular.module('transport').controller('TaInitiatorConfigCtrl', function ($scope
             "config": $scope.config,
             "userId": User.info.id,
             "type": "TA_INITIATOR",
-            "protocol": $scope.protocol,
-            "domain": $scope.domain
+            "protocol": $scope.proto,
+            "domain": $scope.dom
         });
         $http.post('api/transport/config/save', data).then(function (result) {
-            $scope.transport.configs[$scope.protocol]['data']['taInitiator'] = $scope.config;
+            $scope.transport.configs[$scope.proto]['data']['taInitiator'] = $scope.config;
             $scope.loadData();
             $scope.saved = true;
             Notification.success({
@@ -208,11 +208,12 @@ angular.module('transport').controller('SutInitiatorConfigCtrl', function ($scop
     $scope.loading = false;
     $scope.saving = false;
     $scope.error = null;
-    $scope.protocol = null;
+    $scope.proto = null;
+    $scope.dom = null;
     $scope.initSutInitiatorConfig = function (domain, protocol) {
         if (protocol && protocol != null && domain && domain != null) {
-            $scope.protocol = protocol;
-            $scope.domain = domain;
+            $scope.proto = protocol;
+            $scope.dom = domain;
             $scope.loadData();
             $rootScope.$on(domain + "-" + protocol + "-data-loaded", function (event) {
                 $scope.loadData();
@@ -237,10 +238,10 @@ angular.module('transport').controller('SutInitiatorConfigCtrl', function ($scop
     };
 
     $scope.loadData = function () {
-        $scope.config = $scope.transport.configs[$scope.protocol]['data']['sutInitiator'];
+        $scope.config = $scope.transport.configs[$scope.proto]['data']['sutInitiator'];
     };
 
-    $scope.saveSutInitiatorConfig = function (domain, protocole) {
+    $scope.save = function () {
         var config = $scope.config;
         if (config) {
             $scope.saving = true;
@@ -251,8 +252,8 @@ angular.module('transport').controller('SutInitiatorConfigCtrl', function ($scop
                 "config": $scope.config,
                 "userId": User.info.id,
                 "type": "SUT_INITIATOR",
-                "protocol": protocole,
-                "domain": domain
+                "protocol": $cope.proto,
+                "domain": $cope.dom
             });
             $http.post('api/transport/config/save', data).then(function (result) {
                 $scope.saving = false;

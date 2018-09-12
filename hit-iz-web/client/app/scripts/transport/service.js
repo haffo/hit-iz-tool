@@ -258,43 +258,6 @@ angular.module('transport').factory('Transport', function ($q, $http, StorageSer
                 return delay.promise;
             },
 
-            init: function (domain) {
-                this.error = null;
-                var delay = $q.defer();
-                var self = this;
-                self.configs = {};
-                this.getDomainForms(domain).then(function (transportForms) {
-                    $rootScope.transportSupported = transportForms != null && transportForms.length > 0;
-                    if ($rootScope.transportSupported) {
-                        angular.forEach(transportForms, function (transportForm) {
-                            var protocol = transportForm.protocol;
-                            if (!self.configs[domain]) {
-                                self.configs[domain] = {};
-                            }
-                            if (!self.configs[domain][protocol]) {
-                                self.configs[domain][protocol] = {};
-                            }
-                            if (!self.configs[domain][protocol]['forms']) {
-                                self.configs[domain][protocol]['forms'] = {};
-                            }
-                            self.configs[domain][protocol]['forms'] = transportForm;
-
-                            self.getConfigData(domain, protocol).then(function (data) {
-                                self.configs[domain][protocol]['data'] = data;
-                                self.configs[domain][protocol]['open'] = {
-                                    ta: true,
-                                    sut: false
-                                };
-                                $rootScope.$emit(domain + "-" + protocol + "-data-loaded");
-                            }, function (error) {
-                                self.configs[domain][protocol]['error'] = error.data;
-                            });
-                        });
-                    }
-                }, function (error) {
-                    self.error = "No transport configs found.";
-                });
-            },
             populateMessage: function (testStepId, message, domain, protocol) {
                 var delay = $q.defer();
                 var self = this;
