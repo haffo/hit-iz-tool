@@ -12,7 +12,7 @@
 
 
 <div ng-controller="TransportConfigListCtrl" style="min-height:400px; margin-left:10px;margin-top:10px;"
-     ng-init="initTransportConfigList()" ng-if="transportSupported">
+     ng-init="initTransportConfigList()" ng-show="transportSupported">
 
   <div class="login-required-page" ng-show="isAuthenticationRequired() && !isAuthenticated()">
     <p>Please <a href="" ng-click="loginReq()"><i class="fa fa-sign-in"></i>&nbsp;login</a> to access this page. You can
@@ -41,7 +41,7 @@
                 <button type="button" ng-class="{'active': transport.disabled}" class="btn btn-primary btn-sm" ng-click="toggleTransport(true)">Off</button>
                </div>
             </div>
-            <div class="col-lg-10 col-md-10 col-sm-6" ng-if="!transport.disabled" style="margin-left:0px">
+            <div class="col-lg-10 col-md-10 col-sm-6" ng-show="!transport.disabled" style="margin-left:0px">
               <label>Protocols</label>
               <div class="btn-group" role="group" aria-label="...">
                 <button  ng-repeat="proto in getProtocols()" ng-click="selectProtocol(proto)"
@@ -56,7 +56,7 @@
           </div>
           <hr />
 
-          <div class="row" style="margin-bottom: 10px" ng-if="transport.disabled">
+          <div class="row" style="margin-bottom: 10px" ng-show="transport.disabled">
             <div class="col-md-12">
               <div style="text-align: center; color:red; font-weight: bold" >
                 Transport is disabled
@@ -64,13 +64,13 @@
             </div>
           </div>
 
-          <div ng-if="!transport.disabled">
+          <div ng-show="!transport.disabled">
               <div class="row">
                 <div class="col-md-12" style="padding-top: 20px;">
-                  <div ng-if="selectedProtocol && selectedProtocol != null">
+                  <div ng-show="selectedProtocol && selectedProtocol != null">
                     <h2>   <i class="fa fa-cog fa-fw"></i>  {{selectedProtocol.key | uppercase}} Configuration </h2>
                     <hr/>
-                    <div class="">
+                    <div class="col-md-10">
                       <div>
                         <div ng-show="selectedProtocol.error && selectedProtocol.error !== null">
                           <div class="alert alert-danger" role="alert"
@@ -79,7 +79,7 @@
                         <div ng-show="selectedProtocol.error || selectedProtocol.error === null">
                           <div ng-show="selectedProtocol.data && selectedProtocol.data !== null">
 
-                            <div class="panel panel-primary">
+                            <div class="panel panel-primary" >
                               <div class="panel-heading">
                                 <i class="fa fa-arrow-right fa-fw"></i>Sender ({{appInfo.options.ORGANIZATION_NAME}}
                                 Assigned)
@@ -90,8 +90,8 @@
                                      style="padding-top: 20px">
 
                                   <div ng-show="selectedProtocol['forms']['sutInitiatorForm'] && selectedProtocol['forms']['sutInitiatorForm'] != null">
-                                    <form name="sutInitiatorForm_{{domain.domain}}_{{selectedProtocol.key}}"
-                                          id="sutInitiatorForm_{{domain.domain}}_{{selectedProtocol.key}}"
+                                    <form name="sutInitiatorForm_{{dom}}_{{proto}}"
+                                          id="sutInitiatorForm_{{dom}}_{{proto}}"
                                           novalidate
                                           class="form-horizontal">
                                       <div class="row">
@@ -102,9 +102,9 @@
                                         <div class="col-md-12" ng-show="isAuthenticated()">
                                           <div class="form-group">
                                             <div class="col-md-offset-2 col-md-6">
-                                              <button class="btn btn-md btn-primary"
+                                              <button class="btn btn-md btn-success"
                                                       ng-click='save()'
-                                                      ng-disabled='sutInitiatorForm_{{domain.domain}}_{{selectedProtocol.key}}.$invalid || sutInitiatorForm_{{domain.domain}}_{{selectedProtocol.key}}.$pristine'>
+                                                      ng-disabled='sutInitiatorForm_{{dom}}_{{proto}}.$invalid || sutInitiatorForm_{{dom}}_{{proto}}.$pristine'>
                                                 <i class="fa fa-check"></i>
                                                 Save
                                               </button>
@@ -147,8 +147,8 @@
                                      style="padding-top: 20px">
 
                                   <div ng-show="selectedProtocol['forms']['taInitiatorForm'] && selectedProtocol['forms']['taInitiatorForm'] != null">
-                                    <form name="taInitiatorForm_{{domain.domain}}_{{selectedProtocol.key}}"
-                                          id="taInitiatorForm_{{domain.domain}}_{{selectedProtocol.key}}"
+                                    <form name="taInitiatorForm_{{dom}}_{{proto}}"
+                                          id="taInitiatorForm_{{dom}}_{{proto}}"
                                           novalidate
                                           class="form-horizontal">
                                       <div class="row">
@@ -160,13 +160,13 @@
                                             <div class="col-md-offset-2 col-md-6">
                                               <button class="btn btn-sm btn-danger"
                                                       ng-click='reset()'
-                                                      ng-disabled="taInitiatorForm_{{domain.domain}}_{{selectedProtocol.key}}.$pristine">
+                                                      ng-disabled="taInitiatorForm_{{dom}}_{{proto}}.$pristine">
                                                 <i class="fa fa-times"></i>
                                                 Reset
                                               </button>
-                                              <button class="btn btn-md btn-primary"
+                                              <button class="btn btn-md btn-success"
                                                       ng-click='save()'
-                                                      ng-disabled='taInitiatorForm_{{domain.domain}}_{{selectedProtocol.key}}.$invalid || taInitiatorForm_{{domain.domain}}_{{selectedProtocol.key}}.$pristine'>
+                                                      ng-disabled='taInitiatorForm_{{dom}}_{{proto}}.$invalid || taInitiatorForm_{{dom}}_{{proto}}.$pristine'>
                                                 <i class="fa fa-check"></i>
                                                 Save
                                               </button>
@@ -210,6 +210,6 @@
 </div>
 
 
-<div  ng-if="!transportSupported">
+<div  ng-show="!transportSupported">
   Transport is not supported.
 </div>
