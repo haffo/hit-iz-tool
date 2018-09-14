@@ -2030,7 +2030,7 @@
 	</ValueSetDefinitions>
 	<ValueSetDefinitions Group="HL7" Order="3">
 		<ValueSetDefinition BindingIdentifier="HL70151" Name="Second Opinion Status">
-			<ValueElement Value="..." CodeSystem="HL70151" DisplayName="No suggested values defined"/>PHVS_VISBarcodes_IIS
+			<ValueElement Value="..." CodeSystem="HL70151" DisplayName="No suggested values defined"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="HL70150" Name="Certification patient type">
 			<ValueElement Value="ER" CodeSystem="HL70150" DisplayName="Emergency"/>
