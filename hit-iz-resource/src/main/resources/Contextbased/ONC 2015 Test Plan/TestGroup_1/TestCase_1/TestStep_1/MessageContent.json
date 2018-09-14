@@ -1622,7 +1622,7 @@ type b VIS", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300003511070517",
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300003511180824",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Diphtheria/Tetanus/Pertussis
 (DTaP) VIS", "categorization" : "Presence-Test Case Proper"},

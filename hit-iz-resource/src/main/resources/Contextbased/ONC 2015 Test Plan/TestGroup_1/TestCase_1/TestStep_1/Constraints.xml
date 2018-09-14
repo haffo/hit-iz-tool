@@ -2480,12 +2480,12 @@
             <Pattern>
               <Trigger>
                 <ErrorMessage>ERROR AN OBX SEGMENT WITH OBX-3.1 = 69764-9 AND OBX-5.1 =
-                  253088698300003511070517 is expected</ErrorMessage>
+                  253088698300003511180824 is expected</ErrorMessage>
                 <Assertion>
                   <AND>
                     <AND>
                       <Presence Path="5[1].1[1]"/>
-                      <PlainText IgnoreCase="true" Path="5[1].1[1]" Text="253088698300003511070517"
+                      <PlainText IgnoreCase="true" Path="5[1].1[1]" Text="253088698300003511180824"
                       />
                     </AND>
                     <AND>

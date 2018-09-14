@@ -12,7 +12,7 @@ OBX|3|CE|69764-9^Document Type^LN|3|253088698300017211160720^Polio VIS^cdcgs1vis
 OBX|4|DT|29769-7^Date Vis Presented^LN|3|20150624||||||F|||20150624
 OBX|5|CE|69764-9^Document Type^LN|4|253088698300006611150402^Haemophilus Influenzae type b VIS^cdcgs1vis||||||F|||20150624
 OBX|6|DT|29769-7^Date Vis Presented^LN|4|20150624||||||F|||20150624
-OBX|7|CE|69764-9^Document Type^LN|5|253088698300003511070517^Diphtheria/Tetanus/Pertussis (DTaP) VIS^cdcgs1vis||||||F|||20150624
+OBX|7|CE|69764-9^Document Type^LN|5|253088698300003511180824^Diphtheria/Tetanus/Pertussis (DTaP) VIS^cdcgs1vis||||||F|||20150624
 OBX|8|DT|29769-7^Date Vis Presented^LN|5|20150624||||||F|||20150624
 ORC|RE|8681^NIST-AA-IZ-2|65138^NIST-AA-IZ-2|||||||7824^Jackson^Lily^Suzanne^^^^^NIST-PI-1^L^^^PRN||654^Thomas^Wilma^Elizabeth^^^^^NIST-PI-1^L^^^MD|||||NISTEHRFAC^NISTEHRFacility^HL70362|
 RXA|0|1|20150624||00006-4047-20^RotaTeq^NDC|2.0|mL^mL^UCUM||00^New Record^NIP001|7824^Jackson^Lily^Suzanne^^^^^NIST-PI-1^L^^^PRN|^^^NIST-Clinic-1||||297961|20150916|MSD^Merck and Co., Inc.^MVX|||CP|A
