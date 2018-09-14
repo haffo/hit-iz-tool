@@ -1237,6 +1237,8 @@
 			<ValueElement Value="190" DisplayName="Typhoid conjugate vaccine (non-US)" CodeSystem="CVX"/>
 			<ValueElement Value="191" DisplayName="meningococcal A polysaccharide vaccine (non-US)" CodeSystem="CVX"/>
 			<ValueElement Value="192" DisplayName="meningococcal AC polysaccharide vaccine (non-US)" CodeSystem="CVX"/>
+			
+			<ValueElement Value="193" DisplayName="hepatitis A and hepatitis B vaccine, pediatric/adolescent (non-US)" CodeSystem="CVX"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_ImmunizationFundingSource_IIS" Name="Immunization Funding Source (IIS)">
 			<ValueElement Value="PHC70" CodeSystem="CDCPHINVS" DisplayName="Private funds "/>
@@ -1400,6 +1402,8 @@
 			<ValueElement Value="253088698300019611180223" CodeSystem="cdcgs1vis" DisplayName="Rotavirus Vaccine"/>
 			<ValueElement Value="253088698300002811180321" CodeSystem="cdcgs1vis" DisplayName="Anthrax Vaccine VIS"/>
 			
+			<ValueElement Value="253088698300003511180824" CodeSystem="cdcgs1vis" DisplayName="DTaP (Diphtheria, Tetanus, Pertussis) Vaccine"/>
+			<ValueElement Value="253088698300014111180824" CodeSystem="cdcgs1vis" DisplayName="Meningococcal ACWY Vaccines"/>
 		</ValueSetDefinition>
 		
 		<ValueSetDefinition BindingIdentifier="PHVS_FundingEligibilityObsMethod_IIS" Name="Funding Eligibility Observation Method (IIS)">
