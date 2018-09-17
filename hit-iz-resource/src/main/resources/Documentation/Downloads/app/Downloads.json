@@ -1,90 +1,15 @@
- [
-		{
-			"title": "iztool-1.8.0",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.8.0.zip",
-			"date": "2018/02/22",
-			"customizable": true
-		},
+{
+	"installationGuide": {
+		"title": "Installation Guide - NIST HL7v2 Validation Tools.docx",
+		"name": "Installation Guide - NIST HL7v2 Validation Tools.docx",
+		"date": "2017/07/12"
+	},
+	"downloads": [
 		{
 			"title": "iztool-1.7.3",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.7.3.zip",
-			"date": "2017/12/06",
+			"link": "http://hit-2015.nist.gov/wars/iztool-cdc-1.7.3.zip",
+			"date": "2018/02/22",
 			"customizable": true
-		},
-	 	{
-			"title": "iztool-1.7.2",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.7.2.zip",
-			"date": "2017/10/13",
-			"customizable": true
-		},
-	    {
-			"title": "iztool-1.7.1",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.7.1.zip",
-			"date": "2017/09/26",
-			"customizable": true
-		},
-	    {
-			"title": "iztool-1.7.0",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.7.0.zip",
-			"date": "2017/08/24",
-			"customizable": true
-		},
-		
-	    {
-			"title": "iztool-1.6.1",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.6.1.zip",
-			"date": "2017/08/03",
-			"customizable": true
-		},
-		{
-			"title": "iztool-1.6.0",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.6.0.zip",
-			"date": "2017/07/13",
-			"customizable": true
-		},
-		{
-			"title": "iztool-1.5.1",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.5.1.zip",
-			"date": "2017/03/17"
-		},
-		{
-			"title": "iztool-1.5.0",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.5.0.zip",
-			"date": "2017/02/09"
-		},
-		{
-			"title": "iztool-1.4.1",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.4.1.zip",
-			"date": "2016/10/12"
-		},
-		{
-			"title": "iztool-1.4.0",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.4.0.zip",
-			"date": "2016/09/02"
-		},
-		{
-			"title": "iztool-1.3.0",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.3.0.zip",
-			"date": "2016/05/05"
-		},
-		{
-			"title": "iztool-1.2.0",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.2.0.zip",
-			"date": "2016/04/01"
-		},
-		{
-			"title": "iztool-1.1.1",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.1.1.zip",
-			"date": "2016/03/14"
-		},
-		{
-			"title": "iztool-1.1.0",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.1.0.zip",
-			"date": "2016/02/26"
-		},
-		{
-			"title": "iztool-1.0.0",
-			"link": "http://hit-2015.nist.gov/wars/iztool-1.0.0.zip",
-			"date": "2016/02/04"
 		}
 	]
+}

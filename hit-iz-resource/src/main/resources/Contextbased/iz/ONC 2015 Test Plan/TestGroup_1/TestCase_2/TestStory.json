@@ -1,0 +1,9 @@
+{
+  "teststorydesc" : "An adult is seen at a clinic. Historical vaccinations are recorded and new vaccines are administered and documented.",
+  "comments" : "No Comments",
+  "preCondition" : "No PreCondition",
+  "postCondition" : "No PostCondition",
+  "testObjectives" : "This test case assesses the ability of the EHR to create an administration message for an adult containing historical and new administrations including VIS and not eligible VFC.",
+  "evaluationCriteria" : "<br>",
+  "notes" : "No Note"
+}

@@ -1,0 +1,11 @@
+{
+  "id" : 894073,
+  "name" : "RSP-Z32",
+  "hl7v2" : {
+    "messageId" : "dc3368ee-35e9-4724-bc27-37f774867090",
+    "constraintId" : "24d36057-1b86-4aad-8fda-f9992742bbb6",
+    "valueSetLibraryId" : "db5e4334-9c91-4216-9635-fa4065ecebe7"
+  },
+  "position" : 6,
+  "description" : "No Description"
+}

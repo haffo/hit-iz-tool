@@ -1,0 +1,12 @@
+{
+  "id" : 128097,
+  "name" : "VXU-T22",
+  "hl7v2" : {
+    "messageId" : "T22-Message",
+    "constraintId" : "T22-Constraints",
+    "valueSetLibraryId" : "T22-ValueSets"
+  },
+  "position" : 9,
+  "description" : "No Description",
+  "skip":true
+}
