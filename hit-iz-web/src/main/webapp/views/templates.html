@@ -55,23 +55,36 @@
             Receiver Configuration Panel
         </span>
 
+    <span class="pull-right">
+       <button ng-click="save()" type="button" ng-disabled="receiverForm1.$invalid"
+               title="Send" class="btn btn-sm btn-primary">
+           <i class="fa fa-check"></i> Save
+       </button>
+        <button ng-click="cancel()" type="button"
+                title="Cancel" class="btn btn-sm btn-warning">
+            <i class="fa fa-times"></i>
+            Cancel
+        </button>
+          </span>
+
+
   </div>
   <div class="modal-body">
     <div class="row">
       <div class="cols-md-10">
-        <form name="receiverForm1" novalidate>
-          <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+        <form name="receiverForm1" novalidate ng-if="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+          <div class="form-group">
             <label>Username</label>
             <input type="text" class="form-control" ng-model="config.username"
                    placeholder="Username">
           </div>
-          <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+          <div class="form-group">
             <label>Password</label>
             <input type="text" class="form-control"
                    placeholder="Password"
                    ng-model="config.password">
           </div>
-          <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+          <div class="form-group">
             <label>FacilityID</label>
             <input type="text" class="form-control" placeholder="Facility Id"
                    ng-model="config.facilityID">
@@ -86,22 +99,36 @@
                class="help-block">
               Invalid url. Expected format is {{appInfo.url}}</p>
           </div>
+
+          <div class="form-group"
+               ng-class="{ 'has-error' : receiverForm1.hl7Message.$invalid && !receiverForm1.hl7Message.$pristine }">
+            <label>HL7 Message</label>
+
+            <textarea name="hl7Message" id="hl7Message" class="form-control" ng-model="config.hl7Message" required style="width:100%; height:200px">
+            </textarea>
+
+            <p ng-show="receiverForm1.hl7Message.$invalid && !receiverForm1.hl7Message.$pristine"
+               class="help-block">
+              Missing HL7 message
+            </p>
+          </div>
         </form>
+
+        <form name="receiverForm1" novalidate ng-if="testCase.testType === 'RECEIVER_CONNECTIVITY'">
+          <div class="form-group"
+               ng-class="{ 'has-error' : receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine }">
+            <label>Endpoint</label>
+            <input type="url" name="endpoint" class="form-control" ng-model="config.endpoint"
+                   placeholder="SUT Endpoint" required>
+
+            <p ng-show="receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine"
+               class="help-block">
+              Invalid url. Expected format is {{appInfo.url}}</p>
+          </div>
+        </form>
+
       </div>
     </div>
-  </div>
-  <div class="modal-footer">
-    <span class="pull-right">
-       <button ng-click="save()" type="button" ng-disabled="receiverForm1.$invalid"
-               title="Send" class="btn btn-xs btn-primary">
-           <i class="fa fa-check"></i> Save
-       </button>
-        <button ng-click="cancel()" type="button"
-                title="Cancel" class="btn btn-xs btn-warning">
-            <i class="fa fa-times"></i>
-            Cancel
-        </button>
-          </span>
   </div>
 </script>
 
