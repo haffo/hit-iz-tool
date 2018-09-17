@@ -172,7 +172,7 @@ angular.module('connectivity')
       $scope.isValidConfig = function () {
         var domain = SOAPConnectivityTransport.domain;
         var protocol = SOAPConnectivityTransport.protocol;
-        var taInitiator = $scope.transport.configs[domain] && $scope.transport.configs[domain] != null && $scope.transport.configs[domain][protocol] && $scope.transport.configs[domain][protocol] != null && $scope.transport.configs[domain][protocol].data && $scope.transport.configs[domain][protocol].data != null ? $scope.transport.configs[domain][protocol].data.taInitiator : null;
+        var taInitiator = $scope.transport.configs && $scope.transport.configs != null && $scope.transport.configs[protocol] && $scope.transport.configs[protocol] != null && $scope.transport.configs[protocol].data && $scope.transport.configs[protocol].data != null ? $scope.transport.configs[protocol].data.taInitiator : null;
         return taInitiator && taInitiator != null && taInitiator.endpoint != null && taInitiator.endpoint != '';
       };
 

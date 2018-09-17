@@ -142,23 +142,6 @@ angular.module('transport').controller('TaInitiatorConfigCtrl', function ($scope
             $scope.message = null;
             $scope.loadData();
 
-
-//
-//            if (!$scope.transport.configs[domain][protocol]['data'] || !$scope.transport.configs[domain][protocol]['data']['taInitiator']) {
-//                $scope.loading = true;
-//                $scope.transport.getConfigData(domain, protocol).then(function (data) {
-//                    $scope.transport.configs[domain][protocol]['data'] = data;
-//                    $scope.config = data.taInitiator;
-//                    $scope.prevConfig = angular.copy($scope.config);
-//                    $scope.loading = false;
-//                }, function (error) {
-//                    $scope.error = error.data;
-//                    $scope.loading = false;
-//                });
-//            } else {
-//                $scope.config = $scope.transport.configs[domain][protocol]['data']['taInitiator'];
-//                $scope.prevConfig = angular.copy($scope.config);
-//            }
         } else {
             $scope.error = "Protocol or domain not defined."
         }
@@ -231,22 +214,6 @@ angular.module('transport').controller('SutInitiatorConfigCtrl', function ($scop
             $scope.proto = protocol;
             $scope.dom = domain;
             $scope.loadData();
-
-
-//            $scope.config = $scope.transport.configs[domain][protocol]['data']['sutInitiator'];
-//            if (!$scope.transport.configs[domain][protocol]['data'] || !$scope.transport.configs[domain][protocol]['data']['sutInitiator']) {
-//                $scope.loading = true;
-//                $scope.transport.getConfigData(domain, protocol).then(function (data) {
-//                    $scope.loading = false;
-//                    $scope.transport.configs[domain][protocol]['data'] = data;
-//                    $scope.config = data.sutInitiator;
-//                }, function (error) {
-//                    $scope.error = error.data;
-//                    $scope.loading = false;
-//                });
-//            } else {
-//                $scope.config = $scope.transport.configs[domain][protocol]['data']['sutInitiator'];
-//            }
         } else {
             $scope.error = "Protocol or domain not defined."
         }
