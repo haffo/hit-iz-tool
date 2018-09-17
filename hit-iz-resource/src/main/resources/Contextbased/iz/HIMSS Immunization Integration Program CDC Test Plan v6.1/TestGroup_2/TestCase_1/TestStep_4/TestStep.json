@@ -1,1 +1,0 @@
-{"name":"Mark first MMR Dose as Invalid","description":"Identify the first MMR dose which is given too early, as invalid. If the EHR does not already flagged the first MMR as invalid, the provider updates the first MMR to indicate it is \"invalid \"as it was given too early (as notified by the registry).","id":7714332261362882000,"position":4,"type":"SUT_MANUAL"}

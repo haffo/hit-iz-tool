@@ -17,7 +17,7 @@
     <div class="col-md-9" ng-if="selectedType === 'VALIDATION'">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Validation Logs
+          Validation Logs for {{currentDate | date: 'MM/yyyy'}}
         </div>
         <div class="panel-body">
           <div ng-include="'views/logs/validation.html'"></div>
@@ -28,7 +28,7 @@
     <div class="col-md-9" ng-if="transportSupported && selectedType === 'TRANSPORT'">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Transport Logs
+          Transport Logs for {{currentDate | date: 'MM/yyyy'}}
         </div>
         <div class="panel-body">
           <div ng-include="'views/logs/transport.html'"></div>

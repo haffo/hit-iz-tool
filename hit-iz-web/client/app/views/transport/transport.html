@@ -1,0 +1,215 @@
+<style id="antiClickjack">body {
+  display: none !important;
+}</style>
+<script type="text/javascript">
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
+</script>
+
+
+<div ng-controller="TransportConfigListCtrl" style="min-height:400px; margin-left:10px;margin-top:10px;"
+     ng-init="initTransportConfigList()" ng-show="transportSupported">
+
+  <div class="login-required-page" ng-show="isAuthenticationRequired() && !isAuthenticated()">
+    <p>Please <a href="" ng-click="loginReq()"><i class="fa fa-sign-in"></i>&nbsp;login</a> to access this page. You can
+      also
+      <a href="#/registration"><i class="fa fa-chevron-circle-right"></i>&nbsp;register</a></p>
+  </div>
+
+
+  <div ng-show="isAuthenticated() || !isAuthenticationRequired()">
+
+
+    <div ng-show="loading" style="text-align:center">
+      <i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
+    </div>
+    <div ng-show="!loading">
+      <div ng-show="error !== null">
+        <div class="alert alert-danger" role="alert" ng-bind="error"></div>
+      </div>
+      <div ng-show="error === null">
+        <div ng-show="hasConfigs()">
+          <div class="row" style="margin-bottom: 20px">
+            <div class="col-lg-2 col-md-2 col-sm-6">
+              <label>Transport</label>
+              <div class="btn-group" role="group" aria-label="label1">
+                <button type="button" ng-class="{'active': !transport.disabled}" class="btn btn-primary btn-sm" ng-click="toggleTransport(false)">On</button>
+                <button type="button" ng-class="{'active': transport.disabled}" class="btn btn-primary btn-sm" ng-click="toggleTransport(true)">Off</button>
+               </div>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-6" ng-show="!transport.disabled" style="margin-left:0px">
+              <label>Protocols</label>
+              <div class="btn-group" role="group" aria-label="...">
+                <button  ng-repeat="proto in getProtocols()" ng-click="selectProtocol(proto)"
+                         ng-class="{'active': isActiveProtocol(proto)}"
+                         tooltip-html="getProtoDescription(proto)"
+                         tooltip-append-to-body="true"
+                         tooltip-class="constraints-tooltip"
+                         tooltip-trigger
+                         tooltip-animation="false" tooltip-placement="right" class="btn btn-primary btn-sm">{{proto | uppercase}}</button>
+               </div>
+            </div>
+          </div>
+          <hr />
+
+          <div class="row" style="margin-bottom: 10px" ng-show="transport.disabled">
+            <div class="col-md-12">
+              <div style="text-align: center; color:red; font-weight: bold" >
+                Transport is disabled
+              </div>
+            </div>
+          </div>
+
+          <div ng-show="!transport.disabled">
+              <div class="row">
+                <div class="col-md-12" style="padding-top: 20px;">
+                  <div ng-show="selectedProtocol && selectedProtocol != null">
+                    <h2>   <i class="fa fa-cog fa-fw"></i>  {{selectedProtocol.key | uppercase}} Configuration </h2>
+                    <hr/>
+                    <div class="col-md-10">
+                      <div>
+                        <div ng-show="selectedProtocol.error && selectedProtocol.error !== null">
+                          <div class="alert alert-danger" role="alert"
+                               ng-bind="selectedProtocol.error"></div>
+                        </div>
+                        <div ng-show="selectedProtocol.error || selectedProtocol.error === null">
+                          <div ng-show="selectedProtocol.data && selectedProtocol.data !== null">
+
+                            <div class="panel panel-primary" >
+                              <div class="panel-heading">
+                                <i class="fa fa-arrow-right fa-fw"></i>Sender ({{appInfo.options.ORGANIZATION_NAME}}
+                                Assigned)
+                              </div>
+                              <div class="panel-body">
+                                <div ng-controller="SutInitiatorConfigCtrl"
+                                     ng-init="initSutInitiatorConfig(domain.domain, selectedProtocol.key)"
+                                     style="padding-top: 20px">
+
+                                  <div ng-show="selectedProtocol['forms']['sutInitiatorForm'] && selectedProtocol['forms']['sutInitiatorForm'] != null">
+                                    <form name="sutInitiatorForm_{{dom}}_{{proto}}"
+                                          id="sutInitiatorForm_{{dom}}_{{proto}}"
+                                          novalidate
+                                          class="form-horizontal">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <div compile="selectedProtocol['forms']['sutInitiatorForm']"/>
+                                        </div>
+
+                                        <div class="col-md-12" ng-show="isAuthenticated()">
+                                          <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-6">
+                                              <button class="btn btn-md btn-success"
+                                                      ng-click='save()'
+                                                      ng-disabled='sutInitiatorForm_{{dom}}_{{proto}}.$invalid || sutInitiatorForm_{{dom}}_{{proto}}.$pristine'>
+                                                <i class="fa fa-check"></i>
+                                                Save
+                                              </button>
+                                            </div>
+                                            <div class="col-md-12">
+                                              <div ng-show="saving" style="text-align:center">
+                                                <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+                                              </div>
+                                            </div>
+
+                                          </div>
+                                        </div>
+
+                                        <!--<div class="col-md-12"-->
+                                        <!--ng-show="error !== null">-->
+                                        <!--<div class="alert alert-danger"-->
+                                        <!--role="alert"-->
+                                        <!--ng-bind="error"></div>-->
+                                        <!--</div>-->
+
+                                      </div>
+
+                                    </form>
+                                  </div>
+                                  <div ng-show="!selectedProtocol['forms']['sutInitiatorForm'] || selectedProtocol['forms']['sutInitiatorForm'] == null">
+                                    No Configuration Available
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="panel panel-primary" style="margin-top: 20px">
+                              <div class="panel-heading">
+                                <i class="fa fa-arrow-left fa-fw"></i> Receiver (SUT
+                                Information)
+                              </div>
+                              <div class="panel-body">
+                                <div ng-controller="TaInitiatorConfigCtrl"
+                                     ng-init="initTaInitiatorConfig(domain.domain,selectedProtocol.key)"
+                                     style="padding-top: 20px">
+
+                                  <div ng-show="selectedProtocol['forms']['taInitiatorForm'] && selectedProtocol['forms']['taInitiatorForm'] != null">
+                                    <form name="taInitiatorForm_{{dom}}_{{proto}}"
+                                          id="taInitiatorForm_{{dom}}_{{proto}}"
+                                          novalidate
+                                          class="form-horizontal">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <div compile="selectedProtocol['forms']['taInitiatorForm']"/>
+                                        </div>
+                                        <div class="col-md-12">
+                                          <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-6">
+                                              <button class="btn btn-sm btn-danger"
+                                                      ng-click='reset()'
+                                                      ng-disabled="taInitiatorForm_{{dom}}_{{proto}}.$pristine">
+                                                <i class="fa fa-times"></i>
+                                                Reset
+                                              </button>
+                                              <button class="btn btn-md btn-success"
+                                                      ng-click='save()'
+                                                      ng-disabled='taInitiatorForm_{{dom}}_{{proto}}.$invalid || taInitiatorForm_{{dom}}_{{proto}}.$pristine'>
+                                                <i class="fa fa-check"></i>
+                                                Save
+                                              </button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </form>
+                                    <div ng-show="!selectedProtocol['forms']['taInitiatorForm'] || selectedProtocol['forms']['taInitiatorForm'] == null">
+                                      No Configuration Available
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                          <div ng-show="!selectedProtocol.data || selectedProtocol.data === null">
+                            No Configuration information found.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; color:red; font-weight: bold"
+             ng-show="!hasConfigs()">
+          Transport is not supported.
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<div  ng-show="!transportSupported">
+  Transport is not supported.
+</div>

@@ -615,14 +615,19 @@ angular.module('cf')
                     var content = StorageService.get(StorageService.CF_EDITOR_CONTENT_KEY) == null ? '' : StorageService.get(StorageService.CF_EDITOR_CONTENT_KEY);
                     $scope.nodelay = true;
                     $scope.mError = null;
-                    $scope.cf.editor = ServiceDelegator.getEditor($scope.testCase.testContext.format);
-                    $scope.cf.editor.instance = $scope.editor;
-                    $scope.cf.cursor = ServiceDelegator.getCursor($scope.testCase.testContext.format);
-                    TestStepService.clearRecords($scope.testCase.id);
-                    if ($scope.editor) {
-                        $scope.editor.doc.setValue(content);
-                        $scope.execute();
-                    }
+                    $timeout(function () {
+                        $scope.initCodemirror();
+                        $scope.refreshEditor();
+
+                        $scope.cf.editor = ServiceDelegator.getEditor($scope.testCase.testContext.format);
+                        $scope.cf.editor.instance = $scope.editor;
+                        $scope.cf.cursor = ServiceDelegator.getCursor($scope.testCase.testContext.format);
+                        TestStepService.clearRecords($scope.testCase.id);
+                        if ($scope.editor) {
+                            $scope.editor.doc.setValue(content);
+                            $scope.execute();
+                        }
+                    },1000);
                 }
             });
 

@@ -692,7 +692,7 @@ angular.module('cb')
                 ++$scope.counter;
                 var sutInitiator = null;
                 try {
-                  sutInitiator = $scope.transport.configs[$scope.domain][$scope.protocol].data.sutInitiator;
+                  sutInitiator = $scope.transport.configs[$scope.protocol].data.sutInitiator;
                 } catch (e) {
                   sutInitiator = null;
                 }

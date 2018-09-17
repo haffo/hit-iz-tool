@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "The second child of a set of twins is seen at a clinic. New vaccinations are administered but an additional one is refused by the parents.",
-  "comments" : "No Comments",
-  "preCondition" : "No PreCondition",
-  "postCondition" : "No PostCondition",
-  "testObjectives" : "This test case assesses the ability of the EHR to create an administration message for child whose parents have refused an immunization and to support multiple birth indicator and order.<br>",
-  "evaluationCriteria" : "<br>",
-  "notes" : "No Note"
-}

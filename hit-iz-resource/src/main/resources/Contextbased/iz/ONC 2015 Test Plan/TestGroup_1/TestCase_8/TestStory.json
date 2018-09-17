@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "A patient is seen at a clinic. A new administration is recorded. The IIS is able to process the administration message but finds a soft error (warning) which it returns in the acknowledgement message.",
-  "comments" : "The test case simulates the IIS issuing an acknowledgement warning due to an internal warning even though the message is valid.",
-  "preCondition" : "No PreCondition",
-  "postCondition" : "The returned warning must be visible in the EHR-S.",
-  "testObjectives" : "The test case targets the EHR-S capability of supporting OIDs (e.g., in MSH-3 and for assigning authorities) for administered message and assesses the ability of the EHR-S to accept an acknowledgement message with a soft error (warning) being returned by the IIS.",
-  "evaluationCriteria" : "Administered Message: Validation Report with no Errors\r\n<br>\r\nAcknowledgement Message: An indication of a warning (See Juror Document)",
-  "notes" : "No Note"
-}

@@ -1184,16 +1184,10 @@
 			<ValueElement Value="186" DisplayName="Influenza, injectable, Madin Darby Canine Kidney, quadrivalent" CodeSystem="CVX"/>
 			<ValueElement Value="187" DisplayName="zoster vaccine recombinant" CodeSystem="CVX"/>
 			<ValueElement Value="188" DisplayName="zoster vaccine, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="189" DisplayName="Hepatitis B vaccine (recombinant), CpG adjuvanted" CodeSystem="CVX"/>
+			<ValueElement Value="189" DisplayName="Hepatitis B vaccine (recombinant), adjuvanted" CodeSystem="CVX"/>
 			<ValueElement Value="801" DisplayName="AS03 Adjuvant" CodeSystem="CVX"/>
 			<ValueElement Value="998" DisplayName="no vaccine administered" CodeSystem="CVX"/>
 			<ValueElement Value="999" DisplayName="unknown" CodeSystem="CVX"/>
-			
-			
-			
-			<ValueElement Value="190" DisplayName="Typhoid conjugate vaccine (non-US)" CodeSystem="CVX"/>
-			<ValueElement Value="191" DisplayName="meningococcal A polysaccharide vaccine (non-US)" CodeSystem="CVX"/>
-			<ValueElement Value="192" DisplayName="meningococcal AC polysaccharide vaccine (non-US)" CodeSystem="CVX"/>
 		</ValueSetDefinition>
 				
 		<ValueSetDefinition BindingIdentifier="NDC_Sale" Name="NDC Unit of Sale">
@@ -1287,6 +1281,7 @@
 			<ValueElement Value="42874-0016-01" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="42874-0016-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="42874-0017-10" DisplayName="influenza, recombinant, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="42874-0116-10" DisplayName="influenza, recombinant, quadrivalent,injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="42874-0117-10" DisplayName="influenza, recombinant, quadrivalent,injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="43528-0002-05" DisplayName="Hepatitis B vaccine (recombinant), adjuvanted" CodeSystem="NDC"/>
 			<ValueElement Value="46028-0114-01" DisplayName="meningococcal B, OMV" CodeSystem="NDC"/>
@@ -1442,6 +1437,7 @@
 			<ValueElement Value="66019-0300-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="66019-0301-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="66019-0302-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0303-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="66019-0304-10" DisplayName="Influenza vaccine, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="66521-0000-01" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
 			<ValueElement Value="66521-0112-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
@@ -1461,34 +1457,21 @@
 			<ValueElement Value="66521-0200-02" DisplayName="Novel influenza-H1N1-09" CodeSystem="NDC"/>
 			<ValueElement Value="66521-0200-10" DisplayName="Novel influenza-H1N1-09, preservative-free" CodeSystem="NDC"/>
 			<ValueElement Value="69401-0000-01" DisplayName="typhoid, oral" CodeSystem="NDC"/>
+			<ValueElement Value="70460-0002-01" DisplayName="cholera, live attenuated" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0001-01" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0002-01" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0119-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0119-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0120-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0120-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0200-01" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0200-02" DisplayName="Influenza, injectable, MDCK, quadrivalent, preservative" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0201-01" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0301-10" DisplayName="Influenza, injectable, MDCK, quadrivalent, preservative" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0614-01" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
 			
 			<ValueElement Value="62195-0051-10" DisplayName="Japanese Encephalitis IM" CodeSystem="NDC"/>
 			<ValueElement Value="49281-0400-20" DisplayName="Tdap" CodeSystem="NDC"/>
-			
-			<ValueElement Value="66019-0303-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0119-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0119-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			
-			<ValueElement Value="49281-0913-01" DisplayName="YELLOW FEVER VACCINE (LIVE)" CodeSystem="NDC"/>
-			<ValueElement Value="42515-0002-01" DisplayName="Japanese Encephalitis Vaccine, Inactivated, Adsorbed" CodeSystem="NDC"/>
-			
-			<ValueElement Value="21695-0413-01" DisplayName="Td (adult), 2 Lf tetanus toxoid, preservative free, adsorbed" CodeSystem="NDC"/>
-			<ValueElement Value="76420-0482-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="76420-0483-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="54868-2219-00" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="54868-6180-00" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			<ValueElement Value="54868-2219-01" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="54868-6177-00" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			
-			<ValueElement Value="49281-718-10" DisplayName="Flublok Quadrivalent" CodeSystem="NDC"/>
-			
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="NDC_Use" Name="NDC Unit of Use">
 			<ValueElement Value="00005-0100-01" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
@@ -1719,6 +1702,7 @@
 			<ValueElement Value="66019-0300-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="66019-0301-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="66019-0302-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="66019-0303-10" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="66019-0304-01" DisplayName="Influenza vaccine, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="66521-0000-11" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
 			<ValueElement Value="66521-0112-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
@@ -1739,29 +1723,18 @@
 			<ValueElement Value="70460-0002-02" DisplayName="cholera, live attenuated" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0001-11" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0002-11" DisplayName="influenza, trivalent, adjuvanted" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0119-02" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0119-10" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0120-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0120-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0200-11" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0200-12" DisplayName="Influenza, injectable, MDCK, quadrivalent, preservative" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0201-11" DisplayName="Influenza, injectable, MDCK, preservative free, quadrivalent" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0301-12" DisplayName="Influenza, injectable, MDCK, quadrivalent, preservative" CodeSystem="NDC"/>
+			<ValueElement Value="70461-0614-11" DisplayName="Influenza, injectable, MDCK, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="76420-0482-01" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
 			<ValueElement Value="62195-0051-10" DisplayName="Japanese Encephalitis IM" CodeSystem="NDC"/>
 			<ValueElement Value="49281-0400-89" DisplayName="Tdap" CodeSystem="NDC"/>
-			<ValueElement Value="66019-0303-01" DisplayName="influenza, live, intranasal, quadrivalent" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0119-11" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="70461-0119-12" DisplayName="Influenza, seasonal, injectable, preservative free" CodeSystem="NDC"/>
-			
-			<ValueElement Value="49281-0913-01" DisplayName="YELLOW FEVER VACCINE (LIVE)" CodeSystem="NDC"/>
-			<ValueElement Value="42515-0002-01" DisplayName="Japanese Encephalitis Vaccine, Inactivated, Adsorbed" CodeSystem="NDC"/>
-			
-			<ValueElement Value="70461-0614-01" DisplayName="Flucelvax (Seqirus)" CodeSystem="NDC"/>
-			<ValueElement Value="54868-2219-00" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="54868-2219-01" DisplayName="Hep B, adult" CodeSystem="NDC"/>
-			<ValueElement Value="54868-6177-00" DisplayName="Influenza, seasonal, injectable" CodeSystem="NDC"/>
-			<ValueElement Value="76420-0470-10" DisplayName="INFLUENZA A VIRUS A/CHRISTCHURCH/16/2010 NIB-74 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZ" CodeSystem="NDC"/>
-			<ValueElement Value="76420-0471-01" DisplayName="INFLUENZA A VIRUS A/CHRISTCHURCH/16/2010 NIB-74 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZ" CodeSystem="NDC"/>
-			
-			<ValueElement Value="49281-718-88" DisplayName="Flublok Quadrivalent" CodeSystem="NDC"/>
 		</ValueSetDefinition>
 		
 		
@@ -1924,9 +1897,6 @@
 			<ValueElement Value="253088698300020211180212" CodeSystem="cdcgs1vis" DisplayName="Live Zoster Vaccine"/>
 			
 			
-			<ValueElement Value="253088698300019611180223" CodeSystem="cdcgs1vis" DisplayName="Rotavirus Vaccine"/>
-			<ValueElement Value="253088698300002811180321" CodeSystem="cdcgs1vis" DisplayName="Anthrax Vaccine VIS"/>
-			
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_FundingEligibilityObsMethod_IIS" Name="Funding Eligibility Observation Method (IIS)">
 			<ValueElement Value="VXC40" CodeSystem="CDCPHINVS" DisplayName="Eligibility captured at the immunization level"/>
@@ -1972,12 +1942,9 @@
 			<ValueElement Value="09" CodeSystem="CVX" DisplayName="Td (adult), adsorbed"/>
 			<ValueElement Value="115" CodeSystem="CVX" DisplayName="Tdap"/>
 			<ValueElement Value="21" CodeSystem="CVX" DisplayName="varicella"/>
+			
 			<ValueElement Value="187" CodeSystem="CVX" DisplayName="zoster vaccine recombinant"/>
 			<ValueElement Value="121" CodeSystem="CVX" DisplayName="zoster live"/>
-			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax Vaccine VIS"/>
-			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax VIS"/>
-			
-			<ValueElement Value="189" CodeSystem="CVX" DisplayName="HepB-CpG"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
 	<ValueSetDefinitions Group="HL7" Order="3">

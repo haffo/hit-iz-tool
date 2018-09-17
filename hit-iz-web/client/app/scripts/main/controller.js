@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('main').controller('MainCtrl',
-  function ($scope, $rootScope, i18n, $location, userInfoService, $modal, $filter, base64, $http, Idle, Notification, IdleService, StorageService, TestingSettings, Session, AppInfo, User, $templateCache, $window, $sce,DomainsManager) {
+  function ($scope, $rootScope, i18n, $location, userInfoService, $modal, $filter, base64, $http, Idle, Notification, IdleService, StorageService, TestingSettings, Session, AppInfo, User, $templateCache, $window, $sce,DomainsManager,$timeout) {
     //This line fetches the info from the server if the user is currently logged in.
     //If success, the app is updated according to the role.
     $rootScope.loginDialog = null;
@@ -770,6 +770,13 @@ angular.module('main').controller('MainCtrl',
                               }
                           }
                       }
+
+
+                    if(domainFound == null){
+                      $rootScope.appInfo.domains = $filter('orderBy')($rootScope.appInfo.domains, 'position');
+                      domainFound = $rootScope.appInfo.domains[0].domain;
+                    }
+
                       if (domainFound == null) {
                           $rootScope.openUnknownDomainDlg();
                       } else {
@@ -779,6 +786,11 @@ angular.module('main').controller('MainCtrl',
                               StorageService.set(StorageService.APP_SELECTED_DOMAIN, result.domain);
                               $rootScope.domain = result;
                               $rootScope.loadingDomain = false;
+                              $timeout(function() {
+                                  Transport.getDomainForms($rootScope.domain.domain).then(function (transportForms) {
+                                      $rootScope.transportSupported = transportForms != null && transportForms.length > 0;
+                                  });
+                              },500);
                           }, function (error) {
                               $rootScope.loadingDomain = true;
                               $rootScope.openUnknownDomainDlg();

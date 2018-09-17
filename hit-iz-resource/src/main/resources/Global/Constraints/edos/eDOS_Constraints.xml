@@ -1,0 +1,1903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConformanceContext xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" UUID="eDOS_default" xsi:noNamespaceSchemaLocation="file:///D:/sourceforge/lri-nist/mu-nist/resource-bundle-generator/src/main/resources/schema/ConformanceContext.xsd">
+	<MetaData Name="eDOS conformance context" OrgName="NIST" Version="1.0.0" Date="09142016">
+		<Description>Default conformance context for eDOS implementation guide.</Description>
+		<Authors>
+			<Author FirstName="Caroline" LastName="Rosin"/>
+		</Authors>
+	</MetaData>
+	<Predicates>
+		<Datatype>
+			<!-- CWE_EDOS -->
+			<ByID ID="CWE_EDOS">
+				<Predicate Target="1[1]" TrueUsage="R" FalseUsage="O" ID="[CWE_EDOS]1[1]">
+					<Description>If CWE.2 is not valued</Description>
+					<Condition>
+						<NOT>
+							<Presence Path="2[1]"/>
+						</NOT>
+					</Condition>
+				</Predicate>
+				<Predicate Target="2[1]" TrueUsage="R" FalseUsage="RE" ID="[CWE_EDOS]2[1]">
+					<Description>If CWE.1 is not valued</Description>
+					<Condition>
+						<NOT>
+							<Presence Path="1[1]"/>
+						</NOT>
+					</Condition>
+				</Predicate>
+				<Predicate Target="3[1]" TrueUsage="R" FalseUsage="X" ID="[CWE_EDOS]3[1]">
+					<Description>If CWE.1 is valued</Description>
+					<Condition>
+						<Presence Path="1[1]"/>
+					</Condition>
+				</Predicate>
+				<Predicate Target="7[1]" TrueUsage="RE" FalseUsage="X" ID="[CWE_EDOS]7[1]">
+					<Description>If CWE.3 (Name Of Coding System) is valued.</Description>
+					<Condition>
+						<Presence Path="3[1]"/>
+					</Condition>
+				</Predicate>
+				<Predicate Target="8[1]" TrueUsage="RE" FalseUsage="X" ID="[CWE_EDOS]8[1]">
+					<Description>If CWE.6 (Name Of Alternate Coding System) is valued.</Description>
+					<Condition>
+						<Presence Path="6[1]"/>
+					</Condition>
+				</Predicate>
+			</ByID>
+			<!-- CWE_CRE -->
+			<ByID ID="CWE_CRE">
+				<Predicate Target="2[1]" TrueUsage="RE" FalseUsage="X" ID="[CWE_CRE]2[1]">
+					<Description>If CWE_CRE.1 (Identifier) is valued.</Description>
+					<Condition>
+						<Presence Path="1[1]"/>
+					</Condition>
+				</Predicate>
+				<Predicate Target="3[1]" TrueUsage="R" FalseUsage="X" ID="[CWE_CRE]3[1]">
+					<Description>If CWE_CRE.1 (Identifier) is valued.</Description>
+					<Condition>
+						<Presence Path="1[1]"/>
+					</Condition>
+				</Predicate>
+				<Predicate Target="4[1]" TrueUsage="RE" FalseUsage="X" ID="[CWE_CRE]4[1]">
+					<Description>If CWE_CRE.1 (Identifier) is valued.</Description>
+					<Condition>
+						<Presence Path="1[1]"/>
+					</Condition>
+				</Predicate>
+				<Predicate Target="5[1]" TrueUsage="RE" FalseUsage="X" ID="[CWE_CRE]5[1]">
+					<Description>If CWE_CRE.4 (Alternate Identifier) is valued.</Description>
+					<Condition>
+						<Presence Path="4[1]"/>
+					</Condition>
+				</Predicate>
+				<Predicate Target="6[1]" TrueUsage="R" FalseUsage="X" ID="[CWE_CRE]6[1]">
+					<Description>If CWE_CRE.4 (Alternate Identifier) is valued.</Description>
+					<Condition>
+						<Presence Path="4[1]"/>
+					</Condition>
+				</Predicate>
+				<Predicate Target="7[1]" TrueUsage="RE" FalseUsage="X" ID="[CWE_CRE]7[1]">
+					<Description>If CWE_CRE.3 (Name Of Coding System) is valued.</Description>
+					<Condition>
+						<Presence Path="3[1]"/>
+					</Condition>
+				</Predicate>
+				<Predicate Target="8[1]" TrueUsage="RE" FalseUsage="X" ID="[CWE_CRE]8[1]">
+					<Description>If CWE_CRE.6 (Name Of Alternate Coding System) is valued.</Description>
+					<Condition>
+						<Presence Path="6[1]"/>
+					</Condition>
+				</Predicate>
+				<Predicate Target="9[1]" TrueUsage="R" FalseUsage="RE" ID="[CWE_CRE]9[1]">
+					<Description>If CWE_CRE.1 (Identifier) and CWE.4_CRE (alternate identifier) are not valued.</Description>
+					<Condition>
+						<AND>
+							<NOT>
+								<Presence Path="1[1]"/>
+							</NOT>
+							<NOT>
+								<Presence Path="4[1]"/>
+							</NOT>
+						</AND>
+					</Condition>
+				</Predicate>
+			</ByID>
+			<!-- CWE_RC1 -->
+			<ByID ID="CWE_RC1">
+				<Predicate Target="6[1]" TrueUsage="R" FalseUsage="X" ID="[CWE_RC1]6[1]">
+					<Description>If CWE_RC1.4 (Alternate Identifier) is valued.</Description>
+					<Condition>
+						<Presence Path="4[1]"/>
+					</Condition>
+				</Predicate>
+				<Predicate Target="8[1]" TrueUsage="RE" FalseUsage="X" ID="[CWE_RC1]8[1]">
+					<Description>If CWE_RC1.6 (Name Of Coding System) is valued.</Description>
+					<Condition>
+						<Presence Path="6[1]"/>
+					</Condition>
+				</Predicate>
+			</ByID>
+			<!-- CWE_CR -->
+			<ByID ID="CWE_CR">
+				<Predicate Target="6[1]" TrueUsage="R" FalseUsage="X" ID="[CWE_CR]6[1]">
+					<Description>If CWE_CR.4 (Alternate Identifier) is valued.</Description>
+					<Condition>
+						<Presence Path="4[1]"/>
+					</Condition>
+				</Predicate>
+				<Predicate Target="8[1]" TrueUsage="RE" FalseUsage="X" ID="[CWE_CR]8[1]">
+					<Description>If CWE_CR.6 (Name Of Alternate Coding System) is valued.</Description>
+					<Condition>
+						<Presence Path="6[1]"/>
+					</Condition>
+				</Predicate>
+			</ByID>
+			<!-- CX_GU -->
+			<ByID ID="CX_GU">
+				<!--				<Predicate Target="3[1]" TrueUsage="O" FalseUsage="X">
+					<Description>???</Description>
+					<Condition>
+					</Condition>
+				</Predicate>-->
+			</ByID>
+			<!-- CX_NG -->
+			<ByID ID="CX_NG">
+				<!--				<Predicate Target="3[1]" TrueUsage="O" FalseUsage="X">
+					<Description>???</Description>
+					<Condition>
+					</Condition>
+				</Predicate>-->
+			</ByID>
+			<!-- HD_NG -->
+			<ByID ID="HD_NG">
+				<Predicate Target="1[1]" TrueUsage="R" FalseUsage="O" ID="[HD_NG]1[1]">
+					<Description>If HD_NG.2 (Universal ID) is not valued.</Description>
+					<Condition>
+						<NOT>
+							<Presence Path="2[1]"/>
+						</NOT>
+					</Condition>
+				</Predicate>
+				<Predicate Target="2[1]" TrueUsage="R" FalseUsage="O" ID="[HD_NG]2[1]">
+					<Description>If HD_NG.1 (Namespace ID) is not valued.</Description>
+					<Condition>
+						<NOT>
+							<Presence Path="1[1]"/>
+						</NOT>
+					</Condition>
+				</Predicate>
+				<Predicate Target="3[1]" TrueUsage="R" FalseUsage="X" ID="[HD_NG]3[1]">
+					<Description>If HD_NG.2 (Universal ID) is valued.</Description>
+					<Condition>
+						<Presence Path="2[1]"/>
+					</Condition>
+				</Predicate>
+			</ByID>
+		</Datatype>
+		<Segment>
+			<ByID ID="OM1_EDOS">
+				<!-- OM1-10 -->
+				<Predicate Target="10[1]" TrueUsage="R" FalseUsage="O" ID="[OM1_EDOS]10[1]">
+					<Description>If OM1-9 (Preferred Report Name for the Observation) and OM1-11 (Preferred Long name for the observation are not valued.</Description>
+					<Condition>
+						<AND>
+							<NOT>
+								<Presence Path="9[1]"/>
+							</NOT>
+							<NOT>
+								<Presence Path="11[1]"/>
+							</NOT>
+						</AND>
+					</Condition>
+				</Predicate>
+				<!-- OM1-11-->
+				<Predicate Target="11[1]" TrueUsage="R" FalseUsage="O" ID="[OM1_EDOS]11[1]">
+					<Description>If OM1-9 (Preferred Report Name for the Observation) and OM1-10 (Preferred Short Name or Mnemonic for Observation) are not valued.</Description>
+					<Condition>
+						<AND>
+							<NOT>
+								<Presence Path="9[1]"/>
+							</NOT>
+							<NOT>
+								<Presence Path="10[1]"/>
+							</NOT>
+						</AND>
+					</Condition>
+				</Predicate>
+			</ByID>
+			<ByID ID="MCP_EDOS">
+				<!-- MCP-5-->
+				<Predicate Target="5[1]" TrueUsage="R" FalseUsage="X" ID="[MCP_EDOS]5[1]">
+					<Description>If MCP-3 is valued.</Description>
+					<Condition>
+						<Presence Path="3[1]"/>
+					</Condition>
+				</Predicate>
+			</ByID>
+			<ByID ID="OMC_EDOS">
+				<!-- OMC-2-->
+				<Predicate Target="2[1]" TrueUsage="R" FalseUsage="O" ID="[OMC_EDOS]2[1]">
+					<Description>Required if OMC-3 is valued.</Description>
+					<Condition>
+						<Presence Path="3[1]"/>
+					</Condition>
+				</Predicate>
+				<!-- OMC-3 -->
+				<Predicate Target="3[1]" TrueUsage="R" FalseUsage="O" ID="[OMC_EDOS]3[1]">
+					<Description>Required if OMC-2 is valued.</Description>
+					<Condition>
+						<Presence Path="2[1]"/>
+					</Condition>
+				</Predicate>
+			</ByID>
+		</Segment>
+		<Group>
+			<ByID ID="MF_BATTERY_EDOS">
+				<!-- OM1-52 -->
+				<Predicate Target="2[1].52[1]" TrueUsage="RE" FalseUsage="O" ID="[MF_BATTERY_EDOS]2[1].52[1]">
+					<Description>If MFE-1 = 'MDC'</Description>
+					<Condition>
+						<PlainText Path="1[1].1[1]" Text="MDC" IgnoreCase="false"/>
+					</Condition>
+				</Predicate>
+			</ByID>
+			<ByID ID="MF_TEST_EDOS">
+				<!-- OM1-52 -->
+				<Predicate Target="2[1].52[1]" TrueUsage="RE" FalseUsage="O" ID="[MF_TEST_EDOS]2[1].52[1]">
+					<Description>If MFE-1 = 'MDC'</Description>
+					<Condition>
+						<PlainText Path="1[1].1[1]" Text="MDC" IgnoreCase="false"/>
+					</Condition>
+				</Predicate>
+			</ByID>
+		</Group>
+		<Message>
+			<ByName Name="MFK_M01">
+				<Predicate Target="4[1]" TrueUsage="R" FalseUsage="O" ID="[MFK_M01]4[1]">
+					<Description>If MSA-1 (Message Acknowledgement) is not valued AA or CA.</Description>
+					<Condition>
+						<AND>
+							<Presence Path="3[1].1[1]"/>
+							<NOT>
+								<OR>
+									<PlainText Path="3[1].1[1]" Text="AA" IgnoreCase="false"/>
+									<PlainText Path="3[1].1[1]" Text="CA" IgnoreCase="false"/>
+								</OR>
+							</NOT>
+						</AND>
+					</Condition>
+				</Predicate>
+			</ByName>
+			<ByName Name="MFN_M04">
+				<!-- MFE-2-->
+				<Predicate Target="5[*].1[1].2[1]" TrueUsage="R" FalseUsage="O" ID="[MFN_M04]5[*].1[1].2[1]">
+					<Description>If MFI-6 Response Level Code is any value other than 'NE'.</Description>
+					<Condition>
+						<NOT>
+							<PlainText Path="3[1].6[1]" Text="NE" IgnoreCase="false"/>
+						</NOT>
+					</Condition>
+				</Predicate>
+			</ByName>
+			<ByName Name="MFN_M08">
+				<!-- MFE-2-->
+				<Predicate Target="4[*].1[1].2[1]" TrueUsage="R" FalseUsage="O" ID="[MFN_M08]4[*].1[1].2[1]">
+					<Description>If MFI-6 Response Level Code is any value other than 'NE'.</Description>
+					<Condition>
+						<NOT>
+							<PlainText Path="3[1].6[1]" Text="NE" IgnoreCase="false"/>
+						</NOT>
+					</Condition>
+				</Predicate>
+			</ByName>
+			<ByName Name="MFN_M10">
+				<!-- MFE-2-->
+				<Predicate Target="4[*].1[1].2[1]" TrueUsage="R" FalseUsage="O" ID="[MFN_M10]4[*].1[1].2[1]">
+					<Description>If MFI-6 Response Level Code is any value other than 'NE'.</Description>
+					<Condition>
+						<NOT>
+							<PlainText Path="3[1].6[1]" Text="NE" IgnoreCase="false"/>
+						</NOT>
+					</Condition>
+				</Predicate>
+			</ByName>
+			<ByName Name="MFN_M18">
+				<!-- MFE-2-->
+				<Predicate Target="5[*].1[1].2[1]" TrueUsage="R" FalseUsage="O" ID="[MFN_M18]4[*].1[1].2[1]">
+					<Description>If MFI-6 Response Level Code is any value other than 'NE'.</Description>
+					<Condition>
+						<NOT>
+							<PlainText Path="4[1].6[1]" Text="NE" IgnoreCase="false"/>
+						</NOT>
+					</Condition>
+				</Predicate>
+			</ByName>
+		</Message>
+	</Predicates>
+	<Constraints>
+		<Datatype>
+			<ByID ID="EI_GU">
+				<Constraint ID="eDOS-1" Target="3[1]">
+					<Description>EI_GU.3 (Universal ID) SHALL be valued with an ISO-compliant OID.</Description>
+					<Assertion>
+						<Format Path="3[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-2" Target="3[1]">
+					<Description>EI_GU.4 (Universal ID Type) SHALL be valued 'ISO' drawn from the HL7 Table HL70301.</Description>
+					<Assertion>
+						<PlainText Path="4[1]" Text="ISO" IgnoreCase="false"/>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="HD_GU">
+				<Constraint ID="eDOS-3" Target="2[1]">
+					<Description>HD_GU.2 (Universal ID) SHALL be valued with an ISO-compliant OID.</Description>
+					<Assertion>
+						<Format Path="2[1]" Regex="[0-2](\.(0|[1-9][0-9]*))*"/>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-4" Target="3[1]">
+					<Description>HD_GU.3 (Universal ID Type) SHALL be valued 'ISO' drawn from the HL7 Table HL70301.</Description>
+					<Assertion>
+						<PlainText Path="3[1]" Text="ISO" IgnoreCase="false"/>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<!-- MO_EDOS -->
+			<ByID ID="MO_EDOS">
+				<Constraint ID="eDOS-38" Target="2[1]">
+					<Description>MO.2 (Denomination) SHALL be valued 'USD' drawn from the HL7 Table HL70913.</Description>
+					<Assertion>
+						<PlainText Path="2[1]" Text="USD" IgnoreCase="false"/>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="VID_EDOS">
+				<Constraint ID="eDOS-5" Target="1[1]">
+					<Description>VID.1 (Version Identifier) SHALL be valued '2.5.1' drawn from the HL7 Table HL70104.</Description>
+					<Assertion>
+						<PlainText Path="1[1]" Text="2.5.1" IgnoreCase="false"/>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="TS_1">
+				<Constraint ID="NIST-016" Target="1[1]">
+					<Description>TS_1 SHALL be precise to the second.</Description>
+					<Assertion>
+						<Format Regex="\d{14}.*" Path="1[1]"/>
+					</Assertion>
+				</Constraint>
+			</ByID>
+		</Datatype>
+		<Segment>
+			<ByID ID="MSH_EDOS_GU">
+				<Constraint ID="eDOS-6" Target="1[1]">
+					<Description>MSH-1 (Field Separator) SHALL contain the constant value '|'.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1]"/>
+							<PlainText Path="1[1]" Text="|" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-7" Target="2[1]">
+					<Description>MSH-2 (Encoding Characters) SHALL contain the constant value '^~\&amp;' or the constant value  '^~\&amp;#'.</Description>
+					<Assertion>
+						<OR>
+							<AND>
+								<Presence Path="2[1]"/>
+								<PlainText Path="2[1]" Text="^~\&amp;" IgnoreCase="false"/>
+							</AND>
+							<AND>
+								<Presence Path="2[1]"/>
+								<PlainText Path="2[1]" Text="^~\&amp;#" IgnoreCase="false"/>
+							</AND>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-8" Target="12[1].1[1]">
+					<Description>MSH-12.1 (Version ID) SHALL contain the constant value '2.5.1'.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="12[1].1[1]"/>
+							<PlainText Path="12[1].1[1]" Text="2.5.1" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+				<!-- <Constraint ID="eDOS-9" Target="15[1]">
+					<Description>MSH-15 (Accept Acknowledgment Type) SHALL contain the constant value 'AL' drawn from HL7 Table 0155.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="15[1]"/>
+							<PlainText Path="15[1]" Text="AL" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+				<!-- <Constraint ID="eDOS-10" Target="16[1]">
+					<Description>MSH-16 (Application Acknowledgment Type) SHALL contain the constant value 'NE' drawn from HL7 Table 0155.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="16[1]"/>
+							<PlainText Path="16[1]" Text="NE" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+			</ByID>
+			<ByID ID="MSH_EDOS_NG">
+				<Constraint ID="eDOS-6" Target="1[1]">
+					<Description>MSH-1 (Field Separator) SHALL contain the constant value '|'.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1]"/>
+							<PlainText Path="1[1]" Text="|" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-7" Target="2[1]">
+					<Description>MSH-2 (Encoding Characters) SHALL contain the constant value '^~\&amp;' or the constant value  '^~\&amp;#'.</Description>
+					<Assertion>
+						<OR>
+							<AND>
+								<Presence Path="2[1]"/>
+								<PlainText Path="2[1]" Text="^~\&amp;" IgnoreCase="false"/>
+							</AND>
+							<AND>
+								<Presence Path="2[1]"/>
+								<PlainText Path="2[1]" Text="^~\&amp;#" IgnoreCase="false"/>
+							</AND>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-8" Target="12[1].1[1]">
+					<Description>MSH-12.1 (Version ID) SHALL contain the constant value '2.5.1'.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="12[1].1[1]"/>
+							<PlainText Path="12[1].1[1]" Text="2.5.1" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+				<!-- <Constraint ID="eDOS-9" Target="15[1]">
+					<Description>MSH-15 (Accept Acknowledgment Type) SHALL contain the constant value 'AL' drawn from HL7 Table 0155.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="15[1]"/>
+							<PlainText Path="15[1]" Text="AL" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+				<!-- <Constraint ID="eDOS-10" Target="16[1]">
+					<Description>MSH-16 (Application Acknowledgment Type) SHALL contain the constant value 'NE' drawn from HL7 Table 0155.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="16[1]"/>
+							<PlainText Path="16[1]" Text="NE" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+			</ByID>
+			<ByID ID="MSH_MFK_GU">
+				<Constraint ID="eDOS-6" Target="1[1]">
+					<Description>MSH-1 (Field Separator) SHALL contain the constant value '|'.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1]"/>
+							<PlainText Path="1[1]" Text="|" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-7" Target="2[1]">
+					<Description>MSH-2 (Encoding Characters) SHALL contain the constant value '^~\&amp;' or the constant value  '^~\&amp;#'.</Description>
+					<Assertion>
+						<OR>
+							<AND>
+								<Presence Path="2[1]"/>
+								<PlainText Path="2[1]" Text="^~\&amp;" IgnoreCase="false"/>
+							</AND>
+							<AND>
+								<Presence Path="2[1]"/>
+								<PlainText Path="2[1]" Text="^~\&amp;#" IgnoreCase="false"/>
+							</AND>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-8" Target="12[1].1[1]">
+					<Description>MSH-12.1 (Version ID) SHALL contain the constant value '2.5.1'.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="12[1].1[1]"/>
+							<PlainText Path="12[1].1[1]" Text="2.5.1" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+				<!-- <Constraint ID="eDOS-9" Target="15[1]">
+					<Description>MSH-15 (Accept Acknowledgment Type) SHALL contain the constant value 'AL' drawn from HL7 Table 0155.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="15[1]"/>
+							<PlainText Path="15[1]" Text="AL" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+				<!-- <Constraint ID="eDOS-10" Target="16[1]">
+					<Description>MSH-16 (Application Acknowledgment Type) SHALL contain the constant value 'NE' drawn from HL7 Table 0155.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="16[1]"/>
+							<PlainText Path="16[1]" Text="NE" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+			</ByID>
+			<ByID ID="MSH_MFK_NG">
+				<Constraint ID="eDOS-6" Target="1[1]">
+					<Description>MSH-1 (Field Separator) SHALL contain the constant value '|'.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1]"/>
+							<PlainText Path="1[1]" Text="|" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-7" Target="2[1]">
+					<Description>MSH-2 (Encoding Characters) SHALL contain the constant value '^~\&amp;' or the constant value  '^~\&amp;#'.</Description>
+					<Assertion>
+						<OR>
+							<AND>
+								<Presence Path="2[1]"/>
+								<PlainText Path="2[1]" Text="^~\&amp;" IgnoreCase="false"/>
+							</AND>
+							<AND>
+								<Presence Path="2[1]"/>
+								<PlainText Path="2[1]" Text="^~\&amp;#" IgnoreCase="false"/>
+							</AND>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-8" Target="12[1].1[1]">
+					<Description>MSH-12.1 (Version ID) SHALL contain the constant value '2.5.1'.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="12[1].1[1]"/>
+							<PlainText Path="12[1].1[1]" Text="2.5.1" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+				<!-- <Constraint ID="eDOS-9" Target="15[1]">
+					<Description>MSH-15 (Accept Acknowledgment Type) SHALL contain the constant value 'AL' drawn from HL7 Table 0155.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="15[1]"/>
+							<PlainText Path="15[1]" Text="AL" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+				<!-- <Constraint ID="eDOS-10" Target="16[1]">
+					<Description>MSH-16 (Application Acknowledgment Type) SHALL contain the constant value 'NE' drawn from HL7 Table 0155.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="16[1]"/>
+							<PlainText Path="16[1]" Text="NE" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint> -->
+			</ByID>
+			<ByID ID="MFI_EDOS">
+				<Constraint ID="eDOS-29" Target="6[1]">
+					<Description>MFI-6 (Response Level Code) SHALL be valued 'NE' drawn from HL7 Table HL70179.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="6[1]"/>
+							<PlainText Path="6[1]" Text="NE" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFE_EDOS">
+				<Constraint ID="eDOS-30" Target="5[1]">
+					<Description>MFE-5 (Primary Key Value Type) SHALL be valued 'CWE' drawn from HL7 Table HL70355.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="5[1]"/>
+							<PlainText Path="5[1]" Text="CWE" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="OM1_EDOS">
+				<Constraint ID="NIST-006" Target="7[1]">
+					<Description>If OM1-7.3 (Name of Coding System) value is 'LN', OM1-7.1 (Identifier) SHALL be a valid LOINC code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM1_7"/>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-007" Target="34[1]">
+					<Description>If OM1-34.3 (Name of Coding System) value is "LN", OM1-34.1 (Identifier) SHALL be a valid LOINC code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM1_34a"/>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-008" Target="34[1]">
+					<Description>If OM1-34.6 (Name of Alternate Coding System) value is "LN", OM1-34.4 (Alternate Identifier) SHALL be a valid LOINC code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM1_34b"/>
+					</Assertion>
+				</Constraint>
+				
+				<Constraint ID="NIST-009" Target="52[1]">
+					<Description>If OM1-52.3 (Name of Coding System) value is "LN", OM1-52.1 (Identifier) SHALL be a valid LOINC code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM1_52"/>
+					</Assertion>
+				</Constraint>
+				
+				<Constraint ID="NIST-010" Target="56[1]">
+					<Description>If OM1-56.3 (Name of Coding System) value is "LN", OM1-56.1 (Identifier) SHALL be a valid LOINC code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM1_56a"/>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-011" Target="56[1]">
+					<Description>If OM1-56.6 (Name of Alternate Coding System) value is "LN", OM1-56.4 (Alternate Identifier) SHALL be a valid LOINC code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM1_56b"/>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="OM3_EDOS">
+				<Constraint ID="NIST-019" Target="4[*]">
+					<Description>If OM3-4.3 (Name of Coding System) is valued 'SCT' OM3-4.1 (Identifer) SHALL be a valid SNOMED CT code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM3_4"/>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-020" Target="5[*]">
+					<Description>If OM3-5.3 (Name of Coding System) is valued 'SCT' OM3-5.1 (Identifier) SHALL be a valid SNOMED CT code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM3_5"/>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="OM4_EDOS">
+				<Constraint ID="NIST-024" Target="4[1]">
+					<Description>When present, either OM4-6.3 (Specimen.Name of Coding System) or OM4-6.6 (Specimen.Name of Alternate Coding System) SHALL be valued 'SCT', 'HL70487', 'L' or '99zzz' for a local code system.</Description>
+					<Assertion>
+						<EXIST>
+							<!-- OM4-6.3 and OM4-6.6 are not present -->
+							<AND>
+								<NOT>
+									<Presence Path="6[1].3[1]"/>
+								</NOT>
+								<NOT>
+									<Presence Path="6[1].6[1]"/>
+								</NOT>
+							</AND>
+							<!-- OM4-6.3 is present and valued SCT or HL70487 -->
+							<FORALL>
+								<Presence Path="6[1].3[1]"/>
+								<OR>
+									<StringList Path="6[1].3[1]" CSV="SCT,HL70487,L"/>
+									<Format Regex="99[A-Za-z0-9]{3}" Path="6[1].3[1]"/>
+								</OR>
+							</FORALL>
+							<!-- OM4-6.6 is present and valued SCT or HL70487 -->
+							<FORALL>
+								<Presence Path="6[1].6[1]"/>
+								<OR>
+									<StringList Path="6[1].6[1]" CSV="SCT,HL70487,L"/>
+									<Format Regex="99[A-Za-z0-9]{3}" Path="6[1].6[1]"/>
+								</OR>
+							</FORALL>
+						</EXIST>
+					</Assertion>
+				</Constraint>
+				
+				<Constraint ID="NIST-022" Target="17[1]">
+					<Description>If OM4-6.3 (Name of Coding system) is valued 'HL70487', OM4-6.1 (Identifier) SHALL be a valid code drawn from the HL70487_USL.1 value set.</Description>
+					<Assertion>
+						<IMPLY>
+							<AND>
+								<Presence Path="6[1].3[1]"/>
+								<PlainText Path="6[1].3[1]" IgnoreCase="false" Text="HL70487"/>
+							</AND>
+							<ValueSet Path="6[1]" ValueSetID="HL70487_USL.1" BindingStrength="R" BindingLocation="1"/>
+						</IMPLY>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-023" Target="17[1]">
+					<Description>If OM4-6.6 (Name of Alternate Coding system) is valued 'HL70487', OM4-6.4 (Alternate Identifier) SHALL be a valid code drawn from the HL70487_USL.1 value set.</Description>
+					<Assertion>
+						<IMPLY>
+							<AND>
+								<Presence Path="6[1].6[1]"/>
+								<PlainText Path="6[1].6[1]" IgnoreCase="false" Text="HL70487"/>
+							</AND>
+							<ValueSet Path="6[1]" ValueSetID="HL70487_USL.1" BindingStrength="R" BindingLocation="4"/>
+						</IMPLY>
+					</Assertion>
+				</Constraint>			
+			
+				<Constraint ID="eDOS-34" Target="17[1]">
+					<Description>If OM4-16 (Specimen Preference) is valued 'P' then OM4-17 (Preferred Specimen/Attribute Sequence ID) SHALL NOT be valued.</Description>
+					<Assertion>
+						<IMPLY>
+							<AND>
+								<Presence Path="16[1]"/>
+								<PlainText Path="16[1]" Text="P" IgnoreCase="false"/>
+							</AND>
+							<NOT>
+								<Presence Path="17[1]"/>
+							</NOT>
+						</IMPLY>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-35" Target="17[1]">
+					<Description>If OM4-16 (Specimen Preference) is valued 'A' then OM4-17 (Preferred Specimen/Attribute Sequence ID) SHALL be valued.</Description>
+					<Assertion>
+						<IMPLY>
+							<AND>
+								<Presence Path="16[1]"/>
+								<PlainText Path="16[1]" Text="A" IgnoreCase="false"/>
+							</AND>
+							<Presence Path="17[1]"/>
+						</IMPLY>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-017" Target="6[*]">
+					<Description>If OM4-6.3 (Name of Coding System) is valued 'SCT' OM4-6.1 (Identifier) SHALL be a valid SNOMED CT code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM4_6a"/>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-018" Target="6[*]">
+					<Description>If OM4-6.6 (Name of Alternate Coding System) is valued 'SCT' OM4-6.4 (Alternate Identifier) SHALL be a valid SNOMED CT code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM4_6b"/>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="OM5_EDOS">
+				<Constraint ID="NIST-012" Target="2[1]">
+					<Description>If OM5-2.3 (Name of Coding System) value is "LN", OM5-2.1 (Identifier) SHALL be a valid LOINC code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM5_2a"/>
+					</Assertion>
+				</Constraint>		
+				<Constraint ID="NIST-013" Target="2[1]">
+					<Description>If OM5-2.6 (Name of Alternate Coding System) value is "LN", OM5-2.4 (Alternate Identifier) SHALL be a valid LOINC code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM5_2b"/>
+					</Assertion>
+				</Constraint>				
+			</ByID>
+			<ByID ID="OMC_EDOS">
+				<Constraint ID="NIST-014" Target="4[1]">
+					<Description>If OMC-4.3 (Name of Coding System) value is "LN", OMC-4.1 (Identifier) SHALL be a valid LOINC code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OMC_4a"/>
+					</Assertion>
+				</Constraint>		
+				<Constraint ID="NIST-015" Target="4[1]">
+					<Description>If OMC-4.6 (Name of Alternate Coding System) value is "LN", OMC-4.4 (Alternate Identifier) SHALL be a valid LOINC code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OMC_4b"/>
+					</Assertion>
+				</Constraint>	
+				<Constraint ID="NIST-021" Target="11[1]">
+					<Description>If OMC-11.3 (Name of Coding System) is valued 'SCT' OMC-11.1 (Identifier) SHALL be a valid SNOMED CT code identifier format.</Description>
+					<Assertion>
+						<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OMC_11"/>
+					</Assertion>
+				</Constraint>			
+			</ByID>
+			<ByID ID="NTE_EDOS">
+				<Constraint ID="eDOS-64" Target="1[1]">
+					<Description>NTE-1 (Set ID - NTE) SHALL be sequentially numbered starting with the value '1' for each segment it is following.</Description>
+					<Assertion>
+						<SetID Path="1[1]"/>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="CDM_EDOS">
+				<Constraint ID="eDOS-63" Target="7[1].3[1]">
+					<Description>CDM-7.3 (Procedure Code.Code system) SHALL be valued 'C4' drawn from the HL7 table 0088.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="7[1].3[1]"/>
+							<PlainText Path="7[1].3[1]" Text="C4" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+		</Segment>
+		<Group>
+			<!-- this is specific to M08 -->
+			<ByID ID="MF_TEST_EDOS">
+				<!-- only comparing non optional elements : 1, 2, 3 & 7-->
+				<Constraint ID="eDOS-31" Target="2[1].2[1]">
+					<Description>OM1-2 (Producer's Service/Test/Observation ID) SHALL match MFE-4 (Primary Key Value - MFE).</Description>
+					<Assertion>
+						<FORALL>
+							<PathValue Path1="1[1].4[1].1[1]" Operator="EQ" Path2="2[1].2[1].1[1]"/>
+							<PathValue Path1="1[1].4[1].2[1]" Operator="EQ" Path2="2[1].2[1].2[1]"/>
+							<PathValue Path1="1[1].4[1].3[1]" Operator="EQ" Path2="2[1].2[1].3[1]"/>
+							<PathValue Path1="1[1].4[1].7[1]" Operator="EQ" Path2="2[1].2[1].7[1]"/>
+						</FORALL>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-32" Target="2[1].18[1]">
+					<Description>If MSH-9.2 (Message Type^Trigger Event) is valued 'M08' then OM1-18 (Nature of Service/Test/Observation) SHALL be valued 'A' or 'C'.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="2[1].18[1]"/>
+							<StringList Path="2[1].18[1]" CSV="A,C"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-001" Target="2[1].1[1]">
+					<Description>OM1-1 (Sequence Number - Test/Observation Master File) SHALL be valued sequentially starting with the value '1' within the message.</Description>
+					<Assertion>
+						<SetID Path="2[1].1[1]"/>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-002" Target="5[1].1[1]">
+					<Description>OM2-1 (Sequence Number - Test/Observation Master File) SHALL contain the same value as the sequence number of the associated OM1 segment.</Description>
+					<Assertion>
+						<OR>
+							<NOT>
+								<Presence Path="5[1]"/>
+							</NOT>
+							<PathValue Path1="5[1].1[1]" Operator="EQ" Path2="2[1].1[1]"/>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-003" Target="6[1].1[1]">
+					<Description>OM3-1 (Sequence Number - Test/Observation Master File) SHALL contain the same value as the sequence number of the associated OM1 segment.</Description>
+					<Assertion>
+						<OR>
+							<NOT>
+								<Presence Path="6[1]"/>
+							</NOT>
+							<PathValue Path1="6[1].1[1]" Operator="EQ" Path2="2[1].1[1]"/>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-004" Target="7[1].1[1]">
+					<Description>The first part of OM4-1 (Sequence Number - Test/Observation Master File) SHALL contain the same value as the sequence number of the associated OM1 segment. The second part of OM4-1 (Sequence Number - Test/Observation Master File) SHALL be valued sequentially.</Description>
+					<Assertion>
+						<OR>
+							<NOT>
+								<Presence Path="7[1]"/>
+							</NOT>
+							<Plugin QualifiedClassName="gov.nist.healthcare.mu.edos.custom.OM4"/>
+						</OR>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<!-- this is specific to M10 -->
+			<ByID ID="MF_BATTERY_EDOS">
+				<!-- only comparing non optional elements : 1, 2, 3 & 7-->
+				<Constraint ID="eDOS-31" Target="2[1].2[1]">
+					<Description>OM1-2 (Producer's Service/Test/Observation ID) SHALL match MFE-4 (Primary Key Value - MFE).</Description>
+					<Assertion>
+						<FORALL>
+							<PathValue Path1="1[1].4[1].1[1]" Operator="EQ" Path2="2[1].2[1].1[1]"/>
+							<PathValue Path1="1[1].4[1].2[1]" Operator="EQ" Path2="2[1].2[1].2[1]"/>
+							<PathValue Path1="1[1].4[1].3[1]" Operator="EQ" Path2="2[1].2[1].3[1]"/>
+							<PathValue Path1="1[1].4[1].7[1]" Operator="EQ" Path2="2[1].2[1].7[1]"/>
+						</FORALL>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-33" Target="2[1].18[1]">
+					<Description>If MSH-9.2 (Message Type^Trigger Event) is valued 'M10' then OM1-18 (Nature of Service/Test/Observation) SHALL be valued 'F', 'S', or 'P'. </Description>
+					<Assertion>
+						<AND>
+							<Presence Path="2[1].18[1]"/>
+							<StringList Path="2[1].18[1]" CSV="F,S,P"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-001" Target="2[1].1[1]">
+					<Description>OM1-1 (Sequence Number - Test/Observation Master File) SHALL be valued sequentially starting with the value '1' within the message.</Description>
+					<Assertion>
+						<SetID Path="2[1].1[1]"/>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="NIST-005" Target="4[1].1[1].1[1]">
+					<Description>OM5-1 (Sequence Number - Test/Observation Master File) SHALL contain the same value as the sequence number of the associated OM1 segment.</Description>
+					<Assertion>
+						<OR>
+							<NOT>
+								<Presence Path="4[1].1[1]"/>
+							</NOT>
+							<PathValue Path1="4[1].1[1].1[1]" Operator="EQ" Path2="2[1].1[1]"/>
+						</OR>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<!-- this is specific to M04 -->
+			<ByID ID="MF_CDM_EDOS">
+				<!-- only comparing non optional elements : 1, 2, 3 & 7-->
+				<Constraint ID="eDOS-36" Target="3[1].1[1]">
+					<Description>CDM-1 (Primary Key Value - CDM) SHALL match MFE-4 (Primary Key Value - MFE).</Description>
+					<Assertion>
+						<FORALL>
+							<PathValue Path1="1[1].4[1].1[1]" Operator="EQ" Path2="3[1].1[1].1[1]"/>
+							<PathValue Path1="1[1].4[1].2[1]" Operator="EQ" Path2="3[1].1[1].2[1]"/>
+							<PathValue Path1="1[1].4[1].3[1]" Operator="EQ" Path2="3[1].1[1].3[1]"/>
+							<PathValue Path1="1[1].4[1].7[1]" Operator="EQ" Path2="3[1].1[1].7[1]"/>
+						</FORALL>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<!-- this is specific to M18 -->
+			<ByID ID="MF_PAYER_EDOS">
+				<Constraint ID="eDOS-37" Target="2[1].2[1].1[1].2[1]">
+					<Description>MCP-2 (Producer's Service/Test/Observation ID) SHALL match MFE-4 (Primary Key Value - MFE).</Description>
+					<Assertion>
+						<FORALL>
+							<PathValue Path1="1[1].4[1].1[1]" Operator="EQ" Path2="2[1].2[1].1[1].2[1].1[1]"/>
+							<PathValue Path1="1[1].4[1].2[1]" Operator="EQ" Path2="2[1].2[1].1[1].2[1].2[1]"/>
+							<PathValue Path1="1[1].4[1].3[1]" Operator="EQ" Path2="2[1].2[1].1[1].2[1].3[1]"/>
+							<PathValue Path1="1[1].4[1].7[1]" Operator="EQ" Path2="2[1].2[1].1[1].2[1].7[1]"/>
+						</FORALL>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<!-- this is specific to M18 -->
+			<ByID ID="PAYER_MF_Coverage">
+				<Constraint ID="eDOS-65" Target="1[1].1[1]">
+					<Description>MCP-1 (Set ID - MCP) SHALL be sequentially numbered starting with the value '1' within a given PAYER MF Entry group.</Description>
+					<Assertion>
+						<SetID Path="1[1].1[1]"/>
+					</Assertion>
+				</Constraint>
+			</ByID>
+		</Group>
+		<Message>
+			<ByID ID="MFN_M04_GU">
+				<Constraint ID="eDOS-11" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.70' (eDOS_GU_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.67' (eDOS_COMMON_COMPONENT) and '2.16.840.1.113883.9.68' (eDOS_GU_COMPONENT) in any order. </Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.70" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.67" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.68" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-39" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFN' drawn from the HL7 Table HL70076</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFN" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-40" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M04' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M04" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-41" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFN_M04' drawn from HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFN_M04" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-25" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'CDM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="3[1].1[1].1[1]"/>
+							<PlainText Path="3[1].1[1].1[1]" Text="CDM" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFN_M04_NG">
+				<Constraint ID="eDOS-12" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.71' (eDOS_NG_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.67' (eDOS_COMMON_COMPONENT) and '2.16.840.1.113883.9.69' (eDOS_NG_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.71" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.67" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.69" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-39" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFN' drawn from the HL7 Table HL70076</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFN" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-40" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M04' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M04" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-41" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFN_M04' drawn from HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFN_M04" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-25" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'CDM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="3[1].1[1].1[1]"/>
+							<PlainText Path="3[1].1[1].1[1]" Text="CDM" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFN_M08_GU">
+				<Constraint ID="eDOS-11" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.70' (eDOS_GU_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.67' (eDOS_COMMON_COMPONENT) and '2.16.840.1.113883.9.68' (eDOS_GU_COMPONENT) in any order. </Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.70" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.67" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.68" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-42" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFN' drawn from the HL7 Table HL7 0076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFN" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-43" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M08' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M08" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-44" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFN_M08' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFN_M08" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-26" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'OMA' or 'OMM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="3[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="3[1].1[1].1[1]" Text="OMA" IgnoreCase="false"/>
+								<PlainText Path="3[1].1[1].1[1]" Text="OMM" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFN_M08_NG">
+				<Constraint ID="eDOS-12" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.71' (eDOS_NG_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.67' (eDOS_COMMON_COMPONENT) and '2.16.840.1.113883.9.69' (eDOS_NG_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.71" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.67" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.69" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-42" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFN' drawn from the HL7 Table HL7 0076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFN" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-43" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M08' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M08" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-44" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFN_M08' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFN_M08" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-26" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'OMA' or 'OMM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="3[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="3[1].1[1].1[1]" Text="OMA" IgnoreCase="false"/>
+								<PlainText Path="3[1].1[1].1[1]" Text="OMM" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFN_M10_GU">
+				<Constraint ID="eDOS-11" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.70' (eDOS_GU_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.67' (eDOS_COMMON_COMPONENT) and '2.16.840.1.113883.9.68' (eDOS_GU_COMPONENT) in any order. </Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.70" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.67" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.68" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-45" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFN' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFN" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-46" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M10' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M10" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-47" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFN_M10' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFN_M10" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-27" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'OMC' or 'OMM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="3[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="3[1].1[1].1[1]" Text="OMC" IgnoreCase="false"/>
+								<PlainText Path="3[1].1[1].1[1]" Text="OMM" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFN_M10_NG">
+				<Constraint ID="eDOS-12" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.71' (eDOS_NG_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.67' (eDOS_COMMON_COMPONENT) and '2.16.840.1.113883.9.69' (eDOS_NG_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.71" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.67" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.69" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-45" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFN' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFN" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-46" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M10' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M10" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-47" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFN_M10' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFN_M10" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-27" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'OMC' or 'OMM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="3[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="3[1].1[1].1[1]" Text="OMC" IgnoreCase="false"/>
+								<PlainText Path="3[1].1[1].1[1]" Text="OMM" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFN_M18_GU">
+				<Constraint ID="eDOS-11" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.70' (eDOS_GU_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.67' (eDOS_COMMON_COMPONENT) and '2.16.840.1.113883.9.68' (eDOS_GU_COMPONENT) in any order. </Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.70" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.67" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.68" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-48" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFN' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFN" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-49" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M18' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M18" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-50" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFN_M18' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFN_M18" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-28" Target="4[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'MLCP' or 'MACP' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="4[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="4[1].1[1].1[1]" Text="MLCP" IgnoreCase="false"/>
+								<PlainText Path="4[1].1[1].1[1]" Text="MACP" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFN_M18_NG">
+				<Constraint ID="eDOS-12" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.71' (eDOS_NG_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.67' (eDOS_COMMON_COMPONENT) and '2.16.840.1.113883.9.69' (eDOS_NG_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.71" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.67" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.69" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-48" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFN' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFN" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-49" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M18' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M18" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-50" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFN_M18' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFN_M18" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-28" Target="4[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'MLCP' or 'MACP' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="4[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="4[1].1[1].1[1]" Text="MLCP" IgnoreCase="false"/>
+								<PlainText Path="4[1].1[1].1[1]" Text="MACP" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFK_M04_GU">
+				<Constraint ID="eDOS-19" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.75' (eDOS_GU_RESPONSE_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.72' (eDOS_ACKNOWLEDGEMENT_COMPONENT) and '2.16.840.1.113883.9.73' (eDOS_GU_ACKNOWLEDGEMENT_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.75" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.72" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.73" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-51" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFK' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-52" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M04' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M04" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-53" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFK_M01' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-21" Target="1[1].9[1]">
+					<Description>MSH-9 (Message Type) SHALL contain MFK^M04^MFK_M01</Description>
+					<Assertion>
+						<FORALL>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M04" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</FORALL>
+					</Assertion>
+				</Constraint> -->
+				<Constraint ID="eDOS-25" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'CDM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="5[1].1[1].1[1]"/>
+							<PlainText Path="5[1].1[1].1[1]" Text="CDM" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFK_M04_NG">
+				<Constraint ID="eDOS-20" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.76' (eDOS_NG_RESPONSE_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.72' (eDOS_ACKNOWLEDGEMENT_COMPONENT) and '2.16.840.1.113883.9.74' (eDOS_NG_ACKNOWLEDGEMENT_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.76" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.72" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.74" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-51" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFK' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-52" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M04' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M04" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-53" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFK_M01' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-21" Target="1[1].9[1]">
+					<Description>MSH-9 (Message Type) SHALL contain MFK^M04^MFK_M01</Description>
+					<Assertion>
+						<FORALL>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M04" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</FORALL>
+					</Assertion>
+				</Constraint> -->
+				<Constraint ID="eDOS-25" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'CDM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="5[1].1[1].1[1]"/>
+							<PlainText Path="5[1].1[1].1[1]" Text="CDM" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFK_M08_GU">
+				<Constraint ID="eDOS-19" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.75' (eDOS_GU_RESPONSE_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.72' (eDOS_ACKNOWLEDGEMENT_COMPONENT) and '2.16.840.1.113883.9.73' (eDOS_GU_ACKNOWLEDGEMENT_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.75" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.72" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.73" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-54" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFK' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-55" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M08' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M08" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-56" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFK_M01' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-22" Target="1[1].9[1]">
+					<Description>MSH-9 (Message Type) SHALL contain MFK^M08^MFK_M01</Description>
+					<Assertion>
+						<FORALL>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M08" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</FORALL>
+					</Assertion>
+				</Constraint> -->
+				<Constraint ID="eDOS-26" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'OMA' or 'OMM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="5[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="5[1].1[1].1[1]" Text="OMA" IgnoreCase="false"/>
+								<PlainText Path="5[1].1[1].1[1]" Text="OMM" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFK_M08_NG">
+				<Constraint ID="eDOS-20" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.76' (eDOS_NG_RESPONSE_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.72' (eDOS_ACKNOWLEDGEMENT_COMPONENT) and '2.16.840.1.113883.9.74' (eDOS_NG_ACKNOWLEDGEMENT_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.76" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.72" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.74" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-54" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFK' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-55" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M08' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M08" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-56" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFK_M01' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-22" Target="1[1].9[1]">
+					<Description>MSH-9 (Message Type) SHALL contain MFK^M08^MFK_M01</Description>
+					<Assertion>
+						<FORALL>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M08" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</FORALL>
+					</Assertion>
+				</Constraint> -->
+				<Constraint ID="eDOS-26" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'OMA' or 'OMM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="5[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="5[1].1[1].1[1]" Text="OMA" IgnoreCase="false"/>
+								<PlainText Path="5[1].1[1].1[1]" Text="OMM" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFK_M10_GU">
+				<Constraint ID="eDOS-19" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.75' (eDOS_GU_RESPONSE_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.72' (eDOS_ACKNOWLEDGEMENT_COMPONENT) and '2.16.840.1.113883.9.73' (eDOS_GU_ACKNOWLEDGEMENT_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.75" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.72" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.73" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-57" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFK' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-58" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M10' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M10" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-59" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFK_M01' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-23" Target="1[1].9[1]">
+					<Description>MSH-9 (Message Type) SHALL contain MFK^M10^MFK_M01</Description>
+					<Assertion>
+						<FORALL>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M10" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</FORALL>
+					</Assertion>
+				</Constraint> -->
+				<Constraint ID="eDOS-27" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'OMC' or 'OMM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="5[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="5[1].1[1].1[1]" Text="OMC" IgnoreCase="false"/>
+								<PlainText Path="5[1].1[1].1[1]" Text="OMM" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFK_M10_NG">
+				<Constraint ID="eDOS-20" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.76' (eDOS_NG_RESPONSE_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.72' (eDOS_ACKNOWLEDGEMENT_COMPONENT) and '2.16.840.1.113883.9.74' (eDOS_NG_ACKNOWLEDGEMENT_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.76" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.72" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.74" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-57" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFK' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-58" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M10' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M10" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-59" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFK_M01' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-23" Target="1[1].9[1]">
+					<Description>MSH-9 (Message Type) SHALL contain MFK^M10^MFK_M01</Description>
+					<Assertion>
+						<FORALL>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M10" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</FORALL>
+					</Assertion>
+				</Constraint> -->
+				<Constraint ID="eDOS-27" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'OMC' or 'OMM' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="5[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="5[1].1[1].1[1]" Text="OMC" IgnoreCase="false"/>
+								<PlainText Path="5[1].1[1].1[1]" Text="OMM" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFK_M18_GU">
+				<Constraint ID="eDOS-19" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.75' (eDOS_GU_RESPONSE_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.72' (eDOS_ACKNOWLEDGEMENT_COMPONENT) and '2.16.840.1.113883.9.73' (eDOS_GU_ACKNOWLEDGEMENT_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.75" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.72" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.73" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-60" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFK' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-61" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M18' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M18" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-61" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFK_M01' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-24" Target="1[1].9[1]">
+					<Description>MSH-9 (Message Type) SHALL contain MFK^M18^MFK_M01</Description>
+					<Assertion>
+						<FORALL>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M10" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</FORALL>
+					</Assertion>
+				</Constraint> -->
+				<Constraint ID="eDOS-28" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'MLCP' or 'MACP' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="5[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="5[1].1[1].1[1]" Text="MLCP" IgnoreCase="false"/>
+								<PlainText Path="5[1].1[1].1[1]" Text="MACP" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			<ByID ID="MFK_M18_NG">
+				<Constraint ID="eDOS-20" Target="1[1].21[1]">
+					<Description>An occurrence of MSH-21 (Message Profile Identifier) SHALL be valued with '2.16.840.1.113883.9.76' (eDOS_NG_RESPONSE_PROFILE) or two occurrences SHALL be valued with '2.16.840.1.113883.9.72' (eDOS_ACKNOWLEDGEMENT_COMPONENT) and '2.16.840.1.113883.9.74' (eDOS_NG_ACKNOWLEDGEMENT_COMPONENT) in any order.</Description>
+					<Assertion>
+						<OR>
+							<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.76" IgnoreCase="false" AtLeastOnce="true"/>
+							<FORALL>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.72" IgnoreCase="false" AtLeastOnce="true"/>
+								<PlainText Path="1[1].21[*].3[1]" Text="2.16.840.1.113883.9.74" IgnoreCase="false" AtLeastOnce="true"/>
+							</FORALL>
+						</OR>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-60" Target="1[1].9[1].1[1]">
+					<Description>MSH-9.1 (Message Code) SHALL be valued 'MFK' drawn from the HL7 Table HL70076.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-61" Target="1[1].9[1].2[1]">
+					<Description>MSH-9.2 (Trigger Event) SHALL be valued 'M18' drawn from the HL7 Table HL70003.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M18" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<Constraint ID="eDOS-62" Target="1[1].9[1].3[1]">
+					<Description>MSH-9.3 (Message Structure) SHALL be valued 'MFK_M01' drawn from the HL7 Table HL70354.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</AND>
+					</Assertion>
+				</Constraint>
+				<!-- <Constraint ID="eDOS-24" Target="1[1].9[1]">
+					<Description>MSH-9 (Message Type) SHALL contain MFK^M18^MFK_M01</Description>
+					<Assertion>
+						<FORALL>
+							<Presence Path="1[1].9[1].1[1]"/>
+							<Presence Path="1[1].9[1].2[1]"/>
+							<Presence Path="1[1].9[1].3[1]"/>
+							<PlainText Path="1[1].9[1].1[1]" Text="MFK" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].2[1]" Text="M10" IgnoreCase="false"/>
+							<PlainText Path="1[1].9[1].3[1]" Text="MFK_M01" IgnoreCase="false"/>
+						</FORALL>
+					</Assertion>
+				</Constraint> -->
+				<Constraint ID="eDOS-28" Target="3[1].1[1].1[1]">
+					<Description>MFI-1.1 (Identifier) SHALL be valued 'MLCP' or 'MACP' drawn from the HL7 Table HL70175.</Description>
+					<Assertion>
+						<AND>
+							<Presence Path="5[1].1[1].1[1]"/>
+							<OR>
+								<PlainText Path="5[1].1[1].1[1]" Text="MLCP" IgnoreCase="false"/>
+								<PlainText Path="5[1].1[1].1[1]" Text="MACP" IgnoreCase="false"/>
+							</OR>
+						</AND>
+					</Assertion>
+				</Constraint>
+			</ByID>
+			
+		</Message>
+	</Constraints>
+</ConformanceContext>

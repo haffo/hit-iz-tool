@@ -604,7 +604,7 @@
 
     mod.controller('MessageContentInfoCtrl',
         function ($scope, $modalInstance, $rootScope) {
-            $scope.mcHelpInfo = $rootScope.domain.messageContentInfo;
+            $scope.mcHelpInfo = $rootScope.appInfo.messageContentInfo;
             $scope.close = function () {
                 $modalInstance.dismiss('cancel');
             }

@@ -1,0 +1,1622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Caroline Rosin (NIST) -->
+<ConformanceProfile ID="EIV2_IG_LTCF_R2_DSTU_R2_2015JAN" Type="Constrainable" HL7Version="2.5.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Jungyubw/NIST_healthcare_hl7_v2_profile_schema/master/Schema/NIST%20Validation%20Schema/Profile.xsd">
+	<MetaData Name="eDOS integration profile" OrgName="NIST" Version="1.0.0" Date="04252017"/>	
+	<Messages>
+		<!-- MFN M04 -->
+		<Message Identifier="MFN_M04-GU" Name="Charge Description Master File (GU)" Description="MFN/MFK - Charge Description Master File Message" Event="M04" ID="MFN_M04_GU" StructID="MFN_M04" Type="MFN">
+			<Segment Ref="MSH_EDOS_GU" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="NTE_EDOS" Usage="RE" Min="0" Max="*"/>
+			<Group Name="MF_CDM" ID="MF_CDM_EDOS" Usage="R" Min="1" Max="*">
+				<Segment Ref="MFE_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="NTE_EDOS" Usage="RE" Min="0" Max="*"/>
+				<Segment Ref="CDM_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="NTE_EDOS" Usage="RE" Min="0" Max="*"/>
+				<Segment Ref="PRC_HL7" Usage="O" Min="0" Max="*"/>
+			</Group>
+		</Message>
+		<Message Identifier="MFN_M04-NG" Name="Charge Description Master File (NG)" Description="MFN/MFK - Charge Description Master File Message" Event="M04" ID="MFN_M04_NG" StructID="MFN_M04" Type="MFN">
+			<Segment Ref="MSH_EDOS_NG" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="NTE_EDOS" Usage="RE" Min="0" Max="*"/>
+			<Group Name="MF_CDM" ID="MF_CDM_EDOS" Usage="R" Min="1" Max="*">
+				<Segment Ref="MFE_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="NTE_EDOS" Usage="RE" Min="0" Max="*"/>
+				<Segment Ref="CDM_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="NTE_EDOS" Usage="RE" Min="0" Max="*"/>
+				<Segment Ref="PRC_HL7" Usage="O" Min="0" Max="*"/>
+			</Group>
+		</Message>
+		<!-- MFN M08 -->
+		<Message Identifier="MFN_M08-GU" Name="Master File Notification - Test/Observation (Numeric) (GU)" Description="MFN/MFK - Master File Notification - Test/Observation (Numeric)" Event="M08" ID="MFN_M08_GU" StructID="MFN_M08" Type="MFN">
+			<Segment Ref="MSH_EDOS_GU" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Group Name="MF_TEST" ID="MF_TEST_EDOS" Usage="R" Min="1" Max="*">
+				<Segment Ref="MFE_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="OM1_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="OMC_EDOS" Usage="RE" Min="0" Max="*"/>
+				<Segment Ref="PRT_HL7" Usage="O" Min="0" Max="*"/>
+				<Segment Ref="OM2_EDOS" Usage="RE" Min="0" Max="1"/>
+				<Segment Ref="OM3_EDOS" Usage="RE" Min="0" Max="1"/>
+				<Segment Ref="OM4_EDOS" Usage="RE" Min="0" Max="*"/>
+			</Group>
+		</Message>
+		<Message Identifier="MFN_M08-NG" Name="Master File Notification - Test/Observation (Numeric) (NG)" Description="MFN/MFK - Master File Notification - Test/Observation (Numeric)" Event="M08" ID="MFN_M08_NG" StructID="MFN_M08" Type="MFN">
+			<Segment Ref="MSH_EDOS_NG" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Group Name="MF_TEST" ID="MF_TEST_EDOS" Usage="R" Min="1" Max="*">
+				<Segment Ref="MFE_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="OM1_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="OMC_EDOS" Usage="RE" Min="0" Max="*"/>
+				<Segment Ref="PRT_HL7" Usage="O" Min="0" Max="*"/>
+				<Segment Ref="OM2_EDOS" Usage="RE" Min="0" Max="1"/>
+				<Segment Ref="OM3_EDOS" Usage="RE" Min="0" Max="1"/>
+				<Segment Ref="OM4_EDOS" Usage="RE" Min="0" Max="*"/>
+			</Group>
+		</Message>
+		<!-- MFN M10 -->
+		<Message Identifier="MFN_M10-GU" Name="Master File Notification - Test/Observation Batteries (GU)" Description="MFN/MFK - Master File Notification - Test/Observation Batteries" Event="M10" ID="MFN_M10_GU" StructID="MFN_M10" Type="MFN">
+			<Segment Ref="MSH_EDOS_GU" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Group Name="MF_BATTERY" ID="MF_BATTERY_EDOS" Usage="R" Min="1" Max="*">
+				<Segment Ref="MFE_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="OM1_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="PRT_HL7" Usage="O" Min="0" Max="*"/>
+				<Group Name="BATTERY_DETAIL" ID="BATTERY_DETAIL_EDOS" Usage="R" Min="1" Max="1">
+					<Segment Ref="OM5_EDOS" Usage="R" Min="1" Max="1"/>
+					<Segment Ref="OM4_EDOS" Usage="RE" Min="0" Max="*"/>
+				</Group>
+			</Group>
+		</Message>
+		<Message Identifier="MFN_M10-NG" Name="Master File Notification - Test/Observation Batteries (NG)" Description="MFN/MFK - Master File Notification - Test/Observation Batteries" Event="M10" ID="MFN_M10_NG" StructID="MFN_M10" Type="MFN">
+			<Segment Ref="MSH_EDOS_NG" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Group Name="MF_BATTERY" ID="MF_BATTERY_EDOS" Usage="R" Min="1" Max="*">
+				<Segment Ref="MFE_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="OM1_EDOS" Usage="R" Min="1" Max="1"/>
+				<Segment Ref="PRT_HL7" Usage="O" Min="0" Max="*"/>
+				<Group Name="BATTERY_DETAIL" ID="BATTERY_DETAIL_EDOS" Usage="R" Min="1" Max="1">
+					<Segment Ref="OM5_EDOS" Usage="R" Min="1" Max="1"/>
+					<Segment Ref="OM4_EDOS" Usage="RE" Min="0" Max="*"/>
+				</Group>
+			</Group>
+		</Message>
+		<!-- MFN M18 -->
+		<Message Identifier="MFN_M18-GU" Name="Master File Notification - Test/Observation (Payer) (GU)" Description="MFN/MFK - Master File Notification - Test/Observation (Payer)" Event="M18" ID="MFN_M18_GU" StructID="MFN_M18" Type="MFN">
+			<Segment Ref="MSH_EDOS_GU" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="UAC_HL7" Usage="O" Min="0" Max="1"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Group Name="MF_PAYER" ID="MF_PAYER_EDOS" Usage="R" Min="1" Max="*">
+				<Segment Ref="MFE_EDOS" Usage="R" Min="1" Max="1"/>
+				<Group Name="PAYER_MF_Entry" ID="PAYER_MF_Entry_EDOS" Usage="R" Min="1" Max="*">
+					<Segment Ref="PM1_EDOS_GU" Usage="R" Min="1" Max="1"/>
+					<Group Name="PAYER_MF_Coverage" ID="PAYER_MF_Coverage_EDOS" Usage="R" Min="1" Max="*">
+						<Segment Ref="MCP_EDOS" Usage="R" Min="1" Max="1"/>
+						<Segment Ref="DPS_HL7" Usage="O" Min="0" Max="*"/>
+					</Group>
+				</Group>
+			</Group>
+		</Message>
+		<Message Identifier="MFN_M18-NG" Name="Master File Notification - Test/Observation (Payer) (NG)" Description="MFN/MFK - Master File Notification - Test/Observation (Payer)" Event="M18" ID="MFN_M18_NG" StructID="MFN_M18" Type="MFN">
+			<Segment Ref="MSH_EDOS_NG" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="UAC_HL7" Usage="O" Min="0" Max="1"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Group Name="MF_PAYER" ID="MF_PAYER_EDOS" Usage="R" Min="1" Max="*">
+				<Segment Ref="MFE_EDOS" Usage="R" Min="1" Max="1"/>
+				<Group Name="PAYER_MF_Entry" ID="PAYER_MF_Entry_EDOS" Usage="R" Min="1" Max="*">
+					<Segment Ref="PM1_EDOS_NG" Usage="R" Min="1" Max="1"/>
+					<Group Name="PAYER_MF_Coverage" ID="PAYER_MF_Coverage_EDOS" Usage="R" Min="1" Max="*">
+						<Segment Ref="MCP_EDOS" Usage="R" Min="1" Max="1"/>
+						<Segment Ref="DPS_HL7" Usage="O" Min="0" Max="*"/>
+					</Group>
+				</Group>
+			</Group>
+		</Message>
+		<!-- MFK -->
+		<Message Identifier="MFK_M04-GU" Name="Application Acknowledgement (M04/GU)" Description="MFN/MFK - Charge Description Master File Message" Event="M04" ID="MFK_M04_GU" StructID="MFK_M01" Type="MFK">
+			<Segment Ref="MSH_MFK_GU" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MSA_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="ERR_EDOS" Usage="C" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="MFA_HL7" Usage="O" Min="0" Max="*"/>
+		</Message>
+		<Message Identifier="MFK_M04-NG" Name="Application Acknowledgement (M04/NG)" Description="MFN/MFK - Charge Description Master File Message" Event="M04" ID="MFK_M04_NG" StructID="MFK_M01" Type="MFK">
+			<Segment Ref="MSH_MFK_NG" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MSA_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="ERR_EDOS" Usage="C" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="MFA_HL7" Usage="O" Min="0" Max="*"/>
+		</Message>
+		<Message Identifier="MFK_M08-GU" Name="Application Acknowledgement (M08/GU)" Description="MFN/MFK - Master File Notification - Test/Observation (Numeric)" Event="M08" ID="MFK_M08_GU" StructID="MFK_M01" Type="MFK">
+			<Segment Ref="MSH_MFK_GU" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MSA_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="ERR_EDOS" Usage="C" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="MFA_HL7" Usage="O" Min="0" Max="*"/>
+		</Message>
+		<Message Identifier="MFK_M08-NG" Name="Application Acknowledgement (M08/NG)" Description="MFN/MFK - Master File Notification - Test/Observation (Numeric)" Event="M08" ID="MFK_M08_NG" StructID="MFK_M01" Type="MFK">
+			<Segment Ref="MSH_MFK_NG" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MSA_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="ERR_EDOS" Usage="C" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="MFA_HL7" Usage="O" Min="0" Max="*"/>
+		</Message>
+		<Message Identifier="MFK_M10-GU" Name="Application Acknowledgement (M10/GU)" Description="MFN/MFK - Master File Notification - Test/Observation Batteries" Event="M10" ID="MFK_M10_GU" StructID="MFK_M01" Type="MFK">
+			<Segment Ref="MSH_MFK_GU" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MSA_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="ERR_EDOS" Usage="C" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="MFA_HL7" Usage="O" Min="0" Max="*"/>
+		</Message>
+		<Message Identifier="MFK_M10-NG" Name="Application Acknowledgement (M10/NG)" Description="MFN/MFK - Master File Notification - Test/Observation Batteries" Event="M10" ID="MFK_M10_NG" StructID="MFK_M01" Type="MFK">
+			<Segment Ref="MSH_MFK_NG" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MSA_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="ERR_EDOS" Usage="C" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="MFA_HL7" Usage="O" Min="0" Max="*"/>
+		</Message>
+		<Message Identifier="MFK_M18-GU" Name="Application Acknowledgement (M18/GU)" Description="MFN/MFK - Master File Notification - Test/Observation (Payer)" Event="M18" ID="MFK_M18_GU" StructID="MFK_M01" Type="MFK">
+			<Segment Ref="MSH_MFK_GU" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MSA_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="ERR_EDOS" Usage="C" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="MFA_HL7" Usage="O" Min="0" Max="*"/>
+		</Message>
+		<Message Identifier="MFK_M18-NG" Name="Application Acknowledgement (M18/NG)" Description="MFN/MFK - Master File Notification - Test/Observation (Payer)" Event="M18" ID="MFK_M18_NG" StructID="MFK_M01" Type="MFK">
+			<Segment Ref="MSH_MFK_NG" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="SFT_HL7" Usage="O" Min="0" Max="*"/>
+			<Segment Ref="MSA_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="ERR_EDOS" Usage="C" Min="0" Max="*"/>
+			<Segment Ref="MFI_EDOS" Usage="R" Min="1" Max="1"/>
+			<Segment Ref="MFA_HL7" Usage="O" Min="0" Max="*"/>
+		</Message>
+	</Messages>
+	<Segments>
+		<Segment Description="Message Header" ID="MSH_EDOS_GU" Label="MSH_EDOS_GU" Name="MSH">
+			<Field Name="Field Separator" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="1" ItemNo="00001"/>
+			<Field Name="Encoding Characters" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="4" ItemNo="00002"/>
+			<Field Name="Sending Application" Usage="RE" Min="0" Max="1" Datatype="HD_GU" MinLength="1" MaxLength="227" Binding="HL70361_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00003"/>
+			<Field Name="Sending Facility" Usage="R" Min="1" Max="1" Datatype="HD_GU" MinLength="1" MaxLength="227" Binding="HL70362_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00004"/>
+			<Field Name="Receiving Application" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="227" Binding="0361" ItemNo="00005"/>
+			<Field Name="Receiving Facility" Usage="RE" Min="0" Max="1" Datatype="HD_GU" MinLength="1" MaxLength="227" Binding="HL70362_USL.2" BindingLocation="1" BindingStrength="R" ItemNo="00006"/>
+			<Field Name="Date/Time Of Message" Usage="R" Min="1" Max="1" Datatype="TS_1" MinLength="1" MaxLength="26" ItemNo="00007"/>
+			<Field Name="Security" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="40" ItemNo="00008"/>
+			<Field Name="Message Type" Usage="R" Min="1" Max="1" Datatype="MSG_EDOS" MinLength="1" MaxLength="15" ItemNo="00009"/>
+			<Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00010"/>
+			<Field Name="Processing ID" Usage="R" Min="1" Max="1" Datatype="PT_EDOS" MinLength="1" MaxLength="3" ItemNo="00011"/>
+			<Field Name="Version ID" Usage="R" Min="1" Max="1" Datatype="VID_EDOS" MinLength="1" MaxLength="60" ItemNo="00012"/>
+			<Field Name="Sequence Number" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="15" ItemNo="00013"/>
+			<Field Name="Continuation Pointer" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="180" ItemNo="00014"/>
+			<Field Name="Accept Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" ItemNo="00015"/>
+			<Field Name="Application Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" ItemNo="00016"/>
+			<Field Name="Country Code" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="3" Binding="0399" ItemNo="00017"/>
+			<Field Name="Character Set" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="16" Binding="0211" ItemNo="00692"/>
+			<Field Name="Principal Language Of Message" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00693"/>
+			<Field Name="Alternate Character Set Handling Scheme" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="20" Binding="0356" ItemNo="01317"/>
+			<Field Name="Message Profile Identifier" Usage="R" Min="1" Max="*" Datatype="EI_GU" MinLength="1" MaxLength="427" ItemNo="01598"/>
+		</Segment>
+		<Segment Description="Message Header" ID="MSH_EDOS_NG" Label="MSH_EDOS_NG" Name="MSH">
+			<Field Name="Field Separator" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="1" ItemNo="00001"/>
+			<Field Name="Encoding Characters" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="4" ItemNo="00002"/>
+			<Field Name="Sending Application" Usage="RE" Min="0" Max="1" Datatype="HD_NG" MinLength="1" MaxLength="227" Binding="HL70361_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00003"/>
+			<Field Name="Sending Facility" Usage="R" Min="1" Max="1" Datatype="HD_NG" MinLength="1" MaxLength="227" Binding="HL70362_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00004"/>
+			<Field Name="Receiving Application" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="227" Binding="0361" ItemNo="00005"/>
+			<Field Name="Receiving Facility" Usage="RE" Min="0" Max="1" Datatype="HD_NG" MinLength="1" MaxLength="227" Binding="HL70362_USL.2" BindingLocation="1" BindingStrength="R" ItemNo="00006"/>
+			<Field Name="Date/Time Of Message" Usage="R" Min="1" Max="1" Datatype="TS_1" MinLength="1" MaxLength="26" ItemNo="00007"/>
+			<Field Name="Security" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="40" ItemNo="00008"/>
+			<Field Name="Message Type" Usage="R" Min="1" Max="1" Datatype="MSG_EDOS" MinLength="1" MaxLength="15" ItemNo="00009"/>
+			<Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00010"/>
+			<Field Name="Processing ID" Usage="R" Min="1" Max="1" Datatype="PT_EDOS" MinLength="1" MaxLength="3" ItemNo="00011"/>
+			<Field Name="Version ID" Usage="R" Min="1" Max="1" Datatype="VID_EDOS" MinLength="1" MaxLength="60" ItemNo="00012"/>
+			<Field Name="Sequence Number" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="15" ItemNo="00013"/>
+			<Field Name="Continuation Pointer" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="180" ItemNo="00014"/>
+			<Field Name="Accept Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" ItemNo="00015"/>
+			<Field Name="Application Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" ItemNo="00016"/>
+			<Field Name="Country Code" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="3" Binding="0399" ItemNo="00017"/>
+			<Field Name="Character Set" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="16" Binding="0211" ItemNo="00692"/>
+			<Field Name="Principal Language Of Message" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00693"/>
+			<Field Name="Alternate Character Set Handling Scheme" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="20" Binding="0356" ItemNo="01317"/>
+			<Field Name="Message Profile Identifier" Usage="R" Min="1" Max="*" Datatype="EI_GU" MinLength="1" MaxLength="427" ItemNo="01598"/>
+		</Segment>
+		<Segment Description="Message Header" ID="MSH_MFK_GU" Label="MSH_MFK_GU" Name="MSH">
+			<Field Name="Field Separator" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="1" ItemNo="00001"/>
+			<Field Name="Encoding Characters" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="4" ItemNo="00002"/>
+			<Field Name="Sending Application" Usage="RE" Min="0" Max="1" Datatype="HD_GU" MinLength="1" MaxLength="227" Binding="HL70361_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00003"/>
+			<Field Name="Sending Facility" Usage="R" Min="1" Max="1" Datatype="HD_GU" MinLength="1" MaxLength="227" Binding="HL70362_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00004"/>
+			<Field Name="Receiving Application" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="227" Binding="0361" ItemNo="00005"/>
+			<Field Name="Receiving Facility" Usage="RE" Min="0" Max="1" Datatype="HD_GU" MinLength="1" MaxLength="227" Binding="HL70362_USL.2" BindingLocation="1" BindingStrength="R" ItemNo="00006"/>
+			<Field Name="Date/Time Of Message" Usage="R" Min="1" Max="1" Datatype="TS_1" MinLength="1" MaxLength="26" ItemNo="00007"/>
+			<Field Name="Security" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="40" ItemNo="00008"/>
+			<Field Name="Message Type" Usage="R" Min="1" Max="1" Datatype="MSG_EDOS" MinLength="1" MaxLength="15" ItemNo="00009"/>
+			<Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00010"/>
+			<Field Name="Processing ID" Usage="R" Min="1" Max="1" Datatype="PT_EDOS" MinLength="1" MaxLength="3" ItemNo="00011"/>
+			<Field Name="Version ID" Usage="R" Min="1" Max="1" Datatype="VID_EDOS" MinLength="1" MaxLength="60" ItemNo="00012"/>
+			<Field Name="Sequence Number" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="15" ItemNo="00013"/>
+			<Field Name="Continuation Pointer" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="180" ItemNo="00014"/>
+			<Field Name="Accept Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" ItemNo="00015"/>
+			<Field Name="Application Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" ItemNo="00016"/>
+			<Field Name="Country Code" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="3" Binding="0399" ItemNo="00017"/>
+			<Field Name="Character Set" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="16" Binding="0211" ItemNo="00692"/>
+			<Field Name="Principal Language Of Message" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00693"/>
+			<Field Name="Alternate Character Set Handling Scheme" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="20" Binding="0356" ItemNo="01317"/>
+			<Field Name="Message Profile Identifier" Usage="R" Min="1" Max="*" Datatype="EI_GU" MinLength="1" MaxLength="427" ItemNo="01598"/>
+		</Segment>
+		<Segment Description="Message Header" ID="MSH_MFK_NG" Label="MSH_MFK_NG" Name="MSH">
+			<Field Name="Field Separator" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="1" ItemNo="00001"/>
+			<Field Name="Encoding Characters" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="4" ItemNo="00002"/>
+			<Field Name="Sending Application" Usage="RE" Min="0" Max="1" Datatype="HD_NG" MinLength="1" MaxLength="227" Binding="HL70361_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00003"/>
+			<Field Name="Sending Facility" Usage="R" Min="1" Max="1" Datatype="HD_NG" MinLength="1" MaxLength="227" Binding="HL70362_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00004"/>
+			<Field Name="Receiving Application" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="227" Binding="0361" ItemNo="00005"/>
+			<Field Name="Receiving Facility" Usage="RE" Min="0" Max="1" Datatype="HD_NG" MinLength="1" MaxLength="227" Binding="HL70362_USL.2" BindingLocation="1" BindingStrength="R" ItemNo="00006"/>
+			<Field Name="Date/Time Of Message" Usage="R" Min="1" Max="1" Datatype="TS_1" MinLength="1" MaxLength="26" ItemNo="00007"/>
+			<Field Name="Security" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="40" ItemNo="00008"/>
+			<Field Name="Message Type" Usage="R" Min="1" Max="1" Datatype="MSG_EDOS" MinLength="1" MaxLength="15" ItemNo="00009"/>
+			<Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00010"/>
+			<Field Name="Processing ID" Usage="R" Min="1" Max="1" Datatype="PT_EDOS" MinLength="1" MaxLength="3" ItemNo="00011"/>
+			<Field Name="Version ID" Usage="R" Min="1" Max="1" Datatype="VID_EDOS" MinLength="1" MaxLength="60" ItemNo="00012"/>
+			<Field Name="Sequence Number" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="15" ItemNo="00013"/>
+			<Field Name="Continuation Pointer" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="180" ItemNo="00014"/>
+			<Field Name="Accept Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" ItemNo="00015"/>
+			<Field Name="Application Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" ItemNo="00016"/>
+			<Field Name="Country Code" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="3" Binding="0399" ItemNo="00017"/>
+			<Field Name="Character Set" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="16" Binding="0211" ItemNo="00692"/>
+			<Field Name="Principal Language Of Message" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00693"/>
+			<Field Name="Alternate Character Set Handling Scheme" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="20" Binding="0356" ItemNo="01317"/>
+			<Field Name="Message Profile Identifier" Usage="R" Min="1" Max="*" Datatype="EI_GU" MinLength="1" MaxLength="427" ItemNo="01598"/>
+		</Segment>
+		<Segment Description="Message Acknowledgment" ID="MSA_EDOS" Label="MSA_EDOS" Name="MSA">
+			<Field Name="Acknowledgment Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70008_USL.1" BindingStrength="R" ItemNo="00018"/>
+			<Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00010"/>
+			<Field Name="Text Message" Usage="X" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="80" ItemNo="00020"/>
+			<Field Name="Expected Sequence Number" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="15" ItemNo="00021"/>
+			<Field Name="Delayed Acknowledgment Type" Usage="X" Min="0" Max="1" Datatype="NUL" MinLength="1" MaxLength="1" ItemNo="00022"/>
+			<Field Name="Error Condition" Usage="X" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0357" ItemNo="00023"/>
+		</Segment>
+		<Segment Description="Error" ID="ERR_EDOS" Label="ERR_EDOS" Name="ERR">
+			<Field Name="Error Code and Location" Usage="X" Min="0" Max="*" Datatype="ELD" MinLength="1" MaxLength="493" ItemNo="00024"/>
+			<Field Name="Error Location" Usage="O" Min="0" Max="*" Datatype="ERL" MinLength="1" MaxLength="18" ItemNo="01812"/>
+			<Field Name="HL7 Error Code" Usage="R" Min="1" Max="1" Datatype="CWE_EDOS" MinLength="1" MaxLength="705" Binding="HL70357_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="01813"/>
+			<Field Name="Severity" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70516_USL.1" BindingStrength="R" ItemNo="01814"/>
+			<Field Name="Application Error Code" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="705" Binding="0533" ItemNo="01815"/>
+			<Field Name="Application Error Parameter" Usage="O" Min="0" Max="10" Datatype="ST" MinLength="1" MaxLength="80" ItemNo="01816"/>
+			<Field Name="Diagnostic Information" Usage="RE" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="2048" ItemNo="01817"/>
+			<Field Name="User Message" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="250" ItemNo="01818"/>
+			<Field Name="Inform Person Indicator" Usage="O" Min="0" Max="*" Datatype="IS" MinLength="1" MaxLength="20" Binding="0517" ItemNo="01819"/>
+			<Field Name="Override Type" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="705" Binding="0518" ItemNo="01820"/>
+			<Field Name="Override Reason Code" Usage="O" Min="0" Max="*" Datatype="CWE" MinLength="1" MaxLength="705" Binding="0519" ItemNo="01821"/>
+			<Field Name="Help Desk Contact Point" Usage="O" Min="0" Max="*" Datatype="XTN" MinLength="1" MaxLength="652" ItemNo="01822"/>
+		</Segment>
+		<Segment Description="Master File Identification" ID="MFI_EDOS" Label="MFI_EDOS" Name="MFI">
+			<Field Name="Master File Identifier" Usage="R" Min="1" Max="1" Datatype="CWE_EDOS" MinLength="1" MaxLength="250" Binding="HL70175_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00658"/>
+			<Field Name="Master File Application Identifier" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="180" Binding="0361" ItemNo="00659"/>
+			<Field Name="File-Level Event Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70178_USL.1" BindingStrength="R" ItemNo="00660"/>
+			<Field Name="Entered Date/Time" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00661"/>
+			<Field Name="Effective Date/Time" Usage="X" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00662"/>
+			<Field Name="Response Level Code" Usage="R" Datatype="ID" ItemNo="00663" Max="1" MaxLength="2" Min="1" MinLength="1"/>
+		</Segment>
+		<Segment Description="Master File Entry" ID="MFE_EDOS" Label="MFE_EDOS" Name="MFE">
+			<Field Name="Record-Level Event Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70180_USL.1" BindingStrength="R" ItemNo="00664"/>
+			<Field Name="MFN Control ID" Usage="C" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00665"/>
+			<Field Name="Effective Date/Time" Usage="R" Min="1" Max="1" Datatype="TS_1" MinLength="1" MaxLength="26" ItemNo="00662"/>
+			<Field Name="Primary Key Value - MFE" Usage="R" Min="1" Max="1" Datatype="CWE_RC" MinLength="1" MaxLength="200" Binding="9999" BindingLocation="1" BindingStrength="R" ItemNo="00667"/>
+			<Field Name="Primary Key Value Type" Usage="R" Min="1" Max="1" Datatype="ID" MaxLength="3" MinLength="1" ItemNo="01319"/>
+		</Segment>
+		<Segment Description="General Segment" ID="OM1_EDOS" Label="OM1_EDOS" Name="OM1">
+			<Field Name="Sequence Number - Test/Observation Master File" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="00586"/>
+			<Field Name="Producer's Service/Test/Observation ID" Usage="R" Min="1" Max="1" Datatype="CWE_RC" MinLength="1" MaxLength="250" Binding="9999" BindingLocation="1" BindingStrength="R" ItemNo="00587"/>
+			<Field Name="Permitted Data Types" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="12" Binding="0125" ItemNo="00588"/>
+			<Field Name="Specimen Required" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70136_USL.1" BindingStrength="R" ItemNo="00589"/>
+			<Field Name="Producer ID" Usage="R" Min="1" Max="1" Datatype="CWE_EDOS" MinLength="1" MaxLength="250" Binding="9999" BindingLocation="1" BindingStrength="R" ItemNo="00590"/>
+			<Field Name="Observation Description" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="200" ItemNo="00591"/>
+			<Field Name="Other Service/Test/Observation IDs for the Observation" Usage="RE" Min="0" Max="*" Datatype="CWE_RC" MinLength="1" MaxLength="250" Binding="9999" BindingLocation="1" BindingStrength="R" ItemNo="00592"/>
+			<Field Name="Other Names" Usage="X" Min="1" Max="*" Datatype="ST" MinLength="1" MaxLength="200" ItemNo="00593"/>
+			<Field Name="Preferred Report Name for the Observation" Usage="RE" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="30" ItemNo="00594"/>
+			<Field Name="Preferred Short Name or Mnemonic for Observation" Usage="C" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="8" ItemNo="00595"/>
+			<Field Name="Preferred Long Name for the Observation" Usage="C" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="200" ItemNo="00596"/>
+			<Field Name="Orderability" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70136_USL.2" BindingStrength="R" ItemNo="00597"/>
+			<Field Name="Identity of Instrument Used to Perform this Study" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00598"/>
+			<Field Name="Coded Representation of Method" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00599"/>
+			<Field Name="Portable Device Indicator" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0136" ItemNo="00600"/>
+			<Field Name="Observation Producing Department/Section" Usage="X" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00601"/>
+			<Field Name="Telephone Number of Section" Usage="O" Min="0" Max="1" Datatype="XTN" MinLength="1" MaxLength="250" ItemNo="00602"/>
+			<Field Name="Nature of Service/Test/Observation" Datatype="IS" Max="1" MaxLength="1" Min="1" MinLength="1" Binding="HL70174_USL.1" BindingStrength="R" Usage="R" ItemNo="00603"/>
+			<Field Name="Report Subheader" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00604"/>
+			<Field Name="Report Display Order" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00605"/>
+			<Field Name="Date/Time Stamp for any change in Definition for the Observation" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00606"/>
+			<Field Name="Effective Date/Time of Change" Usage="O" Min="0" Max="1" Datatype="DTM" MinLength="1" MaxLength="26" ItemNo="00607"/>
+			<Field Name="Typical Turn-Around Time" Usage="X" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="20" ItemNo="00608"/>
+			<Field Name="Processing Time" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="20" ItemNo="00609"/>
+			<Field Name="Processing Priority" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="40" Binding="0168" ItemNo="00610"/>
+			<Field Name="Reporting Priority" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="5" Binding="0169" ItemNo="00611"/>
+			<Field Name="Outside Site(s) Where Observation may be Performed" Usage="X" Min="0" Max="*" Datatype="CWE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00612"/>
+			<Field Name="Address of Outside Site(s)" Usage="X" Min="0" Max="*" Datatype="XAD" MinLength="1" MaxLength="250" ItemNo="00613"/>
+			<Field Name="Phone Number of Outside Site" Usage="X" Min="0" Max="1" Datatype="XTN" MinLength="1" MaxLength="250" ItemNo="00614"/>
+			<Field Name="Confidentiality Code" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="250" Binding="0177" ItemNo="00615"/>
+			<Field Name="Observations Required to Interpret the Observation" Usage="X" Min="0" Max="*" Datatype="CWE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00616"/>
+			<Field Name="Interpretation of Observations" Usage="RE" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="65536" ItemNo="00617"/>
+			<Field Name="Contraindications to Observations" Usage="RE" Min="0" Max="*" Datatype="CWE_EDOS" MinLength="1" MaxLength="250" Binding="9999" BindingLocation="1" BindingStrength="R" ItemNo="00618"/>
+			<Field Name="Reflex Tests/Observations" Usage="RE" Min="0" Max="*" Datatype="CWE_RC1" MinLength="1" MaxLength="250" Binding="LOINC_USL" BindingLocation="1:4" BindingStrength="R" ItemNo="00619"/>
+			<Field Name="Rules that Trigger Reflex Testing" Usage="RE" Min="0" Max="*" Datatype="TX" MinLength="1" MaxLength="80" ItemNo="00620"/>
+			<Field Name="Fixed Canned Message" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00621"/>
+			<Field Name="Patient Preparation" Usage="RE" Min="0" Max="*" Datatype="TX" MinLength="1" MaxLength="200" ItemNo="00622"/>
+			<Field Name="Procedure Medication" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00623"/>
+			<Field Name="Factors that may Affect the Observation" Usage="RE" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="200" ItemNo="00624"/>
+			<Field Name="Service/Test/Observation Performance Schedule" Usage="RE" Min="0" Max="*" Datatype="ST" MinLength="1" MaxLength="60" ItemNo="00625"/>
+			<Field Name="Description of Test Methods" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="65536" ItemNo="00626"/>
+			<Field Name="Kind of Quantity Observed" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0254" ItemNo="00937"/>
+			<Field Name="Point Versus Interval" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0255" ItemNo="00938"/>
+			<Field Name="Challenge Information" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="200" Binding="0256" ItemNo="00939"/>
+			<Field Name="Relationship Modifier" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0258" ItemNo="00940"/>
+			<Field Name="Target Anatomic Site Of Test" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00941"/>
+			<Field Name="Modality Of Imaging Measurement" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0259" ItemNo="00942"/>
+			<!-- elements preadopted from HL7 v2.8.1 -->
+			<!-- need to check attributes -->
+			<Field Name="Exclusive Test" Usage="RE" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70919_USL.1" BindingStrength="R" ItemNo="003310"/>
+			<Field Name="Diagnostic Service Sector ID" Usage="RE" Min="0" Max="1" Datatype="ID" MinLength="2" MaxLength="3" Binding="HL70074_USL.1" BindingStrength="R" ItemNo="00257"/>
+			<Field Name="Taxonomic Classification Code" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="9999" Binding="0446" ItemNo="01539"/>
+			<Field Name="Other Names" Usage="RE" Min="0" Max="*" Datatype="ST" MinLength="1" MaxLength="200" ItemNo="03399"/>
+			<Field Name="Replacement Producer's Service/Test/Observation ID" Usage="C" Min="0" Max="*" Datatype="CWE_RC" MinLength="1" MaxLength="9999" Binding="LOINC_USL" BindingLocation="1" BindingStrength="R" ItemNo="?????"/>
+			<Field Name="Prior Results Instructions" Usage="RE" Min="0" Max="*" Datatype="TX" MinLength="1" MaxLength="9999" ItemNo="?????"/>
+			<Field Name="Special Instructions" Usage="RE" Min="0" Max="*" Datatype="TX" MinLength="1" MaxLength="9999" ItemNo="?????"/>
+			<Field Name="Test Relationship Category" Usage="RE" Min="0" Max="*" Datatype="CWE_EDOS" MinLength="1" MaxLength="9999" ItemNo="?????"/>
+			<!-- elements preadopted from HL7 v2.8.2 -->
+			<Field Name="Observation Identifier associated with Producer's Service/Test/Observation ID" Usage="RE" Min="0" Max="1" Datatype="CWE_CR" MinLength="1" MaxLength="9999" Binding="LOINC_USL" BindingLocation="1:4" BindingStrength="R" ItemNo="?????"/>
+			<Field Name="Expected Turn-Around Time" Usage="RE" Min="0" Max="1" Datatype="CQ_EDOS" MinLength="1" MaxLength="9999" ItemNo="?????"/>
+			<Field Name="Gender Restriction" Usage="RE" Min="0" Max="*" Datatype="CWE_EDOS" MinLength="1" MaxLength="9999" Binding="HL70001_USL.2" BindingLocation="1" BindingStrength="R" ItemNo="?????"/>
+			<Field Name="Age Restriction" Usage="RE" Min="0" Max="*" Datatype="NR_EDOS" MinLength="1" MaxLength="9999" ItemNo="?????"/>
+		</Segment>
+		<Segment Description="Numeric Observation" ID="OM2_EDOS" Label="OM2_EDOS" Name="OM2">
+			<Field Name="Sequence Number - Test/Observation Master File" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="00586"/>
+			<Field Name="Units of Measure" Usage="RE" Min="0" Max="1" Datatype="CWE_CRE" MinLength="1" MaxLength="250" Binding="UCUM_USL.4" BindingLocation="1:4" BindingStrength="R" ItemNo="00627"/>
+			<Field Name="Range of Decimal Precision" Usage="O" Min="0" Max="*" Datatype="NM" MinLength="1" MaxLength="10" ItemNo="00628"/>
+			<Field Name="Corresponding SI Units of Measure" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00629"/>
+			<Field Name="SI Conversion Factor" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="60" ItemNo="00630"/>
+			<Field Name="Reference (Normal) Range - Ordinal and Continuous Observations" Usage="RE" Min="0" Max="*" Datatype="RFR_EDOS" MinLength="1" MaxLength="250" ItemNo="00631"/>
+			<Field Name="Critical Range for Ordinal and Continuous Observations" Usage="RE" Min="0" Max="*" Datatype="RFR_EDOS" MinLength="1" MaxLength="205" ItemNo="00632"/>
+			<Field Name="Absolute Range for Ordinal and Continuous Observations" Usage="RE" Min="0" Max="*" Datatype="RFR_EDOS" MinLength="1" MaxLength="250" ItemNo="00633"/>
+			<Field Name="Delta Check Criteria" Usage="O" Min="0" Max="*" Datatype="DLT" MinLength="1" MaxLength="250" ItemNo="00634"/>
+			<Field Name="Minimum Meaningful Increments" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="20" ItemNo="00635"/>
+		</Segment>
+		<Segment Description="Categorical Service/Test/Observation" ID="OM3_EDOS" Label="OM3_EDOS" Name="OM3">
+			<Field Name="Sequence Number - Test/Observation Master File" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="00586"/>
+			<Field Name="Preferred Coding System" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00636"/>
+			<Field Name="Valid Coded &quot;Answers&quot;" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00637"/>
+			<Field Name="Normal Text/Codes for Categorical Observations" Usage="RE" Min="0" Max="*" Datatype="CWE_EDOS" MinLength="1" MaxLength="250" Binding="SNOMED_CT_USL.2" BindingLocation="1" BindingStrength="R" ItemNo="00638"/>
+			<Field Name="Abnormal Text/Codes for Categorical Observations" Usage="RE" Min="0" Max="*" Datatype="CWE_EDOS" MinLength="1" MaxLength="250" Binding="SNOMED_CT_USL.3" BindingLocation="1" BindingStrength="R" ItemNo="00639"/>
+			<Field Name="Critical Text/Codes for Categorical Observations" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00640"/>
+			<Field Name="Value Type" Usage="RE" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="HL70125_USL.1" BindingStrength="R" ItemNo="00570"/>
+		</Segment>
+		<Segment Description="Observations that Require Specimens" ID="OM4_EDOS" Label="OM4_EDOS" Name="OM4">
+			<Field Name="Sequence Number - Test/Observation Master File" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="00586"/>
+			<Field Name="Derived Specimen" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0170" ItemNo="00642"/>
+			<Field Name="Container Description" Usage="RE" Min="0" Max="*" Datatype="TX" MinLength="1" MaxLength="60" ItemNo="00643"/>
+			<Field Name="Container Volume" Usage="RE" Min="0" Max="*" Datatype="NM" MinLength="1" MaxLength="20" ItemNo="00644"/>
+			<Field Name="Container Units" Usage="RE" Min="0" Max="*" Datatype="CWE_EDOS" MinLength="1" MaxLength="250" Binding="UCUM_USL" BindingLocation="1" BindingStrength="R" ItemNo="00645"/>
+			<Field Name="Specimen" Usage="RE" Min="0" Max="1" Datatype="CWE_CRE" MinLength="1" MaxLength="250" Binding="SNOMED_CT_USL.1&amp;HL70487_USL.1" BindingLocation="1:4" BindingStrength="R" ItemNo="00646"/>
+			<Field Name="Additive" Usage="RE" Min="0" Max="1" Datatype="CWE_EDOS" MinLength="1" MaxLength="250" Binding="HL70371_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00647"/>
+			<Field Name="Preparation" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="10240" ItemNo="00648"/>
+			<Field Name="Special Handling Requirements" Usage="X" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="10240" ItemNo="00649"/>
+			<Field Name="Normal Collection Volume" Usage="RE" Min="0" Max="1" Datatype="CQ_EDOS" MinLength="1" MaxLength="20" ItemNo="00650"/>
+			<Field Name="Minimum Collection Volume" Usage="RE" Min="0" Max="1" Datatype="CQ_EDOS" MinLength="1" MaxLength="20" ItemNo="00651"/>
+			<Field Name="Specimen Requirements" Usage="RE" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="10240" ItemNo="00652"/>
+			<Field Name="Specimen Priorities" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="1" Binding="0027" ItemNo="00653"/>
+			<Field Name="Specimen Retention Time" Usage="O" Min="0" Max="1" Datatype="CQ" MinLength="1" MaxLength="20" ItemNo="00654"/>
+			<!-- preadopted 2.8 -->
+			<!-- check attributes -->
+			<Field Name="Specimen Handling Code" Usage="RE" Min="0" Max="*" Datatype="CWE_EDOS" MinLength="1" MaxLength="9999" Binding="HL70376_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="01908"/>
+			<Field Name="Specimen Preference" Usage="RE" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="HL70920_USL.1" BindingStrength="R" ItemNo="03311"/>
+			<Field Name="Preferred Specimen/Attribute Sequence ID" Usage="RE" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="9999" ItemNo="03312"/>
+		</Segment>
+		<Segment Description="Observation Batteries (Sets)" ID="OM5_EDOS" Label="OM5_EDOS" Name="OM5">
+			<Field Name="Sequence Number - Test/Observation Master File" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="00586"/>
+			<Field Name="Test/Observations Included within an Ordered Test Battery" Usage="R" Min="1" Max="*" Datatype="CWE_RC1" MinLength="1" MaxLength="250" Binding="9999" BindingLocation="1:4" BindingStrength="R" ItemNo="00655"/>
+			<Field Name="Observation ID Suffixes" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="250" ItemNo="00656"/>
+		</Segment>
+		<Segment Description="Charge Description Master" ID="CDM_EDOS" Label="CDM_EDOS" Name="CDM">
+			<Field Name="Primary Key Value - CDM" Usage="R" Min="1" Max="1" Datatype="CWE_RC" MinLength="1" MaxLength="250" Binding="HL70132_USL" BindingLocation="1" BindingStrength="R" ItemNo="01306"/>
+			<Field Name="Charge Code Alias" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00983"/>
+			<Field Name="Charge Description Short" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00984"/>
+			<Field Name="Charge Description Long" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="250" ItemNo="00985"/>
+			<Field Name="Description Override Indicator" Usage="O" Min="0" Max="1" Datatype="IS" MinLength="1" MaxLength="1" Binding="0268" ItemNo="00986"/>
+			<Field Name="Exploding Charges" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00987"/>
+			<Field Name="Procedure Code" Usage="R" Min="1" Max="*" Datatype="CNE_EDOS" MinLength="1" MaxLength="250" Binding="HL70088_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00393"/>
+			<Field Name="Active/Inactive Flag" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0183" ItemNo="00675"/>
+			<Field Name="Inventory Number" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="0463" ItemNo="00990"/>
+			<Field Name="Resource Load" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="12" ItemNo="00991"/>
+			<Field Name="Contract Number" Usage="O" Min="0" Max="*" Datatype="CX" MinLength="1" MaxLength="250" ItemNo="00992"/>
+			<Field Name="Contract Organization" Usage="O" Min="0" Max="*" Datatype="XON" MinLength="1" MaxLength="250" ItemNo="00993"/>
+			<Field Name="Room Fee Indicator" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0136" ItemNo="00994"/>
+		</Segment>
+		<Segment Name="NTE" ID="NTE_EDOS" Label="NTE_EDOS" Description="Notes and Comments">
+			<Field Name="Set ID - NTE" Usage="R" Min="1" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00096"/>
+			<Field Name="Source of Comment" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="8" Binding="0105" ItemNo="00097"/>
+			<Field Name="Comment" Usage="R" Min="1" Max="*" Datatype="FT" MinLength="1" MaxLength="65536" ItemNo="00098"/>
+			<Field Name="Comment Type" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0364" ItemNo="01318"/>
+		</Segment>
+		<!-- pre-adopted from v2.8.2 -->
+		<Segment Name="OMC" ID="OMC_EDOS" Label="OMC_EDOS" Description="Supporting Clinical Information">
+			<Field Name="Sequence Number - Test/Observation Master File" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="9999" ItemNo="00586"/>
+			<Field Name="Segment Action Code" Usage="C" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="HL70206_USL.1" ItemNo="00763"/>
+			<Field Name="Segment Unique Key" Usage="C" Min="0" Max="1" Datatype="EI_GU" MinLength="1" MaxLength="9999" ItemNo="00764"/>
+			<Field Name="Clinical Information Request" Usage="R" Min="1" Max="1" Datatype="CWE_RC1" MinLength="1" MaxLength="9999" Binding="9999" BindingLocation="1:4" BindingStrength="R" ItemNo="03444"/>
+			<Field Name="Collection Event/Process Step" Usage="R" Min="1" Max="*" Datatype="CWE_RC" MinLength="1" MaxLength="9999" Binding="HL70938_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="03445"/>
+			<Field Name="Communication Location" Usage="R" Min="1" Max="1" Datatype="CWE_EDOS" MinLength="1" MaxLength="9999" Binding="HL70939_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="03446"/>
+			<Field Name="Answer Required" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="HL70136_USL.5" BindingStrength="R" ItemNo="03447"/>
+			<Field Name="Hint/Help Text" Usage="RE" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="9999" ItemNo="03448"/>
+			<Field Name="Type of Answer" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="HL70125_USL.2" BindingStrength="R" ItemNo="03449"/>
+			<Field Name="Multiple Answers Allowed" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03450"/>
+			<Field Name="Answer Choices" Usage="RE" Min="0" Max="*" Datatype="CWE_EDOS" MinLength="1" MaxLength="9999" BindingLocation="1" Binding="SNOMED_CT_USL.4" BindingStrength="R" ItemNo="03451"/>
+			<Field Name="Character Limit" Usage="RE" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="9999" ItemNo="03452"/>
+			<Field Name="Number of Decimals" Usage="RE" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="9999" ItemNo="03453"/>
+		</Segment>
+		<Segment Name="PM1" ID="PM1_EDOS_GU" Label="PM1_EDOS_GU" Description="Payer Master File">
+			<Field Name="Health Plan ID" Usage="R" Min="1" Max="1" Datatype="CWE_EDOS" MinLength="1" MaxLength="9999" Binding="HL70072_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00368"/>
+			<Field Name="Insurance Company ID" Usage="R" Min="1" Max="*" Datatype="CX_GU" MinLength="1" MaxLength="9999" ItemNo="00428"/>
+			<Field Name="Insurance Company Name" Usage="O" Min="0" Max="*" Datatype="XON" MinLength="1" MaxLength="9999" ItemNo="00429"/>
+			<Field Name="Insurance Company Address" Usage="O" Min="0" Max="*" Datatype="XAD" MinLength="1" MaxLength="9999" ItemNo="00430"/>
+			<Field Name="Insurance Co Contact Person" Usage="O" Min="0" Max="*" Datatype="XPN" MinLength="1" MaxLength="9999" ItemNo="00431"/>
+			<Field Name="Insurance Co Phone Number" Usage="O" Min="0" Max="*" Datatype="XTN" MinLength="1" MaxLength="9999" ItemNo="00432"/>
+			<Field Name="Group Number" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="9999" ItemNo="00433"/>
+			<Field Name="Group ID" Usage="O" Min="0" Max="*" Datatype="XON" MinLength="1" MaxLength="9999" ItemNo="00434"/>
+			<Field Name="Plan Effective Date" Usage="O" Min="0" Max="1" Datatype="DT" MinLength="1" MaxLength="9999" ItemNo="00437"/>
+			<Field Name="Plan Expiration Date" Usage="O" Min="0" Max="1" Datatype="DT" MinLength="1" MaxLength="9999" ItemNo="00438"/>
+			<Field Name="Patient DOB Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03454"/>
+			<Field Name="Patient Gender Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03455"/>
+			<Field Name="Patient Relationship Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03456"/>
+			<Field Name="Patient Signature Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03457"/>
+			<Field Name="Diagnosis Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03458"/>
+			<Field Name="Service Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03459"/>
+			<Field Name="Patient Name Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03460"/>
+			<Field Name="Patient Address Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03461"/>
+			<Field Name="Subscribers Name Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03462"/>
+			<Field Name="Workman's Comp Indicator" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03463"/>
+			<Field Name="Bill Type Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03464"/>
+			<Field Name="Commercial Carrier Name and Address Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03465"/>
+			<Field Name="Policy Number Pattern" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="9999" ItemNo="03466"/>
+			<Field Name="Group Number Pattern" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="9999" ItemNo="03467"/>
+		</Segment>
+		<Segment Name="PM1" ID="PM1_EDOS_NG" Label="PM1_EDOS_NG" Description="Payer Master File">
+			<Field Name="Health Plan ID" Usage="R" Min="1" Max="1" Datatype="CWE_EDOS" MinLength="1" MaxLength="9999" Binding="HL70072_USL.1" BindingLocation="1" BindingStrength="R" ItemNo="00368"/>
+			<Field Name="Insurance Company ID" Usage="R" Min="1" Max="*" Datatype="CX_NG" MinLength="1" MaxLength="9999" ItemNo="00428"/>
+			<Field Name="Insurance Company Name" Usage="O" Min="0" Max="*" Datatype="XON" MinLength="1" MaxLength="9999" ItemNo="00429"/>
+			<Field Name="Insurance Company Address" Usage="O" Min="0" Max="*" Datatype="XAD" MinLength="1" MaxLength="9999" ItemNo="00430"/>
+			<Field Name="Insurance Co Contact Person" Usage="O" Min="0" Max="*" Datatype="XPN" MinLength="1" MaxLength="9999" ItemNo="00431"/>
+			<Field Name="Insurance Co Phone Number" Usage="O" Min="0" Max="*" Datatype="XTN" MinLength="1" MaxLength="9999" ItemNo="00432"/>
+			<Field Name="Group Number" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="9999" ItemNo="00433"/>
+			<Field Name="Group ID" Usage="O" Min="0" Max="*" Datatype="XON" MinLength="1" MaxLength="9999" ItemNo="00434"/>
+			<Field Name="Plan Effective Date" Usage="O" Min="0" Max="1" Datatype="DT" MinLength="1" MaxLength="9999" ItemNo="00437"/>
+			<Field Name="Plan Expiration Date" Usage="O" Min="0" Max="1" Datatype="DT" MinLength="1" MaxLength="9999" ItemNo="00438"/>
+			<Field Name="Patient DOB Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03454"/>
+			<Field Name="Patient Gender Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03455"/>
+			<Field Name="Patient Relationship Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03456"/>
+			<Field Name="Patient Signature Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03457"/>
+			<Field Name="Diagnosis Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03458"/>
+			<Field Name="Service Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03459"/>
+			<Field Name="Patient Name Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03460"/>
+			<Field Name="Patient Address Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03461"/>
+			<Field Name="Subscribers Name Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03462"/>
+			<Field Name="Workman's Comp Indicator" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03463"/>
+			<Field Name="Bill Type Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03464"/>
+			<Field Name="Commercial Carrier Name and Address Required" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0136" ItemNo="03465"/>
+			<Field Name="Policy Number Pattern" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="9999" ItemNo="03466"/>
+			<Field Name="Group Number Pattern" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="9999" ItemNo="03467"/>
+		</Segment>
+		<Segment Name="MCP" ID="MCP_EDOS" Label="MCP_EDOS" Description="Master File Coverage Policy">
+			<Field Name="Set ID - MCP" Usage="R" Min="1" Max="1" Datatype="SI" MinLength="1" MaxLength="9999" ItemNo="03468"/>
+			<Field Name="Producer's Service/Test/Observation ID" Usage="R" Min="1" Max="1" Datatype="CWE_RC" MinLength="1" MaxLength="9999" ItemNo="00587"/>
+			<Field Name="Universal Service Price Range - Low Value" Usage="RE" Min="0" Max="1" Datatype="MO_EDOS" MinLength="1" MaxLength="9999" ItemNo="03469"/>
+			<Field Name="Universal Service Price Range - High Value" Usage="RE" Min="0" Max="1" Datatype="MO_EDOS" MinLength="1" MaxLength="9999" ItemNo="03470"/>
+			<Field Name="Reason for Universal Service Cost Range" Usage="C" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="9999" ItemNo="03471"/>
+		</Segment>
+		<!-- <Segment Name="DPS" ID="DPS_EDOS" Description="Diagnosis and Procedure Code ">
+			<Field Name="Diagnosis Code - MCP" Usage="R" Min="1" Max="1" Datatype="CWE_EDOS" MinLength="1" MaxLength="9999" BindingLocation="1" Binding="HL70051" ItemNo="03472"/>
+			<Field Name="Procedure Code" Usage="R" Min="1" Max="*" Datatype="CWE_EDOS" MinLength="1" MaxLength="9999" Binding="HL70941" BindingLocation="1" ItemNo="03484"/>
+			<Field Name="Effective Date/Time" Usage="O" Min="0" Max="1" Datatype="DTM" MinLength="1" MaxLength="9999" ItemNo="00662"/>
+			<Field Name="Expiration Date/Time" Usage="O" Min="0" Max="1" Datatype="DTM" MinLength="1" MaxLength="9999" ItemNo="03473"/>
+			<Field Name="Type of Limitation" Usage="O" Min="0" Max="1" Datatype="CNE" MinLength="1" MaxLength="9999" Binding="0940" ItemNo="03474"/>
+		</Segment> -->
+		<!-- HL7 segments -->
+		<!-- HL7 v2.5.1 MSH -->
+		<Segment Name="MSH" ID="MSH_HL7" Label="MSH_HL7" Description="Message Header">
+			<Field Name="Field Separator" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="1" ItemNo="00001"/>
+			<Field Name="Encoding Characters" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="4" ItemNo="00002"/>
+			<Field Name="Sending Application" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="227" Binding="0361" ItemNo="00003"/>
+			<Field Name="Sending Facility" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="227" Binding="0362" ItemNo="00004"/>
+			<Field Name="Receiving Application" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="227" Binding="0361" ItemNo="00005"/>
+			<Field Name="Receiving Facility" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="227" Binding="0362" ItemNo="00006"/>
+			<Field Name="Date/Time Of Message" Usage="R" Min="1" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00007"/>
+			<Field Name="Security" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="40" ItemNo="00008"/>
+			<Field Name="Message Type" Usage="R" Min="1" Max="1" Datatype="MSG" MinLength="1" MaxLength="15" ItemNo="00009"/>
+			<Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00010"/>
+			<Field Name="Processing ID" Usage="R" Min="1" Max="1" Datatype="PT" MinLength="1" MaxLength="3" ItemNo="00011"/>
+			<Field Name="Version ID" Usage="R" Min="1" Max="1" Datatype="VID" MinLength="1" MaxLength="60" ItemNo="00012"/>
+			<Field Name="Sequence Number" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="15" ItemNo="00013"/>
+			<Field Name="Continuation Pointer" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="180" ItemNo="00014"/>
+			<Field Name="Accept Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="0155" ItemNo="00015"/>
+			<Field Name="Application Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="0155" ItemNo="00016"/>
+			<Field Name="Country Code" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="3" Binding="0399" ItemNo="00017"/>
+			<Field Name="Character Set" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="16" Binding="0211" ItemNo="00692"/>
+			<Field Name="Principal Language Of Message" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00693"/>
+			<Field Name="Alternate Character Set Handling Scheme" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="20" Binding="0356" ItemNo="01317"/>
+			<Field Name="Message Profile Identifier" Usage="O" Min="0" Max="*" Datatype="EI" MinLength="1" MaxLength="427" ItemNo="01598"/>
+		</Segment>
+		<!-- HL7 v2.5.1 SFT -->
+		<Segment Name="SFT" ID="SFT_HL7" Label="SFT_HL7" Description="Software Segment">
+			<Field Name="Software Vendor Organization" Usage="R" Min="1" Max="1" Datatype="XON" MinLength="1" MaxLength="567" ItemNo="01834"/>
+			<Field Name="Software Certified Version or Release Number" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="15" ItemNo="01835"/>
+			<Field Name="Software Product Name" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="01836"/>
+			<Field Name="Software Binary ID" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="01837"/>
+			<Field Name="Software Product Information" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="1024" ItemNo="01838"/>
+			<Field Name="Software Install Date" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="01839"/>
+		</Segment>
+		<!-- HL7 v2.5.1 MFI -->
+		<Segment Name="MFI" ID="MFI_HL7" Label="MFI_HL7" Description="Master File Identification">
+			<Field Name="Master File Identifier" Usage="R" Min="1" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0175" ItemNo="00658"/>
+			<Field Name="Master File Application Identifier" Usage="O" Min="0" Max="1" Datatype="HD" MinLength="1" MaxLength="180" Binding="0361" ItemNo="00659"/>
+			<Field Name="File-Level Event Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="3" Binding="0178" ItemNo="00660"/>
+			<Field Name="Entered Date/Time" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00661"/>
+			<Field Name="Effective Date/Time" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00662"/>
+			<Field Name="Response Level Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="0179" ItemNo="00663"/>
+		</Segment>
+		<!-- HL7 v2.5.1 MFA -->
+		<Segment Name="MFA" ID="MFA_HL7" Label="MFA_HL7" Description="Master File Acknowledgment">
+			<Field Name="Record-Level Event Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="3" Binding="0180"/>
+			<Field Name="MFN Control ID" Usage="C" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="20"/>
+			<Field Name="Event Completion Date/Time" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26"/>
+			<Field Name="MFN Record Level Error Return" Usage="R" Min="1" Max="1" Datatype="CE" MinLength="1" MaxLength="483" Binding="0181"/>
+			<Field Name="Primary Key Value - MFA" Usage="R" Min="1" Max="*" Datatype="varies" MinLength="1" MaxLength="250" Binding="9999"/>
+			<Field Name="Primary Key Value Type - MFA" Usage="R" Min="1" Max="*" Datatype="ID" MinLength="1" MaxLength="3" Binding="0355"/>
+		</Segment>
+		<!-- HL7 v2.5.1 MFE -->
+		<Segment Name="MFE" ID="MFE_HL7" Label="MFE_HL7" Description="Master File Entry">
+			<Field Name="Record-Level Event Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="3" Binding="0180" ItemNo="00664"/>
+			<Field Name="MFN Control ID" Usage="C" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00665"/>
+			<Field Name="Effective Date/Time" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00662"/>
+			<Field Name="Primary Key Value - MFE" Usage="R" Min="1" Max="*" Datatype="varies" MinLength="1" MaxLength="200" Binding="9999" ItemNo="00667"/>
+			<Field Name="Primary Key Value Type" Usage="R" Min="1" Max="*" Datatype="ID" MinLength="1" MaxLength="3" Binding="0355" ItemNo="01319"/>
+		</Segment>
+		<!-- HL7 v2.5.1 OM1 -->
+		<Segment Name="OM1" ID="OM1_HL7" Label="OM1_HL7" Description="General Segment">
+			<Field Name="Sequence Number - Test/Observation Master File" Usage="R" Min="1" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="00586"/>
+			<Field Name="Producer's Service/Test/Observation ID" Usage="R" Min="1" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00587"/>
+			<Field Name="Permitted Data Types" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="12" Binding="0125" ItemNo="00588"/>
+			<Field Name="Specimen Required" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0136" ItemNo="00589"/>
+			<Field Name="Producer ID" Usage="R" Min="1" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00590"/>
+			<Field Name="Observation Description" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="200" ItemNo="00591"/>
+			<Field Name="Other Service/Test/Observation IDs for the Observation" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00592"/>
+			<Field Name="Other Names" Usage="R" Min="1" Max="*" Datatype="ST" MinLength="1" MaxLength="200" ItemNo="00593"/>
+			<Field Name="Preferred Report Name for the Observation" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="30" ItemNo="00594"/>
+			<Field Name="Preferred Short Name or Mnemonic for Observation" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="8" ItemNo="00595"/>
+			<Field Name="Preferred Long Name for the Observation" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="200" ItemNo="00596"/>
+			<Field Name="Orderability" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0136" ItemNo="00597"/>
+			<Field Name="Identity of Instrument Used to Perform this Study" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00598"/>
+			<Field Name="Coded Representation of Method" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00599"/>
+			<Field Name="Portable Device Indicator" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0136" ItemNo="00600"/>
+			<Field Name="Observation Producing Department/Section" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00601"/>
+			<Field Name="Telephone Number of Section" Usage="O" Min="0" Max="1" Datatype="XTN" MinLength="1" MaxLength="250" ItemNo="00602"/>
+			<Field Name="Nature of Service/Test/Observation" Usage="R" Min="1" Max="1" Datatype="IS" MinLength="1" MaxLength="1" Binding="0174" ItemNo="00603"/>
+			<Field Name="Report Subheader" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00604"/>
+			<Field Name="Report Display Order" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00605"/>
+			<Field Name="Date/Time Stamp for any change in Definition for the Observation" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00606"/>
+			<Field Name="Effective Date/Time of Change" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="00607"/>
+			<Field Name="Typical Turn-Around Time" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="20" ItemNo="00608"/>
+			<Field Name="Processing Time" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="20" ItemNo="00609"/>
+			<Field Name="Processing Priority" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="40" Binding="0168" ItemNo="00610"/>
+			<Field Name="Reporting Priority" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="5" Binding="0169" ItemNo="00611"/>
+			<Field Name="Outside Site(s) Where Observation may be Performed" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00612"/>
+			<Field Name="Address of Outside Site(s)" Usage="O" Min="0" Max="*" Datatype="XAD" MinLength="1" MaxLength="250" ItemNo="00613"/>
+			<Field Name="Phone Number of Outside Site" Usage="O" Min="0" Max="1" Datatype="XTN" MinLength="1" MaxLength="250" ItemNo="00614"/>
+			<Field Name="Confidentiality Code" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="250" Binding="0177" ItemNo="00615"/>
+			<Field Name="Observations Required to Interpret the Observation" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00616"/>
+			<Field Name="Interpretation of Observations" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="65536" ItemNo="00617"/>
+			<Field Name="Contraindications to Observations" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00618"/>
+			<Field Name="Reflex Tests/Observations" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00619"/>
+			<Field Name="Rules that Trigger Reflex Testing" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="80" ItemNo="00620"/>
+			<Field Name="Fixed Canned Message" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00621"/>
+			<Field Name="Patient Preparation" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="200" ItemNo="00622"/>
+			<Field Name="Procedure Medication" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00623"/>
+			<Field Name="Factors that may Affect the Observation" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="200" ItemNo="00624"/>
+			<Field Name="Service/Test/Observation Performance Schedule" Usage="O" Min="0" Max="*" Datatype="ST" MinLength="1" MaxLength="60" ItemNo="00625"/>
+			<Field Name="Description of Test Methods" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="65536" ItemNo="00626"/>
+			<Field Name="Kind of Quantity Observed" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0254" ItemNo="00937"/>
+			<Field Name="Point Versus Interval" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0255" ItemNo="00938"/>
+			<Field Name="Challenge Information" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="200" Binding="0256" ItemNo="00939"/>
+			<Field Name="Relationship Modifier" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0258" ItemNo="00940"/>
+			<Field Name="Target Anatomic Site Of Test" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00941"/>
+			<Field Name="Modality Of Imaging Measurement" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0259" ItemNo="00942"/>
+		</Segment>
+		<!-- HL7 v2.5.1 OM2 -->
+		<Segment Name="OM2" ID="OM2_HL7" Label="OM2_HL7" Description="Numeric Observation">
+			<Field Name="Sequence Number - Test/Observation Master File" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="00586"/>
+			<Field Name="Units of Measure" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00627"/>
+			<Field Name="Range of Decimal Precision" Usage="O" Min="0" Max="*" Datatype="NM" MinLength="1" MaxLength="10" ItemNo="00628"/>
+			<Field Name="Corresponding SI Units of Measure" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00629"/>
+			<Field Name="SI Conversion Factor" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="60" ItemNo="00630"/>
+			<Field Name="Reference (Normal) Range - Ordinal and Continuous Observations" Usage="O" Min="0" Max="*" Datatype="RFR" MinLength="1" MaxLength="250" ItemNo="00631"/>
+			<Field Name="Critical Range for Ordinal and Continuous Observations" Usage="O" Min="0" Max="*" Datatype="RFR" MinLength="1" MaxLength="205" ItemNo="00632"/>
+			<Field Name="Absolute Range for Ordinal and Continuous Observations" Usage="O" Min="0" Max="1" Datatype="RFR" MinLength="1" MaxLength="250" ItemNo="00633"/>
+			<Field Name="Delta Check Criteria" Usage="O" Min="0" Max="*" Datatype="DLT" MinLength="1" MaxLength="250" ItemNo="00634"/>
+			<Field Name="Minimum Meaningful Increments" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="20" ItemNo="00635"/>
+		</Segment>
+		<!-- HL7 v2.5.1 OM3 -->
+		<Segment Name="OM3" ID="OM3_HL7" Label="OM3_HL7" Description="Categorical Service/Test/Observation">
+			<Field Name="Sequence Number - Test/Observation Master File" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="00586"/>
+			<Field Name="Preferred Coding System" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00636"/>
+			<Field Name="Valid Coded &quot;Answers&quot;" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00637"/>
+			<Field Name="Normal Text/Codes for Categorical Observations" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00638"/>
+			<Field Name="Abnormal Text/Codes for Categorical Observations" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00639"/>
+			<Field Name="Critical Text/Codes for Categorical Observations" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00640"/>
+			<Field Name="Value Type" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="2" Binding="0125" ItemNo="00570"/>
+		</Segment>
+		<!-- HL7 v2.5.1 OM4 -->
+		<Segment Name="OM4" ID="OM4_HL7" Label="OM4_HL7" Description="Observations that Require Specimens">
+			<Field Name="Sequence Number - Test/Observation Master File" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="00586"/>
+			<Field Name="Derived Specimen" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0170" ItemNo="00642"/>
+			<Field Name="Container Description" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="60" ItemNo="00643"/>
+			<Field Name="Container Volume" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="20" ItemNo="00644"/>
+			<Field Name="Container Units" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00645"/>
+			<Field Name="Specimen" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00646"/>
+			<Field Name="Additive" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="250" Binding="0371" ItemNo="00647"/>
+			<Field Name="Preparation" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="10240" ItemNo="00648"/>
+			<Field Name="Special Handling Requirements" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="10240" ItemNo="00649"/>
+			<Field Name="Normal Collection Volume" Usage="O" Min="0" Max="1" Datatype="CQ" MinLength="1" MaxLength="20" ItemNo="00650"/>
+			<Field Name="Minimum Collection Volume" Usage="O" Min="0" Max="1" Datatype="CQ" MinLength="1" MaxLength="20" ItemNo="00651"/>
+			<Field Name="Specimen Requirements" Usage="O" Min="0" Max="1" Datatype="TX" MinLength="1" MaxLength="10240" ItemNo="00652"/>
+			<Field Name="Specimen Priorities" Usage="O" Min="0" Max="*" Datatype="ID" MinLength="1" MaxLength="1" Binding="0027" ItemNo="00653"/>
+			<Field Name="Specimen Retention Time" Usage="O" Min="0" Max="1" Datatype="CQ" MinLength="1" MaxLength="20" ItemNo="00654"/>
+		</Segment>
+		<!-- HL7 v2.5.1 OM5 -->
+		<Segment Name="OM5" ID="OM5_HL7" Label="OM5_HL7" Description="Observation Batteries (Sets)">
+			<Field Name="Sequence Number - Test/Observation Master File" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="00586"/>
+			<Field Name="Test/Observations Included within an Ordered Test Battery" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="9999" ItemNo="00655"/>
+			<Field Name="Observation ID Suffixes" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="250" ItemNo="00656"/>
+		</Segment>
+		<!-- HL7 v2.8.1 NTE -->
+		<Segment Name="NTE" ID="NTE_HL7" Label="NTE_HL7" Description="Notes and Comments">
+			<Field Name="Set ID - NTE" Usage="O" Min="0" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00096"/>
+			<Field Name="Source of Comment" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="8" Binding="0105" ItemNo="00097"/>
+			<Field Name="Comment" Usage="O" Min="0" Max="*" Datatype="FT" MinLength="1" MaxLength="65536" ItemNo="00098"/>
+			<Field Name="Comment Type" Usage="O" Min="0" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0364" ItemNo="01318"/>
+		</Segment>
+		<!-- HL7 v2.5.1 CDM -->
+		<Segment Name="CDM" ID="CDM_HL7" Label="CDM_HL7" Description="Charge Description Master">
+			<Field Name="Primary Key Value - CDM" Usage="R" Min="1" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0132" ItemNo="01306"/>
+			<Field Name="Charge Code Alias" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00983"/>
+			<Field Name="Charge Description Short" Usage="R" Min="1" Max="1" Datatype="ST" MinLength="1" MaxLength="20" ItemNo="00984"/>
+			<Field Name="Charge Description Long" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="250" ItemNo="00985"/>
+			<Field Name="Description Override Indicator" Usage="O" Min="0" Max="1" Datatype="IS" MinLength="1" MaxLength="1" Binding="0268" ItemNo="00986"/>
+			<Field Name="Exploding Charges" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" ItemNo="00987"/>
+			<Field Name="Procedure Code" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="0088" ItemNo="00393"/>
+			<Field Name="Active/Inactive Flag" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0183" ItemNo="00675"/>
+			<Field Name="Inventory Number" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="0463" ItemNo="00990"/>
+			<Field Name="Resource Load" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="12" ItemNo="00991"/>
+			<Field Name="Contract Number" Usage="O" Min="0" Max="*" Datatype="CX" MinLength="1" MaxLength="250" ItemNo="00992"/>
+			<Field Name="Contract Organization" Usage="O" Min="0" Max="*" Datatype="XON" MinLength="1" MaxLength="250" ItemNo="00993"/>
+			<Field Name="Room Fee Indicator" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0136" ItemNo="00994"/>
+		</Segment>
+		<!-- HL7 v2.5.1 PRC -->
+		<Segment Name="PRC" ID="PRC_HL7" Label="PRC_HL7" Description="Pricing">
+			<Field Name="Primary Key Value - PRC" Usage="R" Min="1" Max="1" Datatype="CE" MinLength="1" MaxLength="250" Binding="0132" ItemNo="00982"/>
+			<Field Name="Facility ID - PRC" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="0464" ItemNo="00995"/>
+			<Field Name="Department" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="0184" ItemNo="00676"/>
+			<Field Name="Valid Patient Classes" Usage="O" Min="0" Max="*" Datatype="IS" MinLength="1" MaxLength="1" Binding="0004" ItemNo="00967"/>
+			<Field Name="Price" Usage="C" Min="0" Max="*" Datatype="CP" MinLength="1" MaxLength="12" ItemNo="00998"/>
+			<Field Name="Formula" Usage="O" Min="0" Max="*" Datatype="ST" MinLength="1" MaxLength="200" ItemNo="00999"/>
+			<Field Name="Minimum Quantity" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="01000"/>
+			<Field Name="Maximum Quantity" Usage="O" Min="0" Max="1" Datatype="NM" MinLength="1" MaxLength="4" ItemNo="01001"/>
+			<Field Name="Minimum Price" Usage="O" Min="0" Max="1" Datatype="MO" MinLength="1" MaxLength="12" ItemNo="01002"/>
+			<Field Name="Maximum Price" Usage="O" Min="0" Max="1" Datatype="MO" MinLength="1" MaxLength="12" ItemNo="01003"/>
+			<Field Name="Effective Start Date" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="01004"/>
+			<Field Name="Effective End Date" Usage="O" Min="0" Max="1" Datatype="TS" MinLength="1" MaxLength="26" ItemNo="01005"/>
+			<Field Name="Price Override Flag" Usage="O" Min="0" Max="1" Datatype="IS" MinLength="1" MaxLength="1" Binding="0268" ItemNo="01006"/>
+			<Field Name="Billing Category" Usage="O" Min="0" Max="*" Datatype="CE" MinLength="1" MaxLength="250" Binding="0293" ItemNo="01007"/>
+			<Field Name="Chargeable Flag" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0136" ItemNo="01008"/>
+			<Field Name="Active/Inactive Flag" Usage="O" Min="0" Max="1" Datatype="ID" MinLength="1" MaxLength="1" Binding="0183" ItemNo="00675"/>
+			<Field Name="Cost" Usage="O" Min="0" Max="1" Datatype="MO" MinLength="1" MaxLength="12" ItemNo="00989"/>
+			<Field Name="Charge On Indicator" Usage="O" Min="0" Max="1" Datatype="IS" MinLength="1" MaxLength="1" Binding="0269" ItemNo="01009"/>
+		</Segment>
+		<!-- HL7 v2.5.1 PRT -->
+		<Segment Name="PRT" ID="PRT_HL7" Label="PRT_HL7" Description="Participation Information">
+			<Field Name="Participation Instance ID" Usage="C" Min="0" Max="1" Datatype="EI" MinLength="1" MaxLength="9999" ItemNo="02379"/>
+			<Field Name="Action Code" Usage="R" Min="1" Max="1" Datatype="ID" MinLength="1" MaxLength="9999" Binding="0287" ItemNo="00816"/>
+			<Field Name="Action Reason" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="9999" ItemNo="02380"/>
+			<Field Name="Participation " Usage="R" Min="1" Max="1" Datatype="CWE" MinLength="1" MaxLength="9999" Binding="0912" ItemNo="02381"/>
+			<Field Name="Participation Person" Usage="C" Min="0" Max="*" Datatype="XCN" MinLength="1" MaxLength="9999" ItemNo="02382"/>
+			<Field Name="Participation Person Provider Type" Usage="C" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="9999" ItemNo="02383"/>
+			<Field Name="Participant Organization Unit Type" Usage="C" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="9999" Binding="0406" ItemNo="02384"/>
+			<Field Name="Participation Organization" Usage="C" Min="0" Max="*" Datatype="XON" MinLength="1" MaxLength="9999" ItemNo="02385"/>
+			<Field Name="Participant Location" Usage="C" Min="0" Max="*" Datatype="PL" MinLength="1" MaxLength="9999" ItemNo="02386"/>
+			<Field Name="Participation Device" Usage="C" Min="0" Max="*" Datatype="EI" MinLength="1" MaxLength="9999" ItemNo="02348"/>
+			<Field Name="Participation Begin Date/Time (arrival time)" Usage="O" Min="0" Max="1" Datatype="DTM" MinLength="1" MaxLength="9999" ItemNo="02387"/>
+			<Field Name="Participation End Date/Time (departure time)" Usage="O" Min="0" Max="1" Datatype="DTM" MinLength="1" MaxLength="9999" ItemNo="02388"/>
+			<Field Name="Participation Qualitative Duration" Usage="O" Min="0" Max="1" Datatype="CWE" MinLength="1" MaxLength="9999" ItemNo="02389"/>
+			<Field Name="Participation Address" Usage="C" Min="0" Max="*" Datatype="XAD" MinLength="1" MaxLength="9999" ItemNo="02390"/>
+			<Field Name="Participant Telecommunication Address" Usage="O" Min="0" Max="*" Datatype="XTN" MinLength="1" MaxLength="9999" ItemNo="02391"/>
+			<Field Name="Participant Device Identifier" Usage="O" Min="0" Max="1" Datatype="EI" MinLength="1" MaxLength="9999" ItemNo="03476"/>
+			<Field Name="Participant Device Manufacture Date" Usage="O" Min="0" Max="1" Datatype="DTM" MinLength="1" MaxLength="9999" ItemNo="03477"/>
+			<Field Name="Participant Device Expiry Date" Usage="O" Min="0" Max="1" Datatype="DTM" MinLength="1" MaxLength="9999" ItemNo="03478"/>
+			<Field Name="Participant Device Lot Number" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="9999" ItemNo="03479"/>
+			<Field Name="Participant Device Serial Number" Usage="O" Min="0" Max="1" Datatype="ST" MinLength="1" MaxLength="9999" ItemNo="03480"/>
+			<Field Name="Participant Device Donation Identification" Usage="O" Min="0" Max="1" Datatype="EI" MinLength="1" MaxLength="9999" ItemNo="03481"/>
+			<Field Name="Participation Device Type" Usage="C" Min="0" Max="1" Datatype="CNE" MinLength="1" MaxLength="9999" ItemNo="03483"/>
+		</Segment>
+		<!-- HL7 v2.8.2 DPS -->
+		<Segment Name="DPS" ID="DPS_HL7" Label="DPS_HL7" Description="Diagnosis and Procedure Code ">
+			<Field Name="Diagnosis Code - MCP" Usage="R" Min="1" Max="1" Datatype="CWE" MinLength="1" MaxLength="9999" Binding="0051" ItemNo="03472"/>
+			<Field Name="Procedure Code" Usage="R" Min="1" Max="*" Datatype="CWE" MinLength="1" MaxLength="9999" Binding="0941" ItemNo="03484"/>
+			<Field Name="Effective Date/Time" Usage="O" Min="0" Max="1" Datatype="DTM" MinLength="1" MaxLength="9999" ItemNo="00662"/>
+			<Field Name="Expiration Date/Time" Usage="O" Min="0" Max="1" Datatype="DTM" MinLength="1" MaxLength="9999" ItemNo="03473"/>
+			<Field Name="Type of Limitation" Usage="O" Min="0" Max="1" Datatype="CNE" MinLength="1" MaxLength="9999" Binding="0940" ItemNo="03474"/>
+		</Segment>
+		<!-- HL7 v2.7.1 UAC -->
+		<Segment Name="UAC" ID="UAC_HL7" Label="UAC_HL7" Description="User Authentication Credential">
+			<Field Name="User Authentication Credential Type Code" Usage="R" Min="1" Max="1" Datatype="CWE" MinLength="1" MaxLength="9999" Binding="0615" ItemNo="02267"/>
+			<Field Name="User Authentication Credential" Usage="R" Min="1" Max="1" Datatype="ED" MinLength="1" MaxLength="9999" ItemNo="02268"/>
+		</Segment>
+	</Segments>
+	<Datatypes>
+		<!-- eDOS specific datatypes -->
+		<Datatype Description="Coded With No Exceptions" ID="CNE_EDOS" Name="CNE">
+			<Component Name="Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="20"/>
+			<Component Name="Text" Usage="R" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Name of Coding System" Usage="R" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
+			<Component Name="Alternate Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Name of Alternate Coding System" Usage="O" Datatype="ID" MinLength="1" MaxLength="20" Binding="0396"/>
+			<Component Name="Coding System Version ID" Usage="RE" Datatype="ST" MinLength="1" MaxLength="10"/>
+			<Component Name="Alternate Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
+			<Component Name="Original Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+		</Datatype>
+		<Datatype Description="Coded With Exceptions - Base" ID="CWE_EDOS" Name="CWE">
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Identifier" Usage="C"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Text" Usage="C"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Coding System" Binding="HL70396" Usage="C" BindingStrength="R"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Alternate Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Alternate Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Coding System Version ID" Usage="C"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Alternate Coding System Version ID" Usage="C"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Original Text" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Second Alternate Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="12" MinLength="1" Name="Second Name of Alternate Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Second Alternate Coding System Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Value Set Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Alternate Value Set Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Second Alternate Value Set Version ID" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Coded With Exceptions - Code Required, But May Be Empty" ID="CWE_CRE" Name="CWE">
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Identifier" Usage="RE"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Text" Usage="C"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Coding System" Binding="HL70396" Usage="C" BindingStrength="R"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Alternate Identifier" Usage="C"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Text" Usage="C"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Alternate Coding System" Binding="HL70396" Usage="C" BindingStrength="R"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Coding System Version ID" Usage="C"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Alternate Coding System Version ID" Usage="C"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Original Text" Usage="C"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Second Alternate Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="12" MinLength="1" Name="Second Name of Alternate Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Second Alternate Coding System Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Value Set Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Alternate Value Set Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Second Alternate Value Set Version ID" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Coded With Exceptions - Required Components" ID="CWE_RC" Name="CWE">
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Identifier" Usage="R"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Text" Usage="R"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Coding System" Binding="HL70396" Usage="R" BindingStrength="R"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Alternate Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Alternate Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Coding System Version ID" Usage="RE"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Alternate Coding System Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Original Text" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Second Alternate Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="12" MinLength="1" Name="Second Name of Alternate Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Second Alternate Coding System Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Value Set Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Alternate Value Set Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Second Alternate Value Set Version ID" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Coded With Exceptions - Required Components" ID="CWE_RC1" Name="CWE">
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Identifier" Usage="R"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Text" Usage="R"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Coding System" Binding="HL70396" Usage="R" BindingStrength="R"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Alternate Identifier" Usage="RE"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Text" Usage="RE"/>
+			<!-- TODO : missing value set -->
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Alternate Coding System" Usage="C"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Coding System Version ID" Usage="RE"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Alternate Coding System Version ID" Usage="C"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Original Text" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Second Alternate Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="12" MinLength="1" Name="Second Name of Alternate Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Second Alternate Coding System Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Value Set Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Alternate Value Set Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Coding System OID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Second Alternate Value Set OID" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="8" MinLength="1" Name="Second Alternate Value Set Version ID" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Coded With Exceptions - Code Required" ID="CWE_CR" Name="CWE">
+			<Component Name="Identifier" Usage="R" Datatype="ST" MinLength="1" MaxLength="20"/>
+			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Name of Coding System" Usage="R" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Alternate Identifier" Usage="RE" Datatype="ST" MinLength="1" MaxLength="20"/>
+			<Component Name="Alternate Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396" BindingStrength="R"/>
+			<Component Name="Coding System Version ID" Usage="RE" Datatype="ST" MinLength="1" MaxLength="10"/>
+			<Component Name="Alternate Coding System Version ID" Usage="C" Datatype="ST" MinLength="1" MaxLength="10"/>
+			<Component Name="Original Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Second Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
+			<Component Name="Second Alternate Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Second Name of Alternate Coding System" Usage="O" Datatype="ID" MinLength="1" MaxLength="12" Binding="0396"/>
+			<Component Name="Second Alternate Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
+			<Component Name="Coding System OID" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Value Set OID" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Value Set Version ID" Usage="O" Datatype="DTM" MinLength="1" MaxLength="8"/>
+			<Component Name="Alternate Coding System OID" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Alternate Value Set OID" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Alternate Value Set Version ID" Usage="O" Datatype="DTM" MinLength="1" MaxLength="8"/>
+			<Component Name="Second Alternate Coding System OID" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Second Alternate Value Set OID" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Second Alternate Value Set Version ID" Usage="O" Datatype="DTM" MinLength="1" MaxLength="8"/>
+		</Datatype>
+		<Datatype Description="Composite Quantity with Units" ID="CQ_EDOS" Name="CQ">
+			<Component Name="Quantity" Usage="R" Datatype="NM" MinLength="1" MaxLength="16"/>
+			<Component Name="Units" Usage="RE" Datatype="CWE_EDOS" MinLength="1" MaxLength="483"/>
+		</Datatype>
+		<Datatype Description="Extended Composite Id With Check Digit (Globally Unique)" ID="CX_GU" Name="CX">
+			<Component Datatype="ST" MaxLength="15" MinLength="1" Name="ID Number" Usage="R"/>
+			<Component Datatype="ST" MaxLength="1" MinLength="1" Name="Check Digit" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Check Digit Scheme" Usage="C"/>
+			<Component Datatype="HD_GU" MaxLength="227" MinLength="1" Name="Assigning Authority" Usage="R"/>
+			<Component Datatype="ID" MaxLength="5" MinLength="1" Name="Identifier Type Code" Binding="HL70203_USL.1" BindingStrength="R" Usage="R"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Assigning Facility" Usage="O"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Effective Date" Usage="O"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Expiration Date" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Assigning Jurisdiction" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Assigning Agency or Department" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Extended Composite Id With Check Digit (Non-Globally Unique)" ID="CX_NG" Name="CX">
+			<Component Datatype="ST" MaxLength="15" MinLength="1" Name="ID Number" Usage="R"/>
+			<Component Datatype="ST" MaxLength="1" MinLength="1" Name="Check Digit" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Check Digit Scheme" Usage="C"/>
+			<Component Datatype="HD_NG" MaxLength="227" MinLength="1" Name="Assigning Authority" Usage="RE"/>
+			<Component Datatype="ID" MaxLength="5" MinLength="1" Name="Identifier Type Code" Binding="HL70203_USL.1" BindingStrength="R" Usage="R"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Assigning Facility" Usage="O"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Effective Date" Usage="O"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Expiration Date" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Assigning Jurisdiction" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Assigning Agency or Department" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Entity Identifier - Globally Unique" ID="EI_GU" Name="EI">
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Entity Identifier" Usage="R"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Namespace ID" Usage="RE"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Universal ID" Usage="R"/>
+			<Component Datatype="ID" MaxLength="6" MinLength="1" Name="Universal ID Type" Usage="R"/>
+		</Datatype>
+		<Datatype Description="Hierarchic Designator - Globally Unique" ID="HD_GU" Name="HD">
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Namespace ID" Usage="RE"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Universal ID" Usage="R"/>
+			<Component Datatype="ID" MaxLength="6" MinLength="1" Name="Universal ID Type" Usage="R"/>
+		</Datatype>
+		<Datatype Description="Hierarchic Designator - Non-Globally Unique" ID="HD_NG" Name="HD">
+			<Component Name="Namespace ID" Usage="C" Datatype="IS" MinLength="1" MaxLength="20"/>
+			<Component Name="Universal ID" Usage="C" Datatype="ST" MinLength="1" MaxLength="199"/>
+			<Component Name="Universal ID Type" Usage="C" Datatype="ID" MinLength="1" MaxLength="6"/>
+		</Datatype>
+		<Datatype Description="Money" ID="MO_EDOS" Name="MO">
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Quantity" Usage="R"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Denomination" Usage="R"/>
+		</Datatype>
+		<Datatype Description="Message Type" ID="MSG_EDOS" Name="MSG">
+			<Component Name="Message Code" Usage="R" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70076_USL" BindingStrength="R"/>
+			<Component Name="Trigger Event" Usage="R" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70003_USL" BindingStrength="R"/>
+			<Component Name="Message Structure" Usage="R" Datatype="ID" MinLength="1" MaxLength="7" Binding="HL70354_USL" BindingStrength="R"/>
+		</Datatype>
+		<Datatype Description="Numeric Range" ID="NR_EDOS" Name="NR">
+			<Component Name="Low Value" Usage="RE" Datatype="NM" MinLength="1" MaxLength="16"/>
+			<Component Name="High Value" Usage="RE" Datatype="NM" MinLength="1" MaxLength="16"/>
+		</Datatype>
+		<Datatype Description="Processing Type" ID="PT_EDOS" Name="PT">
+			<Component Name="Processing ID" Usage="R" Datatype="ID" MinLength="1" MaxLength="1" Binding="HL70103_USL" BindingStrength="R"/>
+			<Component Name="Processing Mode" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="0207"/>
+		</Datatype>
+		<Datatype Description="Reference Range" ID="RFR_EDOS" Name="RFR">
+			<Component Name="Numeric Range" Usage="R" Datatype="NR_EDOS" MinLength="1" MaxLength="33"/>
+			<Component Name="Administrative Sex" Usage="RE" Datatype="CWE_EDOS" MinLength="1" MaxLength="8" Binding="HL70001_USL.1" BindingStrength="R" BindingLocation="1"/>
+			<Component Name="Age Range" Usage="O" Datatype="NR" MinLength="1" MaxLength="33"/>
+			<Component Name="Gestational Age Range" Usage="O" Datatype="NR" MinLength="1" MaxLength="33"/>
+			<Component Name="Species" Usage="O" Datatype="ST" MinLength="1" MaxLength="20"/>
+			<Component Name="Race/subspecies" Usage="RE" Datatype="CWE_EDOS" MinLength="1" MaxLength="20" Binding="HL70005_USL.1" BindingStrength="R" BindingLocation="1"/>
+			<Component Name="Conditions" Usage="O" Datatype="TX" MinLength="1" MaxLength="199"/>
+		</Datatype>
+		<Datatype Description="Time Stamp 1" ID="TS_1" Name="TS">
+			<Component Name="Time" Usage="R" Datatype="DTM" MinLength="1" MaxLength="24"/>
+			<Component Name="Degree of Precision" Usage="X" Datatype="ID" MinLength="1" MaxLength="1" Binding="0529"/>
+		</Datatype>
+		<Datatype Description="Version Identifier" ID="VID_EDOS" Name="VID">
+			<Component Datatype="ID" MaxLength="5" MinLength="1" Name="Version ID" Usage="R"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Internationalization Code" Binding="0399" Usage="O"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="International Version ID" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Extended Address" ID="XAD_EDOS" Name="XAD">
+			<Component Name="Street Address" Usage="RE" Datatype="SAD" MinLength="1" MaxLength="184"/>
+			<Component Name="Other Designation" Usage="O" Datatype="ST" MinLength="1" MaxLength="120"/>
+			<Component Name="City" Usage="RE" Datatype="ST" MinLength="1" MaxLength="50"/>
+			<Component Name="State or Province" Usage="RE" Datatype="ST" MinLength="1" MaxLength="50" Binding="USPS" BindingStrength="R"/>
+			<Component Name="Zip or Postal Code" Usage="RE" Datatype="ST" MinLength="1" MaxLength="12"/>
+			<Component Name="Country" Usage="RE" Datatype="ID" MinLength="1" MaxLength="3" Binding="NIST_HL70399_USL" BindingStrength="R"/>
+			<Component Name="Address Type" Usage="RE" Datatype="ID" MinLength="1" MaxLength="3" Binding="HL70190_USL" BindingStrength="R"/>
+			<Component Name="Other Geographic Designation" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
+			<Component Name="County/Parish Code" Usage="O" Datatype="IS" MinLength="1" MaxLength="20"/>
+			<Component Name="Census Tract" Usage="O" Datatype="IS" MinLength="1" MaxLength="20" Binding="0288"/>
+			<Component Name="Address Representation Code" Usage="O" Datatype="ID" MinLength="1" MaxLength="1" Binding="0465"/>
+			<Component Name="Address Validity Range" Usage="X" Datatype="DR_DTM" MinLength="1" MaxLength="53"/>
+			<Component Name="Effective Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
+			<Component Name="Expiration Date" Usage="O" Datatype="TS" MinLength="1" MaxLength="26"/>
+		</Datatype>
+		<!-- base HL7 v2.5.1 starts here -->
+		<Datatype Description="Address" ID="AD" Name="AD">
+			<Component Datatype="ST" MaxLength="120" MinLength="1" Name="Street Address" Usage="O"/>
+			<Component Datatype="ST" MaxLength="120" MinLength="1" Name="Other Designation" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="City" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="State or Province" Usage="O"/>
+			<Component Datatype="ST" MaxLength="12" MinLength="1" Name="Zip or Postal Code" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Country" Binding="0399" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Address Type" Binding="0190" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="Other Geographic Designation" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Authorization Information" ID="AUI" Name="AUI">
+			<Component Datatype="ST" MaxLength="30" MinLength="1" Name="Authorization Number" Usage="O"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Date" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Source" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Charge Code And Date" ID="CCD" Name="CCD">
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Invocation Event" Binding="0100" Usage="R"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Date/time" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Channel Calibration Parameters" ID="CCP" Name="CCP">
+			<Component Datatype="NM" MaxLength="6" MinLength="1" Name="Channel Calibration Sensitivity Correction Factor" Usage="O"/>
+			<Component Datatype="NM" MaxLength="6" MinLength="1" Name="Channel Calibration Baseline" Usage="O"/>
+			<Component Datatype="NM" MaxLength="6" MinLength="1" Name="Channel Calibration Time Skew" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Channel Definition" ID="CD" Name="CD">
+			<Component Datatype="WVI" MaxLength="22" MinLength="1" Name="Channel Identifier" Usage="O"/>
+			<Component Datatype="WVS" MaxLength="17" MinLength="1" Name="Waveform Source" Usage="O"/>
+			<Component Datatype="CSU" MaxLength="478" MinLength="1" Name="Channel Sensitivity/Units" Usage="O"/>
+			<Component Datatype="CCP" MaxLength="20" MinLength="1" Name="Channel Calibration Parameters" Usage="O"/>
+			<Component Datatype="NM" MaxLength="6" MinLength="1" Name="Channel Sampling Frequency" Usage="O"/>
+			<Component Datatype="NR" MaxLength="33" MinLength="1" Name="Minimum/Maximum Data Values" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Coded Element" ID="CE" Name="CE">
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Alternate Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Alternate Coding System" Binding="0396" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Coded Element With Formatted Values" ID="CF" Name="CF">
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Identifier" Usage="O"/>
+			<Component Datatype="FT" MaxLength="65536" MinLength="1" Name="Formatted Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Alternate Identifier" Usage="O"/>
+			<Component Datatype="FT" MaxLength="65536" MinLength="1" Name="Alternate Formatted Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Alternate Coding System" Binding="0396" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Coded With No Exceptions" ID="CNE" Name="CNE">
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Identifier" Usage="R"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Alternate Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Alternate Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Coding System Version ID" Usage="C"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Alternate Coding System Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Original Text" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Composite Id Number And Name Simplified" ID="CNN" Name="CNN">
+			<Component Datatype="ST" MaxLength="15" MinLength="1" Name="ID Number" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="Family Name" Usage="O"/>
+			<Component Datatype="ST" MaxLength="30" MinLength="1" Name="Given Name" Usage="O"/>
+			<Component Datatype="ST" MaxLength="30" MinLength="1" Name="Second and Further Given Names or Initials Thereof" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Suffix (e.g., JR or III)" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Prefix (e.g., DR)" Usage="O"/>
+			<Component Datatype="IS" MaxLength="5" MinLength="1" Name="Degree (e.g., MD" Binding="0360" Usage="O"/>
+			<Component Datatype="IS" MaxLength="4" MinLength="1" Name="Source Table" Binding="0297" Usage="C"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Assigning Authority - Namespace ID" Binding="0363" Usage="C"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Assigning Authority - Universal ID" Usage="C"/>
+			<Component Datatype="ID" MaxLength="6" MinLength="1" Name="Assigning Authority - Universal ID Type" Binding="0301" Usage="C"/>
+		</Datatype>
+		<Datatype Description="Composite Price" ID="CP" Name="CP">
+			<Component Datatype="MO" MaxLength="20" MinLength="1" Name="Price" Usage="R"/>
+			<Component Datatype="ID" MaxLength="2" MinLength="1" Name="Price Type" Binding="0205" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="From Value" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="To Value" Usage="O"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Range Units" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Range Type" Binding="0298" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Composite Quantity With Units " ID="CQ" Name="CQ">
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Quantity" Usage="O"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Units" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Channel Sensitivity" ID="CSU" Name="CSU">
+			<Component Datatype="NM" MaxLength="60" MinLength="1" Name="Channel Sensitivity" Usage="R"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Unit of Measure Identifier" Usage="C"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Unit of Measure Description" Usage="C"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Unit of Measure Coding System" Binding="0396" Usage="C"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Alternate Unit of Measure Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Unit of Measure Description" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Alternate Unit of Measure Coding System" Binding="0396" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Coded With Exceptions" ID="CWE" Name="CWE">
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Alternate Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Alternate Coding System" Binding="0396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Coding System Version ID" Usage="C"/>
+			<Component Datatype="ST" MaxLength="10" MinLength="1" Name="Alternate Coding System Version ID" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Original Text" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Extended Composite Id With Check Digit" ID="CX" Name="CX">
+			<Component Datatype="ST" MaxLength="15" MinLength="1" Name="ID Number" Usage="R"/>
+			<Component Datatype="ST" MaxLength="1" MinLength="1" Name="Check Digit" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Check Digit Scheme" Binding="0061" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Assigning Authority" Binding="0363" Usage="O"/>
+			<Component Datatype="ID" MaxLength="5" MinLength="1" Name="Identifier Type Code" Binding="0203" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Assigning Facility" Usage="O"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Effective Date" Usage="O"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Expiration Date" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Assigning Jurisdiction" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Assigning Agency or Department" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Daily Deductible Information" ID="DDI" Name="DDI">
+			<Component Datatype="NM" MaxLength="3" MinLength="1" Name="Delay Days" Usage="O"/>
+			<Component Datatype="MO" MaxLength="16" MinLength="1" Name="Monetary Amount" Usage="R"/>
+			<Component Datatype="NM" MaxLength="4" MinLength="1" Name="Number of Days" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Date And Institution Name" ID="DIN" Name="DIN">
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Date" Usage="R"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Institution Name" Binding="0531" Usage="R"/>
+		</Datatype>
+		<Datatype Description="Discharge To Location And Date" ID="DLD" Name="DLD">
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Discharge Location" Binding="0113" Usage="R"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Effective Date" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Driver’s License Number" ID="DLN" Name="DLN">
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="License Number" Usage="R"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Issuing State, Province, Country" Binding="0333" Usage="O"/>
+			<Component Datatype="DT" MaxLength="24" MinLength="1" Name="Expiration Date" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Delta" ID="DLT" Name="DLT">
+			<Component Datatype="NR" MaxLength="33" MinLength="1" Name="Normal Range" Usage="O"/>
+			<Component Datatype="NM" MaxLength="4" MinLength="1" Name="Numeric Threshold" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Change Computation" Binding="0523" Usage="O"/>
+			<Component Datatype="NM" MaxLength="4" MinLength="1" Name="Days Retained" Usage="O"/>
+		</Datatype>
+		<!-- <Datatype Description="TODO" ID="DR" Name="DR"><Component Datatype="TS" MaxLength="26" MinLength="1" Name="Range Start Date/Time" Usage="O"/><Component Datatype="TS" MaxLength="26" MinLength="1" Name="Range End Date/Time" Usage="O"/></Datatype> -->
+		<Datatype Description="Date" ID="DT" Name="DT"/>
+		<Datatype Description="Date/time" ID="DTM" Name="DTM"/>
+		<Datatype Description="Day Type And Number" ID="DTN" Name="DTN">
+			<Component Datatype="IS" MaxLength="2" MinLength="1" Name="Day Type" Binding="0149" Usage="R"/>
+			<Component Datatype="NM" MaxLength="3" MinLength="1" Name="Number of Days" Usage="R"/>
+		</Datatype>
+		<Datatype Description="Encapsulated Data" ID="ED" Name="ED">
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Source Application" Usage="O"/>
+			<Component Datatype="ID" MaxLength="9" MinLength="1" Name="Type of Data" Binding="0191" Usage="R"/>
+			<Component Datatype="ID" MaxLength="18" MinLength="1" Name="Data Subtype" Binding="0291" Usage="O"/>
+			<Component Datatype="ID" MaxLength="6" MinLength="1" Name="Encoding" Binding="0299" Usage="R"/>
+			<Component Datatype="TX" MaxLength="65536" MinLength="1" Name="Data" Usage="R"/>
+		</Datatype>
+		<Datatype Description="Entity Identifier" ID="EI" Name="EI">
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Entity Identifier" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Namespace ID" Binding="0363" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Universal ID" Usage="C"/>
+			<Component Datatype="ID" MaxLength="6" MinLength="1" Name="Universal ID Type" Binding="0301" Usage="C"/>
+		</Datatype>
+		<Datatype Description="Entity Identifier Pair" ID="EIP" Name="EIP">
+			<Component Datatype="EI" MaxLength="427" MinLength="1" Name="Placer Assigned Identifier" Usage="O"/>
+			<Component Datatype="EI" MaxLength="427" MinLength="1" Name="Filler Assigned Identifier" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Error Location And Description" ID="ELD" Name="ELD">
+			<Component Datatype="ST" MaxLength="3" MinLength="1" Name="Segment ID" Usage="O"/>
+			<Component Datatype="NM" MaxLength="2" MinLength="1" Name="Segment Sequence" Usage="O"/>
+			<Component Datatype="NM" MaxLength="2" MinLength="1" Name="Field Position" Usage="O"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Code Identifying Error" Binding="0357" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Error Location" ID="ERL" Name="ERL">
+			<Component Datatype="ST" MaxLength="3" MinLength="1" Name="Segment ID" Usage="R"/>
+			<Component Datatype="NM" MaxLength="2" MinLength="1" Name="Segment Sequence" Usage="R"/>
+			<Component Datatype="NM" MaxLength="2" MinLength="1" Name="Field Position" Usage="O"/>
+			<Component Datatype="NM" MaxLength="2" MinLength="1" Name="Field Repetition" Usage="O"/>
+			<Component Datatype="NM" MaxLength="2" MinLength="1" Name="Component Number" Usage="O"/>
+			<Component Datatype="NM" MaxLength="2" MinLength="1" Name="Sub-Component Number" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Financial Class" ID="FC" Name="FC">
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Financial Class Code" Binding="0064" Usage="R"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Effective Date" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Family Name " ID="FN" Name="FN">
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="Surname" Usage="R"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Own Surname Prefix" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="Own Surname" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Surname Prefix From Partner/Spouse" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="Surname From Partner/Spouse" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Formatted Text Data" ID="FT" Name="FT"/>
+		<Datatype Description="General Timing Specification" ID="GTS" Name="GTS"/>
+		<Datatype Description="Hierarchic Designator" ID="HD" Name="HD">
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Namespace ID" Binding="0300" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Universal ID" Usage="C"/>
+			<Component Datatype="ID" MaxLength="6" MinLength="1" Name="Universal ID Type" Binding="0301" Usage="C"/>
+		</Datatype>
+		<Datatype Description="Insurance Certification Definition" ID="ICD" Name="ICD">
+			<Component Datatype="IS" MaxLength="11" MinLength="1" Name="Certification Patient Type" Binding="0150" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Certification Required" Binding="0136" Usage="R"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Date/Time Certification Required" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Coded Value For HL7 Defined Tables" ID="ID" Name="ID"/>
+		<Datatype Description="Coded Value For User-defined Tables" ID="IS" Name="IS"/>
+		<Datatype Description="Job Code/class" ID="JCC" Name="JCC">
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Job Code" Binding="0327" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Job Class" Binding="0328" Usage="O"/>
+			<Component Datatype="TX" MaxLength="250" MinLength="1" Name="Job Description Text" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Location With Address Variation 1" ID="LA1" Name="LA1">
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Point of Care" Binding="0302" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Room" Binding="0303" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Bed" Binding="0304" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Facility" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Location Status" Binding="0306" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Patient Location Type" Binding="0305" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Building" Binding="0307" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Floor" Binding="0308" Usage="O"/>
+			<Component Datatype="AD" MaxLength="415" MinLength="1" Name="Address" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Location With Address Variation 2" ID="LA2" Name="LA2">
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Point of Care" Binding="0302" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Room" Binding="0303" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Bed" Binding="0304" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Facility" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Location Status" Binding="0306" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Patient Location Type" Binding="0305" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Building" Binding="0307" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Floor" Binding="0308" Usage="O"/>
+			<Component Datatype="ST" MaxLength="120" MinLength="1" Name="Street Address" Usage="O"/>
+			<Component Datatype="ST" MaxLength="120" MinLength="1" Name="Other Designation" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="City" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="State or Province" Usage="O"/>
+			<Component Datatype="ST" MaxLength="12" MinLength="1" Name="Zip or Postal Code" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Country" Binding="0399" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Address Type" Binding="0190" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="Other Geographic Designation" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Multiplexed Array" ID="MA" Name="MA">
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Sample 1 From Channel 1" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Sample 1 From Channel 2" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Sample 1 From Channel N" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Sample 2 From Channel 1" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Sample 2 From Channel N" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Sample N From Channel N" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Money" ID="MO" Name="MO">
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Quantity" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Denomination" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Money And Charge Code" ID="MOC" Name="MOC">
+			<Component Datatype="MO" MaxLength="20" MinLength="1" Name="Monetary Amount" Usage="O"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Charge Code" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Money Or Percentage" ID="MOP" Name="MOP">
+			<Component Datatype="ID" MaxLength="2" MinLength="1" Name="Money or Percentage Indicator" Binding="0148" Usage="R"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Money or Percentage Quantity" Usage="R"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Currency Denomination" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Message Type" ID="MSG" Name="MSG">
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Message Code" Binding="0076" Usage="R"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Trigger Event" Binding="0003" Usage="R"/>
+			<Component Datatype="ID" MaxLength="7" MinLength="1" Name="Message Structure" Binding="0354" Usage="R"/>
+		</Datatype>
+		<Datatype Description="Numeric Array " ID="NA" Name="NA">
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Value1" Usage="R"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Value2" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Value3" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Value4" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Name With Date And Location" ID="NDL" Name="NDL">
+			<Component Datatype="CNN" MaxLength="406" MinLength="1" Name="Name" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Start Date/time" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="End Date/time" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Point of Care" Binding="0302" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Room" Binding="0303" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Bed" Binding="0304" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Facility" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Location Status" Binding="0306" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Patient Location Type" Binding="0305" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Building" Binding="0307" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Floor" Binding="0308" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Numeric" ID="NM" Name="NM"/>
+		<Datatype Description="Numeric Range" ID="NR" Name="NR">
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Low Value" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="High Value" Usage="O"/>
+		</Datatype>
+		<Datatype Description="TODO" ID="NUL" Name="NUL"/>
+		<Datatype Description="Occurrence Code And Date " ID="OCD" Name="OCD">
+			<Component Datatype="CNE" MaxLength="705" MinLength="1" Name="Occurrence Code" Binding="0350" Usage="R"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Occurrence Date" Usage="R"/>
+		</Datatype>
+		<Datatype Description="Order Sequence Definition" ID="OSD" Name="OSD">
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Sequence/Results Flag" Binding="0524" Usage="R"/>
+			<Component Datatype="ST" MaxLength="15" MinLength="1" Name="Placer Order Number: Entity Identifier" Usage="R"/>
+			<Component Datatype="IS" MaxLength="6" MinLength="1" Name="Placer Order Number: Namespace ID" Binding="0363" Usage="O"/>
+			<Component Datatype="ST" MaxLength="15" MinLength="1" Name="Filler Order Number: Entity Identifier" Usage="R"/>
+			<Component Datatype="IS" MaxLength="6" MinLength="1" Name="Filler Order Number: Namespace ID" Binding="0363" Usage="O"/>
+			<Component Datatype="ST" MaxLength="12" MinLength="1" Name="Sequence Condition Value" Usage="O"/>
+			<Component Datatype="NM" MaxLength="3" MinLength="1" Name="Maximum Number of Repeats" Usage="O"/>
+			<Component Datatype="ST" MaxLength="15" MinLength="1" Name="Placer Order Number: Universal ID" Usage="R"/>
+			<Component Datatype="ID" MaxLength="6" MinLength="1" Name="Placer Order Number: Universal ID Type" Binding="0301" Usage="O"/>
+			<Component Datatype="ST" MaxLength="15" MinLength="1" Name="Filler Order Number: Universal ID" Usage="R"/>
+			<Component Datatype="ID" MaxLength="6" MinLength="1" Name="Filler Order Number: Universal ID Type" Binding="0301" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Occurrence Span Code And Date" ID="OSP" Name="OSP">
+			<Component Datatype="CNE" MaxLength="705" MinLength="1" Name="Occurrence Span Code" Binding="0351" Usage="R"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Occurrence Span Start Date" Usage="C"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Occurrence Span Stop Date" Usage="C"/>
+		</Datatype>
+		<Datatype Description="Practitioner Institutional Privileges" ID="PIP" Name="PIP">
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Privilege" Binding="0525" Usage="R"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Privilege Class" Binding="0526" Usage="O"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Expiration Date" Usage="O"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Activation Date" Usage="O"/>
+			<Component Datatype="EI" MaxLength="427" MinLength="1" Name="Facility" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Person Location" ID="PL" Name="PL">
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Point of Care" Binding="0302" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Room" Binding="0303" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Bed" Binding="0304" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Facility" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Location Status" Binding="0306" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Person Location Type" Binding="0305" Usage="C"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Building" Binding="0307" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Floor" Binding="0308" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Location Description" Usage="O"/>
+			<Component Datatype="EI" MaxLength="427" MinLength="1" Name="Comprehensive Location Identifier" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Assigning Authority for Location" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Practitioner License Or Other Id Number" ID="PLN" Name="PLN">
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="ID Number" Usage="R"/>
+			<Component Datatype="IS" MaxLength="8" MinLength="1" Name="Type of ID Number" Binding="0338" Usage="R"/>
+			<Component Datatype="ST" MaxLength="62" MinLength="1" Name="State/other Qualifying Information" Usage="O"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Expiration Date" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Performing Person Time Stamp" ID="PPN" Name="PPN">
+			<Component Datatype="ST" MaxLength="15" MinLength="1" Name="ID Number" Usage="O"/>
+			<Component Datatype="FN" MaxLength="194" MinLength="1" Name="Family Name" Usage="O"/>
+			<Component Datatype="ST" MaxLength="30" MinLength="1" Name="Given Name" Usage="O"/>
+			<Component Datatype="ST" MaxLength="30" MinLength="1" Name="Second and Further Given Names or Initials Thereof" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Suffix (e.g., JR or III)" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Prefix (e.g., DR)" Usage="O"/>
+			<Component Datatype="IS" MaxLength="5" MinLength="1" Name="Degree (e.g., MD)" Binding="0360" Usage="B"/>
+			<Component Datatype="IS" MaxLength="4" MinLength="1" Name="Source Table" Binding="0297" Usage="C"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Assigning Authority" Binding="0363" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Name Type Code" Binding="0200" Usage="O"/>
+			<Component Datatype="ST" MaxLength="1" MinLength="1" Name="Identifier Check Digit" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Check Digit Scheme" Binding="0061" Usage="C"/>
+			<Component Datatype="ID" MaxLength="5" MinLength="1" Name="Identifier Type Code" Binding="0203" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Assigning Facility" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Date/Time Action Performed" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Name Representation Code" Binding="0465" Usage="O"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Name Context" Binding="0448" Usage="O"/>
+			<Component Datatype="DR_DTM" MaxLength="17" MinLength="1" Name="Name Validity Range" Usage="B"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Name Assembly Order" Binding="0444" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Effective Date" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Expiration Date" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Professional Suffix" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Assigning Jurisdiction" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Assigning Agency or Department" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Parent Result Link " ID="PRL" Name="PRL">
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Parent Observation Identifier" Usage="R"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Parent Observation Sub-identifier" Usage="O"/>
+			<Component Datatype="TX" MaxLength="250" MinLength="1" Name="Parent Observation Value Descriptor" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Processing Type" ID="PT" Name="PT">
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Processing ID" Binding="0103" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Processing Mode" Binding="0207" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Policy Type And Amount" ID="PTA" Name="PTA">
+			<Component Datatype="IS" MaxLength="5" MinLength="1" Name="Policy Type" Binding="0147" Usage="R"/>
+			<Component Datatype="IS" MaxLength="9" MinLength="1" Name="Amount Class" Binding="0193" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Money or Percentage Quantity" Usage="B"/>
+			<Component Datatype="MOP" MaxLength="23" MinLength="1" Name="Money or Percentage" Usage="R"/>
+		</Datatype>
+		<Datatype Description="Query Input Parameter List" ID="QIP" Name="QIP">
+			<Component Datatype="ST" MaxLength="12" MinLength="1" Name="Segment Field Datatype" Usage="R"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Values" Usage="R"/>
+		</Datatype>
+		<Datatype Description="Query Selection Criteria" ID="QSC" Name="QSC">
+			<Component Datatype="ST" MaxLength="12" MinLength="1" Name="Segment Field Datatype" Usage="R"/>
+			<Component Datatype="ID" MaxLength="2" MinLength="1" Name="Relational Operator" Binding="0209" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Value" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Relational Conjunction" Binding="0210" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Row Column Definition " ID="RCD" Name="RCD">
+			<Component Datatype="ST" MaxLength="12" MinLength="1" Name="Segment Field Datatype" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="HL7 Data Type" Binding="0440" Usage="O"/>
+			<Component Datatype="NM" MaxLength="2" MinLength="1" Name="Maximum Column Width" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Reference Range" ID="RFR" Name="RFR">
+			<Component Datatype="NR" MaxLength="33" MinLength="1" Name="Numeric Range" Usage="R"/>
+			<Component Datatype="IS" MaxLength="8" MinLength="1" Name="Administrative Sex" Binding="0001" Usage="O"/>
+			<Component Datatype="NR" MaxLength="33" MinLength="1" Name="Age Range" Usage="O"/>
+			<Component Datatype="NR" MaxLength="33" MinLength="1" Name="Gestational Age Range" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Species" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Race/subspecies" Usage="O"/>
+			<Component Datatype="TX" MaxLength="199" MinLength="1" Name="Conditions" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Repeat Interval" ID="RI" Name="RI">
+			<Component Datatype="IS" MaxLength="6" MinLength="1" Name="Repeat Pattern" Binding="0335" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Explicit Time Interval" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Room Coverage" ID="RMC" Name="RMC">
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Room Type" Binding="0145" Usage="R"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Amount Type" Binding="0146" Usage="O"/>
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Coverage Amount" Usage="B"/>
+			<Component Datatype="MOP" MaxLength="23" MinLength="1" Name="Money or Percentage" Usage="R"/>
+		</Datatype>
+		<Datatype Description="Reference Pointer" ID="RP" Name="RP">
+			<Component Datatype="ST" MaxLength="15" MinLength="1" Name="Pointer" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Application ID" Usage="O"/>
+			<Component Datatype="ID" MaxLength="9" MinLength="1" Name="Type of Data" Binding="0191" Usage="O"/>
+			<Component Datatype="ID" MaxLength="19" MinLength="1" Name="Subtype" Binding="0291" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Repeat Pattern" ID="RPT" Name="RPT">
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Repeat Pattern Code" Binding="0335" Usage="R"/>
+			<Component Datatype="ID" MaxLength="2" MinLength="1" Name="Calendar Alignment" Binding="0527" Usage="O"/>
+			<Component Datatype="NM" MaxLength="10" MinLength="1" Name="Phase Range Begin Value" Usage="O"/>
+			<Component Datatype="NM" MaxLength="10" MinLength="1" Name="Phase Range End Value" Usage="O"/>
+			<Component Datatype="NM" MaxLength="10" MinLength="1" Name="Period Quantity" Usage="O"/>
+			<Component Datatype="IS" MaxLength="10" MinLength="1" Name="Period Units" Usage="C"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Institution Specified Time" Binding="0136" Usage="O"/>
+			<Component Datatype="ID" MaxLength="6" MinLength="1" Name="Event" Binding="0528" Usage="O"/>
+			<Component Datatype="NM" MaxLength="10" MinLength="1" Name="Event Offset Quantity" Usage="O"/>
+			<Component Datatype="IS" MaxLength="10" MinLength="1" Name="Event Offset Units" Usage="C"/>
+			<Component Datatype="GTS" MaxLength="200" MinLength="1" Name="General Timing Specification" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Street Address" ID="SAD" Name="SAD">
+			<Component Datatype="ST" MaxLength="120" MinLength="1" Name="Street or Mailing Address" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="Street Name" Usage="O"/>
+			<Component Datatype="ST" MaxLength="12" MinLength="1" Name="Dwelling Number" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Scheduling Class Value Pair" ID="SCV" Name="SCV">
+			<Component Datatype="CWE" MaxLength="20" MinLength="1" Name="Parameter Class" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Parameter Value" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Sequence Id" ID="SI" Name="SI"/>
+		<Datatype Description="Structured Numeric" ID="SN" Name="SN">
+			<Component Datatype="ST" MaxLength="2" MinLength="1" Name="Comparator" Usage="O"/>
+			<Component Datatype="NM" MaxLength="15" MinLength="1" Name="Num1" Usage="O"/>
+			<Component Datatype="ST" MaxLength="1" MinLength="1" Name="Separator/Suffix" Usage="O"/>
+			<Component Datatype="NM" MaxLength="15" MinLength="1" Name="Num2" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Specialty Description" ID="SPD" Name="SPD">
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="Specialty Name" Usage="R"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="Governing Board" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Eligible or Certified" Binding="0337" Usage="O"/>
+			<Component Datatype="DT" MaxLength="8" MinLength="1" Name="Date of Certification" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Specimen Source" ID="SPS" Name="SPS">
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Specimen Source Name or Code" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Additives" Binding="0371" Usage="O"/>
+			<Component Datatype="TX" MaxLength="200" MinLength="1" Name="Specimen Collection Method" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Body Site" Binding="0163" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Site Modifier" Binding="0495" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Collection Method Modifier Code" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Specimen Role" Binding="0369" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Sort Order" ID="SRT" Name="SRT">
+			<Component Datatype="ST" MaxLength="12" MinLength="1" Name="Sort-by Field" Usage="R"/>
+			<Component Datatype="ID" MaxLength="2" MinLength="1" Name="Sequencing" Binding="0397" Usage="O"/>
+		</Datatype>
+		<Datatype Description="String Data" ID="ST" Name="ST"/>
+		<Datatype Description="Time" ID="TM" Name="TM"/>
+		<Datatype Description="Timing Quantity" ID="TQ" Name="TQ">
+			<Component Datatype="CQ_TQ" MaxLength="267" MinLength="1" Name="Quantity" Usage="O"/>
+			<Component Datatype="RI" MaxLength="206" MinLength="1" Name="Interval" Usage="O"/>
+			<Component Datatype="ST" MaxLength="6" MinLength="1" Name="Duration" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Start Date/Time" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="End Date/Time" Usage="O"/>
+			<Component Datatype="ST" MaxLength="6" MinLength="1" Name="Priority" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Condition" Usage="O"/>
+			<Component Datatype="TX" MaxLength="200" MinLength="1" Name="Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Conjunction" Binding="0472" Usage="O"/>
+			<Component Datatype="OSD" MaxLength="110" MinLength="1" Name="Order Sequencing" Usage="O"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Occurrence Duration" Usage="O"/>
+			<Component Datatype="NM" MaxLength="4" MinLength="1" Name="Total Occurrences" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Time Stamp" ID="TS" Name="TS">
+			<Component Datatype="DTM" MaxLength="24" MinLength="1" Name="Time" Usage="R"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Degree of Precision" Binding="0529" Usage="B"/>
+		</Datatype>
+		<Datatype Description="Text Data" ID="TX" Name="TX"/>
+		<Datatype Description="Ub Value Code And Amount" ID="UVC" Name="UVC">
+			<Component Datatype="CNE" MaxLength="20" MinLength="1" Name="Value Code" Binding="0153" Usage="R"/>
+			<Component Datatype="MO" MaxLength="20" MinLength="1" Name="Value Amount" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Varies" ID="varies" Name="varies"/>
+		<Datatype Description="Visiting Hours" ID="VH" Name="VH">
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Start Day Range" Binding="0267" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="End Day Range" Binding="0267" Usage="O"/>
+			<Component Datatype="TM" MaxLength="16" MinLength="1" Name="Start Hour Range" Usage="O"/>
+			<Component Datatype="TM" MaxLength="16" MinLength="1" Name="End Hour Range" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Version Identifier" ID="VID" Name="VID">
+			<Component Datatype="ID" MaxLength="5" MinLength="1" Name="Version ID" Binding="0104" Usage="O"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Internationalization Code" Binding="0399" Usage="O"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="International Version ID" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Value Range" ID="VR" Name="VR">
+			<Component Datatype="ST" MaxLength="6" MinLength="1" Name="First Data Code Value" Usage="O"/>
+			<Component Datatype="ST" MaxLength="6" MinLength="1" Name="Last Data Code Value" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Channel Identifier" ID="WVI" Name="WVI">
+			<Component Datatype="NM" MaxLength="4" MinLength="1" Name="Channel Number" Usage="R"/>
+			<Component Datatype="ST" MaxLength="17" MinLength="1" Name="Channel Name" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Waveform Source" ID="WVS" Name="WVS">
+			<Component Datatype="ST" MaxLength="8" MinLength="1" Name="Source One Name" Usage="R"/>
+			<Component Datatype="ST" MaxLength="8" MinLength="1" Name="Source Two Name" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Extended Address" ID="XAD" Name="XAD">
+			<Component Datatype="SAD" MaxLength="184" MinLength="1" Name="Street Address" Usage="O"/>
+			<Component Datatype="ST" MaxLength="120" MinLength="1" Name="Other Designation" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="City" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="State or Province" Usage="O"/>
+			<Component Datatype="ST" MaxLength="12" MinLength="1" Name="Zip or Postal Code" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Country" Binding="0399" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Address Type" Binding="0190" Usage="O"/>
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="Other Geographic Designation" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="County/Parish Code" Binding="0289" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Census Tract" Binding="0288" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Address Representation Code" Binding="0465" Usage="O"/>
+			<Component Datatype="DR_DTM" MaxLength="53" MinLength="1" Name="Address Validity Range" Usage="B"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Effective Date" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Expiration Date" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Extended Composite Id Number And Name For Persons" ID="XCN" Name="XCN">
+			<Component Datatype="ST" MaxLength="15" MinLength="1" Name="ID Number" Usage="O"/>
+			<Component Datatype="FN" MaxLength="194" MinLength="1" Name="Family Name" Usage="O"/>
+			<Component Datatype="ST" MaxLength="30" MinLength="1" Name="Given Name" Usage="O"/>
+			<Component Datatype="ST" MaxLength="30" MinLength="1" Name="Second and Further Given Names or Initials Thereof" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Suffix (e.g., JR or III)" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Prefix (e.g., DR)" Usage="O"/>
+			<Component Datatype="IS" MaxLength="5" MinLength="1" Name="Degree (e.g., MD)" Binding="0360" Usage="B"/>
+			<Component Datatype="IS" MaxLength="4" MinLength="1" Name="Source Table" Binding="0297" Usage="C"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Assigning Authority" Binding="0363" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Name Type Code" Binding="0200" Usage="O"/>
+			<Component Datatype="ST" MaxLength="1" MinLength="1" Name="Identifier Check Digit" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Check Digit Scheme" Binding="0061" Usage="C"/>
+			<Component Datatype="ID" MaxLength="5" MinLength="1" Name="Identifier Type Code" Binding="0203" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Assigning Facility" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Name Representation Code" Binding="0465" Usage="O"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Name Context" Binding="0448" Usage="O"/>
+			<Component Datatype="DR_DTM" MaxLength="53" MinLength="1" Name="Name Validity Range" Usage="B"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Name Assembly Order" Binding="0444" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Effective Date" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Expiration Date" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Professional Suffix" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Assigning Jurisdiction" Usage="O"/>
+			<Component Datatype="CWE" MaxLength="705" MinLength="1" Name="Assigning Agency or Department" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Extended Composite Name And Identification Number For Organizations" ID="XON" Name="XON">
+			<Component Datatype="ST" MaxLength="50" MinLength="1" Name="Organization Name" Usage="O"/>
+			<Component Datatype="IS" MaxLength="20" MinLength="1" Name="Organization Name Type Code" Binding="0204" Usage="O"/>
+			<Component Datatype="NM" MaxLength="4" MinLength="1" Name="ID Number" Usage="B"/>
+			<Component Datatype="NM" MaxLength="1" MinLength="1" Name="Check Digit" Usage="O"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Check Digit Scheme" Binding="0061" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Assigning Authority" Binding="0363" Usage="O"/>
+			<Component Datatype="ID" MaxLength="5" MinLength="1" Name="Identifier Type Code" Binding="0203" Usage="O"/>
+			<Component Datatype="HD" MaxLength="227" MinLength="1" Name="Assigning Facility" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Name Representation Code" Binding="0465" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Organization Identifier" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Extended Person Name" ID="XPN" Name="XPN">
+			<Component Datatype="FN" MaxLength="194" MinLength="1" Name="Family Name" Usage="O"/>
+			<Component Datatype="ST" MaxLength="30" MinLength="1" Name="Given Name" Usage="O"/>
+			<Component Datatype="ST" MaxLength="30" MinLength="1" Name="Second and Further Given Names or Initials Thereof" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Suffix (e.g., JR or III)" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Prefix (e.g., DR)" Usage="O"/>
+			<Component Datatype="IS" MaxLength="6" MinLength="1" Name="Degree (e.g., MD)" Binding="0360" Usage="B"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Name Type Code" Binding="0200" Usage="O"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Name Representation Code" Binding="0465" Usage="O"/>
+			<Component Datatype="CE" MaxLength="483" MinLength="1" Name="Name Context" Binding="0448" Usage="O"/>
+			<Component Datatype="DR_DTM" MaxLength="53" MinLength="1" Name="Name Validity Range" Usage="B"/>
+			<Component Datatype="ID" MaxLength="1" MinLength="1" Name="Name Assembly Order" Binding="0444" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Effective Date" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Expiration Date" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Professional Suffix" Usage="O"/>
+		</Datatype>
+		<Datatype Description="Extended Telecommunication Number" ID="XTN" Name="XTN">
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Telephone Number" Usage="B"/>
+			<Component Datatype="ID" MaxLength="3" MinLength="1" Name="Telecommunication Use Code" Binding="0201" Usage="O"/>
+			<Component Datatype="ID" MaxLength="8" MinLength="1" Name="Telecommunication Equipment Type" Binding="0202" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Email Address" Usage="O"/>
+			<Component Datatype="NM" MaxLength="3" MinLength="1" Name="Country Code" Usage="O"/>
+			<Component Datatype="NM" MaxLength="5" MinLength="1" Name="Area/City Code" Usage="O"/>
+			<Component Datatype="NM" MaxLength="9" MinLength="1" Name="Local Number" Usage="O"/>
+			<Component Datatype="NM" MaxLength="5" MinLength="1" Name="Extension" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Any Text" Usage="O"/>
+			<Component Datatype="ST" MaxLength="4" MinLength="1" Name="Extension Prefix" Usage="O"/>
+			<Component Datatype="ST" MaxLength="6" MinLength="1" Name="Speed Dial Code" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Unformatted Telephone number" Usage="C"/>
+		</Datatype>
+		<Datatype Description="Date/time Range" ID="DR" Name="DR">
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Range Start Date/Time" Usage="O"/>
+			<Component Datatype="TS" MaxLength="26" MinLength="1" Name="Range End Date/Time" Usage="O"/>
+		</Datatype>
+		<!-- DR_DTM created to avoid issues when DR is used at a component level -->
+		<Datatype Description="Date/time Range" ID="DR_DTM" Name="DR">
+			<Component Datatype="DTM" MaxLength="26" MinLength="1" Name="Range Start Date/Time" Usage="O"/>
+			<Component Datatype="DTM" MaxLength="26" MinLength="1" Name="Range End Date/Time" Usage="O"/>
+		</Datatype>
+		<!-- CQ_TQ created to avoid issues of "sub-subcomponents in the TQ datatype -->
+		<Datatype Description="Composite Quantity With Units " ID="CQ_TQ" Label="CQ_TQ" Name="CQ">
+			<Component Datatype="NM" MaxLength="16" MinLength="1" Name="Quantity" Usage="O"/>
+			<!-- <Component Datatype="CE" MaxLength="483" MinLength="1" Name="Units" Usage="O"/> -->
+			<!-- The original Units component with CE datatype is replaced by the components of the CE datatype -->
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Coding System" Binding="HL70396" Usage="O"/>
+			<Component Datatype="ST" MaxLength="20" MinLength="1" Name="Alternate Identifier" Usage="O"/>
+			<Component Datatype="ST" MaxLength="199" MinLength="1" Name="Alternate Text" Usage="O"/>
+			<Component Datatype="ID" MaxLength="20" MinLength="1" Name="Name of Alternate Coding System" Binding="HL70396" Usage="O"/>
+		</Datatype>
+	</Datatypes>
+</ConformanceProfile>

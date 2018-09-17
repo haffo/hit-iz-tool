@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "<span style=\"font-size: 13.3333px;\">The provider reviews the available inventory following vaccine administrations used during the day.</span>",
-  "comments" : "No Comments",
-  "preCondition" : "<span style=\"font-size: 13.3333px;\">Vaccine inventory entered.</span><div style=\"font-size: 13.3333px;\">Vaccines administered for Juana Mariana Vazquez, Juan Marcel Marina, and Juana Maria Gonzales.</div>",
-  "postCondition" : "<span style=\"font-size: 13.3333px;\">Available vaccine inventory displayed.</span>",
-  "testObjectives" : "<span style=\"font-weight: bold; font-style: italic;\">Update Vaccine Inventory from Patient Dosage Administration: </span><span style=\"font-style: normal; font-weight: normal;\">The system updates the vaccine inventory to assure the correct count of remaining available vaccine inventory.</span>",
-  "evaluationCriteria" : "<span style=\"font-size: 13.3333px;\">Evaluation criteria is defined within each test step.</span>",
-  "notes" : "This test step is introduced in 2018 and will be considered an evaluation year for the test step. Tester should document feedback and issues."
-}
