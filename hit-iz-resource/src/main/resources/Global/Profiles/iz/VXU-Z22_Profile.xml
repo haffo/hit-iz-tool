@@ -600,6 +600,9 @@
 			<DynamicMapping>
 				<Mapping Position="5" Reference="2" SecondReference="3.1">
 					<!--Existing Cases-->
+					<Case Value="CE" SecondValue="64994-7" Datatype="CE_IZ"/>
+					<Case Value="CE" SecondValue="69764-9" Datatype="CE_IZ"/>
+					<Case Value="CE" SecondValue="30956-7" Datatype="CE_IZ"/>
 					<Case Value="CE" Datatype="CE_IZ"/>
 					<Case Value="DT" Datatype="DT"/>
 					<Case Value="TS" Datatype="TS"/>
@@ -608,6 +611,7 @@
 					<Case Value="ID" Datatype="ID"/>
 					
 					<!--New Cases added by 0125-->
+					<Case Value="CNE" Datatype="CNE"/>
 					<Case Value="CQ" Datatype="CQ"/>
 					<Case Value="CWE" Datatype="CWE"/>
 					<Case Value="CX" Datatype="CX"/>
@@ -628,6 +632,9 @@
 					
 					<!-- Following DTs were added because of No base DT definition-->
 					<Case Value="LA2" Datatype="LA2"/>
+					<Case Value="ED" Datatype="ED"/>
+					<Case Value="RP" Datatype="RP"/>
+					<Case Value="SN" Datatype="SN"/>
 				</Mapping>
 			</DynamicMapping>
 			<Field Name="Set ID - OBX" Usage="R" Min="1" Max="1" Datatype="SI" MinLength="1" MaxLength="4" ItemNo="00569"/>

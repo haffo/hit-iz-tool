@@ -1808,7 +1808,7 @@ Indian/Alaska Native", "categorization" : "Presence-Test Case Proper"},
 : "Presence-Test Case Proper"},
 				{"location" : "OBX.5", "dataelement" : "Observation Value", "data" : "", "categorization"
 : ""},
-							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300019611180223",
+							{"location" : "OBX.5.1", "dataelement" : "Identifier", "data" : "253088698300019611150415",
 "categorization" : "Value-Test Case Fixed"},
 							{"location" : "OBX.5.2", "dataelement" : "Text", "data" : "Rotavirus VIS",
 "categorization" : "Presence-Test Case Proper"},

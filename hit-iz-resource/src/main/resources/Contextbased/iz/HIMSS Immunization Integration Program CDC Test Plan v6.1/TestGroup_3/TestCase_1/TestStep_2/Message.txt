@@ -1,3 +1,0 @@
-MSH|^~\&|||||20140515001020-0500||QBP^Q11^QBP_Q11|793543|P|2.5.1|||ER|AL|||||Z44^CDCPHINVS||
-QPD|Z44^Request Evaluated History and Forecast^CDCPHINVS|37374859|123456^^^MYEHR^MR|Marina^Juan^Marcel^^^^L|Morales^Anita^Francesca^^^^M|201603041100|M|4623 Standish Way^^Stamford^CT^06903^^L|^PRN^CP^^1^203^5551213|N
-RCP|I|1^RD&Records&HL70126

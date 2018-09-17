@@ -1143,16 +1143,10 @@
 			<ValueElement Value="186" DisplayName="Influenza, injectable, Madin Darby Canine Kidney, quadrivalent" CodeSystem="CVX"/>
 			<ValueElement Value="187" DisplayName="zoster vaccine recombinant" CodeSystem="CVX"/>
 			<ValueElement Value="188" DisplayName="zoster vaccine, unspecified formulation" CodeSystem="CVX"/>
-			<ValueElement Value="189" DisplayName="Hepatitis B vaccine (recombinant), CpG adjuvanted" CodeSystem="CVX"/>
+			<ValueElement Value="189" DisplayName="Hepatitis B vaccine (recombinant), adjuvanted" CodeSystem="CVX"/>
 			<ValueElement Value="801" DisplayName="AS03 Adjuvant" CodeSystem="CVX"/>
 			<ValueElement Value="998" DisplayName="no vaccine administered" CodeSystem="CVX"/>
 			<ValueElement Value="999" DisplayName="unknown" CodeSystem="CVX"/>
-			
-			
-			
-			<ValueElement Value="190" DisplayName="Typhoid conjugate vaccine (non-US)" CodeSystem="CVX"/>
-			<ValueElement Value="191" DisplayName="meningococcal A polysaccharide vaccine (non-US)" CodeSystem="CVX"/>
-			<ValueElement Value="192" DisplayName="meningococcal AC polysaccharide vaccine (non-US)" CodeSystem="CVX"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_ImmunizationFundingSource_IIS" Name="Immunization Funding Source (IIS)">
 			<ValueElement Value="PHC70" CodeSystem="CDCPHINVS" DisplayName="Private funds "/>
@@ -1311,11 +1305,6 @@
 			<ValueElement Value="253088698300013411180212" CodeSystem="cdcgs1vis" DisplayName="MMRV Vaccine"/>
 			<ValueElement Value="253088698300024011180212" CodeSystem="cdcgs1vis" DisplayName="Varicella Vaccine"/>
 			<ValueElement Value="253088698300020211180212" CodeSystem="cdcgs1vis" DisplayName="Live Zoster Vaccine"/>
-			
-			
-			<ValueElement Value="253088698300019611180223" CodeSystem="cdcgs1vis" DisplayName="Rotavirus Vaccine"/>
-			<ValueElement Value="253088698300002811180321" CodeSystem="cdcgs1vis" DisplayName="Anthrax Vaccine VIS"/>
-			
 		</ValueSetDefinition>
 		
 		<ValueSetDefinition BindingIdentifier="PHVS_FundingEligibilityObsMethod_IIS" Name="Funding Eligibility Observation Method (IIS)">
@@ -1362,12 +1351,9 @@
 			<ValueElement Value="09" CodeSystem="CVX" DisplayName="Td (adult), adsorbed"/>
 			<ValueElement Value="115" CodeSystem="CVX" DisplayName="Tdap"/>
 			<ValueElement Value="21" CodeSystem="CVX" DisplayName="varicella"/>
+			
 			<ValueElement Value="187" CodeSystem="CVX" DisplayName="zoster vaccine recombinant"/>
 			<ValueElement Value="121" CodeSystem="CVX" DisplayName="zoster live"/>
-			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax Vaccine VIS"/>
-			<ValueElement Value="24" CodeSystem="CVX" DisplayName="Anthrax VIS"/>
-			
-			<ValueElement Value="189" CodeSystem="CVX" DisplayName="HepB-CpG"/>
 		</ValueSetDefinition>
 	</ValueSetDefinitions>
 	<ValueSetDefinitions Group="HL7" Order="3">

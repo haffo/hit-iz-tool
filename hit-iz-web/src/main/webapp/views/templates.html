@@ -229,9 +229,9 @@
   </div>
   <div class="modal-body">
     <div class="validation-result-info-content">
-      <div ng-if="domain.validationResultInfo != null" ng-bind-html="toHTML(domain.validationResultInfo)">
+      <div ng-if="appInfo.validationResultInfo != null" ng-bind-html="toHTML(appInfo.validationResultInfo)">
       </div>
-      <div ng-if="domain.validationResultInfo == null">
+      <div ng-if="appInfo.validationResultInfo == null">
         No information available.
       </div>
     </div>
@@ -258,6 +258,24 @@
 </script>
 
 
+<script type="text/ng-template" id="UnknownDomain.html">
+  <div class="modal-header">
+    Tool Scope Not Found
+  </div>
+  <div class="modal-body error-dlg">
+    <div style="text-align:center">
+      <label>The selected tool scope {{domain}} is unknown. Please select a new tool scope:</label>
+      <select class="" name="selectedDomain"
+              ng-change="selectDomain()"
+              ng-model="selectedDomain.domain" required
+      >
+        <option ng-repeat="dom in appInfo.domains"
+                value="{{dom.domain}}">{{dom.name}}
+        </option>
+      </select>
+    </div>
+  </div>
+</script>
 
 
 <script type="text/ng-template" id="InvalidReqCtrl.html">
@@ -540,21 +558,21 @@
         }"></span></i>
 
     <!--<a title="Delete Group" class="point pull-right btn btn-default btn-xs" style="margin-right:5px"  data-nodrag-->
-    <!--ng-click="editGroup(node)"><i-->
-    <!--class="fa fa-trash"></i></a>-->
+       <!--ng-click="editGroup(node)"><i-->
+      <!--class="fa fa-trash"></i></a>-->
 
     <!--<a title="Delete Group" class="point pull-right btn btn-danger btn-xs" style="margin-right:5px"  data-nodrag-->
-    <!--ng-click="deleteGroup(node)"><i-->
-    <!--class="fa fa-trash"></i></a>-->
+       <!--ng-click="deleteGroup(node)"><i-->
+      <!--class="fa fa-trash"></i></a>-->
 
     <a data-nodrag ng-show="node.type === 'TestPlan'"  ng-class="{'selected': testcase != null && testcase.id === node.id && testcase.type === node.type}" ng-click="selectGroup(node)"
        class="point">{{node.name}}</a>
 
     <a data-nodrag  ng-show="node.type !== 'TestPlan'"  ng-class="{'selected': testcase != null && testcase.id === node.id && testcase.type === node.type}" ng-click="selectGroup(node)"
        class="point">{{node.position}}.{{node.name}}</a>
-    <a data-nodrag title="Add New Sub Profile Group" ng-click="addNewTestStepGroup(node)" class="point pull-right btn btn-success btn-xs" style="margin-right:10px">
+     <a data-nodrag title="Add New Group" ng-click="addNewTestStepGroup(node)" class="point pull-right btn btn-success btn-xs" style="margin-right:10px">
       <i
-        class="fa fa-plus"></i>Sub Profile Group</a>
+      class="fa fa-plus"></i></a>
 
 
   </div>
@@ -563,34 +581,4 @@
     </li>
   </ol>
 
-</script>
-
-
-
-<script type="text/ng-template" id="UnknownDomain.html">
-  <div class="modal-header">
-    Tool Scope Selection
-  </div>
-  <div class="modal-body error-dlg">
-    <div style="margin-bottom: 20px">
-      <!--<p style="color:red;text-align:center">No Tool Scope selected</p>-->
-      <!--<hr />-->
-      <span style="">Select Tool Scope:</span>
-      <select class="" name="selectedDomain"
-              ng-change="selectDomain()"
-              ng-model="selectedDomain.domain" required
-      >
-        <option ng-repeat="dom in appInfo.domains"
-                value="{{dom.domain}}">{{dom.name}}
-        </option>
-      </select>
-      Or
-      <button ng-if="isLoggedIn()" ng-click="createNewDomain()" class="btn btn-primary btn-md"
-              title="Create New Tool Scope"><i class="fa fa-plus"></i>Create
-      </button>
-      <a  ng-if="!isLoggedIn()" class="point" ng-click="loginReq()"> Sign In</a>
-    </div>
-
-
-  </div>
 </script>

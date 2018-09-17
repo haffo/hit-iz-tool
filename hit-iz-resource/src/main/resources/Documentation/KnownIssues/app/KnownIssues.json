@@ -1,24 +1,8 @@
-[{
-		"version": "1.6.0",
-		"date": "2017/07/13",
-		"name": "KnownIssues-Immunization_1.6.0.docx",
-		"title": "Known Issues 1.6.0"
-	},{
-		"version": "1.5.0",
-		"date": "2017/02/09",
-		"name": "KnownIssues-Immunization_1.5.0.docx",
-		"title": "Known Issues 1.5.0"
-	},
+[ 
 	{
 		"version": "1.4.1",
 		"date": "2016/10/12",
-		"name": "KnownIssues-Immunization_1.4.1.docx",
-		"title": "Known Issues 1.4.1"
-	},
-	{
-		"version": "1.0.0",
-		"date": "2016/02/04",
-		"name": "KnownIssues-Immunization_1.0.0.docx",
-		"title": "Known Issues 1.0.0"
+		"name": "KnownIssues-App_1.4.1.docx",
+		"title": "App Known Issues 1.4.1"
 	}
 ]

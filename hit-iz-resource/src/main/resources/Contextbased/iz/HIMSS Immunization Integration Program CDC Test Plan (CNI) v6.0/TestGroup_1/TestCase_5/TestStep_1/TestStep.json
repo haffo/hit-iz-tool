@@ -1,7 +1,0 @@
-{
-  "id" : 713766,
-  "name" : "Enter Vaccine Inventory",
-  "description" : "<span style=\"font-size: 13.3333px;\">Demonstrates the ability to enter and update inventory with stock received.</span>",
-  "type" : "SUT_MANUAL",
-  "position" : 1
-}

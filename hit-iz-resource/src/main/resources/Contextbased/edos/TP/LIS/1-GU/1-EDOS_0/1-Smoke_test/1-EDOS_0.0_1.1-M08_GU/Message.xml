@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MFN_M08>
+  <MSH>
+    <MSH.1>|</MSH.1>
+    <MSH.2>^~\&amp;</MSH.2>
+    <MSH.4>
+      <MSH.4.2>2.16.840.1.113883.3.72.5.21</MSH.4.2>
+      <MSH.4.3>ISO</MSH.4.3>
+    </MSH.4>
+    <MSH.7>
+      <MSH.7.1>20130421113601-0700</MSH.7.1>
+    </MSH.7>
+    <MSH.9>
+      <MSH.9.1>MFN</MSH.9.1>
+      <MSH.9.2>M08</MSH.9.2>
+      <MSH.9.3>MFN_M08</MSH.9.3>
+    </MSH.9>
+    <MSH.10>EDOS_0.0_1.1-M08_GU</MSH.10>
+    <MSH.11>
+      <MSH.11.1>D</MSH.11.1>
+    </MSH.11>
+    <MSH.12>
+      <MSH.12.1>2.5.1</MSH.12.1>
+    </MSH.12>
+    <MSH.21>
+      <MSH.21.1>EDOS_GU_Profile</MSH.21.1>
+      <MSH.21.3>2.16.840.1.113883.9.70</MSH.21.3>
+      <MSH.21.4>ISO</MSH.21.4>
+    </MSH.21>
+  </MSH>
+  <MFI>
+    <MFI.1>
+      <MFI.1.1>OMM</MFI.1.1>
+      <MFI.1.3>HL70175</MFI.1.3>
+    </MFI.1>
+    <MFI.3>REP</MFI.3>
+    <MFI.6>NE</MFI.6>
+  </MFI>
+  <MFN_M08.MF_TEST>
+    <MFE>
+      <MFE.1>MAD</MFE.1>
+      <MFE.3>
+        <MFE.3.1>20131219145310</MFE.3.1>
+      </MFE.3>
+      <MFE.4>
+        <MFE.4.1>11</MFE.4.1>
+        <MFE.4.2>Prothrombin Time, PT</MFE.4.2>
+        <MFE.4.3>99USL</MFE.4.3>
+      </MFE.4>
+      <MFE.5>CWE</MFE.5>
+    </MFE>
+    <OM1>
+      <OM1.1>1</OM1.1>
+      <OM1.2>
+        <OM1.2.1>11</OM1.2.1>
+        <OM1.2.2>Prothrombin Time, PT</OM1.2.2>
+        <OM1.2.3>99USL</OM1.2.3>
+      </OM1.2>
+      <OM1.4>Y</OM1.4>
+      <OM1.5>
+        <OM1.5.2>Century Hospital Clinical Laboratory</OM1.5.2>
+      </OM1.5>
+      <OM1.11>Prothrombin Time</OM1.11>
+      <OM1.12>N</OM1.12>
+      <OM1.18>A</OM1.18>
+    </OM1>
+  </MFN_M08.MF_TEST>
+  <MFN_M08.MF_TEST>
+    <MFE>
+      <MFE.1>MAD</MFE.1>
+      <MFE.3>
+        <MFE.3.1>20131219145310</MFE.3.1>
+      </MFE.3>
+      <MFE.4>
+        <MFE.4.1>12</MFE.4.1>
+        <MFE.4.2>INR</MFE.4.2>
+        <MFE.4.3>99USL</MFE.4.3>
+      </MFE.4>
+      <MFE.5>CWE</MFE.5>
+    </MFE>
+    <OM1>
+      <OM1.1>2</OM1.1>
+      <OM1.2>
+        <OM1.2.1>12</OM1.2.1>
+        <OM1.2.2>INR</OM1.2.2>
+        <OM1.2.3>99USL</OM1.2.3>
+      </OM1.2>
+      <OM1.4>N</OM1.4>
+      <OM1.5>
+        <OM1.5.2>Century Hospital Clinical Laboratory</OM1.5.2>
+      </OM1.5>
+      <OM1.11>International Normalized Ratio</OM1.11>
+      <OM1.12>N</OM1.12>
+      <OM1.18>C</OM1.18>
+    </OM1>
+  </MFN_M08.MF_TEST>
+</MFN_M08>

@@ -12,6 +12,7 @@ angular.module('hit-tool-services', ['common']);
 angular.module('documentation', []);
 angular.module('domains', []);
 angular.module('logs', ['common']);
+angular.module('transport', []);
 
 var app = angular.module('hit-app', [
   'ngRoute',
@@ -64,7 +65,8 @@ var app = angular.module('hit-app', [
   'ui.select',
   'hit-edit-testcase-details',
   'domains',
-  'logs'
+  'logs',
+    'transport'
 ]);
 
 
@@ -125,9 +127,9 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
     .when('/error', {
       templateUrl: 'error.html'
     })
-    .when('/transport-settings', {
-      templateUrl: 'views/transport-settings.html'
-    })
+      .when('/transport', {
+          templateUrl: 'views/transport/transport.html'
+      })
     .when('/forgotten', {
       templateUrl: 'views/account/forgotten.html',
       controller: 'ForgottenCtrl'
@@ -365,8 +367,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
   var initUser = function (user) {
     userInfoService.setCurrentUser(user);
     User.initUser(user);
-    Transport.init();
-  };
+   };
 
 
 
