@@ -48,30 +48,40 @@
   <!--</div>-->
 </script>
 
-
 <script type="text/ng-template" id="TransactionConfigureReceiver.html">
   <div class="modal-header">
         <span style="font-weight: bold; font-size: 20px">
             Receiver Configuration Panel
         </span>
 
+    <span class="pull-right">
+       <button ng-click="save()" type="button" ng-disabled="receiverForm1.$invalid"
+               title="Send" class="btn btn-sm btn-primary">
+           <i class="fa fa-check"></i> Save
+       </button>
+        <button ng-click="cancel()" type="button"
+                title="Cancel" class="btn btn-sm btn-warning">
+            <i class="fa fa-times"></i>
+            Cancel
+        </button>
+          </span>
   </div>
   <div class="modal-body">
     <div class="row">
       <div class="cols-md-10">
-        <form name="receiverForm1" novalidate>
-          <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+        <form name="receiverForm1" novalidate ng-if="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+          <div class="form-group">
             <label>Username</label>
             <input type="text" class="form-control" ng-model="config.username"
                    placeholder="Username">
           </div>
-          <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+          <div class="form-group">
             <label>Password</label>
             <input type="text" class="form-control"
                    placeholder="Password"
                    ng-model="config.password">
           </div>
-          <div class="form-group" ng-show="testCase.testType !== 'RECEIVER_CONNECTIVITY'">
+          <div class="form-group">
             <label>FacilityID</label>
             <input type="text" class="form-control" placeholder="Facility Id"
                    ng-model="config.facilityID">
@@ -86,22 +96,36 @@
                class="help-block">
               Invalid url. Expected format is {{appInfo.url}}</p>
           </div>
+
+          <div class="form-group"
+               ng-class="{ 'has-error' : receiverForm1.hl7Message.$invalid && !receiverForm1.hl7Message.$pristine }">
+            <label>HL7 Message</label>
+
+            <textarea name="hl7Message" id="hl7Message" class="form-control" ng-model="config.hl7Message" required style="width:100%; height:200px">
+            </textarea>
+
+            <p ng-show="receiverForm1.hl7Message.$invalid && !receiverForm1.hl7Message.$pristine"
+               class="help-block">
+              Missing HL7 message
+            </p>
+          </div>
         </form>
+
+        <form name="receiverForm1" novalidate ng-if="testCase.testType === 'RECEIVER_CONNECTIVITY'">
+          <div class="form-group"
+               ng-class="{ 'has-error' : receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine }">
+            <label>Endpoint</label>
+            <input type="url" name="endpoint" class="form-control" ng-model="config.endpoint"
+                   placeholder="SUT Endpoint" required>
+
+            <p ng-show="receiverForm1.endpoint.$invalid && !receiverForm1.endpoint.$pristine"
+               class="help-block">
+              Invalid url. Expected format is {{appInfo.url}}</p>
+          </div>
+        </form>
+
       </div>
     </div>
-  </div>
-  <div class="modal-footer">
-    <span class="pull-right">
-       <button ng-click="save()" type="button" ng-disabled="receiverForm1.$invalid"
-               title="Send" class="btn btn-xs btn-primary">
-           <i class="fa fa-check"></i> Save
-       </button>
-        <button ng-click="cancel()" type="button"
-                title="Cancel" class="btn btn-xs btn-warning">
-            <i class="fa fa-times"></i>
-            Cancel
-        </button>
-          </span>
   </div>
 </script>
 
@@ -229,9 +253,9 @@
   </div>
   <div class="modal-body">
     <div class="validation-result-info-content">
-      <div ng-if="appInfo.validationResultInfo != null" ng-bind-html="toHTML(appInfo.validationResultInfo)">
+      <div ng-if="domain.validationResultInfo != null" ng-bind-html="toHTML(domain.validationResultInfo)">
       </div>
-      <div ng-if="appInfo.validationResultInfo == null">
+      <div ng-if="domain.validationResultInfo == null">
         No information available.
       </div>
     </div>
@@ -258,24 +282,6 @@
 </script>
 
 
-<script type="text/ng-template" id="UnknownDomain.html">
-  <div class="modal-header">
-    Tool Scope Not Found
-  </div>
-  <div class="modal-body error-dlg">
-    <div style="text-align:center">
-      <label>The selected tool scope {{domain}} is unknown. Please select a new tool scope:</label>
-      <select class="" name="selectedDomain"
-              ng-change="selectDomain()"
-              ng-model="selectedDomain.domain" required
-      >
-        <option ng-repeat="dom in appInfo.domains"
-                value="{{dom.domain}}">{{dom.name}}
-        </option>
-      </select>
-    </div>
-  </div>
-</script>
 
 
 <script type="text/ng-template" id="InvalidReqCtrl.html">
@@ -558,21 +564,21 @@
         }"></span></i>
 
     <!--<a title="Delete Group" class="point pull-right btn btn-default btn-xs" style="margin-right:5px"  data-nodrag-->
-       <!--ng-click="editGroup(node)"><i-->
-      <!--class="fa fa-trash"></i></a>-->
+    <!--ng-click="editGroup(node)"><i-->
+    <!--class="fa fa-trash"></i></a>-->
 
     <!--<a title="Delete Group" class="point pull-right btn btn-danger btn-xs" style="margin-right:5px"  data-nodrag-->
-       <!--ng-click="deleteGroup(node)"><i-->
-      <!--class="fa fa-trash"></i></a>-->
+    <!--ng-click="deleteGroup(node)"><i-->
+    <!--class="fa fa-trash"></i></a>-->
 
     <a data-nodrag ng-show="node.type === 'TestPlan'"  ng-class="{'selected': testcase != null && testcase.id === node.id && testcase.type === node.type}" ng-click="selectGroup(node)"
        class="point">{{node.name}}</a>
 
     <a data-nodrag  ng-show="node.type !== 'TestPlan'"  ng-class="{'selected': testcase != null && testcase.id === node.id && testcase.type === node.type}" ng-click="selectGroup(node)"
        class="point">{{node.position}}.{{node.name}}</a>
-     <a data-nodrag title="Add New Group" ng-click="addNewTestStepGroup(node)" class="point pull-right btn btn-success btn-xs" style="margin-right:10px">
+    <a data-nodrag title="Add New Sub Profile Group" ng-click="addNewTestStepGroup(node)" class="point pull-right btn btn-success btn-xs" style="margin-right:10px">
       <i
-      class="fa fa-plus"></i></a>
+        class="fa fa-plus"></i>Sub Profile Group</a>
 
 
   </div>
@@ -581,4 +587,34 @@
     </li>
   </ol>
 
+</script>
+
+
+
+<script type="text/ng-template" id="UnknownDomain.html">
+  <div class="modal-header">
+    Tool Scope Selection
+  </div>
+  <div class="modal-body error-dlg">
+    <div style="margin-bottom: 20px">
+      <!--<p style="color:red;text-align:center">No Tool Scope selected</p>-->
+      <!--<hr />-->
+      <span style="">Select Tool Scope:</span>
+      <select class="" name="selectedDomain"
+              ng-change="selectDomain()"
+              ng-model="selectedDomain.domain" required
+      >
+        <option ng-repeat="dom in appInfo.domains"
+                value="{{dom.domain}}">{{dom.name}}
+        </option>
+      </select>
+      Or
+      <button ng-if="isLoggedIn()" ng-click="createNewDomain()" class="btn btn-primary btn-md"
+              title="Create New Tool Scope"><i class="fa fa-plus"></i>Create
+      </button>
+      <a  ng-if="!isLoggedIn()" class="point" ng-click="loginReq()"> Sign In</a>
+    </div>
+
+
+  </div>
 </script>
