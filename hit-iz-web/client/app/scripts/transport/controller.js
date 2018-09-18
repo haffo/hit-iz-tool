@@ -29,40 +29,6 @@ angular.module('transport')
 
         $scope.initTransportConfigList = function () {
             $scope.error = null;
-            Transport.configs = {};
-            $timeout(function() {
-                Transport.getDomainForms($rootScope.domain.domain).then(function (transportForms) {
-                    $rootScope.transportSupported = transportForms != null && transportForms.length > 0;
-                    if ($rootScope.transportSupported) {
-                        angular.forEach(transportForms, function (transportForm) {
-                            var protocol = transportForm.protocol;
-                            if (!Transport.configs[protocol]) {
-                                Transport.configs[protocol] = {};
-                            }
-                            if (!Transport.configs[protocol]['forms']) {
-                                Transport.configs[protocol]['forms'] = {};
-                            }
-                            Transport.configs[protocol]['forms'] = transportForm;
-                            Transport.configs[protocol]['error'] = null;
-                            Transport.configs[protocol]['description'] = transportForm.description;
-                            Transport.configs[protocol]['key'] = transportForm.protocol;
-                            Transport.getConfigData($rootScope.domain.domain, protocol).then(function (data) {
-                                Transport.configs[protocol]['data'] = data;
-                                Transport.configs[protocol]['open'] = {
-                                    ta: true,
-                                    sut: false
-                                };
-                                // $scope.$broadcast("load-transport-data",protocol);
-                            }, function (error) {
-                                Transport.configs[protocol]['error'] = error.data;
-                            });
-                        });
-
-                    }
-                }, function (error) {
-                    $scope.error = "No transport configs found.";
-                });
-            }, 1000);
         };
 
         $scope.selectProtocol = function (protocolKey) {

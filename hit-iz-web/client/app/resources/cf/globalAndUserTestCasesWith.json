@@ -1,5 +1,5 @@
-[
-
+{
+	"preloaded":[
     {
 
         "name": "ACK-Z23",
@@ -374,5 +374,72 @@
         },
         "children": [ ]
     }
-
 ]
+,
+"user":[
+    {
+
+        "name": "UserOne",
+        "description": "First User Test Case",
+        "type": "TestObject",
+        "position": 2,
+        "id": 1,
+        "testContext":
+
+        {
+
+            "id": 1,
+            "format": "hl7v2",
+            "message":
+
+            {
+
+                "id": 10,
+                "content": "MSH|^~\\&|DCS|MYIIS|MYIIS||20090604000020-0500||ACK^V04^ACK|1234567|P|2.5.1|||NE|NE|||||Z23^CDCPHINVS\nMSA|AA|9299381"
+
+            },
+            "vocabularyLibrary":
+            {
+
+                "id": 1
+
+            },
+            "profile":
+
+            {
+                "id": 1
+            }
+        },
+        "children": [ ]
+
+    },
+    {
+
+        "name": "UserTwo",
+        "description": "Second User Test Case",
+        "type": "TestObject",
+        "position": 11,
+        "id": 2,
+        "testContext":
+
+        {
+
+            "id": 2,
+            "format": "hl7v2",
+            "vocabularyLibrary":
+
+            {
+
+                "id": 10
+
+            },
+            "profile":
+
+            {
+                "id": 2
+            }
+        },
+        "children": [ ]
+
+    }]
+   }

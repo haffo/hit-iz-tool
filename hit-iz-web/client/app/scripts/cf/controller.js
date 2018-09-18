@@ -138,7 +138,7 @@ angular.module('cf')
                     if ($scope.testPlans.length > 0) {
                         if ($scope.testPlans.length === 1) {
                             targetId = $scope.testPlans[0].id;
-                        }else {
+                        } else {
                             var previousTpId = StorageService.get(StorageService.CF_SELECTED_TESTPLAN_ID_KEY);
                             targetId = previousTpId == undefined || previousTpId == null ? "" : previousTpId;
                             if (previousTpId != null && previousTpId != undefined && previousTpId != "") {
@@ -312,8 +312,8 @@ angular.module('cf')
             $scope.initTesting();
         });
 
-        $scope.$on('event:cf:execute', function (event,scope, cat, group) {
-            $scope.selectedScope.key = scope && scope != null && (scope === 'USER' || scope === 'GLOBAL')? scope : $scope.testPlanScopes[0].key;
+        $scope.$on('event:cf:execute', function (event, scope, cat, group) {
+            $scope.selectedScope.key = scope && scope != null && (scope === 'USER' || scope === 'GLOBAL') ? scope : $scope.testPlanScopes[0].key;
             if (group && group != null) {
                 $scope.selectedTP.id = group;
                 StorageService.set(StorageService.CF_SELECTED_TESTPLAN_ID_KEY, group);
@@ -607,8 +607,10 @@ angular.module('cf')
             $scope.tError = null;
             $scope.mError = null;
             $scope.vError = null;
-            $scope.initCodemirror();
-            $scope.refreshEditor();
+            if(!$scope.editor){
+	            $scope.initCodemirror();
+	            $scope.refreshEditor();
+            }
             $scope.$on('cf:testCaseLoaded', function (event, testCase) {
                 $scope.testCase = testCase;
                 if ($scope.testCase != null) {
@@ -616,9 +618,10 @@ angular.module('cf')
                     $scope.nodelay = true;
                     $scope.mError = null;
                     $timeout(function () {
-                        $scope.initCodemirror();
-                        $scope.refreshEditor();
-
+                        if(!$scope.editor){
+                        		$scope.initCodemirror();
+                             $scope.refreshEditor();
+                        }
                         $scope.cf.editor = ServiceDelegator.getEditor($scope.testCase.testContext.format);
                         $scope.cf.editor.instance = $scope.editor;
                         $scope.cf.cursor = ServiceDelegator.getCursor($scope.testCase.testContext.format);
@@ -627,7 +630,7 @@ angular.module('cf')
                             $scope.editor.doc.setValue(content);
                             $scope.execute();
                         }
-                    },1000);
+                    }, 1000);
                 }
             });
 

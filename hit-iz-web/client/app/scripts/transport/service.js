@@ -233,7 +233,7 @@ angular.module('transport').factory('Transport', function ($q, $http, StorageSer
                     var data = angular.fromJson({
                         "testStepId": testStepId,
                         "message": message,
-                        "config": self.configs[domain][protocol].data.taInitiator
+                        "config": self.configs[protocol].data.taInitiator
                     });
                     $http.post('api/transport/' + domain + "/" + protocol + '/send', data).then(
                         function (response) {
