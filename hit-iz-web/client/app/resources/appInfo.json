@@ -1,12 +1,15 @@
 {
+
+    "id": 1,
     "url": "http://hit-dev.nist.gov:8098/iztool",
-"version": "1.0-beta",
-"date": "09/14/2015 02:57:52",
-"name": "",
-"domain": "",
-"header": "",
-"adminEmail": "robert.snelick@nist.gov",
-"homeTitle": "",
-"homeContent": "",
-    "rsbVersion": "123456"
- }
+    "version": "1.0-beta",
+    "date": "10/21/2015 02:58:07",
+    "name": "",
+    "domain": "",
+    "header": "",
+    "adminEmail": "robert.snelick@nist.gov",
+    "homeTitle": "",
+    "homeContent": "",
+    "profileInfo": "<div style=\"font-size: 14px\">\n\t<h4 class=\"\">Standard</h4>\n\t<ul>\n\t\t<li>CDC HL7 Version 2.5.1 Implementation Guide for Immunization\n\t\t\tMessaging - Release 1.5 (10/01/2014)</li>\n\t\t<li>Immunization Clarification Addendum - 07/2015</li>\n\t</ul>\n\t<!--<p>CDC HL7 Version 2.5.1 Implementation Guide for Immunization Messaging</p>-->\n\t<!--<p>Release 1.5 (10/01/2014)</p>-->\n</div>\n<div style=\"font-size: 14px\">\n\t<h4 class=\"\">Profiles</h4>\n\t<ul>\n\t\t<li>Z22(VXU)- Send Immunization</li>\n\t\t<li>Z23(ACK)- Acknowledgement</li>\n\t\t<li>Z34(QBP)- Query: Complete Immunization History</li>\n\t\t<li>Z44(QBP)- Query: Evaluated Immunization History And Forecast\n\t\t</li>\n\t\t<li>Z31(RSP)- Response: List Of Candidates Profile</li>\n\t\t<li>Z32(RSP)- Response: Complete Immunization History</li>\n\t\t<li>Z33(RSP)- Response: Acknowledgement With No Person Records</li>\n\t\t<li>Z42(RSP)- Response: Evaluated History AND Forecast</li>\n\t</ul>\n</div>\n<div style=\"font-size: 14px\">\n\t<h4 class=\"\">Pairs</h4>\n\t<ul>\n\t\t<li>Z22:Z23 - Send Immunization/ACK</li>\n\t\t<li>Z34:Z31 - Query History/Respond Candidates</li>\n\t\t<li>Z34:Z32 - Query History/Respond History</li>\n\t\t<li>Z34:Z33 - Query History/Respond Person Not Found</li>\n\t\t<li>Z34:Z33 - Query History/Respond Too many matches Found</li>\n\t\t<li>Z34:Z23 - Query History/Respond ACK error</li>\n\t\t<li>Z34:Z33 - Query History/Respond Not well formed/fatal errors Found</li>\n\t\t<li>Z44:Z42 - Query History & Forecast/Respond History & Forecast</li>\n\t\t<li>Z44:Z33 - Query History & Forecast/Respond Person Not Found</li>\n\t\t<li>Z44:Z33 - Query History & Forecast/ Respond Too many matches Found</li>\n\t\t<li>Z44:Z33 - Query History & Forecast/ No Immunization history is returned</li>\n\t\t<li>Z44:Z33 - Query History & Forecast/Respond Not well formed/fatal errors Found</li>\n\t\t<li>Z44:Z23 - Query History & Forecast/ Respond ACK error</li>\n\t</ul>\n</div>",
+    "csrfToken":"ddddddd"
+}

@@ -1,0 +1,31 @@
+<style id="antiClickjack">
+body {
+	display: none !important;
+}
+</style>
+<script type="text/javascript">
+	if (self === top) {
+		var antiClickjack = document.getElementById("antiClickjack");
+		antiClickjack.parentNode.removeChild(antiClickjack);
+	} else {
+		top.location = self.location;
+	}
+</script>
+<div style="margin: 10px">
+	<div class="modal-header" class="upload-dlg-header">
+		<span style="font-weight: bold; font-size: 20px">Saving Test Plan... </span>
+	</div>
+	<div class="modal-body" style="padding: 10px 0px 0px 0px">
+		<div class="row">
+			<div class="col-md-1">
+				<h4>
+					<i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+				</h4>
+			</div>
+			<div class="col-md-11">
+				<h4>Your Test Plan is being saved.
+					Please be patient as some test plans can take a while to save.</h4>
+			</div>
+		</div>
+	</div>
+</div>

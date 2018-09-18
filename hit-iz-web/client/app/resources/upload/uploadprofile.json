@@ -1,0 +1,85 @@
+{
+  "success": true,
+  "profiles": [
+    {
+      "name": "MFN_M04_GU",
+      "id": "MFN_M04_GU",
+      "activated": false
+    },
+    {
+      "name": "MFN_M04_NG",
+      "id": "MFN_M04_NG",
+      "activated": false
+    },
+    {
+      "name": "MFN_M08_GU",
+      "id": "MFN_M08_GU",
+      "activated": false
+    },
+    {
+      "name": "MFN_M08_NG",
+      "id": "MFN_M08_NG",
+      "activated": false
+    },
+    {
+      "name": "MFN_M10_GU",
+      "id": "MFN_M10_GU",
+      "activated": false
+    },
+    {
+      "name": "MFN_M10_NG",
+      "id": "MFN_M10_NG",
+      "activated": false
+    },
+    {
+      "name": "MFN_M18_GU",
+      "id": "MFN_M18_GU",
+      "activated": false
+    },
+    {
+      "name": "MFN_M18_NG",
+      "id": "MFN_M18_NG",
+      "activated": false
+    },
+    {
+      "name": "MFK_M04_GU",
+      "id": "MFK_M04_GU",
+      "activated": false
+    },
+    {
+      "name": "MFK_M04_NG",
+      "id": "MFK_M04_NG",
+      "activated": false
+    },
+    {
+      "name": "MFK_M08_GU",
+      "id": "MFK_M08_GU",
+      "activated": false
+    },
+    {
+      "name": "MFK_M08_NG",
+      "id": "MFK_M08_NG",
+      "activated": false
+    },
+    {
+      "name": "MFK_M10_GU",
+      "id": "MFK_M10_GU",
+      "activated": false
+    },
+    {
+      "name": "MFK_M10_NG",
+      "id": "MFK_M10_NG",
+      "activated": false
+    },
+    {
+      "name": "MFK_M18_GU",
+      "id": "MFK_M18_GU",
+      "activated": false
+    },
+    {
+      "name": "MFK_M18_NG",
+      "id": "MFK_M18_NG",
+      "activated": false
+    }
+  ]
+}

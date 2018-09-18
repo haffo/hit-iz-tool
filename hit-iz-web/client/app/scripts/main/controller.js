@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('main').controller('MainCtrl',
-  function ($scope, $rootScope, i18n, $location, userInfoService, $modal, $filter, base64, $http, Idle, Notification, IdleService, StorageService, TestingSettings, Session, AppInfo, User, $templateCache, $window, $sce,DomainsManager,$timeout) {
+  function ($scope, $rootScope, i18n, $location, userInfoService, $modal, $filter, base64, $http, Idle, Notification, IdleService, StorageService, TestingSettings, Session, AppInfo, User, $templateCache, $window, $sce,DomainsManager,$timeout,Transport) {
     //This line fetches the info from the server if the user is currently logged in.
     //If success, the app is updated according to the role.
     $rootScope.loginDialog = null;
@@ -778,8 +778,10 @@ angular.module('main').controller('MainCtrl',
                     }
 
                       if (domainFound == null) {
-                          $rootScope.openUnknownDomainDlg();
-                      } else {
+                          //$rootScope.openUnknownDomainDlg();
+                          domainFound = "default";
+                      }
+
                           $rootScope.clearDomainSession();
                           DomainsManager.getDomainByKey(domainFound).then(function (result) {
                               $rootScope.appInfo.selectedDomain = result.domain;
@@ -815,15 +817,14 @@ angular.module('main').controller('MainCtrl',
                                           });
                                       }
                                   }, function (error) {
-                                      $scope.error = "No transport configs found.";
+                                      //$scope.error = "No transport configs found.";
                                   });
                               }, 500);
                           }, function (error) {
                               $rootScope.loadingDomain = true;
                               $rootScope.openUnknownDomainDlg();
                           });
-                      }
-                  } else {
+                   } else {
                       $rootScope.openCriticalErrorDlg("No Tool scope found. Please contact the administrator");
                   }
               }, function (error) {
