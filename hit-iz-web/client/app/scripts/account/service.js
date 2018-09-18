@@ -218,7 +218,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
         };
 
         var isAdmin = function() {
-          if (!admin && $rootScope.appInfo.adminEmails != null && $rootScope.appInfo.adminEmails) {
+          if (!admin && currentUser != null  && $rootScope.appInfo.adminEmails != null && $rootScope.appInfo.adminEmails) {
             if (Array.isArray($rootScope.appInfo.adminEmails)) {
               admin = $rootScope.appInfo.adminEmails.indexOf(currentUser.email) >= 0;
             } else {
