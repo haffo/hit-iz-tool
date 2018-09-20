@@ -1491,7 +1491,7 @@
 			
 			<ValueElement Value="49281-718-10" DisplayName="Flublok Quadrivalent" CodeSystem="NDC"/>
 			
-			<ValueElement Value="19515-0900-01" DisplayName="Flulaval Quadrivalent Influenza vaccine, quadrivalent (2018-2019)" CodeSystem="NDC"/>
+			<ValueElement Value="19515-0900-11" DisplayName="Flulaval Quadrivalent Influenza vaccine, quadrivalent (2018-2019)" CodeSystem="NDC"/>
 			<ValueElement Value="19515-0909-52" DisplayName="Flulaval Quadrivalent Influenza vaccine, quadrivalent (2018-2019)" CodeSystem="NDC"/>
 			<ValueElement Value="33332-0018-01" DisplayName="Afluria influenza vaccine (2018-2019)" CodeSystem="NDC"/>
 			<ValueElement Value="33332-0118-10" DisplayName="Afluria influenza vaccine (2018-2019)" CodeSystem="NDC"/>
