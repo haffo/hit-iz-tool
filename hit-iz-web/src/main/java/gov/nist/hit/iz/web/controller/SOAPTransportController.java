@@ -101,7 +101,6 @@ public class SOAPTransportController {
 	private Streamer streamer;
 
 	private final static String PROTOCOL = "soap";
-	private final static String DOMAIN = "iz";
 	private final static String USERNAME = "username";
 	private final static String PASSWORD = "password";
 	private final static String FACILITYID = "facilityID";
@@ -125,7 +124,7 @@ public class SOAPTransportController {
 		if (userId == null || (accountService.findOne(userId)) == null) {
 			throw new UserNotFoundException();
 		}
-		clearExchanges(userId);
+		clearExchanges(userId, domain);
 
 		if (request.getResponseMessageId() == null)
 			throw new gov.nist.hit.core.service.exception.TransportException("Response message not found");
@@ -133,7 +132,7 @@ public class SOAPTransportController {
 		TransportMessage transportMessage = new TransportMessage();
 		transportMessage.setMessageId(request.getResponseMessageId());
 		Map<String, String> config = new HashMap<String, String>();
-		config.putAll(getSutInitiatorConfig(userId));
+		config.putAll(getSutInitiatorConfig(userId, domain));
 		config.put(IZWSConstant.LISTENER_STATUS, IZWSConstant.LISTENER_STARTED);
 		transportMessage.setProperties(config);
 		transportMessageService.save(transportMessage);
@@ -153,13 +152,13 @@ public class SOAPTransportController {
 		if (userId == null || (accountService.findOne(userId)) == null) {
 			throw new UserNotFoundException();
 		}
-		clearExchanges(userId);
+		clearExchanges(userId, domain);
 		GCUtil.performGC();
 		return true;
 	}
 
-	private boolean clearExchanges(Long userId) {
-		Map<String, String> config = getSutInitiatorConfig(userId);
+	private boolean clearExchanges(Long userId, String domain) {
+		Map<String, String> config = getSutInitiatorConfig(userId, domain);
 		Map<String, String> criteria = new HashMap<String, String>();
 		criteria.put(USERNAME, config.get(USERNAME));
 		criteria.put(PASSWORD, config.get(PASSWORD));
@@ -183,8 +182,8 @@ public class SOAPTransportController {
 		}
 	}
 
-	private Map<String, String> getSutInitiatorConfig(Long userId) {
-		TransportConfig config = transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL, DOMAIN);
+	private Map<String, String> getSutInitiatorConfig(Long userId, String domain) {
+		TransportConfig config = transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL, domain);
 		Map<String, String> sutInitiator = config != null ? config.getSutInitiator() : null;
 		if (sutInitiator == null || sutInitiator.isEmpty())
 			throw new gov.nist.hit.core.service.exception.TransportException(
@@ -262,9 +261,9 @@ public class SOAPTransportController {
 			throw new UserNotFoundException();
 		}
 		TransportConfig transportConfig = transportConfigService.findOneByUserAndProtocolAndDomain(userId, PROTOCOL,
-				DOMAIN);
+				domain);
 		if (transportConfig == null) {
-			transportConfig = transportConfigService.create(PROTOCOL, DOMAIN);
+			transportConfig = transportConfigService.create(PROTOCOL, domain);
 			transportConfig.setUserId(userId);
 			Map<String, String> taInitiatorConfig = taInitiatorConfig(user, request);
 			transportConfig.setTaInitiator(taInitiatorConfig);
