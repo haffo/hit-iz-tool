@@ -28,6 +28,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -71,8 +72,6 @@ import io.swagger.annotations.ApiParam;
  */
 
 @RestController
-@RequestMapping("/transport/iz/soap")
-// @Api(value = "Immunization SOAP Transport API", tags = "SOAP Transport")
 public class SOAPTransportController {
 
 	static final Logger logger = LoggerFactory.getLogger(SOAPTransportController.class);
@@ -116,9 +115,10 @@ public class SOAPTransportController {
 
 	// @ApiOperation(value = "Start the listener of an incoming transaction",
 	// nickname = "startListener", notes = "A user session is required")
-	@RequestMapping(value = "/startListener", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/transport/{domain}/soap/startListener", method = RequestMethod.POST, produces = "application/json")
 	public boolean startListener(
 			@ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request,
+			@PathVariable("domain") String domain,
 			@ApiParam(value = "The user session", required = true) HttpSession session) throws UserNotFoundException {
 		logger.info("Starting listener");
 		Long userId = SessionContext.getCurrentUserId(session);
@@ -144,9 +144,10 @@ public class SOAPTransportController {
 
 	// @ApiOperation(value = "Stop the listener of an incoming transaction",
 	// nickname = "stopListener", notes = "A user session is required")
-	@RequestMapping(value = "/stopListener", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/transport/{domain}/soap/stopListener", method = RequestMethod.POST, produces = "application/json")
 	public boolean stopListener(@ApiParam(value = "the request", required = true) @RequestBody TransportRequest request,
-			@ApiParam(value = "The user session", required = true) HttpSession session) throws UserNotFoundException {
+			@ApiParam(value = "The user session", required = true) HttpSession session,
+			@PathVariable("domain") String domain) throws UserNotFoundException {
 		logger.info("Stopping listener ");
 		Long userId = SessionContext.getCurrentUserId(session);
 		if (userId == null || (accountService.findOne(userId)) == null) {
@@ -193,8 +194,8 @@ public class SOAPTransportController {
 
 	// @ApiOperation(value = "Search a transaction of user", nickname =
 	// "searchTransaction")
-	@RequestMapping(value = "/searchTransaction", method = RequestMethod.POST, produces = "application/json")
-	public void searchTransaction(HttpServletResponse response,
+	@RequestMapping(value = "/transport/{domain}/soap/searchTransaction", method = RequestMethod.POST, produces = "application/json")
+	public void searchTransaction(HttpServletResponse response, @PathVariable("domain") String domain,
 			@ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request)
 			throws IOException {
 		logger.info("Searching transaction...");
@@ -208,8 +209,8 @@ public class SOAPTransportController {
 
 	// @ApiOperation(value = "Send a message", nickname = "searchTransaction",
 	// notes = "A user session is required")
-	@RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json")
-	public void send(HttpServletResponse response,
+	@RequestMapping(value = "/transport/{domain}/soap/send", method = RequestMethod.POST, produces = "application/json")
+	public void send(HttpServletResponse response, @PathVariable("domain") String domain,
 			@ApiParam(value = "the transport request", required = true) @RequestBody TransportRequest request,
 			@ApiParam(value = "The user session", required = true) HttpSession session)
 			throws TransportClientException {
@@ -251,9 +252,9 @@ public class SOAPTransportController {
 
 	// @ApiOperation(value = "Get the configuration information of user",
 	// nickname = "searchTransaction", notes = "A user session is required")
-	@RequestMapping(value = "/configs", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/transport/{domain}/soap/configs", method = RequestMethod.POST, produces = "application/json")
 	public TransportConfig configs(@ApiParam(value = "The user session", required = true) HttpSession session,
-			HttpServletRequest request) throws UserNotFoundException {
+			HttpServletRequest request, @PathVariable("domain") String domain) throws UserNotFoundException {
 		logger.info("Fetching user configuration information ... ");
 		Long userId = SessionContext.getCurrentUserId(session);
 		Account user = null;
@@ -304,10 +305,10 @@ public class SOAPTransportController {
 
 	// @ApiOperation(value = "", nickname = "", notes = "A user session is
 	// required", hidden = true)
-	@RequestMapping(value = "/populateMessage", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/transport/{domain}/soap/populateMessage", method = RequestMethod.POST, produces = "application/json")
 	public TransportResponse populateMessage(@ApiParam(value = "The user session", required = true) HttpSession session,
-			@ApiParam(value = "The transport request", required = true) @RequestBody TransportRequest transportRequest)
-			throws UserNotFoundException {
+			@ApiParam(value = "The transport request", required = true) @RequestBody TransportRequest transportRequest,
+			@PathVariable("domain") String domain) throws UserNotFoundException {
 		logger.info("Fetching user configuration information ... ");
 		Long userId = SessionContext.getCurrentUserId(session);
 		if (userId == null || (accountService.findOne(userId)) == null) {
