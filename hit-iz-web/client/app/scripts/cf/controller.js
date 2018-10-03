@@ -630,7 +630,7 @@ angular.module('cf')
                             $scope.editor.doc.setValue(content);
                             $scope.execute();
                         }
-                    }, 1000);
+                    }, 2000);
                 }
             });
 
