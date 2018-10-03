@@ -607,10 +607,6 @@ angular.module('cf')
             $scope.tError = null;
             $scope.mError = null;
             $scope.vError = null;
-            if (!$scope.editor || $scope.editor  === null) {
-	            $scope.initCodemirror();
-	            $scope.refreshEditor();
-            }
             $scope.$on('cf:testCaseLoaded', function (event, testCase) {
                 $scope.testCase = testCase;
                 if ($scope.testCase != null) {
@@ -630,7 +626,7 @@ angular.module('cf')
                             $scope.editor.doc.setValue(content);
                             $scope.execute();
                         }
-                    }, 2000);
+                    }, 1000);
                 }
             });
 
