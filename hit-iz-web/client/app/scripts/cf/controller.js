@@ -313,7 +313,7 @@ angular.module('cf')
         });
 
         $scope.$on('event:cf:execute', function (event, scope, cat, group) {
-            $scope.selectedScope.key = scope && scope != null && (scope === 'USER' || scope === 'GLOBAL') ? scope : $scope.testPlanScopes[0].key;
+            $scope.selectedScope.key = scope && scope != null && (scope === 'USER' || scope === 'GLOBAL') ? scope : $scope.testPlanScopes[0] != null ? $scope.testPlanScopes[0].key: 'GLOBAL';
             if (group && group != null) {
                 $scope.selectedTP.id = group;
                 StorageService.set(StorageService.CF_SELECTED_TESTPLAN_ID_KEY, group);
@@ -626,7 +626,7 @@ angular.module('cf')
                             $scope.editor.doc.setValue(content);
                             $scope.execute();
                         }
-                    }, 1000);
+                    }, 500);
                 }
             });
 
@@ -644,6 +644,19 @@ angular.module('cf')
             if ($scope.cf.tree.root != null)
                 $scope.cf.tree.root.collapse_all();
         };
+
+        $scope.expandMessageAll = function () {
+            if ($scope.cf.tree.root != null)
+                $scope.cf.tree.root.expand_all();
+        };
+
+        $scope.collapseMessageAll = function () {
+            if ($scope.cf.tree.root != null)
+                $scope.cf.tree.root.collapse_all();
+        };
+
+
+
 
 
         $scope.setHasNonPrintableCharacters = function () {

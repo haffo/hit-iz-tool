@@ -243,8 +243,9 @@
                         <!--</tr>-->
 
                         <tr class="tbl-header-2">
-                            <th st-ratio="30" st-sort="value">Value</th>
-                            <th st-ratio="30" st-sort="codeSystem">Code System</th>
+                            <th st-ratio="25" st-sort="value">Value</th>
+                            <th st-ratio="25" st-sort="codeSystem">Code System</th>
+                            <th st-ratio="10" st-sort="usage">Usage</th>
                             <th st-ratio="40" st-sort="displayName">Description</th>
                             <!--<th st-ratio="50" st-sort="source">Source</th>-->
                             <!--<th st-ratio="50" st-sort="usageType">Usage</th>-->
@@ -253,12 +254,16 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="row in tmpSearchResults">
-                            <td st-ratio="30">
+                            <td st-ratio="25">
                                 {{::row.value}}
                             </td>
-                            <td st-ratio="30">
+                            <td st-ratio="25">
                                 {{::row.codeSystem}}
                             </td>
+                            <td st-ratio="10">
+                                {{::row.usage}}
+                            </td>
+
 
                             <td st-ratio="40">
                                 {{::row.displayName}}
@@ -329,8 +334,9 @@
                     <!--</tr>-->
 
                     <tr class="tbl-header-2">
-                        <th st-ratio="30" st-sort="code">Code</th>
-                        <th st-ratio="30" st-sort="codeSystem">Code System</th>
+                        <th st-ratio="25" st-sort="code">Code</th>
+                        <th st-ratio="25" st-sort="codeSystem">Code System</th>
+                        <th st-ratio="10" st-sort="usage">Usage</th>
                         <th st-ratio="40" st-sort="displayName">Description</th>
                     </tr>
 
@@ -338,11 +344,14 @@
                     <tbody>
 
                     <tr ng-repeat="row in tmpValueSetElements">
-                        <td st-ratio="30">
+                        <td st-ratio="25">
                             <span>{{::row.value}}</span>
                         </td>
-                        <td st-ratio="30">
+                        <td st-ratio="25">
                             <span>{{::row.codeSystem}}</span>
+                        </td>
+                        <td st-ratio="10">
+                            <span>{{::row.usage}}</span>
                         </td>
 
                         <td st-ratio="40">
@@ -490,8 +499,9 @@
                                 <!--</tr>-->
 
                                 <tr class="tbl-header-2">
-                                    <th st-ratio="30" st-sort="code">Value (Code)</th>
-                                    <th st-ratio="30" st-sort="codesys">Code Sys</th>
+                                    <th st-ratio="25" st-sort="code">Value (Code)</th>
+                                    <th st-ratio="25" st-sort="codesys">Code Sys</th>
+                                    <th st-ratio="10" st-sort="usage">Usage</th>
                                     <th st-ratio="40" st-sort="displayName">Description</th>
                                     <!--<th st-ratio="50" st-sort="source">Source</th>-->
                                     <!--<th st-ratio="50" st-sort="usage">Usage</th>-->
@@ -501,12 +511,15 @@
                                 <tbody>
 
                                 <tr ng-repeat="row in tmpValueSetElements">
-                                <td st-ratio="30">
+                                <td st-ratio="25">
                                 <span>{{::row.value}}</span>
                                 </td>
-                                <td st-ratio="30">
+                                <td st-ratio="25">
                                 <span>{{::row.codeSystem}}</span>
                                 </td>
+                                    <td st-ratio="10">
+                                        <span>{{::row.usage}}</span>
+                                    </td>
                                 <td st-ratio="40">
                                 <span>{{::row.displayName}}</span>
                                 </td>

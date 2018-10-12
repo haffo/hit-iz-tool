@@ -29,7 +29,7 @@ angular.module('transport')
 
         $scope.initTransportConfigList = function () {
             $scope.error = null;
-        };
+         };
 
         $scope.selectProtocol = function (protocolKey) {
             $scope.selectedProtocol = Transport.configs[protocolKey];
@@ -43,9 +43,13 @@ angular.module('transport')
         $scope.toggleTransport = function (disabled) {
             $scope.transport.disabled = disabled;
             StorageService.set(StorageService.TRANSPORT_DISABLED, disabled);
+            if(!disabled) {
+                var pr = $scope.getProtocols();
+                if(pr != null && pr.length === 1){
+                    $scope.selectProtocol(pr[0]);
+                }
+            }
         };
-
-
     }]);
 
 
