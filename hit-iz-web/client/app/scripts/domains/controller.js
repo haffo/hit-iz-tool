@@ -105,7 +105,7 @@ angular.module('domains')
               $rootScope.reloadPage();
             }, function (error) {
               $scope.loadingAction = false;
-              $scope.setErrorAlert(error);
+              $scope.setErrorAlert(error.text);
             });
           }
         });
@@ -123,7 +123,7 @@ angular.module('domains')
         $rootScope.reloadPage();
       }, function (error) {
         $scope.loadingAction = false;
-        $scope.setErrorAlert(error);
+        $scope.setErrorAlert(error.text);
 
       });
     };
@@ -170,7 +170,7 @@ angular.module('domains')
                 $rootScope.reloadPage();
               }, function (error) {
                 $scope.loadingAction = false;
-                $scope.setErrorAlert(error);
+                $scope.setErrorAlert(error.text);
 
               });
             }
@@ -264,7 +264,7 @@ angular.module('domains').controller('CreateDomainCtrl', function ($scope, $moda
         $modalInstance.close(result);
       }, function (error) {
         $scope.loading = false;
-        $scope.error = error;
+        $scope.error = error.text;
       });
     }
   };
