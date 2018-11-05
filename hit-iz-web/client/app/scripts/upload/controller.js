@@ -79,7 +79,7 @@ angular.module('upload')
 //            );
 //        $http.get('../../resources/upload/resourceError.json').then(
 //                function (object) {
-//                	
+//
 //                	$scope.profileValidationErrors = angular.fromJson(object.data.errors);
 //                	$scope.constraintValidationErrors = angular.fromJson(object.data.errors);
 //                },
@@ -169,8 +169,8 @@ angular.module('upload')
                     $scope.constraintValidationErrors = angular.fromJson(response.vsErrors);
                     $scope.step = 1;
                 } else {
-                	
-                	$scope.executionError = response.message;
+
+                    $scope.executionError = response.message;
                     Notification.error({
                         message: "The tool could not upload and process your file.<br>" + response.message + '<br>' + response.debugError,
                         templateUrl: "NotificationErrorTemplate.html",
@@ -329,7 +329,7 @@ angular.module('upload')
         };
 
         $scope.dismissModal = function () {
-             $modalInstance.dismiss();
+            $modalInstance.dismiss();
         }
 
 
