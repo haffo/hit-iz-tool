@@ -163,7 +163,8 @@ app.config(function ($routeProvider, $httpProvider, localStorageServiceProvider,
           controller: 'UploadCBTokenCheckCtrl'
       })
       .when('/addcbprofiles', {
-          redirectTo: '/cb'
+          templateUrl: 'views/home.html',
+          controller: 'UploadCBTokenCheckCtrl'
       })
     .when('/domains', {
       templateUrl: 'views/domains/domains.html'
@@ -569,7 +570,9 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
           var rs = angular.fromJson(result.data);
           initUser(rs);
           $rootScope.$broadcast('event:loginConfirmed');
-           $location.url(path);
+          if (path !== undefined){
+                $location.url(path);
+          }
         } else {
           userInfoService.setCurrentUser(null);
         }

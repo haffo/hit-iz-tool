@@ -1,16 +1,8 @@
 'use strict';
-
-
 angular.module('upload').factory('uploadService',  ['$rootScope', '$http', '$q', 'Message', 'Tree', function ($rootScope, $http, $q, Message, Tree) {
-
     var factory = {};
 
-
-    	
-   }]);
-
-
-
+}]);
 angular.module('upload').factory('ProfileGroupListLoader', ['$q', '$http',
     function ($q, $http) {
         return function (scope) {
@@ -27,5 +19,3 @@ angular.module('upload').factory('ProfileGroupListLoader', ['$q', '$http',
         };
     }
 ]);
-
-

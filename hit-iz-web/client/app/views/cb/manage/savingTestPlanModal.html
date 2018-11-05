@@ -1,15 +1,15 @@
 <style id="antiClickjack">
-body {
-	display: none !important;
-}
+	body {
+		display: none !important;
+	}
 </style>
 <script type="text/javascript">
-	if (self === top) {
-		var antiClickjack = document.getElementById("antiClickjack");
-		antiClickjack.parentNode.removeChild(antiClickjack);
-	} else {
-		top.location = self.location;
-	}
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
 </script>
 <div style="margin: 10px">
 	<div class="modal-header" class="upload-dlg-header">
@@ -23,8 +23,7 @@ body {
 				</h4>
 			</div>
 			<div class="col-md-11">
-				<h4>Your Test Plan is being saved.
-					Please be patient as some test plans can take a while to save.</h4>
+				<h4>Test Plan is being saved. Please wait....</h4>
 			</div>
 		</div>
 	</div>

@@ -607,6 +607,7 @@ angular.module('cf')
             $scope.tError = null;
             $scope.mError = null;
             $scope.vError = null;
+
             $scope.$on('cf:testCaseLoaded', function (event, testCase) {
                 $scope.testCase = testCase;
                 if ($scope.testCase != null) {
