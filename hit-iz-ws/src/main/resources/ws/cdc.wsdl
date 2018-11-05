@@ -189,6 +189,7 @@
 	<!-- Service definition -->
 	<service name="client_Service">
 		<port binding="tns:client_Binding_Soap12" name="client_Port_Soap12">
+		    <!-- Please note that this is not the actual WSDL's url. To find the actual WSDL's url refer to the field called 'Endpoint' from the UI -->
 			<soap12:address location="http://localhost:8080/iztool/ws/soapConnectivityTesting.wsdl" />
 		</port>
 	</service>
