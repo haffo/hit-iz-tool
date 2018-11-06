@@ -769,7 +769,7 @@ app.run(function (Session, $rootScope, $location, $modal, TestingSettings, AppIn
 
 
   $rootScope.isDomainsManagementSupported = function () {
-    return $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['DOMAIN_MANAGEMENT_SUPPORTED'] === "true") || userInfoService.isAdmin();
+    return $rootScope.getAppInfo().options && ($rootScope.getAppInfo().options['DOMAIN_MANAGEMENT_SUPPORTED'] === "true") || userInfoService.isAdmin() || userInfoService.isSupervisor() || userInfoService.isDeployer();
   };
 
     $rootScope.isLoggedIn = function () {
