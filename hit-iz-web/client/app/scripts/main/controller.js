@@ -705,7 +705,7 @@ angular.module('main').controller('MainCtrl',
 
 
     $rootScope.canPublish = function(){
-      return userInfoService.isAuthenticated() && (userInfoService.isAdmin() || (userInfoService.isSupervisor() && $rootScope.domain != null && $rootScope.domain.owner === userInfoService.getUsername()));
+        return userInfoService.isAuthenticated() && userInfoService.isAdmin();
     };
 
     $rootScope.createDomain = function () {
