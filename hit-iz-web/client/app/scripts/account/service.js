@@ -146,6 +146,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
         var currentUser = null;
         var supervisor = false,
             tester = false,
+            deployer = false,
             admin = false,
             id = null,
             username = '',
@@ -162,6 +163,8 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             username = StorageService.get('username');
             tester = StorageService.get('tester');
             supervisor = StorageService.get('supervisor');
+            deployer = StorageService.get('deployer');
+
             admin = StorageService.get('admin');
           lastTestPlanPersistenceId = StorageService.get('lastTestPlanPersistenceId');
           employer = StorageService.get('employer');
@@ -173,6 +176,8 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             StorageService.set('username', username);
             StorageService.set('tester', tester);
             StorageService.set('supervisor', supervisor);
+            StorageService.set('deployer', deployer);
+
             StorageService.set('admin', admin);
             StorageService.set('fullName', fullName);
           StorageService.set('lastTestPlanPersistenceId', lastTestPlanPersistenceId);
@@ -185,6 +190,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             StorageService.remove('username');
             StorageService.remove('tester');
             StorageService.remove('supervisor');
+            StorageService.remove('deployer');
             StorageService.remove('admin');
             StorageService.remove('hthd');
             StorageService.remove('fullName');
@@ -244,6 +250,11 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             return supervisor;
         };
 
+        var isDeployer = function() {
+            return deployer;
+        };
+
+
         var isPending = function() {
             return isAuthenticated() && currentUser != null ? currentUser.pending: false;
         };
@@ -295,6 +306,9 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
                             case 'supervisor':
                               supervisor = true;
                               break;
+                            case 'deployer':
+                                deployer = true;
+                                break;
                             default:
                         }
                     });
@@ -304,6 +318,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             else {
                 supervisor = false;
                 tester = false;
+                deployer = false;
                 admin = false;
                 username = '';
                 id = null;
@@ -345,6 +360,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             isAuthenticated: isAuthenticated,
             isPending: isPending,
             isSupervisor: isSupervisor,
+            isDeployer: isDeployer,
             setCurrentUser: setCurrentUser,
             getCurrentUser: getCurrentUser,
             loadFromServer: loadFromServer,
