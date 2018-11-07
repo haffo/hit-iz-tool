@@ -1512,6 +1512,9 @@
 			<ValueElement Value="66019-0305-10" DisplayName="FluMist Quadrivalent (2018-2019 flu season)" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0318-03" DisplayName="Flucelvax Quadrivalent (2018-2019 flu season)" CodeSystem="NDC"/>
 			<ValueElement Value="70461-0418-10" DisplayName="Flucelvax Quadrivalent (2018-2019 flu season)" CodeSystem="NDC"/>
+			
+			<ValueElement Value="50090-2883-00" DisplayName="Infanrix" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0250-51" DisplayName="IMOVAX RABIES" CodeSystem="NDC"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="NDC_Use" Name="NDC Unit of Use">
 			<ValueElement Value="00005-0100-01" DisplayName="meningococcal B, recombinant" CodeSystem="NDC"/>
@@ -1808,6 +1811,9 @@
 			<ValueElement Value="70461-0418-11" DisplayName="Flucelvax Quadrivalent (2018-2019 flu season)" CodeSystem="NDC"/>
 			
 			<ValueElement Value="49281-0718-88" DisplayName="Flublok Quadrivalent influenza, quadrivalent, recombinant (2018-2019)" CodeSystem="NDC"/>
+			
+			<ValueElement Value="50090-2883-09" DisplayName="Infanrix" CodeSystem="NDC"/>
+			<ValueElement Value="49281-0248-58" DisplayName="IMOVAX RABIES" CodeSystem="NDC"/>
 		</ValueSetDefinition>
 		
 		
@@ -1975,6 +1981,8 @@
 			
 			<ValueElement Value="253088698300003511180824" CodeSystem="cdcgs1vis" DisplayName="DTaP (Diphtheria, Tetanus, Pertussis) Vaccine"/>
 			<ValueElement Value="253088698300014111180824" CodeSystem="cdcgs1vis" DisplayName="Meningococcal ACWY Vaccines"/>
+			
+			<ValueElement Value="253088698300005911181012" CodeSystem="cdcgs1vis" DisplayName="Hepatitis B Vaccine"/>
 		</ValueSetDefinition>
 		<ValueSetDefinition BindingIdentifier="PHVS_FundingEligibilityObsMethod_IIS" Name="Funding Eligibility Observation Method (IIS)">
 			<ValueElement Value="VXC40" CodeSystem="CDCPHINVS" DisplayName="Eligibility captured at the immunization level"/>

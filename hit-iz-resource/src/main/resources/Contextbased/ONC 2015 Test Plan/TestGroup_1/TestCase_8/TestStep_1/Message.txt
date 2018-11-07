@@ -7,5 +7,5 @@ RXA|0|1|20150625||58160-0820-01^ENGERIX-B^NDC|0.5|mL^mL^UCUM||00^New Record^NIP0
 RXR|C28161^Intramuscular^NCIT|LT^Left Thigh^HL70163
 OBX|1|CE|30963-3^Vaccine Funding Source^LN|1|PHC70^Private^CDCPHINVS||||||F|||20150625
 OBX|2|CE|64994-7^Vaccine Funding Program Eligibility^LN|2|V01^Not VFC Eligible^HL70064||||||F|||20150625|||VXC40^per immunization^CDCPHINVS
-OBX|3|CE|69764-9^Document Type^LN|3|253088698300005911160720^Hepatitis B VIS^cdcgs1vis||||||F|||20150625
+OBX|3|CE|69764-9^Document Type^LN|3|253088698300005911181012^Hepatitis B VIS^cdcgs1vis||||||F|||20150625
 OBX|4|DT|29769-7^Date Vis Presented^LN|3|20150625||||||F|||20150625

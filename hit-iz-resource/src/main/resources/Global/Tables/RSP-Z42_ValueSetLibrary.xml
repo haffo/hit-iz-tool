@@ -1320,6 +1320,8 @@
 			
 			<ValueElement Value="253088698300003511180824" CodeSystem="cdcgs1vis" DisplayName="DTaP (Diphtheria, Tetanus, Pertussis) Vaccine"/>
 			<ValueElement Value="253088698300014111180824" CodeSystem="cdcgs1vis" DisplayName="Meningococcal ACWY Vaccines"/>
+			
+			<ValueElement Value="253088698300005911181012" CodeSystem="cdcgs1vis" DisplayName="Hepatitis B Vaccine"/>
 		</ValueSetDefinition>
 		
 		<ValueSetDefinition BindingIdentifier="PHVS_FundingEligibilityObsMethod_IIS" Name="Funding Eligibility Observation Method (IIS)">
