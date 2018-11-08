@@ -7,6 +7,7 @@
  */
 package gov.nist.hit.iz.service.soap;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
@@ -19,6 +20,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.soap.SOAPException;
 
+import org.apache.commons.io.IOUtils;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -43,6 +45,7 @@ public class SOAPValidator {
 	public static String XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
 	public static String SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
 	public static String SOAP_SCHEMA = "http://www.w3.org/2003/05/soap-envelope";
+	private static final String SKELETON_PATH = "/skeleton1-5.xsl";
 
 	/**
 	 * Validate a SoapMessage against the W3C schema
@@ -194,13 +197,68 @@ public class SOAPValidator {
 	private static List<MessageFailureV3> validateWithSchematron(String soap, InputStream schematron, String phase)
 			throws SAXException, ParserConfigurationException, IOException, SOAPException {
 		List<MessageFailureV3> failures = new ArrayList<MessageFailureV3>();
-		Collection<Result> results = Validator.validateWithSchematron(soap, schematron, phase, Severity.ERRORS);
+		Collection<Result> results = validateWithSchematron(soap, schematron, phase, Severity.ERRORS);
 		if (results != null) {
 			for (Result result : results) {
 				failures.add(getFailure(result));
 			}
 		}
 		return failures;
+	}
+
+	private static Collection<Result> validateWithSchematron(String soap, InputStream schematron, String phase,
+			Severity severity) throws SAXException, IOException, ParserConfigurationException {
+		String skeleton = loadSkeleton();
+		File tmpSchematron = null;
+		try {
+			// tmpSchematron = File.createTempFile("schematron", ".xsl");
+			// FileUtils.copyInputStreamToFile(schematron, tmpSchematron);
+			// Collection<Result> result = Validator.runValidation(soap,
+			// Result.Severity.ERRORS,
+			// tmpSchematron.getAbsolutePath());
+			Collection<Result> result = Validator.validateWithSchematron(soap, schematron, phase, Severity.ERRORS);
+			return result;
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+
+	// public static Collection<Result> validateAgainstSchematron(String
+	// xmlContent, InputStream schematronInput,
+	// InputStream skeletonInput, String phase) {
+	// File tmpSchematron = null;
+	// try {
+	// tmpSchematron = File.createTempFile("schematron", ".xsl");
+	// FileUtils.copyInputStreamToFile(schematronInput, tmpSchematron);
+	// Collection<Result> result = Validator.runValidation(xmlContent,
+	// Result.Severity.ERRORS,
+	// tmpSchematron.getAbsolutePath());
+	// return result;
+	// } catch (IOException e) {
+	// e.printStackTrace();
+	// } catch (SAXException e) {
+	// e.printStackTrace();
+	// } catch (ParserConfigurationException e) {
+	// e.printStackTrace();
+	// }
+	// return null;
+	// }
+
+	private static String loadSkeleton() {
+		try {
+			InputStream input = Validator.class.getResourceAsStream(SKELETON_PATH);
+			String res = IOUtils.toString(input);
+			return res;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	private static MessageFailureV3 getFailure(Result result) {

@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.junit.Test;
 
 import gov.nist.hit.iz.domain.IZValidationPhase;
 import gov.nist.hit.iz.service.SOAPValidationReportGenerator;
@@ -21,7 +20,7 @@ public class SOAPValidationReportGeneratorImplTest {
 
 	private final SOAPValidationReportGenerator reportService = new SOAPValidationReportGeneratorImpl();
 
-	@Test
+	// @Test
 	public void testXml() throws IOException, SoapValidationException {
 		String xml = IOUtils.toString(SOAPValidationReportGeneratorImplTest.class
 				.getResourceAsStream("/soap/invalidSubmitSingleMessage.xml"));
@@ -31,7 +30,7 @@ public class SOAPValidationReportGeneratorImplTest {
 		assertNotNull(reportXml);
 	}
 
-	@Test
+	// @Test
 	public void testOldReport() throws IOException, SoapValidationException {
 		String reportXml = IOUtils
 				.toString(SOAPValidationReportGeneratorImplTest.class.getResourceAsStream("/reports/old-report.xml"));
@@ -39,7 +38,7 @@ public class SOAPValidationReportGeneratorImplTest {
 		assertNotNull(html);
 	}
 
-	@Test
+	// @Test
 	public void testHtml() throws IOException, SoapValidationException {
 		String reportXml = IOUtils.toString(
 				SOAPValidationReportGeneratorImplTest.class.getResourceAsStream("/reports/reportWithError.xml"));
@@ -47,7 +46,7 @@ public class SOAPValidationReportGeneratorImplTest {
 		assertNotNull(html);
 	}
 
-	@Test
+	// @Test
 	public void testPdf() throws IOException, SoapValidationException {
 		String reportXml = IOUtils.toString(
 				SOAPValidationReportGeneratorImplTest.class.getResourceAsStream("/reports/reportWithError.xml"));
