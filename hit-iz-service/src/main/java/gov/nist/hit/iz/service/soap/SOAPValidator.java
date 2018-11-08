@@ -43,6 +43,7 @@ public class SOAPValidator {
 	public static String XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
 	public static String SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
 	public static String SOAP_SCHEMA = "http://www.w3.org/2003/05/soap-envelope";
+	private static final String SKELETON_PATH = "/skeleton1-5.xsl";
 
 	/**
 	 * Validate a SoapMessage against the W3C schema
