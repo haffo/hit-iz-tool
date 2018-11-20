@@ -1,7 +1,0 @@
-{
-  "id" : 972076,
-  "name" : "View updated vaccine inventory",
-  "description" : "<span style=\"font-size: 13.3333px;\">Demonstrates the ability to view updated inventory supply.</span>",
-  "type" : "SUT_MANUAL",
-  "position" : 1
-}

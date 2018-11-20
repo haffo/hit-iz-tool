@@ -1,9 +1,0 @@
-{
-  "teststorydesc" : "<span style=\"font-size: 13.3333px;\">The provider enters vaccine inventory data from available inventory.</span>",
-  "comments" : "Barcodes are provided as an introductory option to enter the inventory.",
-  "preCondition" : "No PreCondition",
-  "postCondition" : "Vaccine inventory is recorded and available in the EMR.",
-  "testObjectives" : "<span style=\"font-weight: bold; font-style: italic;\">Update Vaccine Inventory from Stock Receipt:</span><span style=\"font-style: normal; font-weight: normal;\"> The EHR or other clinical software system updates the vaccine inventory when new stock is received at the site and updates the correct count of each vaccine, including those for use in guarantee programs (such as Vaccines for Children) and for private stock.</span><div><span style=\"font-style: normal; font-weight: normal;\"><br></span></div><div><span style=\"font-size: 13.3333px; font-weight: bold; font-style: italic;\">Display Available Vaccine Antigens: </span><span style=\"font-size: 13.3333px;\">The system presents a list of vaccine antigens available for administration to patients (i.e., private stock Vs. specific guarantee program).</span></div>",
-  "evaluationCriteria" : "<span style=\"font-family: Arial; font-size: small;\">Evaluation criteria is defined within each test step.</span>",
-  "notes" : "<span style=\"font-size: 13.3333px;\">This test step is introduced in 2018 and will be considered an evaluation year for the test step. Tester should document feedback and issues.</span><div><span style=\"font-size: 13.3333px;\">Tester may provide 2-D barcode images as a data input option.</span></div>"
-}

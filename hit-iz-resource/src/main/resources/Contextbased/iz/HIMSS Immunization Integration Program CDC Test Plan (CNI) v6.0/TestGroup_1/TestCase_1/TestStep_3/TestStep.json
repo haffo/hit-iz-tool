@@ -1,7 +1,0 @@
-{
-  "id" : 278680,
-  "name" : "Enter Initial Immunization Data for Juana Mariana Vazquez from Another Practice",
-  "description" : "Patient History from another practice is entered into the EMR.",
-  "type" : "SUT_MANUAL",
-  "position" : 3
-}
