@@ -156,7 +156,7 @@
             <div class="panel panel-default">
               <div class="panel-heading">
                             <span>
-                               {{selectedTestCase.type}}: {{selectedTestCase.name}}, Persistence Id: {{selectedTestCase.persistentId}}
+                               {{selectedTestCase.type}}: {{selectedTestCase.name}}
                             </span>
 
 
@@ -173,13 +173,22 @@
                                  <!--<i class="fa fa-upload"></i>Upload Test Plan (.Zip)-->
                                  <!--</button>-->
 
-                                   <button title="Publish Test Plan"
+                                   <button title="Make Test Plan Public"
                                            ng-show="selectedTestCase.scope === 'USER'&& (isAdmin() || isSupervisor())"
                                            type="button"
                                            class="btn btn-xs btn-success"
                                            ng-click="publishTestPlan(selectedTestCase)">
                                     <i class="fa fa-paper-plane"></i>Make Public
                                 </button>
+
+                                  <button title="Make Test Plan Private"
+                                          ng-show="selectedTestCase.scope === 'GLOBAL' && (isAdmin() || isSupervisor())"
+                                          type="button"
+                                          class="btn btn-xs btn-success"
+                                          ng-click="unpublishTestPlan(selectedTestCase)">
+                                    <i class="fa fa-paper-plane"></i>Make Private
+                                </button>
+
 
 
                                      <button title="Delete Selected Test Category"

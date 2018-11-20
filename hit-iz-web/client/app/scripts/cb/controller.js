@@ -2244,6 +2244,56 @@ angular.module('cb')
                 });
         };
 
+
+        $scope.unpublishTestPlan = function () {
+            var modalInstance = $modal.open({
+                templateUrl: 'views/cb/manage/confirm-unpublish-testplan.html',
+                controller: 'ConfirmDialogCtrl',
+                size: 'md',
+                backdrop: 'static',
+                keyboard: false
+            });
+            modalInstance.result.then(
+                function (result) {
+                    if (result) {
+                        $scope.loading = true;
+                        CBTestPlanManager.unpublishTestPlan($scope.selectedTestCase.id).then(function (result) {
+                            if (result.status === "SUCCESS") {
+                                $scope.selectedScope.key = 'USER';
+                                Notification.success({
+                                    message: "Test Plan successfully unpublished !",
+                                    templateUrl: "NotificationSuccessTemplate.html",
+                                    scope: $rootScope,
+                                    delay: 5000
+                                });
+                                $scope.selectScope();
+                                $scope.selectedTP.id = $scope.selectedTestCase.id;
+                                $scope.selectTP();
+                                // $scope.afterSave($scope.token);
+                            } else {
+                                Notification.error({
+                                    message: result.message,
+                                    templateUrl: "NotificationErrorTemplate.html",
+                                    scope: $rootScope,
+                                    delay: 10000
+                                });
+                            }
+                            $scope.loading = false;
+                        }, function (error) {
+                            $scope.loading = false;
+                            Notification.error({
+                                message: error.data,
+                                templateUrl: "NotificationErrorTemplate.html",
+                                scope: $rootScope,
+                                delay: 10000
+                            });
+                        });
+                    }
+                });
+        };
+
+
+
         $scope.openUploadTestPlanModal = function () {
             $modalStack.dismissAll('close');
             var modalInstance = $modal.open({
