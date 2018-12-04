@@ -148,6 +148,14 @@ public class SOAPValidator {
 		reader.setErrorHandler(new ErrorHandler() {
 			@Override
 			public void warning(SAXParseException e) throws SAXException {
+				MessageFailureV3 mf = new MessageFailureV3();
+				mf.setFailureType(AssertionTypeV3Constants.SOAP.toString());
+				mf.setFailureSeverity(ErrorSeverityConstants.NORMAL.toString());
+				mf.setAssertionResult(AssertionResultConstants.WARNING.toString());
+				mf.setDescription(e.getLocalizedMessage());
+				mf.setLine(e.getLineNumber());
+				mf.setColumn(e.getColumnNumber());
+				failures.add(mf);
 			}
 
 			@Override
@@ -155,22 +163,10 @@ public class SOAPValidator {
 				MessageFailureV3 mf = new MessageFailureV3();
 				mf.setFailureType(AssertionTypeV3Constants.SOAP.toString());
 				mf.setFailureSeverity(ErrorSeverityConstants.NORMAL.toString());
-				mf.setAssertionResult(AssertionResultConstants.ERROR.toString());
-
+				mf.setAssertionResult(getAssertionResultType(e.getMessage()).toString());
 				mf.setDescription(e.getLocalizedMessage());
 				mf.setLine(e.getLineNumber());
 				mf.setColumn(e.getColumnNumber());
-				// mf.setPath(XMLUtils.getXPathForElement(xml, lineNumber,
-				// columnNumber));
-				// if (cursor != null && cursor.getName() != null) {
-				// try {
-				// String path =
-				// XmlBeansUtils.getXPathForElement(cursor.getObject());
-				// mf.setPath(path);
-				// } catch (Exception e) {
-				// ;
-				// }
-				// }
 				failures.add(mf);
 			}
 
@@ -208,10 +204,22 @@ public class SOAPValidator {
 		MessageFailureV3 mf = new MessageFailureV3();
 		mf.setFailureType(AssertionTypeV3Constants.SOAP.toString());
 		mf.setFailureSeverity(ErrorSeverityConstants.NORMAL.toString());
-		mf.setAssertionResult(AssertionResultConstants.ERROR.toString());
+		mf.setAssertionResult(getAssertionResultType(result.getMessage()).toString());
 		mf.setDescription(result.getMessage());
 		mf.setPath(result.getContext());
 		return mf;
+	}
+
+	private static AssertionResultConstants getAssertionResultType(String failure) {
+		if (failure != null) {
+			failure = failure.trim();
+			if (failure.toUpperCase().startsWith("ERROR")) {
+				return AssertionResultConstants.ERROR;
+			} else if (failure.toUpperCase().startsWith("WARNING")) {
+				return AssertionResultConstants.WARNING;
+			}
+		}
+		return AssertionResultConstants.ERROR;
 	}
 
 }
