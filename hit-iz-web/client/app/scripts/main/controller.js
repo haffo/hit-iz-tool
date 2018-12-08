@@ -466,7 +466,9 @@ angular.module('main').controller('MainCtrl',
     };
 
 
-    $rootScope.selectTestingType = function (value) {
+
+
+      $rootScope.selectTestingType = function (value) {
       $rootScope.tabs[0] = false;
       $rootScope.tabs[1] = false;
       $rootScope.tabs[2] = false;
@@ -704,7 +706,7 @@ angular.module('main').controller('MainCtrl',
     };
 
 
-    $rootScope.canPublish = function(){
+      $rootScope.canPublish = function(){
         return userInfoService.isAuthenticated() && userInfoService.isAdmin();
     };
 
@@ -735,6 +737,15 @@ angular.module('main').controller('MainCtrl',
 
     };
 
+    $rootScope.initDomainsByOwner = function(){
+        for (var i = 0; i < $rootScope.appInfo.domains.length; i++) {
+            if ($rootScope.appInfo.domains[i].owner === userInfoService.getUsername()) {
+                $rootScope.domainsByOwner['my'].push($rootScope.appInfo.domains[i]);
+            }else{
+                $rootScope.domainsByOwner['others'].push($rootScope.appInfo.domains[i]);
+            }
+        }
+    };
 
       AppInfo.get().then(function (appInfo) {
               $rootScope.loadingDomain = true;
@@ -756,8 +767,15 @@ angular.module('main').controller('MainCtrl',
               var domainFound = null;
               $rootScope.domain = null;
               $rootScope.appInfo.selectedDomain = null;
+              $rootScope.domainsByOwner = {
+                  'my': [],
+                  'others':[]
+              };
+
+
               DomainsManager.getDomains().then(function (domains) {
                   $rootScope.appInfo.domains = domains;
+                  $rootScope.initDomainsByOwner(domains);
                   if ($rootScope.appInfo.domains != null) {
                       if ($rootScope.appInfo.domains.length === 1) {
                           domainFound = $rootScope.appInfo.domains[0].domain;
@@ -836,6 +854,17 @@ angular.module('main').controller('MainCtrl',
               $rootScope.appInfo = {};
               $rootScope.openCriticalErrorDlg("Failed to fetch the server. Please try again");
           });
+
+
+      $rootScope.displayOwnership = function(dom){
+          return dom.owner === userInfoService.getUsername() ? "My Tool Scopes": "Others Tool Scopes";
+      };
+
+      $rootScope.orderOwnership = function(dom){
+          return dom.owner === userInfoService.getUsername() ? 0: 1;
+      };
+
+
 
 
 

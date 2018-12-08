@@ -1,1 +1,8 @@
-[{"domain":"edos","name":"EDos","homeTitle":null,"disabled":false,"messageContentInfo":null,"homeContent":null,"profileInfo":null,"valueSetCopyright":null,"validationResultInfo":null},{"domain":"iz","name":"Immunization","homeTitle":null,"disabled":false,"messageContentInfo":null,"homeContent":null,"profileInfo":null,"valueSetCopyright":null,"validationResultInfo":null}]
+[{"scope":"USER", "domain":"edos","name":"EDos","homeTitle":"edos title","disabled":false,"messageContentInfo":null,"homeContent":null,"profileInfo":null,"valueSetCopyright":null,"validationResultInfo":null, "owner": "rob"},
+  {"scope":"GLOBAL", "domain":"iz","name":"Immunization","homeTitle":"iz title","disabled":false,"messageContentInfo":null,"homeContent":null,"profileInfo":null,"valueSetCopyright":null,"validationResultInfo":null, "owner":"haffo"},
+  {"scope":"USER", "domain":"edos2","name":"EDos2","homeTitle":"edos2 title","disabled":false,"messageContentInfo":null,"homeContent":null,"profileInfo":null,"valueSetCopyright":null,"validationResultInfo":null, "owner": "rob"},
+  {"scope":"GLOBAL", "domain":"iz2","name":"Immunization2","homeTitle":"iz2 title","disabled":false,"messageContentInfo":null,"homeContent":null,"profileInfo":null,"valueSetCopyright":null,"validationResultInfo":null, "owner":"haffo"}]
+
+
+
+
