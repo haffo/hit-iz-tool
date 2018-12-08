@@ -77,9 +77,7 @@
             ng-click="appInfo.selectedDomain = dom.domain; selectDomain(appInfo.selectedDomain)"
             ng-class="{'domain-selected': domain.domain === dom.domain, 'disabled': domain.domain === dom.domain}"
             ng-repeat="dom in appInfo.domains"><a href="#">
-            <span style="color: #438007" ng-show="dom.scope === 'GLOBAL'"><i class="fa fa-circle fa-fw"/></span>
-            <span style="color: #ff240b" ng-show="dom.scope === 'USER'"><i class="fa fa-circle fa-fw"/></span>
-            {{dom.name}}</a></li>
+             {{dom.name}}</a></li>
     </ul>
 </div>
             </span>

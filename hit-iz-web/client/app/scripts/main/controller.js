@@ -737,7 +737,13 @@ angular.module('main').controller('MainCtrl',
 
     };
 
-    $rootScope.initDomainsByOwner = function(){
+      $rootScope.domainsByOwner = {
+          'my': [],
+          'others':[]
+      };
+
+
+      $rootScope.initDomainsByOwner = function(){
         for (var i = 0; i < $rootScope.appInfo.domains.length; i++) {
             if ($rootScope.appInfo.domains[i].owner === userInfoService.getUsername()) {
                 $rootScope.domainsByOwner['my'].push($rootScope.appInfo.domains[i]);
