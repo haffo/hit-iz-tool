@@ -82,6 +82,10 @@ angular.module('domains')
             });
         };
 
+        $scope.closeAlert = function(){
+            $scope.alertMessage = null;
+        };
+
 
         // $scope.selectScope = function () {
         //   $scope.error = null;
@@ -216,9 +220,11 @@ angular.module('domains')
                                 $scope.userDomain = result;
                                 $scope.originalUserDomain = angular.copy(result);
                                 $scope.loadingAction = false;
-                                $scope.setSuccessAlert("Your  tool scope is now public. Please note only public test plans will be visible to users!");
-                                $rootScope.domain = angular.copy(result);
-                                $rootScope.reloadPage();
+                                $scope.setSuccessAlert("Tool scope " + $scope.userDomain.name  + " is now public. Please note only public test plans will be visible to users!");
+                                if($scope.userDomain.domain === $rootScope.domain.domain) {
+                                    $rootScope.domain = angular.copy(result);
+                                    $rootScope.reloadPage();
+                                }
                             }, function (error) {
                                 $scope.loadingAction = false;
                                 $scope.setErrorAlert(error.text);
@@ -228,6 +234,61 @@ angular.module('domains')
                     });
             }
         };
+
+        $scope.publishDomain = function (dom) {
+            if ($rootScope.canPublish()) {
+                var modalInstance = $modal.open({
+                    templateUrl: 'views/domains/confirm-publish.html',
+                    controller: 'ConfirmDialogCtrl',
+                    size: 'md',
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                modalInstance.result.then(
+                    function (result) {
+                        if (result) {
+                            DomainsManager.publish(dom.id).then(function (result) {
+                                $scope.setSuccessAlert("Tool scope " + dom.name  + " is now public. Please note only public test plans will be visible to users!");
+                                if(dom.domain === $rootScope.domain.domain) {
+                                    $rootScope.domain = angular.copy(result);
+                                    $rootScope.reloadPage();
+                                }
+                            }, function (error) {
+                                $scope.setErrorAlert(error.text);
+                            });
+                        }
+                    });
+            }
+        };
+
+        $scope.unpublishDomain = function (dom) {
+            if ($rootScope.canPublish()) {
+                var modalInstance = $modal.open({
+                    templateUrl: 'views/domains/confirm-unpublish.html',
+                    controller: 'ConfirmDialogCtrl',
+                    size: 'md',
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                modalInstance.result.then(
+                    function (result) {
+                        if (result) {
+                            DomainsManager.unpublish(dom.id).then(function (result) {
+                                $scope.setSuccessAlert("Tool scope " + dom.name  + " is now private!");
+                                if(dom.domain === $rootScope.domain.domain) {
+                                    $rootScope.domain = angular.copy(result);
+                                    $rootScope.reloadPage();
+                                }
+                            }, function (error) {
+                                $scope.setErrorAlert(error.text);
+                            });
+                        }
+                    });
+            }
+        };
+
+
+
 
 
         $scope.saveAndUnpublishDomain = function () {
@@ -247,9 +308,11 @@ angular.module('domains')
                                 $scope.userDomain = result;
                                 $scope.originalUserDomain = angular.copy(result);
                                 $scope.loadingAction = false;
-                                $scope.setSuccessAlert("Your tool scope is now private. Please note only you can access the tool scope!");
-                                $rootScope.domain = angular.copy(result);
-                                $rootScope.reloadPage();
+                                $scope.setSuccessAlert("Tool scope " + $scope.userDomain.name  + " is now private. Please note only you can access the tool scope!");
+                                if($scope.userDomain.domain === $rootScope.domain.domain) {
+                                    $rootScope.domain = angular.copy(result);
+                                    $rootScope.reloadPage();
+                                }
                             }, function (error) {
                                 $scope.loadingAction = false;
                                 $scope.setErrorAlert(error.text);

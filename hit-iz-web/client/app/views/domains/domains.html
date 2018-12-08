@@ -22,6 +22,32 @@
 
     <div ng-show="isAuthenticated()">
 
+
+      <div class="row" style="margin-bottom: 10px">
+        <!--<div class="col-md-12">-->
+        <!--<div class="pull-right">-->
+        <!--<button ng-click="createDomain()" class="btn btn-info"><i class="fa fa-plus"></i>Create Tool Scope</button>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="col-md-12" ng-show="alertMessage != null && alertMessage.message != null"
+             style="margin-top:10px">
+          <div class="alert alert-danger" ng-if="alertMessage.type === 'danger'" role="alert">
+            <span> {{alertMessage.message}}</span>
+            <span class="pull-right"><i class="fa fa-times" ng-click="closeAlert()"></i></span>
+          </div>
+          <div class="alert alert-success" ng-if="alertMessage.type === 'success'" role="alert">
+            <span> {{alertMessage.message}}</span>
+            <span class="pull-right"><i class="fa fa-times" ng-click="closeAlert()"></i></span>
+          </div>
+          <div class="alert alert-info" ng-if="alertMessage.type === 'info'" role="alert">
+            <span> {{alertMessage.message}}</span>
+            <span class="pull-right"><i class="fa fa-times" ng-click="closeAlert()"></i></span>
+          </div>
+        </div>
+
+      </div>
+
+
       <div class="row">
 
         <div class="col-md-1 col-1-percent" ng-show="domainsCollapsed">
@@ -80,25 +106,21 @@
 
                 <table st-table="tmpUserDomains" st-safe-src="userDomains"
                        class="table table-condensed table-bordered validation-log">
-
-
                   <thead>
                   <tr>
                     <th colspan="4" st-ratio="100">
                       <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
-                    </th>
-                    <th>
                    </tr>
                   <tr style="background-color: #3276B2;color: white;">
-                    <th st-ratio="40" st-sort="name" >Name</th>
+                    <th st-ratio="30" st-sort="name" >Name</th>
                     <th st-ratio="20" st-sort="owner">Owner</th>
-                    <th st-ratio="20" st-sort="owner">Scope</th>
-                    <th st-ratio="20">Actions</th>
+                    <th st-ratio="10" st-sort="owner">Scope</th>
+                    <th st-ratio="40">Actions</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr ng-repeat="row in tmpUserDomains">
-                    <td st-ratio="40">
+                  <tr ng-repeat="row in tmpUserDomains" ng-class="{'current': row.domain === domain.domain}">
+                    <td st-ratio="30">
                       <span style="color: #438007" ng-if="row.scope === 'GLOBAL'"><i class="fa fa-circle fa-fw"/></span>
                       <span style="color: #ff240b" ng-if="row.scope === 'USER'"><i class="fa fa-circle fa-fw"/></span>
                       {{::row.name}}
@@ -106,22 +128,40 @@
                     <td st-ratio="20">
                       {{::row.owner}}
                     </td>
-                    <td st-ratio="20">
+                    <td st-ratio="10">
                       {{::displayScope(row.scope)}}
                     </td>
-                    <td st-ratio="20">
+                    <td st-ratio="40">
                        <button title="View Tool scope"
                               type="button"
                               class="btn btn-xs btn-primary"
                               ng-click="viewDomain(row,0)">
                         <i class="fa fa-pencil"></i>View
                       </button>
+
+                      <button title="Make Public" ng-if="row.scope === 'USER'"
+                              type="button"
+                              class="btn btn-xs btn-info"
+                              ng-click="publishDomain(row)">
+                        <i class="fa fa-check"></i>Make Public
+                      </button>
+
+                      <button title="Make Private"  ng-if="row.scope === 'GLOBAL'"
+                              type="button"
+                              class="btn btn-xs btn-info"
+                              ng-click="unpublishDomain(row)">
+                        <i class="fa fa-check"></i>Make Private
+                      </button>
+
+
                       <button title="Open"
                               type="button"
                               class="btn btn-xs btn-default"
                               ng-click="openDomain(row)">
                         <i class="fa fa-external-link"></i>Open
                       </button>
+
+
                      </td>
                   </tr>
                   </tbody>
@@ -149,29 +189,7 @@
             </div>
             <div class="panel-body">
 
-        <div class="row" style="margin-bottom: 10px">
-          <!--<div class="col-md-12">-->
-            <!--<div class="pull-right">-->
-              <!--<button ng-click="createDomain()" class="btn btn-info"><i class="fa fa-plus"></i>Create Tool Scope</button>-->
-            <!--</div>-->
-          <!--</div>-->
-          <div class="col-md-12" ng-if="alertMessage != null && alertMessage.message != null"
-               style="margin-top:10px">
-            <div class="alert alert-danger" ng-if="alertMessage.type === 'danger'" role="alert">
-              <span> {{alertMessage.message}}</span>
-              <span class="pull-right"><i class="fa fa-times" ng-click="alertMessage = null"></i></span>
-            </div>
-            <div class="alert alert-success" ng-if="alertMessage.type === 'success'" role="alert">
-              <span> {{alertMessage.message}}</span>
-              <span class="pull-right"><i class="fa fa-times" ng-click="alertMessage = null"></i></span>
-            </div>
-            <div class="alert alert-info" ng-if="alertMessage.type === 'info'" role="alert">
-              <span> {{alertMessage.message}}</span>
-              <span class="pull-right"><i class="fa fa-times" ng-click="alertMessage = null"></i></span>
-            </div>
-          </div>
 
-        </div>
 
 
         <div ng-show="loadingDomain" style="text-align:center">
