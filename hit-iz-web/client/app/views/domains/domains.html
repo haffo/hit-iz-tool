@@ -21,8 +21,135 @@
     </div>
 
     <div ng-show="isAuthenticated()">
-      <div style="margin:10px">
-        <div class="row test-plan-select-container" style="margin-bottom: 10px">
+
+      <div class="row">
+
+        <div class="col-md-1 col-1-percent" ng-show="domainsCollapsed">
+          <button title="Show Tool Scopes" class="btn btn-xs btn-info"
+                  ng-click="domainsCollapsed = !domainsCollapsed">
+            <i class="fa fa-caret-right"></i>
+          </button>
+        </div>
+
+        <div class="col-md-5" ng-show="!domainsCollapsed">
+          <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading"><i class="glyphicon glyphicon-list"></i> Tool Scopes
+              <button title="Hide message tree" class="btn btn-xs btn-info  pull-right"
+                      ng-click="domainsCollapsed = !domainsCollapsed">
+                <i class="fa fa-caret-left"></i>
+              </button>
+            </div>
+            <div class="panel-body">
+
+              <div ng-show="loadingDomains" style="text-align:center">
+                <i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
+              </div>
+
+              <div ng-show="!loadingDomains">
+                <!--<div class="row" style="margin-bottom: 20px">-->
+                  <!--<div class="col-md-4">-->
+                    <!--<label>Scope</label>-->
+                    <!--<div class="btn-group" role="group" aria-label="label1">-->
+                      <!--<button type="button" ng-class="{'active': scopeType === '*'}" class="btn btn-primary btn-sm" ng-click="contextType = '*'; filterBy()">All</button>-->
+                      <!--<button type="button" ng-class="{'active': contextType === 'CB'}" class="btn btn-primary btn-sm" ng-click="contextType = 'CB'; filterBy()">Context-based</button>-->
+                      <!--<button type="button" ng-class="{'active': contextType === 'CF'}" class="btn btn-primary btn-sm" ng-click="contextType = 'CF'; filterBy()">Context-free</button>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="col-md-4">-->
+                    <!--<label>User Type</label>-->
+                    <!--<div class="btn-group" role="group" aria-label="...">-->
+                      <!--<button type="button" ng-class="{'active': userType === '*'}" class="btn btn-primary btn-sm" ng-click="userType = '*'; filterBy()">All</button>-->
+                      <!--<button type="button" ng-class="{'active': userType === 'AUTH'}" class="btn btn-primary btn-sm" ng-click="userType = 'AUTH'; filterBy()">Authenticated</button>-->
+                      <!--<button type="button" ng-class="{'active': userType === 'NOT_AUTH'}" class="btn btn-primary btn-sm" ng-click="userType = 'NOT_AUTH'; filterBy()">Not Authenticated</button>-->
+                    <!--</div>-->
+                  <!--</div>-->
+
+                  <!--<div class="col-md-4">-->
+                    <!--<label>Result Type</label>-->
+                    <!--<div class="btn-group" role="group" aria-label="...">-->
+                      <!--<button type="button" ng-class="{'active': resultType === '*'}" class="btn btn-primary btn-sm" ng-click="resultType = '*'; filterBy()">All</button>-->
+                      <!--<button type="button" ng-class="{'active': resultType === 'SUCCESS'}" class="btn btn-primary btn-sm" ng-click="resultType = 'SUCCESS'; filterBy()">Success</button>-->
+                      <!--<button type="button" ng-class="{'active': resultType === 'FAILED'}" class="btn btn-primary btn-sm" ng-click="resultType = 'FAILED'; filterBy()">Failure</button>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <span style="margin-right:10px"><span style="color: #438007"><i class="fa fa-circle fa-fw"/></span>Public</span>
+                <span style="margin-bottom:20px"><span style="color: #ff240b"><i class="fa fa-circle fa-fw"/></span>Private</span>
+
+
+                <table st-table="tmpUserDomains" st-safe-src="userDomains"
+                       class="table table-condensed table-bordered validation-log">
+
+
+                  <thead>
+                  <tr>
+                    <th colspan="4" st-ratio="100">
+                      <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+                    </th>
+                    <th>
+                   </tr>
+                  <tr style="background-color: #3276B2;color: white;">
+                    <th st-ratio="40" st-sort="name" >Name</th>
+                    <th st-ratio="20" st-sort="owner">Owner</th>
+                    <th st-ratio="20" st-sort="owner">Scope</th>
+                    <th st-ratio="20">Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="row in tmpUserDomains">
+                    <td st-ratio="40">
+                      <span style="color: #438007" ng-if="row.scope === 'GLOBAL'"><i class="fa fa-circle fa-fw"/></span>
+                      <span style="color: #ff240b" ng-if="row.scope === 'USER'"><i class="fa fa-circle fa-fw"/></span>
+                      {{::row.name}}
+                    </td>
+                    <td st-ratio="20">
+                      {{::row.owner}}
+                    </td>
+                    <td st-ratio="20">
+                      {{::displayScope(row.scope)}}
+                    </td>
+                    <td st-ratio="20">
+                       <button title="View Tool scope"
+                              type="button"
+                              class="btn btn-xs btn-primary"
+                              ng-click="viewDomain(row,0)">
+                        <i class="fa fa-pencil"></i>View
+                      </button>
+                      <button title="Open"
+                              type="button"
+                              class="btn btn-xs btn-default"
+                              ng-click="openDomain(row)">
+                        <i class="fa fa-external-link"></i>Open
+                      </button>
+                     </td>
+                  </tr>
+                  </tbody>
+                  <tr ng-show="userDomains.length >=10">
+                    <th colspan="4" class="text-center" st-ratio="100">
+                      <div class="" st-pagination="" st-items-by-page="10"
+                           st-displayed-pages="10"></div>
+                    </th>
+                  </tr>
+                </table>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div ng-class="{'col-md-7': !domainsCollapsed, 'col-md-11 col-97-9-percent':domainsCollapsed}">
+
+          <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading"><i class="glyphicon glyphicon-list"></i> Tool Scope
+              <span ng-if="userDomain != null">{{userDomain.name}}</span>
+
+            </div>
+            <div class="panel-body">
+
+        <div class="row" style="margin-bottom: 10px">
           <!--<div class="col-md-12">-->
             <!--<div class="pull-right">-->
               <!--<button ng-click="createDomain()" class="btn btn-info"><i class="fa fa-plus"></i>Create Tool Scope</button>-->
@@ -53,40 +180,48 @@
 
         <div ng-show="!loadingDomain">
           <div class="col-md-12" style="margin-bottom: 10px" ng-show="userDomain != null">
-            <h3>
-              <span>Tool Scope: {{userDomain.name}}</span>
-
-
+            <form novalidate id="domainForm" name="domainForm" class="form-horizontal">
+            <div>
               <span class="pull-right">
               <button title="Reset"
                       type="button"
                       class="btn btn-md btn-warning"
+                      ng-disabled="domainForm.$pristine"
                       ng-click="resetDomain()">
                                     <i class="fa fa-check"></i>Reset
                                 </button>
                <button title="Save"
                        type="button"
-                       ng-disabled="domainForm.$invalid"
+                       ng-disabled="domainForm.$invalid || domainForm.$pristine"
                        class="btn btn-md btn-success"
                        ng-click="saveDomain()">
                                     <i class="fa fa-check"></i>Save
                                 </button>
 
-
               <button title="Make Public" ng-if="userDomain.scope === 'USER' && canPublish()"
                       type="button"
                       ng-disabled="domainForm.$invalid"
                       class="btn btn-md btn-info"
-                      ng-click="publishDomain()">
+                      ng-click="saveAndPublishDomain()">
                                     <i class="fa fa-check"></i>Make Public
               </button>
 
+                <button title="Make Private" ng-if="userDomain.scope === 'GLOBAL' && canPublish()"
+                        type="button"
+                        ng-disabled="domainForm.$invalid"
+                        class="btn btn-md btn-info"
+                        ng-click="saveAndUnpublishDomain()">
+                                    <i class="fa fa-check"></i>Make Private
+              </button>
+
+
 
             </span>
-            </h3>
+            </div>
+            <br />
+
             <hr/>
 
-            <form novalidate id="domainForm" name="domainForm" class="form-horizontal">
               <tabset>
                 <tab active="tabs[0]">
                   <tab-heading>
@@ -132,7 +267,7 @@
 
                     <div class='form-group control-group'>
                       <label for='domainName' class='col-md-2 control-label'>Name *</label>
-                      <div class='controls col-md-6'>
+                      <div class='controls col-md-10'>
                         <input required
                                class='form-control' name='domainName'
                                id='domainName' type='text'
@@ -142,7 +277,7 @@
 
                     <div class='form-group control-group'>
                       <label for='domainHomeContent' class='col-md-2 control-label'>Home Title * </label>
-                      <div class='controls col-md-6'>
+                      <div class='controls col-md-10'>
                         <input required
                                class='form-control' name='domainHomeTitle'
                                id='domainHomeTitle' type='text'
@@ -152,14 +287,14 @@
 
                     <div class='form-group control-group'>
                       <label for='domainHomeContent' class='col-md-2 control-label'>Home Content</label>
-                      <div class='controls col-md-6'>
+                      <div class='controls col-md-10'>
                         <!--<div class="pull-right" style="margin-bottom:5px">-->
                           <!--<button class="btn btn-default btn-md" ng-click="loadDefaultHomeContent()">Load Example-->
                           <!--</button>-->
                         <!--</div>-->
                         <textarea
                           class='form-control' name='domainHomeContent'
-                          id='domainHomeContent' rows="15" cols="5"
+                          id='domainHomeContent' rows="15" cols="10"
                           ng-model='userDomain.homeContent'></textarea>
                       </div>
                     </div>
@@ -267,14 +402,18 @@
                 </div>
               </div>
             </form>
-          </div>
+         </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
+
   <div ng-show="!isDomainsManagementSupported()" style="margin:10px; min-height: 300px">
     <div ng-include="'NotFound.html'"></div>
 
   </div>
 
+</div>
+  </div>
 </div>
