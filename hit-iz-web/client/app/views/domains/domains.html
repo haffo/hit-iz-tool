@@ -100,8 +100,8 @@
                     <!--</div>-->
                   <!--</div>-->
                 <!--</div>-->
-                <span style="margin-right:10px"><span style="color: #438007"><i class="fa fa-circle fa-fw"/></span>Public</span>
-                <span style="margin-bottom:20px"><span style="color: #ff240b"><i class="fa fa-circle fa-fw"/></span>Private</span>
+                <span style="margin-right:10px"><span style="color: #438007"><i class="fa fa-circle fa-fw"></i></span>Public</span>
+                <span style="margin-bottom:20px"><span style="color: #ff240b"><i class="fa fa-circle fa-fw"></i></span>Private</span>
 
 
                 <table st-table="tmpUserDomains" st-safe-src="userDomains"
@@ -121,8 +121,8 @@
                   <tbody>
                   <tr ng-repeat="row in tmpUserDomains" ng-class="{'current': row.domain === domain.domain}">
                     <td st-ratio="30">
-                      <span style="color: #438007" ng-if="row.scope === 'GLOBAL'"><i class="fa fa-circle fa-fw"/></span>
-                      <span style="color: #ff240b" ng-if="row.scope === 'USER'"><i class="fa fa-circle fa-fw"/></span>
+                      <span style="color: #438007" ng-if="row.scope === 'GLOBAL'"><i class="fa fa-circle fa-fw"></i></span>
+                      <span style="color: #ff240b" ng-if="row.scope === 'USER'"><i class="fa fa-circle fa-fw"></i></span>
                       {{::row.name}}
                     </td>
                     <td st-ratio="20">
