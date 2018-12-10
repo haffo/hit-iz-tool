@@ -139,16 +139,18 @@
                         <i class="fa fa-pencil"></i>View
                       </button>
 
-                      <button title="Make Public" ng-if="row.scope === 'USER'"
+                      <button title="Make Public" ng-if="row.scope === 'USER' && (isAdmin() || isPublisher())"
                               type="button"
                               class="btn btn-xs btn-info"
+                              ng-disabled="(!isAdmin() && !isPublisher())"
                               ng-click="publishDomain(row)">
                         <i class="fa fa-check"></i>Make Public
                       </button>
 
-                      <button title="Make Private"  ng-if="row.scope === 'GLOBAL'"
+                      <button title="Make Private"  ng-if="row.scope === 'GLOBAL' && (isAdmin() || isPublisher())"
                               type="button"
                               class="btn btn-xs btn-info"
+                              ng-disabled="(row.scope === 'GLOBAL') && (!isAdmin() && !isPublisher())"
                               ng-click="unpublishDomain(row)">
                         <i class="fa fa-check"></i>Make Private
                       </button>
@@ -204,13 +206,13 @@
               <button title="Reset"
                       type="button"
                       class="btn btn-md btn-warning"
-                      ng-disabled="domainForm.$pristine"
+                      ng-disabled="domainForm.$pristine || (!isAdmin() && !isPublisher())"
                       ng-click="resetDomain()">
                                     <i class="fa fa-check"></i>Reset
                                 </button>
                <button title="Save"
                        type="button"
-                       ng-disabled="domainForm.$invalid || domainForm.$pristine"
+                       ng-disabled="domainForm.$invalid || domainForm.$pristine || ((userDomain.scope === 'GLOBAL') && (!isAdmin() && !isPublisher()))"
                        class="btn btn-md btn-success"
                        ng-click="saveDomain()">
                                     <i class="fa fa-check"></i>Save
@@ -218,7 +220,7 @@
 
               <button title="Make Public" ng-if="userDomain.scope === 'USER' && canPublish()"
                       type="button"
-                      ng-disabled="domainForm.$invalid"
+                      ng-disabled="domainForm.$invalid || (!isAdmin() && !isPublisher())"
                       class="btn btn-md btn-info"
                       ng-click="saveAndPublishDomain()">
                                     <i class="fa fa-check"></i>Make Public
@@ -226,7 +228,7 @@
 
                 <button title="Make Private" ng-if="userDomain.scope === 'GLOBAL' && canPublish()"
                         type="button"
-                        ng-disabled="domainForm.$invalid"
+                        ng-disabled="domainForm.$invalid || (!isAdmin() && !isPublisher())"
                         class="btn btn-md btn-info"
                         ng-click="saveAndUnpublishDomain()">
                                     <i class="fa fa-check"></i>Make Private
@@ -286,7 +288,7 @@
                     <div class='form-group control-group'>
                       <label for='domainName' class='col-md-2 control-label'>Name *</label>
                       <div class='controls col-md-10'>
-                        <input required
+                        <input required ng-disabled="userDomain.scope === 'GLOBAL' && (!isAdmin() && !isPublisher())"
                                class='form-control' name='domainName'
                                id='domainName' type='text'
                                ng-model='userDomain.name'>
@@ -296,7 +298,7 @@
                     <div class='form-group control-group'>
                       <label for='domainHomeContent' class='col-md-2 control-label'>Home Title * </label>
                       <div class='controls col-md-10'>
-                        <input required
+                        <input required ng-disabled="userDomain.scope === 'GLOBAL' && (!isAdmin() && !isPublisher())"
                                class='form-control' name='domainHomeTitle'
                                id='domainHomeTitle' type='text'
                                ng-model='userDomain.homeTitle'>
@@ -311,6 +313,7 @@
                           <!--</button>-->
                         <!--</div>-->
                         <textarea
+                                ng-disabled="userDomain.scope === 'GLOBAL' && (!isAdmin() && !isPublisher())"
                           class='form-control' name='domainHomeContent'
                           id='domainHomeContent' rows="15" cols="10"
                           ng-model='userDomain.homeContent'></textarea>
@@ -333,7 +336,7 @@
                     <!--</div>-->
                     <div class='form-group control-group'>
                       <div class='controls col-md-12'>
-                    <textarea
+                    <textarea ng-disabled="userDomain.scope === 'GLOBAL' && (!isAdmin() && !isPublisher())"
                       class='form-control' name='domainHomeContent'
                       id='domainMessageContentInfo' rows="15" cols="15"
                       ng-model='userDomain.messageContentInfo'></textarea>
@@ -356,7 +359,7 @@
                     <!--</div>-->
                     <div class='form-group control-group'>
                       <div class='controls col-md-12'>
-                    <textarea
+                    <textarea ng-disabled="userDomain.scope === 'GLOBAL' && (!isAdmin() && !isPublisher())"
                       class='form-control' name='domainProfileInfo'
                       id='domainProfileInfo' rows="15" cols="15"
                       ng-model='userDomain.profileInfo'></textarea>
@@ -375,7 +378,7 @@
                     <!--</div>-->
                     <div class='form-group control-group'>
                       <div class='controls col-md-12'>
-                    <textarea
+                    <textarea ng-disabled="userDomain.scope === 'GLOBAL' && (!isAdmin() && !isPublisher())"
                       class='form-control' name='domainValueSetCopyright'
                       id='domainValueSetCopyright' rows="15" cols="15"
                       ng-model='userDomain.valueSetCopyright'></textarea>
@@ -390,7 +393,7 @@
                   <div class="domain-content">
                     <div class='form-group control-group'>
                       <div class='controls col-md-12'>
-                    <textarea
+                    <textarea ng-disabled="userDomain.scope === 'GLOBAL' && (!isAdmin() && !isPublisher())"
                       class='form-control' name='domainValidationResultInfo'
                       id='domainValidationResultInfo' rows="15" cols="15"
                       ng-model='userDomain.validationResultInfo'></textarea>
@@ -405,7 +408,7 @@
               <div style="margin-top:30px;margin-bottom:30px">
             <span class="pull-left" style="">
               <button title="Reset"
-                      type="button"
+                      type="button" ng-disabled="userDomain.scope === 'GLOBAL' && (!isAdmin() && !isPublisher())"
                       class="btn btn-md btn-danger"
                       ng-click="deleteDomain()">
                                     <i class="fa fa-check"></i>Delete

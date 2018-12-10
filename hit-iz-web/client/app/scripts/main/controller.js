@@ -86,6 +86,11 @@ angular.module('main').controller('MainCtrl',
             return userInfoService.isSupervisor();
         };
 
+        $scope.isPublisher = function () {
+            return userInfoService.isPublisher();
+        };
+
+
         $scope.isTester = function () {
             return userInfoService.isTester();
         };
