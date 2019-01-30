@@ -146,6 +146,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
         var currentUser = null;
         var supervisor = false,
             tester = false,
+            publisher = false,
             deployer = false,
             admin = false,
             id = null,
@@ -164,6 +165,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             tester = StorageService.get('tester');
             supervisor = StorageService.get('supervisor');
             deployer = StorageService.get('deployer');
+            publisher = StorageService.get('publisher');
 
             admin = StorageService.get('admin');
           lastTestPlanPersistenceId = StorageService.get('lastTestPlanPersistenceId');
@@ -177,7 +179,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             StorageService.set('tester', tester);
             StorageService.set('supervisor', supervisor);
             StorageService.set('deployer', deployer);
-
+            StorageService.set('publisher', publisher);
             StorageService.set('admin', admin);
             StorageService.set('fullName', fullName);
           StorageService.set('lastTestPlanPersistenceId', lastTestPlanPersistenceId);
@@ -190,6 +192,8 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             StorageService.remove('username');
             StorageService.remove('tester');
             StorageService.remove('supervisor');
+            StorageService.remove('publisher');
+
             StorageService.remove('deployer');
             StorageService.remove('admin');
             StorageService.remove('hthd');
@@ -253,6 +257,9 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
         var isDeployer = function() {
             return deployer;
         };
+        var isPublisher = function() {
+            return publisher;
+        };
 
 
         var isPending = function() {
@@ -309,6 +316,9 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
                             case 'deployer':
                                 deployer = true;
                                 break;
+                            case 'publisher':
+                                publisher = true;
+                                break;
                             default:
                         }
                     });
@@ -319,6 +329,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
                 supervisor = false;
                 tester = false;
                 deployer = false;
+                publisher = false;
                 admin = false;
                 username = '';
                 id = null;
@@ -356,6 +367,7 @@ angular.module('account').factory('userInfoService', ['StorageService', 'userLoa
             loadFromCookie: loadFromCookie,
             getAccountID: getAccountID,
             isAdmin: isAdmin,
+            isPublisher: isPublisher,
             isTester: isTester,
             isAuthenticated: isAuthenticated,
             isPending: isPending,

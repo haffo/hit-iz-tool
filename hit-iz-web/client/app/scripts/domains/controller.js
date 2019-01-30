@@ -44,7 +44,7 @@ angular.module('domains')
         };
 
         $scope.openDomain = function (domain) {
-            var url = $window.location.protocol + "//" + $window.location.host + "/#/home?d="+ domain.domain;
+            var url = $window.location.protocol + "//" + $window.location.host + $window.location.pathname + "#/home?d="+ domain.domain;
             $window.open(url, "open_toolscope_page",'_blank');
         };
 
