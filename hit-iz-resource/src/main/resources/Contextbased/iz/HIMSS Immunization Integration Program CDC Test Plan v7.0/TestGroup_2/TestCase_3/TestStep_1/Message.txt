@@ -1,0 +1,110 @@
+MSH|^~\&|Test EHR Application|X68||NIST Test Iz Reg|20180701082240-0500||VXU^V04^VXU_V04|NIST-IZ-001.00|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|IIPEHRFAC^^^^^IIP-AA-IZ-1^XX^^^100-1|IIPIISFAC^^^^^IIP-AA-IZ-1^XX^^^100-2
+PID|1||123456^^^MYEHR^MR~987633^^^MYIIS^SR||Vazquez^Juana^Mariana^^^^L|Acosta^Maria^Merida^^^^M|201311011105|F||2106-3^White^CDCREC|4345 Standish Way^^Stamford^CT^06903^USA^L||^PRN^CP^^1^203^5551212~^NET^^jmg@gmail.com||eng^English^ISO639|||||||2135-2^Hispanic or Latino^CDCREC
+PD1|||||||||||02^Reminder/Recall - any method^HL70215|N||||A|20140701|20140701
+NK1|1|Vazquez^Joanna^Merida^^^^L|GRP^Grandparent^HL70063|4345 Standish Way^^Stamford^CT^06901^^L|^PRN^PH^^1^203^5551212~^NET^^jmg@gmail.com
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20131101|20131101|08^hepatitis B vaccine, pediatric or pediatric/adolescent dosage^CVX^58160-0820-11^ENGERIX-B^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC||||6332FK33|20141214|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20131220|20131220|45^hepatitis B vaccine, unspecified formulation^CVX^58160-0820-11^ENGERIX-B^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC||||6352FK1|20131231|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140520|20140520|08^hepatitis B vaccine, pediatric or pediatric/adolescent dosage^CVX^58160-0820-11^ENGERIX-B^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC||||6352FK24|20150831|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150122|20150122|107^diphtheria, tetanus toxoids and acellular pertussis vaccine, unspecified^CVX^49281-0286-01^DAPTACEL^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC||||D409QS2341|20141130|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140323|20140323|106^diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis^CVX^49281-0286-01^DAPTACEL^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC||||D409QS2433|20140904|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140522|20140522|106^diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis^CVX^49281-0286-01^DAPTACEL^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC||||D409QS3255|20141201|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150221|20150221|106^diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis^CVX^49281-0286-01^DAPTACEL^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC||||D409QS249|20150301|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Rodriguez^J^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20171120|20171120|106^diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis^CVX^49281-0286-01^DAPTACEL^NDC|0.5|mL^^UCUM||02^Historical information - from other provider^NIP001|^Casera^Linda|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||D643QS8243|20171201|PMC^Sanofi Pasteur Inc^MVX|||CP|A
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140122|20140122|49^Haemophilus influenzae type b vaccine, PRP-OMP conjugate^CVX^00006-4897-00^PedvaxHIB^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC||||7M54K9245|20130324|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140323|20140323|49^Haemophilus influenzae type b vaccine, PRP-OMP conjugate^CVX^00006-4897-00^PedvaxHIB^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||7M55K3342|20141030|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140522|20140522|49^Haemophilus influenzae type b vaccine, PRP-OMP conjugate^CVX^00006-4897-00^PedvaxHIB^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||7M75K4566|20140523|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20141121|20141121|49^Haemophilus influenzae type b vaccine, PRP-OMP conjugate^CVX^00006-4897-00^PedvaxHIB^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||7M53K5534|20150222|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140122|20140122|10^poliovirus vaccine, inactivated^CVX^49281-0860-55^IPOL^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D333PV2431|20141004|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140323|20140323|10^poliovirus vaccine, inactivated^CVX^49281-0860-55^IPOL^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D333PV4344|20150323|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Rodriguez^J^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150221|20150221|10^poliovirus vaccine, inactivated^CVX^49281-0860-55^IPOL^NDC|0.5|mL^^UCUM||02^Historical information - from other provider^NIP001|^Casera^Linda|^^^DCS_DC^^^^^4253 Standish Way^^Stamford^CT^06903||||D335PV9644|20150422|PMC^Sanofi Pasteur Inc^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LD^Left Deltoid^HL70163||||
+OBX|1|CE|31044-1^Reaction^LN|1|VXC12^fever of >40.5C (105F) within 48 hours of dose^CDCPHINVS||||||F|||20150221|||||||||||
+ORC|RE||9999^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20181031|20181031|10^poliovirus vaccine, inactivated^CVX|999||||||||||||00^Parental decision^NIP002||RE|A
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140122|20140122|133^pneumococcal conjugate vaccine, 13 valent^CVX^00005-1971-05^PREVNAR 13^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||P243V3281|20140130|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140323|20140323|133^pneumococcal conjugate vaccine, 13 valent^CVX^00005-1971-05^PREVNAR 13^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||P343V8321|20140330|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140522|20140522|133^pneumococcal conjugate vaccine, 13 valent^CVX^00005-1971-05^PREVNAR 13^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||P853V2164|20140830|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150111|20150111|133^pneumococcal conjugate vaccine, 13 valent^CVX^00005-1971-05^PREVNAR 13^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||P853V58532|20150418|PFR^Pfizer, Inc^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140122|20140122|119^rotavirus, live, monovalent vaccine^CVX^58160-0854-52^ROTARIX^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||6359RV533|20140215|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Smith^F^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140323|20140323|119^rotavirus, live, monovalent vaccine^CVX^58160-0854-52^ROTARIX^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||6359RV533|20140510|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140925|20140925|161^Influenza, injectable,quadrivalent, preservative free, pediatric^CVX^49281-0514-00^FLUZONE QUADRIVALENT^NDC|0.25|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D8043IN8734|20150312|PMC^Sanofi Pasteur^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20141029|20141029|161^Influenza, injectable,quadrivalent, preservative free, pediatric^CVX^49281-0514-00^FLUZONE QUADRIVALENT^NDC|0.25|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D8043IN8734|20150312|PMC^Sanofi Pasteur^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RT^Right Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20151002|20151002|161^Influenza, injectable,quadrivalent, preservative free, pediatric^CVX^49281-0514-00^FLUZONE QUADRIVALENT^NDC|.25|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D9334IN9333|20160522|PMC^Sanofi Pasteur^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20161104|20161104|161^Influenza, injectable,quadrivalent, preservative free, pediatric^CVX^49281-0514-00^FLUZONE QUADRIVALENT^NDC|0.25|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||D9553IN2243|20170430|PMC^Sanofi Pasteur^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Ricci^Gina^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20171015|20171015|140^Influenza, seasonal, injectable, preservative Free^CVX^58160-0883-41^FLUARIX^NDC|0.5|mL^^UCUM||02^Historical information - from other provider^NIP001|^Ricci^Gina|^^^DCS_DC^^^^^15 Post Road^^Stamford^CT^06901||||8L4B3423|20171230|SKB^GlaxoSmithKline^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|||||
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20181031|20181031|58160-0883-41^FLUARIX^NDC|0.5|mL^^UCUM||00^New immunization record^NIP001|^Molina^Sandra|^^^DCS_DC^^^^^400 Shoreline Drive^^Stamford^CT^06901||||8L4B3521|20191231|SKB^GlaxoSmithKline^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|||||
+OBX|1|TS|29768-9^VIS Publication Date^LN|1|20140819||||||F|||20181031
+OBX|2|TS|29769-7^VIS Presentation Date^LN|1|20181031||||||F|||20181031
+OBX|3|CE|64994-7^vaccine fund pgm elig cat^LN|1|V02^VFC eligible-Medicaid/Medicaid Managed Care^HL70064||||||F|||20181031
+OBX|4|CE|30963-3^Vaccine funding source^LN|1|VXC50^Public^CDCPHINVS||||||F|||20181031
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20141123|20141123|83^hepatitis A vaccine, pediatric/adolescent dosage, 2 dose schedule^CVX^58160-0825-52^HAVRIX^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||6359RT33|20150104|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A|||||
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|RD^Right Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20150523|20150523|83^hepatitis A vaccine, pediatric/adolescent dosage, 2 dose schedule^CVX^58160-0825-52^HAVRIX^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||6359RT48|20150911|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|A
+RXR|C28161^Intramuscular^NCIT^IM^Intramuscular^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20140822|20140822|03^measles, mumps, rubella virus vaccine^CVX^0006-4681-00^MMR II^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Molina^Sandra|^^^DCS_DC^^^^^400 Shoreline Drive^^Stamford^CT^06901||||0853CC|20141215|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LT^Left Thigh^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20171122|20171122|03^measles, mumps, rubella virus vaccine^CVX^0006-4681-00^MMR II^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||0854FF|20180413|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||OP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20181015|20181015|03^measles, mumps, rubella virus vaccine^CVX^0006-4681-00^MMR II^NDC|0.5|mL^^UCUM||01^historical^NIP001|^Molina^Sandra|^^^DCS_DC^^^^^400 Shoreline Drive^^Stamford^CT^06901||||0934GG|20191231|MSD^Merck Sharp \T\ Dohme Corp^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|LD^Left Deltoid^HL70163||||
+ORC|RE||197027^DCS|||||||^Martinez^J||^Herrera^Carlos^^^^^^^L^^^^^^^^^^^MD|||||OP^Oceanview Pediatrics^HL70362||||||||||||||
+RXA|0|1|20151215|20151215|21^varicella virus vaccine^CVX^0006-4827-00^Varivax^NDC|0.5|mL^^UCUM||08^Historical information - from public agency^NIP001|^Martinez^J|^^^DCS_DC^^^^^333 Oceanview Lane^^Stamford^CT^06901||||2341BB|20161201|MSD^Merck Sharp and Dohme Corp^MVX|||CP|A|||||
+RXR|C38299^Subcutaneous^NCIT^SC^Subcutaneous^HL70162|RD^Right Deltoid^HL70163||||

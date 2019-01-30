@@ -1,0 +1,9 @@
+MSH|^~\&|Test EHR Application|X68||NIST Test Iz Reg|20180701082240-0500||VXU^V04^VXU_V04|NIST-IZ-001.00|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS|IIPEHRFAC^^^^^IIP-AA-IZ-1^XX^^^100-1|IIPIISFAC^^^^^IIP-AA-IZ-1^XX^^^100-2
+PID|1||123456^^^MYEHR^MR~987633^^^MYIIS^SR||Gonzales^Juan^Marcel^^^^L|Morales^Anita^Francesca^^^^M|201703041100|M||2106-3^White^CDCREC|4623 Standish Way^^Stamford^CT^06903^USA^L||^PRN^CP^^1^203^5551213||eng^English^ISO639|||||||2135-2^Hispanic or Latino^CDCREC|||||||||||||||||
+ORC|RE||197027^DCS|||||||^Molina^Sandra||^Smith^Frank^^^^^^^L^^^^^^^^^^^MD|||||SP^Shoreline Pediatrics^HL70362||||||||||||||
+RXA|0|1|20181031|20181031|08^Hepatitis B^CVX^58160-0820-11^ENGERIX-B^NDC|0.5|mL^^UCUM||00^^NIP001|^Molina^Sandra|^^^DCS_DC^^^^^400 Shoreline Drive^^Stamford^CT^06901||||6332FK26|20191031|SKB^GlaxoSmithKline Biologicals SA^MVX|||CP|D
+RXR|C28161^IM^NCIT^IM^IM^HL70162|LD^Left Deltoid^HL70163||||
+OBX|1|CE|64994-7^vaccine fund pgm elig cat^LN|1|V01^Not VFC elig ^HL70064||||||F|||20181031
+OBX|2|CE|30956-7^vaccine type^LN|2|08^Hepatitis B^CVX||||||F
+OBX|3|TS|29768-9^Date vaccine information statement published^LN|2|20150715||||||F
+OBX|4|TS|29769-7^Date vaccine information statement presented^LN|2|20181031||||||F
