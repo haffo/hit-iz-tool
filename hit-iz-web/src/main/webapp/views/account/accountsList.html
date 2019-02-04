@@ -20,23 +20,6 @@
 
         <table st-table="tmpAccountList" st-safe-src="accountList" st-set-filter="customFilter" class="table table-striped table-bordered table-condensed">
           <thead>
-          <tr>
-            <th colspan="4" st-ratio="50">
-              Login Date Filter
-              <!--<input  st-search="lastLoggedInDate" placeholder="" class="input-sm form-control" type="search"/>-->
-              <st-date-range predicate="lastLoggedInDate" before="loginDateQuery.before" after="loginDateQuery.after"></st-date-range>
-            </th>
-            
-            <th colspan="4" st-ratio="50">
-              Registration Date Filter
-              <!--<input  st-search="lastLoggedInDate" placeholder="" class="input-sm form-control" type="search"/>-->
-              <st-date-range predicate="registrationDate" before="registrationDateQuery.before" after="registrationDateQuery.after"></st-date-range>
-            </th>
-            
-
-          </tr>
-
-
 
           <tr class="tbl-header">
             <th st-ratio="5"></th>
@@ -96,14 +79,17 @@
 
 
             <th st-ratio="10">
-              </th>
+              <!--<input  st-search="lastLoggedInDate" placeholder="" class="input-sm form-control" type="search"/>-->
+              <st-date-range predicate="lastLoggedInDate" before="loginDateQuery.before" after="loginDateQuery.after"></st-date-range>
+            </th>
 
             <th st-ratio="5">
               <input st-search="type" placeholder="" class="input-sm form-control" type="search">
             </th>
 
             <th st-ratio="10">
-             </th>
+              <st-date-range predicate="registrationDate" before="registrationDateQuery.before" after="registrationDateQuery.after"></st-date-range>
+            </th>
           </tr>
           </thead>
           <tbody>
@@ -259,6 +245,9 @@
               <input type="radio" ng-model="account.accountType" value="deployer"> Deployer
             </label>
             <label class="radio-inline">
+              <input type="radio" ng-model="account.accountType" value="publisher"> Publisher
+            </label>
+            <label class="radio-inline">
               <input type="radio" ng-model="account.accountType" value="admin"> Admin
             </label>
           </div>
@@ -320,10 +309,8 @@
 
 
 <script type="text/ng-template" id="stDateRange.html">
-  <div class="row">
-    <div class="col-md-6">
+  <label>From</label>
   <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">From</span>
     <input type="text" class="form-control" datepicker-popup="MM/dd/yyyy" ng-model="after" is-open="isAfterOpen"
            close-text="Close"/>
     <span class="input-group-btn">
@@ -331,17 +318,13 @@
                   class="glyphicon glyphicon-calendar"></i></button>
                 </span>
   </div>
-    </div>
-    <div class="col-md-6">
+  <label>To</label>
   <div class="input-group">
-    <span class="input-group-addon" id="basic-addon2">To</span>
     <input type="text" class="form-control" datepicker-popup="MM/dd/yyyy" ng-model="before" is-open="isBeforeOpen"
            close-text="Close"/>
     <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="openBefore($event)"><i
                   class="glyphicon glyphicon-calendar"></i></button>
                 </span>
-  </div>
-    </div>
   </div>
 </script>

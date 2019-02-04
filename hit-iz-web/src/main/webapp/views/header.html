@@ -13,23 +13,68 @@
 <div class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="brand" id="appheader">
         <a style="display: inline-block; text-shadow:none" href="#">
-            <div id="apptitle">{{appInfo.options.ORGANIZATION_NAME != null && appInfo.options.ORGANIZATION_NAME != undefined ? appInfo.options.ORGANIZATION_NAME: 'NIST'}} <span style="color:white">{{appInfo.name}}</span><span style="color:red; font-size:12px"> {{appInfo.version}}</span></div>
+            <div id="apptitle">{{appInfo.options.ORGANIZATION_NAME != null && appInfo.options.ORGANIZATION_NAME !=
+                undefined ? appInfo.options.ORGANIZATION_NAME: 'NIST'}} <span style="color:white">{{appInfo.name}}</span><span style="color:red; font-size:12px"> {{appInfo.version}}</span></div>
             <div id="appsubtitle">{{appInfo.subTitle}}</div>
         </a>
 
-      <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length > 0">
-        <label style="color:white">Tool Scope:</label>
-        <select class="" name="selectedDomain" ng-change="selectDomain(appInfo.selectedDomain)" ng-model="appInfo.selectedDomain" required="">
-          <option ng-repeat="dom in appInfo.domains" value="{{dom.domain}}">{{dom.name}}
-          </option>
-        </select>
 
-        <button ng-show="isAuthenticated() && isDomainsManagementSupported()" ng-click="createDomain()" class="btn btn-primary btn-xs" title="Create New Tool Scope"><i class="fa fa-plus"></i>Create</button>
+        <span class="pull-right" style="margin-top:10px" ng-show="appInfo.domains != null && appInfo.domains.length > 0">
+
+            <span ng-if="isAuthenticated()">
+        <label style="color:white">Tool Scope:</label>
+
+                <div class="btn-group" ng-class="{open: open}">
+    <button class="btn btn-sm" ng-click="open=!open">
+            {{domain.name}}
+    </button>
+    <button class="btn btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="open=!open">
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li class="dropdown-header" ng-if="domainsByOwner['my'].length > 0">My Tool Scopes</li>
+        <li ng-show="domainsByOwner['my'].length > 0" ng-click="appInfo.selectedDomain = dom.domain; selectDomain(appInfo.selectedDomain)" ng-class="{'domain-selected': domain.domain === dom.domain, 'disabled': domain.domain === dom.domain}" ng-repeat="dom in domainsByOwner['my']"><a href="#">
+            <span style="color: #438007" ng-show="dom.scope === 'GLOBAL'"><i class="fa fa-circle fa-fw"></i></span>
+            <span style="color: #ff240b" ng-show="dom.scope === 'USER'"><i class="fa fa-circle fa-fw"></i></span>
+            {{dom.name}}</a></li>
+         <li class="dropdown-header" ng-if="domainsByOwner['others'].length > 0">Others Tool Scopes</li>
+         <li ng-show="domainsByOwner['others'].length > 0" ng-click="appInfo.selectedDomain = dom.domain; selectDomain(appInfo.selectedDomain)" ng-class="{'domain-selected': domain.domain === dom.domain}" ng-repeat="dom in domainsByOwner['others']"><a href="#">
+            <span style="color: #438007" ng-show="dom.scope === 'GLOBAL'"><i class="fa fa-circle fa-fw"></i></span>
+            <span style="color: #ff240b" ng-show="dom.scope === 'USER'"><i class="fa fa-circle fa-fw"></i></span>
+            {{dom.name}}</a></li>
+    </ul>
+</div>
+
+                <!--<select class="" name="selectedDomain"-->
+                <!--ng-change="selectDomain(appInfo.selectedDomain)"-->
+                <!--ng-options="dom.domain as dom.name group by displayOwnership(dom) for dom in appInfo.domains"-->
+                <!--ng-model="appInfo.selectedDomain" required-->
+                <!--&gt;-->
+                <!--&lt;!&ndash;<option ng-repeat="dom in appInfo.domains"&ndash;&gt;-->
+                <!--&lt;!&ndash;value="{{dom.domain}}">{{dom.name}}&ndash;&gt;-->
+                <!--&lt;!&ndash;</option>&ndash;&gt;-->
+                <!--</select>-->
+            </span>
+            <span ng-if="!isAuthenticated()">
+                <div class="btn-group" ng-class="{open: open}">
+    <button class="btn btn-sm" ng-click="open=!open">
+            {{domain.name}}
+    </button>
+    <button class="btn btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="open=!open">
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li ng-if="appInfo.domains.length > 0" ng-click="appInfo.selectedDomain = dom.domain; selectDomain(appInfo.selectedDomain)" ng-class="{'domain-selected': domain.domain === dom.domain, 'disabled': domain.domain === dom.domain}" ng-repeat="dom in appInfo.domains"><a href="#">
+             {{dom.name}}</a></li>
+    </ul>
+</div>
+            </span>
+        <button ng-show="isAuthenticated() && isDomainsManagementSupported()" ng-click="createDomain()" class="btn btn-primary btn-sm" title="Create New Tool Scope"><i class="fa fa-plus"></i>Create</button>
 
       </span>
     </div>
     <div class="navbar-collapse collapse" id="appnavi">
-         <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
             <li ng-class="{'active':isActive('/home')}"><a href="#/home"><i class="fa fa-home"></i> Home</a></li>
             <li ng-class="{'active':isActive('/soapEnv')}"><a href="#/soapEnv"><span class="badge">1</span>
                 <i class="fa fa-envelope"></i>
@@ -45,7 +90,7 @@
                 HL7 Context-based</a></li>
             <li ng-class="{'active':isActive('/doc')}"><a href="#/doc"><i class="fa fa-book"></i>Documentation</a></li>
             <li ng-class="{'active':isActive('/about')}"><a href="#/about"><i class="fa fa-question-circle"></i>About</a></li>
-         </ul>
+        </ul>
 
         <ul class="nav navbar-nav navbar-right" style="margin-right: 15px">
             <li class="dropdown clear-fix" ng-show="isAuthenticated()" ng-class="isActive('/useraccount') || isActive('/transport')">
@@ -60,12 +105,12 @@
                     <li role="separator" class="divider"></li>
                     <li><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>
                     </li>
-                  <li ng-if="isDomainsManagementSupported() && hasWriteAccess()" role="separator" class="divider"></li>
-                  <li ng-if="isDomainsManagementSupported() && hasWriteAccess()" ng-class="isActive('/domains')"><a class="point" href="#/domains"><i class="fa fa-cogs"></i>&nbsp; Tool Scope Settings</a></li>
+                    <li ng-if="isDomainsManagementSupported() && hasWriteAccess()" role="separator" class="divider"></li>
+                    <li ng-if="isDomainsManagementSupported() && hasWriteAccess()" ng-class="isActive('/domains')"><a class="point" href="#/domains"><i class="fa fa-cog"></i>&nbsp; Tool Scopes Settings</a></li>
                     <li role="separator" class="divider"></li>
 
-                  <li ng-show="isAdmin()" ng-class="isActive('/logs')"><a class="point" href="#/logs"><i class="fa fa-cog"></i>&nbsp;Admin Logs</a></li>
-                  <li ng-show="isAdmin()" role="separator" class="divider"></li>
+                    <li ng-show="isAdmin()" ng-class="isActive('/logs')"><a class="point" href="#/logs"><i class="fa fa-cog"></i>&nbsp;Admin Logs</a></li>
+                    <li ng-show="isAdmin()" role="separator" class="divider"></li>
 
                     <li class="">
                         <a class="point" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;<span class="msg">Logout</span></a>
@@ -97,7 +142,8 @@
                         <i title="Transport Configuration" class="label label-danger label-icon2">T</i>
                         Transport Settings</a></li>
                     <li ng-if="!isAuthenticationRequired()" role="separator" class="divider"></li>
-                    <li ng-if="!isAuthenticationRequired()"><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp; Validation Settings</a>
+                    <li ng-if="!isAuthenticationRequired()"><a ng-click="showSettings()"><i class="fa fa-cog"></i>&nbsp;
+                        Validation Settings</a>
                     </li>
                 </ul>
             </li>
