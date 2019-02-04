@@ -86,7 +86,7 @@ public class CDCSoapValidation {
 					MessageFailureV3 mf = new MessageFailureV3();
 					mf.setFailureType(AssertionTypeV3Constants.SOAP.toString());
 					mf.setFailureSeverity(ErrorSeverityConstants.NORMAL.toString());
-					mf.setAssertionResult(AssertionResultConstants.ERROR.toString());
+					mf.setAssertionResult(AssertionResultConstants.WARNING.toString());
 					mf.setDescription("The returned value '" + returnedValue + "' does not contain '" + echoBack + "'");
 					String path = "/Envelope[1]/Body[1]/connectivityTestResponse[1]/return[1]";
 					mf.setPath(path);
