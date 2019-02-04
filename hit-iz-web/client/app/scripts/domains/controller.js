@@ -56,7 +56,7 @@ angular.module('domains')
             $scope.userDomains = null;
             $scope.loadingDomains = true;
             $scope.domainsError = null;
-            DomainsManager.getDomains().then(function (domains) {
+            DomainsManager.findByUserAndRole().then(function (domains) {
                 $scope.userDomains = domains;
                 $scope.userDomains = $filter('orderBy')($scope.userDomains, 'position');
                 $scope.loadingDomains = false;

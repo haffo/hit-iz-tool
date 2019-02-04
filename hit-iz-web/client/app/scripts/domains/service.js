@@ -27,6 +27,19 @@ angular.module('domains').factory('DomainsManager', ['$q', '$http',
                 return delay.promise;
             },
 
+            findByUserAndRole: function () {
+                var delay = $q.defer();
+                $http.get('api/domains/findByUserAndRole', {timeout: 60000}).then(
+                    function (object) {
+                        delay.resolve(angular.fromJson(object.data));
+                    },
+                    function (response) {
+                        delay.reject(response.data);
+                    }
+                );
+                return delay.promise;
+            },
+
             getDomainsByScope: function (scope) {
                 var delay = $q.defer();
                 $http.get('api/domains/searchByScope' + {params: {"scope": scope}}).then(
