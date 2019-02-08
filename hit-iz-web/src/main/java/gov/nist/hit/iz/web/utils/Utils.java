@@ -40,7 +40,9 @@ public class Utils {
 	}
 
 	public static String getUrl(HttpServletRequest request) {
-		String scheme = request.getScheme();
+		String scheme = System.getenv("URL_SCHEME");
+		scheme = scheme == null ? System.getProperty("URL_SCHEME") : scheme;
+		scheme = scheme == null ? request.getScheme() : scheme;
 		String host = request.getHeader("Host");
 		if (host.contains("psapps01.nist.gov")) {
 			host = "www-s.nist.gov";
